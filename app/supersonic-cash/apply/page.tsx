@@ -7,8 +7,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
-    ArrowLeft, ArrowRight, CheckCircle, AlertCircle, 
-  User, DollarSign, CreditCard, FileText, Shield
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle,
+  AlertCircle,
+  User,
+  DollarSign,
+  CreditCard,
+  FileText,
+  Shield,
 } from 'lucide-react';
 
 interface ApplicationData {
@@ -19,25 +26,25 @@ interface ApplicationData {
   phone: string;
   dateOfBirth: string;
   ssn: string;
-  
+
   // Address
   address: string;
   city: string;
   state: string;
   zipCode: string;
-  
+
   // Employment/Income
   employmentStatus: 'student' | 'employed' | 'both';
   employer: string;
   monthlyIncome: string;
   trainingStipend: string;
-  
+
   // Bank Info
   bankName: string;
   accountType: 'checking' | 'savings';
   routingNumber: string;
   accountNumber: string;
-  
+
   // Loan Details
   requestedAmount: number;
   purpose: string;
@@ -49,7 +56,7 @@ export default function ApplyPage() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  
+
   const [formData, setFormData] = useState<ApplicationData>({
     firstName: '',
     lastName: '',
@@ -94,7 +101,12 @@ export default function ApplyPage() {
   const validateStep = (currentStep: number): boolean => {
     switch (currentStep) {
       case 1:
-        if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+        if (
+          !formData.firstName ||
+          !formData.lastName ||
+          !formData.email ||
+          !formData.phone
+        ) {
           setError('Please fill in all required fields');
           return false;
         }
@@ -103,23 +115,27 @@ export default function ApplyPage() {
           return false;
         }
         return true;
-      
+
       case 2:
         if (!formData.address || !formData.city || !formData.zipCode) {
           setError('Please fill in all address fields');
           return false;
         }
         return true;
-      
+
       case 3:
         if (!formData.monthlyIncome && !formData.trainingStipend) {
           setError('Please enter your income or training stipend');
           return false;
         }
         return true;
-      
+
       case 4:
-        if (!formData.bankName || !formData.routingNumber || !formData.accountNumber) {
+        if (
+          !formData.bankName ||
+          !formData.routingNumber ||
+          !formData.accountNumber
+        ) {
           setError('Please fill in all bank information');
           return false;
         }
@@ -128,7 +144,7 @@ export default function ApplyPage() {
           return false;
         }
         return true;
-      
+
       default:
         return true;
     }
@@ -215,8 +231,12 @@ export default function ApplyPage() {
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Supersonic Cash</span>
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">Cash Advance Application</h1>
-          <p className="text-gray-600 mt-2">Complete in 2 minutes • Get approved instantly</p>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Cash Advance Application
+          </h1>
+          <p className="text-gray-600 mt-2">
+            Complete in 2 minutes • Get approved instantly
+          </p>
         </div>
 
         {/* Progress Bar */}
@@ -232,8 +252,8 @@ export default function ApplyPage() {
                     s < step
                       ? 'bg-green-500 text-white'
                       : s === step
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 text-gray-500'
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-200 text-gray-500'
                   }`}
                 >
                   {s < step ? <CheckCircle className="w-6 h-6" /> : s}
@@ -283,7 +303,13 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.firstName}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('firstName', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('firstName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="John"
                   />
@@ -296,7 +322,13 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.lastName}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('lastName', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('lastName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Doe"
                   />
@@ -309,7 +341,13 @@ export default function ApplyPage() {
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('email', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('email', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="john@example.com"
                   />
@@ -322,7 +360,13 @@ export default function ApplyPage() {
                   <input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('phone', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('phone', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="(317) 555-0123"
                   />
@@ -335,7 +379,13 @@ export default function ApplyPage() {
                   <input
                     type="date"
                     value={formData.dateOfBirth}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('dateOfBirth', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('dateOfBirth', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -347,12 +397,20 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.ssn}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('ssn', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('ssn', e.target.value)}
                     maxLength={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="1234"
                   />
-                  <p className="text-xs text-gray-500 mt-1">For identity verification only</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    For identity verification only
+                  </p>
                 </div>
               </div>
             </div>
@@ -370,7 +428,11 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.address}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('address', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('address', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="123 Main St"
                 />
@@ -384,7 +446,13 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.city}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('city', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('city', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Indianapolis"
                   />
@@ -396,7 +464,13 @@ export default function ApplyPage() {
                   </label>
                   <select
                     value={formData.state}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('state', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('state', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="IN">Indiana</option>
@@ -414,7 +488,13 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.zipCode}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('zipCode', e.target.value)}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => updateField('zipCode', e.target.value)}
                     maxLength={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="46240"
@@ -438,7 +518,11 @@ export default function ApplyPage() {
                 </label>
                 <select
                   value={formData.employmentStatus}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('employmentStatus', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('employmentStatus', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="student">Student (Training Stipend)</option>
@@ -447,7 +531,8 @@ export default function ApplyPage() {
                 </select>
               </div>
 
-              {(formData.employmentStatus === 'employed' || formData.employmentStatus === 'both') && (
+              {(formData.employmentStatus === 'employed' ||
+                formData.employmentStatus === 'both') && (
                 <>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -456,7 +541,13 @@ export default function ApplyPage() {
                     <input
                       type="text"
                       value={formData.employer}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('employer', e.target.value)}
+                      onChange={(
+                        e: React.ChangeEvent<
+                          | HTMLInputElement
+                          | HTMLSelectElement
+                          | HTMLTextAreaElement
+                        >
+                      ) => updateField('employer', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Company Name"
                     />
@@ -467,11 +558,19 @@ export default function ApplyPage() {
                       Monthly Income (After Tax) *
                     </label>
                     <div className="relative">
-                      <span className="absolute left-4 top-3 text-gray-500">$</span>
+                      <span className="absolute left-4 top-3 text-gray-500">
+                        $
+                      </span>
                       <input
                         type="number"
                         value={formData.monthlyIncome}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('monthlyIncome', e.target.value)}
+                        onChange={(
+                          e: React.ChangeEvent<
+                            | HTMLInputElement
+                            | HTMLSelectElement
+                            | HTMLTextAreaElement
+                          >
+                        ) => updateField('monthlyIncome', e.target.value)}
                         className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="2,500"
                       />
@@ -480,17 +579,26 @@ export default function ApplyPage() {
                 </>
               )}
 
-              {(formData.employmentStatus === 'student' || formData.employmentStatus === 'both') && (
+              {(formData.employmentStatus === 'student' ||
+                formData.employmentStatus === 'both') && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Monthly Training Stipend *
                   </label>
                   <div className="relative">
-                    <span className="absolute left-4 top-3 text-gray-500">$</span>
+                    <span className="absolute left-4 top-3 text-gray-500">
+                      $
+                    </span>
                     <input
                       type="number"
                       value={formData.trainingStipend}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('trainingStipend', e.target.value)}
+                      onChange={(
+                        e: React.ChangeEvent<
+                          | HTMLInputElement
+                          | HTMLSelectElement
+                          | HTMLTextAreaElement
+                        >
+                      ) => updateField('trainingStipend', e.target.value)}
                       className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="2,400"
                     />
@@ -504,7 +612,10 @@ export default function ApplyPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
                   <strong>Total Monthly Income:</strong> $
-                  {(parseInt(formData.monthlyIncome || '0') + parseInt(formData.trainingStipend || '0')).toLocaleString()}
+                  {(
+                    parseInt(formData.monthlyIncome || '0') +
+                    parseInt(formData.trainingStipend || '0')
+                  ).toLocaleString()}
                 </p>
               </div>
             </div>
@@ -522,7 +633,8 @@ export default function ApplyPage() {
                 <div className="flex items-start space-x-3">
                   <Shield className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-yellow-800">
-                    Your banking information is encrypted and secure. We use bank-level security to protect your data.
+                    Your banking information is encrypted and secure. We use
+                    bank-level security to protect your data.
                   </p>
                 </div>
               </div>
@@ -534,7 +646,11 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.bankName}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('bankName', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('bankName', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Chase, Wells Fargo, etc."
                 />
@@ -546,7 +662,11 @@ export default function ApplyPage() {
                 </label>
                 <select
                   value={formData.accountType}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('accountType', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('accountType', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="checking">Checking</option>
@@ -561,12 +681,18 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.routingNumber}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('routingNumber', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('routingNumber', e.target.value)}
                   maxLength={9}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="123456789"
                 />
-                <p className="text-xs text-gray-500 mt-1">9-digit number on bottom left of check</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  9-digit number on bottom left of check
+                </p>
               </div>
 
               <div>
@@ -576,7 +702,11 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.accountNumber}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('accountNumber', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('accountNumber', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Account number"
                 />
@@ -594,26 +724,36 @@ export default function ApplyPage() {
 
               {/* Loan Amount Selector */}
               <div className="   rounded-xl p-6 text-white">
-                <h3 className="text-lg font-bold mb-4">Select Advance Amount</h3>
+                <h3 className="text-lg font-bold mb-4">
+                  Select Advance Amount
+                </h3>
                 <input
                   type="range"
                   min="100"
                   max="3500"
                   step="50"
                   value={formData.requestedAmount}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('requestedAmount', parseInt(e.target.value))}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('requestedAmount', parseInt(e.target.value))}
                   className="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer mb-4"
                 />
                 <div className="flex justify-between text-sm mb-6">
                   <span>$100</span>
-                  <span className="text-3xl font-bold">${formData.requestedAmount}</span>
+                  <span className="text-3xl font-bold">
+                    ${formData.requestedAmount}
+                  </span>
                   <span>$3,500</span>
                 </div>
 
                 <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 space-y-2">
                   <div className="flex justify-between">
                     <span>Advance Amount:</span>
-                    <span className="font-bold">${formData.requestedAmount}</span>
+                    <span className="font-bold">
+                      ${formData.requestedAmount}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Fee:</span>
@@ -633,7 +773,11 @@ export default function ApplyPage() {
                 </label>
                 <textarea
                   value={formData.purpose}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('purpose', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('purpose', e.target.value)}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Rent, car repair, medical bills, etc."
@@ -648,7 +792,11 @@ export default function ApplyPage() {
                 <input
                   type="date"
                   value={formData.repaymentDate}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('repaymentDate', e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => updateField('repaymentDate', e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -663,7 +811,9 @@ export default function ApplyPage() {
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <span className="text-gray-600">Name:</span>
-                    <span className="ml-2 font-medium">{formData.firstName} {formData.lastName}</span>
+                    <span className="ml-2 font-medium">
+                      {formData.firstName} {formData.lastName}
+                    </span>
                   </div>
                   <div>
                     <span className="text-gray-600">Email:</span>
@@ -672,12 +822,18 @@ export default function ApplyPage() {
                   <div>
                     <span className="text-gray-600">Monthly Income:</span>
                     <span className="ml-2 font-medium">
-                      ${(parseInt(formData.monthlyIncome || '0') + parseInt(formData.trainingStipend || '0')).toLocaleString()}
+                      $
+                      {(
+                        parseInt(formData.monthlyIncome || '0') +
+                        parseInt(formData.trainingStipend || '0')
+                      ).toLocaleString()}
                     </span>
                   </div>
                   <div>
                     <span className="text-gray-600">Bank:</span>
-                    <span className="ml-2 font-medium">{formData.bankName}</span>
+                    <span className="ml-2 font-medium">
+                      {formData.bankName}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -687,7 +843,10 @@ export default function ApplyPage() {
                 <label className="flex items-start space-x-3 cursor-pointer">
                   <input type="checkbox" className="mt-1" required />
                   <span className="text-sm text-blue-900">
-                    I agree to the terms and conditions. I authorize Elevate for Humanity to deduct ${totalRepayment} from my bank account on {formData.repaymentDate || '[selected date]'}. I understand this is a short-term cash advance, not a loan.
+                    I agree to the terms and conditions. I authorize Elevate for
+                    Humanity to deduct ${totalRepayment} from my bank account on{' '}
+                    {formData.repaymentDate || '[selected date]'}. I understand
+                    this is a short-term cash advance, not a loan.
                   </span>
                 </label>
               </div>
@@ -705,7 +864,7 @@ export default function ApplyPage() {
                 <span>Back</span>
               </button>
             )}
-            
+
             {step < 5 ? (
               <button
                 onClick={nextStep}
@@ -741,35 +900,35 @@ export default function ApplyPage() {
           <Shield className="w-4 h-4 inline mr-1" />
           Your information is encrypted and secure. We never share your data.
         </div>
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );

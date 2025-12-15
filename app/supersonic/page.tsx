@@ -1,12 +1,10 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
 import Link from 'next/link';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title:
@@ -839,7 +837,9 @@ export default function SupersonicFastCashPage() {
       <section className="py-12 bg-slate-900 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-lg md:text-lg font-bold mb-4">Supersonic Tax Service</h3>
+            <h3 className="text-lg md:text-lg font-bold mb-4">
+              Supersonic Tax Service
+            </h3>
             <p className="text-slate-300 mb-2">
               8888 Keystone Crossing Suite 1300
             </p>

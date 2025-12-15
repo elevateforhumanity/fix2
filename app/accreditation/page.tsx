@@ -1,12 +1,10 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
 import Image from 'next/image';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   alternates: {
@@ -46,7 +44,9 @@ export default function AccreditationPage() {
       {/* Why It Matters */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Accreditation Matters</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Why Accreditation Matters
+          </h2>
 
           <p className="text-base md:text-lg text-slate-700 mb-6 leading-relaxed">
             Anyone can call themselves a "training provider." But not everyone
@@ -112,7 +112,9 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🇺🇸</span>
               </div>
-              <h3 className="text-lg md:text-lg font-bold mb-4">Federal Approvals</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Federal Approvals
+              </h3>
 
               <div className="space-y-4">
                 <div>
@@ -143,7 +145,9 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🏛️</span>
               </div>
-              <h3 className="text-lg md:text-lg font-bold mb-4">State Approvals</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                State Approvals
+              </h3>
 
               <div className="space-y-4">
                 <div>
@@ -189,7 +193,9 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🤝</span>
               </div>
-              <h3 className="text-lg md:text-lg font-bold mb-4">Official Partnerships</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Official Partnerships
+              </h3>
 
               <div className="space-y-4">
                 <div>
@@ -222,7 +228,9 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">⭐</span>
               </div>
-              <h3 className="text-lg md:text-lg font-bold mb-4">Quality Standards</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Quality Standards
+              </h3>
 
               <div className="space-y-4">
                 <div>
@@ -268,7 +276,9 @@ export default function AccreditationPage() {
       {/* What This Means for You */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">What This Means for You</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            What This Means for You
+          </h2>
 
           <div className="space-y-6">
             <div className="bg-green-50 rounded-lg p-6">
@@ -318,7 +328,9 @@ export default function AccreditationPage() {
       {/* Verification */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Verify Our Credentials</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Verify Our Credentials
+          </h2>
 
           <p className="text-lg text-slate-600 mb-8">
             Don't just take our word for it. You can verify our approvals

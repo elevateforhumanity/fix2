@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/apply/page.tsx
 import type { Metadata } from 'next';
 import QuickApplyFormClient from './QuickApplyFormClient';
@@ -7,8 +9,6 @@ export const metadata: Metadata = {
   description:
     "Take 2–3 minutes to submit your quick application for Elevate for Humanity programs. We'll review funding options like WIOA, WRG, and apprenticeships and follow up with you.",
 };
-
-export const dynamic = 'force-dynamic';
 
 export default function ApplyPage() {
   return (

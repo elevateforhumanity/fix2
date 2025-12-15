@@ -19,7 +19,9 @@ export default function PartnerWithUsPage() {
     writtenAgreement: '',
     additionalInfo: '',
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,10 +83,15 @@ export default function PartnerWithUsPage() {
             Partner With Elevate for Humanity
           </h1>
           <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto mb-6">
-            Elevate for Humanity operates a proprietary workforce training and apprenticeship platform. Partnership discussions are structured to protect our systems, participants, and institutional relationships.
+            Elevate for Humanity operates a proprietary workforce training and
+            apprenticeship platform. Partnership discussions are structured to
+            protect our systems, participants, and institutional relationships.
           </p>
           <p className="text-lg text-slate-700 max-w-3xl mx-auto">
-            We welcome aligned partners who bring value, resources, or placement opportunities into our ecosystem. Access to internal systems, workflows, or operational details is limited and governed by agreement.
+            We welcome aligned partners who bring value, resources, or placement
+            opportunities into our ecosystem. Access to internal systems,
+            workflows, or operational details is limited and governed by
+            agreement.
           </p>
         </div>
 
@@ -94,18 +101,28 @@ export default function PartnerWithUsPage() {
             Intellectual Property & Confidentiality Notice
           </h2>
           <p className="text-slate-700 mb-6">
-            To proceed, please review and acknowledge our Intellectual Property & Confidentiality Notice before submitting a partnership inquiry.
+            To proceed, please review and acknowledge our Intellectual Property
+            & Confidentiality Notice before submitting a partnership inquiry.
           </p>
 
           <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6">
             <p className="text-sm text-slate-700 leading-relaxed mb-4">
-              <strong>Elevate for Humanity ("EFH")</strong> owns and operates proprietary workforce training systems, instructional platforms, automation, program structures, compliance frameworks, and related intellectual property.
+              <strong>Elevate for Humanity ("EFH")</strong> owns and operates
+              proprietary workforce training systems, instructional platforms,
+              automation, program structures, compliance frameworks, and related
+              intellectual property.
             </p>
             <p className="text-sm text-slate-700 leading-relaxed mb-4">
-              All websites, dashboards, student portals, administrative systems, integrations, program structures, and instructional workflows are proprietary to EFH unless otherwise stated in a written agreement executed by EFH.
+              All websites, dashboards, student portals, administrative systems,
+              integrations, program structures, and instructional workflows are
+              proprietary to EFH unless otherwise stated in a written agreement
+              executed by EFH.
             </p>
             <p className="text-sm text-slate-700 leading-relaxed">
-              Viewing, discussing, or participating in conversations regarding EFH programs or platforms does not grant ownership, licensing rights, replication rights, or authorization to use EFH systems, workflows, or intellectual property.
+              Viewing, discussing, or participating in conversations regarding
+              EFH programs or platforms does not grant ownership, licensing
+              rights, replication rights, or authorization to use EFH systems,
+              workflows, or intellectual property.
             </p>
           </div>
 
@@ -117,7 +134,9 @@ export default function PartnerWithUsPage() {
               className="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
             />
             <span className="text-slate-700">
-              I acknowledge that Elevate for Humanity owns its platform, systems, workflows, and instructional infrastructure, and I agree not to copy, reproduce, or represent these as my own.
+              I acknowledge that Elevate for Humanity owns its platform,
+              systems, workflows, and instructional infrastructure, and I agree
+              not to copy, reproduce, or represent these as my own.
             </span>
           </label>
         </div>
@@ -140,7 +159,9 @@ export default function PartnerWithUsPage() {
                     type="text"
                     required
                     value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fullName: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -152,7 +173,9 @@ export default function PartnerWithUsPage() {
                   <input
                     type="text"
                     value={formData.organization}
-                    onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, organization: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -167,7 +190,9 @@ export default function PartnerWithUsPage() {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -180,7 +205,9 @@ export default function PartnerWithUsPage() {
                     type="tel"
                     required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -194,7 +221,12 @@ export default function PartnerWithUsPage() {
                 <select
                   required
                   value={formData.relationshipType}
-                  onChange={(e) => setFormData({ ...formData, relationshipType: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      relationshipType: e.target.value,
+                    })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option value="">Select one...</option>
@@ -202,7 +234,9 @@ export default function PartnerWithUsPage() {
                   <option value="licensed-operator">Licensed Operator</option>
                   <option value="employer-partner">Employer Partner</option>
                   <option value="training-provider">Training Provider</option>
-                  <option value="funding-resource">Funding / Resource Partner</option>
+                  <option value="funding-resource">
+                    Funding / Resource Partner
+                  </option>
                 </select>
               </div>
 
@@ -211,13 +245,16 @@ export default function PartnerWithUsPage() {
                   What resources or value would you bring? *
                 </label>
                 <p className="text-sm text-slate-600 mb-2">
-                  Examples: capital, instructors, facilities, students, placements, credentials, funding
+                  Examples: capital, instructors, facilities, students,
+                  placements, credentials, funding
                 </p>
                 <textarea
                   required
                   rows={4}
                   value={formData.resources}
-                  onChange={(e) => setFormData({ ...formData, resources: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, resources: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
@@ -229,7 +266,9 @@ export default function PartnerWithUsPage() {
                 <select
                   required
                   value={formData.seeking}
-                  onChange={(e) => setFormData({ ...formData, seeking: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, seeking: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option value="">Select one...</option>
@@ -241,12 +280,18 @@ export default function PartnerWithUsPage() {
 
               <div>
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  Are you willing to enter into a written agreement defining IP ownership and responsibilities? *
+                  Are you willing to enter into a written agreement defining IP
+                  ownership and responsibilities? *
                 </label>
                 <select
                   required
                   value={formData.writtenAgreement}
-                  onChange={(e) => setFormData({ ...formData, writtenAgreement: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      writtenAgreement: e.target.value,
+                    })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option value="">Select one...</option>
@@ -262,7 +307,9 @@ export default function PartnerWithUsPage() {
                 <textarea
                   rows={4}
                   value={formData.additionalInfo}
-                  onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, additionalInfo: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
@@ -271,7 +318,8 @@ export default function PartnerWithUsPage() {
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <p className="text-red-800">
-                    Something went wrong. Please try again or contact us directly at info@elevateforhumanity.org
+                    Something went wrong. Please try again or contact us
+                    directly at info@elevateforhumanity.org
                   </p>
                 </div>
               )}
@@ -281,7 +329,9 @@ export default function PartnerWithUsPage() {
                 disabled={status === 'loading'}
                 className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === 'loading' ? 'Submitting...' : 'Request Partnership Review'}
+                {status === 'loading'
+                  ? 'Submitting...'
+                  : 'Request Partnership Review'}
               </button>
 
               <p className="text-sm text-slate-600 text-center">
@@ -292,7 +342,8 @@ export default function PartnerWithUsPage() {
         ) : (
           <div className="bg-slate-100 border border-slate-300 rounded-2xl p-8 text-center">
             <p className="text-slate-600">
-              Please acknowledge the IP & Confidentiality Notice above to continue.
+              Please acknowledge the IP & Confidentiality Notice above to
+              continue.
             </p>
           </div>
         )}

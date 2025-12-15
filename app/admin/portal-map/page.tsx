@@ -4,11 +4,11 @@ export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { 
-  LayoutDashboard, 
-  Users, 
-  GraduationCap, 
-  FileText, 
+import {
+  LayoutDashboard,
+  Users,
+  GraduationCap,
+  FileText,
   DollarSign,
   UserCheck,
   BookOpen,
@@ -26,7 +26,7 @@ import {
   ChevronRight,
   CheckCircle2,
   Code,
-  ExternalLink
+  ExternalLink,
 } from 'lucide-react';
 
 interface AdminRoute {
@@ -44,19 +44,35 @@ const adminRoutes: AdminRoute[] = [
     href: '/admin',
     description: 'Main admin dashboard with overview metrics and quick actions',
     icon: LayoutDashboard,
-    status: 'active'
+    status: 'active',
   },
   {
     name: 'Marketing',
     href: '/admin/email-marketing',
-    description: 'Marketing automation, email campaigns, and social media management',
+    description:
+      'Marketing automation, email campaigns, and social media management',
     icon: Sparkles,
     status: 'active',
     children: [
-      { name: 'Email Marketing', href: '/admin/email-marketing', description: 'Create and manage email campaigns', status: 'active' },
-      { name: 'Social Media', href: '/admin/social-media', description: 'Social media scheduling and analytics', status: 'active' },
-      { name: 'Automation', href: '/admin/email-marketing/automation', description: 'Marketing automation workflows', status: 'active' },
-    ]
+      {
+        name: 'Email Marketing',
+        href: '/admin/email-marketing',
+        description: 'Create and manage email campaigns',
+        status: 'active',
+      },
+      {
+        name: 'Social Media',
+        href: '/admin/social-media',
+        description: 'Social media scheduling and analytics',
+        status: 'active',
+      },
+      {
+        name: 'Automation',
+        href: '/admin/email-marketing/automation',
+        description: 'Marketing automation workflows',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Communications',
@@ -65,9 +81,19 @@ const adminRoutes: AdminRoute[] = [
     icon: MessageCircle,
     status: 'active',
     children: [
-      { name: 'Push Notifications', href: '/admin/notifications', description: 'Send push notifications to users', status: 'active' },
-      { name: 'Live Chat', href: '/admin/live-chat', description: 'Live chat support management', status: 'active' },
-    ]
+      {
+        name: 'Push Notifications',
+        href: '/admin/notifications',
+        description: 'Send push notifications to users',
+        status: 'active',
+      },
+      {
+        name: 'Live Chat',
+        href: '/admin/live-chat',
+        description: 'Live chat support management',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'HR & Payroll',
@@ -76,10 +102,25 @@ const adminRoutes: AdminRoute[] = [
     icon: DollarSign,
     status: 'active',
     children: [
-      { name: 'Employees', href: '/admin/hr/employees', description: 'Employee directory and management', status: 'active' },
-      { name: 'Payroll', href: '/admin/hr/payroll', description: 'Payroll processing and management', status: 'active' },
-      { name: 'Payroll Cards', href: '/admin/payroll-cards', description: 'Payroll card management', status: 'active' },
-    ]
+      {
+        name: 'Employees',
+        href: '/admin/hr/employees',
+        description: 'Employee directory and management',
+        status: 'active',
+      },
+      {
+        name: 'Payroll',
+        href: '/admin/hr/payroll',
+        description: 'Payroll processing and management',
+        status: 'active',
+      },
+      {
+        name: 'Payroll Cards',
+        href: '/admin/payroll-cards',
+        description: 'Payroll card management',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Programs',
@@ -88,15 +129,55 @@ const adminRoutes: AdminRoute[] = [
     icon: BookOpen,
     status: 'active',
     children: [
-      { name: 'All Programs', href: '/admin/programs', description: 'View and manage all programs', status: 'active' },
-      { name: 'Program Builder', href: '/admin/programs/builder', description: 'Create new programs', status: 'active' },
-      { name: 'Courses', href: '/admin/courses', description: 'Course catalog and management', status: 'active' },
-      { name: 'Course Builder', href: '/admin/course-builder', description: 'Create and edit courses', status: 'active' },
-      { name: 'Course Studio AI', href: '/admin/course-studio-ai', description: 'AI-powered course creation', status: 'active' },
-      { name: 'Course Templates', href: '/admin/course-templates', description: 'Course templates library', status: 'active' },
-      { name: 'Curriculum', href: '/admin/curriculum', description: 'Curriculum management', status: 'active' },
-      { name: 'External Modules', href: '/admin/external-modules', description: 'Partner course integration', status: 'active' },
-    ]
+      {
+        name: 'All Programs',
+        href: '/admin/programs',
+        description: 'View and manage all programs',
+        status: 'active',
+      },
+      {
+        name: 'Program Builder',
+        href: '/admin/programs/builder',
+        description: 'Create new programs',
+        status: 'active',
+      },
+      {
+        name: 'Courses',
+        href: '/admin/courses',
+        description: 'Course catalog and management',
+        status: 'active',
+      },
+      {
+        name: 'Course Builder',
+        href: '/admin/course-builder',
+        description: 'Create and edit courses',
+        status: 'active',
+      },
+      {
+        name: 'Course Studio AI',
+        href: '/admin/course-studio-ai',
+        description: 'AI-powered course creation',
+        status: 'active',
+      },
+      {
+        name: 'Course Templates',
+        href: '/admin/course-templates',
+        description: 'Course templates library',
+        status: 'active',
+      },
+      {
+        name: 'Curriculum',
+        href: '/admin/curriculum',
+        description: 'Curriculum management',
+        status: 'active',
+      },
+      {
+        name: 'External Modules',
+        href: '/admin/external-modules',
+        description: 'Partner course integration',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Students',
@@ -105,15 +186,55 @@ const adminRoutes: AdminRoute[] = [
     icon: GraduationCap,
     status: 'active',
     children: [
-      { name: 'All Students', href: '/admin/students', description: 'Student directory and profiles', status: 'active' },
-      { name: 'Applications', href: '/admin/applications', description: 'Student applications', status: 'active' },
-      { name: 'Applicants', href: '/admin/applicants', description: 'Application review', status: 'active' },
-      { name: 'Enrollment', href: '/admin/enrollment', description: 'Enrollment management', status: 'active' },
-      { name: 'Enrollments', href: '/admin/enrollments', description: 'View all enrollments', status: 'active' },
-      { name: 'Progress Tracking', href: '/admin/progress', description: 'Student progress monitoring', status: 'active' },
-      { name: 'Completions', href: '/admin/completions', description: 'Course and program completions', status: 'active' },
-      { name: 'Retention', href: '/admin/retention', description: 'Student retention analytics', status: 'active' },
-    ]
+      {
+        name: 'All Students',
+        href: '/admin/students',
+        description: 'Student directory and profiles',
+        status: 'active',
+      },
+      {
+        name: 'Applications',
+        href: '/admin/applications',
+        description: 'Student applications',
+        status: 'active',
+      },
+      {
+        name: 'Applicants',
+        href: '/admin/applicants',
+        description: 'Application review',
+        status: 'active',
+      },
+      {
+        name: 'Enrollment',
+        href: '/admin/enrollment',
+        description: 'Enrollment management',
+        status: 'active',
+      },
+      {
+        name: 'Enrollments',
+        href: '/admin/enrollments',
+        description: 'View all enrollments',
+        status: 'active',
+      },
+      {
+        name: 'Progress Tracking',
+        href: '/admin/progress',
+        description: 'Student progress monitoring',
+        status: 'active',
+      },
+      {
+        name: 'Completions',
+        href: '/admin/completions',
+        description: 'Course and program completions',
+        status: 'active',
+      },
+      {
+        name: 'Retention',
+        href: '/admin/retention',
+        description: 'Student retention analytics',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Staff Management',
@@ -122,9 +243,19 @@ const adminRoutes: AdminRoute[] = [
     icon: UserCheck,
     status: 'active',
     children: [
-      { name: 'Instructors', href: '/admin/instructors', description: 'Instructor management', status: 'active' },
-      { name: 'Users', href: '/admin/users', description: 'User account management', status: 'active' },
-    ]
+      {
+        name: 'Instructors',
+        href: '/admin/instructors',
+        description: 'Instructor management',
+        status: 'active',
+      },
+      {
+        name: 'Users',
+        href: '/admin/users',
+        description: 'User account management',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Program Holders',
@@ -133,13 +264,43 @@ const adminRoutes: AdminRoute[] = [
     icon: Building2,
     status: 'active',
     children: [
-      { name: 'All Partners', href: '/admin/program-holders', description: 'Partner directory', status: 'active' },
-      { name: 'Partner Enrollments', href: '/admin/partner-enrollments', description: 'Partner course enrollments', status: 'active' },
-      { name: 'HSI Enrollments', href: '/admin/hsi-enrollments', description: 'HSI partner enrollments', status: 'active' },
-      { name: 'JRI', href: '/admin/jri', description: 'JRI partner management', status: 'active' },
-      { name: 'MOUs', href: '/admin/mou', description: 'Memorandum of Understanding', status: 'active' },
-      { name: 'Acknowledgements', href: '/admin/program-holder-acknowledgements', description: 'Partner acknowledgements', status: 'active' },
-    ]
+      {
+        name: 'All Partners',
+        href: '/admin/program-holders',
+        description: 'Partner directory',
+        status: 'active',
+      },
+      {
+        name: 'Partner Enrollments',
+        href: '/admin/partner-enrollments',
+        description: 'Partner course enrollments',
+        status: 'active',
+      },
+      {
+        name: 'HSI Enrollments',
+        href: '/admin/hsi-enrollments',
+        description: 'HSI partner enrollments',
+        status: 'active',
+      },
+      {
+        name: 'JRI',
+        href: '/admin/jri',
+        description: 'JRI partner management',
+        status: 'active',
+      },
+      {
+        name: 'MOUs',
+        href: '/admin/mou',
+        description: 'Memorandum of Understanding',
+        status: 'active',
+      },
+      {
+        name: 'Acknowledgements',
+        href: '/admin/program-holder-acknowledgements',
+        description: 'Partner acknowledgements',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Documents',
@@ -148,11 +309,31 @@ const adminRoutes: AdminRoute[] = [
     icon: FileText,
     status: 'active',
     children: [
-      { name: 'All Documents', href: '/admin/documents', description: 'Document library', status: 'active' },
-      { name: 'Upload', href: '/admin/documents/upload', description: 'Upload documents', status: 'active' },
-      { name: 'Files', href: '/admin/files', description: 'File manager', status: 'active' },
-      { name: 'Signatures', href: '/admin/signatures', description: 'Digital signatures', status: 'active' },
-    ]
+      {
+        name: 'All Documents',
+        href: '/admin/documents',
+        description: 'Document library',
+        status: 'active',
+      },
+      {
+        name: 'Upload',
+        href: '/admin/documents/upload',
+        description: 'Upload documents',
+        status: 'active',
+      },
+      {
+        name: 'Files',
+        href: '/admin/files',
+        description: 'File manager',
+        status: 'active',
+      },
+      {
+        name: 'Signatures',
+        href: '/admin/signatures',
+        description: 'Digital signatures',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Certificates',
@@ -161,11 +342,31 @@ const adminRoutes: AdminRoute[] = [
     icon: FileText,
     status: 'active',
     children: [
-      { name: 'All Certificates', href: '/admin/certificates', description: 'Certificate management', status: 'active' },
-      { name: 'Issue Certificate', href: '/admin/certificates/issue', description: 'Issue new certificates', status: 'active' },
-      { name: 'Bulk Issue', href: '/admin/certificates/bulk', description: 'Bulk certificate issuance', status: 'active' },
-      { name: 'Certifications', href: '/admin/certifications', description: 'Certification programs', status: 'active' },
-    ]
+      {
+        name: 'All Certificates',
+        href: '/admin/certificates',
+        description: 'Certificate management',
+        status: 'active',
+      },
+      {
+        name: 'Issue Certificate',
+        href: '/admin/certificates/issue',
+        description: 'Issue new certificates',
+        status: 'active',
+      },
+      {
+        name: 'Bulk Issue',
+        href: '/admin/certificates/bulk',
+        description: 'Bulk certificate issuance',
+        status: 'active',
+      },
+      {
+        name: 'Certifications',
+        href: '/admin/certifications',
+        description: 'Certification programs',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Analytics',
@@ -174,12 +375,37 @@ const adminRoutes: AdminRoute[] = [
     icon: BarChart3,
     status: 'active',
     children: [
-      { name: 'Overview', href: '/admin/analytics', description: 'Analytics dashboard', status: 'active' },
-      { name: 'Programs', href: '/admin/analytics/programs', description: 'Program analytics', status: 'active' },
-      { name: 'Retention', href: '/admin/retention', description: 'Retention metrics', status: 'active' },
-      { name: 'Outcomes', href: '/admin/outcomes', description: 'Student outcomes', status: 'active' },
-      { name: 'Impact', href: '/admin/impact', description: 'Impact reporting', status: 'active' },
-    ]
+      {
+        name: 'Overview',
+        href: '/admin/analytics',
+        description: 'Analytics dashboard',
+        status: 'active',
+      },
+      {
+        name: 'Programs',
+        href: '/admin/analytics/programs',
+        description: 'Program analytics',
+        status: 'active',
+      },
+      {
+        name: 'Retention',
+        href: '/admin/retention',
+        description: 'Retention metrics',
+        status: 'active',
+      },
+      {
+        name: 'Outcomes',
+        href: '/admin/outcomes',
+        description: 'Student outcomes',
+        status: 'active',
+      },
+      {
+        name: 'Impact',
+        href: '/admin/impact',
+        description: 'Impact reporting',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Reports',
@@ -188,12 +414,37 @@ const adminRoutes: AdminRoute[] = [
     icon: ClipboardList,
     status: 'active',
     children: [
-      { name: 'All Reports', href: '/admin/reports', description: 'Report library', status: 'active' },
-      { name: 'Charts', href: '/admin/reports/charts', description: 'Visual reports', status: 'active' },
-      { name: 'Partners', href: '/admin/reports/partners', description: 'Partner reports', status: 'active' },
-      { name: 'Caseload', href: '/admin/reports/caseload', description: 'Caseload reports', status: 'active' },
-      { name: 'Reporting', href: '/admin/reporting', description: 'Custom reporting', status: 'active' },
-    ]
+      {
+        name: 'All Reports',
+        href: '/admin/reports',
+        description: 'Report library',
+        status: 'active',
+      },
+      {
+        name: 'Charts',
+        href: '/admin/reports/charts',
+        description: 'Visual reports',
+        status: 'active',
+      },
+      {
+        name: 'Partners',
+        href: '/admin/reports/partners',
+        description: 'Partner reports',
+        status: 'active',
+      },
+      {
+        name: 'Caseload',
+        href: '/admin/reports/caseload',
+        description: 'Caseload reports',
+        status: 'active',
+      },
+      {
+        name: 'Reporting',
+        href: '/admin/reporting',
+        description: 'Custom reporting',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Compliance',
@@ -202,13 +453,43 @@ const adminRoutes: AdminRoute[] = [
     icon: Shield,
     status: 'active',
     children: [
-      { name: 'Dashboard', href: '/admin/compliance-dashboard', description: 'Compliance overview', status: 'active' },
-      { name: 'Compliance', href: '/admin/compliance', description: 'Compliance management', status: 'active' },
-      { name: 'Exports', href: '/admin/compliance/exports', description: 'Data exports', status: 'active' },
-      { name: 'Deletions', href: '/admin/compliance/deletions', description: 'Data deletion requests', status: 'active' },
-      { name: 'ETPL Alignment', href: '/admin/etpl-alignment', description: 'ETPL program alignment', status: 'active' },
-      { name: 'Audit Logs', href: '/admin/audit-logs', description: 'System audit logs', status: 'active' },
-    ]
+      {
+        name: 'Dashboard',
+        href: '/admin/compliance-dashboard',
+        description: 'Compliance overview',
+        status: 'active',
+      },
+      {
+        name: 'Compliance',
+        href: '/admin/compliance',
+        description: 'Compliance management',
+        status: 'active',
+      },
+      {
+        name: 'Exports',
+        href: '/admin/compliance/exports',
+        description: 'Data exports',
+        status: 'active',
+      },
+      {
+        name: 'Deletions',
+        href: '/admin/compliance/deletions',
+        description: 'Data deletion requests',
+        status: 'active',
+      },
+      {
+        name: 'ETPL Alignment',
+        href: '/admin/etpl-alignment',
+        description: 'ETPL program alignment',
+        status: 'active',
+      },
+      {
+        name: 'Audit Logs',
+        href: '/admin/audit-logs',
+        description: 'System audit logs',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Grants & Funding',
@@ -217,13 +498,43 @@ const adminRoutes: AdminRoute[] = [
     icon: DollarSign,
     status: 'active',
     children: [
-      { name: 'All Grants', href: '/admin/grants', description: 'Grant management', status: 'active' },
-      { name: 'Submissions', href: '/admin/grants/submissions', description: 'Grant submissions', status: 'active' },
-      { name: 'Revenue', href: '/admin/grants/revenue', description: 'Revenue tracking', status: 'active' },
-      { name: 'Workflow', href: '/admin/grants/workflow', description: 'Grant workflow', status: 'active' },
-      { name: 'Funding', href: '/admin/funding', description: 'Funding sources', status: 'active' },
-      { name: 'Funding Playbook', href: '/admin/funding-playbook', description: 'Funding strategies', status: 'active' },
-    ]
+      {
+        name: 'All Grants',
+        href: '/admin/grants',
+        description: 'Grant management',
+        status: 'active',
+      },
+      {
+        name: 'Submissions',
+        href: '/admin/grants/submissions',
+        description: 'Grant submissions',
+        status: 'active',
+      },
+      {
+        name: 'Revenue',
+        href: '/admin/grants/revenue',
+        description: 'Revenue tracking',
+        status: 'active',
+      },
+      {
+        name: 'Workflow',
+        href: '/admin/grants/workflow',
+        description: 'Grant workflow',
+        status: 'active',
+      },
+      {
+        name: 'Funding',
+        href: '/admin/funding',
+        description: 'Funding sources',
+        status: 'active',
+      },
+      {
+        name: 'Funding Playbook',
+        href: '/admin/funding-playbook',
+        description: 'Funding strategies',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Integrations',
@@ -232,10 +543,25 @@ const adminRoutes: AdminRoute[] = [
     icon: Share2,
     status: 'active',
     children: [
-      { name: 'All Integrations', href: '/admin/integrations', description: 'Integration management', status: 'active' },
-      { name: 'Google Classroom', href: '/admin/integrations/google-classroom', description: 'Google Classroom sync', status: 'active' },
-      { name: 'External Progress', href: '/admin/external-progress', description: 'External course progress', status: 'active' },
-    ]
+      {
+        name: 'All Integrations',
+        href: '/admin/integrations',
+        description: 'Integration management',
+        status: 'active',
+      },
+      {
+        name: 'Google Classroom',
+        href: '/admin/integrations/google-classroom',
+        description: 'Google Classroom sync',
+        status: 'active',
+      },
+      {
+        name: 'External Progress',
+        href: '/admin/external-progress',
+        description: 'External course progress',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'Advanced Tools',
@@ -244,13 +570,43 @@ const adminRoutes: AdminRoute[] = [
     icon: Code,
     status: 'active',
     children: [
-      { name: 'Dev Studio', href: '/admin/dev-studio', description: 'Development tools', status: 'active' },
-      { name: 'AI Console', href: '/admin/ai-console', description: 'AI management console', status: 'active' },
-      { name: 'Autopilots', href: '/admin/autopilots', description: 'Automation management', status: 'active' },
-      { name: 'Workflows', href: '/admin/workflows', description: 'Workflow automation', status: 'active' },
-      { name: 'Data Processor', href: '/admin/data-processor', description: 'Data processing tools', status: 'active' },
-      { name: 'Migrations', href: '/admin/migrations', description: 'Database migrations', status: 'active' },
-    ]
+      {
+        name: 'Dev Studio',
+        href: '/admin/dev-studio',
+        description: 'Development tools',
+        status: 'active',
+      },
+      {
+        name: 'AI Console',
+        href: '/admin/ai-console',
+        description: 'AI management console',
+        status: 'active',
+      },
+      {
+        name: 'Autopilots',
+        href: '/admin/autopilots',
+        description: 'Automation management',
+        status: 'active',
+      },
+      {
+        name: 'Workflows',
+        href: '/admin/workflows',
+        description: 'Workflow automation',
+        status: 'active',
+      },
+      {
+        name: 'Data Processor',
+        href: '/admin/data-processor',
+        description: 'Data processing tools',
+        status: 'active',
+      },
+      {
+        name: 'Migrations',
+        href: '/admin/migrations',
+        description: 'Database migrations',
+        status: 'active',
+      },
+    ],
   },
   {
     name: 'System',
@@ -259,18 +615,45 @@ const adminRoutes: AdminRoute[] = [
     icon: Settings,
     status: 'active',
     children: [
-      { name: 'Settings', href: '/admin/settings', description: 'System settings', status: 'active' },
-      { name: 'Site Health', href: '/admin/site-health', description: 'Site health monitoring', status: 'active' },
-      { name: 'System Health', href: '/admin/system-health', description: 'System diagnostics', status: 'active' },
-      { name: 'Security', href: '/admin/security', description: 'Security settings', status: 'active' },
-      { name: 'Tenants', href: '/admin/tenants', description: 'Multi-tenant management', status: 'active' },
-    ]
+      {
+        name: 'Settings',
+        href: '/admin/settings',
+        description: 'System settings',
+        status: 'active',
+      },
+      {
+        name: 'Site Health',
+        href: '/admin/site-health',
+        description: 'Site health monitoring',
+        status: 'active',
+      },
+      {
+        name: 'System Health',
+        href: '/admin/system-health',
+        description: 'System diagnostics',
+        status: 'active',
+      },
+      {
+        name: 'Security',
+        href: '/admin/security',
+        description: 'Security settings',
+        status: 'active',
+      },
+      {
+        name: 'Tenants',
+        href: '/admin/tenants',
+        description: 'Multi-tenant management',
+        status: 'active',
+      },
+    ],
   },
 ];
 
 export default function AdminPortalMapPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set()
+  );
 
   const toggleSection = (name: string) => {
     const newExpanded = new Set(expandedSections);
@@ -282,14 +665,15 @@ export default function AdminPortalMapPage() {
     setExpandedSections(newExpanded);
   };
 
-  const filteredRoutes = adminRoutes.filter(route => {
+  const filteredRoutes = adminRoutes.filter((route) => {
     if (!searchQuery) return true;
     const query = searchQuery.toLowerCase();
     const matchesName = route.name.toLowerCase().includes(query);
     const matchesDescription = route.description.toLowerCase().includes(query);
-    const matchesChildren = route.children?.some(child => 
-      child.name.toLowerCase().includes(query) || 
-      child.description.toLowerCase().includes(query)
+    const matchesChildren = route.children?.some(
+      (child) =>
+        child.name.toLowerCase().includes(query) ||
+        child.description.toLowerCase().includes(query)
     );
     return matchesName || matchesDescription || matchesChildren;
   });
@@ -339,7 +723,11 @@ export default function AdminPortalMapPage() {
               type="text"
               placeholder="Search features, routes, or descriptions..."
               value={searchQuery}
-              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
+              onChange={(
+                e: React.ChangeEvent<
+                  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                >
+              ) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -348,18 +736,23 @@ export default function AdminPortalMapPage() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-2xl font-bold text-gray-900">{adminRoutes.length}</div>
+            <div className="text-2xl font-bold text-gray-900">
+              {adminRoutes.length}
+            </div>
             <div className="text-sm text-gray-600">Main Sections</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <div className="text-2xl font-bold text-gray-900">
-              {adminRoutes.reduce((acc, route) => acc + (route.children?.length || 0), 0)}
+              {adminRoutes.reduce(
+                (acc, route) => acc + (route.children?.length || 0),
+                0
+              )}
             </div>
             <div className="text-sm text-gray-600">Total Routes</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <div className="text-2xl font-bold text-green-600">
-              {adminRoutes.filter(r => r.status === 'active').length}
+              {adminRoutes.filter((r) => r.status === 'active').length}
             </div>
             <div className="text-sm text-gray-600">Active Features</div>
           </div>
@@ -376,7 +769,10 @@ export default function AdminPortalMapPage() {
             const isExpanded = expandedSections.has(route.name);
 
             return (
-              <div key={route.name} className="bg-white rounded-lg shadow overflow-hidden">
+              <div
+                key={route.name}
+                className="bg-white rounded-lg shadow overflow-hidden"
+              >
                 <div className="p-6">
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4 flex-1">
@@ -392,7 +788,9 @@ export default function AdminPortalMapPage() {
                           </h3>
                           {getStatusBadge(route.status)}
                         </div>
-                        <p className="text-gray-600 mb-3">{route.description}</p>
+                        <p className="text-gray-600 mb-3">
+                          {route.description}
+                        </p>
                         <div className="flex items-center gap-4">
                           <Link
                             href={route.href}
@@ -406,8 +804,11 @@ export default function AdminPortalMapPage() {
                               onClick={() => toggleSection(route.name)}
                               className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900"
                             >
-                              {isExpanded ? 'Hide' : 'Show'} {route.children.length} sub-pages
-                              <ChevronRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                              {isExpanded ? 'Hide' : 'Show'}{' '}
+                              {route.children.length} sub-pages
+                              <ChevronRight
+                                className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
+                              />
                             </button>
                           )}
                         </div>
@@ -428,7 +829,9 @@ export default function AdminPortalMapPage() {
                                 </h4>
                                 {getStatusBadge(child.status)}
                               </div>
-                              <p className="text-sm text-gray-600 mb-2">{child.description}</p>
+                              <p className="text-sm text-gray-600 mb-2">
+                                {child.description}
+                              </p>
                               <Link
                                 href={child.href}
                                 className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700"
@@ -454,13 +857,16 @@ export default function AdminPortalMapPage() {
             About This Portal
           </h3>
           <p className="text-gray-700 mb-4">
-            The Elevate for Humanity Admin Portal provides comprehensive tools for managing workforce development programs, 
-            student enrollment, compliance reporting, and partner relationships. All features are built with accessibility 
-            and ease of use in mind.
+            The Elevate for Humanity Admin Portal provides comprehensive tools
+            for managing workforce development programs, student enrollment,
+            compliance reporting, and partner relationships. All features are
+            built with accessibility and ease of use in mind.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                Key Features:
+              </h4>
               <ul className="space-y-1 text-gray-700">
                 <li>• Complete student lifecycle management</li>
                 <li>• WIOA compliance and reporting</li>
@@ -470,7 +876,9 @@ export default function AdminPortalMapPage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Technical Stack:</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                Technical Stack:
+              </h4>
               <ul className="space-y-1 text-gray-700">
                 <li>• Next.js 14 with App Router</li>
                 <li>• TypeScript for type safety</li>

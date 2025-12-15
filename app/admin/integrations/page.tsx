@@ -40,7 +40,7 @@ export default function IntegrationsPage() {
     return <div className="p-8">Loading...</div>;
   }
 
-  const activeCount = integrations.filter(i => i.is_active).length;
+  const activeCount = integrations.filter((i) => i.is_active).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -88,7 +88,9 @@ export default function IntegrationsPage() {
               <Plug className="h-8 w-8 text-blue-600" />
               <p className="text-sm text-gray-600">Total Integrations</p>
             </div>
-            <p className="text-3xl font-bold text-blue-600">{integrations.length}</p>
+            <p className="text-3xl font-bold text-blue-600">
+              {integrations.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center gap-3 mb-2">
@@ -102,7 +104,9 @@ export default function IntegrationsPage() {
               <XCircle className="h-8 w-8 text-gray-600" />
               <p className="text-sm text-gray-600">Inactive</p>
             </div>
-            <p className="text-3xl font-bold text-gray-600">{integrations.length - activeCount}</p>
+            <p className="text-3xl font-bold text-gray-600">
+              {integrations.length - activeCount}
+            </p>
           </div>
         </div>
 
@@ -111,11 +115,18 @@ export default function IntegrationsPage() {
           <h2 className="text-2xl font-bold mb-6">Available Integrations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {integrations.map((integration) => (
-              <div key={integration.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div
+                key={integration.id}
+                className="border rounded-lg p-6 hover:shadow-md transition-shadow"
+              >
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="font-semibold text-lg">{integration.name}</h3>
-                    <p className="text-sm text-gray-600 mt-1">{integration.description}</p>
+                    <h3 className="font-semibold text-lg">
+                      {integration.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {integration.description}
+                    </p>
                   </div>
                   {integration.is_active ? (
                     <CheckCircle className="h-6 w-6 text-green-600" />
@@ -125,7 +136,9 @@ export default function IntegrationsPage() {
                 </div>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => toggleIntegration(integration.id, integration.is_active)}
+                    onClick={() =>
+                      toggleIntegration(integration.id, integration.is_active)
+                    }
                     className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium ${
                       integration.is_active
                         ? 'bg-red-100 text-red-700 hover:bg-red-200'
@@ -152,9 +165,12 @@ export default function IntegrationsPage() {
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
+              Join thousands who have launched successful careers through our
+              programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link

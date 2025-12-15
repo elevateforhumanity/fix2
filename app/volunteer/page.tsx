@@ -1,12 +1,10 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
 import {
-
-export const dynamic = 'force-dynamic';
   Heart,
   Users,
   BookOpen,

@@ -2,7 +2,19 @@
  * Email Service - Real implementation with Resend
  */
 import { Resend } from 'resend';
-const resend = new Resend(process.env.RESEND_API_KEY);
+
+let resendInstance: Resend | null = null;
+
+function getResendInstance(): Resend | null {
+  if (!process.env.RESEND_API_KEY) {
+    return null;
+  }
+  if (!resendInstance) {
+    resendInstance = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resendInstance;
+}
+
 export interface EmailOptions {
   to: string | string[];
   subject: string;
@@ -11,13 +23,19 @@ export interface EmailOptions {
   from?: string;
   replyTo?: string;
 }
-export async function sendEmail(options: EmailOptions): Promise<{ success: boolean; messageId?: string; error?: string }> {
+export async function sendEmail(
+  options: EmailOptions
+): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const resend = getResendInstance();
+    if (!resend) {
       return { success: false, error: 'Email service not configured' };
     }
     const { data, error } = await resend.emails.send({
-      from: options.from || process.env.EMAIL_FROM || 'Elevate For Humanity <noreply@elevateforhumanity.org>',
+      from:
+        options.from ||
+        process.env.EMAIL_FROM ||
+        'Elevate For Humanity <noreply@elevateforhumanity.org>',
       to: Array.isArray(options.to) ? options.to : [options.to],
       subject: options.subject,
       html: options.html,
@@ -63,7 +81,11 @@ export const emailTemplates = {
       </div>
     `,
   }),
-  certificateReady: (name: string, courseName: string, certificateUrl: string) => ({
+  certificateReady: (
+    name: string,
+    courseName: string,
+    certificateUrl: string
+  ) => ({
     subject: `Your Certificate is Ready: ${courseName}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -92,7 +114,11 @@ export const emailTemplates = {
       </div>
     `,
   }),
-  assignmentReminder: (name: string, assignmentName: string, dueDate: string) => ({
+  assignmentReminder: (
+    name: string,
+    assignmentName: string,
+    dueDate: string
+  ) => ({
     subject: `Reminder: ${assignmentName} Due Soon`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

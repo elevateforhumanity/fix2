@@ -14,8 +14,8 @@ export default function TestEnrollmentPage() {
   useEffect(() => {
     // Fetch students
     fetch('/api/test-get-students')
-      .then(r => r.json())
-      .then(data => setStudents(data.students || []));
+      .then((r) => r.json())
+      .then((data) => setStudents(data.students || []));
   }, []);
 
   const handleTest = async () => {
@@ -44,10 +44,10 @@ export default function TestEnrollmentPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-100 p-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-2">🧪 Test Automatic Enrollment</h1>
-        <p className="text-slate-600 mb-8">
-          Test the webhook without payment
-        </p>
+        <h1 className="text-3xl font-bold mb-2">
+          🧪 Test Automatic Enrollment
+        </h1>
+        <p className="text-slate-600 mb-8">Test the webhook without payment</p>
 
         <div className="bg-white rounded-lg shadow-lg p-6 space-y-4">
           <div>
@@ -72,9 +72,7 @@ export default function TestEnrollmentPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Program
-            </label>
+            <label className="block text-sm font-medium mb-2">Program</label>
             <input
               type="text"
               value="Barber Apprenticeship"
@@ -104,9 +102,15 @@ export default function TestEnrollmentPage() {
               </h3>
               {result.success && (
                 <div className="space-y-2 text-sm">
-                  <p><strong>Action:</strong> {result.action}</p>
-                  <p><strong>Enrollment ID:</strong> {result.enrollmentId}</p>
-                  <p><strong>Message:</strong> {result.message}</p>
+                  <p>
+                    <strong>Action:</strong> {result.action}
+                  </p>
+                  <p>
+                    <strong>Enrollment ID:</strong> {result.enrollmentId}
+                  </p>
+                  <p>
+                    <strong>Message:</strong> {result.message}
+                  </p>
                 </div>
               )}
               <details className="mt-3">

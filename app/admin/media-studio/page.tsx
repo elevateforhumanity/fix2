@@ -6,17 +6,17 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { 
-  Upload, 
-  Trash2, 
-  Download, 
+import {
+  Upload,
+  Trash2,
+  Download,
   Image as ImageIcon,
   Folder,
   Search,
   Grid,
   List,
   RefreshCw,
-  Sparkles
+  Sparkles,
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -34,8 +34,8 @@ export default function MediaStudioPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -71,15 +71,14 @@ export default function MediaStudioPage() {
           setSelectedBucket(data.buckets[0]);
         }
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const loadFiles = async (bucket: string) => {
     setLoading(true);
     try {
-            if (res.ok) {
-                setFiles(data.files);
+      if (res.ok) {
+        setFiles(data.files);
       }
     } catch (error) {
     } finally {
@@ -93,38 +92,32 @@ export default function MediaStudioPage() {
     formData.append('bucket', selectedBucket);
 
     try {
-      
       if (res.ok) {
         loadFiles(selectedBucket);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const deleteFile = async (fileName: string) => {
     if (!confirm(`Delete ${fileName}?`)) return;
 
     try {
-      
       if (res.ok) {
         loadFiles(selectedBucket);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const optimizeImages = async () => {
     try {
-      
       if (res.ok) {
         alert('Images optimized successfully!');
         loadFiles(selectedBucket);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
-  const filteredFiles = files.filter(file =>
+  const filteredFiles = files.filter((file) =>
     file.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -169,8 +162,12 @@ export default function MediaStudioPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Media Studio</h1>
-          <p className="text-gray-600">Manage images, videos, and assets across all buckets</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Media Studio
+          </h1>
+          <p className="text-gray-600">
+            Manage images, videos, and assets across all buckets
+          </p>
         </div>
 
         {/* Toolbar */}
@@ -180,11 +177,17 @@ export default function MediaStudioPage() {
               {/* Bucket Selector */}
               <select
                 value={selectedBucket}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedBucket(e.target.value)}
+                onChange={(
+                  e: React.ChangeEvent<
+                    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                  >
+                ) => setSelectedBucket(e.target.value)}
                 className="px-4 py-2 border rounded-lg"
               >
-                {buckets.map(bucket => (
-                  <option key={bucket} value={bucket}>{bucket}</option>
+                {buckets.map((bucket) => (
+                  <option key={bucket} value={bucket}>
+                    {bucket}
+                  </option>
                 ))}
               </select>
 
@@ -195,7 +198,11 @@ export default function MediaStudioPage() {
                   type="text"
                   placeholder="Search files..."
                   value={searchQuery}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border rounded-lg"
                 />
               </div>
@@ -243,7 +250,11 @@ export default function MediaStudioPage() {
                   multiple
                   accept="image/*,video/*"
                   className="hidden"
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+                  onChange={(
+                    e: React.ChangeEvent<
+                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                    >
+                  ) => {
                     const files = Array.from(e.target.files || []);
                     files.forEach(uploadFile);
                   }}
@@ -272,21 +283,22 @@ export default function MediaStudioPage() {
                       alt={file.name}
                       fill
                       className="object-cover"
-                    
-          sizes="100vw"
-        
-          quality={100}
-        />
+                      sizes="100vw"
+                      quality={100}
+                    />
                   ) : (
                     <div className="flex items-center justify-center h-full">
-                      <ImageIcon className="w-12 h-12 text-gray-400" 
-          quality={100}
-        />
+                      <ImageIcon
+                        className="w-12 h-12 text-gray-400"
+                        quality={100}
+                      />
                     </div>
                   )}
                 </div>
                 <div className="p-3">
-                  <p className="text-sm font-medium text-gray-900 truncate">{file.name}</p>
+                  <p className="text-sm font-medium text-gray-900 truncate">
+                    {file.name}
+                  </p>
                   <p className="text-xs text-gray-500 mt-1">
                     {(file.size / 1024).toFixed(1)} KB
                   </p>
@@ -313,16 +325,26 @@ export default function MediaStudioPage() {
             <table className="w-full">
               <thead className="bg-gray-50 border-b">
                 <tr>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">Name</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">Size</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">Created</th>
-                  <th className="px-4 py-3 text-right text-sm font-medium text-gray-900">Actions</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">
+                    Name
+                  </th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">
+                    Size
+                  </th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-900">
+                    Created
+                  </th>
+                  <th className="px-4 py-3 text-right text-sm font-medium text-gray-900">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {filteredFiles.map((file) => (
                   <tr key={file.name} className="border-b hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">{file.name}</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">
+                      {file.name}
+                    </td>
                     <td className="px-4 py-3 text-sm text-gray-600">
                       {(file.size / 1024).toFixed(1)} KB
                     </td>
@@ -343,35 +365,35 @@ export default function MediaStudioPage() {
             </table>
           </div>
         )}
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );

@@ -1,16 +1,18 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle, Loader2 } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 function AffirmConfirmContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [status, setStatus] = useState<'processing' | 'success' | 'error'>('processing');
+  const [status, setStatus] = useState<'processing' | 'success' | 'error'>(
+    'processing'
+  );
   const [transactionId, setTransactionId] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
@@ -49,12 +51,15 @@ function AffirmConfirmContent() {
 
       // Redirect to success page after 3 seconds
       setTimeout(() => {
-        router.push(`/payment/success?transaction_id=${data.transaction_id}&provider=affirm`);
+        router.push(
+          `/payment/success?transaction_id=${data.transaction_id}&provider=affirm`
+        );
       }, 3000);
-
     } catch (error) {
       setStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'Failed to process payment');
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Failed to process payment'
+      );
     }
   };
 
@@ -139,15 +144,19 @@ function AffirmConfirmContent() {
 
 export default function AffirmConfirmPage() {
   return (
-    <Suspense fallback={
-      <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
-          <Loader2 className="w-16 h-16 text-blue-600 animate-spin mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Loading...</h1>
-          <p className="text-gray-600">Please wait</p>
-        </div>
-      </main>
-    }>
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+          <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
+            <Loader2 className="w-16 h-16 text-blue-600 animate-spin mx-auto mb-4" />
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Loading...
+            </h1>
+            <p className="text-gray-600">Please wait</p>
+          </div>
+        </main>
+      }
+    >
       <AffirmConfirmContent />
     </Suspense>
   );

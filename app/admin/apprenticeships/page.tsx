@@ -22,11 +22,13 @@ export default function AdminApprenticeships() {
     // Load all apprenticeships with student and program info
     let query = supabase
       .from('apprenticeship_enrollments')
-      .select(`
+      .select(
+        `
         *,
         student:profiles!apprenticeship_enrollments_student_id_fkey(full_name, email),
         program:programs(name, slug)
-      `)
+      `
+      )
       .order('created_at', { ascending: false });
 
     if (filter !== 'all') {
@@ -39,11 +41,13 @@ export default function AdminApprenticeships() {
     // Load pending hour approvals
     const { data: pendingData } = await supabase
       .from('ojt_hours_log')
-      .select(`
+      .select(
+        `
         *,
         student:profiles!ojt_hours_log_student_id_fkey(full_name),
         apprenticeship:apprenticeship_enrollments(employer_name)
-      `)
+      `
+      )
       .eq('approved', false)
       .order('work_date', { ascending: false })
       .limit(20);
@@ -55,10 +59,10 @@ export default function AdminApprenticeships() {
   async function approveHours(logId: string) {
     const { error } = await supabase
       .from('ojt_hours_log')
-      .update({ 
+      .update({
         approved: true,
         approved_at: new Date().toISOString(),
-        approved_by: (await supabase.auth.getUser()).data.user?.id
+        approved_by: (await supabase.auth.getUser()).data.user?.id,
       })
       .eq('id', logId);
 
@@ -112,7 +116,9 @@ export default function AdminApprenticeships() {
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold">Apprenticeship Management</h1>
-          <p className="text-gray-600 mt-2">Monitor and manage all apprenticeships</p>
+          <p className="text-gray-600 mt-2">
+            Monitor and manage all apprenticeships
+          </p>
         </div>
       </div>
 
@@ -126,17 +132,19 @@ export default function AdminApprenticeships() {
           <div className="bg-white rounded-lg shadow p-6">
             <p className="text-sm text-gray-600">Active</p>
             <p className="text-3xl font-bold text-green-600">
-              {apprenticeships.filter(a => a.status === 'active').length}
+              {apprenticeships.filter((a) => a.status === 'active').length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <p className="text-sm text-gray-600">Pending Approvals</p>
-            <p className="text-3xl font-bold text-orange-600">{pendingApprovals.length}</p>
+            <p className="text-3xl font-bold text-orange-600">
+              {pendingApprovals.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <p className="text-sm text-gray-600">Completed</p>
             <p className="text-3xl font-bold text-blue-600">
-              {apprenticeships.filter(a => a.status === 'completed').length}
+              {apprenticeships.filter((a) => a.status === 'completed').length}
             </p>
           </div>
         </div>
@@ -149,15 +157,23 @@ export default function AdminApprenticeships() {
             </div>
             <div className="divide-y">
               {pendingApprovals.map((log) => (
-                <div key={log.id} className="p-6 flex justify-between items-center">
+                <div
+                  key={log.id}
+                  className="p-6 flex justify-between items-center"
+                >
                   <div>
                     <p className="font-semibold">{log.student?.full_name}</p>
-                    <p className="text-sm text-gray-600">{log.apprenticeship?.employer_name}</p>
+                    <p className="text-sm text-gray-600">
+                      {log.apprenticeship?.employer_name}
+                    </p>
                     <p className="text-sm text-gray-500">
-                      {new Date(log.work_date).toLocaleDateString()} - {log.total_hours?.toFixed(1)} hours
+                      {new Date(log.work_date).toLocaleDateString()} -{' '}
+                      {log.total_hours?.toFixed(1)} hours
                     </p>
                     {log.student_notes && (
-                      <p className="text-sm text-gray-600 mt-2">Notes: {log.student_notes}</p>
+                      <p className="text-sm text-gray-600 mt-2">
+                        Notes: {log.student_notes}
+                      </p>
                     )}
                   </div>
                   <button
@@ -200,54 +216,91 @@ export default function AdminApprenticeships() {
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Student</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Program</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Employer</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hours</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Progress</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Student
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Program
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Employer
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Hours
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Progress
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Status
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y">
                 {apprenticeships.map((apprenticeship) => {
-                  const progress = (apprenticeship.total_hours_completed / apprenticeship.total_hours_required) * 100;
+                  const progress =
+                    (apprenticeship.total_hours_completed /
+                      apprenticeship.total_hours_required) *
+                    100;
                   return (
                     <tr key={apprenticeship.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div>
-                          <p className="font-semibold">{apprenticeship.student?.full_name}</p>
-                          <p className="text-sm text-gray-600">{apprenticeship.student?.email}</p>
+                          <p className="font-semibold">
+                            {apprenticeship.student?.full_name}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            {apprenticeship.student?.email}
+                          </p>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-medium">{apprenticeship.program?.name}</p>
+                        <p className="font-medium">
+                          {apprenticeship.program?.name}
+                        </p>
                       </td>
                       <td className="px-6 py-4">
                         <div>
-                          <p className="font-medium">{apprenticeship.employer_name}</p>
-                          <p className="text-sm text-gray-600">{apprenticeship.supervisor_name}</p>
+                          <p className="font-medium">
+                            {apprenticeship.employer_name}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            {apprenticeship.supervisor_name}
+                          </p>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-bold">{apprenticeship.total_hours_completed.toFixed(1)}</p>
-                        <p className="text-sm text-gray-600">/ {apprenticeship.total_hours_required}</p>
+                        <p className="font-bold">
+                          {apprenticeship.total_hours_completed.toFixed(1)}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          / {apprenticeship.total_hours_required}
+                        </p>
                       </td>
                       <td className="px-6 py-4">
                         <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div 
-                            className="bg-blue-600 h-2 rounded-full" 
+                          <div
+                            className="bg-blue-600 h-2 rounded-full"
                             style={{ width: `${Math.min(progress, 100)}%` }}
-                           />
+                          />
                         </div>
-                        <p className="text-xs text-gray-600 mt-1">{progress.toFixed(0)}%</p>
+                        <p className="text-xs text-gray-600 mt-1">
+                          {progress.toFixed(0)}%
+                        </p>
                       </td>
                       <td className="px-6 py-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          apprenticeship.status === 'active' ? 'bg-green-100 text-green-800' :
-                          apprenticeship.status === 'completed' ? 'bg-blue-100 text-blue-800' :
-                          'bg-gray-100 text-gray-800'
-                        }`}>
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            apprenticeship.status === 'active'
+                              ? 'bg-green-100 text-green-800'
+                              : apprenticeship.status === 'completed'
+                                ? 'bg-blue-100 text-blue-800'
+                                : 'bg-gray-100 text-gray-800'
+                          }`}
+                        >
                           {apprenticeship.status}
                         </span>
                       </td>
@@ -266,92 +319,141 @@ export default function AdminApprenticeships() {
             </table>
           </div>
         </div>
-      
-      {/* Storytelling Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
-                  Your Journey Starts Here
-                </h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Students learning"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+
+        {/* Storytelling Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+                    Your Journey Starts Here
+                  </h2>
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Every great career begins with a single step. Whether you're
+                    looking to change careers, upgrade your skills, or enter the
+                    workforce for the first time, we're here to help you
+                    succeed. Our programs are 100% free, government-funded, and
+                    designed to get you hired fast.
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        100% free training - no tuition, no hidden costs
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Industry-recognized certifications that employers value
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Job placement assistance and career support
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Flexible scheduling for working adults
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/gallery/image3.jpg"
+                    alt="Students learning"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );

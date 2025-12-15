@@ -8,7 +8,7 @@ import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
 
 function ApplyForm() {
   const [programParam, setProgramParam] = useState<string>('');
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -53,10 +53,10 @@ function ApplyForm() {
 
       // Open mailto link
       window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
-      
+
       // Show success message
       setStatus('success');
-      
+
       // Reset form after delay
       setTimeout(() => {
         setFormData({
@@ -109,7 +109,7 @@ function ApplyForm() {
             </a>{' '}
             or fill out the quick inquiry form below.
           </p>
-          
+
           {/* Link to Full Application */}
           <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-6 mb-8">
             <p className="text-slate-900 font-semibold mb-3">
@@ -125,7 +125,8 @@ function ApplyForm() {
         </div>
 
         {/* Show RAPIDS badge for barber program */}
-        {(programParam === 'barber-apprenticeship' || formData.program === 'barber') && (
+        {(programParam === 'barber-apprenticeship' ||
+          formData.program === 'barber') && (
           <div className="mb-8">
             <ApprenticeshipBadge />
           </div>
@@ -145,7 +146,8 @@ function ApplyForm() {
                 Please send the email to complete your submission.
               </p>
               <p className="text-sm text-slate-600 mb-6">
-                An advisor will contact you within 1-2 business days after we receive your email.
+                An advisor will contact you within 1-2 business days after we
+                receive your email.
               </p>
               <div className="space-y-3">
                 <button
@@ -244,7 +246,9 @@ function ApplyForm() {
                   <option value="">Select a program...</option>
                   <optgroup label="Main Programs">
                     <option value="barber">Barber Apprenticeship</option>
-                    <option value="dsp">Direct Support Professional (DSP)</option>
+                    <option value="dsp">
+                      Direct Support Professional (DSP)
+                    </option>
                     <option value="hvac">HVAC Technician</option>
                     <option value="ehst">Emergency Health & Safety Tech</option>
                     <option value="esth">Professional Esthetician</option>
@@ -252,14 +256,14 @@ function ApplyForm() {
                     <option value="tax">Tax Prep & Financial Services</option>
                     <option value="biz">Business Startup & Marketing</option>
                   </optgroup>
-                  
+
                   <optgroup label="Micro Courses (Partner Programs)">
                     <option value="cpr">CPR Certification</option>
                     <option value="osha-10">OSHA 10-Hour Safety</option>
                     <option value="forklift">Forklift Operator</option>
                     <option value="first-aid">First Aid Certification</option>
                   </optgroup>
-                  
+
                   <option value="other">Other / Not Sure</option>
                 </select>
               </div>
@@ -300,16 +304,23 @@ function ApplyForm() {
                 disabled={status === 'loading'}
                 className="w-full px-6 py-4 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === 'loading' ? 'Opening Email...' : 'Send Inquiry via Email'}
+                {status === 'loading'
+                  ? 'Opening Email...'
+                  : 'Send Inquiry via Email'}
               </button>
 
               <div className="text-center space-y-2">
                 <p className="text-sm text-slate-600">
                   This will open your email client to send to:{' '}
-                  <span className="font-semibold">elevate4humanityedu@gmail.com</span>
+                  <span className="font-semibold">
+                    elevate4humanityedu@gmail.com
+                  </span>
                 </p>
                 <p className="text-xs text-slate-500">
-                  By submitting an application, you acknowledge that all platform systems, program structures, and instructional workflows are the intellectual property of Elevate for Humanity.
+                  By submitting an application, you acknowledge that all
+                  platform systems, program structures, and instructional
+                  workflows are the intellectual property of Elevate for
+                  Humanity.
                 </p>
               </div>
             </form>

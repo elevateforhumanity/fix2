@@ -11,7 +11,7 @@ export default function VideoManagerPage() {
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
 
   const handleUploadComplete = (url: string) => {
-    setUploadedVideos(prev => [url, ...prev]);
+    setUploadedVideos((prev) => [url, ...prev]);
   };
 
   const copyToClipboard = (url: string) => {
@@ -96,16 +96,19 @@ export default function VideoManagerPage() {
             </h3>
             <div className="space-y-3 text-slate-700">
               <p>
-                <strong>1. Upload your video</strong> - Even low quality videos will be enhanced
+                <strong>1. Upload your video</strong> - Even low quality videos
+                will be enhanced
               </p>
               <p>
-                <strong>2. Copy the enhanced URL</strong> - Click the "Copy URL" button
+                <strong>2. Copy the enhanced URL</strong> - Click the "Copy URL"
+                button
               </p>
               <p>
-                <strong>3. Use in your pages</strong> - Add to hero sections like this:
+                <strong>3. Use in your pages</strong> - Add to hero sections
+                like this:
               </p>
               <pre className="bg-slate-800 text-green-400 p-4 rounded-lg overflow-x-auto text-sm mt-2">
-{`<video
+                {`<video
   autoPlay
   loop
   muted
@@ -116,7 +119,8 @@ export default function VideoManagerPage() {
 </video>`}
               </pre>
               <p className="mt-4">
-                <strong>4. For barber page</strong> - I'll add it automatically once you upload!
+                <strong>4. For barber page</strong> - I'll add it automatically
+                once you upload!
               </p>
             </div>
           </div>

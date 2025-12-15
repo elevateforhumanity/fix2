@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
@@ -5,11 +7,10 @@ import { CheckCircle, XCircle, Download, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/certificates/verify/[certificateNumber]",
+    canonical:
+      'https://www.elevateforhumanity.org/certificates/verify/[certificateNumber]',
   },
   title: 'Verify Certificate | Elevate For Humanity',
   description: 'Verify the authenticity of an Elevate For Humanity certificate',
@@ -25,7 +26,8 @@ export default async function VerifyCertificatePage({
   // Search in both certificate tables
   const { data: programCert } = await supabase
     .from('program_completion_certificates')
-    .select(`
+    .select(
+      `
       *,
       profiles:user_id (
         full_name,
@@ -35,19 +37,22 @@ export default async function VerifyCertificatePage({
         title,
         duration_hours
       )
-    `)
+    `
+    )
     .eq('certificate_number', params.certificateNumber)
     .single();
 
   const { data: moduleCert } = await supabase
     .from('module_certificates')
-    .select(`
+    .select(
+      `
       *,
       profiles:user_id (
         full_name,
         email
       )
-    `)
+    `
+    )
     .eq('certificate_number', params.certificateNumber)
     .single();
 
@@ -56,41 +61,42 @@ export default async function VerifyCertificatePage({
   if (!certificate) {
     return (
       <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="[certificateNumber]"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-            [certificateNumber]
-          </h1>
-          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
-            Transform your career with free training and industry certifications
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              View Programs
-            </Link>
+        {/* Hero Section */}
+        <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+          <Image
+            src="/images/gallery/image8.jpg"
+            alt="[certificateNumber]"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0   " />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
+              [certificateNumber]
+            </h1>
+            <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
+              Transform your career with free training and industry
+              certifications
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              >
+                Get Started Free
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              >
+                View Programs
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8 text-center">
           <XCircle className="w-20 h-20 text-red-500 mx-auto mb-6" />
@@ -98,7 +104,11 @@ export default async function VerifyCertificatePage({
             Certificate Not Found
           </h1>
           <p className="text-lg text-gray-600 mb-8">
-            Certificate number <span className="font-mono font-semibold">{params.certificateNumber}</span> will not be found in our repository.
+            Certificate number{' '}
+            <span className="font-mono font-semibold">
+              {params.certificateNumber}
+            </span>{' '}
+            will not be found in our repository.
           </p>
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
             <p className="text-sm text-gray-700">
@@ -116,114 +126,172 @@ export default async function VerifyCertificatePage({
           >
             Start Another Certificate
           </Link>
-        
-      {/* Storytelling Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
-                  Your Journey Starts Here
+
+          {/* Storytelling Section */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+                      Your Journey Starts Here
+                    </h2>
+                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                      Every great career begins with a single step. Whether
+                      you're looking to change careers, upgrade your skills, or
+                      enter the workforce for the first time, we're here to help
+                      you succeed. Our programs are 100% free,
+                      government-funded, and designed to get you hired fast.
+                    </p>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <svg
+                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span className="text-gray-700">
+                          100% free training - no tuition, no hidden costs
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg
+                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span className="text-gray-700">
+                          Industry-recognized certifications that employers
+                          value
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg
+                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span className="text-gray-700">
+                          Job placement assistance and career support
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg
+                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span className="text-gray-700">
+                          Flexible scheduling for working adults
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                    <Image
+                      src="/images/gallery/image3.jpg"
+                      alt="Students learning"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="py-16    text-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
+                  Ready to Transform Your Career?
                 </h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
+                <p className="text-base md:text-lg mb-8 text-blue-100">
+                  Join thousands who have launched successful careers through
+                  our free training programs.
                 </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Students learning"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    href="/contact"
+                    className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                  >
+                    Apply Now - It's Free
+                  </Link>
+                  <Link
+                    href="/programs"
+                    className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                  >
+                    Browse All Programs
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
-
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       </div>
-    </div>
-  );
+    );
   }
 
   const isValid = certificate.status !== 'revoked';
   const studentName = certificate.profiles?.full_name || 'Student Name';
-  const programTitle = programCert?.programs?.title || certificate.certificate_name;
-  const completionDate = new Date(certificate.completion_date || certificate.issued_date).toLocaleDateString('en-US', {
+  const programTitle =
+    programCert?.programs?.title || certificate.certificate_name;
+  const completionDate = new Date(
+    certificate.completion_date || certificate.issued_date
+  ).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
-  const totalHours = programCert?.programs?.duration_hours || certificate.total_hours || 0;
+  const totalHours =
+    programCert?.programs?.duration_hours || certificate.total_hours || 0;
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Verification Status */}
-        <div className={`rounded-2xl shadow-xl p-8 mb-8 ${
-          isValid ? 'bg-green-50 border-2 border-green-500' : 'bg-red-50 border-2 border-red-500'
-        }`}>
+        <div
+          className={`rounded-2xl shadow-xl p-8 mb-8 ${
+            isValid
+              ? 'bg-green-50 border-2 border-green-500'
+              : 'bg-red-50 border-2 border-red-500'
+          }`}
+        >
           <div className="flex items-center gap-4 mb-4">
             {isValid ? (
               <CheckCircle className="w-12 h-12 text-green-600" />
@@ -235,10 +303,9 @@ export default async function VerifyCertificatePage({
                 {isValid ? 'Certificate Verified ✓' : 'Certificate Invalid'}
               </h1>
               <p className="text-gray-600">
-                {isValid 
+                {isValid
                   ? 'This certificate is authentic and stored in our official repository'
-                  : 'This certificate has been revoked or is no longer valid'
-                }
+                  : 'This certificate has been revoked or is no longer valid'}
               </p>
             </div>
           </div>
@@ -246,8 +313,10 @@ export default async function VerifyCertificatePage({
 
         {/* Certificate Details */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Certificate Details</h2>
-          
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Certificate Details
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
@@ -308,16 +377,23 @@ export default async function VerifyCertificatePage({
 
           {/* Repository Information */}
           <div className="mt-8 pt-8 border-t">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Repository Information</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
+              Repository Information
+            </h3>
             <div className="bg-blue-50 rounded-lg p-6">
               <p className="text-sm text-gray-700 mb-2">
-                <strong>Official Record:</strong> This certificate is permanently stored in the Elevate For Humanity certificate repository.
+                <strong>Official Record:</strong> This certificate is
+                permanently stored in the Elevate For Humanity certificate
+                repository.
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>Verification Method:</strong> Each certificate contains a unique number and QR code linked to this verification page.
+                <strong>Verification Method:</strong> Each certificate contains
+                a unique number and QR code linked to this verification page.
               </p>
               <p className="text-sm text-gray-700">
-                <strong>Authenticity:</strong> Only certificates issued by Elevate For Humanity and stored in our repository are considered valid.
+                <strong>Authenticity:</strong> Only certificates issued by
+                Elevate For Humanity and stored in our repository are considered
+                valid.
               </p>
             </div>
           </div>
@@ -356,11 +432,17 @@ export default async function VerifyCertificatePage({
         <div className="mt-8 text-center">
           <p className="text-sm text-gray-600">
             Questions about this certificate? Contact us at{' '}
-            <a href="mailto:Elevate4humanityedu@gmail.com" className="text-blue-600 hover:underline">
+            <a
+              href="mailto:Elevate4humanityedu@gmail.com"
+              className="text-blue-600 hover:underline"
+            >
               Elevate4humanityedu@gmail.com
-            </a>
-            {' '}or call{' '}
-            <a href="tel:+13173143757" className="text-blue-600 hover:underline">
+            </a>{' '}
+            or call{' '}
+            <a
+              href="tel:+13173143757"
+              className="text-blue-600 hover:underline"
+            >
               (317) 314-3757
             </a>
           </p>

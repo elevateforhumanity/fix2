@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/pay/page.tsx
 import type { Metadata } from 'next';
 import PaymentOptionsClient from './PaymentOptionsClient';
@@ -7,8 +9,6 @@ export const metadata: Metadata = {
   description:
     'See tuition payment options in one place: monthly payments with Affirm or pay-in-full with Stripe.',
 };
-
-export const dynamic = 'force-dynamic';
 
 export default function PayPage() {
   return (

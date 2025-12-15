@@ -1,10 +1,10 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Students | Elevate For Humanity',
@@ -256,7 +256,9 @@ export default async function Page() {
                 2
               </div>
               <div>
-                <h3 className="text-lg md:text-lg font-bold mb-3">Choose Your Program</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">
+                  Choose Your Program
+                </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Meet with our advisors to explore programs in healthcare,
                   trades, technology, beauty, transportation, and more. We'll
@@ -271,7 +273,9 @@ export default async function Page() {
                 3
               </div>
               <div>
-                <h3 className="text-lg md:text-lg font-bold mb-3">Complete Training</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">
+                  Complete Training
+                </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Attend hands-on training with expert instructors. Programs
                   range from 4-12 weeks depending on the field. We provide
@@ -286,7 +290,9 @@ export default async function Page() {
                 4
               </div>
               <div>
-                <h3 className="text-lg md:text-lg font-bold mb-3">Get Certified</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">
+                  Get Certified
+                </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Earn industry-recognized certifications and licenses. We cover
                   exam fees and provide test prep. You'll graduate with

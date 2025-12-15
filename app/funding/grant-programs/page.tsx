@@ -141,7 +141,9 @@ export default function GrantProgramsPage() {
       {/* Available Programs */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">ETPL Approved Programs</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            ETPL Approved Programs
+          </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {grantFundedPrograms.map((program) => (

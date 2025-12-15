@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 // Image asset: /images/success-new/success-8.jpg
 import { redirect } from 'next/navigation';
@@ -26,9 +28,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
-
-export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
 
 export default async function AdminLayout({
   children,

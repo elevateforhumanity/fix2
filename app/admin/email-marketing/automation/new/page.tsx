@@ -7,7 +7,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { ArrowLeft, Plus, Trash2, Mail, Clock, Users, Save, Play } from 'lucide-react';
+import {
+  ArrowLeft,
+  Plus,
+  Trash2,
+  Mail,
+  Clock,
+  Users,
+  Save,
+  Play,
+} from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
 
 interface EmailStep {
@@ -25,8 +34,8 @@ export default function NewWorkflowPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -34,10 +43,14 @@ export default function NewWorkflowPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-    const [workflow, setWorkflow] = useState({
+  const [workflow, setWorkflow] = useState({
     name: '',
-    trigger: 'enrollment' as 'enrollment' | 'application' | 'completion' | 'abandoned',
-    targetAudience: 'all-students'
+    trigger: 'enrollment' as
+      | 'enrollment'
+      | 'application'
+      | 'completion'
+      | 'abandoned',
+    targetAudience: 'all-students',
   });
 
   const [steps, setSteps] = useState<EmailStep[]>([
@@ -47,7 +60,7 @@ export default function NewWorkflowPage() {
       delayUnit: 'minutes',
       template: '',
       subject: '',
-      customHtml: ''
+      customHtml: '',
     },
   ]);
 
@@ -58,18 +71,18 @@ export default function NewWorkflowPage() {
       delayUnit: 'days',
       template: '',
       subject: '',
-      customHtml: ''
+      customHtml: '',
     };
     setSteps([...steps, newStep]);
   };
 
   const removeStep = (id: string) => {
     if (steps.length === 1) return;
-    setSteps(steps.filter(s => s.id !== id));
+    setSteps(steps.filter((s) => s.id !== id));
   };
 
   const updateStep = (id: string, updates: Partial<EmailStep>) => {
-    setSteps(steps.map(s => s.id === id ? { ...s, ...updates } : s));
+    setSteps(steps.map((s) => (s.id === id ? { ...s, ...updates } : s)));
   };
 
   const selectTemplate = (stepId: string, templateKey: EmailTemplateKey) => {
@@ -77,7 +90,7 @@ export default function NewWorkflowPage() {
     updateStep(stepId, {
       template: templateKey,
       subject: template.subject,
-      customHtml: template.html
+      customHtml: template.html,
     });
   };
 
@@ -88,12 +101,14 @@ export default function NewWorkflowPage() {
       body: JSON.stringify({
         ...workflow,
         steps,
-        status
-      })
+        status,
+      }),
     });
 
     if (response.ok) {
-      alert(status === 'draft' ? 'Workflow saved as draft!' : 'Workflow activated!');
+      alert(
+        status === 'draft' ? 'Workflow saved as draft!' : 'Workflow activated!'
+      );
       router.push('/admin/email-marketing/automation');
     }
   };
@@ -148,11 +163,15 @@ export default function NewWorkflowPage() {
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Create Drip Campaign</h1>
-                <p className="text-sm text-gray-500">Build automated email sequences</p>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Create Drip Campaign
+                </h1>
+                <p className="text-sm text-gray-500">
+                  Build automated email sequences
+                </p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => saveWorkflow('draft')}
@@ -180,7 +199,7 @@ export default function NewWorkflowPage() {
             {/* Workflow Details */}
             <div className="bg-white rounded-lg shadow p-6">
               <h2 className="text-xl font-semibold mb-4">Workflow Details</h2>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -189,7 +208,13 @@ export default function NewWorkflowPage() {
                   <input
                     type="text"
                     value={workflow.name}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setWorkflow({ ...workflow, name: e.target.value })}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => setWorkflow({ ...workflow, name: e.target.value })}
                     placeholder="e.g., Welcome Series"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -201,13 +226,23 @@ export default function NewWorkflowPage() {
                   </label>
                   <select
                     value={workflow.trigger}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setWorkflow({ ...workflow, trigger: e.target.value })}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) => setWorkflow({ ...workflow, trigger: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="enrollment">New Student Enrollment</option>
-                    <option value="application">New Application Submitted</option>
+                    <option value="application">
+                      New Application Submitted
+                    </option>
                     <option value="completion">Program Completion</option>
-                    <option value="abandoned">Abandoned Application (24 hours)</option>
+                    <option value="abandoned">
+                      Abandoned Application (24 hours)
+                    </option>
                   </select>
                 </div>
 
@@ -217,7 +252,18 @@ export default function NewWorkflowPage() {
                   </label>
                   <select
                     value={workflow.targetAudience}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setWorkflow({ ...workflow, targetAudience: e.target.value })}
+                    onChange={(
+                      e: React.ChangeEvent<
+                        | HTMLInputElement
+                        | HTMLSelectElement
+                        | HTMLTextAreaElement
+                      >
+                    ) =>
+                      setWorkflow({
+                        ...workflow,
+                        targetAudience: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="all-students">All Students</option>
@@ -245,7 +291,10 @@ export default function NewWorkflowPage() {
 
               <div className="space-y-6">
                 {steps.map((step, index) => (
-                  <div key={step.id} className="border-2 border-gray-200 rounded-lg p-6">
+                  <div
+                    key={step.id}
+                    className="border-2 border-gray-200 rounded-lg p-6"
+                  >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
                         <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
@@ -273,20 +322,40 @@ export default function NewWorkflowPage() {
                         <input
                           type="number"
                           value={step.delay}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateStep(step.id, { delay: parseInt(e.target.value) })}
+                          onChange={(
+                            e: React.ChangeEvent<
+                              | HTMLInputElement
+                              | HTMLSelectElement
+                              | HTMLTextAreaElement
+                            >
+                          ) =>
+                            updateStep(step.id, {
+                              delay: parseInt(e.target.value),
+                            })
+                          }
                           min="1"
                           className="w-20 px-3 py-1 border border-gray-300 rounded-lg"
                         />
                         <select
                           value={step.delayUnit}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateStep(step.id, { delayUnit: e.target.value })}
+                          onChange={(
+                            e: React.ChangeEvent<
+                              | HTMLInputElement
+                              | HTMLSelectElement
+                              | HTMLTextAreaElement
+                            >
+                          ) =>
+                            updateStep(step.id, { delayUnit: e.target.value })
+                          }
                           className="px-3 py-1 border border-gray-300 rounded-lg"
                         >
                           <option value="minutes">Minutes</option>
                           <option value="hours">Hours</option>
                           <option value="days">Days</option>
                         </select>
-                        <span className="text-sm text-gray-600">after previous email</span>
+                        <span className="text-sm text-gray-600">
+                          after previous email
+                        </span>
                       </div>
                     )}
 
@@ -296,19 +365,28 @@ export default function NewWorkflowPage() {
                           Select Template
                         </label>
                         <div className="grid grid-cols-2 gap-2">
-                          {Object.entries(emailTemplates).slice(0, 6).map(([key, template]) => (
-                            <button
-                              key={key}
-                              onClick={() => selectTemplate(step.id, key as EmailTemplateKey)}
-                              className={`p-3 border-2 rounded-lg text-left text-sm transition-colors ${
-                                step.template === key
-                                  ? 'border-blue-600 bg-blue-50'
-                                  : 'border-gray-200 hover:border-gray-300'
-                              }`}
-                            >
-                              <div className="font-medium text-gray-900">{template.name}</div>
-                            </button>
-                          ))}
+                          {Object.entries(emailTemplates)
+                            .slice(0, 6)
+                            .map(([key, template]) => (
+                              <button
+                                key={key}
+                                onClick={() =>
+                                  selectTemplate(
+                                    step.id,
+                                    key as EmailTemplateKey
+                                  )
+                                }
+                                className={`p-3 border-2 rounded-lg text-left text-sm transition-colors ${
+                                  step.template === key
+                                    ? 'border-blue-600 bg-blue-50'
+                                    : 'border-gray-200 hover:border-gray-300'
+                                }`}
+                              >
+                                <div className="font-medium text-gray-900">
+                                  {template.name}
+                                </div>
+                              </button>
+                            ))}
                         </div>
                       </div>
 
@@ -319,7 +397,13 @@ export default function NewWorkflowPage() {
                         <input
                           type="text"
                           value={step.subject}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateStep(step.id, { subject: e.target.value })}
+                          onChange={(
+                            e: React.ChangeEvent<
+                              | HTMLInputElement
+                              | HTMLSelectElement
+                              | HTMLTextAreaElement
+                            >
+                          ) => updateStep(step.id, { subject: e.target.value })}
                           placeholder="Email subject"
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
@@ -331,12 +415,17 @@ export default function NewWorkflowPage() {
                         </label>
                         <div className="border border-gray-300 rounded-lg p-4 bg-gray-50 max-h-40 overflow-auto">
                           {step.customHtml ? (
-                            <div 
+                            <div
                               className="text-xs"
-                              dangerouslySetInnerHTML={{ __html: step.customHtml.substring(0, 500) + '...' }}
+                              dangerouslySetInnerHTML={{
+                                __html:
+                                  step.customHtml.substring(0, 500) + '...',
+                              }}
                             />
                           ) : (
-                            <p className="text-sm text-gray-400 italic">Select a template to preview</p>
+                            <p className="text-sm text-gray-400 italic">
+                              Select a template to preview
+                            </p>
                           )}
                         </div>
                       </div>
@@ -350,8 +439,10 @@ export default function NewWorkflowPage() {
           {/* Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow p-6 sticky top-8">
-              <h3 className="font-semibold text-gray-900 mb-4">Workflow Summary</h3>
-              
+              <h3 className="font-semibold text-gray-900 mb-4">
+                Workflow Summary
+              </h3>
+
               <div className="space-y-4">
                 <div>
                   <div className="text-xs text-gray-500 mb-1">Name</div>
@@ -363,36 +454,52 @@ export default function NewWorkflowPage() {
                 <div>
                   <div className="text-xs text-gray-500 mb-1">Trigger</div>
                   <div className="text-sm text-gray-900">
-                    {workflow.trigger === 'enrollment' ? 'New Student Enrollment' :
-                     workflow.trigger === 'application' ? 'New Application' :
-                     workflow.trigger === 'completion' ? 'Program Completion' :
-                     'Abandoned Application'}
+                    {workflow.trigger === 'enrollment'
+                      ? 'New Student Enrollment'
+                      : workflow.trigger === 'application'
+                        ? 'New Application'
+                        : workflow.trigger === 'completion'
+                          ? 'Program Completion'
+                          : 'Abandoned Application'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-xs text-gray-500 mb-1">Target Audience</div>
+                  <div className="text-xs text-gray-500 mb-1">
+                    Target Audience
+                  </div>
                   <div className="text-sm text-gray-900">
-                    {workflow.targetAudience.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                    {workflow.targetAudience
+                      .split('-')
+                      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+                      .join(' ')}
                   </div>
                 </div>
 
                 <div>
                   <div className="text-xs text-gray-500 mb-1">Total Emails</div>
-                  <div className="text-sm font-medium text-gray-900">{steps.length}</div>
+                  <div className="text-sm font-medium text-gray-900">
+                    {steps.length}
+                  </div>
                 </div>
 
                 <div className="pt-4 border-t border-gray-200">
                   <div className="text-xs text-gray-500 mb-2">Timeline</div>
                   <div className="space-y-2">
                     {steps.map((step, index) => (
-                      <div key={step.id} className="flex items-start space-x-2 text-xs">
+                      <div
+                        key={step.id}
+                        className="flex items-start space-x-2 text-xs"
+                      >
                         <Mail className="w-3 h-3 text-blue-600 mt-0.5" />
                         <div>
-                          <div className="font-medium text-gray-900">Email {index + 1}</div>
+                          <div className="font-medium text-gray-900">
+                            Email {index + 1}
+                          </div>
                           <div className="text-gray-500">
-                            {index === 0 ? 'Immediate' : 
-                             `${step.delay} ${step.delayUnit} after Email ${index}`}
+                            {index === 0
+                              ? 'Immediate'
+                              : `${step.delay} ${step.delayUnit} after Email ${index}`}
                           </div>
                         </div>
                       </div>
@@ -401,7 +508,9 @@ export default function NewWorkflowPage() {
                 </div>
 
                 <div className="pt-4 border-t border-gray-200">
-                  <div className="text-xs text-gray-500 mb-2">Total Duration</div>
+                  <div className="text-xs text-gray-500 mb-2">
+                    Total Duration
+                  </div>
                   <div className="text-sm font-medium text-gray-900">
                     {calculateTotalDuration(steps)}
                   </div>
@@ -410,63 +519,112 @@ export default function NewWorkflowPage() {
             </div>
           </div>
         </div>
-      
-      {/* Storytelling Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
-                  Your Journey Starts Here
-                </h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Students learning"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+
+        {/* Storytelling Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+                    Your Journey Starts Here
+                  </h2>
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Every great career begins with a single step. Whether you're
+                    looking to change careers, upgrade your skills, or enter the
+                    workforce for the first time, we're here to help you
+                    succeed. Our programs are 100% free, government-funded, and
+                    designed to get you hired fast.
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        100% free training - no tuition, no hidden costs
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Industry-recognized certifications that employers value
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Job placement assistance and career support
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Flexible scheduling for working adults
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/gallery/image3.jpg"
+                    alt="Students learning"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );
@@ -474,13 +632,16 @@ export default function NewWorkflowPage() {
 
 function calculateTotalDuration(steps: EmailStep[]): string {
   let totalMinutes = 0;
-  
+
   steps.forEach((step, index) => {
     if (index === 0) return;
-    
-    const minutes = step.delayUnit === 'minutes' ? step.delay :
-                   step.delayUnit === 'hours' ? step.delay * 60 :
-                   step.delay * 24 * 60;
+
+    const minutes =
+      step.delayUnit === 'minutes'
+        ? step.delay
+        : step.delayUnit === 'hours'
+          ? step.delay * 60
+          : step.delay * 24 * 60;
     totalMinutes += minutes;
   });
 

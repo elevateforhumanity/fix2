@@ -1,11 +1,11 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
-export const dynamic = 'force-dynamic';
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState('');
@@ -63,7 +63,9 @@ export default function AdminLoginPage() {
       <div className="max-w-md w-full">
         {/* Logo/Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2 text-2xl md:text-3xl lg:text-4xl">Admin Login</h1>
+          <h1 className="text-4xl font-bold text-white mb-2 text-2xl md:text-3xl lg:text-4xl">
+            Admin Login
+          </h1>
           <p className="text-slate-400">Elevate For Humanity</p>
         </div>
 
@@ -89,7 +91,11 @@ export default function AdminLoginPage() {
                 id="email"
                 type="email"
                 value={email}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEmail(e.target.value)}
+                onChange={(
+                  e: React.ChangeEvent<
+                    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                  >
+                ) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900"
@@ -109,7 +115,11 @@ export default function AdminLoginPage() {
                 id="password"
                 type="password"
                 value={password}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPassword(e.target.value)}
+                onChange={(
+                  e: React.ChangeEvent<
+                    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                  >
+                ) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900"
@@ -133,7 +143,8 @@ export default function AdminLoginPage() {
               🔐 Admin Access Only
             </p>
             <p className="text-sm text-blue-700">
-              This portal is for authorized administrators only. If you need admin access, contact the system administrator.
+              This portal is for authorized administrators only. If you need
+              admin access, contact the system administrator.
             </p>
           </div>
 

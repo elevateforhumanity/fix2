@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'; // Uses cookies, can't be static
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,7 +18,6 @@ export const metadata: Metadata = {
     'Latest news, success stories, and workforce development insights from Elevate For Humanity.',
 };
 
-export const dynamic = 'force-dynamic'; // Uses cookies, can't be static
 export const revalidate = 300; // Revalidate every 5 minutes
 
 async function getDurableBlogPosts() {

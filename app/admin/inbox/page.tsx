@@ -1,19 +1,19 @@
-import { createClient } from "@/lib/supabase/server";
-import { redirect } from "next/navigation";
+export const dynamic = 'force-dynamic';
 
-export const dynamic = "force-dynamic";
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 async function requireAdmin(supabase: any) {
   const { data } = await supabase.auth.getUser();
   if (!data?.user) return false;
 
   const { data: profile } = await supabase
-    .from("user_profiles")
-    .select("role")
-    .eq("user_id", data.user.id)
+    .from('user_profiles')
+    .select('role')
+    .eq('user_id', data.user.id)
     .single();
 
-  return profile?.role === "admin";
+  return profile?.role === 'admin';
 }
 
 export default async function AdminInboxPage() {
@@ -31,73 +31,80 @@ export default async function AdminInboxPage() {
 
   const [{ data: partners }, { data: licenses }] = await Promise.all([
     supabase
-      .from("partner_inquiries")
-      .select("*")
-      .order("submitted_at", { ascending: false })
+      .from('partner_inquiries')
+      .select('*')
+      .order('submitted_at', { ascending: false })
       .limit(50),
     supabase
-      .from("license_requests")
-      .select("*")
-      .order("created_at", { ascending: false })
+      .from('license_requests')
+      .select('*')
+      .order('created_at', { ascending: false })
       .limit(50),
   ]);
 
   async function updatePartner(formData: FormData) {
-    "use server";
-    const id = String(formData.get("id"));
-    const status = String(formData.get("status"));
-    const notes = String(formData.get("internal_notes") || "");
+    'use server';
+    const id = String(formData.get('id'));
+    const status = String(formData.get('status'));
+    const notes = String(formData.get('internal_notes') || '');
 
     const supabase2 = await createClient();
     await supabase2
-      .from("partner_inquiries")
+      .from('partner_inquiries')
       .update({ status, notes })
-      .eq("id", id);
+      .eq('id', id);
 
-    redirect("/admin/inbox");
+    redirect('/admin/inbox');
   }
 
   async function updateLicense(formData: FormData) {
-    "use server";
-    const id = String(formData.get("id"));
-    const status = String(formData.get("status"));
-    const notes = String(formData.get("internal_notes") || "");
+    'use server';
+    const id = String(formData.get('id'));
+    const status = String(formData.get('status'));
+    const notes = String(formData.get('internal_notes') || '');
 
     const supabase2 = await createClient();
     await supabase2
-      .from("license_requests")
+      .from('license_requests')
       .update({ status, internal_notes: notes })
-      .eq("id", id);
+      .eq('id', id);
 
-    redirect("/admin/inbox");
+    redirect('/admin/inbox');
   }
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-12">
       <h1 className="text-3xl font-bold text-zinc-900">Admin Inbox</h1>
-      <p className="mt-2 text-zinc-700">
-        One place to review everything.
-      </p>
+      <p className="mt-2 text-zinc-700">One place to review everything.</p>
 
       <section className="mt-10">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold text-zinc-900">Partner Inquiries</h2>
-          <a className="text-sm font-semibold text-zinc-700 underline" href="/admin/partner-inquiries">
+          <a
+            className="text-sm font-semibold text-zinc-700 underline"
+            href="/admin/partner-inquiries"
+          >
             Open full list
           </a>
         </div>
 
         <div className="mt-4 space-y-4">
           {(partners || []).map((r: any) => (
-            <div key={r.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+            <div
+              key={r.id}
+              className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
+            >
               <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                 <div className="flex-1">
-                  <div className="text-lg font-bold text-zinc-900">{r.full_name}</div>
+                  <div className="text-lg font-bold text-zinc-900">
+                    {r.full_name}
+                  </div>
                   <div className="text-sm text-zinc-700">
-                    {r.organization || "—"} • {r.email} • {r.phone || "—"}
+                    {r.organization || '—'} • {r.email} • {r.phone || '—'}
                   </div>
                   <div className="mt-2 text-sm text-zinc-700">
-                    <span className="font-semibold">Type:</span> {r.relationship_type}
+                    <span className="font-semibold">Type:</span>{' '}
+                    {r.relationship_type}
                   </div>
                   <div className="mt-2 text-sm text-zinc-700 whitespace-pre-wrap">
                     <span className="font-semibold">Value:</span> {r.resources}
@@ -110,9 +117,14 @@ export default async function AdminInboxPage() {
                   </div>
                 </div>
 
-                <form action={updatePartner} className="mt-4 md:mt-0 md:w-[360px] space-y-2">
+                <form
+                  action={updatePartner}
+                  className="mt-4 md:mt-0 md:w-[360px] space-y-2"
+                >
                   <input type="hidden" name="id" value={r.id} />
-                  <label className="block text-sm font-semibold text-zinc-800">Status</label>
+                  <label className="block text-sm font-semibold text-zinc-800">
+                    Status
+                  </label>
                   <select
                     name="status"
                     defaultValue={r.status}
@@ -124,10 +136,12 @@ export default async function AdminInboxPage() {
                     <option value="declined">declined</option>
                   </select>
 
-                  <label className="block text-sm font-semibold text-zinc-800">Internal notes</label>
+                  <label className="block text-sm font-semibold text-zinc-800">
+                    Internal notes
+                  </label>
                   <textarea
                     name="internal_notes"
-                    defaultValue={r.notes || ""}
+                    defaultValue={r.notes || ''}
                     rows={3}
                     className="w-full rounded-xl border border-zinc-300 px-3 py-2 text-sm"
                   />
@@ -154,25 +168,35 @@ export default async function AdminInboxPage() {
       <section className="mt-12">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold text-zinc-900">License Requests</h2>
-          <a className="text-sm font-semibold text-zinc-700 underline" href="/admin/license-requests">
+          <a
+            className="text-sm font-semibold text-zinc-700 underline"
+            href="/admin/license-requests"
+          >
             Open full list
           </a>
         </div>
 
         <div className="mt-4 space-y-4">
           {(licenses || []).map((r: any) => (
-            <div key={r.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+            <div
+              key={r.id}
+              className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
+            >
               <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                 <div className="flex-1">
-                  <div className="text-lg font-bold text-zinc-900">{r.full_name}</div>
+                  <div className="text-lg font-bold text-zinc-900">
+                    {r.full_name}
+                  </div>
                   <div className="text-sm text-zinc-700">
-                    {r.organization || "—"} • {r.email} • {r.phone || "—"}
+                    {r.organization || '—'} • {r.email} • {r.phone || '—'}
                   </div>
                   <div className="mt-2 text-sm text-zinc-700">
-                    <span className="font-semibold">Tier:</span> {r.desired_tier}
+                    <span className="font-semibold">Tier:</span>{' '}
+                    {r.desired_tier}
                   </div>
                   <div className="mt-2 text-sm text-zinc-700 whitespace-pre-wrap">
-                    <span className="font-semibold">Launch Goal:</span> {r.launch_goal}
+                    <span className="font-semibold">Launch Goal:</span>{' '}
+                    {r.launch_goal}
                   </div>
                   <div className="mt-2 text-xs text-zinc-500">
                     Submitted: {new Date(r.created_at).toLocaleString()}
@@ -182,9 +206,14 @@ export default async function AdminInboxPage() {
                   </div>
                 </div>
 
-                <form action={updateLicense} className="mt-4 md:mt-0 md:w-[360px] space-y-2">
+                <form
+                  action={updateLicense}
+                  className="mt-4 md:mt-0 md:w-[360px] space-y-2"
+                >
                   <input type="hidden" name="id" value={r.id} />
-                  <label className="block text-sm font-semibold text-zinc-800">Status</label>
+                  <label className="block text-sm font-semibold text-zinc-800">
+                    Status
+                  </label>
                   <select
                     name="status"
                     defaultValue={r.status}
@@ -196,10 +225,12 @@ export default async function AdminInboxPage() {
                     <option value="declined">declined</option>
                   </select>
 
-                  <label className="block text-sm font-semibold text-zinc-800">Internal notes</label>
+                  <label className="block text-sm font-semibold text-zinc-800">
+                    Internal notes
+                  </label>
                   <textarea
                     name="internal_notes"
-                    defaultValue={r.internal_notes || ""}
+                    defaultValue={r.internal_notes || ''}
                     rows={3}
                     className="w-full rounded-xl border border-zinc-300 px-3 py-2 text-sm"
                   />

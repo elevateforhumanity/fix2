@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { redirect } from 'next/navigation';
 // Image asset: /images/success-new/success-14.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
@@ -24,8 +26,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
-
-export const dynamic = 'force-dynamic';
 
 export default async function StudentLayout({
   children,

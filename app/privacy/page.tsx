@@ -1,16 +1,16 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
 import Link from 'next/link';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/privacy",
+    canonical: 'https://www.elevateforhumanity.org/privacy',
   },
   title: 'Privacy Policy | Elevate For Humanity',
-  description: 'Learn how Elevate For Humanity collects, uses, and protects your personal information.',
+  description:
+    'Learn how Elevate For Humanity collects, uses, and protects your personal information.',
 };
 
 export default function PrivacyPage() {
@@ -32,18 +32,26 @@ export default function PrivacyPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
-            
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Our Commitment to Privacy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+              Our Commitment to Privacy
+            </h2>
             <p className="text-slate-700 mb-6">
-              Elevate For Humanity is committed to protecting your privacy. This Privacy Policy explains how we collect, 
-              use, disclose, and safeguard your information when you visit our website or use our services.
+              Elevate For Humanity is committed to protecting your privacy. This
+              Privacy Policy explains how we collect, use, disclose, and
+              safeguard your information when you visit our website or use our
+              services.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Information We Collect</h2>
-            
-            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">Personal Information</h3>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Information We Collect
+            </h2>
+
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">
+              Personal Information
+            </h3>
             <p className="text-slate-700 mb-4">
-              We collect personal information that you voluntarily provide when you:
+              We collect personal information that you voluntarily provide when
+              you:
             </p>
             <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
               <li>Apply for training programs</li>
@@ -53,11 +61,14 @@ export default function PrivacyPage() {
               <li>Subscribe to our newsletter</li>
             </ul>
             <p className="text-slate-700 mb-6">
-              This may include: name, email address, phone number, mailing address, date of birth, Social Security number 
-              (for tax services), employment history, and educational background.
+              This may include: name, email address, phone number, mailing
+              address, date of birth, Social Security number (for tax services),
+              employment history, and educational background.
             </p>
 
-            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">Automatically Collected Information</h3>
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">
+              Automatically Collected Information
+            </h3>
             <p className="text-slate-700 mb-4">
               When you visit our website, we automatically collect:
             </p>
@@ -69,10 +80,10 @@ export default function PrivacyPage() {
               <li>Cookies and similar tracking technologies</li>
             </ul>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">How We Use Your Information</h2>
-            <p className="text-slate-700 mb-4">
-              We use your information to:
-            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              How We Use Your Information
+            </h2>
+            <p className="text-slate-700 mb-4">We use your information to:</p>
             <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
               <li>Process your applications and enrollments</li>
               <li>Provide training and educational services</li>
@@ -80,25 +91,46 @@ export default function PrivacyPage() {
               <li>Communicate with you about programs and services</li>
               <li>Improve our website and services</li>
               <li>Comply with legal obligations and reporting requirements</li>
-              <li>Send newsletters and promotional materials (with your consent)</li>
+              <li>
+                Send newsletters and promotional materials (with your consent)
+              </li>
             </ul>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Information Sharing</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Information Sharing
+            </h2>
             <p className="text-slate-700 mb-4">
               We may share your information with:
             </p>
             <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li><strong>Government Agencies:</strong> Required for grant funding and compliance (WIOA, WRG, etc.)</li>
-              <li><strong>Educational Partners:</strong> Training providers and certification bodies</li>
-              <li><strong>Employers:</strong> With your consent, for job placement services</li>
-              <li><strong>Service Providers:</strong> Third parties who assist with our operations</li>
-              <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+              <li>
+                <strong>Government Agencies:</strong> Required for grant funding
+                and compliance (WIOA, WRG, etc.)
+              </li>
+              <li>
+                <strong>Educational Partners:</strong> Training providers and
+                certification bodies
+              </li>
+              <li>
+                <strong>Employers:</strong> With your consent, for job placement
+                services
+              </li>
+              <li>
+                <strong>Service Providers:</strong> Third parties who assist
+                with our operations
+              </li>
+              <li>
+                <strong>Legal Requirements:</strong> When required by law or to
+                protect our rights
+              </li>
             </ul>
             <p className="text-slate-700 mb-6">
               We do not sell your personal information to third parties.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Data Security</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Data Security
+            </h2>
             <p className="text-slate-700 mb-4">
               We implement security measures to protect your information:
             </p>
@@ -110,23 +142,29 @@ export default function PrivacyPage() {
               <li>Employee training on data protection</li>
             </ul>
             <p className="text-slate-700 mb-6">
-              However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
+              However, no method of transmission over the internet is 100%
+              secure. We cannot guarantee absolute security.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Your Rights</h2>
-            <p className="text-slate-700 mb-4">
-              You have the right to:
-            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Your Rights
+            </h2>
+            <p className="text-slate-700 mb-4">You have the right to:</p>
             <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
               <li>Access your personal information</li>
               <li>Request corrections to inaccurate data</li>
-              <li>Request deletion of your information (subject to legal requirements)</li>
+              <li>
+                Request deletion of your information (subject to legal
+                requirements)
+              </li>
               <li>Opt-out of marketing communications</li>
               <li>Withdraw consent for data processing</li>
               <li>Request a copy of your data</li>
             </ul>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Cookies and Tracking</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Cookies and Tracking
+            </h2>
             <p className="text-slate-700 mb-4">
               We use cookies and similar technologies to:
             </p>
@@ -137,46 +175,78 @@ export default function PrivacyPage() {
               <li>Provide personalized content</li>
             </ul>
             <p className="text-slate-700 mb-6">
-              You can control cookies through your browser settings. See our <Link href="/cookies" className="text-blue-600 hover:underline">Cookie Policy</Link> for more information.
+              You can control cookies through your browser settings. See our{' '}
+              <Link href="/cookies" className="text-blue-600 hover:underline">
+                Cookie Policy
+              </Link>{' '}
+              for more information.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Children's Privacy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Children's Privacy
+            </h2>
             <p className="text-slate-700 mb-6">
-              Our services are not directed to children under 13. We do not knowingly collect information from children under 13. 
-              If you believe we have collected information from a child under 13, please contact us immediately.
+              Our services are not directed to children under 13. We do not
+              knowingly collect information from children under 13. If you
+              believe we have collected information from a child under 13,
+              please contact us immediately.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Third-Party Links</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Third-Party Links
+            </h2>
             <p className="text-slate-700 mb-6">
-              Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. 
-              We encourage you to read their privacy policies.
+              Our website may contain links to third-party websites. We are not
+              responsible for the privacy practices of these external sites. We
+              encourage you to read their privacy policies.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Data Retention</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Data Retention
+            </h2>
             <p className="text-slate-700 mb-6">
-              We retain your information for as long as necessary to provide services and comply with legal obligations. 
-              Student records are maintained according to federal and state education regulations.
+              We retain your information for as long as necessary to provide
+              services and comply with legal obligations. Student records are
+              maintained according to federal and state education regulations.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Changes to This Policy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Changes to This Policy
+            </h2>
             <p className="text-slate-700 mb-6">
-              We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. 
-              We encourage you to review this policy periodically.
+              We may update this Privacy Policy from time to time. Changes will
+              be posted on this page with an updated date. We encourage you to
+              review this policy periodically.
             </p>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Contact Us</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">
+              Contact Us
+            </h2>
             <p className="text-slate-700 mb-4">
-              For questions about this Privacy Policy or to exercise your rights:
+              For questions about this Privacy Policy or to exercise your
+              rights:
             </p>
             <div className="bg-slate-50 p-6 rounded-lg mb-8">
               <p className="text-slate-700 mb-2">
                 <strong>Elevate For Humanity</strong>
               </p>
               <p className="text-slate-700 mb-2">
-                Phone: <a href="tel:317-314-3757" className="text-blue-600 hover:underline">317-314-3757</a>
+                Phone:{' '}
+                <a
+                  href="tel:317-314-3757"
+                  className="text-blue-600 hover:underline"
+                >
+                  317-314-3757
+                </a>
               </p>
               <p className="text-slate-700">
-                Email: <a href="mailto:privacy@elevateforhumanity.org" className="text-blue-600 hover:underline">privacy@elevateforhumanity.org</a>
+                Email:{' '}
+                <a
+                  href="mailto:privacy@elevateforhumanity.org"
+                  className="text-blue-600 hover:underline"
+                >
+                  privacy@elevateforhumanity.org
+                </a>
               </p>
             </div>
 

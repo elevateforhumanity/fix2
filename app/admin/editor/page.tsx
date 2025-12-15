@@ -1,6 +1,7 @@
 'use client';
 
 export const dynamic = 'force-dynamic';
+
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,16 +19,24 @@ const mockFiles = [
     children: [
       { name: 'page.tsx', path: '/app/page.tsx', type: 'file' as const },
       { name: 'layout.tsx', path: '/app/layout.tsx', type: 'file' as const },
-    ]
+    ],
   },
   {
     name: 'components',
     path: '/components',
     type: 'directory' as const,
     children: [
-      { name: 'Header.tsx', path: '/components/Header.tsx', type: 'file' as const },
-      { name: 'Footer.tsx', path: '/components/Footer.tsx', type: 'file' as const },
-    ]
+      {
+        name: 'Header.tsx',
+        path: '/components/Header.tsx',
+        type: 'file' as const,
+      },
+      {
+        name: 'Footer.tsx',
+        path: '/components/Footer.tsx',
+        type: 'file' as const,
+      },
+    ],
   },
   {
     name: 'lib',
@@ -35,7 +44,7 @@ const mockFiles = [
     type: 'directory' as const,
     children: [
       { name: 'utils.ts', path: '/lib/utils.ts', type: 'file' as const },
-    ]
+    ],
   },
   { name: 'package.json', path: '/package.json', type: 'file' as const },
   { name: 'README.md', path: '/README.md', type: 'file' as const },
@@ -110,11 +119,13 @@ This is your cloned codebase from Elevate For Humanity.
 npm install
 npm run dev
 \`\`\`
-`
+`,
 };
 export default function EditorPage() {
   const [selectedFile, setSelectedFile] = useState<string>('/app/page.tsx');
-  const [fileContent, setFileContent] = useState<string>(mockFileContents['/app/page.tsx'] || '');
+  const [fileContent, setFileContent] = useState<string>(
+    mockFileContents['/app/page.tsx'] || ''
+  );
   const [unsavedChanges, setUnsavedChanges] = useState(false);
   const handleFileSelect = (path: string) => {
     if (unsavedChanges) {
@@ -159,7 +170,9 @@ export default function EditorPage() {
           <h1 className="font-semibold">EFH Code Editor</h1>
           <span className="text-sm text-gray-400">{selectedFile}</span>
           {unsavedChanges && (
-            <span className="text-xs bg-yellow-600 px-2 py-1 rounded">Unsaved</span>
+            <span className="text-xs bg-yellow-600 px-2 py-1 rounded">
+              Unsaved
+            </span>
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -215,33 +228,34 @@ export default function EditorPage() {
             </Split>
           </div>
         </Split>
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
     </div>
   );

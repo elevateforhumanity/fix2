@@ -8,8 +8,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import {
-    Mail, TrendingUp, TrendingDown, Users, MousePointerClick, 
-  Eye, Send, AlertCircle, Calendar, Download 
+  Mail,
+  TrendingUp,
+  TrendingDown,
+  Users,
+  MousePointerClick,
+  Eye,
+  Send,
+  AlertCircle,
+  Calendar,
+  Download,
 } from 'lucide-react';
 
 interface AnalyticsData {
@@ -51,8 +59,8 @@ export default function AnalyticsPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -60,7 +68,9 @@ export default function AnalyticsPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'all'>('30d');
+  const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'all'>(
+    '30d'
+  );
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<AnalyticsData | null>(null);
 
@@ -84,10 +94,18 @@ export default function AnalyticsPage() {
 
   const exportData = () => {
     if (!data) return;
-    
+
     const csv = [
-      ['Campaign', 'Sent', 'Opens', 'Clicks', 'Open Rate', 'Click Rate', 'Date'],
-      ...data.campaigns.map(c => [
+      [
+        'Campaign',
+        'Sent',
+        'Opens',
+        'Clicks',
+        'Open Rate',
+        'Click Rate',
+        'Date',
+      ],
+      ...data.campaigns.map((c) => [
         c.name,
         c.sent,
         c.opens,
@@ -96,7 +114,9 @@ export default function AnalyticsPage() {
         `${c.clickRate}%`,
         new Date(c.sentAt).toLocaleDateString(),
       ]),
-    ].map(row => row.join(',')).join('\n');
+    ]
+      .map((row) => row.join(','))
+      .join('\n');
 
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
@@ -109,77 +129,78 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Analytics"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-            Analytics
-          </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
-            Transform your career with free training and industry certifications
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              View Programs
-            </Link>
-          </div>
-        </div>
-      </section>
-
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
-          <p className="text-gray-600">Loading analytics...</p>
-        
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
+        {/* Hero Section */}
+        <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+          <Image
+            src="/images/gallery/image8.jpg"
+            alt="Analytics"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0   " />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
+              Analytics
+            </h1>
+            <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
+              Transform your career with free training and industry
+              certifications
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
-                Apply Now - It's Free
+                Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
-                Browse All Programs
+                View Programs
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
+          <p className="text-gray-600">Loading analytics...</p>
+
+          {/* CTA Section */}
+          <section className="py-16    text-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Ready to Transform Your Career?
+                </h2>
+                <p className="text-base md:text-lg mb-8 text-blue-100">
+                  Join thousands who have launched successful careers through
+                  our free training programs.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    href="/contact"
+                    className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                  >
+                    Apply Now - It's Free
+                  </Link>
+                  <Link
+                    href="/programs"
+                    className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                  >
+                    Browse All Programs
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
-  );
+    );
   }
 
   if (!data) {
@@ -200,15 +221,23 @@ export default function AnalyticsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Email Analytics</h1>
-              <p className="text-gray-600 mt-1">Track campaign performance and engagement</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Email Analytics
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Track campaign performance and engagement
+              </p>
             </div>
-            
+
             <div className="flex items-center space-x-3">
               {/* Time Range Selector */}
               <select
                 value={timeRange}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTimeRange(e.target.value as string)}
+                onChange={(
+                  e: React.ChangeEvent<
+                    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                  >
+                ) => setTimeRange(e.target.value as string)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="7d">Last 7 Days</option>
@@ -244,21 +273,39 @@ export default function AnalyticsPage() {
             value={`${data.overview.openRate.toFixed(1)}%`}
             icon={Eye}
             color="green"
-            trend={data.overview.openRate > 40 ? 'up' : data.overview.openRate < 30 ? 'down' : null}
+            trend={
+              data.overview.openRate > 40
+                ? 'up'
+                : data.overview.openRate < 30
+                  ? 'down'
+                  : null
+            }
           />
           <StatCard
             title="Click Rate"
             value={`${data.overview.clickRate.toFixed(1)}%`}
             icon={MousePointerClick}
             color="purple"
-            trend={data.overview.clickRate > 8 ? 'up' : data.overview.clickRate < 5 ? 'down' : null}
+            trend={
+              data.overview.clickRate > 8
+                ? 'up'
+                : data.overview.clickRate < 5
+                  ? 'down'
+                  : null
+            }
           />
           <StatCard
             title="Bounce Rate"
             value={`${data.overview.bounceRate.toFixed(1)}%`}
             icon={AlertCircle}
             color="red"
-            trend={data.overview.bounceRate < 2 ? 'up' : data.overview.bounceRate > 5 ? 'down' : null}
+            trend={
+              data.overview.bounceRate < 2
+                ? 'up'
+                : data.overview.bounceRate > 5
+                  ? 'down'
+                  : null
+            }
           />
         </div>
 
@@ -306,40 +353,57 @@ export default function AnalyticsPage() {
 
         {/* Timeline Chart */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-6">Performance Timeline</h3>
+          <h3 className="font-semibold text-gray-900 mb-6">
+            Performance Timeline
+          </h3>
           <div className="space-y-4">
             {data.timeline.map((day, index) => (
               <div key={index} className="flex items-center space-x-4">
                 <div className="w-24 text-sm text-gray-600">
-                  {new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                  {new Date(day.date).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                  })}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-1">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
                         className="bg-blue-600 h-2 rounded-full"
-                        style={{ width: `${(day.sent / Math.max(...data.timeline.map(d => d.sent))) * 100}%` }}
+                        style={{
+                          width: `${(day.sent / Math.max(...data.timeline.map((d) => d.sent))) * 100}%`,
+                        }}
                       />
                     </div>
-                    <span className="text-sm text-gray-600 w-16 text-right">{day.sent} sent</span>
+                    <span className="text-sm text-gray-600 w-16 text-right">
+                      {day.sent} sent
+                    </span>
                   </div>
                   <div className="flex items-center space-x-2 mb-1">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
                         className="bg-green-600 h-2 rounded-full"
-                        style={{ width: `${(day.opens / Math.max(...data.timeline.map(d => d.opens))) * 100}%` }}
+                        style={{
+                          width: `${(day.opens / Math.max(...data.timeline.map((d) => d.opens))) * 100}%`,
+                        }}
                       />
                     </div>
-                    <span className="text-sm text-gray-600 w-16 text-right">{day.opens} opens</span>
+                    <span className="text-sm text-gray-600 w-16 text-right">
+                      {day.opens} opens
+                    </span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
                         className="bg-purple-600 h-2 rounded-full"
-                        style={{ width: `${(day.clicks / Math.max(...data.timeline.map(d => d.clicks))) * 100}%` }}
+                        style={{
+                          width: `${(day.clicks / Math.max(...data.timeline.map((d) => d.clicks))) * 100}%`,
+                        }}
                       />
                     </div>
-                    <span className="text-sm text-gray-600 w-16 text-right">{day.clicks} clicks</span>
+                    <span className="text-sm text-gray-600 w-16 text-right">
+                      {day.clicks} clicks
+                    </span>
                   </div>
                 </div>
               </div>
@@ -350,7 +414,9 @@ export default function AnalyticsPage() {
         {/* Campaign Performance Table */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h3 className="font-semibold text-gray-900">Campaign Performance</h3>
+            <h3 className="font-semibold text-gray-900">
+              Campaign Performance
+            </h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -383,7 +449,9 @@ export default function AnalyticsPage() {
                 {data.campaigns.map((campaign) => (
                   <tr key={campaign.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{campaign.name}</div>
+                      <div className="text-sm font-medium text-gray-900">
+                        {campaign.name}
+                      </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                       {campaign.sent.toLocaleString()}
@@ -395,20 +463,28 @@ export default function AnalyticsPage() {
                       {campaign.clicks.toLocaleString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        campaign.openRate > 40 ? 'bg-green-100 text-green-800' :
-                        campaign.openRate > 30 ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          campaign.openRate > 40
+                            ? 'bg-green-100 text-green-800'
+                            : campaign.openRate > 30
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-red-100 text-red-800'
+                        }`}
+                      >
                         {campaign.openRate.toFixed(1)}%
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        campaign.clickRate > 8 ? 'bg-green-100 text-green-800' :
-                        campaign.clickRate > 5 ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          campaign.clickRate > 8
+                            ? 'bg-green-100 text-green-800'
+                            : campaign.clickRate > 5
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-red-100 text-red-800'
+                        }`}
+                      >
                         {campaign.clickRate.toFixed(1)}%
                       </span>
                     </td>
@@ -439,7 +515,7 @@ function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
     blue: 'text-blue-600 bg-blue-50',
     green: 'text-green-600 bg-green-50',
     purple: 'text-purple-600 bg-purple-50',
-    red: 'text-red-600 bg-red-50'
+    red: 'text-red-600 bg-red-50',
   };
 
   return (
@@ -449,8 +525,14 @@ function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
           <Icon className="w-6 h-6" />
         </div>
         {trend && (
-          <div className={`flex items-center space-x-1 ${trend === 'up' ? 'text-green-600' : 'text-red-600'}`}>
-            {trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+          <div
+            className={`flex items-center space-x-1 ${trend === 'up' ? 'text-green-600' : 'text-red-600'}`}
+          >
+            {trend === 'up' ? (
+              <TrendingUp className="w-4 h-4" />
+            ) : (
+              <TrendingDown className="w-4 h-4" />
+            )}
           </div>
         )}
       </div>

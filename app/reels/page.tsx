@@ -1,16 +1,15 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
 import { createClient } from '@/lib/supabase/server';
 
-export const dynamic = 'force-dynamic';
 import ReelsFeed from '@/components/reels/ReelsFeed';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Reels | Elevate For Humanity',
-  description: 'Watch short-form videos about career training and success stories',
+  description:
+    'Watch short-form videos about career training and success stories',
 };
 
 async function getReels() {

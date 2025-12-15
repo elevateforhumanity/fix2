@@ -4,7 +4,15 @@ export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle, ArrowRight, ArrowLeft, User, Briefcase, FileText, Send } from 'lucide-react';
+import {
+  CheckCircle,
+  ArrowRight,
+  ArrowLeft,
+  User,
+  Briefcase,
+  FileText,
+  Send,
+} from 'lucide-react';
 
 export default function ApplyApprenticeshipPage() {
   const [step, setStep] = useState(1);
@@ -19,28 +27,28 @@ export default function ApplyApprenticeshipPage() {
     state: 'IN',
     zip: '',
     dateOfBirth: '',
-    
+
     // Program Selection
     program: '',
     startDate: '',
     availability: '',
-    
+
     // Background
     education: '',
     experience: '',
     whyApprenticeship: '',
     goals: '',
-    
+
     // Legal
     eligibleToWork: false,
     over18: false,
-    agreeToTerms: false
+    agreeToTerms: false,
   });
 
   const totalSteps = 4;
 
   const updateField = (field: string, value: any) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const nextStep = () => {
@@ -62,13 +70,20 @@ export default function ApplyApprenticeshipPage() {
   const isStepComplete = (stepNum: number) => {
     switch (stepNum) {
       case 1:
-        return formData.firstName && formData.lastName && formData.email && formData.phone;
+        return (
+          formData.firstName &&
+          formData.lastName &&
+          formData.email &&
+          formData.phone
+        );
       case 2:
         return formData.program && formData.startDate && formData.availability;
       case 3:
         return formData.education && formData.whyApprenticeship;
       case 4:
-        return formData.eligibleToWork && formData.over18 && formData.agreeToTerms;
+        return (
+          formData.eligibleToWork && formData.over18 && formData.agreeToTerms
+        );
       default:
         return false;
     }
@@ -81,53 +96,75 @@ export default function ApplyApprenticeshipPage() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-3">Apply for Apprenticeship</h1>
           <p className="text-lg text-slate-600">
-            Complete this application to start your journey. Takes about 10 minutes.
+            Complete this application to start your journey. Takes about 10
+            minutes.
           </p>
         </div>
 
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-semibold text-slate-700">Step {step} of {totalSteps}</span>
-            <span className="text-sm text-slate-600">{Math.round((step / totalSteps) * 100)}% Complete</span>
+            <span className="text-sm font-semibold text-slate-700">
+              Step {step} of {totalSteps}
+            </span>
+            <span className="text-sm text-slate-600">
+              {Math.round((step / totalSteps) * 100)}% Complete
+            </span>
           </div>
           <div className="w-full bg-slate-200 rounded-full h-3">
-            <div 
+            <div
               className="bg-blue-600 h-3 rounded-full transition-all duration-300"
               style={{ width: `${(step / totalSteps) * 100}%` }}
             />
           </div>
-          
+
           {/* Step Labels */}
           <div className="flex justify-between mt-4">
             {[
               { num: 1, label: 'Personal Info', icon: User },
               { num: 2, label: 'Program', icon: Briefcase },
               { num: 3, label: 'Background', icon: FileText },
-              { num: 4, label: 'Review', icon: Send }
+              { num: 4, label: 'Review', icon: Send },
             ].map(({ num, label, icon: Icon }) => (
               <div key={num} className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
-                  step === num ? 'bg-blue-600 text-white' :
-                  step > num ? 'bg-green-600 text-white' :
-                  'bg-slate-300 text-slate-600'
-                }`}>
-                  {step > num ? <CheckCircle className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
+                <div
+                  className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
+                    step === num
+                      ? 'bg-blue-600 text-white'
+                      : step > num
+                        ? 'bg-green-600 text-white'
+                        : 'bg-slate-300 text-slate-600'
+                  }`}
+                >
+                  {step > num ? (
+                    <CheckCircle className="w-5 h-5" />
+                  ) : (
+                    <Icon className="w-5 h-5" />
+                  )}
                 </div>
-                <span className="text-xs font-semibold text-center">{label}</span>
+                <span className="text-xs font-semibold text-center">
+                  {label}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-lg shadow-sm p-8"
+        >
           {/* Step 1: Personal Information */}
           {step === 1 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Personal Information</h2>
-                <p className="text-slate-600 mb-6">Tell us about yourself so we can contact you.</p>
+                <h2 className="text-2xl font-bold mb-2">
+                  Personal Information
+                </h2>
+                <p className="text-slate-600 mb-6">
+                  Tell us about yourself so we can contact you.
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -262,7 +299,9 @@ export default function ApplyApprenticeshipPage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Choose Your Program</h2>
-                <p className="text-slate-600 mb-6">Select the apprenticeship program you're interested in.</p>
+                <p className="text-slate-600 mb-6">
+                  Select the apprenticeship program you're interested in.
+                </p>
               </div>
 
               <div>
@@ -308,7 +347,9 @@ export default function ApplyApprenticeshipPage() {
                 >
                   <option value="">Select availability...</option>
                   <option value="full-time">Full-time (40 hours/week)</option>
-                  <option value="part-time">Part-time (20-30 hours/week)</option>
+                  <option value="part-time">
+                    Part-time (20-30 hours/week)
+                  </option>
                   <option value="flexible">Flexible schedule</option>
                 </select>
               </div>
@@ -331,7 +372,9 @@ export default function ApplyApprenticeshipPage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Your Background</h2>
-                <p className="text-slate-600 mb-6">Help us understand your experience and goals.</p>
+                <p className="text-slate-600 mb-6">
+                  Help us understand your experience and goals.
+                </p>
               </div>
 
               <div>
@@ -373,7 +416,9 @@ export default function ApplyApprenticeshipPage() {
                 <textarea
                   required
                   value={formData.whyApprenticeship}
-                  onChange={(e) => updateField('whyApprenticeship', e.target.value)}
+                  onChange={(e) =>
+                    updateField('whyApprenticeship', e.target.value)
+                  }
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Tell us what motivates you to pursue this apprenticeship..."
@@ -400,20 +445,34 @@ export default function ApplyApprenticeshipPage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold mb-2">Review & Submit</h2>
-                <p className="text-slate-600 mb-6">Please review your information and confirm eligibility.</p>
+                <p className="text-slate-600 mb-6">
+                  Please review your information and confirm eligibility.
+                </p>
               </div>
 
               {/* Summary */}
               <div className="bg-slate-50 rounded-lg p-6 space-y-4">
                 <div>
-                  <h3 className="font-semibold text-sm text-slate-600 mb-1">Applicant</h3>
-                  <p className="font-bold">{formData.firstName} {formData.lastName}</p>
-                  <p className="text-sm text-slate-600">{formData.email} • {formData.phone}</p>
+                  <h3 className="font-semibold text-sm text-slate-600 mb-1">
+                    Applicant
+                  </h3>
+                  <p className="font-bold">
+                    {formData.firstName} {formData.lastName}
+                  </p>
+                  <p className="text-sm text-slate-600">
+                    {formData.email} • {formData.phone}
+                  </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm text-slate-600 mb-1">Program</h3>
-                  <p className="font-bold">{formData.program || 'Not selected'}</p>
-                  <p className="text-sm text-slate-600">Start Date: {formData.startDate || 'Not specified'}</p>
+                  <h3 className="font-semibold text-sm text-slate-600 mb-1">
+                    Program
+                  </h3>
+                  <p className="font-bold">
+                    {formData.program || 'Not selected'}
+                  </p>
+                  <p className="text-sm text-slate-600">
+                    Start Date: {formData.startDate || 'Not specified'}
+                  </p>
                 </div>
               </div>
 
@@ -424,7 +483,9 @@ export default function ApplyApprenticeshipPage() {
                     type="checkbox"
                     required
                     checked={formData.eligibleToWork}
-                    onChange={(e) => updateField('eligibleToWork', e.target.checked)}
+                    onChange={(e) =>
+                      updateField('eligibleToWork', e.target.checked)
+                    }
                     className="mt-1 w-5 h-5 text-blue-600 rounded"
                   />
                   <span className="text-sm text-slate-700">
@@ -450,11 +511,27 @@ export default function ApplyApprenticeshipPage() {
                     type="checkbox"
                     required
                     checked={formData.agreeToTerms}
-                    onChange={(e) => updateField('agreeToTerms', e.target.checked)}
+                    onChange={(e) =>
+                      updateField('agreeToTerms', e.target.checked)
+                    }
                     className="mt-1 w-5 h-5 text-blue-600 rounded"
                   />
                   <span className="text-sm text-slate-700">
-                    I agree to the <Link href="/terms" className="text-blue-600 hover:underline">Terms of Service</Link> and <Link href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</Link> *
+                    I agree to the{' '}
+                    <Link
+                      href="/terms"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Terms of Service
+                    </Link>{' '}
+                    and{' '}
+                    <Link
+                      href="/privacy"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Privacy Policy
+                    </Link>{' '}
+                    *
                   </span>
                 </label>
               </div>
@@ -462,10 +539,20 @@ export default function ApplyApprenticeshipPage() {
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
                 <h3 className="font-bold text-lg mb-2">What Happens Next?</h3>
                 <ol className="space-y-2 text-sm text-slate-700">
-                  <li>1. We'll review your application within 2-3 business days</li>
-                  <li>2. If selected, we'll contact you to schedule an interview</li>
-                  <li>3. After the interview, we'll match you with a participating employer</li>
-                  <li>4. You'll start your apprenticeship and begin earning immediately!</li>
+                  <li>
+                    1. We'll review your application within 2-3 business days
+                  </li>
+                  <li>
+                    2. If selected, we'll contact you to schedule an interview
+                  </li>
+                  <li>
+                    3. After the interview, we'll match you with a participating
+                    employer
+                  </li>
+                  <li>
+                    4. You'll start your apprenticeship and begin earning
+                    immediately!
+                  </li>
                 </ol>
               </div>
             </div>

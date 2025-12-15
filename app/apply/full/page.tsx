@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import type { Metadata } from 'next';
 import QuickApplyFormClient from '../QuickApplyFormClient';
 
@@ -6,8 +8,6 @@ export const metadata: Metadata = {
   description:
     "Complete your full application for Elevate for Humanity programs. We'll review funding options like WIOA, WRG, and apprenticeships and follow up with you.",
 };
-
-export const dynamic = 'force-dynamic';
 
 export default function FullApplicationPage() {
   return (
@@ -36,14 +36,20 @@ export default function FullApplicationPage() {
           </p>
           <p className="text-sm text-slate-700 mb-1">
             Need help right now? Call us at{' '}
-            <a href="tel:3173143757" className="font-semibold text-orange-600 hover:text-orange-700">
+            <a
+              href="tel:3173143757"
+              className="font-semibold text-orange-600 hover:text-orange-700"
+            >
               317-314-3757
             </a>{' '}
             — we're here to help.
           </p>
           <p className="text-sm text-slate-600 mt-4">
             Prefer a quick inquiry?{' '}
-            <a href="/apply" className="font-semibold text-orange-600 hover:text-orange-700 underline">
+            <a
+              href="/apply"
+              className="font-semibold text-orange-600 hover:text-orange-700 underline"
+            >
               Use our quick inquiry form instead
             </a>
           </p>

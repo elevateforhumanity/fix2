@@ -22,13 +22,15 @@ export default function InstructorsPage() {
     // Load instructors with their course assignments and performance
     let query = supabase
       .from('profiles')
-      .select(`
+      .select(
+        `
         *,
         instructor_courses:course_instructors(
           course:courses(name, slug)
         ),
         instructor_ratings:instructor_reviews(rating)
-      `)
+      `
+      )
       .eq('role', 'instructor')
       .order('created_at', { ascending: false });
 
@@ -99,7 +101,9 @@ export default function InstructorsPage() {
               <Users className="h-8 w-8 text-blue-600" />
               <p className="text-sm text-gray-600">Total Instructors</p>
             </div>
-            <p className="text-3xl font-bold text-blue-600">{instructors.length}</p>
+            <p className="text-3xl font-bold text-blue-600">
+              {instructors.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center gap-3 mb-2">
@@ -107,7 +111,7 @@ export default function InstructorsPage() {
               <p className="text-sm text-gray-600">Active</p>
             </div>
             <p className="text-3xl font-bold text-green-600">
-              {instructors.filter(i => i.is_active).length}
+              {instructors.filter((i) => i.is_active).length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
@@ -116,7 +120,10 @@ export default function InstructorsPage() {
               <p className="text-sm text-gray-600">Total Courses</p>
             </div>
             <p className="text-3xl font-bold text-purple-600">
-              {instructors.reduce((acc, i) => acc + (i.instructor_courses?.length || 0), 0)}
+              {instructors.reduce(
+                (acc, i) => acc + (i.instructor_courses?.length || 0),
+                0
+              )}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
@@ -128,7 +135,11 @@ export default function InstructorsPage() {
               {instructors.length > 0
                 ? (
                     instructors.reduce(
-                      (acc, i) => acc + parseFloat(calculateAverageRating(i.instructor_ratings)),
+                      (acc, i) =>
+                        acc +
+                        parseFloat(
+                          calculateAverageRating(i.instructor_ratings)
+                        ),
                       0
                     ) / instructors.length
                   ).toFixed(1)
@@ -143,7 +154,9 @@ export default function InstructorsPage() {
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'
+                filter === 'all'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-100 text-gray-700'
               }`}
             >
               All Instructors
@@ -151,7 +164,9 @@ export default function InstructorsPage() {
             <button
               onClick={() => setFilter('active')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'active' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-700'
+                filter === 'active'
+                  ? 'bg-green-600 text-white'
+                  : 'bg-gray-100 text-gray-700'
               }`}
             >
               Active
@@ -159,7 +174,9 @@ export default function InstructorsPage() {
             <button
               onClick={() => setFilter('inactive')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'inactive' ? 'bg-gray-600 text-white' : 'bg-gray-100 text-gray-700'
+                filter === 'inactive'
+                  ? 'bg-gray-600 text-white'
+                  : 'bg-gray-100 text-gray-700'
               }`}
             >
               Inactive
@@ -173,38 +190,54 @@ export default function InstructorsPage() {
           {instructors && instructors.length > 0 ? (
             <div className="space-y-4">
               {instructors.map((instructor) => (
-                <div key={instructor.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                <div
+                  key={instructor.id}
+                  className="p-4 border rounded-lg hover:bg-gray-50"
+                >
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lg">{instructor.full_name}</h3>
-                      <p className="text-sm text-gray-600">{instructor.email}</p>
+                      <h3 className="font-semibold text-lg">
+                        {instructor.full_name}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {instructor.email}
+                      </p>
                       <div className="mt-2 flex flex-wrap gap-4 text-sm">
                         <span className="text-gray-600">
                           Courses: {instructor.instructor_courses?.length || 0}
                         </span>
                         <span className="text-gray-600 flex items-center gap-1">
                           <Star className="h-4 w-4 text-yellow-500" />
-                          Rating: {calculateAverageRating(instructor.instructor_ratings)}
+                          Rating:{' '}
+                          {calculateAverageRating(
+                            instructor.instructor_ratings
+                          )}
                         </span>
                         <span className="text-gray-600">
-                          Joined: {new Date(instructor.created_at).toLocaleDateString()}
+                          Joined:{' '}
+                          {new Date(instructor.created_at).toLocaleDateString()}
                         </span>
                       </div>
-                      {instructor.instructor_courses && instructor.instructor_courses.length > 0 && (
-                        <div className="mt-2">
-                          <p className="text-xs text-gray-500 mb-1">Teaching:</p>
-                          <div className="flex flex-wrap gap-2">
-                            {instructor.instructor_courses.map((ic: Record<string, unknown>, idx: number) => (
-                              <span
-                                key={idx}
-                                className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded"
-                              >
-                                {ic.course?.name}
-                              </span>
-                            ))}
+                      {instructor.instructor_courses &&
+                        instructor.instructor_courses.length > 0 && (
+                          <div className="mt-2">
+                            <p className="text-xs text-gray-500 mb-1">
+                              Teaching:
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                              {instructor.instructor_courses.map(
+                                (ic: Record<string, unknown>, idx: number) => (
+                                  <span
+                                    key={idx}
+                                    className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded"
+                                  >
+                                    {ic.course?.name}
+                                  </span>
+                                )
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        )}
                     </div>
                     <div className="flex items-center gap-2">
                       {instructor.is_active ? (
@@ -228,7 +261,9 @@ export default function InstructorsPage() {
               ))}
             </div>
           ) : (
-            <p className="text-gray-500 text-center py-8">No instructors found</p>
+            <p className="text-gray-500 text-center py-8">
+              No instructors found
+            </p>
           )}
         </div>
       </div>
@@ -237,9 +272,12 @@ export default function InstructorsPage() {
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
+              Join thousands who have launched successful careers through our
+              programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link

@@ -27,7 +27,11 @@ export default function ShopApplyPage() {
     message: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -53,12 +57,11 @@ export default function ShopApplyPage() {
       }
 
       setSuccess(true);
-      
+
       // Redirect to onboarding after 2 seconds
       setTimeout(() => {
         router.push('/shop/onboarding');
       }, 2000);
-
     } catch (err: any) {
       setError(err.message || 'Failed to submit application');
     } finally {
@@ -77,11 +80,10 @@ export default function ShopApplyPage() {
             Application Submitted!
           </h2>
           <p className="text-slate-600 mb-6">
-            Thank you for applying to become a shop partner. We'll review your application and contact you within 2-3 business days.
+            Thank you for applying to become a shop partner. We'll review your
+            application and contact you within 2-3 business days.
           </p>
-          <p className="text-sm text-slate-500">
-            Redirecting to onboarding...
-          </p>
+          <p className="text-sm text-slate-500">Redirecting to onboarding...</p>
         </div>
       </div>
     );
@@ -99,7 +101,8 @@ export default function ShopApplyPage() {
             </h1>
           </div>
           <p className="text-slate-600">
-            Join our network of approved training shops and help train the next generation of barbers
+            Join our network of approved training shops and help train the next
+            generation of barbers
           </p>
         </div>
       </div>
@@ -114,19 +117,27 @@ export default function ShopApplyPage() {
           <ul className="space-y-2">
             <li className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-              <span className="text-blue-900">Access to pre-screened apprentice candidates</span>
+              <span className="text-blue-900">
+                Access to pre-screened apprentice candidates
+              </span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-              <span className="text-blue-900">RAPIDS-registered apprenticeship program</span>
+              <span className="text-blue-900">
+                RAPIDS-registered apprenticeship program
+              </span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-              <span className="text-blue-900">Streamlined hours tracking and reporting</span>
+              <span className="text-blue-900">
+                Streamlined hours tracking and reporting
+              </span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-              <span className="text-blue-900">Support with compliance and documentation</span>
+              <span className="text-blue-900">
+                Support with compliance and documentation
+              </span>
             </li>
           </ul>
         </div>
@@ -323,10 +334,7 @@ export default function ShopApplyPage() {
 
             {/* Submit */}
             <div className="flex items-center justify-between pt-4 border-t border-slate-200">
-              <Link
-                href="/"
-                className="text-slate-600 hover:text-slate-900"
-              >
+              <Link href="/" className="text-slate-600 hover:text-slate-900">
                 ← Back to Home
               </Link>
               <button

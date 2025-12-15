@@ -8,18 +8,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import {
-    Zap, 
-  Image as ImageIcon, 
-  Database, 
-  Trash2, 
-  Gauge, 
-  Search, 
+  Zap,
+  Image as ImageIcon,
+  Database,
+  Trash2,
+  Gauge,
+  Search,
   Rocket,
   BookOpen,
   RefreshCw,
   CheckCircle,
   XCircle,
-  Loader2
+  Loader2,
 } from 'lucide-react';
 
 interface AutopilotTask {
@@ -38,7 +38,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Generate course content from Supabase data with AI',
     icon: BookOpen,
     script: 'build-courses',
-    category: 'build'
+    category: 'build',
   },
   {
     id: 'fix-images',
@@ -46,7 +46,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Pull missing hero banners and optimize images',
     icon: ImageIcon,
     script: 'fix-images',
-    category: 'fix'
+    category: 'fix',
   },
   {
     id: 'sync-schema',
@@ -54,7 +54,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Update Supabase schema and run migrations',
     icon: Database,
     script: 'sync-schema',
-    category: 'fix'
+    category: 'fix',
   },
   {
     id: 'clean-repo',
@@ -62,7 +62,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Remove obsolete files and optimize structure',
     icon: Trash2,
     script: 'clean-repo',
-    category: 'optimize'
+    category: 'optimize',
   },
   {
     id: 'performance-audit',
@@ -70,7 +70,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Run Lighthouse and optimize bundle size',
     icon: Gauge,
     script: 'performance-audit',
-    category: 'optimize'
+    category: 'optimize',
   },
   {
     id: 'seo-audit',
@@ -78,7 +78,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Check metadata, sitemaps, and SEO best practices',
     icon: Search,
     script: 'seo-audit',
-    category: 'optimize'
+    category: 'optimize',
   },
   {
     id: 'deploy',
@@ -86,7 +86,7 @@ const autopilots: AutopilotTask[] = [
     description: 'Build and deploy to Vercel with all checks',
     icon: Rocket,
     script: 'deploy',
-    category: 'deploy'
+    category: 'deploy',
   },
   {
     id: 'clone-repo',
@@ -94,8 +94,8 @@ const autopilots: AutopilotTask[] = [
     description: 'Create clean repo copy for resale',
     icon: RefreshCw,
     script: 'clone-repo',
-    category: 'build'
-  }
+    category: 'build',
+  },
 ];
 
 export default function AutopilotsPage() {
@@ -104,8 +104,8 @@ export default function AutopilotsPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -120,53 +120,56 @@ export default function AutopilotsPage() {
   const [selectedTask, setSelectedTask] = useState<string | null>(null);
 
   const addLog = (taskId: string, message: string) => {
-    setLogs(prev => ({
+    setLogs((prev) => ({
       ...prev,
-      [taskId]: [...(prev[taskId] || []), `[${new Date().toLocaleTimeString()}] ${message}`]
+      [taskId]: [
+        ...(prev[taskId] || []),
+        `[${new Date().toLocaleTimeString()}] ${message}`,
+      ],
     }));
   };
 
   const runAutopilot = async (task: AutopilotTask) => {
-    setRunningTasks(prev => new Set(prev).add(task.id));
-    setCompletedTasks(prev => {
+    setRunningTasks((prev) => new Set(prev).add(task.id));
+    setCompletedTasks((prev) => {
       const next = new Set(prev);
       next.delete(task.id);
       return next;
     });
-    setFailedTasks(prev => {
-            next.delete(task.id);
+    setFailedTasks((prev) => {
+      next.delete(task.id);
       return next;
     });
     setSelectedTask(task.id);
-    
+
     addLog(task.id, `Starting ${task.name}...`);
 
     try {
       const res = await fetch(`/api/autopilots/${task.script}`, {
-        method: 'POST'
+        method: 'POST',
       });
 
       if (res.ok) {
         const data = await res.json();
-        
+
         // Stream logs if available
         if (data.logs) {
           data.logs.forEach((log: string) => addLog(task.id, log));
         }
-        
+
         addLog(task.id, `✅ ${task.name} completed successfully`);
-        setCompletedTasks(prev => new Set(prev).add(task.id));
+        setCompletedTasks((prev) => new Set(prev).add(task.id));
       } else {
         const error = await res.json();
         addLog(task.id, `❌ Failed: ${error.message || 'Unknown error'}`);
-        setFailedTasks(prev => new Set(prev).add(task.id));
+        setFailedTasks((prev) => new Set(prev).add(task.id));
       }
     } catch (error: unknown) {
       addLog(task.id, `❌ Error: ${error.message}`);
-      setFailedTasks(prev => new Set(prev).add(task.id));
+      setFailedTasks((prev) => new Set(prev).add(task.id));
     } finally {
-      setRunningTasks(prev => {
-                next.delete(task.id);
+      setRunningTasks((prev) => {
+        next.delete(task.id);
         return next;
       });
     }
@@ -180,10 +183,10 @@ export default function AutopilotsPage() {
   };
 
   const categories = {
-    build: autopilots.filter(a => a.category === 'build'),
-    fix: autopilots.filter(a => a.category === 'fix'),
-    optimize: autopilots.filter(a => a.category === 'optimize'),
-    deploy: autopilots.filter(a => a.category === 'deploy')
+    build: autopilots.filter((a) => a.category === 'build'),
+    fix: autopilots.filter((a) => a.category === 'fix'),
+    optimize: autopilots.filter((a) => a.category === 'optimize'),
+    deploy: autopilots.filter((a) => a.category === 'deploy'),
   };
 
   return (
@@ -202,15 +205,22 @@ export default function AutopilotsPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
+          <p className="text-base md:text-lg mb-8 text-gray-100">
+            Transform your career with free training
+          </p>
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Autopilot Control Center</h1>
-          <p className="text-gray-600">Run automated tasks to build, fix, optimize, and deploy your platform</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Autopilot Control Center
+          </h1>
+          <p className="text-gray-600">
+            Run automated tasks to build, fix, optimize, and deploy your
+            platform
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -225,7 +235,7 @@ export default function AutopilotsPage() {
                   {tasks.map((task) => {
                     const Icon = task.icon;
                     const status = getTaskStatus(task.id);
-                    
+
                     return (
                       <div
                         key={task.id}
@@ -233,39 +243,47 @@ export default function AutopilotsPage() {
                           status === 'running'
                             ? 'border-blue-500 shadow-lg'
                             : status === 'completed'
-                            ? 'border-green-500'
-                            : status === 'failed'
-                            ? 'border-red-500'
-                            : 'border-gray-200 hover:border-blue-300'
+                              ? 'border-green-500'
+                              : status === 'failed'
+                                ? 'border-red-500'
+                                : 'border-gray-200 hover:border-blue-300'
                         }`}
                       >
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className={`p-2 rounded-lg ${
-                              status === 'running'
-                                ? 'bg-blue-100'
-                                : status === 'completed'
-                                ? 'bg-green-100'
-                                : status === 'failed'
-                                ? 'bg-red-100'
-                                : 'bg-gray-100'
-                            }`}>
-                              <Icon className={`w-5 h-5 ${
+                            <div
+                              className={`p-2 rounded-lg ${
                                 status === 'running'
-                                  ? 'text-blue-600'
+                                  ? 'bg-blue-100'
                                   : status === 'completed'
-                                  ? 'text-green-600'
-                                  : status === 'failed'
-                                  ? 'text-red-600'
-                                  : 'text-gray-600'
-                              }`} />
+                                    ? 'bg-green-100'
+                                    : status === 'failed'
+                                      ? 'bg-red-100'
+                                      : 'bg-gray-100'
+                              }`}
+                            >
+                              <Icon
+                                className={`w-5 h-5 ${
+                                  status === 'running'
+                                    ? 'text-blue-600'
+                                    : status === 'completed'
+                                      ? 'text-green-600'
+                                      : status === 'failed'
+                                        ? 'text-red-600'
+                                        : 'text-gray-600'
+                                }`}
+                              />
                             </div>
                             <div>
-                              <h3 className="font-semibold text-gray-900">{task.name}</h3>
-                              <p className="text-sm text-gray-600 mt-1">{task.description}</p>
+                              <h3 className="font-semibold text-gray-900">
+                                {task.name}
+                              </h3>
+                              <p className="text-sm text-gray-600 mt-1">
+                                {task.description}
+                              </p>
                             </div>
                           </div>
-                          
+
                           {status === 'running' && (
                             <Loader2 className="w-5 h-5 text-blue-600 animate-spin" />
                           )}
@@ -286,7 +304,9 @@ export default function AutopilotsPage() {
                               : 'bg-blue-600 hover:bg-blue-700 text-white'
                           }`}
                         >
-                          {status === 'running' ? 'Running...' : 'Run Autopilot'}
+                          {status === 'running'
+                            ? 'Running...'
+                            : 'Run Autopilot'}
                         </button>
                       </div>
                     );
@@ -303,14 +323,16 @@ export default function AutopilotsPage() {
                 <h3 className="text-white font-bold">Terminal Output</h3>
                 {selectedTask && (
                   <button
-                    onClick={() => setLogs(prev => ({ ...prev, [selectedTask]: [] }))}
+                    onClick={() =>
+                      setLogs((prev) => ({ ...prev, [selectedTask]: [] }))
+                    }
                     className="text-gray-400 hover:text-white text-xs"
                   >
                     Clear
                   </button>
                 )}
               </div>
-              
+
               {selectedTask && logs[selectedTask] ? (
                 <div className="space-y-1">
                   {logs[selectedTask].map((log, i) => (
@@ -327,35 +349,35 @@ export default function AutopilotsPage() {
             </div>
           </div>
         </div>
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );

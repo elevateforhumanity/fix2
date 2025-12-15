@@ -9,52 +9,58 @@ export default function ContactPage() {
   const contactOptions = [
     {
       title: 'Students & Applicants',
-      description: 'Ready to start your career journey? Learn about programs, funding, and enrollment.',
+      description:
+        'Ready to start your career journey? Learn about programs, funding, and enrollment.',
       image: '/images/heroes/student-career.jpg',
       href: '/apply',
       icon: '🎓',
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-orange-500 to-orange-600',
     },
     {
       title: 'Training Providers',
-      description: 'Partner with us to deliver programs through our platform and expand your reach.',
+      description:
+        'Partner with us to deliver programs through our platform and expand your reach.',
       image: '/images/heroes/training-provider-1.jpg',
       href: '/platform',
       icon: '🏫',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-blue-500 to-blue-600',
     },
     {
       title: 'Employers',
-      description: 'Build your talent pipeline and connect with skilled workers ready for employment.',
+      description:
+        'Build your talent pipeline and connect with skilled workers ready for employment.',
       image: '/images/learners/reentry-coaching.jpg',
       href: '/employers',
       icon: '💼',
-      color: 'from-green-500 to-green-600'
+      color: 'from-green-500 to-green-600',
     },
     {
       title: 'Workforce Boards',
-      description: 'Collaborate on workforce development initiatives and funding partnerships.',
+      description:
+        'Collaborate on workforce development initiatives and funding partnerships.',
       image: '/images/facilities-new/facility-8.jpg',
       href: '/platform/workforce-boards',
       icon: '🤝',
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-purple-500 to-purple-600',
     },
     {
       title: 'Platform Licensing',
-      description: 'License our platform for your organization and deliver training at scale.',
+      description:
+        'License our platform for your organization and deliver training at scale.',
       image: '/images/platform/platform-screenshot-1.png',
       href: '/platform/licensing',
       icon: '⚙️',
-      color: 'from-teal-500 to-teal-600'
+      color: 'from-teal-500 to-teal-600',
     },
     {
       title: 'General Inquiry',
-      description: 'Have a question? Get in touch with our team for any other inquiries.',
+      description:
+        'Have a question? Get in touch with our team for any other inquiries.',
       image: '/images/facilities-new/facility-1.jpg',
       href: 'mailto:elevate4humanityedu@gmail.com',
       icon: '✉️',
-      color: 'from-slate-500 to-slate-600'
-    }
+      color: 'from-slate-500 to-slate-600',
+    },
   ];
 
   return (
@@ -64,21 +70,27 @@ export default function ContactPage() {
         {/* Decorative circles */}
         <div className="absolute top-10 right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        
+
         <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
           <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
-            <span className="text-white font-bold text-sm uppercase tracking-wider">Contact Us</span>
+            <span className="text-white font-bold text-sm uppercase tracking-wider">
+              Contact Us
+            </span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Hey there, how can we help?
           </h1>
           <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto">
-            The best way to experience Elevate is to see it for yourself. Choose your path below and we'll connect you with the right team.
+            The best way to experience Elevate is to see it for yourself. Choose
+            your path below and we'll connect you with the right team.
           </p>
         </div>
 
         {/* Curved bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-white" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
+        <div
+          className="absolute bottom-0 left-0 right-0 h-24 bg-white"
+          style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }}
+        />
       </section>
 
       {/* Contact Options Grid */}
@@ -86,11 +98,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {contactOptions.map((option, idx) => (
-              <Link 
-                key={idx}
-                href={option.href}
-                className="group relative"
-              >
+              <Link key={idx} href={option.href} className="group relative">
                 <div className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                   {/* Image */}
                   <div className="relative h-72 overflow-hidden">
@@ -102,8 +110,10 @@ export default function ContactPage() {
                       quality={75}
                     />
                     {/* Gradient overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`} />
-                    
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`}
+                    />
+
                     {/* Icon badge */}
                     <div className="absolute top-6 right-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <span className="text-3xl">{option.icon}</span>
@@ -120,7 +130,9 @@ export default function ContactPage() {
                     </p>
                     <div className="mt-4 inline-flex items-center text-white font-bold group-hover:gap-2 transition-all">
                       Get Started
-                      <span className="ml-2 group-hover:ml-4 transition-all">→</span>
+                      <span className="ml-2 group-hover:ml-4 transition-all">
+                        →
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -134,7 +146,7 @@ export default function ContactPage() {
       <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
         {/* Decorative shapes */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full opacity-20 blur-3xl" />
-        
+
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Call Now */}
@@ -146,9 +158,10 @@ export default function ContactPage() {
                 Prefer to call now?
               </h2>
               <p className="text-slate-600 mb-6 leading-relaxed">
-                You can reach us Monday-Friday, 8am-5pm EST. Our advisors are ready to help you find the right program.
+                You can reach us Monday-Friday, 8am-5pm EST. Our advisors are
+                ready to help you find the right program.
               </p>
-              <a 
+              <a
                 href="tel:3173143757"
                 className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
               >
@@ -165,9 +178,10 @@ export default function ContactPage() {
                 Send us an email
               </h2>
               <p className="text-slate-600 mb-6 leading-relaxed">
-                Have a detailed question? Email us and we'll respond within 24 hours with the information you need.
+                Have a detailed question? Email us and we'll respond within 24
+                hours with the information you need.
               </p>
-              <a 
+              <a
                 href="mailto:elevate4humanityedu@gmail.com"
                 className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
               >
@@ -184,13 +198,14 @@ export default function ContactPage() {
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl" />
-            
+
             <div className="relative z-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Already enrolled?
               </h2>
               <p className="text-white/80 text-lg mb-8">
-                Sign in to access your courses, track progress, and manage your account.
+                Sign in to access your courses, track progress, and manage your
+                account.
               </p>
               <Link
                 href="/login"

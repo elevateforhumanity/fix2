@@ -8,9 +8,21 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import {
-    Plus, Calendar, TrendingUp, Users, Share2, 
-  Facebook, Twitter, Linkedin, Instagram, Clock,
-  Play, Pause, Edit, Trash2, BarChart3
+  Plus,
+  Calendar,
+  TrendingUp,
+  Users,
+  Share2,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Clock,
+  Play,
+  Pause,
+  Edit,
+  Trash2,
+  BarChart3,
 } from 'lucide-react';
 
 interface Campaign {
@@ -30,8 +42,8 @@ export default function SocialMediaPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -39,7 +51,7 @@ export default function SocialMediaPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-    const [campaigns, setCampaigns] = useState<Campaign[]>([
+  const [campaigns, setCampaigns] = useState<Campaign[]>([
     {
       id: '1',
       name: 'Barber Program Promotion',
@@ -48,7 +60,7 @@ export default function SocialMediaPage() {
       platforms: ['facebook', 'twitter', 'linkedin'],
       postsScheduled: 90,
       lastPost: '2025-12-07T10:00:00Z',
-      nextPost: '2025-12-07T14:00:00Z'
+      nextPost: '2025-12-07T14:00:00Z',
     },
     {
       id: '2',
@@ -58,7 +70,7 @@ export default function SocialMediaPage() {
       platforms: ['facebook', 'instagram', 'linkedin'],
       postsScheduled: 60,
       lastPost: '2025-12-07T09:30:00Z',
-      nextPost: '2025-12-07T13:30:00Z'
+      nextPost: '2025-12-07T13:30:00Z',
     },
     {
       id: '3',
@@ -68,16 +80,18 @@ export default function SocialMediaPage() {
       platforms: ['facebook', 'twitter'],
       postsScheduled: 30,
       lastPost: '2025-12-06T12:00:00Z',
-      nextPost: null
+      nextPost: null,
     },
   ]);
 
   const toggleStatus = (id: string) => {
-    setCampaigns(campaigns.map(c => 
-      c.id === id 
-        ? { ...c, status: c.status === 'active' ? 'paused' : 'active' }
-        : c
-    ));
+    setCampaigns(
+      campaigns.map((c) =>
+        c.id === id
+          ? { ...c, status: c.status === 'active' ? 'paused' : 'active' }
+          : c
+      )
+    );
   };
 
   return (
@@ -123,10 +137,14 @@ export default function SocialMediaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Social Media Automation</h1>
-              <p className="text-gray-600 mt-1">Au to Facebook, Twitter, LinkedIn, Instagram 3x daily</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Social Media Automation
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Au to Facebook, Twitter, LinkedIn, Instagram 3x daily
+              </p>
             </div>
-            
+
             <button
               onClick={() => router.push('/admin/social-media/campaigns/new')}
               className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
@@ -146,7 +164,7 @@ export default function SocialMediaPage() {
               <Share2 className="w-8 h-8 text-blue-600" />
             </div>
             <div className="text-2xl font-bold text-gray-900">
-              {campaigns.filter(c => c.status === 'active').length}
+              {campaigns.filter((c) => c.status === 'active').length}
             </div>
             <div className="text-sm text-gray-600">Active Campaigns</div>
           </div>
@@ -180,7 +198,9 @@ export default function SocialMediaPage() {
 
         {/* Connected Platforms */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Connected Platforms</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            Connected Platforms
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <PlatformCard
               name="Facebook"
@@ -215,18 +235,34 @@ export default function SocialMediaPage() {
 
         {/* Posting Schedule */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Daily Posting Schedule (3x Daily)</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            Daily Posting Schedule (3x Daily)
+          </h2>
           <div className="space-y-4">
-            <ScheduleSlot time="9:00 AM EST" status="completed" campaign="Barber Program Promotion" />
-            <ScheduleSlot time="1:00 PM EST" status="upcoming" campaign="Student Success Stories" />
-            <ScheduleSlot time="5:00 PM EST" status="scheduled" campaign="WIOA Eligibility Info" />
+            <ScheduleSlot
+              time="9:00 AM EST"
+              status="completed"
+              campaign="Barber Program Promotion"
+            />
+            <ScheduleSlot
+              time="1:00 PM EST"
+              status="upcoming"
+              campaign="Student Success Stories"
+            />
+            <ScheduleSlot
+              time="5:00 PM EST"
+              status="scheduled"
+              campaign="WIOA Eligibility Info"
+            />
           </div>
         </div>
 
         {/* Campaigns List */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-gray-900">Your Campaigns</h2>
+            <h2 className="text-xl font-semibold text-gray-900">
+              Your Campaigns
+            </h2>
             <button
               onClick={() => router.push('/admin/social-media/analytics')}
               className="flex items-center space-x-2 text-blue-600 hover:text-blue-700"
@@ -238,26 +274,41 @@ export default function SocialMediaPage() {
 
           <div className="divide-y divide-gray-200">
             {campaigns.map((campaign) => (
-              <div key={campaign.id} className="p-6 hover:bg-gray-50 transition-colors">
+              <div
+                key={campaign.id}
+                className="p-6 hover:bg-gray-50 transition-colors"
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      <h3 className="text-lg font-semibold text-gray-900">{campaign.name}</h3>
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        campaign.status === 'active' ? 'bg-green-100 text-green-800' :
-                        campaign.status === 'paused' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-gray-100 text-gray-800'
-                      }`}>
-                        {campaign.status === 'active' ? '● Active' : 
-                         campaign.status === 'paused' ? '⏸ Paused' : 
-                         '○ Draft'}
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        {campaign.name}
+                      </h3>
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          campaign.status === 'active'
+                            ? 'bg-green-100 text-green-800'
+                            : campaign.status === 'paused'
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-gray-100 text-gray-800'
+                        }`}
+                      >
+                        {campaign.status === 'active'
+                          ? '● Active'
+                          : campaign.status === 'paused'
+                            ? '⏸ Paused'
+                            : '○ Draft'}
                       </span>
                     </div>
-                    
+
                     <div className="flex items-center space-x-6 text-sm text-gray-600 mb-3">
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
-                        <span>{campaign.frequency === '3x-daily' ? '3x Daily' : campaign.frequency}</span>
+                        <span>
+                          {campaign.frequency === '3x-daily'
+                            ? '3x Daily'
+                            : campaign.frequency}
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
@@ -266,7 +317,10 @@ export default function SocialMediaPage() {
                       {campaign.nextPost && (
                         <div className="flex items-center space-x-2">
                           <Clock className="w-4 h-4" />
-                          <span>Next: {new Date(campaign.nextPost).toLocaleTimeString()}</span>
+                          <span>
+                            Next:{' '}
+                            {new Date(campaign.nextPost).toLocaleTimeString()}
+                          </span>
                         </div>
                       )}
                     </div>
@@ -277,10 +331,18 @@ export default function SocialMediaPage() {
                           key={platform}
                           className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800"
                         >
-                          {platform === 'facebook' && <Facebook className="w-3 h-3 mr-1" />}
-                          {platform === 'twitter' && <Twitter className="w-3 h-3 mr-1" />}
-                          {platform === 'linkedin' && <Linkedin className="w-3 h-3 mr-1" />}
-                          {platform === 'instagram' && <Instagram className="w-3 h-3 mr-1" />}
+                          {platform === 'facebook' && (
+                            <Facebook className="w-3 h-3 mr-1" />
+                          )}
+                          {platform === 'twitter' && (
+                            <Twitter className="w-3 h-3 mr-1" />
+                          )}
+                          {platform === 'linkedin' && (
+                            <Linkedin className="w-3 h-3 mr-1" />
+                          )}
+                          {platform === 'instagram' && (
+                            <Instagram className="w-3 h-3 mr-1" />
+                          )}
                           {platform.charAt(0).toUpperCase() + platform.slice(1)}
                         </span>
                       ))}
@@ -295,7 +357,9 @@ export default function SocialMediaPage() {
                           ? 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
                           : 'bg-green-100 text-green-700 hover:bg-green-200'
                       }`}
-                      title={campaign.status === 'active' ? 'Pause' : 'Activate'}
+                      title={
+                        campaign.status === 'active' ? 'Pause' : 'Activate'
+                      }
                     >
                       {campaign.status === 'active' ? (
                         <Pause className="w-4 h-4" />
@@ -303,19 +367,25 @@ export default function SocialMediaPage() {
                         <Play className="w-4 h-4" />
                       )}
                     </button>
-                    
+
                     <button
-                      onClick={() => router.push(`/admin/social-media/campaigns/${campaign.id}/edit`)}
+                      onClick={() =>
+                        router.push(
+                          `/admin/social-media/campaigns/${campaign.id}/edit`
+                        )
+                      }
                       className="p-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors"
                       title="Edit"
                     >
                       <Edit className="w-4 h-4" />
                     </button>
-                    
+
                     <button
                       onClick={() => {
                         if (confirm('Delete this campaign?')) {
-                          setCampaigns(campaigns.filter(c => c.id !== campaign.id));
+                          setCampaigns(
+                            campaigns.filter((c) => c.id !== campaign.id)
+                          );
                         }
                       }}
                       className="p-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors"
@@ -329,92 +399,141 @@ export default function SocialMediaPage() {
             ))}
           </div>
         </div>
-      
-      {/* Storytelling Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
-                  Your Journey Starts Here
-                </h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Students learning"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+
+        {/* Storytelling Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+                    Your Journey Starts Here
+                  </h2>
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Every great career begins with a single step. Whether you're
+                    looking to change careers, upgrade your skills, or enter the
+                    workforce for the first time, we're here to help you
+                    succeed. Our programs are 100% free, government-funded, and
+                    designed to get you hired fast.
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        100% free training - no tuition, no hidden costs
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Industry-recognized certifications that employers value
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Job placement assistance and career support
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Flexible scheduling for working adults
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/gallery/image3.jpg"
+                    alt="Students learning"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );
@@ -428,7 +547,13 @@ interface PlatformCardProps {
   followers: string;
 }
 
-function PlatformCard({ name, icon: Icon, color, connected, followers }: PlatformCardProps) {
+function PlatformCard({
+  name,
+  icon: Icon,
+  color,
+  connected,
+  followers,
+}: PlatformCardProps) {
   return (
     <div className="border-2 border-gray-200 rounded-lg p-4">
       <div className="flex items-center justify-between mb-3">
@@ -455,7 +580,7 @@ function ScheduleSlot({ time, status, campaign }: ScheduleSlotProps) {
   const statusColors = {
     completed: 'bg-green-100 text-green-800',
     upcoming: 'bg-blue-100 text-blue-800',
-    scheduled: 'bg-gray-100 text-gray-800'
+    scheduled: 'bg-gray-100 text-gray-800',
   };
 
   return (
@@ -467,8 +592,14 @@ function ScheduleSlot({ time, status, campaign }: ScheduleSlotProps) {
           <div className="text-sm text-gray-600">{campaign}</div>
         </div>
       </div>
-      <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${statusColors[status]}`}>
-        {status === 'completed' ? '✓ Posted' : status === 'upcoming' ? '→ Next' : '○ Scheduled'}
+      <span
+        className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${statusColors[status]}`}
+      >
+        {status === 'completed'
+          ? '✓ Posted'
+          : status === 'upcoming'
+            ? '→ Next'
+            : '○ Scheduled'}
       </span>
     </div>
   );

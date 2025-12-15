@@ -1,19 +1,19 @@
-import { createClient } from "@/lib/supabase/server";
-import { redirect } from "next/navigation";
+export const dynamic = 'force-dynamic';
 
-export const dynamic = "force-dynamic";
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 async function requireAdmin(supabase: any) {
   const { data } = await supabase.auth.getUser();
   if (!data?.user) return false;
 
   const { data: profile } = await supabase
-    .from("user_profiles")
-    .select("role")
-    .eq("user_id", data.user.id)
+    .from('user_profiles')
+    .select('role')
+    .eq('user_id', data.user.id)
     .single();
 
-  return profile?.role === "admin";
+  return profile?.role === 'admin';
 }
 
 export default async function PartnerInquiriesAdminPage() {
@@ -30,23 +30,23 @@ export default async function PartnerInquiriesAdminPage() {
   }
 
   const { data: rows } = await supabase
-    .from("partner_inquiries")
-    .select("*")
-    .order("submitted_at", { ascending: false });
+    .from('partner_inquiries')
+    .select('*')
+    .order('submitted_at', { ascending: false });
 
   async function updateStatus(formData: FormData) {
-    "use server";
-    const id = String(formData.get("id"));
-    const status = String(formData.get("status"));
-    const notes = String(formData.get("internal_notes") || "");
+    'use server';
+    const id = String(formData.get('id'));
+    const status = String(formData.get('status'));
+    const notes = String(formData.get('internal_notes') || '');
 
     const supabase2 = await createClient();
     await supabase2
-      .from("partner_inquiries")
+      .from('partner_inquiries')
       .update({ status, notes, reviewed_at: new Date().toISOString() })
-      .eq("id", id);
+      .eq('id', id);
 
-    redirect("/admin/partner-inquiries");
+    redirect('/admin/partner-inquiries');
   }
 
   return (
@@ -58,29 +58,35 @@ export default async function PartnerInquiriesAdminPage() {
 
       <div className="mt-8 space-y-4">
         {(rows || []).map((r: any) => (
-          <div key={r.id} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <div
+            key={r.id}
+            className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
+          >
             <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
               <div className="flex-1">
-                <div className="text-lg font-bold text-zinc-900">{r.full_name}</div>
+                <div className="text-lg font-bold text-zinc-900">
+                  {r.full_name}
+                </div>
                 <div className="text-sm text-zinc-700">
-                  {r.organization || "—"} • {r.email} • {r.phone || "—"}
+                  {r.organization || '—'} • {r.email} • {r.phone || '—'}
                 </div>
                 <div className="mt-2 text-sm text-zinc-700">
-                  <span className="font-semibold">Type:</span> {r.relationship_type}
+                  <span className="font-semibold">Type:</span>{' '}
+                  {r.relationship_type}
                 </div>
                 <div className="mt-2 text-sm text-zinc-700">
                   <span className="font-semibold">Seeking:</span> {r.seeking}
                 </div>
                 <div className="mt-2 text-sm text-zinc-700 whitespace-pre-wrap">
-                  <span className="font-semibold">Value:</span>{" "}
-                  {r.resources}
+                  <span className="font-semibold">Value:</span> {r.resources}
                 </div>
                 <div className="mt-2 text-sm text-zinc-700">
-                  <span className="font-semibold">Written Agreement:</span> {r.written_agreement}
+                  <span className="font-semibold">Written Agreement:</span>{' '}
+                  {r.written_agreement}
                 </div>
                 {r.additional_info && (
                   <div className="mt-2 text-sm text-zinc-700 whitespace-pre-wrap">
-                    <span className="font-semibold">Additional:</span>{" "}
+                    <span className="font-semibold">Additional:</span>{' '}
                     {r.additional_info}
                   </div>
                 )}
@@ -92,7 +98,10 @@ export default async function PartnerInquiriesAdminPage() {
                 </div>
               </div>
 
-              <form action={updateStatus} className="mt-4 md:mt-0 md:w-[360px] space-y-2">
+              <form
+                action={updateStatus}
+                className="mt-4 md:mt-0 md:w-[360px] space-y-2"
+              >
                 <input type="hidden" name="id" value={r.id} />
                 <label className="block text-sm font-semibold text-zinc-800">
                   Status
@@ -113,7 +122,7 @@ export default async function PartnerInquiriesAdminPage() {
                 </label>
                 <textarea
                   name="internal_notes"
-                  defaultValue={r.notes || ""}
+                  defaultValue={r.notes || ''}
                   rows={3}
                   className="w-full rounded-xl border border-zinc-300 px-3 py-2 text-sm"
                 />

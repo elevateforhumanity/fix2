@@ -6,7 +6,13 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ExternalLink, CheckCircle, Clock, XCircle, AlertCircle } from 'lucide-react';
+import {
+  ExternalLink,
+  CheckCircle,
+  Clock,
+  XCircle,
+  AlertCircle,
+} from 'lucide-react';
 
 export default function ExternalModulesPage() {
   const supabase = createClient();
@@ -23,11 +29,13 @@ export default function ExternalModulesPage() {
     // Load external modules
     let query = supabase
       .from('external_modules')
-      .select(`
+      .select(
+        `
         *,
         provider:training_providers(name),
         enrollments:external_module_enrollments(count)
-      `)
+      `
+      )
       .order('created_at', { ascending: false });
 
     if (filter !== 'all') {
@@ -40,10 +48,12 @@ export default function ExternalModulesPage() {
     // Load pending approvals
     const { data: pendingData } = await supabase
       .from('external_modules')
-      .select(`
+      .select(
+        `
         *,
         provider:training_providers(name)
-      `)
+      `
+      )
       .eq('approval_status', 'pending')
       .order('created_at', { ascending: false });
 
@@ -54,10 +64,10 @@ export default function ExternalModulesPage() {
   async function approveModule(moduleId: string) {
     const { error } = await supabase
       .from('external_modules')
-      .update({ 
+      .update({
         approval_status: 'approved',
         approved_at: new Date().toISOString(),
-        approved_by: (await supabase.auth.getUser()).data.user?.id
+        approved_by: (await supabase.auth.getUser()).data.user?.id,
       })
       .eq('id', moduleId);
 
@@ -69,10 +79,10 @@ export default function ExternalModulesPage() {
   async function rejectModule(moduleId: string) {
     const { error } = await supabase
       .from('external_modules')
-      .update({ 
+      .update({
         approval_status: 'rejected',
         rejected_at: new Date().toISOString(),
-        rejected_by: (await supabase.auth.getUser()).data.user?.id
+        rejected_by: (await supabase.auth.getUser()).data.user?.id,
       })
       .eq('id', moduleId);
 
@@ -133,17 +143,19 @@ export default function ExternalModulesPage() {
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <p className="text-sm text-gray-600 mb-2">Active</p>
             <p className="text-3xl font-bold text-green-600">
-              {modules.filter(m => m.status === 'active').length}
+              {modules.filter((m) => m.status === 'active').length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <p className="text-sm text-gray-600 mb-2">Pending Approval</p>
-            <p className="text-3xl font-bold text-orange-600">{pendingApprovals.length}</p>
+            <p className="text-3xl font-bold text-orange-600">
+              {pendingApprovals.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <p className="text-sm text-gray-600 mb-2">Inactive</p>
             <p className="text-3xl font-bold text-gray-600">
-              {modules.filter(m => m.status === 'inactive').length}
+              {modules.filter((m) => m.status === 'inactive').length}
             </p>
           </div>
         </div>
@@ -154,7 +166,9 @@ export default function ExternalModulesPage() {
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'
+                filter === 'all'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-100 text-gray-700'
               }`}
             >
               All Modules
@@ -162,7 +176,9 @@ export default function ExternalModulesPage() {
             <button
               onClick={() => setFilter('active')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'active' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-700'
+                filter === 'active'
+                  ? 'bg-green-600 text-white'
+                  : 'bg-gray-100 text-gray-700'
               }`}
             >
               Active
@@ -170,7 +186,9 @@ export default function ExternalModulesPage() {
             <button
               onClick={() => setFilter('pending')}
               className={`px-4 py-2 rounded-lg font-medium ${
-                filter === 'pending' ? 'bg-orange-600 text-white' : 'bg-gray-100 text-gray-700'
+                filter === 'pending'
+                  ? 'bg-orange-600 text-white'
+                  : 'bg-gray-100 text-gray-700'
               }`}
             >
               Pending
@@ -187,7 +205,10 @@ export default function ExternalModulesPage() {
             </h2>
             <div className="space-y-4">
               {pendingApprovals.map((module) => (
-                <div key={module.id} className="p-4 border rounded-lg bg-orange-50">
+                <div
+                  key={module.id}
+                  className="p-4 border rounded-lg bg-orange-50"
+                >
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="font-semibold text-lg">{module.name}</h3>
@@ -195,7 +216,8 @@ export default function ExternalModulesPage() {
                         Provider: {module.provider?.name || 'Unknown'}
                       </p>
                       <p className="text-sm text-gray-600">
-                        Submitted: {new Date(module.created_at).toLocaleDateString()}
+                        Submitted:{' '}
+                        {new Date(module.created_at).toLocaleDateString()}
                       </p>
                     </div>
                     <div className="flex gap-2">
@@ -225,7 +247,10 @@ export default function ExternalModulesPage() {
           {modules && modules.length > 0 ? (
             <div className="space-y-4">
               {modules.map((module) => (
-                <div key={module.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                <div
+                  key={module.id}
+                  className="p-4 border rounded-lg hover:bg-gray-50"
+                >
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="font-semibold text-lg flex items-center gap-2">
@@ -236,7 +261,8 @@ export default function ExternalModulesPage() {
                         Provider: {module.provider?.name || 'Unknown'}
                       </p>
                       <p className="text-sm text-gray-600">
-                        Created: {new Date(module.created_at).toLocaleDateString()}
+                        Created:{' '}
+                        {new Date(module.created_at).toLocaleDateString()}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
@@ -264,7 +290,9 @@ export default function ExternalModulesPage() {
               ))}
             </div>
           ) : (
-            <p className="text-gray-500 text-center py-8">No external modules found</p>
+            <p className="text-gray-500 text-center py-8">
+              No external modules found
+            </p>
           )}
         </div>
       </div>
@@ -273,9 +301,12 @@ export default function ExternalModulesPage() {
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
+              Join thousands who have launched successful careers through our
+              programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link

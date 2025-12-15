@@ -1,80 +1,85 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Admin | Elevate For Humanity',
   description: 'Admin dashboard',
 };
 
 export default async function DelegateDashboardPage() {
-
-  const supabase = await createClient(  );
-  const { data: { user } } = await supabase.auth.getUser(  );
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect('/login'  );
+    redirect('/login');
   }
 
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
-    .single(  );
+    .single();
 
   if (!profile) {
-    redirect('/login'  );
+    redirect('/login');
   }
 
   // Fetch dashboard data
   const { count: totalStudents } = await supabase
     .from('profiles')
     .select('*', { count: 'exact', head: true })
-    .eq('role', 'student'  );
+    .eq('role', 'student');
 
   const { count: totalEnrollments } = await supabase
     .from('enrollments')
-    .select('*', { count: 'exact', head: true }  );
+    .select('*', { count: 'exact', head: true });
 
   const { count: activeEnrollments } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact', head: true })
-    .eq('status', 'active'  );
+    .eq('status', 'active');
 
   const { count: completedEnrollments } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact', head: true })
-    .eq('status', 'completed'  );
+    .eq('status', 'completed');
 
   const { count: totalPrograms } = await supabase
     .from('programs')
     .select('*', { count: 'exact', head: true })
-    .eq('is_active', true  );
+    .eq('is_active', true);
 
   const { count: totalCourses } = await supabase
     .from('courses')
     .select('*', { count: 'exact', head: true })
-    .eq('is_published', true  );
+    .eq('is_published', true);
 
-  const completionRate = totalEnrollments && totalEnrollments > 0
-    ? Math.round(((completedEnrollments || 0) / totalEnrollments) * 100)
-    : 0;
+  const completionRate =
+    totalEnrollments && totalEnrollments > 0
+      ? Math.round(((completedEnrollments || 0) / totalEnrollments) * 100)
+      : 0;
 
   // Recent activity
   const { data: recentEnrollments } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       id,
       created_at,
       status,
       profiles!enrollments_user_id_fkey (full_name, email),
       courses (title)
-    `)
+    `
+    )
     .order('created_at', { ascending: false })
-    .limit(10  );
+    .limit(10);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -104,8 +109,12 @@ export default async function DelegateDashboardPage() {
       <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Delegate Dashboard</h1>
-            <p className="text-base md:text-lg text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
+            <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">
+              Delegate Dashboard
+            </h1>
+            <p className="text-base md:text-lg text-blue-100">
+              Welcome back, {profile.full_name || profile.email}
+            </p>
           </div>
         </div>
       </section>
@@ -115,23 +124,39 @@ export default async function DelegateDashboardPage() {
           {/* Key Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Total Students</h3>
-              <p className="text-3xl font-bold text-blue-600">{totalStudents || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">
+                Total Students
+              </h3>
+              <p className="text-3xl font-bold text-blue-600">
+                {totalStudents || 0}
+              </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Active Enrollments</h3>
-              <p className="text-3xl font-bold text-green-600">{activeEnrollments || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">
+                Active Enrollments
+              </h3>
+              <p className="text-3xl font-bold text-green-600">
+                {activeEnrollments || 0}
+              </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Completion Rate</h3>
-              <p className="text-3xl font-bold text-purple-600">{completionRate}%</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">
+                Completion Rate
+              </h3>
+              <p className="text-3xl font-bold text-purple-600">
+                {completionRate}%
+              </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Active Programs</h3>
-              <p className="text-3xl font-bold text-orange-600">{totalPrograms || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">
+                Active Programs
+              </h3>
+              <p className="text-3xl font-bold text-orange-600">
+                {totalPrograms || 0}
+              </p>
             </div>
           </div>
 
@@ -146,7 +171,9 @@ export default async function DelegateDashboardPage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Completed</span>
-                  <span className="font-semibold text-green-600">{completedEnrollments || 0}</span>
+                  <span className="font-semibold text-green-600">
+                    {completedEnrollments || 0}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Active Courses</span>
@@ -163,21 +190,27 @@ export default async function DelegateDashboardPage() {
                   className="block p-3 border rounded-lg hover:bg-gray-50 transition"
                 >
                   <div className="font-semibold">View Students</div>
-                  <div className="text-sm text-gray-600">Manage student accounts</div>
+                  <div className="text-sm text-gray-600">
+                    Manage student accounts
+                  </div>
                 </Link>
                 <Link
                   href="/admin/programs"
                   className="block p-3 border rounded-lg hover:bg-gray-50 transition"
                 >
                   <div className="font-semibold">View Programs</div>
-                  <div className="text-sm text-gray-600">Manage training programs</div>
+                  <div className="text-sm text-gray-600">
+                    Manage training programs
+                  </div>
                 </Link>
                 <Link
                   href="/admin/reports"
                   className="block p-3 border rounded-lg hover:bg-gray-50 transition"
                 >
                   <div className="font-semibold">View Reports</div>
-                  <div className="text-sm text-gray-600">Access analytics and insights</div>
+                  <div className="text-sm text-gray-600">
+                    Access analytics and insights
+                  </div>
                 </Link>
               </div>
             </div>
@@ -193,27 +226,41 @@ export default async function DelegateDashboardPage() {
                 <table className="w-full">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Student</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Course</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                        Student
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                        Course
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                        Status
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                        Date
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {recentEnrollments.map((enrollment) => (
                       <tr key={enrollment.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4 text-sm text-gray-900">
-                          {enrollment.profiles?.full_name || enrollment.profiles?.email || 'N/A'}
+                          {enrollment.profiles?.full_name ||
+                            enrollment.profiles?.email ||
+                            'N/A'}
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-900">
                           {enrollment.courses?.title || 'N/A'}
                         </td>
                         <td className="px-6 py-4 text-sm">
-                          <span className={`px-2 py-1 rounded-full text-xs ${
-                            enrollment.status === 'completed' ? 'bg-green-100 text-green-800' :
-                            enrollment.status === 'active' ? 'bg-blue-100 text-blue-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs ${
+                              enrollment.status === 'completed'
+                                ? 'bg-green-100 text-green-800'
+                                : enrollment.status === 'active'
+                                  ? 'bg-blue-100 text-blue-800'
+                                  : 'bg-gray-100 text-gray-800'
+                            }`}
+                          >
                             {enrollment.status}
                           </span>
                         </td>
@@ -232,34 +279,35 @@ export default async function DelegateDashboardPage() {
             </div>
           </div>
         </div>
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Take the first step toward a better career today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
-              >
-                Apply Now
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg"
-              >
-                View Programs
-              </Link>
+
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Get Started?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Take the first step toward a better career today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
+                >
+                  Apply Now
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg"
+                >
+                  View Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </div>
   );
 }
-

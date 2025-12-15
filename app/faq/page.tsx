@@ -14,7 +14,7 @@ const faqCategories = [
     questions: [
       {
         q: 'How do I apply for a program?',
-        a: 'You can apply online through our website by visiting the Apply page, calling us at 317-314-3757, or visiting our office. The application takes about 5-10 minutes to complete. You\'ll need basic information about yourself, your education history, and your career goals.',
+        a: "You can apply online through our website by visiting the Apply page, calling us at 317-314-3757, or visiting our office. The application takes about 5-10 minutes to complete. You'll need basic information about yourself, your education history, and your career goals.",
       },
       {
         q: 'Are your programs really 100% free?',
@@ -41,7 +41,7 @@ const faqCategories = [
     questions: [
       {
         q: 'What programs do you offer?',
-        a: 'We offer 8 career training programs: HVAC Technician, Barber Apprenticeship, CNA (Certified Nursing Assistant), CDL (Commercial Driver\'s License), Medical Assistant, Building Maintenance, Building Technician, and Workforce Readiness. Each program is designed to get you job-ready in weeks, not years.',
+        a: "We offer 8 career training programs: HVAC Technician, Barber Apprenticeship, CNA (Certified Nursing Assistant), CDL (Commercial Driver's License), Medical Assistant, Building Maintenance, Building Technician, and Workforce Readiness. Each program is designed to get you job-ready in weeks, not years.",
       },
       {
         q: 'How long are the programs?',
@@ -53,7 +53,7 @@ const faqCategories = [
       },
       {
         q: 'What certifications will I earn?',
-        a: 'You\'ll earn industry-recognized certifications specific to your program: CNA State Certification, CDL Class A License, EPA 608 Certification (HVAC), State Barber License, Medical Assistant Certification, and more. These are the same certifications employers require.',
+        a: "You'll earn industry-recognized certifications specific to your program: CNA State Certification, CDL Class A License, EPA 608 Certification (HVAC), State Barber License, Medical Assistant Certification, and more. These are the same certifications employers require.",
       },
       {
         q: 'Can I work while in the program?',
@@ -71,7 +71,7 @@ const faqCategories = [
         a: 'WIOA (Workforce Innovation and Opportunity Act) is federal funding that pays for job training for eligible individuals. If you meet income guidelines or face barriers to employment, WIOA can cover your entire training cost including tuition, books, supplies, and sometimes transportation and childcare.',
       },
       {
-        q: 'What if I don\'t qualify for WIOA?',
+        q: "What if I don't qualify for WIOA?",
         a: 'We have multiple funding options: WRG (Workforce Ready Grant), JRI (Justice Reinvestment Initiative) for those with justice involvement, registered apprenticeships, employer sponsorship, and payment plans. We help you find the right funding source during your consultation.',
       },
       {
@@ -79,12 +79,12 @@ const faqCategories = [
         a: 'Yes! For WIOA-eligible students, we can provide gas cards, bus passes, or mileage reimbursement. We understand transportation is often a barrier to training, and we work to remove that barrier.',
       },
       {
-        q: 'What about childcare while I\'m in class?',
+        q: "What about childcare while I'm in class?",
         a: 'WIOA funding can cover childcare costs for eligible students. We work with local childcare providers and can help arrange and pay for childcare so you can focus on your training.',
       },
       {
         q: 'Are there any hidden fees?',
-        a: 'No hidden fees! If you\'re funded through WIOA, WRG, or JRI, everything is covered: tuition, books, supplies, certification exam fees, and support services. You pay nothing out of pocket.',
+        a: "No hidden fees! If you're funded through WIOA, WRG, or JRI, everything is covered: tuition, books, supplies, certification exam fees, and support services. You pay nothing out of pocket.",
       },
     ],
   },
@@ -106,12 +106,12 @@ const faqCategories = [
         a: 'Yes! WIOA funding can cover work clothes, uniforms, tools, and equipment needed for your program or job. We want to make sure you have everything you need to succeed.',
       },
       {
-        q: 'What if I\'m struggling in class?',
+        q: "What if I'm struggling in class?",
         a: 'We provide tutoring, one-on-one support, and flexible scheduling if you need extra help. Our instructors are committed to your success and will work with you to ensure you understand the material and pass your certification exams.',
       },
       {
         q: 'Do you offer mental health or counseling services?',
-        a: 'We have partnerships with local mental health providers and can connect you with counseling services, substance abuse support, and other wraparound services. We understand that life challenges can affect your training, and we\'re here to help.',
+        a: "We have partnerships with local mental health providers and can connect you with counseling services, substance abuse support, and other wraparound services. We understand that life challenges can affect your training, and we're here to help.",
       },
     ],
   },
@@ -122,22 +122,22 @@ const faqCategories = [
     questions: [
       {
         q: 'I have a criminal record. Can I still enroll?',
-        a: 'Yes! We welcome individuals with criminal records. Our JRI (Justice Reinvestment Initiative) program specifically serves people with justice involvement. Some programs like CNA and Medical Assistant may have background check requirements, but we\'ll work with you to find the right program.',
+        a: "Yes! We welcome individuals with criminal records. Our JRI (Justice Reinvestment Initiative) program specifically serves people with justice involvement. Some programs like CNA and Medical Assistant may have background check requirements, but we'll work with you to find the right program.",
       },
       {
-        q: 'I\'m over 50. Am I too old for training?',
-        a: 'Absolutely not! We serve students of all ages. Many of our most successful graduates are over 50. Age brings maturity, work ethic, and life experience that employers value. It\'s never too late for a career change.',
+        q: "I'm over 50. Am I too old for training?",
+        a: "Absolutely not! We serve students of all ages. Many of our most successful graduates are over 50. Age brings maturity, work ethic, and life experience that employers value. It's never too late for a career change.",
       },
       {
-        q: 'I don\'t speak English well. Can you help?',
-        a: 'We offer ESL (English as a Second Language) support and can connect you with language learning resources. Some programs may require a certain English proficiency level, but we\'ll work with you to build those skills.',
+        q: "I don't speak English well. Can you help?",
+        a: "We offer ESL (English as a Second Language) support and can connect you with language learning resources. Some programs may require a certain English proficiency level, but we'll work with you to build those skills.",
       },
       {
         q: 'I have a disability. Are your programs accessible?',
         a: 'Yes! We provide reasonable accommodations for students with disabilities. This may include assistive technology, modified schedules, or additional support services. Contact us to discuss your specific needs.',
       },
       {
-        q: 'I\'m a veteran. Do you have special programs?',
+        q: "I'm a veteran. Do you have special programs?",
         a: 'We welcome veterans and can help you use your VA benefits for training. We also have partnerships with veteran service organizations and understand the unique needs of transitioning service members.',
       },
     ],
@@ -149,15 +149,15 @@ const faqCategories = [
     questions: [
       {
         q: 'Do I need a computer for online classes?',
-        a: 'For programs with online components, you\'ll need access to a computer or tablet with internet. If you don\'t have one, we can help you access computers at our facility or connect you with programs that provide devices.',
+        a: "For programs with online components, you'll need access to a computer or tablet with internet. If you don't have one, we can help you access computers at our facility or connect you with programs that provide devices.",
       },
       {
-        q: 'What if I\'m not good with technology?',
-        a: 'We provide technology training and support. Our staff will help you learn to use our online learning platform, email, and any other technology needed for your program. You don\'t need to be tech-savvy to succeed.',
+        q: "What if I'm not good with technology?",
+        a: "We provide technology training and support. Our staff will help you learn to use our online learning platform, email, and any other technology needed for your program. You don't need to be tech-savvy to succeed.",
       },
       {
         q: 'How do I access my student portal?',
-        a: 'After enrollment, you\'ll receive login credentials for your student portal. You can access it at elevateforhumanity.org/student/dashboard. Contact support if you have trouble logging in.',
+        a: "After enrollment, you'll receive login credentials for your student portal. You can access it at elevateforhumanity.org/student/dashboard. Contact support if you have trouble logging in.",
       },
       {
         q: 'Can I use my phone for online classes?',
@@ -178,18 +178,20 @@ export default function FAQPage() {
 
   const toggleQuestion = (categoryId: string, questionIndex: number) => {
     const key = `${categoryId}-${questionIndex}`;
-    setOpenQuestions(prev =>
-      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
+    setOpenQuestions((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
     );
   };
 
-  const filteredCategories = faqCategories.filter(category => {
-    if (selectedCategory !== 'all' && category.id !== selectedCategory) return false;
+  const filteredCategories = faqCategories.filter((category) => {
+    if (selectedCategory !== 'all' && category.id !== selectedCategory)
+      return false;
     if (!searchQuery) return true;
-    
+
     const query = searchQuery.toLowerCase();
     return category.questions.some(
-      q => q.q.toLowerCase().includes(query) || q.a.toLowerCase().includes(query)
+      (q) =>
+        q.q.toLowerCase().includes(query) || q.a.toLowerCase().includes(query)
     );
   });
 
@@ -201,13 +203,16 @@ export default function FAQPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
               <HelpCircle className="w-5 h-5" />
-              <span className="text-sm font-semibold">We&apos;re Here to Help</span>
+              <span className="text-sm font-semibold">
+                We&apos;re Here to Help
+              </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Frequently Asked Questions
             </h1>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Find answers to common questions about our programs, funding, and support services.
+              Find answers to common questions about our programs, funding, and
+              support services.
             </p>
 
             {/* Search Bar */}
@@ -263,14 +268,16 @@ export default function FAQPage() {
             {filteredCategories.map((category) => (
               <div key={category.id}>
                 <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                  <span className="text-4xl text-2xl md:text-3xl lg:text-4xl">{category.icon}</span>
+                  <span className="text-4xl text-2xl md:text-3xl lg:text-4xl">
+                    {category.icon}
+                  </span>
                   {category.name}
                 </h2>
                 <div className="space-y-4">
                   {category.questions.map((question, index) => {
                     const key = `${category.id}-${index}`;
                     const isOpen = openQuestions.includes(key);
-                    
+
                     return (
                       <div
                         key={index}
@@ -312,12 +319,15 @@ export default function FAQPage() {
               Still Have Questions?
             </h2>
             <p className="text-base md:text-lg text-slate-600 mb-8">
-              We&apos;re here to help! Contact us and we&apos;ll get you the answers you need.
+              We&apos;re here to help! Contact us and we&apos;ll get you the
+              answers you need.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-8 shadow-sm">
                 <Phone className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Call Us</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  Call Us
+                </h3>
                 <p className="text-slate-600 mb-4">
                   Speak with an advisor Monday-Friday, 8am-5pm
                 </p>
@@ -330,7 +340,9 @@ export default function FAQPage() {
               </div>
               <div className="bg-white rounded-lg p-8 shadow-sm">
                 <Mail className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Email Us</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  Email Us
+                </h3>
                 <p className="text-slate-600 mb-4">
                   Send us a message and we&apos;ll respond within 24 hours
                 </p>
@@ -359,7 +371,9 @@ export default function FAQPage() {
                 className="bg-blue-50 hover:bg-blue-100 rounded-lg p-6 text-center transition"
               >
                 <div className="text-3xl mb-2">📚</div>
-                <div className="font-semibold text-slate-900">View Programs</div>
+                <div className="font-semibold text-slate-900">
+                  View Programs
+                </div>
               </Link>
               <Link
                 href="/apply"

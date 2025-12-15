@@ -34,9 +34,12 @@ interface Booking {
 
 export default function BookingPage() {
   const [instructors, setInstructors] = useState<Instructor[]>([]);
-  const [selectedInstructor, setSelectedInstructor] = useState<Instructor | null>(null);
+  const [selectedInstructor, setSelectedInstructor] =
+    useState<Instructor | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<TimeSlot | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<'zoom' | 'teams'>('zoom');
+  const [selectedPlatform, setSelectedPlatform] = useState<'zoom' | 'teams'>(
+    'zoom'
+  );
   const [topic, setTopic] = useState('');
   const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(false);
@@ -53,7 +56,8 @@ export default function BookingPage() {
         id: 'inst-1',
         name: 'Dr. Sarah Johnson',
         title: 'HVAC Master Instructor',
-        avatar: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
+        avatar:
+          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
         specialties: ['HVAC', 'EPA 608', 'Refrigeration'],
         rating: 4.9,
         totalSessions: 342,
@@ -63,7 +67,8 @@ export default function BookingPage() {
         id: 'inst-2',
         name: 'Marcus Williams',
         title: 'CDL Training Expert',
-        avatar: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
+        avatar:
+          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
         specialties: ['CDL', 'Commercial Driving', 'Safety'],
         rating: 4.8,
         totalSessions: 289,
@@ -73,7 +78,8 @@ export default function BookingPage() {
         id: 'inst-3',
         name: 'Jennifer Lee',
         title: 'Healthcare Instructor',
-        avatar: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
+        avatar:
+          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
         specialties: ['CNA', 'Medical Assistant', 'Patient Care'],
         rating: 5.0,
         totalSessions: 456,
@@ -86,22 +92,24 @@ export default function BookingPage() {
   function generateTimeSlots(): TimeSlot[] {
     const slots: TimeSlot[] = [];
     const today = new Date();
-    
+
     for (let i = 1; i <= 7; i++) {
       const date = new Date(today);
       date.setDate(date.getDate() + i);
-      
-      ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'].forEach((time) => {
-        slots.push({
-          id: `slot-${i}-${time}`,
-          date: date.toISOString().split('T')[0],
-          time,
-          available: Math.random() > 0.3,
-          platform: Math.random() > 0.5 ? 'zoom' : 'teams',
-        });
-      });
+
+      ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'].forEach(
+        (time) => {
+          slots.push({
+            id: `slot-${i}-${time}`,
+            date: date.toISOString().split('T')[0],
+            time,
+            available: Math.random() > 0.3,
+            platform: Math.random() > 0.5 ? 'zoom' : 'teams',
+          });
+        }
+      );
     }
-    
+
     return slots;
   }
 
@@ -159,9 +167,12 @@ export default function BookingPage() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">Book a Live Session</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
+            Book a Live Session
+          </h1>
           <p className="text-lg text-slate-600">
-            Schedule one-on-one time with expert instructors via Zoom or Microsoft Teams
+            Schedule one-on-one time with expert instructors via Zoom or
+            Microsoft Teams
           </p>
         </div>
 
@@ -172,7 +183,9 @@ export default function BookingPage() {
               <div key={s} className="flex items-center">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                    step >= s ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600'
+                    step >= s
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-slate-200 text-slate-600'
                   }`}
                 >
                   {s}
@@ -219,7 +232,9 @@ export default function BookingPage() {
                     />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900">{instructor.name}</h3>
+                    <h3 className="font-bold text-slate-900">
+                      {instructor.name}
+                    </h3>
                     <p className="text-sm text-slate-600">{instructor.title}</p>
                   </div>
                 </div>
@@ -275,7 +290,9 @@ export default function BookingPage() {
                   <h2 className="text-2xl font-bold text-slate-900">
                     {selectedInstructor.name}
                   </h2>
-                  <p className="text-slate-600">Select an available time slot</p>
+                  <p className="text-slate-600">
+                    Select an available time slot
+                  </p>
                 </div>
               </div>
 
@@ -290,7 +307,11 @@ export default function BookingPage() {
                   }`}
                 >
                   <span className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M2 8.5C2 7.12 3.12 6 4.5 6h6C11.88 6 13 7.12 13 8.5v7c0 1.38-1.12 2.5-2.5 2.5h-6C3.12 18 2 16.88 2 15.5v-7zm11 0V12l5.5-3.5v7L13 12v3.5c0 1.38-1.12 2.5-2.5 2.5" />
                     </svg>
                     Zoom
@@ -305,7 +326,11 @@ export default function BookingPage() {
                   }`}
                 >
                   <span className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M20.625 8.25h-7.5v7.5h7.5v-7.5zM11.625 8.25h-7.5v7.5h7.5v-7.5z" />
                     </svg>
                     Teams
@@ -316,42 +341,42 @@ export default function BookingPage() {
 
             {/* Time Slots */}
             <div className="space-y-6">
-              {Object.entries(groupSlotsByDate(selectedInstructor.availability)).map(
-                ([date, slots]) => (
-                  <div key={date}>
-                    <h3 className="font-bold text-slate-900 mb-3">
-                      {new Date(date).toLocaleDateString('en-US', {
-                        weekday: 'long',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </h3>
-                    <div className="grid grid-cols-7 gap-3">
-                      {slots.map((slot) => (
-                        <button
-                          key={slot.id}
-                          onClick={() => {
-                            if (slot.available) {
-                              setSelectedSlot(slot);
-                              setStep(3);
-                            }
-                          }}
-                          disabled={!slot.available}
-                          className={`px-4 py-3 rounded-lg font-semibold transition-all ${
-                            slot.available
-                              ? selectedSlot?.id === slot.id
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-slate-100 text-slate-900 hover:bg-blue-100'
-                              : 'bg-slate-50 text-slate-400 cursor-not-allowed'
-                          }`}
-                        >
-                          {slot.time}
-                        </button>
-                      ))}
-                    </div>
+              {Object.entries(
+                groupSlotsByDate(selectedInstructor.availability)
+              ).map(([date, slots]) => (
+                <div key={date}>
+                  <h3 className="font-bold text-slate-900 mb-3">
+                    {new Date(date).toLocaleDateString('en-US', {
+                      weekday: 'long',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </h3>
+                  <div className="grid grid-cols-7 gap-3">
+                    {slots.map((slot) => (
+                      <button
+                        key={slot.id}
+                        onClick={() => {
+                          if (slot.available) {
+                            setSelectedSlot(slot);
+                            setStep(3);
+                          }
+                        }}
+                        disabled={!slot.available}
+                        className={`px-4 py-3 rounded-lg font-semibold transition-all ${
+                          slot.available
+                            ? selectedSlot?.id === slot.id
+                              ? 'bg-blue-600 text-white'
+                              : 'bg-slate-100 text-slate-900 hover:bg-blue-100'
+                            : 'bg-slate-50 text-slate-400 cursor-not-allowed'
+                        }`}
+                      >
+                        {slot.time}
+                      </button>
+                    ))}
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -366,7 +391,9 @@ export default function BookingPage() {
               >
                 ← Back
               </button>
-              <h2 className="text-2xl font-bold text-slate-900">Confirm Booking</h2>
+              <h2 className="text-2xl font-bold text-slate-900">
+                Confirm Booking
+              </h2>
             </div>
 
             {/* Booking Summary */}
@@ -392,7 +419,9 @@ export default function BookingPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600">Time:</span>
-                  <span className="font-semibold text-slate-900">{selectedSlot.time}</span>
+                  <span className="font-semibold text-slate-900">
+                    {selectedSlot.time}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600">Platform:</span>
@@ -402,7 +431,9 @@ export default function BookingPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600">Duration:</span>
-                  <span className="font-semibold text-slate-900">60 minutes</span>
+                  <span className="font-semibold text-slate-900">
+                    60 minutes
+                  </span>
                 </div>
               </div>
             </div>
@@ -473,10 +504,17 @@ export default function BookingPage() {
                 <div className="text-sm text-blue-800">
                   <p className="font-semibold mb-1">What happens next?</p>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>You'll receive a confirmation email with meeting details</li>
+                    <li>
+                      You'll receive a confirmation email with meeting details
+                    </li>
                     <li>A calendar invite will be sent to your email</li>
-                    <li>Meeting link will be available 15 minutes before start time</li>
-                    <li>You can reschedule up to 24 hours before the session</li>
+                    <li>
+                      Meeting link will be available 15 minutes before start
+                      time
+                    </li>
+                    <li>
+                      You can reschedule up to 24 hours before the session
+                    </li>
                   </ul>
                 </div>
               </div>

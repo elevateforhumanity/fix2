@@ -1,14 +1,20 @@
+export const dynamic = 'force-dynamic';
+
 import { redirect } from 'next/navigation';
 // Image asset: /images/location-1.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
 
-export const dynamic = 'force-dynamic';
-
-export default async function OnboardingLayout({ children }: { children: React.ReactNode }) {
+export default async function OnboardingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // Require authentication and enrollment for onboarding
   const supabase = await createServerSupabaseClient();
-  const { data: { session } } = await supabase.auth.getSession();
-  
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   if (!session) {
     redirect('/login?redirect=/onboarding');
   }

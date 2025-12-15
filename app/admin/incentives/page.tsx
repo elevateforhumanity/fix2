@@ -44,7 +44,7 @@ export default function IncentivesPage() {
     }
   };
 
-  const filteredIncentives = incentives.filter(inc => {
+  const filteredIncentives = incentives.filter((inc) => {
     const typeMatch = filter === 'all' || inc.program_type === filter;
     const statusMatch = statusFilter === 'all' || inc.status === statusFilter;
     return typeMatch && statusMatch;
@@ -52,12 +52,12 @@ export default function IncentivesPage() {
 
   const stats = {
     total: incentives.length,
-    wex: incentives.filter(i => i.program_type === 'WEX').length,
-    ojt: incentives.filter(i => i.program_type === 'OJT').length,
+    wex: incentives.filter((i) => i.program_type === 'WEX').length,
+    ojt: incentives.filter((i) => i.program_type === 'OJT').length,
     totalAmount: incentives.reduce((sum, i) => sum + i.amount, 0),
-    pending: incentives.filter(i => i.status === 'pending').length,
-    approved: incentives.filter(i => i.status === 'approved').length,
-    paid: incentives.filter(i => i.status === 'paid').length,
+    pending: incentives.filter((i) => i.status === 'pending').length,
+    approved: incentives.filter((i) => i.status === 'approved').length,
+    paid: incentives.filter((i) => i.status === 'paid').length,
   };
 
   if (loading) {
@@ -72,14 +72,19 @@ export default function IncentivesPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/dashboard" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/dashboard"
+            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <DollarSign className="w-8 h-8 text-blue-600" />
-                <h1 className="text-3xl font-bold text-gray-900">Employer Incentives</h1>
+                <h1 className="text-3xl font-bold text-gray-900">
+                  Employer Incentives
+                </h1>
               </div>
               <p className="text-gray-600">
                 Track WEX and OJT employer incentive programs
@@ -99,7 +104,9 @@ export default function IncentivesPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
               <Award className="w-6 h-6 text-blue-600" />
-              <h3 className="text-sm font-medium text-gray-600">Total Programs</h3>
+              <h3 className="text-sm font-medium text-gray-600">
+                Total Programs
+              </h3>
             </div>
             <p className="text-3xl font-bold text-blue-600">{stats.total}</p>
             <p className="text-xs text-gray-500 mt-1">
@@ -110,7 +117,9 @@ export default function IncentivesPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
               <DollarSign className="w-6 h-6 text-green-600" />
-              <h3 className="text-sm font-medium text-gray-600">Total Amount</h3>
+              <h3 className="text-sm font-medium text-gray-600">
+                Total Amount
+              </h3>
             </div>
             <p className="text-3xl font-bold text-green-600">
               ${stats.totalAmount.toLocaleString()}
@@ -123,7 +132,9 @@ export default function IncentivesPage() {
               <TrendingUp className="w-6 h-6 text-orange-600" />
               <h3 className="text-sm font-medium text-gray-600">Pending</h3>
             </div>
-            <p className="text-3xl font-bold text-orange-600">{stats.pending}</p>
+            <p className="text-3xl font-bold text-orange-600">
+              {stats.pending}
+            </p>
             <p className="text-xs text-gray-500 mt-1">Awaiting approval</p>
           </div>
 
@@ -184,7 +195,9 @@ export default function IncentivesPage() {
           {filteredIncentives.length === 0 ? (
             <div className="text-center py-12">
               <DollarSign className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-500 text-lg">No incentive programs found</p>
+              <p className="text-gray-500 text-lg">
+                No incentive programs found
+              </p>
               <p className="text-gray-400 text-sm mt-2">
                 Create a new incentive program to get started
               </p>
@@ -225,14 +238,18 @@ export default function IncentivesPage() {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{incentive.student_name}</div>
+                      <div className="text-sm text-gray-900">
+                        {incentive.student_name}
+                      </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 text-xs rounded ${
-                        incentive.program_type === 'WEX' 
-                          ? 'bg-blue-100 text-blue-800' 
-                          : 'bg-purple-100 text-purple-800'
-                      }`}>
+                      <span
+                        className={`px-2 py-1 text-xs rounded ${
+                          incentive.program_type === 'WEX'
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-purple-100 text-purple-800'
+                        }`}
+                      >
                         {incentive.program_type}
                       </span>
                     </td>
@@ -243,22 +260,30 @@ export default function IncentivesPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">
-                        {incentive.hours_completed} / {incentive.hours_required} hrs
+                        {incentive.hours_completed} / {incentive.hours_required}{' '}
+                        hrs
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
-                        <div 
+                        <div
                           className="bg-blue-600 h-2 rounded-full"
-                          style={{ width: `${(incentive.hours_completed / incentive.hours_required) * 100}%` }}
+                          style={{
+                            width: `${(incentive.hours_completed / incentive.hours_required) * 100}%`,
+                          }}
                         />
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 text-xs rounded ${
-                        incentive.status === 'paid' ? 'bg-green-100 text-green-800' :
-                        incentive.status === 'approved' ? 'bg-blue-100 text-blue-800' :
-                        incentive.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
+                      <span
+                        className={`px-2 py-1 text-xs rounded ${
+                          incentive.status === 'paid'
+                            ? 'bg-green-100 text-green-800'
+                            : incentive.status === 'approved'
+                              ? 'bg-blue-100 text-blue-800'
+                              : incentive.status === 'pending'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : 'bg-red-100 text-red-800'
+                        }`}
+                      >
                         {incentive.status}
                       </span>
                     </td>
@@ -279,15 +304,19 @@ export default function IncentivesPage() {
 
         {/* Info Box */}
         <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h3 className="font-semibold text-blue-900 mb-2">About WEX and OJT Programs</h3>
+          <h3 className="font-semibold text-blue-900 mb-2">
+            About WEX and OJT Programs
+          </h3>
           <div className="text-sm text-blue-800 space-y-2">
             <p>
-              <strong>WEX (Work Experience):</strong> Provides wage subsidies to employers who hire and train eligible participants. 
-              Typically covers 50% of wages for a limited period.
+              <strong>WEX (Work Experience):</strong> Provides wage subsidies to
+              employers who hire and train eligible participants. Typically
+              covers 50% of wages for a limited period.
             </p>
             <p>
-              <strong>OJT (On-the-Job Training):</strong> Reimburses employers for the cost of training new employees. 
-              Usually covers up to 50% of wages during the training period.
+              <strong>OJT (On-the-Job Training):</strong> Reimburses employers
+              for the cost of training new employees. Usually covers up to 50%
+              of wages during the training period.
             </p>
           </div>
         </div>

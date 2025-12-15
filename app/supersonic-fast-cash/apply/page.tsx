@@ -1,6 +1,7 @@
 'use client';
 
 export const dynamic = 'force-dynamic';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,16 +14,18 @@ export default function ApplyPage() {
     amount: '',
     purpose: '',
     income: '',
-    employmentStatus: ''
+    employmentStatus: '',
   });
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
   };
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   return (
@@ -72,10 +75,14 @@ export default function ApplyPage() {
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-4 text-green-800">Personal Information</h2>
+              <h2 className="text-2xl font-bold mb-4 text-green-800">
+                Personal Information
+              </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">First Name</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    First Name
+                  </label>
                   <input
                     type="text"
                     name="firstName"
@@ -86,7 +93,9 @@ export default function ApplyPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Last Name</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Last Name
+                  </label>
                   <input
                     type="text"
                     name="lastName"
@@ -101,7 +110,9 @@ export default function ApplyPage() {
             <div className="mb-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Email</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -112,7 +123,9 @@ export default function ApplyPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Phone</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Phone
+                  </label>
                   <input
                     type="tel"
                     name="phone"
@@ -125,10 +138,14 @@ export default function ApplyPage() {
               </div>
             </div>
             <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-4 text-green-800">Loan Details</h2>
+              <h2 className="text-2xl font-bold mb-4 text-green-800">
+                Loan Details
+              </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Loan Amount</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Loan Amount
+                  </label>
                   <select
                     name="amount"
                     value={formData.amount}
@@ -146,7 +163,9 @@ export default function ApplyPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Loan Purpose</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Loan Purpose
+                  </label>
                   <select
                     name="purpose"
                     value={formData.purpose}
@@ -166,10 +185,14 @@ export default function ApplyPage() {
               </div>
             </div>
             <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-4 text-green-800">Employment Information</h2>
+              <h2 className="text-2xl font-bold mb-4 text-green-800">
+                Employment Information
+              </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Employment Status</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Employment Status
+                  </label>
                   <select
                     name="employmentStatus"
                     value={formData.employmentStatus}
@@ -186,7 +209,9 @@ export default function ApplyPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Monthly Income</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Monthly Income
+                  </label>
                   <select
                     name="income"
                     value={formData.income}
@@ -205,8 +230,9 @@ export default function ApplyPage() {
             </div>
             <div className="bg-green-50 p-4 rounded-lg mb-6">
               <p className="text-sm text-gray-700">
-                By submitting this application, you agree to our Terms of Service and Privacy Policy. 
-                We use bank-level encryption to protect your information.
+                By submitting this application, you agree to our Terms of
+                Service and Privacy Policy. We use bank-level encryption to
+                protect your information.
               </p>
             </div>
             <button
@@ -218,92 +244,144 @@ export default function ApplyPage() {
           </form>
           <div className="mt-8 text-center">
             <p className="text-gray-600">
-              Questions? Call us at <span className="font-bold text-green-600">1-800-FAST-CASH</span>
+              Questions? Call us at{' '}
+              <span className="font-bold text-green-600">1-800-FAST-CASH</span>
             </p>
           </div>
         </div>
-      {/* Storytelling Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
-                  Your Journey Starts Here
-                </h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Students learning"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+        {/* Storytelling Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+                    Your Journey Starts Here
+                  </h2>
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Every great career begins with a single step. Whether you're
+                    looking to change careers, upgrade your skills, or enter the
+                    workforce for the first time, we're here to help you
+                    succeed. Our programs are 100% free, government-funded, and
+                    designed to get you hired fast.
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        100% free training - no tuition, no hidden costs
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Industry-recognized certifications that employers value
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Job placement assistance and career support
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg
+                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-700">
+                        Flexible scheduling for working adults
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/gallery/image3.jpg"
+                    alt="Students learning"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+        </section>
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
     </div>
   );

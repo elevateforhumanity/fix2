@@ -39,7 +39,7 @@ export default function ShopReportsPage() {
     }
   };
 
-  const filteredReports = reports.filter(report => {
+  const filteredReports = reports.filter((report) => {
     if (filter === 'all') return true;
     return report.report_type === filter;
   });
@@ -75,7 +75,10 @@ export default function ShopReportsPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/shop/dashboard" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/shop/dashboard"
+            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center justify-between">
@@ -102,17 +105,21 @@ export default function ShopReportsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
               <FileText className="w-6 h-6 text-blue-600" />
-              <h3 className="text-sm font-medium text-gray-600">Total Reports</h3>
+              <h3 className="text-sm font-medium text-gray-600">
+                Total Reports
+              </h3>
             </div>
             <p className="text-3xl font-bold text-blue-600">{reports.length}</p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
               <Users className="w-6 h-6 text-green-600" />
-              <h3 className="text-sm font-medium text-gray-600">Active Students</h3>
+              <h3 className="text-sm font-medium text-gray-600">
+                Active Students
+              </h3>
             </div>
             <p className="text-3xl font-bold text-green-600">
-              {new Set(reports.map(r => r.student_name)).size}
+              {new Set(reports.map((r) => r.student_name)).size}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
@@ -130,11 +137,16 @@ export default function ShopReportsPage() {
               <h3 className="text-sm font-medium text-gray-600">This Month</h3>
             </div>
             <p className="text-3xl font-bold text-orange-600">
-              {reports.filter(r => {
-                const date = new Date(r.created_at);
-                const now = new Date();
-                return date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
-              }).length}
+              {
+                reports.filter((r) => {
+                  const date = new Date(r.created_at);
+                  const now = new Date();
+                  return (
+                    date.getMonth() === now.getMonth() &&
+                    date.getFullYear() === now.getFullYear()
+                  );
+                }).length
+              }
             </p>
           </div>
         </div>
@@ -217,11 +229,15 @@ export default function ShopReportsPage() {
                       {report.hours} hrs
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 text-xs rounded ${
-                        report.status === 'approved' ? 'bg-green-100 text-green-800' :
-                        report.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-gray-100 text-gray-800'
-                      }`}>
+                      <span
+                        className={`px-2 py-1 text-xs rounded ${
+                          report.status === 'approved'
+                            ? 'bg-green-100 text-green-800'
+                            : report.status === 'pending'
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-gray-100 text-gray-800'
+                        }`}
+                      >
                         {report.status}
                       </span>
                     </td>

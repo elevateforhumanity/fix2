@@ -7,7 +7,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { MessageCircle, Users, Clock, CheckCircle, TrendingUp, ExternalLink } from 'lucide-react';
+import {
+  MessageCircle,
+  Users,
+  Clock,
+  CheckCircle,
+  TrendingUp,
+  ExternalLink,
+} from 'lucide-react';
 
 export default function LiveChatPage() {
   const router = useRouter();
@@ -15,8 +22,8 @@ export default function LiveChatPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -70,10 +77,12 @@ export default function LiveChatPage() {
               <MessageCircle className="w-8 h-8 text-blue-600" />
               <div>
                 <h1 className="text-3xl font-bold text-gray-900">Live Chat</h1>
-                <p className="text-gray-600 mt-1">Real-time support for students and visitors</p>
+                <p className="text-gray-600 mt-1">
+                  Real-time support for students and visitors
+                </p>
               </div>
             </div>
-            
+
             <a
               href="https://dashboard.tawk.to"
               target="_blank"
@@ -119,18 +128,30 @@ export default function LiveChatPage() {
         {/* Setup Instructions */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Setup Instructions</h2>
-          
+
           <div className="space-y-6">
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">1. Create Tawk.to Account (FREE)</h3>
+              <h3 className="font-medium text-gray-900 mb-2">
+                1. Create Tawk.to Account (FREE)
+              </h3>
               <p className="text-gray-600 mb-2">
-                Sign up at <a href="https://www.tawk.to" target="_blank" rel="noopener noreferrer"
-className="text-blue-600 hover:underline">tawk.to</a> - completely free, no credit card required.
+                Sign up at{' '}
+                <a
+                  href="https://www.tawk.to"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  tawk.to
+                </a>{' '}
+                - completely free, no credit card required.
               </p>
             </div>
 
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">2. Get Your Widget Code</h3>
+              <h3 className="font-medium text-gray-900 mb-2">
+                2. Get Your Widget Code
+              </h3>
               <ol className="list-decimal list-inside text-gray-600 space-y-1 ml-4">
                 <li>Log in to Tawk.to dashboard</li>
                 <li>Go to Administration → Channels → Chat Widget</li>
@@ -139,7 +160,9 @@ className="text-blue-600 hover:underline">tawk.to</a> - completely free, no cred
             </div>
 
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">3. Add to Environment Variables</h3>
+              <h3 className="font-medium text-gray-900 mb-2">
+                3. Add to Environment Variables
+              </h3>
               <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm">
                 <div>NEXT_PUBLIC_TAWK_PROPERTY_ID=your_property_id</div>
                 <div>NEXT_PUBLIC_TAWK_WIDGET_ID=your_widget_id</div>
@@ -147,9 +170,12 @@ className="text-blue-600 hover:underline">tawk.to</a> - completely free, no cred
             </div>
 
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">4. Deploy & Test</h3>
+              <h3 className="font-medium text-gray-900 mb-2">
+                4. Deploy & Test
+              </h3>
               <p className="text-gray-600">
-                Redeploy your site and the chat widget will appear on all pages automatically.
+                Redeploy your site and the chat widget will appear on all pages
+                automatically.
               </p>
             </div>
           </div>
@@ -157,8 +183,10 @@ className="text-blue-600 hover:underline">tawk.to</a> - completely free, no cred
 
         {/* Features */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
-          <h2 className="text-xl font-semibold mb-4">Tawk.to Features (All FREE)</h2>
-          
+          <h2 className="text-xl font-semibold mb-4">
+            Tawk.to Features (All FREE)
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FeatureItem
               title="Unlimited Agents"
@@ -198,7 +226,7 @@ className="text-blue-600 hover:underline">tawk.to</a> - completely free, no cred
         {/* Quick Actions */}
         <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <ActionButton
               title="View Conversations"
@@ -220,43 +248,55 @@ className="text-blue-600 hover:underline">tawk.to</a> - completely free, no cred
 
         {/* Alternative Options */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
-          <h3 className="font-semibold text-blue-900 mb-2">Alternative Chat Solutions</h3>
+          <h3 className="font-semibold text-blue-900 mb-2">
+            Alternative Chat Solutions
+          </h3>
           <div className="space-y-2 text-sm text-blue-800">
-            <div>• <strong>Intercom</strong>: $74/month - Advanced features, CRM integration</div>
-            <div>• <strong>Crisp</strong>: $25/month - Modern UI, chatbots</div>
-            <div>• <strong>Zendesk Chat</strong>: $55/month - Enterprise features</div>
-            <div>• <strong>Tawk.to</strong>: FREE - Recommended for most use cases ✅</div>
-          </div>
-        </div>
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+            <div>
+              • <strong>Intercom</strong>: $74/month - Advanced features, CRM
+              integration
+            </div>
+            <div>
+              • <strong>Crisp</strong>: $25/month - Modern UI, chatbots
+            </div>
+            <div>
+              • <strong>Zendesk Chat</strong>: $55/month - Enterprise features
+            </div>
+            <div>
+              • <strong>Tawk.to</strong>: FREE - Recommended for most use cases
+              ✅
             </div>
           </div>
         </div>
-      </section>
 
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

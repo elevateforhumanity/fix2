@@ -1,12 +1,13 @@
 'use client';
 
+export const dynamicParams = true;
+
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
-export const dynamicParams = true;
 export const revalidate = 0;
 import FileTree from '@/components/dev-studio/FileTree';
 import Terminal from '@/components/dev-studio/Terminal';
@@ -23,7 +24,7 @@ const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {
         <div>Loading Dev Studio...</div>
       </div>
     </div>
-  )
+  ),
 });
 
 export default function DevStudioPage() {
@@ -32,8 +33,8 @@ export default function DevStudioPage() {
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.isAdmin) {
           router.push('/login?redirect=/admin');
         }
@@ -41,25 +42,26 @@ export default function DevStudioPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-    
   // GitHub state
   const [token, setToken] = useState<string>('');
   const [repos, setRepos] = useState<any[]>([]);
-  const [selectedRepo, setSelectedRepo] = useState<string>('elevateforhumanity/fix2');
+  const [selectedRepo, setSelectedRepo] = useState<string>(
+    'elevateforhumanity/fix2'
+  );
   const [branch, setBranch] = useState<string>('main');
-  
+
   // File state
   const [files, setFiles] = useState<string[]>([]);
   const [selectedFile, setSelectedFile] = useState<string>('');
   const [fileContent, setFileContent] = useState<string>('');
   const [fileSha, setFileSha] = useState<string>('');
   const [hasChanges, setHasChanges] = useState(false);
-  
+
   // UI state
   const [loading, setLoading] = useState(false);
   const [terminalOutput, setTerminalOutput] = useState<string[]>([
     '$ Elevate Dev Studio initialized',
-    '$ Ready to code!'
+    '$ Ready to code!',
   ]);
   const [showCourseFilesOnly, setShowCourseFilesOnly] = useState(false);
 
@@ -70,7 +72,9 @@ export default function DevStudioPage() {
       setToken(storedToken);
       loadRepos(storedToken);
     } else {
-      addTerminalOutput('⚠️  No GitHub token found. Please connect GitHub first.');
+      addTerminalOutput(
+        '⚠️  No GitHub token found. Please connect GitHub first.'
+      );
     }
   }, []);
 
@@ -82,7 +86,7 @@ export default function DevStudioPage() {
   }, [token, selectedRepo, branch]);
 
   const addTerminalOutput = (message: string) => {
-    setTerminalOutput(prev => [...prev, `$ ${message}`]);
+    setTerminalOutput((prev) => [...prev, `$ ${message}`]);
   };
 
   const connectGitHub = () => {
@@ -101,9 +105,9 @@ export default function DevStudioPage() {
     setLoading(true);
     try {
       const res = await fetch('/api/github/repos', {
-        headers: { 'x-gh-token': ghToken }
+        headers: { 'x-gh-token': ghToken },
       });
-      
+
       if (res.ok) {
         const data = await res.json();
         setRepos(data);
@@ -120,18 +124,17 @@ export default function DevStudioPage() {
 
   const loadFileTree = async () => {
     if (!token || !selectedRepo) return;
-    
+
     setLoading(true);
     addTerminalOutput(`📂 Loading files from ${selectedRepo}...`);
-    
+
     try {
       const url = new URL('/api/github/tree', window.location.origin);
       url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('ref', branch);
-      
-            
+
       if (res.ok) {
-                const filePaths = data.files.map((f: Record<string, any>) => f.path);
+        const filePaths = data.files.map((f: Record<string, any>) => f.path);
         setFiles(filePaths);
         addTerminalOutput(`✅ Loaded ${filePaths.length} files`);
       } else {
@@ -146,18 +149,17 @@ export default function DevStudioPage() {
 
   const openFile = async (path: string) => {
     if (!token || !selectedRepo) return;
-    
+
     setLoading(true);
     addTerminalOutput(`📄 Opening ${path}...`);
-    
+
     try {
-            url.searchParams.set('repo', selectedRepo);
+      url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('path', path);
       url.searchParams.set('ref', branch);
-      
-            
+
       if (res.ok) {
-                setSelectedFile(path);
+        setSelectedFile(path);
         setFileContent(data.content);
         setFileSha(data.sha);
         setHasChanges(false);
@@ -174,14 +176,13 @@ export default function DevStudioPage() {
 
   const saveFile = async () => {
     if (!token || !selectedRepo || !selectedFile) return;
-    
+
     setLoading(true);
     addTerminalOutput(`💾 Saving ${selectedFile}...`);
-    
+
     try {
-            
       if (res.ok) {
-                setFileSha(data.content.sha);
+        setFileSha(data.content.sha);
         setHasChanges(false);
         addTerminalOutput(`✅ Saved ${selectedFile}`);
         addTerminalOutput(`   Commit: ${data.commit.substring(0, 7)}`);
@@ -217,7 +218,9 @@ export default function DevStudioPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
+          <p className="text-base md:text-lg mb-8 text-gray-100">
+            Transform your career with free training
+          </p>
         </div>
       </section>
 
@@ -225,22 +228,28 @@ export default function DevStudioPage() {
       <div className="bg-slate-800 text-white px-4 py-3 flex items-center justify-between border-b border-slate-700">
         <div className="flex items-center gap-4">
           <h1 className="text-xl font-bold">🚀 Elevate Dev Studio</h1>
-          
+
           {token ? (
             <div className="flex items-center gap-2">
               <select
                 value={selectedRepo}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedRepo(e.target.value)}
+                onChange={(
+                  e: React.ChangeEvent<
+                    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                  >
+                ) => setSelectedRepo(e.target.value)}
                 className="bg-slate-700 text-white px-3 py-1 rounded text-sm"
               >
-                <option value="elevateforhumanity/fix2">elevateforhumanity/fix2</option>
-                {repos.map(repo => (
+                <option value="elevateforhumanity/fix2">
+                  elevateforhumanity/fix2
+                </option>
+                {repos.map((repo) => (
                   <option key={repo.full_name} value={repo.full_name}>
                     {repo.full_name}
                   </option>
                 ))}
               </select>
-              
+
               <div className="flex items-center gap-1 text-sm text-gray-400">
                 <GitBranch className="w-4 h-4" />
                 <span>{branch}</span>
@@ -261,12 +270,16 @@ export default function DevStudioPage() {
             <input
               type="checkbox"
               checked={showCourseFilesOnly}
-              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setShowCourseFilesOnly(e.target.checked)}
+              onChange={(
+                e: React.ChangeEvent<
+                  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                >
+              ) => setShowCourseFilesOnly(e.target.checked)}
               className="rounded"
             />
             <span>Course Files Only</span>
           </label>
-          
+
           <button
             onClick={saveFile}
             disabled={!hasChanges || loading}
@@ -279,10 +292,8 @@ export default function DevStudioPage() {
             <Save className="w-4 h-4" />
             Save
           </button>
-          
-          <button
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded"
-          >
+
+          <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">
             <Play className="w-4 h-4" />
             Run
           </button>
@@ -315,7 +326,9 @@ export default function DevStudioPage() {
               <div className="flex items-center justify-center h-full bg-slate-900 text-gray-400">
                 <div className="text-center">
                   <p className="text-lg mb-2">No file selected</p>
-                  <p className="text-sm">Select a file from the tree to start editing</p>
+                  <p className="text-sm">
+                    Select a file from the tree to start editing
+                  </p>
                 </div>
               </div>
             )}
@@ -332,40 +345,37 @@ export default function DevStudioPage() {
 
         {/* Preview Panel */}
         <div className="w-96 border-l border-slate-700">
-          <PreviewPanel
-            url="http://localhost:3000"
-            filePath={selectedFile}
-          />
+          <PreviewPanel url="http://localhost:3000" filePath={selectedFile} />
         </div>
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
   );

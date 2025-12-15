@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
@@ -5,17 +7,18 @@ import Link from 'next/link';
 import { SignMOUForm } from './SignMOUForm';
 import { FileText, Shield, CheckCircle } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Sign MOU | Elevate For Humanity',
-  description: 'Review and digitally sign your Program Partner Memorandum of Understanding.',
+  description:
+    'Review and digitally sign your Program Partner Memorandum of Understanding.',
 };
 
 export default async function SignMOUPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -42,18 +45,31 @@ export default async function SignMOUPage() {
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-lg p-4 border border-slate-200">
             <Shield className="text-blue-600 mb-2" size={24} />
-            <h3 className="font-semibold text-slate-900 text-sm">Legally Binding</h3>
-            <p className="text-xs text-slate-600 mt-1">Digital signatures have the same legal effect as handwritten signatures</p>
+            <h3 className="font-semibold text-slate-900 text-sm">
+              Legally Binding
+            </h3>
+            <p className="text-xs text-slate-600 mt-1">
+              Digital signatures have the same legal effect as handwritten
+              signatures
+            </p>
           </div>
           <div className="bg-white rounded-lg p-4 border border-slate-200">
             <CheckCircle className="text-green-600 mb-2" size={24} />
-            <h3 className="font-semibold text-slate-900 text-sm">Secure Process</h3>
-            <p className="text-xs text-slate-600 mt-1">Your signature is encrypted and stored securely</p>
+            <h3 className="font-semibold text-slate-900 text-sm">
+              Secure Process
+            </h3>
+            <p className="text-xs text-slate-600 mt-1">
+              Your signature is encrypted and stored securely
+            </p>
           </div>
           <div className="bg-white rounded-lg p-4 border border-slate-200">
             <FileText className="text-purple-600 mb-2" size={24} />
-            <h3 className="font-semibold text-slate-900 text-sm">Instant Processing</h3>
-            <p className="text-xs text-slate-600 mt-1">Receive confirmation immediately upon signing</p>
+            <h3 className="font-semibold text-slate-900 text-sm">
+              Instant Processing
+            </h3>
+            <p className="text-xs text-slate-600 mt-1">
+              Receive confirmation immediately upon signing
+            </p>
           </div>
         </div>
 
@@ -62,20 +78,26 @@ export default async function SignMOUPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-6">
             Program Partner Memorandum of Understanding
           </h2>
-          
+
           <div className="prose prose-slate max-w-none space-y-4 text-sm">
             <p>
-              This Memorandum of Understanding ("MOU") is entered into between <strong>Elevate for Humanity</strong> ("EFH") 
-              and the Program Partner identified below.
+              This Memorandum of Understanding ("MOU") is entered into between{' '}
+              <strong>Elevate for Humanity</strong> ("EFH") and the Program
+              Partner identified below.
             </p>
 
-            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Purpose</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">
+              Purpose
+            </h3>
             <p>
-              This MOU establishes a partnership to provide workforce development training and apprenticeship opportunities 
-              to eligible participants through WIOA-funded programs.
+              This MOU establishes a partnership to provide workforce
+              development training and apprenticeship opportunities to eligible
+              participants through WIOA-funded programs.
             </p>
 
-            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Program Partner Responsibilities</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">
+              Program Partner Responsibilities
+            </h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>Provide on-the-job training and mentorship to apprentices</li>
               <li>Maintain a safe and compliant work environment</li>
@@ -84,7 +106,9 @@ export default async function SignMOUPage() {
               <li>Participate in program evaluations and reporting</li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">EFH Responsibilities</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">
+              EFH Responsibilities
+            </h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>Provide classroom instruction and curriculum</li>
               <li>Recruit and screen qualified apprentices</li>
@@ -93,15 +117,20 @@ export default async function SignMOUPage() {
               <li>Facilitate wage reimbursement (if applicable)</li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Term</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">
+              Term
+            </h3>
             <p>
-              This MOU shall remain in effect for one (1) year from the date of execution and may be renewed 
-              by mutual agreement of both parties.
+              This MOU shall remain in effect for one (1) year from the date of
+              execution and may be renewed by mutual agreement of both parties.
             </p>
 
-            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Termination</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">
+              Termination
+            </h3>
             <p>
-              Either party may terminate this MOU with thirty (30) days written notice to the other party.
+              Either party may terminate this MOU with thirty (30) days written
+              notice to the other party.
             </p>
           </div>
         </div>
@@ -117,7 +146,14 @@ export default async function SignMOUPage() {
         {/* Footer Note */}
         <div className="mt-6 text-center">
           <p className="text-sm text-slate-600">
-            Questions? <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">Contact us</Link> for assistance.
+            Questions?{' '}
+            <Link
+              href="/contact"
+              className="text-blue-600 hover:text-blue-700 font-medium"
+            >
+              Contact us
+            </Link>{' '}
+            for assistance.
           </p>
         </div>
       </div>

@@ -1,8 +1,8 @@
+export const dynamic = 'force-dynamic';
+
 // app/team/page.tsx
 import Image from 'next/image';
 import { Metadata } from 'next';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   alternates: {

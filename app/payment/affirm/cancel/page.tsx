@@ -10,18 +10,20 @@ export default function AffirmCancelPage() {
     <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
         <XCircle className="w-16 h-16 text-orange-500 mx-auto mb-4" />
-        
+
         <h1 className="text-2xl font-bold text-gray-900 mb-2">
           Payment Cancelled
         </h1>
-        
+
         <p className="text-gray-600 mb-6">
-          You cancelled the payment process. No charges were made to your account.
+          You cancelled the payment process. No charges were made to your
+          account.
         </p>
 
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-blue-800">
-            <strong>Need help?</strong> Our team is here to assist you with any questions about payment options or enrollment.
+            <strong>Need help?</strong> Our team is here to assist you with any
+            questions about payment options or enrollment.
           </p>
         </div>
 
@@ -32,14 +34,14 @@ export default function AffirmCancelPage() {
           >
             Browse Programs
           </Link>
-          
+
           <Link
             href="/contact"
             className="inline-block px-6 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
           >
             Contact Us
           </Link>
-          
+
           <Link
             href="/"
             className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -50,7 +52,8 @@ export default function AffirmCancelPage() {
 
         <div className="mt-8 pt-6 border-t border-gray-200">
           <p className="text-sm text-gray-500">
-            Remember: Most of our programs are 100% FREE through WIOA, WRG, or JRI funding.
+            Remember: Most of our programs are 100% FREE through WIOA, WRG, or
+            JRI funding.
           </p>
           <Link
             href="/financial-aid"

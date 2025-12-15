@@ -11,57 +11,61 @@ import { useRouter } from 'next/navigation';
 export default function AdminPayroll() {
   const router = useRouter();
 
-  const supabase = createClient(  );
-  const [apprenticeships, setApprenticeships] = useState<any[]>([]  );
-  const [payrolls, setPayrolls] = useState<any[]>([]  );
-  const [loading, setLoading] = useState(true  );
-  const [generating, setGenerating] = useState(false  );
+  const supabase = createClient();
+  const [apprenticeships, setApprenticeships] = useState<any[]>([]);
+  const [payrolls, setPayrolls] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [generating, setGenerating] = useState(false);
   useEffect(() => {
-    loadData(  );
-  }, []  );
+    loadData();
+  }, []);
 
   async function loadData() {
     const { data: apprenticeshipData } = await supabase
       .from('apprenticeship_enrollments')
-      .select(`
+      .select(
+        `
         *,
         student:profiles!apprenticeship_enrollments_student_id_fkey(full_name, email)
-      `)
+      `
+      )
       .eq('status', 'active')
-      .order('created_at', { ascending: false }  );
+      .order('created_at', { ascending: false });
 
-    setApprenticeships(apprenticeshipData || []  );
+    setApprenticeships(apprenticeshipData || []);
 
     const { data: payrollData } = await supabase
       .from('apprentice_payroll')
-      .select(`
+      .select(
+        `
         *,
         student:profiles!apprentice_payroll_student_id_fkey(full_name),
         apprenticeship:apprenticeship_enrollments(employer_name)
-      `)
+      `
+      )
       .order('pay_period_end', { ascending: false })
-      .limit(50  );
+      .limit(50);
 
-    setPayrolls(payrollData || []  );
-    setLoading(false  );
+    setPayrolls(payrollData || []);
+    setLoading(false);
   }
 
   async function generatePayroll(apprenticeshipId: string) {
-    setGenerating(true  );
+    setGenerating(true);
 
     // Calculate for last week
-    const endDate = new Date(  );
-    const startDate = new Date(  );
-    startDate.setDate(startDate.getDate() - 7  );
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 7);
     const { data, error } = await supabase.rpc('calculate_payroll', {
       p_apprenticeship_id: apprenticeshipId,
       p_period_start: startDate.toISOString().split('T')[0],
-      p_period_end: endDate.toISOString().split('T')[0]
-    }  );
+      p_period_end: endDate.toISOString().split('T')[0],
+    });
 
     if (!error) {
-      await loadData(  );
-      
+      await loadData();
+
       // Send notification
       await fetch('/api/apprentice/email-alerts', {
         method: 'POST',
@@ -73,13 +77,13 @@ export default function AdminPayroll() {
             periodStart: startDate.toLocaleDateString(),
             periodEnd: endDate.toLocaleDateString(),
             hours: 0, // Will be calculated
-            grossPay: 0
-          }
-        })
-      }  );
+            grossPay: 0,
+          },
+        }),
+      });
     }
 
-    setGenerating(false  );
+    setGenerating(false);
   }
 
   async function markPaid(payrollId: string) {
@@ -87,11 +91,11 @@ export default function AdminPayroll() {
       .from('apprentice_payroll')
       .update({
         status: 'paid',
-        paid_at: new Date().toISOString()
+        paid_at: new Date().toISOString(),
       })
-      .eq('id', payrollId  );
+      .eq('id', payrollId);
 
-    await loadData(  );
+    await loadData();
   }
 
   if (loading) {
@@ -139,7 +143,9 @@ export default function AdminPayroll() {
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold">Payroll Management</h1>
-          <p className="text-gray-600 mt-2">Track apprentice hours and payments</p>
+          <p className="text-gray-600 mt-2">
+            Track apprentice hours and payments
+          </p>
         </div>
       </div>
 
@@ -148,17 +154,26 @@ export default function AdminPayroll() {
         <div className="bg-white rounded-lg shadow mb-8">
           <div className="p-6 border-b">
             <h2 className="text-xl font-bold">Generate Payroll</h2>
-            <p className="text-sm text-gray-600 mt-1">Calculate pay for the last week</p>
+            <p className="text-sm text-gray-600 mt-1">
+              Calculate pay for the last week
+            </p>
           </div>
           <div className="divide-y">
             {apprenticeships.map((apprenticeship) => (
-              <div key={apprenticeship.id} className="p-6 flex justify-between items-center">
+              <div
+                key={apprenticeship.id}
+                className="p-6 flex justify-between items-center"
+              >
                 <div>
-                  <p className="font-semibold">{apprenticeship.student?.full_name}</p>
-                  <p className="text-sm text-gray-600">{apprenticeship.employer_name}</p>
+                  <p className="font-semibold">
+                    {apprenticeship.student?.full_name}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    {apprenticeship.employer_name}
+                  </p>
                   <p className="text-sm text-gray-500">
-                    Rate: ${apprenticeship.wage_current}/hr | 
-                    Total Hours: {apprenticeship.total_hours_completed.toFixed(1)}
+                    Rate: ${apprenticeship.wage_current}/hr | Total Hours:{' '}
+                    {apprenticeship.total_hours_completed.toFixed(1)}
                   </p>
                 </div>
                 <button
@@ -182,33 +197,62 @@ export default function AdminPayroll() {
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Student</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Employer</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Period</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hours</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Rate</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Gross Pay</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Student
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Employer
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Period
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Hours
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Rate
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Gross Pay
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Status
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y">
                 {payrolls.map((payroll) => (
                   <tr key={payroll.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium">{payroll.student?.full_name}</td>
-                    <td className="px-6 py-4">{payroll.apprenticeship?.employer_name}</td>
-                    <td className="px-6 py-4 text-sm">
-                      {new Date(payroll.pay_period_start).toLocaleDateString()} - 
-                      {new Date(payroll.pay_period_end).toLocaleDateString()}
+                    <td className="px-6 py-4 font-medium">
+                      {payroll.student?.full_name}
                     </td>
-                    <td className="px-6 py-4 font-bold">{payroll.total_hours.toFixed(1)}</td>
-                    <td className="px-6 py-4">${payroll.hourly_rate.toFixed(2)}</td>
-                    <td className="px-6 py-4 font-bold text-green-600">${payroll.gross_pay.toFixed(2)}</td>
                     <td className="px-6 py-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        payroll.status === 'paid' ? 'bg-green-100 text-green-800' :
-                        'bg-yellow-100 text-yellow-800'
-                      }`}>
+                      {payroll.apprenticeship?.employer_name}
+                    </td>
+                    <td className="px-6 py-4 text-sm">
+                      {new Date(payroll.pay_period_start).toLocaleDateString()}{' '}
+                      -{new Date(payroll.pay_period_end).toLocaleDateString()}
+                    </td>
+                    <td className="px-6 py-4 font-bold">
+                      {payroll.total_hours.toFixed(1)}
+                    </td>
+                    <td className="px-6 py-4">
+                      ${payroll.hourly_rate.toFixed(2)}
+                    </td>
+                    <td className="px-6 py-4 font-bold text-green-600">
+                      ${payroll.gross_pay.toFixed(2)}
+                    </td>
+                    <td className="px-6 py-4">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          payroll.status === 'paid'
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-yellow-100 text-yellow-800'
+                        }`}
+                      >
                         {payroll.status}
                       </span>
                     </td>
@@ -222,7 +266,10 @@ export default function AdminPayroll() {
                         </button>
                       )}
                       {payroll.status === 'paid' && (
-                        <span className="text-gray-400">✓ Paid {new Date(payroll.paid_at).toLocaleDateString()}</span>
+                        <span className="text-gray-400">
+                          ✓ Paid{' '}
+                          {new Date(payroll.paid_at).toLocaleDateString()}
+                        </span>
                       )}
                     </td>
                   </tr>
@@ -231,38 +278,36 @@ export default function AdminPayroll() {
             </table>
           </div>
         </div>
-      
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-base md:text-lg mb-8 text-blue-100">
-              Join thousands who have launched successful careers through our free training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                Browse All Programs
-              </Link>
+
+        {/* CTA Section */}
+        <section className="py-16    text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Ready to Transform Your Career?
+              </h2>
+              <p className="text-base md:text-lg mb-8 text-blue-100">
+                Join thousands who have launched successful careers through our
+                free training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/programs"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                >
+                  Browse All Programs
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
+        </section>
       </div>
     </div>
-    );
-
+  );
 }
-

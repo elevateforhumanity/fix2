@@ -36,7 +36,7 @@ export default function AuditLogsPage() {
       const params = new URLSearchParams();
       if (actionFilter) params.append('action', actionFilter);
       if (resourceFilter) params.append('resource_type', resourceFilter);
-      
+
       const response = await fetch(`/api/admin/audit-logs?${params}`);
       if (response.ok) {
         const data = await response.json();
@@ -49,7 +49,7 @@ export default function AuditLogsPage() {
     }
   };
 
-  const filteredLogs = logs.filter(log => {
+  const filteredLogs = logs.filter((log) => {
     if (!searchTerm) return true;
     const search = searchTerm.toLowerCase();
     return (
@@ -62,15 +62,26 @@ export default function AuditLogsPage() {
 
   const exportLogs = () => {
     const csv = [
-      ['Timestamp', 'User', 'Email', 'Action', 'Resource Type', 'Resource ID'].join(','),
-      ...filteredLogs.map(log => [
-        new Date(log.created_at).toISOString(),
-        log.user?.full_name || 'Unknown',
-        log.user?.email || '',
-        log.action,
-        log.resource_type,
-        log.resource_id || '',
-      ].map(field => `"${field}"`).join(','))
+      [
+        'Timestamp',
+        'User',
+        'Email',
+        'Action',
+        'Resource Type',
+        'Resource ID',
+      ].join(','),
+      ...filteredLogs.map((log) =>
+        [
+          new Date(log.created_at).toISOString(),
+          log.user?.full_name || 'Unknown',
+          log.user?.email || '',
+          log.action,
+          log.resource_type,
+          log.resource_id || '',
+        ]
+          .map((field) => `"${field}"`)
+          .join(',')
+      ),
     ].join('\n');
 
     const blob = new Blob([csv], { type: 'text/csv' });
@@ -96,7 +107,10 @@ export default function AuditLogsPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/dashboard" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/dashboard"
+            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center justify-between">
@@ -122,25 +136,37 @@ export default function AuditLogsPage() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-sm font-medium text-gray-600 mb-2">Total Events</h3>
+            <h3 className="text-sm font-medium text-gray-600 mb-2">
+              Total Events
+            </h3>
             <p className="text-3xl font-bold text-blue-600">{logs.length}</p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <h3 className="text-sm font-medium text-gray-600 mb-2">Today</h3>
             <p className="text-3xl font-bold text-green-600">
-              {logs.filter(l => new Date(l.created_at).toDateString() === new Date().toDateString()).length}
+              {
+                logs.filter(
+                  (l) =>
+                    new Date(l.created_at).toDateString() ===
+                    new Date().toDateString()
+                ).length
+              }
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-sm font-medium text-gray-600 mb-2">Unique Users</h3>
+            <h3 className="text-sm font-medium text-gray-600 mb-2">
+              Unique Users
+            </h3>
             <p className="text-3xl font-bold text-purple-600">
-              {new Set(logs.map(l => l.user_id)).size}
+              {new Set(logs.map((l) => l.user_id)).size}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-sm font-medium text-gray-600 mb-2">Resource Types</h3>
+            <h3 className="text-sm font-medium text-gray-600 mb-2">
+              Resource Types
+            </h3>
             <p className="text-3xl font-bold text-orange-600">
-              {new Set(logs.map(l => l.resource_type)).size}
+              {new Set(logs.map((l) => l.resource_type)).size}
             </p>
           </div>
         </div>
@@ -249,22 +275,27 @@ export default function AuditLogsPage() {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{log.resource_type}</div>
+                        <div className="text-sm text-gray-900">
+                          {log.resource_type}
+                        </div>
                         {log.resource_id && (
-                          <div className="text-xs text-gray-500">ID: {log.resource_id.substring(0, 8)}...</div>
+                          <div className="text-xs text-gray-500">
+                            ID: {log.resource_id.substring(0, 8)}...
+                          </div>
                         )}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-500">
-                        {log.metadata && Object.keys(log.metadata).length > 0 && (
-                          <details className="cursor-pointer">
-                            <summary className="text-blue-600 hover:text-blue-800">
-                              View metadata
-                            </summary>
-                            <pre className="mt-2 text-xs bg-gray-50 p-2 rounded overflow-auto max-w-xs">
-                              {JSON.stringify(log.metadata, null, 2)}
-                            </pre>
-                          </details>
-                        )}
+                        {log.metadata &&
+                          Object.keys(log.metadata).length > 0 && (
+                            <details className="cursor-pointer">
+                              <summary className="text-blue-600 hover:text-blue-800">
+                                View metadata
+                              </summary>
+                              <pre className="mt-2 text-xs bg-gray-50 p-2 rounded overflow-auto max-w-xs">
+                                {JSON.stringify(log.metadata, null, 2)}
+                              </pre>
+                            </details>
+                          )}
                       </td>
                     </tr>
                   ))}
