@@ -30,7 +30,18 @@ if (!supabaseUrl || !supabaseKey) {
 
 // Build connection string from Supabase URL
 const projectRef = supabaseUrl.match(/https:\/\/([^.]+)\.supabase\.co/)?.[1];
-const connectionString = dbUrl || `postgresql://postgres:${supabaseKey}@db.${projectRef}.supabase.co:5432/postgres`;
+
+// Use DATABASE_URL if available, otherwise construct from Supabase URL
+// Note: Direct database connections require the database password, not the service role key
+let connectionString = dbUrl;
+
+if (!connectionString && projectRef) {
+  // For Supabase, we need the actual database password from DATABASE_URL env var
+  console.log('⚠️  DATABASE_URL not set - migrations require direct database access');
+  console.log('   Add DATABASE_URL to Vercel environment variables');
+  console.log('   Get it from: Supabase Dashboard → Settings → Database → Connection String');
+  process.exit(0); // Don't fail the build
+}
 
 console.log(`📡 Connecting to database...`);
 
