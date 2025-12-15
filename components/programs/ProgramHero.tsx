@@ -52,7 +52,7 @@ export function ProgramHero({ program }: { program: Program }) {
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source
-                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-230be810-44c7-4d36-95c9-4a587e62a370.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=zWhhKJGg3myPZuk2DqMWjddi9RIdjdqIpKqh8c87agPiUxOwwG90-Hq2v0I9kQBYLITC5EGCU3ua8l5G5sAqtt6UhAb5kUv5Hiihzr3Fbta9zEKMteeNUC~SrlP4WNrjrxYuWGeSmhBnM3PiA2uU2iQYi05rX2wP8O1urREmQisKEQyWhmEXixh~TQGvgO70zgBICZMtHXVaL-qkdWu8suTbFLb9gFCJfHFeUVc3TddD8S7-zdJxi3mQEe3gZxmZPTaTJ3M0wr-EicIvPREmvMKPyTCqBSwQnVn81aQ8Kp0jOQPeJ1fX9st8SR7qcdenN1tUqYwOhRq-K0NJh7nDTQ__"
+                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=XYAKfQTQtm1t~crb-eqoYGjNhW6OtDpmLV7aDSdfl-AY7Gmj5UcTwnRjGI8y~MBeFgfANbDXBLzgDgIiy9lIYq~qIafTofg9J5-dLlnPq0h0DC5cwxYMwcY9cOzLoumtClzCcEf6U4opibbDuxE6y7a3wZGl7mFlXMwcd7JHnJLuuq0Uw6mfFG4ROuJgqfnA7A97b2IM5nhw-AD-Nj6TsVbUdFhEaQETHHvWC~GucSzE8sUUQCbBpeFnH3SY8jJWAjXlM-E3cayy-unqJrw4EMP7kkAFLnR6xyD9mwHkXQjPnf2QlM574Fxhj7zNOsT9Q-ZNGN2kKGCII6Vui2lNug__"
                   type="video/mp4"
                 />
               </video>
