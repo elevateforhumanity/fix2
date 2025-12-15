@@ -52,21 +52,7 @@ export function ProgramHero({ program }: { program: Program }) {
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source
-                  src={
-                    isBarberProgram
-                      ? 'https://cms-artifacts.artlist.io/content/generated-video-v1/video__3/video-7b329d1f-3f92-4ec5-acdf-9d2d7ff6de5f.mp4?Expires=2081035443&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=2KDgdkukV1l5tUykhY0SBZu0ZYxEp6Xp86bQjcsHKxNbWwEjUxfu5OSCKMrGG2~xv00hDGlPIxaSaE~zClb9YFcW6WXYwa1sWpZcuqovnSTb5HBs5Vv13W-uCiEqd9-UenNmOCUQAsx70OYANXHY4d6qQBaVtMl9XkB9~mNfUYbV0hognViSLyI~7uK~gpA-bSCss8NZAAlwASn8vmgi8HrY3NQNfAvXKp0GaVi5RSb5L58PuRfb0S5GPV-B5UeImUvIxTCNfDG9ZOsVAvl8J7FxmgQcxc8-M6BGHoJR~2DndDRStF272N8p7yOiJI6NEt-KZxym~WceY3RZ6jKjJQ__'
-                      : isCDLProgram
-                        ? '/videos/cdl-hero.mp4'
-                        : isCNAProgram
-                          ? '/videos/cna-hero.mp4'
-                          : isWorkforceProgram
-                            ? '/videos/business-hero.mp4'
-                            : isMedicalAssistant
-                              ? '/videos/medical-assistant-hero.mp4'
-                              : isBuildingTech
-                                ? '/videos/building-technician-hero.mp4'
-                                : '/videos/hvac-hero-final.mp4'
-                  }
+                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-230be810-44c7-4d36-95c9-4a587e62a370.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=zWhhKJGg3myPZuk2DqMWjddi9RIdjdqIpKqh8c87agPiUxOwwG90-Hq2v0I9kQBYLITC5EGCU3ua8l5G5sAqtt6UhAb5kUv5Hiihzr3Fbta9zEKMteeNUC~SrlP4WNrjrxYuWGeSmhBnM3PiA2uU2iQYi05rX2wP8O1urREmQisKEQyWhmEXixh~TQGvgO70zgBICZMtHXVaL-qkdWu8suTbFLb9gFCJfHFeUVc3TddD8S7-zdJxi3mQEe3gZxmZPTaTJ3M0wr-EicIvPREmvMKPyTCqBSwQnVn81aQ8Kp0jOQPeJ1fX9st8SR7qcdenN1tUqYwOhRq-K0NJh7nDTQ__"
                   type="video/mp4"
                 />
               </video>
