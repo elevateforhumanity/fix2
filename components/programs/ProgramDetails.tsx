@@ -341,5 +341,6 @@ export function ProgramDetails({ program }: { program: Program }) {
         </div>
       </div>
     </section>
+    </>
   );
 }
