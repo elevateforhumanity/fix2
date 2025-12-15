@@ -372,7 +372,7 @@ export default function HomePage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2 bg-slate-100">
                 <Image
-                  src="/images/gallery/image5.jpg"
+                  src="https://i.imgur.com/7QrL7kQ.jpeg"
                   alt="HVAC training"
                   fill
                   quality={80}
