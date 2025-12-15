@@ -35,38 +35,41 @@ export default function HomePage() {
   return (
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
-      {/* VIDEO HERO WITH TEXT OVERLAY */}
-      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-slate-900">
-        {/* Background Video */}
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
-        </video>
-        
-        {/* Hero Text Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
+      {/* VIDEO HERO - Clean, No Overlay */}
+      <section className="relative w-full overflow-hidden bg-slate-900">
+        <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
+      {/* HERO CONTENT BELOW VIDEO */}
+      <section className="bg-white py-16">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             It's Not Graduation, It's Elevation
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 drop-shadow-lg">
+          <p className="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto">
             Free Career Training • Real Jobs • No Debt
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/programs"
-              className="inline-flex items-center justify-center bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-xl"
+              className="inline-flex items-center justify-center bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-lg"
             >
               Explore Programs
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl"
+              className="inline-flex items-center justify-center bg-slate-900 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-800 transition shadow-lg"
             >
               Get Started Today
             </Link>
