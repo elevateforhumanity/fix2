@@ -20,25 +20,6 @@ export function ProgramDetails({ program }: { program: Program }) {
 
   return (
     <>
-      {/* Second Hero Video - Middle of Page */}
-      <section className="w-full bg-slate-900 my-10">
-        <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-230be810-44c7-4d36-95c9-4a587e62a370.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=zWhhKJGg3myPZuk2DqMWjddi9RIdjdqIpKqh8c87agPiUxOwwG90-Hq2v0I9kQBYLITC5EGCU3ua8l5G5sAqtt6UhAb5kUv5Hiihzr3Fbta9zEKMteeNUC~SrlP4WNrjrxYuWGeSmhBnM3PiA2uU2iQYi05rX2wP8O1urREmQisKEQyWhmEXixh~TQGvgO70zgBICZMtHXVaL-qkdWu8suTbFLb9gFCJfHFeUVc3TddD8S7-zdJxi3mQEe3gZxmZPTaTJ3M0wr-EicIvPREmvMKPyTCqBSwQnVn81aQ8Kp0jOQPeJ1fX9st8SR7qcdenN1tUqYwOhRq-K0NJh7nDTQ__"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
         <div className="grid gap-10 md:grid-cols-[2fr,1fr]">
           <div>
@@ -337,6 +318,27 @@ export function ProgramDetails({ program }: { program: Program }) {
             </div>
           )}
         </aside>
+      </div>
+    </section>
+
+    {/* Second Hero Video - Centered Lower on Page */}
+    <section className="w-full bg-slate-900 py-16">
+      <div className="mx-auto max-w-5xl px-4">
+        <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-230be810-44c7-4d36-95c9-4a587e62a370.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=zWhhKJGg3myPZuk2DqMWjddi9RIdjdqIpKqh8c87agPiUxOwwG90-Hq2v0I9kQBYLITC5EGCU3ua8l5G5sAqtt6UhAb5kUv5Hiihzr3Fbta9zEKMteeNUC~SrlP4WNrjrxYuWGeSmhBnM3PiA2uU2iQYi05rX2wP8O1urREmQisKEQyWhmEXixh~TQGvgO70zgBICZMtHXVaL-qkdWu8suTbFLb9gFCJfHFeUVc3TddD8S7-zdJxi3mQEe3gZxmZPTaTJ3M0wr-EicIvPREmvMKPyTCqBSwQnVn81aQ8Kp0jOQPeJ1fX9st8SR7qcdenN1tUqYwOhRq-K0NJh7nDTQ__"
+              type="video/mp4"
+            />
+          </video>
+        </div>
       </div>
     </section>
   );
