@@ -20,7 +20,7 @@ export default async function Image() {
         }}
       >
         <img
-          src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__8/image-96fb9850-11b3-4a4b-b272-f2318aa47c8b.png?Expires=2080931577&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wxuR4n47Ur6YnSL5Uzd8kTRC7t1mXA6YCvDzHziBqwsENTQIGBkXkLcMcp2~QBXUaZgmxrS~a1II8ygKorH5O6IRf-IAXg8bRGFN8qKCG-YI7ucStQDIdoOgkBGb4GbK4qYFgSMsXiF6rtWHli3fun~73aehkCIirR49Y-zQKmI7lIV6qoNz1f61vk~YblxBF8pQWJhbdqTIl9sQTEgLHEN7fnzCkA3-yc0fydrTlV~k7oVfQfoMiQN6KZ4VvnVLxYouzwHjoMeqa8O91H4wrcAWh26RdR4mq4DwWXksKEwqrsnZMIKnFUQDfC6MVaYw6gtdaQBdaiyHd9TVMMHMkQ__"
+          src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/image-00bcede7-220e-4356-97d3-0589398400e5.png?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=s88ug6yhiDabHpkKCw5kM0Jkvbjh1HIqxz9hB5tXusrsd9DuQO4bQo4RLCNC~S0v48C-S6hZl~C4Xb~JWS4BA1YLuPs2BCBB98M9z8vWhkxoi36r8Rgbv7jP9fkOT0R1QtzuRuwOS~2VaKcnkqx-6iqNUqr11CPb3HbhT-ZQiSyuNV3CeS30sjIU6kT7ErZmRWcpGcAuZeV3KMrExqnXzwDrEwlzf9K43LmHteC-~dgByGgEE1Lv1CmSe2RUs7dUXR1EPTE2Xy6LAHaXdUpHRv1HfP2gAmGYZp3M~KM1UttrbX3ORTGxoUZlpHRRHbuETqaYHh~GrEUYluIycvTFaw__"
           alt="Elevate for Humanity"
           width="1200"
           height="630"

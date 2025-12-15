@@ -34,81 +34,39 @@ function ApplyForm() {
     setStatus('loading');
 
     try {
-      // Split name into first and last
-      const nameParts = formData.name.trim().split(' ');
-      const firstName = nameParts[0] || '';
-      const lastName = nameParts.slice(1).join(' ') || '';
-
-      // If program selected, auto-enroll and redirect to dashboard
-      if (formData.program) {
-        const response = await fetch('/api/apply', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
-            email: formData.email,
-            phone: formData.phone,
-            program_slug: formData.program,
-            notes: formData.message,
-          }),
-        });
-
-        const result = await response.json();
-
-        if (result.ok) {
-          // Redirect to Stripe checkout (for Elevate to pay) or success page
-          window.location.href = result.checkoutUrl || result.redirectUrl;
-          return;
-        } else {
-          throw new Error(result.error || 'Failed to process enrollment');
-        }
-      }
-
-      // No program - just inquiry
-      const response = await fetch('/api/hubspot/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstname: firstName,
-          lastname: lastName,
-          email: formData.email,
-          phone: formData.phone,
-          program: formData.program,
-          message: formData.message,
-          source: 'website-inquiry',
-        }),
-      });
-
-      const result = await response.json();
-
-      if (result.ok) {
-        setStatus('success');
-        setTimeout(() => {
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            program: programParam || '',
-            message: '',
-          });
-          setStatus('idle');
-        }, 3000);
-      } else {
-        // Fallback to mailto if HubSpot fails
-        const subject = encodeURIComponent(
-          `Application Inquiry from ${formData.name}`
-        );
-        const body = encodeURIComponent(
+      // Create email with form data
+      const subject = encodeURIComponent(
+        `Inquiry from ${formData.name}${formData.program ? ` - ${formData.program}` : ''}`
+      );
+      const body = encodeURIComponent(
+        `New inquiry from Elevate for Humanity website:\n\n` +
           `Name: ${formData.name}\n` +
-            `Email: ${formData.email}\n` +
-            `Phone: ${formData.phone}\n` +
-            `Program Interest: ${formData.program}\n\n` +
-            `Message:\n${formData.message}`
-        );
-        window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
-        setStatus('success');
-      }
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone}\n` +
+          `Program Interest: ${formData.program || 'Not specified'}\n\n` +
+          `Message:\n${formData.message || 'No message provided'}\n\n` +
+          `---\n` +
+          `Submitted from: ${window.location.href}`
+      );
+
+      // Open mailto link
+      window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Show success message
+      setStatus('success');
+      
+      // Reset form after delay
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          program: programParam || '',
+          message: '',
+          state_code: 'IN',
+        });
+        setStatus('idle');
+      }, 3000);
     } catch (error) {
       console.error('Submission error:', error);
       setStatus('error');
@@ -139,7 +97,7 @@ function ApplyForm() {
             Let's discuss your goals and find the right training program for
             you.
           </p>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg text-slate-600 mb-6">
             Call us at{' '}
             <a
               href="tel:3173143757"
@@ -147,8 +105,21 @@ function ApplyForm() {
             >
               317-314-3757
             </a>{' '}
-            or fill out the form below.
+            or fill out the quick inquiry form below.
           </p>
+          
+          {/* Link to Full Application */}
+          <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-6 mb-8">
+            <p className="text-slate-900 font-semibold mb-3">
+              Ready to apply? Complete our full application form:
+            </p>
+            <a
+              href="/apply/full"
+              className="inline-block px-8 py-3 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition shadow-md"
+            >
+              Go to Full Application Form →
+            </a>
+          </div>
         </div>
 
         {/* Show RAPIDS badge for barber program */}
@@ -165,17 +136,31 @@ function ApplyForm() {
                 <span className="text-3xl">✓</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                Message Sent!
+                Email Opened!
               </h2>
-              <p className="text-slate-600 mb-6">
-                An advisor will contact you within 1-2 business days.
+              <p className="text-slate-600 mb-4">
+                Your email client should have opened with your inquiry details.
+                Please send the email to complete your submission.
               </p>
-              <button
-                onClick={() => setStatus('idle')}
-                className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition"
-              >
-                Send Another Message
-              </button>
+              <p className="text-sm text-slate-600 mb-6">
+                An advisor will contact you within 1-2 business days after we receive your email.
+              </p>
+              <div className="space-y-3">
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition"
+                >
+                  Send Another Inquiry
+                </button>
+                <div>
+                  <a
+                    href="/apply/full"
+                    className="inline-block text-orange-600 hover:text-orange-700 font-semibold underline"
+                  >
+                    Or complete the full application form →
+                  </a>
+                </div>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -313,12 +298,18 @@ function ApplyForm() {
                 disabled={status === 'loading'}
                 className="w-full px-6 py-4 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === 'loading' ? 'Sending...' : 'Send Message'}
+                {status === 'loading' ? 'Opening Email...' : 'Send Inquiry via Email'}
               </button>
 
-              <p className="text-sm text-slate-600 text-center">
-                By submitting an application, you acknowledge that all platform systems, program structures, and instructional workflows are the intellectual property of Elevate for Humanity.
-              </p>
+              <div className="text-center space-y-2">
+                <p className="text-sm text-slate-600">
+                  This will open your email client to send to:{' '}
+                  <span className="font-semibold">elevate4humanityedu@gmail.com</span>
+                </p>
+                <p className="text-xs text-slate-500">
+                  By submitting an application, you acknowledge that all platform systems, program structures, and instructional workflows are the intellectual property of Elevate for Humanity.
+                </p>
+              </div>
             </form>
           )}
         </div>

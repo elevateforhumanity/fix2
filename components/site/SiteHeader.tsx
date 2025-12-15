@@ -18,18 +18,18 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-zinc-100">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
-        <Link href="/" className="font-black text-zinc-900 tracking-tight">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-8">
+        <Link href="/" className="font-black text-zinc-900 tracking-tight flex-shrink-0">
           Elevate for Humanity
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
+        {/* Desktop Nav - Spread across */}
+        <nav className="hidden lg:flex items-center justify-center flex-1 gap-8">
           {nav.map((i) => (
             <Link
               key={i.href}
               href={i.href}
-              className="font-bold text-zinc-800 hover:text-zinc-950 transition"
+              className="font-bold text-zinc-800 hover:text-zinc-950 transition whitespace-nowrap"
             >
               {i.label}
             </Link>
@@ -37,16 +37,16 @@ export default function SiteHeader() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           <Link
             href="/platform/licensing"
-            className="hidden sm:inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition"
+            className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
           >
             License
           </Link>
           <Link
             href="/apply"
-            className="inline-flex rounded-xl bg-zinc-900 text-white px-4 py-2 font-extrabold hover:bg-zinc-800 transition"
+            className="inline-flex rounded-xl bg-zinc-900 text-white px-4 py-2 font-extrabold hover:bg-zinc-800 transition whitespace-nowrap"
           >
             Apply
           </Link>

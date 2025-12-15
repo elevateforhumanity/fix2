@@ -79,7 +79,7 @@ export default function PWAInstallSection() {
 
           <div className="relative aspect-video max-w-lg mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
             <Image
-              src="/images/og-cover.jpg"
+              src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/image-00bcede7-220e-4356-97d3-0589398400e5.png?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=s88ug6yhiDabHpkKCw5kM0Jkvbjh1HIqxz9hB5tXusrsd9DuQO4bQo4RLCNC~S0v48C-S6hZl~C4Xb~JWS4BA1YLuPs2BCBB98M9z8vWhkxoi36r8Rgbv7jP9fkOT0R1QtzuRuwOS~2VaKcnkqx-6iqNUqr11CPb3HbhT-ZQiSyuNV3CeS30sjIU6kT7ErZmRWcpGcAuZeV3KMrExqnXzwDrEwlzf9K43LmHteC-~dgByGgEE1Lv1CmSe2RUs7dUXR1EPTE2Xy6LAHaXdUpHRv1HfP2gAmGYZp3M~KM1UttrbX3ORTGxoUZlpHRRHbuETqaYHh~GrEUYluIycvTFaw__"
               alt="Elevate for Humanity App"
               fill
               className="object-cover"
