@@ -50,7 +50,7 @@ export default function StripePayButton() {
 
       <stripe-buy-button
         buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
-        publishable-key="pk_live_51RvqjzIRNf5vPH3ABuHQofarfuWw0PW5ww9eTwkj21A6VLJaLopuYbPdpAFCTU10O5uLgGHeCTBEcu9xeM8ErbFy004j2KPoSx"
+        publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
       ></stripe-buy-button>
 
       <p className="text-[11px] text-slate-500">
