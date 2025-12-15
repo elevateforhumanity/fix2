@@ -6,6 +6,8 @@ export const metadata = {
     'A workforce-ready LMS for program delivery, progress tracking, and partner-ready structure.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function LmsPublicPage() {
   return (
     <main className="px-4 sm:px-6 lg:px-10 py-10">

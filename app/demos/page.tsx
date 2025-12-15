@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Explore our training programs and opportunities'
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function DemosPage() {
 
   return (
