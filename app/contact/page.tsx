@@ -1,171 +1,223 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    program: '',
-    message: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n` +
-      `Program Interest: ${formData.program}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Show success message
-    setStatus('success');
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', program: '', message: '' });
-      setStatus('idle');
-    }, 3000);
-  };
+  const contactOptions = [
+    {
+      title: 'Students & Applicants',
+      description: 'Ready to start your career journey? Learn about programs, funding, and enrollment.',
+      image: '/images/heroes/student-career.jpg',
+      href: '/apply',
+      icon: '🎓',
+      color: 'from-orange-500 to-orange-600'
+    },
+    {
+      title: 'Training Providers',
+      description: 'Partner with us to deliver programs through our platform and expand your reach.',
+      image: '/images/heroes/training-provider-1.jpg',
+      href: '/platform',
+      icon: '🏫',
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      title: 'Employers',
+      description: 'Build your talent pipeline and connect with skilled workers ready for employment.',
+      image: '/images/learners/reentry-coaching.jpg',
+      href: '/employers',
+      icon: '💼',
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      title: 'Workforce Boards',
+      description: 'Collaborate on workforce development initiatives and funding partnerships.',
+      image: '/images/facilities-new/facility-8.jpg',
+      href: '/platform/workforce-boards',
+      icon: '🤝',
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      title: 'Platform Licensing',
+      description: 'License our platform for your organization and deliver training at scale.',
+      image: '/images/platform/platform-screenshot-1.png',
+      href: '/platform/licensing',
+      icon: '⚙️',
+      color: 'from-teal-500 to-teal-600'
+    },
+    {
+      title: 'General Inquiry',
+      description: 'Have a question? Get in touch with our team for any other inquiries.',
+      image: '/images/facilities-new/facility-1.jpg',
+      href: 'mailto:elevate4humanityedu@gmail.com',
+      icon: '✉️',
+      color: 'from-slate-500 to-slate-600'
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Simple Hero - No Text */}
-      <section className="relative h-[200px] w-full overflow-hidden">
-        <Image
-          src="/images/facilities-new/facility-8.jpg"
-          alt="Contact"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
+    <main className="bg-white overflow-hidden">
+      {/* Hero Section with Curved Bottom */}
+      <section className="relative bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 py-24 md:py-32 overflow-hidden">
+        {/* Decorative circles */}
+        <div className="absolute top-10 right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+        
+        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
+          <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+            <span className="text-white font-bold text-sm uppercase tracking-wider">Contact Us</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            Hey there, how can we help?
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            The best way to experience Elevate is to see it for yourself. Choose your path below and we'll connect you with the right team.
+          </p>
+        </div>
+
+        {/* Curved bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-white" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
       </section>
 
-      {/* Inquiry Form */}
-      <section className="py-12">
-        <div className="max-w-xl mx-auto px-4">
-          <h1 className="text-3xl font-bold text-center mb-8">Inquiry Form</h1>
-
-          {status === 'success' && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-center">
-              ✓ Message sent! We'll contact you within 24 hours.
-            </div>
-          )}
-
-          {status === 'error' && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-center">
-              Error sending message. Please call 317-314-3757.
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-1">
-                Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-1">
-                Email *
-              </label>
-              <input
-                type="email"
-                id="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-1">
-                Phone *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                required
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="program" className="block text-sm font-semibold text-slate-900 mb-1">
-                Program of Interest
-              </label>
-              <select
-                id="program"
-                value={formData.program}
-                onChange={(e) => setFormData({ ...formData, program: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+      {/* Contact Options Grid */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {contactOptions.map((option, idx) => (
+              <Link 
+                key={idx}
+                href={option.href}
+                className="group relative"
               >
-                <option value="">Select a program...</option>
-                <option value="Barber Apprenticeship">Barber Apprenticeship</option>
-                <option value="Medical Assistant">Medical Assistant</option>
-                <option value="HVAC Technician">HVAC Technician</option>
-                <option value="CPR Certification">CPR Certification</option>
-                <option value="Emergency Health & Safety Tech">Emergency Health & Safety Tech</option>
-                <option value="Professional Esthetician">Professional Esthetician</option>
-                <option value="Peer Recovery Coach">Peer Recovery Coach</option>
-                <option value="Tax Prep & Financial Services">Tax Prep & Financial Services</option>
-                <option value="Business Startup & Marketing">Business Startup & Marketing</option>
-                <option value="Not sure yet">Not sure yet</option>
-              </select>
-            </div>
+                <div className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                  {/* Image */}
+                  <div className="relative h-72 overflow-hidden">
+                    <Image
+                      src={option.image}
+                      alt={option.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      quality={90}
+                    />
+                    {/* Gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`} />
+                    
+                    {/* Icon badge */}
+                    <div className="absolute top-6 right-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                      <span className="text-3xl">{option.icon}</span>
+                    </div>
+                  </div>
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-1">
-                Message *
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={5}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                placeholder="Tell us about yourself and what you're looking for..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="w-full px-8 py-4 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all disabled:bg-slate-400 disabled:cursor-not-allowed text-lg"
-            >
-              {status === 'loading' ? 'Sending...' : 'Submit Inquiry'}
-            </button>
-          </form>
-
-          <div className="mt-8 pt-6 border-t border-slate-200 text-center text-sm text-slate-600">
-            <p>
-              Or call us: <a href="tel:3173143757" className="text-orange-600 font-semibold">317-314-3757</a>
-            </p>
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-orange-300 transition">
+                      {option.title}
+                    </h3>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      {option.description}
+                    </p>
+                    <div className="mt-4 inline-flex items-center text-white font-bold group-hover:gap-2 transition-all">
+                      Get Started
+                      <span className="ml-2 group-hover:ml-4 transition-all">→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-    </div>
+
+      {/* Quick Contact Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
+        {/* Decorative shapes */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full opacity-20 blur-3xl" />
+        
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Call Now */}
+            <div className="bg-white rounded-3xl p-10 shadow-xl">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
+                <span className="text-4xl">📞</span>
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Prefer to call now?
+              </h2>
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                You can reach us Monday-Friday, 8am-5pm EST. Our advisors are ready to help you find the right program.
+              </p>
+              <a 
+                href="tel:3173143757"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
+              >
+                317-314-3757
+              </a>
+            </div>
+
+            {/* Right: Email */}
+            <div className="bg-white rounded-3xl p-10 shadow-xl">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
+                <span className="text-4xl">✉️</span>
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Send us an email
+              </h2>
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                Have a detailed question? Email us and we'll respond within 24 hours with the information you need.
+              </p>
+              <a 
+                href="mailto:elevate4humanityedu@gmail.com"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
+              >
+                Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Already Enrolled Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Already enrolled?
+              </h2>
+              <p className="text-white/80 text-lg mb-8">
+                Sign in to access your courses, track progress, and manage your account.
+              </p>
+              <Link
+                href="/login"
+                className="inline-flex items-center justify-center bg-white text-slate-900 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-orange-500 hover:text-white transition-all shadow-xl"
+              >
+                Sign In to Portal
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ready to Join Section */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 to-orange-100">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Ready to start your journey?
+          </h2>
+          <p className="text-xl text-slate-700 mb-8">
+            Apply now and take the first step toward a better future.
+          </p>
+          <Link
+            href="/apply"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all"
+          >
+            Apply Now
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
