@@ -1,8 +1,66 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { programs } from '@/app/data/programs';
+import { Metadata } from 'next';
+import { StructuredData } from '@/components/StructuredData';
+import { generateSEOMetadata, generateStructuredData } from '@/lib/seo';
+
+export const metadata: Metadata = generateSEOMetadata({
+  title: '30+ Free Career Training Programs',
+  description: 'Access 30+ free career training programs. 100% funded through WIOA. Earn industry certifications in healthcare, skilled trades, beauty, and business. Enroll today.',
+  path: '/programs',
+  keywords: [
+    'free training programs',
+    'career training',
+    'WIOA programs',
+    'healthcare training',
+    'skilled trades',
+    'certification programs',
+    'job training',
+    'workforce development',
+    'free courses',
+    'career certificates',
+  ],
+});
 
 export default function ProgramsPage() {
+  const organizationSchema = generateStructuredData({
+    type: 'Organization',
+    data: {
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'USD',
+        price: '0',
+        offerCount: programs.length.toString(),
+      },
+    },
+  });
+
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: programs.map((program, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Course',
+        name: program.title,
+        description: program.description,
+        provider: {
+          '@type': 'Organization',
+          name: 'Elevate For Humanity',
+          url: 'https://www.elevateforhumanity.org',
+        },
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+        },
+        url: `https://www.elevateforhumanity.org/programs/${program.slug}`,
+      },
+    })),
+  };
   // Categorize programs
   const skillsTrades = programs.filter(p => 
     p.slug.includes('hvac') || p.slug.includes('building') || p.slug.includes('cdl')
@@ -21,9 +79,20 @@ export default function ProgramsPage() {
   );
 
   return (
-    <main className="bg-white overflow-hidden">
-      {/* Hero Image - Diagonal Cut */}
-      <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+    <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      
+      <main className="bg-white overflow-hidden">
+        {/* Hero Image - Diagonal Cut */}
+        <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent z-10" />
         <Image
           src="/images/heroes/programs.jpg"
@@ -47,11 +116,11 @@ export default function ProgramsPage() {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-1 bg-orange-500 rounded-full" />
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900">
               Skilled Trades
             </h2>
           </div>
-          <p className="text-xl text-slate-600 mb-12 max-w-3xl">
+          <p className="text-base md:text-lg text-slate-600 mb-12 max-w-3xl">
             High-demand careers with excellent pay and job security.
           </p>
 
@@ -85,7 +154,7 @@ export default function ProgramsPage() {
                         </div>
                         <span className="text-sm font-bold text-orange-600 uppercase tracking-wider">{program.duration}</span>
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
+                      <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
                         {program.name}
                       </h3>
                       <p className="text-slate-700 mb-6 leading-relaxed">
@@ -126,10 +195,10 @@ export default function ProgramsPage() {
             <div className="inline-block px-6 py-2 bg-teal-100 rounded-full mb-4">
               <span className="text-teal-700 font-bold text-sm uppercase tracking-wider">Healthcare</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Healthcare Careers
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
               Start your healthcare career in weeks, not years.
             </p>
           </div>
@@ -161,7 +230,7 @@ export default function ProgramsPage() {
                       </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition">
+                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition">
                         {program.name}
                       </h3>
                       <div className="flex items-center gap-2 mb-4">
@@ -188,10 +257,10 @@ export default function ProgramsPage() {
       {beautyWellness.length > 0 && (
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Beauty & Wellness
             </h2>
-            <p className="text-xl text-slate-600 mb-12 max-w-3xl">
+            <p className="text-base md:text-lg text-slate-600 mb-12 max-w-3xl">
               Build your own business or work in top salons and spas.
             </p>
 
@@ -213,7 +282,7 @@ export default function ProgramsPage() {
                       />
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
+                      <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
                         {program.name}
                       </h3>
                       <p className="text-slate-700 mb-6 leading-relaxed">
@@ -241,10 +310,10 @@ export default function ProgramsPage() {
       {businessFinance.length > 0 && (
         <section className="py-20 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Business & Finance
             </h2>
-            <p className="text-xl text-slate-600 mb-12 max-w-3xl">
+            <p className="text-base md:text-lg text-slate-600 mb-12 max-w-3xl">
               Start your own business or work for established firms.
             </p>
 
@@ -266,7 +335,7 @@ export default function ProgramsPage() {
                       />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition">
+                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition">
                         {program.name}
                       </h3>
                       <p className="text-sm text-slate-600 mb-4">
@@ -290,10 +359,10 @@ export default function ProgramsPage() {
       {/* CTA Section */}
       <section className="py-20 bg-orange-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Need help choosing a program?
           </h2>
-          <p className="text-xl text-slate-700 mb-8">
+          <p className="text-base md:text-lg text-slate-700 mb-8">
             Talk to an advisor about your goals, funding options, and which program is right for you.
           </p>
           <Link
@@ -305,5 +374,6 @@ export default function ProgramsPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

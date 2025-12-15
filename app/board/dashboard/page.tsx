@@ -92,7 +92,7 @@ export default async function BoardMemberDashboardPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Welcome
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100">
             Transform your career with free training
           </p>
         </div>
@@ -103,7 +103,7 @@ export default async function BoardMemberDashboardPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Board Member Dashboard</h1>
-            <p className="text-xl text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
+            <p className="text-base md:text-lg text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
           </div>
         </div>
       </section>
@@ -235,8 +235,8 @@ export default async function BoardMemberDashboardPage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Take the first step toward a better career today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

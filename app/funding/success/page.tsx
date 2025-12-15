@@ -15,7 +15,7 @@ export default function FundingSuccessPage() {
           ✅ Funding Approved & Processed!
         </h1>
 
-        <p className="text-xl text-slate-700 mb-8">
+        <p className="text-base md:text-lg text-slate-700 mb-8">
           Student enrollment has been automatically activated
         </p>
 

@@ -189,7 +189,7 @@ export default function EstheticianSkillsTrackingPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Skills Tracking Esthetician
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -404,7 +404,7 @@ export default function EstheticianSkillsTrackingPage() {
                         />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">{progress.totalSkills}</p>
+                      <p className="text-base md:text-lg font-bold text-gray-900">{progress.totalSkills}</p>
                       <p className="text-sm text-gray-600">Total Skills Logged</p>
                     </div>
                   </div>
@@ -421,7 +421,7 @@ export default function EstheticianSkillsTrackingPage() {
                         />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">{progress.uniqueSkills}</p>
+                      <p className="text-base md:text-lg font-bold text-gray-900">{progress.uniqueSkills}</p>
                       <p className="text-sm text-gray-600">Unique Skills Practiced</p>
                     </div>
                   </div>
@@ -438,7 +438,7 @@ export default function EstheticianSkillsTrackingPage() {
                         />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">{progress.avgRating}</p>
+                      <p className="text-base md:text-lg font-bold text-gray-900">{progress.avgRating}</p>
                       <p className="text-sm text-gray-600">Average Quality Rating</p>
                     </div>
                   </div>
@@ -520,7 +520,7 @@ export default function EstheticianSkillsTrackingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -575,10 +575,10 @@ export default function EstheticianSkillsTrackingPage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
               Ready to Transform Your Career?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Join thousands who have launched successful careers through our free training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

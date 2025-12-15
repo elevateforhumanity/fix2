@@ -121,7 +121,7 @@ export default function NrfPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             NRF RISE Up Credentials
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Industry-recognized retail and customer service certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -147,7 +147,7 @@ export default function NrfPage() {
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Why NRF RISE Up?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -155,7 +155,7 @@ export default function NrfPage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-lg font-semibold mb-2">
                 Industry-Recognized
               </h3>
               <p className="text-gray-600">
@@ -167,7 +167,7 @@ export default function NrfPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">100% Free</h3>
+              <h3 className="text-lg font-semibold mb-2">100% Free</h3>
               <p className="text-gray-600">
                 Included with your program enrollment through WIOA or WRG
                 funding
@@ -177,7 +177,7 @@ export default function NrfPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Self-Paced</h3>
+              <h3 className="text-lg font-semibold mb-2">Self-Paced</h3>
               <p className="text-gray-600">
                 Complete training on your schedule with 24/7 online access
               </p>
@@ -189,7 +189,7 @@ export default function NrfPage() {
       {/* Courses Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Available Credentials
           </h2>
 
@@ -246,7 +246,7 @@ export default function NrfPage() {
       {/* Programs Using NRF */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Programs Including NRF Credentials
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -254,7 +254,7 @@ export default function NrfPage() {
               href="/programs/workforce-readiness"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-lg font-semibold mb-2">
                 Workforce Readiness
               </h3>
               <p className="text-gray-600 mb-4">
@@ -269,7 +269,7 @@ export default function NrfPage() {
               href="/programs/business-startup-marketing"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-lg font-semibold mb-2">
                 Business Startup & Marketing
               </h3>
               <p className="text-gray-600 mb-4">
@@ -286,8 +286,8 @@ export default function NrfPage() {
       {/* CTA Section */}
       <section className="py-16 bg-purple-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Certified?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Certified?</h2>
+          <p className="text-base md:text-lg mb-8">
             Enroll in a program today and get free access to NRF RISE Up
             credentials
           </p>

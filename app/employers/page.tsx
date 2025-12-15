@@ -48,7 +48,7 @@ export default function EmployersPage() {
               <br />
               Build Your Team.
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100 mb-8 leading-relaxed">
               Access pre-screened, trained candidates ready to work. No
               recruitment fees. Tax incentives available. Customized training
               programs.
@@ -75,7 +75,7 @@ export default function EmployersPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Why Partner with Elevate for Humanity?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -83,7 +83,7 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">
+                <h3 className="text-lg font-bold mb-3">
                   Pre-Screened Candidates
                 </h3>
                 <p className="text-slate-600">
@@ -96,7 +96,7 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">
+                <h3 className="text-lg font-bold mb-3">
                   Zero Recruitment Fees
                 </h3>
                 <p className="text-slate-600">
@@ -108,7 +108,7 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Tax Incentives</h3>
+                <h3 className="text-lg font-bold mb-3">Tax Incentives</h3>
                 <p className="text-slate-600">
                   Qualify for WOTC (Work Opportunity Tax Credit) and other
                   incentives when hiring our graduates.
@@ -118,7 +118,7 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="w-8 h-8 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Customized Training</h3>
+                <h3 className="text-lg font-bold mb-3">Customized Training</h3>
                 <p className="text-slate-600">
                   Need specific skills? We can customize training programs to
                   meet your exact hiring needs.
@@ -128,7 +128,7 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Handshake className="w-8 h-8 text-red-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Ongoing Support</h3>
+                <h3 className="text-lg font-bold mb-3">Ongoing Support</h3>
                 <p className="text-slate-600">
                   We support both you and your new hires through the first 90
                   days to ensure successful placement.
@@ -138,7 +138,7 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-indigo-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Reduced Turnover</h3>
+                <h3 className="text-lg font-bold mb-3">Reduced Turnover</h3>
                 <p className="text-slate-600">
                   Our graduates have 85% retention rates after one
                   year—significantly higher than industry average.
@@ -153,16 +153,16 @@ export default function EmployersPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               How It Works
             </h2>
             <div className="space-y-8">
               <div className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
                   1
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">
+                  <h3 className="text-lg md:text-lg font-bold mb-2">
                     Post Your Job Opening
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
@@ -174,11 +174,11 @@ export default function EmployersPage() {
                 </div>
               </div>
               <div className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
                   2
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">
+                  <h3 className="text-lg md:text-lg font-bold mb-2">
                     We Match Qualified Candidates
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
@@ -190,11 +190,11 @@ export default function EmployersPage() {
                 </div>
               </div>
               <div className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
                   3
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">
+                  <h3 className="text-lg md:text-lg font-bold mb-2">
                     Interview & Hire with Confidence
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
@@ -214,10 +214,10 @@ export default function EmployersPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
               Available Talent Pools
             </h2>
-            <p className="text-xl text-slate-600 text-center mb-12">
+            <p className="text-base md:text-lg text-slate-600 text-center mb-12">
               Access trained, certified candidates across multiple industries
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -262,15 +262,15 @@ export default function EmployersPage() {
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
               Tax Incentives & Credits
             </h2>
-            <p className="text-xl text-slate-600 text-center mb-12">
+            <p className="text-base md:text-lg text-slate-600 text-center mb-12">
               Hiring our graduates may qualify you for significant tax benefits
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
                   <CheckCircle className="w-6 h-6 text-green-600" />
                   Work Opportunity Tax Credit (WOTC)
                 </h3>
@@ -287,7 +287,7 @@ export default function EmployersPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
                   <CheckCircle className="w-6 h-6 text-green-600" />
                   Federal Bonding Program
                 </h3>
@@ -313,16 +313,16 @@ export default function EmployersPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Calendar className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Hiring Events
             </h2>
-            <p className="text-xl text-slate-600 mb-8">
+            <p className="text-base md:text-lg text-slate-600 mb-8">
               Meet multiple qualified candidates in one convenient location. We
               host quarterly hiring events where you can interview pre-screened
               candidates on-site.
             </p>
             <div className="bg-slate-50 rounded-lg p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-4">Next Hiring Event</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Next Hiring Event</h3>
               <p className="text-lg text-slate-700 mb-2">
                 <strong>Date:</strong> Third Thursday of each month
               </p>
@@ -353,10 +353,10 @@ export default function EmployersPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <FileText className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Post a Job Opening
               </h2>
-              <p className="text-xl text-slate-600">
+              <p className="text-base md:text-lg text-slate-600">
                 Fill out the form below and we&apos;ll match you with qualified
                 candidates
               </p>
@@ -504,7 +504,7 @@ export default function EmployersPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               What Employers Say
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -554,16 +554,16 @@ export default function EmployersPage() {
       >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Ready to Build Your Team?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Let&apos;s discuss your hiring needs and how we can help you find
               the right talent.
             </p>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="font-bold text-xl mb-2">Call Us</h3>
+                <h3 className="font-bold text-lg mb-2">Call Us</h3>
                 <a
                   href="tel:317-314-3757"
                   className="text-2xl font-bold hover:text-blue-200 transition"
@@ -575,7 +575,7 @@ export default function EmployersPage() {
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="font-bold text-xl mb-2">Email Us</h3>
+                <h3 className="font-bold text-lg mb-2">Email Us</h3>
                 <a
                   href="mailto:employers@elevateforhumanity.org"
                   className="text-xl font-bold hover:text-blue-200 transition break-all"

@@ -185,7 +185,7 @@ export default function SuccessStoriesPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Success Stories
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100 leading-relaxed">
               These aren&apos;t just statistics—they&apos;re real people who
               transformed their lives through education, determination, and the
               right support at the right time.
@@ -262,7 +262,7 @@ export default function SuccessStoriesPage() {
                 {/* Content */}
                 <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <div className="mb-4">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-2">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
                       {story.name}
                     </h2>
                     <p className="text-lg text-blue-600 font-semibold">
@@ -333,10 +333,10 @@ export default function SuccessStoriesPage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Ready to Write Your Success Story?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Every success story starts with a single step. Take yours today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -361,7 +361,7 @@ export default function SuccessStoriesPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               What Our Graduates Say
             </h2>
             <div className="grid md:grid-cols-3 gap-6">

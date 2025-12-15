@@ -107,7 +107,7 @@ export default async function GrantSubmissionsPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
+          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
 
@@ -256,7 +256,7 @@ export default async function GrantSubmissionsPage() {
           {submissions.length === 0 && (
             <div className="text-center py-12">
               <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">📋</div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">
                 No Submissions Yet
               </h3>
               <p className="text-slate-600 mb-6">

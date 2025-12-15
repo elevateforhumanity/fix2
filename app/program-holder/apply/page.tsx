@@ -133,7 +133,7 @@ sizes="100vw" />
             <Building2 className="text-blue-700" size={40} />
             <h1 className="text-4xl sm:text-5xl font-bold text-slate-900">Become a Program Holder</h1>
           </div>
-          <p className="text-xl text-slate-700">Partner with Elevate for Humanity to deliver free workforce training to your community.</p>
+          <p className="text-base md:text-lg text-slate-700">Partner with Elevate for Humanity to deliver free workforce training to your community.</p>
         </div>
       </section>
       <section className="py-12">
@@ -214,8 +214,8 @@ rows={4} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ri
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Take the first step toward a better career today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

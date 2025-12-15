@@ -165,7 +165,7 @@ export default function NewsPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               News & Updates
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100 leading-relaxed">
               Stay informed about program updates, success stories, and
               community impact.
             </p>
@@ -178,7 +178,7 @@ export default function NewsPage() {
         <section className="py-16 bg-slate-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8">Featured Stories</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">Featured Stories</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {featuredArticles.map((article) => (
                   <div
@@ -213,7 +213,7 @@ export default function NewsPage() {
                           {article.category}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold mb-3 text-slate-900">
+                      <h3 className="text-lg md:text-lg font-bold mb-3 text-slate-900">
                         {article.title}
                       </h3>
                       <p className="text-slate-600 mb-4 leading-relaxed">
@@ -257,7 +257,7 @@ export default function NewsPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">Recent Articles</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8">Recent Articles</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {recentArticles.map((article) => (
                 <div
@@ -310,10 +310,10 @@ export default function NewsPage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Stay Updated
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Subscribe to our newsletter for the latest news, program updates,
               and success stories.
             </p>

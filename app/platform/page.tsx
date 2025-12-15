@@ -31,7 +31,7 @@ export default function PlatformStorePage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Deploy Your Own Workforce Platform
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             Licensed platform access with modular apps. Built for training
             providers, schools, and workforce agencies.
           </p>
@@ -56,10 +56,10 @@ export default function PlatformStorePage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               What You're Buying
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               This is not a theme. It's a licensed platform with modular apps,
               deployment rights, and post-purchase onboarding.
             </p>
@@ -68,7 +68,7 @@ export default function PlatformStorePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🏗️</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Licensed Platform
               </h3>
               <p className="text-gray-600">
@@ -79,7 +79,7 @@ export default function PlatformStorePage() {
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🧩</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Modular Apps
               </h3>
               <p className="text-gray-600">
@@ -90,7 +90,7 @@ export default function PlatformStorePage() {
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🚀</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Onboarding Support
               </h3>
               <p className="text-gray-600">
@@ -106,10 +106,10 @@ export default function PlatformStorePage() {
       <section id="licenses" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Choose Your License
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Every license includes apps, updates, and support. Scale as you
               grow.
             </p>
@@ -130,7 +130,7 @@ export default function PlatformStorePage() {
                 )}
 
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                  <h3 className="text-lg md:text-lg font-bold mb-2 text-gray-900">
                     {product.name}
                   </h3>
                   <p className="text-gray-600 mb-4 min-h-[60px]">
@@ -193,13 +193,13 @@ export default function PlatformStorePage() {
       {/* Ideal For Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-900">
             Who This Is For
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">
                 Training Providers
               </h3>
               <p className="text-gray-600 mb-4">
@@ -213,7 +213,7 @@ export default function PlatformStorePage() {
             </div>
 
             <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">
                 Workforce Boards
               </h3>
               <p className="text-gray-600 mb-4">
@@ -227,7 +227,7 @@ export default function PlatformStorePage() {
             </div>
 
             <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900">
                 Community Colleges
               </h3>
               <p className="text-gray-600 mb-4">
@@ -246,10 +246,10 @@ export default function PlatformStorePage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Ready to Deploy Your Platform?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-base md:text-lg mb-8 text-blue-100">
             Choose a license, complete checkout, and get onboarding support to
             launch your workforce programs.
           </p>

@@ -20,7 +20,7 @@ export default function PaymentCancelPage() {
             Payment Cancelled
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-base md:text-lg text-gray-600 mb-8">
             Your payment was cancelled. No charges were made to your account.
           </p>
           

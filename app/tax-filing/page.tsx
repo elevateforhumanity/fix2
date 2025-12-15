@@ -44,7 +44,7 @@ export default function TaxFilingPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Tax Filing
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -77,7 +77,7 @@ export default function TaxFilingPage() {
               <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">
                 File Your Taxes for Just $100
               </h1>
-              <p className="text-xl text-green-100 mb-8">
+              <p className="text-base md:text-lg text-green-100 mb-8">
                 Professional tax preparation with Drake Software. Federal +
                 State included. Maximum refund guaranteed.
               </p>
@@ -97,7 +97,7 @@ export default function TaxFilingPage() {
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold mb-6">Why Choose Us?</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-6">Why Choose Us?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="text-green-300 mr-3">✓</span>
@@ -128,17 +128,17 @@ export default function TaxFilingPage() {
       {/* Pricing Comparison */}
       <section id="pricing" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Simple, Honest Pricing
           </h2>
-          <p className="text-xl text-gray-600 text-center mb-12">
+          <p className="text-base md:text-lg text-gray-600 text-center mb-12">
             Compare us to TurboTax and H&R Block
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* TurboTax */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">TurboTax</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">TurboTax</h3>
               <div className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">
                 $119+
               </div>
@@ -167,7 +167,7 @@ export default function TaxFilingPage() {
               <div className="bg-yellow-400 text-green-900 px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">
                 BEST VALUE
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 Elevate Tax Filing
               </h3>
               <div className="text-5xl font-bold text-white mb-2 text-3xl md:text-4xl lg:text-5xl">
@@ -208,7 +208,7 @@ export default function TaxFilingPage() {
 
             {/* H&R Block */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
-              <h3 className="text-2xl font-bold mb-4">H&R Block</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">H&R Block</h3>
               <div className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">
                 $115+
               </div>
@@ -234,7 +234,7 @@ export default function TaxFilingPage() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-2xl font-bold text-green-600">
+            <p className="text-base md:text-lg font-bold text-green-600">
               Save $19-$267 compared to competitors!
             </p>
           </div>
@@ -244,7 +244,7 @@ export default function TaxFilingPage() {
       {/* Features */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             What's Included
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -252,7 +252,7 @@ export default function TaxFilingPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">📊</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">Drake Tax Software</h3>
+              <h3 className="text-lg font-bold mb-3">Drake Tax Software</h3>
               <p className="text-gray-600">
                 Professional-grade software used by CPAs and tax preparers
                 nationwide
@@ -262,7 +262,7 @@ export default function TaxFilingPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">💰</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">Maximum Refund</h3>
+              <h3 className="text-lg font-bold mb-3">Maximum Refund</h3>
               <p className="text-gray-600">
                 We guarantee you'll get every dollar you deserve or we'll refund
                 our fee
@@ -272,7 +272,7 @@ export default function TaxFilingPage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">👨‍💼</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">Expert Support</h3>
+              <h3 className="text-lg font-bold mb-3">Expert Support</h3>
               <p className="text-gray-600">
                 Tax professionals available to answer questions and review your
                 return
@@ -285,12 +285,12 @@ export default function TaxFilingPage() {
       {/* How It Works */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             How It Works
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 1
               </div>
               <h3 className="font-bold mb-2">Create Account</h3>
@@ -299,7 +299,7 @@ export default function TaxFilingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 2
               </div>
               <h3 className="font-bold mb-2">Enter Information</h3>
@@ -308,7 +308,7 @@ export default function TaxFilingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 3
               </div>
               <h3 className="font-bold mb-2">Review & Approve</h3>
@@ -317,7 +317,7 @@ export default function TaxFilingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 4
               </div>
               <h3 className="font-bold mb-2">E-File</h3>
@@ -335,7 +335,7 @@ export default function TaxFilingPage() {
           <div className="   rounded-2xl p-12 text-white">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
                   Powered by Drake Tax Software
                 </h2>
                 <p className="text-lg text-blue-100 mb-6">
@@ -362,7 +362,7 @@ export default function TaxFilingPage() {
                 </ul>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4">What You Can File</h3>
+                <h3 className="text-lg font-bold mb-4">What You Can File</h3>
                 <ul className="space-y-2 text-sm">
                   <li>• W-2 wages</li>
                   <li>• 1099 income (contractor, gig work)</li>
@@ -384,7 +384,7 @@ export default function TaxFilingPage() {
       {/* FAQ */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
@@ -439,10 +439,10 @@ export default function TaxFilingPage() {
       {/* CTA */}
       <section className="py-20    text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to File Your Taxes?
           </h2>
-          <p className="text-xl text-green-100 mb-8">
+          <p className="text-base md:text-lg text-green-100 mb-8">
             Join thousands who've saved money with our $100 flat-fee tax filing
           </p>
           <a

@@ -32,7 +32,7 @@ export default async function OrientationPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Welcome to Your New Beginning
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             You're about to start a journey that changes everything. No debt. Real skills. A career that's yours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -62,7 +62,7 @@ export default async function OrientationPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-3xl font-bold mb-6">This Is Different</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">This Is Different</h2>
                 <p className="text-gray-700 mb-4">
                   You've probably heard promises before. "Get trained fast." "Start a new career." But then you see the price tag. Or the fine print. Or the catch.
                 </p>
@@ -119,7 +119,7 @@ export default async function OrientationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Week 1: The Basics</h3>
+                <h3 className="text-lg font-semibold mb-3">Week 1: The Basics</h3>
                 <p className="text-gray-600">You'll meet your instructors, get your materials, and learn the fundamentals. No one expects you to know everything. We start from the beginning.</p>
               </div>
               
@@ -129,7 +129,7 @@ export default async function OrientationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Weeks 2-12: Hands-On</h3>
+                <h3 className="text-lg font-semibold mb-3">Weeks 2-12: Hands-On</h3>
                 <p className="text-gray-600">This is where it clicks. You'll practice, make mistakes, get better. Your instructors are there every step. By week 12, you'll be confident.</p>
               </div>
               
@@ -139,14 +139,14 @@ export default async function OrientationPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Graduation & Beyond</h3>
+                <h3 className="text-lg font-semibold mb-3">Graduation & Beyond</h3>
                 <p className="text-gray-600">You'll earn your certification, update your resume, and we'll help you find work. Most graduates are hired within 30 days. You're not alone in this.</p>
               </div>
             </div>
 
             {/* Real Talk Section */}
             <div className="mt-16 bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6 text-center">What Students Actually Say</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">What Students Actually Say</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <p className="text-gray-700 mb-4 italic">
@@ -183,8 +183,8 @@ export default async function OrientationPage() {
       <section className="py-16 bg-gradient-to-br from-blue-600 to-orange-500 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">You Don't Need Permission to Change Your Life</h2>
-            <p className="text-xl text-white mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">You Don't Need Permission to Change Your Life</h2>
+            <p className="text-base md:text-lg text-white mb-8">
               You just need to show up. We'll handle the rest. No debt. No excuses. Just a real path forward.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

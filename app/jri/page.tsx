@@ -52,7 +52,7 @@ export default function JRIPage() {
               <br />
               Building Futures.
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
+            <p className="text-base md:text-lg mb-8 text-blue-100 leading-relaxed">
               The Justice Reinvestment Initiative transforms lives by providing
               fully-funded workforce training and career pathways for
               individuals reentering society.
@@ -86,10 +86,10 @@ export default function JRIPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Your Second Chance Starts Here
               </h2>
-              <p className="text-xl text-slate-600">
+              <p className="text-base md:text-lg text-slate-600">
                 Every person deserves the opportunity to rebuild their life with
                 dignity and purpose.
               </p>
@@ -105,7 +105,7 @@ export default function JRIPage() {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-4">
+                <h3 className="text-lg md:text-lg font-bold mb-4">
                   From Incarceration to Career Success
                 </h3>
                 <p className="text-slate-700 mb-4 leading-relaxed">
@@ -125,7 +125,7 @@ export default function JRIPage() {
 
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="order-2 md:order-1">
-                <h3 className="text-2xl font-bold mb-4">
+                <h3 className="text-lg md:text-lg font-bold mb-4">
                   100% Funded Training
                 </h3>
                 <p className="text-slate-700 mb-4 leading-relaxed">
@@ -157,7 +157,7 @@ export default function JRIPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Real Impact, Real Results
             </h2>
             <div className="grid md:grid-cols-4 gap-8">
@@ -233,7 +233,7 @@ export default function JRIPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               What JRI Funding Covers
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -349,10 +349,10 @@ export default function JRIPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
               JRI-Funded Programs
             </h2>
-            <p className="text-xl text-slate-600 text-center mb-12">
+            <p className="text-base md:text-lg text-slate-600 text-center mb-12">
               Choose from high-demand career pathways with proven employment
               outcomes
             </p>
@@ -493,7 +493,7 @@ export default function JRIPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Am I Eligible?
             </h2>
             <Card className="bg-blue-50 border-blue-200">
@@ -551,20 +551,20 @@ export default function JRIPage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Ready to Transform Your Future?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Your past doesn&apos;t define your future. Take the first step
               toward a new career today.
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-6">
+              <h3 className="text-lg md:text-lg font-bold mb-6">
                 Three Simple Steps to Get Started
               </h3>
               <div className="grid md:grid-cols-3 gap-6 text-left">
                 <div>
-                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-base mb-4">
                     1
                   </div>
                   <h4 className="font-bold mb-2">Contact Us</h4>
@@ -574,7 +574,7 @@ export default function JRIPage() {
                   </p>
                 </div>
                 <div>
-                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-base mb-4">
                     2
                   </div>
                   <h4 className="font-bold mb-2">Meet Your Coach</h4>
@@ -584,7 +584,7 @@ export default function JRIPage() {
                   </p>
                 </div>
                 <div>
-                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-base mb-4">
                     3
                   </div>
                   <h4 className="font-bold mb-2">Start Training</h4>
@@ -623,7 +623,7 @@ export default function JRIPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Success Stories
             </h2>
             <Card className="bg-white">

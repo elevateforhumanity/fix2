@@ -241,7 +241,7 @@ export default async function CashAdvancesAdminPage() {
       <div className="mt-8    text-white rounded-lg p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="text-lg font-bold mb-2">
               🏦 EPS Financial Partnership
             </h3>
             <p className="text-blue-100 mb-1">
@@ -326,7 +326,7 @@ export default async function CashAdvancesAdminPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -381,8 +381,8 @@ export default async function CashAdvancesAdminPage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Take the first step toward a better career today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

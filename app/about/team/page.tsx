@@ -76,7 +76,7 @@ export default function TeamPage() {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
                 Meet Our Team
               </h1>
-              <p className="text-xl text-white/95 max-w-3xl">
+              <p className="text-base md:text-lg text-white/95 max-w-3xl">
                 Dedicated professionals committed to transforming lives through
                 education, opportunity, and community empowerment.
               </p>
@@ -143,10 +143,10 @@ export default function TeamPage() {
 
                 {/* Bio */}
                 <div className="lg:w-2/3">
-                  <h2 className="text-4xl font-bold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     {member.name}
                   </h2>
-                  <p className="text-xl text-blue-600 font-semibold mb-6">
+                  <p className="text-base md:text-lg text-blue-600 font-semibold mb-6">
                     {member.title}
                   </p>
                   <div className="prose prose-lg max-w-none">
@@ -166,10 +166,10 @@ export default function TeamPage() {
       {/* Join Our Team CTA */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
             Join Our Team
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
             We're always looking for passionate professionals who share our
             mission to transform lives through education and opportunity.
           </p>

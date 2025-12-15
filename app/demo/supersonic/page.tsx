@@ -23,7 +23,7 @@ export default function SupersonicDemoPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Supersonic
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -161,7 +161,7 @@ export default function SupersonicDemoPage() {
         </div>
 
         <div className="   rounded-xl p-8 text-white mb-8">
-          <h3 className="text-2xl font-bold mb-4">Why Choose Supersonic?</h3>
+          <h3 className="text-lg md:text-lg font-bold mb-4">Why Choose Supersonic?</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
               <Zap className="w-12 h-12 mb-3" />
@@ -210,7 +210,7 @@ export default function SupersonicDemoPage() {
         </div>
 
         <div className="mt-12 bg-pink-50 border border-pink-200 rounded-xl p-6 text-center">
-          <h3 className="text-xl font-bold text-pink-900 mb-2">Supersonic Fast Cash Demo</h3>
+          <h3 className="text-lg font-bold text-pink-900 mb-2">Supersonic Fast Cash Demo</h3>
           <p className="text-pink-700 mb-4">Tax refund advances with 24-hour funding and no credit check</p>
           <div className="flex gap-4 justify-center">
             <Link href="/demo" className="bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold">View Pricing</Link>
@@ -224,7 +224,7 @@ export default function SupersonicDemoPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -279,10 +279,10 @@ export default function SupersonicDemoPage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Ready to Transform Your Career?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Join thousands who have launched successful careers through our free training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

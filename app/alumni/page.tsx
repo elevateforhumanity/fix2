@@ -30,7 +30,7 @@ export default async function AlumniPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Once Elevate, Always Elevate
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             Your graduation is just the beginning. Stay connected, keep growing,
             and give back to the community that helped you succeed.
           </p>
@@ -83,10 +83,10 @@ export default async function AlumniPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Alumni Benefits
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Your relationship with Elevate doesn't end at graduation. We're
               committed to your long-term success.
             </p>
@@ -97,7 +97,7 @@ export default async function AlumniPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
                 <Users className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Networking Events
               </h3>
               <p className="text-gray-600">
@@ -110,7 +110,7 @@ export default async function AlumniPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
                 <Briefcase className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Job Board Access
               </h3>
               <p className="text-gray-600">
@@ -123,7 +123,7 @@ export default async function AlumniPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mb-4">
                 <TrendingUp className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Continuing Education
               </h3>
               <p className="text-gray-600">
@@ -136,7 +136,7 @@ export default async function AlumniPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
                 <Heart className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Mentorship Program
               </h3>
               <p className="text-gray-600">
@@ -152,10 +152,10 @@ export default async function AlumniPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Alumni Success Stories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Real graduates, real careers, real impact.
             </p>
           </div>
@@ -174,7 +174,7 @@ export default async function AlumniPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">
                   From Unemployed to Healthcare Hero
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -204,7 +204,7 @@ export default async function AlumniPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">
                   Building a Better Future
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -233,7 +233,7 @@ export default async function AlumniPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">
                   Second Chances Work
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -266,10 +266,10 @@ export default async function AlumniPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Give Back to the Community
               </h2>
-              <p className="text-xl mb-6 text-blue-100">
+              <p className="text-base md:text-lg mb-6 text-blue-100">
                 Your success story can inspire the next generation of Elevate
                 learners. Share your experience, mentor a student, or speak at
                 an event.
@@ -364,10 +364,10 @@ export default async function AlumniPage() {
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
             Stay Connected
           </h2>
-          <p className="text-xl mb-8 text-gray-600">
+          <p className="text-base md:text-lg mb-8 text-gray-600">
             Update your contact information, share your career milestones, and
             stay engaged with the Elevate community.
           </p>

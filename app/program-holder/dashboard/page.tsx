@@ -73,7 +73,7 @@ export default async function ProgramHolderDashboard() {
                 <Users className="text-blue-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">{totalApprentices}</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">{totalApprentices}</p>
                 <p className="text-sm text-slate-600">Total Apprentices</p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default async function ProgramHolderDashboard() {
                 <CheckCircle className="text-green-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">{activeApprentices}</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">{activeApprentices}</p>
                 <p className="text-sm text-slate-600">Active</p>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default async function ProgramHolderDashboard() {
                 <Award className="text-purple-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">{completedApprentices}</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">{completedApprentices}</p>
                 <p className="text-sm text-slate-600">Completed</p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default async function ProgramHolderDashboard() {
                 <Clock className="text-orange-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">0</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">0</p>
                 <p className="text-sm text-slate-600">Pending Review</p>
               </div>
             </div>

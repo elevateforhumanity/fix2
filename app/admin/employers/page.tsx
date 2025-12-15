@@ -52,7 +52,7 @@ export default async function EmployersPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Employers
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             Explore Employers and discover opportunities for career growth and development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -125,8 +125,8 @@ export default async function EmployersPage() {
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Join thousands who have launched successful careers through our programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

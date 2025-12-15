@@ -31,7 +31,7 @@ export default async function RiseFoundationPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Rise Foundation
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             Explore Rise Foundation and discover opportunities for career growth
             and development.
           </p>
@@ -58,7 +58,7 @@ export default async function RiseFoundationPage() {
           <div className="max-w-7xl mx-auto">
             {/* VITA Program Section */}
             <div className="mb-16">
-              <h2 className="text-3xl font-bold mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 VITA - Volunteer Income Tax Assistance
               </h2>
               <p className="text-gray-700 mb-6 text-lg">
@@ -73,7 +73,7 @@ export default async function RiseFoundationPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h3 className="text-2xl font-bold mb-6">
+                <h3 className="text-lg md:text-lg font-bold mb-6">
                   Who Qualifies for VITA?
                 </h3>
                 <ul className="space-y-3">
@@ -159,7 +159,7 @@ export default async function RiseFoundationPage() {
 
             {/* What to Bring */}
             <div className="bg-blue-50 rounded-2xl p-8 mb-16">
-              <h3 className="text-2xl font-bold mb-6">
+              <h3 className="text-lg md:text-lg font-bold mb-6">
                 What to Bring to Your VITA Appointment
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -204,7 +204,7 @@ export default async function RiseFoundationPage() {
 
             {/* VITA Services */}
             <div className="mb-16">
-              <h3 className="text-2xl font-bold mb-6">VITA Services Are:</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-6">VITA Services Are:</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
                   <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">✓</div>
@@ -249,7 +249,7 @@ export default async function RiseFoundationPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Learn</h3>
+                <h3 className="text-lg font-semibold mb-3">Learn</h3>
                 <p className="text-gray-600">
                   Access quality training programs
                 </p>
@@ -271,7 +271,7 @@ export default async function RiseFoundationPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Certify</h3>
+                <h3 className="text-lg font-semibold mb-3">Certify</h3>
                 <p className="text-gray-600">Earn industry certifications</p>
               </div>
 
@@ -291,7 +291,7 @@ export default async function RiseFoundationPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Work</h3>
+                <h3 className="text-lg font-semibold mb-3">Work</h3>
                 <p className="text-gray-600">Get hired in your field</p>
               </div>
             </div>
@@ -303,8 +303,8 @@ export default async function RiseFoundationPage() {
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Join thousands who have launched successful careers through our
               programs.
             </p>

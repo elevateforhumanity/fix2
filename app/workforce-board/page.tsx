@@ -40,7 +40,7 @@ export default async function WorkforceBoardPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Workforce Board Portal
           </h1>
-          <p className="text-xl text-slate-300">
+          <p className="text-base md:text-lg text-slate-300">
             Program oversight, reporting, and workforce development management
           </p>
         </div>
@@ -55,7 +55,7 @@ export default async function WorkforceBoardPage() {
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <TrendingUp className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Dashboard</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Dashboard</h3>
               <p className="text-slate-600">
                 View program metrics, enrollment data, and performance indicators
               </p>
@@ -66,7 +66,7 @@ export default async function WorkforceBoardPage() {
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-green-500 hover:shadow-lg transition-all"
             >
               <FileText className="w-12 h-12 text-green-600 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Reports</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Reports</h3>
               <p className="text-slate-600">
                 Access compliance reports, outcomes data, and performance analytics
               </p>
@@ -77,7 +77,7 @@ export default async function WorkforceBoardPage() {
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
             >
               <Users className="w-12 h-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Participants</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Participants</h3>
               <p className="text-slate-600">
                 Manage participant records, eligibility, and enrollment status
               </p>
@@ -88,7 +88,7 @@ export default async function WorkforceBoardPage() {
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-orange-500 hover:shadow-lg transition-all"
             >
               <Award className="w-12 h-12 text-orange-600 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Training Programs</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Training Programs</h3>
               <p className="text-slate-600">
                 Monitor training programs, completion rates, and credential attainment
               </p>
@@ -99,7 +99,7 @@ export default async function WorkforceBoardPage() {
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-indigo-500 hover:shadow-lg transition-all"
             >
               <Briefcase className="w-12 h-12 text-indigo-600 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Employment</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Employment</h3>
               <p className="text-slate-600">
                 Track job placements, wages, and employment outcomes
               </p>
@@ -110,7 +110,7 @@ export default async function WorkforceBoardPage() {
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-red-500 hover:shadow-lg transition-all"
             >
               <Calendar className="w-12 h-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Follow-Ups</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Follow-Ups</h3>
               <p className="text-slate-600">
                 Manage participant follow-ups and retention tracking
               </p>
@@ -122,11 +122,11 @@ export default async function WorkforceBoardPage() {
       {/* Key Information */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Workforce Development Oversight</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">Workforce Development Oversight</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Program Compliance</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Program Compliance</h3>
               <ul className="space-y-3 text-slate-700">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 font-bold">✓</span>
@@ -148,7 +148,7 @@ export default async function WorkforceBoardPage() {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Performance Metrics</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Performance Metrics</h3>
               <ul className="space-y-3 text-slate-700">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 font-bold">•</span>
@@ -175,10 +175,10 @@ export default async function WorkforceBoardPage() {
       {/* Contact Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Need Assistance?
           </h2>
-          <p className="text-xl text-slate-600 mb-8">
+          <p className="text-base md:text-lg text-slate-600 mb-8">
             Contact our workforce development team for support with reporting, compliance, or data access
           </p>
           <div className="bg-slate-50 p-6 rounded-lg inline-block">

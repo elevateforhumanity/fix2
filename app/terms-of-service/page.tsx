@@ -18,7 +18,7 @@ export default function TermsOfServicePage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Terms of Service
           </h1>
-          <p className="text-xl text-slate-300">
+          <p className="text-base md:text-lg text-slate-300">
             Last Updated: December 8, 2024
           </p>
         </div>
@@ -29,13 +29,13 @@ export default function TermsOfServicePage() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
             
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">1. Acceptance of Terms</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">1. Acceptance of Terms</h2>
             <p className="text-slate-700 mb-6">
               By accessing or using the Elevate For Humanity website and services, you agree to be bound by these Terms of Service. 
               If you do not agree to these terms, please do not use our website or services.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">2. Services Provided</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">2. Services Provided</h2>
             <p className="text-slate-700 mb-4">
               Elevate For Humanity provides:
             </p>
@@ -46,7 +46,7 @@ export default function TermsOfServicePage() {
               <li>Educational resources and support services</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">3. Eligibility</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">3. Eligibility</h2>
             <p className="text-slate-700 mb-4">
               To participate in our programs, you must:
             </p>
@@ -56,7 +56,7 @@ export default function TermsOfServicePage() {
               <li>Comply with all program rules and requirements</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">4. User Responsibilities</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">4. User Responsibilities</h2>
             <p className="text-slate-700 mb-4">
               As a user of our services, you agree to:
             </p>
@@ -69,7 +69,7 @@ export default function TermsOfServicePage() {
               <li>Not engage in any illegal or prohibited activities</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">5. Intellectual Property</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">5. Intellectual Property</h2>
             <p className="text-slate-700 mb-4">
               All content on this website is protected by copyright law:
             </p>
@@ -80,13 +80,13 @@ export default function TermsOfServicePage() {
               <li>User-generated content remains your property but grants us a license to use it</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">6. Privacy and Data</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">6. Privacy and Data</h2>
             <p className="text-slate-700 mb-6">
               We collect and use your personal information as described in our Privacy Policy. 
               By using our services, you consent to our data practices.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">7. Program Withdrawal</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">7. Program Withdrawal</h2>
             <p className="text-slate-700 mb-4">
               You may withdraw from a program at any time by:
             </p>
@@ -96,7 +96,7 @@ export default function TermsOfServicePage() {
               <li>Returning any borrowed equipment or materials</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">8. Termination</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">8. Termination</h2>
             <p className="text-slate-700 mb-4">
               We reserve the right to terminate your access to our services if you:
             </p>
@@ -107,36 +107,36 @@ export default function TermsOfServicePage() {
               <li>Fail to meet program attendance or performance requirements</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">9. Disclaimer of Warranties</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">9. Disclaimer of Warranties</h2>
             <p className="text-slate-700 mb-6">
               Our services are provided "as is" without warranties of any kind. While we strive to provide quality education and services, 
               we do not guarantee specific outcomes, job placement, or certification results.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">10. Limitation of Liability</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">10. Limitation of Liability</h2>
             <p className="text-slate-700 mb-6">
               Elevate For Humanity shall not be liable for any indirect, incidental, special, or consequential damages arising from 
               your use of our services or inability to use our services.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">11. Third-Party Links</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">11. Third-Party Links</h2>
             <p className="text-slate-700 mb-6">
               Our website may contain links to third-party websites. We are not responsible for the content, privacy practices, 
               or terms of service of external sites.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">12. Changes to Terms</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">12. Changes to Terms</h2>
             <p className="text-slate-700 mb-6">
               We reserve the right to modify these Terms of Service at any time. Changes will be posted on this page with an updated date. 
               Your continued use of our services after changes are posted constitutes acceptance of the modified terms.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">13. Governing Law</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">13. Governing Law</h2>
             <p className="text-slate-700 mb-6">
               These Terms of Service are governed by the laws of the State of Indiana, United States, without regard to conflict of law principles.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">14. Contact Information</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">14. Contact Information</h2>
             <p className="text-slate-700 mb-4">
               For questions about these Terms of Service:
             </p>

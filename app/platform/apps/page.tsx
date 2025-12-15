@@ -41,7 +41,7 @@ export default function PlatformAppsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Modular Apps & Features
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100">
+          <p className="text-base md:text-lg md:text-xl text-gray-100">
             Every license includes apps. Enable only what you need.
           </p>
         </div>
@@ -51,10 +51,10 @@ export default function PlatformAppsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               How Platform Apps Work
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Apps are not separate products. They're modules built into the
               platform that you enable based on your license.
             </p>
@@ -63,7 +63,7 @@ export default function PlatformAppsPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🧩</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Modular by Design
               </h3>
               <p className="text-gray-600">
@@ -74,7 +74,7 @@ export default function PlatformAppsPage() {
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🔐</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 License-Controlled
               </h3>
               <p className="text-gray-600">
@@ -85,7 +85,7 @@ export default function PlatformAppsPage() {
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Enable Instantly
               </h3>
               <p className="text-gray-600">
@@ -101,10 +101,10 @@ export default function PlatformAppsPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Core Apps
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Included with all licenses. These are the foundation of your
               workforce platform.
             </p>
@@ -119,7 +119,7 @@ export default function PlatformAppsPage() {
                 <div className="flex items-start mb-4">
                   <span className="text-4xl mr-4">{app.icon}</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {app.name}
                     </h3>
                     <div className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded">
@@ -139,10 +139,10 @@ export default function PlatformAppsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Premium Apps
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Included with School and Enterprise licenses. Advanced features
               for larger organizations.
             </p>
@@ -157,7 +157,7 @@ export default function PlatformAppsPage() {
                 <div className="flex items-start mb-4">
                   <span className="text-4xl mr-4">{app.icon}</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {app.name}
                     </h3>
                     <div className="inline-flex items-center px-2 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded">
@@ -175,7 +175,7 @@ export default function PlatformAppsPage() {
       {/* App Comparison Table */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
+          <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900">
             What's Included in Each License
           </h2>
 
@@ -239,10 +239,10 @@ export default function PlatformAppsPage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
             Ready to Choose Your License?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-base md:text-lg mb-8 text-blue-100">
             Every license includes apps, updates, and support. Start with what
             you need, upgrade as you grow.
           </p>

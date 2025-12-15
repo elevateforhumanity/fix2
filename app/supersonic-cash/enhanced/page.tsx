@@ -32,7 +32,7 @@ export default function SupersonicCashEnhancedPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
+          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
 
@@ -61,7 +61,7 @@ export default function SupersonicCashEnhancedPage() {
                 <span className="block text-yellow-300">Supersonic Fast</span>
               </h1>
               
-              <p className="text-xl mb-8 text-green-50 leading-relaxed">
+              <p className="text-base md:text-lg mb-8 text-green-50 leading-relaxed">
                 Need money now? Get up to $3,500 with same-day approval. No hidden fees, flexible repayment, and trusted by thousands.
               </p>
 
@@ -248,10 +248,10 @@ className="w-full">
       <section id="how-it-works" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Get Cash in 3 Simple Steps
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Fast, simple, and secure. Get approved in minutes.
             </p>
           </div>
@@ -263,7 +263,7 @@ className="w-full">
                 <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl font-bold text-white">1</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Apply Online</h3>
+                <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-4">Apply Online</h3>
                 <p className="text-gray-600 mb-6">
                   Fill out our simple 5-minute application. No paperwork, no hassle.
                 </p>
@@ -302,7 +302,7 @@ d="M5 13l4 4L19 7" />
                 <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl font-bold text-white">2</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Get Approved</h3>
+                <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-4">Get Approved</h3>
                 <p className="text-gray-600 mb-6">
                   Receive instant decision powered by EPS Financial's advanced underwriting.
                 </p>
@@ -341,7 +341,7 @@ d="M5 13l4 4L19 7" />
                 <div className="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl font-bold text-white">3</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Receive Funds</h3>
+                <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-4">Receive Funds</h3>
                 <p className="text-gray-600 mb-6">
                   Money deposited directly to your bank account. Same-day funding available.
                 </p>
@@ -396,7 +396,7 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Trusted by Thousands</h3>
+            <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-2">Trusted by Thousands</h3>
             <p className="text-gray-600">Powered by industry-leading partners</p>
           </div>
 

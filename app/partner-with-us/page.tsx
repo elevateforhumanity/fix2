@@ -78,7 +78,7 @@ export default function PartnerWithUsPage() {
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             Partner With Elevate for Humanity
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-6">
+          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto mb-6">
             Elevate for Humanity operates a proprietary workforce training and apprenticeship platform. Partnership discussions are structured to protect our systems, participants, and institutional relationships.
           </p>
           <p className="text-lg text-slate-700 max-w-3xl mx-auto">

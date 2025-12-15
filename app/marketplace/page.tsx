@@ -79,7 +79,7 @@ export default async function MarketplacePage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Creator Marketplace
           </h1>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-base md:text-lg mb-8 opacity-90">
             Discover digital products from our community of creators
           </p>
           <Link
@@ -183,7 +183,7 @@ export default async function MarketplacePage() {
       {/* CTA Section */}
       <div className="bg-gray-100 py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Share Your Work?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Share Your Work?</h2>
           <p className="text-gray-600 mb-8">
             Join our marketplace and earn 70% on every sale. No upfront costs,
             no technical setup required.

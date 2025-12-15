@@ -126,7 +126,7 @@ export default function VolunteerPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Volunteer with Us
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100 mb-8 leading-relaxed">
               Help transform lives through education and career training.
               Flexible opportunities for professionals, retirees, and community
               members.
@@ -177,10 +177,10 @@ export default function VolunteerPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Why Volunteer with Us?
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-base md:text-lg text-slate-600">
               Your time and expertise can change lives. Here&apos;s what our
               volunteers say:
             </p>
@@ -190,7 +190,7 @@ export default function VolunteerPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Make Real Impact</h3>
+              <h3 className="text-lg font-bold mb-3">Make Real Impact</h3>
               <p className="text-slate-600">
                 See the direct results of your efforts as students transform
                 their lives and launch new careers.
@@ -200,7 +200,7 @@ export default function VolunteerPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Build Community</h3>
+              <h3 className="text-lg font-bold mb-3">Build Community</h3>
               <p className="text-slate-600">
                 Connect with like-minded professionals and community members who
                 share your passion for service.
@@ -210,7 +210,7 @@ export default function VolunteerPage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Flexible Commitment</h3>
+              <h3 className="text-lg font-bold mb-3">Flexible Commitment</h3>
               <p className="text-slate-600">
                 Choose opportunities that fit your schedule, from one-time
                 events to ongoing mentorship.
@@ -224,7 +224,7 @@ export default function VolunteerPage() {
       <section id="opportunities" className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Volunteer Opportunities
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -240,7 +240,7 @@ export default function VolunteerPage() {
                         <Icon className="w-6 h-6 text-blue-600" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-1">
+                        <h3 className="text-lg font-bold mb-1">
                           {opportunity.title}
                         </h3>
                         <div className="flex items-center gap-2 text-sm text-slate-600">
@@ -291,7 +291,7 @@ export default function VolunteerPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               What Our Volunteers Say
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -336,10 +336,10 @@ export default function VolunteerPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Apply to Volunteer
               </h2>
-              <p className="text-xl text-slate-600">
+              <p className="text-base md:text-lg text-slate-600">
                 Fill out the form below and we&apos;ll be in touch within 48
                 hours
               </p>
@@ -451,10 +451,10 @@ export default function VolunteerPage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Questions About Volunteering?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Contact our Volunteer Coordinator to learn more about
               opportunities and how you can help.
             </p>

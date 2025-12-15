@@ -204,7 +204,7 @@ export default function FAQPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Find answers to common questions about our programs, funding, and support services.
             </p>
 
@@ -260,7 +260,7 @@ export default function FAQPage() {
           <div className="max-w-4xl mx-auto space-y-12">
             {filteredCategories.map((category) => (
               <div key={category.id}>
-                <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                   <span className="text-4xl text-2xl md:text-3xl lg:text-4xl">{category.icon}</span>
                   {category.name}
                 </h2>
@@ -306,16 +306,16 @@ export default function FAQPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Still Have Questions?
             </h2>
-            <p className="text-xl text-slate-600 mb-8">
+            <p className="text-base md:text-lg text-slate-600 mb-8">
               We&apos;re here to help! Contact us and we&apos;ll get you the answers you need.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-8 shadow-sm">
                 <Phone className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Call Us</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Call Us</h3>
                 <p className="text-slate-600 mb-4">
                   Speak with an advisor Monday-Friday, 8am-5pm
                 </p>
@@ -328,7 +328,7 @@ export default function FAQPage() {
               </div>
               <div className="bg-white rounded-lg p-8 shadow-sm">
                 <Mail className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Email Us</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Email Us</h3>
                 <p className="text-slate-600 mb-4">
                   Send us a message and we&apos;ll respond within 24 hours
                 </p>

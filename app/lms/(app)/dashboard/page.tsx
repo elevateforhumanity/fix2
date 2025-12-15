@@ -75,7 +75,7 @@ export default async function DashboardPage() {
           </h1>
           {activeCourses > 0 ? (
             <div>
-              <p className="text-xl text-blue-100 mb-2">
+              <p className="text-base md:text-lg text-blue-100 mb-2">
                 You're making excellent progress on your training.
               </p>
               <p className="text-blue-200">
@@ -86,7 +86,7 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div>
-              <p className="text-xl text-blue-100 mb-2">
+              <p className="text-base md:text-lg text-blue-100 mb-2">
                 Your learning journey starts here.
               </p>
               <p className="text-blue-200">
@@ -301,7 +301,7 @@ export default async function DashboardPage() {
             <div className="mt-6 p-6 bg-blue-50 rounded-lg border-2 border-blue-200">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xl font-bold">?</span>
+                  <span className="text-white text-base font-bold">?</span>
                 </div>
                 <div className="flex-1">
                   <h4 className="font-bold text-lg text-slate-900 mb-2">
@@ -372,7 +372,7 @@ export default async function DashboardPage() {
                   )}
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-2xl font-bold mb-2">
+                  <h3 className="text-lg md:text-lg font-bold mb-2">
                     {enrollments[0].courses?.title}
                   </h3>
                   <p className="text-blue-100 mb-4">
@@ -466,7 +466,7 @@ export default async function DashboardPage() {
             <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <BookOpen className="w-12 h-12 text-blue-600" />
             </div>
-            <h3 className="text-2xl font-bold mb-3">
+            <h3 className="text-lg md:text-lg font-bold mb-3">
               Ready to Start Learning?
             </h3>
             <p className="text-lg text-slate-700 mb-2 max-w-2xl mx-auto">

@@ -70,7 +70,7 @@ export default function ContactPage() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Hey there, how can we help?
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto">
             The best way to experience Elevate is to see it for yourself. Choose your path below and we'll connect you with the right team.
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-orange-300 transition">
+                    <h3 className="text-lg md:text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition">
                       {option.title}
                     </h3>
                     <p className="text-white/90 text-sm leading-relaxed">
@@ -140,7 +140,7 @@ export default function ContactPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
                 <span className="text-4xl">📞</span>
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Prefer to call now?
               </h2>
               <p className="text-slate-600 mb-6 leading-relaxed">
@@ -159,7 +159,7 @@ export default function ContactPage() {
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
                 <span className="text-4xl">✉️</span>
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Send us an email
               </h2>
               <p className="text-slate-600 mb-6 leading-relaxed">
@@ -184,7 +184,7 @@ export default function ContactPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl" />
             
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Already enrolled?
               </h2>
               <p className="text-white/80 text-lg mb-8">
@@ -204,10 +204,10 @@ export default function ContactPage() {
       {/* Ready to Join Section */}
       <section className="py-20 bg-gradient-to-br from-orange-50 to-orange-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Ready to start your journey?
           </h2>
-          <p className="text-xl text-slate-700 mb-8">
+          <p className="text-base md:text-lg text-slate-700 mb-8">
             Apply now and take the first step toward a better future.
           </p>
           <Link

@@ -150,7 +150,7 @@ export default async function FERPAPortal() {
                   <FileText className="w-8 h-8 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Student Records</h3>
+                  <h3 className="text-lg font-bold text-slate-900">Student Records</h3>
                   <p className="text-sm text-slate-600">Manage education records</p>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default async function FERPAPortal() {
                   <Users className="w-8 h-8 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Privacy Requests</h3>
+                  <h3 className="text-lg font-bold text-slate-900">Privacy Requests</h3>
                   <p className="text-sm text-slate-600">Handle access requests</p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export default async function FERPAPortal() {
                   <Shield className="w-8 h-8 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">FERPA Compliance</h3>
+                  <h3 className="text-lg font-bold text-slate-900">FERPA Compliance</h3>
                   <p className="text-sm text-slate-600">Privacy standards & audits</p>
                 </div>
               </div>
@@ -237,7 +237,7 @@ export default async function FERPAPortal() {
                   <BarChart3 className="w-8 h-8 text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Reports & Analytics</h3>
+                  <h3 className="text-lg font-bold text-slate-900">Reports & Analytics</h3>
                   <p className="text-sm text-slate-600">Performance metrics</p>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default async function FERPAPortal() {
                   <FileText className="w-8 h-8 text-indigo-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Documentation</h3>
+                  <h3 className="text-lg font-bold text-slate-900">Documentation</h3>
                   <p className="text-sm text-slate-600">Forms & templates</p>
                 </div>
               </div>
@@ -295,7 +295,7 @@ export default async function FERPAPortal() {
                   <Calendar className="w-8 h-8 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Calendar & Deadlines</h3>
+                  <h3 className="text-lg font-bold text-slate-900">Calendar & Deadlines</h3>
                   <p className="text-sm text-slate-600">Important dates</p>
                 </div>
               </div>

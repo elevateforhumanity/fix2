@@ -93,7 +93,7 @@ export default async function Page() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
               News & Success Stories
             </h1>
-            <p className="text-xl md:text-2xl text-white leading-relaxed drop-shadow-lg mb-8">
+            <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-lg mb-8">
               Stay updated with the latest workforce development news, student
               success stories, and career insights
             </p>
@@ -122,7 +122,7 @@ export default async function Page() {
       {/* Blog Posts */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Latest Articles
           </h2>
           {blogPosts.length > 0 ? (
@@ -175,7 +175,7 @@ export default async function Page() {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600 transition-colors">
+                      <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors">
                         {post.title}
                       </h3>
                       {post.excerpt && (
@@ -190,10 +190,10 @@ export default async function Page() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4">
                 More Content Available
               </h3>
-              <p className="text-xl text-slate-600 mb-8">
+              <p className="text-base md:text-lg text-slate-600 mb-8">
                 Read the latest workforce development insights, success stories,
                 and career tips.
               </p>
@@ -224,10 +224,10 @@ export default async function Page() {
       {/* Social Feed */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-4 text-center text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-4 text-center text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Follow Us on Social Media
           </h2>
-          <p className="text-xl text-slate-600 text-center mb-12">
+          <p className="text-base md:text-lg text-slate-600 text-center mb-12">
             Stay connected with our community
           </p>
           {socialPosts.length > 0 ? (
@@ -314,10 +314,10 @@ export default async function Page() {
       {/* CTA */}
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to Start Your Success Story?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-base md:text-lg text-white/90 mb-8">
             Join thousands who transformed their lives through free workforce
             training.
           </p>

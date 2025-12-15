@@ -44,7 +44,7 @@ export default function AboutPage() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
               Meet people where they are to deliver a better future.
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed">
               We believe your past doesn't define your future. Everyone deserves a shot at a better life.
             </p>
           </div>
@@ -109,12 +109,12 @@ export default function AboutPage() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-16 h-1 bg-orange-500 rounded-full" />
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+                <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900">
                   Our Story
                 </h2>
               </div>
               
-              <p className="text-xl text-slate-700 mb-6 leading-relaxed">
+              <p className="text-base md:text-lg text-slate-700 mb-6 leading-relaxed">
                 Elevate For Humanity started with a simple question: Why are talented, hardworking people stuck in dead-end jobs?
               </p>
               
@@ -141,10 +141,10 @@ export default function AboutPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Meet the team behind our mission
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
               Dedicated professionals committed to changing lives through education and opportunity.
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
                     </a>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">{member.name}</h3>
                 <p className="text-slate-600">{member.role}</p>
               </div>
             ))}
@@ -193,7 +193,7 @@ export default function AboutPage() {
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center">
             Frequently Asked Questions
           </h2>
 
@@ -217,7 +217,7 @@ export default function AboutPage() {
               }
             ].map((section, idx) => (
               <div key={idx} className="border-b border-slate-200 pb-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{section.category}</h3>
+                <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4">{section.category}</h3>
                 <div className="space-y-4">
                   {section.questions.map((item, qIdx) => (
                     <details key={qIdx} className="group">
@@ -240,10 +240,10 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-orange-50 to-orange-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Ready to start your journey?
           </h2>
-          <p className="text-xl text-slate-700 mb-8">
+          <p className="text-base md:text-lg text-slate-700 mb-8">
             Talk to an advisor about your goals and which program is right for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

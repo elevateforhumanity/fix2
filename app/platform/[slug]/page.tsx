@@ -60,7 +60,7 @@ export default function ProductDetailPage({ params }: Props) {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             {product.name}
           </h1>
-          <p className="text-xl text-gray-100">{product.description}</p>
+          <p className="text-base md:text-lg text-gray-100">{product.description}</p>
         </div>
       </section>
 
@@ -76,7 +76,7 @@ export default function ProductDetailPage({ params }: Props) {
                 </h2>
                 <p className="text-gray-700 mb-6">{product.longDescription}</p>
 
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">
                   Features
                 </h3>
                 <ul className="space-y-3 mb-8">
@@ -88,7 +88,7 @@ export default function ProductDetailPage({ params }: Props) {
                   ))}
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">
                   Apps & Modules ({apps.length})
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -224,7 +224,7 @@ export default function ProductDetailPage({ params }: Props) {
       {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-900">
             Frequently Asked Questions
           </h2>
 

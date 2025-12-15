@@ -152,7 +152,7 @@ export default function CoursesCatalogPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Partner Course Catalog
           </h1>
-          <p className="text-xl text-blue-100 mb-6">
+          <p className="text-base md:text-lg text-blue-100 mb-6">
             130+ industry certifications from leading training providers
           </p>
           <div className="flex flex-wrap gap-4 text-sm">
@@ -361,7 +361,7 @@ export default function CoursesCatalogPage() {
       {/* Info Section */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
             Why Choose Partner Courses?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -369,7 +369,7 @@ export default function CoursesCatalogPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Industry Recognized</h3>
+              <h3 className="text-lg font-bold mb-2">Industry Recognized</h3>
               <p className="text-slate-600">
                 Certifications from leading providers accepted by employers nationwide
               </p>
@@ -378,7 +378,7 @@ export default function CoursesCatalogPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Flexible Learning</h3>
+              <h3 className="text-lg font-bold mb-2">Flexible Learning</h3>
               <p className="text-slate-600">
                 Self-paced courses that fit your schedule, from 1 hour to 160 hours
               </p>
@@ -387,7 +387,7 @@ export default function CoursesCatalogPage() {
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <DollarSign className="w-8 h-8 text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Affordable Pricing</h3>
+              <h3 className="text-lg font-bold mb-2">Affordable Pricing</h3>
               <p className="text-slate-600">
                 Competitive pricing with many free options and WIOA funding available
               </p>

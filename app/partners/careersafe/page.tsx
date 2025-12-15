@@ -33,7 +33,7 @@ export default function CAREERSAFEPage() {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
                 CareerSafe OSHA Training
               </h1>
-              <p className="text-2xl text-white mb-8 drop-shadow-lg">
+              <p className="text-base md:text-lg text-white mb-8 drop-shadow-lg">
                 OSHA 10 & OSHA 30 Safety Certification
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -62,7 +62,7 @@ export default function CAREERSAFEPage() {
       {/* Features */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
             What You Get
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -101,13 +101,13 @@ export default function CAREERSAFEPage() {
       {/* Available Courses */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Available Courses
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   OSHA 10-Hour Construction
                 </h3>
               </div>
@@ -125,7 +125,7 @@ export default function CAREERSAFEPage() {
 
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   OSHA 30-Hour Construction
                 </h3>
               </div>
@@ -143,7 +143,7 @@ export default function CAREERSAFEPage() {
 
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   OSHA 10-Hour General Industry
                 </h3>
               </div>
@@ -161,7 +161,7 @@ export default function CAREERSAFEPage() {
 
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   OSHA 30-Hour General Industry
                 </h3>
               </div>
@@ -183,7 +183,7 @@ export default function CAREERSAFEPage() {
       {/* Contact Information */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
             Need Help?
           </h2>
           <div className="bg-white rounded-xl p-8 shadow-lg">
@@ -238,10 +238,10 @@ export default function CAREERSAFEPage() {
       {/* CTA */}
       <section className="py-20   ">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-white mb-8">
+          <p className="text-base md:text-lg text-white mb-8">
             Enroll in CareerSafe OSHA Training courses through Elevate for
             Humanity
           </p>

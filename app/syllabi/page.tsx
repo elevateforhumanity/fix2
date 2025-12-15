@@ -490,7 +490,7 @@ export default function SyllabiPage() {
             >
               {/* Program Header */}
               <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8">
-                <h2 className="text-3xl font-bold mb-2">{program.program}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">{program.program}</h2>
                 <div className="flex items-center gap-6 text-blue-100">
                   <div className="flex items-center gap-2">
                     <Clock className="w-5 h-5" />
@@ -517,7 +517,7 @@ export default function SyllabiPage() {
                           <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold">
                             {course.code}
                           </span>
-                          <h3 className="text-2xl font-bold text-slate-900">
+                          <h3 className="text-lg md:text-lg font-bold text-slate-900">
                             {course.title}
                           </h3>
                         </div>

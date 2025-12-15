@@ -345,7 +345,7 @@ export default function LocationsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Locations
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -371,7 +371,7 @@ export default function LocationsPage() {
           <h1 className="text-5xl font-bold mb-4 text-3xl md:text-4xl lg:text-5xl">
             Find Tax Preparers Near You
           </h1>
-          <p className="text-xl text-blue-100 mb-6">
+          <p className="text-base md:text-lg text-blue-100 mb-6">
             {totalPreparers.toLocaleString()}+ certified tax preparers in all 50
             states. Drake Software certified. $100 flat fee.
           </p>
@@ -423,7 +423,7 @@ export default function LocationsPage() {
       {/* States Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
             Browse by State
           </h2>
 
@@ -434,7 +434,7 @@ export default function LocationsPage() {
                 href={`/tax-filing/locations/${state.slug}`}
                 className="bg-white rounded-lg shadow hover:shadow-xl transition-all p-6 border-2 border-gray-100 hover:border-blue-500"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {state.name}
                 </h3>
                 <p className="text-sm text-gray-600 mb-3">
@@ -455,7 +455,7 @@ export default function LocationsPage() {
       {/* Popular Cities */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
             Popular Cities
           </h2>
 
@@ -507,10 +507,10 @@ export default function LocationsPage() {
       {/* CTA */}
       <section className="py-20    text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
             Can't Find a Location Near You?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-base md:text-lg text-blue-100 mb-8">
             We offer virtual tax filing nationwide. File from anywhere!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

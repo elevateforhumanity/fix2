@@ -29,7 +29,7 @@ export default function Page() {
               />
             </div>
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6 text-2xl md:text-3xl lg:text-4xl">Visionary Leader & Community Builder</h2>
+              <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">Visionary Leader & Community Builder</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Elizabeth Greene is a visionary leader, workforce innovator, and community builder dedicated to transforming lives through education, opportunity, and equitable access. As the Chief Executive Officer of Elevate for Humanity Technical & Career Institute, she drives the organization's mission to uplift individuals, strengthen families, and create sustainable career pathways across Indiana and beyond.
               </p>
@@ -72,7 +72,7 @@ export default function Page() {
       {/* Impact Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Transforming Communities Through Education</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">Transforming Communities Through Education</h2>
           <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
             <p>
               Under her leadership, Elevate for Humanity has become a federally aligned Registered Apprenticeship sponsor, a RAPIDS-approved provider, and a fully fundable ETPL program—eligible for WIOA, WRG, and JRI initiatives.
@@ -88,7 +88,7 @@ export default function Page() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Why Choose Us</h2>
             <div className="grid md:grid-cols-3 gap-8">
               
               <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
@@ -99,7 +99,7 @@ viewBox="0 0 24 24">
 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
+                <h3 className="text-lg font-semibold mb-3">100% Funded</h3>
                 <p className="text-gray-600">All programs completely free through government funding</p>
               </div>
               
@@ -111,7 +111,7 @@ viewBox="0 0 24 24">
 d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
+                <h3 className="text-lg font-semibold mb-3">Job Placement</h3>
                 <p className="text-gray-600">We help you find employment after training</p>
               </div>
               
@@ -123,7 +123,7 @@ viewBox="0 0 24 24">
 d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
+                <h3 className="text-lg font-semibold mb-3">Expert Training</h3>
                 <p className="text-gray-600">Learn from industry-standard professionals</p>
               </div>
               

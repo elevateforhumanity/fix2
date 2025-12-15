@@ -18,7 +18,7 @@ export default function DMCAPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             DMCA Policy
           </h1>
-          <p className="text-xl text-slate-300">
+          <p className="text-base md:text-lg text-slate-300">
             Copyright Infringement Notification
           </p>
         </div>
@@ -28,13 +28,13 @@ export default function DMCAPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Copyright Policy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Copyright Policy</h2>
             <p className="text-slate-700 mb-6">
               Elevate For Humanity respects the intellectual property rights of others and expects our users to do the same. 
               We respond to notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act (DMCA).
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Filing a DMCA Notice</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Filing a DMCA Notice</h2>
             <p className="text-slate-700 mb-4">
               If you believe that content on our website infringes your copyright, please send a written notice that includes:
             </p>
@@ -62,7 +62,7 @@ export default function DMCAPage() {
               </li>
             </ol>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Where to Send Notices</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Where to Send Notices</h2>
             <p className="text-slate-700 mb-4">
               Send DMCA notices to our designated Copyright Agent:
             </p>
@@ -81,7 +81,7 @@ export default function DMCAPage() {
               </p>
             </div>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Counter-Notification</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Counter-Notification</h2>
             <p className="text-slate-700 mb-4">
               If you believe that content you posted was removed in error, you may file a counter-notification that includes:
             </p>
@@ -93,7 +93,7 @@ export default function DMCAPage() {
               <li>Your physical or electronic signature</li>
             </ol>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Response Process</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Response Process</h2>
             <p className="text-slate-700 mb-4">
               When we receive a valid DMCA notice:
             </p>
@@ -104,24 +104,24 @@ export default function DMCAPage() {
               <li>Take appropriate action based on our findings</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Repeat Infringers</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Repeat Infringers</h2>
             <p className="text-slate-700 mb-6">
               We will terminate the accounts of users who are repeat copyright infringers in appropriate circumstances.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">False Claims</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">False Claims</h2>
             <p className="text-slate-700 mb-6">
               Please note that under Section 512(f) of the DMCA, anyone who knowingly materially misrepresents that material 
               is infringing may be subject to liability for damages. Do not make false claims.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Educational Use</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Educational Use</h2>
             <p className="text-slate-700 mb-6">
               As an educational institution, some content on our website may be used under fair use provisions of copyright law. 
               We use copyrighted materials for educational purposes, commentary, and criticism where appropriate.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Questions</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Questions</h2>
             <p className="text-slate-700 mb-4">
               If you have questions about this DMCA policy or copyright issues:
             </p>

@@ -42,7 +42,7 @@ export default function DonatePage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Transform Lives Through Career Training
             </h1>
-            <p className="text-xl md:text-2xl text-teal-50 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-teal-50 mb-8 leading-relaxed">
               Your donation provides 100% FREE career training, certifications,
               and job placement for individuals facing barriers to employment.
             </p>
@@ -106,10 +106,10 @@ export default function DonatePage() {
       <section id="impact" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Your Donation Makes a Real Difference
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
               Every dollar directly supports career training, certifications,
               and job placement services.
             </p>
@@ -120,7 +120,7 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mb-4">
                 <DollarSign className="w-6 h-6 text-teal-600" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">$50</h3>
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">$50</h3>
               <p className="text-slate-600 mb-4">
                 Provides training materials and supplies for one student
               </p>
@@ -147,7 +147,7 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
                 <GraduationCap className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">$250</h3>
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">$250</h3>
               <p className="text-slate-600 mb-4">
                 Covers certification exam fees for one student
               </p>
@@ -171,7 +171,7 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
                 <Briefcase className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">$1,000</h3>
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">$1,000</h3>
               <p className="text-slate-600 mb-4">
                 Sponsors complete training program for one student
               </p>
@@ -198,7 +198,7 @@ export default function DonatePage() {
       <section id="donate-now" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Make Your Donation Today
             </h2>
             <p className="text-lg text-slate-600">
@@ -347,7 +347,7 @@ export default function DonatePage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Other Ways to Support
             </h2>
             <p className="text-lg text-slate-600">
@@ -360,7 +360,7 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mb-4">
                 <Building2 className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-lg font-bold text-slate-900 mb-3">
                 Corporate Sponsorship
               </h3>
               <p className="text-slate-600 mb-4">
@@ -380,7 +380,7 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
                 <Gift className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-lg font-bold text-slate-900 mb-3">
                 Planned Giving
               </h3>
               <p className="text-slate-600 mb-4">
@@ -400,7 +400,7 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
                 <Award className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-lg font-bold text-slate-900 mb-3">
                 Matching Gifts
               </h3>
               <p className="text-slate-600 mb-4">
@@ -443,10 +443,10 @@ export default function DonatePage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-teal-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Questions About Giving?
           </h2>
-          <p className="text-xl text-teal-50 mb-8">
+          <p className="text-base md:text-lg text-teal-50 mb-8">
             Our team is here to help you make the most meaningful impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -33,7 +33,7 @@ export default function TaxSelfPrepPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
+          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
 
@@ -41,7 +41,7 @@ export default function TaxSelfPrepPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Do your taxes with confidence
             </h1>
-            <p className="text-2xl mb-8 font-light">
+            <p className="text-base md:text-lg mb-8 font-light">
               Easy, step-by-step guidance. Maximum refund guaranteed. Free to start.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -63,7 +63,7 @@ export default function TaxSelfPrepPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Choose the right product for you
             </h2>
             <p className="text-center text-slate-600 mb-16">
@@ -74,7 +74,7 @@ export default function TaxSelfPrepPage() {
               {/* Free Edition */}
               <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2">Free Edition</h3>
+                  <h3 className="text-lg md:text-lg font-bold mb-2">Free Edition</h3>
                   <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $0
                   </div>
@@ -114,7 +114,7 @@ export default function TaxSelfPrepPage() {
               {/* Deluxe */}
               <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2">Deluxe</h3>
+                  <h3 className="text-lg md:text-lg font-bold mb-2">Deluxe</h3>
                   <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $39
                   </div>
@@ -157,7 +157,7 @@ export default function TaxSelfPrepPage() {
                   MOST POPULAR
                 </div>
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2">Premier</h3>
+                  <h3 className="text-lg md:text-lg font-bold mb-2">Premier</h3>
                   <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $69
                   </div>
@@ -197,7 +197,7 @@ export default function TaxSelfPrepPage() {
               {/* Self-Employed */}
               <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2">Self-Employed</h3>
+                  <h3 className="text-lg md:text-lg font-bold mb-2">Self-Employed</h3>
                   <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $99
                   </div>
@@ -248,7 +248,7 @@ export default function TaxSelfPrepPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               How it works
             </h2>
             <div className="grid md:grid-cols-4 gap-8">
@@ -256,7 +256,7 @@ export default function TaxSelfPrepPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
                   1
                 </div>
-                <h3 className="text-xl font-bold mb-3">Answer simple questions</h3>
+                <h3 className="text-lg font-bold mb-3">Answer simple questions</h3>
                 <p className="text-slate-600">
                   We'll ask you about your income, deductions, and credits in plain English.
                 </p>
@@ -266,7 +266,7 @@ export default function TaxSelfPrepPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
                   2
                 </div>
-                <h3 className="text-xl font-bold mb-3">We fill out the forms</h3>
+                <h3 className="text-lg font-bold mb-3">We fill out the forms</h3>
                 <p className="text-slate-600">
                   Our software automatically fills out all the right tax forms for you.
                 </p>
@@ -276,7 +276,7 @@ export default function TaxSelfPrepPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
                   3
                 </div>
-                <h3 className="text-xl font-bold mb-3">Double-check everything</h3>
+                <h3 className="text-lg font-bold mb-3">Double-check everything</h3>
                 <p className="text-slate-600">
                   Review your return and make sure everything looks right before filing.
                 </p>
@@ -286,7 +286,7 @@ export default function TaxSelfPrepPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
                   4
                 </div>
-                <h3 className="text-xl font-bold mb-3">E-file and get refund</h3>
+                <h3 className="text-lg font-bold mb-3">E-file and get refund</h3>
                 <p className="text-slate-600">
                   File electronically and get your refund in as little as 8 days.
                 </p>
@@ -300,13 +300,13 @@ export default function TaxSelfPrepPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Why choose our self-prep software?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">✓</div>
-                <h3 className="text-xl font-bold mb-3">Maximum Refund Guaranteed</h3>
+                <h3 className="text-lg font-bold mb-3">Maximum Refund Guaranteed</h3>
                 <p className="text-slate-600">
                   We guarantee you'll get the maximum refund you're entitled to, or we'll refund your service fee.
                 </p>
@@ -314,7 +314,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">🔒</div>
-                <h3 className="text-xl font-bold mb-3">100% Secure</h3>
+                <h3 className="text-lg font-bold mb-3">100% Secure</h3>
                 <p className="text-slate-600">
                   Bank-level encryption and multi-factor authentication protect your data.
                 </p>
@@ -322,7 +322,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">💬</div>
-                <h3 className="text-xl font-bold mb-3">Expert Help Available</h3>
+                <h3 className="text-lg font-bold mb-3">Expert Help Available</h3>
                 <p className="text-slate-600">
                   Get help from tax experts via chat, phone, or video call if you need it.
                 </p>
@@ -330,7 +330,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">📱</div>
-                <h3 className="text-xl font-bold mb-3">Mobile App</h3>
+                <h3 className="text-lg font-bold mb-3">Mobile App</h3>
                 <p className="text-slate-600">
                   Do your taxes on your phone or tablet. Snap photos of W-2s and upload instantly.
                 </p>
@@ -338,7 +338,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">⚡</div>
-                <h3 className="text-xl font-bold mb-3">Fast & Easy</h3>
+                <h3 className="text-lg font-bold mb-3">Fast & Easy</h3>
                 <p className="text-slate-600">
                   Most people finish in under 30 minutes. Save and come back anytime.
                 </p>
@@ -346,7 +346,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">📊</div>
-                <h3 className="text-xl font-bold mb-3">Import Last Year</h3>
+                <h3 className="text-lg font-bold mb-3">Import Last Year</h3>
                 <p className="text-slate-600">
                   Import last year's return from any major tax software to save time.
                 </p>
@@ -359,10 +359,10 @@ export default function TaxSelfPrepPage() {
       {/* CTA */}
       <section className="py-20 bg-blue-600 text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to do your taxes?
           </h2>
-          <p className="text-xl mb-8">
+          <p className="text-base md:text-lg mb-8">
             Start for free. Pay only when you file. Maximum refund guaranteed.
           </p>
           <Link

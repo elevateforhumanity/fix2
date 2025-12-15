@@ -67,7 +67,7 @@ export default function LmsPublicPage() {
         </section>
 
         <section className="mt-14 rounded-3xl border border-zinc-200 bg-zinc-50 p-8 sm:p-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
             How it works
           </h2>
           <ol className="mt-6 space-y-3 list-decimal pl-5 text-zinc-700 max-w-3xl">

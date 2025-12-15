@@ -29,7 +29,7 @@ export default function WioaPage() {
       {/* Story Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <p className="text-2xl text-slate-700 mb-6 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-700 mb-6 leading-relaxed">
             James worked at a factory for 8 years. Then the plant closed. No warning. No severance. Just... gone.
           </p>
           <p className="text-lg text-slate-600 mb-6">
@@ -47,7 +47,7 @@ export default function WioaPage() {
       {/* What is WIOA */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">What is WIOA?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">What is WIOA?</h2>
           
           <p className="text-lg text-slate-700 mb-6">
             WIOA stands for <strong>Workforce Innovation and Opportunity Act</strong>. It's a federal program that provides free job training to people who are:
@@ -55,19 +55,19 @@ export default function WioaPage() {
 
           <ul className="space-y-3 mb-8">
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700"><strong>Unemployed</strong> (lost your job, can't find work)</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700"><strong>Underemployed</strong> (working part-time, low wages, no benefits)</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700"><strong>Facing barriers</strong> (disability, low income, justice involvement, lack of education)</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700"><strong>Dislocated workers</strong> (laid off, plant closure, industry decline)</span>
             </li>
           </ul>
@@ -81,46 +81,46 @@ export default function WioaPage() {
       {/* What WIOA Covers */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">What Does WIOA Cover?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">What Does WIOA Cover?</h2>
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">✓ Tuition</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Tuition</h3>
               <p className="text-slate-700">
                 100% of training costs. Whether it's a 3-week CNA program or a 12-month HVAC apprenticeship, WIOA pays for it.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">✓ Books & Materials</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Books & Materials</h3>
               <p className="text-slate-700">
                 Textbooks, workbooks, uniforms, tools—whatever you need for training.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">✓ Transportation</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Transportation</h3>
               <p className="text-slate-700">
                 Gas money, bus passes, or mileage reimbursement to get to class.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">✓ Childcare</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Childcare</h3>
               <p className="text-slate-700">
                 If you need childcare while you're in training, WIOA can help cover it.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">✓ Support Services</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Support Services</h3>
               <p className="text-slate-700">
                 Work clothes, internet access, even emergency assistance if you're struggling.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">✓ Job Placement Help</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Job Placement Help</h3>
               <p className="text-slate-700">
                 Resume writing, interview prep, and connections to employers hiring in your field.
               </p>
@@ -132,7 +132,7 @@ export default function WioaPage() {
       {/* How to Qualify */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">How Do I Qualify?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">How Do I Qualify?</h2>
           
           <p className="text-lg text-slate-700 mb-6">
             WIOA eligibility depends on your situation. Here are the most common ways people qualify:
@@ -140,28 +140,28 @@ export default function WioaPage() {
 
           <div className="space-y-6">
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2">1. You Lost Your Job</h3>
+              <h3 className="text-lg font-bold mb-2">1. You Lost Your Job</h3>
               <p className="text-slate-600">
                 Laid off, fired, plant closure, company downsizing—if you're unemployed through no fault of your own, you likely qualify.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2">2. You're Working But Struggling</h3>
+              <h3 className="text-lg font-bold mb-2">2. You're Working But Struggling</h3>
               <p className="text-slate-600">
                 Part-time hours, low wages (under $15/hour), no benefits, unstable work—WIOA helps underemployed workers upgrade their skills.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2">3. You Face Barriers to Employment</h3>
+              <h3 className="text-lg font-bold mb-2">3. You Face Barriers to Employment</h3>
               <p className="text-slate-600">
                 Disability, low income, lack of high school diploma, English as a second language, justice involvement, homelessness—WIOA is designed to help people overcome barriers.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2">4. You're a Veteran</h3>
+              <h3 className="text-lg font-bold mb-2">4. You're a Veteran</h3>
               <p className="text-slate-600">
                 Veterans get priority for WIOA services. If you served, you're likely eligible.
               </p>
@@ -179,13 +179,13 @@ export default function WioaPage() {
       {/* How to Apply */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">How to Apply for WIOA</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">How to Apply for WIOA</h2>
           
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">1</div>
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">1</div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Contact Your Local WorkOne Center</h3>
+                <h3 className="text-lg font-bold mb-2">Contact Your Local WorkOne Center</h3>
                 <p className="text-slate-600">
                   Find your nearest WorkOne at <a href="https://www.in.gov/dwd/workone-centers/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">in.gov/dwd/workone-centers</a>. Call or walk in. Tell them you're interested in WIOA training.
                 </p>
@@ -193,9 +193,9 @@ export default function WioaPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">2</div>
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">2</div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Meet with a Career Advisor</h3>
+                <h3 className="text-lg font-bold mb-2">Meet with a Career Advisor</h3>
                 <p className="text-slate-600">
                   They'll assess your eligibility, discuss your career goals, and help you choose a training program.
                 </p>
@@ -203,9 +203,9 @@ export default function WioaPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">3</div>
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">3</div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Choose Elevate For Humanity</h3>
+                <h3 className="text-lg font-bold mb-2">Choose Elevate For Humanity</h3>
                 <p className="text-slate-600">
                   Tell your advisor you want to train with us. We're an approved WIOA provider. We'll handle the enrollment paperwork.
                 </p>
@@ -213,9 +213,9 @@ export default function WioaPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">4</div>
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">4</div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Start Training (For Free)</h3>
+                <h3 className="text-lg font-bold mb-2">Start Training (For Free)</h3>
                 <p className="text-slate-600">
                   Once approved, you start immediately. No tuition bills. No loans. Just focus on learning.
                 </p>
@@ -234,7 +234,7 @@ export default function WioaPage() {
       {/* Real Stories */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Real WIOA Success Stories</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Real WIOA Success Stories</h2>
           
           <div className="space-y-8">
             <div className="bg-white rounded-lg p-6">
@@ -270,8 +270,8 @@ export default function WioaPage() {
       {/* CTA */}
       <section className="py-16 bg-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Apply for WIOA?</h2>
-          <p className="text-xl mb-8">We'll help you every step of the way.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Apply for WIOA?</h2>
+          <p className="text-base md:text-lg mb-8">We'll help you every step of the way.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"

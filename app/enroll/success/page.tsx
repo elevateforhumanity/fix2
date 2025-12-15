@@ -15,7 +15,7 @@ export default function EnrollSuccessPage() {
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             🎉 Enrollment Successful!
           </h1>
-          <p className="text-xl text-slate-700">
+          <p className="text-base md:text-lg text-slate-700">
             Welcome to the Barber Apprenticeship Program
           </p>
         </div>

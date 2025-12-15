@@ -34,7 +34,7 @@ export default async function Page() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
               Your Journey Starts Here
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-green-100 drop-shadow-lg">
+            <p className="text-base md:text-lg mb-8 text-green-100 drop-shadow-lg">
               Access free training, earn certifications, and launch your career
             </p>
             <Link
@@ -51,7 +51,7 @@ export default async function Page() {
       <section className="py-20 bg-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 border-l-4 border-blue-600">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Job Ready Indy (JRI) Partner – Marion County
             </h2>
             <p className="text-lg text-slate-700 mb-6 leading-relaxed">
@@ -89,10 +89,10 @@ export default async function Page() {
       {/* What We Offer Students */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             What We Offer You
           </h2>
-          <p className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-slate-600 text-center mb-16 max-w-3xl mx-auto">
             We provide everything you need to launch a successful career—at
             absolutely no cost to you.
           </p>
@@ -109,7 +109,7 @@ export default async function Page() {
                   quality={85}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">
+              <h3 className="text-lg md:text-lg font-bold mb-4 text-center">
                 100% Free Training
               </h3>
               <p className="text-slate-700 leading-relaxed">
@@ -130,7 +130,7 @@ export default async function Page() {
                   quality={85}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">
+              <h3 className="text-lg md:text-lg font-bold mb-4 text-center">
                 Industry Certifications
               </h3>
               <p className="text-slate-700 leading-relaxed">
@@ -151,7 +151,7 @@ export default async function Page() {
                   quality={85}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">
+              <h3 className="text-lg md:text-lg font-bold mb-4 text-center">
                 Housing Assistance
               </h3>
               <p className="text-slate-700 leading-relaxed">
@@ -173,7 +173,7 @@ export default async function Page() {
                   quality={85}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">
+              <h3 className="text-lg md:text-lg font-bold mb-4 text-center">
                 Mental Health Support
               </h3>
               <p className="text-slate-700 leading-relaxed">
@@ -194,7 +194,7 @@ export default async function Page() {
                   quality={85}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">
+              <h3 className="text-lg md:text-lg font-bold mb-4 text-center">
                 Life Coaching
               </h3>
               <p className="text-slate-700 leading-relaxed">
@@ -215,7 +215,7 @@ export default async function Page() {
                   quality={85}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">
+              <h3 className="text-lg md:text-lg font-bold mb-4 text-center">
                 Direct Employer Connections
               </h3>
               <p className="text-slate-700 leading-relaxed">
@@ -231,16 +231,16 @@ export default async function Page() {
       {/* Your Journey */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Your Journey to Career Success
           </h2>
           <div className="max-w-5xl mx-auto space-y-8">
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 1
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">
+                <h3 className="text-lg md:text-lg font-bold mb-3">
                   Apply & Get Approved
                 </h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -252,11 +252,11 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 2
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Choose Your Program</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">Choose Your Program</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Meet with our advisors to explore programs in healthcare,
                   trades, technology, beauty, transportation, and more. We'll
@@ -267,11 +267,11 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 3
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Complete Training</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">Complete Training</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Attend hands-on training with expert instructors. Programs
                   range from 4-12 weeks depending on the field. We provide
@@ -282,11 +282,11 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 4
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Get Certified</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">Get Certified</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Earn industry-recognized certifications and licenses. We cover
                   exam fees and provide test prep. You'll graduate with
@@ -296,11 +296,11 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 5
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Get Hired</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-3">Get Hired</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   We connect you directly with employers who are actively
                   hiring. Our 95% placement rate means you're not just
@@ -316,10 +316,10 @@ export default async function Page() {
       {/* CTA */}
       <section className="py-20   ">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to Start Your Career Journey?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-base md:text-lg text-white/90 mb-8">
             Join thousands of students who transformed their lives through free
             workforce training.
           </p>

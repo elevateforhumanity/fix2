@@ -363,7 +363,7 @@ export default async function StudentDashboard() {
           <div className="space-y-6">
             {/* Quick Actions */}
             <div className="bg-gradient-to-br from-orange-600 to-orange-700 rounded-xl shadow-lg p-6 text-white">
-              <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
+              <h3 className="text-lg font-bold mb-4">Quick Actions</h3>
 
               <div className="space-y-3">
                 <Link

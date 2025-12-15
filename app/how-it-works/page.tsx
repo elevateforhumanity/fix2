@@ -21,7 +21,7 @@ export default function HowItWorksPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               How It Works
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-blue-100 max-w-3xl mx-auto">
               Your path from application to career success in four simple steps
             </p>
           </div>
@@ -37,10 +37,10 @@ export default function HowItWorksPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold">
                     1
                   </div>
-                  <h2 className="text-3xl font-bold text-slate-900">Apply for Free</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Apply for Free</h2>
                 </div>
                 <p className="text-lg text-slate-600 mb-6">
                   Submit your application online in minutes. No application fee, no hidden costs. 
@@ -96,10 +96,10 @@ export default function HowItWorksPage() {
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold">
                     2
                   </div>
-                  <h2 className="text-3xl font-bold text-slate-900">Get Matched with a Shop</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Get Matched with a Shop</h2>
                 </div>
                 <p className="text-lg text-slate-600 mb-6">
                   We'll match you with an approved training shop in your area. Our partner shops are 
@@ -126,10 +126,10 @@ export default function HowItWorksPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                  <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center text-base font-bold">
                     3
                   </div>
-                  <h2 className="text-3xl font-bold text-slate-900">Complete Your Training</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Complete Your Training</h2>
                 </div>
                 <p className="text-lg text-slate-600 mb-6">
                   Work and learn at your training shop while completing online coursework. 
@@ -178,10 +178,10 @@ export default function HowItWorksPage() {
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center text-base font-bold">
                     4
                   </div>
-                  <h2 className="text-3xl font-bold text-slate-900">Get Licensed & Start Your Career</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Get Licensed & Start Your Career</h2>
                 </div>
                 <p className="text-lg text-slate-600 mb-6">
                   Pass your state licensing exam and launch your career as a licensed barber. 
@@ -212,10 +212,10 @@ export default function HowItWorksPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Why Choose Our Program?
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
               We provide everything you need to succeed in your barbering career
             </p>
           </div>
@@ -225,7 +225,7 @@ export default function HowItWorksPage() {
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Expert Mentors</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Expert Mentors</h3>
               <p className="text-slate-600">
                 Learn from experienced master barbers who are passionate about teaching
               </p>
@@ -235,7 +235,7 @@ export default function HowItWorksPage() {
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <GraduationCap className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Free Training</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Free Training</h3>
               <p className="text-slate-600">
                 100% funded through WIOA - no tuition, no hidden fees
               </p>
@@ -245,7 +245,7 @@ export default function HowItWorksPage() {
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <Briefcase className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Earn While You Learn</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Earn While You Learn</h3>
               <p className="text-slate-600">
                 Get paid as you train and build your skills
               </p>
@@ -255,7 +255,7 @@ export default function HowItWorksPage() {
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <Award className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">State Certification</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">State Certification</h3>
               <p className="text-slate-600">
                 Earn your Indiana barber license and launch your career
               </p>
@@ -267,10 +267,10 @@ export default function HowItWorksPage() {
       {/* CTA Section */}
       <section className="py-20 bg-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-base md:text-lg text-blue-100 mb-8">
             Join hundreds of students who have launched successful barbering careers through our program
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

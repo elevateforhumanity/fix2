@@ -119,7 +119,7 @@ export default function CareerSafePage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             CareerSafe OSHA Training
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             OSHA-authorized safety training for workplace compliance
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -145,7 +145,7 @@ export default function CareerSafePage() {
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Why CareerSafe Training?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -153,7 +153,7 @@ export default function CareerSafePage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">OSHA-Authorized</h3>
+              <h3 className="text-lg font-semibold mb-2">OSHA-Authorized</h3>
               <p className="text-gray-600">
                 Official OSHA training provider with nationally recognized
                 certifications
@@ -163,7 +163,7 @@ export default function CareerSafePage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">100% Free</h3>
+              <h3 className="text-lg font-semibold mb-2">100% Free</h3>
               <p className="text-gray-600">
                 Included with your program enrollment through WIOA or WRG
                 funding
@@ -173,7 +173,7 @@ export default function CareerSafePage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Self-Paced</h3>
+              <h3 className="text-lg font-semibold mb-2">Self-Paced</h3>
               <p className="text-gray-600">
                 Complete training on your schedule with 24/7 online access
               </p>
@@ -185,13 +185,13 @@ export default function CareerSafePage() {
       {/* Courses Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Available Courses
           </h2>
 
           {courseCategories.map((category) => (
             <div key={category.name} className="mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-blue-900">
+              <h3 className="text-lg md:text-lg font-bold mb-6 text-blue-900">
                 {category.name}
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -240,7 +240,7 @@ export default function CareerSafePage() {
       {/* Programs Using CareerSafe */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Programs Including CareerSafe Training
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -248,7 +248,7 @@ export default function CareerSafePage() {
               href="/programs/hvac-technician"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">HVAC Technician</h3>
+              <h3 className="text-lg font-semibold mb-2">HVAC Technician</h3>
               <p className="text-gray-600 mb-4">
                 Includes OSHA 10 and EPA 608 certification
               </p>
@@ -259,7 +259,7 @@ export default function CareerSafePage() {
               href="/programs/building-maintenance"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-lg font-semibold mb-2">
                 Building Maintenance
               </h3>
               <p className="text-gray-600 mb-4">
@@ -272,7 +272,7 @@ export default function CareerSafePage() {
               href="/programs/home-health-aide"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">Home Health Aide</h3>
+              <h3 className="text-lg font-semibold mb-2">Home Health Aide</h3>
               <p className="text-gray-600 mb-4">
                 Includes bloodborne pathogens and infection control
               </p>
@@ -285,8 +285,8 @@ export default function CareerSafePage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
+          <p className="text-base md:text-lg mb-8">
             Enroll in a program today and get free access to CareerSafe OSHA
             training
           </p>

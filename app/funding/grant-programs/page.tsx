@@ -33,7 +33,7 @@ export default function GrantProgramsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-md">
             100% Free Training Programs
           </h1>
-          <p className="text-xl md:text-2xl mb-8 drop-shadow-md">
+          <p className="text-base md:text-lg mb-8 drop-shadow-md">
             ETPL Approved • WIOA Eligible • WRG Funded • JRI Approved
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,7 +56,7 @@ export default function GrantProgramsPage() {
       {/* What is ETPL/WRG */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
             What Does ETPL Approved Mean?
           </h2>
 
@@ -68,7 +68,7 @@ export default function GrantProgramsPage() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold mb-3 text-blue-900">WIOA</h3>
+              <h3 className="text-lg font-bold mb-3 text-blue-900">WIOA</h3>
               <p className="text-sm text-slate-600 mb-2">
                 Workforce Innovation and Opportunity Act
               </p>
@@ -79,7 +79,7 @@ export default function GrantProgramsPage() {
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold mb-3 text-blue-900">WRG</h3>
+              <h3 className="text-lg font-bold mb-3 text-blue-900">WRG</h3>
               <p className="text-sm text-slate-600 mb-2">
                 Workforce Ready Grant (Indiana)
               </p>
@@ -90,7 +90,7 @@ export default function GrantProgramsPage() {
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-bold mb-3 text-blue-900">JRI</h3>
+              <h3 className="text-lg font-bold mb-3 text-blue-900">JRI</h3>
               <p className="text-sm text-slate-600 mb-2">
                 Justice Reinvestment Initiative
               </p>
@@ -102,30 +102,30 @@ export default function GrantProgramsPage() {
           </div>
 
           <div className="bg-green-50 rounded-lg p-6">
-            <h3 className="text-xl font-bold mb-3 text-green-900">
+            <h3 className="text-lg font-bold mb-3 text-green-900">
               What's Covered?
             </h3>
             <ul className="space-y-2">
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-xl">✓</span>
+                <span className="text-green-600 font-bold text-base">✓</span>
                 <span className="text-slate-700">
                   <strong>100% Tuition</strong> - No cost to you
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-xl">✓</span>
+                <span className="text-green-600 font-bold text-base">✓</span>
                 <span className="text-slate-700">
                   <strong>Books & Materials</strong> - All included
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-xl">✓</span>
+                <span className="text-green-600 font-bold text-base">✓</span>
                 <span className="text-slate-700">
                   <strong>Certification Exams</strong> - Fees covered
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-xl">✓</span>
+                <span className="text-green-600 font-bold text-base">✓</span>
                 <span className="text-slate-700">
                   <strong>No Payback Required</strong> - It's a grant, not a
                   loan
@@ -139,7 +139,7 @@ export default function GrantProgramsPage() {
       {/* Available Programs */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">ETPL Approved Programs</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">ETPL Approved Programs</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {grantFundedPrograms.map((program) => (
@@ -157,7 +157,7 @@ export default function GrantProgramsPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{program.name}</h3>
+                  <h3 className="text-lg font-bold mb-2">{program.name}</h3>
                   <p className="text-slate-600 mb-4 line-clamp-2">
                     {program.shortDescription}
                   </p>
@@ -212,7 +212,7 @@ export default function GrantProgramsPage() {
       {/* How to Apply */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
             How to Apply for Free Training
           </h2>
 
@@ -221,7 +221,7 @@ export default function GrantProgramsPage() {
               <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="text-xl font-bold mb-2">Apply to Program</h3>
+              <h3 className="text-lg font-bold mb-2">Apply to Program</h3>
               <p className="text-slate-600">
                 Choose your program and submit your application. We'll guide you
                 through the process.
@@ -232,7 +232,7 @@ export default function GrantProgramsPage() {
               <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold mb-2">Check Eligibility</h3>
+              <h3 className="text-lg font-bold mb-2">Check Eligibility</h3>
               <p className="text-slate-600">
                 We'll help you determine which funding program you qualify for
                 (WIOA, WRG, or JRI).
@@ -243,7 +243,7 @@ export default function GrantProgramsPage() {
               <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="text-xl font-bold mb-2">Start Training</h3>
+              <h3 className="text-lg font-bold mb-2">Start Training</h3>
               <p className="text-slate-600">
                 Once approved, start your training immediately. No tuition. No
                 debt.
@@ -272,10 +272,10 @@ export default function GrantProgramsPage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Your Free Training?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-base md:text-lg text-blue-100 mb-8">
             Join thousands who have launched successful careers through our ETPL
             approved programs.
           </p>

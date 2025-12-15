@@ -32,7 +32,7 @@ export default function TaxFilingEnhancedPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
+          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
 
@@ -67,7 +67,7 @@ export default function TaxFilingEnhancedPage() {
                 <span className="block text-orange-400">For Just $100</span>
               </h1>
               
-              <p className="text-xl mb-8 text-blue-100 leading-relaxed">
+              <p className="text-base md:text-lg mb-8 text-blue-100 leading-relaxed">
                 Professional tax preparation powered by Drake Software. Federal + State included. Maximum refund guaranteed. Get your refund up to 4 days early with EPS Financial.
               </p>
 
@@ -244,10 +244,10 @@ className="w-full">
             <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
               Powered by EPS Financial
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Get Your Refund Faster
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Choose from multiple refund options powered by EPS Financial
             </p>
           </div>
@@ -262,7 +262,7 @@ viewBox="0 0 24 24">
 d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">E-Advance</h3>
+              <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-3">E-Advance</h3>
               <p className="text-gray-600 mb-6">
                 Get up to $7,500 before your refund arrives. No cost option available.
               </p>
@@ -305,7 +305,7 @@ viewBox="0 0 24 24">
 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">E-Collect</h3>
+              <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-3">E-Collect</h3>
               <p className="text-gray-600 mb-6">
                 Simple, low-cost refund transfer. Pay your tax prep fee from your refund.
               </p>
@@ -348,7 +348,7 @@ viewBox="0 0 24 24">
 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">FasterMoney® Card</h3>
+              <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-3">FasterMoney® Card</h3>
               <p className="text-gray-600 mb-6">
                 Get your refund up to 4 days early on a prepaid Visa card.
               </p>
@@ -403,7 +403,7 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Trusted Partners</h3>
+            <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-2">Trusted Partners</h3>
             <p className="text-gray-600">Industry-leading software and financial services</p>
           </div>
 

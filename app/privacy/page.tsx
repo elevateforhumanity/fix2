@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Privacy Policy
           </h1>
-          <p className="text-xl text-slate-300">
+          <p className="text-base md:text-lg text-slate-300">
             Last Updated: December 8, 2024
           </p>
         </div>
@@ -29,15 +29,15 @@ export default function PrivacyPage() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
             
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Commitment to Privacy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Our Commitment to Privacy</h2>
             <p className="text-slate-700 mb-6">
               Elevate For Humanity is committed to protecting your privacy. This Privacy Policy explains how we collect, 
               use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Information We Collect</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Information We Collect</h2>
             
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Personal Information</h3>
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">Personal Information</h3>
             <p className="text-slate-700 mb-4">
               We collect personal information that you voluntarily provide when you:
             </p>
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
               (for tax services), employment history, and educational background.
             </p>
 
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Automatically Collected Information</h3>
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">Automatically Collected Information</h3>
             <p className="text-slate-700 mb-4">
               When you visit our website, we automatically collect:
             </p>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
               <li>Cookies and similar tracking technologies</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">How We Use Your Information</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">How We Use Your Information</h2>
             <p className="text-slate-700 mb-4">
               We use your information to:
             </p>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
               <li>Send newsletters and promotional materials (with your consent)</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Information Sharing</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Information Sharing</h2>
             <p className="text-slate-700 mb-4">
               We may share your information with:
             </p>
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
               We do not sell your personal information to third parties.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Data Security</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Data Security</h2>
             <p className="text-slate-700 mb-4">
               We implement security measures to protect your information:
             </p>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
               However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Your Rights</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Your Rights</h2>
             <p className="text-slate-700 mb-4">
               You have the right to:
             </p>
@@ -122,7 +122,7 @@ export default function PrivacyPage() {
               <li>Request a copy of your data</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Cookies and Tracking</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Cookies and Tracking</h2>
             <p className="text-slate-700 mb-4">
               We use cookies and similar technologies to:
             </p>
@@ -136,31 +136,31 @@ export default function PrivacyPage() {
               You can control cookies through your browser settings. See our <Link href="/cookies" className="text-blue-600 hover:underline">Cookie Policy</Link> for more information.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Children's Privacy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Children's Privacy</h2>
             <p className="text-slate-700 mb-6">
               Our services are not directed to children under 13. We do not knowingly collect information from children under 13. 
               If you believe we have collected information from a child under 13, please contact us immediately.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Third-Party Links</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Third-Party Links</h2>
             <p className="text-slate-700 mb-6">
               Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. 
               We encourage you to read their privacy policies.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Data Retention</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Data Retention</h2>
             <p className="text-slate-700 mb-6">
               We retain your information for as long as necessary to provide services and comply with legal obligations. 
               Student records are maintained according to federal and state education regulations.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Changes to This Policy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Changes to This Policy</h2>
             <p className="text-slate-700 mb-6">
               We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. 
               We encourage you to review this policy periodically.
             </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Contact Us</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Contact Us</h2>
             <p className="text-slate-700 mb-4">
               For questions about this Privacy Policy or to exercise your rights:
             </p>

@@ -104,7 +104,7 @@ export default function SolutionsPage() {
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 Workforce Training Solutions That Scale
               </h1>
-              <p className="text-xl mb-8 text-blue-50">
+              <p className="text-base md:text-lg mb-8 text-blue-50">
                 White-label LMS platform with integrated content partners.
                 Deploy workforce training programs in days, not months.
               </p>
@@ -151,10 +151,10 @@ export default function SolutionsPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Solutions for Every Organization
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
               Whether you're a workforce agency, training provider, or employer,
               we have a solution that fits your needs.
             </p>
@@ -171,7 +171,7 @@ export default function SolutionsPage() {
                   <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
                     <Icon className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4">
                     {solution.title}
                   </h3>
                   <p className="text-slate-600 mb-6">{solution.description}</p>
@@ -203,10 +203,10 @@ export default function SolutionsPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Integrated Content Partners
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
               Access industry-leading training content through our platform. No
               separate logins or integrations needed.
             </p>
@@ -233,10 +233,10 @@ export default function SolutionsPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6">
             Ready to Transform Your Workforce Training?
           </h2>
-          <p className="text-xl text-slate-300 mb-8">
+          <p className="text-base md:text-lg text-slate-300 mb-8">
             Schedule a demo to see how our platform can help you deliver
             training programs at scale.
           </p>

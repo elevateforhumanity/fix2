@@ -172,7 +172,7 @@ export default function PathwaysPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Career Pathways
           </h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
+          <p className="text-base md:text-lg text-blue-100 max-w-3xl">
             Clear, structured paths from training to career success. See exactly
             what you'll learn, how long it takes, and where it leads.
           </p>
@@ -233,7 +233,7 @@ export default function PathwaysPage() {
             >
               {/* Pathway Header */}
               <div className="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-8">
-                <h2 className="text-3xl font-bold mb-4">{pathway.title}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">{pathway.title}</h2>
                 <div className="grid md:grid-cols-4 gap-6">
                   <div className="flex items-center gap-3">
                     <Clock className="w-6 h-6 text-blue-300" />
@@ -276,7 +276,7 @@ export default function PathwaysPage() {
 
               {/* Course Sequence */}
               <div className="p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-6">
                   Course Sequence
                 </h3>
                 <div className="space-y-6">
@@ -400,10 +400,10 @@ export default function PathwaysPage() {
 
         {/* Bottom CTA */}
         <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
             Talk to an advisor to find the right pathway for your goals and
             schedule.
           </p>

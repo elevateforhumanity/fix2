@@ -38,7 +38,7 @@ export default function LicensingPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             License Terms & Rights
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100">
+          <p className="text-base md:text-lg md:text-xl text-gray-100">
             Clear, simple licensing. Know exactly what you can do with your
             platform.
           </p>
@@ -48,7 +48,7 @@ export default function LicensingPage() {
       {/* License Overview */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+          <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-8 text-gray-900">
             What You're Licensing
           </h2>
 
@@ -113,7 +113,7 @@ export default function LicensingPage() {
       {/* License Comparison */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">
+          <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-12 text-center text-gray-900">
             License Comparison
           </h2>
 
@@ -297,13 +297,13 @@ export default function LicensingPage() {
       {/* Detailed Terms */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+          <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-8 text-gray-900">
             Detailed License Terms
           </h2>
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-lg md:text-lg font-semibold mb-4 text-gray-900">
                 Single License
               </h3>
               <p className="text-gray-700 mb-4">
@@ -332,7 +332,7 @@ export default function LicensingPage() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-lg md:text-lg font-semibold mb-4 text-gray-900">
                 School / Training Provider License
               </h3>
               <p className="text-gray-700 mb-4">
@@ -365,7 +365,7 @@ export default function LicensingPage() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-lg md:text-lg font-semibold mb-4 text-gray-900">
                 Enterprise License
               </h3>
               <p className="text-gray-700 mb-4">
@@ -403,10 +403,10 @@ export default function LicensingPage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
             Questions About Licensing?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-base md:text-lg mb-8 text-blue-100">
             We're here to help you choose the right license for your
             organization.
           </p>

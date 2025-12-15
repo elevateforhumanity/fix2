@@ -208,7 +208,7 @@ export default async function HoursTrackingPage() {
           <div className="bg-white rounded-xl shadow-sm border">
             <div className="px-6 py-4 border-b bg-gradient-to-r from-purple-50 to-purple-100">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   Milady CIMA (Theory)
                 </h3>
                 <span className="text-sm text-purple-700 font-semibold">
@@ -321,7 +321,7 @@ export default async function HoursTrackingPage() {
           <div className="bg-white rounded-xl shadow-sm border">
             <div className="px-6 py-4 border-b bg-gradient-to-r from-green-50 to-green-100">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   Practical Hours (Internal)
                 </h3>
                 <span className="text-sm text-green-700 font-semibold">
@@ -404,7 +404,7 @@ export default async function HoursTrackingPage() {
 
         {/* State Board Requirements */}
         <div className="bg-white rounded-xl shadow-sm border p-6">
-          <h3 className="text-xl font-bold text-slate-900 mb-4">
+          <h3 className="text-lg font-bold text-slate-900 mb-4">
             State Board Requirements
           </h3>
           <div className="grid md:grid-cols-3 gap-6">

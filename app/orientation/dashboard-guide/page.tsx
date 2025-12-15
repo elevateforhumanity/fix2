@@ -183,7 +183,7 @@ export default function DashboardGuidePage() {
           <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
             Student Dashboard Navigation Guide
           </h1>
-          <p className="text-xl text-blue-100">
+          <p className="text-base md:text-lg text-blue-100">
             Everything you need to know about using your student portal
           </p>
         </div>
@@ -210,7 +210,7 @@ export default function DashboardGuidePage() {
 
         {/* Dashboard Features */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
             Dashboard Features
           </h2>
           <div className="space-y-6">
@@ -230,7 +230,7 @@ export default function DashboardGuidePage() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-xl font-bold text-slate-900">
+                          <h3 className="text-lg font-bold text-slate-900">
                             {feature.title}
                           </h3>
                           <Link
@@ -278,7 +278,7 @@ export default function DashboardGuidePage() {
               </div>
             </div>
             <div className="flex-1">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Using the AI Instructor Assistant
               </h2>
               <p className="text-purple-100 mb-6">
@@ -328,7 +328,7 @@ export default function DashboardGuidePage() {
 
         {/* Quick Tips */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
             Quick Tips for Success
           </h2>
           <div className="grid md:grid-cols-2 gap-6">

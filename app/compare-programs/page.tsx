@@ -204,7 +204,7 @@ export default function CompareProgramsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Compare Programs
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -252,7 +252,7 @@ export default function CompareProgramsPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Compare Career Training Programs
             </h1>
-            <p className="text-2xl mb-8 text-orange-100">
+            <p className="text-base md:text-lg mb-8 text-orange-100">
               Find your perfect career path. Compare salaries, duration, certifications, and job outcomes across 28+ programs.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -301,8 +301,8 @@ export default function CompareProgramsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">How to Choose Your Program</h2>
-            <p className="text-xl text-slate-600">Watch this 3-minute guide to find your perfect career path</p>
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">How to Choose Your Program</h2>
+            <p className="text-base md:text-lg text-slate-600">Watch this 3-minute guide to find your perfect career path</p>
           </div>
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-video bg-slate-900 rounded-xl overflow-hidden shadow-2xl">
@@ -330,8 +330,8 @@ export default function CompareProgramsPage() {
       <section id="comparison" className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Side-by-Side Comparison</h2>
-            <p className="text-xl text-slate-600">Compare programs by salary, duration, and requirements</p>
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">Side-by-Side Comparison</h2>
+            <p className="text-base md:text-lg text-slate-600">Compare programs by salary, duration, and requirements</p>
           </div>
 
           {/* Mobile: Card View */}
@@ -353,7 +353,7 @@ export default function CompareProgramsPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-4">{program.name}</h3>
+                  <h3 className="text-lg md:text-lg font-bold mb-4">{program.name}</h3>
                   
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center gap-2">
@@ -469,8 +469,8 @@ export default function CompareProgramsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Real Success Stories</h2>
-            <p className="text-xl text-slate-600">See how our graduates transformed their careers</p>
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">Real Success Stories</h2>
+            <p className="text-base md:text-lg text-slate-600">See how our graduates transformed their careers</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -521,8 +521,8 @@ export default function CompareProgramsPage() {
       {/* CTA */}
       <section className="py-16    text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Start Your Career?</h2>
-          <p className="text-2xl mb-8 text-orange-100">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">Ready to Start Your Career?</h2>
+          <p className="text-base md:text-lg mb-8 text-orange-100">
             Apply now and get started with 100% free training
           </p>
           <Link

@@ -39,7 +39,7 @@ export default function FundingPage() {
 
         {/* FUNDING TYPES */}
         <section className="mt-14">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
             Common funding pathways
           </h2>
 
@@ -78,7 +78,7 @@ export default function FundingPage() {
 
         {/* APPRENTICESHIP */}
         <section className="mt-14 rounded-3xl border border-zinc-200 bg-zinc-50 p-8 sm:p-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
             Apprenticeship & earn-while-you-learn options
           </h2>
           <p className="mt-4 text-zinc-700 max-w-3xl">
@@ -106,7 +106,7 @@ export default function FundingPage() {
 
         {/* HOW IT WORKS */}
         <section className="mt-14">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
             How funding works
           </h2>
 
@@ -131,7 +131,7 @@ export default function FundingPage() {
 
         {/* FINAL CTA */}
         <section className="mt-16 rounded-3xl border border-zinc-200 bg-white p-8 sm:p-10 shadow-sm">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
             Ready to explore your options?
           </h2>
           <p className="mt-3 text-zinc-700">

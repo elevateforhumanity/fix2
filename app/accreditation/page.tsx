@@ -30,7 +30,7 @@ export default function AccreditationPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Officially Approved. Fully Accredited.
           </h1>
-          <p className="text-xl mb-8">
+          <p className="text-base md:text-lg mb-8">
             Your training is legitimate, recognized by employers, and approved
             by state and federal agencies.
           </p>
@@ -40,9 +40,9 @@ export default function AccreditationPage() {
       {/* Why It Matters */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Why Accreditation Matters</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Accreditation Matters</h2>
 
-          <p className="text-xl text-slate-700 mb-6 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-700 mb-6 leading-relaxed">
             Anyone can call themselves a "training provider." But not everyone
             is officially approved by the government.
           </p>
@@ -58,27 +58,27 @@ export default function AccreditationPage() {
 
           <ul className="space-y-3 mb-6">
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700">
                 Your training is <strong>recognized by employers</strong>{' '}
                 nationwide
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700">
                 You can get <strong>government funding</strong> (WRG, WIOA) to
                 pay for it
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700">
                 Your certifications are <strong>valid and transferable</strong>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-green-600 font-bold text-base">✓</span>
               <span className="text-slate-700">
                 We meet <strong>federal and state standards</strong> for quality
                 training
@@ -96,7 +96,7 @@ export default function AccreditationPage() {
       {/* Official Approvals */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Our Official Approvals
           </h2>
 
@@ -106,7 +106,7 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🇺🇸</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Federal Approvals</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Federal Approvals</h3>
 
               <div className="space-y-4">
                 <div>
@@ -137,7 +137,7 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🏛️</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">State Approvals</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">State Approvals</h3>
 
               <div className="space-y-4">
                 <div>
@@ -183,7 +183,7 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🤝</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Official Partnerships</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Official Partnerships</h3>
 
               <div className="space-y-4">
                 <div>
@@ -216,7 +216,7 @@ export default function AccreditationPage() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">⭐</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Quality Standards</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Quality Standards</h3>
 
               <div className="space-y-4">
                 <div>
@@ -262,11 +262,11 @@ export default function AccreditationPage() {
       {/* What This Means for You */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">What This Means for You</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">What This Means for You</h2>
 
           <div className="space-y-6">
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2 text-green-900">
+              <h3 className="text-lg font-bold mb-2 text-green-900">
                 ✓ Your Training is Legitimate
               </h3>
               <p className="text-slate-700">
@@ -277,7 +277,7 @@ export default function AccreditationPage() {
             </div>
 
             <div className="bg-blue-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2 text-blue-900">
+              <h3 className="text-lg font-bold mb-2 text-blue-900">
                 ✓ You Can Get Free Funding
               </h3>
               <p className="text-slate-700">
@@ -287,7 +287,7 @@ export default function AccreditationPage() {
             </div>
 
             <div className="bg-orange-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2 text-orange-900">
+              <h3 className="text-lg font-bold mb-2 text-orange-900">
                 ✓ Employers Trust Our Graduates
               </h3>
               <p className="text-slate-700">
@@ -297,7 +297,7 @@ export default function AccreditationPage() {
             </div>
 
             <div className="bg-purple-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-2 text-purple-900">
+              <h3 className="text-lg font-bold mb-2 text-purple-900">
                 ✓ Your Credentials Transfer
               </h3>
               <p className="text-slate-700">
@@ -312,7 +312,7 @@ export default function AccreditationPage() {
       {/* Verification */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Verify Our Credentials</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Verify Our Credentials</h2>
 
           <p className="text-lg text-slate-600 mb-8">
             Don't just take our word for it. You can verify our approvals
@@ -356,10 +356,10 @@ export default function AccreditationPage() {
       {/* CTA */}
       <section className="py-16 bg-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Approved Training?
           </h2>
-          <p className="text-xl mb-8">
+          <p className="text-base md:text-lg mb-8">
             Get certified with a program employers trust.
           </p>
           <Link

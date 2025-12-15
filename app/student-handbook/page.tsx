@@ -124,7 +124,7 @@ export default function StudentHandbook() {
         <div className="space-y-8">
           {/* Welcome */}
           <section id="welcome" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Welcome to Elevate for Humanity
             </h2>
             <p className="text-slate-700 mb-4">
@@ -143,12 +143,12 @@ export default function StudentHandbook() {
 
           {/* Mission */}
           <section id="mission" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Mission & Values
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Our Mission
                 </h3>
                 <p className="text-slate-700">
@@ -159,7 +159,7 @@ export default function StudentHandbook() {
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Our Values
                 </h3>
                 <ul className="list-disc list-inside space-y-2 text-slate-700">
@@ -186,13 +186,13 @@ export default function StudentHandbook() {
 
           {/* Academic Policies */}
           <section id="academic" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Academic Policies
             </h2>
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Attendance Policy
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -210,7 +210,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Grading Policy
                 </h3>
                 <div className="overflow-x-auto">
@@ -263,7 +263,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Academic Integrity
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -304,7 +304,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Satisfactory Academic Progress (SAP)
                 </h3>
                 <p className="text-slate-700 mb-2">Students must maintain:</p>
@@ -322,7 +322,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Makeup Work Policy
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -346,7 +346,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Attendance Tracking
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -373,7 +373,7 @@ export default function StudentHandbook() {
 
           {/* Code of Conduct */}
           <section id="conduct" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Code of Conduct
             </h2>
             <p className="text-slate-700 mb-4">
@@ -383,7 +383,7 @@ export default function StudentHandbook() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Expected Behavior
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -397,7 +397,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Prohibited Conduct
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -411,7 +411,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Disciplinary Actions
                 </h3>
                 <p className="text-slate-700">
@@ -426,7 +426,7 @@ export default function StudentHandbook() {
 
           {/* Student Rights - FERPA */}
           <section id="rights" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Student Rights (FERPA)
             </h2>
             <p className="text-slate-700 mb-4">
@@ -436,7 +436,7 @@ export default function StudentHandbook() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Your Rights Under FERPA
                 </h3>
                 <ul className="list-disc list-inside space-y-2 text-slate-700 ml-4">
@@ -464,7 +464,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   How to Access Your Records
                 </h3>
                 <p className="text-slate-700">
@@ -480,7 +480,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Directory Information
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -502,12 +502,12 @@ export default function StudentHandbook() {
 
           {/* Financial Information */}
           <section id="financial" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Financial Information
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Tuition and Fees
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -522,7 +522,7 @@ export default function StudentHandbook() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Payment Options
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -538,12 +538,12 @@ export default function StudentHandbook() {
 
           {/* Refund Policy */}
           <section id="refund" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Refund Policy
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Cancellation Before Start Date
                 </h3>
                 <p className="text-slate-700">
@@ -554,7 +554,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Withdrawal After Start Date
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -608,7 +608,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Refund Processing
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -620,7 +620,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Dismissal for Non-Payment
                 </h3>
                 <p className="text-slate-700">
@@ -637,12 +637,12 @@ export default function StudentHandbook() {
             id="withdrawal"
             className="bg-white rounded-xl shadow-sm p-8"
           >
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Withdrawal Policy
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Voluntary Withdrawal
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -667,7 +667,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Administrative Withdrawal
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -687,7 +687,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Leave of Absence
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -704,7 +704,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Re-Entry After Withdrawal
                 </h3>
                 <p className="text-slate-700">
@@ -724,12 +724,12 @@ export default function StudentHandbook() {
 
           {/* Campus Safety */}
           <section id="safety" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Campus Safety
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Emergency Procedures
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -753,7 +753,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Safety Protocols
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -768,7 +768,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Security
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -784,12 +784,12 @@ export default function StudentHandbook() {
 
           {/* Grievance Procedures */}
           <section id="grievance" className="bg-white rounded-xl shadow-sm p-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Complaint & Grievance Procedures
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Informal Resolution
                 </h3>
                 <p className="text-slate-700">
@@ -800,7 +800,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Formal Complaint Process
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -831,7 +831,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Appeal Process
                 </h3>
                 <p className="text-slate-700">
@@ -842,7 +842,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   External Complaints
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -872,7 +872,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Non-Retaliation
                 </h3>
                 <p className="text-slate-700">
@@ -889,12 +889,12 @@ export default function StudentHandbook() {
             id="graduation"
             className="bg-white rounded-xl shadow-sm p-8"
           >
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Graduation Requirements
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Requirements for Graduation
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -914,7 +914,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Graduation Ceremony
                 </h3>
                 <p className="text-slate-700">
@@ -925,7 +925,7 @@ export default function StudentHandbook() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Transcripts
                 </h3>
                 <p className="text-slate-700">

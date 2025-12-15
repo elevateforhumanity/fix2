@@ -36,7 +36,7 @@ export default async function MobileAppPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Take Elevate With You
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             Install our mobile app directly from your browser. No app store
             needed.
           </p>
@@ -60,7 +60,7 @@ export default async function MobileAppPage() {
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">
             Everything You Need, Anywhere
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -68,7 +68,7 @@ export default async function MobileAppPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
                 <Smartphone className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Works Like a Native App
               </h3>
               <p className="text-gray-600">
@@ -81,7 +81,7 @@ export default async function MobileAppPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
                 <Wifi className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Works Offline
               </h3>
               <p className="text-gray-600">
@@ -94,7 +94,7 @@ export default async function MobileAppPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
                 <Bell className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Push Notifications
               </h3>
               <p className="text-gray-600">
@@ -107,7 +107,7 @@ export default async function MobileAppPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
                 <Zap className="w-8 h-8 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Lightning Fast
               </h3>
               <p className="text-gray-600">
@@ -119,7 +119,7 @@ export default async function MobileAppPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
                 <Download className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 No App Store Required
               </h3>
               <p className="text-gray-600">
@@ -132,7 +132,7 @@ export default async function MobileAppPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
                 <Lock className="w-8 h-8 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Secure & Private
               </h3>
               <p className="text-gray-600">
@@ -146,13 +146,13 @@ export default async function MobileAppPage() {
       {/* Installation Instructions */}
       <section id="install" className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">
             How to Install
           </h2>
 
           {/* iOS Instructions */}
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-            <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+            <h3 className="text-lg md:text-lg font-bold mb-6 text-gray-900 flex items-center">
               <span className="text-3xl mr-3">📱</span>
               iPhone & iPad (Safari)
             </h3>
@@ -193,7 +193,7 @@ export default async function MobileAppPage() {
 
           {/* Android Instructions */}
           <div className="bg-white rounded-lg shadow-md p-8">
-            <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+            <h3 className="text-lg md:text-lg font-bold mb-6 text-gray-900 flex items-center">
               <span className="text-3xl mr-3">🤖</span>
               Android (Chrome)
             </h3>
@@ -237,10 +237,10 @@ export default async function MobileAppPage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-base md:text-lg mb-8 text-blue-100">
             Install the app now and take your career development journey with
             you wherever you go.
           </p>

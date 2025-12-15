@@ -93,7 +93,7 @@ function ApplyForm() {
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Talk to an Advisor
           </h1>
-          <p className="text-xl text-slate-700 mb-6">
+          <p className="text-base md:text-lg text-slate-700 mb-6">
             Let's discuss your goals and find the right training program for
             you.
           </p>

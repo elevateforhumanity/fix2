@@ -30,7 +30,7 @@ export default function ApprenticeshipsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-md">
             Registered Apprenticeship Programs
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white drop-shadow-md">
+          <p className="text-base md:text-lg mb-8 text-white drop-shadow-md">
             Earn while you learn. Get paid on-the-job training with industry
             certifications.
           </p>
@@ -54,7 +54,7 @@ export default function ApprenticeshipsPage() {
       {/* What is an Apprenticeship */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             What is a Registered Apprenticeship?
           </h2>
           <p className="text-lg text-slate-700 mb-6">
@@ -65,7 +65,7 @@ export default function ApprenticeshipsPage() {
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">
+              <h3 className="text-lg font-bold mb-3 text-green-900">
                 ✓ Earn While You Learn
               </h3>
               <p className="text-slate-700">
@@ -74,7 +74,7 @@ export default function ApprenticeshipsPage() {
               </p>
             </div>
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">
+              <h3 className="text-lg font-bold mb-3 text-green-900">
                 ✓ Industry Certifications
               </h3>
               <p className="text-slate-700">
@@ -83,7 +83,7 @@ export default function ApprenticeshipsPage() {
               </p>
             </div>
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-green-900">
+              <h3 className="text-lg font-bold mb-3 text-green-900">
                 ✓ Zero Debt
               </h3>
               <p className="text-slate-700">
@@ -97,7 +97,7 @@ export default function ApprenticeshipsPage() {
       {/* Apprenticeship Programs */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
             Available Apprenticeship Programs
           </h2>
 
@@ -118,7 +118,7 @@ export default function ApprenticeshipsPage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{program.name}</h3>
+                    <h3 className="text-lg font-bold mb-2">{program.name}</h3>
                     <p className="text-slate-600 mb-4">
                       {program.shortDescription}
                     </p>
@@ -182,8 +182,8 @@ export default function ApprenticeshipsPage() {
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Join thousands who have launched successful careers through our
               programs.
             </p>

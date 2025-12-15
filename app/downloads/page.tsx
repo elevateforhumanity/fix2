@@ -159,7 +159,7 @@ export default function DownloadsPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Download Center
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-base md:text-lg text-blue-100">
               Access handbooks, workbooks, forms, and resources for students and
               staff
             </p>
@@ -211,7 +211,7 @@ export default function DownloadsPage() {
             <div id="handbooks">
               <div className="flex items-center gap-3 mb-8">
                 <BookOpen className="w-8 h-8 text-blue-600" />
-                <h2 className="text-3xl font-bold">Handbooks</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">Handbooks</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {resources.handbooks.map((item, index) => (
@@ -251,7 +251,7 @@ export default function DownloadsPage() {
             <div id="workbooks">
               <div className="flex items-center gap-3 mb-8">
                 <GraduationCap className="w-8 h-8 text-green-600" />
-                <h2 className="text-3xl font-bold">Program Workbooks</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">Program Workbooks</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {resources.workbooks.map((item, index) => (
@@ -289,7 +289,7 @@ export default function DownloadsPage() {
             <div id="forms">
               <div className="flex items-center gap-3 mb-8">
                 <FileCheck className="w-8 h-8 text-purple-600" />
-                <h2 className="text-3xl font-bold">Forms & Applications</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">Forms & Applications</h2>
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 {resources.forms.map((item, index) => (
@@ -318,7 +318,7 @@ export default function DownloadsPage() {
             <div id="guides">
               <div className="flex items-center gap-3 mb-8">
                 <FileText className="w-8 h-8 text-orange-600" />
-                <h2 className="text-3xl font-bold">Student Guides</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">Student Guides</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {resources.guides.map((item, index) => (

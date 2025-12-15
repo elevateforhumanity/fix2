@@ -38,7 +38,7 @@ export default function ApprovalsPage() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
               Approvals, Credentials & Partnerships
             </h1>
-            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg">
+            <p className="text-base md:text-lg text-slate-200 leading-relaxed drop-shadow-lg">
               Elevate For Humanity operates under Selfish Inc, a 501(c)(3)
               nonprofit and registered federal contractor. Together, our
               entities form a multi-industry-standard workforce ecosystem that
@@ -54,7 +54,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Shield className="w-12 h-12 text-blue-600" />
-            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               State & Workforce Approvals
             </h2>
           </div>
@@ -65,7 +65,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     INTraining Approved Provider – Indiana Department of
                     Workforce Development
                   </h3>
@@ -87,7 +87,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     Eligible Training Provider (ETP) – WIOA-funded training
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -103,7 +103,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     Workforce Ready Grant (WRG) Training Provider
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -119,7 +119,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     Job Ready Indy (JRI) Training Partner – Marion County
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -135,7 +135,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     ITAP / INDOT Registration
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -154,7 +154,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Building2 className="w-12 h-12 text-red-600" />
-            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Federal Approvals & Registration
             </h2>
           </div>
@@ -165,7 +165,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     U.S. Department of Labor Registered Apprenticeship Sponsor
                   </h3>
                   <div className="space-y-2 text-lg text-slate-700">
@@ -186,7 +186,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     SAM.gov Active Federal Contractor (Selfish Inc)
                   </h3>
                   <div className="space-y-2 text-lg text-slate-700">
@@ -209,7 +209,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Award className="w-12 h-12 text-orange-600" />
-            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Certification & Testing Partnerships
             </h2>
           </div>
@@ -220,7 +220,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     Certiport Authorized Testing Center
                   </h3>
                   <p className="text-lg text-slate-700 mb-4">
@@ -262,7 +262,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     Milady RISE Partner School – Client Well-Being & Safety
                     Certification
                   </h3>
@@ -286,7 +286,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     CareerSafe / OSHA-aligned Safety Training
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -305,7 +305,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Users className="w-12 h-12 text-purple-600" />
-            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Nonprofit & Diversity Certifications
             </h2>
           </div>
@@ -316,7 +316,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     501(c)(3) Nonprofit – Selfish Inc
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -331,7 +331,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     Candid/Guidestar Registered Nonprofit
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -347,7 +347,7 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">
+                  <h3 className="text-lg md:text-lg font-bold mb-3">
                     ByBlack Certified Black-Owned Business
                   </h3>
                   <p className="text-lg text-slate-700">
@@ -365,14 +365,14 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <FileCheck className="w-12 h-12 text-white" />
-            <h2 className="text-4xl font-bold text-white text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Why This Matters
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 For Students
               </h3>
               <p className="text-white/90 text-lg leading-relaxed">
@@ -383,7 +383,7 @@ export default function ApprovalsPage() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 For Employers
               </h3>
               <p className="text-white/90 text-lg leading-relaxed">
@@ -394,7 +394,7 @@ export default function ApprovalsPage() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 For Partners
               </h3>
               <p className="text-white/90 text-lg leading-relaxed">
@@ -410,10 +410,10 @@ export default function ApprovalsPage() {
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed">
             Join thousands of students who have transformed their careers
             through our state-approved, federally recognized training programs.
           </p>

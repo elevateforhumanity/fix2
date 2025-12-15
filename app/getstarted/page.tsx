@@ -34,7 +34,7 @@ export default function Page() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
               Start Your Career Journey Today
             </h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg text-white/95">
+            <p className="text-base md:text-lg mb-8 drop-shadow-lg text-white/95">
               100% free training. No cost, no debt. Real careers waiting. Get
               started in 3 simple steps.
             </p>
@@ -60,10 +60,10 @@ export default function Page() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Your Path to a New Career
             </h2>
-            <p className="text-xl text-slate-700">
+            <p className="text-base md:text-lg text-slate-700">
               Three simple steps. No hidden costs. No complicated process. Just
               you and your future.
             </p>
@@ -75,7 +75,7 @@ export default function Page() {
               <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
                 1
               </div>
-              <h3 className="text-2xl font-bold mb-4">Apply Online</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Apply Online</h3>
               <p className="text-slate-700 mb-6 leading-relaxed">
                 Fill out a simple application (takes 5 minutes). Tell us about
                 yourself, what you're interested in, and what support you might
@@ -94,7 +94,7 @@ export default function Page() {
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
                 2
               </div>
-              <h3 className="text-2xl font-bold mb-4">Meet Your Advisor</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Meet Your Advisor</h3>
               <p className="text-slate-700 mb-6 leading-relaxed">
                 Within 1-2 days, a real person will call you. They'll explain
                 programs, help you check eligibility for free funding, and
@@ -116,7 +116,7 @@ export default function Page() {
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
                 3
               </div>
-              <h3 className="text-2xl font-bold mb-4">Start Training</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Start Training</h3>
               <p className="text-slate-700 mb-6 leading-relaxed">
                 Once approved, you'll start training—100% free. Learn new
                 skills, earn credentials, and get connected to employers. We
@@ -139,7 +139,7 @@ export default function Page() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   Why Thousands Choose Elevate
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed">
@@ -264,7 +264,7 @@ export default function Page() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Why Choose Us
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -284,7 +284,7 @@ export default function Page() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
+                <h3 className="text-lg font-semibold mb-3">100% Funded</h3>
                 <p className="text-gray-600">
                   All programs completely free through government funding
                 </p>
@@ -306,7 +306,7 @@ export default function Page() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
+                <h3 className="text-lg font-semibold mb-3">Job Placement</h3>
                 <p className="text-gray-600">
                   We help you find employment after training
                 </p>
@@ -328,7 +328,7 @@ export default function Page() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
+                <h3 className="text-lg font-semibold mb-3">Expert Training</h3>
                 <p className="text-gray-600">
                   Learn from industry professionals
                 </p>

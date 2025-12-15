@@ -74,10 +74,10 @@ export default function LicensingPage() {
       <section id="tiers" className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Choose Your License
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-base md:text-lg text-slate-600">
               Select the tier that matches your operational needs
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function LicensingPage() {
                 </div>
 
                 <div className="p-8">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
                     {tier.name}
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">{tier.forWho}</p>
@@ -143,8 +143,8 @@ export default function LicensingPage() {
       {/* Key Rule */}
       <section className="bg-slate-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Key Rule</h2>
-          <p className="text-xl text-slate-300">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Key Rule</h2>
+          <p className="text-base md:text-lg text-slate-300">
             You pay for access, not our intellectual property.
           </p>
           <p className="text-lg text-slate-400 mt-4">
@@ -157,7 +157,7 @@ export default function LicensingPage() {
       {/* What's Included */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center">
             What's Included in All Licenses
           </h2>
 
@@ -262,10 +262,10 @@ export default function LicensingPage() {
       {/* CTA */}
       <section className="bg-slate-50 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-slate-600 mb-8">
+          <p className="text-base md:text-lg text-slate-600 mb-8">
             Request licensing information or schedule a consultation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

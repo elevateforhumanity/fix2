@@ -106,7 +106,7 @@ export default async function NotificationsPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -161,10 +161,10 @@ export default async function NotificationsPage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
               Ready to Transform Your Career?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Join thousands who have launched successful careers through our free training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -207,7 +207,7 @@ export default async function NotificationsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Notifications
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -256,7 +256,7 @@ export default async function NotificationsPage() {
                 <Bell className="text-blue-600" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold">{notifications?.length || 0}</p>
+                <p className="text-base md:text-lg font-bold">{notifications?.length || 0}</p>
                 <p className="text-sm text-gray-600">Total</p>
               </div>
             </div>
@@ -267,7 +267,7 @@ export default async function NotificationsPage() {
                 <AlertCircle className="text-orange-600" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold">{unreadCount}</p>
+                <p className="text-base md:text-lg font-bold">{unreadCount}</p>
                 <p className="text-sm text-gray-600">Unread</p>
               </div>
             </div>
@@ -278,7 +278,7 @@ export default async function NotificationsPage() {
                 <CheckCheck className="text-green-600" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold">{(notifications?.length || 0) - unreadCount}</p>
+                <p className="text-base md:text-lg font-bold">{(notifications?.length || 0) - unreadCount}</p>
                 <p className="text-sm text-gray-600">Read</p>
               </div>
             </div>
@@ -289,7 +289,7 @@ export default async function NotificationsPage() {
                 <Calendar className="text-purple-600" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold">{todayNotifications.length}</p>
+                <p className="text-base md:text-lg font-bold">{todayNotifications.length}</p>
                 <p className="text-sm text-gray-600">Today</p>
               </div>
             </div>
@@ -330,7 +330,7 @@ export default async function NotificationsPage() {
           {(!notifications || notifications.length === 0) && (
             <div className="bg-white rounded-lg shadow p-12 text-center">
               <Bell className="mx-auto text-gray-400 mb-4" size={64} />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No notifications yet</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">No notifications yet</h3>
               <p className="text-gray-600">
                 When you receive notifications, they'll appear here
               </p>

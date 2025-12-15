@@ -32,7 +32,7 @@ export default async function MobileAppPage() {
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             📱 Learn Anywhere, Anytime
           </h1>
-          <p className="text-xl text-slate-600">
+          <p className="text-base md:text-lg text-slate-600">
             Download the Milady mobile app for iOS or Android
           </p>
         </div>
@@ -69,7 +69,7 @@ export default async function MobileAppPage() {
               </div>
               <Download className="w-8 h-8 text-blue-600 group-hover:animate-bounce" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
+            <h3 className="text-lg font-bold text-slate-900 mb-2">
               Download for iPhone
             </h3>
             <p className="text-slate-600 text-sm mb-4">
@@ -92,7 +92,7 @@ export default async function MobileAppPage() {
               </div>
               <Download className="w-8 h-8 text-blue-600 group-hover:animate-bounce" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
+            <h3 className="text-lg font-bold text-slate-900 mb-2">
               Download for Android
             </h3>
             <p className="text-slate-600 text-sm mb-4">

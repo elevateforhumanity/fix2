@@ -30,7 +30,7 @@ export default function VITAPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Free Tax Prep VITA Center
             </h1>
-            <p className="text-2xl mb-8 font-light">
+            <p className="text-base md:text-lg mb-8 font-light">
               IRS Volunteer Income Tax Assistance - Free tax preparation for individuals earning $64,000 or less
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -55,7 +55,7 @@ export default function VITAPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-8 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-8 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               What is the IRS VITA Program?
             </h2>
             <div className="prose prose-lg max-w-none">
@@ -112,7 +112,7 @@ export default function VITAPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Choose Your Path
             </h2>
             <div className="grid md:grid-cols-2 gap-12">
@@ -207,7 +207,7 @@ export default function VITAPage() {
       {/* Resources */}
       <section className="py-20 bg-slate-50 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Official IRS Resources
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -285,10 +285,10 @@ export default function VITAPage() {
         {/* CTA */}
         <section className="py-20    text-white px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Ready to Get Started?
             </h2>
-            <p className="text-xl mb-8">
+            <p className="text-base md:text-lg mb-8">
               Whether you need tax help or want to volunteer, we're here for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

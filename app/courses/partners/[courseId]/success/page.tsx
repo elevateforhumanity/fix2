@@ -51,7 +51,7 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Success
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -90,7 +90,7 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
               </svg>
             </div>
             <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Enrollment Successful!</h1>
-            <p className="text-xl text-green-100">
+            <p className="text-base md:text-lg text-green-100">
               You're all set to start learning
             </p>
           </div>

@@ -39,7 +39,7 @@ export default async function FeaturesPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Built for Success
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-8 text-gray-100">
             Everything you need to learn, grow, and launch your career—all in
             one platform.
           </p>
@@ -64,10 +64,10 @@ export default async function FeaturesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
               Everything You Need to Succeed
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Our platform combines cutting-edge technology with personalized
               support to help you achieve your career goals.
             </p>
@@ -79,7 +79,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
                 <BookOpen className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Interactive Learning
               </h3>
               <p className="text-gray-600">
@@ -93,7 +93,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
                 <Users className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 1-on-1 Support
               </h3>
               <p className="text-gray-600">
@@ -107,7 +107,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg mb-4">
                 <Award className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Industry Certifications
               </h3>
               <p className="text-gray-600">
@@ -121,7 +121,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
                 <Briefcase className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Career Services
               </h3>
               <p className="text-gray-600">
@@ -135,7 +135,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg mb-4">
                 <Clock className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Flexible Schedule
               </h3>
               <p className="text-gray-600">
@@ -149,7 +149,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg mb-4">
                 <DollarSign className="w-6 h-6 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 100% Free
               </h3>
               <p className="text-gray-600">
@@ -163,7 +163,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-pink-100 rounded-lg mb-4">
                 <Smartphone className="w-6 h-6 text-pink-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Mobile App
               </h3>
               <p className="text-gray-600">
@@ -177,7 +177,7 @@ export default async function FeaturesPage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mb-4">
                 <BarChart className="w-6 h-6 text-teal-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Progress Tracking
               </h3>
               <p className="text-gray-600">
@@ -204,7 +204,7 @@ export default async function FeaturesPage() {
               />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                 Designed for Real-World Success
               </h2>
               <p className="text-gray-700 mb-6">
@@ -296,7 +296,7 @@ export default async function FeaturesPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                 You're Never Alone
               </h2>
               <p className="text-gray-700 mb-6">
@@ -397,10 +397,10 @@ export default async function FeaturesPage() {
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Ready to Experience the Difference?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-base md:text-lg mb-8 text-blue-100">
             Join thousands of learners who are building better futures with
             Elevate For Humanity.
           </p>

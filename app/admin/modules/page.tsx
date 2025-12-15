@@ -80,19 +80,19 @@ export default async function ModulesPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Total Modules</h3>
-              <p className="text-2xl font-bold text-gray-900">{totalModules || 0}</p>
+              <p className="text-base md:text-lg font-bold text-gray-900">{totalModules || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">SCORM Packages</h3>
-              <p className="text-2xl font-bold text-blue-600">{scormModules || 0}</p>
+              <p className="text-base md:text-lg font-bold text-blue-600">{scormModules || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Lessons</h3>
-              <p className="text-2xl font-bold text-green-600">{lessonModules || 0}</p>
+              <p className="text-base md:text-lg font-bold text-green-600">{lessonModules || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Assessments</h3>
-              <p className="text-2xl font-bold text-purple-600">{assessmentModules || 0}</p>
+              <p className="text-base md:text-lg font-bold text-purple-600">{assessmentModules || 0}</p>
             </div>
           </div>
         </div>

@@ -119,7 +119,7 @@ export default async function AdminDashboard() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Dashboard
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -215,7 +215,7 @@ export default async function AdminDashboard() {
                 <CheckCircle className="text-green-700" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">{completedEnrollments || 0}</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">{completedEnrollments || 0}</p>
                 <p className="text-sm text-slate-600">Completed</p>
               </div>
             </div>
@@ -231,7 +231,7 @@ export default async function AdminDashboard() {
                 <Clock className="text-blue-700" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">{activeEnrollments || 0}</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">{activeEnrollments || 0}</p>
                 <p className="text-sm text-slate-600">In Progress</p>
               </div>
             </div>
@@ -247,7 +247,7 @@ export default async function AdminDashboard() {
                 <AlertCircle className="text-orange-700" size={20} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-slate-900">{pendingApplications || 0}</p>
+                <p className="text-base md:text-lg font-bold text-slate-900">{pendingApplications || 0}</p>
                 <p className="text-sm text-slate-600">Pending Review</p>
               </div>
             </div>
@@ -369,7 +369,7 @@ export default async function AdminDashboard() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">

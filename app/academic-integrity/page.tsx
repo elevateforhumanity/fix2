@@ -24,7 +24,7 @@ export default function AcademicIntegrityPage() {
             <Shield className="w-12 h-12" />
             <h1 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">Academic Integrity Policy</h1>
           </div>
-          <p className="text-xl text-blue-100">
+          <p className="text-base md:text-lg text-blue-100">
             Upholding honesty, ethics, and professional standards in education
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function AcademicIntegrityPage() {
           <div className="space-y-6">
             {/* Plagiarism */}
             <div className="border-l-4 border-red-500 pl-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-6 h-6 text-red-600" />
                 Plagiarism
               </h3>
@@ -97,7 +97,7 @@ export default function AcademicIntegrityPage() {
 
             {/* Cheating */}
             <div className="border-l-4 border-orange-500 pl-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-6 h-6 text-orange-600" />
                 Cheating
               </h3>
@@ -125,7 +125,7 @@ export default function AcademicIntegrityPage() {
 
             {/* Unauthorized Collaboration */}
             <div className="border-l-4 border-yellow-500 pl-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <Users className="w-6 h-6 text-yellow-600" />
                 Unauthorized Collaboration
               </h3>
@@ -150,7 +150,7 @@ export default function AcademicIntegrityPage() {
 
             {/* Falsification */}
             <div className="border-l-4 border-purple-500 pl-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <FileText className="w-6 h-6 text-purple-600" />
                 Falsification of Records
               </h3>
@@ -172,7 +172,7 @@ export default function AcademicIntegrityPage() {
 
             {/* Multiple Submissions */}
             <div className="border-l-4 border-blue-500 pl-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <BookOpen className="w-6 h-6 text-blue-600" />
                 Multiple Submissions
               </h3>

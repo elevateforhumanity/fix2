@@ -75,19 +75,19 @@ export default async function TransferHoursPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Total Requests</h3>
-              <p className="text-2xl font-bold text-gray-900">{totalRequests || 0}</p>
+              <p className="text-base md:text-lg font-bold text-gray-900">{totalRequests || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Pending Review</h3>
-              <p className="text-2xl font-bold text-yellow-600">{pendingRequests || 0}</p>
+              <p className="text-base md:text-lg font-bold text-yellow-600">{pendingRequests || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Approved</h3>
-              <p className="text-2xl font-bold text-green-600">{approvedRequests || 0}</p>
+              <p className="text-base md:text-lg font-bold text-green-600">{approvedRequests || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Denied</h3>
-              <p className="text-2xl font-bold text-red-600">{deniedRequests || 0}</p>
+              <p className="text-base md:text-lg font-bold text-red-600">{deniedRequests || 0}</p>
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ export default function SupersonicFastCashPage() {
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 Get Your Refund Fast
               </h1>
-              <p className="text-2xl mb-8 text-green-100">
+              <p className="text-base md:text-lg mb-8 text-green-100">
                 Tax refund advance up to $6,000 in minutes. Professional tax
                 preparation included.
               </p>
@@ -52,7 +52,7 @@ export default function SupersonicFastCashPage() {
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-              <h3 className="text-2xl font-bold mb-6">Why Choose Us?</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-6">Why Choose Us?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
@@ -89,10 +89,10 @@ export default function SupersonicFastCashPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Get your refund advance in 3 simple steps
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function SupersonicFastCashPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-700">1</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">File Your Taxes</h3>
+              <h3 className="text-lg font-bold mb-3">File Your Taxes</h3>
               <p className="text-gray-600">
                 Bring your documents and we'll prepare your taxes professionally
               </p>
@@ -110,7 +110,7 @@ export default function SupersonicFastCashPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-700">2</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">Get Approved</h3>
+              <h3 className="text-lg font-bold mb-3">Get Approved</h3>
               <p className="text-gray-600">
                 Instant approval for your refund advance - no credit check
                 needed
@@ -120,7 +120,7 @@ export default function SupersonicFastCashPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-700">3</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">Get Your Cash</h3>
+              <h3 className="text-lg font-bold mb-3">Get Your Cash</h3>
               <p className="text-gray-600">
                 Walk out with cash in hand - up to $6,000 in minutes
               </p>
@@ -133,10 +133,10 @@ export default function SupersonicFastCashPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Refund Advance Amounts
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Get your money fast - no credit check required
             </p>
           </div>
@@ -174,17 +174,17 @@ export default function SupersonicFastCashPage() {
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Professional Tax Software
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               We use industry-leading Drake Tax Software with EPS Tax
               integration
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-4">Drake Tax Software</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Drake Tax Software</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -209,7 +209,7 @@ export default function SupersonicFastCashPage() {
               </ul>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-4">EPS Tax Integration</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">EPS Tax Integration</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -241,16 +241,16 @@ export default function SupersonicFastCashPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Tax Preparation Services
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base md:text-lg text-gray-600">
               Professional tax filing with maximum refund guarantee
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white border-2 border-gray-200 rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-4">Basic</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Basic</h3>
               <div className="text-4xl font-bold text-green-700 mb-6 text-2xl md:text-3xl lg:text-4xl">$79</div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
@@ -278,7 +278,7 @@ export default function SupersonicFastCashPage() {
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-green-900 px-4 py-1 rounded-full text-sm font-bold">
                 MOST POPULAR
               </div>
-              <h3 className="text-2xl font-bold mb-4">Deluxe</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Deluxe</h3>
               <div className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">$149</div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
@@ -307,7 +307,7 @@ export default function SupersonicFastCashPage() {
             </div>
 
             <div className="bg-white border-2 border-gray-200 rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-4">Premium</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">Premium</h3>
               <div className="text-4xl font-bold text-green-700 mb-6 text-2xl md:text-3xl lg:text-4xl">$249</div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
@@ -377,8 +377,8 @@ export default function SupersonicFastCashPage() {
       {/* Final CTA */}
       <section className="py-20 bg-green-700 text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Get Your Refund?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">Ready to Get Your Refund?</h2>
+          <p className="text-base md:text-lg mb-8">
             Visit us today or call to schedule your appointment
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

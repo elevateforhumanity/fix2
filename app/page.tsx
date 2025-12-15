@@ -108,7 +108,7 @@ export default function HomePage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             It's Not Graduation, It's Elevation
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-base md:text-lg text-slate-700 mb-8 max-w-3xl mx-auto">
             Free Career Training • Real Jobs • No Debt
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -137,7 +137,7 @@ export default function HomePage() {
             isVisible['mission-story'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-6">
             Real Careers. Real Fast. From Home.
           </h2>
           <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-6">
@@ -162,7 +162,7 @@ export default function HomePage() {
               isVisible['programs-header'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Featured Programs
             </h2>
             <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">

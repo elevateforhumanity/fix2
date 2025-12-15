@@ -97,7 +97,7 @@ export default function TeamPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Meet Our Team
           </h1>
-          <p className="text-xl text-slate-600">
+          <p className="text-base md:text-lg text-slate-600">
             Real people who care about your success.
           </p>
         </div>

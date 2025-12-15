@@ -88,7 +88,7 @@ export default function SitemapPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Sitemap
           </h1>
-          <p className="text-xl text-slate-600">
+          <p className="text-base md:text-lg text-slate-600">
             Complete directory of all pages on our website
           </p>
         </div>
@@ -124,10 +124,10 @@ export default function SitemapPage() {
       {/* Contact CTA */}
       <section className="py-16 bg-white border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Can't Find What You're Looking For?
           </h2>
-          <p className="text-xl text-slate-600 mb-8">
+          <p className="text-base md:text-lg text-slate-600 mb-8">
             Contact us and we'll help you find the information you need.
           </p>
           <Link

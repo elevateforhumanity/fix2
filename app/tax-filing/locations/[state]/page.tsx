@@ -107,7 +107,7 @@ export default function StatePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
               [state]
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+            <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
               Transform your career with free training and industry
               certifications
             </p>
@@ -144,7 +144,7 @@ export default function StatePage() {
             <h1 className="text-5xl font-bold mb-4 text-3xl md:text-4xl lg:text-5xl">
               Tax Filing in {state.name}
             </h1>
-            <p className="text-xl text-blue-100 mb-6">
+            <p className="text-base md:text-lg text-blue-100 mb-6">
               {state.preparers}+ certified tax preparers across {state.name}.
               Drake Software certified. $100 flat fee for federal + state.
             </p>
@@ -200,7 +200,7 @@ export default function StatePage() {
         {/* Cities */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
               Tax Preparers by City in {state.name}
             </h2>
 
@@ -210,7 +210,7 @@ export default function StatePage() {
                   key={city.name}
                   className="bg-white rounded-lg shadow-lg p-6 border-2 border-gray-100 hover:border-blue-500 transition-all"
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-2">
                     {city.name}, {state.abbreviation}
                   </h3>
                   <div className="flex items-center mb-3">
@@ -243,13 +243,13 @@ export default function StatePage() {
         {/* State Tax Info */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
               {state.name} Tax Information
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">
+                <h3 className="text-lg md:text-lg font-bold mb-6">
                   State Tax Rates & Deadlines
                 </h3>
                 <div className="space-y-4">
@@ -283,7 +283,7 @@ export default function StatePage() {
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">
+                <h3 className="text-lg md:text-lg font-bold mb-6">
                   {state.name} Tax Credits & Deductions
                 </h3>
                 <ul className="space-y-3">
@@ -309,7 +309,7 @@ export default function StatePage() {
         {/* Why Choose Us */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
               Why Choose Us for {state.name} Tax Filing?
             </h2>
 
@@ -318,7 +318,7 @@ export default function StatePage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">🏆</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">
+                <h3 className="text-lg font-bold mb-3">
                   Local {state.name} Experts
                 </h3>
                 <p className="text-gray-600">
@@ -331,7 +331,7 @@ export default function StatePage() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">💰</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">$100 Flat Fee</h3>
+                <h3 className="text-lg font-bold mb-3">$100 Flat Fee</h3>
                 <p className="text-gray-600">
                   Federal + {state.name} state return included. No hidden fees
                   or surprises.
@@ -342,7 +342,7 @@ export default function StatePage() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">📊</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Drake Software</h3>
+                <h3 className="text-lg font-bold mb-3">Drake Software</h3>
                 <p className="text-gray-600">
                   Professional-grade software used by CPAs. Maximum refund
                   guaranteed.
@@ -355,7 +355,7 @@ export default function StatePage() {
         {/* Reviews */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
               What {state.name} Residents Say
             </h2>
 
@@ -424,10 +424,10 @@ export default function StatePage() {
         {/* CTA */}
         <section className="py-20    text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
               Ready to File Your {state.name} Taxes?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Join thousands of {state.name} residents who've saved money with
               our $100 flat-fee tax filing
             </p>

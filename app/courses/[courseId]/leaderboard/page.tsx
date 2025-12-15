@@ -86,7 +86,7 @@ export default function CourseLeaderboardPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Leaderboard
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -116,7 +116,7 @@ export default function CourseLeaderboardPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -171,10 +171,10 @@ export default function CourseLeaderboardPage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Ready to Transform Your Career?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Join thousands who have launched successful careers through our free training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -209,7 +209,7 @@ export default function CourseLeaderboardPage() {
               ← Back to Course
             </Link>
             <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">{course?.title}</h1>
-            <p className="text-xl text-purple-100">Course Leaderboard</p>
+            <p className="text-base md:text-lg text-purple-100">Course Leaderboard</p>
           </div>
         </div>
       </section>
@@ -396,7 +396,7 @@ viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No rankings yet</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">No rankings yet</h3>
                 <p className="text-gray-600">Be the first to complete lessons and earn points!</p>
               </div>
             )}

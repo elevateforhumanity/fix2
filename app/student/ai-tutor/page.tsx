@@ -66,7 +66,7 @@ export default async function AITutorPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Ai Tutor
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -90,7 +90,7 @@ export default async function AITutorPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">AI Tutor & Instructor</h1>
-            <p className="text-xl text-blue-100">Get personalized guidance from your AI instructor</p>
+            <p className="text-base md:text-lg text-blue-100">Get personalized guidance from your AI instructor</p>
           </div>
         </div>
       </section>
@@ -126,7 +126,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </div>
                           )}
                           <div className="flex-1">
-                            <h3 className="text-xl font-semibold">{instructor.instructor_name}</h3>
+                            <h3 className="text-lg font-semibold">{instructor.instructor_name}</h3>
                             <p className="text-sm text-gray-600">{program?.title}</p>
                             {instructor.welcome_message && (
                               <p className="text-sm text-gray-700 mt-2 italic">"{instructor.welcome_message}"</p>
@@ -154,7 +154,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -216,7 +216,7 @@ viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No AI Instructors Available</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">No AI Instructors Available</h3>
                   <p className="text-gray-600 mb-6">Enroll in a program to get access to your AI instructor</p>
                   <Link 
                     href="/student/courses"

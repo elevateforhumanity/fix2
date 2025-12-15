@@ -70,19 +70,19 @@ export default async function ProgramsPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Total Programs</h3>
-              <p className="text-2xl font-bold text-gray-900">{totalPrograms || 0}</p>
+              <p className="text-base md:text-lg font-bold text-gray-900">{totalPrograms || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Active</h3>
-              <p className="text-2xl font-bold text-green-600">{activePrograms || 0}</p>
+              <p className="text-base md:text-lg font-bold text-green-600">{activePrograms || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Featured</h3>
-              <p className="text-2xl font-bold text-purple-600">{featuredPrograms || 0}</p>
+              <p className="text-base md:text-lg font-bold text-purple-600">{featuredPrograms || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Inactive</h3>
-              <p className="text-2xl font-bold text-gray-600">
+              <p className="text-base md:text-lg font-bold text-gray-600">
                 {(totalPrograms || 0) - (activePrograms || 0)}
               </p>
             </div>

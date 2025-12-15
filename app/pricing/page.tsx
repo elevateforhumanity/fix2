@@ -20,7 +20,7 @@ export default function PricingPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Choose Your Access Level
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
             The app is free to download. Some programs and services require paid platform access.
           </p>
           <p className="text-sm text-slate-500 mt-2">
@@ -135,7 +135,7 @@ export default function PricingPage() {
 
         {/* FAQ Section */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 text-center">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">

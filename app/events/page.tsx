@@ -182,7 +182,7 @@ export default function EventsPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Events & Workshops
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100 leading-relaxed">
               Join us for free information sessions, hiring events, workshops,
               and open houses. All events are free and open to the community.
             </p>
@@ -195,7 +195,7 @@ export default function EventsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Upcoming Events
               </h2>
               <p className="text-lg text-slate-600">
@@ -231,7 +231,7 @@ export default function EventsPage() {
                     {/* Event Details */}
                     <div className="flex-1">
                       <div className="flex flex-wrap items-start gap-3 mb-3">
-                        <h3 className="text-2xl font-bold text-slate-900 flex-1">
+                        <h3 className="text-lg md:text-lg font-bold text-slate-900 flex-1">
                           {event.title}
                         </h3>
                         <span
@@ -295,12 +295,12 @@ export default function EventsPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Recurring Events
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-lg font-bold mb-2">
                   Monthly Info Sessions
                 </h3>
                 <p className="text-slate-600 mb-4">
@@ -315,7 +315,7 @@ export default function EventsPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-lg font-bold mb-2">
                   Quarterly Hiring Events
                 </h3>
                 <p className="text-slate-600 mb-4">
@@ -330,7 +330,7 @@ export default function EventsPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-2">Weekly Open Hours</h3>
+                <h3 className="text-lg font-bold mb-2">Weekly Open Hours</h3>
                 <p className="text-slate-600 mb-4">
                   Every Wednesday, 4:00 PM - 6:00 PM. Drop in for questions,
                   tours, or to start your application.
@@ -343,7 +343,7 @@ export default function EventsPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-lg font-bold mb-2">
                   Graduation Ceremonies
                 </h3>
                 <p className="text-slate-600 mb-4">
@@ -366,10 +366,10 @@ export default function EventsPage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Can&apos;t Make an Event?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Contact us anytime to schedule a personal tour or phone
               consultation.
             </p>

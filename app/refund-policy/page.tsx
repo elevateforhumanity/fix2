@@ -18,7 +18,7 @@ export default function RefundPolicyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Refund Policy
           </h1>
-          <p className="text-xl text-slate-300">
+          <p className="text-base md:text-lg text-slate-300">
             Last Updated: December 8, 2024
           </p>
         </div>
@@ -28,13 +28,13 @@ export default function RefundPolicyPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Training Programs</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Training Programs</h2>
             <p className="text-slate-700 mb-6">
               Our training programs are 100% free and funded by government grants (WIOA, WRG, and other workforce development programs). 
               Since there is no tuition cost to students, refunds do not apply to our training programs.
             </p>
 
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Program Withdrawal</h3>
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">Program Withdrawal</h3>
             <p className="text-slate-700 mb-4">
               Students may withdraw from a program at any time. If you need to withdraw:
             </p>
@@ -45,12 +45,12 @@ export default function RefundPolicyPage() {
               <li>You may re-apply for future programs if eligible</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Tax Preparation Services</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Tax Preparation Services</h2>
             <p className="text-slate-700 mb-6">
               For paid tax preparation services, we offer the following refund policy:
             </p>
 
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">100% Satisfaction Guarantee</h3>
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">100% Satisfaction Guarantee</h3>
             <p className="text-slate-700 mb-4">
               If you are not completely satisfied with our tax preparation services, we will:
             </p>
@@ -60,7 +60,7 @@ export default function RefundPolicyPage() {
               <li>Provide a full refund if we make an error that results in penalties or interest</li>
             </ul>
 
-            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Refund Request Timeline</h3>
+            <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4 mt-8">Refund Request Timeline</h3>
             <p className="text-slate-700 mb-4">
               To request a refund for tax preparation services:
             </p>
@@ -70,7 +70,7 @@ export default function RefundPolicyPage() {
               <li><strong>Processing Time:</strong> Refunds processed within 7-10 business days</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Tax Refund Advances</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Tax Refund Advances</h2>
             <p className="text-slate-700 mb-6">
               Refund advances (Supersonic Fast Cash) are loans provided by third-party lenders and are subject to separate terms and conditions:
             </p>
@@ -81,7 +81,7 @@ export default function RefundPolicyPage() {
               <li>Refer to your loan agreement for complete terms</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Maximum Refund Guarantee</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Maximum Refund Guarantee</h2>
             <p className="text-slate-700 mb-6">
               We guarantee you will receive the maximum refund you are entitled to under the law. 
               If we make an error that results in you receiving less than the maximum refund, we will:
@@ -92,7 +92,7 @@ export default function RefundPolicyPage() {
               <li>File an amended return at no charge</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Exceptions</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Exceptions</h2>
             <p className="text-slate-700 mb-4">
               Refunds may not be available in the following situations:
             </p>
@@ -103,7 +103,7 @@ export default function RefundPolicyPage() {
               <li>Services already rendered and accepted by the client</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">How to Request a Refund</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">How to Request a Refund</h2>
             <p className="text-slate-700 mb-4">
               To request a refund:
             </p>
@@ -114,7 +114,7 @@ export default function RefundPolicyPage() {
               <li>Refunds will be issued to the original payment method</li>
             </ol>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Contact Us</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Contact Us</h2>
             <p className="text-slate-700 mb-4">
               For refund requests or questions about this policy:
             </p>
@@ -130,7 +130,7 @@ export default function RefundPolicyPage() {
               </p>
             </div>
 
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Changes to This Policy</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Changes to This Policy</h2>
             <p className="text-slate-700 mb-8">
               We reserve the right to modify this refund policy at any time. Changes will be posted on this page with an updated revision date. 
               Your continued use of our services after changes are posted constitutes acceptance of the modified policy.

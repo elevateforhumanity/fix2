@@ -75,7 +75,7 @@ export default async function DevAdmin() {
         {barberCourses && barberCourses.length > 0 && (
           <div className="mb-12">
             <div className="   rounded-xl shadow-lg p-6 mb-6">
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 🪒 Barber Courses Found!
               </h2>
               <p className="text-orange-100">
@@ -87,7 +87,7 @@ export default async function DevAdmin() {
               {barberCourses.map((course: Record<string, any>) => (
                 <div key={course.id} className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-orange-500">
                   <div className="   px-6 py-4">
-                    <h3 className="text-2xl font-bold text-white">{course.title}</h3>
+                    <h3 className="text-lg md:text-lg font-bold text-white">{course.title}</h3>
                     <p className="text-orange-100 text-sm mt-1">ID: {course.id}</p>
                   </div>
                   
@@ -152,7 +152,7 @@ export default async function DevAdmin() {
 
         {/* All Courses Section */}
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
             📚 All Courses ({allCourses?.length || 0})
           </h2>
 
@@ -213,7 +213,7 @@ export default async function DevAdmin() {
 
         {/* Quick Links */}
         <div className="mt-12 bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">🔗 Quick Links</h3>
+          <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-4">🔗 Quick Links</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link href="/admin" className="bg-blue-100 hover:bg-blue-200 p-4 rounded-lg text-center transition-colors">
               <div className="font-semibold text-blue-900">Admin Dashboard</div>

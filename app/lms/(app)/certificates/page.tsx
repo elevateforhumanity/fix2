@@ -59,7 +59,7 @@ export default async function CertificatesPage() {
             {certificates.map((cert) => (
               <div key={cert.id} className="bg-white rounded-lg shadow-sm p-6">
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold mb-1">
+                  <h3 className="text-lg font-bold mb-1">
                     {cert.courses?.title}
                   </h3>
                   <p className="text-sm text-slate-600">
@@ -93,7 +93,7 @@ export default async function CertificatesPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold mb-2">No Certificates Yet</h3>
+            <h3 className="text-lg md:text-lg font-bold mb-2">No Certificates Yet</h3>
             <p className="text-slate-600 mb-6 max-w-md mx-auto">
               Complete a course to earn your first certificate. Certificates are
               automatically generated when you finish all course requirements.

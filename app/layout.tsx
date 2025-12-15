@@ -5,11 +5,13 @@ import './ui-fixes.css';
 import './print.css';
 import './mobile-fixes.css';
 import './animations.css';
+import './workday-animations.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
+import { Analytics } from '@/components/Analytics';
 import { MainNav } from '@/components/layout/MainNav';
 import MainHeader from '@/components/layout/MainHeader';
 import MainFooter from '@/components/layout/MainFooter';
@@ -163,6 +165,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <GoogleAnalytics />
+        <Analytics />
         <FacebookPixel />
         <SecurityMonitor />
         <CopyrightProtection />

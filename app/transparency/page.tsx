@@ -38,7 +38,7 @@ export default function TransparencyPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Transparency & Accountability
             </h1>
-            <p className="text-xl md:text-2xl text-blue-50 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-50 mb-8 leading-relaxed">
               We believe in complete transparency. See exactly how we use
               resources and the impact we create in our community.
             </p>
@@ -50,7 +50,7 @@ export default function TransparencyPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               2024 Impact at a Glance
             </h2>
             <p className="text-lg text-slate-600">Real numbers, real impact</p>
@@ -106,7 +106,7 @@ export default function TransparencyPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               How We Use Your Donations
             </h2>
             <p className="text-lg text-slate-600">
@@ -117,7 +117,7 @@ export default function TransparencyPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Pie Chart Visual */}
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-8 text-center">
                 2024 Expense Allocation
               </h3>
 
@@ -199,7 +199,7 @@ export default function TransparencyPage() {
 
             {/* Revenue Sources */}
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-8 text-center">
                 2024 Revenue Sources
               </h3>
 
@@ -306,7 +306,7 @@ export default function TransparencyPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Program Outcomes & Impact
             </h2>
             <p className="text-lg text-slate-600">Measuring what matters</p>
@@ -318,7 +318,7 @@ export default function TransparencyPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-100 rounded-full mb-4">
                   <Award className="w-8 h-8 text-teal-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Completion Rate
                 </h3>
                 <div className="text-5xl font-bold text-teal-600 mb-2">95%</div>
@@ -344,7 +344,7 @@ export default function TransparencyPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
                   <Users className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Job Placement
                 </h3>
                 <div className="text-5xl font-bold text-blue-600 mb-2">87%</div>
@@ -370,7 +370,7 @@ export default function TransparencyPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
                   <TrendingUp className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Wage Growth
                 </h3>
                 <div className="text-5xl font-bold text-green-600 mb-2">
@@ -400,7 +400,7 @@ export default function TransparencyPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Official Documents & Reports
             </h2>
             <p className="text-lg text-slate-600">
@@ -486,7 +486,7 @@ export default function TransparencyPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Third-Party Ratings & Certifications
             </h2>
             <p className="text-lg text-slate-600">
@@ -499,7 +499,7 @@ export default function TransparencyPage() {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-4">
                 <Award className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
                 Charity Navigator
               </h3>
               <div className="text-4xl font-bold text-blue-600 mb-2">
@@ -521,7 +521,7 @@ export default function TransparencyPage() {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-4">
                 <Shield className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
                 GuideStar
               </h3>
               <div className="text-4xl font-bold text-green-600 mb-2">
@@ -543,7 +543,7 @@ export default function TransparencyPage() {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-purple-600 rounded-full mb-4">
                 <CheckCircle2 className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
                 BBB Accredited
               </h3>
               <div className="text-4xl font-bold text-purple-600 mb-2">A+</div>
@@ -565,10 +565,10 @@ export default function TransparencyPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-teal-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Questions About Our Finances or Impact?
           </h2>
-          <p className="text-xl text-teal-50 mb-8">
+          <p className="text-base md:text-lg text-teal-50 mb-8">
             We're committed to complete transparency. Contact us for any
             additional information.
           </p>

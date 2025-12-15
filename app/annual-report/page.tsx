@@ -30,7 +30,7 @@ export default function AnnualReportPage() {
               <span className="text-sm font-semibold">2024 Annual Report</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Impact</h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100 mb-8 leading-relaxed">
               Transforming lives through education, one student at a time.
               Here&apos;s what we accomplished together in 2024.
             </p>
@@ -46,7 +46,7 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
               Executive Summary
             </h2>
             <div className="prose prose-lg max-w-none">
@@ -74,7 +74,7 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               2024 By the Numbers
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -193,13 +193,13 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Financial Overview
             </h2>
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Revenue */}
               <div className="bg-slate-50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">Revenue Sources</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-6">Revenue Sources</h3>
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
@@ -262,7 +262,7 @@ export default function AnnualReportPage() {
 
               {/* Expenses */}
               <div className="bg-slate-50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">Program Expenses</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-6">Program Expenses</h3>
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
@@ -341,12 +341,12 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               2024 Program Highlights
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4">
+                <h3 className="text-lg font-bold mb-4">
                   New Medical Assistant Program
                 </h3>
                 <p className="text-slate-700 mb-4">
@@ -362,7 +362,7 @@ export default function AnnualReportPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4">
+                <h3 className="text-lg font-bold mb-4">
                   JRI Program Expansion
                 </h3>
                 <p className="text-slate-700 mb-4">
@@ -378,7 +378,7 @@ export default function AnnualReportPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4">
+                <h3 className="text-lg font-bold mb-4">
                   CDL Program Excellence
                 </h3>
                 <p className="text-slate-700 mb-4">
@@ -394,7 +394,7 @@ export default function AnnualReportPage() {
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4">
+                <h3 className="text-lg font-bold mb-4">
                   Employer Partnerships
                 </h3>
                 <p className="text-slate-700 mb-4">
@@ -418,7 +418,7 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Success Stories</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Success Stories</h2>
             <p className="text-lg text-slate-600 mb-8">
               Behind every statistic is a real person whose life was
               transformed. Here are just a few of their stories.
@@ -437,7 +437,7 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
               Looking Forward: 2025 Goals
             </h2>
             <div className="space-y-6">
@@ -446,7 +446,7 @@ export default function AnnualReportPage() {
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg font-bold mb-2">
                     Serve 1,500 Students
                   </h3>
                   <p className="text-slate-700">
@@ -460,7 +460,7 @@ export default function AnnualReportPage() {
                   2
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg font-bold mb-2">
                     Launch Building Maintenance Program
                   </h3>
                   <p className="text-slate-700">
@@ -474,7 +474,7 @@ export default function AnnualReportPage() {
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg font-bold mb-2">
                     Achieve 90% Employment Rate
                   </h3>
                   <p className="text-slate-700">
@@ -488,7 +488,7 @@ export default function AnnualReportPage() {
                   4
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg font-bold mb-2">
                     Expand to Second Location
                   </h3>
                   <p className="text-slate-700">
@@ -506,10 +506,10 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Help Us Reach More People in 2025
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-blue-100 mb-8">
               Your support helps us provide free training and change lives.
               Every contribution makes a difference.
             </p>

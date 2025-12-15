@@ -31,7 +31,7 @@ export default function WIOAEligibilityPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
               WIOA Eligibility Requirements
             </h1>
-            <p className="text-xl sm:text-2xl text-white max-w-3xl">
+            <p className="text-base md:text-lg sm:text-base md:text-lg text-white max-w-3xl">
               Find out if you qualify for 100% free career training
             </p>
           </div>
@@ -48,25 +48,25 @@ export default function WIOAEligibilityPage() {
             </p>
           </div>
 
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Who Qualifies for WIOA?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Who Qualifies for WIOA?</h2>
           
           <div className="space-y-6 mb-12">
             <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
-              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Adults (18+)</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">✓ Adults (18+)</h3>
               <p className="text-slate-700">
                 You must be 18 years or older and legally authorized to work in the United States.
               </p>
             </div>
 
             <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
-              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Indiana Residents</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">✓ Indiana Residents</h3>
               <p className="text-slate-700">
                 You must be a resident of Indiana. Proof of residency required (utility bill, lease agreement, etc.).
               </p>
             </div>
 
             <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
-              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Employment Status</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">✓ Employment Status</h3>
               <p className="text-slate-700 mb-3">
                 You qualify if you are:
               </p>
@@ -80,14 +80,14 @@ export default function WIOAEligibilityPage() {
             </div>
 
             <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
-              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Education Level</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">✓ Education Level</h3>
               <p className="text-slate-700">
                 High school diploma or GED preferred, but not always required. Some programs accept students working toward their GED.
               </p>
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Priority Groups</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Priority Groups</h2>
           <p className="text-lg text-slate-700 mb-6">
             WIOA gives priority to individuals who are:
           </p>
@@ -113,7 +113,7 @@ export default function WIOAEligibilityPage() {
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">What You'll Need to Apply</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">What You'll Need to Apply</h2>
           
           <div className="bg-blue-50 p-6 rounded-lg mb-12">
             <ul className="space-y-3 text-slate-800">
@@ -141,8 +141,8 @@ export default function WIOAEligibilityPage() {
           </div>
 
           <div className="bg-slate-900 text-white p-8 rounded-lg text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-base md:text-lg mb-6">
               Visit Indiana Career Connect to check your eligibility and apply
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

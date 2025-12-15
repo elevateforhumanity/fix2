@@ -20,7 +20,7 @@ export default function PaymentSuccessPage() {
             Payment Successful!
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-base md:text-lg text-gray-600 mb-8">
             Thank you for enrolling in Elevate for Humanity. Your payment has been processed successfully.
           </p>
           

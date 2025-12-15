@@ -71,7 +71,7 @@ export default async function CertificatesPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Certificates
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -95,7 +95,7 @@ export default async function CertificatesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">My Certificates</h1>
-            <p className="text-xl text-blue-100">View and download your earned certificates</p>
+            <p className="text-base md:text-lg text-blue-100">View and download your earned certificates</p>
           </div>
         </div>
       </section>
@@ -159,7 +159,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                           </svg>
                           <span className="text-sm">Certificate</span>
                         </div>
-                        <h3 className="text-xl font-bold">{course?.title}</h3>
+                        <h3 className="text-lg font-bold">{course?.title}</h3>
                       </div>
                       <div className="p-6">
                         <div className="space-y-3 mb-4">
@@ -193,7 +193,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6 text-gray-900">
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -269,7 +269,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                           </svg>
                           <span className="text-sm">{course?.partner_lms_providers?.provider_name}</span>
                         </div>
-                        <h3 className="text-xl font-bold">{course?.certification_name || course?.course_name}</h3>
+                        <h3 className="text-lg font-bold">{course?.certification_name || course?.course_name}</h3>
                       </div>
                       <div className="p-6">
                         <div className="space-y-3 mb-4">
@@ -310,7 +310,7 @@ viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No Certificates Yet</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">No Certificates Yet</h3>
               <p className="text-gray-600 mb-6">Complete courses to earn certificates</p>
               <Link href="/student/courses" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                 Browse Courses

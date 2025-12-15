@@ -96,7 +96,7 @@ export default function SchedulePage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Schedule a Meeting
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+          <p className="text-base md:text-lg mb-8 text-gray-100 drop-shadow-lg">
             Book an appointment with our team via Microsoft Teams, Zoom, phone, or in-person
           </p>
           <div className="flex flex-wrap gap-4 justify-center text-sm">
@@ -132,7 +132,7 @@ export default function SchedulePage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Choose Your Meeting Type</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Choose Your Meeting Type</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {meetingTypes.map((meeting) => (
                 <div
@@ -140,7 +140,7 @@ export default function SchedulePage() {
                   className="bg-white rounded-xl shadow-sm border p-6 hover:shadow-lg transition"
                 >
                   <div className="text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">{meeting.icon}</div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">{meeting.title}</h3>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{meeting.title}</h3>
                   <p className="text-sm text-blue-600 font-semibold mb-3">{meeting.duration}</p>
                   <p className="text-gray-600 mb-4 text-sm">{meeting.description}</p>
                   
@@ -175,14 +175,14 @@ export default function SchedulePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Easy Online Scheduling</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Easy Online Scheduling</h2>
             
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">📅</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">1. Choose Your Time</h3>
+                <h3 className="text-lg font-bold mb-3">1. Choose Your Time</h3>
                 <p className="text-gray-600">
                   Select a convenient date and time from our available slots
                 </p>
@@ -192,7 +192,7 @@ export default function SchedulePage() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">💻</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">2. Select Platform</h3>
+                <h3 className="text-lg font-bold mb-3">2. Select Platform</h3>
                 <p className="text-gray-600">
                   Choose Microsoft Teams, Zoom, phone, or in-person meeting
                 </p>
@@ -202,7 +202,7 @@ export default function SchedulePage() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">✅</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">3. Get Confirmation</h3>
+                <h3 className="text-lg font-bold mb-3">3. Get Confirmation</h3>
                 <p className="text-gray-600">
                   Receive instant confirmation with meeting link and calendar invite
                 </p>
@@ -212,7 +212,7 @@ export default function SchedulePage() {
             {/* Embedded Calendar Placeholder */}
             <div className="bg-gray-100 rounded-xl p-8 text-center border-2 border-dashed border-gray-300">
               <div className="max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold mb-4">Interactive Calendar</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-4">Interactive Calendar</h3>
                 <p className="text-gray-600 mb-6">
                   Our booking calendar will appear here. Select a meeting type above to view available times.
                 </p>
@@ -239,7 +239,7 @@ export default function SchedulePage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Other Ways to Connect</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Other Ways to Connect</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 text-center shadow-sm">
@@ -283,7 +283,7 @@ export default function SchedulePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Scheduling FAQs</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Scheduling FAQs</h2>
             
             <div className="space-y-6">
               <div className="border-b pb-6">
@@ -329,10 +329,10 @@ export default function SchedulePage() {
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-base md:text-lg mb-8 text-blue-100">
               Schedule your free consultation today and take the first step toward a better career.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

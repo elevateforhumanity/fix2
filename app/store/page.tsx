@@ -31,7 +31,7 @@ export default function StorePage() {
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Digital Resources & Tools
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
             Practical tools, guides, and resources available instantly. No login
             required.
           </p>
