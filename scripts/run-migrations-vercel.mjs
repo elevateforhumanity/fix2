@@ -64,13 +64,33 @@ if (migrationFiles.length === 0) {
 
 console.log(`📦 Found ${migrationFiles.length} migration files\n`);
 
+// Parse connection string and force IPv4-compatible pooler if needed
+let finalConnectionString = connectionString;
+
+// If using direct db.*.supabase.co connection, convert to pooler for IPv4 compatibility
+if (connectionString && connectionString.includes('db.') && connectionString.includes('.supabase.co:5432')) {
+  console.log('⚠️  Detected direct database connection, converting to pooler for IPv4 compatibility...');
+  
+  // Extract project ref and password from connection string
+  const match = connectionString.match(/postgresql:\/\/postgres(?:\.([^:]+))?:([^@]+)@db\.([^.]+)\.supabase\.co:5432\/postgres/);
+  
+  if (match) {
+    const projectRef = match[3];
+    const password = match[2];
+    
+    // Use connection pooler which supports IPv4
+    // Format: postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
+    // Default to us-east-1 region
+    finalConnectionString = `postgresql://postgres.${projectRef}:${password}@aws-0-us-east-1.pooler.supabase.com:6543/postgres`;
+    console.log('✅ Converted to pooler connection');
+  }
+}
+
 // Connect to database
 const client = new Client({
-  connectionString,
+  connectionString: finalConnectionString,
   ssl: { rejectUnauthorized: false },
   connectionTimeoutMillis: 10000,
-  // Force IPv4 to avoid IPv6 issues
-  host: connectionString ? new URL(connectionString.replace('postgresql://', 'http://')).hostname : undefined
 });
 
 try {
@@ -149,6 +169,20 @@ try {
   
 } catch (err) {
   console.error('❌ Migration failed:', err.message);
+  
+  // Provide helpful error messages
+  if (err.message.includes('ENETUNREACH') || err.message.includes('2600:')) {
+    console.log('');
+    console.log('💡 IPv6 Connection Issue Detected');
+    console.log('   Your DATABASE_URL is using a direct connection that resolves to IPv6.');
+    console.log('   Vercel build environment may not support IPv6.');
+    console.log('');
+    console.log('   Solution: Update DATABASE_URL in Vercel to use the connection pooler:');
+    console.log('   postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres');
+    console.log('');
+    console.log('   Get your pooler URL from: Supabase Dashboard → Settings → Database → Connection string → Transaction mode');
+    console.log('');
+  }
   
   // Don't fail the build on Vercel - just warn
   if (process.env.VERCEL || process.env.VERCEL_ENV) {
