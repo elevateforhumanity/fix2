@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
-// Force all pages to be dynamic to fix useSearchParams errors
-export const dynamic = "force-dynamic";
-
 // Image asset: /images/programs-new/program-11.jpg
 import './globals.css';
 import './ui-fixes.css';

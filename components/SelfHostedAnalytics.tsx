@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 /**
@@ -14,7 +14,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
  * 
  * Data stored in Supabase (no external costs)
  */
-export default function SelfHostedAnalytics() {
+function SelfHostedAnalyticsContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -104,4 +104,12 @@ export function useAnalytics() {
       // console.debug('Event tracking failed:', error);
     }
   };
+}
+
+export default function SelfHostedAnalytics() {
+  return (
+    <Suspense fallback={null}>
+      <SelfHostedAnalyticsContent />
+    </Suspense>
+  );
 }
