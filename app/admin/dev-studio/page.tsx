@@ -1,12 +1,13 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
+
+export const dynamicParams = true;
+export const revalidate = 0;
 import FileTree from '@/components/dev-studio/FileTree';
 import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
