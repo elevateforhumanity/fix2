@@ -1,49 +1,44 @@
 #!/usr/bin/env node
 /**
- * Vercel-optimized Supabase Migration Runner
- * Runs migrations using Supabase Management API
+ * Automatic Supabase Migration Runner
+ * Uses pg client to execute migrations directly
  */
 
-import { createClient } from '@supabase/supabase-js';
+import pg from 'pg';
 import { readFileSync, readdirSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+
+const { Client } = pg;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = join(__dirname, '..');
 
+console.log('🚀 Running Supabase Migrations\n');
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-console.log('🚀 Running Supabase Migrations on Vercel\n');
-
-// TEMPORARY: Skip migrations until exec() function is created
-console.log('⚠️  Skipping migrations: Migrations require manual setup in Supabase dashboard');
-console.log('   Run migrations manually via Supabase SQL Editor');
-process.exit(0);
+const dbUrl = process.env.DATABASE_URL;
 
 // Check credentials
 if (!supabaseUrl || !supabaseKey) {
-  console.log('⚠️  Skipping migrations: Missing Supabase credentials');
-  console.log('   This is normal for preview deployments without environment variables');
-  process.exit(0); // Don't fail the build
+  console.log('⚠️  Skipping: Missing Supabase credentials');
+  console.log('   This is normal for preview deployments');
+  process.exit(0);
 }
 
-console.log(`📡 Connected to: ${supabaseUrl}`);
+// Build connection string from Supabase URL
+const projectRef = supabaseUrl.match(/https:\/\/([^.]+)\.supabase\.co/)?.[1];
+const connectionString = dbUrl || `postgresql://postgres:${supabaseKey}@db.${projectRef}.supabase.co:5432/postgres`;
 
-const supabase = createClient(supabaseUrl, supabaseKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false
-  }
-});
+console.log(`📡 Connecting to database...`);
 
 // Get all migration files
 const migrationsDir = join(rootDir, 'supabase/migrations');
 
 if (!existsSync(migrationsDir)) {
-  console.log('⚠️  No migrations directory found, skipping');
+  console.log('✅ No migrations directory found');
   process.exit(0);
 }
 
@@ -52,90 +47,95 @@ const migrationFiles = readdirSync(migrationsDir)
   .sort();
 
 if (migrationFiles.length === 0) {
-  console.log('✅ No migrations to run');
+  console.log('✅ No migration files found');
   process.exit(0);
 }
 
 console.log(`📦 Found ${migrationFiles.length} migration files\n`);
 
-// Create tracking table
+// Connect to database
+const client = new Client({
+  connectionString,
+  ssl: { rejectUnauthorized: false }
+});
+
 try {
-  await supabase.rpc('exec', {
-    sql: `
-      CREATE TABLE IF NOT EXISTS _migrations (
-        id SERIAL PRIMARY KEY,
-        filename TEXT UNIQUE NOT NULL,
-        executed_at TIMESTAMPTZ DEFAULT NOW()
-      );
-    `
-  });
-} catch (err) {
-  // Table might already exist or exec function might not be available
-  console.log('📋 Migration tracking table check complete');
-}
-
-// Get executed migrations
-let executedMigrations = [];
-try {
-  const { data } = await supabase
-    .from('_migrations')
-    .select('filename');
-  executedMigrations = data || [];
-} catch (err) {
-  console.log('⚠️  Could not read migration history, will attempt all migrations');
-}
-
-const executedSet = new Set(executedMigrations.map(m => m.filename));
-console.log(`✅ ${executedSet.size} migrations already executed\n`);
-
-// Run new migrations
-let successCount = 0;
-let skipCount = 0;
-
-for (const filename of migrationFiles) {
-  if (executedSet.has(filename)) {
-    console.log(`⏭️  ${filename} (already executed)`);
-    skipCount++;
-    continue;
-  }
-
-  console.log(`📄 Running ${filename}...`);
+  await client.connect();
+  console.log('✅ Connected to database\n');
   
-  try {
-    const sql = readFileSync(join(migrationsDir, filename), 'utf8');
-    
-    // Execute via REST API
-    const response = await fetch(`${supabaseUrl}/rest/v1/rpc/exec`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': supabaseKey,
-        'Authorization': `Bearer ${supabaseKey}`
-      },
-      body: JSON.stringify({ sql })
-    });
-    
-    if (!response.ok) {
-      const error = await response.text();
-      throw new Error(`Migration failed: ${error}`);
+  // Create migrations tracking table
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS _migrations (
+      id SERIAL PRIMARY KEY,
+      filename TEXT UNIQUE NOT NULL,
+      executed_at TIMESTAMPTZ DEFAULT NOW()
+    );
+  `);
+  
+  // Get executed migrations
+  const { rows: executedMigrations } = await client.query(
+    'SELECT filename FROM _migrations ORDER BY executed_at'
+  );
+  
+  const executedSet = new Set(executedMigrations.map(m => m.filename));
+  console.log(`✅ ${executedSet.size} migrations already executed\n`);
+  
+  // Run new migrations
+  let successCount = 0;
+  let skipCount = 0;
+  
+  for (const filename of migrationFiles) {
+    if (executedSet.has(filename)) {
+      console.log(`⏭️  ${filename} (already executed)`);
+      skipCount++;
+      continue;
     }
     
-    // Record migration
-    await supabase.from('_migrations').insert({ filename });
+    console.log(`📄 Running ${filename}...`);
     
-    console.log(`✅ ${filename} completed`);
-    successCount++;
-    
-  } catch (err) {
-    console.error(`❌ Error in ${filename}:`, err.message);
-    // Continue with other migrations in production
-    if (process.env.VERCEL) {
-      console.log('⚠️  Continuing with remaining migrations...');
-      continue;
-    } else {
-      process.exit(1);
+    try {
+      const sql = readFileSync(join(migrationsDir, filename), 'utf8');
+      
+      // Execute migration in a transaction
+      await client.query('BEGIN');
+      await client.query(sql);
+      await client.query(
+        'INSERT INTO _migrations (filename) VALUES ($1)',
+        [filename]
+      );
+      await client.query('COMMIT');
+      
+      console.log(`✅ ${filename} completed`);
+      successCount++;
+      
+    } catch (err) {
+      await client.query('ROLLBACK');
+      console.error(`❌ Error in ${filename}:`, err.message);
+      
+      // Continue with other migrations in production
+      if (process.env.VERCEL) {
+        console.log('⚠️  Continuing with remaining migrations...');
+        continue;
+      } else {
+        throw err;
+      }
     }
   }
+  
+  // Summary
+  console.log('\n' + '='.repeat(50));
+  console.log(`✅ Successful: ${successCount}`);
+  console.log(`⏭️  Skipped: ${skipCount}`);
+  console.log(`📦 Total: ${migrationFiles.length}`);
+  console.log('='.repeat(50) + '\n');
+  
+  console.log('✅ Migrations complete!');
+  
+} catch (err) {
+  console.error('❌ Migration failed:', err.message);
+  process.exit(1);
+} finally {
+  await client.end();
 }
 
 // Summary
