@@ -350,7 +350,7 @@ export default function HomePage() {
                   src="https://i.imgur.com/c6WzXEy.jpg"
                   alt="Tax preparation training"
                   fill
-                  quality={95}
+                  quality={75}
                   className="object-cover"
                   priority
                 />
@@ -411,7 +411,7 @@ export default function HomePage() {
                   src="https://i.imgur.com/7QrL7kQ.jpeg"
                   alt="HVAC training"
                   fill
-                  quality={95}
+                  quality={75}
                   className="object-cover"
                 />
               </div>

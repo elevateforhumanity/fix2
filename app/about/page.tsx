@@ -101,7 +101,7 @@ export default function AboutPage() {
                 alt="Our Story"
                 fill
                 className="object-cover"
-                quality={90}
+                quality={75}
               />
             </div>
 
@@ -158,7 +158,7 @@ export default function AboutPage() {
                     alt={member.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    quality={90}
+                    quality={75}
                   />
                   {/* LinkedIn overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">

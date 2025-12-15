@@ -31,7 +31,8 @@ export default function ProgramsPage() {
           fill
           className="object-cover"
           priority
-          quality={95}
+          quality={75}
+          sizes="100vw"
         />
         {/* Diagonal shape overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }} />
@@ -72,7 +73,7 @@ export default function ProgramsPage() {
                         alt={program.heroImageAlt}
                         fill
                         className="object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
-                        quality={90}
+                        quality={75}
                       />
                       {/* Gradient overlay on hover */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -152,7 +153,7 @@ export default function ProgramsPage() {
                         alt={program.heroImageAlt}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        quality={90}
+                        quality={75}
                       />
                       {/* Corner accent */}
                       <div className="absolute top-4 right-4 w-16 h-16 bg-teal-500 rounded-2xl opacity-80 flex items-center justify-center">
@@ -208,7 +209,7 @@ export default function ProgramsPage() {
                         alt={program.heroImageAlt}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        quality={90}
+                        quality={75}
                       />
                     </div>
                     <div className="p-8">
@@ -261,7 +262,7 @@ export default function ProgramsPage() {
                         alt={program.heroImageAlt}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        quality={90}
+                        quality={75}
                       />
                     </div>
                     <div className="p-6">

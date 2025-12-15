@@ -97,7 +97,7 @@ export default function ContactPage() {
                       alt={option.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      quality={90}
+                      quality={75}
                     />
                     {/* Gradient overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`} />
