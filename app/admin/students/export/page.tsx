@@ -1,39 +1,66 @@
-import { Metadata } from 'next';
-import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'Export Students | Admin | Elevate For Humanity',
-  description: 'Export student data and generate reports.',
-};
-
-export default async function ExportStudentsPage() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+export default function ExportStudentsPage() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   
-  if (!user) redirect('/login');
-  
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single();
-  
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
+  // Form state
+  const [format, setFormat] = useState('csv');
+  const [program, setProgram] = useState('');
+  const [status, setStatus] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [includeGrades, setIncludeGrades] = useState(false);
+  const [includeAttendance, setIncludeAttendance] = useState(false);
+  const [includeCertificates, setIncludeCertificates] = useState(false);
+  const [includeFinancial, setIncludeFinancial] = useState(false);
 
-  // Get student counts
-  const { count: totalStudents } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('role', 'student');
+  const handleExport = async () => {
+    setLoading(true);
+    setError('');
 
-  const { count: activeStudents } = await supabase
-    .from('enrollments')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
+    try {
+      // Build query parameters
+      const params = new URLSearchParams({
+        format,
+        ...(program && { program }),
+        ...(status && { status }),
+        ...(startDate && { start_date: startDate }),
+        ...(endDate && { end_date: endDate }),
+        ...(includeGrades && { include_grades: 'true' }),
+        ...(includeAttendance && { include_attendance: 'true' }),
+        ...(includeCertificates && { include_certificates: 'true' }),
+        ...(includeFinancial && { include_financial: 'true' }),
+      });
+
+      const response = await fetch(`/api/admin/export/students?${params}`);
+      
+      if (!response.ok) {
+        throw new Error('Export failed');
+      }
+
+      // Download file
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `students_export_${new Date().toISOString().split('T')[0]}.${format}`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+    } catch (err: any) {
+      setError(err.message || 'Failed to export data');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -48,21 +75,12 @@ export default async function ExportStudentsPage() {
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-blue-600">{totalStudents || 0}</div>
-            <div className="text-gray-600 text-sm">Total Students</div>
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            {error}
           </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-green-600">{activeStudents || 0}</div>
-            <div className="text-gray-600 text-sm">Active Enrollments</div>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-purple-600">Ready</div>
-            <div className="text-gray-600 text-sm">Export Status</div>
-          </div>
-        </div>
+        )}
 
         {/* Export Options */}
         <div className="bg-white rounded-lg shadow">
@@ -78,24 +96,31 @@ export default async function ExportStudentsPage() {
               </label>
               <div className="grid md:grid-cols-3 gap-4">
                 <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500">
-                  <input type="radio" name="format" value="csv" defaultChecked className="mr-3" />
+                  <input 
+                    type="radio" 
+                    name="format" 
+                    value="csv" 
+                    checked={format === 'csv'}
+                    onChange={(e) => setFormat(e.target.value)}
+                    className="mr-3" 
+                  />
                   <div>
                     <div className="font-semibold text-gray-900">CSV</div>
                     <div className="text-xs text-gray-500">Excel compatible</div>
                   </div>
                 </label>
-                <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500">
-                  <input type="radio" name="format" value="excel" className="mr-3" />
+                <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500 opacity-50">
+                  <input type="radio" name="format" value="excel" disabled className="mr-3" />
                   <div>
                     <div className="font-semibold text-gray-900">Excel</div>
-                    <div className="text-xs text-gray-500">.xlsx format</div>
+                    <div className="text-xs text-gray-500">Coming soon</div>
                   </div>
                 </label>
-                <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500">
-                  <input type="radio" name="format" value="pdf" className="mr-3" />
+                <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500 opacity-50">
+                  <input type="radio" name="format" value="pdf" disabled className="mr-3" />
                   <div>
                     <div className="font-semibold text-gray-900">PDF</div>
-                    <div className="text-xs text-gray-500">Printable report</div>
+                    <div className="text-xs text-gray-500">Coming soon</div>
                   </div>
                 </label>
               </div>
@@ -108,31 +133,51 @@ export default async function ExportStudentsPage() {
               </label>
               <div className="space-y-2">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" defaultChecked className="rounded text-blue-600" />
+                  <input type="checkbox" checked disabled className="rounded text-blue-600" />
                   <span className="text-sm text-gray-700">Basic Information (Name, Email, Phone)</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" defaultChecked className="rounded text-blue-600" />
+                  <input type="checkbox" checked disabled className="rounded text-blue-600" />
                   <span className="text-sm text-gray-700">Enrollment Status</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" defaultChecked className="rounded text-blue-600" />
+                  <input type="checkbox" checked disabled className="rounded text-blue-600" />
                   <span className="text-sm text-gray-700">Course Progress</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
+                  <input 
+                    type="checkbox" 
+                    checked={includeGrades}
+                    onChange={(e) => setIncludeGrades(e.target.checked)}
+                    className="rounded text-blue-600" 
+                  />
                   <span className="text-sm text-gray-700">Grades and Assessments</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
+                  <input 
+                    type="checkbox" 
+                    checked={includeAttendance}
+                    onChange={(e) => setIncludeAttendance(e.target.checked)}
+                    className="rounded text-blue-600" 
+                  />
                   <span className="text-sm text-gray-700">Attendance Records</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
+                  <input 
+                    type="checkbox" 
+                    checked={includeCertificates}
+                    onChange={(e) => setIncludeCertificates(e.target.checked)}
+                    className="rounded text-blue-600" 
+                  />
                   <span className="text-sm text-gray-700">Certificates Earned</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
+                  <input 
+                    type="checkbox" 
+                    checked={includeFinancial}
+                    onChange={(e) => setIncludeFinancial(e.target.checked)}
+                    className="rounded text-blue-600" 
+                  />
                   <span className="text-sm text-gray-700">Financial Information</span>
                 </label>
               </div>
@@ -146,17 +191,25 @@ export default async function ExportStudentsPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">Program</label>
-                  <select className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                  <select 
+                    value={program}
+                    onChange={(e) => setProgram(e.target.value)}
+                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  >
                     <option value="">All Programs</option>
-                    <option value="barber">Barber Training</option>
+                    <option value="barber-apprenticeship">Barber Apprenticeship</option>
                     <option value="cna">CNA</option>
                     <option value="hvac">HVAC</option>
-                    <option value="medical">Medical Assistant</option>
+                    <option value="medical-assistant">Medical Assistant</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">Status</label>
-                  <select className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                  <select 
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  >
                     <option value="">All Statuses</option>
                     <option value="active">Active</option>
                     <option value="completed">Completed</option>
@@ -166,11 +219,21 @@ export default async function ExportStudentsPage() {
                 </div>
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">Start Date From</label>
-                  <input type="date" className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                  <input 
+                    type="date" 
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                  />
                 </div>
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">Start Date To</label>
-                  <input type="date" className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                  <input 
+                    type="date" 
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" 
+                  />
                 </div>
               </div>
             </div>
@@ -178,7 +241,7 @@ export default async function ExportStudentsPage() {
             {/* Export Actions */}
             <div className="flex justify-between items-center pt-4 border-t border-gray-200">
               <div className="text-sm text-gray-600">
-                Estimated records: <span className="font-semibold">{totalStudents || 0}</span>
+                Ready to export student data
               </div>
               <div className="flex gap-4">
                 <Link
@@ -187,8 +250,12 @@ export default async function ExportStudentsPage() {
                 >
                   Cancel
                 </Link>
-                <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-semibold">
-                  Generate Export
+                <button 
+                  onClick={handleExport}
+                  disabled={loading}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? 'Generating...' : 'Generate Export'}
                 </button>
               </div>
             </div>
