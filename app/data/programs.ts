@@ -662,7 +662,7 @@ Career Outcomes:
 - Building Technician
 - Facilities Operations Specialist
 - Entry-Level Building Engineer`,
-    heroImage: '/images/programs/building-technician-hero.jpg',
+    heroImage: 'https://i.imgur.com/rOagiKC.jpg',
     heroImageAlt: 'Building technician working on advanced facility systems',
     duration: '12–20 weeks',
     schedule: 'Day or evening options',
