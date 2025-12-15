@@ -207,6 +207,7 @@
     "env:setup": "bash setup-env-quick.sh",
     "cleanup:console": "node scripts/cleanup-console-statements.mjs",
     "cleanup:root": "bash cleanup-root.sh",
+    "autopilot:sync-env": "node scripts/autopilot-sync-env.mjs",
     "check:db": "echo 'Database check skipped'",
     "db:setup": "npm run db:migrate && npm run db:seed",
     "db:migrate": "node scripts/auto-migrate-supabase.mjs",
