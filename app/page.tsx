@@ -101,7 +101,7 @@ export default function HomePage() {
       {/* Hero Video */}
       <section className="relative w-full overflow-hidden bg-slate-900">
         <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-gradient-to-br from-blue-900 to-purple-900">
-          {/* Only load video on desktop */}
+          {/* Video for desktop */}
           {videoLoaded && !isMobile && (
             <video
               ref={videoRef}
@@ -118,17 +118,19 @@ export default function HomePage() {
               />
             </video>
           )}
-          {/* Fallback gradient for mobile */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white px-4">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4">
-                Elevate For Humanity
-              </h2>
-              <p className="text-xl md:text-2xl">
-                100% Free Workforce Development
-              </p>
+          {/* Gradient overlay for mobile only */}
+          {isMobile && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center text-white px-4">
+                <h2 className="text-4xl font-bold mb-4">
+                  Elevate For Humanity
+                </h2>
+                <p className="text-xl">
+                  100% Free Workforce Development
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
