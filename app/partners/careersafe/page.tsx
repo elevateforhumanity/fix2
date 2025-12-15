@@ -1,7 +1,15 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, CheckCircle, Clock, Award, Users, Phone, Mail } from 'lucide-react';
+import {
+  ExternalLink,
+  CheckCircle,
+  Clock,
+  Award,
+  Users,
+  Phone,
+  Mail,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'CareerSafe OSHA Training | Partner Courses | Elevate For Humanity',
@@ -16,7 +24,6 @@ export default function CAREERSAFEPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] w-full overflow-hidden   ">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-4xl">
@@ -30,7 +37,6 @@ export default function CAREERSAFEPage() {
                 OSHA 10 & OSHA 30 Safety Certification
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                
                 <a
                   href="https://www.careersafeonline.com/campus/signin"
                   target="_blank"
@@ -40,7 +46,7 @@ export default function CAREERSAFEPage() {
                   Student Login
                   <ExternalLink className="w-5 h-5" />
                 </a>
-                
+
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
@@ -60,32 +66,34 @@ export default function CAREERSAFEPage() {
             What You Get
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Official OSHA certification cards</div>
+              <div className="text-slate-700">
+                Official OSHA certification cards
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Required for many construction jobs</div>
+              <div className="text-slate-700">
+                Required for many construction jobs
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Self-paced online training</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Lifetime access to materials</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">24/7 customer support</div>
             </div>
-            
           </div>
         </div>
       </section>
@@ -97,91 +105,77 @@ export default function CAREERSAFEPage() {
             Available Courses
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">OSHA 10-Hour Construction</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  OSHA 10-Hour Construction
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>10 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>OSHA 10 Card</span>
               </div>
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">OSHA 30-Hour Construction</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  OSHA 30-Hour Construction
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>30 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>OSHA 30 Card</span>
               </div>
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">OSHA 10-Hour General Industry</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  OSHA 10-Hour General Industry
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>10 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>OSHA 10 Card</span>
               </div>
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">OSHA 30-Hour General Industry</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  OSHA 30-Hour General Industry
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>30 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>OSHA 30 Card</span>
               </div>
-              
-              
             </div>
-            
           </div>
         </div>
       </section>
@@ -193,40 +187,50 @@ export default function CAREERSAFEPage() {
             Need Help?
           </h2>
           <div className="bg-white rounded-xl p-8 shadow-lg">
-            
-            
             <div className="mb-6 pb-6 border-b border-slate-200">
               <div className="font-bold text-slate-900 mb-2">Mark Sattele</div>
-              <div className="text-slate-600 mb-3">Postsecondary Account Executive</div>
+              <div className="text-slate-600 mb-3">
+                Postsecondary Account Executive
+              </div>
               <div className="space-y-2">
-                <a href="mailto:Mark.Sattele@careersafeonline.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                <a
+                  href="mailto:Mark.Sattele@careersafeonline.com"
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                >
                   <Mail className="w-4 h-4" />
                   Mark.Sattele@careersafeonline.com
                 </a>
-                <a href="tel:(216) 926-6536" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                <a
+                  href="tel:(216) 926-6536"
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                >
                   <Phone className="w-4 h-4" />
                   (216) 926-6536
                 </a>
               </div>
             </div>
-            
-            
+
             <div className="text-center">
               <div className="text-slate-600 mb-2">Customer Care</div>
-              <a href="tel:(888) 614-7233" className="text-2xl font-bold text-blue-600 hover:text-blue-700">
+              <a
+                href="tel:(888) 614-7233"
+                className="text-2xl font-bold text-blue-600 hover:text-blue-700"
+              >
                 (888) 614-7233
               </a>
             </div>
-            
-            
-            
+
             <div className="mt-6 text-center">
-              <a href="https://www.careersafeonline.com/support" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700">
+              <a
+                href="https://www.careersafeonline.com/support"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
+              >
                 Visit Support Center
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
-            
           </div>
         </div>
       </section>
@@ -238,10 +242,10 @@ export default function CAREERSAFEPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-white mb-8">
-            Enroll in CareerSafe OSHA Training courses through Elevate for Humanity
+            Enroll in CareerSafe OSHA Training courses through Elevate for
+            Humanity
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
             <a
               href="https://www.careersafeonline.com/campus/signin"
               target="_blank"
@@ -251,7 +255,7 @@ export default function CAREERSAFEPage() {
               Get Started
               <ExternalLink className="w-6 h-6" />
             </a>
-            
+
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-10 py-5 bg-white/20 backdrop-blur-sm text-white text-xl font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"

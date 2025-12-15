@@ -1,10 +1,22 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Briefcase, Users, TrendingUp, DollarSign, CheckCircle, Calendar, FileText, Award, Target, Handshake } from 'lucide-react';
+import {
+  Briefcase,
+  Users,
+  TrendingUp,
+  DollarSign,
+  CheckCircle,
+  Calendar,
+  FileText,
+  Award,
+  Target,
+  Handshake,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Employer Services - Hire Qualified Talent | Elevate for Humanity',
-  description: 'Partner with us to access pre-screened, trained candidates. No recruitment fees, tax incentives available, and customized training programs.',
+  description:
+    'Partner with us to access pre-screened, trained candidates. No recruitment fees, tax incentives available, and customized training programs.',
 };
 
 export default function EmployersPage() {
@@ -24,7 +36,7 @@ export default function EmployersPage() {
             <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 bg-black/50" />
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
@@ -32,11 +44,14 @@ export default function EmployersPage() {
               <span className="text-sm font-semibold">Employer Services</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Find Qualified Talent.<br />Build Your Team.
+              Find Qualified Talent.
+              <br />
+              Build Your Team.
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Access pre-screened, trained candidates ready to work. No recruitment fees. 
-              Tax incentives available. Customized training programs.
+              Access pre-screened, trained candidates ready to work. No
+              recruitment fees. Tax incentives available. Customized training
+              programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -68,18 +83,25 @@ export default function EmployersPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Pre-Screened Candidates</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Pre-Screened Candidates
+                </h3>
                 <p className="text-slate-600">
-                  All candidates are vetted, trained, and certified. They&apos;re job-ready from day one with industry-recognized credentials.
+                  All candidates are vetted, trained, and certified.
+                  They&apos;re job-ready from day one with industry-recognized
+                  credentials.
                 </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Zero Recruitment Fees</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Zero Recruitment Fees
+                </h3>
                 <p className="text-slate-600">
-                  No placement fees, no hidden costs. Access qualified candidates at no charge to your organization.
+                  No placement fees, no hidden costs. Access qualified
+                  candidates at no charge to your organization.
                 </p>
               </div>
               <div className="text-center">
@@ -88,7 +110,8 @@ export default function EmployersPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Tax Incentives</h3>
                 <p className="text-slate-600">
-                  Qualify for WOTC (Work Opportunity Tax Credit) and other incentives when hiring our graduates.
+                  Qualify for WOTC (Work Opportunity Tax Credit) and other
+                  incentives when hiring our graduates.
                 </p>
               </div>
               <div className="text-center">
@@ -97,7 +120,8 @@ export default function EmployersPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Customized Training</h3>
                 <p className="text-slate-600">
-                  Need specific skills? We can customize training programs to meet your exact hiring needs.
+                  Need specific skills? We can customize training programs to
+                  meet your exact hiring needs.
                 </p>
               </div>
               <div className="text-center">
@@ -106,7 +130,8 @@ export default function EmployersPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Ongoing Support</h3>
                 <p className="text-slate-600">
-                  We support both you and your new hires through the first 90 days to ensure successful placement.
+                  We support both you and your new hires through the first 90
+                  days to ensure successful placement.
                 </p>
               </div>
               <div className="text-center">
@@ -115,7 +140,8 @@ export default function EmployersPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Reduced Turnover</h3>
                 <p className="text-slate-600">
-                  Our graduates have 85% retention rates after one year—significantly higher than industry average.
+                  Our graduates have 85% retention rates after one
+                  year—significantly higher than industry average.
                 </p>
               </div>
             </div>
@@ -136,11 +162,14 @@ export default function EmployersPage() {
                   1
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Post Your Job Opening</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    Post Your Job Opening
+                  </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Submit your job requirements through our simple form. Include position details, required skills, 
-                    schedule, and compensation. We&apos;ll match you with qualified candidates from our current students 
-                    and recent graduates.
+                    Submit your job requirements through our simple form.
+                    Include position details, required skills, schedule, and
+                    compensation. We&apos;ll match you with qualified candidates
+                    from our current students and recent graduates.
                   </p>
                 </div>
               </div>
@@ -149,11 +178,14 @@ export default function EmployersPage() {
                   2
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">We Match Qualified Candidates</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    We Match Qualified Candidates
+                  </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Our career services team reviews your requirements and matches you with candidates who have the 
-                    right skills, certifications, and work ethic. We pre-screen all candidates and send you only the 
-                    best matches.
+                    Our career services team reviews your requirements and
+                    matches you with candidates who have the right skills,
+                    certifications, and work ethic. We pre-screen all candidates
+                    and send you only the best matches.
                   </p>
                 </div>
               </div>
@@ -162,10 +194,14 @@ export default function EmployersPage() {
                   3
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Interview & Hire with Confidence</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    Interview & Hire with Confidence
+                  </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Interview candidates and make your hiring decision. We provide ongoing support during onboarding 
-                    and the first 90 days of employment to ensure success for both you and your new hire.
+                    Interview candidates and make your hiring decision. We
+                    provide ongoing support during onboarding and the first 90
+                    days of employment to ensure success for both you and your
+                    new hire.
                   </p>
                 </div>
               </div>
@@ -239,10 +275,14 @@ export default function EmployersPage() {
                   Work Opportunity Tax Credit (WOTC)
                 </h3>
                 <p className="text-slate-600 mb-4">
-                  Receive up to $9,600 per eligible hire. Many of our graduates qualify as WOTC-eligible, 
-                  including veterans, ex-felons, and long-term unemployed individuals.
+                  Receive up to $9,600 per eligible hire. Many of our graduates
+                  qualify as WOTC-eligible, including veterans, ex-felons, and
+                  long-term unemployed individuals.
                 </p>
-                <Link href="#contact" className="text-blue-600 font-semibold hover:text-blue-700">
+                <Link
+                  href="#contact"
+                  className="text-blue-600 font-semibold hover:text-blue-700"
+                >
                   Learn More →
                 </Link>
               </div>
@@ -252,10 +292,14 @@ export default function EmployersPage() {
                   Federal Bonding Program
                 </h3>
                 <p className="text-slate-600 mb-4">
-                  Free fidelity bonding coverage for at-risk job applicants. Protects employers against theft, 
-                  forgery, larceny, and embezzlement for the first 6 months of employment.
+                  Free fidelity bonding coverage for at-risk job applicants.
+                  Protects employers against theft, forgery, larceny, and
+                  embezzlement for the first 6 months of employment.
                 </p>
-                <Link href="#contact" className="text-blue-600 font-semibold hover:text-blue-700">
+                <Link
+                  href="#contact"
+                  className="text-blue-600 font-semibold hover:text-blue-700"
+                >
                   Learn More →
                 </Link>
               </div>
@@ -273,8 +317,9 @@ export default function EmployersPage() {
               Hiring Events
             </h2>
             <p className="text-xl text-slate-600 mb-8">
-              Meet multiple qualified candidates in one convenient location. We host quarterly hiring events 
-              where you can interview pre-screened candidates on-site.
+              Meet multiple qualified candidates in one convenient location. We
+              host quarterly hiring events where you can interview pre-screened
+              candidates on-site.
             </p>
             <div className="bg-slate-50 rounded-lg p-8 mb-8">
               <h3 className="text-2xl font-bold mb-4">Next Hiring Event</h3>
@@ -295,7 +340,8 @@ export default function EmployersPage() {
               </Link>
             </div>
             <p className="text-slate-600">
-              Can&apos;t make our scheduled event? We can arrange a private hiring event for your organization.
+              Can&apos;t make our scheduled event? We can arrange a private
+              hiring event for your organization.
             </p>
           </div>
         </div>
@@ -311,7 +357,8 @@ export default function EmployersPage() {
                 Post a Job Opening
               </h2>
               <p className="text-xl text-slate-600">
-                Fill out the form below and we&apos;ll match you with qualified candidates
+                Fill out the form below and we&apos;ll match you with qualified
+                candidates
               </p>
             </div>
             <form className="bg-white rounded-lg shadow-lg p-8 space-y-6">
@@ -379,7 +426,9 @@ export default function EmployersPage() {
                 >
                   <option value="">Select Industry</option>
                   <option value="healthcare">Healthcare</option>
-                  <option value="transportation">Transportation/Logistics</option>
+                  <option value="transportation">
+                    Transportation/Logistics
+                  </option>
                   <option value="trades">Skilled Trades</option>
                   <option value="manufacturing">Manufacturing</option>
                   <option value="hospitality">Hospitality</option>
@@ -455,31 +504,43 @@ export default function EmployersPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">What Employers Say</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              What Employers Say
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-slate-50 rounded-lg p-6">
                 <p className="text-slate-700 italic mb-4">
-                  &quot;We&apos;ve hired 15 graduates from Elevate for Humanity over the past year. Every single one has been 
-                  professional, skilled, and ready to work. This partnership has been invaluable.&quot;
+                  &quot;We&apos;ve hired 15 graduates from Elevate for Humanity
+                  over the past year. Every single one has been professional,
+                  skilled, and ready to work. This partnership has been
+                  invaluable.&quot;
                 </p>
                 <div className="font-bold">— Sarah Johnson</div>
-                <div className="text-sm text-slate-600">HR Director, Community Health Network</div>
+                <div className="text-sm text-slate-600">
+                  HR Director, Community Health Network
+                </div>
               </div>
               <div className="bg-slate-50 rounded-lg p-6">
                 <p className="text-slate-700 italic mb-4">
-                  &quot;The WOTC tax credits alone saved us over $50,000 last year. Plus, we got great employees who 
-                  are loyal and hardworking. Win-win.&quot;
+                  &quot;The WOTC tax credits alone saved us over $50,000 last
+                  year. Plus, we got great employees who are loyal and
+                  hardworking. Win-win.&quot;
                 </p>
                 <div className="font-bold">— Mike Rodriguez</div>
-                <div className="text-sm text-slate-600">Owner, Rodriguez Trucking</div>
+                <div className="text-sm text-slate-600">
+                  Owner, Rodriguez Trucking
+                </div>
               </div>
               <div className="bg-slate-50 rounded-lg p-6">
                 <p className="text-slate-700 italic mb-4">
-                  &quot;Finding qualified HVAC techs is tough. Elevate for Humanity provides us with certified technicians 
-                  who are ready to work from day one. Highly recommend.&quot;
+                  &quot;Finding qualified HVAC techs is tough. Elevate for
+                  Humanity provides us with certified technicians who are ready
+                  to work from day one. Highly recommend.&quot;
                 </p>
                 <div className="font-bold">— Tom Williams</div>
-                <div className="text-sm text-slate-600">Operations Manager, Comfort Systems</div>
+                <div className="text-sm text-slate-600">
+                  Operations Manager, Comfort Systems
+                </div>
               </div>
             </div>
           </div>
@@ -487,29 +548,43 @@ export default function EmployersPage() {
       </section>
 
       {/* Contact CTA */}
-      <section id="contact" className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section
+        id="contact"
+        className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Build Your Team?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Let&apos;s discuss your hiring needs and how we can help you find the right talent.
+              Let&apos;s discuss your hiring needs and how we can help you find
+              the right talent.
             </p>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <h3 className="font-bold text-xl mb-2">Call Us</h3>
-                <a href="tel:317-314-3757" className="text-2xl font-bold hover:text-blue-200 transition">
+                <a
+                  href="tel:317-314-3757"
+                  className="text-2xl font-bold hover:text-blue-200 transition"
+                >
                   317-314-3757
                 </a>
-                <p className="text-sm text-blue-100 mt-2">Monday-Friday, 8am-5pm</p>
+                <p className="text-sm text-blue-100 mt-2">
+                  Monday-Friday, 8am-5pm
+                </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <h3 className="font-bold text-xl mb-2">Email Us</h3>
-                <a href="mailto:employers@elevateforhumanity.org" className="text-xl font-bold hover:text-blue-200 transition break-all">
+                <a
+                  href="mailto:employers@elevateforhumanity.org"
+                  className="text-xl font-bold hover:text-blue-200 transition break-all"
+                >
                   employers@elevateforhumanity.org
                 </a>
-                <p className="text-sm text-blue-100 mt-2">We respond within 24 hours</p>
+                <p className="text-sm text-blue-100 mt-2">
+                  We respond within 24 hours
+                </p>
               </div>
             </div>
             <Link

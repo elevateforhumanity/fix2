@@ -42,7 +42,6 @@ export default function JRIPage() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/70" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
           <div className="max-w-4xl">
             <div className="inline-block px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold mb-6">
@@ -397,9 +396,7 @@ export default function JRIPage() {
                     </li>
                   </ul>
                   <Button className="w-full" asChild>
-                    <Link href="/programs/peer-recovery-coach">
-                      Learn More
-                    </Link>
+                    <Link href="/programs/peer-recovery-coach">Learn More</Link>
                   </Button>
                 </CardContent>
               </Card>

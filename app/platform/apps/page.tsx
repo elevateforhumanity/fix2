@@ -6,15 +6,16 @@ import { ArrowLeft, Check } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/platform/apps",
+    canonical: 'https://www.elevateforhumanity.org/platform/apps',
   },
   title: 'Platform Apps & Modules | Elevate For Humanity',
-  description: 'Explore the modular apps included with Elevate platform licenses. LMS, enrollment, payments, case management, and more.',
+  description:
+    'Explore the modular apps included with Elevate platform licenses. LMS, enrollment, payments, case management, and more.',
 };
 
 export default function PlatformAppsPage() {
-  const coreApps = PLATFORM_APPS.filter(app => app.enabledByDefault);
-  const premiumApps = PLATFORM_APPS.filter(app => !app.enabledByDefault);
+  const coreApps = PLATFORM_APPS.filter((app) => app.enabledByDefault);
+  const premiumApps = PLATFORM_APPS.filter((app) => !app.enabledByDefault);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -29,7 +30,6 @@ export default function PlatformAppsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-purple-700/90" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <Link
             href="/platform"
@@ -55,32 +55,42 @@ export default function PlatformAppsPage() {
               How Platform Apps Work
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Apps are not separate products. They're modules built into the platform that you enable based on your license.
+              Apps are not separate products. They're modules built into the
+              platform that you enable based on your license.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🧩</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Modular by Design</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                Modular by Design
+              </h3>
               <p className="text-gray-600">
-                Each app is a self-contained module with its own UI, database tables, and permissions.
+                Each app is a self-contained module with its own UI, database
+                tables, and permissions.
               </p>
             </div>
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🔐</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">License-Controlled</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                License-Controlled
+              </h3>
               <p className="text-gray-600">
-                Your license determines which apps you can enable. Upgrade anytime to unlock more.
+                Your license determines which apps you can enable. Upgrade
+                anytime to unlock more.
               </p>
             </div>
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Enable Instantly</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                Enable Instantly
+              </h3>
               <p className="text-gray-600">
-                Toggle apps on/off from your dashboard. No reinstallation or migration required.
+                Toggle apps on/off from your dashboard. No reinstallation or
+                migration required.
               </p>
             </div>
           </div>
@@ -95,17 +105,23 @@ export default function PlatformAppsPage() {
               Core Apps
             </h2>
             <p className="text-xl text-gray-600">
-              Included with all licenses. These are the foundation of your workforce platform.
+              Included with all licenses. These are the foundation of your
+              workforce platform.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coreApps.map((app) => (
-              <div key={app.id} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-lg transition-shadow">
+              <div
+                key={app.id}
+                className="bg-white rounded-lg shadow-sm p-6 hover:shadow-lg transition-shadow"
+              >
                 <div className="flex items-start mb-4">
                   <span className="text-4xl mr-4">{app.icon}</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{app.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {app.name}
+                    </h3>
                     <div className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded">
                       <Check className="w-3 h-3 mr-1" />
                       Core App
@@ -127,17 +143,23 @@ export default function PlatformAppsPage() {
               Premium Apps
             </h2>
             <p className="text-xl text-gray-600">
-              Included with School and Enterprise licenses. Advanced features for larger organizations.
+              Included with School and Enterprise licenses. Advanced features
+              for larger organizations.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {premiumApps.map((app) => (
-              <div key={app.id} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-lg transition-shadow border-2 border-purple-200">
+              <div
+                key={app.id}
+                className="bg-white rounded-lg shadow-sm p-6 hover:shadow-lg transition-shadow border-2 border-purple-200"
+              >
                 <div className="flex items-start mb-4">
                   <span className="text-4xl mr-4">{app.icon}</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{app.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {app.name}
+                    </h3>
                     <div className="inline-flex items-center px-2 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded">
                       Premium
                     </div>
@@ -162,10 +184,18 @@ export default function PlatformAppsPage() {
               <table className="w-full">
                 <thead className="bg-gray-100">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">App</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Core</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">School</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Enterprise</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+                      App
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                      Core
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                      School
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                      Enterprise
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -175,8 +205,12 @@ export default function PlatformAppsPage() {
                         <div className="flex items-center">
                           <span className="text-2xl mr-3">{app.icon}</span>
                           <div>
-                            <div className="font-semibold text-gray-900">{app.name}</div>
-                            <div className="text-sm text-gray-600">{app.description}</div>
+                            <div className="font-semibold text-gray-900">
+                              {app.name}
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              {app.description}
+                            </div>
                           </div>
                         </div>
                       </td>
@@ -209,7 +243,8 @@ export default function PlatformAppsPage() {
             Ready to Choose Your License?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Every license includes apps, updates, and support. Start with what you need, upgrade as you grow.
+            Every license includes apps, updates, and support. Start with what
+            you need, upgrade as you grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

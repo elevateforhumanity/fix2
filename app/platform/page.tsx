@@ -6,10 +6,11 @@ import { Check, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/platform",
+    canonical: 'https://www.elevateforhumanity.org/platform',
   },
   title: 'Platform Licenses | Elevate For Humanity',
-  description: 'Deploy the complete Elevate workforce development platform. Choose from single-site, school, or enterprise licenses.',
+  description:
+    'Deploy the complete Elevate workforce development platform. Choose from single-site, school, or enterprise licenses.',
 };
 
 export default function PlatformStorePage() {
@@ -26,13 +27,13 @@ export default function PlatformStorePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/90" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Deploy Your Own Workforce Platform
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Licensed platform access with modular apps. Built for training providers, schools, and workforce agencies.
+            Licensed platform access with modular apps. Built for training
+            providers, schools, and workforce agencies.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -59,32 +60,42 @@ export default function PlatformStorePage() {
               What You're Buying
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              This is not a theme. It's a licensed platform with modular apps, deployment rights, and post-purchase onboarding.
+              This is not a theme. It's a licensed platform with modular apps,
+              deployment rights, and post-purchase onboarding.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🏗️</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Licensed Platform</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                Licensed Platform
+              </h3>
               <p className="text-gray-600">
-                Deploy on your domain with your branding. Full source code access with deployment rights.
+                Deploy on your domain with your branding. Full source code
+                access with deployment rights.
               </p>
             </div>
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🧩</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Modular Apps</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                Modular Apps
+              </h3>
               <p className="text-gray-600">
-                Enable only the apps you need. LMS, enrollment, payments, case management, and more.
+                Enable only the apps you need. LMS, enrollment, payments, case
+                management, and more.
               </p>
             </div>
 
             <div className="text-center p-6">
               <div className="text-5xl mb-4">🚀</div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Onboarding Support</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                Onboarding Support
+              </h3>
               <p className="text-gray-600">
-                Post-purchase checklist, setup guides, and technical support to get you live fast.
+                Post-purchase checklist, setup guides, and technical support to
+                get you live fast.
               </p>
             </div>
           </div>
@@ -99,7 +110,8 @@ export default function PlatformStorePage() {
               Choose Your License
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every license includes apps, updates, and support. Scale as you grow.
+              Every license includes apps, updates, and support. Scale as you
+              grow.
             </p>
           </div>
 
@@ -116,17 +128,23 @@ export default function PlatformStorePage() {
                     MOST POPULAR
                   </div>
                 )}
-                
+
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900">{product.name}</h3>
-                  <p className="text-gray-600 mb-4 min-h-[60px]">{product.description}</p>
-                  
+                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600 mb-4 min-h-[60px]">
+                    {product.description}
+                  </p>
+
                   <div className="mb-6">
                     <div className="text-4xl font-bold text-gray-900">
                       ${product.price.toLocaleString()}
                     </div>
                     <div className="text-sm text-gray-600 mt-1">
-                      {product.billingType === 'one_time' ? 'One-time payment' : 'Per month'}
+                      {product.billingType === 'one_time'
+                        ? 'One-time payment'
+                        : 'Per month'}
                     </div>
                   </div>
 
@@ -136,7 +154,10 @@ export default function PlatformStorePage() {
                     </div>
                     <ul className="space-y-2">
                       {product.appsIncluded.slice(0, 4).map((app) => (
-                        <li key={app} className="flex items-start text-sm text-gray-600">
+                        <li
+                          key={app}
+                          className="flex items-start text-sm text-gray-600"
+                        >
                           <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
                           <span>{app}</span>
                         </li>
@@ -157,7 +178,9 @@ export default function PlatformStorePage() {
                         : 'bg-gray-900 hover:bg-gray-800 text-white'
                     }`}
                   >
-                    {product.requiresApproval ? 'Request Access' : 'View Details'}
+                    {product.requiresApproval
+                      ? 'Request Access'
+                      : 'View Details'}
                     <ArrowRight className="inline-block ml-2 w-4 h-4" />
                   </Link>
                 </div>
@@ -173,35 +196,47 @@ export default function PlatformStorePage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">
             Who This Is For
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Training Providers</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                Training Providers
+              </h3>
               <p className="text-gray-600 mb-4">
-                Launch workforce programs with enrollment, LMS, and payment processing built-in.
+                Launch workforce programs with enrollment, LMS, and payment
+                processing built-in.
               </p>
               <p className="text-sm text-gray-500">
-                Best fit: <strong>Core Platform</strong> or <strong>School License</strong>
+                Best fit: <strong>Core Platform</strong> or{' '}
+                <strong>School License</strong>
               </p>
             </div>
 
             <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Workforce Boards</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                Workforce Boards
+              </h3>
               <p className="text-gray-600 mb-4">
-                Manage WIOA contracts, track outcomes, and report compliance across multiple providers.
+                Manage WIOA contracts, track outcomes, and report compliance
+                across multiple providers.
               </p>
               <p className="text-sm text-gray-500">
-                Best fit: <strong>School License</strong> or <strong>Enterprise</strong>
+                Best fit: <strong>School License</strong> or{' '}
+                <strong>Enterprise</strong>
               </p>
             </div>
 
             <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Community Colleges</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                Community Colleges
+              </h3>
               <p className="text-gray-600 mb-4">
-                White-label platform for continuing education, workforce training, and non-credit programs.
+                White-label platform for continuing education, workforce
+                training, and non-credit programs.
               </p>
               <p className="text-sm text-gray-500">
-                Best fit: <strong>School License</strong> or <strong>Enterprise</strong>
+                Best fit: <strong>School License</strong> or{' '}
+                <strong>Enterprise</strong>
               </p>
             </div>
           </div>
@@ -215,7 +250,8 @@ export default function PlatformStorePage() {
             Ready to Deploy Your Platform?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Choose a license, complete checkout, and get onboarding support to launch your workforce programs.
+            Choose a license, complete checkout, and get onboarding support to
+            launch your workforce programs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

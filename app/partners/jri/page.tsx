@@ -1,7 +1,15 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, CheckCircle, Clock, Award, Users, Phone, Mail } from 'lucide-react';
+import {
+  ExternalLink,
+  CheckCircle,
+  Clock,
+  Award,
+  Users,
+  Phone,
+  Mail,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Job Ready Indy (JRI) | Partner Courses | Elevate For Humanity',
@@ -16,7 +24,6 @@ export default function JRIPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] w-full overflow-hidden   ">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-4xl">
@@ -30,7 +37,6 @@ export default function JRIPage() {
                 Employability Skills and Workforce Readiness Training
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                
                 <a
                   href="https://learning.employindy.org/jri-participant-elevatehumanitycareertraining"
                   target="_blank"
@@ -40,7 +46,7 @@ export default function JRIPage() {
                   Enroll Now
                   <ExternalLink className="w-5 h-5" />
                 </a>
-                
+
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
@@ -60,32 +66,34 @@ export default function JRIPage() {
             What You Get
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">6 badge courses + 2 additional courses</div>
+              <div className="text-slate-700">
+                6 badge courses + 2 additional courses
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Self-paced online learning</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Industry-backed credentials</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Progress tracking dashboard</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Facilitator support available</div>
+              <div className="text-slate-700">
+                Facilitator support available
+              </div>
             </div>
-            
           </div>
         </div>
       </section>
@@ -97,95 +105,95 @@ export default function JRIPage() {
             Available Courses
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Introduction to Job Ready Indy</h3>
-                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Badge 1</div>
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Introduction to Job Ready Indy
+                </h3>
+                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Badge 1
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Professional Communication</h3>
-                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Badge 2</div>
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Professional Communication
+                </h3>
+                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Badge 2
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Workplace Professionalism</h3>
-                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Badge 3</div>
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Workplace Professionalism
+                </h3>
+                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Badge 3
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Problem Solving & Critical Thinking</h3>
-                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Badge 4</div>
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Problem Solving & Critical Thinking
+                </h3>
+                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Badge 4
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Teamwork & Collaboration</h3>
-                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Badge 5</div>
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Teamwork & Collaboration
+                </h3>
+                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Badge 5
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Career Planning</h3>
-                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Badge 6</div>
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Career Planning
+                </h3>
+                <div className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Badge 6
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Financial Literacy</h3>
-                
-                <div className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">Bonus</div>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Financial Literacy
+                </h3>
+
+                <div className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Bonus
+                </div>
               </div>
-              
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Digital Literacy</h3>
-                
-                <div className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">Bonus</div>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Digital Literacy
+                </h3>
+
+                <div className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  Bonus
+                </div>
               </div>
-              
-              
-              
             </div>
-            
           </div>
         </div>
       </section>
@@ -197,25 +205,21 @@ export default function JRIPage() {
             Need Help?
           </h2>
           <div className="bg-white rounded-xl p-8 shadow-lg">
-            
             <div className="mb-6">
-              <div className="font-bold text-slate-900 text-lg mb-2">Elizabeth Greene</div>
-              
+              <div className="font-bold text-slate-900 text-lg mb-2">
+                Elizabeth Greene
+              </div>
+
               <div className="space-y-2">
-                
-                <a href="mailto:elizabethpowell6262@gmail.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                <a
+                  href="mailto:elizabethpowell6262@gmail.com"
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                >
                   <Mail className="w-4 h-4" />
                   elizabethpowell6262@gmail.com
                 </a>
-                
-                
               </div>
             </div>
-            
-            
-            
-            
-            
           </div>
         </div>
       </section>
@@ -230,7 +234,6 @@ export default function JRIPage() {
             Enroll in Job Ready Indy (JRI) courses through Elevate for Humanity
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
             <a
               href="https://learning.employindy.org/jri-participant-elevatehumanitycareertraining"
               target="_blank"
@@ -240,7 +243,7 @@ export default function JRIPage() {
               Get Started
               <ExternalLink className="w-6 h-6" />
             </a>
-            
+
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-10 py-5 bg-white/20 backdrop-blur-sm text-white text-xl font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"

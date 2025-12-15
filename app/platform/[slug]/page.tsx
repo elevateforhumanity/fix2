@@ -11,7 +11,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(params.slug);
-  
+
   if (!product) {
     return {
       title: 'Product Not Found',
@@ -49,7 +49,6 @@ export default function ProductDetailPage({ params }: Props) {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-700/90" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <Link
             href="/platform"
@@ -61,9 +60,7 @@ export default function ProductDetailPage({ params }: Props) {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             {product.name}
           </h1>
-          <p className="text-xl text-gray-100">
-            {product.description}
-          </p>
+          <p className="text-xl text-gray-100">{product.description}</p>
         </div>
       </section>
 
@@ -74,10 +71,14 @@ export default function ProductDetailPage({ params }: Props) {
             {/* Left Column - Details */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-                <h2 className="text-2xl font-bold mb-4 text-gray-900">What's Included</h2>
+                <h2 className="text-2xl font-bold mb-4 text-gray-900">
+                  What's Included
+                </h2>
                 <p className="text-gray-700 mb-6">{product.longDescription}</p>
 
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">Features</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                  Features
+                </h3>
                 <ul className="space-y-3 mb-8">
                   {product.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
@@ -92,12 +93,19 @@ export default function ProductDetailPage({ params }: Props) {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {apps.map((app) => (
-                    <div key={app.id} className="border border-gray-200 rounded-lg p-4">
+                    <div
+                      key={app.id}
+                      className="border border-gray-200 rounded-lg p-4"
+                    >
                       <div className="flex items-start">
                         <span className="text-2xl mr-3">{app.icon}</span>
                         <div>
-                          <h4 className="font-semibold text-gray-900">{app.name}</h4>
-                          <p className="text-sm text-gray-600 mt-1">{app.description}</p>
+                          <h4 className="font-semibold text-gray-900">
+                            {app.name}
+                          </h4>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {app.description}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -106,7 +114,9 @@ export default function ProductDetailPage({ params }: Props) {
               </div>
 
               <div className="bg-white rounded-lg shadow-sm p-8">
-                <h2 className="text-2xl font-bold mb-4 text-gray-900">Ideal For</h2>
+                <h2 className="text-2xl font-bold mb-4 text-gray-900">
+                  Ideal For
+                </h2>
                 <ul className="space-y-3">
                   {product.idealFor.map((item, index) => (
                     <li key={index} className="flex items-start">
@@ -126,7 +136,9 @@ export default function ProductDetailPage({ params }: Props) {
                     ${product.price.toLocaleString()}
                   </div>
                   <div className="text-gray-600">
-                    {product.billingType === 'one_time' ? 'One-time payment' : 'Per month'}
+                    {product.billingType === 'one_time'
+                      ? 'One-time payment'
+                      : 'Per month'}
                   </div>
                 </div>
 
@@ -134,16 +146,24 @@ export default function ProductDetailPage({ params }: Props) {
                   <div className="flex items-start">
                     <Shield className="w-5 h-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold text-gray-900">License Type</div>
-                      <div className="text-sm text-gray-600 capitalize">{product.licenseType}</div>
+                      <div className="font-semibold text-gray-900">
+                        License Type
+                      </div>
+                      <div className="text-sm text-gray-600 capitalize">
+                        {product.licenseType}
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex items-start">
                     <Download className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold text-gray-900">Deployment</div>
-                      <div className="text-sm text-gray-600">Full source code access</div>
+                      <div className="font-semibold text-gray-900">
+                        Deployment
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        Full source code access
+                      </div>
                     </div>
                   </div>
 
@@ -151,7 +171,9 @@ export default function ProductDetailPage({ params }: Props) {
                     <Zap className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-gray-900">Support</div>
-                      <div className="text-sm text-gray-600">Onboarding + updates</div>
+                      <div className="text-sm text-gray-600">
+                        Onboarding + updates
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -165,7 +187,8 @@ export default function ProductDetailPage({ params }: Props) {
                       Request Access
                     </Link>
                     <p className="text-sm text-gray-600 text-center">
-                      This license requires approval. We'll review your application and contact you within 1-2 business days.
+                      This license requires approval. We'll review your
+                      application and contact you within 1-2 business days.
                     </p>
                   </div>
                 ) : (
@@ -178,7 +201,8 @@ export default function ProductDetailPage({ params }: Props) {
                       Purchase License
                     </button>
                     <p className="text-sm text-gray-600 text-center">
-                      Secure checkout powered by Stripe. Instant access after payment.
+                      Secure checkout powered by Stripe. Instant access after
+                      payment.
                     </p>
                   </form>
                 )}
@@ -203,14 +227,16 @@ export default function ProductDetailPage({ params }: Props) {
           <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
             Frequently Asked Questions
           </h2>
-          
+
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold mb-2 text-gray-900">
                 What happens after I purchase?
               </h3>
               <p className="text-gray-600">
-                You'll be redirected to a post-purchase onboarding page with setup instructions, access to the codebase, and a checklist to get your platform live.
+                You'll be redirected to a post-purchase onboarding page with
+                setup instructions, access to the codebase, and a checklist to
+                get your platform live.
               </p>
             </div>
 
@@ -219,7 +245,7 @@ export default function ProductDetailPage({ params }: Props) {
                 Can I deploy on multiple domains?
               </h3>
               <p className="text-gray-600">
-                {product.licenseType === 'single' 
+                {product.licenseType === 'single'
                   ? 'Single licenses are for one domain. Upgrade to School or Enterprise for multi-domain deployment.'
                   : 'Yes, your license includes multi-domain deployment rights.'}
               </p>
@@ -230,7 +256,9 @@ export default function ProductDetailPage({ params }: Props) {
                 Do I get updates?
               </h3>
               <p className="text-gray-600">
-                Yes, all licenses include updates. Core and Monthly subscriptions get 1 year of updates. School and Enterprise licenses get lifetime updates.
+                Yes, all licenses include updates. Core and Monthly
+                subscriptions get 1 year of updates. School and Enterprise
+                licenses get lifetime updates.
               </p>
             </div>
 
@@ -239,7 +267,8 @@ export default function ProductDetailPage({ params }: Props) {
                 What if I need custom features?
               </h3>
               <p className="text-gray-600">
-                Enterprise licenses include custom development support. For other licenses, contact us for custom development quotes.
+                Enterprise licenses include custom development support. For
+                other licenses, contact us for custom development quotes.
               </p>
             </div>
           </div>

@@ -1,7 +1,15 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, CheckCircle, Clock, Award, Users, Phone, Mail } from 'lucide-react';
+import {
+  ExternalLink,
+  CheckCircle,
+  Clock,
+  Award,
+  Users,
+  Phone,
+  Mail,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'NRF Foundation RISE Up | Partner Courses | Elevate For Humanity',
@@ -16,7 +24,6 @@ export default function NRFPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] w-full overflow-hidden   ">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-4xl">
@@ -30,7 +37,6 @@ export default function NRFPage() {
                 Retail Industry Skills and Employability Training
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                
                 <a
                   href="https://riseup.nrf.com"
                   target="_blank"
@@ -40,7 +46,7 @@ export default function NRFPage() {
                   Access Platform
                   <ExternalLink className="w-5 h-5" />
                 </a>
-                
+
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
@@ -60,32 +66,38 @@ export default function NRFPage() {
             What You Get
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Industry-backed credential from NRF Foundation</div>
+              <div className="text-slate-700">
+                Industry-backed credential from NRF Foundation
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Foundational employability skills</div>
+              <div className="text-slate-700">
+                Foundational employability skills
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Applicable to retail and beyond</div>
+              <div className="text-slate-700">
+                Applicable to retail and beyond
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Self-paced online training</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Help center support available</div>
+              <div className="text-slate-700">
+                Help center support available
+              </div>
             </div>
-            
           </div>
         </div>
       </section>
@@ -97,72 +109,55 @@ export default function NRFPage() {
             Available Courses
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Customer Service Excellence</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Customer Service Excellence
+                </h3>
               </div>
-              
-              
-              
+
               <p className="text-slate-600">Retail customer service skills</p>
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Professional Communication</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Professional Communication
+                </h3>
               </div>
-              
-              
-              
+
               <p className="text-slate-600">Workplace communication</p>
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Teamwork & Collaboration</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Teamwork & Collaboration
+                </h3>
               </div>
-              
-              
-              
+
               <p className="text-slate-600">Working effectively in teams</p>
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Problem Solving</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Problem Solving
+                </h3>
               </div>
-              
-              
-              
+
               <p className="text-slate-600">Critical thinking skills</p>
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Career Readiness</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Career Readiness
+                </h3>
               </div>
-              
-              
-              
+
               <p className="text-slate-600">Employability fundamentals</p>
-              
             </div>
-            
           </div>
         </div>
       </section>
@@ -174,18 +169,17 @@ export default function NRFPage() {
             Need Help?
           </h2>
           <div className="bg-white rounded-xl p-8 shadow-lg">
-            
-            
-            
-            
             <div className="mt-6 text-center">
-              <a href="https://support.riseup.nrf.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700">
+              <a
+                href="https://support.riseup.nrf.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
+              >
                 Visit Help Center
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
-            
-            
           </div>
         </div>
       </section>
@@ -197,10 +191,10 @@ export default function NRFPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-white mb-8">
-            Enroll in NRF Foundation RISE Up courses through Elevate for Humanity
+            Enroll in NRF Foundation RISE Up courses through Elevate for
+            Humanity
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
             <a
               href="https://riseup.nrf.com"
               target="_blank"
@@ -210,7 +204,7 @@ export default function NRFPage() {
               Get Started
               <ExternalLink className="w-6 h-6" />
             </a>
-            
+
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-10 py-5 bg-white/20 backdrop-blur-sm text-white text-xl font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"

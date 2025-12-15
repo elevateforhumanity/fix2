@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     'Install our mobile app directly from your browser. Access programs, track progress, and stay connected on the go.',
   openGraph: {
     title: 'Mobile App | Elevate For Humanity',
-    description: 'Install our mobile app directly from your browser. Access programs, track progress, and stay connected on the go.',
+    description:
+      'Install our mobile app directly from your browser. Access programs, track progress, and stay connected on the go.',
     images: ['/images/heroes/hero-homepage.jpg'],
   },
 };
@@ -31,7 +32,6 @@ export default async function MobileAppPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/90" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Take Elevate With You

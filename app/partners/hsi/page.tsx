@@ -1,10 +1,19 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, CheckCircle, Clock, Award, Users, Phone, Mail } from 'lucide-react';
+import {
+  ExternalLink,
+  CheckCircle,
+  Clock,
+  Award,
+  Users,
+  Phone,
+  Mail,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Health & Safety Institute (HSI) | Partner Courses | Elevate For Humanity',
+  title:
+    'Health & Safety Institute (HSI) | Partner Courses | Elevate For Humanity',
   description: 'CPR, AED, First Aid, and Emergency Medical Responder Training',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/partners/hsi',
@@ -16,7 +25,6 @@ export default function HSIPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] w-full overflow-hidden   ">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-4xl">
@@ -30,7 +38,6 @@ export default function HSIPage() {
                 CPR, AED, First Aid, and Emergency Medical Responder Training
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                
                 <a
                   href="https://hsi.com/solutions/cpr-aed-first-aid-training/elevate-for-humanity-career-training-institute-nts-class-sign-up"
                   target="_blank"
@@ -40,7 +47,7 @@ export default function HSIPage() {
                   Enroll Now
                   <ExternalLink className="w-5 h-5" />
                 </a>
-                
+
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
@@ -60,32 +67,38 @@ export default function HSIPage() {
             What You Get
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Industry-recognized certifications</div>
+              <div className="text-slate-700">
+                Industry-recognized certifications
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Hands-on training with real equipment</div>
+              <div className="text-slate-700">
+                Hands-on training with real equipment
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
               <div className="text-slate-700">Experienced instructors</div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Small class sizes (max 12 students)</div>
+              <div className="text-slate-700">
+                Small class sizes (max 12 students)
+              </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-xl shadow-sm flex items-start gap-3">
               <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-              <div className="text-slate-700">Traditional and blended learning options</div>
+              <div className="text-slate-700">
+                Traditional and blended learning options
+              </div>
             </div>
-            
           </div>
         </div>
       </section>
@@ -97,91 +110,77 @@ export default function HSIPage() {
             Available Courses
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">CPR & AED Training</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  CPR & AED Training
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>4 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>HSI CPR/AED Certificate</span>
               </div>
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">First Aid Training</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  First Aid Training
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>4 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>HSI First Aid Certificate</span>
               </div>
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">Emergency Medical Responder</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  Emergency Medical Responder
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>80 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>EMR Certification</span>
               </div>
-              
-              
             </div>
-            
+
             <div className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900">RSV Training</h3>
-                
-                
+                <h3 className="text-xl font-bold text-slate-900">
+                  RSV Training
+                </h3>
               </div>
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>2 hours</span>
               </div>
-              
-              
+
               <div className="flex items-center gap-2 text-slate-600 mb-2">
                 <Award className="w-4 h-4" />
                 <span>RSV Certificate</span>
               </div>
-              
-              
             </div>
-            
           </div>
         </div>
       </section>
@@ -193,30 +192,29 @@ export default function HSIPage() {
             Need Help?
           </h2>
           <div className="bg-white rounded-xl p-8 shadow-lg">
-            
             <div className="mb-6">
-              <div className="font-bold text-slate-900 text-lg mb-2">Geoff Albrecht</div>
-              
+              <div className="font-bold text-slate-900 text-lg mb-2">
+                Geoff Albrecht
+              </div>
+
               <div className="space-y-2">
-                
-                <a href="mailto:galbrecht@hsi.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                <a
+                  href="mailto:galbrecht@hsi.com"
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                >
                   <Mail className="w-4 h-4" />
                   galbrecht@hsi.com
                 </a>
-                
-                
-                <a href="tel:(949) 456-8366" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+
+                <a
+                  href="tel:(949) 456-8366"
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                >
                   <Phone className="w-4 h-4" />
                   (949) 456-8366
                 </a>
-                
               </div>
             </div>
-            
-            
-            
-            
-            
           </div>
         </div>
       </section>
@@ -228,10 +226,10 @@ export default function HSIPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-white mb-8">
-            Enroll in Health & Safety Institute (HSI) courses through Elevate for Humanity
+            Enroll in Health & Safety Institute (HSI) courses through Elevate
+            for Humanity
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
             <a
               href="https://hsi.com/solutions/cpr-aed-first-aid-training/elevate-for-humanity-career-training-institute-nts-class-sign-up"
               target="_blank"
@@ -241,7 +239,7 @@ export default function HSIPage() {
               Get Started
               <ExternalLink className="w-6 h-6" />
             </a>
-            
+
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-10 py-5 bg-white/20 backdrop-blur-sm text-white text-xl font-bold rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"

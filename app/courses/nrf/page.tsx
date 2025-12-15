@@ -1,14 +1,21 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ExternalLink, CheckCircle, Clock, Award, ShoppingBag } from 'lucide-react';
+import {
+  ExternalLink,
+  CheckCircle,
+  Clock,
+  Award,
+  ShoppingBag,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/courses/nrf",
+    canonical: 'https://www.elevateforhumanity.org/courses/nrf',
   },
   title: 'NRF RISE Up Credentials | Elevate For Humanity',
-  description: 'Industry-recognized retail and customer service credentials from the National Retail Federation. Free with program enrollment.',
+  description:
+    'Industry-recognized retail and customer service credentials from the National Retail Federation. Free with program enrollment.',
 };
 
 export default function NrfPage() {
@@ -18,7 +25,8 @@ export default function NrfPage() {
       title: 'Customer Service & Sales',
       duration: '20-30 hours',
       price: 'Included',
-      description: 'Master customer interaction, sales techniques, and service excellence',
+      description:
+        'Master customer interaction, sales techniques, and service excellence',
       certificate: 'NRF Customer Service & Sales Credential',
       topics: [
         'Customer interaction skills',
@@ -33,7 +41,8 @@ export default function NrfPage() {
       title: 'Business of Retail',
       duration: '20-30 hours',
       price: 'Included',
-      description: 'Learn retail operations, business fundamentals, and industry knowledge',
+      description:
+        'Learn retail operations, business fundamentals, and industry knowledge',
       certificate: 'NRF Business of Retail Credential',
       topics: [
         'Retail operations',
@@ -48,7 +57,8 @@ export default function NrfPage() {
       title: 'ServSafe Manager',
       duration: '8-10 hours',
       price: 'Included',
-      description: 'Food safety certification for restaurant managers and supervisors',
+      description:
+        'Food safety certification for restaurant managers and supervisors',
       certificate: 'ServSafe Manager Certification',
       topics: [
         'Food safety principles',
@@ -78,7 +88,8 @@ export default function NrfPage() {
       title: 'ServSafe Alcohol',
       duration: '4-6 hours',
       price: 'Included',
-      description: 'Responsible alcohol service training for servers and bartenders',
+      description:
+        'Responsible alcohol service training for servers and bartenders',
       certificate: 'ServSafe Alcohol Certificate',
       topics: [
         'Responsible service',
@@ -103,7 +114,6 @@ export default function NrfPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-pink-700/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="flex justify-center mb-6">
             <ShoppingBag className="w-20 h-20" />
@@ -137,15 +147,20 @@ export default function NrfPage() {
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why NRF RISE Up?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why NRF RISE Up?
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Industry-Recognized</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Industry-Recognized
+              </h3>
               <p className="text-gray-600">
-                Credentials from the National Retail Federation, trusted by employers nationwide
+                Credentials from the National Retail Federation, trusted by
+                employers nationwide
               </p>
             </div>
             <div className="text-center">
@@ -154,7 +169,8 @@ export default function NrfPage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">100% Free</h3>
               <p className="text-gray-600">
-                Included with your program enrollment through WIOA or WRG funding
+                Included with your program enrollment through WIOA or WRG
+                funding
               </p>
             </div>
             <div className="text-center">
@@ -173,8 +189,10 @@ export default function NrfPage() {
       {/* Courses Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Available Credentials</h2>
-          
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Available Credentials
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-6">
             {courses.map((course) => (
               <div
@@ -183,7 +201,7 @@ export default function NrfPage() {
               >
                 <h4 className="text-xl font-semibold mb-2">{course.title}</h4>
                 <p className="text-gray-600 mb-4">{course.description}</p>
-                
+
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-gray-700">
                     <Clock className="w-4 h-4" />
@@ -200,7 +218,9 @@ export default function NrfPage() {
                 </div>
 
                 <div className="mb-4">
-                  <h5 className="font-semibold text-sm mb-2">Topics Covered:</h5>
+                  <h5 className="font-semibold text-sm mb-2">
+                    Topics Covered:
+                  </h5>
                   <ul className="text-sm text-gray-600 space-y-1">
                     {course.topics.map((topic, idx) => (
                       <li key={idx} className="flex items-start gap-2">
@@ -226,28 +246,38 @@ export default function NrfPage() {
       {/* Programs Using NRF */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Programs Including NRF Credentials</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Programs Including NRF Credentials
+          </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Link
               href="/programs/workforce-readiness"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">Workforce Readiness</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Workforce Readiness
+              </h3>
               <p className="text-gray-600 mb-4">
                 Includes NRF RISE Up credentials and job readiness training
               </p>
-              <span className="text-purple-600 font-semibold">Learn More →</span>
+              <span className="text-purple-600 font-semibold">
+                Learn More →
+              </span>
             </Link>
-            
+
             <Link
               href="/programs/business-startup-marketing"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">Business Startup & Marketing</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Business Startup & Marketing
+              </h3>
               <p className="text-gray-600 mb-4">
                 Includes retail business fundamentals and customer service
               </p>
-              <span className="text-purple-600 font-semibold">Learn More →</span>
+              <span className="text-purple-600 font-semibold">
+                Learn More →
+              </span>
             </Link>
           </div>
         </div>
@@ -258,7 +288,8 @@ export default function NrfPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Get Certified?</h2>
           <p className="text-xl mb-8">
-            Enroll in a program today and get free access to NRF RISE Up credentials
+            Enroll in a program today and get free access to NRF RISE Up
+            credentials
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

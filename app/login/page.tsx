@@ -66,7 +66,6 @@ function LoginForm() {
           quality={100}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-slate-900/50" />
       </section>
 
       {/* Login Form */}
@@ -86,7 +85,10 @@ function LoginForm() {
 
             <form onSubmit={handleLogin} className="space-y-5">
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Email Address
                 </label>
                 <input
@@ -101,7 +103,10 @@ function LoginForm() {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Password
                 </label>
                 <input
@@ -120,7 +125,10 @@ function LoginForm() {
                   <input type="checkbox" className="mr-2" />
                   <span className="text-slate-600">Remember me</span>
                 </label>
-                <Link href="/auth/forgot-password" className="text-blue-600 hover:text-blue-700">
+                <Link
+                  href="/auth/forgot-password"
+                  className="text-blue-600 hover:text-blue-700"
+                >
                   Forgot password?
                 </Link>
               </div>
@@ -136,7 +144,10 @@ function LoginForm() {
 
             <div className="mt-6 text-center text-sm text-slate-600">
               Don't have an account?{' '}
-              <Link href={`/signup${next ? `?next=${encodeURIComponent(next)}` : ''}`} className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link
+                href={`/signup${next ? `?next=${encodeURIComponent(next)}` : ''}`}
+                className="text-blue-600 font-semibold hover:text-blue-700"
+              >
                 Sign up
               </Link>
             </div>
@@ -164,7 +175,10 @@ function LoginForm() {
 
           <div className="mt-6 text-center text-sm text-slate-600">
             <p>
-              Need help? Call <a href="tel:3173143757" className="text-blue-600 font-semibold">317-314-3757</a>
+              Need help? Call{' '}
+              <a href="tel:3173143757" className="text-blue-600 font-semibold">
+                317-314-3757
+              </a>
             </p>
           </div>
         </div>
@@ -175,7 +189,13 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center">Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
       <LoginForm />
     </Suspense>
   );

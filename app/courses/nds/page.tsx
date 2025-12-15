@@ -5,10 +5,11 @@ import { ExternalLink, CheckCircle, Clock, Award, Truck } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/courses/nds",
+    canonical: 'https://www.elevateforhumanity.org/courses/nds',
   },
   title: 'DOT Compliance Training | Elevate For Humanity',
-  description: 'DOT-required training for CDL drivers and transportation professionals. Drug & alcohol testing, FMCSA regulations, and safety compliance.',
+  description:
+    'DOT-required training for CDL drivers and transportation professionals. Drug & alcohol testing, FMCSA regulations, and safety compliance.',
 };
 
 export default function NdsPage() {
@@ -21,7 +22,8 @@ export default function NdsPage() {
           title: 'DOT Drug & Alcohol Testing',
           duration: '2-3 hours',
           price: 'Included',
-          description: 'Required DOT training for all CDL drivers and safety-sensitive employees',
+          description:
+            'Required DOT training for all CDL drivers and safety-sensitive employees',
           certificate: 'DOT Compliance Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/dot-drug-alcohol',
         },
@@ -30,7 +32,8 @@ export default function NdsPage() {
           title: 'FMCSA Regulations Training',
           duration: '3-4 hours',
           price: 'Included',
-          description: 'Federal Motor Carrier Safety Administration regulations for commercial drivers',
+          description:
+            'Federal Motor Carrier Safety Administration regulations for commercial drivers',
           certificate: 'FMCSA Compliance Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/fmcsa-regulations',
         },
@@ -39,7 +42,8 @@ export default function NdsPage() {
           title: 'Hours of Service (HOS) Training',
           duration: '2 hours',
           price: 'Included',
-          description: 'DOT hours of service regulations and electronic logging devices',
+          description:
+            'DOT hours of service regulations and electronic logging devices',
           certificate: 'HOS Compliance Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/hours-of-service',
         },
@@ -53,7 +57,8 @@ export default function NdsPage() {
           title: 'Pre-Trip Inspection Training',
           duration: '2-3 hours',
           price: 'Included',
-          description: 'Complete pre-trip inspection procedures for CDL testing',
+          description:
+            'Complete pre-trip inspection procedures for CDL testing',
           certificate: 'Pre-Trip Inspection Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/pre-trip-inspection',
         },
@@ -62,7 +67,8 @@ export default function NdsPage() {
           title: 'CDL Test Preparation',
           duration: '4-6 hours',
           price: 'Included',
-          description: 'Comprehensive preparation for CDL written and skills tests',
+          description:
+            'Comprehensive preparation for CDL written and skills tests',
           certificate: 'CDL Test Prep Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/cdl-test-prep',
         },
@@ -76,7 +82,8 @@ export default function NdsPage() {
           title: 'DOT Reasonable Suspicion Training',
           duration: '2 hours',
           price: 'Included',
-          description: 'Required training for supervisors to identify drug and alcohol use',
+          description:
+            'Required training for supervisors to identify drug and alcohol use',
           certificate: 'DOT Supervisor Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/reasonable-suspicion',
         },
@@ -85,7 +92,8 @@ export default function NdsPage() {
           title: 'DOT Supervisor Training',
           duration: '2-3 hours',
           price: 'Included',
-          description: 'Comprehensive DOT compliance training for transportation supervisors',
+          description:
+            'Comprehensive DOT compliance training for transportation supervisors',
           certificate: 'DOT Supervisor Certificate',
           enrollUrl: 'https://www.mydrugtest training.com/supervisor-training',
         },
@@ -106,7 +114,6 @@ export default function NdsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-red-900/90 to-orange-700/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="flex justify-center mb-6">
             <Truck className="w-20 h-20" />
@@ -140,7 +147,9 @@ export default function NdsPage() {
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why DOT Training?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why DOT Training?
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -148,7 +157,8 @@ export default function NdsPage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">DOT Required</h3>
               <p className="text-gray-600">
-                Federally mandated training for all commercial drivers and supervisors
+                Federally mandated training for all commercial drivers and
+                supervisors
               </p>
             </div>
             <div className="text-center">
@@ -176,20 +186,26 @@ export default function NdsPage() {
       {/* Courses Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Available Courses</h2>
-          
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Available Courses
+          </h2>
+
           {courseCategories.map((category) => (
             <div key={category.name} className="mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-red-900">{category.name}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-red-900">
+                {category.name}
+              </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {category.courses.map((course) => (
                   <div
                     key={course.id}
                     className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
                   >
-                    <h4 className="text-xl font-semibold mb-2">{course.title}</h4>
+                    <h4 className="text-xl font-semibold mb-2">
+                      {course.title}
+                    </h4>
                     <p className="text-gray-600 mb-4">{course.description}</p>
-                    
+
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-700">
                         <Clock className="w-4 h-4" />
@@ -225,7 +241,9 @@ export default function NdsPage() {
       {/* Programs Using NDS */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Programs Including DOT Training</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Programs Including DOT Training
+          </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Link
               href="/programs/cdl"
@@ -237,12 +255,14 @@ export default function NdsPage() {
               </p>
               <span className="text-red-600 font-semibold">Learn More →</span>
             </Link>
-            
+
             <Link
               href="/programs/drug-collector"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">Drug Collector Certification</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Drug Collector Certification
+              </h3>
               <p className="text-gray-600 mb-4">
                 Includes DOT drug testing procedures and compliance
               </p>
@@ -255,9 +275,12 @@ export default function NdsPage() {
       {/* CTA Section */}
       <section className="py-16 bg-red-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get DOT Certified?</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Get DOT Certified?
+          </h2>
           <p className="text-xl mb-8">
-            Enroll in a program today and get free access to all DOT compliance training
+            Enroll in a program today and get free access to all DOT compliance
+            training
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

@@ -1,142 +1,170 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Quote, ArrowRight, Play, CheckCircle, TrendingUp, Heart } from 'lucide-react';
+import {
+  Quote,
+  ArrowRight,
+  Play,
+  CheckCircle,
+  TrendingUp,
+  Heart,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Success Stories - Real People, Real Results | Elevate for Humanity',
-  description: 'Read inspiring success stories from graduates who transformed their lives through our workforce training programs. Real careers, real impact.',
+  description:
+    'Read inspiring success stories from graduates who transformed their lives through our workforce training programs. Real careers, real impact.',
 };
 
 const successStories = [
   {
     id: 1,
-    name: "Marcus Thompson",
+    name: 'Marcus Thompson',
     age: 34,
-    program: "Public Safety & Reentry Specialist",
-    image: "/images/learners/reentry-coaching.jpg",
-    beforeJob: "Unemployed after 8 years incarceration",
-    afterJob: "Reentry Specialist at Marion County Corrections",
-    salary: "$45,000/year",
-    quote: "After 8 years of incarceration, I didn't think anyone would give me a chance. The JRI program not only gave me the training I needed, but they believed in me when I didn't believe in myself. Today, I'm a certified reentry specialist helping others find their path, just like someone helped me find mine.",
-    story: "Marcus came to us through the Justice Reinvestment Initiative with a criminal record and no recent work history. Through our Public Safety & Reentry Specialist program, he earned his national certification and discovered his calling: helping others who've been where he was. Now he works full-time helping formerly incarcerated individuals successfully reintegrate into society.",
+    program: 'Public Safety & Reentry Specialist',
+    image: '/images/learners/reentry-coaching.jpg',
+    beforeJob: 'Unemployed after 8 years incarceration',
+    afterJob: 'Reentry Specialist at Marion County Corrections',
+    salary: '$45,000/year',
+    quote:
+      "After 8 years of incarceration, I didn't think anyone would give me a chance. The JRI program not only gave me the training I needed, but they believed in me when I didn't believe in myself. Today, I'm a certified reentry specialist helping others find their path, just like someone helped me find mine.",
+    story:
+      "Marcus came to us through the Justice Reinvestment Initiative with a criminal record and no recent work history. Through our Public Safety & Reentry Specialist program, he earned his national certification and discovered his calling: helping others who've been where he was. Now he works full-time helping formerly incarcerated individuals successfully reintegrate into society.",
     videoPlaceholder: true,
   },
   {
     id: 2,
-    name: "Sarah Martinez",
+    name: 'Sarah Martinez',
     age: 28,
-    program: "Medical Assistant",
-    image: "/images/heroes/workforce-partner-1.jpg",
-    beforeJob: "Retail cashier, $12/hour",
-    afterJob: "Medical Assistant at Community Health Center",
-    salary: "$38,000/year",
-    quote: "I was stuck in retail making minimum wage with no benefits. Now I have a career in healthcare with room to grow. My kids see me going to work in scrubs and they're so proud. This program changed everything for my family.",
-    story: "Sarah was a single mother of two working retail with no benefits. Through our Medical Assistant program, she completed her training in 10 weeks while we helped with childcare costs. She passed her certification exam on the first try and was hired immediately by a local clinic. She's now pursuing her LPN license.",
+    program: 'Medical Assistant',
+    image: '/images/heroes/workforce-partner-1.jpg',
+    beforeJob: 'Retail cashier, $12/hour',
+    afterJob: 'Medical Assistant at Community Health Center',
+    salary: '$38,000/year',
+    quote:
+      "I was stuck in retail making minimum wage with no benefits. Now I have a career in healthcare with room to grow. My kids see me going to work in scrubs and they're so proud. This program changed everything for my family.",
+    story:
+      "Sarah was a single mother of two working retail with no benefits. Through our Medical Assistant program, she completed her training in 10 weeks while we helped with childcare costs. She passed her certification exam on the first try and was hired immediately by a local clinic. She's now pursuing her LPN license.",
     videoPlaceholder: true,
   },
   {
     id: 3,
-    name: "James Wilson",
+    name: 'James Wilson',
     age: 42,
-    program: "CDL Training",
-    image: "/images/heroes/workforce-partner-3.jpg",
-    beforeJob: "Laid off factory worker",
-    afterJob: "Class A CDL Driver for National Carrier",
-    salary: "$65,000/year",
-    quote: "When the factory closed, I thought my career was over at 42. The CDL program gave me a fresh start. I'm making more money than I ever did at the factory, and I actually enjoy what I do. The freedom of the road suits me.",
-    story: "After 15 years at a local factory, James was laid off when the plant closed. At 42, he felt too old to start over. Our CDL program proved him wrong. In just 6 weeks, he earned his Class A license and was hired by a national carrier. He's now training to become a driver trainer himself.",
+    program: 'CDL Training',
+    image: '/images/heroes/workforce-partner-3.jpg',
+    beforeJob: 'Laid off factory worker',
+    afterJob: 'Class A CDL Driver for National Carrier',
+    salary: '$65,000/year',
+    quote:
+      "When the factory closed, I thought my career was over at 42. The CDL program gave me a fresh start. I'm making more money than I ever did at the factory, and I actually enjoy what I do. The freedom of the road suits me.",
+    story:
+      "After 15 years at a local factory, James was laid off when the plant closed. At 42, he felt too old to start over. Our CDL program proved him wrong. In just 6 weeks, he earned his Class A license and was hired by a national carrier. He's now training to become a driver trainer himself.",
     videoPlaceholder: true,
   },
   {
     id: 4,
-    name: "Destiny Brown",
+    name: 'Destiny Brown',
     age: 22,
-    program: "Barber Apprenticeship",
-    image: "/images/barber-professional.jpg",
-    beforeJob: "Fast food worker, $10/hour",
-    afterJob: "Licensed Barber, owns chair at local shop",
-    salary: "$50,000+/year",
-    quote: "I always loved cutting hair but couldn't afford barber school. The apprenticeship let me earn while I learned. Now I have my own chair, my own clients, and I'm building something that's mine. This is real ownership.",
-    story: "Destiny was working fast food and cutting friends' hair on the side. Through our Barber Apprenticeship, she worked in a real shop while training, building her clientele from day one. After 18 months, she passed her state board exam and now rents her own chair. She's already planning to open her own shop.",
+    program: 'Barber Apprenticeship',
+    image: '/images/barber-professional.jpg',
+    beforeJob: 'Fast food worker, $10/hour',
+    afterJob: 'Licensed Barber, owns chair at local shop',
+    salary: '$50,000+/year',
+    quote:
+      "I always loved cutting hair but couldn't afford barber school. The apprenticeship let me earn while I learned. Now I have my own chair, my own clients, and I'm building something that's mine. This is real ownership.",
+    story:
+      "Destiny was working fast food and cutting friends' hair on the side. Through our Barber Apprenticeship, she worked in a real shop while training, building her clientele from day one. After 18 months, she passed her state board exam and now rents her own chair. She's already planning to open her own shop.",
     videoPlaceholder: true,
   },
   {
     id: 5,
-    name: "Robert Chen",
+    name: 'Robert Chen',
     age: 55,
-    program: "HVAC Technician",
-    image: "/images/heroes/workforce-partner-4.jpg",
-    beforeJob: "Unemployed, career change",
-    afterJob: "HVAC Technician at Commercial HVAC Company",
-    salary: "$48,000/year",
-    quote: "At 55, I thought I was too old to learn a trade. I was wrong. The instructors were patient, the hands-on training was excellent, and now I have a skill that's in demand everywhere. Age is just a number when you have the right support.",
-    story: "Robert spent 30 years in office work before being laid off. At 55, he decided to try something completely different. Our HVAC program gave him hands-on training and industry certifications. Despite his age, he was hired immediately after graduation. His employer values his maturity and work ethic.",
+    program: 'HVAC Technician',
+    image: '/images/heroes/workforce-partner-4.jpg',
+    beforeJob: 'Unemployed, career change',
+    afterJob: 'HVAC Technician at Commercial HVAC Company',
+    salary: '$48,000/year',
+    quote:
+      "At 55, I thought I was too old to learn a trade. I was wrong. The instructors were patient, the hands-on training was excellent, and now I have a skill that's in demand everywhere. Age is just a number when you have the right support.",
+    story:
+      'Robert spent 30 years in office work before being laid off. At 55, he decided to try something completely different. Our HVAC program gave him hands-on training and industry certifications. Despite his age, he was hired immediately after graduation. His employer values his maturity and work ethic.',
     videoPlaceholder: true,
   },
   {
     id: 6,
-    name: "Tamika Johnson",
+    name: 'Tamika Johnson',
     age: 31,
-    program: "CNA",
-    image: "/images/heroes/workforce-partner-2.jpg",
-    beforeJob: "Unemployed single mother",
-    afterJob: "CNA at Skilled Nursing Facility",
-    salary: "$32,000/year + benefits",
-    quote: "I had been out of work for two years taking care of my kids. I was scared to go back to school, but the CNA program was only 6 weeks and they helped with everything - childcare, transportation, even my uniform. Now I have a job I love and benefits for my family.",
-    story: "Tamika had been out of the workforce for two years caring for her children. With no recent work history and limited funds, she felt stuck. Our CNA program provided wraparound support including childcare assistance. She completed training in 6 weeks, passed her state exam, and was hired with full benefits. She's now pursuing her QMA certification.",
+    program: 'CNA',
+    image: '/images/heroes/workforce-partner-2.jpg',
+    beforeJob: 'Unemployed single mother',
+    afterJob: 'CNA at Skilled Nursing Facility',
+    salary: '$32,000/year + benefits',
+    quote:
+      'I had been out of work for two years taking care of my kids. I was scared to go back to school, but the CNA program was only 6 weeks and they helped with everything - childcare, transportation, even my uniform. Now I have a job I love and benefits for my family.',
+    story:
+      "Tamika had been out of the workforce for two years caring for her children. With no recent work history and limited funds, she felt stuck. Our CNA program provided wraparound support including childcare assistance. She completed training in 6 weeks, passed her state exam, and was hired with full benefits. She's now pursuing her QMA certification.",
     videoPlaceholder: true,
   },
   {
     id: 7,
-    name: "David Rodriguez",
+    name: 'David Rodriguez',
     age: 26,
-    program: "Workforce Readiness",
-    image: "/images/heroes/workforce-partner-5.jpg",
-    beforeJob: "Unemployed youth, no work history",
-    afterJob: "Customer Service Representative at Tech Company",
-    salary: "$35,000/year",
-    quote: "I had never had a real job before. I didn't know how to write a resume or interview. The Workforce Readiness program taught me everything - how to dress, how to talk to employers, how to be professional. They believed in me before I believed in myself.",
-    story: "David was 26 with no work history and no idea how to get started. Our Workforce Readiness program taught him professional communication, resume writing, and interview skills. We connected him with an employer partner who gave him a chance. He's been promoted twice in 18 months and is now training new hires.",
+    program: 'Workforce Readiness',
+    image: '/images/heroes/workforce-partner-5.jpg',
+    beforeJob: 'Unemployed youth, no work history',
+    afterJob: 'Customer Service Representative at Tech Company',
+    salary: '$35,000/year',
+    quote:
+      "I had never had a real job before. I didn't know how to write a resume or interview. The Workforce Readiness program taught me everything - how to dress, how to talk to employers, how to be professional. They believed in me before I believed in myself.",
+    story:
+      "David was 26 with no work history and no idea how to get started. Our Workforce Readiness program taught him professional communication, resume writing, and interview skills. We connected him with an employer partner who gave him a chance. He's been promoted twice in 18 months and is now training new hires.",
     videoPlaceholder: true,
   },
   {
     id: 8,
-    name: "Lisa Anderson",
+    name: 'Lisa Anderson',
     age: 38,
-    program: "Medical Assistant",
-    image: "/images/general/workforce-development.png",
-    beforeJob: "Restaurant server, $25,000/year",
-    afterJob: "Medical Assistant at Family Practice",
-    salary: "$40,000/year",
-    quote: "I spent 15 years in restaurants with no benefits and unpredictable hours. Now I work Monday through Friday with health insurance and paid time off. My back doesn't hurt anymore, and I can actually plan my life. This is what stability feels like.",
-    story: "After 15 years in the restaurant industry, Lisa's body was breaking down and she had no benefits. Our Medical Assistant program gave her a path to healthcare. She completed her externship at a family practice that hired her immediately. She now has weekends off for the first time in her adult life.",
+    program: 'Medical Assistant',
+    image: '/images/general/workforce-development.png',
+    beforeJob: 'Restaurant server, $25,000/year',
+    afterJob: 'Medical Assistant at Family Practice',
+    salary: '$40,000/year',
+    quote:
+      "I spent 15 years in restaurants with no benefits and unpredictable hours. Now I work Monday through Friday with health insurance and paid time off. My back doesn't hurt anymore, and I can actually plan my life. This is what stability feels like.",
+    story:
+      "After 15 years in the restaurant industry, Lisa's body was breaking down and she had no benefits. Our Medical Assistant program gave her a path to healthcare. She completed her externship at a family practice that hired her immediately. She now has weekends off for the first time in her adult life.",
     videoPlaceholder: true,
   },
   {
     id: 9,
-    name: "Kevin Wright",
+    name: 'Kevin Wright',
     age: 29,
-    program: "Building Maintenance",
-    image: "/images/facilities-new/facility-1.jpg",
-    beforeJob: "Gig economy worker, inconsistent income",
-    afterJob: "Building Maintenance Technician at Property Management",
-    salary: "$42,000/year",
-    quote: "I was doing DoorDash and Uber, never knowing how much I'd make each week. Now I have a steady paycheck, benefits, and I'm learning skills I can use anywhere. The training was hands-on and practical - exactly what I needed.",
-    story: "Kevin was stuck in the gig economy with no stability or benefits. Our Building Maintenance program taught him electrical, plumbing, and HVAC basics. He earned multiple certifications and was hired by a large property management company. He's now on track to become a facilities manager.",
+    program: 'Building Maintenance',
+    image: '/images/facilities-new/facility-1.jpg',
+    beforeJob: 'Gig economy worker, inconsistent income',
+    afterJob: 'Building Maintenance Technician at Property Management',
+    salary: '$42,000/year',
+    quote:
+      "I was doing DoorDash and Uber, never knowing how much I'd make each week. Now I have a steady paycheck, benefits, and I'm learning skills I can use anywhere. The training was hands-on and practical - exactly what I needed.",
+    story:
+      "Kevin was stuck in the gig economy with no stability or benefits. Our Building Maintenance program taught him electrical, plumbing, and HVAC basics. He earned multiple certifications and was hired by a large property management company. He's now on track to become a facilities manager.",
     videoPlaceholder: true,
   },
   {
     id: 10,
-    name: "Angela Davis",
+    name: 'Angela Davis',
     age: 45,
-    program: "CNA",
-    image: "/images/homepage/reentry-career-coaching.png",
-    beforeJob: "Unemployed after divorce",
-    afterJob: "CNA at Hospital, pursuing LPN",
-    salary: "$34,000/year",
-    quote: "After my divorce, I had to start completely over at 45. I had no recent work experience and no idea what to do. The CNA program gave me a career in just 6 weeks. Now I'm working at a hospital and going back to school for my LPN. It's never too late to start over.",
-    story: "Angela came to us at 45 after a difficult divorce left her with no income and no recent work history. Our CNA program fast-tracked her into healthcare. She completed training in 6 weeks and was hired by a local hospital. The hospital is now sponsoring her LPN education. She's proof that it's never too late for a fresh start.",
+    program: 'CNA',
+    image: '/images/homepage/reentry-career-coaching.png',
+    beforeJob: 'Unemployed after divorce',
+    afterJob: 'CNA at Hospital, pursuing LPN',
+    salary: '$34,000/year',
+    quote:
+      "After my divorce, I had to start completely over at 45. I had no recent work experience and no idea what to do. The CNA program gave me a career in just 6 weeks. Now I'm working at a hospital and going back to school for my LPN. It's never too late to start over.",
+    story:
+      "Angela came to us at 45 after a difficult divorce left her with no income and no recent work history. Our CNA program fast-tracked her into healthcare. She completed training in 6 weeks and was hired by a local hospital. The hospital is now sponsoring her LPN education. She's proof that it's never too late for a fresh start.",
     videoPlaceholder: true,
   },
 ];
@@ -146,19 +174,21 @@ export default function SuccessStoriesPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
               <Heart className="w-5 h-5" />
-              <span className="text-sm font-semibold">Real People, Real Results</span>
+              <span className="text-sm font-semibold">
+                Real People, Real Results
+              </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Success Stories
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
-              These aren&apos;t just statistics—they&apos;re real people who transformed their lives through education, 
-              determination, and the right support at the right time.
+              These aren&apos;t just statistics—they&apos;re real people who
+              transformed their lives through education, determination, and the
+              right support at the right time.
             </p>
           </div>
         </div>
@@ -169,19 +199,27 @@ export default function SuccessStoriesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">1,200+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                1,200+
+              </div>
               <div className="text-sm text-slate-600">Lives Changed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">87%</div>
+              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                87%
+              </div>
               <div className="text-sm text-slate-600">Employment Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$42K</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                $42K
+              </div>
               <div className="text-sm text-slate-600">Avg Starting Salary</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">92%</div>
+              <div className="text-4xl font-bold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                92%
+              </div>
               <div className="text-sm text-slate-600">Program Completion</div>
             </div>
           </div>
@@ -193,7 +231,7 @@ export default function SuccessStoriesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto space-y-16">
             {successStories.map((story, index) => (
-              <div 
+              <div
                 key={story.id}
                 className={`grid md:grid-cols-2 gap-8 items-center ${
                   index % 2 === 1 ? 'md:flex-row-reverse' : ''
@@ -224,8 +262,12 @@ export default function SuccessStoriesPage() {
                 {/* Content */}
                 <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <div className="mb-4">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-2">{story.name}</h2>
-                    <p className="text-lg text-blue-600 font-semibold">{story.program}</p>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-2">
+                      {story.name}
+                    </h2>
+                    <p className="text-lg text-blue-600 font-semibold">
+                      {story.program}
+                    </p>
                     <p className="text-sm text-slate-600">Age {story.age}</p>
                   </div>
 
@@ -233,18 +275,28 @@ export default function SuccessStoriesPage() {
                   <div className="bg-slate-50 rounded-lg p-6 mb-6">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <div className="text-xs text-slate-500 uppercase mb-1">Before</div>
-                        <div className="text-sm font-semibold text-slate-900">{story.beforeJob}</div>
+                        <div className="text-xs text-slate-500 uppercase mb-1">
+                          Before
+                        </div>
+                        <div className="text-sm font-semibold text-slate-900">
+                          {story.beforeJob}
+                        </div>
                       </div>
                       <div>
-                        <div className="text-xs text-slate-500 uppercase mb-1">After</div>
-                        <div className="text-sm font-semibold text-green-600">{story.afterJob}</div>
+                        <div className="text-xs text-slate-500 uppercase mb-1">
+                          After
+                        </div>
+                        <div className="text-sm font-semibold text-green-600">
+                          {story.afterJob}
+                        </div>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-slate-200">
                       <div className="flex items-center gap-2">
                         <TrendingUp className="w-5 h-5 text-green-600" />
-                        <span className="text-lg font-bold text-green-600">{story.salary}</span>
+                        <span className="text-lg font-bold text-green-600">
+                          {story.salary}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -309,17 +361,26 @@ export default function SuccessStoriesPage() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">What Our Graduates Say</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              What Our Graduates Say
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {successStories.slice(0, 3).map((story) => (
-                <div key={story.id} className="bg-white rounded-lg p-6 shadow-sm">
+                <div
+                  key={story.id}
+                  className="bg-white rounded-lg p-6 shadow-sm"
+                >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900">{story.name}</div>
-                      <div className="text-sm text-slate-600">{story.program}</div>
+                      <div className="font-bold text-slate-900">
+                        {story.name}
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        {story.program}
+                      </div>
                     </div>
                   </div>
                   <p className="text-sm text-slate-700 italic">

@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 const newsArticles = [
   {
     id: 1,
-    title: 'New Direct Support Professional (DSP) Program Launches January 2025',
+    title:
+      'New Direct Support Professional (DSP) Program Launches January 2025',
     slug: 'dsp-program-launch',
     excerpt:
       "We're excited to announce our newest program: Direct Support Professional (DSP) training. This 10-week program prepares students for careers in behavioral health and caregiving with 100% funding available.",
@@ -159,7 +160,6 @@ export default function NewsPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">

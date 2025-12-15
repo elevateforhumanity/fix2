@@ -15,11 +15,10 @@ export default function HomePage() {
           <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-6 sm:mb-8">
             <video
               src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081093367&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=td32mzkbEAOLiCaYuy2bvh7fIHwp6fCyqklEkMOKrB-HylGvkEp87xGd5VEp5ipv7IKQgjImURhapXmq9BhcEIvGHlYH4rGeIX9P4ThM0ha7wZOH2kl8RIdUQEVSFKM6U9~Eel5Fwpgr5-MZh-YmCpZRG9Gw9KLNhFiWKlh6AjXYppVLz0rf1-FXx4dcGM6qWtmYo9WQOCCqRjzmWqtGkqF88rUy7YvU6XrxUpb9k9M3~biPVNpbErqRJxX8nPLkwvKEWOmfzC~cjQQGpkGJoFEOUxq8y0u6y73ekcECQJbHjkE3EYSsY-DshZZcDU6T9OhHrV6QbHJo85f4~r7mlA__"
-              autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
               className="absolute top-0 left-0 w-full h-full object-cover"
             />
           </div>
@@ -52,11 +51,10 @@ export default function HomePage() {
           <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
             <video
               src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
-              autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
               className="absolute top-0 left-0 w-full h-full object-cover"
             />
           </div>
@@ -296,25 +294,12 @@ export default function HomePage() {
                 className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition"
               >
                 <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
-                  {p.video ? (
-                    <video
-                      src={p.video}
-                      poster={p.img}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover"
-                      style={{ maxWidth: '100%' }}
-                    />
-                  ) : (
-                    <Image
-                      src={p.img}
-                      alt={p.title}
-                      fill
-                      className="object-cover"
-                    />
-                  )}
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="mt-4 text-lg font-bold text-zinc-900">
                   {p.title}

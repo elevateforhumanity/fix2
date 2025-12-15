@@ -1,17 +1,33 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useMemo, useState } from "react";
-import { programs, Program } from "@/app/data/programs";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useMemo, useState } from 'react';
+import { programs, Program } from '@/app/data/programs';
 
 // Map programs to categories
 const getCategoryForProgram = (program: Program): string => {
   const slug = program.slug;
-  if (slug.includes('cna') || slug.includes('medical') || slug.includes('health')) return 'Healthcare';
-  if (slug.includes('hvac') || slug.includes('building') || slug.includes('cdl')) return 'Skilled Trades';
-  if (slug.includes('barber') || slug.includes('beauty') || slug.includes('esthetician')) return 'Beauty & Wellness';
-  if (slug.includes('tax') || slug.includes('business')) return 'Business & Finance';
+  if (
+    slug.includes('cna') ||
+    slug.includes('medical') ||
+    slug.includes('health')
+  )
+    return 'Healthcare';
+  if (
+    slug.includes('hvac') ||
+    slug.includes('building') ||
+    slug.includes('cdl')
+  )
+    return 'Skilled Trades';
+  if (
+    slug.includes('barber') ||
+    slug.includes('beauty') ||
+    slug.includes('esthetician')
+  )
+    return 'Beauty & Wellness';
+  if (slug.includes('tax') || slug.includes('business'))
+    return 'Business & Finance';
   return 'Other Programs';
 };
 
@@ -29,9 +45,39 @@ const getIconForProgram = (program: Program): string => {
   return '📚';
 };
 
+// Determine program type
+const getProgramType = (
+  program: Program
+): 'apprenticeship' | 'grant-funded' | 'self-pay' => {
+  if (
+    program.slug.includes('apprenticeship') ||
+    program.fundingOptions.some((f) =>
+      f.toLowerCase().includes('apprenticeship')
+    )
+  ) {
+    return 'apprenticeship';
+  }
+  if (
+    program.fundingOptions.some(
+      (f) =>
+        f.toLowerCase().includes('wioa') ||
+        f.toLowerCase().includes('wrg') ||
+        f.toLowerCase().includes('jri') ||
+        f.toLowerCase().includes('workforce') ||
+        f.toLowerCase().includes('grant')
+    )
+  ) {
+    return 'grant-funded';
+  }
+  return 'self-pay';
+};
+
 export default function ProgramsPage() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState<string | "all">("all");
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState<string | 'all'>('all');
+  const [programType, setProgramType] = useState<
+    'all' | 'apprenticeship' | 'grant-funded' | 'self-pay'
+  >('all');
 
   // Get all unique categories
   const allCategories = useMemo(() => {
@@ -42,7 +88,11 @@ export default function ProgramsPage() {
   const filtered = useMemo(() => {
     return programs.filter((p) => {
       const programCategory = getCategoryForProgram(p);
-      const matchesCategory = category === "all" || programCategory === category;
+      const matchesCategory =
+        category === 'all' || programCategory === category;
+
+      const type = getProgramType(p);
+      const matchesType = programType === 'all' || type === programType;
 
       const term = search.toLowerCase().trim();
       const matchesSearch =
@@ -51,9 +101,9 @@ export default function ProgramsPage() {
         p.shortDescription.toLowerCase().includes(term) ||
         p.heroSubtitle.toLowerCase().includes(term);
 
-      return matchesCategory && matchesSearch;
+      return matchesCategory && matchesType && matchesSearch;
     });
-  }, [search, category]);
+  }, [search, category, programType]);
 
   // Group filtered programs by category
   const grouped = useMemo(() => {
@@ -79,24 +129,24 @@ export default function ProgramsPage() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-slate-900/40" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-md">
             Career Training Programs
           </h1>
-          <p className="text-xl md:text-2xl text-slate-100 mb-8">
-            Short-term training, industry certifications, and career pathways that fit your life
+          <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
+            Short-term training, industry certifications, and career pathways
+            that fit your life
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               Apply Now
             </Link>
             <Link
               href="/contact"
-              className="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               Talk to an Advisor
             </Link>
@@ -115,14 +165,58 @@ export default function ProgramsPage() {
           </h2>
           <p className="text-slate-700 max-w-3xl mb-4">
             Short-term training, real credentials, and pathways that fit real
-            life. Most learners qualify for some funding through{" "}
+            life. Most learners qualify for some funding through{' '}
             <span className="font-semibold">WIOA, WRG, apprenticeships</span>,
-            or partner support. Not sure where to start?{" "}
+            or partner support. Not sure where to start?{' '}
             <Link href="/apply" className="text-emerald-700 underline">
               Submit a Quick Application
-            </Link>{" "}
+            </Link>{' '}
             and we&apos;ll help you decide.
           </p>
+
+          {/* Program Type Tabs */}
+          <div className="mt-6 flex flex-wrap gap-2">
+            <button
+              onClick={() => setProgramType('all')}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+                programType === 'all'
+                  ? 'bg-orange-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+            >
+              All Programs
+            </button>
+            <button
+              onClick={() => setProgramType('grant-funded')}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+                programType === 'grant-funded'
+                  ? 'bg-green-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+            >
+              100% Free (ETPL/WRG)
+            </button>
+            <button
+              onClick={() => setProgramType('apprenticeship')}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+                programType === 'apprenticeship'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+            >
+              Apprenticeships
+            </button>
+            <button
+              onClick={() => setProgramType('self-pay')}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+                programType === 'self-pay'
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+            >
+              Self-Pay Options
+            </button>
+          </div>
 
           {/* Search + Filter */}
           <div className="mt-4 flex flex-col md:flex-row gap-3 md:items-center">
@@ -181,7 +275,11 @@ export default function ProgramsPage() {
 
         {/* Platform Notice */}
         <div className="text-center text-xs text-slate-500 pt-8 border-t border-slate-200">
-          <p>This is a proprietary instructional and workforce development platform operated by Elevate for Humanity. Access is limited to authorized participants.</p>
+          <p>
+            This is a proprietary instructional and workforce development
+            platform operated by Elevate for Humanity. Access is limited to
+            authorized participants.
+          </p>
         </div>
       </section>
     </main>
@@ -190,7 +288,8 @@ export default function ProgramsPage() {
 
 function ProgramCard({ program }: { program: Program }) {
   const icon = getIconForProgram(program);
-  
+  const type = getProgramType(program);
+
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col">
       {/* Icon + Title */}
@@ -202,6 +301,16 @@ function ProgramCard({ program }: { program: Program }) {
           <h3 className="text-lg font-semibold text-slate-900 leading-tight">
             {program.name}
           </h3>
+          {type === 'grant-funded' && (
+            <span className="inline-block mt-1 px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">
+              100% FREE with ETPL/WRG
+            </span>
+          )}
+          {type === 'apprenticeship' && (
+            <span className="inline-block mt-1 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs font-semibold rounded">
+              Earn While You Learn
+            </span>
+          )}
         </div>
       </div>
 
@@ -221,6 +330,38 @@ function ProgramCard({ program }: { program: Program }) {
           </dd>
         </div>
       </dl>
+
+      {/* Pricing Info */}
+      {program.price && (
+        <div className="mb-4 p-3 bg-slate-50 rounded-lg">
+          <p className="text-xs text-slate-600 mb-1">Self-Pay Option:</p>
+          <p className="text-lg font-bold text-slate-900">
+            ${program.price.toLocaleString()}
+          </p>
+          <p className="text-xs text-slate-600">
+            Or ${(program.price / 6).toFixed(2)}/month for 6 months
+          </p>
+          {type === 'grant-funded' && (
+            <p className="text-xs text-green-700 font-semibold mt-2">
+              ✓ May be 100% FREE with funding
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* Funding Options */}
+      {type === 'grant-funded' && program.fundingOptions.length > 0 && (
+        <div className="mb-4 p-3 bg-green-50 rounded-lg">
+          <p className="text-xs font-semibold text-green-900 mb-1">
+            Funding Available:
+          </p>
+          <ul className="text-xs text-slate-700 space-y-0.5">
+            {program.fundingOptions.slice(0, 2).map((option, idx) => (
+              <li key={idx}>• {option}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-2">
         <Link

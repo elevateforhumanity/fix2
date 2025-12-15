@@ -26,7 +26,6 @@ export default async function AlumniPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/90" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Once Elevate, Always Elevate

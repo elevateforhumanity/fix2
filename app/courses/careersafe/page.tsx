@@ -5,10 +5,11 @@ import { ExternalLink, CheckCircle, Clock, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/courses/careersafe",
+    canonical: 'https://www.elevateforhumanity.org/courses/careersafe',
   },
   title: 'CareerSafe OSHA Training Courses | Elevate For Humanity',
-  description: 'Access OSHA-authorized safety training courses through our CareerSafe partnership. OSHA 10, OSHA 30, and specialized safety certifications.',
+  description:
+    'Access OSHA-authorized safety training courses through our CareerSafe partnership. OSHA 10, OSHA 30, and specialized safety certifications.',
 };
 
 export default function CareerSafePage() {
@@ -21,9 +22,11 @@ export default function CareerSafePage() {
           title: 'OSHA 10-Hour General Industry',
           duration: '10 hours',
           price: 'Included',
-          description: 'OSHA-authorized 10-hour general industry safety training',
+          description:
+            'OSHA-authorized 10-hour general industry safety training',
           certificate: 'OSHA 10-Hour Card',
-          enrollUrl: 'https://www.careersafeonline.com/osha-10-hour-general-industry',
+          enrollUrl:
+            'https://www.careersafeonline.com/osha-10-hour-general-industry',
         },
         {
           id: 'osha10-construction',
@@ -32,7 +35,8 @@ export default function CareerSafePage() {
           price: 'Included',
           description: 'OSHA-authorized 10-hour construction safety training',
           certificate: 'OSHA 10-Hour Card',
-          enrollUrl: 'https://www.careersafeonline.com/osha-10-hour-construction',
+          enrollUrl:
+            'https://www.careersafeonline.com/osha-10-hour-construction',
         },
       ],
     },
@@ -44,9 +48,11 @@ export default function CareerSafePage() {
           title: 'OSHA 30-Hour General Industry',
           duration: '30 hours',
           price: 'Included',
-          description: 'Advanced OSHA safety training for supervisors and managers',
+          description:
+            'Advanced OSHA safety training for supervisors and managers',
           certificate: 'OSHA 30-Hour Card',
-          enrollUrl: 'https://www.careersafeonline.com/osha-30-hour-general-industry',
+          enrollUrl:
+            'https://www.careersafeonline.com/osha-30-hour-general-industry',
         },
         {
           id: 'osha30-construction',
@@ -55,7 +61,8 @@ export default function CareerSafePage() {
           price: 'Included',
           description: 'Advanced construction safety training for supervisors',
           certificate: 'OSHA 30-Hour Card',
-          enrollUrl: 'https://www.careersafeonline.com/osha-30-hour-construction',
+          enrollUrl:
+            'https://www.careersafeonline.com/osha-30-hour-construction',
         },
       ],
     },
@@ -67,7 +74,8 @@ export default function CareerSafePage() {
           title: 'Bloodborne Pathogens Training',
           duration: '1 hour',
           price: 'Included',
-          description: 'OSHA-compliant bloodborne pathogens training for healthcare workers',
+          description:
+            'OSHA-compliant bloodborne pathogens training for healthcare workers',
           certificate: 'Bloodborne Pathogens Certificate',
           enrollUrl: 'https://www.careersafeonline.com/bloodborne-pathogens',
         },
@@ -85,7 +93,8 @@ export default function CareerSafePage() {
           title: 'Patient Safety & Care',
           duration: '2 hours',
           price: 'Included',
-          description: 'Essential patient safety training for healthcare workers',
+          description:
+            'Essential patient safety training for healthcare workers',
           certificate: 'Patient Safety Certificate',
           enrollUrl: 'https://www.careersafeonline.com/patient-safety',
         },
@@ -106,7 +115,6 @@ export default function CareerSafePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             CareerSafe OSHA Training
@@ -137,7 +145,9 @@ export default function CareerSafePage() {
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why CareerSafe Training?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why CareerSafe Training?
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -145,7 +155,8 @@ export default function CareerSafePage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">OSHA-Authorized</h3>
               <p className="text-gray-600">
-                Official OSHA training provider with nationally recognized certifications
+                Official OSHA training provider with nationally recognized
+                certifications
               </p>
             </div>
             <div className="text-center">
@@ -154,7 +165,8 @@ export default function CareerSafePage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">100% Free</h3>
               <p className="text-gray-600">
-                Included with your program enrollment through WIOA or WRG funding
+                Included with your program enrollment through WIOA or WRG
+                funding
               </p>
             </div>
             <div className="text-center">
@@ -173,20 +185,26 @@ export default function CareerSafePage() {
       {/* Courses Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Available Courses</h2>
-          
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Available Courses
+          </h2>
+
           {courseCategories.map((category) => (
             <div key={category.name} className="mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-blue-900">{category.name}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">
+                {category.name}
+              </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {category.courses.map((course) => (
                   <div
                     key={course.id}
                     className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
                   >
-                    <h4 className="text-xl font-semibold mb-2">{course.title}</h4>
+                    <h4 className="text-xl font-semibold mb-2">
+                      {course.title}
+                    </h4>
                     <p className="text-gray-600 mb-4">{course.description}</p>
-                    
+
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-700">
                         <Clock className="w-4 h-4" />
@@ -222,7 +240,9 @@ export default function CareerSafePage() {
       {/* Programs Using CareerSafe */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Programs Including CareerSafe Training</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Programs Including CareerSafe Training
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Link
               href="/programs/hvac-technician"
@@ -234,18 +254,20 @@ export default function CareerSafePage() {
               </p>
               <span className="text-blue-600 font-semibold">Learn More →</span>
             </Link>
-            
+
             <Link
               href="/programs/building-maintenance"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">Building Maintenance</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Building Maintenance
+              </h3>
               <p className="text-gray-600 mb-4">
                 Includes OSHA 10/30 safety certifications
               </p>
               <span className="text-blue-600 font-semibold">Learn More →</span>
             </Link>
-            
+
             <Link
               href="/programs/home-health-aide"
               className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
@@ -265,7 +287,8 @@ export default function CareerSafePage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8">
-            Enroll in a program today and get free access to CareerSafe OSHA training
+            Enroll in a program today and get free access to CareerSafe OSHA
+            training
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
