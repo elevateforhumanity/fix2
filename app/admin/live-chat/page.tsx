@@ -305,7 +305,7 @@ export default function LiveChatPage() {
 interface StatCardProps {
   title: string;
   value: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   color: 'blue' | 'green' | 'purple' | 'orange';
 }
 

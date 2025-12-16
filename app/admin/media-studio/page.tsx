@@ -77,6 +77,8 @@ export default function MediaStudioPage() {
   const loadFiles = async (bucket: string) => {
     setLoading(true);
     try {
+      const res = await fetch(`/api/media/files?bucket=${bucket}`);
+      const data = await res.json();
       if (res.ok) {
         setFiles(data.files);
       }
@@ -92,6 +94,10 @@ export default function MediaStudioPage() {
     formData.append('bucket', selectedBucket);
 
     try {
+      const res = await fetch('/api/media/upload', {
+        method: 'POST',
+        body: formData,
+      });
       if (res.ok) {
         loadFiles(selectedBucket);
       }
@@ -102,6 +108,9 @@ export default function MediaStudioPage() {
     if (!confirm(`Delete ${fileName}?`)) return;
 
     try {
+      const res = await fetch(`/api/media/delete?bucket=${selectedBucket}&file=${fileName}`, {
+        method: 'DELETE',
+      });
       if (res.ok) {
         loadFiles(selectedBucket);
       }
@@ -110,6 +119,9 @@ export default function MediaStudioPage() {
 
   const optimizeImages = async () => {
     try {
+      const res = await fetch(`/api/media/optimize?bucket=${selectedBucket}`, {
+        method: 'POST',
+      });
       if (res.ok) {
         alert('Images optimized successfully!');
         loadFiles(selectedBucket);
@@ -250,11 +262,7 @@ export default function MediaStudioPage() {
                   multiple
                   accept="image/*,video/*"
                   className="hidden"
-                  onChange={(
-                    e: React.ChangeEvent<
-                      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-                    >
-                  ) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     const files = Array.from(e.target.files || []);
                     files.forEach(uploadFile);
                   }}
@@ -290,7 +298,6 @@ export default function MediaStudioPage() {
                     <div className="flex items-center justify-center h-full">
                       <ImageIcon
                         className="w-12 h-12 text-gray-400"
-                        quality={100}
                       />
                     </div>
                   )}

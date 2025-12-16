@@ -11,6 +11,27 @@ export const metadata: Metadata = {
   description: 'Admin dashboard',
 };
 
+async function getWorkflowData() {
+  const { data: grants } = await supabaseAdmin
+    .from('grants')
+    .select('*')
+    .order('due_date', { ascending: true });
+
+  const { data: entities } = await supabaseAdmin
+    .from('grant_entities')
+    .select('*');
+
+  const { data: applications } = await supabaseAdmin
+    .from('grant_applications')
+    .select('*');
+
+  return {
+    grants: grants || [],
+    entities: entities || [],
+    applications: applications || []
+  };
+}
+
 export default async function GrantWorkflowPage() {
 
 
