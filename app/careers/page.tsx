@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: 'Join our mission to provide free career training and workforce development. Explore career opportunities at Elevate For Humanity.',
 };
 
+// Force dynamic rendering - don't try to statically generate at build time
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function CareersPage() {
   // Fetch real job positions from database
   let openPositions = [];
