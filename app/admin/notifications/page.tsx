@@ -8,6 +8,18 @@ import { useRouter } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
+function QuickTemplate({ title, body, onClick }: { title: string; body: string; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-left"
+    >
+      <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
+      <p className="text-sm text-gray-600">{body}</p>
+    </button>
+  );
+}
+
 export default function NotificationsPage() {
   const router = useRouter();
   const [notification, setNotification] = useState({

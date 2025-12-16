@@ -21,17 +21,25 @@ export default async function PartnersPage() {
   }
 
   const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
 
-  const { count: activePartners } = await supabase
-
-  
-  
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
+
+  const { count: activePartners } = await supabase
+    .from('partners')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
   
   // Fetch relevant data
   const { data: items, count: totalItems } = await supabase
+    .from('partners')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false });
   
 
   return (
@@ -77,12 +85,12 @@ export default async function PartnersPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-                <p className="text-3xl font-bold text-blue-600">{totalPartners || 0}</p>
+                <p className="text-3xl font-bold text-blue-600">{totalItems || 0}</p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {activeItems || 0}
+                  {activePartners || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
@@ -101,9 +109,9 @@ export default async function PartnersPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {partners && partners.length > 0 ? (
+              {items && items.length > 0 ? (
                 <div className="space-y-4">
-                  {partners.map((item) => (
+                  {items.map((item) => (
                     <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
                       <p className="font-semibold">{item.title || item.name || item.id}</p>
                       <p className="text-sm text-gray-600">

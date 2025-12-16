@@ -10,7 +10,6 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
