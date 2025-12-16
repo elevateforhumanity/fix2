@@ -33,7 +33,7 @@ interface AdminRoute {
   name: string;
   href: string;
   description: string;
-  icon?: unknown;
+  icon?: React.ComponentType<{ className?: string }>;
   status: 'active' | 'partial' | 'planned';
   children?: AdminRoute[];
 }
@@ -697,6 +697,12 @@ export default function AdminPortalMapPage() {
         return (
           <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full">
             Planned
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-full">
+            Unknown
           </span>
         );
     }

@@ -43,7 +43,7 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
           />
           <select
             value={filterStatus}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFilterStatus(e.target.value as string)}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setFilterStatus(e.target.value as 'all' | 'active' | 'inactive')}
             className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Programs</option>
