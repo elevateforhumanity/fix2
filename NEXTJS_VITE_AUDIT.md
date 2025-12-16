@@ -41,36 +41,15 @@
 
 ## ⚠️ Vite References Found (Old/Archived)
 
-### 1. Separate Marketing Site (Intentional)
-**Location:** `./marketing-site/`
-**Status:** ⚠️ This is a **separate Vite project**
-**Action:** This appears to be an old/separate marketing site
+### 1. ✅ Separate Marketing Site (REMOVED)
+**Location:** `./marketing-site/` (deleted)
+**Was:** Unused Astro starter template (just "Hello Astro")
+**Action:** ✅ **DELETED** - Marketing already in Next.js `app/(marketing)/`
 
-```bash
-./marketing-site/package-lock.json contains Vite
-```
-
-**Recommendation:** 
-- If not used, delete `./marketing-site/` directory
-- If used, clarify it's a separate project
-- Marketing should be in main Next.js app under `app/(marketing)/`
-
-### 2. Support Bundle (Old Configs)
-**Location:** `./support_bundle/chatgpt-bundle.json`
-**Status:** ⚠️ Contains **old Vite configuration**
-**Action:** This is archived/support material
-
-```json
-{
-  "viteConfigRaw": "...",  // Old Vite config
-  "devcontainerRaw": "..." // Old devcontainer with Vite ports
-}
-```
-
-**Recommendation:**
-- This is historical/support data
-- Can be deleted or moved to `.archive/`
-- Not affecting current application
+### 2. ✅ Support Bundle (REMOVED)
+**Location:** `./support_bundle/` (deleted)
+**Was:** Old Vite configs and archived data
+**Action:** ✅ **DELETED** - No longer needed
 
 ### 3. Security Tests
 **Location:** `./tests/security/owasp-zap-config.yaml`
