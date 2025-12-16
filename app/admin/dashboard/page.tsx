@@ -420,7 +420,7 @@ export default async function AdminDashboard() {
                           {String(app.status || 'pending')}
                         </span>
                         <p className="text-xs text-slate-500 mt-1">
-                          {new Date(app.created_at).toLocaleDateString()}
+                          {app.created_at ? new Date(String(app.created_at)).toLocaleDateString() : 'N/A'}
                         </p>
                       </div>
                     </div>
