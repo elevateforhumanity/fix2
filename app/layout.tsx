@@ -14,12 +14,8 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
 import { Analytics } from '@/components/Analytics';
-import { MainNav } from '@/components/layout/MainNav';
-import MainHeader from '@/components/layout/MainHeader';
-import MainFooter from '@/components/layout/MainFooter';
-import { SiteFooter } from '@/components/layout/Footer';
-import SiteHeader from '@/components/site/SiteHeader';
-import NewSiteFooter from '@/components/site/SiteFooter';
+import { ModernNav } from '@/components/layout/ModernNav';
+import { ModernFooter } from '@/components/layout/ModernFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import AILiveChat from '@/components/chat/AILiveChat';
@@ -182,12 +178,12 @@ export default function RootLayout({
         <DMCATrackingPixel />
         <ScraperDetection />
         <SecurityBadge />
-        <SiteHeader />
+        <ModernNav />
         <Breadcrumbs />
-        <main id="main-content" className="min-h-screen">
+        <main id="main-content" className="min-h-screen pt-20">
           {children}
         </main>
-        <NewSiteFooter />
+        <ModernFooter />
         <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
