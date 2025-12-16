@@ -162,14 +162,17 @@ export async function getAuditLogStats(days: number = 30) {
 export async function exportAuditLogs(filters?: {
   start_date?: string;
   end_date?: string;
-}) {
+}): Promise<
+  | { success: true; data: string; filename: string }
+  | { success: false; error: string }
+> {
   const result = await getAuditLogs({
     ...filters,
     limit: 10000, // Export more records
   });
 
   if (!result.success) {
-    return result;
+    return { success: false, error: result.error };
   }
 
   const csv = [
