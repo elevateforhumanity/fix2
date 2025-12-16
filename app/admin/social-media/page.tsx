@@ -541,7 +541,7 @@ export default function SocialMediaPage() {
 
 interface PlatformCardProps {
   name: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   connected: boolean;
   followers: string;

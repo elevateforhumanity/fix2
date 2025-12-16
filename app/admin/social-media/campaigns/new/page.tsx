@@ -351,14 +351,8 @@ export default function NewSocialCampaignPage() {
                   </label>
                   <select
                     value={campaign.frequency}
-                    onChange={(
-                      e: React.ChangeEvent<
-                        | HTMLInputElement
-                        | HTMLSelectElement
-                        | HTMLTextAreaElement
-                      >
-                    ) =>
-                      setCampaign({ ...campaign, frequency: e.target.value })
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                      setCampaign({ ...campaign, frequency: e.target.value as '3x-daily' | 'daily' | 'weekly' })
                     }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
@@ -580,7 +574,7 @@ export default function NewSocialCampaignPage() {
 
 interface PlatformButtonProps {
   name: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   selected: boolean;
   onClick: () => void;
 }
