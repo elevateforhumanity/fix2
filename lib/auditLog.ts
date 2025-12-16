@@ -172,7 +172,7 @@ export async function exportAuditLogs(filters?: {
   });
 
   if (!result.success) {
-    return { success: false, error: result.error };
+    return { success: false as const, error: result.error };
   }
 
   const csv = [
@@ -191,7 +191,7 @@ export async function exportAuditLogs(filters?: {
   ].join('\n');
 
   return {
-    success: true,
+    success: true as const,
     data: csv,
     filename: `audit_logs_${Date.now()}.csv`,
   };

@@ -23,13 +23,14 @@ export const GET = withAuth(
     if (export_csv === 'true') {
       const result = await exportAuditLogs({ start_date: startDate || undefined, end_date: endDate || undefined });
       
-      if (!result.success) {
+      if (result.success === false) {
         return NextResponse.json({ error: result.error || 'Export failed' }, { status: 500 });
       }
 
+      // result.success === true here, so data and filename are available
       return new NextResponse(result.data, {
         headers: {
-          'Content-Type': 'text/csv',
+          'Content-Type': 'text/csv; charset=utf-8',
           'Content-Disposition': `attachment; filename="${result.filename}"`,
         },
       });
