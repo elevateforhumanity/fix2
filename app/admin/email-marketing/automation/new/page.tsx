@@ -232,7 +232,16 @@ export default function NewWorkflowPage() {
                         | HTMLSelectElement
                         | HTMLTextAreaElement
                       >
-                    ) => setWorkflow({ ...workflow, trigger: e.target.value })}
+                    ) =>
+                      setWorkflow({
+                        ...workflow,
+                        trigger: e.target.value as
+                          | 'enrollment'
+                          | 'application'
+                          | 'completion'
+                          | 'abandoned',
+                      })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="enrollment">New Student Enrollment</option>
@@ -345,7 +354,12 @@ export default function NewWorkflowPage() {
                               | HTMLTextAreaElement
                             >
                           ) =>
-                            updateStep(step.id, { delayUnit: e.target.value })
+                            updateStep(step.id, {
+                              delayUnit: e.target.value as
+                                | 'minutes'
+                                | 'hours'
+                                | 'days',
+                            })
                           }
                           className="px-3 py-1 border border-gray-300 rounded-lg"
                         >

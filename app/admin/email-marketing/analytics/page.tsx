@@ -233,11 +233,9 @@ export default function AnalyticsPage() {
               {/* Time Range Selector */}
               <select
                 value={timeRange}
-                onChange={(
-                  e: React.ChangeEvent<
-                    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-                  >
-                ) => setTimeRange(e.target.value as string)}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                  setTimeRange(e.target.value as '7d' | '30d' | '90d' | 'all')
+                }
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="7d">Last 7 Days</option>
@@ -505,7 +503,7 @@ export default function AnalyticsPage() {
 interface StatCardProps {
   title: string;
   value: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   color: 'blue' | 'green' | 'purple' | 'red';
   trend: 'up' | 'down' | null;
 }

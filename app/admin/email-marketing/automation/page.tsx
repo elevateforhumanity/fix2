@@ -481,7 +481,7 @@ export default function AutomationPage() {
 interface WorkflowTemplateProps {
   title: string;
   description: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   color: 'blue' | 'orange' | 'purple';
   onClick: () => void;
 }

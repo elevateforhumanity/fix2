@@ -80,6 +80,12 @@ export default function NewCampaignPage() {
   const handleSendNow = async () => {
     if (!confirm('Send this campaign now?')) return;
 
+    const response = await fetch('/api/email-marketing/campaigns/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(campaign),
+    });
+
     if (response.ok) {
       alert('Campaign sent successfully!');
       router.push('/admin/email-marketing');
@@ -87,6 +93,12 @@ export default function NewCampaignPage() {
   };
 
   const handleSchedule = async () => {
+    const response = await fetch('/api/email-marketing/campaigns/schedule', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(campaign),
+    });
+
     if (response.ok) {
       alert('Campaign scheduled successfully!');
       router.push('/admin/email-marketing');
@@ -201,7 +213,11 @@ export default function NewCampaignPage() {
             ].map((s) => (
               <button
                 key={s.key}
-                onClick={() => setStep(s.key as string)}
+                onClick={() =>
+                  setStep(
+                    s.key as 'details' | 'content' | 'recipients' | 'schedule'
+                  )
+                }
                 className={`flex items-center space-x-2 py-4 border-b-2 transition-colors ${
                   step === s.key
                     ? 'border-blue-600 text-blue-600'
