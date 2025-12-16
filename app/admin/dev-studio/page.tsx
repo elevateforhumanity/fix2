@@ -157,9 +157,13 @@ export default function DevStudioPage() {
     addTerminalOutput(`📄 Opening ${path}...`);
 
     try {
+      const url = new URL('/api/github/file', window.location.origin);
       url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('path', path);
       url.searchParams.set('ref', branch);
+
+      const res = await fetch(url);
+      const data = await res.json();
 
       if (res.ok) {
         setSelectedFile(path);
@@ -184,6 +188,20 @@ export default function DevStudioPage() {
     addTerminalOutput(`💾 Saving ${selectedFile}...`);
 
     try {
+      const res = await fetch('/api/github/file', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          repo: selectedRepo,
+          path: selectedFile,
+          content: fileContent,
+          sha: fileSha,
+          message: `Update ${selectedFile}`,
+          branch,
+        }),
+      });
+      const data = await res.json();
+
       if (res.ok) {
         setFileSha(data.content.sha);
         setHasChanges(false);
@@ -273,11 +291,9 @@ export default function DevStudioPage() {
             <input
               type="checkbox"
               checked={showCourseFilesOnly}
-              onChange={(
-                e: React.ChangeEvent<
-                  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-                >
-              ) => setShowCourseFilesOnly(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
+                setShowCourseFilesOnly(e.target.checked)
+              }
               className="rounded"
             />
             <span>Course Files Only</span>
