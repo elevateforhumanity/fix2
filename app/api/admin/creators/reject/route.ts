@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
+import { sendCreatorRejectionEmail } from '@/lib/email/resend';
 
 export async function POST(req: Request) {
   try {
@@ -12,14 +13,25 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // TODO: Add proper admin role check
-    const isAdmin =
-      user.email?.includes('admin') || user.email?.includes('elevate');
-    if (!isAdmin) {
+    // Check admin role
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    if (profile?.role !== 'admin') {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
     const { creatorId, reason } = await req.json();
+
+    // Get creator details before deletion
+    const { data: creator } = await supabase
+      .from('marketplace_creators')
+      .select('user_id, profiles(email, full_name)')
+      .eq('id', creatorId)
+      .single();
 
     // Delete the creator application (or mark as rejected)
     const { error } = await supabase
@@ -29,7 +41,18 @@ export async function POST(req: Request) {
 
     if (error) throw error;
 
-    // TODO: Send rejection email to applicant with reason
+    // Send rejection email
+    if (creator?.profiles?.email) {
+      try {
+        await sendCreatorRejectionEmail({
+          email: creator.profiles.email,
+          name: creator.profiles.full_name || 'Applicant',
+          reason: reason || 'Application does not meet requirements',
+        });
+      } catch (emailError) {
+        console.error('Failed to send rejection email:', emailError);
+      }
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {

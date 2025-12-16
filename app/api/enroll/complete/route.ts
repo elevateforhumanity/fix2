@@ -195,13 +195,19 @@ export async function POST(req: Request) {
     }
 
     // Step 10: Send welcome email
-    // TODO: Implement email service
-    // await sendWelcomeEmail({
-    //   email: emailLower,
-    //   name: `${firstName} ${lastName}`,
-    //   programName: program.name,
-    //   dashboardUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
-    // });
+    try {
+      const { sendWelcomeEmail } = await import('@/lib/email/resend');
+      await sendWelcomeEmail({
+        email: emailLower,
+        name: `${firstName} ${lastName}`,
+        programName: program.name,
+        dashboardUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
+      });
+      logger.info('Welcome email sent', { email: emailLower });
+    } catch (emailError) {
+      logger.warn('Welcome email failed', emailError);
+      // Don't fail enrollment if email fails
+    }
 
     logger.info('Enrollment completed successfully', {
       userId,

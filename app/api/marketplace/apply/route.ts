@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendMarketplaceApplicationEmail } from '@/lib/email/resend';
 import { createClient } from '@/utils/supabase/server';
 import {
   rateLimit,

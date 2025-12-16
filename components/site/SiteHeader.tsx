@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 
 const nav = [
   { href: '/programs', label: 'Programs' },
+  { href: '/micro-classes', label: 'Micro Courses' },
   { href: '/funding', label: 'Funding' },
   { href: '/platform', label: 'Platform' },
   { href: '/store', label: 'Store' },

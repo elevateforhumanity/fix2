@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 // TEST ONLY - Simulates webhook without Stripe payment
 export async function POST(req: Request) {
@@ -16,7 +17,7 @@ export async function POST(req: Request) {
     const supabase = await createClient();
 
     // Simulate what the webhook does
-    console.log('[TEST] Simulating webhook for:', { studentId, programId });
+    logger.info('[TEST] Simulating webhook for:', { studentId, programId });
 
     // Check if enrollment exists
     const { data: existing } = await supabase
@@ -45,7 +46,7 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
 
-      console.log('[TEST] ✅ Created enrollment:', newEnrollment.id);
+      logger.info('[TEST] ✅ Created enrollment:', newEnrollment.id);
 
       return NextResponse.json({
         success: true,
@@ -69,7 +70,7 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
 
-      console.log('[TEST] ✅ Activated enrollment:', existing.id);
+      logger.info('[TEST] ✅ Activated enrollment:', existing.id);
 
       return NextResponse.json({
         success: true,
@@ -78,7 +79,7 @@ export async function POST(req: Request) {
         action: 'activated',
       });
     } else {
-      console.log('[TEST] Enrollment already active:', existing.id);
+      logger.info('[TEST] Enrollment already active:', existing.id);
 
       return NextResponse.json({
         success: true,

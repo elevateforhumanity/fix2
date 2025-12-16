@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       });
     } catch (e) {
       // Table might not exist yet, that's okay
-      console.log('apprentice_hours_log not available:', e);
+      logger.info('apprentice_hours_log not available:', e);
     }
 
     return NextResponse.json({ success: true, data });

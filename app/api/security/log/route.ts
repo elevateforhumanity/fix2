@@ -7,17 +7,15 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient();
 
     // Log security event to database
-    const { error } = await supabase
-      .from('security_logs')
-      .insert({
-        event_type: body.type,
-        timestamp: body.timestamp,
-        url: body.url,
-        user_agent: body.userAgent,
-        ip_address: request.ip || request.headers.get('x-forwarded-for'),
-        data: body.data,
-        severity: getSeverity(body.type),
-      });
+    const { error } = await supabase.from('security_logs').insert({
+      event_type: body.type,
+      timestamp: body.timestamp,
+      url: body.url,
+      user_agent: body.userAgent,
+      ip_address: request.ip || request.headers.get('x-forwarded-for'),
+      data: body.data,
+      severity: getSeverity(body.type),
+    });
 
     if (error) {
       // Error: $1
@@ -36,23 +34,29 @@ export async function POST(request: NextRequest) {
 }
 
 function getSeverity(eventType: string): string {
-  const criticalEvents = ['AUTOMATION_DETECTED', 'IFRAME_EMBEDDING_DETECTED', 'DEVTOOLS_OPENED'];
+  const criticalEvents = [
+    'AUTOMATION_DETECTED',
+    'IFRAME_EMBEDDING_DETECTED',
+    'DEVTOOLS_OPENED',
+  ];
   const highEvents = ['RAPID_NAVIGATION', 'CONSOLE_ACCESS'];
-  
+
   if (criticalEvents.includes(eventType)) return 'critical';
   if (highEvents.includes(eventType)) return 'high';
   return 'medium';
 }
 
 function isCriticalEvent(eventType: string): boolean {
-  return ['AUTOMATION_DETECTED', 'IFRAME_EMBEDDING_DETECTED'].includes(eventType);
+  return ['AUTOMATION_DETECTED', 'IFRAME_EMBEDDING_DETECTED'].includes(
+    eventType
+  );
 }
 
 async function sendSecurityAlert(event: any) {
   // Send email/SMS/Slack notification for critical events
   // Implementation depends on your notification service
-  console.warn('[CRITICAL SECURITY EVENT]', event);
-  
+  logger.warn('[CRITICAL SECURITY EVENT]', event);
+
   // Example: Send to admin email
   try {
     await fetch('/api/notifications/send', {

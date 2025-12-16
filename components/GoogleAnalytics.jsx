@@ -6,8 +6,12 @@ import { usePathname, useSearchParams } from 'next/navigation';
 export default function GoogleAnalytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const GA_MEASUREMENT_ID =
-    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
+  // Don't load GA if no measurement ID is configured
+  if (!GA_MEASUREMENT_ID) {
+    return null;
+  }
 
   useEffect(() => {
     // Initialize Google Analytics
@@ -33,7 +37,9 @@ export default function GoogleAnalytics() {
   useEffect(() => {
     // Track page views on route change (Next.js App Router)
     if (typeof window.gtag !== 'undefined') {
-      const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
+      const url =
+        pathname +
+        (searchParams?.toString() ? `?${searchParams.toString()}` : '');
       window.gtag('config', GA_MEASUREMENT_ID, {
         page_path: url,
       });

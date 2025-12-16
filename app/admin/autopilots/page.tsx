@@ -26,7 +26,7 @@ interface AutopilotTask {
   id: string;
   name: string;
   description: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   script: string;
   category: 'build' | 'fix' | 'optimize' | 'deploy';
 }
@@ -137,8 +137,9 @@ export default function AutopilotsPage() {
       return next;
     });
     setFailedTasks((prev) => {
-      next.delete(task.id);
-      return next;
+      const nextFailed = new Set(prev);
+      nextFailed.delete(task.id);
+      return nextFailed;
     });
     setSelectedTask(task.id);
 
@@ -165,12 +166,15 @@ export default function AutopilotsPage() {
         setFailedTasks((prev) => new Set(prev).add(task.id));
       }
     } catch (error: unknown) {
-      addLog(task.id, `❌ Error: ${error.message}`);
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown error';
+      addLog(task.id, `❌ Error: ${errorMessage}`);
       setFailedTasks((prev) => new Set(prev).add(task.id));
     } finally {
       setRunningTasks((prev) => {
-        next.delete(task.id);
-        return next;
+        const nextRunning = new Set(prev);
+        nextRunning.delete(task.id);
+        return nextRunning;
       });
     }
   };

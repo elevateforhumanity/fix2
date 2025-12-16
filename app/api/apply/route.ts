@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { resend, notifyFrom } from '@/lib/email/resend';
+import { sendEmail } from '@/lib/email/resend';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
 
 export async function POST(req: Request) {
@@ -131,7 +131,7 @@ export async function POST(req: Request) {
     // 7️⃣ Send orientation email
     try {
       await resend.emails.send({
-        from: notifyFrom(),
+        from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
         to: email,
         subject: 'Welcome to the Barber Apprenticeship – Elevate for Humanity',
         text: `

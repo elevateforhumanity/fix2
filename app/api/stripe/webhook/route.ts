@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { logger } from '@/lib/logger';
 
 export const runtime = 'nodejs';
 
@@ -93,13 +94,13 @@ export async function POST(req: Request) {
       const fundingSource = session.metadata?.funding_source || 'WIOA';
 
       if (!studentId || !programId) {
-        console.log(
+        logger.info(
           '[Webhook] Missing student/program metadata, skipping auto-enrollment'
         );
         return NextResponse.json({ received: true });
       }
 
-      console.log('[Webhook] Processing funding payment - AUTO-ENROLLMENT', {
+      logger.info('[Webhook] Processing funding payment - AUTO-ENROLLMENT', {
         sessionId: session.id,
         studentId,
         programId,
@@ -122,7 +123,6 @@ export async function POST(req: Request) {
         })
         .eq('stripe_checkout_session_id', session.id);
 
-
       // STEP 2: Create/activate enrollment (AUTO-ENROLL)
       // Idempotency: don't double-enroll if webhook retries
       const { data: existing } = await supabaseClient
@@ -141,7 +141,7 @@ export async function POST(req: Request) {
           payment_status: 'paid',
           enrolled_at: new Date().toISOString(),
         });
-        console.log('[Webhook] ✅ Created new enrollment', {
+        logger.info('[Webhook] ✅ Created new enrollment', {
           studentId,
           programId,
         });
@@ -155,11 +155,11 @@ export async function POST(req: Request) {
             enrolled_at: new Date().toISOString(),
           })
           .eq('id', existing.id);
-        console.log('[Webhook] ✅ Activated existing enrollment', {
+        logger.info('[Webhook] ✅ Activated existing enrollment', {
           enrollmentId: existing.id,
         });
       } else {
-        console.log('[Webhook] Enrollment already active', {
+        logger.info('[Webhook] Enrollment already active', {
           enrollmentId: existing.id,
         });
       }
@@ -167,27 +167,32 @@ export async function POST(req: Request) {
       // STEP 3: Assign AI Instructor
       if (programSlug) {
         try {
-
-          const { assignAIInstructorForProgram } = await import('@/lib/ai/assign');
+          const { assignAIInstructorForProgram } =
+            await import('@/lib/ai/assign');
           const assignResult = await assignAIInstructorForProgram({
             studentId,
             programSlug,
           });
 
           if (assignResult.ok) {
-            console.log('[Webhook] ✅ AI instructor assigned:', assignResult.instructorSlug);
+            logger.info(
+              '[Webhook] ✅ AI instructor assigned:',
+              assignResult.instructorSlug
+            );
           } else {
-            console.warn('[Webhook] ⚠️ AI instructor assignment failed:', assignResult.reason);
+            logger.warn(
+              '[Webhook] ⚠️ AI instructor assignment failed:',
+              assignResult.reason
+            );
           }
         } catch (aiError) {
-          console.warn('[Webhook] ⚠️ AI instructor assignment error', aiError);
+          logger.warn('[Webhook] ⚠️ AI instructor assignment error', aiError);
         }
       }
 
       // STEP 4: Milady auto-provision (turn it on automatically)
       if (programSlug === 'barber-apprenticeship') {
         try {
-
           const miladyResponse = await fetch(
             `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/milady/auto-enroll`,
             {
@@ -201,24 +206,18 @@ export async function POST(req: Request) {
           );
 
           if (miladyResponse.ok) {
-
           } else {
             const errorText = await miladyResponse.text();
-            console.warn(
+            logger.warn(
               '[Webhook] ⚠️ Milady auto-enrollment failed',
               errorText
             );
           }
         } catch (miladyError) {
-          console.warn(
-            '[Webhook] ⚠️ Milady auto-enrollment error',
-            miladyError
-          );
+          logger.warn('[Webhook] ⚠️ Milady auto-enrollment error', miladyError);
           // Don't fail the whole webhook - enrollment is still active
         }
       }
-
-
     }
 
     // Handle subscription lifecycle (created/updated/deleted)
@@ -257,7 +256,7 @@ export async function POST(req: Request) {
         current_period_end: periodEnd,
       });
 
-      console.log(
+      logger.info(
         `[Webhook] ${event.type}: user=${userId}, tier=${finalTier}, status=${finalStatus}`
       );
     }

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
+import { sendCreatorApprovalEmail } from '@/lib/email/resend';
 
 export async function POST(req: Request) {
   try {
@@ -22,6 +23,13 @@ export async function POST(req: Request) {
     const { creatorId } = await req.json();
     const { ipAddress } = getRequestMetadata(req);
 
+    // Get creator details
+    const { data: creator } = await supabase
+      .from('marketplace_creators')
+      .select('user_id, profiles(email, full_name)')
+      .eq('id', creatorId)
+      .single();
+
     const { error } = await supabase
       .from('marketplace_creators')
       .update({ status: 'approved' })
@@ -38,7 +46,17 @@ export async function POST(req: Request) {
       ipAddress,
     });
 
-    // TODO: Send approval email to creator
+    // Send approval email
+    if (creator?.profiles?.email) {
+      try {
+        await sendCreatorApprovalEmail({
+          email: creator.profiles.email,
+          name: creator.profiles.full_name || 'Creator',
+        });
+      } catch (emailError) {
+        console.error('Failed to send approval email:', emailError);
+      }
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {

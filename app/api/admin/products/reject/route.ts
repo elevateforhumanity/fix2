@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendProductRejectionEmail } from '@/lib/email/resend';
 import { createClient } from '@/utils/supabase/server';
 import { requireAdmin } from '@/lib/auth';
 

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendMarketplaceSaleNotification } from '@/lib/email/resend';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { randomBytes } from 'crypto';
@@ -100,7 +101,7 @@ export async function POST(req: Request) {
     // TODO: Send email to buyer with download link
     // TODO: Send notification to creator about new sale
 
-    console.log('Marketplace sale recorded:', {
+    logger.info('Marketplace sale recorded:', {
       productId,
       creatorId,
       amountTotal,

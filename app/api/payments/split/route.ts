@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 // Program-specific vendor costs
 const VENDOR_COSTS = {
@@ -16,9 +17,10 @@ const VENDOR_COSTS = {
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
-  
+
   try {
-    const { enrollment_id, total_amount, payment_method, transaction_id } = await request.json();
+    const { enrollment_id, total_amount, payment_method, transaction_id } =
+      await request.json();
 
     // Get enrollment details
     const { data: enrollment, error: enrollError } = await supabase
@@ -28,13 +30,19 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (enrollError || !enrollment) {
-      return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Enrollment not found' },
+        { status: 404 }
+      );
     }
 
     // Get vendor cost for this program
     const programSlug = enrollment.programs.slug;
-    const vendorConfig = VENDOR_COSTS[programSlug] || { vendor: 'none', cost: 0 };
-    
+    const vendorConfig = VENDOR_COSTS[programSlug] || {
+      vendor: 'none',
+      cost: 0,
+    };
+
     const vendorAmount = vendorConfig.cost;
     const elevateAmount = total_amount - vendorAmount;
 
@@ -71,7 +79,7 @@ export async function POST(request: NextRequest) {
         programId: enrollment.program_id,
       });
     }
-    
+
     // Note: Remaining balance ($4,595) automatically goes to Stripe account
     // No additional action needed - Affirm pays full amount to Stripe
 
@@ -98,7 +106,6 @@ export async function POST(request: NextRequest) {
         vendor_name: vendorConfig.vendor,
       },
     });
-
   } catch (error) {
     // Error: $1
     return NextResponse.json(
@@ -121,8 +128,9 @@ async function processVendorPayment(params: {
   try {
     if (params.vendorName === 'milady') {
       // Trigger Milady auto-enrollment
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-      
+      const siteUrl =
+        process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
       const response = await fetch(`${siteUrl}/api/milady/auto-enroll`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -143,7 +151,9 @@ async function processVendorPayment(params: {
           })
           .eq('id', params.splitId);
 
-        console.log(`✅ Vendor payment processed: ${params.vendorName} - $${params.amount}`);
+        logger.info(
+          `✅ Vendor payment processed: ${params.vendorName} - $${params.amount}`
+        );
       } else {
         // Error logged
       }

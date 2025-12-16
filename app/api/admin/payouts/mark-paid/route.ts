@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendPayoutConfirmationEmail } from '@/lib/email/resend';
 import { createClient } from '@supabase/supabase-js';
 import { requireAdmin } from '@/lib/auth';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';

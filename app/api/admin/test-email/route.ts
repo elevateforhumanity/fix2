@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { resend, notifyFrom } from '@/lib/email/resend';
+import { sendEmail } from '@/lib/email/resend';
 
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -30,7 +32,7 @@ export async function POST(req: NextRequest) {
     switch (email_type) {
       case 'welcome':
         result = await resend.emails.send({
-          from: notifyFrom(),
+          from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
           to: profile.email,
           subject: 'Test: Welcome Email - Elevate for Humanity',
           text: `
@@ -47,7 +49,7 @@ If you're receiving this, the email system is working correctly!
 
       case 'reminder':
         result = await resend.emails.send({
-          from: notifyFrom(),
+          from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
           to: profile.email,
           subject: 'Test: Reminder Email - Elevate for Humanity',
           text: `
@@ -67,7 +69,7 @@ Action Required:
 
       case 'notification':
         result = await resend.emails.send({
-          from: notifyFrom(),
+          from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
           to: profile.email,
           subject: 'Test: Notification Email - Elevate for Humanity',
           text: `
@@ -86,7 +88,10 @@ Recent Activity:
         break;
 
       default:
-        return NextResponse.json({ error: 'Invalid email type' }, { status: 400 });
+        return NextResponse.json(
+          { error: 'Invalid email type' },
+          { status: 400 }
+        );
     }
 
     return NextResponse.json({
@@ -95,7 +100,6 @@ Recent Activity:
       email_id: result.data?.id,
       sent_to: profile.email,
     });
-
   } catch (err: any) {
     // Error: $1
     return NextResponse.json(

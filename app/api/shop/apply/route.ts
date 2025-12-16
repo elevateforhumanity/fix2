@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
-import { resend, notifyFrom } from '@/lib/email/resend';
+import { sendEmail } from '@/lib/email/resend';
 
 export async function POST(req: Request) {
   try {
@@ -45,15 +45,13 @@ export async function POST(req: Request) {
     }
 
     // Create user profile
-    const { error: profileError } = await supabase
-      .from('profiles')
-      .upsert({
-        id: userId,
-        full_name: owner_name,
-        email,
-        phone,
-        role: 'shop_owner',
-      });
+    const { error: profileError } = await supabase.from('profiles').upsert({
+      id: userId,
+      full_name: owner_name,
+      email,
+      phone,
+      role: 'shop_owner',
+    });
 
     if (profileError) {
       // Error: $1
@@ -101,7 +99,7 @@ export async function POST(req: Request) {
     // Send welcome email
     try {
       await resend.emails.send({
-        from: notifyFrom(),
+        from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
         to: email,
         subject: 'Shop Partner Application Received - Elevate for Humanity',
         text: `
@@ -149,7 +147,6 @@ Welcome to the Elevate for Humanity network!
       shop_id: shop.id,
       user_id: userId,
     });
-
   } catch (err: any) {
     // Error: $1
     return NextResponse.json(

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+import { programs } from '@/app/data/programs';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -9,54 +11,80 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] });
   }
 
-  // Mock search results - replace with actual database queries
-  const allResults = {
-    programs: [
-      { id: 1, title: 'HVAC Technician Training', type: 'program', url: '/programs/hvac-technician', description: '12-week intensive HVAC training program' },
-      { id: 2, title: 'Certified Nursing Assistant', type: 'program', url: '/programs/cna-training', description: 'CNA certification program' },
-      { id: 3, title: 'Web Development Bootcamp', type: 'program', url: '/programs/web-development', description: '16-week coding bootcamp' },
-    ],
-    pages: [
-      { id: 4, title: 'About Us', type: 'page', url: '/about', description: 'Learn about our mission and values' },
-      { id: 5, title: 'WIOA Eligibility', type: 'page', url: '/wioa-eligibility', description: 'Check if you qualify for WIOA funding' },
-      { id: 6, title: 'Career Services', type: 'page', url: '/career-services', description: 'Job placement and career support' },
-    ],
-    resources: [
-      { id: 7, title: 'Financial Aid Guide', type: 'resource', url: '/financial-aid', description: 'Learn about funding options' },
-      { id: 8, title: 'Success Stories', type: 'resource', url: '/success-stories', description: 'Read student testimonials' },
-    ],
-  };
-
-  // Filter results based on query
   const searchLower = query.toLowerCase();
-  let results: unknown[] = [];
+  let results: any[] = [];
 
-  if (type === 'all' || type === 'programs') {
-    results = results.concat(
-      allResults.programs.filter(item =>
-        item.title.toLowerCase().includes(searchLower) ||
-        item.description.toLowerCase().includes(searchLower)
-      )
+  try {
+    // Search programs from static data
+    if (type === 'all' || type === 'programs') {
+      const programResults = programs
+        .filter(
+          (p) =>
+            p.name.toLowerCase().includes(searchLower) ||
+            p.shortDescription.toLowerCase().includes(searchLower)
+        )
+        .map((p) => ({
+          id: p.slug,
+          title: p.name,
+          type: 'program',
+          url: `/programs/${p.slug}`,
+          description: p.shortDescription,
+        }));
+      results = results.concat(programResults);
+    }
+
+    // Search pages (static list of key pages)
+    if (type === 'all' || type === 'pages') {
+      const pages = [
+        {
+          title: 'About Us',
+          url: '/about',
+          description: 'Learn about our mission and values',
+        },
+        {
+          title: 'WIOA Eligibility',
+          url: '/wioa-eligibility',
+          description: 'Check if you qualify for WIOA funding',
+        },
+        {
+          title: 'Career Services',
+          url: '/career-services',
+          description: 'Job placement and career support',
+        },
+        {
+          title: 'Financial Aid',
+          url: '/financial-aid',
+          description: 'Learn about funding options',
+        },
+        {
+          title: 'Contact',
+          url: '/contact',
+          description: 'Get in touch with us',
+        },
+      ];
+
+      const pageResults = pages
+        .filter(
+          (p) =>
+            p.title.toLowerCase().includes(searchLower) ||
+            p.description.toLowerCase().includes(searchLower)
+        )
+        .map((p, i) => ({
+          id: `page-${i}`,
+          title: p.title,
+          type: 'page',
+          url: p.url,
+          description: p.description,
+        }));
+      results = results.concat(pageResults);
+    }
+
+    return NextResponse.json({ results, query });
+  } catch (error) {
+    console.error('Search error:', error);
+    return NextResponse.json(
+      { results: [], query, error: 'Search failed' },
+      { status: 500 }
     );
   }
-
-  if (type === 'all' || type === 'pages') {
-    results = results.concat(
-      allResults.pages.filter(item =>
-        item.title.toLowerCase().includes(searchLower) ||
-        item.description.toLowerCase().includes(searchLower)
-      )
-    );
-  }
-
-  if (type === 'all' || type === 'resources') {
-    results = results.concat(
-      allResults.resources.filter(item =>
-        item.title.toLowerCase().includes(searchLower) ||
-        item.description.toLowerCase().includes(searchLower)
-      )
-    );
-  }
-
-  return NextResponse.json({ results, query });
 }

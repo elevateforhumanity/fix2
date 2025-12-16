@@ -99,3 +99,4 @@ nextjs-site-backup-*.tar.gz
 core
 .env*.local
 .env.certiport
+.env-branches/

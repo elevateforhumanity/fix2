@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -50,43 +50,16 @@ export default function BookingPage() {
   }, []);
 
   const loadInstructors = async () => {
-    // Mock data - in production, fetch from API
-    const mockInstructors: Instructor[] = [
-      {
-        id: 'inst-1',
-        name: 'Dr. Sarah Johnson',
-        title: 'HVAC Master Instructor',
-        avatar:
-          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
-        specialties: ['HVAC', 'EPA 608', 'Refrigeration'],
-        rating: 4.9,
-        totalSessions: 342,
-        availability: generateTimeSlots(),
-      },
-      {
-        id: 'inst-2',
-        name: 'Marcus Williams',
-        title: 'CDL Training Expert',
-        avatar:
-          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
-        specialties: ['CDL', 'Commercial Driving', 'Safety'],
-        rating: 4.8,
-        totalSessions: 289,
-        availability: generateTimeSlots(),
-      },
-      {
-        id: 'inst-3',
-        name: 'Jennifer Lee',
-        title: 'Healthcare Instructor',
-        avatar:
-          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
-        specialties: ['CNA', 'Medical Assistant', 'Patient Care'],
-        rating: 5.0,
-        totalSessions: 456,
-        availability: generateTimeSlots(),
-      },
-    ];
-    setInstructors(mockInstructors);
+    try {
+      const response = await fetch('/api/instructors/available');
+      if (response.ok) {
+        const data = await response.json();
+        setInstructors(data.instructors || []);
+      }
+    } catch (error) {
+      console.error('Failed to load instructors:', error);
+      setInstructors([]);
+    }
   };
 
   function generateTimeSlots(): TimeSlot[] {
