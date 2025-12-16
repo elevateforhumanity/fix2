@@ -81,6 +81,11 @@ export default function NewSocialCampaignPage() {
   };
 
   const saveCampaign = async () => {
+    const response = await fetch('/api/social-media/campaigns', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...campaign, status: 'draft' }),
+    });
     if (response.ok) {
       alert('Campaign saved as draft!');
       router.push('/admin/social-media');
@@ -95,6 +100,11 @@ export default function NewSocialCampaignPage() {
     )
       return;
 
+    const response = await fetch('/api/social-media/campaigns', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...campaign, status: 'active' }),
+    });
     if (response.ok) {
       alert('Campaign activated! Posts will go out 3x daily.');
       router.push('/admin/social-media');
