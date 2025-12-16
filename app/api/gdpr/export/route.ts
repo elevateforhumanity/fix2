@@ -15,20 +15,23 @@ export async function POST(request: NextRequest) {
     const { format = 'json' } = await request.json();
     const result = await requestDataPortability(user.id, format);
 
-    if (!result.success) {
-      return NextResponse.json({ error: result.error || 'Export failed' }, { status: 500 });
+    if (result.success === false) {
+      return NextResponse.json(
+        { error: ('error' in result ? result.error : 'Export failed') },
+        { status: 500 }
+      );
     }
 
-    if (!('data' in result)) {
-      return NextResponse.json({ error: 'Export data missing' }, { status: 500 });
-    }
-
-    return new NextResponse(result.data, {
-      headers: {
-        'Content-Type': result.contentType || 'application/json',
-        'Content-Disposition': `attachment; filename="${result.filename || 'export.json'}"`,
-      },
-    });
+    // Use 'in' operator to safely narrow the union
+    return new NextResponse(
+      'data' in result ? result.data : '',
+      {
+        headers: {
+          'Content-Type': ('contentType' in result ? result.contentType : 'application/json'),
+          'Content-Disposition': `attachment; filename="${'filename' in result ? result.filename : 'export.json'}"`,
+        },
+      }
+    );
   } catch (error) {
     logger.error('Error exporting user data:', error);
     return NextResponse.json(

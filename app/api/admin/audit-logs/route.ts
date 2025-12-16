@@ -24,16 +24,22 @@ export const GET = withAuth(
       const result = await exportAuditLogs({ start_date: startDate || undefined, end_date: endDate || undefined });
       
       if (result.success === false) {
-        return NextResponse.json({ error: result.error || 'Export failed' }, { status: 500 });
+        return NextResponse.json(
+          { error: ('error' in result ? result.error : 'Export failed') },
+          { status: 500 }
+        );
       }
 
-      // result.success === true here, so data and filename are available
-      return new NextResponse(result.data, {
-        headers: {
-          'Content-Type': 'text/csv; charset=utf-8',
-          'Content-Disposition': `attachment; filename="${result.filename}"`,
-        },
-      });
+      // Use 'in' operator to safely narrow the union
+      return new NextResponse(
+        'data' in result ? result.data : '',
+        {
+          headers: {
+            'Content-Type': 'text/csv; charset=utf-8',
+            'Content-Disposition': `attachment; filename="${'filename' in result ? result.filename : 'audit-logs.csv'}"`,
+          },
+        }
+      );
     }
 
     const result = await getAuditLogs({
