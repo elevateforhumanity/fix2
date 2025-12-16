@@ -37,7 +37,7 @@ export const GET = withAuth(
     }
 
     const result = await getAuditLogs({
-      action: action,
+      action: action as any,
       actor_id: actorId || undefined,
       target_type: targetType || undefined,
       target_id: targetId || undefined,

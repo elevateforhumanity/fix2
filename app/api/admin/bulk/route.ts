@@ -13,10 +13,10 @@ import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
-  async (request: NextRequest, user) => {
+  async (request: NextRequest, { user }) => {
 
   try {
-    const user = await requireAdmin();
+    await requireAdmin();
     const { operation, ...params } = await request.json();
 
     let result;

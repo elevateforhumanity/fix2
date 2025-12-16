@@ -4,8 +4,8 @@ import { createServerClient } from "@supabase/ssr";
 import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
-function getSupabaseServerClient() {
-  const cookieStore = cookies();
+async function getSupabaseServerClient() {
+  const cookieStore = await cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -29,7 +29,7 @@ export const GET = withAuth(
     const since = new Date();
     since.setDate(since.getDate() - (isNaN(days) ? 7 : days));
 
-    const supabase = getSupabaseServerClient();
+    const supabase = await getSupabaseServerClient();
 
     const { data, error } = await supabase
       .from("partner_certificates")
