@@ -5,12 +5,9 @@ import { withAuth } from "@/lib/withAuth";
 import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
-  async (
-    req: NextRequest,
-    { params }: { params: Promise<{ id: string }> },
-    user
-  ) => {
-  const { id } = await params;
+  async (req: NextRequest, ctx) => {
+  const params = await ctx.params as { id: string };
+  const { id } = params;
   const supabase = getServerSupabase();
 
   if (!supabase) {

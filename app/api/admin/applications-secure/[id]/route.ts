@@ -6,8 +6,8 @@ import { getServerSupabase } from '@/lib/supabaseClients';
 import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
-  async (req: NextRequest, { params }: { params: Promise<{ id: string }> }, user) => {
-    const { id } = await params;
+  async (req: NextRequest, { params, user }) => {
+    const { id } = params;
     const supabase = getServerSupabase();
 
     if (!supabase) {

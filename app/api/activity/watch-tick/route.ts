@@ -22,7 +22,7 @@ async function awardAchievement(
   );
 
   if (error) {
-    logger.error("awardAchievement error", code, error);
+    logger.error("awardAchievement error", error instanceof Error ? error : new Error(String(error)), { code });
   }
 }
 
