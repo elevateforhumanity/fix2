@@ -203,7 +203,7 @@
     "predev": "bash scripts/setup-env-auto.sh || true && node scripts/generate-course-covers.mjs && echo 'Starting dev server...'",
     "dev": "next dev",
     "setup:env": "bash scripts/setup-env-auto.sh",
-    "env:pull": "bash pull-vercel-env.sh",
+    "env:pull": "vercel env pull .env.local --yes",
     "env:setup": "bash setup-env-quick.sh",
     "cleanup:console": "node scripts/cleanup-console-statements.mjs",
     "cleanup:root": "bash cleanup-root.sh",
@@ -296,8 +296,8 @@
     "test:enrollment": "node scripts/test-enrollment-autopilot.mjs",
     "migrate:ai": "node scripts/run-ai-instructor-migration.mjs",
     "test:affirm": "node scripts/test-affirm-payment.mjs",
-    "env:pull": "vercel env pull .env.local --yes",
-    "check:stripe": "bash scripts/pull-and-check-stripe.sh"
+    "check:stripe": "bash scripts/pull-and-check-stripe.sh",
+    "check-env": "node -e \"if (!require(\\\"fs\\\").existsSync(\\\".env.local\\\")) { console.error(\\\"❌ .env.local not found! Run: ./setup-env.sh\\\"); process.exit(1); } else { console.log(\\\"✅ .env.local exists\\\"); }\""
   },
   "overrides": {
     "inflight": "npm:lru-cache@^10.0.0"
