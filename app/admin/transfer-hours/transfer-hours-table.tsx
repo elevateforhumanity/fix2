@@ -111,7 +111,7 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
             />
             <select
               value={filterStatus}
-              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFilterStatus(e.target.value as string)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setFilterStatus(e.target.value as 'all' | 'pending' | 'approved' | 'denied')}
               className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Statuses</option>
