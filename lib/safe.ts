@@ -29,3 +29,22 @@ export const date = (v: unknown, fallback: Date | null = null) => {
 
 export const arr = <T = unknown>(v: unknown): T[] =>
   Array.isArray(v) ? v : [];
+
+export const toDateString = (value: unknown): string => {
+  if (value instanceof Date) return value.toLocaleDateString();
+  if (typeof value === "string" || typeof value === "number") {
+    const d = new Date(value);
+    return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString();
+  }
+  return "";
+};
+
+export const toError = (error: unknown): Error => {
+  if (error instanceof Error) return error;
+  return new Error(String(error));
+};
+
+export const toErrorMessage = (error: unknown): string => {
+  if (error instanceof Error) return error.message;
+  return String(error);
+};
