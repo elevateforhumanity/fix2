@@ -133,6 +133,9 @@ export default function DevStudioPage() {
       url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('ref', branch);
 
+      const res = await fetch(url);
+      const data = await res.json();
+
       if (res.ok) {
         const filePaths = data.files.map((f: Record<string, any>) => f.path);
         setFiles(filePaths);
