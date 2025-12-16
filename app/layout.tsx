@@ -29,7 +29,7 @@ import {
 } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
-import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
+import { SecurityMonitor } from '@/components/SecurityMonitor';
 
 // Optimized font loading with Next.js
 const inter = Inter({
@@ -177,7 +177,6 @@ export default function RootLayout({
         />
         <DMCATrackingPixel />
         <ScraperDetection />
-        <SecurityBadge />
         <ModernNav />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen pt-20">
