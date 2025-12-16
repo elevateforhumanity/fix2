@@ -401,10 +401,10 @@ export default async function AdminDashboard() {
                     >
                       <div>
                         <p className="font-semibold text-slate-900">
-                          {app.full_name}
+                          {String(app.full_name || 'Unknown')}
                         </p>
                         <p className="text-sm text-slate-600">
-                          {app.program_interest || 'No program specified'}
+                          {String(app.program_interest || 'No program specified')}
                         </p>
                       </div>
                       <div className="text-right">
@@ -417,7 +417,7 @@ export default async function AdminDashboard() {
                                 : 'bg-red-100 text-red-700'
                           }`}
                         >
-                          {app.status}
+                          {String(app.status || 'pending')}
                         </span>
                         <p className="text-xs text-slate-500 mt-1">
                           {new Date(app.created_at).toLocaleDateString()}
