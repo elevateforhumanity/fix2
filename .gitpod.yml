@@ -29,25 +29,48 @@ ports:
     description: Node.js debugging port
 
 tasks:
-  - name: Automated Setup
+  - name: Environment Setup & Dev Server
     init: |
-      # Make scripts executable
-      chmod +x automated-setup.sh pull-vercel-env.sh setup-real-credentials.sh update-env.sh 2>/dev/null || true
-      chmod +x scripts/what-we-actually-have.sh 2>/dev/null || true
+      # Make setup script executable
+      chmod +x setup-env.sh 2>/dev/null || true
       
-      # Run automated setup if VERCEL_TOKEN is available
-      if [ -n "$VERCEL_TOKEN" ]; then
-        echo "🤖 Running automated setup..."
-        ./automated-setup.sh || echo "⚠️  Automated setup failed, continuing anyway..."
+      # Install dependencies
+      echo "📦 Installing dependencies..."
+      npm install
+      
+      # Setup environment variables
+      if [ ! -f .env.local ]; then
+        echo ""
+        echo "🔧 Setting up environment variables..."
+        if [ -n "$VERCEL_TOKEN" ]; then
+          echo "✅ VERCEL_TOKEN found - pulling from Vercel..."
+          ./setup-env.sh || echo "⚠️  Setup failed, see ENVIRONMENT_SETUP.md"
+        else
+          echo "⚠️  .env.local not found and VERCEL_TOKEN not set"
+          echo ""
+          echo "To set up automatically:"
+          echo "  1. Get Vercel token: https://vercel.com/account/tokens"
+          echo "  2. Set it: gp env VERCEL_TOKEN='your-token'"
+          echo "  3. Restart workspace or run: ./setup-env.sh"
+          echo ""
+          echo "See ENVIRONMENT_SETUP.md for details"
+        fi
       else
-        echo "⚠️  VERCEL_TOKEN not set - skipping automated setup"
-        echo "   To enable automation: gp env VERCEL_TOKEN='your-token'"
-        echo "   See: AUTOMATED_VERCEL_SETUP.md"
-        pnpm install
+        echo "✅ .env.local already exists"
       fi
     command: |
+      # Check if .env.local exists before starting
+      if [ ! -f .env.local ]; then
+        echo "❌ .env.local not found!"
+        echo ""
+        echo "Run: ./setup-env.sh"
+        echo "Or see: ENVIRONMENT_SETUP.md"
+        echo ""
+        exit 1
+      fi
+      
       echo "🚀 Starting development server..."
-      pnpm dev
+      npm run dev
   - name: What We Actually Have
     command: |
       chmod +x scripts/what-we-actually-have.sh || true

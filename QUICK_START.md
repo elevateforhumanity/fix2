@@ -1,193 +1,127 @@
-# 🚀 QUICK START - Deploy in 30 Minutes
+# Quick Start - Environment Setup
 
-## Step 1: Database Migration (5 min)
+## ⚡ Automatic Setup (Recommended)
 
-1. Go to: https://supabase.com/dashboard/project/YOUR_PROJECT/sql
-2. Open: `COPY_PASTE_MIGRATIONS.md`
-3. Copy the entire SQL script
-4. Paste into Supabase SQL Editor
-5. Click "Run"
-6. Wait for success message
+### Step 1: Get Vercel Token
 
-**Verify:**
-```sql
-SELECT COUNT(*) FROM forum_categories;
--- Should return: 12
-```
+1. Go to https://vercel.com/account/tokens
+2. Click "Create Token"
+3. Copy the token
 
----
+### Step 2: Set Token
 
-## Step 2: Environment Variables (10 min)
-
-1. Go to: https://vercel.com/dashboard
-2. Select your project
-3. Go to: Settings → Environment Variables
-4. Add these 17 variables:
+**Gitpod (Persistent):**
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
-STRIPE_SECRET_KEY=sk_live_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_id
-PAYPAL_CLIENT_SECRET=your_paypal_secret
-NEXT_PUBLIC_AFFIRM_PUBLIC_KEY=your_affirm_key
-AFFIRM_PRIVATE_KEY=your_affirm_private_key
-OPENAI_API_KEY=sk-proj-...
-SENDGRID_API_KEY=SG.your_key
-SENDGRID_FROM_EMAIL=noreply@elevateforhumanity.org
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
-NEXTAUTH_SECRET=$(openssl rand -base64 32)
-NEXTAUTH_URL=https://elevateforhumanity.org
-SESSION_SECRET=$(openssl rand -base64 32)
+gp env VERCEL_TOKEN='paste-your-token-here'
+# Restart workspace for it to take effect
 ```
 
-**Generate secrets:**
-```bash
-openssl rand -base64 32  # For NEXTAUTH_SECRET
-openssl rand -base64 32  # For SESSION_SECRET
-```
-
----
-
-## Step 3: Configure Webhooks (5 min)
-
-### Stripe Webhook
-1. Go to: https://dashboard.stripe.com/webhooks
-2. Click "Add endpoint"
-3. URL: `https://elevateforhumanity.org/api/webhooks/stripe`
-4. Select events:
-   - `checkout.session.completed`
-   - `payment_intent.succeeded`
-   - `payment_intent.payment_failed`
-5. Copy webhook secret
-6. Add to Vercel as `STRIPE_WEBHOOK_SECRET`
-
-### PayPal Webhook
-1. Go to: https://developer.paypal.com/dashboard
-2. Add webhook: `https://elevateforhumanity.org/api/webhooks/paypal`
-3. Select events:
-   - `PAYMENT.CAPTURE.COMPLETED`
-   - `PAYMENT.CAPTURE.DENIED`
-
----
-
-## Step 4: Deploy (5 min)
+**Local/Codespaces:**
 
 ```bash
-# Option A: Automatic (Recommended)
-git push origin main
-# Vercel auto-deploys
-
-# Option B: Manual
-vercel --prod
+export VERCEL_TOKEN='paste-your-token-here'
 ```
 
-**Watch deployment:**
-https://vercel.com/dashboard
+### Step 3: Run Setup Script
 
----
-
-## Step 5: Verify (5 min)
-
-### Test These URLs:
-- [ ] https://elevateforhumanity.org
-- [ ] https://elevateforhumanity.org/programs
-- [ ] https://elevateforhumanity.org/forums
-- [ ] https://elevateforhumanity.org/programs/hvac-technician
-
-### Test Features:
-- [ ] Click AI chat widget (bottom right)
-- [ ] Send message: "I need help"
-- [ ] Verify AI responds
-- [ ] Go to /forums
-- [ ] Click a category
-- [ ] Verify threads load
-
-### Test Enrollment:
-- [ ] Go to any program page
-- [ ] Click "Enroll Now"
-- [ ] Use test card: 4242 4242 4242 4242
-- [ ] Complete enrollment
-- [ ] Verify confirmation
-
----
-
-## ✅ Success Checklist
-
-- [ ] Database migration complete (12 forum categories)
-- [ ] All 17 environment variables set
-- [ ] Stripe webhook configured
-- [ ] PayPal webhook configured
-- [ ] Deployment successful
-- [ ] Homepage loads
-- [ ] Programs page loads
-- [ ] Forums accessible
-- [ ] AI chat responds
-- [ ] Enrollment works
-- [ ] Payment processes
-
----
-
-## 🎉 You're Live!
-
-**Platform Rating:** 10/10 ✅
-**Status:** Production Ready
-**Total Time:** 30 minutes
-
----
-
-## 📚 Full Documentation
-
-For detailed guides, see:
-- `COPY_PASTE_MIGRATIONS.md` - Migration commands
-- `VERCEL_SETUP_GUIDE.md` - Complete Vercel setup
-- `PAYMENT_TESTING_GUIDE.md` - Payment testing
-- `PRODUCTION_DEPLOYMENT_CHECKLIST.md` - Full checklist
-- `FINAL_PRODUCTION_SUMMARY.md` - Complete summary
-
----
-
-## 🆘 Need Help?
-
-**Common Issues:**
-
-**Build fails:**
 ```bash
-# Clear cache and redeploy
-vercel --force
+./setup-env.sh
 ```
 
-**Environment variables not working:**
+✅ **Done!** Your `.env.local` is now configured with all 72 variables.
+
+---
+
+## 🚀 Start Development
+
 ```bash
-# Verify in Vercel dashboard
-# Make sure they're set for Production
+npm install
+npm run dev
 ```
 
-**Database connection fails:**
-```bash
-# Check Supabase URL and keys
-# Verify they're correct in Vercel
+The app will automatically recognize all environment variables from `.env.local`.
+
+---
+
+## 🔄 How It Works
+
+```
+Vercel (Production)
+    ↓ (vercel env pull)
+.env.local (Your Machine)
+    ↓ (automatically loaded)
+Next.js App
 ```
 
-**Payments not working:**
+- **No secrets in git** ✅
+- **Single source of truth** (Vercel)
+- **Automatic recognition** by Next.js
+- **Team-friendly** (everyone runs same setup)
+
+---
+
+## ❓ Troubleshooting
+
+### `.env.local` missing in another environment?
+
+**This is expected!** `.env.local` is gitignored (never committed).
+
+Each environment needs to run:
+
 ```bash
-# Verify Stripe keys are LIVE keys (not test)
-# Check webhook secret is correct
+./setup-env.sh
+```
+
+### Variables not loading?
+
+Restart dev server:
+
+```bash
+pkill -f "next dev"
+npm run dev
+```
+
+### Need to update variables?
+
+Re-run setup to pull latest from Vercel:
+
+```bash
+./setup-env.sh
 ```
 
 ---
 
-## 📞 Support
+## 📚 More Info
 
-- Email: support@elevateforhumanity.org
-- Forums: https://elevateforhumanity.org/forums
-- Chat: AI chat widget on site
+- **Full Guide:** [ENVIRONMENT_SETUP.md](./ENVIRONMENT_SETUP.md)
+- **What's Configured:** 72 environment variables
+- **Where They Come From:** Vercel production environment
+- **Security:** `.env.local` is gitignored (safe)
 
 ---
 
-**Last Updated:** December 12, 2024
-**Version:** 1.0.0
-**Status:** PRODUCTION READY ✅
+## ✅ Verification
+
+Check if setup worked:
+
+```bash
+# File exists?
+ls -la .env.local
+
+# How many variables?
+grep -c "^[A-Z_]*=" .env.local
+
+# Critical variables present?
+grep "NEXTAUTH_SECRET\|STRIPE_SECRET_KEY\|SUPABASE_SERVICE_ROLE_KEY" .env.local
+```
+
+Should show:
+
+- File exists: ✅
+- 72 variables: ✅
+- Critical variables have values: ✅
+
+---
+
+**Ready to code!** 🎉
