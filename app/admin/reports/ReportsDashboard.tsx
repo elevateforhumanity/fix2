@@ -27,7 +27,7 @@ interface Enrollment {
 interface ReportsDashboardProps {
   stats: Stats;
   recentEnrollments: Enrollment[];
-  programStats: unknown[];
+  programStats: any[];
 }
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
@@ -36,7 +36,7 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
   const [dateRange, setDateRange] = useState('30');
 
   // Process enrollment trend data
-  const enrollmentTrendData = recentEnrollments.reduce((acc: unknown[], enrollment) => {
+  const enrollmentTrendData = recentEnrollments.reduce((acc: Array<{ date: string; enrollments: number }>, enrollment) => {
     const date = new Date(enrollment.created_at).toLocaleDateString();
     const existing = acc.find(item => item.date === date);
     if (existing) {
@@ -55,7 +55,7 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
   ];
 
   // Process program popularity
-  const programPopularity = programStats.reduce((acc: unknown[], item) => {
+  const programPopularityData: Array<{ name: string; enrollments: number }> = programStats.reduce((acc: Array<{ name: string; enrollments: number }>, item: any) => {
     const courseTitle = item.courses?.title || 'Unknown';
     const existing = acc.find(p => p.name === courseTitle);
     if (existing) {
@@ -64,7 +64,8 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
       acc.push({ name: courseTitle, enrollments: 1 });
     }
     return acc;
-  }, []).sort((a, b) => b.enrollments - a.enrollments).slice(0, 5);
+  }, [] as Array<{ name: string; enrollments: number }>);
+  const programPopularity = programPopularityData.sort((a, b) => b.enrollments - a.enrollments).slice(0, 5);
 
   return (
     <div className="space-y-8">
