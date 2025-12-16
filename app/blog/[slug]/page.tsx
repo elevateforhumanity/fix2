@@ -1,17 +1,27 @@
 import { Metadata } from 'next';
-
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/blog/[slug]",
-  },
-  title: '[slug] | Elevate For Humanity',
-  description: 'Explore [slug] and discover opportunities for career growth and development.',
-};
+type Params = Promise<{ slug: string }>;
 
-export default async function slugPage() {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { slug } = await params;
+  
+  return {
+    alternates: {
+      canonical: `https://www.elevateforhumanity.org/blog/${slug}`,
+    },
+    title: `${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Elevate For Humanity`,
+    description: `Explore ${slug.replace(/-/g, ' ')} and discover opportunities for career growth and development.`,
+  };
+}
+
+export default async function BlogPostPage({ params }: { params: Params }) {
+  const { slug } = await params;
+  
+  // Format slug for display
+  const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   
 
   return (
@@ -20,20 +30,20 @@ export default async function slugPage() {
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/gallery/image8.jpg"
-          alt="[slug]"
+          alt={title}
           fill
           className="object-cover"
           quality={100}
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0   " />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            [slug]
+            {title}
           </h1>
           <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100">
-            Explore [slug] and discover opportunities for career growth and development.
+            Explore {title.toLowerCase()} and discover opportunities for career growth and development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -62,8 +72,8 @@ export default async function slugPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">[slug]</h2>
-                <p className="text-gray-700 mb-6">Explore [slug] and discover opportunities for career growth and development.</p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">{title}</h2>
+                <p className="text-gray-700 mb-6">Explore {title.toLowerCase()} and discover opportunities for career growth and development.</p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +98,7 @@ export default async function slugPage() {
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/gallery/image3.jpg"
-                  alt="[slug]"
+                  alt={title}
                   fill
                   className="object-cover"
                   quality={100}
