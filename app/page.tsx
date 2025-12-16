@@ -56,8 +56,7 @@ export default function HomePage() {
           autoPlay
           loop
           playsInline
-          preload="metadata"
-          poster="/images/hero/hero-main-welcome.jpg"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source
