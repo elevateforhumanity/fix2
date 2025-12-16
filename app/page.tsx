@@ -49,16 +49,18 @@ export default function HomePage() {
       <WelcomeAudio />
       {/* VIDEO HERO WITH TEXT OVERLAY */}
       <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-slate-900">
-        {/* Background Video */}
+        {/* Background Video - Optimized for mobile */}
         <video
           ref={videoRef}
           autoPlay
           loop
+          muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/images/hero/hero-main-welcome.jpg"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
+          <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
         
         {/* Hero Text Content */}
