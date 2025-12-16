@@ -19,6 +19,15 @@ async function getSupabaseServerClient() {
   );
 }
 
+const toDateString = (value: unknown) => {
+  if (value instanceof Date) return value.toLocaleDateString();
+  if (typeof value === "string" || typeof value === "number") {
+    const d = new Date(value);
+    return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString();
+  }
+  return "";
+};
+
 export const GET = withAuth(
   async (req: NextRequest, { user }) => {
     const url = new URL(req.url);
@@ -93,21 +102,21 @@ export const GET = withAuth(
         "Verification URL",
       ];
 
-      const rows = completions.map((c: Record<string, unknown>) => [
+      const rows = completions.map((c: any) => [
         c.studentName,
         c.studentEmail,
         c.courseName,
         c.partnerName,
         c.fundingSource,
         c.certificateNumber || "",
-        new Date(c.issuedDate).toLocaleDateString(),
+        toDateString(c.issuedDate),
         c.certificateUrl,
         c.verificationUrl || "",
       ]);
 
       const csv = [
         headers.join(","),
-        ...rows.map((row: Record<string, unknown>) =>
+        ...rows.map((row: any[]) =>
           row.map((cell: unknown) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
         ),
       ].join("\n");
