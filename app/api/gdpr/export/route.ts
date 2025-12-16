@@ -16,13 +16,17 @@ export async function POST(request: NextRequest) {
     const result = await requestDataPortability(user.id, format);
 
     if (!result.success) {
-      return NextResponse.json({ error: (result as string).error || 'Export failed' }, { status: 500 });
+      return NextResponse.json({ error: result.error || 'Export failed' }, { status: 500 });
     }
 
-    return new NextResponse((result as string).data, {
+    if (!('data' in result)) {
+      return NextResponse.json({ error: 'Export data missing' }, { status: 500 });
+    }
+
+    return new NextResponse(result.data, {
       headers: {
-        'Content-Type': (result as string).contentType,
-        'Content-Disposition': `attachment; filename="${(result as string).filename}"`,
+        'Content-Type': result.contentType || 'application/json',
+        'Content-Disposition': `attachment; filename="${result.filename || 'export.json'}"`,
       },
     });
   } catch (error) {
