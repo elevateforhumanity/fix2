@@ -290,9 +290,9 @@
     margin: 1rem auto;
   }
 
-  /* Fix sticky elements */
-  .sticky,
-  .fixed {
+  /* Fix sticky elements - but keep header sticky */
+  .sticky:not(header),
+  .fixed:not(header) {
     position: relative;
   }
 
@@ -440,6 +440,23 @@
 
   .mobile-nav {
     display: block;
+  }
+
+  /* Header fixes */
+  header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+  }
+
+  /* Safe area for notched devices */
+  .safe-area-inset {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
   }
 }
 
