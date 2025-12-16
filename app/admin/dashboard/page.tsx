@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { rec, str, date } from '@/lib/safe';
 import {
   Users,
   GraduationCap,
@@ -394,37 +395,46 @@ export default async function AdminDashboard() {
             <div className="p-6">
               {recentApplications && recentApplications.length > 0 ? (
                 <div className="space-y-4">
-                  {recentApplications.map((app: Record<string, unknown>) => (
-                    <div
-                      key={app.id as string}
-                      className="flex items-center justify-between py-3 border-b last:border-0"
-                    >
-                      <div>
-                        <p className="font-semibold text-slate-900">
-                          {String(app.full_name || 'Unknown')}
-                        </p>
-                        <p className="text-sm text-slate-600">
-                          {String(app.program_interest || 'No program specified')}
-                        </p>
+                  {recentApplications.map((raw: unknown) => {
+                    const app = rec(raw);
+                    const appId = str(app.id, 'unknown');
+                    const fullName = str(app.full_name, 'Unknown');
+                    const programInterest = str(app.program_interest, 'No program specified');
+                    const status = str(app.status, 'pending');
+                    const createdAt = date(app.created_at);
+                    
+                    return (
+                      <div
+                        key={appId}
+                        className="flex items-center justify-between py-3 border-b last:border-0"
+                      >
+                        <div>
+                          <p className="font-semibold text-slate-900">
+                            {fullName}
+                          </p>
+                          <p className="text-sm text-slate-600">
+                            {programInterest}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <span
+                            className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                              status === 'pending'
+                                ? 'bg-orange-100 text-orange-700'
+                                : status === 'approved'
+                                  ? 'bg-green-100 text-green-700'
+                                  : 'bg-red-100 text-red-700'
+                            }`}
+                          >
+                            {status}
+                          </span>
+                          <p className="text-xs text-slate-500 mt-1">
+                            {createdAt ? createdAt.toLocaleDateString() : 'N/A'}
+                          </p>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <span
-                          className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                            app.status === 'pending'
-                              ? 'bg-orange-100 text-orange-700'
-                              : app.status === 'approved'
-                                ? 'bg-green-100 text-green-700'
-                                : 'bg-red-100 text-red-700'
-                          }`}
-                        >
-                          {String(app.status || 'pending')}
-                        </span>
-                        <p className="text-xs text-slate-500 mt-1">
-                          {app.created_at ? new Date(String(app.created_at)).toLocaleDateString() : 'N/A'}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ) : (
                 <p className="text-center py-8 text-slate-500">
