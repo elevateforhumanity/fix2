@@ -9,7 +9,13 @@ export const metadata: Metadata = {
 
 export default async function CareersPage() {
   // Fetch real job positions from database
-  const openPositions = await getActivePositions();
+  let openPositions = [];
+  try {
+    openPositions = await getActivePositions();
+  } catch (error) {
+    console.error('Error loading positions:', error);
+    // Continue with empty positions array
+  }
 
   const benefits = [
     {
