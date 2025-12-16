@@ -68,7 +68,7 @@ export default function ExternalProgressAdminClient({ initialRows }: Props) {
           : "Module reset back to in progress."
       );
     } catch (err: unknown) {
-      setMessage(err?.message ?? "Unexpected error");
+      setMessage(err instanceof Error ? err.message : "Unexpected error");
     } finally {
       setLoadingId(null);
     }

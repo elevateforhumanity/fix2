@@ -48,6 +48,10 @@ export default function ApprovalsList({
     setMessage(null);
 
     try {
+      if (!supabase || typeof supabase === 'string') {
+        throw new Error("Supabase client not initialized");
+      }
+
       const { data: userData } = await supabase.auth.getUser();
       if (!userData.user) throw new Error("Not authenticated");
 
@@ -74,7 +78,7 @@ export default function ApprovalsList({
 
       setMessage("Submission approved successfully");
     } catch (err: unknown) {
-      setMessage(err?.message ?? "Error approving submission");
+      setMessage(err instanceof Error ? err.message : "Error approving submission");
     } finally {
       setProcessing(null);
     }
@@ -85,6 +89,10 @@ export default function ApprovalsList({
     setMessage(null);
 
     try {
+      if (!supabase || typeof supabase === 'string') {
+        throw new Error("Supabase client not initialized");
+      }
+
       const { error } = await supabase
         .from("external_partner_progress")
         .update({
@@ -98,7 +106,7 @@ export default function ApprovalsList({
       setPending(pending.filter((s) => s.id !== submissionId));
       setMessage("Submission rejected - student can resubmit");
     } catch (err: unknown) {
-      setMessage(err?.message ?? "Error rejecting submission");
+      setMessage(err instanceof Error ? err.message : "Error rejecting submission");
     } finally {
       setProcessing(null);
     }
