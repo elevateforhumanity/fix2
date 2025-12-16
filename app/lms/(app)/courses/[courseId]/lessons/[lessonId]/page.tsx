@@ -21,7 +21,7 @@ import { QuizSystem } from '@/components/lms/QuizSystem';
 export default function LessonPage() {
   const params = useParams();
   const router = useRouter();
-  const courseId = params.id as string;
+  const courseId = params.courseId as string;
   const lessonId = params.lessonId as string;
 
   const [lesson, setLesson] = useState<any>(null);

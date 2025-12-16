@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { CreditCard, Lock, CheckCircle } from 'lucide-react';
 
-// Initialize Stripe (use your publishable key)
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+// Initialize Stripe with Next.js environment variable
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
   const [loading, setLoading] = useState(false);

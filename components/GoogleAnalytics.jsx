@@ -1,10 +1,13 @@
+'use client';
+
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function GoogleAnalytics() {
-  const location = useLocation();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const GA_MEASUREMENT_ID =
-    import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
 
   useEffect(() => {
     // Initialize Google Analytics
@@ -25,16 +28,17 @@ export default function GoogleAnalytics() {
       `;
       document.head.appendChild(script2);
     }
-  }, []);
+  }, [GA_MEASUREMENT_ID]);
 
   useEffect(() => {
-    // Track page views on route change
+    // Track page views on route change (Next.js App Router)
     if (typeof window.gtag !== 'undefined') {
+      const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
       window.gtag('config', GA_MEASUREMENT_ID, {
-        page_path: location.pathname + location.search,
+        page_path: url,
       });
     }
-  }, [location]);
+  }, [pathname, searchParams, GA_MEASUREMENT_ID]);
 
   return null;
 }

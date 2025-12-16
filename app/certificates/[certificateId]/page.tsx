@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/certificates/[certificateNumber]",
+    canonical: "https://www.elevateforhumanity.org/certificates/[certificateId]",
   },
-  title: '[certificateNumber] | Elevate For Humanity',
-  description: 'Explore [certificateNumber] and discover opportunities for career growth and development.',
+  title: '[certificateId] | Elevate For Humanity',
+  description: 'Explore [certificateId] and discover opportunities for career growth and development.',
 };
 
-export default async function certificateNumberPage() {
+export default async function certificateIdPage() {
   
 
   return (
@@ -20,7 +20,7 @@ export default async function certificateNumberPage() {
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/gallery/image8.jpg"
-          alt="[certificateNumber]"
+          alt="[certificateId]"
           fill
           className="object-cover"
           quality={100}
@@ -30,10 +30,10 @@ export default async function certificateNumberPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            [certificateNumber]
+            [certificateId]
           </h1>
           <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100">
-            Explore [certificateNumber] and discover opportunities for career growth and development.
+            Explore [certificateId] and discover opportunities for career growth and development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -62,8 +62,8 @@ export default async function certificateNumberPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">[certificateNumber]</h2>
-                <p className="text-gray-700 mb-6">Explore [certificateNumber] and discover opportunities for career growth and development.</p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">[certificateId]</h2>
+                <p className="text-gray-700 mb-6">Explore [certificateId] and discover opportunities for career growth and development.</p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export default async function certificateNumberPage() {
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/gallery/image3.jpg"
-                  alt="[certificateNumber]"
+                  alt="[certificateId]"
                   fill
                   className="object-cover"
                   quality={100}

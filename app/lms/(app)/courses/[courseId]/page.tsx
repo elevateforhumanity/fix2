@@ -1,23 +1,36 @@
 export const dynamic = "force-dynamic";
 
 import { Metadata } from 'next';
-
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+import { redirect, notFound } from 'next/navigation';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/lms/courses/[id]',
-  },
-  title: '[id] | Elevate For Humanity',
-  description:
-    'Explore [id] and discover opportunities for career growth and development.',
-};
+type Params = Promise<{ courseId: string }>;
 
-export default async function idPage() {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { courseId } = await params;
   const supabase = await createClient();
+  
+  const { data: course } = await supabase
+    .from('courses')
+    .select('title, description')
+    .eq('id', courseId)
+    .single();
+
+  return {
+    alternates: {
+      canonical: `https://www.elevateforhumanity.org/lms/courses/${courseId}`,
+    },
+    title: course ? `${course.title} | Elevate For Humanity` : 'Course | Elevate For Humanity',
+    description: course?.description || 'Explore this course and discover opportunities for career growth and development.',
+  };
+}
+
+export default async function CoursePage({ params }: { params: Params }) {
+  const { courseId } = await params;
+  const supabase = await createClient();
+  
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -26,28 +39,24 @@ export default async function idPage() {
     redirect('/login');
   }
 
-  const { data: profile } = await supabase
-    .from('profiles')
+  // Fetch the specific course
+  const { data: course, error } = await supabase
+    .from('courses')
     .select('*')
-    .eq('id', user.id)
+    .eq('id', courseId)
     .single();
 
-  // Fetch student's courses
-  const { data: enrollments } = await supabase
+  if (error || !course) {
+    notFound();
+  }
+
+  // Check if user is enrolled
+  const { data: enrollment } = await supabase
     .from('enrollments')
-    .select(
-      `
-      *,
-      courses (
-        id,
-        title,
-        description,
-        thumbnail_url
-      )
-    `
-    )
+    .select('*')
     .eq('user_id', user.id)
-    .order('created_at', { ascending: false });
+    .eq('course_id', courseId)
+    .single();
 
   const { count: activeCourses } = await supabase
     .from('enrollments')

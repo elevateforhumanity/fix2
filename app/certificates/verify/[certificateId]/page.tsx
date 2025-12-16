@@ -8,7 +8,7 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   alternates: {
     canonical:
-      'https://www.elevateforhumanity.org/certificates/verify/[certificateNumber]',
+      'https://www.elevateforhumanity.org/certificates/verify/[certificateId]',
   },
   title: 'Verify Certificate | Elevate For Humanity',
   description: 'Verify the authenticity of an Elevate For Humanity certificate',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default async function VerifyCertificatePage({
   params,
 }: {
-  params: { certificateNumber: string };
+  params: { certificateId: string };
 }) {
   const supabase = await createClient();
 
@@ -37,7 +37,7 @@ export default async function VerifyCertificatePage({
       )
     `
     )
-    .eq('certificate_number', params.certificateNumber)
+    .eq('certificate_number', params.certificateId)
     .single();
 
   const { data: moduleCert } = await supabase
@@ -51,7 +51,7 @@ export default async function VerifyCertificatePage({
       )
     `
     )
-    .eq('certificate_number', params.certificateNumber)
+    .eq('certificate_number', params.certificateId)
     .single();
 
   const certificate = programCert || moduleCert;
@@ -63,7 +63,7 @@ export default async function VerifyCertificatePage({
         <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
           <Image
             src="/images/gallery/image8.jpg"
-            alt="[certificateNumber]"
+            alt="[certificateId]"
             fill
             className="object-cover"
             quality={100}
@@ -73,7 +73,7 @@ export default async function VerifyCertificatePage({
           <div className="absolute inset-0   " />
           <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-              [certificateNumber]
+              [certificateId]
             </h1>
             <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100 drop-shadow-lg">
               Transform your career with free training and industry
@@ -104,7 +104,7 @@ export default async function VerifyCertificatePage({
           <p className="text-lg text-gray-600 mb-8">
             Certificate number{' '}
             <span className="font-mono font-semibold">
-              {params.certificateNumber}
+              {params.certificateId}
             </span>{' '}
             will not be found in our repository.
           </p>
