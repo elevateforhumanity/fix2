@@ -20,7 +20,7 @@ async function getSupabaseServerClient() {
 }
 
 export const GET = withAuth(
-  async (req: NextRequest, context, user) => {
+  async (req: NextRequest, { user }) => {
     const url = new URL(req.url);
     const daysParam = url.searchParams.get("days");
     const format = url.searchParams.get("format") || "json";
@@ -58,7 +58,7 @@ export const GET = withAuth(
       return NextResponse.json({ completions: [], error: error.message }, { status: 200 });
     }
 
-    const completions = (data ?? []).map((row: Record<string, unknown>) => {
+    const completions = (data ?? []).map((row: any) => {
       const e = row.partner_lms_enrollments ?? {};
       const student = e.profiles ?? {};
       const provider = e.partner_lms_providers ?? {};
