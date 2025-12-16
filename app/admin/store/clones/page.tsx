@@ -313,13 +313,7 @@ export default function StoreBuilderPage() {
                   <input
                     type="checkbox"
                     checked={product.demo.enabled}
-                    onChange={(
-                      e: React.ChangeEvent<
-                        | HTMLInputElement
-                        | HTMLSelectElement
-                        | HTMLTextAreaElement
-                      >
-                    ) =>
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setProduct({
                         ...product,
                         demo: { ...product.demo, enabled: e.target.checked },
