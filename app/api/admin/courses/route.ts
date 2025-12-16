@@ -104,7 +104,7 @@ export const GET = withAuth(
     return NextResponse.json({ courses });
   } catch (error: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch courses' },
+      { error: toErrorMessage(error) || 'Failed to fetch courses' },
       { status: 500 }
     );
   }
