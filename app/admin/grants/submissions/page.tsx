@@ -3,6 +3,7 @@
  * Complete history of all submitted grants
  */
 
+import { Metadata } from 'next';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { requireAdmin } from '@/lib/authGuards';
 import Link from 'next/link';

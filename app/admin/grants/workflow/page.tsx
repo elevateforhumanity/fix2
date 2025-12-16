@@ -1,9 +1,11 @@
+import { Metadata } from 'next';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { requireAdmin } from '@/lib/authGuards';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
+
 export const metadata: Metadata = {
   title: 'Admin | Elevate For Humanity',
   description: 'Admin dashboard',
