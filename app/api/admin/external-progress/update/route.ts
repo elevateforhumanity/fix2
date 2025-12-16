@@ -41,9 +41,8 @@ export const POST = withAuth(
         }
       } else {
         // status === "in_progress"
-        const { error } = await (
-          supabaseAdmin.from('external_partner_progress') as string
-        )
+        const { error } = await (supabaseAdmin as any)
+          .from('external_partner_progress')
           .update({
             status,
             proof_file_url: null,
