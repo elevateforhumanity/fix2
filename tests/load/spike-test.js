@@ -21,7 +21,7 @@ export const options = {
   },
 };
 
-const BASE_URL = __ENV.BASE_URL || 'http://localhost:5173';
+const BASE_URL = __ENV.BASE_URL || 'http://localhost:3000';
 
 export default function () {
   const res = http.get(`${BASE_URL}/`);

@@ -134,7 +134,7 @@ fix2/
 ### Development
 
 ```bash
-npm run dev              # Start dev server (port 5173)
+npm run dev              # Start dev server (port 3000)
 npm run build            # Production build
 npm run preview          # Preview production build
 ```
@@ -357,7 +357,7 @@ All pairs pass WCAG AA (4.5:1 minimum).
 2. Clone repo: `git clone https://github.com/elevateforhumanity/fix2.git
 3. Install: `pnpm install`
 4. Run: `npm run dev`
-5. Open: http://localhost:5173
+5. Open: http://localhost:3000
 
 ### To Replit
 

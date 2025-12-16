@@ -104,8 +104,8 @@ Comprehensive audit of environment variables and external URLs has been complete
 #### Development URLs (3)
 
 - `http://localhost:3000 - Local development server
-- `http://localhost:5173 - Vite dev server
-- `https://5173--0199d539-243f-773a-8115-cecbe99de420.us-east-1-01.gitpod.dev - Gitpod workspace
+- `http://localhost:3000 - Vite dev server
+- `https://3000--0199d539-243f-773a-8115-cecbe99de420.us-east-1-01.gitpod.dev - Gitpod workspace
 
 **Status:** ✅ Normal for development
 

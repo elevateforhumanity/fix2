@@ -55,7 +55,7 @@ if [ ! -f .env ]; then
   cat > .env <<ENV
 # --- EFH Environment Variables ---
 VITE_SITE_NAME="Elevate for Humanity"
-VITE_PUBLIC_URL="http://localhost:5173"
+VITE_PUBLIC_URL="http://localhost:3000"
 
 # Supabase (loaded from GitHub Secrets or Gitpod variables)
 VITE_SUPABASE_URL=${VITE_SUPABASE_URL:-your_supabase_url_here}

@@ -194,7 +194,7 @@ app/(marketing)/
 ```bash
 npm run dev
 # Runs: next dev (port 3000)
-# NOT: vite dev (port 5173)
+# NOT: vite dev (port 3000)
 # NOT: astro dev (port 4321)
 ```
 
@@ -270,7 +270,7 @@ Development:
 ### What's NOT Running
 
 ```
-❌ Vite dev server (port 5173)
+❌ Vite dev server (port 3000)
 ❌ Astro dev server (port 4321)
 ❌ Multiple frameworks
 ```
@@ -287,7 +287,7 @@ npm run dev
 
 # Check ports
 lsof -i :3000  # Next.js ✅
-lsof -i :5173  # Vite ❌ (should be empty)
+lsof -i :3000  # Vite ❌ (should be empty)
 lsof -i :4321  # Astro ❌ (should be empty)
 ```
 

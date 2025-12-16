@@ -94,7 +94,7 @@ pnpm test
 pnpm dev
 ```
 
-Access at: http://localhost:5173
+Access at: http://localhost:3000
 
 ### Production Build
 

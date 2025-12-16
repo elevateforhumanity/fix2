@@ -16,7 +16,7 @@ echo "=================="
 echo ""
 
 # Check if dev server is running
-if ! curl -s http://localhost:5173 > /dev/null 2>&1; then
+if ! curl -s http://localhost:3000 > /dev/null 2>&1; then
     echo -e "${RED}Error: Development server not running${NC}"
     echo "Please start the dev server: npm run dev"
     exit 1
@@ -50,7 +50,7 @@ for route in "${ROUTES[@]}"; do
     echo -n "Testing $route... "
     
     # Test if route returns 200 or redirects (302/301)
-    STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5173$route)
+    STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000$route)
     
     if [ "$STATUS" = "200" ] || [ "$STATUS" = "302" ] || [ "$STATUS" = "301" ]; then
         echo -e "${GREEN}✓ OK ($STATUS)${NC}"

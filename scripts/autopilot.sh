@@ -30,7 +30,7 @@ fi
 
 # Monitor both; restart on impact
 GP_HOST="${GITPOD_WORKSPACE_URL#https://}"
-VITE="https://5173--${GP_HOST}"
+VITE="https://3000--${GP_HOST}"
 API="https://3001--${GP_HOST}"
 
 while true; do

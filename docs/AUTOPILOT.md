@@ -482,7 +482,7 @@ npm run autopilot:check -- --skip-a11y
 
 ```bash
 # Development
-SITE_URL=http://localhost:5173 npm run autopilot:check
+SITE_URL=http://localhost:3000 npm run autopilot:check
 
 # Staging
 SITE_URL=https://staging.elevateforhumanity.pages.dev npm run autopilot:check

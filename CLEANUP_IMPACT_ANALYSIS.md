@@ -67,9 +67,9 @@ Repository had 3 different frameworks:
 `.devcontainer/devcontainer.json` was configured for Vite:
 ```json
 {
-  "forwardPorts": [5173, 8080, 4173],  // Vite ports
+  "forwardPorts": [3000, 8080, 4173],  // Vite ports
   "portsAttributes": {
-    "5173": { "label": "Vite Dev Server" }
+    "3000": { "label": "Vite Dev Server" }
   }
 }
 ```
@@ -158,7 +158,7 @@ Based on our work today, the **REAL issues** were:
 **Impact:** MEDIUM - Dev server wouldn't start
 
 ### 4. ✅ Security Tests Wrong Port (FIXED)
-**Problem:** Tests used port 5173 (Vite) instead of 3000 (Next.js)  
+**Problem:** Tests used port 3000 (Vite) instead of 3000 (Next.js)  
 **Solution:** Updated to port 3000  
 **Impact:** LOW - Tests would fail
 

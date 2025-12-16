@@ -194,8 +194,8 @@ pnpm dev
 
 Visit:
 
-- http://localhost:5173/programs
-- http://localhost:5173/lms
+- http://localhost:3000/programs
+- http://localhost:3000/lms
 
 ### 5. Deploy
 

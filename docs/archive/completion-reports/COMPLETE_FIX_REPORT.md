@@ -187,9 +187,9 @@ npm ls
 cd frontend && npm ls
 
 # Run development servers
-npm run dev                    # LMS on port 5173
+npm run dev                    # LMS on port 3000
 cd backend && uvicorn app.main:app --port 7070  # API
-cd frontend && npm run dev     # Dashboard on port 5173
+cd frontend && npm run dev     # Dashboard on port 3000
 ```
 
 ## Conclusion

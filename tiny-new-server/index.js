@@ -6,7 +6,7 @@ const PORT = process.env.API_PORT || 3001;
 
 app.use(
   cors({
-    origin: [/\.gitpod\.dev$/, 'http://localhost:5173'],
+    origin: [/\.gitpod\.dev$/, 'http://localhost:3000'],
     credentials: true,
   })
 );

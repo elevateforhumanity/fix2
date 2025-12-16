@@ -239,7 +239,7 @@ const pages = [
 
 for (const page of pages) {
   test(`visual regression: ${page.name}`, async ({ page: pw }) => {
-    const baseUrl = process.env.SITE_URL || 'http://localhost:5173'
+    const baseUrl = process.env.SITE_URL || 'http://localhost:3000'
     await pw.goto(baseUrl + page.route)
     await pw.waitForLoadState('networkidle')
     
@@ -260,7 +260,7 @@ test('no console errors on home page', async ({ page }) => {
     if (msg.type() === 'error') errors.push(msg.text())
   })
   
-  const baseUrl = process.env.SITE_URL || 'http://localhost:5173'
+  const baseUrl = process.env.SITE_URL || 'http://localhost:3000'
   await page.goto(baseUrl)
   await page.waitForLoadState('networkidle')
   
@@ -279,7 +279,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: process.env.SITE_URL || 'http://localhost:5173',
+    baseURL: process.env.SITE_URL || 'http://localhost:3000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -291,7 +291,7 @@ export default defineConfig({
   ],
   webServer: process.env.CI ? undefined : {
     command: 'npm run dev',
-    url: 'http://localhost:5173',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
   },
 })
@@ -304,9 +304,9 @@ cat > .lighthouserc.json <<'EOF'
   "ci": {
     "collect": {
       "url": [
-        "http://localhost:5173/",
-        "http://localhost:5173/programs/",
-        "http://localhost:5173/lms/"
+        "http://localhost:3000/",
+        "http://localhost:3000/programs/",
+        "http://localhost:3000/lms/"
       ],
       "numberOfRuns": 1
     },

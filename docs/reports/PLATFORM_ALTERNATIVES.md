@@ -67,7 +67,7 @@ pnpm install
 npm run dev
 
 # Open browser
-http://localhost:5173
+http://localhost:3000
 ```
 
 **Pros:**
@@ -337,7 +337,7 @@ http://localhost:5173
 
 6. **Open browser:**
    ```
-   http://localhost:5173
+   http://localhost:3000
    ```
 
 ---

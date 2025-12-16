@@ -72,21 +72,21 @@ docker pull owasp/zap2docker-stable
 
 ```bash
 docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable \
-  zap-baseline.py -t http://localhost:5173 -r zap-report.html
+  zap-baseline.py -t http://localhost:3000 -r zap-report.html
 ```
 
 **Run Full Scan:**
 
 ```bash
 docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable \
-  zap-full-scan.py -t http://localhost:5173 -r zap-full-report.html
+  zap-full-scan.py -t http://localhost:3000 -r zap-full-report.html
 ```
 
 **Run with Configuration:**
 
 ```bash
 docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable \
-  zap-full-scan.py -t http://localhost:5173 \
+  zap-full-scan.py -t http://localhost:3000 \
   -c tests/security/owasp-zap-config.yaml \
   -r test-results/zap-report.html
 ```
@@ -106,7 +106,7 @@ brew install nikto
 **Run:**
 
 ```bash
-nikto -h http://localhost:5173 -o nikto-report.html -Format html
+nikto -h http://localhost:3000 -o nikto-report.html -Format html
 ```
 
 ### SSL/TLS Testing
@@ -316,7 +316,7 @@ jobs:
       - name: Run OWASP ZAP
         uses: zaproxy/action-baseline@v0.7.0
         with:
-          target: 'http://localhost:5173'
+          target: 'http://localhost:3000'
 ```
 
 ### Regular Audits

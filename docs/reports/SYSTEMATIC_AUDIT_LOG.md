@@ -121,7 +121,7 @@ export $(cat .env | grep -v '^#' | xargs)
 **Contents**:
 
 - Tasks: Install dependencies, run dev server
-- Ports: 5173 (dev), 3000, 8080, 54321 (Supabase)
+- Ports: 3000 (dev), 3000, 8080, 54321 (Supabase)
 - Extensions: Prettier, ESLint, Tailwind CSS
 
 **Issues Found**: None  

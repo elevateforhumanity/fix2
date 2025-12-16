@@ -63,8 +63,8 @@
 
 ```
 ./playwright.config.ts
-  - baseURL: 'http://localhost:5173'  ✅ KEEP (testing)
-  - url: 'http://localhost:5173'      ✅ KEEP (testing)
+  - baseURL: 'http://localhost:3000'  ✅ KEEP (testing)
+  - url: 'http://localhost:3000'      ✅ KEEP (testing)
 ```
 
 #### Development Scripts:

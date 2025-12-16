@@ -175,7 +175,7 @@ Changed:
 
 ### Development
 
-- Dev Server: [https://5173--0199eea7-0646-7472-a3cd-771971b6801c.us-east-1-01.gitpod.dev](https://5173--0199eea7-0646-7472-a3cd-771971b6801c.us-east-1-01.gitpod.dev)
+- Dev Server: [https://3000--0199eea7-0646-7472-a3cd-771971b6801c.us-east-1-01.gitpod.dev](https://3000--0199eea7-0646-7472-a3cd-771971b6801c.us-east-1-01.gitpod.dev)
 
 ---
 

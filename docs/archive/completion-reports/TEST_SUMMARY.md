@@ -166,10 +166,10 @@ npx vitest run tests/security
 
 # Run OWASP ZAP scan (requires Docker)
 docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable \
-  zap-baseline.py -t http://localhost:5173 -r zap-report.html
+  zap-baseline.py -t http://localhost:3000 -r zap-report.html
 
 # Run Nikto scan
-nikto -h http://localhost:5173 -o nikto-report.html -Format html
+nikto -h http://localhost:3000 -o nikto-report.html -Format html
 ```
 
 ## Test Configuration
@@ -222,7 +222,7 @@ nikto -h http://localhost:5173 -o nikto-report.html -Format html
 
 ### E2E Tests
 
-- Require dev server running on port 5173
+- Require dev server running on port 3000
 - Some tests may fail if routes don't exist yet
 - Mock authentication tokens used
 
@@ -309,7 +309,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: zaproxy/action-baseline@v0.7.0
         with:
-          target: 'http://localhost:5173'
+          target: 'http://localhost:3000'
 ```
 
 ## Documentation

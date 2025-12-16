@@ -20,9 +20,9 @@ cat > .devcontainer/devcontainer.json <<'JSON'
     "memory": "4gb", 
     "storage": "32gb" 
   },
-  "forwardPorts": [8012, 8080, 5173],
+  "forwardPorts": [8012, 8080, 3000],
   "portsAttributes": {
-    "5173": {
+    "3000": {
       "label": "🚀 Development Server",
       "onAutoForward": "openPreview",
       "protocol": "https",

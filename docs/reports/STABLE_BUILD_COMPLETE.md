@@ -219,7 +219,7 @@ dist/assets/index-DDBpeeAD.js    291.58 kB │ gzip: 87.66 kB
 **Local Development:**
 
 ```bash
-pnpm dev  # Port 5173 with HMR
+pnpm dev  # Port 3000 with HMR
 ```
 
 ---

@@ -243,7 +243,7 @@ dist/assets/index-BrgduOak.js    304.11 kB │ gzip: 89.75 kB
 **Local Development:**
 
 ```bash
-pnpm dev  # Port 5173
+pnpm dev  # Port 3000
 ```
 
 ---

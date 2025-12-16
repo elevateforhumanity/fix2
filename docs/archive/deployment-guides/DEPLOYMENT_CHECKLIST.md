@@ -114,7 +114,7 @@ VALUES ('staff-user-id', 'staff');
 - [ ] Set Site URL: `https://yoursite.com
 - [ ] Add Redirect URLs:
   - `https://yoursite.com/auth/callback
-  - `http://localhost:5173/auth/callback (for dev)
+  - `http://localhost:3000/auth/callback (for dev)
 - [ ] Save changes
 
 ### Environment Variables

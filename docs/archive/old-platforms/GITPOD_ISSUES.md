@@ -17,7 +17,7 @@
 **Resolution:** Updated `.gitpod.yml` with:
 
 - Multi-task setup (main dev, autopilot worker, checklist)
-- All ports properly exposed (5173, 8080, 4173, 3000)
+- All ports properly exposed (3000, 8080, 4173, 3000)
 - Comprehensive VS Code extensions
 - Full prebuild configuration for all branches and PRs
 
@@ -68,7 +68,7 @@
 **Resolution:**
 
 - All ports properly configured with descriptions
-- Auto-preview on port 5173
+- Auto-preview on port 3000
 - Other ports set to ignore to prevent conflicts
 
 ### 6. VS Code Extensions
@@ -137,7 +137,7 @@ https://gitpod.io/#https://github.com/elevateforhumanity/fix2
 1. Workspace spins up with Node 20.11.1
 2. Dependencies install automatically
 3. Secrets autopilot runs
-4. Dev server starts on port 5173
+4. Dev server starts on port 3000
 5. Production checklist displays
 6. Autopilot worker ready
 
@@ -206,7 +206,7 @@ pnpm install --frozen-lockfile
 
 ```bash
 # Check port availability
-netstat -tulpn | grep 5173
+netstat -tulpn | grep 3000
 
 # Restart server
 pnpm dev --host

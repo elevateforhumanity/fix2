@@ -339,7 +339,7 @@ To test webhooks on localhost:
 3. Forward webhooks:
 
    ```bash
-   stripe listen --forward-to localhost:5173/api/stripe-webhook
+   stripe listen --forward-to localhost:3000/api/stripe-webhook
    ```
 
 4. Copy the webhook signing secret shown

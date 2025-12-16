@@ -240,7 +240,7 @@ cat > tools/routes-crawl.ts <<'TS'
 import { chromium } from '@playwright/test'
 
 ;(async () => {
-  const base = process.env.SITE_URL || 'http://localhost:5173'
+  const base = process.env.SITE_URL || 'http://localhost:3000'
   const routes = ['/', '/programs', '/lms', '/apply', '/connect']
 
   console.log(`🔍 Crawling routes at ${base}...`)
@@ -320,7 +320,7 @@ const pages = ['/', '/programs', '/apply']
 
 for (const p of pages) {
   test(`@a11y ${p}`, async ({ page }) => {
-    await page.goto(process.env.SITE_URL ?? 'http://localhost:5173' + p)
+    await page.goto(process.env.SITE_URL ?? 'http://localhost:3000' + p)
     const results = await new AxeBuilder({ page }).analyze()
     const serious = results.violations.filter(v => ['serious', 'critical'].includes(v.impact || ''))
 
@@ -345,7 +345,7 @@ const pages = ['/', '/programs', '/lms']
 
 for (const p of pages) {
   test(`@ui ${p}`, async ({ page }) => {
-    await page.goto(process.env.SITE_URL ?? 'http://localhost:5173' + p)
+    await page.goto(process.env.SITE_URL ?? 'http://localhost:3000' + p)
     await page.waitForLoadState('networkidle')
     await expect(page).toHaveTitle(/Elevate|Humanity|EFH|Student Portal/i)
   })
@@ -363,7 +363,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: process.env.SITE_URL || 'http://localhost:5173',
+    baseURL: process.env.SITE_URL || 'http://localhost:3000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -375,7 +375,7 @@ export default defineConfig({
   ],
   webServer: process.env.CI ? undefined : {
     command: 'npm run dev',
-    url: 'http://localhost:5173',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },
@@ -425,8 +425,8 @@ cat > .lighthouserc.json <<'JSON'
   "ci": {
     "collect": {
       "url": [
-        "http://localhost:5173/",
-        "http://localhost:5173/programs"
+        "http://localhost:3000/",
+        "http://localhost:3000/programs"
       ],
       "numberOfRuns": 1
     },
@@ -457,7 +457,7 @@ Object.assign(pkg.scripts, {
   "tokens:guard": "ts-node tools/tokens-guard.ts",
   "images:opt": "ts-node tools/images-opt.ts",
   "routes:test": "ts-node tools/routes-crawl.ts",
-  "links:test": "linkinator --recurse --skip \"mailto:,tel:,*logout*,*.pdf\" ${SITE_URL:-http://localhost:5173}",
+  "links:test": "linkinator --recurse --skip \"mailto:,tel:,*logout*,*.pdf\" ${SITE_URL:-http://localhost:3000}",
   "a11y:test": "playwright test -g '@a11y'",
   "ui:test": "playwright test -g '@ui'",
   "lh:audit": "lhci autorun",

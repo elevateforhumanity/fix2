@@ -17,13 +17,13 @@ node <<'NODE'
 const fs=require('fs');
 const files=['vite.config.ts','vite.config.js'];
 const f=files.find(fs.existsSync);
-const gp = "process.env.GITPOD_WORKSPACE_URL ? '5173--' + new URL(process.env.GITPOD_WORKSPACE_URL).host : 'localhost'";
+const gp = "process.env.GITPOD_WORKSPACE_URL ? '3000--' + new URL(process.env.GITPOD_WORKSPACE_URL).host : 'localhost'";
 const base=`
 import { defineConfig } from 'vite'
 export default defineConfig({
   server: {
     host: true,
-    port: 5173,
+    port: 3000,
     strictPort: true,
     cors: true,
     allowedHosts: [/\\.gitpod\\.dev$/],
@@ -47,7 +47,7 @@ cleanup(){ echo "🛑 Stopping Vite…"; pkill -f "vite" || true; }
 trap cleanup SIGINT SIGTERM
 
 export HOST=0.0.0.0
-export PORT="${PORT:-5173}"
+export PORT="${PORT:-3000}"
 
 echo "🚀 Starting Vite on :$PORT"
 if command -v pnpm >/dev/null 2>&1; then pnpm dev -- --host --port "$PORT";

@@ -130,7 +130,7 @@ services:
       context: .
       dockerfile: Dockerfile.frontend
     ports:
-      - '5173:5173'
+      - '3000:3000'
     environment:
       - VITE_API_URL=http://localhost:3000
     volumes:

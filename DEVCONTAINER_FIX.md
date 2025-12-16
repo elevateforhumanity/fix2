@@ -14,9 +14,9 @@
 
 ### ❌ Line 3: Wrong Ports
 ```json
-"forwardPorts": [5173, 8080, 4173]
+"forwardPorts": [3000, 8080, 4173]
 ```
-**Problem:** These are Vite ports (5173, 8080, 4173)  
+**Problem:** These are Vite ports (3000, 8080, 4173)  
 **Issue:** This is a Next.js app that uses port 3000  
 **Fixed:** Changed to `[3000, 5432]` (Next.js + PostgreSQL)
 
@@ -24,7 +24,7 @@
 
 ### ❌ Lines 5-19: Wrong Port Labels
 ```json
-"5173": {
+"3000": {
   "label": "Vite Dev Server",
   "onAutoForward": "openPreview"
 }
@@ -100,7 +100,7 @@
 | What | Before | After |
 |------|--------|-------|
 | **Base Image** | universal:3.0.3 | typescript-node:1-20-bullseye |
-| **Ports** | 5173, 8080, 4173 (Vite) | 3000, 5432 (Next.js + PostgreSQL) |
+| **Ports** | 3000, 8080, 4173 (Vite) | 3000, 5432 (Next.js + PostgreSQL) |
 | **Port Labels** | "Vite Dev Server" | "Next.js Dev Server" |
 | **Node Version** | Not specified | 20 (via features) |
 | **Auto Setup** | None | postCreateCommand + postStartCommand |

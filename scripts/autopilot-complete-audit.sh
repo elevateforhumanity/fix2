@@ -213,10 +213,10 @@ if [ -f "vite.config.js" ]; then
     fi
     
     # Check server port
-    if grep -q "port: 5173" vite.config.js; then
-        check_pass "Dev server port: 5173"
+    if grep -q "port: 3000" vite.config.js; then
+        check_pass "Dev server port: 3000"
     else
-        check_warn "Dev server port not 5173"
+        check_warn "Dev server port not 3000"
     fi
     
     # Check preview port

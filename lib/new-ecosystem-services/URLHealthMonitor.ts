@@ -112,7 +112,7 @@ export class URLHealthMonitor {
     this.addEndpoint({
       id: 'dev-server',
       name: 'Development Server',
-      url: 'https://5173--0199d539-243f-773a-8115-cecbe99de420.us-east-1-01.gitpod.dev',
+      url: 'https://3000--0199d539-243f-773a-8115-cecbe99de420.us-east-1-01.gitpod.dev',
       type: 'service',
       critical: true,
       checkInterval: 30000, // 30 seconds

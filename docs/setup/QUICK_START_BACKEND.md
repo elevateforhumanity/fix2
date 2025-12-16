@@ -88,7 +88,7 @@ npm run dev
 ## Verify It's Working
 
 1. **Start the app**: `npm run dev`
-2. **Visit**: http://localhost:5173
+2. **Visit**: http://localhost:3000
 3. **Test**:
    - Click "Sign Up" → Create account
    - Check Supabase dashboard → Should see new user

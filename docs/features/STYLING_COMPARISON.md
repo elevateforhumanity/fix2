@@ -214,7 +214,7 @@ The deployed site should match the repository since it's built from the same sou
 
 ### Step 1: Open Both Sites
 
-1. **Local:** Run `npm run dev` and open http://localhost:5173
+1. **Local:** Run `npm run dev` and open http://localhost:3000
 2. **Deployed:** Open https://elevateconnects1.netlify.app/
 
 ### Step 2: Compare Pages

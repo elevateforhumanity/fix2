@@ -42,7 +42,7 @@ Your project already has:
 
 - `.gitpod.yml` with dev server setup
 - `.gitpod.Dockerfile` (uses workspace-full)
-- Ports: 5173 (Vite), 3000, 8080, 54321 (Supabase)
+- Ports: 3000 (Vite), 3000, 8080, 54321 (Supabase)
 
 ✅ **Bootstrap Scripts**
 
@@ -149,7 +149,7 @@ tasks:
     command: pnpm dev
 
 ports:
-  - port: 5173 # Vite
+  - port: 3000 # Vite
   - port: 3000
   - port: 8080
   - port: 54321 # Supabase
@@ -169,7 +169,7 @@ tasks:
       bash scripts/select-architecture.sh
 
 ports:
-  - port: 5173 # Vite (keep existing)
+  - port: 3000 # Vite (keep existing)
   - port: 8888 # Netlify dev (add)
   - port: 8787 # Cloudflare worker dev (add)
 ```
@@ -585,7 +585,7 @@ tasks:
       pnpm dev
 
 ports:
-  - port: 5173
+  - port: 3000
     onOpen: open-preview
     visibility: public
   - port: 8888 # Netlify dev

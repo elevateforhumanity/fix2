@@ -305,7 +305,7 @@ For other hosts, ensure they support:
 
 ## Next Steps
 
-1. **Development**: Use `pnpm run dev` (port 5173)
+1. **Development**: Use `pnpm run dev` (port 3000)
 2. **Testing Build**: Use `pnpm run preview` (port 8080)
 3. **Production**: Deploy to Netlify/Vercel
 

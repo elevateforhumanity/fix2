@@ -53,12 +53,12 @@
 
 ### 3. Security Tests
 **Location:** `./tests/security/owasp-zap-config.yaml`
-**Status:** ⚠️ References **port 5173** (Vite)
+**Status:** ⚠️ References **port 3000** (Vite)
 **Action:** Update to port 3000 (Next.js)
 
 ```yaml
 # OLD (Vite):
-- 'http://localhost:5173'
+- 'http://localhost:3000'
 
 # NEW (Next.js):
 - 'http://localhost:3000'
@@ -140,7 +140,7 @@ app/lms/
 
 ### 1. ❌ Security Test Config (Port)
 **File:** `tests/security/owasp-zap-config.yaml`
-**Issue:** References Vite port 5173
+**Issue:** References Vite port 3000
 **Fix:** Change to Next.js port 3000
 
 ### 2. ⚠️ Marketing Site Directory
@@ -186,8 +186,8 @@ grep -r "vite dev" package.json
 # Next.js uses 3000
 grep -r "3000" .devcontainer/devcontainer.json
 
-# Should NOT find 5173 (Vite)
-grep -r "5173" .devcontainer/devcontainer.json
+# Should NOT find 3000 (Vite)
+grep -r "3000" .devcontainer/devcontainer.json
 ```
 
 ---
@@ -198,7 +198,7 @@ grep -r "5173" .devcontainer/devcontainer.json
 
 1. **Update Security Tests**
    ```bash
-   # Change port 5173 → 3000 in:
+   # Change port 3000 → 3000 in:
    tests/security/owasp-zap-config.yaml
    ```
 
@@ -245,7 +245,7 @@ grep -r "5173" .devcontainer/devcontainer.json
 | **Deployment** | Vercel (Next.js) | ✅ Correct |
 | **Old Marketing Site** | Vite (separate) | ⚠️ Archive/Delete |
 | **Support Bundle** | Vite (archived) | ⚠️ Archive/Delete |
-| **Security Tests** | Port 5173 (Vite) | ❌ Update to 3000 |
+| **Security Tests** | Port 3000 (Vite) | ❌ Update to 3000 |
 
 ---
 
@@ -257,7 +257,7 @@ grep -r "5173" .devcontainer/devcontainer.json
 ❌ **Security tests need port update**
 
 **Action Items:**
-1. Update security test ports (5173 → 3000)
+1. Update security test ports (3000 → 3000)
 2. Archive or delete old marketing-site/
 3. Archive or delete support_bundle/
 4. Add documentation clarifying architecture

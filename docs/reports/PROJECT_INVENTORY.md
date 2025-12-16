@@ -230,7 +230,7 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 pnpm install
 
 # Development server
-pnpm dev                    # Runs on port 5173
+pnpm dev                    # Runs on port 3000
 
 # Production build
 pnpm build                  # Checks env, then builds to dist/
@@ -419,7 +419,7 @@ pnpm clean                 # Clean build artifacts
    pnpm dev
    ```
 
-   - Runs on http://localhost:5173
+   - Runs on http://localhost:3000
    - Hot module replacement enabled
    - TypeScript type checking
 

@@ -18,9 +18,9 @@ Added port forwarding configuration:
 
 ```json
 {
-  "forwardPorts": [5173, 8080, 4173],
+  "forwardPorts": [3000, 8080, 4173],
   "portsAttributes": {
-    "5173": {
+    "3000": {
       "label": "Vite Dev Server",
       "onAutoForward": "openPreview"
     },
@@ -44,7 +44,7 @@ Added preview server ports:
 
 ```yaml
 ports:
-  - port: 5173
+  - port: 3000
     onOpen: open-preview
     visibility: public
     name: Vite Dev Server
@@ -67,12 +67,12 @@ Updated server and preview settings for Gitpod compatibility:
 ```javascript
 server: {
   host: '0.0.0.0', // listen on all interfaces
-  port: 5173,
+  port: 3000,
   strictPort: false, // allow fallback to other ports
   hmr: {
     clientPort: 443,
     host: process.env.GITPOD_WORKSPACE_URL
-      ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '5173-')
+      ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '3000-')
       : undefined,
   },
 },
@@ -112,7 +112,7 @@ Instead of preview, use the dev server which works reliably:
 pnpm run dev
 ```
 
-This will start on port 5173 and is properly configured for Gitpod.
+This will start on port 3000 and is properly configured for Gitpod.
 
 ### Option 2: Use Alternative Static Server
 
@@ -237,7 +237,7 @@ The build is production-ready and will work correctly when deployed:
 
 ## Next Steps
 
-1. **For Development**: Use `pnpm run dev` (port 5173)
+1. **For Development**: Use `pnpm run dev` (port 3000)
 2. **For Testing Build**: Use Python server or deploy to Netlify preview
 3. **For Production**: Deploy to Netlify/Vercel
 

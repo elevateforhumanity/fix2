@@ -213,7 +213,7 @@ npx tsx index.ts
 pnpm run dev
 
 # Access at:
-http://localhost:5173/staff/aivideo-builder
+http://localhost:3000/staff/aivideo-builder
 ```
 
 ### Production
@@ -268,7 +268,7 @@ pnpm run dev
 
 **To access:**
 
-- Local: [http://localhost:5173/staff/aivideo-builder](http://localhost:5173/staff/aivideo-builder)
+- Local: [http://localhost:3000/staff/aivideo-builder](http://localhost:3000/staff/aivideo-builder)
 - Production: [https://www.elevateforhumanity.org/staff/aivideo-builder](https://www.elevateforhumanity.org/staff/aivideo-builder)
 
 ---

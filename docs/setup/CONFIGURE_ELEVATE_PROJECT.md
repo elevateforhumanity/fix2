@@ -139,7 +139,7 @@ pnpm build
 pnpm dev
 ```
 
-Visit: http://localhost:5173
+Visit: http://localhost:3000
 
 Test:
 

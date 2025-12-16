@@ -358,7 +358,7 @@ Expected results:
 - ✅ 0 ESLint errors
 - ✅ 72 tests passing
 - ✅ Build successful
-- ✅ Dev server running on http://localhost:5173
+- ✅ Dev server running on http://localhost:3000
 
 ---
 

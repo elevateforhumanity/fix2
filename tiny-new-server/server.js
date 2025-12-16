@@ -39,7 +39,7 @@ const allowedOrigins =
     ? ['https://elevateforhumanity.com', 'https://elevateforhumanity.org']
     : [
         'http://localhost:3000',
-        'http://localhost:5173',
+        'http://localhost:3000',
         'http://localhost:3001',
       ];
 

@@ -46,7 +46,7 @@ describe('Complete Authentication Flow', () => {
     const { error } = await supabase.auth.resetPasswordForEmail(
       'test@example.com',
       {
-        redirectTo: 'http://localhost:5173/reset-password',
+        redirectTo: 'http://localhost:3000/reset-password',
       }
     );
 
@@ -97,7 +97,7 @@ describe('OAuth Flow', () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'http://localhost:5173/auth/callback',
+        redirectTo: 'http://localhost:3000/auth/callback',
       },
     });
 
