@@ -247,9 +247,11 @@ export default function HomePage() {
             <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
                 <Image
-                  src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/generated-image-5ad8936e-e731-44e0-9fb9-459e8166f672.png?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=NRIcy~TEuP1KHxghgJhRfV6TasR2~TYYzH7VPil1mMmPuqO5pvX9R8or-qCmm3r6caPRndtvSlHIAeWU2Ki6Xhsw4df3c86hoBhPrXwKVZ5e3LTzGXBu-vaT7giFPbgSIVIZNCKOOer6LzznxUHHxfnVMa8~8CAq6-8v9RGOxvr54mA2sOv~VRjRBQs~iH~vBk6mm5O2NYUMvneHcpM1x1pm-Lx0yN6S0Fe2Gf9ec8cPa1JnyDN4EOqqn2yuhSAwe3qRqZsa6b58zfaHB7oXSLVjiwEqYQiLnQU5YoBl9ZGuqZ7faq70qFfv2ze7Wob-5MHkS1jqhvlm-Qjqyu1NDA__"
+                  src="/images/programs-new/program-1.jpg"
                   alt="Second Chances"
                   fill
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -263,9 +265,11 @@ export default function HomePage() {
             <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
                 <Image
-                  src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__3/generated-image-490c99f8-5b92-43d9-b250-d9e0737d9317.png?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=v3QMnx8aJGuSYZtAGmbfHfEzVi95DBWi3ob3iwWiuAe0bROgg8OSQodp9VHjPnu1CWtGu-5tYwmk50uP2xUUaCrsvJyjCH8DxUrSIfR-5LHD3uiP~qmXKJ80EpLTQ~XIxCoRqz9dmGosf2zfZXjhs19NCWbNo0xi1JUaEbyu66HyV25tzPSUFn0X5Y9aDcL9tLJXxyl-gVaIYdOPMlIX0WM3ZVrN0~tgA5XgcoCKwdeR5Y3zjHHZbBG6Uh2bmtbusigFgI2uHd~nu~qLVTkLGPZy1GGXZOYDf-Xm2Dm37XTspUIifLQN6FQ96dexvaqL4vGJfaYE4AyG5s0vE-LKDA__"
+                  src="/images/programs-new/program-2.jpg"
                   alt="Parents & Caregivers"
                   fill
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -279,9 +283,11 @@ export default function HomePage() {
             <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
                 <Image
-                  src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__7/generated-image-fc4dd113-8a89-4b1a-9bd6-afcac7ac3402.png?Expires=2080939098&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=Rjgc85nThSEZvNbZ02eeQxDxRNWPuoE3E2KKXPQW8Lc3tyQ1sHu010c2Kk28qMLvZ52AgC3Og30m07DkWXJc8ohPpxmuM8rp70gPlMB~nfRFLx78lxZ-gcDBhHUQ5xEQKJ~K1PIHsmdPS3XhAyMdryD04QLOfrton9ZkWfHJ1ApQzXlbE~xgFTxMMtiVusrVqNYpen1NwJhGnnB7OPmU8vYkFtxbao8o51OaUFx8iRUmY~SHYWvEwG-OW5FrFxBUeusvKkx2INqgUQpATKWCAzx0GrSasTilN49UsZARQUBcumMWf7sVGwN6L2RelRvUNu-oHs013UiYBE4qbXtAgg__"
+                  src="/images/programs-new/program-3.jpg"
                   alt="Career Changers"
                   fill
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -312,10 +318,11 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-slate-100">
                 <Image
-                  src="https://i.imgur.com/c6WzXEy.jpg"
+                  src="/images/gallery/image1.jpg"
                   alt="Tax preparation training"
                   fill
-                  quality={90}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -372,11 +379,12 @@ export default function HomePage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2 bg-slate-100">
                 <Image
-                  src="https://i.imgur.com/7QrL7kQ.jpeg"
+                  src="/images/gallery/image2.jpg"
                   alt="HVAC training"
                   fill
-                  quality={80}
-                  className="object-contain"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -387,10 +395,11 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-slate-100">
                 <Image
-                  src="https://i.imgur.com/4JkhUSO.jpg"
+                  src="/images/gallery/image3.jpg"
                   alt="Healthcare training - helping people"
                   fill
-                  quality={90}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -445,9 +454,11 @@ export default function HomePage() {
             {/* Image */}
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl bg-blue-800">
               <Image
-                src="https://i.imgur.com/vCYOioP.png"
+                src="/images/gallery/image4.jpg"
                 alt="Ready to Start"
                 fill
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
