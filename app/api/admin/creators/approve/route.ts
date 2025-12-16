@@ -47,11 +47,12 @@ export async function POST(req: Request) {
     });
 
     // Send approval email
-    if (creator?.profiles?.email) {
+    const profile = creator?.profiles as any;
+    if (profile?.email) {
       try {
         await sendCreatorApprovalEmail({
-          email: creator.profiles.email,
-          name: creator.profiles.full_name || 'Creator',
+          email: profile.email,
+          name: profile.full_name || 'Creator',
         });
       } catch (emailError) {
         console.error('Failed to send approval email:', emailError);

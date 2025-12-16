@@ -42,11 +42,12 @@ export async function POST(req: Request) {
     if (error) throw error;
 
     // Send rejection email
-    if (creator?.profiles?.email) {
+    const creatorProfile = creator?.profiles as any;
+    if (creatorProfile?.email) {
       try {
         await sendCreatorRejectionEmail({
-          email: creator.profiles.email,
-          name: creator.profiles.full_name || 'Applicant',
+          email: creatorProfile.email,
+          name: creatorProfile.full_name || 'Applicant',
           reason: reason || 'Application does not meet requirements',
         });
       } catch (emailError) {
