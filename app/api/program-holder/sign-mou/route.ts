@@ -3,6 +3,7 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 import { PDFDocument } from 'pdf-lib';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 import {
   sendMOUSignedConfirmation,
   sendMOUSignedAdminNotification,
