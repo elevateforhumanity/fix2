@@ -1,13 +1,6 @@
 // app/api/applications/route.ts
 import { NextResponse } from 'next/server';
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-if (!SUPABASE_URL) {
-}
-if (!SUPABASE_SERVICE_ROLE_KEY) {
-}
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function POST(req: Request) {
   try {
@@ -24,6 +17,7 @@ export async function POST(req: Request) {
       'program',
       'preferredContact',
     ];
+
     for (const field of required) {
       if (!body[field] || String(body[field]).trim() === '') {
         return NextResponse.json(
@@ -33,49 +27,61 @@ export async function POST(req: Request) {
       }
     }
 
-    if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
-      // Still let the front-end succeed to avoid blocking users,
-      // but log for you to fix env vars.
-      return NextResponse.json({ ok: true }, { status: 200 });
-    }
+    const supabase = createAdminClient();
 
-    // Insert into Supabase via REST
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/applications`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        apikey: SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
-        Prefer: 'return=representation',
-      },
-      body: JSON.stringify({
+    // Build notes field with all the extra data
+    const notes = [
+      `City: ${body.city}`,
+      `ZIP: ${body.zip}`,
+      `Program Interest: ${body.program}`,
+      `Preferred Contact: ${body.preferredContact}`,
+      body.hasCaseManager ? `Has Case Manager: ${body.hasCaseManager}` : '',
+      body.caseManagerAgency
+        ? `Case Manager Agency: ${body.caseManagerAgency}`
+        : '',
+      body.supportNeeds ? `Support Needs: ${body.supportNeeds}` : '',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    // Insert into applications table (matching actual schema)
+    const { data, error } = await supabase
+      .from('applications')
+      .insert({
         first_name: body.firstName,
         last_name: body.lastName,
         phone: body.phone,
         email: body.email,
-        city: body.city,
-        zip: body.zip,
-        program: body.program,
-        has_case_manager: body.hasCaseManager,
-        case_manager_agency: body.caseManagerAgency,
-        support_needs: body.supportNeeds,
-        preferred_contact: body.preferredContact,
-        source: 'website_quick_apply',
-        created_at: new Date().toISOString(),
-      }),
-    });
+        program_id: body.program, // Maps to program_id in schema
+        notes: notes,
+        status: 'pending',
+      })
+      .select()
+      .single();
 
-    if (!res.ok) {
-      const errText = await res.text();
-      // Still avoid showing technical trash to the user
+    if (error) {
+      console.error('Supabase insert error:', error);
       return NextResponse.json(
-        { error: 'Failed to save application' },
+        {
+          error:
+            'Failed to save application. Please call 317-314-3757 for immediate assistance.',
+        },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ ok: true }, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({ error: 'Unexpected error' }, { status: 500 });
+    // TODO: Send email notification to staff
+    // TODO: Send confirmation email to applicant
+
+    return NextResponse.json({ ok: true, id: data.id }, { status: 200 });
+  } catch (err: any) {
+    console.error('Application submission error:', err);
+    return NextResponse.json(
+      {
+        error:
+          'Unexpected error. Please call 317-314-3757 for immediate assistance.',
+      },
+      { status: 500 }
+    );
   }
 }

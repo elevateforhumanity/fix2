@@ -1,8 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import HeroVideo from '@/components/home/HeroVideo';
-import PrimaryCtas from '@/components/home/PrimaryCtas';
-import HeroBanner from '@/components/hero/HeroBanner';
 
 export default function HomePage() {
   return (
@@ -33,21 +30,245 @@ export default function HomePage() {
             Training, Funding, and Workforce Reporting — All In One Platform
           </h1>
           <p className="mt-4 text-base sm:text-lg text-zinc-700">
-            Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting.
+            Built for students, employers, and workforce agencies to train,
+            fund, track, and scale real outcomes with compliance-ready
+            reporting.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 justify-center">
-            <a
+            <Link
               href="/apply"
               className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 transition-colors"
             >
               Apply for Training
-            </a>
-            <a
+            </Link>
+            <Link
               href="/platform"
               className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
             >
               License the Platform
+            </Link>
+          </div>
+
+          {/* Socials */}
+          <div className="mt-6 flex flex-wrap items-center gap-3 justify-center text-sm">
+            <a
+              href="https://www.facebook.com/elevateforhumanity"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-800 hover:bg-gray-50"
+            >
+              Facebook <span className="text-gray-400">↗</span>
             </a>
+
+            <a
+              href="https://www.youtube.com/@elevateforhumanity"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-800 hover:bg-gray-50"
+            >
+              YouTube <span className="text-gray-400">↗</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/elevate-for-humanity"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-800 hover:bg-gray-50"
+            >
+              LinkedIn <span className="text-gray-400">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* APPOINTMENT-BASED CTA */}
+      <section className="border-b bg-gray-50">
+        <div className="mx-auto max-w-6xl px-4 py-8">
+          <div className="rounded-xl border bg-slate-50 p-6">
+            <h3 className="text-lg font-semibold text-gray-900">
+              Start With an Information Appointment
+            </h3>
+
+            <p className="mt-2 text-sm text-gray-700">
+              Elevate for Humanity programs are appointment-based. To get
+              started, complete our inquiry form, then schedule an appointment
+              with a WorkOne career advisor.
+            </p>
+
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-gray-800">
+              <li>Submit the Elevate for Humanity inquiry form</li>
+              <li>
+                Visit <strong>www.indianacareerconnect.com</strong>
+              </li>
+              <li>Schedule an appointment with a WorkOne advisor</li>
+              <li>
+                Let them know you are there for{' '}
+                <strong>Elevate for Humanity</strong>
+              </li>
+              <li>
+                Call us back after your appointment to continue enrollment
+              </li>
+            </ol>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/apply"
+                className="rounded-md bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+              >
+                Submit Inquiry
+              </Link>
+
+              <a
+                href="https://www.indianacareerconnect.com"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md border px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-white"
+              >
+                Schedule WorkOne Appointment
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EXISTING SECTIONS - OPTIMIZED */}
+      {/* 2. CHOOSE YOUR PATH (3 TILES) */}
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <h2 className="text-2xl font-bold text-gray-900">Choose Your Path</h2>
+
+        <div className="mt-7 grid gap-6 md:grid-cols-3">
+          {/* Get Trained */}
+          <div className="rounded-2xl border bg-white p-5 shadow-sm">
+            <div className="relative h-[320px] w-full overflow-hidden rounded-xl border">
+              <Image
+                src="/images/heroes/student-career.jpg"
+                alt="Get trained"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="mt-4 text-xl font-bold text-gray-900">
+              Get Trained
+            </h3>
+            <p className="mt-2 text-gray-700">
+              Free or funded training programs connected to real careers,
+              employers, and credentials.
+            </p>
+            <Link
+              className="mt-4 inline-flex font-bold text-gray-900 hover:underline"
+              href="/apply"
+            >
+              Apply Now →
+            </Link>
+          </div>
+
+          {/* Partner With Us */}
+          <div className="rounded-2xl border bg-white p-5 shadow-sm">
+            <div className="relative h-[320px] w-full overflow-hidden rounded-xl border">
+              <Image
+                src="/images/heroes/training-provider-1.jpg"
+                alt="Partner with us"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="mt-4 text-xl font-bold text-gray-900">
+              Partner With Us
+            </h3>
+            <p className="mt-2 text-gray-700">
+              Hire talent, host apprenticeships, or partner with a
+              workforce-ready training provider.
+            </p>
+            <Link
+              className="mt-4 inline-flex font-bold text-gray-900 hover:underline"
+              href="/employers"
+            >
+              Partner With EFH →
+            </Link>
+          </div>
+
+          {/* License the Platform */}
+          <div className="rounded-2xl border bg-white p-5 shadow-sm">
+            <div className="relative h-[320px] w-full overflow-hidden rounded-xl border">
+              <Image
+                src="/images/efh/hero/hero-support.jpg"
+                alt="License the platform"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="mt-4 text-xl font-bold text-gray-900">
+              License the Platform
+            </h3>
+            <p className="mt-2 text-gray-700">
+              Deploy a complete workforce operating system for your
+              organization, school, or agency.
+            </p>
+            <Link
+              className="mt-4 inline-flex font-bold text-gray-900 hover:underline"
+              href="/platform"
+            >
+              View Licensing →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. HOW IT WORKS (3 STEPS) */}
+      <section className="border-y bg-gray-50 px-4 py-12">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl font-bold text-gray-900">How It Works</h2>
+
+          <div className="mt-8 grid gap-6 text-left md:grid-cols-3">
+            <div className="rounded-xl border bg-white p-6">
+              <div className="text-3xl font-bold text-gray-900">1</div>
+              <h3 className="mt-3 text-lg font-bold text-gray-900">Enroll</h3>
+              <p className="mt-2 text-sm text-gray-700">
+                Students apply once and are matched to training, funding, and
+                support services.
+              </p>
+            </div>
+            <div className="rounded-xl border bg-white p-6">
+              <div className="text-3xl font-bold text-gray-900">2</div>
+              <h3 className="mt-3 text-lg font-bold text-gray-900">Train</h3>
+              <p className="mt-2 text-sm text-gray-700">
+                Hybrid learning, apprenticeships, and hands-on experience —
+                tracked in real time.
+              </p>
+            </div>
+            <div className="rounded-xl border bg-white p-6">
+              <div className="text-3xl font-bold text-gray-900">3</div>
+              <h3 className="mt-3 text-lg font-bold text-gray-900">
+                Report Outcomes
+              </h3>
+              <p className="mt-2 text-sm text-gray-700">
+                Completion, credentials, placements, and funding reports — ready
+                for boards and agencies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ELEVATION VIDEO - Lazy loaded below fold */}
+      <section className="w-full bg-slate-900 py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white md:text-4xl">
+            This Is Not Graduation. This Is Elevation.
+          </h2>
+          <div className="relative h-[400px] w-full overflow-hidden rounded-2xl shadow-2xl md:h-[500px]">
+            <video
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source
+                src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
+                type="video/mp4"
+              />
+            </video>
           </div>
         </div>
       </section>
@@ -423,5 +644,14 @@ export default function HomePage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function MiniStat({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="rounded-lg border bg-white p-4">
+      <div className="text-sm font-bold text-gray-900">{title}</div>
+      <div className="mt-1 text-xs text-gray-600">{desc}</div>
+    </div>
   );
 }

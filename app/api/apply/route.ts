@@ -1,187 +1,191 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { sendEmail } from '@/lib/email/resend';
-import { logAuditEvent, AuditActions } from '@/lib/audit';
+import { createAdminClient } from '@/lib/supabase/admin';
+
+// Advisor assignment logic
+function assignAdvisor(program: string): string {
+  const advisorMap: Record<string, string> = {
+    barber: 'barber@elevateforhumanity.org',
+    cna: 'healthcare@elevateforhumanity.org',
+    hvac: 'trades@elevateforhumanity.org',
+    'direct-support-professional': 'healthcare@elevateforhumanity.org',
+  };
+
+  return (
+    advisorMap[program.toLowerCase()] || 'admissions@elevateforhumanity.org'
+  );
+}
+
+// Send confirmation email
+async function sendConfirmationEmail(
+  email: string,
+  firstName: string
+): Promise<void> {
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not configured, skipping email');
+    return;
+  }
+
+  try {
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Elevate for Humanity <no-reply@elevateforhumanity.org>',
+        to: email,
+        subject: 'We received your application – Elevate for Humanity',
+        html: `
+          <p>Hi ${firstName},</p>
+
+          <p>Thank you for applying to <strong>Elevate for Humanity</strong>. Your application has been received.</p>
+
+          <p><strong>What happens next:</strong></p>
+          <ol>
+            <li>Create an account at <a href="https://www.indianacareerconnect.com">indianacareerconnect.com</a></li>
+            <li>Schedule a WorkOne appointment</li>
+            <li>Tell them you are enrolling with <strong>Elevate for Humanity</strong></li>
+            <li>Call us back once scheduled so we can track your progress</li>
+          </ol>
+
+          <p>An advisor will contact you within 1–2 business days.</p>
+
+          <p>Need help right now? Call <strong>317-314-3757</strong>.</p>
+
+          <p>— Elevate for Humanity Team</p>
+        `,
+      }),
+    });
+  } catch (err) {
+    console.error('Email send error:', err);
+  }
+}
+
+// Send staff notification
+async function sendStaffNotification(
+  advisorEmail: string,
+  applicationData: any
+): Promise<void> {
+  if (!process.env.RESEND_API_KEY) {
+    return;
+  }
+
+  try {
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Elevate for Humanity <no-reply@elevateforhumanity.org>',
+        to: advisorEmail,
+        subject: `New Application: ${applicationData.first_name} ${applicationData.last_name}`,
+        html: `
+          <h2>New Application Received</h2>
+          <p><strong>Name:</strong> ${applicationData.first_name} ${applicationData.last_name}</p>
+          <p><strong>Email:</strong> ${applicationData.email}</p>
+          <p><strong>Phone:</strong> ${applicationData.phone}</p>
+          <p><strong>Program:</strong> ${applicationData.program_interest}</p>
+          <p><strong>City:</strong> ${applicationData.city}, ${applicationData.zip}</p>
+          <p><strong>Contact Preference:</strong> ${applicationData.contact_preference}</p>
+          ${applicationData.has_case_manager ? `<p><strong>Case Manager Agency:</strong> ${applicationData.case_manager_agency}</p>` : ''}
+          ${applicationData.support_notes ? `<p><strong>Support Notes:</strong> ${applicationData.support_notes}</p>` : ''}
+          <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/applications">View in Dashboard</a></p>
+        `,
+      }),
+    });
+  } catch (err) {
+    console.error('Staff notification error:', err);
+  }
+}
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const supabase = await createClient();
+    const {
+      firstName,
+      lastName,
+      phone,
+      email,
+      city,
+      zip,
+      program,
+      hasCaseManager,
+      caseManagerAgency,
+      supportNotes,
+      contactPreference,
+    } = body;
 
-    const { first_name, last_name, email, phone, program_slug } = body;
-
-    if (!email || !program_slug) {
+    // Validate required fields
+    if (
+      !firstName ||
+      !lastName ||
+      !phone ||
+      !email ||
+      !city ||
+      !zip ||
+      !program ||
+      !contactPreference
+    ) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    // 1️⃣ Create or get auth user
-    const { data: authUser, error: authError } =
-      await supabase.auth.admin.createUser({
-        email,
-        email_confirm: true,
-      });
+    const supabase = createAdminClient();
 
-    const userId = authUser?.user?.id;
+    // Assign advisor based on program
+    const advisorEmail = assignAdvisor(program);
 
-    if (!userId) {
-      // Error: $1
-      throw new Error('User creation failed');
-    }
-
-    // 2️⃣ Create student profile
-    const { error: profileError } = await supabase
-      .from('user_profiles')
-      .upsert({
-        user_id: userId,
-        role: 'student',
-        first_name,
-        last_name,
-        email,
+    // Insert application
+    const { data, error } = await supabase
+      .from('applications')
+      .insert({
+        first_name: firstName,
+        last_name: lastName,
         phone,
-      });
-
-    if (profileError) {
-      // Error: $1
-    }
-
-    // 3️⃣ Get program
-    const { data: program, error: programError } = await supabase
-      .from('programs')
-      .select('id')
-      .eq('slug', program_slug)
+        email,
+        city,
+        zip,
+        program_interest: program,
+        has_case_manager: hasCaseManager === 'yes',
+        case_manager_agency: caseManagerAgency || null,
+        support_notes: supportNotes || null,
+        contact_preference: contactPreference,
+        advisor_email: advisorEmail,
+      })
+      .select()
       .single();
 
-    if (!program) {
-      // Error: $1
-      throw new Error('Program not found');
+    if (error) {
+      console.error('Supabase insert error:', error);
+      throw error;
     }
 
-    // 4️⃣ Check for duplicate enrollment
-    const { data: existing } = await supabase
-      .from('enrollments')
-      .select('id')
-      .eq('student_id', userId)
-      .eq('program_id', program.id)
-      .maybeSingle();
-
-    if (existing) {
-      return NextResponse.json({
-        success: true,
-        message: 'Already enrolled',
-        user_id: userId,
-      });
-    }
-
-    // 5️⃣ Create enrollment (FREE – WIOA – Indiana RAPIDS)
-    const { error: enrollmentError } = await supabase
-      .from('enrollments')
-      .insert({
-        student_id: userId,
-        program_id: program.id,
-        status: 'active',
-        funding_source: 'WIOA',
-        tuition_amount: 0,
-        paid_amount: 0,
-        enrolled_at: new Date().toISOString(),
-        state_code: 'IN',
-        apprenticeship: true,
-        rapids_registered: true,
-      });
-
-    if (enrollmentError) {
-      // Error: $1
-      throw new Error('Enrollment failed');
-    }
-
-    // 6️⃣ Assign AI Instructor
-    try {
-      const { data: ai } = await supabase
-        .from('ai_instructors')
-        .select('id')
-        .eq('specialty', 'Barber Apprenticeship')
-        .eq('active', true)
-        .single();
-
-      if (ai) {
-        await supabase.from('student_ai_assignments').insert({
-          student_id: userId,
-          instructor_id: ai.id,
-          program_slug,
-        });
-      }
-    } catch (aiError) {
-      // Error: $1
-      // Continue - not critical
-    }
-
-    // 6.5️⃣ Create onboarding record
-    try {
-      await supabase.from('student_onboarding').insert({
-        student_id: userId,
-      });
-    } catch (onboardingError) {
-      // Error: $1
-      // Continue - not critical
-    }
-
-    // 7️⃣ Send orientation email
-    try {
-      await resend.emails.send({
-        from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
-        to: email,
-        subject: 'Welcome to the Barber Apprenticeship – Elevate for Humanity',
-        text: `
-Welcome ${first_name},
-
-You have been successfully enrolled in the Barber Apprenticeship Program through Elevate for Humanity.
-
-What happens next:
-• Your student dashboard is now active
-• Your AI Instructor has been assigned
-• Your training, tracking, and apprenticeship support are ready
-
-Log in here:
-${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard
-
-If you have questions, your AI Instructor is available inside your dashboard.
-
-Welcome to your next level.
-
-— Elevate for Humanity
-`,
-      });
-    } catch (emailError) {
-      // Error: $1
-      // Continue - not critical
-    }
-
-    // 8️⃣ Audit log
-    await logAuditEvent({
-      action: AuditActions.ENROLLMENT_CREATED,
-      resourceType: 'enrollment',
-      resourceId: userId,
-      metadata: {
-        program_slug,
-        email,
-        funding_source: 'WIOA',
-      },
+    // Create checklist for this application
+    await supabase.from('application_checklist').insert({
+      application_id: data.id,
+      advisor_assigned: true,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: 'Student enrolled successfully',
-      user_id: userId,
-      dashboard_url: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
-    });
+    // Send confirmation email to applicant (non-blocking)
+    sendConfirmationEmail(email, firstName).catch(console.error);
+
+    // Send notification to assigned advisor (non-blocking)
+    sendStaffNotification(advisorEmail, data).catch(console.error);
+
+    return NextResponse.json({ success: true, id: data.id });
   } catch (err: any) {
-    // Error: $1
+    console.error('APPLICATION ERROR:', err);
     return NextResponse.json(
-      { error: err.message || 'Enrollment failed' },
+      {
+        error:
+          'Submission failed. Please call 317-314-3757 for immediate assistance.',
+      },
       { status: 500 }
     );
   }

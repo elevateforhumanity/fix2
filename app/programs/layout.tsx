@@ -1,4 +1,5 @@
 import { WorkOneBanner } from '@/components/banners/WorkOneBanner';
+import { ProgramBanner } from '@/components/programs/ProgramBanner';
 
 export default function ProgramsLayout({
   children,
@@ -8,7 +9,10 @@ export default function ProgramsLayout({
   return (
     <>
       <WorkOneBanner />
-      {children}
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <ProgramBanner />
+        {children}
+      </div>
     </>
   );
 }

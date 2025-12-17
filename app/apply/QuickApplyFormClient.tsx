@@ -90,17 +90,21 @@ export default function QuickApplyFormClient() {
         body: JSON.stringify(form),
       });
 
+      const data = await res.json().catch(() => ({}));
+
       if (!res.ok) {
-        throw new Error('Failed to submit application.');
+        throw new Error(data.error || 'Failed to submit application.');
       }
 
       setSuccessMessage(
         'Thank you! Your application has been received. Someone from Elevate for Humanity will contact you within 1–2 business days.'
       );
       setForm(initialState);
-    } catch (err) {
+    } catch (err: any) {
+      console.error('Application submission error:', err);
       setErrorMessage(
-        'Something went wrong submitting your application. Please try again, or call 317-314-3757.'
+        err.message ||
+          "We're having a temporary issue submitting this form. Please call 317-314-3757 or use the Quick Inquiry form while we fix this."
       );
     } finally {
       setSubmitting(false);
@@ -209,7 +213,9 @@ export default function QuickApplyFormClient() {
           <option value="">Select a program</option>
           <option value="barber">Barber Apprenticeship</option>
           <option value="cna">CNA / Healthcare</option>
-          <option value="direct-support-professional">Direct Support Professional (DSP)</option>
+          <option value="direct-support-professional">
+            Direct Support Professional (DSP)
+          </option>
           <option value="hvac">HVAC / Building Trades</option>
           <option value="cdl">CDL / Transportation</option>
           <option value="building-technician">Building Technician</option>
