@@ -4,6 +4,8 @@ import type { Program } from '@/app/data/programs';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
+import ProgramHowItWorks from '@/components/program/ProgramHowItWorks';
+import ProgramFAQ from '@/components/program/ProgramFAQ';
 
 const AffirmButton = dynamic(() => import('@/components/AffirmButton'), {
   ssr: false,
@@ -86,7 +88,7 @@ export function ProgramDetails({ program }: { program: Program }) {
             </p>
 
             {isBarberProgram && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-4">
                 <div className="flex items-start gap-2">
                   <svg
                     className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
@@ -100,15 +102,13 @@ export function ProgramDetails({ program }: { program: Program }) {
                     />
                   </svg>
                   <div>
-                    <p className="text-xs font-bold text-green-900 mb-2">
-                      Earn While You Learn Apprenticeship
+                    <p className="text-xs font-bold text-green-900 mb-1">
+                      Earn While You Learn
                     </p>
-                    <p className="text-xs text-green-800 leading-relaxed">
-                      This is an Earn While You Learn apprenticeship. You train
-                      in a licensed shop, log required hours, complete online
-                      theory, and earn income based on your shop's pay structure
-                      (hourly/commission/tips). Workforce funding may cover
-                      tuition while you earn.
+                    <p className="text-xs text-green-800">
+                      Work in a real barbershop and get paid while completing
+                      your training. You can attend school while working at the
+                      shop!
                     </p>
                   </div>
                 </div>
@@ -321,6 +321,19 @@ export function ProgramDetails({ program }: { program: Program }) {
               </div>
             )}
           </aside>
+        </div>
+
+        {/* How It Works Section */}
+        <div className="mx-auto max-w-6xl px-4 pb-10">
+          <ProgramHowItWorks
+            programName={program.name}
+            isApprenticeship={program.slug === 'barber-apprenticeship'}
+          />
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mx-auto max-w-6xl px-4 pb-10">
+          <ProgramFAQ />
         </div>
       </section>
 
