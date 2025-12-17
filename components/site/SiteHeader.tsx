@@ -9,7 +9,7 @@ const nav = [
   { href: '/micro-classes', label: 'Micro Courses' },
   { href: '/funding', label: 'Funding' },
   { href: '/platform', label: 'Platform' },
-  { href: '/store', label: 'Store' },
+  { href: '/licensing', label: 'Partners' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];

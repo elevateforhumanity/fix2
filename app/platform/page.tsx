@@ -1,274 +1,261 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { STORE_PRODUCTS } from '@/app/data/store-products';
-import { Check, ArrowRight } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/platform',
-  },
-  title: 'Platform Licenses | Elevate For Humanity',
+export const metadata = {
+  title: 'Workforce Operating System | Elevate for Humanity',
   description:
-    'Deploy the complete Elevate workforce development platform. Choose from single-site, school, or enterprise licenses.',
+    'A complete workforce operating system for training providers, workforce boards, and employers. Manage programs, track apprenticeships, and generate compliance reports in one secure platform.',
 };
 
-export default function PlatformStorePage() {
+export default function PlatformPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Platform Licenses"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Deploy Your Own Workforce Platform
+      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-gradient-to-b from-slate-50 to-white">
+        <div className="mx-auto max-w-4xl text-center">
+          <h1 className="text-4xl sm:text-5xl font-black text-zinc-900 tracking-tight">
+            Elevate for Humanity Workforce Operating System
           </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
-            Licensed platform access with modular apps. Built for training
-            providers, schools, and workforce agencies.
+          <p className="mt-6 text-lg sm:text-xl text-zinc-700 leading-relaxed">
+            Elevate for Humanity is a modern Workforce Operating System designed
+            to power training programs, apprenticeships, and workforce
+            initiatives at scale.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="mt-4 text-lg text-zinc-700 leading-relaxed">
+            Built from the ground up for compliance, funding alignment, and
+            real-world outcomes, the platform replaces fragmented tools with one
+            secure, integrated system that supports learners, administrators,
+            employers, and workforce agencies—without custom development.
+          </p>
+          <p className="mt-6 text-xl font-bold text-zinc-900">
+            This is not a course platform.
+            <br />
+            This is workforce infrastructure.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="#licenses"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              href="/contact?topic=platform-demo"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
             >
-              View Licenses
+              Request a Demo
             </Link>
             <Link
-              href="/platform/apps"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              href="/licensing"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-zinc-900 bg-white border-2 border-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors"
             >
-              Explore Apps
+              Partner With Us
             </Link>
           </div>
         </div>
       </section>
 
-      {/* What You Get */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-              What You're Buying
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-              This is not a theme. It's a licensed platform with modular apps,
-              deployment rights, and post-purchase onboarding.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="text-5xl mb-4">🏗️</div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">
-                Licensed Platform
+      {/* Who It's For */}
+      <section className="px-4 sm:px-6 lg:px-10 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-black text-zinc-900 text-center">
+            Who It's For
+          </h2>
+          <p className="mt-4 text-lg text-zinc-700 text-center max-w-3xl mx-auto">
+            The Elevate platform is used by:
+          </p>
+          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 bg-slate-50 rounded-lg">
+              <h3 className="text-lg font-bold text-zinc-900">
+                Workforce training providers and schools
               </h3>
-              <p className="text-gray-600">
-                Deploy on your domain with your branding. Full source code
-                access with deployment rights.
-              </p>
             </div>
-
-            <div className="text-center p-6">
-              <div className="text-5xl mb-4">🧩</div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">
-                Modular Apps
+            <div className="p-6 bg-slate-50 rounded-lg">
+              <h3 className="text-lg font-bold text-zinc-900">
+                Apprenticeship sponsors and employer partners
               </h3>
-              <p className="text-gray-600">
-                Enable only the apps you need. LMS, enrollment, payments, case
-                management, and more.
-              </p>
             </div>
-
-            <div className="text-center p-6">
-              <div className="text-5xl mb-4">🚀</div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">
-                Onboarding Support
+            <div className="p-6 bg-slate-50 rounded-lg">
+              <h3 className="text-lg font-bold text-zinc-900">
+                Workforce boards and government programs
               </h3>
-              <p className="text-gray-600">
-                Post-purchase checklist, setup guides, and technical support to
-                get you live fast.
-              </p>
+            </div>
+            <div className="p-6 bg-slate-50 rounded-lg">
+              <h3 className="text-lg font-bold text-zinc-900">
+                Nonprofits delivering funded training
+              </h3>
+            </div>
+            <div className="p-6 bg-slate-50 rounded-lg">
+              <h3 className="text-lg font-bold text-zinc-900">
+                Enterprises running internal workforce pipelines
+              </h3>
             </div>
           </div>
+          <p className="mt-8 text-center text-zinc-700">
+            Whether you are operating a single program or managing multiple
+            organizations under one umbrella, the system scales with you.
+          </p>
         </div>
       </section>
 
-      {/* License Tiers */}
-      <section id="licenses" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-              Choose Your License
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-              Every license includes apps, updates, and support. Scale as you
-              grow.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {STORE_PRODUCTS.map((product) => (
-              <div
-                key={product.id}
-                className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow ${
-                  product.licenseType === 'school' ? 'ring-2 ring-blue-600' : ''
-                }`}
-              >
-                {product.licenseType === 'school' && (
-                  <div className="bg-blue-600 text-white text-center py-2 text-sm font-semibold">
-                    MOST POPULAR
-                  </div>
-                )}
-
-                <div className="p-6">
-                  <h3 className="text-lg md:text-lg font-bold mb-2 text-gray-900">
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-600 mb-4 min-h-[60px]">
-                    {product.description}
-                  </p>
-
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold text-gray-900">
-                      ${product.price.toLocaleString()}
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      {product.billingType === 'one_time'
-                        ? 'One-time payment'
-                        : 'Per month'}
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <div className="text-sm font-semibold text-gray-700 mb-2">
-                      {product.appsIncluded.length} Apps Included:
-                    </div>
-                    <ul className="space-y-2">
-                      {product.appsIncluded.slice(0, 4).map((app) => (
-                        <li
-                          key={app}
-                          className="flex items-start text-sm text-gray-600"
-                        >
-                          <Check className="w-4 h-4 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
-                          <span>{app}</span>
-                        </li>
-                      ))}
-                      {product.appsIncluded.length > 4 && (
-                        <li className="text-sm text-gray-500">
-                          + {product.appsIncluded.length - 4} more
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-
-                  <Link
-                    href={`/platform/${product.slug}`}
-                    className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-colors ${
-                      product.licenseType === 'school'
-                        ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                        : 'bg-gray-900 hover:bg-gray-800 text-white'
-                    }`}
-                  >
-                    {product.requiresApproval
-                      ? 'Request Access'
-                      : 'View Details'}
-                    <ArrowRight className="inline-block ml-2 w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ideal For Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-gray-900">
-            Who This Is For
+      {/* What the Platform Does */}
+      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-slate-50">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-black text-zinc-900 text-center mb-12">
+            What the Platform Does
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">
-                Training Providers
+          <div className="space-y-12">
+            {/* Multi-Tenant */}
+            <div>
+              <h3 className="text-2xl font-bold text-zinc-900">
+                Multi-Tenant Organization Management
               </h3>
-              <p className="text-gray-600 mb-4">
-                Launch workforce programs with enrollment, LMS, and payment
-                processing built-in.
+              <p className="mt-4 text-lg text-zinc-700">
+                Operate multiple organizations, programs, and partners inside
+                one system with full data separation and role-based access.
               </p>
-              <p className="text-sm text-gray-500">
-                Best fit: <strong>Core Platform</strong> or{' '}
-                <strong>School License</strong>
+              <p className="mt-4 text-zinc-700">Each organization has:</p>
+              <ul className="mt-2 list-disc list-inside text-zinc-700 space-y-1">
+                <li>Its own users, settings, programs, and reporting</li>
+                <li>Secure data isolation</li>
+                <li>Configurable features and permissions</li>
+              </ul>
+            </div>
+
+            {/* Learning Management */}
+            <div>
+              <h3 className="text-2xl font-bold text-zinc-900">
+                Learning Management + Apprenticeships
+              </h3>
+              <p className="mt-4 text-lg text-zinc-700">
+                Deliver online, in-person, hybrid, and apprenticeship programs
+                from one platform.
+              </p>
+              <p className="mt-4 text-zinc-700">Supports:</p>
+              <ul className="mt-2 list-disc list-inside text-zinc-700 space-y-1">
+                <li>Online theory and coursework</li>
+                <li>On-the-job training tracking</li>
+                <li>Earn While You Learn apprenticeship models</li>
+                <li>Program completion and credential issuance</li>
+              </ul>
+            </div>
+
+            {/* Workforce Funding */}
+            <div>
+              <h3 className="text-2xl font-bold text-zinc-900">
+                Workforce Funding & Compliance Alignment
+              </h3>
+              <p className="mt-4 text-lg text-zinc-700">
+                Designed to work with workforce funding models instead of
+                fighting them.
+              </p>
+              <p className="mt-4 text-zinc-700">Supports:</p>
+              <ul className="mt-2 list-disc list-inside text-zinc-700 space-y-1">
+                <li>WIOA, WRG, JRI, employer-paid, and self-pay programs</li>
+                <li>Attendance and participation tracking</li>
+                <li>Compliance-ready reporting</li>
+                <li>FERPA-aware student data handling</li>
+              </ul>
+            </div>
+
+            {/* Reporting */}
+            <div>
+              <h3 className="text-2xl font-bold text-zinc-900">
+                Reporting & Outcomes
+              </h3>
+              <p className="mt-4 text-lg text-zinc-700">
+                Built-in reporting views provide real insight without
+                spreadsheets.
+              </p>
+              <p className="mt-4 text-zinc-700">Track:</p>
+              <ul className="mt-2 list-disc list-inside text-zinc-700 space-y-1">
+                <li>Enrollments and completions</li>
+                <li>Program progress</li>
+                <li>Apprenticeship participation</li>
+                <li>Credentials earned</li>
+                <li>Workforce outcomes (where applicable)</li>
+              </ul>
+              <p className="mt-4 text-zinc-700">
+                Reports are organization-scoped, exportable, and designed for
+                audits and funding reviews.
               </p>
             </div>
 
-            <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">
-                Workforce Boards
+            {/* Security */}
+            <div>
+              <h3 className="text-2xl font-bold text-zinc-900">
+                Secure by Design
               </h3>
-              <p className="text-gray-600 mb-4">
-                Manage WIOA contracts, track outcomes, and report compliance
-                across multiple providers.
+              <p className="mt-4 text-lg text-zinc-700">
+                Security is not optional.
               </p>
-              <p className="text-sm text-gray-500">
-                Best fit: <strong>School License</strong> or{' '}
-                <strong>Enterprise</strong>
-              </p>
-            </div>
-
-            <div className="p-6 border border-gray-200 rounded-lg">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">
-                Community Colleges
-              </h3>
-              <p className="text-gray-600 mb-4">
-                White-label platform for continuing education, workforce
-                training, and non-credit programs.
-              </p>
-              <p className="text-sm text-gray-500">
-                Best fit: <strong>School License</strong> or{' '}
-                <strong>Enterprise</strong>
-              </p>
+              <p className="mt-4 text-zinc-700">The platform includes:</p>
+              <ul className="mt-2 list-disc list-inside text-zinc-700 space-y-1">
+                <li>Row Level Security (RLS) across all tenant data</li>
+                <li>Role-based access control</li>
+                <li>Admin, staff, instructor, and partner roles</li>
+                <li>Secure invite and onboarding flows</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">
-            Ready to Deploy Your Platform?
+      {/* Why Organizations Choose Elevate */}
+      <section className="px-4 sm:px-6 lg:px-10 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl font-black text-zinc-900 text-center mb-8">
+            Why Organizations Choose Elevate
           </h2>
-          <p className="text-base md:text-lg mb-8 text-blue-100">
-            Choose a license, complete checkout, and get onboarding support to
-            launch your workforce programs.
+          <ul className="space-y-3 text-lg text-zinc-700">
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-2">✓</span>
+              Faster deployment than custom builds
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-2">✓</span>
+              Lower cost than enterprise LMS + reporting stacks
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-2">✓</span>
+              Designed for workforce funding realities
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-2">✓</span>
+              Built for licensing, not one-off use
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-2">✓</span>
+              Proven in real training and apprenticeship environments
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-slate-50">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-black text-zinc-900">
+            Ready to See It in Action?
+          </h2>
+          <p className="mt-4 text-lg text-zinc-700">
+            Elevate for Humanity licenses this platform to approved partners.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="mt-4 text-lg text-zinc-700">
+            If you are exploring a workforce deployment, training expansion, or
+            apprenticeship infrastructure, we invite you to start a
+            conversation.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="#licenses"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              href="/contact?topic=platform-demo"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
             >
-              View Licenses
+              Request a Demo
             </Link>
             <Link
-              href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors border-2 border-white"
+              href="/licensing"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-zinc-900 bg-white border-2 border-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors"
             >
-              Talk to Sales
+              Partner With Us
             </Link>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
