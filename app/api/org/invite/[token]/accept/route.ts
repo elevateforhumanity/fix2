@@ -5,8 +5,9 @@ import { auditLog, AuditAction, AuditEntity } from '@/lib/logging/auditLog';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { token: string } }
+  context: { params: Promise<{ token: string }> }
 ) {
+  const params = await context.params;
   try {
     const supabase = await createClient();
 

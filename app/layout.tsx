@@ -174,7 +174,6 @@ export default function RootLayout({
         />
         <DMCATrackingPixel />
         <ScraperDetection />
-        <SecurityBadge />
         <SiteHeader />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">

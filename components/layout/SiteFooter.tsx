@@ -95,11 +95,10 @@ export default function SiteFooter() {
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col items-start justify-between gap-2 border-t border-slate-200 pt-4 text-[11px] text-slate-500 sm:flex-row sm:items-center">
           <p>
-            © {year} Elevate For Humanity. All rights reserved. Empowering
-            communities through workforce development.
+            © {year} Elevate For Humanity. All rights reserved.
           </p>
           <p className="text-[10px]">
-            ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
+            WIOA Approved Provider | Indiana DWD Registered
           </p>
         </div>
       </div>
