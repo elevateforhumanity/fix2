@@ -30,11 +30,6 @@ export default async function ProgramHolderDashboard() {
   const supabase = await createClient();
 
   // Fetch profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
 
   // Fetch students/students under this program holder
   const { data: students } = await supabase

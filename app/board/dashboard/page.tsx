@@ -15,12 +15,6 @@ export default async function BoardMemberDashboardPage() {
 
   const supabase = await createClient();
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
-
   if (!profile) {
     redirect('/login');
   }
