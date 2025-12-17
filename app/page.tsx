@@ -7,19 +7,49 @@ import HeroBanner from '@/components/hero/HeroBanner';
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 1. VIDEO HERO */}
+      {/* 1. HERO BANNER - Video hero */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
-        <HeroBanner
-          type="video"
-          title="Training, Funding, and Workforce Reporting — All In One Platform"
-          subtitle="Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting."
-          primaryCta={{ label: 'Apply for Training', href: '/apply' }}
-          secondaryCta={{ label: 'License the Platform', href: '/platform' }}
-          videoSrc="/videos/success-stories-video-with-narration.mp4"
-          voiceoverSrc="/videos/voiceover.mp3"
-          posterSrc="/images/efh/hero/hero-main-clean.jpg"
-          trustIndicators={[]}
-        />
+        <div className="relative w-full overflow-hidden rounded-3xl">
+          <div className="relative h-[520px] w-full md:h-[600px]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081347919&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ezZ0FVT-e8bJDB4vfWuYMSbBf2IiAnOZLAxWrge9gnOAevZMVxtdhgOiss5CNfUexEvxOZHJ-DEk7EKU8qIidPUiG6WydOZNhJAIm60IVTIhGhp4clYPL-amrhFmMrwICdauopAT3dS~QOrJQc49U1sjaBE4VxJt1cA9ociJD5ki4jMn8zJ9u053b8ZZWqy0YV4nANu9XCzPCMsD2wgVYa3xpj12SV3BQk6lmd~oSNaz~aJyjf-goldm7i29fveQ~7DXNeUega8pF7yVMMVFHdIYTSroWpz5oMgD7BB8OCKtdkU5fk0DCzIqnul-YVuoIlmThN0-VUJ65U~2TW3UmQ__"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
+
+        {/* Headline and CTAs BELOW the banner */}
+        <div className="mt-8 text-center max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900">
+            Training, Funding, and Workforce Reporting — All In One Platform
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-zinc-700">
+            Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 justify-center">
+            <a
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 transition-colors"
+            >
+              Apply for Training
+            </a>
+            <a
+              href="/platform"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+            >
+              License the Platform
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* 2. CHOOSE YOUR PATH (3 TILES) */}
