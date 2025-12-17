@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -11,12 +11,8 @@ const stripe = process.env.STRIPE_SECRET_KEY
     })
   : null;
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
-  process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key'
-);
-
 export async function POST(request: NextRequest) {
+  const supabase = createAdminClient();
   if (!stripe) {
     return NextResponse.json(
       { error: 'Stripe not configured' },

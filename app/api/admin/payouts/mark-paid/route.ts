@@ -5,12 +5,21 @@ import { requireAdmin } from '@/lib/auth';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseAdmin() {
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.SUPABASE_SERVICE_ROLE_KEY
+  ) {
+    throw new Error('Supabase credentials not configured');
+  }
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+}
 
 export async function POST(req: Request) {
+  const supabase = getSupabaseAdmin();
   try {
     const { session } = await requireAdmin();
     const { creatorId } = await req.json();

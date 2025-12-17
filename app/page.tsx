@@ -16,7 +16,7 @@ export default function HomePage() {
           primaryCta={{ label: 'Apply for Training', href: '/apply' }}
           secondaryCta={{ label: 'License the Platform', href: '/platform' }}
           videoSrc="/videos/success-stories-video-with-narration.mp4"
-          voiceoverSrc="/audio/hero-voiceover.mp3"
+          voiceoverSrc="/videos/voiceover.mp3"
           posterSrc="/images/efh/hero/hero-main-clean.jpg"
           trustIndicators={[]}
         />

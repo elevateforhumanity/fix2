@@ -14,6 +14,18 @@ export interface OrgContext {
 
 export const getOrgContext = cache(
   async (supabase: SupabaseClient, userId: string): Promise<OrgContext> => {
+    // First get the user's active organization from their profile
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('organization_id')
+      .eq('id', userId)
+      .single();
+
+    if (profileError || !profile?.organization_id) {
+      throw new Error('User not associated with any organization');
+    }
+
+    // Then get their membership and role for that organization
     const { data, error } = await supabase
       .from('organization_users')
       .select(
@@ -29,6 +41,7 @@ export const getOrgContext = cache(
     `
       )
       .eq('user_id', userId)
+      .eq('organization_id', profile.organization_id)
       .single();
 
     if (error) {
@@ -36,7 +49,7 @@ export const getOrgContext = cache(
     }
 
     if (!data) {
-      throw new Error('User not associated with any organization');
+      throw new Error('User membership not found for active organization');
     }
 
     return {

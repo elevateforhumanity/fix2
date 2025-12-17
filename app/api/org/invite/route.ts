@@ -57,8 +57,7 @@ export async function POST(req: NextRequest) {
       .eq('email', normalizedEmail)
       .eq('organization_id', targetOrgId)
       .gt('expires_at', new Date().toISOString())
-      .is('accepted_at', null)
-      .single();
+      .maybeSingle();
 
     if (pendingInvite) {
       return NextResponse.json(

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createAdminClient } from '@/lib/supabase/admin';
 import {
   rateLimit,
   getClientIdentifier,
@@ -8,12 +8,8 @@ import {
 import { logAuditEvent, AuditActions } from '@/lib/audit';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function POST(req: Request) {
+  const supabase = createAdminClient();
   const identifier = getClientIdentifier(req.headers);
   const rateLimitResult = rateLimit(identifier, {
     limit: 10,

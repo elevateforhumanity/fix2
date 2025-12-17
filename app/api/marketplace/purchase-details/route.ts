@@ -1,13 +1,9 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function GET(req: Request) {
+  const supabase = createAdminClient();
   const { searchParams } = new URL(req.url);
   const sessionId = searchParams.get('session_id');
 

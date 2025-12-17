@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import { sendMarketplaceSaleNotification } from '@/lib/email/resend';
 import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { randomBytes } from 'crypto';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -16,12 +16,8 @@ const stripe = new Stripe(
   }
 );
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function POST(req: Request) {
+  const supabase = createAdminClient();
   const body = await req.text();
   const sig = req.headers.get('stripe-signature');
 

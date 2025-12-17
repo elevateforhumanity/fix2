@@ -1,13 +1,9 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function GET() {
+  const supabase = createAdminClient();
   try {
     // Check database connectivity
     const { error: dbError } = await supabase

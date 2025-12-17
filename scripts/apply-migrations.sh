@@ -23,15 +23,10 @@ echo ""
 
 # Migrations to apply (in order)
 MIGRATIONS=(
-  "001_init_schema.sql"
-  "002_courses.sql"
-  "003_products.sql"
-  "004_media.sql"
-  "005_licenses.sql"
-  "006_org_invites_rls_fix.sql"
-  "007_rls_policies.sql"
-  "008_system_errors.sql"
-  "009_rls_hardening_pack.sql"
+  "../002_multi_tenant_foundation.sql"
+  "../003_workforce_reporting_views.sql"
+  "../004_org_invites.sql"
+  "../005_org_subscriptions.sql"
 )
 
 echo "📋 Migrations to apply:"
@@ -52,7 +47,7 @@ echo "🔧 Applying migrations..."
 echo ""
 
 for migration in "${MIGRATIONS[@]}"; do
-  MIGRATION_FILE="supabase/migrations/$migration"
+  MIGRATION_FILE="supabase/$migration"
   
   if [ ! -f "$MIGRATION_FILE" ]; then
     echo "⚠️  Skipping $migration (file not found)"
@@ -61,27 +56,40 @@ for migration in "${MIGRATIONS[@]}"; do
   
   echo "📝 Applying: $migration"
   
-  # Use psql to apply migration
-  # Note: You'll need to install psql or use Supabase CLI
-  # For now, this script outputs instructions
+  # Apply via Supabase Management API
+  SQL_CONTENT=$(cat "$MIGRATION_FILE")
   
-  echo "   ✅ Ready to apply"
+  # Use Supabase SQL Editor API
+  curl -X POST "$NEXT_PUBLIC_SUPABASE_URL/rest/v1/rpc/exec_sql" \
+    -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+    -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+    -H "Content-Type: application/json" \
+    -d "{\"query\": $(echo "$SQL_CONTENT" | jq -Rs .)}" \
+    --fail-with-body || {
+      echo "   ❌ Failed to apply $migration"
+      echo "   Apply manually via Supabase Dashboard SQL Editor"
+      continue
+    }
+  
+  echo "   ✅ Applied successfully"
 done
 
 echo ""
 echo "==========================================="
 echo "✅ Migration script complete"
 echo ""
-echo "⚠️  IMPORTANT: Apply these migrations via:"
+echo "Next steps:"
+echo "1. Verify tables in Supabase Dashboard:"
+echo "   https://supabase.com/dashboard/project/$PROJECT_REF/editor"
 echo ""
-echo "Option 1: Supabase Dashboard"
-echo "  1. Go to https://supabase.com/dashboard/project/$PROJECT_REF/sql"
-echo "  2. Copy/paste each migration file content"
-echo "  3. Run in order (001 → 009)"
+echo "2. Check for these tables:"
+echo "   - organizations"
+echo "   - organization_users"
+echo "   - organization_settings"
+echo "   - org_invites"
+echo "   - organization_subscriptions"
 echo ""
-echo "Option 2: Supabase CLI"
-echo "  supabase db push"
+echo "3. Verify RLS policies are enabled"
 echo ""
-echo "Option 3: Direct psql"
-echo "  psql \"postgresql://postgres:[PASSWORD]@db.$PROJECT_REF.supabase.co:5432/postgres\" -f supabase/migrations/001_init_schema.sql"
+echo "4. Run: pnpm build"
 echo ""
