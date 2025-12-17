@@ -13,7 +13,7 @@ export default function HomePage() {
               Elevate for Humanity is Unlocking Potential
             </h1>
           </div>
-          
+
           <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
@@ -39,10 +39,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8">
             {/* For Students */}
-            <Link 
-              href="/apply"
-              className="group block"
-            >
+            <Link href="/apply" className="group block">
               <div className="h-full rounded-xl border-2 border-blue-200 bg-white p-10 hover:shadow-xl hover:border-blue-600 hover:bg-blue-50 transition-all duration-300">
                 <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center group-hover:bg-blue-700 transition-colors">
@@ -57,7 +54,8 @@ export default function HomePage() {
                     I want no-cost training for a competitive career
                   </h3>
                   <p className="text-base text-gray-700 leading-relaxed mb-6">
-                    Launch your career through free training programs funded by WIOA, WRG, JRI, and apprenticeships.
+                    Launch your career through free training programs funded by
+                    WIOA, WRG, JRI, and apprenticeships.
                   </p>
                   <span className="inline-flex items-center font-semibold text-blue-600 group-hover:underline">
                     Start Your Journey →
@@ -67,10 +65,7 @@ export default function HomePage() {
             </Link>
 
             {/* For Employers */}
-            <Link 
-              href="/employers"
-              className="group block"
-            >
+            <Link href="/employers" className="group block">
               <div className="h-full rounded-xl border-2 border-gray-200 bg-white p-10 hover:shadow-xl hover:border-black transition-all duration-300">
                 <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center">
@@ -85,7 +80,8 @@ export default function HomePage() {
                     I need to hire qualified talent for my company
                   </h3>
                   <p className="text-base text-gray-700 leading-relaxed mb-6">
-                    Hire job-ready graduates with the skills you need. Partner with us for apprenticeships and training.
+                    Hire job-ready graduates with the skills you need. Partner
+                    with us for apprenticeships and training.
                   </p>
                   <span className="inline-flex items-center font-semibold text-black group-hover:underline">
                     Partner With Us →
@@ -97,48 +93,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. SUCCESS METRICS */}
+      {/* 2.5. ELEVATION MESSAGE */}
+      <section className="relative bg-black text-white px-6 sm:px-10 lg:px-12 py-32 lg:py-40 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/facilities-new/facility-2.jpg"
+            alt="Elevation"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        </div>
+
+        {/* Content */}
+        <div className="relative mx-auto max-w-5xl text-center">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
+            This Is Not Graduation.
+          </h2>
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-orange-500 leading-tight mb-12">
+            This Is Elevation.
+          </h2>
+          <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+            We don't just hand you a certificate. We elevate you to a new
+            level—with skills, confidence, and a career that changes everything.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. OUR STORY */}
       <section className="bg-gray-50 px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            <div>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-black text-white mb-6">
-                <TrendingUp className="w-10 h-10" />
-              </div>
-              <div className="text-5xl font-black text-black mb-3">89%</div>
-              <p className="text-lg text-gray-700">
-                Placement Rate
-              </p>
-              <p className="text-sm text-gray-600 mt-2">
-                Graduates find employment within 90 days
-              </p>
-            </div>
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black text-center leading-tight mb-12">
+            Breaking Down Barriers to Career Success
+          </h2>
 
-            <div>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-black text-white mb-6">
-                <Users className="w-10 h-10" />
-              </div>
-              <div className="text-5xl font-black text-black mb-3">500+</div>
-              <p className="text-lg text-gray-700">
-                Graduates Placed
-              </p>
-              <p className="text-sm text-gray-600 mt-2">
-                Lives transformed through career training
-              </p>
-            </div>
+          <div className="space-y-8 text-lg text-gray-700 leading-relaxed">
+            <p>
+              Too many talented people are stuck in low-wage jobs—not because
+              they lack potential, but because they lack access to training and
+              opportunity. Traditional education is expensive, time-consuming,
+              and often disconnected from what employers actually need.
+            </p>
 
-            <div>
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-black text-white mb-6">
-                <Briefcase className="w-10 h-10" />
-              </div>
-              <div className="text-5xl font-black text-black mb-3">50+</div>
-              <p className="text-lg text-gray-700">
-                Hiring Partners
-              </p>
-              <p className="text-sm text-gray-600 mt-2">
-                Companies actively hiring our graduates
-              </p>
-            </div>
+            <p>
+              <span className="font-bold text-black">We're changing that.</span>{' '}
+              Elevate For Humanity provides 100% free career training in
+              high-demand fields. No tuition. No hidden costs. No barriers.
+            </p>
+
+            <p>
+              We partner with workforce boards, government programs, and
+              employers to fund your training. You focus on learning the skills
+              that lead to real jobs with real wages. When you graduate, we
+              connect you directly with companies ready to hire.
+            </p>
+
+            <p className="text-xl font-bold text-black">
+              This is more than training—it's a pathway to economic mobility and
+              a better future for you and your family.
+            </p>
           </div>
         </div>
       </section>
@@ -155,9 +170,12 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-6">
                 1
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">Submit Inquiry</h3>
+              <h3 className="text-xl font-bold text-black mb-4">
+                Submit Inquiry
+              </h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                Complete our inquiry form and we'll match you to training, funding, and support services.
+                Complete our inquiry form and we'll match you to training,
+                funding, and support services.
               </p>
             </div>
 
@@ -165,9 +183,12 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-6">
                 2
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">WorkOne Appointment</h3>
+              <h3 className="text-xl font-bold text-black mb-4">
+                WorkOne Appointment
+              </h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                Meet with a WorkOne advisor to confirm eligibility and complete enrollment paperwork.
+                Meet with a WorkOne advisor to confirm eligibility and complete
+                enrollment paperwork.
               </p>
             </div>
 
@@ -175,9 +196,12 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold mb-6">
                 3
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">We Enroll + Place You</h3>
+              <h3 className="text-xl font-bold text-black mb-4">
+                We Enroll + Place You
+              </h3>
               <p className="text-base text-gray-700 leading-relaxed">
-                Start training and receive job placement support to launch your new career.
+                Start training and receive job placement support to launch your
+                new career.
               </p>
             </div>
           </div>
@@ -193,7 +217,7 @@ export default function HomePage() {
             <br />
             <span className="text-red-500">This Is Elevation.</span>
           </h2>
-          
+
           <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
@@ -214,7 +238,8 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              We don't just train people for jobs. We elevate lives, transform communities, and create lasting economic impact.
+              We don't just train people for jobs. We elevate lives, transform
+              communities, and create lasting economic impact.
             </p>
           </div>
         </div>
@@ -251,7 +276,8 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p className="text-base text-gray-700 leading-relaxed mb-6">
-                  95% of graduates employed within 90 days. Average starting salary $45k/year.
+                  95% of graduates employed within 90 days. Average starting
+                  salary $45k/year.
                 </p>
                 <Link
                   href="/programs/hvac-technician"
@@ -285,7 +311,8 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p className="text-base text-gray-700 leading-relaxed mb-6">
-                  Get paid $15-20/hr while training. 1,500 hours hands-on experience.
+                  Get paid $15-20/hr while training. 1,500 hours hands-on
+                  experience.
                 </p>
                 <Link
                   href="/programs/barber-apprenticeship"
@@ -319,7 +346,8 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p className="text-base text-gray-700 leading-relaxed mb-6">
-                  High demand career. 98% certification pass rate. Start earning quickly.
+                  High demand career. 98% certification pass rate. Start earning
+                  quickly.
                 </p>
                 <Link
                   href="/programs/cna"
@@ -349,7 +377,8 @@ export default function HomePage() {
             Ready to Transform Your Career?
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-10">
-            Join 500+ Indianapolis residents who have launched successful careers through our free training programs.
+            Join 500+ Indianapolis residents who have launched successful
+            careers through our free training programs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
