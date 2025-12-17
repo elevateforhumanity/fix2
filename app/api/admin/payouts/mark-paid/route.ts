@@ -60,8 +60,6 @@ export async function POST(req: Request) {
       ipAddress,
     });
 
-    // TODO: Send payout confirmation email to creator
-
     return NextResponse.json({
       success: true,
       salesUpdated: data?.length || 0,

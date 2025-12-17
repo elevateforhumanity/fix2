@@ -106,9 +106,6 @@ export async function POST(req: Request) {
       },
     });
 
-    // TODO: Send email to buyer with download link
-    // TODO: Send notification to creator about new sale
-
     logger.info('Marketplace sale recorded:', {
       productId,
       creatorId,

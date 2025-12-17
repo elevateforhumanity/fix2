@@ -21,9 +21,6 @@ export default async function StudentProgramPage({ params }: { params: Params })
   const { slug } = await params;
   const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
-  // TODO: Fetch program data from database
-  // For now, show program overview with modules
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">

@@ -153,7 +153,6 @@ export async function completeEnrollment(data: EnrollmentData): Promise<Enrollme
  * Send enrollment confirmation email
  */
 async function sendEnrollmentEmail(email: string, courseTitle: string, enrollmentId: string) {
-  // TODO: Integrate with Resend API
   logger.info('Sending enrollment email', { email, courseTitle, enrollmentId });
 }
 

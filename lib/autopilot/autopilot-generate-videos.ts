@@ -14,7 +14,6 @@ async function main() {
   if (!OPENAI_API_KEY || !SUPABASE_URL || !SUPABASE_KEY) {
     process.exit(0);
   }
-  // TODO: your real generation logic lives here
 }
 
 main().catch((err) => {

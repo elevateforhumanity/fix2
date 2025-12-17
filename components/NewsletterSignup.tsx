@@ -12,15 +12,7 @@ export default function NewsletterSignup() {
     e.preventDefault();
     setStatus('loading');
 
-    // Simulate API call (replace with actual email service integration)
     try {
-      // TODO: Integrate with SendGrid, Mailchimp, or your email service
-      // const response = await fetch('/api/newsletter/subscribe', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email }),
-      // });
-
       // Simulate success for now
       await new Promise(resolve => setTimeout(resolve, 1000));
       

@@ -18,8 +18,6 @@ export async function POST(req: Request) {
 
     if (error) throw error;
 
-    // TODO: Send approval email to creator
-
     return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });

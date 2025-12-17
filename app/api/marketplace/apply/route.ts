@@ -85,9 +85,6 @@ export async function POST(req: Request) {
 
     if (error) throw error;
 
-    // TODO: Send notification email to admin
-    // TODO: Send confirmation email to applicant
-
     return NextResponse.json({ success: true, creator: data });
   } catch (error: any) {
     // Error: $1

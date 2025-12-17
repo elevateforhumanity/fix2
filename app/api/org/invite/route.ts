@@ -50,6 +50,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Check if there's already a pending invite for this email
+    const { data: pendingInvite } = await supabase
+      .from('org_invites')
+      .select('id')
+      .eq('email', normalizedEmail)
+      .eq('organization_id', targetOrgId)
+      .gt('expires_at', new Date().toISOString())
+      .is('accepted_at', null)
+      .single();
+
+    if (pendingInvite) {
+      return NextResponse.json(
+        { error: 'Invite already pending for this email' },
+        { status: 409 }
+      );
+    }
+
     // Check if invited email already has an account and is a member
     const { data: invitedProfile } = await supabase
       .from('profiles')

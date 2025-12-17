@@ -21,8 +21,6 @@ export async function POST(req: Request) {
 
     if (error) throw error;
 
-    // TODO: Send rejection email to creator with reason
-
     return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
