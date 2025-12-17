@@ -20,26 +20,15 @@ const ContactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting: 5 requests per minute per IP
-    const identifier = getClientIdentifier(req.headers);
-    const rateLimitResult = rateLimit(identifier, RATE_LIMITS.CONTACT_FORM);
-
-    if (!rateLimitResult.ok) {
-      return NextResponse.json(
-        { 
-          ok: false, 
-          error: 'Too many requests. Please try again in a minute.' 
-        },
-        { 
-          status: 429,
-          headers: {
-            'Retry-After': '60',
-            'X-RateLimit-Limit': String(RATE_LIMITS.CONTACT_FORM.limit),
-            'X-RateLimit-Remaining': '0',
-          }
-        }
-      );
-    }
+    // Rate limiting: TEMPORARILY DISABLED - Re-enable after testing
+    // const identifier = getClientIdentifier(req.headers);
+    // const rateLimitResult = rateLimit(identifier, RATE_LIMITS.CONTACT_FORM);
+    // if (!rateLimitResult.ok) {
+    //   return NextResponse.json(
+    //     { ok: false, error: 'Too many requests. Please try again in a minute.' },
+    //     { status: 429 }
+    //   );
+    // }
 
     // Parse and validate request body
     const body = await req.json().catch(() => null);

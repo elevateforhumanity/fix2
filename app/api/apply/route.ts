@@ -107,16 +107,15 @@ async function sendStaffNotification(
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting: 3 requests per minute per IP
-    const identifier = getClientIdentifier(req.headers);
-    const rateLimitResult = rateLimit(`apply:${identifier}`, RATE_LIMITS.APPLICATION_FORM);
-
-    if (!rateLimitResult.ok) {
-      return NextResponse.json(
-        { error: 'Too many requests. Please try again in a minute.' },
-        { status: 429 }
-      );
-    }
+    // Rate limiting: TEMPORARILY DISABLED - Re-enable after testing
+    // const identifier = getClientIdentifier(req.headers);
+    // const rateLimitResult = rateLimit(`apply:${identifier}`, RATE_LIMITS.APPLICATION_FORM);
+    // if (!rateLimitResult.ok) {
+    //   return NextResponse.json(
+    //     { error: 'Too many requests. Please try again in a minute.' },
+    //     { status: 429 }
+    //   );
+    // }
 
     const body = await req.json();
 
