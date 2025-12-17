@@ -57,10 +57,16 @@ export default function SiteHeader() {
         {/* Desktop CTAs */}
         <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           <Link
-            href="/platform/licensing"
+            href="/dashboard"
             className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
           >
-            License
+            Dashboard
+          </Link>
+          <Link
+            href="/login"
+            className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+          >
+            Login
           </Link>
           <Link
             href="/apply"
@@ -101,11 +107,18 @@ export default function SiteHeader() {
               ))}
               <div className="pt-4 space-y-3">
                 <Link
-                  href="/platform/licensing"
+                  href="/dashboard"
                   className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  License
+                  Dashboard
+                </Link>
+                <Link
+                  href="/login"
+                  className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login
                 </Link>
                 <Link
                   href="/apply"
