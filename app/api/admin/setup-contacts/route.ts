@@ -210,10 +210,10 @@ export const POST = withAuth(
         .insert(contact);
 
       if (error) {
-        if (error.code === "23505" || error.message?.includes("duplicate")) {
+        if ((error as any).code === "23505" || toErrorMessage(error)?.includes("duplicate")) {
           skipped++;
         } else {
-          logger.error(`Error inserting ${contact.email}:`, error);
+          logger.error(`Error inserting ${contact.email}:`, toError(error));
         }
       } else {
         inserted++;

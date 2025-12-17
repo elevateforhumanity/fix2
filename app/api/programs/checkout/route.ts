@@ -207,7 +207,7 @@ export async function POST(request: NextRequest) {
       {
         error: 'Failed to create checkout session',
         details:
-          process.env.NODE_ENV === 'development' ? error.message : undefined,
+          process.env.NODE_ENV === 'development' ? toErrorMessage(error) : undefined,
       },
       { status: 500 }
     );

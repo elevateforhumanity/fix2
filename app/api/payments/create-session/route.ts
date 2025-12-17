@@ -351,7 +351,7 @@ export async function POST(request: NextRequest) {
         message:
           'An unexpected error occurred. Please try again or contact support at 317-314-3757',
         code: 'UNKNOWN_ERROR',
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+        details: process.env.NODE_ENV === 'development' ? toErrorMessage(error) : undefined,
       },
       { status: 500 }
     );
