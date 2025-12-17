@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/payroll/export/route.ts
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
@@ -61,8 +60,13 @@ export async function GET(request: Request) {
   const header = ['EmployeeId', 'Name', 'Date', 'Hours', 'PayCode'];
 
   const rows = (entries || []).map((e: Record<string, unknown>) => [
+    // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
+    // @ts-expect-error TS2339: Property 'external_payroll_id' does not exist on type 'unknown'.
     e.profiles?.external_payroll_id ?? e.profiles?.id ?? '',
+    // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
+    // @ts-expect-error TS2339: Property 'full_name' does not exist on type 'unknown'.
     e.profiles?.full_name ?? e.profiles?.email ?? '',
+    // @ts-expect-error TS2769: No overload matches this call.
     new Date(e.worked_at).toISOString().slice(0, 10),
     e.hours?.toString() ?? '0',
     'REG', // or OVERTIME based on your logic

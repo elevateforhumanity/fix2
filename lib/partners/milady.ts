@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/milady.ts
 // Milady RISE API Integration
 // Cosmetology, Barbering, Beauty Industry Training
@@ -23,6 +22,7 @@ function getMiladyConfig(): PartnerConfig {
       '',
     baseUrl: process.env.MILADY_API_URL || 'https://api.miladytraining.com',
     orgId: process.env.MILADY_SCHOOL_ID || '',
+    // @ts-expect-error TS2353: Object literal may only specify known properties, and 'enabled' does not exis...
     enabled: true,
   };
 }
@@ -89,11 +89,13 @@ export class MiladyAPI extends BasePartnerAPI {
   }
 
   async createAccount(student: StudentData): Promise<PartnerAccount> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Creating Milady RISE account', {
       studentId: student.id,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         studentId: string;
         username: string;
@@ -105,6 +107,7 @@ export class MiladyAPI extends BasePartnerAPI {
         schoolId: this.config.orgId,
       });
 
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'Milady RISE account created', {
         externalId: response.data.studentId,
       });
@@ -115,7 +118,9 @@ export class MiladyAPI extends BasePartnerAPI {
         loginUrl: response.data.accessUrl,
       };
     } catch (error: unknown) {
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to create Milady RISE account', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -126,12 +131,14 @@ export class MiladyAPI extends BasePartnerAPI {
     accountExternalId: string,
     courseExternalCode: string
   ): Promise<CourseEnrollment> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Enrolling in Milady RISE course', {
       accountExternalId,
       courseExternalCode,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         enrollmentId: string;
         courseName: string;
@@ -142,6 +149,7 @@ export class MiladyAPI extends BasePartnerAPI {
         schoolId: this.config.orgId,
       });
 
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'Milady RISE enrollment created', {
         enrollmentId: response.data.enrollmentId,
       });
@@ -153,7 +161,9 @@ export class MiladyAPI extends BasePartnerAPI {
         accessUrl: response.data.courseUrl,
       };
     } catch (error: unknown) {
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to enroll in Milady RISE course', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -163,11 +173,13 @@ export class MiladyAPI extends BasePartnerAPI {
   async getProgress(
     externalEnrollmentId: string
   ): Promise<ProgressData | null> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching Milady RISE progress', {
       externalEnrollmentId,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         progressPercent: number;
         status: string;
@@ -195,7 +207,9 @@ export class MiladyAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch Milady RISE progress', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -205,11 +219,13 @@ export class MiladyAPI extends BasePartnerAPI {
   async getCertificate(
     externalEnrollmentId: string
   ): Promise<CertificateData | null> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching Milady RISE certificate', {
       externalEnrollmentId,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         certificateId: string;
         certificateNumber: string;
@@ -227,7 +243,9 @@ export class MiladyAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch Milady RISE certificate', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -239,9 +257,11 @@ export class MiladyAPI extends BasePartnerAPI {
     externalEnrollmentId: string;
     returnTo?: string;
   }): Promise<string> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Generating Milady RISE SSO launch URL', params);
 
     try {
+      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         launchUrl: string;
         expiresIn: number;
@@ -253,7 +273,9 @@ export class MiladyAPI extends BasePartnerAPI {
 
       return response.data.launchUrl;
     } catch (error: unknown) {
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to generate Milady RISE SSO URL', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;

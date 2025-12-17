@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * External Module Launcher
  *
@@ -65,6 +64,7 @@ export default function ExternalModuleLauncher({
       );
     } catch (err: unknown) {
       // Error: $1
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       alert(`Upload failed: ${err.message}`);
     } finally {
       setUploading(false);

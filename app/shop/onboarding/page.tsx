@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
@@ -30,6 +29,7 @@ export default async function ShopOnboardingPage() {
   const { data: onboarding } = await supabase
     .from('shop_onboarding')
     .select('*')
+    // @ts-expect-error TS2339: Property 'id' does not exist on type 'any[]'.
     .eq('shop_id', shop.id)
     .single();
 
@@ -37,6 +37,7 @@ export default async function ShopOnboardingPage() {
   const { data: docsStatus } = await supabase
     .from('shop_required_docs_status')
     .select('*')
+    // @ts-expect-error TS2339: Property 'id' does not exist on type 'any[]'.
     .eq('shop_id', shop.id)
     .eq('required', true)
     .order('document_type');

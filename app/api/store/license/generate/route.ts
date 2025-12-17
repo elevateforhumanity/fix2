@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -57,6 +56,7 @@ export async function POST(req: Request) {
       licenseId: license.id,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('License generation error:', error);
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }

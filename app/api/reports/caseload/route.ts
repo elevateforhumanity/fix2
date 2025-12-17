@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -119,14 +118,19 @@ export async function GET(req: NextRequest) {
 
   // Build rows
   let rows = enrolls.map((e: Record<string, unknown>) => {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
     const k = key(e.user_id, e.course_id);
     const latest = latestMap[k];
 
     return {
       user_id: e.user_id,
+      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       learner: (e.user?.email || '').split('@')[0],
+      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       email: e.user?.email,
+      // @ts-expect-error TS2339: Property 'title' does not exist on type 'unknown'.
       course: e.course?.title,
+      // @ts-expect-error TS2339: Property 'code' does not exist on type 'unknown'.
       program_code: e.funding_program?.code || '',
       enroll_status: e.status,
       case_status: latest?.status || null,

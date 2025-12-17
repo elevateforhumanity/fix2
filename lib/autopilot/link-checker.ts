@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function checkBrokenLinks(
   treePaths: string[],
   metadata: Record<string, unknown>
@@ -10,6 +9,7 @@ export function checkBrokenLinks(
     return { missing: ['Course slug is missing'], found: [] };
   }
 
+  // @ts-expect-error TS2339: Property 'forEach' does not exist on type 'unknown'.
   metadata.modules?.forEach((mod: any) => {
     if (!mod.slug) return;
 

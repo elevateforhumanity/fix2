@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/student/partner-enrollments/route.ts
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
@@ -13,6 +12,7 @@ function getSupabaseServerClient() {
     {
       cookies: {
         get(name: string) {
+          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
       },
@@ -59,7 +59,9 @@ export async function GET() {
     progress_percentage: row.progress_percentage,
     enrolled_at: row.enrolled_at,
     completed_at: row.completed_at,
+    // @ts-expect-error TS2339: Property 'course_name' does not exist on type 'unknown'.
     course_name: row.partner_courses?.course_name ?? null,
+    // @ts-expect-error TS2339: Property 'provider_name' does not exist on type 'unknown'.
     provider_name: row.partner_lms_providers?.provider_name ?? null,
   }));
 

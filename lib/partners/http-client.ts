@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/http-client.ts
 // HTTP client with retry logic and error handling
 
@@ -84,6 +83,7 @@ export class HttpClient {
         }
 
         throw new PartnerAPIError(
+          // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
           `HTTP ${response.status}: ${data?.message || response.statusText}`,
           response.status,
           data
@@ -91,6 +91,7 @@ export class HttpClient {
       }
 
       return {
+        // @ts-expect-error TS2322: Type 'unknown' is not assignable to type 'T'.
         data,
         status: response.status,
         headers: responseHeaders,
@@ -98,6 +99,7 @@ export class HttpClient {
     } catch (error: unknown) {
       clearTimeout(timeoutId);
 
+      // @ts-expect-error TS2339: Property 'name' does not exist on type 'unknown'.
       if (error.name === 'AbortError') {
         throw new PartnerAPIError('Request timeout', 408);
       }
@@ -117,6 +119,7 @@ export class HttpClient {
       }
 
       throw new PartnerAPIError(
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         `Network error: ${error.message}`,
         undefined,
         error

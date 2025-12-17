@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -59,6 +58,7 @@ export async function POST(request: NextRequest) {
 
         logger.info('Affirm transaction authorized:', {
           transaction_id: data.id,
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user_id: user.id,
           amount: data.amount,
         });
@@ -112,6 +112,7 @@ export async function POST(request: NextRequest) {
 
         logger.info('Affirm transaction captured:', {
           transaction_id: data.id,
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user_id: user.id,
         });
 
@@ -153,6 +154,7 @@ export async function POST(request: NextRequest) {
 
         logger.info('Affirm transaction voided:', {
           transaction_id: data.id,
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user_id: user.id,
         });
 
@@ -197,6 +199,7 @@ export async function POST(request: NextRequest) {
 
         logger.info('Affirm transaction refunded:', {
           transaction_id: data.id,
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user_id: user.id,
           amount: refundAmount,
         });

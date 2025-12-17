@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/integrations/eps-financial.ts
 // EPS Financial API Integration
 // Reference implementation - configure with your EPS credentials
@@ -309,6 +308,7 @@ export class EPSFinancialIntegration {
     }
     // Reference: Implement signature verification based on EPS documentation
     // This is a placeholder - replace with actual EPS signature verification
+    // @ts-expect-error TS1308: 'await' expressions are only allowed within async functions and at the top le...
     const crypto = await import('crypto');
     const expectedSignature = crypto
       .createHmac('sha256', this.config.webhookSecret)

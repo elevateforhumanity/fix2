@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -58,6 +57,7 @@ export async function POST(request: NextRequest) {
           first: userName?.split(' ')[0] || 'Student',
           last: userName?.split(' ').slice(1).join(' ') || 'User',
         },
+        // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
         email: userEmail || user.email,
         phone_number: userPhone || '',
       },
@@ -66,11 +66,13 @@ export async function POST(request: NextRequest) {
           first: userName?.split(' ')[0] || 'Student',
           last: userName?.split(' ').slice(1).join(' ') || 'User',
         },
+        // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
         email: userEmail || user.email,
         phone_number: userPhone || '',
       },
       discounts: {},
       metadata: {
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         user_id: user.id,
         course_id: courseId,
         platform: 'elevate-for-humanity',
@@ -109,6 +111,7 @@ export async function POST(request: NextRequest) {
 
     logger.info('Affirm checkout created:', {
       checkout_token: data.checkout_token,
+      // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
       user_id: user.id,
       course_id: courseId,
     });

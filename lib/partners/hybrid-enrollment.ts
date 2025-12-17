@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/hybrid-enrollment.ts
 // Unified enrollment handler that supports both API and link-based modes
 
@@ -80,6 +79,7 @@ export async function enrollInExternalModule(
     return {
       success: false,
       mode: 'link',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Enrollment failed',
     };
   }
@@ -222,7 +222,9 @@ export async function syncExternalModuleProgress(
   };
 
   if (partnerProgress.completed && partnerProgress.completedAt) {
+    // @ts-expect-error TS2339: Property 'completed_at' does not exist on type 'unknown'.
     updates.completed_at = partnerProgress.completedAt.toISOString();
+    // @ts-expect-error TS2339: Property 'approved_at' does not exist on type 'unknown'.
     updates.approved_at = new Date().toISOString();
   }
 
@@ -233,7 +235,9 @@ export async function syncExternalModuleProgress(
         progress.external_enrollment_id
       );
       if (certificate) {
+        // @ts-expect-error TS2339: Property 'certificate_url' does not exist on type 'unknown'.
         updates.certificate_url = certificate.downloadUrl;
+        // @ts-expect-error TS2339: Property 'certificate_number' does not exist on type 'unknown'.
         updates.certificate_number = certificate.certificateNumber;
       }
     } catch (certError) {
@@ -270,7 +274,9 @@ export async function syncAllExternalModules(): Promise<void> {
   for (const progress of activeProgress) {
     // Only sync API-based enrollments
     if (
+      // @ts-expect-error TS2339: Property 'delivery_mode' does not exist on type '{ delivery_mode: any; }[]'.
       progress.external_partner_modules.delivery_mode === 'api' ||
+      // @ts-expect-error TS2339: Property 'delivery_mode' does not exist on type '{ delivery_mode: any; }[]'.
       progress.external_partner_modules.delivery_mode === 'hybrid'
     ) {
       try {

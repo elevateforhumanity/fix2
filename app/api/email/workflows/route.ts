@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -17,6 +16,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ success: true, workflows });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching workflows:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
@@ -46,6 +46,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, workflow });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating workflow:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },

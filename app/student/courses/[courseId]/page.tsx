@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
@@ -143,6 +142,7 @@ export default async function StudentCourseDetailPage(props: {
 
         {/* Course Progress Tracker */}
         {enrollment && (
+          // @ts-expect-error TS2322: Type '{ courseId: string; userId: string; }' is not assignable to type 'Intri...
           <CourseProgressTracker courseId={courseId} userId={user.id} />
         )}
 

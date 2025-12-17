@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Google Workspace SSO Integration
  * OAuth 2.0, user sync, Google Classroom integration
@@ -414,6 +413,7 @@ export class GoogleCalendarIntegration {
       .eq('course_id', courseId)
       .gte('due_date', new Date().toISOString());
 
+    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!assignments) return;
 
     for (const assignment of assignments) {

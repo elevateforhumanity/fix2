@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
@@ -94,6 +93,7 @@ Format as JSON with this structure:
 
     return NextResponse.json({ course, content });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('AI course builder error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate course' },

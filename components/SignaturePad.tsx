@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
@@ -22,6 +21,7 @@ export default function SignaturePad({
   );
   const [isEmpty, setIsEmpty] = useState(true);
 
+  // @ts-expect-error TS7030: Not all code paths return a value.
   useEffect(() => {
     if (canvasRef.current) {
       const pad = new SignatureCanvas(canvasRef.current, {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Email Templates for Elevate for Humanity
 
 export const emailTemplates = {
@@ -683,6 +682,7 @@ export const emailTemplates = {
                       <strong style="color: #0c4a6e;">Average Starting Wage:</strong>
                     </td>
                     <td style="padding: 12px 0; text-align: right;">
+                      // @ts-expect-error TS18004: No value exists in scope for the shorthand property 'avgWage'. Either declare...
                       <span style="color: #0369a1; font-size: 20px; font-weight: bold;">${{ avgWage }}/hr</span>
                     </td>
                   </tr>

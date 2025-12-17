@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -18,12 +17,15 @@ export const POST = withAuth(
     const updates: unknown = {};
 
     if (status) {
+      // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
       updates.status = status;
     }
 
     if (mou_status) {
+      // @ts-expect-error TS2339: Property 'mou_status' does not exist on type 'unknown'.
       updates.mou_status = mou_status;
       if (mou_status === 'signed') {
+        // @ts-expect-error TS2339: Property 'mou_signed_at' does not exist on type 'unknown'.
         updates.mou_signed_at = new Date().toISOString();
       }
     }

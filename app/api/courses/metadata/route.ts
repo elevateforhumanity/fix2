@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
@@ -37,6 +36,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
+    // @ts-expect-error TS2339: Property 'content' does not exist on type '{ type: "file"; encoding: string; ...
     const raw = Buffer.from(response.data.content || '', 'base64').toString(
       'utf8'
     );
@@ -44,8 +44,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(metadata);
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Get metadata error:', error);
 
+    // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
     if (error.status === 404) {
       return NextResponse.json(
         { error: 'Metadata file not found' },

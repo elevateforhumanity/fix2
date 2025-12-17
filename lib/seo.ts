@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Metadata } from 'next';
 
 export interface SEOConfig {
@@ -102,6 +101,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
       yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+      // @ts-expect-error TS2353: Object literal may only specify known properties, and 'bing' does not exist i...
       bing: process.env.NEXT_PUBLIC_BING_VERIFICATION,
     },
   };

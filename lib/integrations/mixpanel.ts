@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Mixpanel Analytics Integration
  * Handles event tracking and user analytics
@@ -67,6 +66,7 @@ class MixpanelClient {
   ): Promise<void> {
     const data: MixpanelUserProfile = {
       $distinct_id: distinctId,
+      // @ts-expect-error TS2353: Object literal may only specify known properties, and '$token' does not exist...
       $token: this.config.token,
       $set: properties,
     };
@@ -91,6 +91,7 @@ class MixpanelClient {
   ): Promise<void> {
     const data: MixpanelUserProfile = {
       $distinct_id: distinctId,
+      // @ts-expect-error TS2353: Object literal may only specify known properties, and '$token' does not exist...
       $token: this.config.token,
       $add: { [property]: value },
     };
@@ -115,6 +116,7 @@ class MixpanelClient {
   ): Promise<void> {
     const data: MixpanelUserProfile = {
       $distinct_id: distinctId,
+      // @ts-expect-error TS2353: Object literal may only specify known properties, and '$token' does not exist...
       $token: this.config.token,
       $append: { [property]: value },
     };

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
@@ -37,10 +36,12 @@ export default async function PartnerCoursesPage() {
     courses?.reduce(
       (acc: Record<string, unknown>, course: Record<string, unknown>) => {
         const partnerName =
+          // @ts-expect-error TS2339: Property 'provider_name' does not exist on type 'unknown'.
           course.partner_lms_providers?.provider_name || 'Other';
         if (!acc[partnerName]) {
           acc[partnerName] = [];
         }
+        // @ts-expect-error TS2339: Property 'push' does not exist on type 'unknown'.
         acc[partnerName].push(course);
         return acc;
       },

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/course-completion.ts
 // Course completion logic including external partner modules
 
@@ -58,6 +57,8 @@ export async function checkCourseCompletion(
   if (!externalStatus.complete) {
     status.missingRequirements.push(
       ...externalStatus.missingModules.map(
+        // @ts-expect-error TS2339: Property 'partner_name' does not exist on type 'unknown'.
+        // @ts-expect-error TS2339: Property 'title' does not exist on type 'unknown'.
         (m) => `External module: ${m.title} (${m.partner_name})`
       )
     );
@@ -88,6 +89,7 @@ async function checkInternalLessons(
     .eq('completed', true)
     .in(
       'lesson_id',
+      // @ts-expect-error TS2345: Argument of type 'PostgrestFilterBuilder<any, any, any, { id: any; }[], "less...
       supabase.from('lessons').select('id').eq('course_id', courseId)
     );
 

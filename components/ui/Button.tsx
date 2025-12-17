@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from 'react';
 import { Loader2 } from 'lucide-react';
 
@@ -67,6 +66,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     // If asChild is true, render children directly with className applied
     if (asChild && React.isValidElement(children)) {
+      // @ts-expect-error TS2352: Conversion of type '{ form?: string | undefined; formAction?: string | ((form...
       return React.cloneElement(children, {
         className: combinedClassName,
         ...props,

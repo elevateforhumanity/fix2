@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -46,7 +45,9 @@ export async function GET(req: NextRequest) {
   const filtered = (data || []).filter((row: Record<string, unknown>) => {
     if (!searchQuery) return true;
     return (
+      // @ts-expect-error TS2339: Property 'toLowerCase' does not exist on type 'unknown'.
       (row.learner_email || '').toLowerCase().includes(searchQuery) ||
+      // @ts-expect-error TS2339: Property 'toLowerCase' does not exist on type 'unknown'.
       (row.course_title || '').toLowerCase().includes(searchQuery)
     );
   });

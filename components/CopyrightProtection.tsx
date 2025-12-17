@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 import { useEffect } from 'react';
 /**
@@ -8,6 +7,7 @@ import { useEffect } from 'react';
 export function CopyrightProtection() {
   useEffect(() => {
     // 1. Disable right-click context menu on images and text
+    // @ts-expect-error TS7030: Not all code paths return a value.
     const handleContextMenu = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'IMG' || target.closest('.protected-content')) {

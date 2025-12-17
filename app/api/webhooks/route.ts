@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiRequireAdmin } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -99,6 +98,7 @@ export async function POST(request: NextRequest) {
         const webhook = await createWebhook(
           url,
           events as WebhookEvent[],
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           {
             description,

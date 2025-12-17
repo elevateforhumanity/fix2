@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Gradebook Calculator - Weighted Grade Calculations
 
 import {
@@ -157,9 +156,11 @@ export function calculateRubricScore(
   totalPoints: number
 ): number {
   const earnedPoints = rubricScores.reduce(
+    // @ts-expect-error TS2339: Property 'points' does not exist on type 'unknown'.
     (sum, score) => sum + score.points,
     0
   );
+  // @ts-expect-error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number'...
   return (earnedPoints / totalPoints) * 100;
 }
 

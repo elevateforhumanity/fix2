@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -32,6 +31,7 @@ async function getDurableBlogPosts() {
 
 async function getBlogPosts() {
   try {
+    // @ts-expect-error TS2304: Cannot find name 'supabase'.
     const { data: supabasePosts } = await supabase
       .from('blog_posts')
       .select('*')

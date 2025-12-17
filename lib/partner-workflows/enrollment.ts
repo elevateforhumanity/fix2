@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Partner LMS Enrollment Workflows
  * Handles enrollment logic for each external LMS partner
@@ -95,6 +94,7 @@ export async function enrollCertiport(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -158,6 +158,7 @@ export async function enrollHSI(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -221,6 +222,7 @@ export async function enrollJRI(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -285,6 +287,7 @@ export async function enrollNRFRiseUp(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -349,6 +352,7 @@ export async function enrollCareerSafe(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -423,6 +427,7 @@ export async function enrollMiladyRISE(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -468,6 +473,7 @@ export async function enrollStudent(
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

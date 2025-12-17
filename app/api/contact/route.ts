@@ -1,79 +1,142 @@
-// app/api/contact/route.ts
-import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { NextResponse } from 'next/server';
+import { z } from 'zod';
+import { createAdminClient } from '@/lib/supabase/admin';
+// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'RATE_LIMITS'.
+// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'getClientIdentifier'.
+// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'rateLimit'.
+import { rateLimit, getClientIdentifier, RATE_LIMITS } from '@/lib/rate-limit';
 import { logger } from '@/lib/logger';
-import { Resend } from 'resend';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
-const resendApiKey = process.env.RESEND_API_KEY || "";
-
-const supabaseAdmin = supabaseUrl && serviceRoleKey 
-  ? createClient(supabaseUrl, serviceRoleKey)
-  : null;
-
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
+// Validation schema for contact form
+const ContactSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters').max(120),
+  email: z.string().email('Invalid email address').max(200),
+  phone: z.string().max(50).optional().or(z.literal('')),
+  message: z.string().min(10, 'Message must be at least 10 characters').max(4000),
+  program: z.string().max(120).optional().or(z.literal('')),
+  role: z.string().max(120).optional().or(z.literal('')),
+  interest: z.string().max(120).optional().or(z.literal('')),
+});
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    // Rate limiting: 5 requests per minute per IP
+    const identifier = getClientIdentifier(req.headers);
+    const rateLimitResult = rateLimit(identifier, RATE_LIMITS.CONTACT_FORM);
 
-    const { name, email, phone, program, message, role, interest, followup } = body;
-
-    if (!name && !email && !phone) {
+    if (!rateLimitResult.ok) {
       return NextResponse.json(
-        { ok: false, message: "Missing basic contact info." },
+        { 
+          ok: false, 
+          error: 'Too many requests. Please try again in a minute.' 
+        },
+        { 
+          status: 429,
+          headers: {
+            'Retry-After': '60',
+            'X-RateLimit-Limit': String(RATE_LIMITS.CONTACT_FORM.limit),
+            'X-RateLimit-Remaining': '0',
+          }
+        }
+      );
+    }
+
+    // Parse and validate request body
+    const body = await req.json().catch(() => null);
+    
+    if (!body) {
+      return NextResponse.json(
+        { ok: false, error: 'Invalid request body' },
         { status: 400 }
       );
     }
 
-    // Save to database if configured
-    if (supabaseAdmin) {
-      const { error } = await supabaseAdmin.from("contact_requests").insert({
-        name,
-        email,
-        phone,
-        role,
-        interest: program || interest,
-        followup: message || followup,
-        source: "efh-website",
+    const parsed = ContactSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { 
+          ok: false, 
+          error: 'Invalid form submission',
+          details: parsed.error.flatten().fieldErrors
+        },
+        { status: 400 }
+      );
+    }
+
+    const data = parsed.data;
+
+    // Save to database using admin client (bypasses RLS for public form)
+    const supabase = createAdminClient();
+
+    const { error: dbError } = await supabase
+      .from('contact_requests')
+      .insert({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        role: data.role || null,
+        interest: data.program || data.interest || null,
+        followup: data.message,
+        source: 'efh-website',
+        created_at: new Date().toISOString(),
       });
 
-      if (error) {
-        logger.error("Error inserting contact request:", error);
-      }
+    if (dbError) {
+      logger.error('Error inserting contact request:', dbError);
+      return NextResponse.json(
+        { ok: false, error: 'Could not submit request. Please try again.' },
+        { status: 500 }
+      );
     }
 
-    // Send email notification to elevate4humanityedu@gmail.com
-    if (resend) {
-      try {
-        await resend.emails.send({
-          from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',
-          to: 'elevate4humanityedu@gmail.com',
-          subject: `New Inquiry from ${name}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            ${program ? `<p><strong>Program Interest:</strong> ${program}</p>` : ''}
-            ${message ? `<p><strong>Message:</strong><br>${message}</p>` : ''}
-            <hr>
-            <p><em>Submitted from elevateforhumanity.org</em></p>
-          `,
-        });
-      } catch (emailError) {
-        logger.error("Error sending email notification:", emailError);
-        // Don't fail the request if email fails
-      }
-    }
+    // Send email notification (non-blocking)
+    sendEmailNotification(data).catch((err) => {
+      logger.error('Error sending email notification:', err);
+      // Don't fail the request if email fails
+    });
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    logger.error("Contact API error:", err);
+    logger.error('Contact API error:', err);
     return NextResponse.json(
-      { ok: false, message: "Something went wrong." },
+      { ok: false, error: 'Something went wrong. Please try again.' },
       { status: 500 }
     );
+  }
+}
+
+// Send email notification (async, non-blocking)
+async function sendEmailNotification(data: z.infer<typeof ContactSchema>) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+
+  if (!resendApiKey) {
+    logger.warn('RESEND_API_KEY not configured, skipping email notification');
+    return;
+  }
+
+  try {
+    const { Resend } = await import('resend');
+    const resend = new Resend(resendApiKey);
+
+    await resend.emails.send({
+      from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',
+      to: 'elevate4humanityedu@gmail.com',
+      subject: `New Inquiry from ${data.name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        ${data.phone ? `<p><strong>Phone:</strong> ${data.phone}</p>` : ''}
+        ${data.program ? `<p><strong>Program Interest:</strong> ${data.program}</p>` : ''}
+        ${data.role ? `<p><strong>Role:</strong> ${data.role}</p>` : ''}
+        <p><strong>Message:</strong><br>${data.message}</p>
+        <hr>
+        <p><em>Submitted from elevateforhumanity.org</em></p>
+      `,
+    });
+  } catch (error) {
+    logger.error('Failed to send email notification:', error);
+    throw error;
   }
 }

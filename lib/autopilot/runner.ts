@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { scanRepository, analyzeRepository } from './repo-analyzer';
 import {
   normalizeCourseMetadata,
@@ -23,6 +22,7 @@ export async function runAutopilots(
     const linkCheck = checkBrokenLinks(tree, normalized);
     // Check course structure
     const structure = normalized.slug
+      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
       ? checkCourseStructure(tree, normalized.slug)
       : null;
     return {
@@ -36,6 +36,7 @@ export async function runAutopilots(
   } catch (error: unknown) {
     return {
       ok: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -56,6 +57,7 @@ export async function runFullAnalysis(repo = 'elevateforhumanity/fix2') {
   } catch (error: unknown) {
     return {
       ok: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

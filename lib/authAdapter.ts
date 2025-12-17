@@ -1,5 +1,5 @@
-// @ts-nocheck
 import { cookies, headers } from 'next/headers';
+// @ts-expect-error TS2724: '"./supabaseServer"' has no exported member named 'createSupabaseServerClient...
 import { createSupabaseServerClient } from './supabaseServer';
 import integrations from '../config/integrations.json';
 
@@ -117,6 +117,7 @@ const azureAdAuthAdapter: AuthAdapter = {
 const customJwtAuthAdapter: AuthAdapter = {
   async getCurrentUser() {
     const h = headers();
+    // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyHeaders>'.
     const authHeader = h.get('authorization');
     if (!authHeader) return null;
     return null;

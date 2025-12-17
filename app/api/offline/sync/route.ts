@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -57,6 +56,7 @@ export async function POST(req: Request) {
       synced: pendingActions?.length || 0,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Sync error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Sync failed' },

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/billing/report-usage/route.ts
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/billing/stripe';
@@ -38,6 +37,8 @@ export async function POST(request: Request) {
     try {
       // Note: Stripe API for usage records - check current Stripe SDK version
       // This may need adjustment based on your Stripe SDK version
+      // @ts-expect-error TS2339: Property 'createUsageRecord' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'SubscriptionItemsResource' to type 'string' may be a mist...
       const res = await (stripe.subscriptionItems as string).createUsageRecord(
         billing.price_id,
         {

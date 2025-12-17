@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -39,6 +38,7 @@ export default async function ShopDashboard() {
   const { data: onboarding } = await supabase
     .from('shop_onboarding')
     .select('*')
+    // @ts-expect-error TS2339: Property 'id' does not exist on type 'any[]'.
     .eq('shop_id', shop.id)
     .single();
 
@@ -46,6 +46,7 @@ export default async function ShopDashboard() {
   const { data: placements } = await supabase
     .from('apprentice_placements')
     .select('id, status, start_date, profiles(id, full_name, email)')
+    // @ts-expect-error TS2339: Property 'id' does not exist on type 'any[]'.
     .eq('shop_id', shop.id)
     .eq('status', 'active');
 
@@ -70,6 +71,7 @@ export default async function ShopDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex items-center justify-between">
             <div>
+              // @ts-expect-error TS2339: Property 'name' does not exist on type 'any[]'.
               <h1 className="text-3xl font-bold text-slate-900">{shop.name}</h1>
               <p className="mt-1 text-slate-600">Shop Partner Portal</p>
             </div>

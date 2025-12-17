@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Redis-based caching with fallback to in-memory
 import { Redis } from 'ioredis';
 let redis: Redis | null = null;
@@ -41,6 +40,7 @@ export async function getCache<T>(
   // Fallback to memory cache
   const cached = memoryCache.get(fullKey);
   if (cached && cached.expires > Date.now()) {
+    // @ts-expect-error TS2322: Type 'unknown' is not assignable to type 'T'.
     return cached.value;
   }
   return null;

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
@@ -33,6 +32,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ reviews: data });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching performance reviews:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch reviews' },
@@ -108,6 +108,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ review: data }, { status: 201 });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating performance review:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create review' },

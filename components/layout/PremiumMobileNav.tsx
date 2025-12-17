@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -213,6 +212,8 @@ export function PremiumMobileNav() {
                     className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-100 transition-all"
                   >
                     <div className="flex items-center gap-3">
+                      // @ts-expect-error TS2786: 'Icon' cannot be used as a JSX component.
+                      // @ts-expect-error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
                       <Icon size={20} />
                       <span className="font-semibold">{section.title}</span>
                     </div>

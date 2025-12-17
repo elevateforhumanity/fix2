@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { logger } from '@/lib/logger';
@@ -57,6 +56,7 @@ export async function POST(request: NextRequest) {
         'Onboarding completed! Check your email for LMS access instructions.',
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Onboarding completion error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to complete onboarding' },

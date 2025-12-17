@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { gh, parseRepo } from '@/lib/github';
 import { marked } from 'marked';
@@ -109,6 +108,7 @@ export async function GET(req: NextRequest) {
     }
 
     // Decode file content
+    // @ts-expect-error TS2339: Property 'content' does not exist on type '{ type: "file"; encoding: string; ...
     const raw = Buffer.from(response.data.content || '', 'base64').toString(
       'utf8'
     );
@@ -268,6 +268,7 @@ export async function GET(req: NextRequest) {
       headers: { 'content-type': 'text/html' },
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Preview render error:', error);
 
     const errorHtml = `

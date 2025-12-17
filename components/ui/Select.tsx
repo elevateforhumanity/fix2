@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React, {
@@ -77,6 +76,7 @@ export const SelectTrigger = React.forwardRef<
   const { open, setOpen } = useSelectContext();
   const triggerRef = useRef<HTMLButtonElement>(null);
 
+  // @ts-expect-error TS7030: Not all code paths return a value.
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

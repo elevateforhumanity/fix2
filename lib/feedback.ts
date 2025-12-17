@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 
 // =====================================================
@@ -189,7 +188,9 @@ export async function updateFeedbackStatus(
   };
 
   if (adminResponse) {
+    // @ts-expect-error TS2339: Property 'admin_response' does not exist on type 'unknown'.
     updateData.admin_response = adminResponse;
+    // @ts-expect-error TS2339: Property 'responded_at' does not exist on type 'unknown'.
     updateData.responded_at = new Date().toISOString();
   }
 

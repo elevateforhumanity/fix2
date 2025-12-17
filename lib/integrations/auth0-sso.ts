@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Auth0 SSO Integration
  * Handles Auth0 single sign-on authentication
@@ -197,6 +196,7 @@ class Auth0SSOClient {
     return response.json();
   }
 
+  // @ts-expect-error TS1064: The return type of an async function or method must be the global Promise<T> ...
   async logout(returnTo: string): string {
     const params = new URLSearchParams({
       client_id: this.config.clientId,

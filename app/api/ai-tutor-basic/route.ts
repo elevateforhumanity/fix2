@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { aiInstructors } from '@/lms-data/aiInstructors';
 import { logger } from '@/lib/logger';
@@ -68,6 +67,7 @@ export async function POST(req: NextRequest) {
 
     if (!openAiResponse.ok) {
       const text = await openAiResponse.text();
+      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Error'.
       logger.error('OpenAI error:', text);
       return NextResponse.json(
         { error: 'AI service error', details: text },

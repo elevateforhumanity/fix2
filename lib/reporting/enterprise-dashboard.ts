@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Enterprise Reporting Dashboard
  * Completions, placements, equity metrics by program/site/funder
@@ -666,6 +665,7 @@ function groupBy<T>(array: T[], key: keyof T): Record<string, T[]> {
 
 function calculateCompletionRate(participants: unknown[]): number {
   const completed = participants.filter((p) =>
+    // @ts-expect-error TS2339: Property 'enrollments' does not exist on type 'unknown'.
     p.enrollments?.some((e: any) => e.status === 'completed')
   ).length;
   return participants.length > 0 ? (completed / participants.length) * 100 : 0;
@@ -673,6 +673,7 @@ function calculateCompletionRate(participants: unknown[]): number {
 
 function calculatePlacementRate(participants: unknown[]): number {
   const placed = participants.filter((p) =>
+    // @ts-expect-error TS2339: Property 'employment_outcomes' does not exist on type 'unknown'.
     p.employment_outcomes?.some((o: any) => o.employed_at_exit)
   ).length;
   return participants.length > 0 ? (placed / participants.length) * 100 : 0;
@@ -680,6 +681,7 @@ function calculatePlacementRate(participants: unknown[]): number {
 
 function calculateAverageWage(participants: unknown[]): number {
   const wages = participants
+    // @ts-expect-error TS2339: Property 'employment_outcomes' does not exist on type 'unknown'.
     .flatMap((p) => p.employment_outcomes || [])
     .map((o: any) => o.hourly_wage)
     .filter(Boolean);

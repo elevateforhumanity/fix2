@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/getCurrentProfile.ts
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
@@ -28,6 +27,7 @@ export async function getCurrentProfile(): Promise<CurrentProfile> {
     {
       cookies: {
         get(name: string) {
+          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
         set() {},

@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * SCORM Player Component
  *
@@ -49,12 +48,14 @@ export default function ScormPlayer({
       setLoading(false);
     } catch (err: unknown) {
       // Error: $1
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to load SCORM package');
       setLoading(false);
     }
   }
   // SCORM API implementation (simplified)
   useEffect(() => {
+    // @ts-expect-error TS7030: Not all code paths return a value.
     if (typeof window === 'undefined') return;
     // Create SCORM API object
     const API = {
@@ -102,10 +103,18 @@ export default function ScormPlayer({
       },
     };
     // Expose API to iframe
+    // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis' to type 'string' may be a mis...
     (window as string).API = API;
+    // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis' to type 'string' may be a mis...
     (window as string).API_1484_11 = API; // SCORM 2004
     return () => {
+      // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis' to type 'string' may be a mis...
       delete (window as string).API;
+      // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis' to type 'string' may be a mis...
       delete (window as string).API_1484_11;
     };
   }, [enrollmentId]);

@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * AWS S3 Storage Integration
  * Handles file uploads and storage management
@@ -80,6 +79,7 @@ class S3Client {
     const response = await fetch(`${this.baseUrl}/${options.key}`, {
       method: 'PUT',
       headers,
+      // @ts-expect-error TS2769: No overload matches this call.
       body: options.body,
     });
 

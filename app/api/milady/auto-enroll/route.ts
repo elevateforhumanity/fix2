@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { createAccount, enrollInCourse } from '@/lib/partners/milady';
@@ -55,6 +54,7 @@ export async function POST(request: Request) {
     if (!externalStudentId) {
       try {
         const miladyAccount = await createAccount(
+          // @ts-expect-error TS2345: Argument of type '{ email: any; firstName: any; lastName: any; phone: any; }'...
           {
             email: profile.email,
             firstName:
@@ -70,6 +70,7 @@ export async function POST(request: Request) {
           provider.api_key
         );
 
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'PartnerAccount'.
         externalStudentId = miladyAccount.id;
 
         // Update profile with external ID
@@ -120,6 +121,7 @@ export async function POST(request: Request) {
             course_name: course.course_name,
             external_student_id: externalStudentId,
             external_course_id: course.external_course_id,
+            // @ts-expect-error TS2339: Property 'id' does not exist on type 'CourseEnrollment'.
             external_enrollment_id: miladyEnrollment.id,
             status: 'active',
             enrolled_at: new Date().toISOString(),

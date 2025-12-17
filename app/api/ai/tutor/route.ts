@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
@@ -79,6 +78,7 @@ export async function POST(req: Request) {
       answer: completion.choices[0].message.content,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('AI tutor error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to get answer' },

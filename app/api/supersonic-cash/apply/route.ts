@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -132,6 +131,7 @@ export async function POST(req: Request) {
         : "Your application is being reviewed. You'll hear from us within 1 hour.",
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Cash advance application error:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) || 'Application failed' },

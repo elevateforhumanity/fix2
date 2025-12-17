@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { cloneRepoForCustomer } from '@/lib/store/github-clone';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -62,6 +61,7 @@ export async function POST(req: Request) {
       cloneUrl: result.cloneUrl,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Clone error:', error);
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }

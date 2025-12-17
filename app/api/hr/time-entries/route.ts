@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
@@ -39,6 +38,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ timeEntries: data });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching time entries:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch time entries' },
@@ -105,6 +105,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ timeEntry: data }, { status: 201 });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating time entry:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create time entry' },

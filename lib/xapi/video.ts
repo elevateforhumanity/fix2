@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/xapi/video.ts
 import { getXAPIClient } from './xapi-client';
 
@@ -59,6 +58,7 @@ export async function sendVideoStatement(input: VideoStatementInput) {
         },
       },
       result: input.duration
+        // @ts-expect-error TS2352: Conversion of type '{ extensions: { 'https://w3id.org/xapi/video/extensions/t...
         ? ({
             extensions: {
               'https://w3id.org/xapi/video/extensions/time':
@@ -69,6 +69,7 @@ export async function sendVideoStatement(input: VideoStatementInput) {
         : undefined,
     };
 
+    // @ts-expect-error TS2345: Argument of type '{ actor: XAPIActor; verb: { id: string; display: { 'en-US':...
     await client.sendStatement(statement);
   } catch (error) {
     // Error: $1

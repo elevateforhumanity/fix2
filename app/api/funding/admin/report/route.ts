@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -64,6 +63,7 @@ export async function GET(req: NextRequest) {
     completed:
       rows?.filter(
         (r: Record<string, unknown>) =>
+          // @ts-expect-error TS2339: Property 'toLowerCase' does not exist on type 'unknown'.
           (r.status || '').toLowerCase() === 'completed'
       ).length || 0,
   };

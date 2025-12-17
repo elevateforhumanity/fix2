@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Structured Data (JSON-LD) for SEO
  * Helps Google understand and display our content better
@@ -123,6 +122,7 @@ export function getWebSiteSchema(): WebSite {
         urlTemplate:
           'https://www.elevateforhumanity.org/search?q={search_term_string}',
       },
+      // @ts-expect-error TS2353: Object literal may only specify known properties, and ''query-input'' does no...
       'query-input': 'required name=search_term_string',
     },
   };
@@ -179,6 +179,7 @@ export function getCourseSchema(program: {
       '@type': 'EducationalOccupationalCredential',
       name: cert,
     })),
+    // @ts-expect-error TS2353: Object literal may only specify known properties, and 'timeToComplete' does n...
     timeToComplete: program.duration,
     totalHistoricalEnrollment: 500, // Update with real data
     aggregateRating: {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Public REST API - Courses Endpoint
 import { NextRequest, NextResponse } from 'next/server';
 import {
@@ -109,8 +108,10 @@ export async function GET(request: NextRequest) {
       })
     );
   } catch (err: unknown) {
+    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     error = err.message;
     statusCode = 500;
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('API Error:', err);
     return NextResponse.json(apiResponse(false, null, error), { status: 500 });
   }
@@ -177,8 +178,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(apiResponse(true, course), { status: 201 });
   } catch (err: unknown) {
+    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     error = err.message;
     statusCode = 500;
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('API Error:', err);
     return NextResponse.json(apiResponse(false, null, error), { status: 500 });
   }

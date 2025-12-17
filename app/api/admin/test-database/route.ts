@@ -1,10 +1,10 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export const GET = withAuth(
+  // @ts-expect-error TS2345: Argument of type '(req: any, context: any, user: any) => Promise<NextResponse...
   async (req, context, user) => {
     try {
       const supabase = await createServerSupabaseClient();

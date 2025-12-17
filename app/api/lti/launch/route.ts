@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/lti/launch/route.ts
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
@@ -25,11 +24,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid id_token' }, { status: 400 });
   }
 
+  // @ts-expect-error TS2339: Property 'iss' does not exist on type 'unknown'.
   const issuer = decoded.iss;
+  // @ts-expect-error TS2339: Property 'sub' does not exist on type 'unknown'.
   const subject = decoded.sub;
   const email =
+    // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
     decoded.email ||
     decoded['https://purl.imsglobal.org/spec/lti/claim/custom']?.email;
+  // @ts-expect-error TS2339: Property 'family_name' does not exist on type 'unknown'.
+  // @ts-expect-error TS2339: Property 'given_name' does not exist on type 'unknown'.
+  // @ts-expect-error TS2339: Property 'name' does not exist on type 'unknown'.
   const name = decoded.name || decoded.given_name || decoded.family_name;
 
   const context = decoded['https://purl.imsglobal.org/spec/lti/claim/context'];
@@ -37,6 +42,7 @@ export async function POST(request: Request) {
     decoded['https://purl.imsglobal.org/spec/lti/claim/resource_link'];
 
   // Use issuer + client_id to find platform config
+  // @ts-expect-error TS2339: Property 'aud' does not exist on type 'unknown'.
   const clientId = decoded.aud;
   const { data: platform } = await supabase
     .from('lti_platforms')

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -33,6 +32,7 @@ export async function GET(request: NextRequest) {
     switch (action) {
       case 'history':
         const limit = parseInt(searchParams.get('limit') || '50');
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const history = await getPaymentHistory(user.id, limit);
         return NextResponse.json({ payments: history });
 
@@ -103,6 +103,7 @@ export async function POST(request: NextRequest) {
           );
         }
         const intent = await createCoursePaymentIntent(
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           courseId,
           amount,
@@ -120,6 +121,7 @@ export async function POST(request: NextRequest) {
           );
         }
         const subIntent = await createSubscriptionPaymentIntent(
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           planId,
           subscriptionAmount,
@@ -191,6 +193,7 @@ export async function POST(request: NextRequest) {
           );
         }
         const subscription = await createSubscription(
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           priceId,
           paymentMethod

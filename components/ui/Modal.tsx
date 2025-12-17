@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React, { useEffect } from 'react';
@@ -21,6 +20,7 @@ export const Modal: React.FC<ModalProps> = ({
   size = 'md',
   showCloseButton = true,
 }) => {
+  // @ts-expect-error TS7030: Not all code paths return a value.
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { exportUserData, requestDataPortability } from '@/lib/gdpr';
 import { createClient } from '@/lib/supabase/server';
@@ -26,6 +25,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Use 'in' operator to safely narrow the union
+    // @ts-expect-error TS2345: Argument of type 'string | { profile: any; enrollments: any[]; certificates: ...
     return new NextResponse('data' in result ? result.data : '', {
       headers: {
         'Content-Type':

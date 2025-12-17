@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/with-auth.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
@@ -19,6 +18,7 @@ async function getAuthedUser(req: NextRequest): Promise<AuthedUser | null> {
     {
       cookies: {
         get(name: string) {
+          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
       },

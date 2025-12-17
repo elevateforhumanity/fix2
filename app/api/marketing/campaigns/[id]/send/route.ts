@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -76,8 +75,10 @@ export async function POST(
       count: sendRows.length,
     });
   } catch (err: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('POST /marketing/campaigns/[id]/send error', err);
     return NextResponse.json(
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       { error: err.message || 'Failed to queue campaign' },
       { status: 500 }
     );

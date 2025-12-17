@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
@@ -26,6 +25,7 @@ export function CountUp({
   const [count, setCount] = useState(end); // Start with end value for SSR
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
+  // @ts-expect-error TS2554: Expected 1 arguments, but got 0.
   const frameRef = useRef<number>();
 
   const easeOutQuart = (t: number): number => {

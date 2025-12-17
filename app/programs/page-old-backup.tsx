@@ -1,8 +1,8 @@
-// @ts-nocheck
 import Link from 'next/link';
 import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 import { Metadata } from 'next';
+// @ts-expect-error TS2614: Module '"@/components/StructuredData"' has no exported member 'StructuredData...
 import { StructuredData } from '@/components/StructuredData';
 import { generateSEOMetadata, generateStructuredData } from '@/lib/seo';
 
@@ -46,7 +46,9 @@ export default function ProgramsPage() {
       position: index + 1,
       item: {
         '@type': 'Course',
+        // @ts-expect-error TS2339: Property 'title' does not exist on type 'Program'.
         name: program.title,
+        // @ts-expect-error TS2339: Property 'description' does not exist on type 'Program'.
         description: program.description,
         provider: {
           '@type': 'Organization',

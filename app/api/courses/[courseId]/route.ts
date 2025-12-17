@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -52,6 +51,7 @@ export async function GET(
 
     return NextResponse.json({ course });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Course fetch error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch course' },
@@ -105,6 +105,7 @@ export async function PATCH(
 
     return NextResponse.json({ course });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Course update error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update course' },
@@ -157,6 +158,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Course delete error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to delete course' },

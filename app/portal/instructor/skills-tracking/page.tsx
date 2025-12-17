@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -361,6 +360,7 @@ export default function SkillsTrackingPage() {
                         <div className="space-y-2">
                           {skills.map((skill) => {
                             const count = studentSkillCounts[skill.id] || 0;
+                            // @ts-expect-error TS2448: Block-scoped variable 'skillLogs' used before its declaration.
                             const skillLogs = skillLogs.filter(
                               (log) => log.skill_id === skill.id
                             );

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Resend Email Service Integration
 import { Resend } from 'resend';
 let resendClient: Resend | null = null;
@@ -37,6 +36,7 @@ export async function sendResendEmail(options: ResendEmailOptions) {
       subject: options.subject,
       html: options.html,
       text: options.text,
+      // @ts-expect-error TS2561: Object literal may only specify known properties, but 'reply_to' does not exi...
       reply_to: options.replyTo,
       cc: options.cc,
       bcc: options.bcc,

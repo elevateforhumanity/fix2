@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/checkout/create/route.ts - Create Stripe checkout for course
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
@@ -133,6 +132,7 @@ export async function POST(request: NextRequest) {
       url: session.url,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Checkout error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create checkout' },

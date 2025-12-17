@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -111,6 +110,7 @@ export default function ProgramHolderApplicationPage() {
       if (insertError) throw insertError;
       setSubmitted(true);
     } catch (err: unknown) {
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message);
     } finally {
       setSubmitting(false);

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/partner-launch/[enrollmentId]/route.ts
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
@@ -13,6 +12,7 @@ function getSupabaseServerClient() {
     {
       cookies: {
         get(name: string) {
+          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
       },

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React, { useEffect } from 'react';
@@ -19,6 +18,7 @@ export const Toast: React.FC<ToastProps> = ({
   onClose,
   duration = 5000,
 }) => {
+  // @ts-expect-error TS7030: Not all code paths return a value.
   useEffect(() => {
     if (duration > 0) {
       const timer = setTimeout(onClose, duration);

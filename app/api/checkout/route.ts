@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { billingConfigs } from '../../../lms-data/billingConfig';
@@ -71,6 +70,7 @@ export async function POST(req: NextRequest) {
         ? new URL(successUrl).origin
         : (req.headers.get('origin') ??
           process.env.NEXT_PUBLIC_SITE_URL ??
+          // @ts-expect-error TS2881: This expression is never nullish.
           `https://${process.env.VERCEL_URL}` ??
           'http://localhost:3000');
 
@@ -96,6 +96,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('[Elevate] Error in /api/checkout:', err);
     return NextResponse.json(
       { error: 'Unable to create checkout session.' },

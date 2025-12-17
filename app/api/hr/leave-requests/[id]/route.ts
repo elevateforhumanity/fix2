@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
@@ -71,6 +70,7 @@ export async function PATCH(
 
     return NextResponse.json({ leaveRequest: updated });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error updating leave request:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update leave request' },

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
@@ -91,6 +90,7 @@ export async function GET(request: Request) {
         .insert({
           user_id: user.id,
           enrollment_id: enrollmentId,
+          // @ts-expect-error TS2339: Property 'course_id' does not exist on type 'unknown'.
           course_id: enrollment.course_id,
           student_name: profile?.full_name || user.email || 'Student',
           course_name: courseName,
@@ -160,7 +160,9 @@ export async function GET(request: Request) {
     });
 
     // Student Name
+    // @ts-expect-error TS2339: Property 'student_name' does not exist on type 'unknown'.
     page.drawText(certificate.student_name, {
+      // @ts-expect-error TS2339: Property 'student_name' does not exist on type 'unknown'.
       x: width / 2 - certificate.student_name.length * 10,
       y: height - 220,
       size: 36,
@@ -195,6 +197,7 @@ export async function GET(request: Request) {
 
     // Date
     const formattedDate = new Date(
+      // @ts-expect-error TS2339: Property 'completion_date' does not exist on type 'unknown'.
       certificate.completion_date
     ).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -211,6 +214,7 @@ export async function GET(request: Request) {
     });
 
     // Certificate Number
+    // @ts-expect-error TS2339: Property 'certificate_number' does not exist on type 'unknown'.
     page.drawText(`Certificate No: ${certificate.certificate_number}`, {
       x: 60,
       y: 80,
@@ -253,6 +257,7 @@ export async function GET(request: Request) {
     });
 
     // Verification URL
+    // @ts-expect-error TS2339: Property 'certificate_number' does not exist on type 'unknown'.
     const verifyUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.com'}/verify/${certificate.certificate_number}`;
     page.drawText(`Verify at: ${verifyUrl}`, {
       x: 60,
@@ -266,13 +271,16 @@ export async function GET(request: Request) {
     const pdfBytes = await pdfDoc.save();
 
     // Return PDF
+    // @ts-expect-error TS2345: Argument of type 'Uint8Array<ArrayBufferLike>' is not assignable to parameter...
     return new NextResponse(pdfBytes, {
       headers: {
         'Content-Type': 'application/pdf',
+        // @ts-expect-error TS2339: Property 'certificate_number' does not exist on type 'unknown'.
         'Content-Disposition': `attachment; filename="certificate-${certificate.certificate_number}.pdf"`,
       },
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Certificate download error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate certificate' },

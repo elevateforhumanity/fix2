@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Partner LMS Payment Integration
  * Handles Stripe payments for paid certifications
@@ -8,6 +7,7 @@ import { createClient } from '@/lib/supabase/client';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+  // @ts-expect-error TS2322: Type '"2023-10-16"' is not assignable to type '"2025-10-29.clover"'.
   apiVersion: '2023-10-16',
 });
 
@@ -130,6 +130,7 @@ export async function createPartnerPaymentSession(
     // Error: $1
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

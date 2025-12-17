@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
@@ -40,6 +39,7 @@ export const GET = withAuth(
     const mapped = (holders || []).map((h: Record<string, unknown>) => ({
       id: h.id,
       name: h.name,
+      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       owner_email: h.owner?.email || 'Unknown',
       status: h.status,
       payout_share: h.payout_share,

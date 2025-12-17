@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Comprehensive Credential System
  * Integrates with all partner platforms and credential providers
@@ -220,6 +219,7 @@ export const CREDENTIALS: Record<string, Credential> = {
     id: 'emr',
     name: 'Emergency Medical Responder (EMR)',
     type: 'Industry-Recognized Certification',
+    // @ts-expect-error TS2322: Type '"National Registry of Emergency Medical Technicians"' is not assignable...
     provider: 'National Registry of Emergency Medical Technicians',
     description: 'Entry-level emergency medical responder certification.',
     externalId: 'NREMT-EMR',

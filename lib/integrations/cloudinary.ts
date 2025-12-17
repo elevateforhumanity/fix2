@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Cloudinary Media Management Integration
  * Handles image and video uploads with transformations
@@ -85,6 +84,7 @@ class CloudinaryClient {
     const signature = await this.sign(params);
 
     const formData = new FormData();
+    // @ts-expect-error TS2769: No overload matches this call.
     formData.append('file', options.file);
     formData.append('api_key', this.config.apiKey);
     formData.append('timestamp', timestamp.toString());

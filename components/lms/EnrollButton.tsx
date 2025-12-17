@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -44,6 +43,7 @@ export default function EnrollButton({
       router.push(`/lms/courses/${courseId}`);
       router.refresh();
     } catch (err: unknown) {
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message);
       setLoading(false);
     }

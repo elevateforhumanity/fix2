@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { sendEmail } from '@/lib/email';
 import { logger } from '@/lib/logger';
@@ -27,8 +26,10 @@ export async function POST(req: NextRequest) {
       message: 'Welcome email sent successfully',
     });
   } catch (err: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error sending welcome email:', err);
     return NextResponse.json(
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       { error: err.message || 'Failed to send email' },
       { status: 500 }
     );

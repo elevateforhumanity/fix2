@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { Resend } from 'resend';
@@ -62,6 +61,7 @@ export async function POST(req: Request) {
           to: recipient.email,
           subject,
           html,
+          // @ts-expect-error TS2561: Object literal may only specify known properties, but 'reply_to' does not exi...
           reply_to: body.replyTo,
         });
 
@@ -77,6 +77,7 @@ export async function POST(req: Request) {
           sent_at: new Date().toISOString(),
         });
       } catch (error: unknown) {
+        // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
         logger.error(`Error sending to ${recipient.email}:`, error);
         results.push({
           email: recipient.email,
@@ -118,6 +119,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error sending campaign:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },

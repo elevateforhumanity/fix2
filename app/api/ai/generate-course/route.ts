@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { logger } from '@/lib/logger';
@@ -85,12 +84,14 @@ export async function POST(req: NextRequest) {
       success: true,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('AI generation error:', error);
 
     return NextResponse.json(
       {
         error: 'Failed to generate content',
         message: toErrorMessage(error),
+        // @ts-expect-error TS2339: Property 'response' does not exist on type 'unknown'.
         details: error.response?.data || error.toString(),
       },
       { status: 500 }

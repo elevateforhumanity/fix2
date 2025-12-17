@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -154,8 +153,10 @@ export async function updateInvoiceStatus(
   };
 
   if (status === 'paid') {
+    // @ts-expect-error TS2339: Property 'paid_at' does not exist on type 'unknown'.
     updates.paid_at = new Date().toISOString();
     if (paymentId) {
+      // @ts-expect-error TS2339: Property 'payment_id' does not exist on type 'unknown'.
       updates.payment_id = paymentId;
     }
   }
@@ -271,6 +272,8 @@ export async function generateInvoicePDF(
   });
 
   // Totals
+  // @ts-expect-error TS2339: Property 'lastAutoTable' does not exist on type 'string'.
+  // @ts-expect-error TS2352: Conversion of type 'jsPDF' to type 'string' may be a mistake because neither ...
   const finalY = (doc as string).lastAutoTable.finalY + 10;
 
   doc.setFont('helvetica', 'bold');
@@ -429,6 +432,8 @@ export async function generateReceipt(paymentId: string): Promise<Buffer> {
     },
   });
 
+  // @ts-expect-error TS2339: Property 'lastAutoTable' does not exist on type 'string'.
+  // @ts-expect-error TS2352: Conversion of type 'jsPDF' to type 'string' may be a mistake because neither ...
   const finalY = (doc as string).lastAutoTable.finalY + 10;
 
   doc.setFont('helvetica', 'bold');

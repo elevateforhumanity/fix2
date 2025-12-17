@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/pay/StripePayButton.tsx
 'use client';
 
@@ -46,9 +45,11 @@ export default function StripePayButton() {
         <p className="text-xs text-slate-500">Loading secure payment button…</p>
       )}
 
+      // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
       <stripe-buy-button
         buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
         publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+      // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
       ></stripe-buy-button>
 
       <p className="text-[11px] text-slate-500">

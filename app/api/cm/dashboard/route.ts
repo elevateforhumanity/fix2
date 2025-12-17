@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/cm/dashboard/route.ts - Case Manager Dashboard API
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseClients';
@@ -110,6 +109,8 @@ export async function GET(req: NextRequest) {
           first_name: profile.first_name,
           last_name: profile.last_name,
           primary_program:
+            // @ts-expect-error TS2339: Property 'title' does not exist on type 'string'.
+            // @ts-expect-error TS2352: Conversion of type '{ title: any; }[]' to type 'string' may be a mistake beca...
             (primaryEnrollment?.programs as string)?.title || null,
           status: primaryEnrollment?.status || 'inactive',
           percent_complete: percentComplete,

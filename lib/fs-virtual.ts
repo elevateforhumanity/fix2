@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { gh, parseRepo } from './github';
 
 export async function readFile(repo: string, path: string, ref = 'main') {
@@ -17,6 +16,7 @@ export async function readFile(repo: string, path: string, ref = 'main') {
     throw new Error('Path is a directory, not a file');
   }
 
+  // @ts-expect-error TS2339: Property 'content' does not exist on type '{ type: "file"; encoding: string; ...
   return Buffer.from(file.data.content || '', 'base64').toString('utf8');
 }
 
@@ -40,9 +40,11 @@ export async function writeFile(
   };
 
   if (sha) {
+    // @ts-expect-error TS2339: Property 'sha' does not exist on type 'unknown'.
     params.sha = sha;
   }
 
+  // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'RequestPar...
   return client.repos.createOrUpdateFileContents(params);
 }
 

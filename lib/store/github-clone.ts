@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Octokit } from '@octokit/rest';
 
 /**
@@ -92,6 +91,7 @@ export async function grantRepoAccess({
   } catch (error: unknown) {
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

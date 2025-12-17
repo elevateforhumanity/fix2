@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -50,6 +49,7 @@ export async function POST(req: Request) {
         .eq('id', hour_id)
         .single();
 
+      // @ts-expect-error TS2339: Property 'employer_id' does not exist on type '{ employer_id: any; }[]'.
       if (hourRecord?.user_profiles?.employer_id !== profile.employer_id) {
         return NextResponse.json(
           { error: "Forbidden - can only approve your own students' hours" },

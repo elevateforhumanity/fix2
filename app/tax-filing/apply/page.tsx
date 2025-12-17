@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/tax-filing/apply/page.tsx - Custom Tax Filing Application
 'use client';
 
@@ -87,6 +86,7 @@ export default function TaxFilingApplicationPage() {
       const data = await response.json();
       router.push(`/tax-filing/confirmation/${data.id}`);
     } catch (err: unknown) {
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message);
     } finally {
       setLoading(false);

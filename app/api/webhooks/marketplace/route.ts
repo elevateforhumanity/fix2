@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { sendMarketplaceSaleNotification } from '@/lib/email/resend';
 import Stripe from 'stripe';
@@ -102,6 +101,7 @@ export async function POST(req: Request) {
       },
     });
 
+    // @ts-expect-error TS2304: Cannot find name 'logger'.
     logger.info('Marketplace sale recorded:', {
       productId,
       creatorId,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Native Features - Camera, Biometrics, Geolocation, etc.
  */
@@ -56,6 +55,8 @@ export async function scanQRCode(): Promise<string | null> {
   try {
     // Check if BarcodeDetector is available
     if ('BarcodeDetector' in window) {
+      // @ts-expect-error TS2339: Property 'BarcodeDetector' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis & Record<"BarcodeDetector", un...
       const barcodeDetector = new (window as string).BarcodeDetector({
         formats: ['qr_code'],
       });
@@ -324,6 +325,8 @@ export async function getBatteryStatus(): Promise<{
 } | null> {
   try {
     if ('getBattery' in navigator) {
+      // @ts-expect-error TS2339: Property 'getBattery' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'Navigator & Record<"getBattery", unknown>' to type 'strin...
       const battery = await (navigator as string).getBattery();
       return {
         level: battery.level,
@@ -348,8 +351,14 @@ export function getNetworkInfo(): {
   saveData?: boolean;
 } {
   const connection =
+    // @ts-expect-error TS2339: Property 'connection' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Navigator' to type 'string' may be a mistake because neit...
     (navigator as string).connection ||
+    // @ts-expect-error TS2339: Property 'mozConnection' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Navigator' to type 'string' may be a mistake because neit...
     (navigator as string).mozConnection ||
+    // @ts-expect-error TS2339: Property 'webkitConnection' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Navigator' to type 'string' may be a mistake because neit...
     (navigator as string).webkitConnection;
 
   return {

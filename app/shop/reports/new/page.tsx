@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { ShopReportForm } from '@/components/shop/ShopReportForm';
@@ -32,5 +31,6 @@ export default async function NewWeeklyReport() {
     .eq('shop_id', shopId)
     .eq('status', 'active');
 
+  // @ts-expect-error TS2322: Type '{ id: any; profiles: { id: any; full_name: any; }[]; }[]' is not assign...
   return <ShopReportForm placements={placements || []} />;
 }

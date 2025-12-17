@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createCheckoutSession } from '@/lib/store/stripe';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -37,6 +36,7 @@ export async function POST(req: Request) {
 
     return Response.json({ sessionId: session.id, url: session.url });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Checkout error:', error);
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/monitoring.ts
 // Monitoring and alerting for partner integrations
 
@@ -218,6 +217,7 @@ export async function checkPartnerHealth(
       partner,
       healthy: false,
       lastChecked: new Date().toISOString(),
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

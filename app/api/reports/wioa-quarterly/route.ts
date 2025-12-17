@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -251,25 +250,43 @@ function convertToCSV(reportData: Record<string, unknown>): string {
   let csv = 'WIOA Quarterly Performance Report\n\n';
 
   csv += 'Metric,Value\n';
+  // @ts-expect-error TS2339: Property 'totalEnrolled' does not exist on type 'unknown'.
   csv += `Total Enrolled,${summary.totalEnrolled}\n`;
+  // @ts-expect-error TS2339: Property 'totalCompleted' does not exist on type 'unknown'.
   csv += `Total Completed,${summary.totalCompleted}\n`;
+  // @ts-expect-error TS2339: Property 'totalDropped' does not exist on type 'unknown'.
   csv += `Total Dropped,${summary.totalDropped}\n`;
+  // @ts-expect-error TS2339: Property 'completionRate' does not exist on type 'unknown'.
   csv += `Completion Rate,${summary.completionRate}%\n`;
+  // @ts-expect-error TS2339: Property 'totalEmployed' does not exist on type 'unknown'.
   csv += `Total Employed,${summary.totalEmployed}\n`;
+  // @ts-expect-error TS2339: Property 'employedInField' does not exist on type 'unknown'.
   csv += `Employed in Field,${summary.employedInField}\n`;
+  // @ts-expect-error TS2339: Property 'employmentRate' does not exist on type 'unknown'.
   csv += `Employment Rate,${summary.employmentRate}%\n`;
+  // @ts-expect-error TS2339: Property 'medianWage' does not exist on type 'unknown'.
   csv += `Median Wage,$${summary.medianWage}\n`;
+  // @ts-expect-error TS2339: Property 'credentialsEarned' does not exist on type 'unknown'.
   csv += `Credentials Earned,${summary.credentialsEarned}\n`;
+  // @ts-expect-error TS2339: Property 'credentialRate' does not exist on type 'unknown'.
   csv += `Credential Rate,${summary.credentialRate}%\n`;
+  // @ts-expect-error TS2339: Property 'retained30Days' does not exist on type 'unknown'.
   csv += `Retained 30 Days,${summary.retained30Days}\n`;
+  // @ts-expect-error TS2339: Property 'retained90Days' does not exist on type 'unknown'.
   csv += `Retained 90 Days,${summary.retained90Days}\n`;
+  // @ts-expect-error TS2339: Property 'retentionRate90' does not exist on type 'unknown'.
   csv += `Retention Rate (90 days),${summary.retentionRate90}%\n`;
 
   csv += '\nDemographics\n';
+  // @ts-expect-error TS2339: Property 'female' does not exist on type 'unknown'.
   csv += `Female,${demographics.female}\n`;
+  // @ts-expect-error TS2339: Property 'male' does not exist on type 'unknown'.
   csv += `Male,${demographics.male}\n`;
+  // @ts-expect-error TS2339: Property 'veteran' does not exist on type 'unknown'.
   csv += `Veterans,${demographics.veteran}\n`;
+  // @ts-expect-error TS2339: Property 'lowIncome' does not exist on type 'unknown'.
   csv += `Low Income,${demographics.lowIncome}\n`;
+  // @ts-expect-error TS2339: Property 'disability' does not exist on type 'unknown'.
   csv += `Disability,${demographics.disability}\n`;
 
   return csv;

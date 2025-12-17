@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -109,6 +108,8 @@ export function RightSidebar() {
         title: a.title,
         type: 'assignment' as const,
         dueDate: new Date(a.due_date),
+        // @ts-expect-error TS2339: Property 'title' does not exist on type 'string'.
+        // @ts-expect-error TS2352: Conversion of type '{ title: any; }[]' to type 'string' may be a mistake beca...
         courseTitle: (a.courses as string)?.title || 'Unknown Course',
         courseId: a.course_id,
       }));

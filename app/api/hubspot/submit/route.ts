@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -72,6 +71,7 @@ export async function POST(req: Request) {
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok) {
+      // @ts-expect-error TS2353: Object literal may only specify known properties, and 'data' does not exist i...
       logger.error('HubSpot submission failed', { data });
       return NextResponse.json(
         {

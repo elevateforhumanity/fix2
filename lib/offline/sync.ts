@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Background sync manager for offline data
 import { getDB } from './db';
 export class SyncManager {
@@ -17,6 +16,8 @@ export class SyncManager {
     ) {
       try {
         const registration = await navigator.serviceWorker.ready;
+        // @ts-expect-error TS2339: Property 'sync' does not exist on type 'string'.
+        // @ts-expect-error TS2352: Conversion of type 'ServiceWorkerRegistration' to type 'string' may be a mist...
         await (registration as string).sync.register('sync-progress');
         //
       } catch (error) {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/scorm/attempts/[attemptId]/data/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
@@ -16,6 +15,8 @@ export async function GET(
     .from('scorm_attempts')
     .select('*')
     .eq('id', attemptId)
+    // @ts-expect-error TS2339: Property 'userId' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
     .eq('student_id', (session as string).userId)
     .single();
 
@@ -49,6 +50,8 @@ export async function POST(
     .from('scorm_attempts')
     .select('*')
     .eq('id', attemptId)
+    // @ts-expect-error TS2339: Property 'userId' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
     .eq('student_id', (session as string).userId)
     .single();
 

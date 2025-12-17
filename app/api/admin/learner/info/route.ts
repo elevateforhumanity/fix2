@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -35,6 +34,7 @@ async function getHandler(
   }
 }
 
+// @ts-expect-error TS2345: Argument of type '(req: Request, context: Record<string, unknown>, user: Reco...
 export const GET = withAuth(getHandler, {
   roles: ['admin', 'super_admin'],
 });

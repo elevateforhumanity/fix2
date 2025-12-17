@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { OrgConfig } from '@/lib/org/getOrgConfig';
 
 export type LimitType = 'students' | 'staff' | 'programs';
@@ -13,6 +12,7 @@ export function enforceLimit(
   current: number,
   type: LimitType
 ): void {
+  // @ts-expect-error TS2339: Property 'license' does not exist on type 'OrgConfig'.
   const max = config?.license?.limits?.[`max_${type}`];
 
   // No limit set = unlimited
@@ -35,6 +35,7 @@ export function wouldExceedLimit(
   current: number,
   type: LimitType
 ): boolean {
+  // @ts-expect-error TS2339: Property 'license' does not exist on type 'OrgConfig'.
   const max = config?.license?.limits?.[`max_${type}`];
 
   if (!max || max === null) {

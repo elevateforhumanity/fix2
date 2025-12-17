@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { verifyWebhookSignature } from '@/lib/store/stripe';
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
@@ -49,6 +48,7 @@ export async function POST(req: Request) {
         .single();
 
       if (!product) {
+        // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Error'.
         logger.error('Product not found:', productId);
         return Response.json({ error: 'Product not found' }, { status: 404 });
       }
@@ -98,6 +98,7 @@ export async function POST(req: Request) {
             },
           }),
         });
+        // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
         logger.info('License email sent to:', email);
       } catch (emailError) {
         logger.error('Failed to send license email:', emailError);
@@ -109,6 +110,7 @@ export async function POST(req: Request) {
 
     return Response.json({ received: true });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Webhook error:', error);
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }

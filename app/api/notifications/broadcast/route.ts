@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import webpush from 'web-push';
@@ -80,11 +79,13 @@ export async function POST(req: Request) {
           } catch (error: unknown) {
             logger.error(
               `Error sending to subscription ${subscription.id}:`,
+              // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
               error
             );
             failed++;
 
             // If subscription is invalid (410 Gone), mark as inactive
+            // @ts-expect-error TS2339: Property 'statusCode' does not exist on type 'unknown'.
             if (error.statusCode === 410) {
               await supabase
                 .from('push_subscriptions')
@@ -104,6 +105,7 @@ export async function POST(req: Request) {
           }
         }
       } catch (error: unknown) {
+        // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
         logger.error(`Error processing user ${user.id}:`, error);
         failed++;
       }
@@ -118,6 +120,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Broadcast notification error:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },

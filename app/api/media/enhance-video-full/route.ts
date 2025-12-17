@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
@@ -159,6 +158,7 @@ export async function POST(request: Request) {
     ffmpegCommand += ` -movflags +faststart -shortest "${enhancedPath}"`;
 
     logger.info('Processing video with full enhancement...');
+    // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
     logger.info('Command:', ffmpegCommand);
 
     try {
@@ -167,6 +167,7 @@ export async function POST(request: Request) {
       });
 
       logger.info('Video processed successfully');
+      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
       logger.info('FFmpeg output:', stderr);
 
       return NextResponse.json({
@@ -199,6 +200,7 @@ export async function POST(request: Request) {
       );
     }
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Video processing error:', error);
     return NextResponse.json(
       { error: 'Failed to process video', details: toErrorMessage(error) },

@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 export const dynamic = 'force-dynamic';
@@ -37,6 +36,7 @@ export default function TakeQuizPage({
   }, [params.lessonId]);
 
   useEffect(() => {
+    // @ts-expect-error TS7030: Not all code paths return a value.
     if (timeRemaining === null || timeRemaining <= 0) return;
 
     const timer = setInterval(() => {

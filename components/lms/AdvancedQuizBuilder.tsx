@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -290,6 +289,8 @@ export default function AdvancedQuizBuilder() {
                   onClick={() => addQuestion(type)}
                   className="flex flex-col items-center gap-2 p-3 border rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm"
                 >
+                  // @ts-expect-error TS2786: 'Icon' cannot be used as a JSX component.
+                  // @ts-expect-error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
                   <Icon className="w-5 h-5" />
                   <span className="text-center">{label}</span>
                 </button>
@@ -534,6 +535,7 @@ function QuestionEditor({
             </label>
             <input
               type="text"
+              // @ts-expect-error TS2322: Type 'unknown' is not assignable to type 'string | number | readonly string[]'.
               value={question.correctAnswer || ''}
               onChange={(
                 e: React.ChangeEvent<
@@ -647,6 +649,7 @@ function QuestionEditor({
               Expected Output/Solution
             </label>
             <textarea
+              // @ts-expect-error TS2322: Type 'unknown' is not assignable to type 'string | number | readonly string[]'.
               value={question.correctAnswer || ''}
               onChange={(
                 e: React.ChangeEvent<

@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Zoom Integration
  * Meetings, webinars, recordings, attendance tracking
@@ -253,6 +252,7 @@ export class ZoomIntegration {
       .eq('zoom_meeting_id', meetingId)
       .single();
 
+    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!session) return;
 
     // Record attendance
@@ -300,6 +300,7 @@ export class ZoomIntegration {
       .eq('zoom_meeting_id', meetingId)
       .single();
 
+    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!session) return;
 
     for (const recording of recordings) {

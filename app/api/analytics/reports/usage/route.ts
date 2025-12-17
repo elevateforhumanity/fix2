@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -150,18 +149,25 @@ export async function GET(req: NextRequest) {
 
   // Build rows
   const rows = (enrolls || []).map((e: Record<string, unknown>) => {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
     const k = key(e.user_id, e.course_id);
     const latest = latestMap[k];
+    // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
     const prog = progressMap[e.user_id] || { minutes: 0, percent: 0 };
 
     return {
+      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       learner: (e.user?.email || '').split('@')[0],
+      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       email: e.user?.email,
+      // @ts-expect-error TS2339: Property 'title' does not exist on type 'unknown'.
       course: e.course?.title,
+      // @ts-expect-error TS2339: Property 'slice' does not exist on type 'unknown'.
       start_date: e.started_at?.slice(0, 10),
       minutes: prog.minutes,
       percent: Math.round(prog.percent),
       status: e.status,
+      // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
       last_login: lastLogins[e.user_id] || null,
       ph_name: latest?.ph_id ? phNames[latest.ph_id] || null : null,
       case_status: latest?.status || null,

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function normalizeCourseMetadata(metadata: Record<string, unknown>) {
   const clean = { ...metadata };
 
@@ -11,11 +10,13 @@ export function normalizeCourseMetadata(metadata: Record<string, unknown>) {
 
   // Generate slug from title
   clean.slug = clean.title
+    // @ts-expect-error TS2339: Property 'toLowerCase' does not exist on type 'unknown'.
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
   // Normalize modules
+  // @ts-expect-error TS2339: Property 'map' does not exist on type 'unknown'.
   clean.modules = (clean.modules || []).map((m: any, index: number) => {
     const module = { ...m };
 
@@ -57,14 +58,17 @@ export function validateCourseMetadata(metadata: Record<string, unknown>): {
 } {
   const errors: string[] = [];
 
+  // @ts-expect-error TS2339: Property 'trim' does not exist on type 'unknown'.
   if (!metadata.title || metadata.title.trim() === '') {
     errors.push('Course title is required');
   }
 
+  // @ts-expect-error TS2339: Property 'length' does not exist on type 'unknown'.
   if (!metadata.modules || metadata.modules.length === 0) {
     errors.push('Course must have at least one module');
   }
 
+  // @ts-expect-error TS2339: Property 'forEach' does not exist on type 'unknown'.
   metadata.modules?.forEach((module: any, index: number) => {
     if (!module.title) {
       errors.push(`Module ${index + 1} is missing a title`);

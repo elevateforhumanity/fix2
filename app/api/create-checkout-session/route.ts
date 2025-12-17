@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { logger } from '@/lib/logger';
@@ -65,6 +64,7 @@ export async function POST(request: NextRequest) {
       const monthlyAmount = Math.ceil(price / 4);
 
       sessionConfig = {
+        // @ts-expect-error TS2698: Spread types may only be created from object types.
         ...sessionConfig,
         mode: 'subscription',
         line_items: [
@@ -96,6 +96,7 @@ export async function POST(request: NextRequest) {
     } else {
       // One-time payment
       sessionConfig = {
+        // @ts-expect-error TS2698: Spread types may only be created from object types.
         ...sessionConfig,
         mode: 'payment',
         line_items: [

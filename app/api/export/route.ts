@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiRequireAdmin, apiRequireInstructor } from '@/lib/authGuards';
 import {
@@ -102,6 +101,8 @@ export async function GET(request: NextRequest) {
     }
 
     // Log audit event
+    // @ts-expect-error TS2352: Conversion of type '{ action: any; actor_id: any; resource_type: "enrollments...
+    // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'AuditLogEnt...
     await logAuditEvent({
       action: 'data_export' as any,
       actor_id: user.id,
@@ -204,8 +205,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Log audit event
+    // @ts-expect-error TS2352: Conversion of type '{ action: any; actor_id: any; metadata: { tables: any[]; ...
+    // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'AuditLogEnt...
     await logAuditEvent({
       action: 'batch_export' as any,
+      // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
       actor_id: user.id,
       metadata: {
         tables,

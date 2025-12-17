@@ -1,4 +1,3 @@
-// @ts-nocheck
 // SCORM API Wrapper
 // Supports SCORM 1.2 and SCORM 2004 (SCORM 2004 4th Edition)
 export type SCORMVersion = '1.2' | '2004';
@@ -18,11 +17,19 @@ export class SCORMAPIWrapper {
     while (currentWindow && attempts < maxAttempts) {
       attempts++;
       // Check for SCORM 1.2 API
+      // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
       if ((currentWindow as string).API) {
+        // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
+        // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
         return (currentWindow as string).API;
       }
       // Check for SCORM 2004 API
+      // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
       if ((currentWindow as string).API_1484_11) {
+        // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
+        // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
         return (currentWindow as string).API_1484_11;
       }
       // Move up to parent window
@@ -40,8 +47,10 @@ export class SCORMAPIWrapper {
       this.version = null;
       return;
     }
+    // @ts-expect-error TS2339: Property 'LMSInitialize' does not exist on type 'unknown'.
     if (this.lmsAPI.LMSInitialize) {
       this.version = '1.2';
+    // @ts-expect-error TS2339: Property 'Initialize' does not exist on type 'unknown'.
     } else if (this.lmsAPI.Initialize) {
       this.version = '2004';
     }
@@ -58,7 +67,9 @@ export class SCORMAPIWrapper {
     try {
       const result =
         this.version === '1.2'
+          // @ts-expect-error TS2339: Property 'LMSInitialize' does not exist on type 'unknown'.
           ? this.lmsAPI.LMSInitialize('')
+          // @ts-expect-error TS2339: Property 'Initialize' does not exist on type 'unknown'.
           : this.lmsAPI.Initialize('');
       this.initialized = result === 'true';
       if (this.initialized) {
@@ -80,7 +91,9 @@ export class SCORMAPIWrapper {
     try {
       const value =
         this.version === '1.2'
+          // @ts-expect-error TS2339: Property 'LMSGetValue' does not exist on type 'unknown'.
           ? this.lmsAPI.LMSGetValue(element)
+          // @ts-expect-error TS2339: Property 'GetValue' does not exist on type 'unknown'.
           : this.lmsAPI.GetValue(element);
       return value || '';
     } catch (error) {
@@ -96,7 +109,9 @@ export class SCORMAPIWrapper {
     try {
       const result =
         this.version === '1.2'
+          // @ts-expect-error TS2339: Property 'LMSSetValue' does not exist on type 'unknown'.
           ? this.lmsAPI.LMSSetValue(element, value)
+          // @ts-expect-error TS2339: Property 'SetValue' does not exist on type 'unknown'.
           : this.lmsAPI.SetValue(element, value);
       return result === 'true';
     } catch (error) {
@@ -112,7 +127,9 @@ export class SCORMAPIWrapper {
     try {
       const result =
         this.version === '1.2'
+          // @ts-expect-error TS2339: Property 'LMSCommit' does not exist on type 'unknown'.
           ? this.lmsAPI.LMSCommit('')
+          // @ts-expect-error TS2339: Property 'Commit' does not exist on type 'unknown'.
           : this.lmsAPI.Commit('');
       return result === 'true';
     } catch (error) {
@@ -128,7 +145,9 @@ export class SCORMAPIWrapper {
     try {
       const result =
         this.version === '1.2'
+          // @ts-expect-error TS2339: Property 'LMSFinish' does not exist on type 'unknown'.
           ? this.lmsAPI.LMSFinish('')
+          // @ts-expect-error TS2339: Property 'Terminate' does not exist on type 'unknown'.
           : this.lmsAPI.Terminate('');
       this.initialized = false;
       if (result === 'true') {
@@ -145,7 +164,9 @@ export class SCORMAPIWrapper {
     if (!this.lmsAPI) return '';
     try {
       return this.version === '1.2'
+        // @ts-expect-error TS2339: Property 'LMSGetLastError' does not exist on type 'unknown'.
         ? this.lmsAPI.LMSGetLastError()
+        // @ts-expect-error TS2339: Property 'GetLastError' does not exist on type 'unknown'.
         : this.lmsAPI.GetLastError();
     } catch (error) {
       return '';
@@ -156,7 +177,9 @@ export class SCORMAPIWrapper {
     if (!this.lmsAPI) return '';
     try {
       return this.version === '1.2'
+        // @ts-expect-error TS2339: Property 'LMSGetErrorString' does not exist on type 'unknown'.
         ? this.lmsAPI.LMSGetErrorString(errorCode)
+        // @ts-expect-error TS2339: Property 'GetErrorString' does not exist on type 'unknown'.
         : this.lmsAPI.GetErrorString(errorCode);
     } catch (error) {
       return '';

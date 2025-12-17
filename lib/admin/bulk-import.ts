@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Bulk User Import System
  * CSV/Excel upload with role assignment and validation
@@ -53,47 +52,59 @@ export function parseCSV(csvContent: string): BulkImportUser[] {
       switch (header) {
         case 'first name':
         case 'firstname':
+          // @ts-expect-error TS2339: Property 'firstName' does not exist on type 'unknown'.
           user.firstName = value;
           break;
         case 'last name':
         case 'lastname':
+          // @ts-expect-error TS2339: Property 'lastName' does not exist on type 'unknown'.
           user.lastName = value;
           break;
         case 'email':
+          // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
           user.email = value;
           break;
         case 'role':
+          // @ts-expect-error TS2339: Property 'role' does not exist on type 'unknown'.
           user.role = value.toLowerCase();
           break;
         case 'phone':
+          // @ts-expect-error TS2339: Property 'phone' does not exist on type 'unknown'.
           user.phone = value;
           break;
         case 'date of birth':
         case 'dob':
+          // @ts-expect-error TS2339: Property 'dateOfBirth' does not exist on type 'unknown'.
           user.dateOfBirth = value;
           break;
         case 'student number':
         case 'studentnumber':
+          // @ts-expect-error TS2339: Property 'studentNumber' does not exist on type 'unknown'.
           user.studentNumber = value;
           break;
         case 'program':
         case 'program id':
+          // @ts-expect-error TS2339: Property 'programId' does not exist on type 'unknown'.
           user.programId = value;
           break;
         case 'cohort':
+          // @ts-expect-error TS2339: Property 'cohort' does not exist on type 'unknown'.
           user.cohort = value;
           break;
         case 'start date':
         case 'startdate':
+          // @ts-expect-error TS2339: Property 'startDate' does not exist on type 'unknown'.
           user.startDate = value;
           break;
         case 'funding':
         case 'funding source':
+          // @ts-expect-error TS2339: Property 'fundingSource' does not exist on type 'unknown'.
           user.fundingSource = value;
           break;
       }
     });
 
+    // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
     if (user.email) {
       users.push(user as BulkImportUser);
     }
@@ -290,6 +301,7 @@ export async function importUsers(
         row,
         email: user.email,
         field: 'system',
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         message: error.message || 'Unknown error',
       });
     }

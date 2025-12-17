@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/rateLimiter.ts
 // Rate limiting and caching with Redis support
 import { NextRequest, NextResponse } from 'next/server';
@@ -76,6 +75,8 @@ export async function rateLimit(
 
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    // @ts-expect-error TS2339: Property 'ip' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type 'NextRequest' to type 'string' may be a mistake because ne...
     (req as string).ip ||
     'unknown';
 

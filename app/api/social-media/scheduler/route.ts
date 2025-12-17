@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -97,6 +96,7 @@ export async function GET(req: Request) {
               success: true,
             });
           } catch (error: unknown) {
+            // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
             logger.error(`Error posting to ${platform}:`, error);
 
             // Log failure
@@ -126,6 +126,7 @@ export async function GET(req: Request) {
           .update({ last_post_at: now.toISOString() })
           .eq('id', campaign.id);
       } catch (error: unknown) {
+        // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
         logger.error(`Error processing campaign ${campaign.id}:`, error);
         results.push({
           campaignId: campaign.id,
@@ -143,6 +144,7 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Scheduler error:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
@@ -160,6 +162,7 @@ async function postToSocialMedia(
   content: string,
   campaign: Record<string, unknown>
 ) {
+  // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
   logger.info(`Posting to ${platform}:`, content);
 
   switch (platform.toLowerCase()) {
@@ -215,6 +218,7 @@ async function postToFacebook(
 
     return { success: true, platform: 'facebook', postId: data.id };
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Facebook posting error:', error);
     throw error;
   }
@@ -256,6 +260,7 @@ async function postToTwitter(
 
     return { success: true, platform: 'twitter', postId: data.data?.id };
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Twitter posting error:', error);
     throw error;
   }
@@ -306,6 +311,7 @@ async function postToLinkedIn(
 
     return { success: true, platform: 'linkedin', postId: data.id };
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('LinkedIn posting error:', error);
     throw error;
   }

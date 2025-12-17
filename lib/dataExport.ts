@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -43,7 +42,11 @@ export function convertToCSV(
     return cols
       .map((col) => {
         const value = row[col.key];
+        // @ts-expect-error TS2339: Property 'format' does not exist on type 'string'.
+        // @ts-expect-error TS2352: Conversion of type '{ key: string; label: string; }' to type 'string' may be ...
         const formatted = (col as string).format
+          // @ts-expect-error TS2339: Property 'format' does not exist on type 'string'.
+          // @ts-expect-error TS2352: Conversion of type '{ key: string; label: string; }' to type 'string' may be ...
           ? (col as string).format(value)
           : value;
         return escapeCSVValue(formatted);
@@ -165,7 +168,11 @@ export function exportToPDF(
   const rows = data.map((row) =>
     cols.map((col) => {
       const value = row[col.key];
+      // @ts-expect-error TS2339: Property 'format' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type '{ key: string; label: string; }' to type 'string' may be ...
       return (col as string).format
+        // @ts-expect-error TS2339: Property 'format' does not exist on type 'string'.
+        // @ts-expect-error TS2352: Conversion of type '{ key: string; label: string; }' to type 'string' may be ...
         ? (col as string).format(value)
         : String(value || '');
     })
@@ -311,8 +318,14 @@ export async function exportCourses(
   return (data || []).map((course) => ({
     ...course,
     instructor_name: course.instructor
+      // @ts-expect-error TS2339: Property 'last_name' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type '{ first_name: any; last_name: any; email: any; }[]' to ty...
+      // @ts-expect-error TS2339: Property 'first_name' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type '{ first_name: any; last_name: any; email: any; }[]' to ty...
       ? `${(course.instructor as string).first_name} ${(course.instructor as string).last_name}`
       : 'N/A',
+    // @ts-expect-error TS2339: Property 'email' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ first_name: any; last_name: any; email: any; }[]' to ty...
     instructor_email: (course.instructor as string)?.email || 'N/A',
   }));
 }
@@ -362,8 +375,13 @@ export async function exportEnrollments(
     student_name: enrollment.student
       ? `${enrollment.student?.[0]?.first_name} ${enrollment.student?.[0]?.last_name}`
       : 'N/A',
+    // @ts-expect-error TS2339: Property 'email' does not exist on type '{ first_name: any; last_name: any; e...
     student_email: enrollment.student?.email || 'N/A',
+    // @ts-expect-error TS2339: Property 'title' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ title: any; category: any; }[]' to type 'string' may be...
     course_title: (enrollment.course as string)?.[0]?.title || 'N/A',
+    // @ts-expect-error TS2339: Property 'category' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ title: any; category: any; }[]' to type 'string' may be...
     course_category: (enrollment.course as string)?.[0]?.category || 'N/A',
   }));
 }
@@ -408,6 +426,8 @@ export async function exportAssignments(
 
   return (data || []).map((assignment) => ({
     ...assignment,
+    // @ts-expect-error TS2339: Property 'title' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ title: any; }[]' to type 'string' may be a mistake beca...
     course_title: (assignment.course as string)?.[0]?.title || 'N/A',
   }));
 }
@@ -455,10 +475,18 @@ export async function exportGrades(
     student_name: submission.student
       ? `${submission.student?.[0]?.first_name} ${submission.student?.[0]?.last_name}`
       : 'N/A',
+    // @ts-expect-error TS2339: Property 'email' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ first_name: any; last_name: any; email: any; }[]' to ty...
     student_email: (submission.student as string)?.[0]?.email || 'N/A',
+    // @ts-expect-error TS2339: Property 'title' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ title: any; points: any; course: { title: any; }[]; }[]...
     assignment_title: (submission.assignment as string)?.[0]?.title || 'N/A',
+    // @ts-expect-error TS2339: Property 'points' does not exist on type 'string'.
+    // @ts-expect-error TS2352: Conversion of type '{ title: any; points: any; course: { title: any; }[]; }[]...
     assignment_points: (submission.assignment as string)?.points || 0,
     course_title:
+      // @ts-expect-error TS2339: Property 'course' does not exist on type 'string'.
+      // @ts-expect-error TS2352: Conversion of type '{ title: any; points: any; course: { title: any; }[]; }[]...
       (submission.assignment as string)?.course?.[0]?.title || 'N/A',
   }));
 }

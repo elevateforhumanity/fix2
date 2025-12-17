@@ -1,10 +1,10 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
+    // @ts-expect-error TS2551: Property 'FormData' does not exist on type 'Request'. Did you mean 'formData'?
     const formData = await request.FormData();
 
     const firstName = formData.get('firstName') as string;

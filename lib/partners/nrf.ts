@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/nrf.ts
 // NRF RISE Up API Integration
 // Retail Industry Skills and Education
@@ -28,11 +27,13 @@ export class NrfAPI extends BasePartnerAPI {
   }
 
   async createAccount(student: StudentData): Promise<PartnerAccount> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Creating NRF RISE Up account', {
       studentId: student.id,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         learnerId: string;
         username: string;
@@ -44,6 +45,7 @@ export class NrfAPI extends BasePartnerAPI {
         partnerId: this.config.orgId,
       });
 
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'NRF RISE Up account created', {
         externalId: response.data.learnerId,
       });
@@ -54,7 +56,9 @@ export class NrfAPI extends BasePartnerAPI {
         loginUrl: response.data.platformUrl,
       };
     } catch (error: unknown) {
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to create NRF RISE Up account', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -65,12 +69,14 @@ export class NrfAPI extends BasePartnerAPI {
     accountExternalId: string,
     courseExternalCode: string
   ): Promise<CourseEnrollment> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Enrolling in NRF RISE Up course', {
       accountExternalId,
       courseExternalCode,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         enrollmentId: string;
         courseName: string;
@@ -80,6 +86,7 @@ export class NrfAPI extends BasePartnerAPI {
         courseCode: courseExternalCode,
       });
 
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'NRF RISE Up enrollment created', {
         enrollmentId: response.data.enrollmentId,
       });
@@ -91,7 +98,9 @@ export class NrfAPI extends BasePartnerAPI {
         accessUrl: response.data.courseUrl,
       };
     } catch (error: unknown) {
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to enroll in NRF RISE Up course', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -101,11 +110,13 @@ export class NrfAPI extends BasePartnerAPI {
   async getProgress(
     externalEnrollmentId: string
   ): Promise<ProgressData | null> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching NRF RISE Up progress', {
       externalEnrollmentId,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         completionPercentage: number;
         status: string;
@@ -133,7 +144,9 @@ export class NrfAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch NRF RISE Up progress', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -143,11 +156,13 @@ export class NrfAPI extends BasePartnerAPI {
   async getCertificate(
     externalEnrollmentId: string
   ): Promise<CertificateData | null> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching NRF RISE Up certificate', {
       externalEnrollmentId,
     });
 
     try {
+      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         certificateId: string;
         credentialId: string;
@@ -167,7 +182,9 @@ export class NrfAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch NRF RISE Up certificate', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -179,9 +196,11 @@ export class NrfAPI extends BasePartnerAPI {
     externalEnrollmentId: string;
     returnTo?: string;
   }): Promise<string> {
+    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Generating NRF RISE Up SSO launch URL', params);
 
     try {
+      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         ssoUrl: string;
         expiresIn: number;
@@ -193,7 +212,9 @@ export class NrfAPI extends BasePartnerAPI {
 
       return response.data.ssoUrl;
     } catch (error: unknown) {
+      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to generate NRF RISE Up SSO URL', {
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/automation/progressSync.ts
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
@@ -12,6 +11,7 @@ function getSupabaseServerClient() {
     {
       cookies: {
         get(name: string) {
+          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
       },

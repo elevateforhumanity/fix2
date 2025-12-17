@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * AI Chat Response API
  * OpenAI integration for intelligent chat responses
@@ -87,6 +86,7 @@ If the user asks about:
 - Complex questions → Offer human agent assistance`;
 
     // Call OpenAI
+    // @ts-expect-error TS2769: No overload matches this call.
     const completion = await openai.chat.completions.create({
       model: 'gpt-4-turbo-preview',
       messages: [

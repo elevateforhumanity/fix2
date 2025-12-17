@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Slack Integration
 export interface SlackMessage {
   text: string;
@@ -29,6 +28,7 @@ export async function sendSlackMessage(message: SlackMessage) {
     return { success: true };
   } catch (error: unknown) {
     // Error: $1
+    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     return { success: false, error: error.message };
   }
 }

@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Microsoft 365 / Azure AD SSO Integration
  * OAuth 2.0, user sync, Teams integration, Outlook Calendar
@@ -378,6 +377,7 @@ export class OutlookCalendarIntegration {
       .eq('course_id', courseId)
       .gte('due_date', new Date().toISOString());
 
+    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!assignments) return;
 
     for (const assignment of assignments) {

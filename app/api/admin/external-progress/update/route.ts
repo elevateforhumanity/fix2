@@ -1,4 +1,3 @@
-// @ts-nocheck
 // app/api/admin/external-progress/update/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
@@ -63,8 +62,10 @@ export const POST = withAuth(
 
       return NextResponse.json({ success: true });
     } catch (err: unknown) {
+      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
       logger.error(err);
       return NextResponse.json(
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         { error: err?.message ?? 'Unexpected error' },
         { status: 500 }
       );

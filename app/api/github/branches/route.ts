@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { gh, parseRepo, getUserOctokit } from '@/lib/github';
 import { logger } from '@/lib/logger';
@@ -37,13 +36,16 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(branches);
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('GitHub branches error:', error);
     return NextResponse.json(
       {
         error: 'Failed to fetch branches',
         message: toErrorMessage(error),
+        // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
         status: error.status,
       },
+      // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
       { status: error.status || 500 }
     );
   }

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -51,6 +50,7 @@ export async function POST(request: Request) {
       });
     } catch (e) {
       // Table might not exist yet, that's okay
+      // @ts-expect-error TS2304: Cannot find name 'logger'.
       logger.info('apprentice_hours_log not available:', e);
     }
 

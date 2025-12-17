@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
@@ -15,6 +14,7 @@ export async function POST() {
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    // @ts-expect-error TS2322: Type '"2024-12-18.acacia"' is not assignable to type '"2025-10-29.clover"'.
     apiVersion: '2024-12-18.acacia',
   });
   const supabase = await createClient();

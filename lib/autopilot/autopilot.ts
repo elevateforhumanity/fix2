@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Autopilot API Endpoint
  *
@@ -29,6 +28,7 @@ async function getAutopilotWorker() {
  * GET /api/autopilot/status
  * Get autopilot status
  */
+// @ts-expect-error TS7030: Not all code paths return a value.
 export async function getStatus(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
@@ -41,17 +41,23 @@ export async function getStatus(req: Request, res: Response) {
 
     res.json({
       status: 'ok',
+      // @ts-expect-error TS2339: Property 'isRunning' does not exist on type 'unknown'.
       running: worker.isRunning,
       config: {
+        // @ts-expect-error TS2339: Property 'config' does not exist on type 'unknown'.
         hasVercelToken: !!worker.config.VERCEL_TOKEN,
+        // @ts-expect-error TS2339: Property 'config' does not exist on type 'unknown'.
         hasSupabaseUrl: !!worker.config.VITE_SUPABASE_URL,
+        // @ts-expect-error TS2339: Property 'config' does not exist on type 'unknown'.
         hasStripeKey: !!worker.config.VITE_STRIPE_PUBLISHABLE_KEY,
+        // @ts-expect-error TS2339: Property 'config' does not exist on type 'unknown'.
         siteUrl: worker.config.VITE_SITE_URL || 'not set',
       },
     });
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Failed to get autopilot status',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       message: error.message,
     });
   }
@@ -61,6 +67,7 @@ export async function getStatus(req: Request, res: Response) {
  * POST /api/autopilot/health-check
  * Trigger manual health check
  */
+// @ts-expect-error TS7030: Not all code paths return a value.
 export async function triggerHealthCheck(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
@@ -71,6 +78,7 @@ export async function triggerHealthCheck(req: Request, res: Response) {
       });
     }
 
+    // @ts-expect-error TS2339: Property 'checkHealth' does not exist on type 'unknown'.
     const health = await worker.checkHealth();
 
     res.json({
@@ -80,6 +88,7 @@ export async function triggerHealthCheck(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Health check failed',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       message: error.message,
     });
   }
@@ -89,6 +98,7 @@ export async function triggerHealthCheck(req: Request, res: Response) {
  * POST /api/autopilot/self-heal
  * Trigger manual self-heal
  */
+// @ts-expect-error TS7030: Not all code paths return a value.
 export async function triggerSelfHeal(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
@@ -99,6 +109,7 @@ export async function triggerSelfHeal(req: Request, res: Response) {
       });
     }
 
+    // @ts-expect-error TS2339: Property 'selfHeal' does not exist on type 'unknown'.
     const success = await worker.selfHeal();
 
     res.json({
@@ -109,6 +120,7 @@ export async function triggerSelfHeal(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Self-heal failed',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       message: error.message,
     });
   }
@@ -118,6 +130,7 @@ export async function triggerSelfHeal(req: Request, res: Response) {
  * POST /api/autopilot/sync-secrets
  * Sync secrets to GitHub and Vercel
  */
+// @ts-expect-error TS7030: Not all code paths return a value.
 export async function syncSecrets(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
@@ -129,7 +142,9 @@ export async function syncSecrets(req: Request, res: Response) {
     }
 
     const results = {
+      // @ts-expect-error TS2339: Property 'syncToGitHub' does not exist on type 'unknown'.
       github: await worker.syncToGitHub(),
+      // @ts-expect-error TS2339: Property 'syncToVercel' does not exist on type 'unknown'.
       vercel: await worker.syncToVercel(),
     };
 
@@ -141,6 +156,7 @@ export async function syncSecrets(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Secret sync failed',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       message: error.message,
     });
   }
@@ -150,6 +166,7 @@ export async function syncSecrets(req: Request, res: Response) {
  * POST /api/autopilot/start
  * Start the autopilot worker
  */
+// @ts-expect-error TS7030: Not all code paths return a value.
 export async function startWorker(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
@@ -160,6 +177,7 @@ export async function startWorker(req: Request, res: Response) {
       });
     }
 
+    // @ts-expect-error TS2339: Property 'isRunning' does not exist on type 'unknown'.
     if (worker.isRunning) {
       return res.json({
         status: 'ok',
@@ -167,6 +185,7 @@ export async function startWorker(req: Request, res: Response) {
       });
     }
 
+    // @ts-expect-error TS2339: Property 'start' does not exist on type 'unknown'.
     await worker.start();
 
     res.json({
@@ -176,6 +195,7 @@ export async function startWorker(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Failed to start autopilot',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       message: error.message,
     });
   }
@@ -185,6 +205,7 @@ export async function startWorker(req: Request, res: Response) {
  * POST /api/autopilot/stop
  * Stop the autopilot worker
  */
+// @ts-expect-error TS7030: Not all code paths return a value.
 export async function stopWorker(req: Request, res: Response) {
   try {
     const worker = await getAutopilotWorker();
@@ -195,6 +216,7 @@ export async function stopWorker(req: Request, res: Response) {
       });
     }
 
+    // @ts-expect-error TS2339: Property 'stop' does not exist on type 'unknown'.
     worker.stop();
 
     res.json({
@@ -204,6 +226,7 @@ export async function stopWorker(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Failed to stop autopilot',
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       message: error.message,
     });
   }

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { OrgConfig } from '@/lib/org/getOrgConfig';
 
 /**
@@ -7,6 +6,7 @@ import { OrgConfig } from '@/lib/org/getOrgConfig';
  */
 export function licenseAllows(config: OrgConfig, feature: string): boolean {
   // If no license config, allow everything (backward compatible)
+  // @ts-expect-error TS2339: Property 'license' does not exist on type 'OrgConfig'.
   if (!config?.license?.features) {
     return true;
   }

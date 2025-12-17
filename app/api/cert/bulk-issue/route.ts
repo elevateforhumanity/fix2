@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -41,6 +40,7 @@ export async function POST(req: NextRequest) {
 
   for (const r of rows) {
     try {
+      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       const email = r.email;
       if (!email) {
         errors.push({ row: r, err: 'Missing email' });
@@ -56,17 +56,21 @@ export async function POST(req: NextRequest) {
 
       // course
       let course;
+      // @ts-expect-error TS2339: Property 'course_id' does not exist on type 'unknown'.
       if (r.course_id) {
         const { data } = await supabase
           .from('courses')
           .select('id,title,slug,cert_valid_days')
+          // @ts-expect-error TS2339: Property 'course_id' does not exist on type 'unknown'.
           .eq('id', r.course_id)
           .maybeSingle();
         course = data;
+      // @ts-expect-error TS2339: Property 'course_slug' does not exist on type 'unknown'.
       } else if (r.course_slug) {
         const { data } = await supabase
           .from('courses')
           .select('id,title,slug,cert_valid_days')
+          // @ts-expect-error TS2339: Property 'course_slug' does not exist on type 'unknown'.
           .eq('slug', r.course_slug)
           .maybeSingle();
         course = data;
@@ -100,7 +104,9 @@ export async function POST(req: NextRequest) {
 
       // expiry: priority = CSV expires_at → course.cert_valid_days → none
       let expires_at: string | null = null;
+      // @ts-expect-error TS2339: Property 'expires_at' does not exist on type 'unknown'.
       if (r.expires_at) {
+        // @ts-expect-error TS2339: Property 'expires_at' does not exist on type 'unknown'.
         expires_at = new Date(r.expires_at).toISOString();
       } else if (course.cert_valid_days && Number(course.cert_valid_days) > 0) {
         const d = new Date();
@@ -108,7 +114,9 @@ export async function POST(req: NextRequest) {
         expires_at = d.toISOString();
       }
 
+      // @ts-expect-error TS2339: Property 'issued_at' does not exist on type 'unknown'.
       const issued_at = r.issued_at
+        // @ts-expect-error TS2339: Property 'issued_at' does not exist on type 'unknown'.
         ? new Date(r.issued_at).toISOString()
         : new Date().toISOString();
 
@@ -148,6 +156,7 @@ export async function POST(req: NextRequest) {
 
       issued++;
     } catch (e: unknown) {
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       errors.push({ row: r, err: e?.message || 'Unknown error' });
     }
   }

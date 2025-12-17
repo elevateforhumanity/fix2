@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { getSupabaseServerClient } from '../../../../lib/supabaseServer';
 import { programSeeds } from '../../../../lms-data/courseSeed';
@@ -116,9 +115,12 @@ export async function POST() {
 
       results.push({ programCode: seed.code, programId });
     } catch (err: unknown) {
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
+      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Error'.
       logger.error('Seed error for program', seed.code, err?.message ?? err);
       results.push({
         programCode: seed.code,
+        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: err?.message ?? 'Unknown error',
       });
     }

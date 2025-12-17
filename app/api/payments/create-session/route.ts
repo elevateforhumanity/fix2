@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
@@ -12,6 +11,7 @@ if (!stripeKey) {
 
 const stripe = stripeKey
   ? new Stripe(stripeKey, {
+      // @ts-expect-error TS2322: Type '"2024-11-20.acacia"' is not assignable to type '"2025-10-29.clover"'.
       apiVersion: '2024-11-20.acacia',
       typescript: true,
     })

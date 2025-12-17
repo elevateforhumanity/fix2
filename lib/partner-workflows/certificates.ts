@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Partner LMS Certificate Generation
  * Generates completion certificates for partner certifications
@@ -129,6 +128,7 @@ export async function createCertificate(
     // Error: $1
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -211,6 +211,7 @@ export async function generateCertificatePDF(
     // Error: $1
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -266,6 +267,7 @@ export async function verifyCertificate(certificateNumber: string): Promise<{
     // Error: $1
     return {
       valid: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }
@@ -327,6 +329,7 @@ export async function revokeCertificate(
     // Error: $1
     return {
       success: false,
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

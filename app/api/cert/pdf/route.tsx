@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -96,6 +95,7 @@ export async function GET(req: NextRequest) {
           <Image
             src={qrDataUrl}
             style={{ width: 88, height: 88 }}
+            // @ts-expect-error TS2769: No overload matches this call.
             quality={100}
           />
           <View>

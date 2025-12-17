@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/auth';
@@ -27,6 +26,7 @@ export async function GET(
     .order('created_at', { ascending: false });
 
   if (error) {
+    // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
     logger.error(error);
     return NextResponse.json({ error: 'DB error' }, { status: 500 });
   }

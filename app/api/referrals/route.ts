@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -42,6 +41,7 @@ export async function GET(request: NextRequest) {
             { status: 401 }
           );
         }
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const codes = await getUserReferralCodes(authResult.user.id);
         return NextResponse.json({ codes });
 
@@ -54,6 +54,7 @@ export async function GET(request: NextRequest) {
           );
         }
         const status = searchParams.get('status') as any;
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const referrals = await getUserReferrals(authResult2.user.id, status);
         return NextResponse.json({ referrals });
 
@@ -65,6 +66,7 @@ export async function GET(request: NextRequest) {
             { status: 401 }
           );
         }
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const stats = await getAffiliateStats(authResult3.user.id);
         return NextResponse.json({ stats });
 
@@ -100,6 +102,7 @@ export async function POST(request: NextRequest) {
       case 'create-code':
         const { type, customCode, discountPercentage, commissionPercentage } =
           body;
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const code = await createReferralCode(user.id, type, {
           customCode,
           discountPercentage,
@@ -115,11 +118,13 @@ export async function POST(request: NextRequest) {
             { status: 400 }
           );
         }
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const referral = await trackReferral(referralCode, user.id);
         return NextResponse.json({ success: true, referral });
 
       case 'apply-affiliate':
         const { website, socialMedia, audience, reason } = body;
+        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         await applyForAffiliate(user.id, {
           website,
           socialMedia,
@@ -137,6 +142,7 @@ export async function POST(request: NextRequest) {
           );
         }
         await processAffiliatePayout(
+          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           amount,
           paymentMethod,

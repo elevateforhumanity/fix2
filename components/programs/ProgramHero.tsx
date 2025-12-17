@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import Image from 'next/image';
@@ -164,12 +163,14 @@ export function ProgramHero({ program }: { program: Program }) {
               <div className="text-center">
                 <div className="text-sm text-slate-600 mb-1">Format</div>
                 <div className="text-3xl font-bold text-orange-500">
+                  // @ts-expect-error TS2339: Property 'format' does not exist on type 'Program'.
                   {program.format}
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-sm text-slate-600 mb-1">Level</div>
                 <div className="text-3xl font-bold text-orange-500">
+                  // @ts-expect-error TS2339: Property 'level' does not exist on type 'Program'.
                   {program.level}
                 </div>
               </div>

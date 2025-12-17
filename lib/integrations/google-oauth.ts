@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Google OAuth Integration
 import { OAuth2Client } from 'google-auth-library';
 
@@ -45,6 +44,7 @@ export async function verifyGoogleToken(token: string) {
     };
   } catch (error: unknown) {
     // Error: $1
+    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     return { success: false, error: error.message };
   }
 }

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { ShopDocumentUpload } from '@/components/shop/ShopDocumentUpload';
@@ -35,6 +34,7 @@ export default async function ShopDocumentsPage() {
     .order('display_name');
 
   return (
+    // @ts-expect-error TS2339: Property 'id' does not exist on type 'any[]'.
     <ShopDocumentUpload shopId={shop.id} requirements={requirements || []} />
   );
 }

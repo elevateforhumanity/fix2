@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -45,6 +44,7 @@ export default function DonationForm() {
       // Redirect to Stripe Checkout
       const stripe = await stripePromise;
       if (stripe) {
+        // @ts-expect-error TS2339: Property 'redirectToCheckout' does not exist on type 'Stripe'.
         const { error: stripeError } = await stripe.redirectToCheckout({
           sessionId,
         });

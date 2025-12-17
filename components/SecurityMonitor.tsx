@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useEffect } from 'react';
@@ -96,6 +95,7 @@ export function SecurityMonitor() {
 
         // Attempt to break out of iframe
         try {
+          // @ts-expect-error TS2322: Type 'Location' is not assignable to type 'string'.
           window.top!.location = window.self.location;
         } catch (e) {
           // If we can't break out, at least log it
