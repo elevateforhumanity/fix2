@@ -25,7 +25,7 @@ export const programCategories: ProgramCategory[] = [
   },
   {
     slug: 'federal-funded',
-    name: 'Federal Funded Programs',
+    name: 'WIOA Programs (ETPL/WRG)',
     description: '100% free training funded by WIOA, ETPL, and WRG',
     programs: [
       'cna',
@@ -33,19 +33,31 @@ export const programCategories: ProgramCategory[] = [
       'home-health-aide',
       'direct-support-professional',
       'cdl',
+      'cpr-certification',
+      'peer-recovery-coach',
+      'emergency-health-safety-tech',
+    ],
+  },
+  {
+    slug: 'jri',
+    name: 'JRI Programs',
+    description:
+      'Justice Reinvestment Initiative - Second chance career training',
+    programs: [
+      'cna',
+      'phlebotomy-technician',
+      'home-health-aide',
+      'direct-support-professional',
+      'cdl',
+      'workforce-readiness',
+      'peer-recovery-coach',
     ],
   },
   {
     slug: 'micro-programs',
     name: 'Micro Programs',
     description: 'Short-term certifications you can complete in weeks',
-    programs: [
-      'cpr-certification',
-      'workforce-readiness',
-      'peer-recovery-coach',
-      'drug-collector',
-      'emergency-health-safety-tech',
-    ],
+    programs: ['workforce-readiness', 'drug-collector', 'cpr-certification'],
   },
   {
     slug: 'beauty-wellness',

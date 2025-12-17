@@ -23,7 +23,7 @@ const programCategories = [
     ],
   },
   {
-    label: 'Federal Funded (WIOA/ETPL/WRG)',
+    label: 'WIOA Programs (ETPL/WRG)',
     href: '/programs/federal-funded',
     subItems: [
       { label: 'CNA', href: '/programs/cna' },
@@ -37,16 +37,40 @@ const programCategories = [
         href: '/programs/direct-support-professional',
       },
       { label: 'CDL', href: '/programs/cdl' },
+      { label: 'CPR Certification', href: '/programs/cpr-certification' },
+      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
+      {
+        label: 'Emergency Health & Safety',
+        href: '/programs/emergency-health-safety-tech',
+      },
+    ],
+  },
+  {
+    label: 'JRI Programs',
+    href: '/programs/jri',
+    subItems: [
+      { label: 'CNA', href: '/programs/cna' },
+      {
+        label: 'Phlebotomy Technician',
+        href: '/programs/phlebotomy-technician',
+      },
+      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
+      {
+        label: 'Direct Support Professional',
+        href: '/programs/direct-support-professional',
+      },
+      { label: 'CDL', href: '/programs/cdl' },
+      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
+      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
     ],
   },
   {
     label: 'Micro Programs',
     href: '/programs/micro-programs',
     subItems: [
-      { label: 'CPR Certification', href: '/programs/cpr-certification' },
       { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
-      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
       { label: 'Drug Collector', href: '/programs/drug-collector' },
+      { label: 'CPR Certification', href: '/programs/cpr-certification' },
       {
         label: 'Emergency Health & Safety',
         href: '/programs/emergency-health-safety-tech',
