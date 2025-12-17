@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo, getUserOctokit } from "@/lib/github";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   const userToken = req.headers.get("x-gh-token");
@@ -43,7 +44,7 @@ export async function POST(req: NextRequest) {
     logger.error("GitHub commit error:", error);
     return NextResponse.json({ 
       error: "Failed to commit file",
-      message: error.message,
+      message: toErrorMessage(error),
       status: error.status
     }, { status: error.status || 500 });
   }

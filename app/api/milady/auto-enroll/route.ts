@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { createAccount, enrollInCourse } from '@/lib/partners/milady';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: Request) {
   try {
@@ -135,7 +136,7 @@ export async function POST(request: Request) {
         enrollments.push({
           courseId: course.id,
           status: 'error',
-          error: error.message,
+          error: toErrorMessage(error),
         });
       }
     }

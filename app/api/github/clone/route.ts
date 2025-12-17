@@ -1,5 +1,6 @@
 import { gh, parseRepo } from "@/lib/github";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   try {
@@ -48,6 +49,6 @@ export async function POST(req: Request) {
       url: newRepo.data.html_url,
     });
   } catch (error: unknown) {
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

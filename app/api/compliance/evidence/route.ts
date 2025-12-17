@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { uploadComplianceEvidenceFile } from "@/lib/storage/complianceEvidence";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = "nodejs";
 
@@ -63,7 +64,7 @@ export async function POST(request: Request) {
     .single();
 
   if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   // Log the upload

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo, getUserOctokit } from "@/lib/github";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   const repo = req.nextUrl.searchParams.get("repo");
@@ -35,7 +36,7 @@ export async function GET(req: NextRequest) {
     logger.error("GitHub branches error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch branches",
-      message: error.message,
+      message: toErrorMessage(error),
       status: error.status
     }, { status: error.status || 500 });
   }
