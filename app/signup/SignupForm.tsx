@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 
 function SignupFormContent() {
   const searchParams = useSearchParams();
-  const next = searchParams.get('next') || '/student/dashboard';
+  const next = searchParams.get('next') || '/lms/dashboard';
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
@@ -68,7 +68,7 @@ function SignupFormContent() {
       if (data.session) {
         // Check for next parameter in URL
         const searchParams = new URLSearchParams(window.location.search);
-        const next = searchParams.get('next') || '/student/dashboard';
+        const next = searchParams.get('next') || '/lms/dashboard';
 
         setTimeout(() => {
           router.push(next);
