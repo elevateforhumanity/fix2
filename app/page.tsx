@@ -458,11 +458,11 @@ export default function HomePage() {
       <PWAInstallSection />
 
       {/* CTA - Talk to an Advisor */}
-      <section className="py-12 bg-gradient-to-br from-blue-600 to-orange-600">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Image */}
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl bg-blue-800">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="https://i.imgur.com/vCYOioP.png"
                 alt="Ready to Start"
@@ -472,33 +472,33 @@ export default function HomePage() {
             </div>
             
             {/* Content */}
-            <div className="text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                 Ready to Start?
               </h2>
-              <p className="text-xl text-white/90 mb-6 leading-relaxed">
+              <p className="text-xl text-slate-700 mb-6 leading-relaxed">
                 Most students qualify for 100% free training through WIOA, WRG, or apprenticeships. 
                 Let's find the right path for you.
               </p>
               <div className="flex flex-col gap-4 mb-6">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition shadow-lg hover:shadow-xl"
                 >
                   Apply Now
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-slate-900 bg-white border-2 border-slate-300 rounded-lg hover:bg-slate-50 transition"
                 >
                   Talk to an Advisor
                 </Link>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <p className="text-sm text-white/90 mb-2">
+              <div className="bg-white rounded-lg p-4 border border-slate-200 shadow-sm">
+                <p className="text-sm text-slate-600 mb-2">
                   <span className="font-semibold">Call us directly:</span>
                 </p>
-                <a href="tel:317-314-3757" className="text-2xl font-bold text-white hover:text-white/90 transition">
+                <a href="tel:317-314-3757" className="text-2xl font-bold text-orange-600 hover:text-orange-700 transition">
                   📞 317-314-3757
                 </a>
               </div>
