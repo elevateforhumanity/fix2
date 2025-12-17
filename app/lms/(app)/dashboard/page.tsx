@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+import { requireRole } from '@/lib/auth/require-role';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
@@ -7,20 +7,14 @@ import { BookOpen, CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
 export const metadata = { title: 'Dashboard | LMS' };
 
 export default async function DashboardPage() {
+  // Require student or admin role
+  const { user, profile } = await requireRole([
+    'student',
+    'admin',
+    'super_admin',
+  ]);
+
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect('/login');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
 
   // Get enrollment stats
   const { data: enrollments } = await supabase

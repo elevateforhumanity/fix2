@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
+import { requireRole } from '@/lib/auth/require-role';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 export const dynamic = 'force-dynamic';
@@ -20,14 +21,10 @@ export const metadata: Metadata = {
 };
 
 export default async function ProgramHolderDashboard() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // Require authorized role
+  const { user, profile } = await requireRole(['admin', 'super_admin']);
 
-  if (!user) {
-    redirect('/login');
-  }
+  const supabase = await createClient();
 
   // Fetch profile
   const { data: profile } = await supabase

@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { requireRole } from '@/lib/auth/require-role';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Award, Users, FileText, CheckCircle, Clock } from 'lucide-react';
@@ -71,7 +72,8 @@ export default async function ShopDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex items-center justify-between">
             <div>
-              // @ts-expect-error TS2339: Property 'name' does not exist on type 'any[]'.
+              // @ts-expect-error TS2339: Property 'name' does not exist on type
+              'any[]'.
               <h1 className="text-3xl font-bold text-slate-900">{shop.name}</h1>
               <p className="mt-1 text-slate-600">Shop Partner Portal</p>
             </div>

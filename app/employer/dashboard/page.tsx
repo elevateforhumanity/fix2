@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+import { requireRole } from '@/lib/auth/require-role';
 import Link from 'next/link';
 import {
   Briefcase,
@@ -13,21 +13,14 @@ import {
 } from 'lucide-react';
 
 export default async function EmployerDashboard() {
+  // Require admin role (employers should have admin or specific employer role)
+  const { user, profile } = await requireRole([
+    'admin',
+    'org_admin',
+    'super_admin',
+  ]);
+
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect('/login?next=/employer/dashboard');
-  }
-
-  // Get employer profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
 
   // Get employer organization
   const { data: employer } = await supabase

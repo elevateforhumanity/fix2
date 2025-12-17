@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import { createClient } from '@/lib/supabase/server';
+import { requireRole } from '@/lib/auth/require-role';
 
 import { redirect } from 'next/navigation';
 

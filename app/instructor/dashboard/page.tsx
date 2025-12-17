@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+import { requireRole } from '@/lib/auth/require-role';
 import Link from 'next/link';
 export const dynamic = 'force-dynamic';
 
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
 };
 
 export default async function ProgramHolderDashboard() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // Require instructor or admin role
+  const { user, profile } = await requireRole([
+    'instructor',
+    'admin',
+    'super_admin',
+  ]);
 
-  if (!user) {
-    redirect('/login');
-  }
+  const supabase = await createClient();
 
   // Fetch profile
   const { data: profile } = await supabase
