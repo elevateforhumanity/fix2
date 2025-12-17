@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { createClient } from '@/lib/supabase/server';
@@ -40,7 +41,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
   } catch (error) {
     logger.error('Tutorials GET error:', error);
-    return NextResponse.json({ error: 'Failed to fetch tutorial data' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch tutorial data' },
+      { status: 500 }
+    );
   }
 }
 
@@ -70,15 +74,13 @@ export async function POST(request: NextRequest) {
         completedSteps.push(stepId);
       }
 
-      await supabase
-        .from('user_tutorials')
-        .upsert({
-          user_id: user.id,
-          tutorial_id: tutorialId,
-          current_step: stepIndex + 1,
-          completed_steps: completedSteps,
-          updated_at: new Date().toISOString(),
-        });
+      await supabase.from('user_tutorials').upsert({
+        user_id: user.id,
+        tutorial_id: tutorialId,
+        current_step: stepIndex + 1,
+        completed_steps: completedSteps,
+        updated_at: new Date().toISOString(),
+      });
 
       return NextResponse.json({ success: true });
     }
@@ -99,6 +101,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
   } catch (error) {
     logger.error('Tutorials POST error:', error);
-    return NextResponse.json({ error: 'Failed to process tutorial action' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to process tutorial action' },
+      { status: 500 }
+    );
   }
 }

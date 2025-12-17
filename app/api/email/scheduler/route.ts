@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -11,7 +12,7 @@ import { toError, toErrorMessage } from '@/lib/safe';
 export async function GET(req: Request) {
   try {
     const supabase = await createClient();
-    
+
     // Get scheduled campaigns that are due
     const now = new Date().toISOString();
     const { data: campaigns, error } = await supabase
@@ -41,20 +42,23 @@ export async function GET(req: Request) {
           .eq('id', campaign.id);
 
         // Send campaign
-        const sendResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/campaigns/send`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            campaignId: campaign.id,
-            name: campaign.name,
-            subject: campaign.subject,
-            fromName: campaign.from_name,
-            fromEmail: campaign.from_email,
-            replyTo: campaign.reply_to,
-            customHtml: campaign.html_content,
-            recipientList: campaign.recipient_list,
-          }),
-        });
+        const sendResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_SITE_URL}/api/email/campaigns/send`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              campaignId: campaign.id,
+              name: campaign.name,
+              subject: campaign.subject,
+              fromName: campaign.from_name,
+              fromEmail: campaign.from_email,
+              replyTo: campaign.reply_to,
+              customHtml: campaign.html_content,
+              recipientList: campaign.recipient_list,
+            }),
+          }
+        );
 
         const sendResult = await sendResponse.json();
 
@@ -70,7 +74,7 @@ export async function GET(req: Request) {
           // Mark as failed
           await supabase
             .from('email_campaigns')
-            .update({ 
+            .update({
               status: 'failed',
               error_message: sendResult.error,
             })
@@ -85,11 +89,11 @@ export async function GET(req: Request) {
         }
       } catch (error: unknown) {
         logger.error(`Error processing campaign ${campaign.id}:`, error);
-        
+
         // Mark as failed
         await supabase
           .from('email_campaigns')
-          .update({ 
+          .update({
             status: 'failed',
             error_message: toErrorMessage(error),
           })

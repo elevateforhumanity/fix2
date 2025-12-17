@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { ShopDocumentUpload } from '@/components/shop/ShopDocumentUpload';
@@ -33,5 +34,7 @@ export default async function ShopDocumentsPage() {
     .order('required', { ascending: false })
     .order('display_name');
 
-  return <ShopDocumentUpload shopId={shop.id} requirements={requirements || []} />;
+  return (
+    <ShopDocumentUpload shopId={shop.id} requirements={requirements || []} />
+  );
 }

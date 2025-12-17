@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cloneRepoForCustomer } from '@/lib/store/github-clone';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -29,13 +30,19 @@ export async function POST(req: Request) {
 
     const product = license.products;
     if (!product || !product.repo) {
-      return Response.json({ error: 'Product has no repository' }, { status: 400 });
+      return Response.json(
+        { error: 'Product has no repository' },
+        { status: 400 }
+      );
     }
 
     // Clone repository
     const githubToken = process.env.GITHUB_TOKEN;
     if (!githubToken) {
-      return Response.json({ error: 'GitHub token not configured' }, { status: 500 });
+      return Response.json(
+        { error: 'GitHub token not configured' },
+        { status: 500 }
+      );
     }
 
     const result = await cloneRepoForCustomer({

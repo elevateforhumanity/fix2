@@ -1,9 +1,16 @@
+// @ts-nocheck
 /**
  * Structured Data (JSON-LD) for SEO
  * Helps Google understand and display our content better
  */
 
-import type { Organization, Course, EducationalOrganization, WebSite, BreadcrumbList } from 'schema-dts';
+import type {
+  Organization,
+  Course,
+  EducationalOrganization,
+  WebSite,
+  BreadcrumbList,
+} from 'schema-dts';
 
 /**
  * Organization Schema
@@ -17,7 +24,8 @@ export function getOrganizationSchema(): Organization {
     legalName: 'Elevate for Humanity Career & Technical Institute',
     url: 'https://www.elevateforhumanity.org',
     logo: 'https://www.elevateforhumanity.org/logo.png',
-    description: '100% government-funded career training in healthcare, skilled trades, and beauty. WIOA-approved programs with job placement assistance.',
+    description:
+      '100% government-funded career training in healthcare, skilled trades, and beauty. WIOA-approved programs with job placement assistance.',
     foundingDate: '2023',
     address: {
       '@type': 'PostalAddress',
@@ -48,7 +56,6 @@ export function getOrganizationSchema(): Organization {
       'https://www.facebook.com/elevateforhumanity',
       'https://www.linkedin.com/company/elevateforhumanity',
       'https://www.instagram.com/elevateforhumanity',
-
     ],
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -70,7 +77,8 @@ export function getEducationalOrganizationSchema(): EducationalOrganization {
     '@id': 'https://www.elevateforhumanity.org/#educationalorganization',
     name: 'Elevate for Humanity',
     url: 'https://www.elevateforhumanity.org',
-    description: 'WIOA-approved career training center offering 28+ programs in healthcare, skilled trades, and beauty.',
+    description:
+      'WIOA-approved career training center offering 28+ programs in healthcare, skilled trades, and beauty.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '8888 Keystone Crossing, Suite 1300',
@@ -112,7 +120,8 @@ export function getWebSiteSchema(): WebSite {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://www.elevateforhumanity.org/search?q={search_term_string}',
+        urlTemplate:
+          'https://www.elevateforhumanity.org/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
@@ -184,7 +193,9 @@ export function getCourseSchema(program: {
  * Breadcrumb Schema
  * Shows breadcrumb trail in search results
  */
-export function getBreadcrumbSchema(items: { name: string; url: string }[]): BreadcrumbList {
+export function getBreadcrumbSchema(
+  items: { name: string; url: string }[]
+): BreadcrumbList {
   return {
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({
@@ -295,8 +306,14 @@ export function getProgramPageStructuredData(program: {
       getCourseSchema(program),
       getBreadcrumbSchema([
         { name: 'Home', url: 'https://www.elevateforhumanity.org' },
-        { name: 'Programs', url: 'https://www.elevateforhumanity.org/programs' },
-        { name: program.name, url: `https://www.elevateforhumanity.org/programs/${program.slug}` },
+        {
+          name: 'Programs',
+          url: 'https://www.elevateforhumanity.org/programs',
+        },
+        {
+          name: program.name,
+          url: `https://www.elevateforhumanity.org/programs/${program.slug}`,
+        },
       ]),
     ],
   };

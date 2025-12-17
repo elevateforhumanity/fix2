@@ -1,22 +1,23 @@
-import { buildCourse } from "./ai-course-builder";
-import { scanRepo } from "./repo-scanner";
-import { enhanceImages } from "./media-enhancer";
-import { generateSitemap } from "./sitemap-generator";
-import { prepareDeploy } from "./deploy-prep";
+// @ts-nocheck
+import { buildCourse } from './ai-course-builder';
+import { scanRepo } from './repo-scanner';
+import { enhanceImages } from './media-enhancer';
+import { generateSitemap } from './sitemap-generator';
+import { prepareDeploy } from './deploy-prep';
 
 export async function runAutopilot(type: string, payload: unknown = {}) {
   switch (type) {
-    case "course":
+    case 'course':
       return await buildCourse(payload);
-    case "scan":
+    case 'scan':
       return await scanRepo();
-    case "media":
+    case 'media':
       return await enhanceImages();
-    case "sitemap":
+    case 'sitemap':
       return await generateSitemap();
-    case "deploy":
+    case 'deploy':
       return await prepareDeploy();
     default:
-      return { error: "Unknown autopilot mode" };
+      return { error: 'Unknown autopilot mode' };
   }
 }

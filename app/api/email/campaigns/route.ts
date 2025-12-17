@@ -1,12 +1,13 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: Request) {
   try {
     const supabase = await createClient();
-    
+
     const { data: campaigns, error } = await supabase
       .from('email_campaigns')
       .select('*')

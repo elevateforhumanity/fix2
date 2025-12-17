@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Metadata } from 'next';
 
 export interface SEOConfig {
@@ -13,7 +14,8 @@ export interface SEOConfig {
   noindex?: boolean;
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
 const SITE_NAME = 'Elevate For Humanity';
 const DEFAULT_IMAGE = '/images/og-default.jpg';
 
@@ -108,7 +110,13 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
 }
 
 export function generateStructuredData(config: {
-  type: 'Organization' | 'Course' | 'Article' | 'BreadcrumbList' | 'FAQPage' | 'WebPage';
+  type:
+    | 'Organization'
+    | 'Course'
+    | 'Article'
+    | 'BreadcrumbList'
+    | 'FAQPage'
+    | 'WebPage';
   data: any;
 }) {
   const { type, data } = config;

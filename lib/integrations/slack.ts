@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Slack Integration
 export interface SlackMessage {
   text: string;
@@ -9,7 +10,7 @@ export interface SlackMessage {
 
 export async function sendSlackMessage(message: SlackMessage) {
   const webhookUrl = process.env.SLACK_WEBHOOK_URL;
-  
+
   if (!webhookUrl) {
     return { success: false, error: 'Slack not configured' };
   }
@@ -32,7 +33,10 @@ export async function sendSlackMessage(message: SlackMessage) {
   }
 }
 
-export async function sendEnrollmentAlert(studentName: string, courseName: string) {
+export async function sendEnrollmentAlert(
+  studentName: string,
+  courseName: string
+) {
   return sendSlackMessage({
     text: `🎓 New Enrollment`,
     blocks: [

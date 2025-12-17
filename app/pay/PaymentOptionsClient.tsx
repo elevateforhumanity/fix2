@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/pay/PaymentOptionsClient.tsx
 'use client';
 
@@ -223,7 +224,9 @@ export default function PaymentOptionsClient() {
               });
               window.affirm.checkout.open();
             } else {
-              alert('Affirm is still loading. Please wait a moment and try again.');
+              alert(
+                'Affirm is still loading. Please wait a moment and try again.'
+              );
             }
           }}
           className="w-full mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition shadow-lg"

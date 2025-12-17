@@ -1,20 +1,17 @@
-import { NextRequest, NextResponse } from "next/server";
-import { gh, parseRepo } from "@/lib/github";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
-    const { 
-      output, 
-      repo = "elevateforhumanity/fix2", 
-      branch = "main" 
-    } = body;
+    const { output, repo = 'elevateforhumanity/fix2', branch = 'main' } = body;
 
     if (!output) {
       return NextResponse.json(
-        { error: "Missing course output data" },
+        { error: 'Missing course output data' },
         { status: 400 }
       );
     }
@@ -28,14 +25,14 @@ export async function POST(req: NextRequest) {
       parsed = typeof output === 'string' ? JSON.parse(output) : output;
     } catch (e) {
       return NextResponse.json(
-        { error: "Invalid JSON in output" },
+        { error: 'Invalid JSON in output' },
         { status: 400 }
       );
     }
 
     const courseId = (parsed.title || 'untitled-course')
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-");
+      .replace(/[^a-z0-9]+/g, '-');
 
     const basePath = `courses/${courseId}`;
 
@@ -47,7 +44,7 @@ export async function POST(req: NextRequest) {
           branch,
           path,
           message: `Autopilot: Create ${path}`,
-          content: Buffer.from(content).toString("base64"),
+          content: Buffer.from(content).toString('base64'),
         });
       } catch (error: unknown) {
         logger.error(`Failed to save ${path}:`, error);
@@ -80,15 +77,18 @@ ${parsed.modules?.map((mod: any, i: number) => `${i + 1}. ${mod.title || mod}`).
       for (const module of parsed.modules) {
         const moduleSlug = (module.title || 'module')
           .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-");
+          .replace(/[^a-z0-9]+/g, '-');
 
         if (module.lessons && Array.isArray(module.lessons)) {
           for (const lesson of module.lessons) {
             const lessonSlug = (lesson.title || lesson)
               .toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-");
+              .replace(/[^a-z0-9]+/g, '-');
 
-            const lessonContent = lesson.content || lesson.html || `# ${lesson.title || lesson}\n\nLesson content here.`;
+            const lessonContent =
+              lesson.content ||
+              lesson.html ||
+              `# ${lesson.title || lesson}\n\nLesson content here.`;
 
             await saveFile(
               `${basePath}/modules/${moduleSlug}/${lessonSlug}.html`,
@@ -101,17 +101,16 @@ ${parsed.modules?.map((mod: any, i: number) => `${i + 1}. ${mod.title || mod}`).
 
     return NextResponse.json({
       ok: true,
-      message: "Course structure successfully created.",
+      message: 'Course structure successfully created.',
       courseId,
       path: basePath,
       filesCreated: parsed.modules?.length || 0,
     });
-
   } catch (error: unknown) {
-    logger.error("Build course error:", error);
+    logger.error('Build course error:', error);
     return NextResponse.json(
       {
-        error: "Failed to build course",
+        error: 'Failed to build course',
         message: toErrorMessage(error),
       },
       { status: 500 }

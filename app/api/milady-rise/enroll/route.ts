@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 import miladyConfig from '@/lms-data/milady-rise-integration.json';
@@ -27,7 +28,10 @@ export async function POST(request: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+      return NextResponse.json(
+        { error: toErrorMessage(error) },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({

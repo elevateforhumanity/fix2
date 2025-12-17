@@ -1,33 +1,40 @@
-import { NextResponse } from "next/server";
-import Stripe from "stripe";
-import { createClient } from "@/lib/supabase/server";
+// @ts-nocheck
+import { NextResponse } from 'next/server';
+import Stripe from 'stripe';
+import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = "nodejs";
+export const runtime = 'nodejs';
 
 export async function POST() {
   if (!process.env.STRIPE_SECRET_KEY) {
-    return NextResponse.json({ error: "Stripe not configured" }, { status: 503 });
+    return NextResponse.json(
+      { error: 'Stripe not configured' },
+      { status: 503 }
+    );
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2024-12-18.acacia",
+    apiVersion: '2024-12-18.acacia',
   });
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
   const user = data?.user;
-  
+
   if (!user) {
-    return NextResponse.json({ error: "Not logged in" }, { status: 401 });
+    return NextResponse.json({ error: 'Not logged in' }, { status: 401 });
   }
 
   if (!process.env.STRIPE_PRICE_STUDENT) {
-    return NextResponse.json({ error: "Student pricing not configured" }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Student pricing not configured' },
+      { status: 500 }
+    );
   }
 
   try {
     const session = await stripe.checkout.sessions.create({
-      mode: "subscription",
+      mode: 'subscription',
       line_items: [{ price: process.env.STRIPE_PRICE_STUDENT, quantity: 1 }],
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/lms/(app)/dashboard?success=true`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/pricing`,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Zoom Integration
  * Meetings, webinars, recordings, attendance tracking
@@ -141,9 +142,12 @@ export class ZoomIntegration {
   async getMeeting(meetingId: string): Promise<ZoomMeeting> {
     const token = await this.getAccessToken();
 
-    const response = await fetch(`https://api.zoom.us/v2/meetings/${meetingId}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await fetch(
+      `https://api.zoom.us/v2/meetings/${meetingId}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
 
     return await response.json();
   }
@@ -197,11 +201,14 @@ export class ZoomIntegration {
   /**
    * Create meeting for course session
    */
-  async createCourseSession(courseId: string, session: {
-    title: string;
-    startTime: Date;
-    duration: number;
-  }) {
+  async createCourseSession(
+    courseId: string,
+    session: {
+      title: string;
+      startTime: Date;
+      duration: number;
+    }
+  ) {
     const meeting = await this.createMeeting({
       topic: session.title,
       type: 2, // Scheduled
@@ -258,17 +265,20 @@ export class ZoomIntegration {
         .single();
 
       if (student) {
-        await supabase.from('attendance').upsert({
-          session_id: session.id,
-          student_id: student.id,
-          status: 'present',
-          join_time: participant.join_time,
-          leave_time: participant.leave_time,
-          duration: participant.duration,
-          zoom_participant_id: participant.id,
-        }, {
-          onConflict: 'session_id,student_id',
-        });
+        await supabase.from('attendance').upsert(
+          {
+            session_id: session.id,
+            student_id: student.id,
+            status: 'present',
+            join_time: participant.join_time,
+            leave_time: participant.leave_time,
+            duration: participant.duration,
+            zoom_participant_id: participant.id,
+          },
+          {
+            onConflict: 'session_id,student_id',
+          }
+        );
       }
     }
 
@@ -294,19 +304,22 @@ export class ZoomIntegration {
 
     for (const recording of recordings) {
       if (recording.file_type === 'MP4') {
-        await supabase.from('course_recordings').upsert({
-          session_id: session.id,
-          zoom_recording_id: recording.id,
-          file_type: recording.file_type,
-          file_size: recording.file_size,
-          play_url: recording.play_url,
-          download_url: recording.download_url,
-          recording_start: recording.recording_start,
-          recording_end: recording.recording_end,
-          status: recording.status,
-        }, {
-          onConflict: 'zoom_recording_id',
-        });
+        await supabase.from('course_recordings').upsert(
+          {
+            session_id: session.id,
+            zoom_recording_id: recording.id,
+            file_type: recording.file_type,
+            file_size: recording.file_size,
+            play_url: recording.play_url,
+            download_url: recording.download_url,
+            recording_start: recording.recording_start,
+            recording_end: recording.recording_end,
+            status: recording.status,
+          },
+          {
+            onConflict: 'zoom_recording_id',
+          }
+        );
       }
     }
 

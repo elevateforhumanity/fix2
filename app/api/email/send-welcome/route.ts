@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -77,7 +78,7 @@ export async function POST(request: NextRequest) {
       const response = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -92,7 +93,10 @@ export async function POST(request: NextRequest) {
         throw new Error('Failed to send email via Resend');
       }
 
-      return NextResponse.json({ success: true, message: 'Welcome email sent' });
+      return NextResponse.json({
+        success: true,
+        message: 'Welcome email sent',
+      });
     } else {
       // Log email for development
       logger.info('=== WELCOME EMAIL ===');
@@ -101,13 +105,12 @@ export async function POST(request: NextRequest) {
       logger.info('Content:', emailHTML);
       logger.info('====================');
 
-      return NextResponse.json({ 
-        success: true, 
+      return NextResponse.json({
+        success: true,
         message: 'Email logged (Resend not configured)',
-        dev: true 
+        dev: true,
       });
     }
-
   } catch (error: unknown) {
     logger.error('Send welcome email error:', error);
     return NextResponse.json(

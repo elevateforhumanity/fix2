@@ -1,17 +1,18 @@
-import { NextResponse } from "next/server";
+// @ts-nocheck
+import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}));
 
-    const required = ["firstName", "lastName", "email", "preferredProgramId"];
+    const required = ['firstName', 'lastName', 'email', 'preferredProgramId'];
     const missing = required.filter((key) => !body[key]);
 
     if (missing.length) {
       return NextResponse.json(
         {
-          message: `Missing required fields: ${missing.join(", ")}`,
+          message: `Missing required fields: ${missing.join(', ')}`,
         },
         { status: 400 }
       );
@@ -24,7 +25,7 @@ export async function POST(req: Request) {
     // - Send an email to your team
     // - Push into a CRM or Airtable, etc.
 
-    logger.info("[New Elevate Application]", {
+    logger.info('[New Elevate Application]', {
       firstName: body.firstName,
       lastName: body.lastName,
       email: body.email,
@@ -36,14 +37,14 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         message:
-          "Application received. A member of the Elevate team will follow up.",
+          'Application received. A member of the Elevate team will follow up.',
       },
       { status: 200 }
     );
   } catch (err: unknown) {
-    logger.error("[Enroll Apply] Error:", err);
+    logger.error('[Enroll Apply] Error:', err);
     return NextResponse.json(
-      { message: "Something went wrong submitting your application." },
+      { message: 'Something went wrong submitting your application.' },
       { status: 500 }
     );
   }

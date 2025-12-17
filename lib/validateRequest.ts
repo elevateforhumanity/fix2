@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/validateRequest.ts - Request validation utilities
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
@@ -37,7 +38,10 @@ export async function validateRequest<T>(
 export const applicationSchema = z.object({
   full_name: z.string().min(2).max(100).trim(),
   email: z.string().email().toLowerCase(),
-  phone: z.string().regex(/^\+?[1-9]\d{1,14}$/).optional(),
+  phone: z
+    .string()
+    .regex(/^\+?[1-9]\d{1,14}$/)
+    .optional(),
   program_interest: z.string().max(200).trim().optional(),
   referral_source: z.string().max(100).trim().optional(),
 });

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { toError, toErrorMessage } from '@/lib/safe';

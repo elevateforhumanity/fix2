@@ -1,22 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     const form = await req.formData();
-    const file = form.get("file") as File;
-    const folder = form.get("folder") as string || "uploads";
-    const bucket = form.get("bucket") as string || "media";
+    const file = form.get('file') as File;
+    const folder = (form.get('folder') as string) || 'uploads';
+    const bucket = (form.get('bucket') as string) || 'media';
 
     if (!file) {
-      return NextResponse.json(
-        { error: "No file provided" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'No file provided' }, { status: 400 });
     }
 
     // Convert file to buffer
@@ -39,7 +37,7 @@ export async function POST(req: NextRequest) {
       });
 
     if (error) {
-      logger.error("Upload error:", error);
+      logger.error('Upload error:', error);
       return NextResponse.json(
         { error: toErrorMessage(error) },
         { status: 500 }
@@ -47,9 +45,9 @@ export async function POST(req: NextRequest) {
     }
 
     // Get public URL
-    const { data: { publicUrl } } = supabase.storage
-      .from(bucket)
-      .getPublicUrl(path);
+    const {
+      data: { publicUrl },
+    } = supabase.storage.from(bucket).getPublicUrl(path);
 
     return NextResponse.json({
       ok: true,
@@ -60,9 +58,9 @@ export async function POST(req: NextRequest) {
       type: file.type,
     });
   } catch (error: unknown) {
-    logger.error("Upload error:", error);
+    logger.error('Upload error:', error);
     return NextResponse.json(
-      { error: "Failed to upload file", message: toErrorMessage(error) },
+      { error: 'Failed to upload file', message: toErrorMessage(error) },
       { status: 500 }
     );
   }

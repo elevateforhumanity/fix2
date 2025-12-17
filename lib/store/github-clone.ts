@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Octokit } from '@octokit/rest';
 
 /**

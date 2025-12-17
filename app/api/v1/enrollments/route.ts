@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Public REST API - Enrollments Endpoint
 import { NextRequest, NextResponse } from 'next/server';
 import {

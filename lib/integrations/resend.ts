@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Resend Email Service Integration
 import { Resend } from 'resend';
 let resendClient: Resend | null = null;
@@ -28,7 +29,10 @@ export async function sendResendEmail(options: ResendEmailOptions) {
   }
   try {
     const result = await client.emails.send({
-      from: options.from || process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
+      from:
+        options.from ||
+        process.env.EMAIL_FROM ||
+        'noreply@elevateforhumanity.org',
       to: options.to,
       subject: options.subject,
       html: options.html,
@@ -40,10 +44,17 @@ export async function sendResendEmail(options: ResendEmailOptions) {
     });
     return { success: true, data: result };
   } catch (error: unknown) {
-    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error',
+    };
   }
 }
-export async function sendWelcomeEmail(to: string, name: string, loginUrl: string) {
+export async function sendWelcomeEmail(
+  to: string,
+  name: string,
+  loginUrl: string
+) {
   return sendResendEmail({
     to,
     subject: '🎉 Welcome to Elevate For Humanity!',

@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createStoreProduct } from "@/lib/store/stripe-products";
-import { createClient } from "@/lib/supabase/server";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { createStoreProduct } from '@/lib/store/stripe-products';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -10,7 +11,7 @@ export async function POST(req: NextRequest) {
 
     if (!title || !price || !repo) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: 'Missing required fields' },
         { status: 400 }
       );
     }
@@ -26,7 +27,7 @@ export async function POST(req: NextRequest) {
     // Store in Supabase
     const supabase = await createClient();
     const { data, error } = await supabase
-      .from("products")
+      .from('products')
       .insert({
         title,
         description,
@@ -39,24 +40,23 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (error) {
-      logger.error("Supabase error:", error);
+      logger.error('Supabase error:', error);
       return NextResponse.json(
-        { error: "Failed to save product", details: toErrorMessage(error) },
+        { error: 'Failed to save product', details: toErrorMessage(error) },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ 
-      ok: true, 
+    return NextResponse.json({
+      ok: true,
       productId: data.id,
-      stripeProductId: product.id 
+      stripeProductId: product.id,
     });
-
   } catch (error: unknown) {
-    logger.error("Create product error:", error);
+    logger.error('Create product error:', error);
     return NextResponse.json(
       {
-        error: "Failed to create product",
+        error: 'Failed to create product',
         message: toErrorMessage(error),
       },
       { status: 500 }

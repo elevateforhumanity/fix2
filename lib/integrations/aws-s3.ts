@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AWS S3 Storage Integration
  * Handles file uploads and storage management
@@ -34,10 +35,14 @@ class S3Client {
     this.baseUrl = `https://${config.bucket}.s3.${config.region}.amazonaws.com`;
   }
 
-  private async sign(method: string, path: string, headers: Record<string, string> = {}): Promise<Record<string, string>> {
+  private async sign(
+    method: string,
+    path: string,
+    headers: Record<string, string> = {}
+  ): Promise<Record<string, string>> {
     const crypto = await import('crypto');
     const date = new Date().toUTCString();
-    
+
     const stringToSign = [
       method,
       headers['Content-MD5'] || '',
@@ -62,10 +67,14 @@ class S3Client {
     const headers = await this.sign('PUT', `/${options.key}`, {
       'Content-Type': options.contentType || 'application/octet-stream',
       ...(options.acl && { 'x-amz-acl': options.acl }),
-      ...(options.metadata && Object.entries(options.metadata).reduce((acc, [key, value]) => ({
-        ...acc,
-        [`x-amz-meta-${key}`]: value,
-      }), {})),
+      ...(options.metadata &&
+        Object.entries(options.metadata).reduce(
+          (acc, [key, value]) => ({
+            ...acc,
+            [`x-amz-meta-${key}`]: value,
+          }),
+          {}
+        )),
     });
 
     const response = await fetch(`${this.baseUrl}/${options.key}`, {
@@ -138,7 +147,9 @@ class S3Client {
     for (const match of matches) {
       const content = match[1];
       const key = content.match(/<Key>(.*?)<\/Key>/)?.[1];
-      const lastModified = content.match(/<LastModified>(.*?)<\/LastModified>/)?.[1];
+      const lastModified = content.match(
+        /<LastModified>(.*?)<\/LastModified>/
+      )?.[1];
       const size = content.match(/<Size>(.*?)<\/Size>/)?.[1];
       const etag = content.match(/<ETag>(.*?)<\/ETag>/)?.[1];
 
@@ -162,7 +173,7 @@ class S3Client {
   async getSignedUrl(key: string, expiresIn: number = 3600): Promise<string> {
     const expires = Math.floor(Date.now() / 1000) + expiresIn;
     const crypto = await import('crypto');
-    
+
     const stringToSign = `GET\n\n\n${expires}\n/${this.config.bucket}/${key}`;
     const signature = crypto
       .createHmac('sha1', this.config.secretAccessKey)

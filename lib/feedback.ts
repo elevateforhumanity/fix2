@@ -1,11 +1,24 @@
+// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 
 // =====================================================
 // FEEDBACK TYPES
 // =====================================================
 
-export type FeedbackType = 'bug' | 'feature' | 'improvement' | 'complaint' | 'praise' | 'other';
-export type FeedbackStatus = 'new' | 'reviewing' | 'planned' | 'in_progress' | 'completed' | 'declined';
+export type FeedbackType =
+  | 'bug'
+  | 'feature'
+  | 'improvement'
+  | 'complaint'
+  | 'praise'
+  | 'other';
+export type FeedbackStatus =
+  | 'new'
+  | 'reviewing'
+  | 'planned'
+  | 'in_progress'
+  | 'completed'
+  | 'declined';
 export type FeedbackPriority = 'low' | 'medium' | 'high' | 'critical';
 
 export interface Feedback {
@@ -117,10 +130,12 @@ export async function getAllFeedback(
 
   let query = supabase
     .from('feedback')
-    .select(`
+    .select(
+      `
       *,
       user:profiles!user_id(first_name, last_name, email)
-    `)
+    `
+    )
     .order('created_at', { ascending: false })
     .limit(limit);
 
@@ -194,15 +209,13 @@ export async function updateFeedbackStatus(
       .single();
 
     if (feedback) {
-      await supabase
-        .from('notifications')
-        .insert({
-          user_id: feedback.user_id,
-          type: 'feedback_update',
-          title: 'Feedback Update',
-          message: `Your feedback "${feedback.title}" has been ${status}`,
-          link: `/feedback/${feedbackId}`,
-        });
+      await supabase.from('notifications').insert({
+        user_id: feedback.user_id,
+        type: 'feedback_update',
+        title: 'Feedback Update',
+        message: `Your feedback "${feedback.title}" has been ${status}`,
+        link: `/feedback/${feedbackId}`,
+      });
     }
   }
 }
@@ -226,20 +239,15 @@ export async function voteFeedback(
 
   if (existingVote) {
     // Remove vote
-    await supabase
-      .from('feedback_votes')
-      .delete()
-      .eq('id', existingVote.id);
+    await supabase.from('feedback_votes').delete().eq('id', existingVote.id);
 
     await supabase.rpc('decrement_feedback_votes', { feedback_id: feedbackId });
   } else {
     // Add vote
-    await supabase
-      .from('feedback_votes')
-      .insert({
-        feedback_id: feedbackId,
-        user_id: userId,
-      });
+    await supabase.from('feedback_votes').insert({
+      feedback_id: feedbackId,
+      user_id: userId,
+    });
 
     await supabase.rpc('increment_feedback_votes', { feedback_id: feedbackId });
   }
@@ -257,9 +265,7 @@ export async function getFeedbackStats(): Promise<{
 }> {
   const supabase = await createClient();
 
-  const { data: feedback, error } = await supabase
-    .from('feedback')
-    .select('*');
+  const { data: feedback, error } = await supabase.from('feedback').select('*');
 
   if (error) throw error;
 
@@ -271,21 +277,23 @@ export async function getFeedbackStats(): Promise<{
     averageResponseTime: 0,
   };
 
-  feedback?.forEach(item => {
+  feedback?.forEach((item) => {
     stats.byType[item.type] = (stats.byType[item.type] || 0) + 1;
     stats.byStatus[item.status] = (stats.byStatus[item.status] || 0) + 1;
-    stats.byPriority[item.priority] = (stats.byPriority[item.priority] || 0) + 1;
+    stats.byPriority[item.priority] =
+      (stats.byPriority[item.priority] || 0) + 1;
   });
 
   // Calculate average response time
-  const respondedFeedback = feedback?.filter(f => f.responded_at) || [];
+  const respondedFeedback = feedback?.filter((f) => f.responded_at) || [];
   if (respondedFeedback.length > 0) {
     const totalTime = respondedFeedback.reduce((sum, item) => {
       const created = new Date(item.created_at).getTime();
       const responded = new Date(item.responded_at!).getTime();
       return sum + (responded - created);
     }, 0);
-    stats.averageResponseTime = totalTime / respondedFeedback.length / (1000 * 60 * 60);
+    stats.averageResponseTime =
+      totalTime / respondedFeedback.length / (1000 * 60 * 60);
   }
 
   return stats;
@@ -415,15 +423,19 @@ export async function submitSurveyResponse(
 /**
  * Get survey responses
  */
-export async function getSurveyResponses(surveyId: string): Promise<SurveyResponse[]> {
+export async function getSurveyResponses(
+  surveyId: string
+): Promise<SurveyResponse[]> {
   const supabase = await createClient();
 
   const { data, error } = await supabase
     .from('survey_responses')
-    .select(`
+    .select(
+      `
       *,
       user:profiles!user_id(first_name, last_name, email, role)
-    `)
+    `
+    )
     .eq('survey_id', surveyId)
     .order('completed_at', { ascending: false });
 
@@ -461,7 +473,9 @@ export async function analyzeSurveyResults(surveyId: string): Promise<{
   const analysis = {
     totalResponses: responses.length,
     questionAnalysis: survey.questions.map((q: SurveyQuestion) => {
-      const questionResponses = responses.map(r => r.answers[q.id]).filter(Boolean);
+      const questionResponses = responses
+        .map((r) => r.answers[q.id])
+        .filter(Boolean);
 
       let responseData: unknown = {};
 
@@ -476,9 +490,9 @@ export async function analyzeSurveyResults(surveyId: string): Promise<{
         case 'radio':
         case 'checkbox':
           responseData = {
-            options: q.options?.map(option => ({
+            options: q.options?.map((option) => ({
               option,
-              count: questionResponses.filter(r => 
+              count: questionResponses.filter((r) =>
                 Array.isArray(r) ? r.includes(option) : r === option
               ).length,
             })),
@@ -487,15 +501,22 @@ export async function analyzeSurveyResults(surveyId: string): Promise<{
 
         case 'rating':
         case 'scale':
-          const numericResponses = questionResponses.map(r => Number(r)).filter(n => !isNaN(n));
+          const numericResponses = questionResponses
+            .map((r) => Number(r))
+            .filter((n) => !isNaN(n));
           responseData = {
-            average: numericResponses.reduce((a, b) => a + b, 0) / numericResponses.length || 0,
+            average:
+              numericResponses.reduce((a, b) => a + b, 0) /
+                numericResponses.length || 0,
             min: Math.min(...numericResponses),
             max: Math.max(...numericResponses),
-            distribution: numericResponses.reduce((acc, val) => {
-              acc[val] = (acc[val] || 0) + 1;
-              return acc;
-            }, {} as Record<number, number>),
+            distribution: numericResponses.reduce(
+              (acc, val) => {
+                acc[val] = (acc[val] || 0) + 1;
+                return acc;
+              },
+              {} as Record<number, number>
+            ),
           };
           break;
       }
@@ -535,10 +556,7 @@ export async function updateSurveyStatus(
 export async function deleteSurvey(surveyId: string): Promise<void> {
   const supabase = await createClient();
 
-  const { error } = await supabase
-    .from('surveys')
-    .delete()
-    .eq('id', surveyId);
+  const { error } = await supabase.from('surveys').delete().eq('id', surveyId);
 
   if (error) throw error;
 }

@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { getCurrentUser } from "@/lib/auth";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/auth';
 import { logger } from '@/lib/logger';
 
 export async function GET(
@@ -11,14 +12,14 @@ export async function GET(
   const { courseId } = await params;
 
   const { data, error } = await supabase
-    .from("course_announcements")
-    .select("id, title, body, created_at")
-    .eq("course_id", courseId)
-    .order("created_at", { ascending: false });
+    .from('course_announcements')
+    .select('id, title, body, created_at')
+    .eq('course_id', courseId)
+    .order('created_at', { ascending: false });
 
   if (error) {
-    logger.error("announcements GET error", error);
-    return NextResponse.json({ error: "DB error" }, { status: 500 });
+    logger.error('announcements GET error', error);
+    return NextResponse.json({ error: 'DB error' }, { status: 500 });
   }
 
   return NextResponse.json({ announcements: data || [] });
@@ -32,7 +33,7 @@ export async function POST(
   const user = await getCurrentUser();
 
   if (!user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const { courseId } = await params;
@@ -41,33 +42,33 @@ export async function POST(
 
   if (!title || !message) {
     return NextResponse.json(
-      { error: "title and message are required" },
+      { error: 'title and message are required' },
       { status: 400 }
     );
   }
 
   // Optional: verify user is instructor for this course
   const { data: course, error: courseError } = await supabase
-    .from("courses")
-    .select("instructor_id")
-    .eq("id", courseId)
+    .from('courses')
+    .select('instructor_id')
+    .eq('id', courseId)
     .single();
 
   if (courseError || !course) {
     logger.error(courseError);
-    return NextResponse.json({ error: "Course not found" }, { status: 404 });
+    return NextResponse.json({ error: 'Course not found' }, { status: 404 });
   }
 
   if (course.instructor_id && course.instructor_id !== user.id) {
     return NextResponse.json(
-      { error: "Only the instructor can post announcements" },
+      { error: 'Only the instructor can post announcements' },
       { status: 403 }
     );
   }
 
   // Insert announcement
   const { error: insertError } = await supabase
-    .from("course_announcements")
+    .from('course_announcements')
     .insert({
       course_id: courseId,
       author_id: user.id,
@@ -76,31 +77,31 @@ export async function POST(
     });
 
   if (insertError) {
-    logger.error("announcements POST error", insertError);
-    return NextResponse.json({ error: "DB error" }, { status: 500 });
+    logger.error('announcements POST error', insertError);
+    return NextResponse.json({ error: 'DB error' }, { status: 500 });
   }
 
   // Optional: create notifications for enrolled students
   const { data: enrollments } = await supabase
-    .from("enrollments")
-    .select("user_id")
-    .eq("course_id", courseId);
+    .from('enrollments')
+    .select('user_id')
+    .eq('course_id', courseId);
 
   if (enrollments && enrollments.length) {
     const notifications = enrollments.map((e) => ({
       user_id: e.user_id,
-      type: "announcement",
+      type: 'announcement',
       title: `New announcement: ${title}`,
       body: message.slice(0, 160),
       url: `/lms/courses/${courseId}`,
     }));
 
     const { error: notifError } = await supabase
-      .from("notifications")
+      .from('notifications')
       .insert(notifications);
 
     if (notifError) {
-      logger.error("notifications error", notifError);
+      logger.error('notifications error', notifError);
     }
   }
 

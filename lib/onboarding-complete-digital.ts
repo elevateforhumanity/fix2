@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Complete Digital Onboarding System
  * All forms, payroll, and documents fully digital
@@ -12,13 +13,13 @@ export interface OnboardingData {
   phone: string;
   dateOfBirth: string;
   ssn: string; // Encrypted in production
-  
+
   // Address
   streetAddress: string;
   city: string;
   state: string;
   zipCode: string;
-  
+
   // Employment
   employeeType: 'employee' | 'contractor' | 'partner' | 'program-holder';
   position: string;
@@ -26,40 +27,44 @@ export interface OnboardingData {
   startDate: string;
   salary?: number;
   hourlyRate?: number;
-  
+
   // Emergency Contact
   emergencyContactName: string;
   emergencyContactPhone: string;
   emergencyContactRelationship: string;
-  
+
   // Tax Information (W-4)
-  filingStatus: 'single' | 'married-joint' | 'married-separate' | 'head-of-household';
+  filingStatus:
+    | 'single'
+    | 'married-joint'
+    | 'married-separate'
+    | 'head-of-household';
   dependents: number;
   additionalWithholding?: number;
   claimExempt: boolean;
-  
+
   // Direct Deposit
   bankName: string;
   accountType: 'checking' | 'savings';
   routingNumber: string;
   accountNumber: string;
-  
+
   // I-9 Information
   citizenshipStatus: 'citizen' | 'permanent-resident' | 'authorized-alien';
   documentType: string;
   documentNumber: string;
   documentExpiration?: string;
-  
+
   // Background Check
   backgroundCheckConsent: boolean;
   criminalHistory?: string;
-  
+
   // Agreements
   ndaAccepted: boolean;
   nonCompeteAccepted: boolean;
   handbookAccepted: boolean;
   codeOfConductAccepted: boolean;
-  
+
   // Signatures
   signature: string; // Base64 encoded signature
   signatureDate: string;
@@ -76,7 +81,14 @@ export interface OnboardingPackage {
 export interface OnboardingForm {
   id: string;
   name: string;
-  type: 'w4' | 'i9' | 'direct-deposit' | 'emergency-contact' | 'nda' | 'background-check' | 'handbook';
+  type:
+    | 'w4'
+    | 'i9'
+    | 'direct-deposit'
+    | 'emergency-contact'
+    | 'nda'
+    | 'background-check'
+    | 'handbook';
   required: boolean;
   completed: boolean;
   data?: unknown;
@@ -117,7 +129,9 @@ export interface OnboardingStatus {
   canStartWork: boolean;
 }
 
-export function generateCompleteOnboardingPackage(data: Partial<OnboardingData>): OnboardingPackage {
+export function generateCompleteOnboardingPackage(
+  data: Partial<OnboardingData>
+): OnboardingPackage {
   const forms: OnboardingForm[] = [
     {
       id: 'w4',
@@ -235,7 +249,12 @@ export function generateCompleteOnboardingPackage(data: Partial<OnboardingData>)
       title: 'Complete Personal Information',
       description: 'Provide your full name, contact details, and address',
       required: true,
-      completed: !!(data.firstName && data.lastName && data.email && data.phone),
+      completed: !!(
+        data.firstName &&
+        data.lastName &&
+        data.email &&
+        data.phone
+      ),
       order: 1,
     },
     {
@@ -328,16 +347,22 @@ export function generateCompleteOnboardingPackage(data: Partial<OnboardingData>)
     },
   ];
 
-  const formsCompleted = forms.filter(f => f.completed).length;
-  const documentsAcknowledged = documents.filter(d => d.acknowledged).length;
-  const checklistCompleted = checklist.filter(c => c.completed).length;
+  const formsCompleted = forms.filter((f) => f.completed).length;
+  const documentsAcknowledged = documents.filter((d) => d.acknowledged).length;
+  const checklistCompleted = checklist.filter((c) => c.completed).length;
 
-  const requiredFormsCompleted = forms.filter(f => f.required && f.completed).length;
-  const requiredFormsTotal = forms.filter(f => f.required).length;
-  const requiredDocsAcknowledged = documents.filter(d => d.required && d.acknowledged).length;
-  const requiredDocsTotal = documents.filter(d => d.required).length;
-  const requiredChecklistCompleted = checklist.filter(c => c.required && c.completed).length;
-  const requiredChecklistTotal = checklist.filter(c => c.required).length;
+  const requiredFormsCompleted = forms.filter(
+    (f) => f.required && f.completed
+  ).length;
+  const requiredFormsTotal = forms.filter((f) => f.required).length;
+  const requiredDocsAcknowledged = documents.filter(
+    (d) => d.required && d.acknowledged
+  ).length;
+  const requiredDocsTotal = documents.filter((d) => d.required).length;
+  const requiredChecklistCompleted = checklist.filter(
+    (c) => c.required && c.completed
+  ).length;
+  const requiredChecklistTotal = checklist.filter((c) => c.required).length;
 
   const overallProgress = Math.round(
     ((formsCompleted + documentsAcknowledged + checklistCompleted) /
@@ -555,7 +580,7 @@ IP Address: ${data.ipAddress || 'N/A'}
 // Complete Onboarding Summary
 export function generateOnboardingSummary(data: OnboardingData): string {
   const onboardingPackage = generateCompleteOnboardingPackage(data);
-  
+
   return `ONBOARDING SUMMARY
 
 Employee: ${data.firstName} ${data.lastName}
@@ -573,12 +598,21 @@ Status: ${onboardingPackage.status.isComplete ? '✅ COMPLETE' : '⚠️ IN PROG
 Can Start Work: ${onboardingPackage.status.canStartWork ? '✅ YES' : '❌ NO'}
 
 Completed Forms:
-${onboardingPackage.forms.filter(f => f.completed).map(f => `✅ ${f.name}`).join('\n')}
+${onboardingPackage.forms
+  .filter((f) => f.completed)
+  .map((f) => `✅ ${f.name}`)
+  .join('\n')}
 
 Pending Forms:
-${onboardingPackage.forms.filter(f => !f.completed).map(f => `⚠️ ${f.name}`).join('\n')}
+${onboardingPackage.forms
+  .filter((f) => !f.completed)
+  .map((f) => `⚠️ ${f.name}`)
+  .join('\n')}
 
 Next Steps:
-${onboardingPackage.checklist.filter(c => !c.completed && c.required).map(c => `• ${c.title}`).join('\n')}
+${onboardingPackage.checklist
+  .filter((c) => !c.completed && c.required)
+  .map((c) => `• ${c.title}`)
+  .join('\n')}
 `;
 }

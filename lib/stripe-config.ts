@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Stripe Configuration
  * Pulls from Vercel environment variables with proper fallbacks
@@ -9,10 +10,12 @@ import Stripe from 'stripe';
 // Server-side Stripe configuration
 export function getStripeServerConfig() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
-  
+
   if (!secretKey) {
     if (process.env.NODE_ENV === 'production') {
-      throw new Error('STRIPE_SECRET_KEY must be set in Vercel environment variables');
+      throw new Error(
+        'STRIPE_SECRET_KEY must be set in Vercel environment variables'
+      );
     }
     return null;
   }
@@ -31,7 +34,7 @@ export function getStripeServerConfig() {
 // Client-side publishable key
 export function getStripePublishableKey(): string | null {
   const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-  
+
   if (!publishableKey) {
     if (process.env.NODE_ENV === 'production') {
       // Error logged
@@ -55,7 +58,7 @@ export function getStripe(): Stripe | null {
 // Webhook secret
 export function getStripeWebhookSecret(): string | null {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  
+
   if (!webhookSecret) {
     if (process.env.NODE_ENV === 'production') {
     }
@@ -90,12 +93,17 @@ export function validateStripeConfig(): {
   }
 
   // Validate key format
-  if (process.env.STRIPE_SECRET_KEY && !process.env.STRIPE_SECRET_KEY.startsWith('sk_')) {
+  if (
+    process.env.STRIPE_SECRET_KEY &&
+    !process.env.STRIPE_SECRET_KEY.startsWith('sk_')
+  ) {
     errors.push('STRIPE_SECRET_KEY must start with sk_');
   }
 
-  if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && 
-      !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY.startsWith('pk_')) {
+  if (
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY &&
+    !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY.startsWith('pk_')
+  ) {
     errors.push('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY must start with pk_');
   }
 

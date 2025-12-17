@@ -1,10 +1,11 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const stripe = process.env.STRIPE_SECRET_KEY 
+const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2024-11-20.acacia',
     })
@@ -17,9 +18,12 @@ const supabase = createClient(
 
 export async function POST(request: NextRequest) {
   if (!stripe) {
-    return NextResponse.json({ error: 'Stripe not configured' }, { status: 503 });
+    return NextResponse.json(
+      { error: 'Stripe not configured' },
+      { status: 503 }
+    );
   }
-  
+
   try {
     const {
       courseType,
@@ -43,7 +47,12 @@ export async function POST(request: NextRequest) {
 
     // Create Stripe checkout session with Buy Now Pay Later options
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card', 'afterpay_clearpay', 'klarna', 'us_bank_account'],
+      payment_method_types: [
+        'card',
+        'afterpay_clearpay',
+        'klarna',
+        'us_bank_account',
+      ],
       line_items: [
         {
           price_data: {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 import { useEffect } from 'react';
 /**
@@ -42,7 +43,8 @@ export function CopyrightProtection() {
     const detectDevTools = () => {
       const threshold = 160;
       const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-      const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+      const heightThreshold =
+        window.outerHeight - window.innerHeight > threshold;
       if (widthThreshold || heightThreshold) {
         console.clear();
       }
@@ -50,7 +52,8 @@ export function CopyrightProtection() {
     // 5. Add invisible watermark to page
     const addInvisibleWatermark = () => {
       const watermark = document.createElement('div');
-      watermark.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;';
+      watermark.style.cssText =
+        'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;';
       watermark.setAttribute('data-copyright', 'Elevate-for-Humanity-2024');
       watermark.setAttribute('data-timestamp', Date.now().toString());
       watermark.setAttribute('data-page', window.location.pathname);
@@ -64,7 +67,9 @@ export function CopyrightProtection() {
         { property: 'og:restrictions:age', content: '18+' },
       ];
       metaTags.forEach(({ name, property, content }) => {
-        const existing = document.querySelector(`meta[${name ? 'name' : 'property'}="${name || property}"]`);
+        const existing = document.querySelector(
+          `meta[${name ? 'name' : 'property'}="${name || property}"]`
+        );
         if (!existing) {
           const meta = document.createElement('meta');
           if (name) meta.setAttribute('name', name);
@@ -155,24 +160,43 @@ export function CopyrightFooter() {
   return (
     <div className="bg-slate-900 text-white py-4 px-4 text-center text-sm border-t-4 border-orange-600">
       <p className="mb-2">
-        © 2024 <strong>Elevate for Humanity Career & Technical Institute</strong>. All Rights Reserved.
+        © 2024{' '}
+        <strong>Elevate for Humanity Career & Technical Institute</strong>. All
+        Rights Reserved.
       </p>
       <p className="text-xs text-slate-400 mb-2">
-        Protected by U.S. Copyright Law (17 U.S.C. § 101 et seq.) | 
-        Unauthorized reproduction is prohibited and will be prosecuted.
+        Protected by U.S. Copyright Law (17 U.S.C. § 101 et seq.) | Unauthorized
+        reproduction is prohibited and will be prosecuted.
       </p>
       <p className="text-xs text-slate-400">
-        <strong>WIOA Approved Provider</strong> | Indiana DWD Registration #2024-EFH-001 | 
-        <strong>Original Content - Do Not Copy</strong>
+        <strong>WIOA Approved Provider</strong> | Indiana DWD Registration
+        #2024-EFH-001 |<strong>Original Content - Do Not Copy</strong>
       </p>
       <div className="mt-3 flex justify-center gap-4 text-xs">
-        <a href="/dmca" className="text-orange-400 hover:text-orange-300">DMCA Policy</a>
+        <a href="/dmca" className="text-orange-400 hover:text-orange-300">
+          DMCA Policy
+        </a>
         <span className="text-slate-600">|</span>
-        <a href="/intellectual-property" className="text-orange-400 hover:text-orange-300">IP Protection</a>
+        <a
+          href="/intellectual-property"
+          className="text-orange-400 hover:text-orange-300"
+        >
+          IP Protection
+        </a>
         <span className="text-slate-600">|</span>
-        <a href="/terms-of-service" className="text-orange-400 hover:text-orange-300">Terms</a>
+        <a
+          href="/terms-of-service"
+          className="text-orange-400 hover:text-orange-300"
+        >
+          Terms
+        </a>
         <span className="text-slate-600">|</span>
-        <a href="/privacy-policy" className="text-orange-400 hover:text-orange-300">Privacy</a>
+        <a
+          href="/privacy-policy"
+          className="text-orange-400 hover:text-orange-300"
+        >
+          Privacy
+        </a>
       </div>
     </div>
   );

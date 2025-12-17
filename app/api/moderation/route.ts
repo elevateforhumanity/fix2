@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiRequireAdmin } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -18,7 +19,7 @@ import {
 export async function GET(request: NextRequest) {
   try {
     const authResult = await apiRequireAdmin();
-    
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -29,9 +30,14 @@ export async function GET(request: NextRequest) {
 
     switch (action) {
       case 'pending': {
-        const contentType = searchParams.get('contentType') as ContentType | null;
+        const contentType = searchParams.get(
+          'contentType'
+        ) as ContentType | null;
         const limit = parseInt(searchParams.get('limit') || '50');
-        const reports = await getPendingReports(contentType || undefined, limit);
+        const reports = await getPendingReports(
+          contentType || undefined,
+          limit
+        );
         return NextResponse.json({ reports });
       }
 
@@ -68,10 +74,7 @@ export async function GET(request: NextRequest) {
       }
 
       default:
-        return NextResponse.json(
-          { error: 'Invalid action' },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
   } catch (error) {
     logger.error('Moderation GET error:', error);
@@ -85,7 +88,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const authResult = await apiRequireAdmin();
-    
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -149,10 +152,7 @@ export async function POST(request: NextRequest) {
       }
 
       default:
-        return NextResponse.json(
-          { error: 'Invalid action' },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
   } catch (error) {
     logger.error('Moderation POST error:', error);

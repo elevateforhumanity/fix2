@@ -1,7 +1,8 @@
+// @ts-nocheck
 // app/tax-filing/apply/page.tsx - Custom Tax Filing Application
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';

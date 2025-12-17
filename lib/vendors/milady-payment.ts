@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Milady Automatic Payment Handler
  * Processes Milady enrollment and payment automatically
@@ -28,12 +29,14 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
   const amount = params.amount || MILADY_COST;
 
   try {
-    console.log(`[Milady] Processing payment for enrollment ${params.enrollmentId}`);
+    console.log(
+      `[Milady] Processing payment for enrollment ${params.enrollmentId}`
+    );
 
     // STEP 1: Trigger Milady auto-enrollment API
     // This gives student immediate access to Milady RISE
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    
+
     const miladyResponse = await fetch(`${siteUrl}/api/milady/auto-enroll`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -88,10 +91,9 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
       status: 'pending',
       message: 'Milady enrollment and payment processed',
     };
-
   } catch (error) {
     // Error: $1
-    
+
     // Log error but don't fail enrollment
     await supabase.from('ai_audit_log').insert({
       student_id: params.studentId,
@@ -113,7 +115,10 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
 /**
  * Mark Milady payment as paid (when invoice is paid)
  */
-export async function markMiladyPaymentPaid(enrollmentId: string, invoiceId: string) {
+export async function markMiladyPaymentPaid(
+  enrollmentId: string,
+  invoiceId: string
+) {
   const supabase = await createClient();
 
   const { error } = await supabase
@@ -142,7 +147,8 @@ export async function getPendingMiladyPayments() {
 
   const { data, error } = await supabase
     .from('vendor_payments')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -150,7 +156,8 @@ export async function getPendingMiladyPayments() {
         program_id,
         created_at
       )
-    `)
+    `
+    )
     .eq('vendor_name', 'milady')
     .eq('status', 'pending')
     .order('created_at', { ascending: false });

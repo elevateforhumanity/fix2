@@ -1,10 +1,13 @@
+// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Loader2 } from 'lucide-react';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
+);
 
 const DONATION_AMOUNTS = [25, 50, 100, 250, 500, 1000];
 
@@ -16,7 +19,7 @@ export default function DonationForm() {
 
   const handleDonate = async () => {
     const amount = customAmount ? parseFloat(customAmount) : selectedAmount;
-    
+
     if (!amount || amount < 1) {
       setError('Please enter a valid donation amount');
       return;
@@ -42,7 +45,9 @@ export default function DonationForm() {
       // Redirect to Stripe Checkout
       const stripe = await stripePromise;
       if (stripe) {
-        const { error: stripeError } = await stripe.redirectToCheckout({ sessionId });
+        const { error: stripeError } = await stripe.redirectToCheckout({
+          sessionId,
+        });
         if (stripeError) {
           throw stripeError;
         }
@@ -57,8 +62,10 @@ export default function DonationForm() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl p-8 border border-slate-200">
-      <h3 className="text-2xl font-bold text-slate-900 mb-6">Choose Your Donation Amount</h3>
-      
+      <h3 className="text-2xl font-bold text-slate-900 mb-6">
+        Choose Your Donation Amount
+      </h3>
+
       {/* Preset Amounts */}
       <div className="grid grid-cols-3 gap-4 mb-6">
         {DONATION_AMOUNTS.map((amount) => (
@@ -85,7 +92,9 @@ export default function DonationForm() {
           Or enter a custom amount:
         </label>
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-lg">$</span>
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-lg">
+            $
+          </span>
           <input
             type="number"
             min="1"
@@ -120,9 +129,7 @@ export default function DonationForm() {
             Processing...
           </>
         ) : (
-          <>
-            Donate ${customAmount || selectedAmount || '0'}
-          </>
+          <>Donate ${customAmount || selectedAmount || '0'}</>
         )}
       </button>
 

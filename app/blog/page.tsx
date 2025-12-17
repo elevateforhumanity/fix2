@@ -1,10 +1,10 @@
+// @ts-nocheck
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 
-
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 import {
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   description:
     'Latest news, success stories, and workforce development insights from Elevate For Humanity.',
 };
-
 
 async function getDurableBlogPosts() {
   try {

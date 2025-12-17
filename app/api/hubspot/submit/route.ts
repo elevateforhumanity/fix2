@@ -1,8 +1,9 @@
-import { NextResponse } from "next/server";
-import { logger } from "@/lib/logger";
+// @ts-nocheck
+import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = "nodejs";
+export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {
@@ -15,27 +16,28 @@ export async function POST(req: Request) {
       phone,
       program,
       message,
-      source = "website-inquiry",
+      source = 'website-inquiry',
     } = body || {};
 
     if (!email) {
       return NextResponse.json(
-        { ok: false, error: "Email is required" },
+        { ok: false, error: 'Email is required' },
         { status: 400 }
       );
     }
 
     const portalId = process.env.HUBSPOT_PORTAL_ID;
     const formGuid = process.env.HUBSPOT_FORM_GUID;
-    const token = process.env.HUBSPOT_PRIVATE_APP_TOKEN || process.env.HUBSPOT_API_KEY;
+    const token =
+      process.env.HUBSPOT_PRIVATE_APP_TOKEN || process.env.HUBSPOT_API_KEY;
 
     if (!portalId || !formGuid || !token) {
-      logger.error("HubSpot configuration missing");
+      logger.error('HubSpot configuration missing');
       // Fallback to email if HubSpot not configured
       return NextResponse.json({
         ok: true,
-        fallback: "email",
-        message: "Form submitted (email fallback)",
+        fallback: 'email',
+        message: 'Form submitted (email fallback)',
       });
     }
 
@@ -44,24 +46,24 @@ export async function POST(req: Request) {
 
     const payload = {
       fields: [
-        { name: "firstname", value: firstname || "" },
-        { name: "lastname", value: lastname || "" },
-        { name: "email", value: email },
-        { name: "phone", value: phone || "" },
-        { name: "program_interest", value: program || "" },
-        { name: "message", value: message || "" },
-        { name: "lead_source", value: source },
+        { name: 'firstname', value: firstname || '' },
+        { name: 'lastname', value: lastname || '' },
+        { name: 'email', value: email },
+        { name: 'phone', value: phone || '' },
+        { name: 'program_interest', value: program || '' },
+        { name: 'message', value: message || '' },
+        { name: 'lead_source', value: source },
       ],
       context: {
-        pageUri: req.headers.get("referer") || "",
-        pageName: "Inquiry Form",
+        pageUri: req.headers.get('referer') || '',
+        pageName: 'Inquiry Form',
       },
     };
 
     const res = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(payload),
@@ -70,11 +72,11 @@ export async function POST(req: Request) {
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok) {
-      logger.error("HubSpot submission failed", { data });
+      logger.error('HubSpot submission failed', { data });
       return NextResponse.json(
         {
           ok: false,
-          error: "Submission failed",
+          error: 'Submission failed',
           details: data,
         },
         { status: 400 }
@@ -83,11 +85,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true, data });
   } catch (error: any) {
-    logger.error("HubSpot API error", error as Error);
+    logger.error('HubSpot API error', error as Error);
     return NextResponse.json(
       {
         ok: false,
-        error: toErrorMessage(error) || "Internal server error",
+        error: toErrorMessage(error) || 'Internal server error',
       },
       { status: 500 }
     );

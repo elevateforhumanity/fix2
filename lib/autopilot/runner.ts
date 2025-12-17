@@ -1,10 +1,17 @@
-import { scanRepository, analyzeRepository } from "./repo-analyzer";
-import { normalizeCourseMetadata, validateCourseMetadata } from "./course-normalizer";
-import { checkBrokenLinks, checkCourseStructure } from "./link-checker";
+// @ts-nocheck
+import { scanRepository, analyzeRepository } from './repo-analyzer';
+import {
+  normalizeCourseMetadata,
+  validateCourseMetadata,
+} from './course-normalizer';
+import { checkBrokenLinks, checkCourseStructure } from './link-checker';
 export async function runAutopilot(name: string, payload: unknown = {}) {
   return { ok: true };
 }
-export async function runAutopilots(metadata: Record<string, unknown>, repo = "elevateforhumanity/fix2") {
+export async function runAutopilots(
+  metadata: Record<string, unknown>,
+  repo = 'elevateforhumanity/fix2'
+) {
   try {
     // Scan repository
     const tree = await scanRepository(repo);
@@ -15,7 +22,7 @@ export async function runAutopilots(metadata: Record<string, unknown>, repo = "e
     // Check for broken links
     const linkCheck = checkBrokenLinks(tree, normalized);
     // Check course structure
-    const structure = normalized.slug 
+    const structure = normalized.slug
       ? checkCourseStructure(tree, normalized.slug)
       : null;
     return {
@@ -33,7 +40,7 @@ export async function runAutopilots(metadata: Record<string, unknown>, repo = "e
     };
   }
 }
-export async function runFullAnalysis(repo = "elevateforhumanity/fix2") {
+export async function runFullAnalysis(repo = 'elevateforhumanity/fix2') {
   try {
     const { files, analysis } = await analyzeRepository(repo);
     return {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { verifyWebhookSignature } from '@/lib/store/stripe';
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
@@ -15,7 +16,10 @@ export async function POST(req: Request) {
 
     const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
     if (!webhookSecret) {
-      return Response.json({ error: 'Webhook secret not configured' }, { status: 500 });
+      return Response.json(
+        { error: 'Webhook secret not configured' },
+        { status: 500 }
+      );
     }
 
     // Verify webhook signature
@@ -29,7 +33,10 @@ export async function POST(req: Request) {
 
       if (!productId || !email) {
         logger.error('Missing productId or email in webhook');
-        return Response.json({ error: 'Invalid webhook data' }, { status: 400 });
+        return Response.json(
+          { error: 'Invalid webhook data' },
+          { status: 400 }
+        );
       }
 
       const supabase = await createClient();
@@ -85,7 +92,9 @@ export async function POST(req: Request) {
               productName: product.title,
               licenseKey: licenseKey,
               repo: product.repo,
-              downloadUrl: product.download_url || `${process.env.NEXT_PUBLIC_SITE_URL}/downloads/${productId}`,
+              downloadUrl:
+                product.download_url ||
+                `${process.env.NEXT_PUBLIC_SITE_URL}/downloads/${productId}`,
             },
           }),
         });

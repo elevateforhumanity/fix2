@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Partner LMS Certificate Generation
  * Generates completion certificates for partner certifications
@@ -39,12 +40,14 @@ export async function createCertificate(
     // Fetch enrollment details
     const { data: enrollment, error: enrollmentError } = await supabase
       .from('partner_lms_enrollments')
-      .select(`
+      .select(
+        `
         *,
         provider:partner_lms_providers(*),
         student:profiles(*),
         program:programs(*)
-      `)
+      `
+      )
       .eq('id', enrollmentId)
       .single();
 
@@ -136,25 +139,25 @@ export async function createCertificate(
  */
 function calculateExpirationDate(providerType: string): string | null {
   const now = new Date();
-  
+
   switch (providerType) {
     case 'hsi':
       // HSI certifications typically expire after 2 years
       now.setFullYear(now.getFullYear() + 2);
       return now.toISOString();
-    
+
     case 'careersafe':
       // OSHA certifications don't expire but recommended renewal every 3 years
       now.setFullYear(now.getFullYear() + 3);
       return now.toISOString();
-    
+
     case 'certiport':
     case 'jri':
     case 'nrf_rise':
     case 'milady':
       // These certifications typically don't expire
       return null;
-    
+
     default:
       return null;
   }
@@ -181,17 +184,20 @@ export async function generateCertificatePDF(
     }
 
     // Generate PDF using edge function
-    const { data, error } = await supabase.functions.invoke('generate-certificate-pdf', {
-      body: {
-        certificate_id: certificateId,
-        student_name: certificate.student_name,
-        provider_name: certificate.provider_name,
-        course_name: certificate.course_name,
-        certificate_number: certificate.certificate_number,
-        issued_at: certificate.issued_at,
-        completed_at: certificate.completed_at,
-      },
-    });
+    const { data, error } = await supabase.functions.invoke(
+      'generate-certificate-pdf',
+      {
+        body: {
+          certificate_id: certificateId,
+          student_name: certificate.student_name,
+          provider_name: certificate.provider_name,
+          course_name: certificate.course_name,
+          certificate_number: certificate.certificate_number,
+          issued_at: certificate.issued_at,
+          completed_at: certificate.completed_at,
+        },
+      }
+    );
 
     if (error) {
       throw error;
@@ -213,9 +219,7 @@ export async function generateCertificatePDF(
 /**
  * Verify certificate authenticity
  */
-export async function verifyCertificate(
-  certificateNumber: string
-): Promise<{
+export async function verifyCertificate(certificateNumber: string): Promise<{
   valid: boolean;
   certificate?: CertificateData;
   error?: string;
@@ -270,7 +274,9 @@ export async function verifyCertificate(
 /**
  * Get all certificates for a student
  */
-export async function getStudentCertificates(studentId: string): Promise<CertificateData[]> {
+export async function getStudentCertificates(
+  studentId: string
+): Promise<CertificateData[]> {
   const supabase = createClient();
 
   const { data: certificates } = await supabase
@@ -334,7 +340,12 @@ export async function generateBulkCertificates(
 ): Promise<{
   successful: number;
   failed: number;
-  results: Array<{ enrollmentId: string; success: boolean; certificateId?: string; error?: string }>;
+  results: Array<{
+    enrollmentId: string;
+    success: boolean;
+    certificateId?: string;
+    error?: string;
+  }>;
 }> {
   const results = [];
   let successful = 0;

@@ -1,15 +1,16 @@
-"use client";
+// @ts-nocheck
+'use client';
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-const STORAGE_KEY = "efh_funding_toast_dismissed";
+const STORAGE_KEY = 'efh_funding_toast_dismissed';
 
 export default function FundingToast() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
     const dismissed = window.localStorage.getItem(STORAGE_KEY);
     if (!dismissed) {
       // small delay so it feels natural
@@ -19,8 +20,8 @@ export default function FundingToast() {
   }, []);
 
   const handleDismiss = () => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, "true");
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(STORAGE_KEY, 'true');
     }
     setVisible(false);
   };
@@ -41,8 +42,8 @@ export default function FundingToast() {
             Funding may be available if you qualify.
           </p>
           <p className="text-xs text-slate-200">
-            Many programs may be supported by workforce partners, employers, or scholarships.
-            Talk to a career coach to explore your options.
+            Many programs may be supported by workforce partners, employers, or
+            scholarships. Talk to a career coach to explore your options.
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
             <Link

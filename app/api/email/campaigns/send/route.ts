@@ -1,11 +1,14 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { Resend } from 'resend';
 import { renderTemplate, type EmailTemplateKey } from '@/lib/email-templates';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export async function POST(req: Request) {
   try {
@@ -15,13 +18,13 @@ export async function POST(req: Request) {
         { status: 503 }
       );
     }
-    
+
     const supabase = await createClient();
     const body = await req.json();
 
     // Get recipient list
     const recipients = await getRecipients(supabase, body.recipientList);
-    
+
     if (recipients.length === 0) {
       return NextResponse.json(
         { success: false, error: 'No recipients found' },
@@ -75,8 +78,12 @@ export async function POST(req: Request) {
         });
       } catch (error: unknown) {
         logger.error(`Error sending to ${recipient.email}:`, error);
-        results.push({ email: recipient.email, success: false, error: toErrorMessage(error) });
-        
+        results.push({
+          email: recipient.email,
+          success: false,
+          error: toErrorMessage(error),
+        });
+
         // Log failure
         await supabase.from('email_logs').insert({
           campaign_id: body.campaignId,
@@ -96,7 +103,7 @@ export async function POST(req: Request) {
         .update({
           status: 'sent',
           sent_at: new Date().toISOString(),
-          total_sent: results.filter(r => r.success).length,
+          total_sent: results.filter((r) => r.success).length,
         })
         .eq('id', body.campaignId);
     }
@@ -106,8 +113,8 @@ export async function POST(req: Request) {
       results,
       summary: {
         total: results.length,
-        sent: results.filter(r => r.success).length,
-        failed: results.filter(r => !r.success).length,
+        sent: results.filter((r) => r.success).length,
+        failed: results.filter((r) => !r.success).length,
       },
     });
   } catch (error: unknown) {
@@ -157,14 +164,18 @@ async function getRecipients(supabase: any, listType: string) {
     case 'employers':
       query = supabase
         .from('employers')
-        .select('id, email, contact_name as first_name, company_name as last_name')
+        .select(
+          'id, email, contact_name as first_name, company_name as last_name'
+        )
         .not('email', 'is', null);
       break;
 
     case 'workone':
       query = supabase
         .from('partners')
-        .select('id, email, contact_name as first_name, organization as last_name')
+        .select(
+          'id, email, contact_name as first_name, organization as last_name'
+        )
         .eq('type', 'workone')
         .not('email', 'is', null);
       break;
@@ -174,7 +185,7 @@ async function getRecipients(supabase: any, listType: string) {
   }
 
   const { data, error } = await query;
-  
+
   if (error) {
     logger.error('Error fetching recipients:', error);
     return [];

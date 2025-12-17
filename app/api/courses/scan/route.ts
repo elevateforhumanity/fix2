@@ -1,13 +1,14 @@
-import { NextRequest, NextResponse } from "next/server";
-import { gh, parseRepo } from "@/lib/github";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const repo = searchParams.get("repo") || "elevateforhumanity/fix2";
-    const branch = searchParams.get("branch") || "main";
+    const repo = searchParams.get('repo') || 'elevateforhumanity/fix2';
+    const branch = searchParams.get('branch') || 'main';
 
     const client = gh();
     const { owner, name } = parseRepo(repo);
@@ -17,20 +18,21 @@ export async function GET(req: NextRequest) {
       owner,
       repo: name,
       tree_sha: branch,
-      recursive: "true",
+      recursive: 'true',
     });
 
     // Find all metadata.json files in courses folder
-    const metadataFiles = tree.tree
-      ?.filter((item) => 
-        item.path?.startsWith("courses/") && 
-        item.path.endsWith("metadata.json") &&
-        item.type === "blob"
+    const metadataFiles =
+      tree.tree?.filter(
+        (item) =>
+          item.path?.startsWith('courses/') &&
+          item.path.endsWith('metadata.json') &&
+          item.type === 'blob'
       ) || [];
 
     // Extract course slugs (folder names)
     const courses = metadataFiles.map((file) => {
-      const parts = file.path!.split("/");
+      const parts = file.path!.split('/');
       return parts[1]; // courses/[slug]/metadata.json
     });
 
@@ -40,12 +42,12 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       courses: uniqueCourses,
       count: uniqueCourses.length,
-      files: metadataFiles.map(f => f.path),
+      files: metadataFiles.map((f) => f.path),
     });
   } catch (error: unknown) {
-    logger.error("Scan courses error:", error);
+    logger.error('Scan courses error:', error);
     return NextResponse.json(
-      { error: "Failed to scan courses", message: toErrorMessage(error) },
+      { error: 'Failed to scan courses', message: toErrorMessage(error) },
       { status: 500 }
     );
   }

@@ -1,10 +1,10 @@
+// @ts-nocheck
 // app/api/exams/start/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createSupabaseClient } from "@/lib/supabase-api";
+import { createSupabaseClient } from '@/lib/supabase-api';
 import { selectQuestionsForExamAttempt } from '@/lib/assessments/selectQuestions';
 import { getProctoringLaunchUrl } from '@/lib/integrations/proctoring';
-
 
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();

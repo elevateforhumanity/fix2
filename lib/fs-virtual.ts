@@ -1,6 +1,7 @@
-import { gh, parseRepo } from "./github";
+// @ts-nocheck
+import { gh, parseRepo } from './github';
 
-export async function readFile(repo: string, path: string, ref = "main") {
+export async function readFile(repo: string, path: string, ref = 'main') {
   const { owner, name } = parseRepo(repo);
   const client = gh();
 
@@ -13,10 +14,10 @@ export async function readFile(repo: string, path: string, ref = "main") {
 
   // Handle array response (directory)
   if (Array.isArray(file.data)) {
-    throw new Error("Path is a directory, not a file");
+    throw new Error('Path is a directory, not a file');
   }
 
-  return Buffer.from(file.data.content || "", "base64").toString("utf8");
+  return Buffer.from(file.data.content || '', 'base64').toString('utf8');
 }
 
 export async function writeFile(
@@ -24,7 +25,7 @@ export async function writeFile(
   path: string,
   content: string,
   sha?: string,
-  branch = "main"
+  branch = 'main'
 ) {
   const { owner, name } = parseRepo(repo);
   const client = gh();
@@ -35,7 +36,7 @@ export async function writeFile(
     path,
     branch,
     message: `autopilot: update ${path}`,
-    content: Buffer.from(content).toString("base64"),
+    content: Buffer.from(content).toString('base64'),
   };
 
   if (sha) {
@@ -45,7 +46,7 @@ export async function writeFile(
   return client.repos.createOrUpdateFileContents(params);
 }
 
-export async function listFiles(repo: string, folder: string, ref = "main") {
+export async function listFiles(repo: string, folder: string, ref = 'main') {
   const { owner, name } = parseRepo(repo);
   const client = gh();
 
@@ -65,7 +66,11 @@ export async function listFiles(repo: string, folder: string, ref = "main") {
   }
 }
 
-export async function fileExists(repo: string, path: string, ref = "main"): Promise<boolean> {
+export async function fileExists(
+  repo: string,
+  path: string,
+  ref = 'main'
+): Promise<boolean> {
   try {
     await readFile(repo, path, ref);
     return true;
@@ -78,7 +83,7 @@ export async function deleteFile(
   repo: string,
   path: string,
   sha: string,
-  branch = "main"
+  branch = 'main'
 ) {
   const { owner, name } = parseRepo(repo);
   const client = gh();

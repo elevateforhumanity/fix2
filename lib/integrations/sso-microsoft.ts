@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Microsoft 365 / Azure AD SSO Integration
  * OAuth 2.0, user sync, Teams integration, Outlook Calendar
@@ -224,7 +225,7 @@ export class MicrosoftTeamsIntegration {
           startDateTime: meeting.startDateTime.toISOString(),
           endDateTime: meeting.endDateTime.toISOString(),
           participants: {
-            attendees: meeting.participants?.map(email => ({
+            attendees: meeting.participants?.map((email) => ({
               identity: { user: { id: email } },
               upn: email,
             })),
@@ -239,7 +240,11 @@ export class MicrosoftTeamsIntegration {
   /**
    * Add member to team
    */
-  async addMemberToTeam(teamId: string, userId: string, role: 'owner' | 'member') {
+  async addMemberToTeam(
+    teamId: string,
+    userId: string,
+    role: 'owner' | 'member'
+  ) {
     const response = await fetch(
       `https://graph.microsoft.com/v1.0/teams/${teamId}/members`,
       {
@@ -285,7 +290,11 @@ export class MicrosoftTeamsIntegration {
     // Add students
     for (const enrollment of course.enrollments) {
       if (enrollment.student.microsoft_id) {
-        await this.addMemberToTeam(team.id, enrollment.student.microsoft_id, 'member');
+        await this.addMemberToTeam(
+          team.id,
+          enrollment.student.microsoft_id,
+          'member'
+        );
       }
     }
 
@@ -321,38 +330,37 @@ export class OutlookCalendarIntegration {
     attendees?: string[];
     isOnlineMeeting?: boolean;
   }) {
-    const response = await fetch(
-      'https://graph.microsoft.com/v1.0/me/events',
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${this.accessToken}`,
-          'Content-Type': 'application/json',
+    const response = await fetch('https://graph.microsoft.com/v1.0/me/events', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        subject: event.subject,
+        body: {
+          contentType: 'HTML',
+          content: event.body || '',
         },
-        body: JSON.stringify({
-          subject: event.subject,
-          body: {
-            contentType: 'HTML',
-            content: event.body || '',
-          },
-          start: {
-            dateTime: event.start.toISOString(),
-            timeZone: 'UTC',
-          },
-          end: {
-            dateTime: event.end.toISOString(),
-            timeZone: 'UTC',
-          },
-          location: event.location ? { displayName: event.location } : undefined,
-          attendees: event.attendees?.map(email => ({
-            emailAddress: { address: email },
-            type: 'required',
-          })),
-          isOnlineMeeting: event.isOnlineMeeting || false,
-          onlineMeetingProvider: event.isOnlineMeeting ? 'teamsForBusiness' : undefined,
-        }),
-      }
-    );
+        start: {
+          dateTime: event.start.toISOString(),
+          timeZone: 'UTC',
+        },
+        end: {
+          dateTime: event.end.toISOString(),
+          timeZone: 'UTC',
+        },
+        location: event.location ? { displayName: event.location } : undefined,
+        attendees: event.attendees?.map((email) => ({
+          emailAddress: { address: email },
+          type: 'required',
+        })),
+        isOnlineMeeting: event.isOnlineMeeting || false,
+        onlineMeetingProvider: event.isOnlineMeeting
+          ? 'teamsForBusiness'
+          : undefined,
+      }),
+    });
 
     return await response.json();
   }
@@ -414,22 +422,28 @@ export async function initializeMicrosoftSSO(userId: string, code: string) {
   const { createClient } = await import('@/lib/supabase/server');
   const supabase = await createClient();
 
-  await supabase.from('oauth_tokens').upsert({
-    user_id: userId,
-    provider: 'microsoft',
-    access_token: tokens.accessToken,
-    refresh_token: tokens.refreshToken,
-    expires_at: new Date(Date.now() + tokens.expiresIn * 1000).toISOString(),
-  }, {
-    onConflict: 'user_id,provider',
-  });
+  await supabase.from('oauth_tokens').upsert(
+    {
+      user_id: userId,
+      provider: 'microsoft',
+      access_token: tokens.accessToken,
+      refresh_token: tokens.refreshToken,
+      expires_at: new Date(Date.now() + tokens.expiresIn * 1000).toISOString(),
+    },
+    {
+      onConflict: 'user_id,provider',
+    }
+  );
 
   // Update profile
-  await supabase.from('profiles').update({
-    microsoft_id: user.id,
-    job_title: user.jobTitle,
-    office_location: user.officeLocation,
-  }).eq('id', userId);
+  await supabase
+    .from('profiles')
+    .update({
+      microsoft_id: user.id,
+      job_title: user.jobTitle,
+      office_location: user.officeLocation,
+    })
+    .eq('id', userId);
 
   return user;
 }

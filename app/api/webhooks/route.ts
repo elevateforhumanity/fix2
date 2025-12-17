@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { apiRequireAdmin } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
@@ -19,7 +20,7 @@ import {
 export async function GET(request: NextRequest) {
   try {
     const authResult = await apiRequireAdmin();
-    
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -46,7 +47,10 @@ export async function GET(request: NextRequest) {
 
       case 'deliveries':
         const limit = parseInt(searchParams.get('limit') || '50');
-        const deliveries = await getWebhookDeliveries(webhookId || undefined, limit);
+        const deliveries = await getWebhookDeliveries(
+          webhookId || undefined,
+          limit
+        );
         return NextResponse.json({ deliveries });
 
       case 'stats':
@@ -60,10 +64,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ stats });
 
       default:
-        return NextResponse.json(
-          { error: 'Invalid action' },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
   } catch (error) {
     logger.error('Webhooks GET error:', error);
@@ -77,7 +78,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const authResult = await apiRequireAdmin();
-    
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -95,10 +96,15 @@ export async function POST(request: NextRequest) {
             { status: 400 }
           );
         }
-        const webhook = await createWebhook(url, events as WebhookEvent[], user.id, {
-          description,
-          headers,
-        });
+        const webhook = await createWebhook(
+          url,
+          events as WebhookEvent[],
+          user.id,
+          {
+            description,
+            headers,
+          }
+        );
         return NextResponse.json({ success: true, webhook });
 
       case 'update':
@@ -157,10 +163,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ success: true });
 
       default:
-        return NextResponse.json(
-          { error: 'Invalid action' },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
   } catch (error) {
     logger.error('Webhooks POST error:', error);

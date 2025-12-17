@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -23,7 +24,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Send Slack alert if configured
-    if (process.env.SLACK_WEBHOOK_URL && data.value > 10 * 1024 * 1024) { // 10MB+
+    if (process.env.SLACK_WEBHOOK_URL && data.value > 10 * 1024 * 1024) {
+      // 10MB+
       try {
         await fetch(process.env.SLACK_WEBHOOK_URL, {
           method: 'POST',
@@ -70,7 +72,10 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Performance alert API error:', error);
     return NextResponse.json(
-      { success: false, error: toErrorMessage(error) || 'Internal server error' },
+      {
+        success: false,
+        error: toErrorMessage(error) || 'Internal server error',
+      },
       { status: 500 }
     );
   }

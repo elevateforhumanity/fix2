@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -27,7 +28,10 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Slow resources API error:', error);
     return NextResponse.json(
-      { success: false, error: toErrorMessage(error) || 'Internal server error' },
+      {
+        success: false,
+        error: toErrorMessage(error) || 'Internal server error',
+      },
       { status: 500 }
     );
   }

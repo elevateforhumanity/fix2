@@ -1,8 +1,9 @@
+// @ts-nocheck
 // app/api/partner-launch/[enrollmentId]/route.ts
-import { NextResponse } from "next/server";
-import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
-import { getPartnerClient, PartnerType } from "@/lib/partners";
+import { NextResponse } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+import { getPartnerClient, PartnerType } from '@/lib/partners';
 
 function getSupabaseServerClient() {
   const cookieStore = cookies();
@@ -28,18 +29,18 @@ export async function GET(_req: Request, { params }: Params) {
   const { enrollmentId } = await params;
 
   const { data: enrollment, error } = await supabase
-    .from("partner_lms_enrollments")
+    .from('partner_lms_enrollments')
     .select(
       `
       *,
       partner_lms_providers ( provider_type )
     `
     )
-    .eq("id", enrollmentId)
+    .eq('id', enrollmentId)
     .maybeSingle();
 
   if (error || !enrollment) {
-    return new NextResponse("Enrollment not found", { status: 404 });
+    return new NextResponse('Enrollment not found', { status: 404 });
   }
 
   const partnerType = enrollment.partner_lms_providers

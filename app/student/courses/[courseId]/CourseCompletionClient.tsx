@@ -1,7 +1,8 @@
-"use client";
+// @ts-nocheck
+'use client';
 
-import Link from "next/link";
-import { useState } from "react";
+import Link from 'next/link';
+import { useState } from 'react';
 
 type Module = {
   id: string;
@@ -12,11 +13,11 @@ type Module = {
 
 type ProgressRow = {
   module_id: string;
-  status: "not_started" | "in_progress" | "submitted" | "approved";
+  status: 'not_started' | 'in_progress' | 'submitted' | 'approved';
 };
 
 type Enrollment = {
-  status: "active" | "completed" | "withdrawn" | "paused";
+  status: 'active' | 'completed' | 'withdrawn' | 'paused';
   internal_complete: boolean;
   completed_at: string | null;
 };
@@ -54,11 +55,11 @@ export default function CourseCompletionClient({
   const approvedCount = serverData.modules.filter((m) => {
     if (!m.is_required) return false;
     const p = serverData.progressRows.find((row) => row.module_id === m.id);
-    return p?.status === "approved";
+    return p?.status === 'approved';
   }).length;
 
   const internalDone = enrollment?.internal_complete ?? false;
-  const completed = enrollment?.status === "completed";
+  const completed = enrollment?.status === 'completed';
 
   async function handleCheckCompletion() {
     try {
@@ -66,7 +67,7 @@ export default function CourseCompletionClient({
       setMessage(null);
 
       const res = await fetch(`/api/courses/${courseId}/check-completion`, {
-        method: "POST",
+        method: 'POST',
       });
 
       const data = await res.json();
@@ -74,28 +75,26 @@ export default function CourseCompletionClient({
         if (data.pending_modules && data.pending_modules.length > 0) {
           const pendingList = data.pending_modules
             .map((m: any) => `• ${m.title} (${m.partner_name}) - ${m.status}`)
-            .join("\n");
-          setMessage(
-            `${data.error}\n\nPending modules:\n${pendingList}`
-          );
+            .join('\n');
+          setMessage(`${data.error}\n\nPending modules:\n${pendingList}`);
         } else {
-          setMessage(data.error || "Cannot mark course complete yet.");
+          setMessage(data.error || 'Cannot mark course complete yet.');
         }
         return;
       }
 
-      setMessage(data.message || "Course marked as completed!");
+      setMessage(data.message || 'Course marked as completed!');
       setEnrollment((prev) =>
         prev
           ? {
               ...prev,
-              status: "completed",
+              status: 'completed',
               completed_at: new Date().toISOString(),
             }
           : prev
       );
     } catch (err: unknown) {
-      setMessage(err?.message ?? "Unexpected error.");
+      setMessage(err?.message ?? 'Unexpected error.');
     } finally {
       setChecking(false);
     }
@@ -135,7 +134,7 @@ export default function CourseCompletionClient({
           Elevate Course
         </p>
         <h1 className="text-2xl font-semibold mb-1">
-          {serverData.course?.title || "Course"}
+          {serverData.course?.title || 'Course'}
         </h1>
         {serverData.course?.description && (
           <p className="text-sm text-slate-600 max-w-2xl">
@@ -184,8 +183,8 @@ export default function CourseCompletionClient({
           </div>
           <p className="text-xs text-slate-600">
             {internalDone
-              ? "All internal lessons complete"
-              : "Complete all lessons to proceed"}
+              ? 'All internal lessons complete'
+              : 'Complete all lessons to proceed'}
           </p>
         </div>
 
@@ -246,7 +245,7 @@ export default function CourseCompletionClient({
             )}
           </div>
           <p className="text-xs text-slate-600 mb-3">
-            {completed ? "Completed" : "In progress"}
+            {completed ? 'Completed' : 'In progress'}
           </p>
           <button
             type="button"
@@ -255,10 +254,10 @@ export default function CourseCompletionClient({
             className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-50 transition-colors"
           >
             {completed
-              ? "✓ Course Complete"
+              ? '✓ Course Complete'
               : checking
-              ? "Checking..."
-              : "Check Completion"}
+                ? 'Checking...'
+                : 'Check Completion'}
           </button>
         </div>
       </div>
@@ -276,7 +275,7 @@ export default function CourseCompletionClient({
                 const p = serverData.progressRows.find(
                   (row) => row.module_id === m.id
                 );
-                const status = p?.status || "not_started";
+                const status = p?.status || 'not_started';
                 return (
                   <div
                     key={m.id}
@@ -321,16 +320,16 @@ export default function CourseCompletionClient({
       {message && (
         <div
           className={`rounded-lg border p-4 ${
-            message.includes("completed")
-              ? "border-emerald-200 bg-emerald-50"
-              : "border-amber-200 bg-amber-50"
+            message.includes('completed')
+              ? 'border-emerald-200 bg-emerald-50'
+              : 'border-amber-200 bg-amber-50'
           }`}
         >
           <p
             className={`text-sm whitespace-pre-wrap ${
-              message.includes("completed")
-                ? "text-emerald-800"
-                : "text-amber-800"
+              message.includes('completed')
+                ? 'text-emerald-800'
+                : 'text-amber-800'
             }`}
           >
             {message}

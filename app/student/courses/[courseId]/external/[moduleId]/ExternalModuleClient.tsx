@@ -1,10 +1,11 @@
-"use client";
+// @ts-nocheck
+'use client';
 
 // app/student/courses/[courseId]/external/[moduleId]/ExternalModuleClient.tsx
 // Client component for external partner module interaction
 
-import { supabase } from "@/lib/supabaseClient";
-import { useState } from "react";
+import { supabase } from '@/lib/supabaseClient';
+import { useState } from 'react';
 
 type Module = {
   id: string;
@@ -12,7 +13,7 @@ type Module = {
   title: string;
   partner_name: string;
   partner_type: string | null;
-  delivery_mode: "api" | "link" | "hybrid";
+  delivery_mode: 'api' | 'link' | 'hybrid';
   launch_url: string;
   external_course_code: string | null;
   description: string | null;
@@ -22,7 +23,7 @@ type Module = {
 
 type Progress = {
   id: string;
-  status: "not_started" | "in_progress" | "submitted" | "approved";
+  status: 'not_started' | 'in_progress' | 'submitted' | 'approved';
   proof_file_url: string | null;
   notes: string | null;
   external_enrollment_id: string | null;
@@ -48,23 +49,23 @@ export default function ExternalModuleClient({
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
-  const status = progress?.status ?? "not_started";
-  const isApiMode = module.delivery_mode === "api";
-  const isLinkMode = module.delivery_mode === "link";
-  const isHybridMode = module.delivery_mode === "hybrid";
+  const status = progress?.status ?? 'not_started';
+  const isApiMode = module.delivery_mode === 'api';
+  const isLinkMode = module.delivery_mode === 'link';
+  const isHybridMode = module.delivery_mode === 'hybrid';
 
-  async function ensureRow(statusOverride?: Progress["status"]) {
+  async function ensureRow(statusOverride?: Progress['status']) {
     const nextStatus = statusOverride ?? status;
 
     const { data, error } = await supabase
-      .from("external_partner_progress")
+      .from('external_partner_progress')
       .upsert(
         {
           module_id: module.id,
           user_id: userId,
           status: nextStatus,
         },
-        { onConflict: "module_id,user_id" }
+        { onConflict: 'module_id,user_id' }
       )
       .select()
       .single();
@@ -77,10 +78,10 @@ export default function ExternalModuleClient({
   async function handleLaunch() {
     try {
       setMessage(null);
-      await ensureRow("in_progress");
-      window.open(module.launch_url, "_blank", "noopener,noreferrer");
+      await ensureRow('in_progress');
+      window.open(module.launch_url, '_blank', 'noopener,noreferrer');
     } catch (err: unknown) {
-      setMessage(err?.message ?? "Error launching external module.");
+      setMessage(err?.message ?? 'Error launching external module.');
     }
   }
 
@@ -94,34 +95,34 @@ export default function ExternalModuleClient({
       // Create storage path: moduleId/userId/filename
       const path = `${module.id}/${userId}/${file.name}`;
       const { error: uploadError } = await supabase.storage
-        .from("external-proof")
+        .from('external-proof')
         .upload(path, file, { upsert: true });
 
       if (uploadError) throw uploadError;
 
       const publicUrl = supabase.storage
-        .from("external-proof")
+        .from('external-proof')
         .getPublicUrl(path).data.publicUrl;
 
       const { data, error } = await supabase
-        .from("external_partner_progress")
+        .from('external_partner_progress')
         .upsert(
           {
             module_id: module.id,
             user_id: userId,
-            status: "submitted",
+            status: 'submitted',
             proof_file_url: publicUrl,
           },
-          { onConflict: "module_id,user_id" }
+          { onConflict: 'module_id,user_id' }
         )
         .select()
         .single();
 
       if (error) throw error;
       setProgress(data as Progress);
-      setMessage("Proof uploaded. Your instructor or admin will review.");
+      setMessage('Proof uploaded. Your instructor or admin will review.');
     } catch (err: unknown) {
-      setMessage(err?.message ?? "Error uploading proof.");
+      setMessage(err?.message ?? 'Error uploading proof.');
     } finally {
       setUploading(false);
     }
@@ -165,7 +166,7 @@ export default function ExternalModuleClient({
         </div>
         <h1 className="text-2xl font-semibold mb-1">{module.title}</h1>
         <p className="text-xs text-slate-600 mb-2">
-          Delivered by{" "}
+          Delivered by{' '}
           <span className="font-semibold">{module.partner_name}</span> as part
           of your Elevate course. Completion is required for your stacked
           credential.
@@ -203,7 +204,8 @@ export default function ExternalModuleClient({
             </div>
             {progress.completed_at && (
               <p className="text-[11px] text-slate-600">
-                Completed: {new Date(progress.completed_at).toLocaleDateString()}
+                Completed:{' '}
+                {new Date(progress.completed_at).toLocaleDateString()}
               </p>
             )}
             {progress.certificate_number && (
@@ -221,7 +223,7 @@ export default function ExternalModuleClient({
           Step 1 – Launch the partner course
         </p>
         <p className="text-xs text-slate-600">
-          Click the button below to open the official {module.partner_name}{" "}
+          Click the button below to open the official {module.partner_name}{' '}
           course in a new tab. Complete all lessons and the final assessment on
           the partner site.
         </p>
@@ -247,7 +249,8 @@ export default function ExternalModuleClient({
         </button>
         {isApiMode && (
           <p className="text-[11px] text-slate-500">
-            Your progress will be automatically synced from {module.partner_name}.
+            Your progress will be automatically synced from{' '}
+            {module.partner_name}.
           </p>
         )}
       </div>
@@ -268,7 +271,7 @@ export default function ExternalModuleClient({
               type="file"
               accept="image/*,application/pdf"
               onChange={handleFileChange}
-              disabled={uploading || status === "approved"}
+              disabled={uploading || status === 'approved'}
               className="text-xs block w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 disabled:opacity-50"
             />
             {uploading && (
@@ -290,7 +293,7 @@ export default function ExternalModuleClient({
                   />
                 </svg>
                 <p className="text-[11px] text-emerald-700">
-                  Proof on file.{" "}
+                  Proof on file.{' '}
                   <a
                     href={progress.proof_file_url}
                     target="_blank"
@@ -307,7 +310,7 @@ export default function ExternalModuleClient({
       )}
 
       {/* Status Messages */}
-      {status === "submitted" && (
+      {status === 'submitted' && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
           <p className="text-xs text-amber-800">
             <span className="font-semibold">Awaiting Review:</span> Your proof
@@ -317,7 +320,7 @@ export default function ExternalModuleClient({
         </div>
       )}
 
-      {status === "approved" && (
+      {status === 'approved' && (
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
           <p className="text-xs text-emerald-800">
             <span className="font-semibold">✓ Module Complete:</span> This

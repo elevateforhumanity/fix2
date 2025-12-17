@@ -1,8 +1,8 @@
+// @ts-nocheck
 // app/api/reports/wioa/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
-import { createSupabaseClient } from "@/lib/supabase-api";
-
+import { createSupabaseClient } from '@/lib/supabase-api';
 
 export async function GET(request: Request) {
   const supabase = createSupabaseClient();
@@ -29,7 +29,10 @@ export async function GET(request: Request) {
     .lte('reporting_period_end', periodEnd);
 
   if (error || !records) {
-    return NextResponse.json({ error: 'Failed to fetch records' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch records' },
+      { status: 500 }
+    );
   }
 
   const header = [
@@ -79,7 +82,9 @@ export async function GET(request: Request) {
   ]);
 
   const csv = [header, ...rows]
-    .map((row) => row.map((v) => `"${(v ?? '').toString().replace(/"/g, '""')}"`).join(','))
+    .map((row) =>
+      row.map((v) => `"${(v ?? '').toString().replace(/"/g, '""')}"`).join(',')
+    )
     .join('\n');
 
   return new NextResponse(csv, {

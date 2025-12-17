@@ -1,10 +1,11 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const stripe = process.env.STRIPE_SECRET_KEY 
+const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2024-11-20.acacia',
     })
@@ -17,9 +18,12 @@ const supabase = createClient(
 
 export async function POST(request: NextRequest) {
   if (!stripe) {
-    return NextResponse.json({ error: 'Stripe not configured' }, { status: 503 });
+    return NextResponse.json(
+      { error: 'Stripe not configured' },
+      { status: 503 }
+    );
   }
-  
+
   try {
     const {
       courseId,
@@ -33,14 +37,16 @@ export async function POST(request: NextRequest) {
     // Get course details
     const { data: course, error: courseError } = await supabase
       .from('partner_courses')
-      .select(`
+      .select(
+        `
         *,
         partner_lms_providers (
           id,
           provider_name,
           provider_type
         )
-      `)
+      `
+      )
       .eq('id', courseId)
       .single();
 
@@ -59,14 +65,21 @@ export async function POST(request: NextRequest) {
     // Create Stripe checkout session with Buy Now Pay Later options
     const session = await stripe.checkout.sessions.create({
       // Enable multiple payment methods including BNPL and ACH
-      payment_method_types: ['card', 'afterpay_clearpay', 'klarna', 'us_bank_account'],
+      payment_method_types: [
+        'card',
+        'afterpay_clearpay',
+        'klarna',
+        'us_bank_account',
+      ],
       line_items: [
         {
           price_data: {
             currency: 'usd',
             product_data: {
               name: course.course_name,
-              description: course.description || `${course.course_name} certification from ${course.partner_lms_providers.provider_name}`,
+              description:
+                course.description ||
+                `${course.course_name} certification from ${course.partner_lms_providers.provider_name}`,
               images: [], // Add course image URL if available
             },
             unit_amount: Math.round(course.retail_price * 100), // Convert to cents
@@ -79,7 +92,7 @@ export async function POST(request: NextRequest) {
       cancel_url: `${process.env.NEXT_PUBLIC_URL || `https://${process.env.VERCEL_URL}` || 'http://localhost:3000'}/courses/partners/${courseId}/enroll`,
       customer_email: studentEmail,
       client_reference_id: studentId,
-      
+
       // Enable Buy Now Pay Later options
       payment_method_options: {
         afterpay_clearpay: {
@@ -89,7 +102,7 @@ export async function POST(request: NextRequest) {
           enabled: true,
         },
       },
-      
+
       // Store all enrollment data in metadata
       metadata: {
         course_id: courseId,

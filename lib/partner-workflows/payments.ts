@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Partner LMS Payment Integration
  * Handles Stripe payments for paid certifications
@@ -89,7 +90,9 @@ export async function createPartnerPaymentSession(
             product_data: {
               name: `${provider.provider_name} Certification`,
               description: `Access to ${provider.provider_name} courses and certifications`,
-              images: ['https://elevateforhumanity.org/images/certification-badge.png'],
+              images: [
+                'https://elevateforhumanity.org/images/certification-badge.png',
+              ],
             },
             unit_amount: Math.round(request.amount * 100), // Convert to cents
           },

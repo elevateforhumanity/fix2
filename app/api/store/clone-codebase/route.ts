@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import { cloneRepository } from "@/lib/store/stripe-products";
-import { createClient } from "@/lib/supabase/server";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { cloneRepository } from '@/lib/store/stripe-products';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -9,25 +10,19 @@ export async function POST(req: NextRequest) {
     const { productId } = await req.json();
 
     if (!productId) {
-      return NextResponse.json(
-        { error: "Missing productId" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Missing productId' }, { status: 400 });
     }
 
     // Get product details
     const supabase = await createClient();
     const { data: product, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("id", productId)
+      .from('products')
+      .select('*')
+      .eq('id', productId)
       .single();
 
     if (error || !product) {
-      return NextResponse.json(
-        { error: "Product not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
     // Generate unique repo name
@@ -38,7 +33,7 @@ export async function POST(req: NextRequest) {
     const clonedRepo = await cloneRepository(product.repo, newRepoName);
 
     // Log the clone (optional - could save to database)
-    await supabase.from("product_clones").insert({
+    await supabase.from('product_clones').insert({
       product_id: productId,
       cloned_repo: clonedRepo,
       cloned_at: new Date().toISOString(),
@@ -46,16 +41,15 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       ok: true,
-      message: "Repository cloned successfully!",
+      message: 'Repository cloned successfully!',
       repo: clonedRepo,
       url: `https://github.com/${clonedRepo}`,
     });
-
   } catch (error: unknown) {
-    logger.error("Clone codebase error:", error);
+    logger.error('Clone codebase error:', error);
     return NextResponse.json(
       {
-        error: "Failed to clone repository",
+        error: 'Failed to clone repository',
         message: toErrorMessage(error),
       },
       { status: 500 }

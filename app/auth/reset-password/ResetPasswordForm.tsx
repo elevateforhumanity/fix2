@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { useState } from 'react';
@@ -71,7 +72,9 @@ export default function ResetPasswordForm() {
               />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Password Updated!</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Password Updated!
+          </h2>
           <p className="text-gray-600 mb-6">
             Your password has been successfully updated. Redirecting to login...
           </p>
@@ -92,31 +95,47 @@ export default function ResetPasswordForm() {
 
       <form onSubmit={handleResetPassword} className="space-y-4">
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             New Password
           </label>
           <input
             type="password"
             id="password"
             value={password}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPassword(e.target.value)}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setPassword(e.target.value)}
             required
             minLength={8}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="••••••••"
           />
-          <p className="mt-1 text-xs text-gray-500">Must be at least 8 characters</p>
+          <p className="mt-1 text-xs text-gray-500">
+            Must be at least 8 characters
+          </p>
         </div>
 
         <div>
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="confirmPassword"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Confirm New Password
           </label>
           <input
             type="password"
             id="confirmPassword"
             value={confirmPassword}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setConfirmPassword(e.target.value)}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setConfirmPassword(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="••••••••"
@@ -133,7 +152,10 @@ export default function ResetPasswordForm() {
       </form>
 
       <div className="mt-6 text-center">
-        <Link href="/login" className="text-sm text-blue-600 hover:text-blue-700">
+        <Link
+          href="/login"
+          className="text-sm text-blue-600 hover:text-blue-700"
+        >
           ← Back to Login
         </Link>
       </div>

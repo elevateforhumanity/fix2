@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/with-auth.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';

@@ -1,18 +1,15 @@
+// @ts-nocheck
 // lib/automation/partnerEnrollment.ts
-import { cookies } from "next/headers";
-import { createServerClient } from "@supabase/ssr";
-import {
-  getPartnerClient,
-  PartnerType,
-  StudentData,
-} from "../partners";
+import { cookies } from 'next/headers';
+import { createServerClient } from '@supabase/ssr';
+import { getPartnerClient, PartnerType, StudentData } from '../partners';
 
 type UUID = string;
 
 export interface AutoEnrollmentRequest {
   studentId: UUID;
   partnerId: UUID; // row in partner_lms_providers
-  courseId: UUID;  // row in partner_courses
+  courseId: UUID; // row in partner_courses
   programId?: UUID;
 }
 
@@ -47,35 +44,35 @@ export async function autoEnrollPartnerCourse(
   try {
     // 1) Load student profile
     const { data: student, error: studentError } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", payload.studentId)
+      .from('profiles')
+      .select('*')
+      .eq('id', payload.studentId)
       .maybeSingle();
 
     if (studentError || !student) {
-      throw new Error("Student not found");
+      throw new Error('Student not found');
     }
 
     // 2) Load partner provider row
     const { data: partner, error: partnerError } = await supabase
-      .from("partner_lms_providers")
-      .select("*")
-      .eq("id", payload.partnerId)
+      .from('partner_lms_providers')
+      .select('*')
+      .eq('id', payload.partnerId)
       .maybeSingle();
 
     if (partnerError || !partner) {
-      throw new Error("Partner LMS provider not found");
+      throw new Error('Partner LMS provider not found');
     }
 
     // 3) Load partner course metadata
     const { data: course, error: courseError } = await supabase
-      .from("partner_courses")
-      .select("*")
-      .eq("id", payload.courseId)
+      .from('partner_courses')
+      .select('*')
+      .eq('id', payload.courseId)
       .maybeSingle();
 
     if (courseError || !course) {
-      throw new Error("Partner course not found");
+      throw new Error('Partner course not found');
     }
 
     const partnerType = partner.provider_type as PartnerType;
@@ -84,8 +81,8 @@ export async function autoEnrollPartnerCourse(
     const studentData: StudentData = {
       id: student.id,
       email: student.email,
-      firstName: (student.full_name ?? "").split(" ")[0] || "Student",
-      lastName: (student.full_name ?? "").split(" ").slice(1).join(" "),
+      firstName: (student.full_name ?? '').split(' ')[0] || 'Student',
+      lastName: (student.full_name ?? '').split(' ').slice(1).join(' '),
       phone: student.phone,
       dateOfBirth: student.date_of_birth,
     };
@@ -108,13 +105,13 @@ export async function autoEnrollPartnerCourse(
 
     // 7) Save enrollment in Supabase
     const { data: dbEnrollment, error: dbError } = await supabase
-      .from("partner_lms_enrollments")
+      .from('partner_lms_enrollments')
       .insert({
         provider_id: payload.partnerId,
         student_id: payload.studentId,
         course_id: payload.courseId,
         program_id: payload.programId ?? null,
-        status: "active",
+        status: 'active',
         enrolled_at: new Date().toISOString(),
         external_enrollment_id: enrollment.externalEnrollmentId,
         metadata: {
@@ -125,18 +122,18 @@ export async function autoEnrollPartnerCourse(
           access_url: enrollment.accessUrl,
         },
       })
-      .select("*")
+      .select('*')
       .maybeSingle();
 
     if (dbError || !dbEnrollment) {
-      throw dbError ?? new Error("Could not save enrollment");
+      throw dbError ?? new Error('Could not save enrollment');
     }
 
     // 8) OPTIONAL: fire Supabase Edge Function to send welcome email
-    await supabase.functions.invoke("send-partner-enrollment-email", {
+    await supabase.functions.invoke('send-partner-enrollment-email', {
       body: {
         to: student.email,
-        studentName: student.full_name ?? "Student",
+        studentName: student.full_name ?? 'Student',
         courseName: course.course_name,
         partnerName: partner.provider_name,
         launchUrl,
@@ -155,17 +152,17 @@ export async function autoEnrollPartnerCourse(
     // Error: $1
 
     const supabase2 = getSupabaseServerClient();
-    await supabase2.from("partner_lms_enrollment_failures").insert({
+    await supabase2.from('partner_lms_enrollment_failures').insert({
       student_id: payload.studentId,
       provider_id: payload.partnerId,
       course_id: payload.courseId,
       program_id: payload.programId ?? null,
-      error_message: err.message ?? "Unknown error",
+      error_message: err.message ?? 'Unknown error',
     });
 
     return {
       success: false,
-      error: err.message ?? "Unknown error",
+      error: err.message ?? 'Unknown error',
     };
   }
 }

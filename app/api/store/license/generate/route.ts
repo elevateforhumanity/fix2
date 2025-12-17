@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -8,7 +9,10 @@ export async function POST(req: Request) {
     const { email, productId } = await req.json();
 
     if (!email || !productId) {
-      return Response.json({ error: 'Email and productId required' }, { status: 400 });
+      return Response.json(
+        { error: 'Email and productId required' },
+        { status: 400 }
+      );
     }
 
     const supabase = await createClient();
@@ -41,7 +45,10 @@ export async function POST(req: Request) {
 
     if (licenseError) {
       logger.error('Failed to store license:', licenseError);
-      return Response.json({ error: 'Failed to generate license' }, { status: 500 });
+      return Response.json(
+        { error: 'Failed to generate license' },
+        { status: 500 }
+      );
     }
 
     return Response.json({

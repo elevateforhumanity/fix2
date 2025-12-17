@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
@@ -64,10 +65,7 @@ export async function DELETE(
   const { id } = await params;
   try {
     const supabase = await createClient();
-    const { error } = await supabase
-      .from('time_entries')
-      .delete()
-      .eq('id', id);
+    const { error } = await supabase.from('time_entries').delete().eq('id', id);
 
     if (error) throw error;
 

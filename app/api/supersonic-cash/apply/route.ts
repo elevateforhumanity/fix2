@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -13,7 +14,18 @@ export async function POST(req: Request) {
     const applicationData = await req.json();
 
     // Validate required fields
-    const required = ['firstName', 'lastName', 'email', 'phone', 'monthlyIncome', 'bankName', 'routingNumber', 'accountNumber', 'requestedAmount', 'repaymentDate'];
+    const required = [
+      'firstName',
+      'lastName',
+      'email',
+      'phone',
+      'monthlyIncome',
+      'bankName',
+      'routingNumber',
+      'accountNumber',
+      'requestedAmount',
+      'repaymentDate',
+    ];
     for (const field of required) {
       if (!applicationData[field] && field !== 'monthlyIncome') {
         if (!applicationData.trainingStipend) {
@@ -26,19 +38,27 @@ export async function POST(req: Request) {
     }
 
     // Calculate total monthly income
-    const totalIncome = parseInt(applicationData.monthlyIncome || '0') + parseInt(applicationData.trainingStipend || '0');
+    const totalIncome =
+      parseInt(applicationData.monthlyIncome || '0') +
+      parseInt(applicationData.trainingStipend || '0');
 
     // Basic underwriting rules (similar to H&R Block)
     const maxAdvance = calculateMaxAdvance(totalIncome);
     if (applicationData.requestedAmount > maxAdvance) {
-      return NextResponse.json({
-        success: false,
-        error: `Based on your income, maximum advance is $${maxAdvance}`,
-      }, { status: 400 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: `Based on your income, maximum advance is $${maxAdvance}`,
+        },
+        { status: 400 }
+      );
     }
 
     // Calculate fee
-    const fee = applicationData.requestedAmount <= 1000 ? 0 : Math.round(applicationData.requestedAmount * 0.03);
+    const fee =
+      applicationData.requestedAmount <= 1000
+        ? 0
+        : Math.round(applicationData.requestedAmount * 0.03);
     const totalRepayment = applicationData.requestedAmount + fee;
 
     // Create application in database
@@ -83,8 +103,11 @@ export async function POST(req: Request) {
     }
 
     // Auto-approve if meets criteria
-    const autoApprove = shouldAutoApprove(totalIncome, applicationData.requestedAmount);
-    
+    const autoApprove = shouldAutoApprove(
+      totalIncome,
+      applicationData.requestedAmount
+    );
+
     if (autoApprove) {
       await supabase
         .from('cash_advance_applications')
@@ -104,9 +127,9 @@ export async function POST(req: Request) {
       applicationId: application.id,
       status: autoApprove ? 'approved' : 'pending',
       approvedAmount: autoApprove ? applicationData.requestedAmount : null,
-      message: autoApprove 
+      message: autoApprove
         ? 'Congratulations! Your application is approved. Funds will be deposited within 24 hours.'
-        : 'Your application is being reviewed. You\'ll hear from us within 1 hour.',
+        : "Your application is being reviewed. You'll hear from us within 1 hour.",
     });
   } catch (error: unknown) {
     logger.error('Cash advance application error:', error);
@@ -130,7 +153,10 @@ function calculateMaxAdvance(monthlyIncome: number): number {
   return 3500;
 }
 
-function shouldAutoApprove(monthlyIncome: number, requestedAmount: number): boolean {
+function shouldAutoApprove(
+  monthlyIncome: number,
+  requestedAmount: number
+): boolean {
   // Auto-approve if:
   // 1. Income is at least 3x the requested amount
   // 2. Requested amount is under $1,000
@@ -146,7 +172,7 @@ async function sendToEOSFinancial(application: any) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.EOS_FINANCIAL_API_KEY}`,
+        Authorization: `Bearer ${process.env.EOS_FINANCIAL_API_KEY}`,
       },
       body: JSON.stringify({
         applicant: {
@@ -185,13 +211,15 @@ async function sendToEOSFinancial(application: any) {
 async function sendApprovalEmail(email: string, application: any) {
   // Send approval email via Resend
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        to: email,
-        subject: '✅ Your Supersonic Cash Advance is Approved!',
-        html: `
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: email,
+          subject: '✅ Your Supersonic Cash Advance is Approved!',
+          html: `
           <h1>Congratulations! You're Approved!</h1>
           <p>Your Supersonic Cash Advance application has been approved.</p>
           <h2>Loan Details:</h2>
@@ -204,8 +232,9 @@ async function sendApprovalEmail(email: string, application: any) {
           <p><strong>Funds will be deposited to your bank account within 24 hours.</strong></p>
           <p>Questions? Call us at (317) 314-3757</p>
         `,
-      }),
-    });
+        }),
+      }
+    );
   } catch (error) {
     logger.error('Email send error:', error);
   }

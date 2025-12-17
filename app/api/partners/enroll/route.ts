@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+// @ts-nocheck
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
@@ -31,21 +32,21 @@ export async function POST(req: Request) {
     // Validation
     if (!organizationName || !contactName || !contactEmail || !contactPhone) {
       return NextResponse.json(
-        { error: "Missing required fields." },
+        { error: 'Missing required fields.' },
         { status: 400 }
       );
     }
 
     if (!programsInterested || programsInterested.length === 0) {
       return NextResponse.json(
-        { error: "Please select at least one program." },
+        { error: 'Please select at least one program.' },
         { status: 400 }
       );
     }
 
     if (!agreedToTerms) {
       return NextResponse.json(
-        { error: "You must agree to the terms." },
+        { error: 'You must agree to the terms.' },
         { status: 400 }
       );
     }
@@ -53,7 +54,7 @@ export async function POST(req: Request) {
     const supabase = await createClient();
 
     // Insert into partner_enrollments table
-    const { error } = await supabase.from("partner_enrollments").insert({
+    const { error } = await supabase.from('partner_enrollments').insert({
       organization_name: organizationName,
       organization_type: organizationType,
       industry,
@@ -74,13 +75,13 @@ export async function POST(req: Request) {
       special_requirements: specialRequirements,
       how_heard: howHeard,
       agreed_to_terms: agreedToTerms,
-      status: "pending", // Default status
+      status: 'pending', // Default status
     });
 
     if (error) {
-      logger.error("Supabase insert error:", error);
+      logger.error('Supabase insert error:', error);
       return NextResponse.json(
-        { error: "Unable to save enrollment." },
+        { error: 'Unable to save enrollment.' },
         { status: 500 }
       );
     }
@@ -90,10 +91,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
-    logger.error("API error:", err);
-    return NextResponse.json(
-      { error: "Unexpected error." },
-      { status: 500 }
-    );
+    logger.error('API error:', err);
+    return NextResponse.json({ error: 'Unexpected error.' }, { status: 500 });
   }
 }

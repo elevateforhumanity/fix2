@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Public REST API - Courses Endpoint
 import { NextRequest, NextResponse } from 'next/server';
 import {

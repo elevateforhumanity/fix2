@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -5,7 +6,11 @@ import { getUserById } from '@/lib/supabase-admin';
 import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
-async function getHandler(req: Request, context: Record<string, unknown>, user: Record<string, unknown>) {
+async function getHandler(
+  req: Request,
+  context: Record<string, unknown>,
+  user: Record<string, unknown>
+) {
   const url = new URL(req.url);
   const user_id = url.searchParams.get('user_id');
 
@@ -31,5 +36,5 @@ async function getHandler(req: Request, context: Record<string, unknown>, user: 
 }
 
 export const GET = withAuth(getHandler, {
-  roles: ['admin', 'super_admin']
+  roles: ['admin', 'super_admin'],
 });

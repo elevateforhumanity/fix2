@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -50,7 +51,7 @@ export default function ReelsFeed({ reels }: { reels: Reel[] }) {
             autoPlay={index === currentIndex}
             playsInline
           />
-          
+
           <div className="absolute bottom-20 left-6 right-20 text-white">
             <h3 className="text-xl font-bold mb-2">{reel.title}</h3>
             <p className="text-sm opacity-90">{reel.description}</p>

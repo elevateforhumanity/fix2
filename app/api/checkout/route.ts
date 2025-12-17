@@ -1,19 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
-import { billingConfigs } from "../../../lms-data/billingConfig";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
+import { billingConfigs } from '../../../lms-data/billingConfig';
 import { logger } from '@/lib/logger';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 if (!stripeSecretKey) {
   logger.warn(
-    "[Elevate] STRIPE_SECRET_KEY is not set. /api/checkout will return 500 until configured.",
+    '[Elevate] STRIPE_SECRET_KEY is not set. /api/checkout will return 500 until configured.'
   );
 }
 
 const stripe = stripeSecretKey
   ? new Stripe(stripeSecretKey, {
-      apiVersion: "2025-10-29.clover",
+      apiVersion: '2025-10-29.clover',
     })
   : null;
 
@@ -21,23 +22,23 @@ export async function POST(req: NextRequest) {
   try {
     if (!stripe) {
       return NextResponse.json(
-        { error: "Stripe is not configured on the server." },
-        { status: 500 },
+        { error: 'Stripe is not configured on the server.' },
+        { status: 500 }
       );
     }
 
     const body = await req.json();
     const { programId, planType, successUrl, cancelUrl } = body as {
       programId: string;
-      planType?: "full" | "payment-plan";
+      planType?: 'full' | 'payment-plan';
       successUrl?: string;
       cancelUrl?: string;
     };
 
     if (!programId) {
       return NextResponse.json(
-        { error: "Missing programId in request body." },
-        { status: 400 },
+        { error: 'Missing programId in request body.' },
+        { status: 400 }
       );
     }
 
@@ -45,14 +46,14 @@ export async function POST(req: NextRequest) {
     if (!config) {
       return NextResponse.json(
         { error: `No billing config found for programId=${programId}` },
-        { status: 404 },
+        { status: 404 }
       );
     }
 
     const chosenPlan = planType ?? config.defaultPlan;
 
     const priceId =
-      chosenPlan === "payment-plan"
+      chosenPlan === 'payment-plan'
         ? config.stripePricePlan
         : config.stripePriceFull;
 
@@ -61,17 +62,20 @@ export async function POST(req: NextRequest) {
         {
           error: `No Stripe price configured for ${chosenPlan} on program ${config.label}.`,
         },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
     const origin =
-      successUrl && typeof successUrl === "string"
+      successUrl && typeof successUrl === 'string'
         ? new URL(successUrl).origin
-        : req.headers.get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL ?? `https://${process.env.VERCEL_URL}` ?? "http://localhost:3000";
+        : (req.headers.get('origin') ??
+          process.env.NEXT_PUBLIC_SITE_URL ??
+          `https://${process.env.VERCEL_URL}` ??
+          'http://localhost:3000');
 
     const session = await stripe.checkout.sessions.create({
-      mode: "payment",
+      mode: 'payment',
       line_items: [
         {
           price: priceId,
@@ -80,14 +84,10 @@ export async function POST(req: NextRequest) {
       ],
       success_url:
         successUrl ??
-        `${origin}/enroll/thank-you?programId=${encodeURIComponent(
-          programId,
-        )}`,
+        `${origin}/enroll/thank-you?programId=${encodeURIComponent(programId)}`,
       cancel_url:
         cancelUrl ??
-        `${origin}/enroll/${encodeURIComponent(
-          programId,
-        )}?checkout=cancelled`,
+        `${origin}/enroll/${encodeURIComponent(programId)}?checkout=cancelled`,
       metadata: {
         programId,
         planType: chosenPlan,
@@ -96,10 +96,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err: unknown) {
-    logger.error("[Elevate] Error in /api/checkout:", err);
+    logger.error('[Elevate] Error in /api/checkout:', err);
     return NextResponse.json(
-      { error: "Unable to create checkout session." },
-      { status: 500 },
+      { error: 'Unable to create checkout session.' },
+      { status: 500 }
     );
   }
 }

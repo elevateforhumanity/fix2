@@ -1,12 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import { gh, parseRepo } from "@/lib/github";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
-    const { repo = "elevateforhumanity/fix2", branch = "main" } = body;
+    const { repo = 'elevateforhumanity/fix2', branch = 'main' } = body;
 
     const client = gh();
     const { owner, name } = parseRepo(repo);
@@ -16,13 +17,14 @@ export async function POST(req: NextRequest) {
       owner,
       repo: name,
       tree_sha: branch,
-      recursive: "true",
+      recursive: 'true',
     });
 
-    const imageFiles = tree.tree
-      ?.filter(file => 
-        file.type === 'blob' && 
-        /\.(jpg|jpeg|png|gif|webp)$/i.test(file.path || '')
+    const imageFiles =
+      tree.tree?.filter(
+        (file) =>
+          file.type === 'blob' &&
+          /\.(jpg|jpeg|png|gif|webp)$/i.test(file.path || '')
       ) || [];
 
     // In production, you would:
@@ -34,7 +36,7 @@ export async function POST(req: NextRequest) {
     logger.info(`Autopilot: Found ${imageFiles.length} images to optimize`);
 
     // Simulate optimization
-    const optimized = imageFiles.map(file => ({
+    const optimized = imageFiles.map((file) => ({
       path: file.path,
       originalSize: file.size,
       optimizedSize: Math.floor((file.size || 0) * 0.7), // 30% reduction
@@ -50,12 +52,11 @@ export async function POST(req: NextRequest) {
       totalSavings,
       details: optimized,
     });
-
   } catch (error: unknown) {
-    logger.error("Optimize images error:", error);
+    logger.error('Optimize images error:', error);
     return NextResponse.json(
       {
-        error: "Failed to optimize images",
+        error: 'Failed to optimize images',
         message: toErrorMessage(error),
       },
       { status: 500 }

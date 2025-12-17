@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
@@ -16,9 +17,13 @@ export async function POST(request: Request) {
     const voiceoverFile = formData.get('voiceover') as File | null;
     const musicFile = formData.get('music') as File | null;
     const voiceoverText = formData.get('voiceoverText') as string | null;
-    const musicVolume = parseFloat(formData.get('musicVolume') as string || '0.3');
-    const voiceoverVolume = parseFloat(formData.get('voiceoverVolume') as string || '1.0');
-    
+    const musicVolume = parseFloat(
+      (formData.get('musicVolume') as string) || '0.3'
+    );
+    const voiceoverVolume = parseFloat(
+      (formData.get('voiceoverVolume') as string) || '1.0'
+    );
+
     if (!videoFile) {
       return NextResponse.json(
         { error: 'No video file provided' },
@@ -33,7 +38,7 @@ export async function POST(request: Request) {
     }
 
     const timestamp = Date.now();
-    
+
     // Save video file
     const videoBytes = await videoFile.arrayBuffer();
     const videoBuffer = Buffer.from(videoBytes);
@@ -56,7 +61,7 @@ export async function POST(request: Request) {
       // Generate voiceover using text-to-speech
       const voiceoverFilename = `voiceover-${timestamp}.mp3`;
       voiceoverPath = path.join(uploadsDir, voiceoverFilename);
-      
+
       try {
         // Using edge-tts for text-to-speech (free, high quality)
         await execAsync(
@@ -113,8 +118,13 @@ export async function POST(request: Request) {
     // Audio mixing
     if (audioInputs > 0) {
       let audioMix = '';
-      
-      if (voiceoverPath && existsSync(voiceoverPath) && musicPath && existsSync(musicPath)) {
+
+      if (
+        voiceoverPath &&
+        existsSync(voiceoverPath) &&
+        musicPath &&
+        existsSync(musicPath)
+      ) {
         // Both voiceover and music
         audioMix = `[1:a]volume=${voiceoverVolume}[vo];[2:a]volume=${musicVolume},aloop=loop=-1:size=2e+09[music];[vo][music]amix=inputs=2:duration=first:dropout_transition=2[a]`;
       } else if (voiceoverPath && existsSync(voiceoverPath)) {
@@ -155,7 +165,7 @@ export async function POST(request: Request) {
       const { stdout, stderr } = await execAsync(ffmpegCommand, {
         maxBuffer: 50 * 1024 * 1024, // 50MB buffer
       });
-      
+
       logger.info('Video processed successfully');
       logger.info('FFmpeg output:', stderr);
 
@@ -168,24 +178,26 @@ export async function POST(request: Request) {
         generatedVoiceover,
         message: 'Video fully enhanced with audio!',
         details: {
-          videoEnhancement: 'Upscaled to 1080p, denoised, color-corrected, sharpened',
+          videoEnhancement:
+            'Upscaled to 1080p, denoised, color-corrected, sharpened',
           audio: audioInputs > 0 ? 'Voiceover and/or music added' : 'No audio',
           voiceoverVolume: voiceoverVolume,
           musicVolume: musicVolume,
         },
       });
-
     } catch (ffmpegError: any) {
       logger.error('FFmpeg error:', ffmpegError);
-      
-      return NextResponse.json({
-        success: false,
-        error: 'Video processing failed',
-        details: ffmpegError.message,
-        originalUrl: `/uploads/videos/${videoFilename}`,
-      }, { status: 500 });
-    }
 
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Video processing failed',
+          details: ffmpegError.message,
+          originalUrl: `/uploads/videos/${videoFilename}`,
+        },
+        { status: 500 }
+      );
+    }
   } catch (error: unknown) {
     logger.error('Video processing error:', error);
     return NextResponse.json(

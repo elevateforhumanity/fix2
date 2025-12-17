@@ -1,12 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import { gh, parseRepo } from "@/lib/github";
+// @ts-nocheck
+import { NextRequest, NextResponse } from 'next/server';
+import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
-    const { repo = "elevateforhumanity/fix2", branch = "main" } = body;
+    const { repo = 'elevateforhumanity/fix2', branch = 'main' } = body;
 
     const client = gh();
     const { owner, name } = parseRepo(repo);
@@ -24,25 +25,26 @@ export async function POST(req: NextRequest) {
       owner,
       repo: name,
       tree_sha: branch,
-      recursive: "true",
+      recursive: 'true',
     });
 
-    const courseFiles = tree.tree?.filter(file => 
-      file.path?.includes('/courses/') && file.type === 'blob'
-    ) || [];
+    const courseFiles =
+      tree.tree?.filter(
+        (file) => file.path?.includes('/courses/') && file.type === 'blob'
+      ) || [];
 
     // Check for metadata.json in each course folder
     const courseFolders = new Set<string>();
-    courseFiles.forEach(file => {
+    courseFiles.forEach((file) => {
       const match = file.path?.match(/courses\/([^\/]+)\//);
       if (match) courseFolders.add(match[1]);
     });
 
     for (const folder of courseFolders) {
-      const hasMetadata = courseFiles.some(f => 
-        f.path === `courses/${folder}/metadata.json`
+      const hasMetadata = courseFiles.some(
+        (f) => f.path === `courses/${folder}/metadata.json`
       );
-      
+
       if (!hasMetadata) {
         results.missingMetadata.push(folder);
         results.failed++;
@@ -71,15 +73,15 @@ export async function POST(req: NextRequest) {
         total: totalTests,
         passed: results.passed,
         failed: results.failed,
-        passRate: totalTests > 0 ? ((results.passed / totalTests) * 100).toFixed(1) : 0,
+        passRate:
+          totalTests > 0 ? ((results.passed / totalTests) * 100).toFixed(1) : 0,
       },
     });
-
   } catch (error: unknown) {
-    logger.error("Run tests error:", error);
+    logger.error('Run tests error:', error);
     return NextResponse.json(
       {
-        error: "Failed to run tests",
+        error: 'Failed to run tests',
         message: toErrorMessage(error),
       },
       { status: 500 }

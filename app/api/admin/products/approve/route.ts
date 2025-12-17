@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendProductApprovalEmail } from '@/lib/email/resend';
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { requireAdmin } from '@/lib/auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 

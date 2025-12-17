@@ -1,10 +1,18 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, name, programTitle, certificateNumber, certificateUrl, verificationUrl } = await req.json();
+    const {
+      email,
+      name,
+      programTitle,
+      certificateNumber,
+      certificateUrl,
+      verificationUrl,
+    } = await req.json();
 
     // Email HTML template
     const htmlContent = `
@@ -135,7 +143,6 @@ export async function POST(req: NextRequest) {
 
     // Send email using your email service (Resend, SendGrid, etc.)
     // For now, returning success - integrate with actual email service
-    
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {

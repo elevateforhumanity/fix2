@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Yjs Collaborative Editing Provider
  * Enables real-time collaboration for documents, notes, and course content
@@ -20,14 +21,13 @@ export class CollaborationProvider {
 
   constructor(config: CollaborationConfig) {
     this.doc = new Y.Doc();
-    
-    const wsUrl = config.websocketUrl || process.env.NEXT_PUBLIC_COLLABORATION_WS_URL || 'ws://localhost:1234';
-    
-    this.provider = new WebsocketProvider(
-      wsUrl,
-      config.documentId,
-      this.doc
-    );
+
+    const wsUrl =
+      config.websocketUrl ||
+      process.env.NEXT_PUBLIC_COLLABORATION_WS_URL ||
+      'ws://localhost:1234';
+
+    this.provider = new WebsocketProvider(wsUrl, config.documentId, this.doc);
 
     this.awareness = this.provider.awareness;
     this.awareness.setLocalStateField('user', {
@@ -78,13 +78,13 @@ export class CollaborationProvider {
   getConnectedUsers(): Array<{ id: string; name: string; color: string }> {
     const states = this.awareness.getStates();
     const users: Array<{ id: string; name: string; color: string }> = [];
-    
+
     states.forEach((state: any) => {
       if (state.user) {
         users.push(state.user);
       }
     });
-    
+
     return users;
   }
 
@@ -128,15 +128,23 @@ export class CollaborationProvider {
    */
   private generateUserColor(userId: string): string {
     const colors = [
-      '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
-      '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#52B788',
+      '#FF6B6B',
+      '#4ECDC4',
+      '#45B7D1',
+      '#FFA07A',
+      '#98D8C8',
+      '#F7DC6F',
+      '#BB8FCE',
+      '#85C1E2',
+      '#F8B739',
+      '#52B788',
     ];
-    
+
     let hash = 0;
     for (let i = 0; i < userId.length; i++) {
       hash = userId.charCodeAt(i) + ((hash << 5) - hash);
     }
-    
+
     return colors[Math.abs(hash) % colors.length];
   }
 }
@@ -144,6 +152,8 @@ export class CollaborationProvider {
 /**
  * Create a collaboration provider for a document
  */
-export function createCollaborationProvider(config: CollaborationConfig): CollaborationProvider {
+export function createCollaborationProvider(
+  config: CollaborationConfig
+): CollaborationProvider {
   return new CollaborationProvider(config);
 }

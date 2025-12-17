@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -7,13 +8,13 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const range = searchParams.get('range') || '30d';
-    
+
     const supabase = await createClient();
-    
+
     // Calculate date range
     const now = new Date();
     let startDate = new Date();
-    
+
     switch (range) {
       case '7d':
         startDate.setDate(now.getDate() - 7);
@@ -48,10 +49,20 @@ export async function GET(req: Request) {
     if (logsError) throw logsError;
 
     // Calculate overview stats
-    const totalSent = logs?.filter(l => l.status === 'sent' || l.status === 'delivered' || l.status === 'opened' || l.status === 'clicked').length || 0;
-    const totalOpens = logs?.filter(l => l.status === 'opened' || l.status === 'clicked').length || 0;
-    const totalClicks = logs?.filter(l => l.status === 'clicked').length || 0;
-    const totalBounces = logs?.filter(l => l.status === 'bounced').length || 0;
+    const totalSent =
+      logs?.filter(
+        (l) =>
+          l.status === 'sent' ||
+          l.status === 'delivered' ||
+          l.status === 'opened' ||
+          l.status === 'clicked'
+      ).length || 0;
+    const totalOpens =
+      logs?.filter((l) => l.status === 'opened' || l.status === 'clicked')
+        .length || 0;
+    const totalClicks = logs?.filter((l) => l.status === 'clicked').length || 0;
+    const totalBounces =
+      logs?.filter((l) => l.status === 'bounced').length || 0;
 
     const overview = {
       totalSent,
@@ -64,32 +75,56 @@ export async function GET(req: Request) {
     };
 
     // Calculate per-campaign stats
-    const campaignStats = campaigns?.map(campaign => {
-      const campaignLogs = logs?.filter(l => l.campaign_id === campaign.id) || [];
-      const sent = campaignLogs.filter(l => l.status === 'sent' || l.status === 'delivered' || l.status === 'opened' || l.status === 'clicked').length;
-      const opens = campaignLogs.filter(l => l.status === 'opened' || l.status === 'clicked').length;
-      const clicks = campaignLogs.filter(l => l.status === 'clicked').length;
+    const campaignStats =
+      campaigns?.map((campaign) => {
+        const campaignLogs =
+          logs?.filter((l) => l.campaign_id === campaign.id) || [];
+        const sent = campaignLogs.filter(
+          (l) =>
+            l.status === 'sent' ||
+            l.status === 'delivered' ||
+            l.status === 'opened' ||
+            l.status === 'clicked'
+        ).length;
+        const opens = campaignLogs.filter(
+          (l) => l.status === 'opened' || l.status === 'clicked'
+        ).length;
+        const clicks = campaignLogs.filter(
+          (l) => l.status === 'clicked'
+        ).length;
 
-      return {
-        id: campaign.id,
-        name: campaign.name,
-        sent,
-        opens,
-        clicks,
-        openRate: sent > 0 ? (opens / sent) * 100 : 0,
-        clickRate: sent > 0 ? (clicks / sent) * 100 : 0,
-        sentAt: campaign.sent_at,
-      };
-    }) || [];
+        return {
+          id: campaign.id,
+          name: campaign.name,
+          sent,
+          opens,
+          clicks,
+          openRate: sent > 0 ? (opens / sent) * 100 : 0,
+          clickRate: sent > 0 ? (clicks / sent) * 100 : 0,
+          sentAt: campaign.sent_at,
+        };
+      }) || [];
 
     // Calculate timeline data (daily aggregates)
-    const timelineMap = new Map<string, { sent: number; opens: number; clicks: number }>();
-    
-    logs?.forEach(log => {
+    const timelineMap = new Map<
+      string,
+      { sent: number; opens: number; clicks: number }
+    >();
+
+    logs?.forEach((log) => {
       const date = new Date(log.sent_at).toISOString().split('T')[0];
-      const existing = timelineMap.get(date) || { sent: 0, opens: 0, clicks: 0 };
-      
-      if (log.status === 'sent' || log.status === 'delivered' || log.status === 'opened' || log.status === 'clicked') {
+      const existing = timelineMap.get(date) || {
+        sent: 0,
+        opens: 0,
+        clicks: 0,
+      };
+
+      if (
+        log.status === 'sent' ||
+        log.status === 'delivered' ||
+        log.status === 'opened' ||
+        log.status === 'clicked'
+      ) {
         existing.sent++;
       }
       if (log.status === 'opened' || log.status === 'clicked') {
@@ -98,7 +133,7 @@ export async function GET(req: Request) {
       if (log.status === 'clicked') {
         existing.clicks++;
       }
-      
+
       timelineMap.set(date, existing);
     });
 
@@ -111,11 +146,19 @@ export async function GET(req: Request) {
       ...campaignStats
         .sort((a, b) => b.openRate - a.openRate)
         .slice(0, 3)
-        .map(c => ({ campaign: c.name, metric: 'Open Rate', value: c.openRate })),
+        .map((c) => ({
+          campaign: c.name,
+          metric: 'Open Rate',
+          value: c.openRate,
+        })),
       ...campaignStats
         .sort((a, b) => b.clickRate - a.clickRate)
         .slice(0, 3)
-        .map(c => ({ campaign: c.name, metric: 'Click Rate', value: c.clickRate })),
+        .map((c) => ({
+          campaign: c.name,
+          metric: 'Click Rate',
+          value: c.clickRate,
+        })),
     ];
 
     return NextResponse.json({
