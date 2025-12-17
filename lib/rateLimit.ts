@@ -109,6 +109,53 @@ export const RateLimitPresets = {
 };
 
 /**
+ * Rate limit configurations for specific endpoints
+ * Compatible with new API structure
+ */
+export const RATE_LIMITS = {
+  /** Contact form: 5 requests per minute */
+  CONTACT_FORM: { limit: 5, windowMs: 60_000 },
+  
+  /** Application forms: 3 requests per minute */
+  APPLICATION_FORM: { limit: 3, windowMs: 60_000 },
+  
+  /** Organization invites: 10 requests per minute */
+  ORG_INVITE: { limit: 10, windowMs: 60_000 },
+  
+  /** Search endpoints: 30 requests per minute */
+  SEARCH: { limit: 30, windowMs: 60_000 },
+  
+  /** API endpoints (general): 60 requests per minute */
+  API_GENERAL: { limit: 60, windowMs: 60_000 },
+  
+  /** Webhook endpoints: 100 requests per minute */
+  WEBHOOK: { limit: 100, windowMs: 60_000 },
+  
+  /** Auth endpoints (login/signup): 5 requests per 5 minutes */
+  AUTH: { limit: 5, windowMs: 5 * 60_000 },
+} as const;
+
+/**
+ * Rate limit with new API interface (compatible with monitoring)
+ * Converts windowMs to window for compatibility
+ */
+export function rateLimitNew(
+  identifier: string,
+  config: { limit: number; windowMs: number }
+): { ok: boolean; remaining: number; resetAt?: number } {
+  const result = rateLimit(identifier, {
+    limit: config.limit,
+    window: config.windowMs,
+  });
+  
+  return {
+    ok: result.success,
+    remaining: result.remaining,
+    resetAt: result.reset,
+  };
+}
+
+/**
  * Get client identifier from request
  * Tries multiple sources to identify the client
  */

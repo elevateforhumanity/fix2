@@ -1,22 +1,20 @@
 // app/api/applications/route.ts
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
-// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'RATE_LIMITS'.
-// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'getClientIdentifier'.
-// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'rateLimit'.
-import { rateLimit, getClientIdentifier, RATE_LIMITS } from '@/lib/rate-limit';
+import { rateLimitNew as rateLimit, getClientIdentifier, RATE_LIMITS } from '@/lib/rateLimit';
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting: TEMPORARILY DISABLED - Re-enable after testing
-    // const identifier = getClientIdentifier(req.headers);
-    // const rateLimitResult = rateLimit(`applications:${identifier}`, RATE_LIMITS.APPLICATION_FORM);
-    // if (!rateLimitResult.ok) {
-    //   return NextResponse.json(
-    //     { error: 'Too many requests. Please try again in a minute.' },
-    //     { status: 429 }
-    //   );
-    // }
+    // Rate limiting: 3 requests per minute per IP
+    const identifier = getClientIdentifier(req.headers);
+    const rateLimitResult = rateLimit(`applications:${identifier}`, RATE_LIMITS.APPLICATION_FORM);
+
+    if (!rateLimitResult.ok) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again in a minute.' },
+        { status: 429 }
+      );
+    }
 
     const body = await req.json();
 

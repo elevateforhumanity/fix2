@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createAdminClient } from '@/lib/supabase/admin';
-// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'RATE_LIMITS'.
-// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'getClientIdentifier'.
-// @ts-expect-error TS2305: Module '"@/lib/rate-limit"' has no exported member 'rateLimit'.
-import { rateLimit, getClientIdentifier, RATE_LIMITS } from '@/lib/rate-limit';
+import { rateLimitNew as rateLimit, getClientIdentifier, RATE_LIMITS } from '@/lib/rateLimit';
 import { logger } from '@/lib/logger';
 
 // Validation schema for contact form
@@ -20,15 +17,25 @@ const ContactSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting: TEMPORARILY DISABLED - Re-enable after testing
-    // const identifier = getClientIdentifier(req.headers);
-    // const rateLimitResult = rateLimit(identifier, RATE_LIMITS.CONTACT_FORM);
-    // if (!rateLimitResult.ok) {
-    //   return NextResponse.json(
-    //     { ok: false, error: 'Too many requests. Please try again in a minute.' },
-    //     { status: 429 }
-    //   );
-    // }
+    // Rate limiting: 5 requests per minute per IP
+    const identifier = getClientIdentifier(req.headers);
+    const rateLimitResult = rateLimit(identifier, RATE_LIMITS.CONTACT_FORM);
+
+    if (!rateLimitResult.ok) {
+      return NextResponse.json(
+        { 
+          ok: false, 
+          error: 'Too many requests. Please try again in a minute.' 
+        },
+        { 
+          status: 429,
+          headers: {
+            'Retry-After': '60',
+            'X-RateLimit-Remaining': String(rateLimitResult.remaining),
+          }
+        }
+      );
+    }
 
     // Parse and validate request body
     const body = await req.json().catch(() => null);
