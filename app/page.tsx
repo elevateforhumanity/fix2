@@ -2,159 +2,74 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HeroVideo from '@/components/home/HeroVideo';
 import PrimaryCtas from '@/components/home/PrimaryCtas';
+import HeroBanner from '@/components/hero/HeroBanner';
 
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* HERO */}
-      <section className="px-4 sm:px-6 lg:px-10 pt-10 pb-10">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900">
-              Workforce training that leads to real careers — with funding
-              pathways built in.
-            </h1>
-            <p className="mt-4 text-base sm:text-lg text-zinc-700 max-w-xl">
-              Elevate for Humanity helps people enroll in career programs and
-              helps partners deliver training through a platform built for
-              workforce, reentry, and community impact.
-            </p>
-
-            <PrimaryCtas />
-
-            <div className="mt-5 text-sm text-zinc-600">
-              Serving individuals, schools, employers, and community partners
-              across Indiana and beyond.
-            </div>
-          </div>
-
-          <div className="w-full">
-            <HeroVideo
-              src="/videos/success-stories-video-with-narration.mp4"
-              poster="/images/hero-poster.jpg"
-              className="max-h-[480px]"
-            />
-          </div>
-        </div>
+      {/* 1. VIDEO HERO */}
+      <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
+        <HeroBanner
+          type="video"
+          title="Training, Funding, and Workforce Reporting — All In One Platform"
+          subtitle="Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting."
+          primaryCta={{ label: 'Apply for Training', href: '/apply' }}
+          secondaryCta={{ label: 'License the Platform', href: '/platform' }}
+          videoSrc="/video/hero-home-dec12.mp4"
+          posterSrc="/images/hero/hero-dec12-poster.svg"
+          trustIndicators={[]}
+        />
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-            How Elevate for Humanity Works
-          </h2>
-          <p className="mt-3 text-zinc-700">
-            Apply in minutes, explore funding options, train with support, and
-            track your progress toward employment.
-          </p>
-
-          <div className="mt-8">
-            <HeroVideo
-              src="/videos/success-stories-video-with-narration.mp4"
-              poster="/images/hero-poster.jpg"
-              className="mx-auto max-w-[720px]"
-            />
-          </div>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 transition"
-              href="/apply"
-            >
-              Start Inquiry
-            </Link>
-            <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 transition"
-              href="/funding"
-            >
-              See Funding Options
-            </Link>
-            <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 transition"
-              href="/programs"
-            >
-              View Programs
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* THREE LANES */}
+      {/* 2. CHOOSE YOUR PATH (3 TILES) */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-            Choose your path
+            Choose Your Path
           </h2>
 
           <div className="mt-7 grid md:grid-cols-3 gap-6">
-            {/* Students */}
+            {/* Get Trained */}
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/student-career.jpg"
-                  alt="Students training"
+                  src="/images/hero/hero-dec12-1.svg"
+                  alt="Get trained"
                   fill
                   className="object-cover"
                 />
               </div>
               <h3 className="mt-4 text-xl font-black text-zinc-900">
-                For Students
+                Get Trained
               </h3>
               <p className="mt-2 text-zinc-700">
-                Explore training programs, get help with enrollment, and review
-                funding options that may reduce or cover tuition.
+                Free or funded training programs connected to real careers,
+                employers, and credentials.
               </p>
               <Link
                 className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
-                href="/students"
+                href="/apply"
               >
-                Explore Programs →
+                Apply Now →
               </Link>
             </div>
 
-            {/* Partners */}
+            {/* Partner With Us */}
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/training-provider-1.jpg"
-                  alt="Platform and partners"
+                  src="/images/hero/hero-dec12-2.svg"
+                  alt="Partner with us"
                   fill
                   className="object-cover"
                 />
               </div>
               <h3 className="mt-4 text-xl font-black text-zinc-900">
-                For Schools & Training Providers
+                Partner With Us
               </h3>
               <p className="mt-2 text-zinc-700">
-                Deliver programs through a platform built for enrollment,
-                learning, reporting, and payments—ready for scaling and
-                licensing.
-              </p>
-              <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
-                href="/platform"
-              >
-                View the Platform →
-              </Link>
-            </div>
-
-            {/* Community */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
-                <Image
-                  src="/images/learners/reentry-coaching.jpg"
-                  alt="Community impact"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
-                For Employers & Community Partners
-              </h3>
-              <p className="mt-2 text-zinc-700">
-                Build talent pipelines, support reentry and workforce growth,
-                and connect people to real opportunities.
+                Hire talent, host apprenticeships, or partner with a
+                workforce-ready training provider.
               </p>
               <Link
                 className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
@@ -163,208 +78,291 @@ export default function HomePage() {
                 Partner With EFH →
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* PLATFORM SNAPSHOT */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-              One platform. Multiple apps. Built to scale.
-            </h2>
-            <ul className="mt-4 space-y-2 text-zinc-700">
-              <li>• LMS (courses, tracking, completions)</li>
-              <li>• Enrollment & intake workflow</li>
-              <li>• Roles & permissions (students, staff, partners)</li>
-              <li>• Payments powered by Stripe + flexible options</li>
-              <li>• Partner dashboards and licensing-ready structure</li>
-            </ul>
-            <div className="mt-6">
+            {/* License the Platform */}
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
+                <Image
+                  src="/images/hero/hero-dec12-3.svg"
+                  alt="License the platform"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="mt-4 text-xl font-black text-zinc-900">
+                License the Platform
+              </h3>
+              <p className="mt-2 text-zinc-700">
+                Deploy a complete workforce operating system for your
+                organization, school, or agency.
+              </p>
               <Link
-                className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 inline-flex transition"
-                href="/platform/apps"
+                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
+                href="/platform"
               >
-                See Apps & Licensing
+                View Licensing →
               </Link>
             </div>
           </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
-              <Image
-                src="/images/gallery/image3.jpg"
-                alt="Platform screenshot 1"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
-              <Image
-                src="/images/gallery/image6.jpg"
-                alt="Platform screenshot 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
-              <Image
-                src="/images/gallery/image8.jpg"
-                alt="Platform screenshot 3"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
-              <Image
-                src="/images/heroes/programs.jpg"
-                alt="Platform screenshot 4"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* PROGRAM PREVIEW */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-                Popular programs
-              </h2>
-              <p className="mt-2 text-zinc-700">
-                Start with a program that matches your goals. We'll help you
-                understand eligibility, timelines, and support options.
+      {/* 3. HOW IT WORKS (3 STEPS) */}
+      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+            How It Works
+          </h2>
+
+          <div className="mt-8 grid md:grid-cols-3 gap-6 text-left">
+            <div className="bg-white rounded-xl p-6 border border-zinc-200">
+              <div className="text-3xl font-black text-zinc-900">1</div>
+              <h3 className="mt-3 text-lg font-black text-zinc-900">Enroll</h3>
+              <p className="mt-2 text-sm text-zinc-700">
+                Students apply once and are matched to training, funding, and
+                support services.
               </p>
             </div>
-            <Link
-              className="hidden sm:inline-flex font-extrabold text-zinc-900 hover:underline"
-              href="/programs"
-            >
-              View all →
-            </Link>
-          </div>
-
-          <div className="mt-7 grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Barber Apprenticeship',
-                img: '/images/programs/barber-hero.jpg',
-                href: '/programs/barber-apprenticeship',
-              },
-              {
-                title: 'Tax & Finance Certificate',
-                img: '/images/tax-office-1.jpg',
-                href: '/programs/tax-prep-financial-services',
-              },
-              {
-                title: 'CNA / Healthcare Pathway',
-                img: '/images/programs/efh-cna-hero.jpg',
-                href: '/programs/cna',
-              },
-            ].map((p) => (
-              <Link
-                key={p.title}
-                href={p.href}
-                className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-md transition"
-              >
-                <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-zinc-100">
-                  <Image
-                    src={p.img}
-                    alt={p.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="mt-4 text-lg font-black text-zinc-900">
-                  {p.title}
-                </div>
-                <div className="mt-2 text-sm text-zinc-700">
-                  Hybrid options • Clear milestones • Enrollment support
-                </div>
-                <div className="mt-4 font-extrabold text-zinc-900">
-                  View details →
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-8 sm:hidden">
-            <Link
-              className="inline-flex font-extrabold text-zinc-900 hover:underline"
-              href="/programs"
-            >
-              View all programs →
-            </Link>
+            <div className="bg-white rounded-xl p-6 border border-zinc-200">
+              <div className="text-3xl font-black text-zinc-900">2</div>
+              <h3 className="mt-3 text-lg font-black text-zinc-900">Train</h3>
+              <p className="mt-2 text-sm text-zinc-700">
+                Hybrid learning, apprenticeships, and hands-on experience —
+                tracked in real time.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-zinc-200">
+              <div className="text-3xl font-black text-zinc-900">3</div>
+              <h3 className="mt-3 text-lg font-black text-zinc-900">
+                Report Outcomes
+              </h3>
+              <p className="mt-2 text-sm text-zinc-700">
+                Completion, credentials, placements, and funding reports — ready
+                for boards and agencies.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* TRUST + PAYMENTS */}
+      {/* 4. STUDENT OUTCOMES & SUPPORT */}
+      <section className="px-4 sm:px-6 lg:px-10 py-12">
+        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
+          <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
+            <Image
+              src="/images/hero/hero-dec12-1.svg"
+              alt="Student outcomes and support"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+              We support the whole learner — not just enrollment.
+            </h2>
+            <ul className="mt-6 space-y-3 text-zinc-700">
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Career training</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Case management</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Funding navigation</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Credential tracking</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Employer connections</span>
+              </li>
+            </ul>
+            <p className="mt-6 text-zinc-700 font-medium">
+              Built for real people, real barriers, and real outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. EMPLOYERS & WORKFORCE BOARDS */}
       <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-              Simple, secure payments when needed
+              Designed to meet compliance, reporting, and accountability
+              requirements.
             </h2>
-            <p className="mt-3 text-zinc-700">
-              We accept major credit/debit cards and offer flexible payment
-              options at checkout when available. Secure payments are powered by
-              Stripe.
-            </p>
-            <p className="mt-2 text-sm text-zinc-600">
-              Payment options shown at checkout vary by eligibility.
-            </p>
+            <ul className="mt-6 space-y-3 text-zinc-700">
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>WIOA / WRG / JRI aligned</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Registered Apprenticeship compatible</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Employer-validated skills</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Board-ready reporting</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">✔</span>
+                <span>Secure, auditable data</span>
+              </li>
+            </ul>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 justify-start lg:justify-end">
+          <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
+            <Image
+              src="/images/hero/hero-dec12-2.svg"
+              alt="Employers and workforce boards"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 6. THE PLATFORM (WHAT YOU'RE LICENSING) */}
+      <section className="px-4 sm:px-6 lg:px-10 py-12">
+        <div className="mx-auto max-w-6xl text-center">
+          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+            This is not just a school website.
+          </h2>
+          <p className="mt-3 text-xl text-zinc-700 font-semibold">
+            It's a Workforce Operating System.
+          </p>
+
+          <div className="mt-8 grid md:grid-cols-5 gap-4 max-w-3xl mx-auto">
+            <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-200">
+              <div className="text-sm font-black text-zinc-900">
+                Multi-tenant
+              </div>
+            </div>
+            <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-200">
+              <div className="text-sm font-black text-zinc-900">
+                Config-driven
+              </div>
+            </div>
+            <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-200">
+              <div className="text-sm font-black text-zinc-900">
+                License-enforced
+              </div>
+            </div>
+            <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-200">
+              <div className="text-sm font-black text-zinc-900">
+                White-label ready
+              </div>
+            </div>
+            <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-200">
+              <div className="text-sm font-black text-zinc-900">
+                Secure by design
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-zinc-700">
+            Used by training providers, employers, nonprofits, and agencies.
+          </p>
+
+          <div className="mt-8">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
-              href="/apply"
-            >
-              Enroll Now
-            </Link>
-            <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl bg-zinc-900 text-white px-6 py-3 font-extrabold hover:bg-zinc-800 inline-flex transition"
               href="/platform"
             >
-              View Licenses
+              View Licensing
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12">
-        <div className="mx-auto max-w-6xl rounded-3xl border border-zinc-200 bg-white p-8 sm:p-10 shadow-sm">
+      {/* 7. COMPLIANCE & TRUST */}
+      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
+        <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-            Ready to get started?
+            Compliance & Trust
           </h2>
-          <p className="mt-2 text-zinc-700">
-            Apply today or connect with our team. Partners can license the
-            platform.
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+
+          <div className="mt-8 grid md:grid-cols-2 gap-4 text-left">
+            <div className="bg-white rounded-xl p-5 border border-zinc-200">
+              <div className="flex items-start">
+                <span className="mr-2 text-zinc-900">✔</span>
+                <span className="text-zinc-700">
+                  Workforce Innovation & Opportunity Act (WIOA)
+                </span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-zinc-200">
+              <div className="flex items-start">
+                <span className="mr-2 text-zinc-900">✔</span>
+                <span className="text-zinc-700">
+                  Registered Apprenticeship Programs
+                </span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-zinc-200">
+              <div className="flex items-start">
+                <span className="mr-2 text-zinc-900">✔</span>
+                <span className="text-zinc-700">
+                  Employer & Board Reporting
+                </span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-zinc-200">
+              <div className="flex items-start">
+                <span className="mr-2 text-zinc-900">✔</span>
+                <span className="text-zinc-700">
+                  FERPA-aware student data handling
+                </span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-zinc-200">
+              <div className="flex items-start">
+                <span className="mr-2 text-zinc-900">✔</span>
+                <span className="text-zinc-700">
+                  Role-based access & RLS security
+                </span>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-zinc-200">
+              <div className="flex items-start">
+                <span className="mr-2 text-zinc-900">✔</span>
+                <span className="text-zinc-700">
+                  Secure, auditable platform
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FINAL CTA */}
+      <section className="px-4 sm:px-6 lg:px-10 py-12">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+            Start training. Start partnering. Or license the platform.
+          </h2>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
+              className="rounded-xl bg-zinc-900 text-white px-6 py-3 font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
               href="/apply"
             >
-              Apply Today
+              Apply for Training
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
-              href="/contact"
+              className="rounded-xl border border-zinc-300 bg-white px-6 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              href="/platform"
             >
-              Talk to Our Team
-            </Link>
-            <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
-              href="/platform/licensing"
-            >
-              Partner / License the Platform
+              License the Platform
             </Link>
           </div>
         </div>
