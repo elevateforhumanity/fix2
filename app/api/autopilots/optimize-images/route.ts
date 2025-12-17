@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -55,7 +56,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         error: "Failed to optimize images",
-        message: error.message,
+        message: toErrorMessage(error),
       },
       { status: 500 }
     );

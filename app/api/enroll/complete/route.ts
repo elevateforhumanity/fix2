@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 interface CompleteEnrollmentRequest {
   sessionId: string;
@@ -224,7 +225,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     logger.error('Enrollment completion error', error);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: toErrorMessage(error) || 'Internal server error' },
       { status: 500 }
     );
   }

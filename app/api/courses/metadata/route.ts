@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   try {
@@ -50,7 +51,7 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: "Failed to fetch metadata", message: error.message },
+      { error: "Failed to fetch metadata", message: toErrorMessage(error) },
       { status: 500 }
     );
   }

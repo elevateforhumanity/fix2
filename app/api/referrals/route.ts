@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
 import {
+import { toError, toErrorMessage } from '@/lib/safe';
   createReferralCode,
   getReferralCodeByCode,
   getUserReferralCodes,

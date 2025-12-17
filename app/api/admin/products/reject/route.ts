@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { sendProductRejectionEmail } from '@/lib/email/resend';
 import { createClient } from '@/utils/supabase/server';
 import { requireAdmin } from '@/lib/auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   try {
@@ -24,6 +25,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
   } catch (error: unknown) {
     logger.error('Course completion error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to record completion' },
+      { error: toErrorMessage(error) || 'Failed to record completion' },
       { status: 500 }
     );
   }

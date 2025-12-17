@@ -5,6 +5,7 @@ import { createSupabaseClient } from "@/lib/supabase-api";
 import { createZoomMeeting } from '@/lib/integrations/zoom';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 
 export async function POST(request: NextRequest) {

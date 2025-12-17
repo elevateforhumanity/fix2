@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe/client';
 import { getProductBySlug } from '@/app/data/store-products';
 import { STRIPE_PRICE_IDS, isPriceConfigured } from '@/lib/stripe/price-map';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = 'nodejs';
 
@@ -87,7 +88,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: toErrorMessage(error) || 'Internal server error' },
       { status: 500 }
     );
   }

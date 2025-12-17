@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { issueModuleCertificate } from '@/lib/certificates/certificate-generator';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {

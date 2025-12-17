@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import webpush from 'web-push';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // Configure VAPID
 if (process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
@@ -91,7 +92,7 @@ export async function POST(req: Request) {
               body,
               type: 'push',
               status: 'failed',
-              error_message: error.message,
+              error_message: toErrorMessage(error),
             });
           }
         }
@@ -112,7 +113,7 @@ export async function POST(req: Request) {
   } catch (error: unknown) {
     logger.error('Broadcast notification error:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }

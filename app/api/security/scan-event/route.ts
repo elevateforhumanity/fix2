@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   const auth = req.headers.get("authorization") || "";
@@ -30,7 +31,7 @@ export async function POST(req: Request) {
 
   if (error) {
     logger.error("Failed to insert security scan event:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true });

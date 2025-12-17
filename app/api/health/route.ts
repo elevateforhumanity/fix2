@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   const checks: Record<string, any> = {
@@ -51,7 +52,7 @@ export async function GET() {
     checks.checks.database = {
       connected: false,
       status: 'fail',
-      error: error.message,
+      error: toErrorMessage(error),
     };
   }
 

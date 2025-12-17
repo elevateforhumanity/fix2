@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   try {
@@ -62,7 +63,7 @@ export async function GET() {
 
     if (error) {
       return NextResponse.json({
-        error: error.message,
+        error: toErrorMessage(error),
         details: error,
       });
     }
@@ -84,7 +85,7 @@ export async function GET() {
     });
   } catch (error: any) {
     return NextResponse.json({
-      error: error.message || 'Internal server error',
+      error: toErrorMessage(error) || 'Internal server error',
     });
   }
 }

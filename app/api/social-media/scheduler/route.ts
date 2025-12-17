@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 /**
  * Social Media Scheduler - Posts to social platforms 3x daily
@@ -100,7 +101,7 @@ export async function GET(req: Request) {
               content: postContent,
               post_index: postIndex,
               status: 'failed',
-              error_message: error.message,
+              error_message: toErrorMessage(error),
             });
 
             results.push({
@@ -109,7 +110,7 @@ export async function GET(req: Request) {
               platform,
               postIndex,
               success: false,
-              error: error.message,
+              error: toErrorMessage(error),
             });
           }
         }
@@ -126,7 +127,7 @@ export async function GET(req: Request) {
           campaignId: campaign.id,
           name: campaign.name,
           success: false,
-          error: error.message,
+          error: toErrorMessage(error),
         });
       }
     }
@@ -140,7 +141,7 @@ export async function GET(req: Request) {
   } catch (error: unknown) {
     logger.error('Scheduler error:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }

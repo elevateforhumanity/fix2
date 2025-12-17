@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -18,7 +19,7 @@ export async function GET() {
   const { data, error } = await supabase
     .from('cert_revocation_log')
     .select('*');
-  if (error) return new Response(error.message, { status: 500 });
+  if (error) return new Response(toErrorMessage(error), { status: 500 });
   const header =
     'serial,learner_email,course_title,issued_at,expires_at,revoked_at,revoked_reason\n';
   const csv = (data || [])

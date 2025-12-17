@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   const { path } = await req.json();
@@ -11,7 +12,7 @@ export async function POST(req: Request) {
   const { error } = await supabase.storage.from("media").remove([path]);
 
   if (error) {
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   return Response.json({ ok: true });

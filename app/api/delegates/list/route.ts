@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -32,7 +33,7 @@ export async function GET() {
     )
     .order('created_at', { ascending: false });
 
-  if (error) return new Response(error.message, { status: 500 });
+  if (error) return new Response(toErrorMessage(error), { status: 500 });
 
   const mapped = (delegates || []).map((r: Record<string, any>) => ({
     id: r.id,

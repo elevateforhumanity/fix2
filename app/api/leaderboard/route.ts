@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getCurrentUser } from '@/lib/auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(request: Request) {
   try {
@@ -17,6 +18,6 @@ export async function GET(request: Request) {
       timeframe,
     });
   } catch (error: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

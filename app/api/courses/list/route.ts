@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(request: NextRequest) {
   try {
@@ -47,7 +48,7 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       logger.error('Courses fetch error:', error);
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 400 });
     }
 
     return NextResponse.json({ courses });
@@ -55,7 +56,7 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Courses list error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch courses' },
+      { error: toErrorMessage(error) || 'Failed to fetch courses' },
       { status: 500 }
     );
   }

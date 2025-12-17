@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
 import { marked } from "marked";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // Simple HTML escape for security
 function escapeHtml(text: string): string {
@@ -293,7 +294,7 @@ export async function GET(req: NextRequest) {
           <p><strong>File:</strong> ${path}</p>
           <p><strong>Repo:</strong> ${repo}</p>
           <p><strong>Branch:</strong> ${ref}</p>
-          <pre>${error.message}</pre>
+          <pre>${toErrorMessage(error)}</pre>
         </div>
       </body>
       </html>

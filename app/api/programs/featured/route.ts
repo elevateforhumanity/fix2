@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";
 import { cacheGet, cacheSet } from '@/lib/cache';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 
 export async function GET(_req: NextRequest) {
@@ -24,7 +25,7 @@ export async function GET(_req: NextRequest) {
     .limit(12);
 
   if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   // Cache for 5 minutes

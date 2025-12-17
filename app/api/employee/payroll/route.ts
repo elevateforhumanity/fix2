@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   try {
@@ -37,14 +38,14 @@ export async function GET() {
       .limit(12);
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     return NextResponse.json({ payrolls });
   } catch (error: unknown) {
     logger.error('Error fetching payroll:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch payroll data' },
+      { error: toErrorMessage(error) || 'Failed to fetch payroll data' },
       { status: 500 }
     );
   }

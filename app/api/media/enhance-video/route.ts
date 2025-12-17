@@ -5,6 +5,7 @@ import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const execAsync = promisify(exec);
 
@@ -85,7 +86,7 @@ export async function POST(request: Request) {
   } catch (error: unknown) {
     logger.error('Video upload error:', error);
     return NextResponse.json(
-      { error: 'Failed to process video', details: error.message },
+      { error: 'Failed to process video', details: toErrorMessage(error) },
       { status: 500 }
     );
   }

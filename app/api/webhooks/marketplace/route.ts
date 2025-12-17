@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { randomBytes } from 'crypto';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = 'nodejs';
 
@@ -81,7 +82,7 @@ export async function POST(req: Request) {
 
     if (error) {
       // Error: $1
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     // Audit log

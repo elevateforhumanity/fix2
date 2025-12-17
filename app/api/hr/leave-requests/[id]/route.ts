@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function PATCH(
   request: NextRequest,
@@ -71,7 +72,7 @@ export async function PATCH(
   } catch (error: unknown) {
     logger.error('Error updating leave request:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to update leave request' },
+      { error: toErrorMessage(error) || 'Failed to update leave request' },
       { status: 500 }
     );
   }

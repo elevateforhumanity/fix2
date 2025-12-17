@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 /**
  * Email Scheduler - Processes scheduled campaigns
@@ -90,7 +91,7 @@ export async function GET(req: Request) {
           .from('email_campaigns')
           .update({ 
             status: 'failed',
-            error_message: error.message,
+            error_message: toErrorMessage(error),
           })
           .eq('id', campaign.id);
 
@@ -98,7 +99,7 @@ export async function GET(req: Request) {
           campaignId: campaign.id,
           name: campaign.name,
           success: false,
-          error: error.message,
+          error: toErrorMessage(error),
         });
       }
     }
@@ -112,7 +113,7 @@ export async function GET(req: Request) {
   } catch (error: unknown) {
     logger.error('Scheduler error:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }

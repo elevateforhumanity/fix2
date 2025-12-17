@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getPartnerClient, PartnerType, WebhookPayload } from "@/lib/partners";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -86,7 +87,7 @@ export async function POST(
   } catch (error: unknown) {
     logger.error(`[Webhook] Error processing ${partner} webhook:`, error);
     return NextResponse.json(
-      { error: error.message || "Internal server error" },
+      { error: toErrorMessage(error) || "Internal server error" },
       { status: 500 }
     );
   }

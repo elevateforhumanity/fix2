@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 type Action = 'APPROVE' | 'REJECT' | 'LOCK';
 
@@ -77,7 +78,7 @@ export async function GET(req: Request) {
   if (to) q = q.lte('log_date', to);
 
   const { data, error } = await q;
-  if (error) return jsonError(error.message, 500);
+  if (error) return jsonError(toErrorMessage(error), 500);
 
   return NextResponse.json({ entries: data ?? [] });
 }

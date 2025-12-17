@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // Initialize Stripe with proper error handling
 const stripeKey = process.env.STRIPE_SECRET_KEY;
@@ -314,7 +315,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: 'Card error',
-          message: error.message,
+          message: toErrorMessage(error),
           code: 'CARD_ERROR',
         },
         { status: 400 }
@@ -325,7 +326,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: 'Invalid request',
-          message: error.message,
+          message: toErrorMessage(error),
           code: 'INVALID_REQUEST',
         },
         { status: 400 }

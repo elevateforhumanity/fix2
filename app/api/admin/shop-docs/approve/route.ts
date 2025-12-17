@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   try {
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
 
     if (error) {
       // Error: $1
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     // Check if all required docs are now approved
@@ -82,7 +83,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Approval failed' },
+      { error: toErrorMessage(error) || 'Approval failed' },
       { status: 500 }
     );
   }

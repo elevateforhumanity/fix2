@@ -3,6 +3,7 @@ import { createServerSupabaseClient } from '@/lib/auth';
 import fs from 'fs';
 import path from 'path';
 import { withAuth } from '@/lib/with-auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const POST = withAuth(
   async (request: Request, user) => {
@@ -36,7 +37,7 @@ export const POST = withAuth(
           const { error } = await supabase.rpc('exec_sql', { sql_query: sql });
 
           if (error) {
-            results.push({ file, status: 'error', error: error.message });
+            results.push({ file, status: 'error', error: toErrorMessage(error) });
           } else {
             results.push({ file, status: 'success' });
           }
@@ -50,7 +51,7 @@ export const POST = withAuth(
 
     return NextResponse.json({ results });
   } catch (error: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   },

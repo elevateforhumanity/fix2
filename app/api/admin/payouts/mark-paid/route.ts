@@ -3,6 +3,7 @@ import { sendPayoutConfirmationEmail } from '@/lib/email/resend';
 import { createClient } from '@supabase/supabase-js';
 import { requireAdmin } from '@/lib/auth';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -67,6 +68,6 @@ export async function POST(req: Request) {
     });
   } catch (error: any) {
     // Error: $1
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

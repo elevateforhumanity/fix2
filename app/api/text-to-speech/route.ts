@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {
@@ -90,7 +91,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Text-to-speech error:', error);
     return NextResponse.json(
-      { error: error.message },
+      { error: toErrorMessage(error) },
       { status: 500 }
     );
   }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -51,7 +52,7 @@ export async function GET() {
       {
         ok: false,
         service: 'marketplace',
-        error: error.message,
+        error: toErrorMessage(error),
       },
       { status: 500 }
     );

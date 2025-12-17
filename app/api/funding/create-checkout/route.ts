@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = 'nodejs';
 
@@ -129,7 +130,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     logger.error('Funding checkout creation error', error);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: toErrorMessage(error) || 'Internal server error' },
       { status: 500 }
     );
   }

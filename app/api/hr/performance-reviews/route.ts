@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // GET /api/hr/performance-reviews?employee_id=
 export async function GET(request: NextRequest) {
@@ -33,7 +34,7 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Error fetching performance reviews:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch reviews' },
+      { error: toErrorMessage(error) || 'Failed to fetch reviews' },
       { status: 500 }
     );
   }
@@ -108,7 +109,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Error creating performance review:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to create review' },
+      { error: toErrorMessage(error) || 'Failed to create review' },
       { status: 500 }
     );
   }

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 
@@ -126,7 +127,7 @@ Return ONLY a JSON array of ${count} posts, no other text.`;
   } catch (error: unknown) {
     logger.error('Social media generation error:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }

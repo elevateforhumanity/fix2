@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   try {
@@ -94,7 +95,7 @@ export async function GET() {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || "Failed to load students" },
+      { error: toErrorMessage(error) || "Failed to load students" },
       { status: 500 }
     );
   }

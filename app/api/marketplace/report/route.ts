@@ -6,6 +6,7 @@ import {
   RateLimitPresets,
 } from '@/lib/rateLimit';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -68,7 +69,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Failed to submit report' },
+      { error: toErrorMessage(error) || 'Failed to submit report' },
       { status: 500 }
     );
   }

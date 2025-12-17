@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 /**
  * Supersonic Cash Advance Application API
@@ -110,7 +111,7 @@ export async function POST(req: Request) {
   } catch (error: unknown) {
     logger.error('Cash advance application error:', error);
     return NextResponse.json(
-      { success: false, error: error.message || 'Application failed' },
+      { success: false, error: toErrorMessage(error) || 'Application failed' },
       { status: 500 }
     );
   }

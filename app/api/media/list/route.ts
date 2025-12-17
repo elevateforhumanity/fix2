@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   const supabase = await createClient();
@@ -8,7 +9,7 @@ export async function GET() {
     .list("", { recursive: true });
 
   if (error) {
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   return Response.json(data ?? []);

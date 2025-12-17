@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // GET /api/wioa/support-services - Get support service requests
 export async function GET(request: NextRequest) {
@@ -28,7 +29,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'SERVER_ERROR', message: error.message },
+        error: { code: 'SERVER_ERROR', message: toErrorMessage(error) },
       },
       { status: 500 }
     );
@@ -81,7 +82,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'SERVER_ERROR', message: error.message },
+        error: { code: 'SERVER_ERROR', message: toErrorMessage(error) },
       },
       { status: 500 }
     );

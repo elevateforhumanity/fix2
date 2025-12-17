@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: Request) {
   try {
@@ -129,7 +130,7 @@ export async function GET(req: Request) {
   } catch (error: unknown) {
     logger.error('Analytics error:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }

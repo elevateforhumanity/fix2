@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // TEST ONLY - Simulates webhook without Stripe payment
 export async function POST(req: Request) {
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
 
       if (error) {
         // Error: $1
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
       }
 
       logger.info('[TEST] ✅ Created enrollment:', newEnrollment.id);
@@ -67,7 +68,7 @@ export async function POST(req: Request) {
 
       if (error) {
         // Error: $1
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
       }
 
       logger.info('[TEST] ✅ Activated enrollment:', existing.id);
@@ -91,7 +92,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: toErrorMessage(error) || 'Internal server error' },
       { status: 500 }
     );
   }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(request: NextRequest) {
   const openaiKey = process.env.OPENAI_API_KEY;
@@ -75,7 +76,7 @@ Component should be a default export function.`;
   } catch (error: unknown) {
     logger.error('AI Page Builder error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to generate page' },
+      { error: toErrorMessage(error) || 'Failed to generate page' },
       { status: 500 }
     );
   }

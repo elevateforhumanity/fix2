@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 async function getHandler(req: Request, context: Record<string, unknown>, user: Record<string, unknown>) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -31,7 +32,7 @@ async function getHandler(req: Request, context: Record<string, unknown>, user: 
     .eq('user_id', learner_id)
     .order('created_at', { ascending: false });
 
-  if (error) return new Response(error.message, { status: 500 });
+  if (error) return new Response(toErrorMessage(error), { status: 500 });
 
   const mapped = (notes || []).map((n: Record<string, unknown>) => ({
     user_id: n.user_id,

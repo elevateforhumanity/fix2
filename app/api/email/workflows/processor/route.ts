@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { Resend } from 'resend';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -57,7 +58,7 @@ export async function GET(req: Request) {
         results.push({
           workflowId: workflow.id,
           name: workflow.name,
-          error: error.message,
+          error: toErrorMessage(error),
         });
       }
     }
@@ -70,7 +71,7 @@ export async function GET(req: Request) {
   } catch (error: unknown) {
     logger.error('Workflow processor error:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }
@@ -277,7 +278,7 @@ async function processPendingEmails(supabase: any, workflow: any, now: Date) {
         recipient_id: enrollment.user_id,
         subject: 'Workflow email',
         status: 'failed',
-        error_message: error.message,
+        error_message: toErrorMessage(error),
       });
     }
   }

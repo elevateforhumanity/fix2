@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const dynamic = 'force-dynamic';
 
@@ -77,7 +78,7 @@ export async function GET(req: NextRequest) {
   } catch (error: unknown) {
     logger.error('Generate sitemap error:', error);
     return NextResponse.json(
-      { error: 'Failed to generate sitemap', message: error.message },
+      { error: 'Failed to generate sitemap', message: toErrorMessage(error) },
       { status: 500 }
     );
   }

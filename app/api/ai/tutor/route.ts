@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   if (!isOpenAIConfigured()) {
@@ -79,7 +80,7 @@ export async function POST(req: Request) {
   } catch (error: unknown) {
     logger.error("AI tutor error:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to get answer" },
+      { error: toErrorMessage(error) || "Failed to get answer" },
       { status: 500 }
     );
   }

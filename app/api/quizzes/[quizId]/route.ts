@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabaseServer";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // GET /api/quizzes/[quizId] - Load quiz with questions
 export async function GET(
@@ -39,7 +40,7 @@ export async function GET(
     });
   } catch (error: unknown) {
     return NextResponse.json(
-      { error: error.message || "Failed to load quiz" },
+      { error: toErrorMessage(error) || "Failed to load quiz" },
       { status: 500 }
     );
   }
@@ -148,7 +149,7 @@ export async function POST(
     });
   } catch (error: unknown) {
     return NextResponse.json(
-      { error: error.message || "Failed to submit quiz" },
+      { error: toErrorMessage(error) || "Failed to submit quiz" },
       { status: 500 }
     );
   }

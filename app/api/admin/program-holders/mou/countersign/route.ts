@@ -4,6 +4,7 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
 import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const POST = withAuth(
   async (req, context) => {
@@ -70,7 +71,7 @@ export const POST = withAuth(
 
     if (error) {
       logger.error('Update error:', error);
-      return new Response(error.message, { status: 500 });
+      return new Response(toErrorMessage(error), { status: 500 });
     }
 
     return Response.json(updated);

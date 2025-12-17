@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -140,7 +141,7 @@ export async function POST(req: NextRequest) {
   } catch (error: unknown) {
     logger.error('Email delivery error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to send email' },
+      { error: toErrorMessage(error) || 'Failed to send email' },
       { status: 500 }
     );
   }

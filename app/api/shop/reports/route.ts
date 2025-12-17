@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   try {
@@ -75,14 +76,14 @@ export async function POST(req: Request) {
 
     if (error) {
       // Error: $1
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Failed to submit report' },
+      { error: toErrorMessage(error) || 'Failed to submit report' },
       { status: 500 }
     );
   }

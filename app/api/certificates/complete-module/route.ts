@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { onModuleComplete } from '@/lib/certificates/certificate-delivery';
 import { createClient } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {

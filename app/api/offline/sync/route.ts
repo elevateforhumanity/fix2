@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   const supabase = await createClient();
@@ -57,7 +58,7 @@ export async function POST(req: Request) {
   } catch (error: unknown) {
     logger.error("Sync error:", error);
     return NextResponse.json(
-      { error: error.message || "Sync failed" },
+      { error: toErrorMessage(error) || "Sync failed" },
       { status: 500 }
     );
   }

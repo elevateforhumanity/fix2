@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import OpenAI from 'openai';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 function getOpenAIClient() {
   return new OpenAI({
@@ -138,7 +139,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Failed to process chat' },
+      { error: toErrorMessage(error) || 'Failed to process chat' },
       { status: 500 }
     );
   }

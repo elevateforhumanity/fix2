@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // GET /api/wioa/case-management/[id] - Get case by ID
 export async function GET(
@@ -23,7 +24,7 @@ export async function GET(
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'SERVER_ERROR', message: error.message },
+        error: { code: 'SERVER_ERROR', message: toErrorMessage(error) },
       },
       { status: 500 }
     );
@@ -54,7 +55,7 @@ export async function PUT(
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'SERVER_ERROR', message: error.message },
+        error: { code: 'SERVER_ERROR', message: toErrorMessage(error) },
       },
       { status: 500 }
     );

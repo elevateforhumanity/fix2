@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
 
   if (error) {
     logger.error('Update error:', error);
-    return new Response(error.message, { status: 500 });
+    return new Response(toErrorMessage(error), { status: 500 });
   }
 
   return Response.json(updated);

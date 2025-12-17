@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // POST /api/wioa/support-services/[id]/approve - Approve/deny support service
 export async function POST(
@@ -36,7 +37,7 @@ export async function POST(
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'SERVER_ERROR', message: error.message },
+        error: { code: 'SERVER_ERROR', message: toErrorMessage(error) },
       },
       { status: 500 }
     );

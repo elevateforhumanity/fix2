@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -80,7 +81,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         error: "Failed to generate content",
-        message: error.message,
+        message: toErrorMessage(error),
         details: error.response?.data || error.toString(),
       },
       { status: 500 }

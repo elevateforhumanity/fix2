@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const POST = withAuth(
   async (request: Request, user) => {
@@ -60,7 +61,7 @@ export const POST = withAuth(
       video: videoData,
     });
   } catch (error: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 
   },

@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const GET = withAuth(
   async (req, context) => {
@@ -33,7 +34,7 @@ export const GET = withAuth(
       )
       .order('created_at', { ascending: false });
 
-    if (error) return new Response(error.message, { status: 500 });
+    if (error) return new Response(toErrorMessage(error), { status: 500 });
 
     const mapped = (holders || []).map((h: Record<string, unknown>) => ({
       id: h.id,

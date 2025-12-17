@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
   try {
@@ -64,7 +65,7 @@ export async function GET() {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || "Failed to load hours" },
+      { error: toErrorMessage(error) || "Failed to load hours" },
       { status: 500 }
     );
   }

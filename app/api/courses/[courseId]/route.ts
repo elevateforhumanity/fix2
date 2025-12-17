@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(
   request: NextRequest,
@@ -49,7 +50,7 @@ export async function GET(
   } catch (error: unknown) {
     logger.error('Course fetch error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch course' },
+      { error: toErrorMessage(error) || 'Failed to fetch course' },
       { status: 500 }
     );
   }
@@ -90,7 +91,7 @@ export async function PATCH(
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 400 });
     }
 
     return NextResponse.json({ course });
@@ -98,7 +99,7 @@ export async function PATCH(
   } catch (error: unknown) {
     logger.error('Course update error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to update course' },
+      { error: toErrorMessage(error) || 'Failed to update course' },
       { status: 500 }
     );
   }
@@ -135,7 +136,7 @@ export async function DELETE(
       .eq('id', courseId);
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 400 });
     }
 
     return NextResponse.json({ success: true });
@@ -143,7 +144,7 @@ export async function DELETE(
   } catch (error: unknown) {
     logger.error('Course delete error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to delete course' },
+      { error: toErrorMessage(error) || 'Failed to delete course' },
       { status: 500 }
     );
   }

@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // GET /api/hr/leave-requests?employee_id=&status=
 export async function GET(request: NextRequest) {
@@ -36,7 +37,7 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Error fetching leave requests:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch leave requests' },
+      { error: toErrorMessage(error) || 'Failed to fetch leave requests' },
       { status: 500 }
     );
   }
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Error creating leave request:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to create leave request' },
+      { error: toErrorMessage(error) || 'Failed to create leave request' },
       { status: 500 }
     );
   }

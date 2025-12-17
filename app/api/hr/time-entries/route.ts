@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 // GET /api/hr/time-entries?employee_id=&start=&end=&status=
 export async function GET(request: NextRequest) {
@@ -39,7 +40,7 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Error fetching time entries:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch time entries' },
+      { error: toErrorMessage(error) || 'Failed to fetch time entries' },
       { status: 500 }
     );
   }
@@ -105,7 +106,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Error creating time entry:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to create time entry' },
+      { error: toErrorMessage(error) || 'Failed to create time entry' },
       { status: 500 }
     );
   }

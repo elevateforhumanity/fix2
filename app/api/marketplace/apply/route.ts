@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { sendMarketplaceApplicationEmail } from '@/lib/email/resend';
 import { createClient } from '@/utils/supabase/server';
 import {
+import { toError, toErrorMessage } from '@/lib/safe';
   rateLimit,
   getClientIdentifier,
   createRateLimitHeaders,
@@ -91,7 +92,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || 'Application failed' },
+      { error: toErrorMessage(error) || 'Application failed' },
       { status: 500 }
     );
   }

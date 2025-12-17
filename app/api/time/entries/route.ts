@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 type HourType = 'RTI' | 'OJT';
 type FundingPhase = 'PRE_WIOA' | 'WIOA' | 'POST_CERT';
@@ -262,6 +263,6 @@ export async function GET(req: Request) {
   const { data, error } = await query;
 
   if (error)
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   return NextResponse.json({ entries: data });
 }

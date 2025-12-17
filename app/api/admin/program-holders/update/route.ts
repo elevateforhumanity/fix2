@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const POST = withAuth(
   async (req, context) => {
@@ -32,7 +33,7 @@ export const POST = withAuth(
       .eq('id', id);
 
     if (error) {
-      return new Response(error.message, { status: 500 });
+      return new Response(toErrorMessage(error), { status: 500 });
     }
 
     return Response.json({ ok: true });

@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server';
 import { Resend } from 'resend';
 import { renderTemplate, type EmailTemplateKey } from '@/lib/email-templates';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -74,7 +75,7 @@ export async function POST(req: Request) {
         });
       } catch (error: unknown) {
         logger.error(`Error sending to ${recipient.email}:`, error);
-        results.push({ email: recipient.email, success: false, error: error.message });
+        results.push({ email: recipient.email, success: false, error: toErrorMessage(error) });
         
         // Log failure
         await supabase.from('email_logs').insert({
@@ -83,7 +84,7 @@ export async function POST(req: Request) {
           recipient_id: recipient.id,
           subject: body.subject,
           status: 'failed',
-          error_message: error.message,
+          error_message: toErrorMessage(error),
         });
       }
     }
@@ -112,7 +113,7 @@ export async function POST(req: Request) {
   } catch (error: unknown) {
     logger.error('Error sending campaign:', error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: toErrorMessage(error) },
       { status: 500 }
     );
   }

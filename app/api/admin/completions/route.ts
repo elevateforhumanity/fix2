@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 async function getSupabaseServerClient() {
   const cookieStore = await cookies();
@@ -64,7 +65,7 @@ export const GET = withAuth(
 
     if (error) {
       logger.error("[GET /api/admin/completions] error", error);
-      return NextResponse.json({ completions: [], error: error.message }, { status: 200 });
+      return NextResponse.json({ completions: [], error: toErrorMessage(error) }, { status: 200 });
     }
 
     const completions = (data ?? []).map((row: any) => {

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { logger } from "@/lib/logger";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = "nodejs";
 
@@ -86,7 +87,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         ok: false,
-        error: error.message || "Internal server error",
+        error: toErrorMessage(error) || "Internal server error",
       },
       { status: 500 }
     );

@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(request: Request) {
   try {
@@ -255,7 +256,7 @@ export async function GET(request: Request) {
   } catch (error: unknown) {
     logger.error('Certificate download error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to generate certificate' },
+      { error: toErrorMessage(error) || 'Failed to generate certificate' },
       { status: 500 }
     );
   }

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(outline);
   } catch (error: any) {
     return NextResponse.json(
-      { error: error.message || 'Failed to generate course outline' },
+      { error: toErrorMessage(error) || 'Failed to generate course outline' },
       { status: 500 }
     );
   }

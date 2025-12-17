@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   if (!isOpenAIConfigured()) {
@@ -94,7 +95,7 @@ Format as JSON with this structure:
   } catch (error: unknown) {
     logger.error("AI course builder error:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to generate course" },
+      { error: toErrorMessage(error) || "Failed to generate course" },
       { status: 500 }
     );
   }
