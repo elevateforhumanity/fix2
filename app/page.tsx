@@ -176,6 +176,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 3.5 ELEVATION VIDEO - This Is Not Graduation, This Is Elevation */}
+      <section className="w-full bg-slate-900 py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-8">
+            This Is Not Graduation. This Is Elevation.
+          </h2>
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* 4. STUDENT OUTCOMES & SUPPORT */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
