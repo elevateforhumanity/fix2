@@ -215,6 +215,8 @@
     "db:check": "tsx scripts/check-db-ready.ts",
     "supabase:auto": "bash scripts/supabase-auto-setup.sh",
     "supabase:test": "tsx scripts/test-supabase-connection.ts",
+    "validate-env": "tsx scripts/validate-env.ts",
+    "audit-rls": "tsx scripts/audit-rls.ts",
     "make:images": "python3 tools/make_brand_images.py",
     "make:logo": "python3 tools/make_logo_assets.py",
     "prebuild": "echo 'Starting build...'",

@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
 import { toError, toErrorMessage } from '@/lib/safe';
+import { getAppVersion } from '@/lib/version/getAppVersion';
+import { logger } from '@/lib/logging/logger';
 
 export async function GET() {
   const checks: Record<string, any> = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    version: '2.0.0',
+    version: getAppVersion(),
     environment: process.env.NODE_ENV || 'production',
     checks: {},
   };
@@ -67,14 +69,50 @@ export async function GET() {
     status: 'pass',
   };
 
-  // Check 4: API Endpoints
-  checks.checks.api = {
-    health: 'pass',
-    messages: 'available',
-    assignments: 'available',
-    certificates: 'available',
-    status: 'pass',
-  };
+  // Check 4: Stripe (optional)
+  if (process.env.STRIPE_SECRET_KEY) {
+    try {
+      const response = await fetch(
+        'https://api.stripe.com/v1/customers?limit=1',
+        {
+          headers: { Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}` },
+        }
+      );
+      checks.checks.stripe = {
+        ok: response.ok,
+        status: response.ok ? 'pass' : 'fail',
+      };
+    } catch (error) {
+      checks.checks.stripe = {
+        ok: false,
+        status: 'fail',
+        error: toErrorMessage(error),
+      };
+    }
+  } else {
+    checks.checks.stripe = { skipped: true, status: 'pass' };
+  }
+
+  // Check 5: Resend (optional)
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
+      });
+      checks.checks.resend = {
+        ok: response.ok || response.status === 401,
+        status: response.ok || response.status === 401 ? 'pass' : 'fail',
+      };
+    } catch (error) {
+      checks.checks.resend = {
+        ok: false,
+        status: 'fail',
+        error: toErrorMessage(error),
+      };
+    }
+  } else {
+    checks.checks.resend = { skipped: true, status: 'pass' };
+  }
 
   // Overall Status
   const allPassed = Object.values(checks.checks).every(
