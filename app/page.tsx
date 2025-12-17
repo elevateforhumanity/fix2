@@ -4,9 +4,9 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 1. HERO BANNER - Video hero */}
-      <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
-        <div className="relative w-full overflow-hidden rounded-3xl">
+      {/* 1. HERO BANNER - Video hero with Industrious-inspired spacing */}
+      <section className="px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
+        <div className="relative w-full overflow-hidden rounded-2xl">
           <div className="relative h-[520px] w-full md:h-[600px]">
             <video
               autoPlay
@@ -24,60 +24,31 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Headline and CTAs BELOW the banner */}
-        <div className="mt-8 text-center max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900">
-            Training, Funding, and Workforce Reporting — All In One Platform
+        {/* Headline and CTAs BELOW the banner - Simplified */}
+        <div className="mt-16 text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black">
+            Free Career Training + Paid Pathways in Indianapolis
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-zinc-700">
-            Built for students, employers, and workforce agencies to train,
-            fund, track, and scale real outcomes with compliance-ready
-            reporting.
+          <p className="mt-6 text-lg sm:text-xl text-gray-700 leading-relaxed">
+            WIOA • WRG • JRI • Apprenticeships • Hybrid Options
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 justify-center">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-black px-8 py-4 text-base font-semibold text-white hover:bg-gray-900 transition-colors min-w-[200px]"
             >
-              Apply for Training
+              Start Inquiry
             </Link>
             <Link
-              href="/platform"
-              className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+              href="/programs"
+              className="inline-flex items-center text-base font-semibold text-black hover:underline"
             >
-              License the Platform
+              See Programs →
             </Link>
           </div>
-
-          {/* Socials */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 justify-center text-sm">
-            <a
-              href="https://www.facebook.com/elevateforhumanity"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-800 hover:bg-gray-50"
-            >
-              Facebook <span className="text-gray-400">↗</span>
-            </a>
-
-            <a
-              href="https://www.youtube.com/@elevateforhumanity"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-800 hover:bg-gray-50"
-            >
-              YouTube <span className="text-gray-400">↗</span>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/company/elevate-for-humanity"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-gray-800 hover:bg-gray-50"
-            >
-              LinkedIn <span className="text-gray-400">↗</span>
-            </a>
-          </div>
+          <p className="mt-8 text-sm text-gray-600">
+            Appointment-based advising • WorkOne supported • Real humans follow up
+          </p>
         </div>
       </section>
 
@@ -131,101 +102,112 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EXISTING SECTIONS - OPTIMIZED */}
-      {/* 2. CHOOSE YOUR PATH (3 TILES) */}
-      <section className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="text-2xl font-bold text-gray-900">Choose Your Path</h2>
+      {/* 2. CHOOSE YOUR PATH - Industrious-inspired spacing */}
+      <section className="bg-gray-50 px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black text-center leading-tight">
+            Choose Your Path
+          </h2>
 
-        <div className="mt-7 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
           {/* Get Trained */}
-          <div className="rounded-2xl border bg-white p-5 shadow-sm">
-            <div className="relative h-[320px] w-full overflow-hidden rounded-xl border">
+          <div className="group rounded-xl border border-gray-200 bg-white overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div className="relative h-[280px] w-full overflow-hidden">
               <Image
                 src="/images/heroes/student-career.jpg"
                 alt="Get trained"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-gray-900">
-              Get Trained
-            </h3>
-            <p className="mt-2 text-gray-700">
-              Free or funded training programs connected to real careers,
-              employers, and credentials.
-            </p>
-            <Link
-              className="mt-4 inline-flex font-bold text-gray-900 hover:underline"
-              href="/apply"
-            >
-              Apply Now →
-            </Link>
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-black leading-tight">
+                Get Trained
+              </h3>
+              <p className="mt-4 text-base text-gray-700 leading-relaxed">
+                Free or funded training programs connected to real careers,
+                employers, and credentials.
+              </p>
+              <Link
+                className="mt-6 inline-flex items-center font-semibold text-black hover:underline"
+                href="/apply"
+              >
+                Apply Now →
+              </Link>
+            </div>
           </div>
 
           {/* Partner With Us */}
-          <div className="rounded-2xl border bg-white p-5 shadow-sm">
-            <div className="relative h-[320px] w-full overflow-hidden rounded-xl border">
+          <div className="group rounded-xl border border-gray-200 bg-white overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div className="relative h-[280px] w-full overflow-hidden">
               <Image
                 src="/images/heroes/training-provider-1.jpg"
                 alt="Partner with us"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-gray-900">
-              Partner With Us
-            </h3>
-            <p className="mt-2 text-gray-700">
-              Hire talent, host apprenticeships, or partner with a
-              workforce-ready training provider.
-            </p>
-            <Link
-              className="mt-4 inline-flex font-bold text-gray-900 hover:underline"
-              href="/employers"
-            >
-              Partner With EFH →
-            </Link>
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-black leading-tight">
+                Partner With Us
+              </h3>
+              <p className="mt-4 text-base text-gray-700 leading-relaxed">
+                Hire talent, host apprenticeships, or partner with a
+                workforce-ready training provider.
+              </p>
+              <Link
+                className="mt-6 inline-flex items-center font-semibold text-black hover:underline"
+                href="/employers"
+              >
+                Partner With EFH →
+              </Link>
+            </div>
           </div>
 
           {/* License the Platform */}
-          <div className="rounded-2xl border bg-white p-5 shadow-sm">
-            <div className="relative h-[320px] w-full overflow-hidden rounded-xl border">
+          <div className="group rounded-xl border border-gray-200 bg-white overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div className="relative h-[280px] w-full overflow-hidden">
               <Image
                 src="/images/efh/hero/hero-support.jpg"
                 alt="License the platform"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-gray-900">
-              License the Platform
-            </h3>
-            <p className="mt-2 text-gray-700">
-              Deploy a complete workforce operating system for your
-              organization, school, or agency.
-            </p>
-            <Link
-              className="mt-4 inline-flex font-bold text-gray-900 hover:underline"
-              href="/platform"
-            >
-              View Licensing →
-            </Link>
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-black leading-tight">
+                License the Platform
+              </h3>
+              <p className="mt-4 text-base text-gray-700 leading-relaxed">
+                Deploy a complete workforce operating system for your
+                organization, school, or agency.
+              </p>
+              <Link
+                className="mt-6 inline-flex items-center font-semibold text-black hover:underline"
+                href="/platform"
+              >
+                View Licensing →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. HOW IT WORKS (3 STEPS) */}
-      <section className="border-y bg-gray-50 px-4 py-12">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold text-gray-900">How It Works</h2>
+      {/* 3. HOW IT WORKS - Industrious-inspired spacing */}
+      <section className="bg-white px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black text-center leading-tight">
+            How It Works
+          </h2>
 
-          <div className="mt-8 grid gap-6 text-left md:grid-cols-3">
-            <div className="rounded-xl border bg-white p-6">
-              <div className="text-3xl font-bold text-gray-900">1</div>
-              <h3 className="mt-3 text-lg font-bold text-gray-900">Enroll</h3>
-              <p className="mt-2 text-sm text-gray-700">
-                Students apply once and are matched to training, funding, and
-                support services.
+          <div className="mt-16 grid gap-12 text-left md:grid-cols-3">
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-black text-white text-2xl font-bold">
+                1
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-black">Submit Inquiry</h3>
+              <p className="mt-4 text-base text-gray-700 leading-relaxed">
+                Complete our inquiry form and we'll match you to training, funding, and support.
               </p>
             </div>
             <div className="rounded-xl border bg-white p-6">
