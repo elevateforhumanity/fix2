@@ -1,84 +1,63 @@
-# ELEVATE FOR HUMANITY - DEPLOYMENT CHECKLIST
+# Deployment Checklist
 
-## PRE-DEPLOY VERIFICATION
-
-### 1. Supabase Database Check
-
-Run in Supabase SQL Editor:
-
-```sql
--- Verify all tables exist
-SELECT table_name FROM information_schema.tables
-WHERE table_schema = 'public'
-AND table_name IN (
-  'applications',
-  'application_checklist',
-  'uploaded_documents',
-  'enrollment_agreements',
-  'case_managers',
-  'employer_sponsors'
-);
-
--- Verify RLS enabled
-SELECT tablename, rowsecurity
-FROM pg_tables
-WHERE schemaname = 'public'
-AND tablename = 'applications';
-```
-
-**Status:** [ ] PASS [ ] FAIL
+**Status:** 🔴 NOT DEPLOYED YET
 
 ---
 
-### 2. Vercel Environment Variables
+## Quick Answer
 
-**Required (Production):**
+**Are the dashboards live and wired?**
 
-- [ ] NEXT_PUBLIC_SUPABASE_URL
-- [ ] SUPABASE_SERVICE_ROLE_KEY
-- [ ] RESEND_API_KEY
-- [ ] NEXT_PUBLIC_SITE_URL
-- [ ] OPENAI_API_KEY
+❌ **NO** - They are complete but NOT deployed yet
 
----
-
-### 3. Go-Live Test (15 Minutes)
-
-1. [ ] Submit test application at `/apply/full`
-2. [ ] Check Supabase `applications` table
-3. [ ] Check `application_checklist` table
-4. [ ] Verify email received
-5. [ ] Visit `/application-success`
-6. [ ] Test error fallback
-
-**All green?** [ ] YES - GO LIVE
+**What's needed:**
+1. Push code: `git push origin main`
+2. Run SQL scripts in Supabase
+3. Wait for Vercel deployment (~2-5 min)
+4. Test
 
 ---
 
-## STAFF OPERATIONS SOP
+## Step-by-Step Deployment
 
-### Daily Flow
-
-1. New application → Auto-assigned advisor
-2. Advisor calls within 1-2 days
-3. Student creates ICC account
-4. Student schedules WorkOne
-5. Student reports back
-6. Advisor updates checklist
-7. Status auto-updates
-
-### WorkOne Script
-
-> "Elevate for Humanity is an appointment-based workforce training provider. The participant has applied and is seeking WIOA / WRG / JRI eligibility. Please schedule an appointment and note Elevate for Humanity as the training provider."
-
----
-
-## DEPLOYMENT COMMAND
-
+### ☐ Step 1: Push Code
 ```bash
-git add -A
-git commit -m "Complete workforce intake platform - production ready"
 git push origin main
 ```
 
-**SYSTEM IS ENTERPRISE-GRADE. LOCK IT. OPERATE IT.**
+### ☐ Step 2: Run SQL in Supabase
+1. Open Supabase SQL Editor
+2. Run `FIX_AUTH_PROFILE_TRIGGER.sql`
+3. Run `VERIFY_ALL_TRIGGERS.sql`
+
+### ☐ Step 3: Wait for Vercel
+- Auto-deploys after push
+- Takes 2-5 minutes
+- Monitor at vercel.com
+
+### ☐ Step 4: Test
+- Signup → should go to /lms/dashboard
+- Login → should go to /lms/dashboard
+- Visit /dashboard → should route by role
+- Check all 19 dashboards load
+
+---
+
+## Current Status
+
+✅ Code complete (19 dashboards)  
+✅ Locally committed (3 commits)  
+❌ Not pushed to GitHub  
+❌ Not deployed to production  
+❌ Database triggers not activated  
+
+---
+
+## After Deployment
+
+The dashboards will be:
+- ✅ Live on production
+- ✅ Accessible to users
+- ✅ Fully wired with authentication
+- ✅ Connected to database
+- ✅ All redirects working
