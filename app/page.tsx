@@ -15,9 +15,9 @@ export default function HomePage() {
           subtitle="Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting."
           primaryCta={{ label: 'Apply for Training', href: '/apply' }}
           secondaryCta={{ label: 'License the Platform', href: '/platform' }}
-          videoSrc="/video/hero-home-dec12.mp4"
+          videoSrc="/videos/success-stories-video-with-narration.mp4"
           voiceoverSrc="/audio/hero-voiceover.mp3"
-          posterSrc="/images/hero/hero-dec12-poster.svg"
+          posterSrc="/images/efh/hero/hero-main-clean.jpg"
           trustIndicators={[]}
         />
       </section>
@@ -34,7 +34,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/hero/hero-dec12-1.svg"
+                  src="/images/heroes/student-career.jpg"
                   alt="Get trained"
                   fill
                   className="object-cover"
@@ -59,7 +59,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/hero/hero-dec12-2.svg"
+                  src="/images/heroes/training-provider-1.jpg"
                   alt="Partner with us"
                   fill
                   className="object-cover"
@@ -84,7 +84,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/hero/hero-dec12-3.svg"
+                  src="/images/efh/hero/hero-support.jpg"
                   alt="License the platform"
                   fill
                   className="object-cover"
@@ -151,7 +151,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/hero/hero-dec12-1.svg"
+              src="/images/efh/sections/classroom.jpg"
               alt="Student outcomes and support"
               fill
               className="object-cover"
@@ -223,7 +223,7 @@ export default function HomePage() {
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/hero/hero-dec12-2.svg"
+              src="/images/efh/sections/coaching.jpg"
               alt="Employers and workforce boards"
               fill
               className="object-cover"
