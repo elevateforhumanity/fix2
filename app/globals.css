@@ -688,20 +688,20 @@ img, video {
 
   /* Interactive card with hover */
   .card-interactive {
-    @apply card transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-card-hover;
+    @apply card transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
   }
 
   /* Button variants */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ease-smooth;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ease-in-out;
   }
 
   .btn-primary {
-    @apply btn bg-accent-500 text-white shadow-md hover:bg-accent-600 active:scale-95 focus:ring-4 focus:ring-accent-100;
+    @apply btn bg-blue-600 text-white shadow-md hover:bg-blue-700 active:scale-95 focus:ring-4 focus:ring-blue-100;
   }
 
   .btn-secondary {
-    @apply btn bg-brand-600 text-white shadow-md hover:bg-brand-700 active:scale-95 focus:ring-4 focus:ring-brand-100;
+    @apply btn bg-indigo-600 text-white shadow-md hover:bg-indigo-700 active:scale-95 focus:ring-4 focus:ring-indigo-100;
   }
 
   .btn-outline {
@@ -714,7 +714,7 @@ img, video {
 
   /* Input styles */
   .input {
-    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm shadow-card focus:border-accent-500 focus:outline-none focus:ring-4 focus:ring-accent-100 transition-all;
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all;
   }
 
   /* Badge */
@@ -723,7 +723,7 @@ img, video {
   }
 
   .badge-primary {
-    @apply badge bg-brand-100 text-brand-700;
+    @apply badge bg-indigo-100 text-indigo-700;
   }
 
   .badge-success {
@@ -756,7 +756,7 @@ img, video {
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent;
   }
 }
 
