@@ -1,21 +1,22 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
-
 // Image asset: /images/programs-new/program-11.jpg
+import { Libre_Baskerville } from 'next/font/google';
 import './globals.css';
 import './ui-fixes.css';
 import './print.css';
 import './mobile-fixes.css';
 import './animations.css';
-import './workday-animations.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-import { Analytics } from '@/components/Analytics';
-import { ModernNav } from '@/components/layout/ModernNav';
-import { ModernFooter } from '@/components/layout/ModernFooter';
+import { MainNav } from '@/components/layout/MainNav';
+import MainHeader from '@/components/layout/MainHeader';
+import MainFooter from '@/components/layout/MainFooter';
+import { SiteFooter } from '@/components/layout/Footer';
+import SiteHeader from '@/components/site/SiteHeader';
+import NewSiteFooter from '@/components/site/SiteFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import AILiveChat from '@/components/chat/AILiveChat';
@@ -29,13 +30,15 @@ import {
 } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
-import { SecurityMonitor } from '@/components/SecurityMonitor';
+import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
 
-// Optimized font loading with Next.js
-const inter = Inter({
+// Professional serif font for government/institutional compliance
+const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  display: 'optional', // Changed from 'swap' to 'optional' to prevent FOUC
+  weight: ['400', '700'],
+  variable: '--font-serif',
+  fallback: ['Georgia', 'serif'], // Add fallback fonts
 });
 
 // Viewport configuration (separate from metadata in Next.js 14+)
@@ -90,7 +93,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/image-00bcede7-220e-4356-97d3-0589398400e5.png?Expires=2081092728&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=B7xMrqd~DJeJdGExjaz9WmPOcfDmIylaqW4jrhuCThzQr5LLYYi9~xKGX1qGjXbgIovrKwzJvvk~A7y9vIERR1Ld2WWA7EtIPJ1i6mviSGcYNJWYn1Qaj7s0UmNeRvm-gqvveiLCPmAdOKMeAJAdmj9hcTZMESrNadr~9FzKrYT4Z1oN3bHrwyTUdGE337vOAVq9keZAdHmZJKIrnbZvAOF8k8OB8L7EP32xgrUggFDY8Z9hEHFgqA5E7w0RIs7hJgiFokMkBW1prJ4qC0D5rrus2LjUhrOu7nI0FletpJDOuMDCXkrtd2b0RmYFR~TO5YbsWoNwSxyUHElskODOpQ__',
+        url: '/images/heroes/hero-homepage.jpg',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - 100% Free Career Training',
@@ -98,15 +101,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Elevate for Humanity | 100% Free Career Training',
-    description:
-      '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt.',
-    images: [
-      'https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/image-00bcede7-220e-4356-97d3-0589398400e5.png?Expires=2081092728&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=B7xMrqd~DJeJdGExjaz9WmPOcfDmIylaqW4jrhuCThzQr5LLYYi9~xKGX1qGjXbgIovrKwzJvvk~A7y9vIERR1Ld2WWA7EtIPJ1i6mviSGcYNJWYn1Qaj7s0UmNeRvm-gqvveiLCPmAdOKMeAJAdmj9hcTZMESrNadr~9FzKrYT4Z1oN3bHrwyTUdGE337vOAVq9keZAdHmZJKIrnbZvAOF8k8OB8L7EP32xgrUggFDY8Z9hEHFgqA5E7w0RIs7hJgiFokMkBW1prJ4qC0D5rrus2LjUhrOu7nI0FletpJDOuMDCXkrtd2b0RmYFR~TO5YbsWoNwSxyUHElskODOpQ__',
-    ],
-  },
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
   },
@@ -141,9 +135,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={libreBaskerville.variable}>
       <head>
         {/* Preload critical assets to prevent FOUC */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
         <link
@@ -155,10 +155,8 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${inter.className} antialiased bg-white`}
-        style={{
-          fontSize: '16px',
-        }}
+        className={`${libreBaskerville.className} antialiased bg-white`}
+        style={{ fontSize: '16px' }}
       >
         <a
           href="#main-content"
@@ -167,7 +165,6 @@ export default function RootLayout({
           Skip to main content
         </a>
         <GoogleAnalytics />
-        <Analytics />
         <FacebookPixel />
         <SecurityMonitor />
         <CopyrightProtection />
@@ -177,12 +174,13 @@ export default function RootLayout({
         />
         <DMCATrackingPixel />
         <ScraperDetection />
-        <ModernNav />
+        <SecurityBadge />
+        <SiteHeader />
         <Breadcrumbs />
-        <main id="main-content" className="min-h-screen pt-20">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
-        <ModernFooter />
+        <NewSiteFooter />
         <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
