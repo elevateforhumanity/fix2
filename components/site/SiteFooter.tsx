@@ -2,48 +2,25 @@ import Link from 'next/link';
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-black text-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-        {/* Our Story Section */}
-        <div className="mb-16 max-w-4xl">
-          <Link href="/" className="inline-block mb-8">
-            <div className="font-black text-white text-3xl tracking-tight">
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
+        {/* Logo and Social */}
+        <div className="mb-12">
+          <Link href="/" className="inline-block mb-6">
+            <div className="font-black text-black text-2xl tracking-tight">
               Elevate
             </div>
-            <div className="text-orange-500 text-sm font-semibold -mt-1">
+            <div className="text-orange-600 text-sm font-semibold -mt-1">
               For Humanity
             </div>
           </Link>
 
-          <div className="space-y-6 text-gray-300 leading-relaxed">
-            <p className="text-lg">
-              We believe everyone deserves a path to a better life. That's why
-              we provide 100% free career training in high-demand fields like
-              healthcare, skilled trades, and technology.
-            </p>
-            <p>
-              Our students don't pay tuition. Instead, we work with workforce
-              boards, government programs, and employer partners to remove every
-              barrier between you and a career that pays well and provides
-              stability.
-            </p>
-            <p>
-              From day one, you get hands-on training, industry certifications,
-              and dedicated support to help you succeed. When you graduate, we
-              connect you directly with employers who are ready to hire.
-            </p>
-            <p className="text-white font-semibold">
-              This isn't just training—it's a complete transformation. Your new
-              career starts here.
-            </p>
-          </div>
-
-          <div className="flex gap-3 mt-8">
+          <div className="flex gap-3">
             <a
               href="https://x.com/elevate4humanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 transition"
               aria-label="Go to X"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -51,21 +28,10 @@ export default function SiteFooter() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/company/elevate-for-humanity"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
-              aria-label="Go to LinkedIn"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
-            <a
               href="https://www.facebook.com/profile.php?id=61571046346179"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 transition"
               aria-label="Go to Facebook"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -76,7 +42,7 @@ export default function SiteFooter() {
               href="https://www.instagram.com/elevateforhumanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 transition"
               aria-label="Go to Instagram"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -87,7 +53,7 @@ export default function SiteFooter() {
               href="https://www.youtube.com/@elevateforhumanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 transition"
               aria-label="Go to YouTube"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -101,12 +67,12 @@ export default function SiteFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Programs */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Programs</h3>
+            <h3 className="font-bold text-black text-sm mb-4">Programs</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
                   Training Programs
                 </Link>
@@ -114,129 +80,71 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/funding"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-600 hover:text-black transition"
+                >
+                  Funding Options
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/apprenticeships"
+                  className="text-sm text-gray-600 hover:text-black transition"
+                >
+                  Apprenticeships
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* For Students */}
+          <div>
+            <h3 className="font-bold text-black text-sm mb-4">For Students</h3>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/apply"
+                  className="text-sm text-gray-600 hover:text-black transition"
+                >
+                  Apply Now
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-it-works"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
                   How It Works
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/platform"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  href="/career-services"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
-                  Platform
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/marketplace"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Marketplace
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/partners"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Partners
+                  Career Services
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* For Employers */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">
-              Industries
-            </h3>
+            <h3 className="font-bold text-black text-sm mb-4">For Employers</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
-                  href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  href="/employers"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
-                  Healthcare
+                  Partner With Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  href="/hire-graduates"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
-                  Skilled Trades
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Beauty & Wellness
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Business & Finance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  See All Programs
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Learn */}
-          <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Learn</h3>
-            <ul className="space-y-2.5">
-              <li>
-                <Link
-                  href="/alumni"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Student Stories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/events"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/webinars"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Webinars
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/resources"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Resource Library
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Blog
+                  Hire Graduates
                 </Link>
               </li>
             </ul>
@@ -244,46 +152,30 @@ export default function SiteFooter() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Company</h3>
+            <h3 className="font-bold text-black text-sm mb-4">Company</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/about"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
-                  About Elevate
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about/team"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Our Story
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/philanthropy"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Corporate Responsibility
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/annual-report"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Annual Report
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-600 hover:text-black transition"
                 >
-                  Contact Us
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className="text-sm text-gray-600 hover:text-black transition"
+                >
+                  Careers
                 </Link>
               </li>
             </ul>
@@ -291,29 +183,29 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
-              <Link href="/privacy" className="hover:text-white transition">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-600">
+              <Link href="/privacy" className="hover:text-black transition">
                 Privacy
               </Link>
-              <Link href="/terms" className="hover:text-white transition">
+              <Link href="/terms" className="hover:text-black transition">
                 Terms
               </Link>
               <Link
                 href="/accessibility"
-                className="hover:text-white transition"
+                className="hover:text-black transition"
               >
                 Accessibility
               </Link>
-              <Link href="/ferpa" className="hover:text-white transition">
+              <Link href="/ferpa" className="hover:text-black transition">
                 FERPA
               </Link>
-              <Link href="/contact" className="hover:text-white transition">
+              <Link href="/contact" className="hover:text-black transition">
                 Contact
               </Link>
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-600">
               © {new Date().getFullYear()} Elevate For Humanity. All Rights
               Reserved.
             </p>

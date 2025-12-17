@@ -5,31 +5,52 @@ import { Users, Briefcase, TrendingUp } from 'lucide-react';
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 1. HERO - Video with simple headline */}
-      <section className="px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black">
-              Elevate for Humanity is Unlocking Potential
-            </h1>
-          </div>
+      {/* 1. HERO - Simple headline */}
+      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black">
+            Free Career Training.
+            <br />
+            Real Jobs. Better Lives.
+          </h1>
+          <p className="text-xl text-gray-700 mt-6 max-w-3xl mx-auto">
+            100% free training in high-demand careers. No tuition. No barriers.
+            Just opportunity.
+          </p>
+        </div>
+      </section>
 
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
-            <div className="relative h-[400px] w-full md:h-[600px]">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source
-                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081347919&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ezZ0FVT-e8bJDB4vfWuYMSbBf2IiAnOZLAxWrge9gnOAevZMVxtdhgOiss5CNfUexEvxOZHJ-DEk7EKU8qIidPUiG6WydOZNhJAIm60IVTIhGhp4clYPL-amrhFmMrwICdauopAT3dS~QOrJQc49U1sjaBE4VxJt1cA9ociJD5ki4jMn8zJ9u053b8ZZWqy0YV4nANu9XCzPCMsD2wgVYa3xpj12SV3BQk6lmd~oSNaz~aJyjf-goldm7i29fveQ~7DXNeUega8pF7yVMMVFHdIYTSroWpz5oMgD7BB8OCKtdkU5fk0DCzIqnul-YVuoIlmThN0-VUJ65U~2TW3UmQ__"
-                  type="video/mp4"
-                />
-              </video>
-            </div>
+      {/* 1.5. OUR STORY */}
+      <section className="bg-white px-6 sm:px-10 lg:px-12 py-16 lg:py-20">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black text-center leading-tight mb-12">
+            Breaking Down Barriers to Career Success
+          </h2>
+
+          <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+            <p>
+              We believe everyone deserves a path to a better life. That's why
+              we provide 100% free career training in high-demand fields like
+              healthcare, skilled trades, and technology.
+            </p>
+
+            <p>
+              Our students don't pay tuition. Instead, we work with workforce
+              boards, government programs, and employer partners to remove every
+              barrier between you and a career that pays well and provides
+              stability.
+            </p>
+
+            <p>
+              From day one, you get hands-on training, industry certifications,
+              and dedicated support to help you succeed. When you graduate, we
+              connect you directly with employers who are ready to hire.
+            </p>
+
+            <p className="text-xl font-bold text-black">
+              This isn't just training—it's a complete transformation. Your new
+              career starts here.
+            </p>
           </div>
         </div>
       </section>
@@ -89,71 +110,6 @@ export default function HomePage() {
                 </div>
               </div>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 2.5. ELEVATION MESSAGE */}
-      <section className="relative bg-black text-white px-6 sm:px-10 lg:px-12 py-32 lg:py-40 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/facilities-new/facility-2.jpg"
-            alt="Elevation"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
-        </div>
-
-        {/* Content */}
-        <div className="relative mx-auto max-w-5xl text-center">
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
-            This Is Not Graduation.
-          </h2>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-orange-500 leading-tight mb-12">
-            This Is Elevation.
-          </h2>
-          <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-            We don't just hand you a certificate. We elevate you to a new
-            level—with skills, confidence, and a career that changes everything.
-          </p>
-        </div>
-      </section>
-
-      {/* 3. OUR STORY */}
-      <section className="bg-gray-50 px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black text-center leading-tight mb-12">
-            Breaking Down Barriers to Career Success
-          </h2>
-
-          <div className="space-y-8 text-lg text-gray-700 leading-relaxed">
-            <p>
-              Too many talented people are stuck in low-wage jobs—not because
-              they lack potential, but because they lack access to training and
-              opportunity. Traditional education is expensive, time-consuming,
-              and often disconnected from what employers actually need.
-            </p>
-
-            <p>
-              <span className="font-bold text-black">We're changing that.</span>{' '}
-              Elevate For Humanity provides 100% free career training in
-              high-demand fields. No tuition. No hidden costs. No barriers.
-            </p>
-
-            <p>
-              We partner with workforce boards, government programs, and
-              employers to fund your training. You focus on learning the skills
-              that lead to real jobs with real wages. When you graduate, we
-              connect you directly with companies ready to hire.
-            </p>
-
-            <p className="text-xl font-bold text-black">
-              This is more than training—it's a pathway to economic mobility and
-              a better future for you and your family.
-            </p>
           </div>
         </div>
       </section>
