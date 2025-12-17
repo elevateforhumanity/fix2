@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 type Props = {
   posterImage?: string;
@@ -25,7 +25,7 @@ export default function HeroMedia({
   const hasVideo = Boolean(videoSrc);
   const hasVoice = Boolean(voiceoverSrc);
 
-  const poster = useMemo(() => posterImage || "", [posterImage]);
+  const poster = useMemo(() => posterImage || '', [posterImage]);
 
   // Video: always try autoplay muted (allowed)
   useEffect(() => {
@@ -44,9 +44,9 @@ export default function HeroMedia({
     const a = audioRef.current;
 
     const onCanPlay = () => setAudioReady(true);
-    a.addEventListener("canplay", onCanPlay);
+    a.addEventListener('canplay', onCanPlay);
 
-    return () => a.removeEventListener("canplay", onCanPlay);
+    return () => a.removeEventListener('canplay', onCanPlay);
   }, [hasVoice]);
 
   // Attempt to auto-play audio (usually blocked)
@@ -127,23 +127,6 @@ export default function HeroMedia({
           preload="auto"
           onEnded={onAudioEnded}
         />
-      )}
-
-      {hasVoice && !canAutoPlayAudio && (
-        <div className="absolute bottom-4 left-4 right-4 md:left-6 md:right-auto">
-          <button
-            type="button"
-            onClick={startSound}
-            className="w-full md:w-auto rounded-2xl bg-white px-4 py-3 text-sm font-semibold shadow-lg hover:bg-gray-50 transition-colors"
-            aria-label="Play with sound"
-          >
-            ▶ Play with Sound
-            {!audioReady && <span className="ml-2 opacity-60">(loading…)</span>}
-          </button>
-          <div className="mt-2 text-xs text-white/80">
-            Mobile browsers require a tap to start audio.
-          </div>
-        </div>
       )}
     </div>
   );

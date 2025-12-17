@@ -174,17 +174,6 @@ export default function HeroBanner({
                 aria-hidden="true"
               />
             )}
-
-            {voiceoverSrc && audioBlocked && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button
-                  onClick={enableSound}
-                  className="rounded-xl bg-white px-6 py-3 text-sm font-semibold shadow-lg hover:bg-gray-50 transition-colors"
-                >
-                  Tap to enable voiceover
-                </button>
-              </div>
-            )}
           </>
         ) : (
           <>
