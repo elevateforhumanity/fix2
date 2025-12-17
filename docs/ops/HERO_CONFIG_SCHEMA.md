@@ -14,6 +14,7 @@ Add to `organization_settings.config.branding`:
     "hero": {
       "type": "video",
       "video_src": "/video/hero-home-dec12.mp4",
+      "voiceover_src": "/audio/hero-voiceover.mp3",
       "poster": "/images/hero/hero-dec12-poster.jpg",
       "fallback_images": [
         "/images/hero/hero-dec12-1.jpg",
@@ -98,10 +99,28 @@ For video editors creating hero videos:
 
 ## Autoplay Requirements
 
+### Video Autoplay
+
 For video to autoplay correctly:
 
 - Must be muted
 - Must have `playsInline` attribute
-- Must have `loop` attribute
 - Must have poster fallback
-- Audio can be unmuted by user via sound button
+- Loop disabled when voiceover present
+
+### Voiceover Autoplay
+
+Separate audio track behavior:
+
+- Video plays muted (always works)
+- Voiceover attempts to autoplay
+- If browser blocks audio, shows "Tap to enable voiceover" button
+- After user gesture, audio plays and syncs with video
+- Drift correction keeps audio/video aligned (within 0.35s)
+
+### Why Separate Audio?
+
+- Video with embedded audio cannot autoplay unmuted (browser policy)
+- Separate audio track allows muted video + optional voiceover
+- User gesture unlocks audio for session
+- This is the production-safe architecture used by major sites

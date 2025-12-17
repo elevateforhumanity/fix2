@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 type HeroBannerProps = {
@@ -12,6 +12,7 @@ type HeroBannerProps = {
   // Video mode
   type?: 'image' | 'video';
   videoSrc?: string;
+  voiceoverSrc?: string;
   posterSrc?: string;
   // Image mode
   heroImageSrc?: string;
@@ -24,25 +25,126 @@ export default function HeroBanner({
   subtitle,
   primaryCta,
   secondaryCta,
-  trustIndicators = [
-    'WIOA • WRG • JRI',
-    'Registered Apprenticeship',
-    'Employer & Workforce Board Ready',
-  ],
+  trustIndicators = [],
   type = 'image',
   videoSrc = '/video/hero-home-dec12.mp4',
-  posterSrc = '/images/hero/hero-dec12-poster.jpg',
+  voiceoverSrc,
+  posterSrc = '/images/hero/hero-dec12-poster.svg',
   heroImageSrc = '/images/hero/hero-main.svg',
   heroImageAlt = 'Elevate for Humanity hero banner',
   overlay = true,
 }: HeroBannerProps) {
-  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [audioBlocked, setAudioBlocked] = useState(false);
 
-  const toggleMute = () => {
-    const video = document.getElementById('hero-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = !video.muted;
-      setIsMuted(video.muted);
+  // Always autoplay the muted video on load
+  useEffect(() => {
+    if (type !== 'video') return;
+
+    const v = videoRef.current;
+    if (!v) return;
+
+    v.muted = true;
+    v.loop = voiceoverSrc ? false : true; // no loop if voiceover present
+    v.playsInline = true;
+
+    v.play().catch(() => {
+      // If even muted autoplay fails (rare), user gesture will be needed
+    });
+  }, [type, voiceoverSrc]);
+
+  // Attempt to autoplay voiceover on load (may be blocked by browser)
+  useEffect(() => {
+    if (type !== 'video' || !voiceoverSrc) return;
+
+    const v = videoRef.current;
+    const a = audioRef.current;
+    if (!v || !a) return;
+
+    const attempt = async () => {
+      try {
+        v.muted = true;
+        a.currentTime = v.currentTime || 0;
+        await a.play();
+        setAudioBlocked(false);
+      } catch {
+        setAudioBlocked(true);
+      }
+    };
+
+    attempt();
+  }, [type, voiceoverSrc]);
+
+  // Keep voiceover synced to video
+  useEffect(() => {
+    if (type !== 'video' || !voiceoverSrc) return undefined;
+
+    const v = videoRef.current;
+    const a = audioRef.current;
+    if (!v || !a) return undefined;
+
+    const onPlay = async (): Promise<void> => {
+      if (audioBlocked) return;
+      try {
+        a.currentTime = v.currentTime || 0;
+        await a.play();
+      } catch {
+        setAudioBlocked(true);
+      }
+    };
+
+    const onPause = (): void => {
+      a.pause();
+    };
+
+    const onSeeked = (): void => {
+      a.currentTime = v.currentTime || 0;
+      if (!v.paused && !audioBlocked) {
+        a.play().catch(() => setAudioBlocked(true));
+      }
+    };
+
+    const onTimeUpdate = (): void => {
+      // Light drift correction
+      const drift = Math.abs((a.currentTime || 0) - (v.currentTime || 0));
+      if (drift > 0.35) a.currentTime = v.currentTime || 0;
+    };
+
+    const onEnded = (): void => {
+      a.pause();
+      a.currentTime = 0;
+    };
+
+    v.addEventListener('play', onPlay);
+    v.addEventListener('pause', onPause);
+    v.addEventListener('seeked', onSeeked);
+    v.addEventListener('timeupdate', onTimeUpdate);
+    v.addEventListener('ended', onEnded);
+
+    return () => {
+      v.removeEventListener('play', onPlay);
+      v.removeEventListener('pause', onPause);
+      v.removeEventListener('seeked', onSeeked);
+      v.removeEventListener('timeupdate', onTimeUpdate);
+      v.removeEventListener('ended', onEnded);
+    };
+  }, [type, voiceoverSrc, audioBlocked]);
+
+  // User gesture fallback: enable sound
+  const enableSound = async () => {
+    const v = videoRef.current;
+    const a = audioRef.current;
+    if (!v || !a) return;
+
+    try {
+      v.muted = true;
+      await v.play().catch(() => {});
+      a.currentTime = v.currentTime || 0;
+      await a.play();
+      setAudioBlocked(false);
+    } catch {
+      setAudioBlocked(true);
     }
   };
 
@@ -52,29 +154,37 @@ export default function HeroBanner({
         {type === 'video' ? (
           <>
             <video
-              id="hero-video"
+              ref={videoRef}
               className="absolute inset-0 w-full h-full object-cover"
               src={videoSrc}
               poster={posterSrc}
               autoPlay
               muted
-              loop
               playsInline
               preload="auto"
             />
+
+            {voiceoverSrc && (
+              <audio ref={audioRef} src={voiceoverSrc} preload="auto" />
+            )}
+
             {overlay && (
               <div
                 className="absolute inset-0 bg-black/45"
                 aria-hidden="true"
               />
             )}
-            <button
-              onClick={toggleMute}
-              className="absolute bottom-6 right-6 bg-black/60 text-white px-3 py-2 rounded-lg text-sm hover:bg-black/80 transition-colors"
-              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-            >
-              {isMuted ? '🔇 Sound' : '🔊 Sound'}
-            </button>
+
+            {voiceoverSrc && audioBlocked && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button
+                  onClick={enableSound}
+                  className="rounded-xl bg-white px-6 py-3 text-sm font-semibold shadow-lg hover:bg-gray-50 transition-colors"
+                >
+                  Tap to enable voiceover
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <>
