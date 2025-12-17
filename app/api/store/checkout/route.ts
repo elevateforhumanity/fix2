@@ -1,6 +1,7 @@
 import { createCheckoutSession } from '@/lib/store/stripe';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   try {
@@ -36,6 +37,6 @@ export async function POST(req: Request) {
     return Response.json({ sessionId: session.id, url: session.url });
   } catch (error: unknown) {
     logger.error('Checkout error:', error);
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

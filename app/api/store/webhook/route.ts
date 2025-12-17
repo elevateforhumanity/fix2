@@ -2,6 +2,7 @@ import { verifyWebhookSignature } from '@/lib/store/stripe';
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
   try {
@@ -100,6 +101,6 @@ export async function POST(req: Request) {
     return Response.json({ received: true });
   } catch (error: unknown) {
     logger.error('Webhook error:', error);
-    return Response.json({ error: error.message }, { status: 500 });
+    return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

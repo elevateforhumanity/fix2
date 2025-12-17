@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   try {
@@ -14,7 +15,7 @@ export async function GET(req: NextRequest) {
     if (error) {
       logger.error("Supabase error:", error);
       return NextResponse.json(
-        { error: "Failed to fetch products", details: error.message },
+        { error: "Failed to fetch products", details: toErrorMessage(error) },
         { status: 500 }
       );
     }
@@ -26,7 +27,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(
       {
         error: "Failed to fetch products",
-        message: error.message,
+        message: toErrorMessage(error),
       },
       { status: 500 }
     );

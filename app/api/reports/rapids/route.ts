@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: Request) {
   try {
@@ -81,7 +82,7 @@ export async function GET(req: Request) {
   } catch (error: any) {
     // Error: $1
     return NextResponse.json(
-      { error: error.message || "Failed to generate report" },
+      { error: toErrorMessage(error) || "Failed to generate report" },
       { status: 500 }
     );
   }

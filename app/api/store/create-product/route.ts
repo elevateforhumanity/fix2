@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createStoreProduct } from "@/lib/store/stripe-products";
 import { createClient } from "@/lib/supabase/server";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
     if (error) {
       logger.error("Supabase error:", error);
       return NextResponse.json(
-        { error: "Failed to save product", details: error.message },
+        { error: "Failed to save product", details: toErrorMessage(error) },
         { status: 500 }
       );
     }
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         error: "Failed to create product",
-        message: error.message,
+        message: toErrorMessage(error),
       },
       { status: 500 }
     );

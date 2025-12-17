@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -44,7 +45,7 @@ export async function POST(req: NextRequest) {
   } catch (error: unknown) {
     logger.error('Failed to publish product:', error);
     return NextResponse.json(
-      { error: 'Failed to publish product', message: error.message },
+      { error: 'Failed to publish product', message: toErrorMessage(error) },
       { status: 500 }
     );
   }

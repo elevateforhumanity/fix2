@@ -12,6 +12,7 @@ import {
 } from '@/lib/onboarding-complete-digital';
 import { generateNDAText } from '@/lib/onboarding-nda-template';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {
@@ -220,7 +221,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Onboarding submission error:', error);
     return NextResponse.json(
-      { error: 'Failed to process onboarding', details: error.message },
+      { error: 'Failed to process onboarding', details: toErrorMessage(error) },
       { status: 500 }
     );
   }
@@ -263,7 +264,7 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Onboarding fetch error:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch onboarding', details: error.message },
+      { error: 'Failed to fetch onboarding', details: toErrorMessage(error) },
       { status: 500 }
     );
   }

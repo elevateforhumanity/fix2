@@ -1,6 +1,7 @@
 // app/api/reports/run/route.ts
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -39,7 +40,7 @@ export async function POST(request: Request) {
     const { data, error } = await query;
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     return NextResponse.json({ rows: data });
@@ -51,7 +52,7 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     return NextResponse.json({ rows: data });
@@ -73,7 +74,7 @@ export async function POST(request: Request) {
       .limit(100);
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
     }
 
     return NextResponse.json({ rows: data });

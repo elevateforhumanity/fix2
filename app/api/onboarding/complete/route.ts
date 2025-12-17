@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     logger.error('Onboarding completion error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to complete onboarding' },
+      { error: toErrorMessage(error) || 'Failed to complete onboarding' },
       { status: 500 }
     );
   }

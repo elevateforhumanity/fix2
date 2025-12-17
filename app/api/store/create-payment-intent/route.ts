@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -46,7 +47,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error: any) {
     return NextResponse.json(
-      { error: error.message || 'Failed to create payment intent' },
+      { error: toErrorMessage(error) || 'Failed to create payment intent' },
       { status: 500 }
     );
   }

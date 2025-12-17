@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { cloneRepository } from "@/lib/store/stripe-products";
 import { createClient } from "@/lib/supabase/server";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: NextRequest) {
   try {
@@ -55,7 +56,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         error: "Failed to clone repository",
-        message: error.message,
+        message: toErrorMessage(error),
       },
       { status: 500 }
     );

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserOctokit, gh, parseRepo, getLanguageFromPath } from "@/lib/github";
 import { logger } from '@/lib/logger';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   const userToken = req.headers.get("x-gh-token");
@@ -53,7 +54,7 @@ export async function GET(req: NextRequest) {
     logger.error("GitHub file read error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch file", 
-      message: error.message,
+      message: toErrorMessage(error),
       status: error.status
     }, { status: error.status || 500 });
   }
@@ -114,7 +115,7 @@ export async function PUT(req: NextRequest) {
     logger.error("GitHub file write error:", error);
     return NextResponse.json({ 
       error: "Failed to save file", 
-      message: error.message,
+      message: toErrorMessage(error),
       status: error.status
     }, { status: error.status || 500 });
   }
@@ -156,7 +157,7 @@ export async function DELETE(req: NextRequest) {
     logger.error("GitHub file delete error:", error);
     return NextResponse.json({ 
       error: "Failed to delete file", 
-      message: error.message,
+      message: toErrorMessage(error),
       status: error.status
     }, { status: error.status || 500 });
   }

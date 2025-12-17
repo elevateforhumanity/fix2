@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -54,7 +55,7 @@ export async function GET(req: NextRequest) {
   if (to) query = query.lte('started_at', new Date(to).toISOString());
 
   const { data: enrolls, error } = await query;
-  if (error) return new Response(error.message, { status: 500 });
+  if (error) return new Response(toErrorMessage(error), { status: 500 });
 
   if (!enrolls || !enrolls.length) {
     if (format === 'csv') return new Response('', { status: 200 });
