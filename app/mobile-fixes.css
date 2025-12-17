@@ -10,34 +10,60 @@
     max-width: 100vw;
   }
 
-  /* Fix container widths */
+  /* Fix container widths and padding */
   .container,
   .max-w-7xl,
   .max-w-6xl,
   .max-w-5xl {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Reduce section padding on mobile */
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Fix gaps between sections */
+  section + section {
+    margin-top: 0 !important;
   }
 
   /* Responsive text sizes */
   h1 {
-    font-size: 2rem !important;
+    font-size: 1.875rem !important;
     line-height: 1.2;
+    margin-bottom: 1rem !important;
   }
 
   h2 {
-    font-size: 1.75rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.3;
+    margin-bottom: 0.75rem !important;
   }
 
   h3 {
-    font-size: 1.5rem !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
-  /* Fix images */
+  p {
+    font-size: 1rem !important;
+    line-height: 1.5;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Fix images - proper sizing */
   img {
     max-width: 100%;
     height: auto;
+    display: block;
+  }
+
+  /* Next.js Image component */
+  .relative img {
+    object-fit: cover;
   }
 
   /* Video players - Mobile optimized */
@@ -47,6 +73,59 @@
     max-width: 100% !important;
     display: block !important;
     object-fit: cover !important;
+  }
+
+  /* Hero video height on mobile */
+  section video {
+    min-height: 300px !important;
+  }
+
+  /* Image containers - proper aspect ratios */
+  .relative {
+    width: 100%;
+  }
+
+  /* Fix image heights on mobile */
+  [class*="h-96"],
+  [class*="h-[400px]"] {
+    height: 250px !important;
+  }
+
+  [class*="h-64"] {
+    height: 200px !important;
+  }
+
+  [class*="h-40"] {
+    height: 150px !important;
+  }
+
+  /* Grid layouts - single column on mobile */
+  [class*='grid-cols-2'],
+  [class*='grid-cols-3'],
+  [class*='md:grid-cols'] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Flex gaps - reduce on mobile */
+  [class*='gap-8'] {
+    gap: 1rem !important;
+  }
+
+  [class*='gap-6'] {
+    gap: 0.75rem !important;
+  }
+
+  /* Padding reductions */
+  [class*='py-12'],
+  [class*='py-16'] {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  [class*='px-8'] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   /* Fix aspect-video on mobile */
