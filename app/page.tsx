@@ -43,14 +43,14 @@ export default function HomePage() {
               href="/apply"
               className="group block"
             >
-              <div className="h-full rounded-xl border-2 border-gray-200 bg-white p-10 hover:shadow-xl hover:border-black transition-all duration-300">
+              <div className="h-full rounded-xl border-2 border-blue-200 bg-white p-10 hover:shadow-xl hover:border-blue-600 hover:bg-blue-50 transition-all duration-300">
                 <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center group-hover:bg-blue-700 transition-colors">
                     <Users className="w-8 h-8 text-white" />
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3">
+                  <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
                     For Students
                   </p>
                   <h3 className="text-2xl font-bold text-black mb-4 leading-tight">
@@ -59,7 +59,7 @@ export default function HomePage() {
                   <p className="text-base text-gray-700 leading-relaxed mb-6">
                     Launch your career through free training programs funded by WIOA, WRG, JRI, and apprenticeships.
                   </p>
-                  <span className="inline-flex items-center font-semibold text-black group-hover:underline">
+                  <span className="inline-flex items-center font-semibold text-blue-600 group-hover:underline">
                     Start Your Journey →
                   </span>
                 </div>
@@ -184,28 +184,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. WHERE OUR GRADUATES WORK */}
-      <section className="bg-gray-50 px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black text-center leading-tight mb-16">
-            Where Our Graduates Work
+      {/* 5. ELEVATION VIDEO HERO - This Is Not Graduation, This Is Elevation */}
+      <section className="relative w-full bg-gradient-to-br from-blue-900 via-red-900 to-black py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white text-center mb-12 leading-tight">
+            This Is Not Graduation.
+            <br />
+            <span className="text-red-500">This Is Elevation.</span>
           </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {/* Placeholder for employer logos */}
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div 
-                key={i}
-                className="w-full h-24 bg-white rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:border-black transition-colors"
+          
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative h-[400px] w-full md:h-[600px]">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover"
               >
-                <span className="text-sm font-semibold">Employer {i}</span>
-              </div>
-            ))}
+                <source
+                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-base text-gray-700">
-              Join 500+ graduates working at leading companies across Indianapolis
+            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              We don't just train people for jobs. We elevate lives, transform communities, and create lasting economic impact.
             </p>
           </div>
         </div>

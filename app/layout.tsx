@@ -32,13 +32,24 @@ import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
 import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
 
-// Professional serif font for government/institutional compliance
+// Import Inter for clean, modern sans-serif
+import { Inter } from 'next/font/google';
+
+// Modern sans-serif font for the entire site
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+});
+
+// Professional serif font for specific use cases
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
-  display: 'optional', // Changed from 'swap' to 'optional' to prevent FOUC
+  display: 'optional',
   weight: ['400', '700'],
   variable: '--font-serif',
-  fallback: ['Georgia', 'serif'], // Add fallback fonts
+  fallback: ['Georgia', 'serif'],
 });
 
 // Viewport configuration (separate from metadata in Next.js 14+)
@@ -155,7 +166,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${libreBaskerville.className} antialiased bg-white`}
+        className={`${inter.variable} ${libreBaskerville.variable} font-sans antialiased bg-white`}
         style={{ fontSize: '16px' }}
       >
         <a
