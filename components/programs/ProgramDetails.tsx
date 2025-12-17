@@ -4,6 +4,7 @@ import type { Program } from '@/app/data/programs';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
+import { ProgramAppointmentBanner } from '@/components/programs/ProgramAppointmentBanner';
 import ProgramHowItWorks from '@/components/program/ProgramHowItWorks';
 import ProgramFAQ from '@/components/program/ProgramFAQ';
 
@@ -27,6 +28,9 @@ export function ProgramDetails({ program }: { program: Program }) {
           <div>
             {/* Indiana RAPIDS Badge for Barber Program */}
             {isBarberProgram && <ApprenticeshipBadge />}
+
+            {/* Appointment-Based Enrollment Banner */}
+            <ProgramAppointmentBanner />
 
             <h2 className="text-xl font-bold text-slate-900 mt-8">
               What You&apos;ll Learn
