@@ -15,24 +15,24 @@ export default function SiteFooter() {
             </div>
           </Link>
 
-          <div className="space-y-6 text-gray-300 leading-relaxed">
-            <p className="text-lg">
+          <div className="space-y-6 text-gray-100 leading-relaxed text-base md:text-lg">
+            <p className="text-lg md:text-xl font-medium">
               We believe everyone deserves a path to a better life. That's why
               we provide 100% free career training in high-demand fields like
               healthcare, skilled trades, and technology.
             </p>
-            <p>
+            <p className="font-normal">
               Our students don't pay tuition. Instead, we work with workforce
               boards, government programs, and employer partners to remove every
               barrier between you and a career that pays well and provides
               stability.
             </p>
-            <p>
+            <p className="font-normal">
               From day one, you get hands-on training, industry certifications,
               and dedicated support to help you succeed. When you graduate, we
               connect you directly with employers who are ready to hire.
             </p>
-            <p className="text-white font-semibold">
+            <p className="text-white font-bold text-lg">
               This isn't just training—it's a complete transformation. Your new
               career starts here.
             </p>
