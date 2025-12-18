@@ -5,17 +5,24 @@
 @tailwind utilities;
 
 /* Ensure button text is always visible */
-button,
-a.inline-flex,
-.bg-zinc-900,
-.bg-black {
-  color: inherit;
-}
-
+button.text-white,
+a.text-white,
 .bg-zinc-900.text-white,
 .bg-black.text-white,
-button.text-white,
-a.text-white {
+.bg-slate-900.text-white,
+.bg-gray-900.text-white,
+.bg-blue-900.text-white,
+.bg-purple-900.text-white {
+  color: #ffffff !important;
+}
+
+/* Ensure dark backgrounds have light text */
+.bg-zinc-900:not(.text-white),
+.bg-black:not(.text-white),
+.bg-slate-900:not(.text-white),
+.bg-gray-900:not(.text-white),
+.bg-blue-900:not(.text-white),
+.bg-purple-900:not(.text-white) {
   color: #ffffff !important;
 }
 
