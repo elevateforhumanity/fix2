@@ -132,7 +132,7 @@ export default function ProgramsPage() {
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-1 bg-orange-500 rounded-full" />
-              <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
                 Skilled Trades
               </h2>
             </div>
@@ -238,7 +238,7 @@ export default function ProgramsPage() {
                   Healthcare
                 </span>
               </div>
-              <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Healthcare Careers
               </h2>
               <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
@@ -309,7 +309,7 @@ export default function ProgramsPage() {
         {beautyWellness.length > 0 && (
           <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Beauty & Wellness
               </h2>
               <p className="text-base md:text-lg text-slate-600 mb-12 max-w-3xl">
@@ -371,7 +371,7 @@ export default function ProgramsPage() {
         {businessFinance.length > 0 && (
           <section className="py-20 bg-slate-50">
             <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Business & Finance
               </h2>
               <p className="text-base md:text-lg text-slate-600 mb-12 max-w-3xl">
