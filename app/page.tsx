@@ -14,7 +14,7 @@ export default function HomePage() {
             </h1>
           </div>
 
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
                 autoPlay
@@ -24,12 +24,20 @@ export default function HomePage() {
                 preload="metadata"
                 className="absolute inset-0 w-full h-full object-cover"
                 poster="/images/heroes/hero-homepage.jpg"
+                style={{ backgroundColor: 'transparent' }}
               >
                 <source
                   src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081347919&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ezZ0FVT-e8bJDB4vfWuYMSbBf2IiAnOZLAxWrge9gnOAevZMVxtdhgOiss5CNfUexEvxOZHJ-DEk7EKU8qIidPUiG6WydOZNhJAIm60IVTIhGhp4clYPL-amrhFmMrwICdauopAT3dS~QOrJQc49U1sjaBE4VxJt1cA9ociJD5ki4jMn8zJ9u053b8ZZWqy0YV4nANu9XCzPCMsD2wgVYa3xpj12SV3BQk6lmd~oSNaz~aJyjf-goldm7i29fveQ~7DXNeUega8pF7yVMMVFHdIYTSroWpz5oMgD7BB8OCKtdkU5fk0DCzIqnul-YVuoIlmThN0-VUJ65U~2TW3UmQ__"
                   type="video/mp4"
                 />
               </video>
+              {/* Fallback for when video/poster doesn't load */}
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 -z-10">
+                <div className="text-center text-white p-8">
+                  <h2 className="text-3xl font-bold mb-2">Elevate for Humanity</h2>
+                  <p className="text-lg opacity-90">Unlocking Potential Through Education</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

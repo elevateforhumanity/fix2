@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { logEmailDelivery } from '@/lib/email/monitor';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
+  const startTime = Date.now();
+  let emailTo = '';
+  let emailSubject = '';
+  
   try {
     const body = await req.json();
     const { to, subject, html, text } = body;
+    
+    emailTo = Array.isArray(to) ? to[0] : to;
+    emailSubject = subject;
 
     if (!to || !subject || (!html && !text)) {
       return NextResponse.json(
@@ -18,6 +26,15 @@ export async function POST(req: Request) {
     // If no RESEND_API_KEY, log and return success (dev mode)
     if (!process.env.RESEND_API_KEY) {
       console.log('[Email] Would send:', { to, subject });
+      
+      // Log as pending in dev mode
+      await logEmailDelivery({
+        to: emailTo,
+        subject: emailSubject,
+        status: 'pending',
+        provider: 'resend',
+      });
+      
       return NextResponse.json({ 
         ok: true, 
         message: 'Email logged (no API key configured)' 
@@ -34,15 +51,49 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('[Email] Send error:', error);
+      
+      // Log failure
+      await logEmailDelivery({
+        to: emailTo,
+        subject: emailSubject,
+        status: 'failed',
+        provider: 'resend',
+        error_message: error.message || 'Unknown error',
+      });
+      
       return NextResponse.json(
         { error: 'Failed to send email' },
         { status: 500 }
       );
     }
 
+    // Log success
+    await logEmailDelivery({
+      to: emailTo,
+      subject: emailSubject,
+      status: 'sent',
+      provider: 'resend',
+      sent_at: new Date().toISOString(),
+    });
+
+    const duration = Date.now() - startTime;
+    console.log(`[Email] Sent successfully in ${duration}ms:`, { to: emailTo, subject: emailSubject });
+
     return NextResponse.json({ ok: true, id: data?.id });
   } catch (err: any) {
     console.error('[Email] Unexpected error:', err);
+    
+    // Log failure
+    if (emailTo && emailSubject) {
+      await logEmailDelivery({
+        to: emailTo,
+        subject: emailSubject,
+        status: 'failed',
+        provider: 'resend',
+        error_message: err.message || 'Unexpected error',
+      });
+    }
+    
     return NextResponse.json(
       { error: 'Unexpected error sending email' },
       { status: 500 }
