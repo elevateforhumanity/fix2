@@ -49,6 +49,26 @@
         }
       ],
       "destination": "/admin/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "elevatelearning.org"
+        }
+      ],
+      "destination": "/lms/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.elevatelearning.org"
+        }
+      ],
+      "destination": "/lms/:path*"
     }
   ],
   "headers": [
@@ -62,6 +82,19 @@
         {
           "key": "X-Frame-Options",
           "value": "DENY"
+        }
+      ]
+    },
+    {
+      "source": "/lms/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
         }
       ]
     },
