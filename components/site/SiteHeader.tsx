@@ -129,29 +129,21 @@ export default function SiteHeader() {
             </button>
 
             {openDropdown === 'programs' && (
-              <div className="absolute left-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
-                {programCategories.map((category) => (
-                  <div key={category.href}>
-                    <Link
-                      href={category.href}
-                      className="block px-4 py-2 text-sm font-bold text-black hover:bg-blue-50 transition"
-                    >
-                      {category.label}
-                    </Link>
-                    {category.subItems && (
-                      <div className="pl-4">
-                        {category.subItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block px-4 py-1.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
+                <Link
+                  href="/programs"
+                  className="block px-4 py-3 text-sm font-bold text-blue-600 hover:bg-blue-50 transition border-b border-gray-100"
+                >
+                  View All Programs →
+                </Link>
+                {programCategories.slice(1).map((category) => (
+                  <Link
+                    key={category.href}
+                    href={category.href}
+                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
+                  >
+                    {category.label}
+                  </Link>
                 ))}
               </div>
             )}
