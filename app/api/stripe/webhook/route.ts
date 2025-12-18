@@ -93,6 +93,10 @@ export async function POST(req: Request) {
       const programId = session.metadata?.program_id;
       const programSlug = session.metadata?.program_slug;
       const fundingSource = session.metadata?.funding_source || 'WIOA';
+      const applicationId = session.metadata?.application_id;
+      const email = session.metadata?.email || session.customer_email;
+      const firstName = session.metadata?.first_name;
+      const lastName = session.metadata?.last_name;
 
       if (!studentId || !programId) {
         logger.info(
@@ -114,7 +118,18 @@ export async function POST(req: Request) {
       const { createClient } = await import('@/lib/supabase/server');
       const supabaseClient = await createClient();
 
-      // STEP 1: Mark funding payment as paid (audit trail)
+      // STEP 1: Update application status if exists
+      if (applicationId) {
+        await supabaseClient
+          .from('applications')
+          .update({
+            status: 'accepted',
+            payment_status: 'paid',
+          })
+          .eq('id', applicationId);
+      }
+
+      // Mark funding payment as paid (audit trail)
       await supabaseClient
         .from('funding_payments')
         .update({
@@ -133,18 +148,30 @@ export async function POST(req: Request) {
         .eq('program_id', programId)
         .maybeSingle();
 
+      let enrollmentId: string | null = null;
+      let isNewEnrollment = false;
+
       if (!existing) {
         // Create new enrollment
-        await supabaseClient.from('enrollments').insert({
-          student_id: studentId,
-          program_id: programId,
-          status: 'active',
-          payment_status: 'paid',
-          enrolled_at: new Date().toISOString(),
-        });
+        const { data: newEnrollment } = await supabaseClient
+          .from('enrollments')
+          .insert({
+            student_id: studentId,
+            program_id: programId,
+            status: 'active',
+            payment_status: 'paid',
+            enrolled_at: new Date().toISOString(),
+          })
+          .select('id')
+          .single();
+        
+        enrollmentId = newEnrollment?.id || null;
+        isNewEnrollment = true;
+        
         logger.info('[Webhook] ✅ Created new enrollment', {
           studentId,
           programId,
+          enrollmentId,
         });
       } else if (existing.status !== 'active') {
         // Activate existing enrollment
@@ -156,13 +183,54 @@ export async function POST(req: Request) {
             enrolled_at: new Date().toISOString(),
           })
           .eq('id', existing.id);
+        
+        enrollmentId = existing.id;
+        isNewEnrollment = true;
+        
         logger.info('[Webhook] ✅ Activated existing enrollment', {
           enrollmentId: existing.id,
         });
       } else {
+        enrollmentId = existing.id;
         logger.info('[Webhook] Enrollment already active', {
           enrollmentId: existing.id,
         });
+      }
+
+      // Send welcome email for new enrollments
+      if (isNewEnrollment && email) {
+        try {
+          const { data: programDetails } = await supabaseClient
+            .from('programs')
+            .select('name')
+            .eq('id', programId)
+            .single();
+
+          await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              to: email,
+              subject: `Welcome to ${programDetails?.name || 'Your Program'}!`,
+              html: `
+                <h2>Welcome to Elevate for Humanity!</h2>
+                <p>Hi ${firstName || 'there'},</p>
+                <p>Congratulations! Your enrollment in <strong>${programDetails?.name || 'your program'}</strong> is now active.</p>
+                <h3>Next Steps:</h3>
+                <ol>
+                  <li>Log in to your student portal: <a href="https://www.elevateforhumanity.org/login">Login Here</a></li>
+                  <li>Complete your student profile</li>
+                  <li>Access your course materials</li>
+                  <li>Meet your instructor</li>
+                </ol>
+                <p>Questions? Call us at <a href="tel:3173143757">317-314-3757</a></p>
+                <p>Best regards,<br>Elevate for Humanity Team</p>
+              `,
+            }),
+          });
+        } catch (emailError) {
+          logger.warn('[Webhook] Failed to send welcome email', emailError);
+        }
       }
 
       // STEP 3: Assign AI Instructor

@@ -52,6 +52,20 @@ export async function POST(req: Request) {
       ? Math.round(Number(program.total_cost) * 100)
       : 489000; // Default $4,890
 
+    // Create or get user profile
+    let userId: string | null = null;
+    
+    // Check if user exists
+    const { data: existingProfile } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('email', email.toLowerCase())
+      .single();
+
+    if (existingProfile) {
+      userId = existingProfile.id;
+    }
+
     // Create application record
     const { data: application, error: appError } = await supabase
       .from('applications')
@@ -96,11 +110,15 @@ export async function POST(req: Request) {
       success_url: `${siteUrl}/enroll/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/apply?program=${programSlug}`,
       metadata: {
-        applicationId: application.id,
-        programId: program.id,
-        programSlug: program.slug,
-        firstName,
-        lastName,
+        // Webhook expects these exact field names for auto-enrollment
+        student_id: userId || application.id, // Use profile ID if exists, else application ID
+        program_id: program.id,
+        program_slug: program.slug,
+        funding_source: 'self-pay',
+        // Additional fields for reference
+        application_id: application.id,
+        first_name: firstName,
+        last_name: lastName,
         email: email.toLowerCase(),
         phone: phone || '',
       },
@@ -118,6 +136,14 @@ export async function POST(req: Request) {
         { status: 500 }
       );
     }
+
+    // Update application with stripe session ID
+    await supabase
+      .from('applications')
+      .update({
+        stripe_session_id: session.id,
+      })
+      .eq('id', application.id);
 
     logger.info('Checkout session created', {
       sessionId: session.id,
