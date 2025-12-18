@@ -65,6 +65,66 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
+    // Get user profile for certificate
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('full_name, email')
+      .eq('id', user.id)
+      .single();
+
+    // Get course details
+    const { data: courseDetails } = await supabase
+      .from('courses')
+      .select('title, metadata')
+      .eq('id', courseId)
+      .single();
+
+    // Generate certificate
+    try {
+      const certificateNumber = `EFH-${Date.now()}-${courseId.substring(0, 8)}`;
+      
+      const { error: certError } = await supabase
+        .from('module_certificates')
+        .insert({
+          user_id: user.id,
+          module_id: courseId,
+          certificate_number: certificateNumber,
+          certificate_name: courseDetails?.title || 'Course Completion',
+          issued_by: 'Elevate For Humanity',
+          issued_date: new Date().toISOString().split('T')[0],
+          student_name: profile?.full_name || 'Student',
+        });
+
+      if (certError) {
+        console.error('Certificate creation error:', certError);
+      }
+
+      // Send completion email
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: profile?.email || user.email,
+            subject: `Course Completed: ${courseDetails?.title}`,
+            html: `
+              <h2>Congratulations!</h2>
+              <p>You have successfully completed <strong>${courseDetails?.title}</strong>!</p>
+              <p><strong>Certificate Number:</strong> ${certificateNumber}</p>
+              <p>Your certificate is now available in your LMS dashboard.</p>
+              <p><a href="https://www.elevateforhumanity.org/lms/certificates">View Your Certificates</a></p>
+              <p>Best regards,<br>Elevate for Humanity Team</p>
+            `,
+          }),
+        });
+      } catch (emailError) {
+        console.error('Email notification error:', emailError);
+      }
+    } catch (certError) {
+      console.error('Certificate generation error:', certError);
+      // Don't fail the completion if certificate fails
+    }
+
     // Redirect if form submission, JSON response if API call
     if (
       contentType?.includes('application/x-www-form-urlencoded') ||
