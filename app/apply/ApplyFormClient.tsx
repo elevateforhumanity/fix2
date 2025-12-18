@@ -33,21 +33,24 @@ export default function ApplyFormClient() {
     setStatus('loading');
 
     try {
-      const subject = encodeURIComponent(
-        `Inquiry from ${formData.name}${formData.program ? ` - ${formData.program}` : ''}`
-      );
-      const body = encodeURIComponent(
-        `New inquiry from Elevate for Humanity website:\n\n` +
-          `Name: ${formData.name}\n` +
-          `Email: ${formData.email}\n` +
-          `Phone: ${formData.phone}\n` +
-          `Program Interest: ${formData.program || 'Not specified'}\n\n` +
-          `Message:\n${formData.message || 'No message provided'}\n\n` +
-          `---\n` +
-          `Submitted from: ${window.location.href}`
-      );
+      // Send inquiry via API
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          program: formData.program,
+          message: formData.message,
+          state_code: formData.state_code,
+        }),
+      });
 
-      window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
+      if (!response.ok) {
+        throw new Error('Failed to submit inquiry');
+      }
+
       setStatus('success');
 
       setTimeout(() => {
@@ -60,10 +63,11 @@ export default function ApplyFormClient() {
           state_code: 'IN',
         });
         setStatus('idle');
-      }, 3000);
+      }, 5000);
     } catch (error) {
+      console.error('Inquiry submission error:', error);
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
@@ -127,15 +131,13 @@ export default function ApplyFormClient() {
                 <span className="text-3xl">✓</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                Email Opened!
+                Inquiry Received!
               </h2>
               <p className="text-slate-600 mb-4">
-                Your email client should have opened with your inquiry details.
-                Please send the email to complete your submission.
+                Thank you for your interest! We've received your inquiry and sent a confirmation to your email.
               </p>
               <p className="text-sm text-slate-600 mb-6">
-                An advisor will contact you within 1-2 business days after we
-                receive your email.
+                An advisor will contact you within 1-2 business days to discuss your goals and next steps.
               </p>
               <div className="space-y-3">
                 <button
