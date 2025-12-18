@@ -15,7 +15,7 @@ import { MainNav } from '@/components/layout/MainNav';
 import MainHeader from '@/components/layout/MainHeader';
 import MainFooter from '@/components/layout/MainFooter';
 import { SiteFooter } from '@/components/layout/Footer';
-import SiteHeader from '@/components/site/SiteHeader';
+import SimpleHeader from '@/components/site/SimpleHeader';
 import NewSiteFooter from '@/components/site/SiteFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
@@ -203,7 +203,7 @@ export default function RootLayout({
         />
         <DMCATrackingPixel />
         <ScraperDetection />
-        <SiteHeader />
+        <SimpleHeader />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">
           {children}
