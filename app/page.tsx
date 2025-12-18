@@ -5,40 +5,39 @@ import { Users, Briefcase, TrendingUp } from 'lucide-react';
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 1. HERO - Video with simple headline */}
-      <section className="px-6 sm:px-10 lg:px-12 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black">
-              Elevate for Humanity is Unlocking Potential
-            </h1>
-          </div>
+      {/* 1. HERO - Elevation Video */}
+      <section className="relative w-full bg-gradient-to-br from-blue-900 via-purple-900 to-black py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white text-center mb-12 leading-tight">
+            This Is Not Graduation.
+            <br />
+            <span className="text-orange-500">This Is Elevation.</span>
+          </h1>
 
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800">
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
-                poster="/images/heroes/hero-homepage.jpg"
-                style={{ backgroundColor: 'transparent' }}
               >
                 <source
-                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081347919&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ezZ0FVT-e8bJDB4vfWuYMSbBf2IiAnOZLAxWrge9gnOAevZMVxtdhgOiss5CNfUexEvxOZHJ-DEk7EKU8qIidPUiG6WydOZNhJAIm60IVTIhGhp4clYPL-amrhFmMrwICdauopAT3dS~QOrJQc49U1sjaBE4VxJt1cA9ociJD5ki4jMn8zJ9u053b8ZZWqy0YV4nANu9XCzPCMsD2wgVYa3xpj12SV3BQk6lmd~oSNaz~aJyjf-goldm7i29fveQ~7DXNeUega8pF7yVMMVFHdIYTSroWpz5oMgD7BB8OCKtdkU5fk0DCzIqnul-YVuoIlmThN0-VUJ65U~2TW3UmQ__"
+                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
                   type="video/mp4"
                 />
               </video>
-              {/* Fallback for when video/poster doesn't load */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 -z-10">
-                <div className="text-center text-white p-8">
-                  <h2 className="text-3xl font-bold mb-2">Elevate for Humanity</h2>
-                  <p className="text-lg opacity-90">Unlocking Potential Through Education</p>
-                </div>
-              </div>
             </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              We don't just train people for jobs. We elevate lives, transform
+              communities, and create lasting economic impact.
+            </p>
           </div>
         </div>
       </section>
@@ -219,17 +218,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. ELEVATION VIDEO HERO - This Is Not Graduation, This Is Elevation */}
-      <section className="relative w-full bg-gradient-to-br from-blue-900 via-red-900 to-black py-20 lg:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white text-center mb-12 leading-tight">
-            This Is Not Graduation.
-            <br />
-            <span className="text-red-500">This Is Elevation.</span>
-          </h2>
+      {/* 5. UNLOCKING POTENTIAL VIDEO */}
+      <section className="px-6 sm:px-10 lg:px-12 py-20 lg:py-24 bg-gray-50">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black">
+              Elevate for Humanity is Unlocking Potential
+            </h2>
+          </div>
 
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
                 autoPlay
@@ -238,20 +236,14 @@ export default function HomePage() {
                 playsInline
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ backgroundColor: 'transparent' }}
               >
                 <source
-                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
+                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081347919&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ezZ0FVT-e8bJDB4vfWuYMSbBf2IiAnOZLAxWrge9gnOAevZMVxtdhgOiss5CNfUexEvxOZHJ-DEk7EKU8qIidPUiG6WydOZNhJAIm60IVTIhGhp4clYPL-amrhFmMrwICdauopAT3dS~QOrJQc49U1sjaBE4VxJt1cA9ociJD5ki4jMn8zJ9u053b8ZZWqy0YV4nANu9XCzPCMsD2wgVYa3xpj12SV3BQk6lmd~oSNaz~aJyjf-goldm7i29fveQ~7DXNeUega8pF7yVMMVFHdIYTSroWpz5oMgD7BB8OCKtdkU5fk0DCzIqnul-YVuoIlmThN0-VUJ65U~2TW3UmQ__"
                   type="video/mp4"
                 />
               </video>
             </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              We don't just train people for jobs. We elevate lives, transform
-              communities, and create lasting economic impact.
-            </p>
           </div>
         </div>
       </section>
