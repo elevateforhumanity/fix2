@@ -96,6 +96,32 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const userAgent = request.headers.get('user-agent') || '';
   const ip = getClientIp(request);
+  const hostname = request.headers.get('host') || '';
+
+  // === DOMAIN-BASED ROUTING ===
+  // Admin portal domains
+  if (
+    hostname === 'elevateconnectsdirectory.org' ||
+    hostname === 'www.elevateconnectsdirectory.org'
+  ) {
+    if (!pathname.startsWith('/admin')) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/admin${pathname}`;
+      return NextResponse.rewrite(url);
+    }
+  }
+
+  // LMS portal domains
+  if (
+    hostname === 'elevateforhumanityeducation.com' ||
+    hostname === 'www.elevateforhumanityeducation.com'
+  ) {
+    if (!pathname.startsWith('/lms')) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/lms${pathname}`;
+      return NextResponse.rewrite(url);
+    }
+  }
 
   // Handle redirects for consolidated pages
   const redirects: Record<string, string> = {
@@ -223,13 +249,6 @@ export async function proxy(request: NextRequest) {
         { status: 429 }
       );
     }
-  }
-
-  // Subdomain routing
-  const hostname = request.headers.get('host') || '';
-
-  if (hostname.includes('elevateconnectsdirectory.org')) {
-    return NextResponse.rewrite(new URL('/admin', request.url));
   }
 
   // Add comprehensive security headers to response
