@@ -99,24 +99,67 @@ export default function SiteFooter() {
 
         {/* Main Footer Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          {/* Programs */}
+          {/* For Students */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Programs</h3>
+            <h3 className="font-semibold text-white text-sm mb-4">
+              For Students
+            </h3>
             <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/apply"
+                  className="text-sm text-gray-400 hover:text-white transition"
+                >
+                  Apply Now
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/programs"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Training Programs
+                  Browse Programs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/funding"
+                  href="/supersonic-fast-cash"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  How It Works
+                  Tax Refund Advance
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/financial-aid"
+                  className="text-sm text-gray-400 hover:text-white transition"
+                >
+                  Financial Aid
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/career-services"
+                  className="text-sm text-gray-400 hover:text-white transition"
+                >
+                  Career Services
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* For Partners */}
+          <div>
+            <h3 className="font-semibold text-white text-sm mb-4">
+              For Partners
+            </h3>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/employers"
+                  className="text-sm text-gray-400 hover:text-white transition"
+                >
+                  Employers
                 </Link>
               </li>
               <li>
@@ -124,15 +167,15 @@ export default function SiteFooter() {
                   href="/platform"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Platform
+                  Training Providers
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/marketplace"
+                  href="/partners/workforce"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Marketplace
+                  Workforce Boards
                 </Link>
               </li>
               <li>
@@ -140,103 +183,64 @@ export default function SiteFooter() {
                   href="/partners"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Partners
+                  Partner With Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-gray-400 hover:text-white transition"
+                >
+                  Schedule Demo
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Popular Programs */}
           <div>
             <h3 className="font-semibold text-white text-sm mb-4">
-              Industries
+              Popular Programs
             </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
-                  href="/programs"
+                  href="/programs/hvac-technician"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Healthcare
+                  HVAC Technician
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs"
+                  href="/programs/barber-apprenticeship"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Skilled Trades
+                  Barber Apprenticeship
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs"
+                  href="/programs/direct-support-professional"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Beauty & Wellness
+                  Direct Support Professional
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs"
+                  href="/programs/professional-esthetician"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  Business & Finance
+                  Professional Esthetician
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs"
+                  href="/programs/tax-prep-financial-services"
                   className="text-sm text-gray-400 hover:text-white transition"
                 >
-                  See All Programs
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Learn */}
-          <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Learn</h3>
-            <ul className="space-y-2.5">
-              <li>
-                <Link
-                  href="/alumni"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Student Stories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/events"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/webinars"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Webinars
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/resources"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Resource Library
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-gray-400 hover:text-white transition"
-                >
-                  Blog
+                  Tax Prep & Financial Services
                 </Link>
               </li>
             </ul>
@@ -294,11 +298,23 @@ export default function SiteFooter() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
-              <Link href="/privacy" className="hover:text-white transition">
-                Privacy
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition"
+              >
+                Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-white transition">
-                Terms
+              <Link
+                href="/terms-of-service"
+                className="hover:text-white transition"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/refund-policy"
+                className="hover:text-white transition"
+              >
+                Refund Policy
               </Link>
               <Link
                 href="/accessibility"
@@ -306,11 +322,14 @@ export default function SiteFooter() {
               >
                 Accessibility
               </Link>
-              <Link href="/ferpa" className="hover:text-white transition">
-                FERPA
+              <Link href="/cookies" className="hover:text-white transition">
+                Cookies
               </Link>
               <Link href="/contact" className="hover:text-white transition">
                 Contact
+              </Link>
+              <Link href="/sitemap.xml" className="hover:text-white transition">
+                Sitemap
               </Link>
             </div>
             <p className="text-xs text-gray-400">

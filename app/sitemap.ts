@@ -1,10 +1,23 @@
 import { MetadataRoute } from 'next';
 import { createBuildTimeSupabaseClient } from '@/lib/auth';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+  // High-priority pages for SEO
+  const highPriorityPages = [
+    { url: '', priority: 1.0, changeFrequency: 'daily' as const },
+    {
+      url: '/supersonic-fast-cash',
+      priority: 1.0,
+      changeFrequency: 'daily' as const,
+    },
+    { url: '/apply', priority: 0.9, changeFrequency: 'daily' as const },
+    { url: '/programs', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/contact', priority: 0.9, changeFrequency: 'monthly' as const },
+  ];
+
   // Static pages - consolidated public routes
   const staticPages = [
-    '',
     '/about',
     '/about/team',
     '/accessibility',
@@ -14,7 +27,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/alumni',
     '/annual-report',
     '/app-hub',
-    '/apply',
     '/apprenticeships',
     '/blog',
     '/calendar',
@@ -22,7 +34,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/certificates/verify',
     '/community',
     '/compare',
-    '/contact',
     '/courses',
     '/credentials',
     '/delegate/dashboard',
@@ -258,18 +269,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/cert/verify',
     '/healthcare-administration',
   ];
+  // Create high-priority sitemap entries
+  const highPrioritySitemap: MetadataRoute.Sitemap = highPriorityPages.map(
+    (page) => ({
+      url: `${baseUrl}${page.url}`,
+      lastModified: new Date(),
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+    })
+  );
+
   const staticSitemap: MetadataRoute.Sitemap = staticPages.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: 0.7,
   }));
   try {
     // Skip dynamic content during build if no database connection
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
-        process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
-      // ');
-      return staticSitemap;
+    if (
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')
+    ) {
+      return [...highPrioritySitemap, ...staticSitemap];
     }
     const supabase = createBuildTimeSupabaseClient();
     // Get dynamic program pages - use created_at instead of updated_at
@@ -280,23 +302,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Skip courses table if it doesn't exist
     const courses = null;
     if (programsError) {
-      // 
-      return staticSitemap;
+      return [...highPrioritySitemap, ...staticSitemap];
     }
     const sitemap: MetadataRoute.Sitemap = [
+      ...highPrioritySitemap,
       ...staticSitemap,
       // Program pages
       ...(programs || []).map((program) => ({
         url: `${baseUrl}/programs/${program.slug}`,
-        lastModified: program.created_at ? new Date(program.created_at) : new Date(),
+        lastModified: program.created_at
+          ? new Date(program.created_at)
+          : new Date(),
         changeFrequency: 'monthly' as const,
-        priority: 0.7,
+        priority: 0.8,
       })),
     ];
     return sitemap;
   } catch (err) {
-    // 
-    // Fallback to static sitemap if Supabase fails
-    return staticSitemap;
+    return [...highPrioritySitemap, ...staticSitemap];
   }
 }

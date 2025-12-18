@@ -134,40 +134,12 @@ const nextConfig = {
         destination: 'https://www.elevateforhumanity.org/:path*',
         permanent: true,
       },
-      // Fix DSP/Medical Assistant mismatch
+
+      // ===== DUPLICATE URL CONSOLIDATION =====
+      // Privacy Policy - Consolidate to /privacy-policy
       {
-        source: '/programs/medical-assistant',
-        destination: '/programs/direct-support-professional',
-        permanent: true,
-      },
-      // Fix peer support professional broken route
-      {
-        source: '/programs/peer-support-professional',
-        destination: '/programs/peer-recovery-coach',
-        permanent: true,
-      },
-      // Fix orphan IT route
-      {
-        source: '/programs/it',
-        destination: '/programs/workforce-readiness',
-        permanent: false, // Temporary until confirmed
-      },
-      // Fix tax prep slug
-      {
-        source: '/programs/tax-prep',
-        destination: '/programs/tax-prep-financial-services',
-        permanent: true,
-      },
-      // Fix reentry specialist slug
-      {
-        source: '/programs/public-safety-reentry-specialist',
-        destination: '/programs/peer-recovery-coach',
-        permanent: true,
-      },
-      // Fix legal routes
-      {
-        source: '/legal/terms',
-        destination: '/terms-of-service',
+        source: '/privacy',
+        destination: '/privacy-policy',
         permanent: true,
       },
       {
@@ -175,17 +147,139 @@ const nextConfig = {
         destination: '/privacy-policy',
         permanent: true,
       },
-      // Blog redirect to Durable (uncomment and update URL when ready)
-      // {
-      //   source: '/blog',
-      //   destination: 'https://your-durable-blog-url.durable.co/blog',
-      //   permanent: false,
-      // },
-      // {
-      //   source: '/blog/:path*',
-      //   destination: 'https://your-durable-blog-url.durable.co/blog/:path*',
-      //   permanent: false,
-      // },
+
+      // Terms of Service - Consolidate to /terms-of-service
+      {
+        source: '/terms',
+        destination: '/terms-of-service',
+        permanent: true,
+      },
+      {
+        source: '/legal/terms',
+        destination: '/terms-of-service',
+        permanent: true,
+      },
+
+      // Refund Policy - Consolidate to /refund-policy
+      {
+        source: '/refundpolicy',
+        destination: '/refund-policy',
+        permanent: true,
+      },
+      {
+        source: '/refunds',
+        destination: '/refund-policy',
+        permanent: true,
+      },
+
+      // AI Tutor - Consolidate to /ai-tutor
+      {
+        source: '/aitutor',
+        destination: '/ai-tutor',
+        permanent: true,
+      },
+
+      // Kingdom Konnect - Consolidate to /kingdom-konnect
+      {
+        source: '/kingdomkonnect',
+        destination: '/kingdom-konnect',
+        permanent: true,
+      },
+
+      // Serene Comfort Care - Consolidate to /serene-comfort-care
+      {
+        source: '/serenecomfortcare',
+        destination: '/serene-comfort-care',
+        permanent: true,
+      },
+
+      // Urban Build Crew - Consolidate to /urban-build-crew
+      {
+        source: '/urbanbuildcrew',
+        destination: '/urban-build-crew',
+        permanent: true,
+      },
+
+      // Supersonic Fast Cash - Consolidate to /supersonic-fast-cash
+      {
+        source: '/supersonic',
+        destination: '/supersonic-fast-cash',
+        permanent: true,
+      },
+      {
+        source: '/supersonicfastcash',
+        destination: '/supersonic-fast-cash',
+        permanent: true,
+      },
+      {
+        source: '/supersonic-cash',
+        destination: '/supersonic-fast-cash',
+        permanent: true,
+      },
+
+      // Programs - Consolidate to /programs
+      {
+        source: '/programs-lms',
+        destination: '/programs',
+        permanent: true,
+      },
+      {
+        source: '/programs-full',
+        destination: '/programs',
+        permanent: true,
+      },
+
+      // ===== PROGRAM SLUG FIXES =====
+      {
+        source: '/programs/medical-assistant',
+        destination: '/programs/direct-support-professional',
+        permanent: true,
+      },
+      {
+        source: '/programs/peer-support-professional',
+        destination: '/programs/peer-recovery-coach',
+        permanent: true,
+      },
+      {
+        source: '/programs/it',
+        destination: '/programs/workforce-readiness',
+        permanent: true,
+      },
+      {
+        source: '/programs/tax-prep',
+        destination: '/programs/tax-prep-financial-services',
+        permanent: true,
+      },
+      {
+        source: '/programs/public-safety-reentry-specialist',
+        destination: '/programs/peer-recovery-coach',
+        permanent: true,
+      },
+      {
+        source: '/programs/hvac',
+        destination: '/programs/hvac-technician',
+        permanent: true,
+      },
+      {
+        source: '/programs/hvac-tech',
+        destination: '/programs/hvac-technician',
+        permanent: true,
+      },
+      {
+        source: '/programs/barber',
+        destination: '/programs/barber-apprenticeship',
+        permanent: true,
+      },
+      {
+        source: '/programs/esth',
+        destination: '/programs/esthetics-apprenticeship',
+        permanent: true,
+      },
+      {
+        source: '/programs/esthetician',
+        destination: '/programs/professional-esthetician',
+        permanent: true,
+      },
     ];
   },
 };
