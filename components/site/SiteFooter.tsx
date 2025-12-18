@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         {/* Our Story Section */}
         <div className="mb-16 max-w-4xl">

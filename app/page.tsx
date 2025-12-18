@@ -15,7 +15,7 @@ export default function HomePage() {
             <span className="text-orange-500">This Is Elevation.</span>
           </h1>
 
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900 via-purple-900 to-black">
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-white">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
                 autoPlay
@@ -227,7 +227,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800">
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-white">
             <div className="relative h-[400px] w-full md:h-[600px]">
               <video
                 autoPlay
