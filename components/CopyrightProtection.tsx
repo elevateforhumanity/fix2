@@ -121,26 +121,22 @@ function showCopyrightNotice() {
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   `;
   notice.innerHTML = `
-    <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
-    <h2 style="margin: 0 0 15px 0; font-size: 24px;">Copyright Protected Content</h2>
-    <p style="margin: 0 0 15px 0; line-height: 1.6;">
-      This content is protected by U.S. Copyright Law.<br>
-      © 2024 Elevate for Humanity. All Rights Reserved.
-    </p>
-    <p style="margin: 0 0 20px 0; font-size: 14px; color: #ff6b6b;">
-      Unauthorized reproduction is prohibited and will be prosecuted.
+    <div style="font-size: 32px; margin-bottom: 15px;">ℹ️</div>
+    <h2 style="margin: 0 0 10px 0; font-size: 20px;">Protected Content</h2>
+    <p style="margin: 0 0 15px 0; line-height: 1.5; font-size: 14px;">
+      © 2025 Elevate for Humanity. All Rights Reserved.
     </p>
     <button id="close-notice" style="
       background: #f97316;
       color: white;
       border: none;
-      padding: 12px 30px;
+      padding: 10px 24px;
       border-radius: 5px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       cursor: pointer;
     ">
-      I Understand
+      OK
     </button>
   `;
   document.body.appendChild(notice);
@@ -154,48 +150,25 @@ function showCopyrightNotice() {
   }, 5000);
 }
 /**
- * Visible Copyright Footer Component
+ * Visible Copyright Footer Component - Simplified and Student-Friendly
  */
 export function CopyrightFooter() {
   return (
-    <div className="bg-slate-900 text-white py-4 px-4 text-center text-sm border-t-4 border-orange-600">
-      <p className="mb-2">
-        © 2024{' '}
-        <strong>Elevate for Humanity Career & Technical Institute</strong>. All
-        Rights Reserved.
+    <div className="bg-slate-900 text-white py-3 px-4 text-center text-sm">
+      <p className="mb-2 text-gray-300">
+        © 2025 Elevate for Humanity. All Rights Reserved.
       </p>
-      <p className="text-xs text-slate-400 mb-2">
-        Protected by U.S. Copyright Law (17 U.S.C. § 101 et seq.) | Unauthorized
-        reproduction is prohibited and will be prosecuted.
-      </p>
-      <p className="text-xs text-slate-400">
-        <strong>WIOA Approved Provider</strong> | Indiana DWD Registration
-        #2024-EFH-001 |<strong>Original Content - Do Not Copy</strong>
-      </p>
-      <div className="mt-3 flex justify-center gap-4 text-xs">
-        <a href="/dmca" className="text-orange-400 hover:text-orange-300">
-          DMCA Policy
-        </a>
-        <span className="text-slate-600">|</span>
-        <a
-          href="/intellectual-property"
-          className="text-orange-400 hover:text-orange-300"
-        >
-          IP Protection
-        </a>
-        <span className="text-slate-600">|</span>
-        <a
-          href="/terms-of-service"
-          className="text-orange-400 hover:text-orange-300"
-        >
+      <div className="flex justify-center gap-4 text-xs text-gray-400">
+        <a href="/terms" className="hover:text-white">
           Terms
         </a>
-        <span className="text-slate-600">|</span>
-        <a
-          href="/privacy-policy"
-          className="text-orange-400 hover:text-orange-300"
-        >
+        <span>|</span>
+        <a href="/privacy" className="hover:text-white">
           Privacy
+        </a>
+        <span>|</span>
+        <a href="/dmca" className="hover:text-white">
+          DMCA
         </a>
       </div>
     </div>
