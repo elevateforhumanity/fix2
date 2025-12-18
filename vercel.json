@@ -29,48 +29,7 @@
       "schedule": "*/5 * * * *"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "elevateconnectsdirectory.org"
-        }
-      ],
-      "destination": "/admin/:path*"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.elevateconnectsdirectory.org"
-        }
-      ],
-      "destination": "/admin/:path*"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "elevateforhumanityeducation.com"
-        }
-      ],
-      "destination": "/lms/:path*"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.elevateforhumanityeducation.com"
-        }
-      ],
-      "destination": "/lms/:path*"
-    }
-  ],
+
   "headers": [
     {
       "source": "/admin/:path*",
