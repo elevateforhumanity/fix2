@@ -45,77 +45,60 @@ export default function HomePage() {
           </Link>
         </div>
       </header>
-      {/* Hero Section with Video */}
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 2px 2px, #E63946 1px, transparent 0)',
-              backgroundSize: '40px 40px',
-            }}
-          />
-        </div>
+      {/* VIDEO HERO - December 11th */}
+      <section className="relative overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-auto"
+          style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
+        >
+          <source src="/videos/hero-home.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      {/* Hero Content Below Video */}
+      <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900">
         <div className="elevate-container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center py-20">
-            {/* Left: Content */}
-            <div>
-              <div className="inline-block px-4 py-2 bg-efh-red/10 border border-efh-red/20 rounded-full text-sm font-semibold mb-6 text-efh-red">
-                ✓ WIOA-Funded Training • 100% Free for Eligible Participants
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900">
-                Transform Your Future with FREE Workforce Training
-              </h1>
-              <p className="text-2xl font-semibold mb-6 text-efh-orange italic">
-                Innovate. Elevate. Reset.
-              </p>
-              <p className="text-xl mb-8 text-gray-700 leading-relaxed">
-                A workforce & wellness ecosystem for real people. Access
-                high-quality career training programs funded by WIOA. Get the
-                skills employers need—at no cost to you.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <Link href="/enroll" className="elevate-btn-primary">
-                  Check Your Eligibility
-                </Link>
-                <Link href="/programs" className="elevate-btn-secondary">
-                  Browse Programs
-                </Link>
-              </div>
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-6 text-sm text-gray-700">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-efh-teal" />
-                  <span>WIOA Certified</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-efh-teal" />
-                  <span>Industry-Recognized Credentials</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-efh-teal" />
-                  <span>Job Placement Support</span>
-                </div>
-              </div>
+          <div className="py-20 text-center max-w-4xl mx-auto">
+            <div className="inline-block px-4 py-2 bg-efh-red/10 border border-efh-red/20 rounded-full text-sm font-semibold mb-6 text-efh-red">
+              ✓ WIOA-Funded Training • 100% Free for Eligible Participants
             </div>
-            {/* Right: Hero Video */}
-            <div className="relative">
-              <VideoShell
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Elevate for Humanity - Innovate. Elevate. Reset."
-                caption="A workforce & wellness ecosystem for real people"
-                className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-              />
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-purple-600">100%</div>
-                <div className="text-sm text-gray-600">Free Training</div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-900">
+              Transform Your Future with FREE Workforce Training
+            </h1>
+            <p className="text-2xl font-semibold mb-6 text-efh-orange italic">
+              Innovate. Elevate. Reset.
+            </p>
+            <p className="text-xl mb-8 text-gray-700 leading-relaxed">
+              A workforce & wellness ecosystem for real people. Access
+              high-quality career training programs funded by WIOA. Get the
+              skills employers need—at no cost to you.
+            </p>
+            <div className="flex flex-wrap gap-4 mb-8 justify-center">
+              <Link href="/enroll" className="elevate-btn-primary">
+                Check Your Eligibility
+              </Link>
+              <Link href="/programs" className="elevate-btn-secondary">
+                Browse Programs
+              </Link>
+            </div>
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap gap-6 text-sm text-gray-700 justify-center">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-efh-teal" />
+                <span>WIOA Certified</span>
               </div>
-              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold text-teal-600">85%</div>
-                <div className="text-sm text-gray-600">Job Placement</div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-efh-teal" />
+                <span>Industry-Recognized Credentials</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-efh-teal" />
+                <span>Job Placement Support</span>
               </div>
             </div>
           </div>
