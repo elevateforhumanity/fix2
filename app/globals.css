@@ -65,11 +65,15 @@ video[poster] {
   background: linear-gradient(135deg, #1e3a8a 0%, #581c87 50%, #1e40af 100%);
 }
 
-/* Smooth fade-in for loaded images */
-img[loading="lazy"],
-video {
+/* Smooth fade-in for loaded images only (not videos) */
+img[loading="lazy"] {
   opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
+}
+
+/* Videos should be visible immediately */
+video {
+  opacity: 1;
 }
 
 @keyframes fadeIn {

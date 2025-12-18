@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { logEmailDelivery } from '@/lib/email/monitor';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(req: Request) {
   const startTime = Date.now();
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     }
 
     // If no RESEND_API_KEY, log and return success (dev mode)
-    if (!process.env.RESEND_API_KEY) {
+    if (!resend) {
       console.log('[Email] Would send:', { to, subject });
       
       // Log as pending in dev mode
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       });
     }
 
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await resend!.emails.send({
       from: 'Elevate for Humanity <noreply@elevateforhumanity.org>',
       to: Array.isArray(to) ? to : [to],
       subject,

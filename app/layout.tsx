@@ -66,15 +66,17 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-// Cache bust: 2025-12-18T00:08:00Z
+// Cache bust: 2025-12-18T08:15:00Z
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'
   ),
-  title:
-    'Free Career Training Indianapolis | WIOA Programs Indiana | Elevate for Humanity',
+  title: {
+    default: 'Elevate for Humanity | Workforce Training + Apprenticeships',
+    template: '%s | Elevate for Humanity',
+  },
   description:
-    '100% FREE career training in Indianapolis. WIOA-funded programs in HVAC, healthcare, barbering, and trades. No tuition, no debt. Job placement assistance. Start your career today in Marion County, Indiana.',
+    'A workforce hub connecting students to training, funding, apprenticeships, and barrier support—so people can move into real careers.',
   keywords: [
     'free career training Indianapolis',
     'WIOA programs Indiana',
@@ -114,20 +116,16 @@ export const metadata: Metadata = {
     canonical: 'https://www.elevateforhumanity.org',
   },
   openGraph: {
-    title:
-      'Free Career Training Indianapolis | 100% WIOA Funded | Elevate for Humanity',
-    description:
-      '100% FREE career training in Indianapolis, IN. WIOA-funded HVAC, healthcare, barbering & trade programs. No tuition, no debt. Job placement guaranteed. Located at 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240.',
+    type: 'website',
     url: 'https://www.elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
-    type: 'website',
     images: [
       {
         url: '/images/heroes/hero-homepage.jpg',
         width: 1200,
         height: 630,
-        alt: 'Free Career Training Indianapolis - WIOA Programs Indiana',
+        alt: 'Elevate for Humanity - Workforce Training and Apprenticeships',
       },
     ],
   },

@@ -1,6 +1,6 @@
 Contact: mailto:security@elevateforhumanity.org
-Contact: mailto:legal@elevateforhumanity.org
-Policy: https://elevateforhumanity.org/legal/terms
-Expires: 2026-12-31T23:59:59Z
+Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: en
-Canonical: https://elevateforhumanity.org/.well-known/security.txt
+Canonical: https://www.elevateforhumanity.org/.well-known/security.txt
+Policy: https://www.elevateforhumanity.org/security-policy
+Acknowledgments: https://www.elevateforhumanity.org/security-acknowledgments

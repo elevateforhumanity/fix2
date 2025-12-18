@@ -8,7 +8,6 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   
   // Performance optimizations
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
