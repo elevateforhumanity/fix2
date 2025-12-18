@@ -88,12 +88,38 @@ const partnerPrograms = [
   { label: 'JRI Programs', href: '/jri' },
 ];
 
-const nav = [
+const aboutDropdown = [
+  { href: '/about', label: 'About Us' },
+  { href: '/team', label: 'Our Team' },
+  { href: '/founder', label: 'Founder' },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/success-stories', label: 'Success Stories' },
+  { href: '/annual-report', label: 'Annual Report' },
+  { href: '/transparency', label: 'Transparency' },
+];
+
+const resourcesDropdown = [
+  { href: '/resources', label: 'All Resources' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/events', label: 'Events' },
+  { href: '/webinars', label: 'Webinars' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/student-handbook', label: 'Student Handbook' },
+  { href: '/syllabi', label: 'Syllabi' },
+];
+
+const servicesDropdown = [
+  { href: '/apprenticeships', label: 'Apprenticeships' },
   { href: '/funding', label: 'Funding' },
+  { href: '/career-services', label: 'Career Services' },
   { href: '/platform', label: 'Platform' },
-  { href: '/licensing', label: 'Partners' },
-  { href: '/about', label: 'About' },
+  { href: '/licensing', label: 'Licensing' },
+  { href: '/tax-services', label: 'Tax Services' },
+];
+
+const nav = [
   { href: '/contact', label: 'Contact' },
+  { href: '/apply', label: 'Apply Now', highlight: true },
 ];
 
 export default function SiteHeader() {
@@ -185,6 +211,81 @@ export default function SiteHeader() {
                     className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
                   >
                     {partner.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Services Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenDropdown('services')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+              Services
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            {openDropdown === 'services' && (
+              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
+                {servicesDropdown.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Resources Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenDropdown('resources')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+              Resources
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            {openDropdown === 'resources' && (
+              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
+                {resourcesDropdown.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* About Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenDropdown('about')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+              About
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            {openDropdown === 'about' && (
+              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
+                {aboutDropdown.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
+                  >
+                    {item.label}
                   </Link>
                 ))}
               </div>
