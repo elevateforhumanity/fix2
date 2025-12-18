@@ -51,6 +51,66 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
 
+      // Handle drug testing products and training courses
+      if (
+        session.metadata?.type === 'service' ||
+        session.metadata?.type === 'course'
+      ) {
+        try {
+          // Log the purchase
+          const { error: logError } = await supabase
+            .from('payment_logs')
+            .insert({
+              stripe_session_id: session.id,
+              stripe_payment_id: session.payment_intent as string,
+              amount: (session.amount_total || 0) / 100,
+              currency: 'usd',
+              status: 'completed',
+              metadata: {
+                productName: session.metadata.productName,
+                type: session.metadata.type,
+                category: session.metadata.category,
+                price: session.metadata.price,
+                customer_email: session.customer_email,
+              },
+            });
+
+          if (logError) {
+            logger.error('Error logging drug testing purchase:', logError);
+          }
+
+          // Create order record
+          const { error: orderError } = await supabase
+            .from('drug_testing_orders')
+            .insert({
+              product_name: session.metadata.productName,
+              product_type: session.metadata.type,
+              category: session.metadata.category,
+              price: parseFloat(session.metadata.price || '0'),
+              customer_email: session.customer_email,
+              stripe_session_id: session.id,
+              stripe_payment_id: session.payment_intent as string,
+              status: 'pending_contact',
+              created_at: new Date().toISOString(),
+            });
+
+          if (orderError) {
+            logger.error('Error creating drug testing order:', orderError);
+          } else {
+            logger.info(
+              '✅ Drug testing order created:',
+              session.metadata.productName
+            );
+          }
+
+          // TODO: Send confirmation email to customer
+          // TODO: Send notification to admin to schedule test/enroll in course
+        } catch (err: unknown) {
+          logger.error('Error processing drug testing purchase:', err);
+        }
+        break;
+      }
+
       // Check if this is a partner course enrollment (new system)
       if (session.metadata?.course_id && session.metadata?.provider_id) {
         try {
