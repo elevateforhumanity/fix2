@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Briefcase,
   Users,
@@ -322,7 +323,9 @@ export default function EmployersPage() {
               candidates on-site.
             </p>
             <div className="bg-slate-50 rounded-lg p-8 mb-8">
-              <h3 className="text-lg md:text-lg font-bold mb-4">Next Hiring Event</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Next Hiring Event
+              </h3>
               <p className="text-lg text-slate-700 mb-2">
                 <strong>Date:</strong> Third Thursday of each month
               </p>

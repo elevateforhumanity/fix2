@@ -2,11 +2,84 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+
+const programCategories = [
+  {
+    label: 'All Programs',
+    href: '/programs',
+  },
+  {
+    label: 'Apprenticeships',
+    href: '/programs/apprenticeships',
+    subItems: [
+      {
+        label: 'Barber Apprenticeship',
+        href: '/programs/barber-apprenticeship',
+      },
+      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
+      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
+      { label: 'Building Technician', href: '/programs/building-technician' },
+    ],
+  },
+  {
+    label: 'WIOA Programs (ETPL/WRG)',
+    href: '/programs/federal-funded',
+    subItems: [
+      { label: 'CNA', href: '/programs/cna' },
+      {
+        label: 'Phlebotomy Technician',
+        href: '/programs/phlebotomy-technician',
+      },
+      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
+      {
+        label: 'Direct Support Professional',
+        href: '/programs/direct-support-professional',
+      },
+      { label: 'CDL', href: '/programs/cdl' },
+      { label: 'CPR Certification', href: '/programs/cpr-certification' },
+      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
+      {
+        label: 'Emergency Health & Safety',
+        href: '/programs/emergency-health-safety-tech',
+      },
+    ],
+  },
+  {
+    label: 'JRI Programs',
+    href: '/programs/jri',
+    subItems: [
+      { label: 'CNA', href: '/programs/cna' },
+      {
+        label: 'Phlebotomy Technician',
+        href: '/programs/phlebotomy-technician',
+      },
+      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
+      {
+        label: 'Direct Support Professional',
+        href: '/programs/direct-support-professional',
+      },
+      { label: 'CDL', href: '/programs/cdl' },
+      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
+      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
+    ],
+  },
+  {
+    label: 'Micro Programs',
+    href: '/programs/micro-programs',
+    subItems: [
+      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
+      { label: 'Drug Collector', href: '/programs/drug-collector' },
+      { label: 'CPR Certification', href: '/programs/cpr-certification' },
+      {
+        label: 'Emergency Health & Safety',
+        href: '/programs/emergency-health-safety-tech',
+      },
+    ],
+  },
+];
 
 const nav = [
-  { href: '/programs', label: 'Programs' },
-  { href: '/micro-classes', label: 'Micro Courses' },
   { href: '/funding', label: 'Funding' },
   { href: '/platform', label: 'Platform' },
   { href: '/licensing', label: 'Partners' },
@@ -16,6 +89,7 @@ const nav = [
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   // Fix mobile nav overlay blocking clicks
   useEffect(() => {
@@ -42,7 +116,48 @@ export default function SiteHeader() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center justify-center flex-1 gap-8">
+        <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
+          {/* Programs Dropdown */}
+          <div
+            className="relative group"
+            onMouseEnter={() => setOpenDropdown('programs')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+              Programs
+              <ChevronDown className="w-4 h-4" />
+            </button>
+
+            {openDropdown === 'programs' && (
+              <div className="absolute left-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
+                {programCategories.map((category) => (
+                  <div key={category.href}>
+                    <Link
+                      href={category.href}
+                      className="block px-4 py-2 text-sm font-bold text-black hover:bg-blue-50 transition"
+                    >
+                      {category.label}
+                    </Link>
+                    {category.subItems && (
+                      <div className="pl-4">
+                        {category.subItems.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-1.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Other Nav Items */}
           {nav.map((i) => (
             <Link
               key={i.href}
@@ -94,17 +209,52 @@ export default function SiteHeader() {
             onClick={() => setMobileMenuOpen(false)}
           />
           <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto">
-            <nav className="px-4 py-6 space-y-2">
-              {nav.map((i) => (
-                <Link
-                  key={i.href}
-                  href={i.href}
-                  className="block px-4 py-3 rounded-lg font-bold text-zinc-800 hover:bg-zinc-50 transition"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {i.label}
-                </Link>
-              ))}
+            <nav className="px-4 py-6 space-y-4">
+              {/* Programs Section */}
+              <div className="space-y-2">
+                <div className="px-4 py-2 font-black text-black text-sm uppercase tracking-wide">
+                  Programs
+                </div>
+                {programCategories.map((category) => (
+                  <div key={category.href} className="space-y-1">
+                    <Link
+                      href={category.href}
+                      className="block px-4 py-2 rounded-lg font-bold text-zinc-800 hover:bg-blue-50 transition"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {category.label}
+                    </Link>
+                    {category.subItems && (
+                      <div className="pl-4 space-y-1">
+                        {category.subItems.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Other Nav Items */}
+              <div className="border-t pt-4 space-y-2">
+                {nav.map((i) => (
+                  <Link
+                    key={i.href}
+                    href={i.href}
+                    className="block px-4 py-3 rounded-lg font-bold text-zinc-800 hover:bg-zinc-50 transition"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {i.label}
+                  </Link>
+                ))}
+              </div>
               <div className="pt-4 space-y-3">
                 <Link
                   href="/dashboard"
