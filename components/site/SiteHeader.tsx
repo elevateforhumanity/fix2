@@ -79,6 +79,15 @@ const programCategories = [
   },
 ];
 
+const partnerPrograms = [
+  { label: 'HSI Safety Training', href: '/courses/hsi' },
+  { label: 'Milady Beauty & Wellness', href: '/rise' },
+  { label: 'CareerSafe OSHA Training', href: '/courses/careersafe' },
+  { label: 'NRF Retail Training', href: '/courses/nrf' },
+  { label: 'NDS Cosmetology', href: '/courses/nds' },
+  { label: 'JRI Programs', href: '/jri' },
+];
+
 const nav = [
   { href: '/funding', label: 'Funding' },
   { href: '/platform', label: 'Platform' },
@@ -152,6 +161,31 @@ export default function SiteHeader() {
                       </div>
                     )}
                   </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Partner Programs Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenDropdown('partners')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+              Partner Programs
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            {openDropdown === 'partners' && (
+              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
+                {partnerPrograms.map((partner) => (
+                  <Link
+                    key={partner.href}
+                    href={partner.href}
+                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
+                  >
+                    {partner.label}
+                  </Link>
                 ))}
               </div>
             )}
@@ -239,6 +273,23 @@ export default function SiteHeader() {
                       </div>
                     )}
                   </div>
+                ))}
+              </div>
+
+              {/* Partner Programs Section */}
+              <div className="space-y-2 border-t pt-4">
+                <div className="px-4 py-2 font-black text-black text-sm uppercase tracking-wide">
+                  Partner Programs
+                </div>
+                {partnerPrograms.map((partner) => (
+                  <Link
+                    key={partner.href}
+                    href={partner.href}
+                    className="block px-4 py-2 rounded-lg font-bold text-zinc-800 hover:bg-blue-50 transition"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {partner.label}
+                  </Link>
                 ))}
               </div>
 
