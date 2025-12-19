@@ -57,7 +57,14 @@ export default function SiteHeader() {
             >
               {section.items && section.items.length > 0 ? (
                 <>
-                  <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+                  <button 
+                    type="button"
+                    className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
                     {section.label}
                     <ChevronDown className="w-4 h-4" />
                   </button>
@@ -111,6 +118,7 @@ export default function SiteHeader() {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition"
           aria-label="Toggle menu"
