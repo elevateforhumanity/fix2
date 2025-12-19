@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createBrowserClient } from '@supabase/ssr';
 import { Check, X, Loader2, CreditCard, Calendar, AlertCircle } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import toast from 'react-hot-toast';
@@ -40,7 +40,10 @@ interface ActiveSubscription {
 export default function SubscriptionsPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
