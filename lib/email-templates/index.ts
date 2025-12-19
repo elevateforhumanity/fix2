@@ -48,7 +48,7 @@ export const emailTemplates = {
 
           <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e7eb;">
             <p style="color: #6b7280; font-size: 14px; margin: 0;">
-              Need help? Reply to this email or call us at (555) 123-4567
+              Need help? Reply to this email or call us at (317) 314-3757
             </p>
           </div>
         </div>

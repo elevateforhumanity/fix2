@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
       <strong>Elevate for Humanity Team</strong></p>
     </div>
     <div class="footer">
-      <p>Elevate for Humanity | Indianapolis, IN 46204</p>
+      <p>Elevate for Humanity | Indianapolis, IN 46240</p>
       <p>An Equal Opportunity Employer/Program</p>
       <p>Funded by WIOA, WRG, and JRI programs</p>
     </div>

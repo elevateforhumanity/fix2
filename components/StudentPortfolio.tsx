@@ -40,7 +40,7 @@ export function StudentPortfolio() {
     title: 'Full-Stack Developer',
     bio: 'Passionate software developer with expertise in web technologies and a focus on creating user-centric applications. Currently pursuing advanced certifications in cloud computing and DevOps.',
     email: 'jordan.martinez@gmail.com',
-    phone: '(555) 123-4567',
+    phone: '(317) 314-3757',
     location: 'San Francisco, CA',
     linkedin: 'linkedin.com/in/jordanmartinez',
     github: 'github.com/jordanmartinez',

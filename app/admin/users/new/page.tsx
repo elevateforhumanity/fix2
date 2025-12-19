@@ -92,7 +92,7 @@ export default async function NewUserPage() {
                 </label>
                 <input
                   type="tel"
-                  placeholder="(317) 555-0123"
+                  placeholder="(317) 314-3757"
                   className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>

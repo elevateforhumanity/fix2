@@ -267,7 +267,7 @@ export default function GrantProgramsPage() {
               <Link href="/contact" className="text-orange-600 hover:underline">
                 Contact us
               </Link>{' '}
-              or call us at (317) 123-4567
+              or call us at (317) 314-3757
             </p>
           </div>
         </div>

@@ -93,7 +93,7 @@ export default function ApplyPage() {
               <h3 className="font-bold text-black mb-2">Call Us</h3>
               <p className="text-gray-700 text-sm mb-2">Monday-Friday, 9am-5pm</p>
               <a href="tel:+13175551234" className="text-blue-600 hover:underline">
-                (317) 555-1234
+                (317) 314-3757
               </a>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">

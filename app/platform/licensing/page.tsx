@@ -1,47 +1,53 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Check, X } from 'lucide-react';
-import { getLicenseDescription } from '@/app/data/store-products';
+import { ArrowRight, Check, Users, Building2, Globe, Shield, Zap, BarChart } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/platform/licensing',
   },
-  title: 'License Terms & Rights | Elevate For Humanity',
+  title: 'Platform Licensing | Launch Your Own Workforce Hub',
   description:
-    'Understand what you can do with each Elevate platform license. Deployment rights, white-labeling, and usage terms.',
+    'License the Elevate infrastructure to run programs, manage funding, track outcomes, and support learners — without building from scratch.',
 };
 
 export default function LicensingPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative h-[500px] md:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/gallery/image8.jpg"
-          alt="Licensing"
+          alt="Platform Licensing"
           fill
-          className="object-cover"
+          className="object-cover brightness-50"
           quality={100}
           priority
           sizes="100vw"
         />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <Link
-            href="/platform"
-            className="inline-flex items-center text-white hover:text-gray-200 mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Platform
-          </Link>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            License Terms & Rights
+            Launch Your Own Workforce & Training Platform
           </h1>
-          <p className="text-base md:text-lg md:text-xl text-gray-100">
-            Clear, simple licensing. Know exactly what you can do with your
-            platform.
+          <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto">
+            License the Elevate infrastructure to run programs, manage funding, track outcomes, and support learners — without building from scratch.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="#licensing-tiers"
+              className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-lg font-bold transition-colors"
+            >
+              View Licensing Options
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 rounded-lg text-lg font-bold transition-colors"
+            >
+              Request Demo
+            </Link>
+          </div>
         </div>
       </section>
 

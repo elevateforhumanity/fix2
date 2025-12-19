@@ -1,154 +1,113 @@
-// app/team/page.tsx
-import Image from 'next/image';
 import { Metadata } from 'next';
-
-
-export const dynamic = "force-static";
-export const revalidate = 86400; // 24 hours
+import Link from 'next/link';
+import Image from 'next/image';
+import { Users, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/team',
   },
   title: 'Our Team | Elevate For Humanity',
-  description:
-    'Meet the dedicated team behind Elevate for Humanity - experienced professionals committed to providing free career training and support to help you succeed.',
+  description: 'People behind the work. Meet the team powering workforce development and community impact.',
 };
-
-type TeamMember = {
-  name: string;
-  title: string;
-  image: string;
-  blurb: string;
-  link?: string;
-};
-
-const team: TeamMember[] = [
-  {
-    name: 'Elizabeth L. Greene',
-    title: 'Founder, Chief Executive Officer & Executive Director',
-    image: '/images/elizabeth-greene-founder.jpg',
-    blurb:
-      "Elizabeth founded Elevate for Humanity because she believes everyone deserves a real shot at a better life—regardless of their past, their circumstances, or how many times they've been told no. With a background in workforce development, community organizing, and a deep understanding of the barriers that keep people stuck, she built an organization that doesn't just train people—it removes the obstacles that prevent them from succeeding. Under her leadership, Elevate has become a fully integrated ecosystem of workforce training, apprenticeships, housing stability, mental health support, and career placement. Elizabeth doesn't lead from a desk—she's in the field, meeting with students, partnering with employers, and fighting for policies that create real pathways out of poverty. Her approach is simple: meet people where they are, give them the tools they need, and get out of their way.",
-    link: '/founder',
-  },
-  {
-    name: 'Dr. Carlina Annette Wilkes',
-    title:
-      'Executive Director of Financial Operations & Organizational Compliance',
-    image: '/images/carlina-wilkes.jpg',
-    blurb:
-      'Retired DFAS executive with 24+ years of federal service, specializing in financial management, organizational compliance, and strategic oversight.',
-  },
-  {
-    name: 'Leslie Wafford',
-    title: 'Director of Housing Stability & Eviction Prevention',
-    image: '/images/leslie-wafford.jpg',
-    blurb:
-      'Focused on low-barrier, eviction-prevention practices and educating residents about their rights so families can remain housed and stable.',
-  },
-
-  {
-    name: 'Delores Reynolds',
-    title: 'Director of Social Media & Digital Engagement',
-    image: '/images/delores-reynolds.jpg',
-    blurb:
-      "Leads Elevate's online presence, storytelling, and engagement strategies to keep students and partners informed and inspired.",
-  },
-  {
-    name: 'Johanna George',
-    title: 'Director of Beauty & Esthetics Programs',
-    image: '/images/jozanna-george.jpg',
-    blurb:
-      'Licensed for over 20 years in nails and esthetics and former beauty school leader, overseeing enrollment and beauty-industry-standard pathways.',
-  },
-  {
-    name: 'Sharon Douglass',
-    title: 'Clinical Training & Healthcare Compliance Advisor',
-    image: '/images/sharon-douglas.jpg',
-    blurb:
-      'Respiratory therapist and health informatics professional with 30+ years of experience in patient safety, quality, and clinical operations.',
-  },
-
-  {
-    name: 'Alina Perfect, PMHNP',
-    title: 'Psychiatric Mental Health Partner',
-    image: '/images/alina-smith.jpg',
-    blurb:
-      'Board-certified Psychiatric Mental Health Nurse Practitioner partnering with Elevate to provide mental health assessment and medication management.',
-    link: '/team/alina-perfect',
-  },
-];
 
 export default function TeamPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="relative h-[300px] w-full overflow-hidden">
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[400px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__1/generated-image-76ea4a68-9d0c-4075-8ca3-751c9bbe9343.png?Expires=2080938929&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ErR79kKxF2n2B4rTMfYOnPi29epaa2XwFAzIMC5pYbluSId9KuK1zBI1VfhJn18W2ud1bW68qEHArWsiT9yuoq9IZtfapB95LgnI~WynYvm4Or2E~iG0zF6exzBW7ilbq1onTgXqTHdGaXiJ52qXTFrPmae0Qqxlffe4qwVclCzRRE4tZR21rL9~PnPFMOZh0gg4gN8o9tth0OgtIq2G3EO3I4bW-CyqvpI284fmcOOHOKNO3Lgz81w5kLJ7GvIKcv04bGpOC~Paaq0WO6Z0ElVvWpsnhzDB6XsjrP0xm53Grp8UTIowRq~4EZmcdON15f7lR-E7hZhkBOBv1X28Wg__"
-          alt="Meet Our Team"
+          src="/images/gallery/image8.jpg"
+          alt="Our Team"
           fill
-          className="object-cover"
+          className="object-cover brightness-50"
+          quality={100}
           priority
-          quality={95}
           sizes="100vw"
         />
-      </section>
-
-      <section className="py-12 bg-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Meet Our Team
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Users className="w-12 h-12" />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            People behind the work
           </h1>
-          <p className="text-base md:text-lg text-slate-600">
-            Real people who care about your success.
-          </p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
-        <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((member) => (
-            <article
-              key={member.name}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow ring-1 ring-slate-200"
+      {/* Main Content */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              Elevate for Humanity is powered by professionals across workforce development, education, compliance, technology, and community advocacy.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Our team includes:</h2>
+            
+            <ul className="space-y-4 text-lg text-gray-700">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <span>Workforce and training coordinators</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <span>Program and compliance specialists</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <span>Employer and partner liaisons</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <span>Advisors and support staff</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <span>Technology and operations professionals</span>
+              </li>
+            </ul>
+
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Together, we ensure programs are delivered responsibly, funding requirements are met, and individuals receive consistent support throughout their journey.
+              </p>
+            </div>
+
+            <blockquote className="text-xl font-semibold text-gray-900 italic border-l-4 border-blue-600 pl-6 my-8">
+              We believe systems should work for people — and our team exists to make that real.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Work With Us
+          </h2>
+          <p className="text-xl text-blue-100 mb-8">
+            Interested in partnering or joining our team?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/partners"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-700 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
-              <div className="relative h-80 w-full overflow-hidden bg-slate-100">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  quality={90}
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h2 className="text-lg font-bold text-slate-900">
-                  {member.name}
-                </h2>
-                <p className="mt-2 text-sm font-semibold text-blue-600">
-                  {member.title}
-                </p>
-                <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-                  {member.blurb}
-                </p>
-                {member.link && (
-                  <div className="mt-4 pt-4 border-t border-slate-200">
-                    <a
-                      href={member.link}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition"
-                    >
-                      View Full Profile →
-                    </a>
-                  </div>
-                )}
-              </div>
-            </article>
-          ))}
-        </section>
-      </div>
+              Partner With Us
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-800 text-white rounded-lg text-lg font-bold hover:bg-blue-900 border-2 border-white transition-colors"
+            >
+              Contact Our Team
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

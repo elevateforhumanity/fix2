@@ -108,7 +108,7 @@ export default function NDAPage() {
               <p className="text-slate-700">
                 <strong>Elevate for Humanity</strong><br />
                 Email: legal@elevateforhumanity.org<br />
-                Phone: (317) 123-4567
+                Phone: (317) 314-3757
               </p>
             </div>
           </section>

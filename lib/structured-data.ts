@@ -10,10 +10,10 @@ export function generateOrganizationSchema() {
     logo: 'https://www.elevateforhumanity.org/logo.png',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '123 Main Street',
+      streetAddress: '8888 Keystone Crossing Suite 1300',
       addressLocality: 'Indianapolis',
       addressRegion: 'IN',
-      postalCode: '46204',
+      postalCode: '46240',
       addressCountry: 'US',
     },
     contactPoint: {

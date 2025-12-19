@@ -1,156 +1,140 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Accessibility, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/accessibility",
+    canonical: 'https://www.elevateforhumanity.org/accessibility',
   },
   title: 'Accessibility Statement | Elevate For Humanity',
-  description: 'Elevate For Humanity is committed to ensuring digital accessibility for people with disabilities.',
+  description: 'Accessibility commitment and support for Elevate for Humanity services.',
 };
 
 export default function AccessibilityPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section - No Gradient, No Image, No CTAs */}
-      <section className="bg-slate-900 text-white py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Accessibility Statement
-          </h1>
-          <p className="text-base md:text-lg text-slate-300">
-            Our Commitment to Digital Accessibility
-          </p>
+    <main className="min-h-screen bg-gray-50 py-16">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="flex items-center gap-3 mb-8">
+          <Accessibility className="w-10 h-10 text-blue-600" />
+          <h1 className="text-4xl font-bold text-gray-900">Accessibility Commitment</h1>
         </div>
-      </section>
+        
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
+          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            Elevate for Humanity is committed to accessibility for all individuals.
+          </p>
+          
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            We strive to ensure our website, programs, and services are accessible to people with disabilities. We are continuously working to improve the accessibility of our content and services.
+          </p>
 
-      {/* Content */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Our Commitment</h2>
-            <p className="text-slate-700 mb-6">
-              Elevate For Humanity is committed to ensuring digital accessibility for people with disabilities. 
-              We are continually improving the user experience for everyone and applying the relevant accessibility standards.
+          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+            <p className="text-lg text-gray-900 font-semibold">
+              If you experience difficulty accessing content or services, please contact us and we will assist promptly.
             </p>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Conformance Status</h2>
-            <p className="text-slate-700 mb-6">
-              We strive to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. 
-              These guidelines explain how to make web content more accessible for people with disabilities and user-friendly for everyone.
-            </p>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Accessibility Features</h2>
-            <p className="text-slate-700 mb-4">
-              Our website includes the following accessibility features:
-            </p>
-            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li>Clear and consistent navigation throughout the site</li>
-              <li>Alternative text for images</li>
-              <li>Keyboard navigation support</li>
-              <li>Readable fonts and appropriate color contrast</li>
-              <li>Descriptive page titles and headings</li>
-              <li>Form labels and error messages</li>
-              <li>Skip navigation links</li>
-              <li>Responsive design for various devices and screen sizes</li>
-            </ul>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Assistive Technology Compatibility</h2>
-            <p className="text-slate-700 mb-4">
-              Our website is designed to be compatible with the following assistive technologies:
-            </p>
-            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li>Screen readers (JAWS, NVDA, VoiceOver)</li>
-              <li>Screen magnification software</li>
-              <li>Speech recognition software</li>
-              <li>Keyboard-only navigation</li>
-            </ul>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Physical Accessibility</h2>
-            <p className="text-slate-700 mb-4">
-              Our training facilities are designed to be accessible to all students:
-            </p>
-            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li>Wheelchair accessible entrances and facilities</li>
-              <li>Accessible parking spaces</li>
-              <li>Accessible restrooms</li>
-              <li>Elevators and ramps where needed</li>
-              <li>Assistive listening devices available upon request</li>
-              <li>Service animals welcome</li>
-            </ul>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Accommodations for Students</h2>
-            <p className="text-slate-700 mb-4">
-              We provide reasonable accommodations for students with disabilities, including:
-            </p>
-            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li>Extended time for tests and assignments</li>
-              <li>Alternative format materials</li>
-              <li>Note-taking assistance</li>
-              <li>Sign language interpreters</li>
-              <li>Adaptive equipment and technology</li>
-              <li>Flexible attendance policies when medically necessary</li>
-            </ul>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Ongoing Efforts</h2>
-            <p className="text-slate-700 mb-6">
-              We are continuously working to improve the accessibility of our website and services. 
-              Our efforts include regular accessibility audits, staff training, and updates to our digital platforms.
-            </p>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Feedback</h2>
-            <p className="text-slate-700 mb-4">
-              We welcome your feedback on the accessibility of our website and services. 
-              If you encounter any accessibility barriers, please let us know:
-            </p>
-            <div className="bg-slate-50 p-6 rounded-lg mb-8">
-              <p className="text-slate-700 mb-2">
-                <strong>Elevate For Humanity</strong>
-              </p>
-              <p className="text-slate-700 mb-2">
-                Phone: <a href="tel:317-314-3757" className="text-blue-600 hover:underline">317-314-3757</a>
-              </p>
-              <p className="text-slate-700 mb-2">
-                Email: <a href="mailto:accessibility@elevateforhumanity.org" className="text-blue-600 hover:underline">accessibility@elevateforhumanity.org</a>
-              </p>
-              <p className="text-slate-700">
-                We aim to respond to accessibility feedback within 5 business days.
-              </p>
-            </div>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Third-Party Content</h2>
-            <p className="text-slate-700 mb-6">
-              Some content on our website may be provided by third parties. While we strive to ensure all content is accessible, 
-              we may not have full control over third-party materials. We are working with our partners to improve accessibility across all platforms.
-            </p>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12">Last Updated</h2>
-            <p className="text-slate-700 mb-8">
-              This accessibility statement was last updated on December 8, 2024.
-            </p>
-
-            <div className="mt-12 pt-8 border-t border-slate-200">
-              <p className="text-slate-700 mb-4">
-                <strong>Related Resources:</strong>
-              </p>
-              <div className="space-y-2">
-                <Link
-                  href="/contact"
-                  className="block text-blue-600 hover:underline font-semibold"
-                >
-                  Contact Us →
-                </Link>
-                <Link
-                  href="/privacy"
-                  className="block text-blue-600 hover:underline font-semibold"
-                >
-                  Privacy Policy →
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Commitment Includes</h2>
+          
+          <ul className="space-y-4 text-gray-700">
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Providing alternative formats for documents and materials when requested</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Ensuring physical locations are accessible or providing alternative arrangements</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Offering accommodations for program participation</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Working with partners to ensure accessible training environments</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Providing support services to address barriers</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Website Accessibility</h2>
+          
+          <p className="text-gray-700 mb-4">
+            We aim to meet WCAG 2.1 Level AA standards and are working to:
+          </p>
+          
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Ensure proper heading structure and navigation</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Provide text alternatives for images</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Maintain sufficient color contrast</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Support keyboard navigation</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>Ensure compatibility with screen readers</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Need Assistance?</h3>
+          <p className="text-gray-700 mb-4">
+            If you need help accessing our website, programs, or services, please contact us:
+          </p>
+          
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <Mail className="w-5 h-5 text-blue-600" />
+              <a href="mailto:elevate4humanityedu@gmail.com" className="text-blue-600 hover:underline font-semibold">
+                elevate4humanityedu@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <Phone className="w-5 h-5 text-blue-600" />
+              <a href="tel:+13173143757" className="text-blue-600 hover:underline font-semibold">
+                (317) 314-3757
+              </a>
+            </div>
+          </div>
+          
+          <p className="text-gray-700 mt-4">
+            We will work with you to provide the information or service you need in an accessible format.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Feedback</h2>
+          <p className="text-gray-700">
+            We welcome feedback on the accessibility of our services. If you encounter accessibility barriers or have suggestions for improvement, please let us know. Your feedback helps us improve access for everyone.
+          </p>
+        </div>
+
+        <div className="text-center">
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
+    </main>
   );
 }

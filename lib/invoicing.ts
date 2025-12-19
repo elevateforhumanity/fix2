@@ -224,9 +224,10 @@ export async function generateInvoicePDF(
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.text('Elevate for Humanity', 20, 30);
-  doc.text('123 Main Street', 20, 35);
-  doc.text('City, State 12345', 20, 40);
-  doc.text('contact@elevateforhumanity.org', 20, 45);
+  doc.text('8888 Keystone Crossing Suite 1300', 20, 35);
+  doc.text('Indianapolis, IN 46240', 20, 40);
+  doc.text('elevate4humanityedu@gmail.com', 20, 45);
+  doc.text('(317) 314-3757', 20, 50);
 
   // Invoice details
   doc.setFont('helvetica', 'bold');

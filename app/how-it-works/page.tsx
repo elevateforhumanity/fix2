@@ -1,263 +1,308 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { CheckCircle, ArrowRight, Users, GraduationCap, Briefcase, Award } from 'lucide-react';
+import { Phone, Mail, MapPin, Users, Building2, GraduationCap, Briefcase, DollarSign, FileCheck, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'How It Works | Elevate For Humanity',
-  description: 'Learn how our apprenticeship program works - from application to certification and career placement.',
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/how-it-works',
-  },
+  title: 'How Elevate Works | Workforce Coordination Hub',
+  description: 'Understand how Elevate for Humanity coordinates access to training, funding, and career opportunities without replacing local authority or ownership.',
 };
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-purple-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              How It Works
-            </h1>
-            <p className="text-base md:text-lg text-blue-100 max-w-3xl mx-auto">
-              Your path from application to career success in four simple steps
-            </p>
+      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            How Elevate Works
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 mb-8">
+            We coordinate access to training, funding, and career opportunities.
+            <br />
+            We don't replace schools, certify credentials, or control outcomes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition-colors"
+            >
+              Apply Now
+            </Link>
+            <a
+              href="tel:+13173143757"
+              className="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg font-bold hover:bg-blue-600 transition-colors"
+            >
+              Call (317) 314-3757
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Steps Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
-            
-            {/* Step 1 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                    1
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Apply for Free</h2>
-                </div>
-                <p className="text-lg text-slate-600 mb-6">
-                  Submit your application online in minutes. No application fee, no hidden costs. 
-                  We'll review your application and contact you within 2-3 business days.
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">100% free application process</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">No prior experience required</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Quick response time</span>
-                  </li>
-                </ul>
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
-                >
-                  Start Your Application
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+      {/* What We Are */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">What Elevate Is</h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm border-2 border-green-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-green-600" />
               </div>
-              <div className="order-1 md:order-2">
-                <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/gallery/image1.jpg"
-                    alt="Apply for free"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+              <h3 className="text-xl font-bold mb-3">Workforce Coordination Hub</h3>
+              <p className="text-gray-700">
+                We connect people to training programs, funding sources, and career pathways across multiple jurisdictions.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border-2 border-green-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Building2 className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Multi-Tenant Platform</h3>
+              <p className="text-gray-700">
+                Organizations license our platform to manage their own programs, students, and compliance requirements.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border-2 border-green-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <FileCheck className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Advisor-Led Process</h3>
+              <p className="text-gray-700">
+                Every student works with a real advisor. No instant checkout, no predatory enrollment, no false promises.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Are NOT */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">What Elevate Is NOT</h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-red-50 p-6 rounded-lg border-2 border-red-200">
+              <h3 className="text-xl font-bold mb-3 text-red-900">❌ Not a School</h3>
+              <p className="text-gray-700">
+                We don't deliver training. We coordinate access to accredited training providers and partners.
+              </p>
+            </div>
+
+            <div className="bg-red-50 p-6 rounded-lg border-2 border-red-200">
+              <h3 className="text-xl font-bold mb-3 text-red-900">❌ Not a Certifier</h3>
+              <p className="text-gray-700">
+                We don't issue credentials. Certifications come from state boards, industry bodies, and accredited institutions.
+              </p>
+            </div>
+
+            <div className="bg-red-50 p-6 rounded-lg border-2 border-red-200">
+              <h3 className="text-xl font-bold mb-3 text-red-900">❌ Not Instant Enrollment</h3>
+              <p className="text-gray-700">
+                We don't sell courses online. Every enrollment requires advisor review, eligibility verification, and funding coordination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works - Step by Step */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">The Process: Step by Step</h2>
+          
+          <div className="space-y-8">
+            {/* Step 1 */}
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  1
                 </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">You Apply (No Payment Required)</h3>
+                <p className="text-gray-700 mb-3">
+                  Submit an application expressing interest in a program. This is not enrollment. This is inquiry.
+                </p>
+                <p className="text-sm text-gray-600">
+                  <strong>What happens:</strong> Your information is reviewed by an advisor within 1-2 business days.
+                </p>
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/gallery/image2.jpg"
-                    alt="Get matched with a shop"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  2
                 </div>
               </div>
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                    2
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Get Matched with a Shop</h2>
-                </div>
-                <p className="text-lg text-slate-600 mb-6">
-                  We'll match you with an approved training shop in your area. Our partner shops are 
-                  licensed, experienced, and committed to quality training.
+                <h3 className="text-xl font-bold mb-2">Advisor Reviews Your Eligibility</h3>
+                <p className="text-gray-700 mb-3">
+                  An advisor contacts you to discuss program fit, funding options (WIOA, WRG, JRI, apprenticeships), and next steps.
                 </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Vetted and approved training locations</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Experienced master barbers as mentors</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Convenient locations across Indiana</span>
-                  </li>
-                </ul>
+                <p className="text-sm text-gray-600">
+                  <strong>What happens:</strong> We determine if you qualify for free or subsidized training, or if self-pay is required.
+                </p>
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                    3
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Complete Your Training</h2>
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  3
                 </div>
-                <p className="text-lg text-slate-600 mb-6">
-                  Work and learn at your training shop while completing online coursework. 
-                  Track your hours, submit progress reports, and prepare for your licensing exam.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">1,500 hours of hands-on training</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Online coursework and resources</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Exam preparation and support</span>
-                  </li>
-                </ul>
               </div>
-              <div className="order-1 md:order-2">
-                <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/gallery/image3.jpg"
-                    alt="Complete your training"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Funding Is Coordinated (If Eligible)</h3>
+                <p className="text-gray-700 mb-3">
+                  If you qualify for workforce funding, we coordinate with the appropriate agency (WorkOne, DOC, etc.) to secure approval.
+                </p>
+                <p className="text-sm text-gray-600">
+                  <strong>What happens:</strong> You are not charged until funding is confirmed or you approve self-pay terms.
+                </p>
               </div>
             </div>
 
             {/* Step 4 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/gallery/image4.jpg"
-                    alt="Get licensed and start your career"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  4
                 </div>
               </div>
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                    4
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Get Licensed & Start Your Career</h2>
-                </div>
-                <p className="text-lg text-slate-600 mb-6">
-                  Pass your state licensing exam and launch your career as a licensed barber. 
-                  We'll support you with job placement assistance and ongoing career resources.
+                <h3 className="text-xl font-bold mb-2">You Are Enrolled in a Partner Program</h3>
+                <p className="text-gray-700 mb-3">
+                  Once approved, you are enrolled with an accredited training provider (Milady, HSI, CareerSafe, etc.) or apprenticeship sponsor.
                 </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">State licensing exam preparation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Job placement assistance</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span className="text-slate-700">Ongoing career support</span>
-                  </li>
-                </ul>
+                <p className="text-sm text-gray-600">
+                  <strong>What happens:</strong> You receive access to course materials, schedules, and support resources.
+                </p>
               </div>
             </div>
 
+            {/* Step 5 */}
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  5
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">You Complete Training & Earn Credentials</h3>
+                <p className="text-gray-700 mb-3">
+                  You complete coursework, log hours (if apprenticeship), and meet all requirements set by the training provider and certifying body.
+                </p>
+                <p className="text-sm text-gray-600">
+                  <strong>What happens:</strong> Credentials are issued by the appropriate authority (state board, industry certification body, etc.).
+                </p>
+              </div>
+            </div>
+
+            {/* Step 6 */}
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  6
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">We Track Outcomes & Support Your Next Step</h3>
+                <p className="text-gray-700 mb-3">
+                  We report completion to funders, track employment outcomes, and support your career progression.
+                </p>
+                <p className="text-sm text-gray-600">
+                  <strong>What happens:</strong> You remain connected to our network for ongoing support and advancement opportunities.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-              Why Choose Our Program?
-            </h2>
-            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-              We provide everything you need to succeed in your barbering career
-            </p>
+      {/* Who We Serve */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Who We Serve</h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
+              <GraduationCap className="w-8 h-8 text-blue-600 mb-3" />
+              <h3 className="text-lg font-bold mb-2">Students</h3>
+              <p className="text-sm text-gray-700">
+                People seeking training, credentials, and career pathways with funding support.
+              </p>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
+              <Building2 className="w-8 h-8 text-blue-600 mb-3" />
+              <h3 className="text-lg font-bold mb-2">Workforce Boards</h3>
+              <p className="text-sm text-gray-700">
+                Agencies managing WIOA, WRG, JRI, and other workforce development programs.
+              </p>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
+              <Users className="w-8 h-8 text-blue-600 mb-3" />
+              <h3 className="text-lg font-bold mb-2">Training Providers</h3>
+              <p className="text-sm text-gray-700">
+                Accredited schools, certification bodies, and apprenticeship sponsors.
+              </p>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
+              <Briefcase className="w-8 h-8 text-blue-600 mb-3" />
+              <h3 className="text-lg font-bold mb-2">Employers</h3>
+              <p className="text-sm text-gray-700">
+                Companies seeking trained workers and apprenticeship partnerships.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Expert Mentors</h3>
-              <p className="text-slate-600">
-                Learn from experienced master barbers who are passionate about teaching
+      {/* Key Principles */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Operating Principles</h2>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
+              <h3 className="text-xl font-bold mb-2">We Coordinate, We Don't Control</h3>
+              <p className="text-gray-700">
+                We connect people to resources. We don't own credentials, replace authorities, or sell outcomes.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <GraduationCap className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Free Training</h3>
-              <p className="text-slate-600">
-                100% funded through WIOA - no tuition, no hidden fees
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
+              <h3 className="text-xl font-bold mb-2">Interest ≠ Obligation</h3>
+              <p className="text-gray-700">
+                Applying does not create debt, obligation, or enrollment. Advisors review every case before any commitment.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <Briefcase className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Earn While You Learn</h3>
-              <p className="text-slate-600">
-                Get paid as you train and build your skills
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
+              <h3 className="text-xl font-bold mb-2">Free ≠ Paid (Strict Separation)</h3>
+              <p className="text-gray-700">
+                Free services (VITA tax prep, workforce-funded training) are never mixed with paid services (SupersonicFastCash, self-pay programs).
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                <Award className="w-6 h-6 text-orange-600" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">State Certification</h3>
-              <p className="text-slate-600">
-                Earn your Indiana barber license and launch your career
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
+              <h3 className="text-xl font-bold mb-2">Platform ≠ Provider</h3>
+              <p className="text-gray-700">
+                We provide the coordination platform. Training delivery, certification, and employment are handled by partners and authorities.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
+              <h3 className="text-xl font-bold mb-2">Multi-Jurisdiction by Design</h3>
+              <p className="text-gray-700">
+                We respect state, federal, and local authority. Our platform adapts to each jurisdiction's rules and requirements.
               </p>
             </div>
           </div>
@@ -265,31 +310,62 @@ export default function HowItWorksPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-base md:text-lg text-blue-100 mb-8">
-            Join hundreds of students who have launched successful barbering careers through our program
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+          <p className="text-xl text-blue-100 mb-8">
+            Apply now or call to speak with an advisor about your options.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               href="/apply"
-              className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg inline-flex items-center justify-center gap-2"
+              className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition-colors"
             >
               Apply Now
-              <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link
-              href="/faq"
-              className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+            <a
+              href="tel:+13173143757"
+              className="inline-block px-8 py-4 bg-blue-700 text-white rounded-lg font-bold hover:bg-blue-600 transition-colors border-2 border-white"
             >
-              View FAQ
-            </Link>
+              Call (317) 314-3757
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 text-left">
+            <div className="flex items-start gap-3">
+              <Phone className="w-6 h-6 flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-bold mb-1">Phone</div>
+                <a href="tel:+13173143757" className="text-blue-100 hover:text-white">
+                  (317) 314-3757
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Mail className="w-6 h-6 flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-bold mb-1">Email</div>
+                <a href="mailto:elevate4humanityedu@gmail.com" className="text-blue-100 hover:text-white">
+                  elevate4humanityedu@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <MapPin className="w-6 h-6 flex-shrink-0 mt-1" />
+              <div>
+                <div className="font-bold mb-1">Address</div>
+                <div className="text-blue-100">
+                  8888 Keystone Crossing Suite 1300<br />
+                  Indianapolis, IN 46240
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

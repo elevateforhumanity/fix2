@@ -146,7 +146,7 @@ export function ModernFooter() {
                 className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors"
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span className="text-sm">(317) 555-1234</span>
+                <span className="text-sm">(317) 314-3757</span>
               </a>
               <div className="flex items-start gap-3 text-slate-400">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />

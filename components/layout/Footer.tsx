@@ -190,10 +190,10 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/store"
+                  href="/platform/licensing"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Store
+                  Platform Licensing
                 </Link>
               </li>
             </ul>

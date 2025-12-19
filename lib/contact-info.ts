@@ -17,11 +17,11 @@ export const CONTACT_INFO = {
   
   // Address
   address: {
-    street: "123 Main Street",
+    street: "8888 Keystone Crossing Suite 1300",
     city: "Indianapolis",
     state: "IN",
-    zip: "46204",
-    full: "123 Main Street, Indianapolis, IN 46204",
+    zip: "46240",
+    full: "8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240",
   },
   
   // Hours
@@ -30,9 +30,10 @@ export const CONTACT_INFO = {
     aiReceptionist: "24/7 - Always Available",
   },
   
-  // Social Media (optional)
+  // Social Media
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61571046346179",
+    instagram: "https://instagram.com/elevateforhumanity",
     linkedin: "https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/",
     twitter: "https://x.com/Elevate4Humani1",
   },
