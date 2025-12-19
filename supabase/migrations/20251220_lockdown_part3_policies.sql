@@ -50,7 +50,7 @@ BEGIN
   SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename = 'partner_lms_providers') INTO table_exists;
   IF table_exists THEN
     BEGIN
-      EXECUTE 'CREATE POLICY "public_read_partner_providers" ON public.partner_lms_providers FOR SELECT TO anon, authenticated USING (active = true OR is_active = true)';
+      EXECUTE 'CREATE POLICY "public_read_partner_providers" ON public.partner_lms_providers FOR SELECT TO anon, authenticated USING (active = true)';
     EXCEPTION WHEN duplicate_object THEN NULL;
     END;
   END IF;
