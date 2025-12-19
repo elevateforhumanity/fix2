@@ -11,108 +11,137 @@ export interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navigation = [
     { 
       name: 'Programs', 
       href: '/programs',
       dropdown: [
-        { name: 'HVAC Technician', href: '/programs/hvac' },
-        { name: 'Barber Apprenticeship', href: '/programs/barber' },
-        { name: 'Certified Nursing Assistant (CNA)', href: '/programs/cna' },
-        { name: 'Commercial Truck Driving (CDL)', href: '/programs/cdl' },
-        { name: 'Building Maintenance', href: '/programs/building-maintenance' },
+        { name: 'Healthcare', href: '/programs/healthcare' },
+        { name: 'Skilled Trades', href: '/programs/skilled-trades' },
+        { name: 'Beauty & Wellness', href: '/programs/beauty-wellness' },
+        { name: 'Business & Finance', href: '/programs/business-finance' },
+        { name: 'Technology', href: '/programs/technology' },
         { name: 'All Programs', href: '/programs' },
       ]
     },
     { 
-      name: 'Micro Classes', 
-      href: '/micro-classes'
-    },
-    { 
-      name: 'For Agencies', 
-      href: '/agencies',
+      name: 'How It Works', 
+      href: '/how-it-works',
       dropdown: [
-        { name: 'WorkOne Partnership', href: '/agencies/workone' },
-        { name: 'EmployIndy Referral Hub', href: '/agencies/employindy' },
-        { name: 'ETPL & WRG Compliance', href: '/agencies/compliance' },
-        { name: 'Employer OJT/WEX Portal', href: '/agencies/ojt-wex' },
-        { name: 'Apprenticeship Logs', href: '/agencies/apprenticeships' },
+        { name: 'Application Process', href: '/how-it-works#application' },
+        { name: 'Funding Options', href: '/how-it-works#funding' },
+        { name: 'Partner Training', href: '/how-it-works#partners' },
+        { name: 'Job Placement', href: '/how-it-works#placement' },
       ]
     },
     { 
       name: 'For Employers', 
       href: '/employers',
       dropdown: [
+        { name: 'Hire Graduates', href: '/hire-graduates' },
         { name: 'Host Apprentices', href: '/employers/apprenticeships' },
         { name: 'OJT/WEX Programs', href: '/employers/ojt-wex' },
-        { name: 'Talent Pipeline Services', href: '/employers/talent-pipeline' },
         { name: 'Employer Portal', href: '/employer/dashboard' },
+      ]
+    },
+    { 
+      name: 'Resources', 
+      href: '/resources',
+      dropdown: [
+        { name: 'Success Stories', href: '/success-stories' },
+        { name: 'FAQ', href: '/faq' },
+        { name: 'Career Center', href: '/career-center' },
+        { name: 'Financial Aid', href: '/financial-aid' },
       ]
     },
     { 
       name: 'About', 
       href: '/about',
       dropdown: [
-        { name: 'Approvals & Certifications', href: '/about/approvals' },
-        { name: 'Workforce Impact', href: '/about/impact' },
+        { name: 'Our Mission', href: '/about' },
         { name: 'Leadership Team', href: '/about/team' },
-        { name: 'Success Stories', href: '/success-stories' },
+        { name: 'Partners', href: '/partners' },
         { name: 'Contact Us', href: '/contact' },
       ]
     },
   ];
 
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="h-10 w-10    rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">E</span>
+            <Link href="/" className="flex items-center gap-3">
+              <div className="h-12 w-12 bg-gradient-to-br from-orange-600 to-orange-700 rounded-xl flex items-center justify-center shadow-md">
+                <span className="text-white font-bold text-2xl">E</span>
               </div>
               <div className="hidden sm:block">
-                <span className="text-xl font-bold text-slate-900">
+                <span className="text-xl font-bold text-slate-900 block leading-tight">
                   Elevate for Humanity
                 </span>
-                <span className="block text-xs text-slate-600">
-                  Directory
+                <span className="text-xs text-slate-600 font-medium">
+                  Indiana Career Connect Partner
                 </span>
               </div>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Dropdowns */}
           <nav className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
-              <Link
+              <div
                 key={item.name}
-                href={item.href}
-                className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                className="relative"
+                onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                {item.name}
-              </Link>
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-semibold text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
+                >
+                  {item.name}
+                  {item.dropdown && <ChevronDown className="h-4 w-4" />}
+                </Link>
+
+                {/* Dropdown Menu */}
+                {item.dropdown && openDropdown === item.name && (
+                  <div className="absolute left-0 mt-1 w-56 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-50">
+                    {item.dropdown.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        href={subItem.href}
+                        className="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {/* Search Button */}
-            <button
-              onClick={onSearchClick}
-              className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
-              aria-label="Search"
-            >
-              <Search className="h-5 w-5" />
-            </button>
+            {onSearchClick && (
+              <button
+                onClick={onSearchClick}
+                className="p-2 text-slate-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
+                aria-label="Search"
+              >
+                <Search className="h-5 w-5" />
+              </button>
+            )}
 
             {/* User Menu - Desktop */}
             <div className="hidden lg:block relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
                 aria-expanded={isUserMenuOpen}
               >
                 <User className="h-5 w-5" />
@@ -126,31 +155,28 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                     className="fixed inset-0 z-10"
                     onClick={() => setIsUserMenuOpen(false)}
                   />
-                  <div className="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-1 z-20">
+                  <div className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-xl py-2 z-20">
                     <Link
                       href="/student/dashboard"
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                      className="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                      onClick={() => setIsUserMenuOpen(false)}
                     >
                       Student Portal
                     </Link>
                     <Link
                       href="/employer/dashboard"
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                      className="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                      onClick={() => setIsUserMenuOpen(false)}
                     >
                       Employer Portal
                     </Link>
-                    <div className="border-t border-slate-200 my-1" />
+                    <div className="border-t border-slate-200 my-2" />
                     <Link
                       href="/login"
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                      className="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                      onClick={() => setIsUserMenuOpen(false)}
                     >
                       Sign In
-                    </Link>
-                    <Link
-                      href="/apply"
-                      className="block px-4 py-2 text-sm text-red-600 hover:bg-slate-50 font-medium"
-                    >
-                      Apply Now
                     </Link>
                   </div>
                 </>
@@ -160,7 +186,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
             {/* Apply Button - Desktop */}
             <Link
               href="/apply"
-              className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-white    rounded-lg hover: hover: transition-all"
+              className="hidden lg:inline-flex items-center px-6 py-2.5 text-sm font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all"
             >
               Apply Now
             </Link>
@@ -168,7 +194,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+              className="lg:hidden p-2 text-slate-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -180,45 +206,65 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu with Dropdowns */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 py-4">
+          <div className="lg:hidden border-t border-slate-200 py-4 max-h-[80vh] overflow-y-auto">
             <nav className="space-y-1">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="flex items-center justify-between px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
+                    onClick={() => !item.dropdown && setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                    {item.dropdown && <ChevronDown className="h-5 w-5" />}
+                  </Link>
+                  
+                  {/* Mobile Dropdown */}
+                  {item.dropdown && (
+                    <div className="ml-4 mt-1 space-y-1">
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
-              <div className="border-t border-slate-200 my-2" />
+              
+              <div className="border-t border-slate-200 my-3" />
+              
               <Link
                 href="/student/dashboard"
-                className="block px-3 py-2 text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                className="block px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Student Portal
               </Link>
               <Link
                 href="/employer/dashboard"
-                className="block px-3 py-2 text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                className="block px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Employer Portal
               </Link>
               <Link
                 href="/login"
-                className="block px-3 py-2 text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                className="block px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sign In
               </Link>
               <Link
                 href="/apply"
-                className="block px-3 py-2 text-base font-medium text-white    rounded-lg hover: hover: transition-all text-center mt-2"
+                className="block px-4 py-3 text-base font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all text-center mt-3"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Apply Now

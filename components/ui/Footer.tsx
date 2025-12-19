@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-slate-900 text-slate-100">
       {/* Newsletter Section */}
       <div className="border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-2">
                 Stay Connected
               </h3>
-              <p className="text-slate-400">
+              <p className="text-slate-200 font-medium">
                 Get updates on new programs, success stories, and career opportunities.
               </p>
             </div>
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-white transition-colors"
+                    className="text-sm font-medium hover:text-orange-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -121,7 +121,7 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-white transition-colors"
+                    className="text-sm font-medium hover:text-orange-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -138,7 +138,7 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-white transition-colors"
+                    className="text-sm font-medium hover:text-orange-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -155,7 +155,7 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-white transition-colors"
+                    className="text-sm font-medium hover:text-orange-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -172,7 +172,7 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-white transition-colors"
+                    className="text-sm font-medium hover:text-orange-400 transition-colors"
                   >
                     {link.name}
                   </Link>
