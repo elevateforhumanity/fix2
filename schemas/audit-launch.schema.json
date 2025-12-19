@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elevateforhumanity.org/schemas/audit-launch.schema.json",
+  "title": "EFH Launch Audit Report",
+  "description": "Comprehensive pre-launch readiness audit response schema",
+  "type": "object",
+  "required": ["meta", "launchGate", "summary", "blockers", "warnings", "checks"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["timestamp", "environment", "appVersion", "build"],
+      "properties": {
+        "timestamp": { "type": "string", "format": "date-time" },
+        "environment": { "type": "string", "enum": ["development", "preview", "production"] },
+        "appVersion": { "type": "string" },
+        "executionTimeMs": { "type": "integer", "minimum": 0 },
+        "build": {
+          "type": "object",
+          "required": ["nodeVersion", "nextVersion"],
+          "properties": {
+            "commitSha": { "type": "string" },
+            "buildId": { "type": "string" },
+            "nodeVersion": { "type": "string" },
+            "nextVersion": { "type": "string" }
+          }
+        },
+        "request": {
+          "type": "object",
+          "properties": {
+            "mode": { "type": "string", "enum": ["quick", "full"] },
+            "maxRoutes": { "type": "integer", "minimum": 1 },
+            "sample": { "type": "string", "enum": ["top", "all"] }
+          }
+        }
+      }
+    },
+    "launchGate": {
+      "type": "object",
+      "required": ["ready", "score", "grade", "blockerCount", "warningCount"],
+      "properties": {
+        "ready": { "type": "boolean", "description": "True if site is ready to launch" },
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "grade": { "type": "string", "enum": ["A", "B", "C", "D", "F"] },
+        "blockerCount": { "type": "integer", "minimum": 0 },
+        "warningCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["highlights", "topRisks"],
+      "properties": {
+        "highlights": { "type": "array", "items": { "type": "string" } },
+        "topRisks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "checks": {
+      "type": "object",
+      "required": ["env", "routing", "navigation", "brokenLinks", "clientStability", "performance", "security", "features"],
+      "properties": {
+        "env": { "$ref": "#/$defs/checkEnv" },
+        "routing": { "$ref": "#/$defs/checkRouting" },
+        "navigation": { "$ref": "#/$defs/checkNavigation" },
+        "brokenLinks": { "$ref": "#/$defs/checkBrokenLinks" },
+        "clientStability": { "$ref": "#/$defs/checkClientStability" },
+        "performance": { "$ref": "#/$defs/checkPerformance" },
+        "security": { "$ref": "#/$defs/checkSecurity" },
+        "features": { "$ref": "#/$defs/checkFeatures" }
+      }
+    }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "required": ["id", "severity", "title", "detail", "evidence", "fix"],
+      "properties": {
+        "id": { "type": "string" },
+        "severity": { "type": "string", "enum": ["blocker", "warning", "info"] },
+        "title": { "type": "string" },
+        "detail": { "type": "string" },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "route": { "type": "string" },
+            "component": { "type": "string" },
+            "file": { "type": "string" },
+            "error": { "type": "string" },
+            "httpStatus": { "type": "integer" },
+            "notes": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "fix": {
+          "type": "object",
+          "required": ["action", "steps"],
+          "properties": {
+            "action": { "type": "string" },
+            "steps": { "type": "array", "items": { "type": "string" } },
+            "owner": { "type": "string", "enum": ["autopilot", "dev", "ops", "content"] }
+          }
+        }
+      }
+    },
+    "checkEnv": {
+      "type": "object",
+      "required": ["status", "required", "missing", "notes"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "required": { "type": "array", "items": { "type": "string" } },
+        "missing": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "checkRouting": {
+      "type": "object",
+      "required": ["status", "publicRoutes", "protectedRoutes", "redirects", "errors"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "publicRoutes": { "type": "integer", "minimum": 0 },
+        "protectedRoutes": { "type": "integer", "minimum": 0 },
+        "redirects": { "type": "array", "items": { "type": "object" } },
+        "errors": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "checkNavigation": {
+      "type": "object",
+      "required": ["status", "headerLinks", "footerLinks", "missingCritical", "contrast"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "headerLinks": { "type": "integer", "minimum": 0 },
+        "footerLinks": { "type": "integer", "minimum": 0 },
+        "missingCritical": { "type": "array", "items": { "type": "string" } },
+        "contrast": { "type": "object" },
+        "dropdowns": { "type": "object" }
+      }
+    },
+    "checkBrokenLinks": {
+      "type": "object",
+      "required": ["status", "checked", "broken"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "checked": { "type": "integer", "minimum": 0 },
+        "broken": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "checkClientStability": {
+      "type": "object",
+      "required": ["status", "hydrationRisks", "runtimeErrors"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "hydrationRisks": { "type": "array", "items": { "type": "object" } },
+        "runtimeErrors": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "checkPerformance": {
+      "type": "object",
+      "required": ["status", "notes"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "signals": { "type": "object" }
+      }
+    },
+    "checkSecurity": {
+      "type": "object",
+      "required": ["status", "rateLimit", "headers", "notes"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "rateLimit": { "type": "object" },
+        "headers": { "type": "object" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "checkFeatures": {
+      "type": "object",
+      "required": ["status", "activation", "missingComparedToBestInClass"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail", "degraded"] },
+        "activation": { "type": "object" },
+        "missingComparedToBestInClass": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["feature", "impact", "priority"],
+            "properties": {
+              "feature": { "type": "string" },
+              "impact": { "type": "string" },
+              "priority": { "type": "string", "enum": ["high", "medium", "low"] }
+            }
+          }
+        }
+      }
+    }
+  }
+}
