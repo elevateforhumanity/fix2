@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Phone, GraduationCap, Certificate, Users, CheckCircle } from 'lucide-react';
+import { Phone, GraduationCap, Award, Users, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Drug Testing Training Courses | Elevate for Humanity',
@@ -159,7 +159,7 @@ export default function DrugTestingTrainingPage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Certificate className="w-8 h-8 text-purple-600" />
+                <Award className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="font-bold mb-2">Certified Training</h3>
               <p className="text-sm text-gray-600">All courses include certificate of completion</p>
