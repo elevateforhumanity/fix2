@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { GraduationCap, Clock, DollarSign, MapPin, CheckCircle, Users } from 'lucide-react';
+import { GraduationCap, Clock, DollarSign, MapPin, CheckCircle, Users, ExternalLink, FileText, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Barber Apprenticeship',
@@ -10,6 +10,13 @@ export const metadata: Metadata = {
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-gray-50">
+      {/* Official Badge */}
+      <div className="bg-blue-900 text-white py-2">
+        <div className="max-w-7xl mx-auto px-6 text-center text-sm">
+          <strong>U.S. Department of Labor Registered Apprenticeship</strong> | Approved by Indiana DWD | <a href="https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417" target="_blank" rel="noopener" className="underline hover:text-orange-400">Program #10002417</a>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -20,8 +27,8 @@ export default function BarberApprenticeshipPage() {
             <span className="px-4 py-1 bg-orange-500 text-white text-sm font-bold rounded-full">
               Earn While You Learn
             </span>
-            <span className="px-4 py-1 bg-blue-500 text-white text-sm font-bold rounded-full">
-              In-person
+            <span className="px-4 py-1 bg-blue-600 text-white text-sm font-bold rounded-full">
+              DOL Registered
             </span>
           </div>
           
@@ -49,10 +56,53 @@ export default function BarberApprenticeshipPage() {
         </div>
       </section>
 
+      {/* What is a Registered Apprenticeship */}
+      <section className="py-12 md:py-16 bg-blue-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+            What is a Registered Apprenticeship?
+          </h2>
+          <div className="bg-white border-2 border-blue-200 rounded-xl p-6 md:p-8">
+            <p className="text-lg text-gray-700 mb-4">
+              A <strong>Registered Apprenticeship</strong> is a structured talent development strategy approved by the U.S. Department of Labor that combines:
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                <div>
+                  <h3 className="font-bold text-black mb-1">On-the-Job Learning</h3>
+                  <p className="text-sm text-gray-600">Paid work at a licensed barber shop</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                <div>
+                  <h3 className="font-bold text-black mb-1">Classroom Learning</h3>
+                  <p className="text-sm text-gray-600">Related Technical Instruction (RTI)</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex-shrink-0">3</div>
+                <div>
+                  <h3 className="font-bold text-black mb-1">Mentorship</h3>
+                  <p className="text-sm text-gray-600">Guidance from licensed barbers</p>
+                </div>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-4">
+              Upon completion of 1,500 hours, you receive a <strong>nationally-recognized credential</strong> that qualifies you to sit for the Indiana Barber Licensing Exam.
+            </p>
+            <p className="text-sm text-gray-600">
+              Source: <a href="https://www.in.gov/dwd/owbla/registered-apprenticeship-basics/" target="_blank" rel="noopener" className="text-blue-600 hover:underline">Indiana DWD - Registered Apprenticeship Basics <ExternalLink className="w-3 h-3 inline" /></a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* At-a-Glance */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-3xl font-bold text-black mb-8">At-a-Glance</h2>
+          <h2 className="text-3xl font-bold text-black mb-8">Program At-a-Glance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="flex items-start gap-4">
               <Clock className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
@@ -190,6 +240,97 @@ export default function BarberApprenticeshipPage() {
               <p className="text-gray-700 text-sm">Pathway to own business</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Earn While You Learn */}
+      <section className="py-12 md:py-16 bg-green-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Earn While You Learn</h2>
+          <div className="bg-white border-2 border-green-200 rounded-xl p-6 md:p-8">
+            <p className="text-lg text-gray-700 mb-4">
+              <strong>All registered apprenticeships include wage progression.</strong> You start earning from day one and receive raises as you gain skills.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center p-4 bg-green-50 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Starting Wage</p>
+                <p className="text-2xl font-bold text-black">$12-15/hr</p>
+                <p className="text-xs text-gray-500">Months 1-6</p>
+              </div>
+              <div className="text-center p-4 bg-green-50 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Mid-Program</p>
+                <p className="text-2xl font-bold text-black">$15-18/hr</p>
+                <p className="text-xs text-gray-500">Months 7-12</p>
+              </div>
+              <div className="text-center p-4 bg-green-50 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Licensed Barber</p>
+                <p className="text-2xl font-bold text-black">$25-40/hr+</p>
+                <p className="text-xs text-gray-500">After licensure</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600 mt-4">
+              <strong>Note:</strong> Wages vary by shop. Many barbers earn additional income through tips and commission. Licensed barbers can earn $40,000-$60,000+ annually.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Official Resources */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-8">Official Resources & Guidelines</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: 'Indiana Registered Apprenticeship Basics',
+                org: 'Indiana DWD',
+                url: 'https://www.in.gov/dwd/owbla/registered-apprenticeship-basics/',
+              },
+              {
+                title: 'Barber Apprenticeship Program Listing',
+                org: 'INTraining',
+                url: 'https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417',
+              },
+              {
+                title: 'Apprenticeship Process Guide (PDF)',
+                org: 'Indiana DWD',
+                url: 'https://www.in.gov/dwd/owbla/files/DWD_OWBLA_Registered_Apprenticeship_Process_Guide.pdf',
+              },
+              {
+                title: 'Career Seekers Guide',
+                org: 'Apprenticeship.gov',
+                url: 'https://www.apprenticeship.gov/career-seekers',
+              },
+            ].map((resource) => (
+              <a
+                key={resource.title}
+                href={resource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-orange-600 hover:bg-orange-50 transition group"
+              >
+                <FileText className="w-6 h-6 text-gray-600 group-hover:text-orange-600 flex-shrink-0 mt-1" />
+                <div className="flex-1">
+                  <h3 className="font-bold text-black group-hover:text-orange-600 mb-1">{resource.title}</h3>
+                  <p className="text-sm text-gray-600">{resource.org}</p>
+                </div>
+                <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-orange-600" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Shop Owners CTA */}
+      <section className="py-12 md:py-16 bg-gray-900 text-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Barber Shop Owners</h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Interested in hosting an apprentice? Learn about program holder requirements, benefits, and how to get started.
+          </p>
+          <Link href="/program-holders/barber-apprenticeship" className="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg rounded-lg transition">
+            Program Holder Guidelines
+          </Link>
         </div>
       </section>
 
