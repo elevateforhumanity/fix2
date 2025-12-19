@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 import { Check, X, Loader2, CreditCard, Calendar, AlertCircle } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -37,7 +37,7 @@ interface ActiveSubscription {
   };
 }
 
-export default function SubscriptionsPage() {
+function SubscriptionsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const supabase = createBrowserClient(
@@ -336,5 +336,17 @@ export default function SubscriptionsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SubscriptionsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+      </div>
+    }>
+      <SubscriptionsContent />
+    </Suspense>
   );
 }
