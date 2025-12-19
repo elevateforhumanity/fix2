@@ -131,69 +131,39 @@ export default function SiteHeader() {
           />
           <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto">
             <nav className="px-4 py-6 space-y-4">
-              {/* Programs Section */}
-              <div className="space-y-2">
-                <div className="px-4 py-2 font-black text-black text-sm uppercase tracking-wide">
-                  Programs
-                </div>
-                {programCategories.map((category) => (
-                  <div key={category.href} className="space-y-1">
+              {/* All Navigation Sections */}
+              {headerNav?.map((section) => (
+                <div key={section.label} className="space-y-2 border-t first:border-t-0 pt-4 first:pt-0">
+                  <div className="px-4 py-2 font-black text-black text-sm uppercase tracking-wide">
+                    {section.label}
+                  </div>
+                  {section.items && section.items.length > 0 ? (
+                    <div className="space-y-1">
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : section.href ? (
                     <Link
-                      href={category.href}
+                      href={section.href}
                       className="block px-4 py-2 rounded-lg font-bold text-zinc-800 hover:bg-blue-50 transition"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {category.label}
+                      View {section.label}
                     </Link>
-                    {category.subItems && (
-                      <div className="pl-4 space-y-1">
-                        {category.subItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block px-4 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Partner Programs Section */}
-              <div className="space-y-2 border-t pt-4">
-                <div className="px-4 py-2 font-black text-black text-sm uppercase tracking-wide">
-                  Partner Programs
+                  ) : null}
                 </div>
-                {partnerPrograms.map((partner) => (
-                  <Link
-                    key={partner.href}
-                    href={partner.href}
-                    className="block px-4 py-2 rounded-lg font-bold text-zinc-800 hover:bg-blue-50 transition"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {partner.label}
-                  </Link>
-                ))}
-              </div>
+              ))}
 
-              {/* Other Nav Items */}
-              <div className="border-t pt-4 space-y-2">
-                {nav.map((i) => (
-                  <Link
-                    key={i.href}
-                    href={i.href}
-                    className="block px-4 py-3 rounded-lg font-bold text-zinc-800 hover:bg-zinc-50 transition"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {i.label}
-                  </Link>
-                ))}
-              </div>
-              <div className="pt-4 space-y-3">
+              {/* Action Buttons */}
+              <div className="border-t pt-4 space-y-3">
                 <Link
                   href="/dashboard"
                   className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
@@ -212,7 +182,7 @@ export default function SiteHeader() {
             </nav>
           </div>
         </>
-        )}
+      )}
       </header>
     );
   } catch (error) {
@@ -224,9 +194,14 @@ export default function SiteHeader() {
           <Link href="/" className="font-black text-zinc-900">
             Elevate for Humanity
           </Link>
-          <Link href="/apply" className="bg-orange-600 text-white px-4 py-2 rounded-xl font-bold">
-            Apply
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/dashboard" className="border border-zinc-300 bg-white px-4 py-2 rounded-xl font-bold">
+              Dashboard
+            </Link>
+            <Link href="/login" className="border border-zinc-300 bg-white px-4 py-2 rounded-xl font-bold">
+              Login
+            </Link>
+          </div>
         </div>
       </header>
     );
