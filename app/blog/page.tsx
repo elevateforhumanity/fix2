@@ -1,355 +1,211 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { createClient } from '@/lib/supabase/server';
-
-export const dynamic = 'force-static';
-export const revalidate = 86400; // 24 hours
-
-import {
-  fetchDurableBlogPosts,
-  getDurableBlogPostUrl,
-} from '@/lib/durable-blog';
+import { Search, Calendar, User, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/blog',
-  },
-  title: 'Blog | Elevate For Humanity',
+  title: 'Blog | Success Stories & Updates | Elevate for Humanity',
   description:
-    'Latest news, success stories, and workforce development insights from Elevate For Humanity.',
+    'Read success stories, program updates, and career insights from Elevate for Humanity students and partners.',
 };
 
-async function getDurableBlogPosts() {
-  try {
-    // Fetch from Durable blog via RSS feed or API
-    return await fetchDurableBlogPosts();
-  } catch (error) {
-    return [];
-  }
-}
+// Mock blog data - replace with real data from CMS or database
+const blogPosts = [
+  {
+    id: 1,
+    title: 'From Unemployed to HVAC Technician: Marcus\'s Journey',
+    excerpt:
+      'After losing his job during the pandemic, Marcus enrolled in our HVAC program. Six months later, he\'s earning $55,000/year with full benefits.',
+    image: '/images/blog/hvac-success.jpg',
+    category: 'Success Story',
+    date: 'December 15, 2024',
+    author: 'Elevate Team',
+    slug: 'marcus-hvac-journey',
+  },
+  {
+    id: 2,
+    title: 'New Partnership with Indiana Career Connect',
+    excerpt:
+      'We\'re excited to announce our expanded partnership with Indiana Career Connect, bringing more funding opportunities to students across Indianapolis.',
+    image: '/images/blog/partnership.jpg',
+    category: 'News',
+    date: 'December 10, 2024',
+    author: 'Elevate Team',
+    slug: 'indiana-career-connect-partnership',
+  },
+  {
+    id: 4,
+    title: 'Understanding WIOA Funding: A Complete Guide',
+    excerpt:
+      'Learn how WIOA funding works, who qualifies, and how it can cover 100% of your training costs for in-demand careers.',
+    image: '/images/blog/wioa-guide.jpg',
+    category: 'Resource',
+    date: 'November 28, 2024',
+    author: 'Elevate Team',
+    slug: 'wioa-funding-guide',
+  },
+  {
+    id: 5,
+    title: 'Meet Sarah: CNA to Nursing School',
+    excerpt:
+      'Sarah started as a CNA through our program. Now she\'s enrolled in nursing school while working full-time, with her employer covering tuition.',
+    image: '/images/blog/sarah-cna.jpg',
+    category: 'Success Story',
+    date: 'November 20, 2024',
+    author: 'Elevate Team',
+    slug: 'sarah-cna-to-nursing',
+  },
+  {
+    id: 6,
+    title: 'Employer Spotlight: Local HVAC Company Hires 8 Graduates',
+    excerpt:
+      'Indianapolis-based HVAC company shares why they prefer hiring our graduates and how our training aligns with industry needs.',
+    image: '/images/blog/employer-spotlight.jpg',
+    category: 'Employer Story',
+    date: 'November 15, 2024',
+    author: 'Elevate Team',
+    slug: 'hvac-employer-spotlight',
+  },
+];
 
-async function getBlogPosts() {
-  try {
-    // @ts-expect-error TS2304: Cannot find name 'supabase'.
-    const { data: supabasePosts } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('published', true)
-      .order('published_at', { ascending: false })
-      .limit(12);
+const categories = [
+  'All Posts',
+  'Success Stories',
+  'News',
+  'Program Updates',
+  'Resources',
+  'Employer Stories',
+];
 
-    // Fetch from Durable blog
-    const durablePosts = await getDurableBlogPosts();
-
-    // Combine both sources
-    const allPosts = [...(supabasePosts || []), ...durablePosts];
-
-    // Sort by date
-    return allPosts.sort(
-      (a, b) =>
-        new Date(b.published_at || b.date).getTime() -
-        new Date(a.published_at || a.date).getTime()
-    );
-  } catch (error) {
-    return [];
-  }
-}
-
-async function getSocialPosts() {
-  try {
-    const supabase = await createClient();
-    const { data: posts } = await supabase
-      .from('social_media_posts')
-      .select('*')
-      .order('posted_at', { ascending: false })
-      .limit(6);
-    return posts || [];
-  } catch (error) {
-    return [];
-  }
-}
-
-export default async function Page() {
-  const blogPosts = await getBlogPosts();
-  const socialPosts = await getSocialPosts();
-
+export default function BlogPage() {
   return (
     <main className="bg-white">
-      <section className="relative h-[500px] w-full overflow-hidden">
-        <Image
-          src="/media-backup-20251128-043832/hero/hero-blog-post-7.jpg"
-          alt="Blog and news"
-          fill
-          className="object-cover brightness-75"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-
-        {/* Dark overlay for text visibility */}
-        <div className="absolute inset-0     z-[1]"></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
-              News & Success Stories
-            </h1>
-            <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-lg mb-8">
-              Stay updated with the latest workforce development news, student
-              success stories, and career insights
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
+            <p className="text-xl text-white/90">
+              Success stories, program updates, and career insights from our students and partners.
             </p>
-
-            {/* Hero Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-2xl text-lg"
-              >
-                Apply Now - It's Free
-              </Link>
-              <a
-                href="https://elevateforhumanity.durable.co/blog"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
-              >
-                Visit Our Blog →
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Blog Posts */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-2xl md:text-3xl">
-            Latest Articles
-          </h2>
-          {blogPosts.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post: any) => {
-                // Determine if post is from Durable or Supabase
-                const isDurable = post.source === 'durable';
-                const postUrl = isDurable
-                  ? getDurableBlogPostUrl(post.slug)
-                  : `/blog/${post.slug}`;
-                const LinkComponent = isDurable ? 'a' : Link;
-                const linkProps = isDurable
-                  ? {
-                      href: postUrl,
-                      target: '_blank',
-                      rel: 'noopener noreferrer',
-                    }
-                  : {
-                      href: postUrl,
-                    };
-
-                return (
-                  <LinkComponent
-                    key={post.id}
-                    {...linkProps}
-                    className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden"
-                  >
-                    {post.featured_image && (
-                      <div className="relative h-48 overflow-hidden">
-                        <Image
-                          src={post.featured_image}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                          quality={100}
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
-                    )}
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        {post.category && (
-                          <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-semibold rounded-full">
-                            {post.category}
-                          </span>
-                        )}
-                        {isDurable && (
-                          <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-                            External
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors">
-                        {post.title}
-                      </h3>
-                      {post.excerpt && (
-                        <p className="text-slate-600 mb-4 line-clamp-3">
-                          {post.excerpt}
-                        </p>
-                      )}
-                    </div>
-                  </LinkComponent>
-                );
-              })}
+      {/* Filters & Search */}
+      <section className="border-b border-slate-200 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+            {/* Search */}
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search articles..."
+                className="w-full pl-10 pr-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              />
             </div>
-          ) : (
-            <div className="text-center py-12">
-              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4">
-                More Content Available
-              </h3>
-              <p className="text-base md:text-lg text-slate-600 mb-8">
-                Read the latest workforce development insights, success stories,
-                and career tips.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://elevateforhumanity.durable.co/blog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg"
-                >
-                  Visit Our Blog →
-                </a>
-                <Link
-                  href="/success-stories"
-                  className="inline-block px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition-all shadow-lg"
-                >
-                  Success Stories
-                </Link>
-              </div>
-              <p className="text-sm text-slate-500 mt-6">
-                Blog posts from both our platform and Durable will appear here
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
 
-      {/* Social Feed */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-4 text-center text-2xl md:text-3xl lg:text-2xl md:text-3xl">
-            Follow Us on Social Media
-          </h2>
-          <p className="text-base md:text-lg text-slate-600 text-center mb-12">
-            Stay connected with our community
-          </p>
-          {socialPosts.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {socialPosts.map((post: any) => (
-                <a
-                  key={post.id}
-                  href={post.post_url || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all"
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                    category === 'All Posts'
+                      ? 'bg-orange-600 text-white'
+                      : 'bg-white text-slate-700 border border-slate-300 hover:border-orange-600 hover:text-orange-600'
+                  }`}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10    rounded-full flex items-center justify-center text-white font-bold">
-                      {post.platform.charAt(0).toUpperCase()}
-                    </div>
-                    <div>
-                      <div className="font-semibold capitalize">
-                        {post.platform}
-                      </div>
-                      <div className="text-sm text-slate-500">
-                        {new Date(post.posted_at).toLocaleDateString()}
-                      </div>
-                    </div>
-                  </div>
-                  {post.image_url && (
-                    <div className="relative h-48 rounded-lg overflow-hidden mb-4">
-                      <Image
-                        src={post.image_url}
-                        alt="Social post"
-                        fill
-                        className="object-cover"
-                        quality={100}
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
-                  )}
-                  <p className="text-slate-700 mb-4 line-clamp-4">
-                    {post.content}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-slate-500">
-                    <span>❤️ {post.likes}</span>
-                    <span>💬 {post.comments}</span>
-                  </div>
-                </a>
+                  {category}
+                </button>
               ))}
             </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-lg text-slate-600 mb-6">
-                Connect with us on social media!
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="https://www.facebook.com/elevateforhumanity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all"
-                >
-                  Facebook
-                </a>
-                <a
-                  href="https://www.instagram.com/elevateforhumanity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3    text-white font-semibold rounded-full hover: hover: transition-all"
-                >
-                  Instagram
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/elevate-for-humanity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-orange-600">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
+      {/* Blog Grid */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                className="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* Image */}
+                <div className="relative h-48 bg-slate-200 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-slate-900 text-xs font-bold uppercase rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition line-clamp-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-slate-600 mb-4 line-clamp-3">{post.excerpt}</p>
+
+                  {/* Meta */}
+                  <div className="flex items-center gap-4 text-sm text-slate-500">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{post.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <User className="w-4 h-4" />
+                      <span>{post.author}</span>
+                    </div>
+                  </div>
+
+                  {/* Read More */}
+                  <div className="mt-4 flex items-center gap-2 text-orange-600 font-semibold group-hover:gap-3 transition-all">
+                    Read More
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Load More */}
+          <div className="text-center mt-12">
+            <button className="px-8 py-3 bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold rounded-lg transition">
+              Load More Articles
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-orange-600 to-orange-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Success Story?
           </h2>
-          <p className="text-base md:text-lg text-white/90 mb-8">
-            Join thousands who transformed their lives through free workforce
-            training.
+          <p className="text-xl text-white/90 mb-8">
+            Join hundreds of students who have transformed their careers through our free training programs.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
-            >
-              Apply Now - It's Free
-            </Link>
-            <Link
-              href="/programs"
-              className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg"
-            >
-              View Programs
-            </Link>
-          </div>
-          <p className="text-white/80 mt-8 text-sm">
-            Questions? Call{' '}
-            <a href="tel:317-314-3757" className="underline font-semibold">
-              317-314-3757
-            </a>{' '}
-            or email{' '}
-            <a
-              href="mailto:info@elevateforhumanity.org"
-              className="underline font-semibold"
-            >
-              info@elevateforhumanity.org
-            </a>
-          </p>
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 hover:bg-slate-50 rounded-lg font-bold text-lg transition shadow-lg"
+          >
+            Apply Now
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
     </main>
