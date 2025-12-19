@@ -51,6 +51,57 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
 
+      // LANE B: Handle store subscription checkout
+      if (session.mode === 'subscription' && session.metadata?.subscription_type === 'store') {
+        try {
+          const userId = session.metadata.user_id;
+          
+          if (!userId) {
+            logger.error('No user_id in subscription checkout metadata');
+            break;
+          }
+
+          // Subscription will be created by customer.subscription.created event
+          // Just log the checkout completion here
+          logger.info(`✅ Store subscription checkout completed: ${session.id}`);
+        } catch (err: unknown) {
+          logger.error('Error processing store subscription checkout:', err);
+        }
+        break;
+      }
+
+      // LANE A: Handle enrollment payment checkout
+      if (session.mode === 'payment' && session.metadata?.payment_type === 'enrollment') {
+        try {
+          const enrollmentId = session.metadata.enrollment_id;
+          
+          if (!enrollmentId) {
+            logger.error('No enrollment_id in payment checkout metadata');
+            break;
+          }
+
+          // Complete enrollment payment using RPC
+          const { data, error } = await supabase.rpc('complete_enrollment_payment', {
+            p_enrollment_id: enrollmentId,
+            p_stripe_event_id: event.id,
+            p_stripe_session_id: session.id,
+            p_stripe_payment_intent_id: session.payment_intent as string,
+            p_amount_cents: session.amount_total || 0,
+          });
+
+          if (error) {
+            logger.error('Error completing enrollment payment:', error);
+          } else if (data?.duplicate) {
+            logger.info(`⚠️ Duplicate enrollment webhook ignored: ${event.id}`);
+          } else {
+            logger.info(`✅ Enrollment payment completed: ${enrollmentId}`);
+          }
+        } catch (err: unknown) {
+          logger.error('Error processing enrollment payment:', err);
+        }
+        break;
+      }
+
       // Handle drug testing products and training courses
       if (
         session.metadata?.type === 'service' ||
@@ -244,10 +295,36 @@ export async function POST(request: NextRequest) {
         break;
       }
 
-      // Handle regular course enrollments
+      // Handle regular course enrollments (LANE A: Tuition/Enrollment)
+      const enrollmentId = session.metadata?.enrollment_id;
+
+      if (enrollmentId) {
+        try {
+          // Use idempotent payment completion function
+          const { data, error } = await supabase.rpc('complete_stripe_payment', {
+            p_enrollment_id: enrollmentId,
+            p_stripe_event_id: event.id,
+            p_stripe_session_id: session.id,
+            p_stripe_payment_intent_id: session.payment_intent as string,
+            p_amount_cents: session.amount_total || 0,
+          });
+
+          if (error) {
+            logger.error('Error completing enrollment payment:', error);
+          } else if (data?.duplicate) {
+            logger.info(`⚠️ Duplicate webhook ignored: ${event.id}`);
+          } else {
+            logger.info(`✅ Enrollment payment completed: ${enrollmentId}`);
+          }
+        } catch (err: unknown) {
+          logger.error('Error processing enrollment payment:', err);
+        }
+        break;
+      }
+
+      // Legacy fallback for old enrollments without enrollment_id
       const userId = session.metadata?.user_id;
       const courseId = session.metadata?.course_id;
-      const enrollmentId = session.metadata?.enrollment_id;
       const partnerOwedCents = parseInt(
         session.metadata?.partner_owed_cents || '0'
       );
@@ -256,37 +333,21 @@ export async function POST(request: NextRequest) {
       );
 
       if (userId && courseId) {
-        // Update enrollment to paid
-        if (enrollmentId) {
-          await supabase
-            .from('enrollments')
-            .update({
-              status: 'active',
-              payment_status: 'paid',
-              stripe_payment_intent_id: session.payment_intent as string,
-              paid_at: new Date().toISOString(),
-              amount_paid_cents: session.amount_total || 0,
-              partner_owed_cents: partnerOwedCents,
-              your_revenue_cents: yourRevenueCents,
-            })
-            .eq('id', enrollmentId);
-        } else {
-          // Create new enrollment
-          await supabase.from('enrollments').insert({
-            user_id: userId,
-            course_id: courseId,
-            status: 'active',
-            payment_status: 'paid',
-            stripe_checkout_session_id: session.id,
-            stripe_payment_intent_id: session.payment_intent as string,
-            paid_at: new Date().toISOString(),
-            amount_paid_cents: session.amount_total || 0,
-            enrollment_type: 'standalone',
-            funding_source: 'self_pay',
-            partner_owed_cents: partnerOwedCents,
-            your_revenue_cents: yourRevenueCents,
-          });
-        }
+        // Create new enrollment (legacy path)
+        await supabase.from('enrollments').insert({
+          user_id: userId,
+          course_id: courseId,
+          status: 'active',
+          payment_status: 'paid',
+          stripe_checkout_session_id: session.id,
+          stripe_payment_intent_id: session.payment_intent as string,
+          paid_at: new Date().toISOString(),
+          amount_paid_cents: session.amount_total || 0,
+          enrollment_type: 'standalone',
+          funding_source: 'self_pay',
+          partner_owed_cents: partnerOwedCents,
+          your_revenue_cents: yourRevenueCents,
+        });
 
         // Create partner payment record if applicable
         if (partnerOwedCents > 0) {
@@ -312,7 +373,7 @@ export async function POST(request: NextRequest) {
           }
         }
 
-        logger.info(`✅ Payment processed: user ${userId}, course ${courseId}`);
+        logger.info(`✅ Payment processed (legacy): user ${userId}, course ${courseId}`);
       }
       break;
     }
@@ -326,8 +387,139 @@ export async function POST(request: NextRequest) {
 
     case 'payment_intent.payment_failed': {
       const failedPayment = event.data.object as Stripe.PaymentIntent;
-      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
-      logger.info('Payment failed:', failedPayment.id);
+      
+      // Handle enrollment payment failure
+      const enrollmentId = failedPayment.metadata?.enrollment_id;
+      if (enrollmentId) {
+        try {
+          const { error } = await supabase.rpc('fail_stripe_payment', {
+            p_enrollment_id: enrollmentId,
+            p_stripe_event_id: event.id,
+            p_error_message: failedPayment.last_payment_error?.message || 'Payment failed',
+          });
+
+          if (error) {
+            logger.error('Error handling payment failure:', error);
+          } else {
+            logger.info(`✅ Enrollment payment failure handled: ${enrollmentId}`);
+          }
+        } catch (err: unknown) {
+          logger.error('Error processing payment failure:', err);
+        }
+      } else {
+        // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
+        logger.info('Payment failed:', failedPayment.id);
+      }
+      break;
+    }
+
+    // LANE B: Store subscription events
+    case 'customer.subscription.created':
+    case 'customer.subscription.updated': {
+      const subscription = event.data.object as Stripe.Subscription;
+
+      // Only handle store subscriptions
+      if (subscription.metadata?.user_id) {
+        try {
+          const userId = subscription.metadata.user_id;
+          const priceId = subscription.items.data[0]?.price.id;
+
+          if (!priceId) {
+            logger.error('No price ID in subscription');
+            break;
+          }
+
+          // Upsert subscription
+          const { data, error } = await supabase.rpc('upsert_store_subscription', {
+            p_user_id: userId,
+            p_stripe_subscription_id: subscription.id,
+            p_stripe_customer_id: subscription.customer as string,
+            p_stripe_price_id: priceId,
+            p_status: subscription.status,
+            p_cancel_at_period_end: subscription.cancel_at_period_end,
+            p_current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
+            p_current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+            p_canceled_at: subscription.canceled_at ? new Date(subscription.canceled_at * 1000).toISOString() : null,
+            p_ended_at: subscription.ended_at ? new Date(subscription.ended_at * 1000).toISOString() : null,
+            p_trial_start: subscription.trial_start ? new Date(subscription.trial_start * 1000).toISOString() : null,
+            p_trial_end: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
+            p_metadata: subscription.metadata,
+          });
+
+          if (error) {
+            logger.error('Error upserting subscription:', error);
+          } else {
+            logger.info(`✅ Store subscription ${event.type}: ${subscription.id}`);
+          }
+        } catch (err: unknown) {
+          logger.error('Error processing subscription event:', err);
+        }
+      }
+      break;
+    }
+
+    case 'customer.subscription.deleted': {
+      const subscription = event.data.object as Stripe.Subscription;
+
+      if (subscription.metadata?.user_id) {
+        try {
+          const userId = subscription.metadata.user_id;
+          const priceId = subscription.items.data[0]?.price.id;
+
+          if (!priceId) {
+            logger.error('No price ID in subscription');
+            break;
+          }
+
+          // Mark subscription as canceled
+          const { error } = await supabase.rpc('upsert_store_subscription', {
+            p_user_id: userId,
+            p_stripe_subscription_id: subscription.id,
+            p_stripe_customer_id: subscription.customer as string,
+            p_stripe_price_id: priceId,
+            p_status: 'canceled',
+            p_cancel_at_period_end: false,
+            p_current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
+            p_current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+            p_canceled_at: subscription.canceled_at ? new Date(subscription.canceled_at * 1000).toISOString() : null,
+            p_ended_at: new Date().toISOString(),
+            p_trial_start: subscription.trial_start ? new Date(subscription.trial_start * 1000).toISOString() : null,
+            p_trial_end: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
+            p_metadata: subscription.metadata,
+          });
+
+          if (error) {
+            logger.error('Error canceling subscription:', error);
+          } else {
+            logger.info(`✅ Store subscription canceled: ${subscription.id}`);
+          }
+        } catch (err: unknown) {
+          logger.error('Error processing subscription deletion:', err);
+        }
+      }
+      break;
+    }
+
+    case 'invoice.payment_succeeded': {
+      const invoice = event.data.object as Stripe.Invoice;
+
+      // Log successful subscription payment
+      if (invoice.subscription) {
+        logger.info(`✅ Subscription payment succeeded: ${invoice.subscription}`);
+      }
+      break;
+    }
+
+    case 'invoice.payment_failed': {
+      const invoice = event.data.object as Stripe.Invoice;
+
+      // Handle failed subscription payment
+      if (invoice.subscription) {
+        logger.error(`❌ Subscription payment failed: ${invoice.subscription}`);
+        
+        // Subscription status will be updated by customer.subscription.updated event
+        // Could send notification email here
+      }
       break;
     }
 

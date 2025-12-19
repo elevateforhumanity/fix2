@@ -205,7 +205,7 @@ export default function RootLayout({
         <ScraperDetection />
         <SimpleHeader />
         <Breadcrumbs />
-        <main id="main-content" className="min-h-screen">
+        <main id="main-content" className="min-h-screen pt-16">
           {children}
         </main>
         <NewSiteFooter />
