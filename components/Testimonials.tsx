@@ -29,6 +29,8 @@ const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
+import Image from 'next/image';
+
 export default function Testimonials() {
   return (
     <section className="section bg-slate-50">
@@ -45,11 +47,12 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div key={t.name} className="card p-6">
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src={t.avatar}
                   alt={t.name}
+                  width={48}
+                  height={48}
                   className="h-12 w-12 rounded-full object-cover"
-                  loading="lazy"
                 />
                 <div>
                   <div className="font-semibold">{t.name}</div>

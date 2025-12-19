@@ -4,6 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: 255 255 255;
+  --fg: 17 24 39;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--fg));
+  background: rgb(var(--bg));
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  @apply underline-offset-4;
+}
+
+h1 {
+  @apply text-3xl md:text-5xl font-semibold tracking-tight;
+}
+h2 {
+  @apply text-2xl md:text-3xl font-semibold tracking-tight;
+}
+h3 {
+  @apply text-xl md:text-2xl font-semibold tracking-tight;
+}
+p {
+  @apply text-base leading-7 text-slate-700;
+}
+
 /* Ensure button text is always visible */
 button.text-white,
 a.text-white,
@@ -43,7 +80,8 @@ body {
 }
 
 /* Ensure images and videos don't overflow */
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -66,7 +104,7 @@ video[poster] {
 }
 
 /* Smooth fade-in for loaded images only (not videos) */
-img[loading="lazy"] {
+img[loading='lazy'] {
   opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
 }

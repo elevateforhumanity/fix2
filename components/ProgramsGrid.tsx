@@ -71,6 +71,8 @@ const PROGRAMS: Program[] = [
   },
 ];
 
+import Image from 'next/image';
+
 export default function ProgramsGrid() {
   return (
     <section className="section bg-slate-50">
@@ -92,13 +94,13 @@ export default function ProgramsGrid() {
               href={`/programs/${p.slug}`}
               className="card overflow-hidden group"
             >
-              <div className="aspect-[16/9] overflow-hidden">
-                <img
+              <div className="aspect-[16/9] overflow-hidden relative">
+                <Image
                   src={p.image}
                   alt={p.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                  loading="lazy"
-                  srcSet={`${p.image} 1x`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="p-4 md:p-5">

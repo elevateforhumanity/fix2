@@ -1,6 +1,8 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
-    <section className="relative    py-20 md:py-28">
+    <section className="relative py-20 md:py-28">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
@@ -38,11 +40,14 @@ export default function Hero() {
         </div>
         <div className="relative">
           <div className="card p-2">
-            <img
+            <Image
               src="/hero/efh-hero.jpg"
               alt="Students at Elevate for Humanity"
+              width={1200}
+              height={800}
+              priority
+              sizes="(max-width: 768px) 100vw, 1200px"
               className="h-[320px] w-full rounded-2xl object-cover"
-              srcSet="/hero/efh-hero@1x.jpg 1x, /hero/efh-hero@2x.jpg 2x, /hero/efh-hero@3x.jpg 3x"
             />
           </div>
         </div>

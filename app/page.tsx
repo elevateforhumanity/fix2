@@ -1,21 +1,25 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
     <main className="bg-white">
       {/* VIDEO HERO */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-slate-900">
         <video
-          autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
+          poster="/images/artlist/hero-training-6.jpg"
           className="w-full h-auto"
           style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
+          onLoadedData={(e) => {
+            const video = e.target as HTMLVideoElement;
+            video.play().catch(() => {});
+          }}
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
@@ -28,16 +32,21 @@ export default function HomePage() {
             We See Your Potential, Not Your Past
           </h1>
           <p className="text-xl text-slate-700 leading-relaxed mb-8">
-            At Elevate for Humanity, we believe everyone deserves a shot at a better future. 
-            Whether you're starting over, breaking barriers, or building something new—we're here to help you get there.
+            At Elevate for Humanity, we believe everyone deserves a shot at a
+            better future. Whether you're starting over, breaking barriers, or
+            building something new—we're here to help you get there.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">
+                100%
+              </div>
               <div className="text-sm text-slate-600">Free Training</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">4-12</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">
+                4-12
+              </div>
               <div className="text-sm text-slate-600">Weeks</div>
             </div>
             <div>
@@ -45,14 +54,19 @@ export default function HomePage() {
               <div className="text-sm text-slate-600">Debt</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Real</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">
+                Real
+              </div>
               <div className="text-sm text-slate-600">Jobs Waiting</div>
             </div>
           </div>
           <p className="text-lg text-slate-600">
-            Through partnerships with WIOA, WRG, JRI, and registered apprenticeships, 
-            most students pay <span className="font-bold text-slate-900">nothing out of pocket</span>. 
-            No loans. No debt. Just real training and real opportunity.
+            Through partnerships with WIOA, WRG, JRI, and registered
+            apprenticeships, most students pay{' '}
+            <span className="font-bold text-slate-900">
+              nothing out of pocket
+            </span>
+            . No loans. No debt. Just real training and real opportunity.
           </p>
         </div>
       </section>
@@ -65,8 +79,9 @@ export default function HomePage() {
               Real Skills. Real Careers. Real Fast.
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our programs are designed for people with real lives—parents, workers, people starting over. 
-              Train online at your pace, practice hands-on, and step into a career that's waiting for you.
+              Our programs are designed for people with real lives—parents,
+              workers, people starting over. Train online at your pace, practice
+              hands-on, and step into a career that's waiting for you.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -86,8 +101,9 @@ export default function HomePage() {
                     Barber Apprenticeship
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
-                    Work in a real barbershop. Get paid while you train. Build your clientele. 
-                    Own your chair or open your own shop. 12-18 months.
+                    Work in a real barbershop. Get paid while you train. Build
+                    your clientele. Own your chair or open your own shop. 12-18
+                    months.
                   </p>
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
                     Learn More →
@@ -112,8 +128,9 @@ export default function HomePage() {
                     CNA Healthcare
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
-                    Get certified fast. Work in hospitals, nursing homes, or home health. 
-                    Stable income, flexible schedules, room to grow. 4-8 weeks.
+                    Get certified fast. Work in hospitals, nursing homes, or
+                    home health. Stable income, flexible schedules, room to
+                    grow. 4-8 weeks.
                   </p>
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
                     Learn More →
@@ -138,8 +155,9 @@ export default function HomePage() {
                     HVAC Technician
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
-                    Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
-                    Start your own business or work for a company. 8-12 weeks.
+                    Learn heating, cooling, and refrigeration. High demand, good
+                    pay, job security. Start your own business or work for a
+                    company. 8-12 weeks.
                   </p>
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
                     Learn More →
@@ -159,8 +177,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* WHO WE SERVE */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -169,36 +185,46 @@ export default function HomePage() {
               You Don't Need Perfect. You Just Need to Start.
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We work with people who've been told "no" their whole lives. Justice-involved individuals. 
-              Parents juggling childcare. People with gaps in their work history. You're welcome here.
+              We work with people who've been told "no" their whole lives.
+              Justice-involved individuals. Parents juggling childcare. People
+              with gaps in their work history. You're welcome here.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
               <div className="text-3xl mb-3">🔓</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Second Chances</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Second Chances
+              </h3>
               <p className="text-sm text-slate-700">
-                Through our JRI partnership, justice-involved individuals get free training, 
-                certifications, and wrap-around support. Everyone deserves a path forward.
+                Through our JRI partnership, justice-involved individuals get
+                free training, certifications, and wrap-around support. Everyone
+                deserves a path forward.
               </p>
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
               <div className="text-3xl mb-3">👨‍👩‍👧‍👦</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Parents & Caregivers</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Parents & Caregivers
+              </h3>
               <p className="text-sm text-slate-700">
-                Our hybrid programs let you train online at your own pace and complete hands-on 
-                requirements on a flexible schedule. We get it—life is complicated.
+                Our hybrid programs let you train online at your own pace and
+                complete hands-on requirements on a flexible schedule. We get
+                it—life is complicated.
               </p>
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
               <div className="text-3xl mb-3">🔄</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Career Changers</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Career Changers
+              </h3>
               <p className="text-sm text-slate-700">
-                Stuck in a dead-end job? Starting completely over? Our short-term programs 
-                (4-12 weeks) get you into a new career fast—no years wasted.
+                Stuck in a dead-end job? Starting completely over? Our
+                short-term programs (4-12 weeks) get you into a new career
+                fast—no years wasted.
               </p>
             </div>
           </div>
@@ -260,12 +286,19 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-black/70 flex items-end">
                 <div className="p-8 text-white w-full bg-black/80">
-                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
+                  <h3
+                    className="text-4xl font-black mb-4 text-white"
+                    style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}
+                  >
                     Tax & Finance
                   </h3>
-                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
-                    Launch your own tax prep business. Work from home. Earn $40k-$100k+ per year. 
-                    Tax season is busy, but the rest of the year is yours.
+                  <p
+                    className="text-lg mb-5 font-semibold leading-relaxed"
+                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
+                  >
+                    Launch your own tax prep business. Work from home. Earn
+                    $40k-$100k+ per year. Tax season is busy, but the rest of
+                    the year is yours.
                   </p>
                   <Link
                     href="/programs/tax-preparation"
@@ -287,12 +320,19 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-black/70 flex items-end">
                 <div className="p-8 text-white w-full bg-black/80">
-                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
+                  <h3
+                    className="text-4xl font-black mb-4 text-white"
+                    style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}
+                  >
                     Business Startup
                   </h3>
-                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
-                    Turn your idea into a real business. Learn marketing, branding, finances, 
-                    and how to actually make money doing what you love.
+                  <p
+                    className="text-lg mb-5 font-semibold leading-relaxed"
+                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
+                  >
+                    Turn your idea into a real business. Learn marketing,
+                    branding, finances, and how to actually make money doing
+                    what you love.
                   </p>
                   <Link
                     href="/programs/business-startup"
@@ -323,7 +363,8 @@ export default function HomePage() {
             Ready to Start?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Most students qualify for 100% free training through WIOA, WRG, or apprenticeships.
+            Most students qualify for 100% free training through WIOA, WRG, or
+            apprenticeships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -340,7 +381,8 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-white/90">
-            📞 Call us at <span className="font-semibold text-white">317-314-3757</span>
+            📞 Call us at{' '}
+            <span className="font-semibold text-white">317-314-3757</span>
           </p>
         </div>
       </section>
