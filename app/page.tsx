@@ -7,19 +7,15 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* VIDEO HERO */}
-      <section className="relative overflow-hidden bg-slate-900">
+      <section className="relative overflow-hidden">
         <video
+          autoPlay
           muted
           loop
           playsInline
-          preload="none"
-          poster="/images/artlist/hero-training-6.jpg"
+          preload="auto"
           className="w-full h-auto"
           style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
-          onLoadedData={(e) => {
-            const video = e.target as HTMLVideoElement;
-            video.play().catch(() => {});
-          }}
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>

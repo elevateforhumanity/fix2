@@ -1,13 +1,24 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, ChevronDown } from 'lucide-react';
-import { MobileNav } from './MobileNav';
+import { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function SimpleHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [partnersOpen, setPartnersOpen] = useState(false);
+
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-[90]">
@@ -96,22 +107,99 @@ export default function SimpleHeader() {
             </Link>
           </nav>
 
-          {/* Mobile menu button - Only shows hamburger */}
+          {/* Mobile menu button */}
           <button
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2"
-            aria-label="Open menu"
           >
-            <Menu className="h-6 w-6" />
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Navigation - Separate component handles X and overlay */}
-      <MobileNav
-        open={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-      />
+        {/* Mobile Navigation - Full Screen Overlay */}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-[100] bg-black/40 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <div
+              className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white shadow-xl overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="py-4 space-y-2 px-2">
+                <Link
+                  href="/programs"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Programs
+                </Link>
+                <Link
+                  href="/apply"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Apply
+                </Link>
+                <Link
+                  href="/contact"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+
+                {/* Partners Section */}
+                <div className="px-4 py-2">
+                  <div className="text-sm font-semibold text-gray-500 mb-2">
+                    Partners
+                  </div>
+                  <Link
+                    href="/employers"
+                    className="block py-1 text-gray-700 hover:text-blue-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    For Employers
+                  </Link>
+                  <Link
+                    href="/providers"
+                    className="block py-1 text-gray-700 hover:text-blue-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    For Providers
+                  </Link>
+                  <Link
+                    href="/workforce-boards"
+                    className="block py-1 text-gray-700 hover:text-blue-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    For Workforce Boards
+                  </Link>
+                </div>
+
+                <Link
+                  href="/login"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/apply"
+                  className="block mx-4 px-4 py-2 bg-orange-500 text-white text-center rounded-lg font-bold"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
