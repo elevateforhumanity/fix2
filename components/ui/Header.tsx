@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search, User, ChevronDown } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, Search, User, ChevronDown, ChevronRight } from 'lucide-react';
 
 export interface HeaderProps {
   onSearchClick?: () => void;
@@ -12,6 +13,26 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setMobileExpandedSection(null);
+  }, [pathname]);
+
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const navigation = [
     { 
@@ -206,70 +227,129 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
           </div>
         </div>
 
-        {/* Mobile Menu with Dropdowns */}
+        {/* Mobile Menu Drawer */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 py-4 max-h-[80vh] overflow-y-auto">
-            <nav className="space-y-1">
-              {navigation.map((item) => (
-                <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="flex items-center justify-between px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
-                    onClick={() => !item.dropdown && setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                    {item.dropdown && <ChevronDown className="h-5 w-5" />}
-                  </Link>
-                  
-                  {/* Mobile Dropdown */}
-                  {item.dropdown && (
-                    <div className="ml-4 mt-1 space-y-1">
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
-                          onClick={() => setIsMobileMenuOpen(false)}
+          <div className="fixed inset-0 z-[9999] lg:hidden">
+            {/* Overlay */}
+            <button
+              className="absolute inset-0 bg-black/50"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+            />
+
+            {/* Drawer Panel */}
+            <div className="absolute right-0 top-0 h-screen w-[85vw] max-w-sm bg-white shadow-2xl overflow-y-auto">
+              {/* Drawer Header */}
+              <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+                <span className="text-lg font-bold text-slate-900">Menu</span>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all"
+                  aria-label="Close menu"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              {/* Drawer Content */}
+              <nav className="px-4 py-6 space-y-2">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <>
+                        <button
+                          onClick={() =>
+                            setMobileExpandedSection(
+                              mobileExpandedSection === item.name ? null : item.name
+                            )
+                          }
+                          className="w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
                         >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                          {item.name}
+                          <ChevronRight
+                            className={`h-5 w-5 transition-transform ${
+                              mobileExpandedSection === item.name ? 'rotate-90' : ''
+                            }`}
+                          />
+                        </button>
+                        
+                        {/* Expanded Dropdown */}
+                        {mobileExpandedSection === item.name && (
+                          <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange-200 pl-4">
+                            {item.dropdown.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                
+                <div className="border-t border-slate-200 my-4" />
+                
+                <Link
+                  href="/student/dashboard"
+                  className="block px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Student Portal
+                </Link>
+                <Link
+                  href="/employer/dashboard"
+                  className="block px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Employer Portal
+                </Link>
+                <Link
+                  href="/login"
+                  className="block px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sign In
+                </Link>
+                
+                <div className="pt-4">
+                  <Link
+                    href="/apply"
+                    className="block px-6 py-4 text-base font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all text-center shadow-lg"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Apply Now
+                  </Link>
                 </div>
-              ))}
-              
-              <div className="border-t border-slate-200 my-3" />
-              
-              <Link
-                href="/student/dashboard"
-                className="block px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Student Portal
-              </Link>
-              <Link
-                href="/employer/dashboard"
-                className="block px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Employer Portal
-              </Link>
-              <Link
-                href="/login"
-                className="block px-4 py-3 text-base font-semibold text-slate-900 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/apply"
-                className="block px-4 py-3 text-base font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all text-center mt-3"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Apply Now
-              </Link>
-            </nav>
+
+                {/* Contact Info */}
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <p className="text-sm font-semibold text-slate-900 mb-2">Need Help?</p>
+                  <a
+                    href="tel:3173143757"
+                    className="block text-sm text-orange-600 font-medium hover:text-orange-700"
+                  >
+                    Call: (317) 314-3757
+                  </a>
+                  <p className="text-xs text-slate-600 mt-2">
+                    Monday-Friday, 9am-5pm EST
+                  </p>
+                </div>
+              </nav>
+            </div>
           </div>
         )}
       </div>
