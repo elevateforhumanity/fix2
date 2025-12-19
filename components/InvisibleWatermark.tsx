@@ -30,24 +30,31 @@ export function InvisibleWatermark({
   const [clientTimestamp, setClientTimestamp] = useState<string>('');
 
   useEffect(() => {
-    setClientTimestamp(timestamp || new Date().toISOString());
+    try {
+      if (typeof window !== 'undefined') {
+        setClientTimestamp(timestamp || new Date().toISOString());
+      }
+    } catch (error) {
+      console.warn('Failed to set timestamp:', error);
+    }
   }, [timestamp]);
 
   const finalTimestamp = clientTimestamp;
   useEffect(() => {
-    if (!clientTimestamp) return; // Wait for timestamp to be set
+    if (!clientTimestamp || typeof window === 'undefined') return; // Wait for timestamp to be set
 
-    // Add invisible watermark to body
-    const watermarkText = `ORIGINAL-SITE-${siteId}-${clientTimestamp}-OWNER-${owner}`;
-    // Method 1: Hidden div with zero opacity
-    const hiddenDiv = document.createElement('div');
-    hiddenDiv.style.cssText =
-      'position:absolute;width:0;height:0;opacity:0;pointer-events:none;';
-    hiddenDiv.setAttribute('data-site-owner', owner);
-    hiddenDiv.setAttribute('data-site-id', siteId);
-    hiddenDiv.setAttribute('data-original-timestamp', clientTimestamp);
-    hiddenDiv.textContent = watermarkText;
-    document.body.appendChild(hiddenDiv);
+    try {
+      // Add invisible watermark to body
+      const watermarkText = `ORIGINAL-SITE-${siteId}-${clientTimestamp}-OWNER-${owner}`;
+      // Method 1: Hidden div with zero opacity
+      const hiddenDiv = document.createElement('div');
+      hiddenDiv.style.cssText =
+        'position:absolute;width:0;height:0;opacity:0;pointer-events:none;';
+      hiddenDiv.setAttribute('data-site-owner', owner);
+      hiddenDiv.setAttribute('data-site-id', siteId);
+      hiddenDiv.setAttribute('data-original-timestamp', clientTimestamp);
+      hiddenDiv.textContent = watermarkText;
+      document.body.appendChild(hiddenDiv);
     // Method 2: Add to console (visible to developers who copy)
     // Method 3: Add invisible text throughout the page
     const addInvisibleMarkers = () => {
@@ -77,82 +84,97 @@ export function InvisibleWatermark({
       // Optionally break out of iframe
       // window.top.location = window.self.location;
     }
-    // Method 6: Add fingerprint to page
-    const fingerprint = generateFingerprint();
-    const fpDiv = document.createElement('div');
-    fpDiv.style.display = 'none';
-    fpDiv.setAttribute('data-fp', fingerprint);
-    document.body.appendChild(fpDiv);
+      // Method 6: Add fingerprint to page
+      const fingerprint = generateFingerprint();
+      const fpDiv = document.createElement('div');
+      fpDiv.style.display = 'none';
+      fpDiv.setAttribute('data-fp', fingerprint);
+      document.body.appendChild(fpDiv);
+    } catch (error) {
+      console.warn('Watermark setup failed:', error);
+    }
   }, [owner, siteId, clientTimestamp]);
-  return (
-    <>
-      {/* Method 7: Invisible text elements scattered throughout */}
-      <span
-        style={{
-          position: 'absolute',
-          width: '1px',
-          height: '1px',
-          opacity: 0,
-          pointerEvents: 'none',
-          userSelect: 'none',
-        }}
-      >
-        ORIGINAL-SITE-{siteId}-OWNER-{owner}
-      </span>
-      {/* Method 8: Hidden meta tags */}
-      <meta name="site-owner" content={owner} />
-      <meta name="site-id" content={siteId} />
-      {clientTimestamp && (
-        <meta name="original-timestamp" content={clientTimestamp} />
-      )}
-      <meta
-        name="copyright"
-        content={`© 2024 ${owner}. All Rights Reserved.`}
-      />
-      {/* Method 9: Invisible watermark text - only render after mount */}
-      {clientTimestamp && (
-        <div
+  try {
+    return (
+      <>
+        {/* Method 7: Invisible text elements scattered throughout */}
+        <span
           style={{
-            position: 'fixed',
-            bottom: '-100px',
-            right: '-100px',
-            fontSize: '1px',
-            color: 'transparent',
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            opacity: 0,
             pointerEvents: 'none',
             userSelect: 'none',
-            zIndex: -1,
           }}
-          aria-hidden="true"
         >
-          COPYRIGHT © 2024 ELEVATE FOR HUMANITY - ELIZABETH L. GREENE - ORIGINAL
-          SITE ID: {siteId} - TIMESTAMP: {clientTimestamp} - UNAUTHORIZED
-          COPYING PROHIBITED - LEGAL ACTION WILL BE TAKEN - CONTACT:
-          legal@elevateforhumanity.org
-        </div>
-      )}
-    </>
-  );
+          ORIGINAL-SITE-{siteId}-OWNER-{owner}
+        </span>
+        {/* Method 8: Hidden meta tags */}
+        <meta name="site-owner" content={owner} />
+        <meta name="site-id" content={siteId} />
+        {clientTimestamp && (
+          <meta name="original-timestamp" content={clientTimestamp} />
+        )}
+        <meta
+          name="copyright"
+          content={`© 2024 ${owner}. All Rights Reserved.`}
+        />
+        {/* Method 9: Invisible watermark text - only render after mount */}
+        {clientTimestamp && (
+          <div
+            style={{
+              position: 'fixed',
+              bottom: '-100px',
+              right: '-100px',
+              fontSize: '1px',
+              color: 'transparent',
+              pointerEvents: 'none',
+              userSelect: 'none',
+              zIndex: -1,
+            }}
+            aria-hidden="true"
+          >
+            COPYRIGHT © 2024 ELEVATE FOR HUMANITY - ELIZABETH L. GREENE - ORIGINAL
+            SITE ID: {siteId} - TIMESTAMP: {clientTimestamp} - UNAUTHORIZED
+            COPYING PROHIBITED - LEGAL ACTION WILL BE TAKEN - CONTACT:
+            legal@elevateforhumanity.org
+          </div>
+        )}
+      </>
+    );
+  } catch (error) {
+    console.warn('InvisibleWatermark render failed:', error);
+    return null;
+  }
 }
 /**
  * Generate a unique fingerprint for this site instance
  */
 function generateFingerprint(): string {
-  const data = [
-    navigator.userAgent,
-    screen.width,
-    screen.height,
-    new Date().getTimezoneOffset(),
-    navigator.language,
-    'EFH-ORIGINAL',
-  ].join('|');
-  // Simple hash function
-  let hash = 0;
-  for (let i = 0; i < data.length; i++) {
-    const char = data.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash = hash & hash;
+  try {
+    if (typeof window === 'undefined') return 'EFH-SERVER';
+    
+    const data = [
+      navigator.userAgent,
+      screen.width,
+      screen.height,
+      new Date().getTimezoneOffset(),
+      navigator.language,
+      'EFH-ORIGINAL',
+    ].join('|');
+    // Simple hash function
+    let hash = 0;
+    for (let i = 0; i < data.length; i++) {
+      const char = data.charCodeAt(i);
+      hash = (hash << 5) - hash + char;
+      hash = hash & hash;
+    }
+    return 'EFH-' + Math.abs(hash).toString(36).toUpperCase();
+  } catch (error) {
+    console.warn('Fingerprint generation failed:', error);
+    return 'EFH-ERROR';
   }
-  return 'EFH-' + Math.abs(hash).toString(36).toUpperCase();
 }
 /**
  * Visible Watermark Component (for demos/screenshots)

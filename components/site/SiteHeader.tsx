@@ -11,31 +11,44 @@ export default function SiteHeader() {
 
   // Fix mobile nav overlay blocking clicks
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    try {
+      if (typeof document !== 'undefined') {
+        if (mobileMenuOpen) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to set body overflow:', error);
     }
 
     // Cleanup on unmount
     return () => {
-      document.body.style.overflow = '';
+      try {
+        if (typeof document !== 'undefined') {
+          document.body.style.overflow = '';
+        }
+      } catch (error) {
+        // Ignore cleanup errors
+      }
     };
   }, [mobileMenuOpen]);
 
-  return (
-    <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4">
-        <Link
-          href="/"
-          className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-base sm:text-lg"
-        >
-          Elevate for Humanity
-        </Link>
+  try {
+    return (
+      <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4">
+          <Link
+            href="/"
+            className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-base sm:text-lg"
+          >
+            Elevate for Humanity
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
-          {headerNav.map((section) => (
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
+            {headerNav?.map((section) => (
             <div
               key={section.label}
               className="relative group"
@@ -203,7 +216,23 @@ export default function SiteHeader() {
             </nav>
           </div>
         </>
-      )}
-    </header>
-  );
+        )}
+      </header>
+    );
+  } catch (error) {
+    console.error('SiteHeader render failed:', error);
+    // Fallback minimal header
+    return (
+      <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
+          <Link href="/" className="font-black text-zinc-900">
+            Elevate for Humanity
+          </Link>
+          <Link href="/apply" className="bg-orange-600 text-white px-4 py-2 rounded-xl font-bold">
+            Apply
+          </Link>
+        </div>
+      </header>
+    );
+  }
 }

@@ -15,55 +15,80 @@ const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
 export default function FacebookPixel() {
   const [mounted, setMounted] = useState(false);
-  const pathname = usePathname();
+  const [pathname, setPathname] = useState<string>('');
 
   // Mount on client only
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Get pathname safely after mount
+  useEffect(() => {
+    if (mounted && typeof window !== 'undefined') {
+      try {
+        setPathname(window.location.pathname);
+      } catch (error) {
+        console.warn('Failed to get pathname:', error);
+      }
+    }
+  }, [mounted]);
+
   // Track page views on route change (only after mounted)
   useEffect(() => {
-    if (!mounted || !FB_PIXEL_ID) return;
+    if (!mounted || !FB_PIXEL_ID || typeof window === 'undefined') return;
 
-    // Track page view
-    if (window.fbq) {
-      window.fbq('track', 'PageView');
+    try {
+      // Track page view
+      if (window.fbq) {
+        window.fbq('track', 'PageView');
+      }
+    } catch (error) {
+      // Silently fail - don't break the app
+      console.warn('Facebook Pixel tracking failed:', error);
     }
   }, [mounted, pathname]);
 
   // Critical: server render and first client render both return null
-  if (!mounted || !FB_PIXEL_ID) return null;
+  if (!mounted || !FB_PIXEL_ID || typeof window === 'undefined') return null;
 
-  return (
-    <>
-      <Script id="fb-pixel" strategy="afterInteractive">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${FB_PIXEL_ID}');
-          fbq('track', 'PageView');
-        `}
-      </Script>
+  try {
+    return (
+      <>
+        <Script id="fb-pixel" strategy="afterInteractive">
+          {`
+            try {
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${FB_PIXEL_ID}');
+              fbq('track', 'PageView');
+            } catch (e) {
+              console.warn('FB Pixel init failed:', e);
+            }
+          `}
+        </Script>
 
-      <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
-          alt=""
-        />
-      </noscript>
-    </>
-  );
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
+      </>
+    );
+  } catch (error) {
+    console.warn('FacebookPixel render failed:', error);
+    return null;
+  }
 }
 
 // Helper functions for tracking events
