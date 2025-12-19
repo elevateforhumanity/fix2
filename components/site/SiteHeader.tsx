@@ -38,7 +38,7 @@ export default function SiteHeader() {
   try {
     return (
       <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4 relative">
           <Link
             href="/"
             className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-base sm:text-lg"
@@ -69,12 +69,13 @@ export default function SiteHeader() {
                     <ChevronDown className="w-4 h-4" />
                   </button>
                   {openDropdown === section.label && (
-                    <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50 max-h-[80vh] overflow-y-auto">
+                    <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-[100] max-h-[80vh] overflow-y-auto">
                       {section.items.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                          onClick={() => setOpenDropdown(null)}
                         >
                           {item.label}
                         </Link>
@@ -107,12 +108,6 @@ export default function SiteHeader() {
             className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
           >
             Login
-          </Link>
-          <Link
-            href="/apply"
-            className="inline-flex rounded-xl bg-orange-600 text-white px-4 py-2 font-extrabold hover:bg-orange-700 transition whitespace-nowrap"
-          >
-            Apply
           </Link>
         </div>
 
@@ -212,13 +207,6 @@ export default function SiteHeader() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Login
-                </Link>
-                <Link
-                  href="/apply"
-                  className="block text-center rounded-xl bg-orange-600 text-white px-4 py-3 font-extrabold hover:bg-orange-700 transition"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Apply Now
                 </Link>
               </div>
             </nav>
