@@ -8,6 +8,15 @@ import { headerNav } from '@/config/navigation';
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
+
+  // Debug: Check if headerNav is loaded
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      console.log('HeaderNav loaded:', headerNav?.length, 'sections');
+      console.log('First section:', headerNav?.[0]);
+    }
+  }, []);
 
   // Fix mobile nav overlay blocking clicks
   useEffect(() => {
@@ -48,51 +57,55 @@ export default function SiteHeader() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
-            {headerNav?.map((section) => (
-            <div
-              key={section.label}
-              className="relative group"
-              onMouseEnter={() => setOpenDropdown(section.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              {section.items && section.items.length > 0 ? (
-                <>
-                  <button 
-                    type="button"
-                    className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                  >
-                    {section.label}
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                  {openDropdown === section.label && (
-                    <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-[100] max-h-[80vh] overflow-y-auto">
-                      {section.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <Link
-                  href={section.href || '/'}
-                  className="font-bold text-zinc-800 hover:text-zinc-950 transition"
+            {headerNav && headerNav.length > 0 ? (
+              headerNav.map((section) => (
+                <div
+                  key={section.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(section.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  {section.label}
-                </Link>
-              )}
-            </div>
-          ))}
+                  {section.items && section.items.length > 0 ? (
+                    <>
+                      <button 
+                        type="button"
+                        className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1 py-2"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                        }}
+                      >
+                        {section.label}
+                        <ChevronDown className="w-4 h-4" />
+                      </button>
+                      {openDropdown === section.label && (
+                        <div className="absolute left-0 top-full mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-2xl py-2 z-[100] max-h-[80vh] overflow-y-auto">
+                          {section.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={section.href || '/'}
+                      className="font-bold text-zinc-800 hover:text-zinc-950 transition py-2"
+                    >
+                      {section.label}
+                    </Link>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className="text-sm text-gray-500">Loading navigation...</div>
+            )}
         </nav>
 
         {/* Desktop CTAs */}
@@ -130,33 +143,51 @@ export default function SiteHeader() {
             onClick={() => setMobileMenuOpen(false)}
           />
           <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto">
-            <nav className="px-4 py-6 space-y-4">
+            <nav className="px-4 py-6 space-y-2">
               {/* All Navigation Sections */}
               {headerNav?.map((section) => (
-                <div key={section.label} className="space-y-2 border-t first:border-t-0 pt-4 first:pt-0">
-                  <div className="px-4 py-2 font-black text-black text-sm uppercase tracking-wide">
-                    {section.label}
-                  </div>
+                <div key={section.label} className="border-b border-gray-200 last:border-b-0">
                   {section.items && section.items.length > 0 ? (
-                    <div className="space-y-1">
-                      {section.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setExpandedMobileSection(
+                          expandedMobileSection === section.label ? null : section.label
+                        )}
+                        className="w-full flex items-center justify-between px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
+                      >
+                        <span>{section.label}</span>
+                        <ChevronDown 
+                          className={`w-5 h-5 transition-transform ${
+                            expandedMobileSection === section.label ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      {expandedMobileSection === section.label && (
+                        <div className="bg-gray-50 py-2">
+                          {section.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setExpandedMobileSection(null);
+                              }}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   ) : section.href ? (
                     <Link
                       href={section.href}
-                      className="block px-4 py-2 rounded-lg font-bold text-zinc-800 hover:bg-blue-50 transition"
+                      className="block px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      View {section.label}
+                      {section.label}
                     </Link>
                   ) : null}
                 </div>
