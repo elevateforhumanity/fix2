@@ -8,22 +8,28 @@
 -- STEP 1: Drop all existing policies on applications table
 -- ============================================================================
 
--- Drop any risky "public" admin policies
+-- Drop the blocking deny_all policies (these prevent everything)
+DROP POLICY IF EXISTS "deny_all" ON public.applications;
+DROP POLICY IF EXISTS "deny_all_applications" ON public.applications;
+
+-- Drop existing working policies (we'll recreate them cleanly)
+DROP POLICY IF EXISTS "anyone_insert_applications" ON public.applications;
+DROP POLICY IF EXISTS "admins_read_applications" ON public.applications;
+DROP POLICY IF EXISTS "admins_update_applications" ON public.applications;
+
+-- Drop any other potential duplicates
 DROP POLICY IF EXISTS "admins can view applications" ON public.applications;
 DROP POLICY IF EXISTS "admins can update applications" ON public.applications;
 DROP POLICY IF EXISTS "admins can delete applications" ON public.applications;
 DROP POLICY IF EXISTS "admins can insert applications" ON public.applications;
-
--- Drop duplicate admin policies (keep clean)
 DROP POLICY IF EXISTS "admins_view_applications" ON public.applications;
-DROP POLICY IF EXISTS "admins_update_applications" ON public.applications;
 DROP POLICY IF EXISTS "admins_delete_applications" ON public.applications;
 DROP POLICY IF EXISTS "admins_insert_applications" ON public.applications;
-
--- Drop old policies
-DROP POLICY IF EXISTS "anyone_insert_applications" ON public.applications;
-DROP POLICY IF EXISTS "deny_all" ON public.applications;
 DROP POLICY IF EXISTS "anon_insert_applications" ON public.applications;
+DROP POLICY IF EXISTS "anon_can_insert_applications" ON public.applications;
+DROP POLICY IF EXISTS "authenticated_admins_can_select_applications" ON public.applications;
+DROP POLICY IF EXISTS "authenticated_admins_can_update_applications" ON public.applications;
+DROP POLICY IF EXISTS "authenticated_admins_can_delete_applications" ON public.applications;
 
 -- ============================================================================
 -- STEP 2: Create clean, secure policies
