@@ -1,16 +1,23 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
-import { rateLimitNew as rateLimit, getClientIdentifier } from '@/lib/rate-limit';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {
     // Rate limiting
-    const identifier = getClientIdentifier(req);
-    const { success } = await rateLimit(identifier, 3, 60);
+    const ip =
+      req.headers.get('x-forwarded-for') ||
+      req.headers.get('x-real-ip') ||
+      'unknown';
+    const { ok } = await checkRateLimit({
+      key: `wioa-apply:${ip}`,
+      limit: 3,
+      windowSeconds: 60,
+    });
 
-    if (!success) {
+    if (!ok) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again in a minute.' },
         { status: 429 }
@@ -47,7 +54,9 @@ export async function POST(req: Request) {
       `Justice Involvement: ${body.hasJusticeInvolvement ? 'Yes' : 'No'}`,
       `\n=== AUTHORIZATION ===`,
       `Work Auth Doc: ${body.workAuthDocument}`,
-      body.documentExpirationDate ? `Expires: ${body.documentExpirationDate}` : '',
+      body.documentExpirationDate
+        ? `Expires: ${body.documentExpirationDate}`
+        : '',
       `Barriers: ${body.barriers.join(', ')}`,
       body.otherBarrier ? `Other Barrier: ${body.otherBarrier}` : '',
       `Case Manager: ${body.hasCaseManager ? 'Yes' : 'No'}`,
@@ -80,7 +89,10 @@ export async function POST(req: Request) {
     if (error) {
       console.error('Supabase error:', error);
       return NextResponse.json(
-        { error: 'Failed to save application. Please call 317-314-3757 for assistance.' },
+        {
+          error:
+            'Failed to save application. Please call 317-314-3757 for assistance.',
+        },
         { status: 500 }
       );
     }
@@ -157,12 +169,14 @@ export async function POST(req: Request) {
       console.error('Admin email error:', emailError);
     }
 
-    return NextResponse.json({
-      ok: true,
-      id: data.id,
-      referenceNumber: referenceNumber,
-    }, { status: 200 });
-
+    return NextResponse.json(
+      {
+        ok: true,
+        id: data.id,
+        referenceNumber: referenceNumber,
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
     console.error('Application error:', error);
     return NextResponse.json(
