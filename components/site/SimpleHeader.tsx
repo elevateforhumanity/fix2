@@ -12,13 +12,25 @@ export default function SimpleHeader() {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
+      // Force cleanup on unmount
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [mobileMenuOpen]);
+
+  // Force cleanup on component unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-[90]">
