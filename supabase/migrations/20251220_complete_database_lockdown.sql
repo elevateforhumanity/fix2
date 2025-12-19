@@ -25,7 +25,10 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON TABLES FROM anon, authen
 ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON SEQUENCES FROM anon, authenticated;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON FUNCTIONS FROM anon, authenticated;
 
-RAISE NOTICE '✅ Step 0: Revoked all grants from anon/authenticated';
+DO $$
+BEGIN
+  RAISE NOTICE '✅ Step 0: Revoked all grants from anon/authenticated';
+END $$;
 
 -- ============================================================================
 -- STEP 1: Enable RLS + FORCE RLS + Deny-All on ALL tables
