@@ -177,13 +177,9 @@ export default function MainHeader() {
           />
 
           {/* Panel */}
-          <div className="absolute right-0 top-0 h-full w-[90%] max-w-sm bg-white shadow-xl">
-            <div className="flex items-center justify-between p-4 border-b border-slate-200">
-              <div className="font-semibold text-slate-900">Menu</div>
-            </div>
-
+          <div className="absolute right-0 top-0 h-full w-[90%] max-w-sm bg-white shadow-xl overflow-y-auto">
             {/* Scrollable content */}
-            <nav className="p-4 space-y-2 overflow-y-auto h-[calc(100%-64px)]">
+            <nav className="px-4 py-6 space-y-2">
               {headerNav.map((section) => {
                 const hasChildren = section.items && section.items.length > 0;
                 const expanded = openMenu === section.label;
@@ -191,75 +187,72 @@ export default function MainHeader() {
                 return (
                   <div
                     key={section.label}
-                    className="border-b border-slate-100 pb-4"
+                    className="border-b border-gray-200 last:border-b-0"
                   >
-                    <div className="flex items-center gap-2">
-                      {section.href ? (
-                        <Link
-                          href={section.href}
-                          className="flex-1 text-left text-base font-semibold text-slate-800 py-3 px-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px]"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {section.label}
-                        </Link>
-                      ) : (
-                        <span className="flex-1 text-left text-base font-semibold text-slate-800 py-3 px-2">
-                          {section.label}
-                        </span>
-                      )}
-                      {hasChildren && (
+                    {hasChildren ? (
+                      <>
                         <button
                           type="button"
-                          className="p-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition"
                           onClick={() =>
-                            setOpenMenu((current) =>
-                              current === section.label ? null : section.label
+                            setOpenMenu(
+                              openMenu === section.label ? null : section.label
                             )
                           }
-                          aria-label={`Toggle ${section.label} menu`}
+                          className="w-full flex items-center justify-between px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
                         >
+                          <span>{section.label}</span>
                           <ChevronDown
-                            className={classNames(
-                              'h-5 w-5 transition-transform text-slate-600',
-                              expanded && 'rotate-180'
-                            )}
+                            className={`w-5 h-5 transition-transform ${
+                              expanded ? 'rotate-180' : ''
+                            }`}
                           />
                         </button>
-                      )}
-                    </div>
-
-                    {hasChildren && expanded && (
-                      <div className="mt-3 space-y-1 pl-2">
-                        {section.items!.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="block text-base text-slate-700 py-3 px-3 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px] flex items-center"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                        {expanded && (
+                          <div className="bg-gray-50 py-2">
+                            {section.items!.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                                onClick={() => {
+                                  setMobileOpen(false);
+                                  setOpenMenu(null);
+                                }}
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : section.href ? (
+                      <Link
+                        href={section.href}
+                        className="block px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {section.label}
+                      </Link>
+                    ) : null}
                   </div>
                 );
               })}
 
-              <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
+              {/* Action Buttons */}
+              <div className="border-t pt-4 space-y-3">
                 <Link
-                  href="/login"
+                  href="/dashboard"
+                  className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
                   onClick={() => setMobileOpen(false)}
-                  className="block text-center py-3 px-4 rounded-lg border border-slate-300 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                 >
-                  Login
+                  Dashboard
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/login"
+                  className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
                   onClick={() => setMobileOpen(false)}
-                  className="block text-center py-3 px-4 rounded-lg bg-blue-600 text-sm font-semibold text-white hover:bg-blue-700"
                 >
-                  Contact Us
+                  Login
                 </Link>
               </div>
             </nav>

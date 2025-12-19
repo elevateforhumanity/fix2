@@ -8,6 +8,7 @@ import { headerNav } from '@/config/navigation';
 export default function SimpleHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -124,35 +125,59 @@ export default function SimpleHeader() {
               className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white shadow-xl overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="py-4 space-y-1 px-2">
+              <div className="py-4 space-y-2 px-2">
                 {headerNav.map((section) => (
                   <div
                     key={section.label}
-                    className="border-b border-gray-100 pb-2 mb-2"
+                    className="border-b border-gray-200 last:border-b-0"
                   >
-                    <div className="px-4 py-2 text-sm font-bold text-gray-900 uppercase tracking-wide">
-                      {section.label}
-                    </div>
                     {section.items && section.items.length > 0 ? (
-                      <div className="space-y-1">
-                        {section.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block px-6 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedMobileSection(
+                              expandedMobileSection === section.label
+                                ? null
+                                : section.label
+                            )
+                          }
+                          className="w-full flex items-center justify-between px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
+                        >
+                          <span>{section.label}</span>
+                          <ChevronDown
+                            className={`w-5 h-5 transition-transform ${
+                              expandedMobileSection === section.label
+                                ? 'rotate-180'
+                                : ''
+                            }`}
+                          />
+                        </button>
+                        {expandedMobileSection === section.label && (
+                          <div className="bg-gray-50 py-2">
+                            {section.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setExpandedMobileSection(null);
+                                }}
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
                     ) : section.href ? (
                       <Link
                         href={section.href}
-                        className="block px-6 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        className="block px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        View {section.label}
+                        {section.label}
                       </Link>
                     ) : null}
                   </div>
