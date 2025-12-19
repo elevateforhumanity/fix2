@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Loader2, ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
 
 type ProgramOption =
   | 'barber'
@@ -47,6 +48,7 @@ export default function QuickApplyFormClient() {
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [referenceNumber, setReferenceNumber] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -96,10 +98,13 @@ export default function QuickApplyFormClient() {
         throw new Error(data.error || 'Failed to submit application.');
       }
 
+      // Get reference number from API response
+      const refNumber = data.referenceNumber || `EFH-${Date.now().toString(36).toUpperCase()}`;
+      setReferenceNumber(refNumber);
+      
       setSuccessMessage(
         'Thank you! Your application has been received. Someone from Elevate for Humanity will contact you within 1–2 business days.'
       );
-      setForm(initialState);
     } catch (err: any) {
       console.error('Application submission error:', err);
       setErrorMessage(
@@ -111,16 +116,105 @@ export default function QuickApplyFormClient() {
     }
   };
 
+  // If successfully submitted, show success screen
+  if (successMessage && referenceNumber) {
+    return (
+      <div className="space-y-6">
+        <div className="text-center py-8">
+          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="w-12 h-12 text-green-600" />
+          </div>
+          <h2 className="text-3xl font-bold text-slate-900 mb-3">
+            Application Received!
+          </h2>
+          <p className="text-lg text-slate-700 mb-6">
+            Thank you for applying! We've received your application and sent a confirmation to <strong>{form.email}</strong>.
+          </p>
+          
+          {/* Reference Number */}
+          <div className="bg-slate-50 border-2 border-slate-200 rounded-xl p-6 mb-6 max-w-md mx-auto">
+            <p className="text-sm text-slate-600 mb-2">Your Reference Number:</p>
+            <p className="text-2xl font-bold text-slate-900 font-mono">{referenceNumber}</p>
+            <p className="text-xs text-slate-500 mt-2">Save this number to check your application status</p>
+          </div>
+
+          {/* What's Next */}
+          <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-6 text-left max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">What Happens Next?</h3>
+            <ol className="space-y-3 text-slate-700">
+              <li className="flex gap-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                <span>We review your application and check funding eligibility (WIOA, WRG, JRI)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                <span>An advisor will contact you within 1-2 business days via {form.preferredContact}</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                <span>We'll discuss your goals, program details, and next steps</span>
+              </li>
+            </ol>
+          </div>
+
+          {/* Calendly CTA */}
+          <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-6 mb-6 max-w-2xl mx-auto">
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Want to Talk Sooner?</h3>
+            <p className="text-slate-700 mb-4">Schedule your advisor call now instead of waiting for us to reach out.</p>
+            <a
+              href="https://calendly.com/elevate-for-humanity/advisor-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition shadow-lg"
+            >
+              <Calendar className="w-5 h-5" />
+              Schedule Call Now
+            </a>
+          </div>
+
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => {
+                setSuccessMessage(null);
+                setReferenceNumber(null);
+                setForm(initialState);
+              }}
+              className="px-6 py-3 bg-slate-100 text-slate-900 font-semibold rounded-lg hover:bg-slate-200 transition"
+            >
+              Submit Another Application
+            </button>
+            <a
+              href="/"
+              className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+            >
+              Return to Home
+            </a>
+          </div>
+
+          {/* Contact Info */}
+          <div className="mt-8 pt-6 border-t border-slate-200">
+            <p className="text-sm text-slate-600">
+              Questions? Call us at{' '}
+              <a href="tel:3173143757" className="font-bold text-orange-600 hover:text-orange-700">
+                (317) 314-3757
+              </a>
+              {' '}or email{' '}
+              <a href="mailto:elevate4humanityedu@gmail.com" className="font-bold text-orange-600 hover:text-orange-700">
+                elevate4humanityedu@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {errorMessage && (
         <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
           {errorMessage}
-        </div>
-      )}
-      {successMessage && (
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
-          {successMessage}
         </div>
       )}
 
@@ -306,11 +400,21 @@ export default function QuickApplyFormClient() {
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 transition disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {submitting ? 'Submitting...' : 'Submit My Application'}
+          {submitting ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              Submitting Application...
+            </>
+          ) : (
+            <>
+              Submit My Application
+              <ArrowRight className="w-5 h-5" />
+            </>
+          )}
         </button>
-        <p className="mt-2 text-[11px] text-slate-500">
+        <p className="mt-3 text-xs text-slate-600">
           By submitting, you agree that Elevate for Humanity may contact you
           about programs, funding, and support services. We do not sell your
           information.

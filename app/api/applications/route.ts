@@ -41,8 +41,12 @@ export async function POST(req: Request) {
 
     const supabase = createAdminClient();
 
+    // Generate reference number
+    const referenceNumber = `EFH-${Date.now().toString(36).toUpperCase()}`;
+
     // Build notes field with all the extra data
     const notes = [
+      `Reference: ${referenceNumber}`,
       `City: ${body.city}`,
       `ZIP: ${body.zip}`,
       `Program Interest: ${body.program}`,
@@ -90,19 +94,35 @@ export async function POST(req: Request) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           to: body.email,
-          subject: 'Application Received - Elevate for Humanity',
+          subject: `Application Received [Ref: ${referenceNumber}] - Elevate for Humanity`,
           html: `
-            <h2>Thank you for applying!</h2>
-            <p>Hi ${body.firstName},</p>
-            <p>We've received your application for our <strong>${body.program}</strong> program.</p>
-            <p>An advisor will contact you within 1-2 business days via ${body.preferredContact} to discuss:</p>
-            <ul>
-              <li>Program details and schedule</li>
-              <li>Funding options (WIOA, WRG, JRI, apprenticeships)</li>
-              <li>Next steps to get started</li>
-            </ul>
-            <p>Questions? Call us at <a href="tel:3173143757">317-314-3757</a></p>
-            <p>Best regards,<br>Elevate for Humanity Team</p>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #ea580c;">Application Received!</h2>
+              <p>Hi ${body.firstName},</p>
+              <p>We've received your application for our <strong>${body.program}</strong> program.</p>
+              
+              <div style="background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 8px; padding: 16px; margin: 20px 0;">
+                <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748b;">Your Reference Number:</p>
+                <p style="margin: 0; font-size: 24px; font-weight: bold; font-family: monospace; color: #0f172a;">${referenceNumber}</p>
+                <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">Save this number to check your application status</p>
+              </div>
+
+              <h3 style="color: #0f172a;">What Happens Next?</h3>
+              <ol style="line-height: 1.8;">
+                <li>We review your application and check funding eligibility</li>
+                <li>An advisor will contact you within 1-2 business days via ${body.preferredContact}</li>
+                <li>We'll discuss program details, funding options (WIOA, WRG, JRI), and next steps</li>
+              </ol>
+
+              <div style="background: #fff7ed; border: 2px solid #fed7aa; border-radius: 8px; padding: 16px; margin: 20px 0;">
+                <h3 style="margin-top: 0; color: #ea580c;">Want to Talk Sooner?</h3>
+                <p>Schedule your advisor call now instead of waiting:</p>
+                <a href="https://calendly.com/elevate-for-humanity/advisor-call" style="display: inline-block; background: #ea580c; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Schedule Call Now</a>
+              </div>
+
+              <p>Questions? Call us at <a href="tel:3173143757" style="color: #ea580c; font-weight: bold;">317-314-3757</a></p>
+              <p>Best regards,<br><strong>Elevate for Humanity Team</strong></p>
+            </div>
           `,
         }),
       });
@@ -113,9 +133,10 @@ export async function POST(req: Request) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           to: 'elevate4humanityedu@gmail.com',
-          subject: `New Application: ${body.firstName} ${body.lastName} - ${body.program}`,
+          subject: `New Application [${referenceNumber}]: ${body.firstName} ${body.lastName} - ${body.program}`,
           html: `
             <h2>New Application Received</h2>
+            <p><strong>Reference:</strong> ${referenceNumber}</p>
             <p><strong>Name:</strong> ${body.firstName} ${body.lastName}</p>
             <p><strong>Email:</strong> ${body.email}</p>
             <p><strong>Phone:</strong> ${body.phone}</p>
@@ -134,7 +155,11 @@ export async function POST(req: Request) {
       // Don't fail the application if email fails
     }
 
-    return NextResponse.json({ ok: true, id: data.id }, { status: 200 });
+    return NextResponse.json({ 
+      ok: true, 
+      id: data.id, 
+      referenceNumber: referenceNumber 
+    }, { status: 200 });
   } catch (err: any) {
     console.error('Application submission error:', err);
     return NextResponse.json(

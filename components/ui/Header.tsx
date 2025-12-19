@@ -207,7 +207,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
             {/* Apply Button - Desktop */}
             <Link
               href="/apply"
-              className="hidden lg:inline-flex items-center px-6 py-2.5 text-sm font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all"
+              className="hidden lg:inline-flex items-center gap-2 px-6 py-3 text-base font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all"
             >
               Apply Now
             </Link>
@@ -328,7 +328,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                 <div className="pt-4">
                   <Link
                     href="/apply"
-                    className="block px-6 py-4 text-base font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all text-center shadow-lg"
+                    className="block px-6 py-4 text-lg font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all text-center shadow-lg"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Apply Now
