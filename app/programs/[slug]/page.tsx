@@ -77,7 +77,7 @@ export default async function ProgramDetailPage({ params }: { params: Params }) 
                 </span>
                 <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20">
                   <MapPin className="w-4 h-4 inline mr-1" />
-                  {program.format || 'Hybrid'}
+                  Hybrid (Online + In-Person)
                 </span>
                 <span className="px-4 py-2 bg-orange-600 rounded-full text-sm font-bold">
                   <DollarSign className="w-4 h-4 inline mr-1" />
@@ -127,7 +127,7 @@ export default async function ProgramDetailPage({ params }: { params: Params }) 
                 </div>
                 <div>
                   <dt className="text-white/70 mb-1">Format</dt>
-                  <dd className="font-semibold">{program.format || 'Hybrid (Online + In-person)'}</dd>
+                  <dd className="font-semibold">Hybrid - Online coursework + In-person skills training</dd>
                 </div>
                 <div>
                   <dt className="text-white/70 mb-1">Cost</dt>
@@ -183,7 +183,7 @@ export default async function ProgramDetailPage({ params }: { params: Params }) 
               { step: 1, title: 'You apply / request advising', desc: 'Fill out a quick application or call us directly' },
               { step: 2, title: 'We confirm funding + match your path', desc: 'We check eligibility for WIOA, WRG, or other funding options' },
               { step: 3, title: 'We enroll you + issue access', desc: 'Once approved, we handle enrollment and give you login credentials' },
-              { step: 4, title: 'Training happens through our approved partner platform', desc: 'Complete coursework online or hybrid through our trusted partners' },
+              { step: 4, title: 'Training happens through our approved partner platform', desc: 'Complete online coursework at your pace, attend in-person skills training in Indianapolis' },
               { step: 5, title: 'We track progress + support you through completion', desc: 'We stay with you until you earn your credential and find work' }
             ].map((item) => (
               <div key={item.step} className="flex gap-4 items-start">
