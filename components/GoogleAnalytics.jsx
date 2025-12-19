@@ -1,50 +1,53 @@
 'use client';
 
-import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Script from 'next/script';
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function GoogleAnalytics() {
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-  // Don't load GA if no measurement ID is configured
-  if (!GA_MEASUREMENT_ID) {
+  // Mount on client only
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Critical: server render and first client render both return null
+  if (!mounted || !GA_MEASUREMENT_ID) {
     return null;
   }
 
+  // Track page views on route change (only after mounted)
   useEffect(() => {
-    // Initialize Google Analytics
-    if (typeof window.gtag === 'undefined') {
-      const script1 = document.createElement('script');
-      script1.async = true;
-      script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-      document.head.appendChild(script1);
+    if (!mounted || !GA_MEASUREMENT_ID) return;
 
-      const script2 = document.createElement('script');
-      script2.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_MEASUREMENT_ID}', {
-          page_path: window.location.pathname,
-        });
-      `;
-      document.head.appendChild(script2);
-    }
-  }, [GA_MEASUREMENT_ID]);
-
-  useEffect(() => {
-    // Track page views on route change (Next.js App Router)
-    if (typeof window.gtag !== 'undefined') {
-      const url =
-        pathname +
-        (searchParams?.toString() ? `?${searchParams.toString()}` : '');
+    // Track page view
+    if (window.gtag) {
       window.gtag('config', GA_MEASUREMENT_ID, {
-        page_path: url,
+        page_path: pathname,
       });
     }
-  }, [pathname, searchParams, GA_MEASUREMENT_ID]);
+  }, [mounted, pathname]);
 
-  return null;
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}', {
+            page_path: window.location.pathname
+          });
+        `}
+      </Script>
+    </>
+  );
 }

@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { headerNav } from '@/config/navigation';
 
 export default function SimpleHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [partnersOpen, setPartnersOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -44,63 +45,44 @@ export default function SimpleHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {/* Primary Links - Student First */}
-            <Link
-              href="/programs"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Programs
-            </Link>
-            <Link
-              href="/apply"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Apply
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Contact
-            </Link>
-
-            {/* Partners Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setPartnersOpen(!partnersOpen)}
-                onBlur={() => setTimeout(() => setPartnersOpen(false), 200)}
-                className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+          <nav className="hidden lg:flex items-center space-x-6">
+            {headerNav.map((section) => (
+              <div
+                key={section.label}
+                className="relative group"
+                onMouseEnter={() => setOpenDropdown(section.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                Partners
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {partnersOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-[100] border border-gray-200">
+                {section.items && section.items.length > 0 ? (
+                  <>
+                    <button className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition">
+                      {section.label}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </button>
+                    {openDropdown === section.label && (
+                      <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl py-2 z-[100] border border-gray-200 max-h-[80vh] overflow-y-auto">
+                        {section.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
                   <Link
-                    href="/employers"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => setPartnersOpen(false)}
+                    href={section.href || '/'}
+                    className="text-gray-700 hover:text-blue-600 font-medium transition"
                   >
-                    For Employers
+                    {section.label}
                   </Link>
-                  <Link
-                    href="/providers"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => setPartnersOpen(false)}
-                  >
-                    For Training Providers
-                  </Link>
-                  <Link
-                    href="/workforce-boards"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => setPartnersOpen(false)}
-                  >
-                    For Workforce Boards
-                  </Link>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            ))}
 
             {/* Login */}
             <Link
@@ -122,7 +104,7 @@ export default function SimpleHeader() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -135,78 +117,63 @@ export default function SimpleHeader() {
         {/* Mobile Navigation - Full Screen Overlay */}
         {mobileMenuOpen && (
           <div
-            className="fixed inset-0 z-[100] bg-black/40 md:hidden"
+            className="fixed inset-0 z-[100] bg-black/40 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           >
             <div
               className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white shadow-xl overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="py-4 space-y-2 px-2">
-                <Link
-                  href="/programs"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Programs
-                </Link>
-                <Link
-                  href="/apply"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Apply
-                </Link>
-                <Link
-                  href="/contact"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-
-                {/* Partners Section */}
-                <div className="px-4 py-2">
-                  <div className="text-sm font-semibold text-gray-500 mb-2">
-                    Partners
+              <div className="py-4 space-y-1 px-2">
+                {headerNav.map((section) => (
+                  <div
+                    key={section.label}
+                    className="border-b border-gray-100 pb-2 mb-2"
+                  >
+                    <div className="px-4 py-2 text-sm font-bold text-gray-900 uppercase tracking-wide">
+                      {section.label}
+                    </div>
+                    {section.items && section.items.length > 0 ? (
+                      <div className="space-y-1">
+                        {section.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-6 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : section.href ? (
+                      <Link
+                        href={section.href}
+                        className="block px-6 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        View {section.label}
+                      </Link>
+                    ) : null}
                   </div>
+                ))}
+
+                <div className="pt-4 space-y-2 px-2">
                   <Link
-                    href="/employers"
-                    className="block py-1 text-gray-700 hover:text-blue-600"
+                    href="/login"
+                    className="block px-4 py-2 text-center border-2 border-gray-300 text-gray-700 hover:bg-gray-100 rounded-lg font-bold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    For Employers
+                    Login
                   </Link>
                   <Link
-                    href="/providers"
-                    className="block py-1 text-gray-700 hover:text-blue-600"
+                    href="/apply"
+                    className="block px-4 py-2 bg-orange-500 text-white text-center rounded-lg font-bold hover:bg-orange-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    For Providers
-                  </Link>
-                  <Link
-                    href="/workforce-boards"
-                    className="block py-1 text-gray-700 hover:text-blue-600"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    For Workforce Boards
+                    Get Started
                   </Link>
                 </div>
-
-                <Link
-                  href="/login"
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/apply"
-                  className="block mx-4 px-4 py-2 bg-orange-500 text-white text-center rounded-lg font-bold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
               </div>
             </div>
           </div>

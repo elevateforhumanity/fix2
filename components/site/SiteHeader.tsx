@@ -3,124 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-
-const programCategories = [
-  {
-    label: 'All Programs',
-    href: '/programs',
-  },
-  {
-    label: 'Apprenticeships',
-    href: '/programs/apprenticeships',
-    subItems: [
-      {
-        label: 'Barber Apprenticeship',
-        href: '/programs/barber-apprenticeship',
-      },
-      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
-      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
-      { label: 'Building Technician', href: '/programs/building-technician' },
-    ],
-  },
-  {
-    label: 'WIOA Programs (ETPL/WRG)',
-    href: '/programs/federal-funded',
-    subItems: [
-      { label: 'CNA', href: '/programs/cna' },
-      {
-        label: 'Phlebotomy Technician',
-        href: '/programs/phlebotomy-technician',
-      },
-      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      {
-        label: 'Direct Support Professional',
-        href: '/programs/direct-support-professional',
-      },
-      { label: 'CDL', href: '/programs/cdl' },
-      { label: 'CPR Certification', href: '/programs/cpr-certification' },
-      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
-      {
-        label: 'Emergency Health & Safety',
-        href: '/programs/emergency-health-safety-tech',
-      },
-    ],
-  },
-  {
-    label: 'JRI Programs',
-    href: '/programs/jri',
-    subItems: [
-      { label: 'CNA', href: '/programs/cna' },
-      {
-        label: 'Phlebotomy Technician',
-        href: '/programs/phlebotomy-technician',
-      },
-      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      {
-        label: 'Direct Support Professional',
-        href: '/programs/direct-support-professional',
-      },
-      { label: 'CDL', href: '/programs/cdl' },
-      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
-      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
-    ],
-  },
-  {
-    label: 'Micro Programs',
-    href: '/programs/micro-programs',
-    subItems: [
-      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
-      { label: 'Drug Collector', href: '/programs/drug-collector' },
-      { label: 'CPR Certification', href: '/programs/cpr-certification' },
-      {
-        label: 'Emergency Health & Safety',
-        href: '/programs/emergency-health-safety-tech',
-      },
-    ],
-  },
-];
-
-const partnerPrograms = [
-  { label: 'HSI Safety Training', href: '/courses/hsi' },
-  { label: 'Milady Beauty & Wellness', href: '/rise' },
-  { label: 'CareerSafe OSHA Training', href: '/courses/careersafe' },
-  { label: 'NRF Retail Training', href: '/courses/nrf' },
-  { label: 'NDS Cosmetology', href: '/courses/nds' },
-  { label: 'JRI Programs', href: '/jri' },
-];
-
-const aboutDropdown = [
-  { href: '/about', label: 'About Us' },
-  { href: '/team', label: 'Our Team' },
-  { href: '/founder', label: 'Founder' },
-  { href: '/how-it-works', label: 'How It Works' },
-  { href: '/success-stories', label: 'Success Stories' },
-  { href: '/annual-report', label: 'Annual Report' },
-  { href: '/transparency', label: 'Transparency' },
-];
-
-const resourcesDropdown = [
-  { href: '/resources', label: 'All Resources' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/events', label: 'Events' },
-  { href: '/webinars', label: 'Webinars' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/student-handbook', label: 'Student Handbook' },
-  { href: '/syllabi', label: 'Syllabi' },
-];
-
-const servicesDropdown = [
-  { href: '/apprenticeships', label: 'Apprenticeships' },
-  { href: '/funding', label: 'Funding' },
-  { href: '/career-services', label: 'Career Services' },
-  { href: '/platform', label: 'Platform' },
-  { href: '/licensing', label: 'Licensing' },
-  { href: '/tax-services', label: 'Tax Services' },
-];
-
-const nav = [
-  { href: '/contact', label: 'Contact' },
-  { href: '/apply', label: 'Apply Now', highlight: true },
-];
+import { headerNav } from '@/config/navigation';
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -152,155 +35,42 @@ export default function SiteHeader() {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
-          {/* Programs Dropdown */}
-          <div
-            className="relative group"
-            onMouseEnter={() => setOpenDropdown('programs')}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
-              Programs
-              <ChevronDown className="w-4 h-4" />
-            </button>
-
-            {openDropdown === 'programs' && (
-              <div className="absolute left-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50 max-h-[80vh] overflow-y-auto">
-                {programCategories.map((category) => (
-                  <div key={category.href} className="border-b border-gray-100 last:border-0">
-                    <Link
-                      href={category.href}
-                      className="block px-4 py-2.5 text-sm font-bold text-gray-900 hover:bg-blue-50 transition"
-                    >
-                      {category.label}
-                    </Link>
-                    {category.subItems && (
-                      <div className="bg-gray-50 pb-2">
-                        {category.subItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block px-6 py-1.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                          >
-                            • {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Partner Programs Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown('partners')}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
-              Partner Programs
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            {openDropdown === 'partners' && (
-              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
-                {partnerPrograms.map((partner) => (
-                  <Link
-                    key={partner.href}
-                    href={partner.href}
-                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
-                  >
-                    {partner.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown('services')}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
-              Services
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            {openDropdown === 'services' && (
-              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
-                {servicesDropdown.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Resources Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown('resources')}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
-              Resources
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            {openDropdown === 'resources' && (
-              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
-                {resourcesDropdown.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* About Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown('about')}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
-              About
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            {openDropdown === 'about' && (
-              <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50">
-                {aboutDropdown.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Other Nav Items */}
-          {nav.map((i) => (
-            <Link
-              key={i.href}
-              href={i.href}
-              className="font-bold text-zinc-800 hover:text-zinc-950 transition whitespace-nowrap"
+          {headerNav.map((section) => (
+            <div
+              key={section.label}
+              className="relative group"
+              onMouseEnter={() => setOpenDropdown(section.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              {i.label}
-            </Link>
+              {section.items && section.items.length > 0 ? (
+                <>
+                  <button className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1">
+                    {section.label}
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                  {openDropdown === section.label && (
+                    <div className="absolute left-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-50 max-h-[80vh] overflow-y-auto">
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={section.href || '/'}
+                  className="font-bold text-zinc-800 hover:text-zinc-950 transition"
+                >
+                  {section.label}
+                </Link>
+              )}
+            </div>
           ))}
         </nav>
 

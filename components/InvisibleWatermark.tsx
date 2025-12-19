@@ -1,14 +1,14 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 /**
  * Invisible Watermark Component
- * 
+ *
  * This component embeds hidden tracking information throughout your site that:
  * 1. Is invisible to users
  * 2. Survives copy/paste
  * 3. Can be detected if someone copies your site
  * 4. Helps prove ownership in legal cases
- * 
+ *
  * Multiple layers of protection:
  * - Hidden HTML comments
  * - Invisible text elements
@@ -21,20 +21,31 @@ interface WatermarkProps {
   siteId?: string;
   timestamp?: string;
 }
-export function InvisibleWatermark({ 
-  owner = "Elizabeth L. Greene / Elevate for Humanity",
-  siteId = "EFH-ORIGINAL-2024",
-  timestamp = new Date().toISOString()
+export function InvisibleWatermark({
+  owner = 'Elizabeth L. Greene / Elevate for Humanity',
+  siteId = 'EFH-ORIGINAL-2024',
+  timestamp,
 }: WatermarkProps) {
+  // Generate timestamp only on client after mount to avoid hydration mismatch
+  const [clientTimestamp, setClientTimestamp] = useState<string>('');
+
   useEffect(() => {
+    setClientTimestamp(timestamp || new Date().toISOString());
+  }, [timestamp]);
+
+  const finalTimestamp = clientTimestamp;
+  useEffect(() => {
+    if (!clientTimestamp) return; // Wait for timestamp to be set
+
     // Add invisible watermark to body
-    const watermarkText = `ORIGINAL-SITE-${siteId}-${timestamp}-OWNER-${owner}`;
+    const watermarkText = `ORIGINAL-SITE-${siteId}-${clientTimestamp}-OWNER-${owner}`;
     // Method 1: Hidden div with zero opacity
     const hiddenDiv = document.createElement('div');
-    hiddenDiv.style.cssText = 'position:absolute;width:0;height:0;opacity:0;pointer-events:none;';
+    hiddenDiv.style.cssText =
+      'position:absolute;width:0;height:0;opacity:0;pointer-events:none;';
     hiddenDiv.setAttribute('data-site-owner', owner);
     hiddenDiv.setAttribute('data-site-id', siteId);
-    hiddenDiv.setAttribute('data-original-timestamp', timestamp);
+    hiddenDiv.setAttribute('data-original-timestamp', clientTimestamp);
     hiddenDiv.textContent = watermarkText;
     document.body.appendChild(hiddenDiv);
     // Method 2: Add to console (visible to developers who copy)
@@ -43,10 +54,10 @@ export function InvisibleWatermark({
       const markers = [
         `<!--ORIGINAL-SITE-${siteId}-->`,
         `<!--COPYRIGHT-${owner}-->`,
-        `<!--TIMESTAMP-${timestamp}-->`,
-        `<!--DO-NOT-COPY-LEGAL-ACTION-WILL-BE-TAKEN-->`
+        `<!--TIMESTAMP-${clientTimestamp}-->`,
+        `<!--DO-NOT-COPY-LEGAL-ACTION-WILL-BE-TAKEN-->`,
       ];
-      markers.forEach(marker => {
+      markers.forEach((marker) => {
         const comment = document.createComment(marker);
         document.body.appendChild(comment);
       });
@@ -56,7 +67,7 @@ export function InvisibleWatermark({
     try {
       localStorage.setItem('site_original_owner', owner);
       localStorage.setItem('site_original_id', siteId);
-      localStorage.setItem('site_original_timestamp', timestamp);
+      localStorage.setItem('site_original_timestamp', clientTimestamp);
     } catch (e) {
       // Ignore if localStorage is disabled
     }
@@ -72,43 +83,53 @@ export function InvisibleWatermark({
     fpDiv.style.display = 'none';
     fpDiv.setAttribute('data-fp', fingerprint);
     document.body.appendChild(fpDiv);
-  }, [owner, siteId, timestamp]);
+  }, [owner, siteId, clientTimestamp]);
   return (
     <>
       {/* Method 7: Invisible text elements scattered throughout */}
-      <span style={{ 
-        position: 'absolute', 
-        width: '1px', 
-        height: '1px', 
-        opacity: 0, 
-        pointerEvents: 'none',
-        userSelect: 'none'
-      }}>
+      <span
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          opacity: 0,
+          pointerEvents: 'none',
+          userSelect: 'none',
+        }}
+      >
         ORIGINAL-SITE-{siteId}-OWNER-{owner}
       </span>
       {/* Method 8: Hidden meta tags */}
       <meta name="site-owner" content={owner} />
       <meta name="site-id" content={siteId} />
-      <meta name="original-timestamp" content={timestamp} />
-      <meta name="copyright" content={`© 2024 ${owner}. All Rights Reserved.`} />
-      {/* Method 9: Invisible watermark text */}
-      <div 
-        style={{
-          position: 'fixed',
-          bottom: '-100px',
-          right: '-100px',
-          fontSize: '1px',
-          color: 'transparent',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          zIndex: -1
-        }}
-        aria-hidden="true"
-      >
-        COPYRIGHT © 2024 ELEVATE FOR HUMANITY - ELIZABETH L. GREENE - ORIGINAL SITE ID: {siteId} - 
-        TIMESTAMP: {timestamp} - UNAUTHORIZED COPYING PROHIBITED - LEGAL ACTION WILL BE TAKEN - 
-        CONTACT: legal@elevateforhumanity.org
-      </div>
+      {clientTimestamp && (
+        <meta name="original-timestamp" content={clientTimestamp} />
+      )}
+      <meta
+        name="copyright"
+        content={`© 2024 ${owner}. All Rights Reserved.`}
+      />
+      {/* Method 9: Invisible watermark text - only render after mount */}
+      {clientTimestamp && (
+        <div
+          style={{
+            position: 'fixed',
+            bottom: '-100px',
+            right: '-100px',
+            fontSize: '1px',
+            color: 'transparent',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            zIndex: -1,
+          }}
+          aria-hidden="true"
+        >
+          COPYRIGHT © 2024 ELEVATE FOR HUMANITY - ELIZABETH L. GREENE - ORIGINAL
+          SITE ID: {siteId} - TIMESTAMP: {clientTimestamp} - UNAUTHORIZED
+          COPYING PROHIBITED - LEGAL ACTION WILL BE TAKEN - CONTACT:
+          legal@elevateforhumanity.org
+        </div>
+      )}
     </>
   );
 }
@@ -122,13 +143,13 @@ function generateFingerprint(): string {
     screen.height,
     new Date().getTimezoneOffset(),
     navigator.language,
-    'EFH-ORIGINAL'
+    'EFH-ORIGINAL',
   ].join('|');
   // Simple hash function
   let hash = 0;
   for (let i = 0; i < data.length; i++) {
     const char = data.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+    hash = (hash << 5) - hash + char;
     hash = hash & hash;
   }
   return 'EFH-' + Math.abs(hash).toString(36).toUpperCase();
@@ -137,18 +158,18 @@ function generateFingerprint(): string {
  * Visible Watermark Component (for demos/screenshots)
  * Use this when showing the platform to anyone
  */
-export function VisibleWatermark({ 
-  text = "CONFIDENTIAL DEMO",
-  email = "",
-  showTimestamp = true 
-}: { 
-  text?: string; 
+export function VisibleWatermark({
+  text = 'CONFIDENTIAL DEMO',
+  email = '',
+  showTimestamp = true,
+}: {
+  text?: string;
   email?: string;
   showTimestamp?: boolean;
 }) {
   const timestamp = new Date().toLocaleString();
   return (
-    <div 
+    <div
       style={{
         position: 'fixed',
         bottom: '20px',
@@ -160,16 +181,12 @@ export function VisibleWatermark({
         borderRadius: '4px',
         zIndex: 9999,
         pointerEvents: 'none',
-        fontFamily: 'monospace'
+        fontFamily: 'monospace',
       }}
     >
-      <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
-        {text}
-      </div>
+      <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>{text}</div>
       {email && (
-        <div style={{ fontSize: '10px', opacity: 0.8 }}>
-          Viewer: {email}
-        </div>
+        <div style={{ fontSize: '10px', opacity: 0.8 }}>Viewer: {email}</div>
       )}
       {showTimestamp && (
         <div style={{ fontSize: '9px', opacity: 0.6, marginTop: '4px' }}>
@@ -197,14 +214,14 @@ export function DMCATrackingPixel() {
       url: window.location.href,
       referrer: document.referrer,
       timestamp: new Date().toISOString(),
-      userAgent: navigator.userAgent
+      userAgent: navigator.userAgent,
     };
     // Send tracking beacon to detect unauthorized copies
     fetch('/api/track-usage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(trackingData),
-      keepalive: true // Ensures request completes even if user navigates away
+      keepalive: true, // Ensures request completes even if user navigates away
     }).catch((error) => {
       // Silently fail - don't disrupt user experience
     });

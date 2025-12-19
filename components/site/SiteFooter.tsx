@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-white text-black border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         {/* Our Story Section */}
         <div className="mb-16 max-w-4xl">
           <Link href="/" className="inline-block mb-8">
-            <div className="font-black text-white text-3xl tracking-tight">
+            <div className="font-black text-black text-3xl tracking-tight">
               Elevate
             </div>
             <div className="text-orange-500 text-sm font-semibold -mt-1">
@@ -15,7 +15,7 @@ export default function SiteFooter() {
             </div>
           </Link>
 
-          <div className="space-y-6 text-gray-100 leading-relaxed text-base md:text-lg">
+          <div className="space-y-6 text-gray-900 leading-relaxed text-base md:text-lg">
             <p className="text-lg md:text-xl font-medium">
               We believe everyone deserves a path to a better life. That's why
               we provide 100% free career training in high-demand fields like
@@ -32,7 +32,7 @@ export default function SiteFooter() {
               and dedicated support to help you succeed. When you graduate, we
               connect you directly with employers who are ready to hire.
             </p>
-            <p className="text-white font-bold text-lg">
+            <p className="text-black font-bold text-lg">
               This isn't just training—it's a complete transformation. Your new
               career starts here.
             </p>
@@ -43,7 +43,7 @@ export default function SiteFooter() {
               href="https://x.com/elevate4humanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition text-black"
               aria-label="Go to X"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ export default function SiteFooter() {
               href="https://www.linkedin.com/company/elevate-for-humanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition"
               aria-label="Go to LinkedIn"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ export default function SiteFooter() {
               href="https://www.facebook.com/profile.php?id=61571046346179"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition"
               aria-label="Go to Facebook"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -76,7 +76,7 @@ export default function SiteFooter() {
               href="https://www.instagram.com/elevateforhumanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition"
               aria-label="Go to Instagram"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -87,7 +87,7 @@ export default function SiteFooter() {
               href="https://www.youtube.com/@elevateforhumanity"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition"
               aria-label="Go to YouTube"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -101,14 +101,14 @@ export default function SiteFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* For Students */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">
+            <h3 className="font-semibold text-black text-sm mb-4">
               For Students
             </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/apply"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Apply Now
                 </Link>
@@ -116,7 +116,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/programs"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Browse Programs
                 </Link>
@@ -124,7 +124,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/supersonic-fast-cash"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Tax Refund Advance
                 </Link>
@@ -132,7 +132,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/financial-aid"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Financial Aid
                 </Link>
@@ -140,7 +140,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/career-services"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Career Services
                 </Link>
@@ -150,14 +150,14 @@ export default function SiteFooter() {
 
           {/* For Partners */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">
+            <h3 className="font-semibold text-black text-sm mb-4">
               For Partners
             </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/employers"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Employers
                 </Link>
@@ -165,7 +165,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/platform"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Training Providers
                 </Link>
@@ -173,7 +173,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/partners/workforce"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Workforce Boards
                 </Link>
@@ -181,7 +181,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/partners"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Partner With Us
                 </Link>
@@ -189,7 +189,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Schedule Demo
                 </Link>
@@ -199,14 +199,14 @@ export default function SiteFooter() {
 
           {/* Popular Programs */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">
+            <h3 className="font-semibold text-black text-sm mb-4">
               Popular Programs
             </h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/programs/hvac-technician"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   HVAC Technician
                 </Link>
@@ -214,7 +214,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/programs/barber-apprenticeship"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Barber Apprenticeship
                 </Link>
@@ -222,7 +222,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/programs/direct-support-professional"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Direct Support Professional
                 </Link>
@@ -230,7 +230,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/programs/professional-esthetician"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Professional Esthetician
                 </Link>
@@ -238,7 +238,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/programs/tax-prep-financial-services"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Tax Prep & Financial Services
                 </Link>
@@ -248,12 +248,12 @@ export default function SiteFooter() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Company</h3>
+            <h3 className="font-semibold text-black text-sm mb-4">Company</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link
                   href="/about"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   About Elevate
                 </Link>
@@ -261,7 +261,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/about/team"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Our Story
                 </Link>
@@ -269,7 +269,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/philanthropy"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Corporate Responsibility
                 </Link>
@@ -277,7 +277,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/annual-report"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Annual Report
                 </Link>
@@ -285,7 +285,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-sm text-gray-400 hover:text-white transition"
+                  className="text-sm text-gray-700 hover:text-black transition"
                 >
                   Contact Us
                 </Link>

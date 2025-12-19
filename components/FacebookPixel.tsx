@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, Suspense } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 
 declare global {
   interface Window {
@@ -10,74 +11,58 @@ declare global {
   }
 }
 
-function FacebookPixelContent() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
-
-  useEffect(() => {
-    if (!pixelId) return;
-
-    // Initialize Facebook Pixel
-    if (!window.fbq) {
-      /* eslint-disable @typescript-eslint/no-unused-expressions */
-      (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
-        if (f.fbq) return;
-        n = f.fbq = function (...args: unknown[]) {
-          n.callMethod
-            ? n.callMethod(...args)
-            : n.queue.push(...args);
-        };
-        /* eslint-enable @typescript-eslint/no-unused-expressions */
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = true;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = true;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        'script',
-        'https://connect.facebook.net/en_US/fbevents.js'
-      );
-
-      window.fbq!('init', pixelId);
-    }
-
-    // Track page view
-    window.fbq!('track', 'PageView');
-  }, [pathname, searchParams, pixelId]);
-
-  if (!pixelId) return null;
-
-  return (
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style={{ display: 'none' }}
-        src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
-        alt="Facebook Pixel"
-      />
-    </noscript>
-  );
-}
+const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
 export default function FacebookPixel() {
-  // Disable on error pages to prevent build issues
-  if (typeof window === 'undefined') {
-    return null;
-  }
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+
+  // Mount on client only
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Track page views on route change (only after mounted)
+  useEffect(() => {
+    if (!mounted || !FB_PIXEL_ID) return;
+
+    // Track page view
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
+    }
+  }, [mounted, pathname]);
+
+  // Critical: server render and first client render both return null
+  if (!mounted || !FB_PIXEL_ID) return null;
 
   return (
-    <Suspense fallback={null}>
-      <FacebookPixelContent />
-    </Suspense>
+    <>
+      <Script id="fb-pixel" strategy="afterInteractive">
+        {`
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '${FB_PIXEL_ID}');
+          fbq('track', 'PageView');
+        `}
+      </Script>
+
+      <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+          alt=""
+        />
+      </noscript>
+    </>
   );
 }
 
