@@ -208,11 +208,11 @@ BEGIN
 
   -- Barbering Modules (15 courses)
   INSERT INTO partner_courses (provider_id, course_name, course_code, description, hours, price, active, metadata) VALUES
-  (milady_id, 'Men\'s Hair Cutting', 'BARBER-HAIRCUT', 'Classic and modern men\'s cuts', 100, 169, true, '{"category": "Barbering", "wholesale": 110, "retail": 169}'::jsonb),
+  (milady_id, 'Mens Hair Cutting', 'BARBER-HAIRCUT', 'Classic and modern mens cuts', 100, 169, true, '{"category": "Barbering", "wholesale": 110, "retail": 169}'::jsonb),
   (milady_id, 'Clipper Techniques', 'BARBER-CLIPPER', 'Clipper cutting and fading', 60, 129, true, '{"category": "Barbering", "wholesale": 80, "retail": 129}'::jsonb),
   (milady_id, 'Straight Razor Shaving', 'BARBER-SHAVE', 'Traditional straight razor techniques', 60, 129, true, '{"category": "Barbering", "wholesale": 80, "retail": 129}'::jsonb),
   (milady_id, 'Beard Trimming and Design', 'BARBER-BEARD', 'Beard shaping and maintenance', 40, 99, true, '{"category": "Barbering", "wholesale": 60, "retail": 99}'::jsonb),
-  (milady_id, 'Men\'s Hair Coloring', 'BARBER-COLOR', 'Men\'s color services', 40, 99, true, '{"category": "Barbering", "wholesale": 60, "retail": 99}'::jsonb);
+  (milady_id, 'Mens Hair Coloring', 'BARBER-COLOR', 'Mens color services', 40, 99, true, '{"category": "Barbering", "wholesale": 60, "retail": 99}'::jsonb);
 
   -- Esthetics Modules (15 courses)
   INSERT INTO partner_courses (provider_id, course_name, course_code, description, hours, price, active, metadata) VALUES
