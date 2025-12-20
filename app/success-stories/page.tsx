@@ -247,7 +247,7 @@ export default function SuccessStoriesPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {story.videoPlaceholder && (
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
                           <Play className="w-10 h-10 text-brand-blue-600 ml-1" />
                         </div>
