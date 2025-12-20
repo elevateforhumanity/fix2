@@ -264,7 +264,7 @@ export default function CourseLeaderboardPage() {
           <div className="max-w-4xl mx-auto">
             <Link
               href={`/courses/${courseId}`}
-              className="text-white/80 hover:text-white text-sm mb-4 inline-block"
+              className="text-slate-600 hover:text-white text-sm mb-4 inline-block"
             >
               ← Back to Course
             </Link>

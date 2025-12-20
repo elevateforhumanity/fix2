@@ -19,7 +19,7 @@ export default function ForStudentsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <GraduationCap className="w-16 h-16 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">For Students</h1>

@@ -64,7 +64,7 @@ export function AffirmPaymentButton({
           window.affirm.checkout({
             checkout_token: data.checkout_token,
           });
-          
+
           if (onSuccess) {
             onSuccess();
           }
@@ -77,14 +77,17 @@ export function AffirmPaymentButton({
       }
     } catch (error) {
       // Error: $1
-      const errorMessage = error instanceof Error ? error.message : 'Payment error. Please try again.';
-      
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'Payment error. Please try again.';
+
       if (onError) {
         onError(errorMessage);
       } else {
         alert(errorMessage);
       }
-      
+
       setLoading(false);
     }
   };
@@ -123,7 +126,7 @@ export function AffirmPaymentButton({
       <button
         onClick={handleAffirmPayment}
         disabled={loading || !affirmLoaded}
-        className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-lg font-bold text-lg hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+        className="w-full bg-white text-white py-4 px-6 rounded-lg font-bold text-lg hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
       >
         {loading ? (
           <span className="flex items-center justify-center gap-2">
@@ -169,7 +172,8 @@ export function AffirmPaymentButton({
             data-affirm-type="logo"
             data-affirm-color="blue"
           >
-            Or pay as low as <span className="affirm-ala-price font-semibold"></span>/mo with{' '}
+            Or pay as low as{' '}
+            <span className="affirm-ala-price font-semibold"></span>/mo with{' '}
             <b>Affirm</b>
           </p>
         </div>

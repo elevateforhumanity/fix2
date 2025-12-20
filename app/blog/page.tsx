@@ -81,11 +81,11 @@ export default function BlogPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 md:py-20">
+      <section className="bg-white text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
-            <p className="text-xl text-white/90">
+            <p className="text-xl text-slate-600">
               Success stories, program updates, and career insights from our
               students and partners.
             </p>
@@ -194,12 +194,12 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-orange-600 to-orange-700 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Success Story?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-slate-600 mb-8">
             Join hundreds of students who have transformed their careers through
             our free training programs.
           </p>

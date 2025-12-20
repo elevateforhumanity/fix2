@@ -34,7 +34,7 @@ export default function FranchisePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
+      <section className="bg-white text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl">
             <div className="inline-block bg-yellow-400 text-orange-900 px-6 py-3 rounded-full font-bold text-sm mb-6">
@@ -222,7 +222,7 @@ export default function FranchisePage() {
             </div>
 
             {/* Professional Package */}
-            <div className="bg-gradient-to-b from-blue-600 to-blue-800 text-white rounded-xl p-8 relative border-4 border-yellow-400">
+            <div className="bg-white text-white rounded-xl p-8 relative border-4 border-yellow-400">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-blue-900 px-6 py-2 rounded-full text-sm font-bold">
                 MOST POPULAR
               </div>
@@ -401,7 +401,7 @@ export default function FranchisePage() {
       </section>
 
       {/* Revenue Potential */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+      <section className="py-20 bg-white text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Revenue Potential</h2>

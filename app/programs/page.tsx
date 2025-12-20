@@ -27,7 +27,7 @@ export default function ProgramsPage() {
       </div>
 
       {/* Hero Section - Human & Warm */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white py-16 md:py-24">
+      <section className="bg-white text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             {/* Indiana Career Connect Badge - Clickable */}
@@ -61,7 +61,7 @@ export default function ProgramsPage() {
               </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-slate-600 mb-6 leading-relaxed font-medium">
               Real training. Real jobs. Real support. And it's 100% free.
             </p>
 
@@ -73,7 +73,7 @@ export default function ProgramsPage() {
                 need the right training, the right support, and someone who
                 believes in you.
               </p>
-              <p className="text-lg text-white/90 leading-relaxed">
+              <p className="text-lg text-slate-600 leading-relaxed">
                 Whether you're starting fresh, changing careers, or getting back
                 on your feet—we're here to help you build the life you want.
                 Every program is fully funded through{' '}
@@ -285,16 +285,16 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA Section - Human & Encouraging */}
-      <section className="py-16 bg-gradient-to-br from-orange-600 to-orange-700 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Change Your Life?
           </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed">
             You don't need to figure this out alone. Our advisors are here to
             help you find the right program, get funding, and start training.
           </p>
-          <p className="text-lg text-white/80 mb-8">
+          <p className="text-lg text-slate-600 mb-8">
             Call us today or apply online. Either way, we'll be in touch within
             24 hours.
           </p>
@@ -317,7 +317,7 @@ export default function ProgramsPage() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-sm text-white/70">
+            <p className="text-sm text-slate-600">
               Funded by Indiana Career Connect and WIOA • Serving Indianapolis
               and surrounding areas
             </p>

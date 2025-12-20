@@ -162,7 +162,7 @@ export default async function HoursTrackingPage() {
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Overall Progress */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 text-white mb-8">
+        <div className="bg-white rounded-xl p-8 text-white mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold mb-2">Overall Progress</h2>
@@ -206,7 +206,7 @@ export default async function HoursTrackingPage() {
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* Milady Theory Hours */}
           <div className="bg-white rounded-xl shadow-sm border">
-            <div className="px-6 py-4 border-b bg-gradient-to-r from-purple-50 to-purple-100">
+            <div className="px-6 py-4 border-b bg-white">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-bold text-slate-900">
                   Milady CIMA (Theory)
@@ -319,7 +319,7 @@ export default async function HoursTrackingPage() {
 
           {/* Internal Practical Hours */}
           <div className="bg-white rounded-xl shadow-sm border">
-            <div className="px-6 py-4 border-b bg-gradient-to-r from-green-50 to-green-100">
+            <div className="px-6 py-4 border-b bg-white">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-bold text-slate-900">
                   Practical Hours (Internal)

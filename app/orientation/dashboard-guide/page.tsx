@@ -178,7 +178,7 @@ export default function DashboardGuidePage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <div className="bg-white text-white">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
             Student Dashboard Navigation Guide
@@ -271,7 +271,7 @@ export default function DashboardGuidePage() {
         </div>
 
         {/* AI Instructor Guide */}
-        <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl p-8 text-white mb-12">
+        <div className="bg-white rounded-xl p-8 text-white mb-12">
           <div className="flex items-start gap-6">
             <div className="flex-shrink-0">
               <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
@@ -445,7 +445,7 @@ export default function DashboardGuidePage() {
         </div>
 
         {/* Next Steps */}
-        <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-xl p-8 text-white">
+        <div className="bg-white rounded-xl p-8 text-white">
           <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-green-100 mb-6">
             Now that you know how to navigate the portal, it's time to dive in

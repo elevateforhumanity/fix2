@@ -156,7 +156,7 @@ export default function SocialProof() {
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
           <div className="grid lg:grid-cols-2">
             {/* Image Side */}
-            <div className="relative h-96 lg:h-auto bg-gradient-to-br from-teal-600 to-blue-700">
+            <div className="relative h-96 lg:h-auto bg-white">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white p-8">
                   <Quote className="w-16 h-16 mx-auto mb-4 opacity-50" />
@@ -238,7 +238,7 @@ export default function SocialProof() {
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition border border-slate-200"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-blue-700 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-white text-xl font-bold">
                   {testimonial.name
                     .split(' ')
                     .map((n) => n[0])

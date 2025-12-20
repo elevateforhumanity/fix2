@@ -9,13 +9,16 @@ const navigation = [
     label: 'Programs',
     items: [
       { href: '/programs', label: 'All Programs' },
-      { href: '/programs/barber-apprenticeship', label: 'Barber Apprenticeship' },
+      {
+        href: '/programs/barber-apprenticeship',
+        label: 'Barber Apprenticeship',
+      },
       { href: '/programs/cna', label: 'CNA Healthcare' },
       { href: '/programs/hvac-technician', label: 'HVAC Technician' },
       { href: '/programs/cdl', label: 'CDL Training' },
       { href: '/programs/tax-preparation', label: 'Tax Preparation' },
       { href: '/compare-programs', label: 'Compare Programs' },
-    ]
+    ],
   },
   {
     label: 'Students',
@@ -26,7 +29,7 @@ const navigation = [
       { href: '/career-services', label: 'Career Services' },
       { href: '/funding', label: 'Financial Aid' },
       { href: '/success-stories', label: 'Success Stories' },
-    ]
+    ],
   },
   {
     label: 'Platform',
@@ -37,7 +40,7 @@ const navigation = [
       { href: '/platform/student-portal', label: 'Student Portal' },
       { href: '/platform/employer-portal', label: 'Employer Portal' },
       { href: '/platform/training-providers', label: 'Training Providers' },
-    ]
+    ],
   },
   {
     label: 'Partners',
@@ -47,7 +50,7 @@ const navigation = [
       { href: '/workforce-boards', label: 'Workforce Boards' },
       { href: '/apprenticeships', label: 'Apprenticeships' },
       { href: '/government', label: 'Government' },
-    ]
+    ],
   },
   {
     label: 'Resources',
@@ -58,7 +61,7 @@ const navigation = [
       { href: '/events', label: 'Events' },
       { href: '/faq', label: 'FAQ' },
       { href: '/help', label: 'Help Center' },
-    ]
+    ],
   },
 ];
 
@@ -71,7 +74,10 @@ export default function SiteHeader() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-black text-slate-900 text-lg tracking-tight flex-shrink-0">
+          <Link
+            href="/"
+            className="font-black text-slate-900 text-lg tracking-tight flex-shrink-0"
+          >
             Elevate for Humanity
           </Link>
 
@@ -129,7 +135,7 @@ export default function SiteHeader() {
             </Link>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:shadow-lg hover:scale-105 transition-all"
+              className="inline-flex items-center justify-center bg-white text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:shadow-lg hover:scale-105 transition-all"
             >
               Apply Now
             </Link>
@@ -141,12 +147,32 @@ export default function SiteHeader() {
             className="lg:hidden p-2 text-slate-700 hover:text-slate-900"
           >
             {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
@@ -173,12 +199,27 @@ export default function SiteHeader() {
               </div>
             ))}
             <div className="border-t border-slate-200 pt-4 px-4 space-y-2">
-              <Link href="/about" className="block py-2 text-sm font-semibold text-slate-700">About</Link>
-              <Link href="/contact" className="block py-2 text-sm font-semibold text-slate-700">Contact</Link>
-              <Link href="/login" className="block py-2 text-sm font-semibold text-slate-700">Login</Link>
+              <Link
+                href="/about"
+                className="block py-2 text-sm font-semibold text-slate-700"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="block py-2 text-sm font-semibold text-slate-700"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/login"
+                className="block py-2 text-sm font-semibold text-slate-700"
+              >
+                Login
+              </Link>
               <Link
                 href="/apply"
-                className="block text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg font-bold text-sm mt-4"
+                className="block text-center bg-white text-white px-6 py-3 rounded-lg font-bold text-sm mt-4"
               >
                 Apply Now
               </Link>

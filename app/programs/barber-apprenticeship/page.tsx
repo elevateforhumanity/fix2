@@ -421,7 +421,7 @@ export default function BarberApprenticeshipPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Barber Shop Owners
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
             Interested in hosting an apprentice? Learn about program holder
             requirements, benefits, and how to get started.
           </p>
@@ -445,7 +445,7 @@ export default function BarberApprenticeshipPage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Apply</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Submit your application online
                 </p>
               </div>
@@ -456,7 +456,7 @@ export default function BarberApprenticeshipPage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Meet with advisor</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Discuss your goals and eligibility
                 </p>
               </div>
@@ -467,7 +467,7 @@ export default function BarberApprenticeshipPage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Confirm eligibility</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   We help with funding paperwork
                 </p>
               </div>
@@ -478,7 +478,7 @@ export default function BarberApprenticeshipPage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Enroll</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Get matched to a shop and start training
                 </p>
               </div>

@@ -109,7 +109,9 @@ export function PageTemplate({
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {feature.title}
+                    </h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </div>
                 ))}
@@ -117,53 +119,56 @@ export function PageTemplate({
             )}
 
             {/* Content Sections */}
-            {contentSections && contentSections.map((section, index) => (
-              <div
-                key={index}
-                className={`grid md:grid-cols-2 gap-12 items-center mb-16 ${
-                  section.reverse ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                <div className={section.reverse ? 'md:order-2' : ''}>
-                  <h2 className="text-3xl font-bold mb-6">{section.title}</h2>
-                  <p className="text-gray-700 mb-6">{section.description}</p>
-                  {section.bullets && (
-                    <ul className="space-y-3">
-                      {section.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start">
-                          <svg
-                            className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+            {contentSections &&
+              contentSections.map((section, index) => (
+                <div
+                  key={index}
+                  className={`grid md:grid-cols-2 gap-12 items-center mb-16 ${
+                    section.reverse ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  <div className={section.reverse ? 'md:order-2' : ''}>
+                    <h2 className="text-3xl font-bold mb-6">{section.title}</h2>
+                    <p className="text-gray-700 mb-6">{section.description}</p>
+                    {section.bullets && (
+                      <ul className="space-y-3">
+                        {section.bullets.map((bullet, i) => (
+                          <li key={i} className="flex items-start">
+                            <svg
+                              className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  {section.image && (
+                    <div
+                      className={`relative h-96 rounded-2xl overflow-hidden shadow-xl ${section.reverse ? 'md:order-1' : ''}`}
+                    >
+                      <ClickableImage
+                        src={section.image}
+                        alt={section.imageAlt || section.title}
+                        href={section.imageHref}
+                        fill
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
                   )}
                 </div>
-                {section.image && (
-                  <div className={`relative h-96 rounded-2xl overflow-hidden shadow-xl ${section.reverse ? 'md:order-1' : ''}`}>
-                    <ClickableImage
-                      src={section.image}
-                      alt={section.imageAlt || section.title}
-                      href={section.imageHref}
-                      fill
-                      quality={100}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
+              ))}
 
             {/* Feature Cards */}
             {cards && cards.length > 0 && (
@@ -174,7 +179,9 @@ export function PageTemplate({
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                         {card.icon}
                       </div>
-                      <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
+                      <h3 className="text-xl font-semibold mb-3">
+                        {card.title}
+                      </h3>
                       <p className="text-gray-600">{card.description}</p>
                     </>
                   );
@@ -188,7 +195,10 @@ export function PageTemplate({
                       {CardContent}
                     </Link>
                   ) : (
-                    <div key={index} className="bg-white rounded-lg shadow-sm border p-6">
+                    <div
+                      key={index}
+                      className="bg-white rounded-lg shadow-sm border p-6"
+                    >
                       {CardContent}
                     </div>
                   );
@@ -200,7 +210,10 @@ export function PageTemplate({
             {gallery && gallery.length > 0 && (
               <div className="grid md:grid-cols-3 gap-6 mb-16">
                 {gallery.map((item, index) => (
-                  <div key={index} className="relative h-64 rounded-lg overflow-hidden shadow-md">
+                  <div
+                    key={index}
+                    className="relative h-64 rounded-lg overflow-hidden shadow-md"
+                  >
                     <ClickableImage
                       src={item.src}
                       alt={item.alt}
@@ -219,11 +232,13 @@ export function PageTemplate({
 
       {/* CTA Section */}
       {finalCTA && (
-        <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+        <section className="py-16 bg-white text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">{finalCTA.title}</h2>
-              <p className="text-xl text-blue-100 mb-8">{finalCTA.description}</p>
+              <p className="text-xl text-blue-100 mb-8">
+                {finalCTA.description}
+              </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link
                   href={finalCTA.primaryHref}

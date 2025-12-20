@@ -256,7 +256,7 @@ export function ModernNav() {
                       </div>
 
                       {/* CTA */}
-                      <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 border border-red-100">
+                      <div className="bg-white rounded-xl p-6 border border-red-100">
                         <h4 className="font-bold text-slate-900 mb-1">
                           {navigation.programs.cta.title}
                         </h4>

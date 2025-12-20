@@ -29,7 +29,7 @@ export default function DonatePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-teal-600 via-teal-700 to-blue-800 text-white py-20">
+      <section className="relative bg-white text-white py-20">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -335,7 +335,7 @@ export default function DonatePage() {
             </div>
 
             {/* Submit Button */}
-            <button className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white px-8 py-5 rounded-lg font-bold text-lg hover:from-teal-700 hover:to-blue-700 transition shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+            <button className="w-full bg-white text-white px-8 py-5 rounded-lg font-bold text-lg hover:from-teal-700 hover:to-blue-700 transition shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
               <Heart className="w-6 h-6" />
               Complete Donation
             </button>
@@ -447,7 +447,7 @@ export default function DonatePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-blue-700 text-white">
+      <section className="py-20 bg-white text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Questions About Giving?

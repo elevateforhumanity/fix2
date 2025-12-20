@@ -512,7 +512,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* Nationwide Online Service */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -726,31 +726,31 @@ export default function SupersonicFastCashPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-4">
-            <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-500 rounded-xl p-6 text-center hover:shadow-xl transition">
+            <div className="bg-white border-2 border-green-500 rounded-xl p-6 text-center hover:shadow-xl transition">
               <div className="text-4xl font-bold text-green-700 mb-2">$250</div>
               <div className="text-xs text-gray-600 mb-2">0% APR*</div>
               <div className="text-sm text-gray-700">Quick Cash</div>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-500 rounded-xl p-6 text-center hover:shadow-xl transition">
+            <div className="bg-white border-2 border-blue-500 rounded-xl p-6 text-center hover:shadow-xl transition">
               <div className="text-4xl font-bold text-blue-700 mb-2">$500</div>
               <div className="text-xs text-gray-600 mb-2">0% APR*</div>
               <div className="text-sm text-gray-700">Popular</div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-500 rounded-xl p-6 text-center hover:shadow-xl transition">
+            <div className="bg-white border-2 border-purple-500 rounded-xl p-6 text-center hover:shadow-xl transition">
               <div className="text-4xl font-bold text-purple-700 mb-2">
                 $1,000
               </div>
               <div className="text-xs text-gray-600 mb-2">0% APR*</div>
               <div className="text-sm text-gray-700">Best Value</div>
             </div>
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-500 rounded-xl p-6 text-center hover:shadow-xl transition">
+            <div className="bg-white border-2 border-orange-500 rounded-xl p-6 text-center hover:shadow-xl transition">
               <div className="text-4xl font-bold text-orange-700 mb-2">
                 $3,500
               </div>
               <div className="text-xs text-gray-600 mb-2">36% APR*</div>
               <div className="text-sm text-gray-700">50% Refund</div>
             </div>
-            <div className="bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-500 rounded-xl p-6 text-center hover:shadow-xl transition">
+            <div className="bg-white border-2 border-red-500 rounded-xl p-6 text-center hover:shadow-xl transition">
               <div className="text-4xl font-bold text-red-700 mb-2">$7,500</div>
               <div className="text-xs text-gray-600 mb-2">36% APR*</div>
               <div className="text-sm text-gray-700">Maximum</div>
@@ -1018,7 +1018,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* EPS Financial Partnership Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -1106,7 +1106,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-green-700 text-white text-center">
+      <section className="py-20 bg-white text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Get Your Tax Refund Advance?
@@ -1159,7 +1159,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* Sub-Office & Business Opportunity Section */}
-      <section className="py-16 bg-gradient-to-br from-purple-900 to-purple-800 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -1393,7 +1393,7 @@ export default function SupersonicFastCashPage() {
           </div>
           <Link
             href="/tax/book-appointment"
-            className="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xl font-bold rounded-lg hover:shadow-xl transition-all"
+            className="inline-block px-10 py-5 bg-white text-white text-xl font-bold rounded-lg hover:shadow-xl transition-all"
           >
             Book Appointment Now
           </Link>

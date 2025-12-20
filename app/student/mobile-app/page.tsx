@@ -22,7 +22,7 @@ export default async function MobileAppPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-100 py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -190,7 +190,7 @@ export default async function MobileAppPage() {
         </div>
 
         {/* Features */}
-        <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-lg p-8 text-white mb-8">
+        <div className="bg-white rounded-xl shadow-lg p-8 text-white mb-8">
           <h2 className="text-2xl font-bold mb-6">App Features</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start gap-3">

@@ -307,7 +307,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Section 4: Platform & Technology */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
             <Laptop className="w-8 h-8 text-brand-blue-600" />

@@ -18,7 +18,7 @@ export default function AcademicIntegrityPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-700 to-blue-900 text-white">
+      <div className="bg-white text-white">
         <div className="max-w-4xl mx-auto px-6 py-12">
           <div className="flex items-center gap-4 mb-4">
             <Shield className="w-12 h-12" />
@@ -386,7 +386,7 @@ export default function AcademicIntegrityPage() {
         </div>
 
         {/* Student Pledge */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 text-white mb-8">
+        <div className="bg-white rounded-xl p-8 text-white mb-8">
           <h2 className="text-2xl font-bold mb-4">Academic Integrity Pledge</h2>
           <div className="bg-white/10 rounded-lg p-6">
             <p className="text-blue-100 italic mb-4">

@@ -327,7 +327,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-slate-600 mb-8">
             Most students qualify for 100% free training through WIOA, WRG, JRI,
             or DOL-registered apprenticeships.
           </p>
@@ -347,7 +347,7 @@ export default function HomePage() {
               Schedule at IndianaCareerConnect.com
             </a>
           </div>
-          <p className="mt-6 text-sm text-white/90">
+          <p className="mt-6 text-sm text-slate-600">
             📞 Call us at{' '}
             <a
               href="tel:3173143757"
@@ -356,7 +356,7 @@ export default function HomePage() {
               317-314-3757
             </a>
           </p>
-          <p className="mt-2 text-xs text-white/80">
+          <p className="mt-2 text-xs text-slate-600">
             DOL Approved | DWD Approved | DOE Approved | WIOA Eligible | WRG
             Approved | JRI Partner
           </p>

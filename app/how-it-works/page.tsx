@@ -23,7 +23,7 @@ export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             How Elevate Works

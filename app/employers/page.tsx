@@ -24,7 +24,7 @@ export default function EmployersPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section with Video */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+      <section className="relative bg-white text-white py-20">
         <div className="absolute inset-0">
           <video
             autoPlay
@@ -551,10 +551,7 @@ export default function EmployersPage() {
       </section>
 
       {/* Contact CTA */}
-      <section
-        id="contact"
-        className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-      >
+      <section id="contact" className="py-16 bg-white text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">

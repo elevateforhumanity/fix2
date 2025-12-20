@@ -146,7 +146,7 @@ export default function DrugTestingPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">

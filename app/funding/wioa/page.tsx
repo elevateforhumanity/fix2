@@ -408,7 +408,7 @@ export default function WioaPage() {
               Find Your WorkOne Center
             </a>
           </div>
-          <p className="mt-6 text-white/90">
+          <p className="mt-6 text-slate-600">
             Questions? Call{' '}
             <a href="tel:3173143757" className="font-bold underline">
               317-314-3757

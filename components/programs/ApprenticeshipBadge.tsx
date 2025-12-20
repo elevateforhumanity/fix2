@@ -6,7 +6,7 @@ export function ApprenticeshipBadge() {
   if (!cfg.enabled) return null;
 
   return (
-    <div className="mt-4 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-sm">
+    <div className="mt-4 rounded-2xl border border-blue-200 bg-white p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-4">
         <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
           <Award className="w-6 h-6 text-white" />
@@ -68,9 +68,7 @@ export function ApprenticeshipBadge() {
       </div>
 
       <div className="mt-4 pt-4 border-t border-blue-200">
-        <p className="text-xs text-slate-600 leading-relaxed">
-          {cfg.notes}
-        </p>
+        <p className="text-xs text-slate-600 leading-relaxed">{cfg.notes}</p>
       </div>
     </div>
   );

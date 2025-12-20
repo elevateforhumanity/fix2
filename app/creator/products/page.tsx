@@ -88,7 +88,7 @@ export default async function CreatorProductsPage() {
                   key={product.id}
                   className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
+                  <div className="aspect-video bg-white flex items-center justify-center">
                     {product.thumbnail_url ? (
                       <img
                         src={product.thumbnail_url}

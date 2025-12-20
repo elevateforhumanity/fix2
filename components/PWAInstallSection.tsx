@@ -46,7 +46,7 @@ export default function PWAInstallSection() {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 to-orange-50">
+    <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid gap-12 lg:grid-cols-2 items-center">
           <div>

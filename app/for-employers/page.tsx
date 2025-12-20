@@ -12,7 +12,7 @@ export default function ForEmployersPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-20">
+      <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <Briefcase className="w-16 h-16 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">For Employers</h1>

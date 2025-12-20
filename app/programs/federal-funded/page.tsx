@@ -25,7 +25,7 @@ export default function FederalFundedProgramsPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-600 to-green-800 text-white px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
+      <section className="bg-white text-white px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
         <div className="mx-auto max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <Shield className="w-5 h-5" />

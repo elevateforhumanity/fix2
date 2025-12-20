@@ -13,7 +13,9 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
+  const [mobileExpandedSection, setMobileExpandedSection] = useState<
+    string | null
+  >(null);
   const pathname = usePathname();
 
   // Close mobile menu on route change
@@ -35,8 +37,8 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   }, [isMobileMenuOpen]);
 
   const navigation = [
-    { 
-      name: 'Programs', 
+    {
+      name: 'Programs',
       href: '/programs',
       dropdown: [
         { name: 'Healthcare', href: '/programs/healthcare' },
@@ -45,47 +47,47 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         { name: 'Business & Finance', href: '/programs/business-finance' },
         { name: 'Technology', href: '/programs/technology' },
         { name: 'All Programs', href: '/programs' },
-      ]
+      ],
     },
-    { 
-      name: 'How It Works', 
+    {
+      name: 'How It Works',
       href: '/how-it-works',
       dropdown: [
         { name: 'Application Process', href: '/how-it-works#application' },
         { name: 'Funding Options', href: '/how-it-works#funding' },
         { name: 'Partner Training', href: '/how-it-works#partners' },
         { name: 'Job Placement', href: '/how-it-works#placement' },
-      ]
+      ],
     },
-    { 
-      name: 'For Employers', 
+    {
+      name: 'For Employers',
       href: '/employers',
       dropdown: [
         { name: 'Hire Graduates', href: '/hire-graduates' },
         { name: 'Host Apprentices', href: '/employers/apprenticeships' },
         { name: 'OJT/WEX Programs', href: '/employers/ojt-wex' },
         { name: 'Employer Portal', href: '/employer/dashboard' },
-      ]
+      ],
     },
-    { 
-      name: 'Resources', 
+    {
+      name: 'Resources',
       href: '/resources',
       dropdown: [
         { name: 'Success Stories', href: '/success-stories' },
         { name: 'FAQ', href: '/faq' },
         { name: 'Career Center', href: '/career-center' },
         { name: 'Financial Aid', href: '/financial-aid' },
-      ]
+      ],
     },
-    { 
-      name: 'About', 
+    {
+      name: 'About',
       href: '/about',
       dropdown: [
         { name: 'Our Mission', href: '/about' },
         { name: 'Leadership Team', href: '/about/team' },
         { name: 'Partners', href: '/partners' },
         { name: 'Contact Us', href: '/contact' },
-      ]
+      ],
     },
   ];
 
@@ -96,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-3">
-              <div className="h-12 w-12 bg-gradient-to-br from-orange-600 to-orange-700 rounded-xl flex items-center justify-center shadow-md">
+              <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-2xl">E</span>
               </div>
               <div className="hidden sm:block">
@@ -260,7 +262,9 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                         <button
                           onClick={() =>
                             setMobileExpandedSection(
-                              mobileExpandedSection === item.name ? null : item.name
+                              mobileExpandedSection === item.name
+                                ? null
+                                : item.name
                             )
                           }
                           className="w-full flex items-center justify-between px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
@@ -268,11 +272,13 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                           {item.name}
                           <ChevronRight
                             className={`h-5 w-5 transition-transform ${
-                              mobileExpandedSection === item.name ? 'rotate-90' : ''
+                              mobileExpandedSection === item.name
+                                ? 'rotate-90'
+                                : ''
                             }`}
                           />
                         </button>
-                        
+
                         {/* Expanded Dropdown */}
                         {mobileExpandedSection === item.name && (
                           <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange-200 pl-4">
@@ -300,9 +306,9 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                     )}
                   </div>
                 ))}
-                
+
                 <div className="border-t border-slate-200 my-4" />
-                
+
                 <Link
                   href="/student/dashboard"
                   className="block px-4 py-3 text-base font-semibold text-slate-900 hover:bg-orange-50 rounded-lg transition-all"
@@ -324,7 +330,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
                 >
                   Sign In
                 </Link>
-                
+
                 <div className="pt-4">
                   <Link
                     href="/apply"
@@ -337,7 +343,9 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
 
                 {/* Contact Info */}
                 <div className="mt-6 pt-6 border-t border-slate-200">
-                  <p className="text-sm font-semibold text-slate-900 mb-2">Need Help?</p>
+                  <p className="text-sm font-semibold text-slate-900 mb-2">
+                    Need Help?
+                  </p>
                   <a
                     href="tel:3173143757"
                     className="block text-sm text-orange-600 font-medium hover:text-orange-700"

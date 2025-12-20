@@ -376,7 +376,7 @@ export default function ApprovalsPage() {
               <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 For Students
               </h3>
-              <p className="text-white/90 text-lg leading-relaxed">
+              <p className="text-slate-600 text-lg leading-relaxed">
                 Our students can access funded training through WRG, WIOA, JRI,
                 and apprenticeships. Your training is legitimate, recognized,
                 and leads to real employment.
@@ -387,7 +387,7 @@ export default function ApprovalsPage() {
               <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 For Employers
               </h3>
-              <p className="text-white/90 text-lg leading-relaxed">
+              <p className="text-slate-600 text-lg leading-relaxed">
                 Our employers can trust that our programs are standards-aligned
                 and reportable. Graduates meet industry-standard requirements
                 and are job-ready from day one.
@@ -398,7 +398,7 @@ export default function ApprovalsPage() {
               <h3 className="text-lg md:text-lg font-bold text-white mb-4">
                 For Partners
               </h3>
-              <p className="text-white/90 text-lg leading-relaxed">
+              <p className="text-slate-600 text-lg leading-relaxed">
                 Workforce boards, schools, reenstart programs, and community
                 partners can confidently refer people to Elevate For Humanity
                 knowing we meet state and federal quality benchmarks.

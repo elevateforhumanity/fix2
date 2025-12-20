@@ -125,7 +125,7 @@ export default async function WelcomePacketPage({ params }: PageProps) {
 
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Progress Card */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 text-white mb-8">
+        <div className="bg-white rounded-xl p-8 text-white mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold mb-2">Your Progress</h2>

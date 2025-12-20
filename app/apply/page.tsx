@@ -40,19 +40,19 @@ export default function ApplyPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-16">
+      <section className="bg-white text-white py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Start Your Career Journey
           </h1>
-          <p className="text-xl text-white/90 mb-6">
+          <p className="text-xl text-slate-600 mb-6">
             Free training, real jobs, and support every step of the way
           </p>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-left max-w-2xl mx-auto">
             <h2 className="text-lg font-bold mb-3">
               What happens after you apply:
             </h2>
-            <ol className="space-y-2 text-white/90">
+            <ol className="space-y-2 text-slate-600">
               <li className="flex items-start gap-3">
                 <span className="font-bold text-brand-orange-600">1.</span>
                 <span>

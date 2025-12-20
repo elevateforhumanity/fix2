@@ -241,7 +241,7 @@ export default async function OrientationPage() {
             </div>
 
             {/* Real Talk Section */}
-            <div className="mt-16 bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 md:p-12">
+            <div className="mt-16 bg-white rounded-2xl p-8 md:p-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
                 What Students Actually Say
               </h2>
@@ -292,7 +292,7 @@ export default async function OrientationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-orange-500 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

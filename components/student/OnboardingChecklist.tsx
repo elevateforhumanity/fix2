@@ -35,7 +35,9 @@ function OnboardingItem({
         ) : (
           <Clock className="w-5 h-5 text-slate-400" />
         )}
-        <span className={done ? 'text-slate-900 font-medium' : 'text-slate-600'}>
+        <span
+          className={done ? 'text-slate-900 font-medium' : 'text-slate-600'}
+        >
           {label}
         </span>
       </div>
@@ -70,7 +72,7 @@ export function OnboardingChecklist({ onboarding }: OnboardingChecklistProps) {
 
   return (
     <div className="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
-      <div className="p-6 border-b border-slate-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <div className="p-6 border-b border-slate-200 bg-white">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl font-bold text-slate-900 mb-1">
@@ -135,8 +137,8 @@ export function OnboardingChecklist({ onboarding }: OnboardingChecklistProps) {
       {!allComplete && (
         <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
           <p className="text-xs text-slate-600">
-            <strong>Note:</strong> Shop placement will be assigned by your program
-            coordinator once you complete the first three steps.
+            <strong>Note:</strong> Shop placement will be assigned by your
+            program coordinator once you complete the first three steps.
           </p>
         </div>
       )}

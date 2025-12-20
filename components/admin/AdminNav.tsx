@@ -148,7 +148,7 @@ export default function AdminNav({ userRole }: AdminNavProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/admin" className="flex items-center gap-2">
-            <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            <div className="text-2xl font-bold bg-clip-text text-transparent bg-white">
               Elevate
             </div>
             <span className="text-sm text-gray-400">Admin Suite</span>

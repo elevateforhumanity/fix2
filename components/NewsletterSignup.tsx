@@ -5,7 +5,9 @@ import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -14,12 +16,12 @@ export default function NewsletterSignup() {
 
     try {
       // Simulate success for now
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       setStatus('success');
       setMessage('Thanks for subscribing! Check your email to confirm.');
       setEmail('');
-      
+
       // Reset after 5 seconds
       setTimeout(() => {
         setStatus('idle');
@@ -28,7 +30,7 @@ export default function NewsletterSignup() {
     } catch (error) {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');
-      
+
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
@@ -37,7 +39,7 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-12">
+    <div className="bg-white py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -47,10 +49,14 @@ export default function NewsletterSignup() {
             </h3>
           </div>
           <p className="text-lg text-blue-100 mb-6">
-            Get updates on new programs, success stories, hiring events, and opportunities delivered to your inbox.
+            Get updates on new programs, success stories, hiring events, and
+            opportunities delivered to your inbox.
           </p>
-          
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
             <input
               type="email"
               value={email}
@@ -65,14 +71,20 @@ export default function NewsletterSignup() {
               disabled={status === 'loading' || status === 'success'}
               className="px-6 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-slate-50 transition disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >
-              {status === 'loading' ? 'Subscribing...' : status === 'success' ? 'Subscribed!' : 'Subscribe'}
+              {status === 'loading'
+                ? 'Subscribing...'
+                : status === 'success'
+                  ? 'Subscribed!'
+                  : 'Subscribe'}
             </button>
           </form>
 
           {message && (
-            <div className={`mt-4 flex items-center justify-center gap-2 text-sm ${
-              status === 'success' ? 'text-green-100' : 'text-red-100'
-            }`}>
+            <div
+              className={`mt-4 flex items-center justify-center gap-2 text-sm ${
+                status === 'success' ? 'text-green-100' : 'text-red-100'
+              }`}
+            >
               {status === 'success' ? (
                 <CheckCircle className="w-5 h-5" />
               ) : (

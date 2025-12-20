@@ -152,7 +152,7 @@ export default function DownloadsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
+      <section className="bg-white text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Download className="w-16 h-16 mx-auto mb-6" />

@@ -31,7 +31,7 @@ export default async function ProductPage({
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Product Image */}
-            <div className="aspect-square bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
+            <div className="aspect-square bg-white flex items-center justify-center">
               {product.thumbnail_url ? (
                 <img
                   src={product.thumbnail_url}
@@ -60,7 +60,7 @@ export default async function ProductPage({
               <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
 
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-white font-bold">
                   {product.creator?.display_name?.charAt(0) || '?'}
                 </div>
                 <div>

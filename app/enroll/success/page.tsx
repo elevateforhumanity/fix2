@@ -7,7 +7,7 @@ import { CheckCircle, Mail, Smartphone, ExternalLink } from 'lucide-react';
 
 export default function EnrollSuccessPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full">
         {/* Success Icon */}
         <div className="text-center mb-8">

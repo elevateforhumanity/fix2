@@ -167,7 +167,7 @@ export default function PathwaysPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <div className="bg-white text-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Career Pathways
@@ -238,7 +238,7 @@ export default function PathwaysPage() {
               className="bg-white rounded-xl shadow-sm overflow-hidden"
             >
               {/* Pathway Header */}
-              <div className="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-8">
+              <div className="bg-white text-white p-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
                   {pathway.title}
                 </h2>
@@ -407,7 +407,7 @@ export default function PathwaysPage() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 text-center">
+        <div className="mt-12 bg-white text-white rounded-xl p-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Your Journey?
           </h2>

@@ -50,10 +50,10 @@ export default async function ProgramDetailPage({
   return (
     <main className="bg-white">
       {/* Hero Section - Instant Clarity */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white py-12 md:py-16">
+      <section className="bg-white text-white py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-sm text-white/70 mb-6">
+          <nav className="flex items-center gap-2 text-sm text-slate-600 mb-6">
             <Link href="/" className="hover:text-white">
               Home
             </Link>
@@ -127,35 +127,35 @@ export default async function ProgramDetailPage({
               <h3 className="text-lg font-bold mb-4">Program Snapshot</h3>
               <dl className="space-y-3 text-sm">
                 <div>
-                  <dt className="text-white/70 mb-1">Duration</dt>
+                  <dt className="text-slate-600 mb-1">Duration</dt>
                   <dd className="font-semibold">
                     {program.duration || '10-12 weeks'}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/70 mb-1">Start Dates</dt>
+                  <dt className="text-slate-600 mb-1">Start Dates</dt>
                   <dd className="font-semibold">Rolling enrollment</dd>
                 </div>
                 <div>
-                  <dt className="text-white/70 mb-1">Format</dt>
+                  <dt className="text-slate-600 mb-1">Format</dt>
                   <dd className="font-semibold">
                     Hybrid - Online coursework + In-person skills training
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/70 mb-1">Cost</dt>
+                  <dt className="text-slate-600 mb-1">Cost</dt>
                   <dd className="font-semibold">
                     Funded options available. We confirm eligibility with you.
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/70 mb-1">Credential</dt>
+                  <dt className="text-slate-600 mb-1">Credential</dt>
                   <dd className="font-semibold">
                     {program.credential || 'Industry-recognized certification'}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/70 mb-1">Who it's for</dt>
+                  <dt className="text-slate-600 mb-1">Who it's for</dt>
                   <dd className="font-semibold">
                     {program.whoItsFor || 'Anyone ready to start a new career'}
                   </dd>
@@ -407,7 +407,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* Still Not Sure */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-12 md:py-16 bg-white text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Still Not Sure?

@@ -325,7 +325,7 @@ export default async function Page() {
           <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to Start Your Career Journey?
           </h2>
-          <p className="text-base md:text-lg text-white/90 mb-8">
+          <p className="text-base md:text-lg text-slate-600 mb-8">
             Join thousands of students who transformed their lives through free
             workforce training.
           </p>

@@ -22,7 +22,7 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-600 to-green-800 text-white px-6 py-20">
+      <section className="bg-white text-white px-6 py-20">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <Award className="w-5 h-5" />

@@ -1,7 +1,15 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, Loader2, Bot, User, Minimize2 } from 'lucide-react';
+import {
+  MessageCircle,
+  X,
+  Send,
+  Loader2,
+  Bot,
+  User,
+  Minimize2,
+} from 'lucide-react';
 
 interface Message {
   id: string;
@@ -17,7 +25,11 @@ interface AILiveChatProps {
   userEmail?: string;
 }
 
-export default function AILiveChat({ userId, userName, userEmail }: AILiveChatProps) {
+export default function AILiveChat({
+  userId,
+  userName,
+  userEmail,
+}: AILiveChatProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -39,12 +51,14 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       // Send welcome message
-      setMessages([{
-        id: '1',
-        content: `Hi${userName ? ` ${userName}` : ''}! 👋 I'm your AI assistant. How can I help you today?`,
-        sender: 'bot',
-        timestamp: new Date()
-      }]);
+      setMessages([
+        {
+          id: '1',
+          content: `Hi${userName ? ` ${userName}` : ''}! 👋 I'm your AI assistant. How can I help you today?`,
+          sender: 'bot',
+          timestamp: new Date(),
+        },
+      ]);
     }
   }, [isOpen, userName]);
 
@@ -63,10 +77,10 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
       id: Date.now().toString(),
       content: inputValue,
       sender: 'user',
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setIsLoading(true);
 
@@ -76,9 +90,9 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
       content: '',
       sender: 'bot',
       timestamp: new Date(),
-      isTyping: true
+      isTyping: true,
     };
-    setMessages(prev => [...prev, typingMessage]);
+    setMessages((prev) => [...prev, typingMessage]);
 
     try {
       const response = await fetch('/api/chat/ai-response', {
@@ -90,24 +104,24 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
           userId,
           userEmail,
           context: {
-            previousMessages: messages.slice(-5)
-          }
-        })
+            previousMessages: messages.slice(-5),
+          },
+        }),
       });
 
       const data = await response.json();
 
       // Remove typing indicator
-      setMessages(prev => prev.filter(m => m.id !== 'typing'));
+      setMessages((prev) => prev.filter((m) => m.id !== 'typing'));
 
       if (data.response) {
         const botMessage: Message = {
           id: Date.now().toString(),
           content: data.response,
           sender: data.isAgent ? 'agent' : 'bot',
-          timestamp: new Date()
+          timestamp: new Date(),
         };
-        setMessages(prev => [...prev, botMessage]);
+        setMessages((prev) => [...prev, botMessage]);
 
         if (data.conversationId) {
           setConversationId(data.conversationId);
@@ -119,13 +133,17 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
       }
     } catch (error) {
       // Error: $1
-      setMessages(prev => prev.filter(m => m.id !== 'typing'));
-      setMessages(prev => [...prev, {
-        id: Date.now().toString(),
-        content: 'Sorry, I encountered an error. Please try again or contact support at 317-314-3757.',
-        sender: 'bot',
-        timestamp: new Date()
-      }]);
+      setMessages((prev) => prev.filter((m) => m.id !== 'typing'));
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now().toString(),
+          content:
+            'Sorry, I encountered an error. Please try again or contact support at 317-314-3757.',
+          sender: 'bot',
+          timestamp: new Date(),
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -144,18 +162,21 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
       const response = await fetch('/api/chat/request-agent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ conversationId, userId })
+        body: JSON.stringify({ conversationId, userId }),
       });
 
       const data = await response.json();
 
       if (data.success) {
-        setMessages(prev => [...prev, {
-          id: Date.now().toString(),
-          content: 'Connecting you with a live agent. Please wait...',
-          sender: 'bot',
-          timestamp: new Date()
-        }]);
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: Date.now().toString(),
+            content: 'Connecting you with a live agent. Please wait...',
+            sender: 'bot',
+            timestamp: new Date(),
+          },
+        ]);
       }
     } catch (error) {
       // Error: $1
@@ -170,7 +191,7 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
         {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-orange-600 to-orange-700 text-white rounded-full shadow-2xl hover:from-orange-700 hover:to-orange-800 transition-all hover:scale-110 flex items-center justify-center z-50 animate-bounce"
+          className="fixed bottom-6 right-6 w-16 h-16 bg-white text-white rounded-full shadow-2xl hover:from-orange-700 hover:to-orange-800 transition-all hover:scale-110 flex items-center justify-center z-50 animate-bounce"
           aria-label="Open chat"
         >
           <MessageCircle className="w-8 h-8" />
@@ -187,20 +208,21 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
               <X className="w-4 h-4" />
             </button>
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-orange-600 to-orange-700 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div>
                 <p className="font-bold text-slate-900 mb-1">Need Help?</p>
                 <p className="text-sm text-slate-600 mb-3">
-                  Hi! I'm here to answer questions about our programs. Click to chat!
+                  Hi! I'm here to answer questions about our programs. Click to
+                  chat!
                 </p>
                 <button
                   onClick={() => {
                     setIsOpen(true);
                     setShowPopup(false);
                   }}
-                  className="w-full bg-gradient-to-r from-orange-600 to-orange-700 text-white px-4 py-2 rounded-lg font-semibold hover:from-orange-700 hover:to-orange-800 transition"
+                  className="w-full bg-white text-white px-4 py-2 rounded-lg font-semibold hover:from-orange-700 hover:to-orange-800 transition"
                 >
                   Start Chat
                 </button>
@@ -213,11 +235,13 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
   }
 
   return (
-    <div className={`fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all ${
-      isMinimized ? 'h-16' : 'h-[600px]'
-    }`}>
+    <div
+      className={`fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all ${
+        isMinimized ? 'h-16' : 'h-[600px]'
+      }`}
+    >
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-2xl flex items-center justify-between">
+      <div className="bg-white text-white p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="relative">
             <Bot className="w-8 h-8" />
@@ -255,13 +279,20 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
                 key={message.id}
                 className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`flex items-start gap-2 max-w-[80%] ${
-                  message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'
-                }`}>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    message.sender === 'user' ? 'bg-blue-600' : 
-                    message.sender === 'agent' ? 'bg-green-600' : 'bg-gray-600'
-                  }`}>
+                <div
+                  className={`flex items-start gap-2 max-w-[80%] ${
+                    message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'
+                  }`}
+                >
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                      message.sender === 'user'
+                        ? 'bg-blue-600'
+                        : message.sender === 'agent'
+                          ? 'bg-green-600'
+                          : 'bg-gray-600'
+                    }`}
+                  >
                     {message.sender === 'user' ? (
                       <User className="w-5 h-5 text-white" />
                     ) : (
@@ -269,23 +300,39 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
                     )}
                   </div>
                   <div>
-                    <div className={`rounded-2xl px-4 py-2 ${
-                      message.sender === 'user'
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white text-gray-800 shadow-sm'
-                    }`}>
+                    <div
+                      className={`rounded-2xl px-4 py-2 ${
+                        message.sender === 'user'
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-white text-gray-800 shadow-sm'
+                      }`}
+                    >
                       {message.isTyping ? (
                         <div className="flex gap-1">
-                          <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                          <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                          <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                          <span
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: '0ms' }}
+                          />
+                          <span
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: '150ms' }}
+                          />
+                          <span
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: '300ms' }}
+                          />
                         </div>
                       ) : (
-                        <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                        <p className="text-sm whitespace-pre-wrap">
+                          {message.content}
+                        </p>
                       )}
                     </div>
                     <p className="text-xs text-gray-500 mt-1 px-2">
-                      {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                      {message.timestamp.toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      })}
                     </p>
                   </div>
                 </div>

@@ -489,7 +489,7 @@ export default function SyllabiPage() {
               className="bg-white rounded-xl shadow-sm overflow-hidden"
             >
               {/* Program Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8">
+              <div className="bg-white text-white p-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">
                   {program.program}
                 </h2>

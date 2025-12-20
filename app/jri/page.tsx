@@ -32,7 +32,7 @@ export default function JRIPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section with Image */}
-      <section className="relative h-[600px] bg-gradient-to-r from-blue-900 to-purple-900">
+      <section className="relative h-[600px] bg-white">
         <div className="absolute inset-0">
           <Image
             src="/images/funding/funding-jri-program-v2.jpg"
@@ -548,7 +548,7 @@ export default function JRIPage() {
       </section>
 
       {/* How to Get Started */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">

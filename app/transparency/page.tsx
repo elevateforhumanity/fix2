@@ -27,7 +27,7 @@ export default function TransparencyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-teal-700 text-white py-20">
+      <section className="relative bg-white text-white py-20">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -57,7 +57,7 @@ export default function TransparencyPage() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-8 text-center border border-teal-200">
+            <div className="bg-white rounded-xl p-8 text-center border border-teal-200">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-600 rounded-full mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
@@ -67,7 +67,7 @@ export default function TransparencyPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center border border-blue-200">
+            <div className="bg-white rounded-xl p-8 text-center border border-blue-200">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-blue-600 rounded-full mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
@@ -77,7 +77,7 @@ export default function TransparencyPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center border border-green-200">
+            <div className="bg-white rounded-xl p-8 text-center border border-green-200">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green-600 rounded-full mb-4">
                 <DollarSign className="w-8 h-8 text-white" />
               </div>
@@ -87,7 +87,7 @@ export default function TransparencyPage() {
               <div className="text-slate-700 font-semibold">Total Budget</div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 text-center border border-purple-200">
+            <div className="bg-white rounded-xl p-8 text-center border border-purple-200">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-600 rounded-full mb-4">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
@@ -497,7 +497,7 @@ export default function TransparencyPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center border-2 border-blue-200">
+            <div className="bg-white rounded-xl p-8 text-center border-2 border-blue-200">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-600 rounded-full mb-4">
                 <Award className="w-10 h-10 text-white" />
               </div>
@@ -519,7 +519,7 @@ export default function TransparencyPage() {
               </a>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center border-2 border-green-200">
+            <div className="bg-white rounded-xl p-8 text-center border-2 border-green-200">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green-600 rounded-full mb-4">
                 <Shield className="w-10 h-10 text-white" />
               </div>
@@ -541,7 +541,7 @@ export default function TransparencyPage() {
               </a>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 text-center border-2 border-purple-200">
+            <div className="bg-white rounded-xl p-8 text-center border-2 border-purple-200">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-purple-600 rounded-full mb-4">
                 <CheckCircle2 className="w-10 h-10 text-white" />
               </div>
@@ -565,7 +565,7 @@ export default function TransparencyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-blue-700 text-white">
+      <section className="py-20 bg-white text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Questions About Our Finances or Impact?

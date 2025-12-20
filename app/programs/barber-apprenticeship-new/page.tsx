@@ -13,7 +13,7 @@ export default function BarberApprenticeshipPage() {
   return (
     <main className="bg-white">
       {/* SECTION 1: HERO - Student Language Only */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="relative bg-white text-white py-20">
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">

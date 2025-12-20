@@ -185,7 +185,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission, Vision & Values */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             Mission, Vision & Values

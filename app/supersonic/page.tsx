@@ -110,7 +110,7 @@ export default function SupersonicFastCashPage() {
               </p>
             </div>
 
-            <p className="text-base md:text-lg mb-8 text-white/90 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-lg mb-8 text-slate-600 leading-relaxed max-w-3xl mx-auto">
               <strong className="text-yellow-400">Get Cash TODAY!</strong> Tax
               refund advances and anticipation loans in Indianapolis. Don't wait
               for the IRS - walk in with your documents, walk out with cash.
@@ -744,7 +744,7 @@ export default function SupersonicFastCashPage() {
                   <h3 className="text-lg font-bold mb-2">
                     Book Your Appointment
                   </h3>
-                  <p className="text-white/90">
+                  <p className="text-slate-600">
                     Schedule online or call us. Same-day appointments available
                     during tax season.
                   </p>
@@ -759,7 +759,7 @@ export default function SupersonicFastCashPage() {
                   <h3 className="text-lg font-bold mb-2">
                     Upload Your Documents
                   </h3>
-                  <p className="text-white/90">
+                  <p className="text-slate-600">
                     Securely upload your W-2s, 1099s, and other tax documents
                     before your appointment.
                   </p>
@@ -774,7 +774,7 @@ export default function SupersonicFastCashPage() {
                   <h3 className="text-lg font-bold mb-2">
                     We Prepare Your Return
                   </h3>
-                  <p className="text-white/90">
+                  <p className="text-slate-600">
                     Our certified tax professionals prepare your return
                     accurately and maximize your refund.
                   </p>
@@ -789,7 +789,7 @@ export default function SupersonicFastCashPage() {
                   <h3 className="text-lg font-bold mb-2">
                     Get Your Money FAST
                   </h3>
-                  <p className="text-white/90">
+                  <p className="text-slate-600">
                     Choose rapid refund, advance loan, or prepaid card. Get your
                     money in 24-48 hours!
                   </p>

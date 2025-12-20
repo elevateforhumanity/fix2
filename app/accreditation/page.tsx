@@ -405,7 +405,7 @@ export default function AccreditationPage() {
       </section>
 
       {/* For Donors, Grants, and Philanthropic Organizations */}
-      <section className="py-16 bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+      <section className="py-16 bg-white text-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -643,7 +643,7 @@ export default function AccreditationPage() {
               Schedule at IndianaCareerConnect.com
             </a>
           </div>
-          <p className="mt-6 text-white/90">
+          <p className="mt-6 text-slate-600">
             Call{' '}
             <a href="tel:3173143757" className="font-bold underline">
               317-314-3757

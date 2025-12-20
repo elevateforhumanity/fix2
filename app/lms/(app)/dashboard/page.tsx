@@ -62,7 +62,7 @@ export default async function DashboardPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Welcome Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12">
+      <section className="bg-white text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-3">
             Welcome back, {profile?.first_name || 'Student'}! 👋
@@ -156,7 +156,7 @@ export default async function DashboardPage() {
       {/* Onboarding Checklist for New Users */}
       {enrollments && enrollments.length === 0 && (
         <section className="max-w-7xl mx-auto px-4 py-8">
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-6 md:p-8">
+          <div className="bg-white border-2 border-green-200 rounded-lg p-6 md:p-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-brand-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="w-6 h-6 text-white" />
@@ -349,7 +349,7 @@ export default async function DashboardPage() {
                 saved after each lesson.
               </p>
             </div>
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-6 md:p-8 text-white shadow-lg">
+            <div className="bg-white rounded-lg p-6 md:p-8 text-white shadow-lg">
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 <div className="relative w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
                   {enrollments[0].courses?.thumbnail_url ? (
