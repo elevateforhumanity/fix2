@@ -57,7 +57,7 @@ const mainLinks = [
   { href: '/platform/licensing', label: 'Platform Licensing' },
   { href: '/demos', label: 'Demos' },
   {
-    href: 'https://elevateforhumanityeducation.com',
+    href: 'https://elevateforhumanitylearning.com',
     label: 'LMS',
     external: true,
   },
@@ -70,7 +70,7 @@ const portalLinks = [
   { href: '/student/dashboard', label: 'Student Portal' },
   { href: '/admin', label: 'Admin Dashboard' },
   {
-    href: 'https://elevateforhumanityeducation.com',
+    href: 'https://elevateforhumanitylearning.com',
     label: 'LMS',
     external: true,
   },

@@ -16,10 +16,7 @@ const PROTECTED_ROUTES = [
 ];
 
 // Admin-only routes
-const ADMIN_ROUTES = [
-  '/admin',
-  '/dev-admin',
-];
+const ADMIN_ROUTES = ['/admin', '/dev-admin'];
 
 // Security headers configuration
 const securityHeaders = {
@@ -28,7 +25,8 @@ const securityHeaders = {
   'X-XSS-Protection': '1; mode=block',
   'X-Robots-Tag': 'noai, noimageai, nosnippet, noarchive',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self), payment=(self)',
+  'Permissions-Policy':
+    'camera=(), microphone=(), geolocation=(self), payment=(self)',
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
   'Content-Security-Policy': [
     "default-src 'self'",
@@ -44,7 +42,7 @@ const securityHeaders = {
     "base-uri 'self'",
     "form-action 'self'",
     "frame-ancestors 'self'",
-    "upgrade-insecure-requests"
+    'upgrade-insecure-requests',
   ].join('; '),
 };
 
@@ -85,11 +83,11 @@ function getClientIp(req: NextRequest): string {
 }
 
 function isBot(userAgent: string): boolean {
-  return botPatterns.some(pattern => pattern.test(userAgent));
+  return botPatterns.some((pattern) => pattern.test(userAgent));
 }
 
 function isSuspiciousRequest(url: string): boolean {
-  return suspiciousPatterns.some(pattern => pattern.test(url));
+  return suspiciousPatterns.some((pattern) => pattern.test(url));
 }
 
 export async function proxy(request: NextRequest) {
@@ -113,8 +111,8 @@ export async function proxy(request: NextRequest) {
 
   // LMS portal domains
   if (
-    hostname === 'elevateforhumanityeducation.com' ||
-    hostname === 'www.elevateforhumanityeducation.com'
+    hostname === 'elevateforhumanitylearning.com' ||
+    hostname === 'www.elevateforhumanitylearning.com'
   ) {
     if (!pathname.startsWith('/lms')) {
       const url = request.nextUrl.clone();
@@ -137,7 +135,10 @@ export async function proxy(request: NextRequest) {
   };
 
   if (redirects[pathname]) {
-    return NextResponse.redirect(new URL(redirects[pathname], request.url), 301);
+    return NextResponse.redirect(
+      new URL(redirects[pathname], request.url),
+      301
+    );
   }
 
   // Exclude static assets and Next internals
@@ -153,20 +154,26 @@ export async function proxy(request: NextRequest) {
 
   // Block suspicious requests
   if (isSuspiciousRequest(pathname)) {
-    console.warn(`[SECURITY] Blocked suspicious request from ${ip}: ${pathname}`);
+    console.warn(
+      `[SECURITY] Blocked suspicious request from ${ip}: ${pathname}`
+    );
     return new NextResponse('Forbidden', { status: 403 });
   }
 
   // Bot detection (allow legitimate bots, block scrapers)
-  const isLegitimateBot = /googlebot|bingbot|slurp|duckduckbot/i.test(userAgent);
+  const isLegitimateBot = /googlebot|bingbot|slurp|duckduckbot/i.test(
+    userAgent
+  );
   if (isBot(userAgent) && !isLegitimateBot) {
     console.log(`[SECURITY] Bot detected: ${userAgent} from ${ip}`);
-    
+
     // Block bots from sensitive areas
-    if (pathname.startsWith('/admin') || 
-        pathname.startsWith('/api') || 
-        pathname.startsWith('/student') ||
-        pathname.startsWith('/portal')) {
+    if (
+      pathname.startsWith('/admin') ||
+      pathname.startsWith('/api') ||
+      pathname.startsWith('/student') ||
+      pathname.startsWith('/portal')
+    ) {
       return new NextResponse('Forbidden', { status: 403 });
     }
   }
@@ -174,26 +181,32 @@ export async function proxy(request: NextRequest) {
   // === AUTHENTICATION & AUTHORIZATION ===
   // Special handling for /lms: public page, but /lms/* is protected
   const isLmsPublic = pathname === '/lms';
-  const isLmsProtected = pathname.startsWith('/lms/') && !pathname.startsWith('/login');
-  
-  const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route)) || isLmsProtected;
-  const isAdminRoute = ADMIN_ROUTES.some(route => pathname.startsWith(route));
-  
+  const isLmsProtected =
+    pathname.startsWith('/lms/') && !pathname.startsWith('/login');
+
+  const isProtectedRoute =
+    PROTECTED_ROUTES.some((route) => pathname.startsWith(route)) ||
+    isLmsProtected;
+  const isAdminRoute = ADMIN_ROUTES.some((route) => pathname.startsWith(route));
+
   if ((isProtectedRoute || isAdminRoute) && !isLmsPublic) {
     // Check for Supabase SSR cookies first (fast check)
-    const cookieNames = Array.from(request.cookies.getAll()).map(c => c.name);
-    const hasSupabaseCookie = cookieNames.some(n => n.startsWith('sb-'));
-    
+    const cookieNames = Array.from(request.cookies.getAll()).map((c) => c.name);
+    const hasSupabaseCookie = cookieNames.some((n) => n.startsWith('sb-'));
+
     if (!hasSupabaseCookie) {
       // No auth cookie, redirect immediately
       const loginUrl = new URL('/login', request.url);
       loginUrl.searchParams.set('next', pathname);
       return NextResponse.redirect(loginUrl);
     }
-    
+
     // Verify authentication
     const supabase = await createClient();
-    const { data: { user }, error } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
 
     if (error || !user) {
       // Redirect to login with return URL
@@ -253,23 +266,33 @@ export async function proxy(request: NextRequest) {
 
   // Add comprehensive security headers to response
   const response = NextResponse.next();
-  
+
   Object.entries(securityHeaders).forEach(([key, value]) => {
     response.headers.set(key, value);
   });
 
   // Add cache control for static assets
-  if (pathname.startsWith('/_next/static') || 
-      pathname.startsWith('/images') || 
-      pathname.startsWith('/videos')) {
-    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  if (
+    pathname.startsWith('/_next/static') ||
+    pathname.startsWith('/images') ||
+    pathname.startsWith('/videos')
+  ) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=31536000, immutable'
+    );
   }
 
   // Prevent caching of sensitive pages
-  if (pathname.startsWith('/admin') || 
-      pathname.startsWith('/student') || 
-      pathname.startsWith('/portal')) {
-    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/student') ||
+    pathname.startsWith('/portal')
+  ) {
+    response.headers.set(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, proxy-revalidate'
+    );
     response.headers.set('Pragma', 'no-cache');
     response.headers.set('Expires', '0');
     response.headers.set('X-Robots-Tag', 'noindex, nofollow');
@@ -279,7 +302,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 };

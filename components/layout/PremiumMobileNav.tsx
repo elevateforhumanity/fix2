@@ -170,7 +170,7 @@ export function PremiumMobileNav() {
                 <span style={{ color: '#FFFFFF' }}>Apply Now</span>
               </Link>
               <a
-                href="https://elevateforhumanityeducation.com"
+                href="https://elevateforhumanitylearning.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-xl font-bold text-sm hover:bg-blue-700 transition-colors shadow-lg"
@@ -212,8 +212,9 @@ export function PremiumMobileNav() {
                     className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-100 transition-all"
                   >
                     <div className="flex items-center gap-3">
-                      // @ts-expect-error TS2786: 'Icon' cannot be used as a JSX component.
-                      // @ts-expect-error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
+                      // @ts-expect-error TS2786: 'Icon' cannot be used as a JSX
+                      component. // @ts-expect-error TS2604: JSX element type
+                      'Icon' does not have any construct or call signatures.
                       <Icon size={20} />
                       <span className="font-semibold">{section.title}</span>
                     </div>

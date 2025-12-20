@@ -85,9 +85,9 @@ export const headerNav: NavSection[] = [
   },
   {
     label: 'Student Portal',
-    href: '/student/dashboard',
+    href: '/dashboard',
     items: [
-      { label: 'Dashboard', href: '/student/dashboard' },
+      { label: 'Dashboard', href: '/dashboard' },
       { label: 'My Courses', href: '/student/courses' },
       { label: 'Assignments', href: '/student/assignments' },
       { label: 'Grades', href: '/student/grades' },
@@ -99,18 +99,40 @@ export const headerNav: NavSection[] = [
   },
   {
     label: 'LMS',
-    href: '/lms',
+    href: 'https://elevateforhumanitylearning.com',
     items: [
-      { label: 'LMS Dashboard', href: '/lms/dashboard' },
-      { label: 'My Courses', href: '/lms/courses' },
-      { label: 'All Courses', href: '/courses' },
-      { label: 'Calendar', href: '/calendar' },
-      { label: 'Assignments', href: '/lms/assignments' },
-      { label: 'Grades', href: '/lms/grades' },
-      { label: 'Certificates', href: '/lms/certificates' },
-      { label: 'Leaderboard', href: '/leaderboard' },
-      { label: 'Messages', href: '/lms/messages' },
-      { label: 'Resources', href: '/lms/resources' },
+      {
+        label: 'LMS Dashboard',
+        href: 'https://elevateforhumanitylearning.com/dashboard',
+      },
+      {
+        label: 'My Courses',
+        href: 'https://elevateforhumanitylearning.com/courses',
+      },
+      {
+        label: 'Calendar',
+        href: 'https://elevateforhumanitylearning.com/calendar',
+      },
+      {
+        label: 'Assignments',
+        href: 'https://elevateforhumanitylearning.com/assignments',
+      },
+      {
+        label: 'Grades',
+        href: 'https://elevateforhumanitylearning.com/grades',
+      },
+      {
+        label: 'Certificates',
+        href: 'https://elevateforhumanitylearning.com/certificates',
+      },
+      {
+        label: 'Messages',
+        href: 'https://elevateforhumanitylearning.com/messages',
+      },
+      {
+        label: 'Resources',
+        href: 'https://elevateforhumanitylearning.com/resources',
+      },
     ],
   },
   {
@@ -170,6 +192,40 @@ export const headerNav: NavSection[] = [
       { label: 'Grants', href: '/grants' },
       { label: 'Philanthropy', href: '/philanthropy' },
       { label: 'Contact Us', href: '/contact' },
+    ],
+  },
+  {
+    label: 'Admin',
+    href: 'https://elevateconnectsdirectory.org',
+    items: [
+      {
+        label: 'Admin Dashboard',
+        href: 'https://elevateconnectsdirectory.org/dashboard',
+      },
+      {
+        label: 'Applications',
+        href: 'https://elevateconnectsdirectory.org/applications',
+      },
+      {
+        label: 'Enrollments',
+        href: 'https://elevateconnectsdirectory.org/enrollments',
+      },
+      {
+        label: 'Students',
+        href: 'https://elevateconnectsdirectory.org/students',
+      },
+      {
+        label: 'Partners',
+        href: 'https://elevateconnectsdirectory.org/partners',
+      },
+      {
+        label: 'Reports',
+        href: 'https://elevateconnectsdirectory.org/reports',
+      },
+      {
+        label: 'Settings',
+        href: 'https://elevateconnectsdirectory.org/settings',
+      },
     ],
   },
 ];
