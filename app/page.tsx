@@ -34,23 +34,25 @@ export default function HomePage() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2">
                 100%
               </div>
               <div className="text-sm text-slate-600">Free Training</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2">
                 4-12
               </div>
               <div className="text-sm text-slate-600">Weeks</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">$0</div>
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                $0
+              </div>
               <div className="text-sm text-slate-600">Debt</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2">
                 Real
               </div>
               <div className="text-sm text-slate-600">Jobs Waiting</div>
@@ -93,7 +95,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
                     Barber Apprenticeship
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
@@ -101,7 +103,7 @@ export default function HomePage() {
                     your clientele. Own your chair or open your own shop. 12-18
                     months.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange-600 text-white font-bold text-base rounded-lg">
                     Learn More →
                   </span>
                 </div>
@@ -120,7 +122,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
                     CNA Healthcare
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
@@ -128,7 +130,7 @@ export default function HomePage() {
                     home health. Stable income, flexible schedules, room to
                     grow. 4-8 weeks.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange-600 text-white font-bold text-base rounded-lg">
                     Learn More →
                   </span>
                 </div>
@@ -147,7 +149,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
                     HVAC Technician
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
@@ -155,7 +157,7 @@ export default function HomePage() {
                     pay, job security. Start your own business or work for a
                     company. 8-12 weeks.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange-600 text-white font-bold text-base rounded-lg">
                     Learn More →
                   </span>
                 </div>
@@ -165,7 +167,7 @@ export default function HomePage() {
           <div className="text-center mt-8">
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 text-orange-500 font-semibold hover:text-orange-600"
+              className="inline-flex items-center gap-2 text-brand-orange-600 font-semibold hover:text-brand-orange-700"
             >
               View All Programs →
             </Link>
@@ -252,7 +254,7 @@ export default function HomePage() {
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
             This Is Not Graduation.
           </h2>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-orange-500 leading-tight mb-12">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-brand-orange-600 leading-tight mb-12">
             This Is Elevation.
           </h2>
           <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
@@ -298,7 +300,7 @@ export default function HomePage() {
                   </p>
                   <Link
                     href="/programs/tax-preparation"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white font-bold text-lg rounded-lg hover:bg-brand-orange-700 transition"
                   >
                     Learn More →
                   </Link>
@@ -332,7 +334,7 @@ export default function HomePage() {
                   </p>
                   <Link
                     href="/programs/business-startup"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white font-bold text-lg rounded-lg hover:bg-brand-orange-700 transition"
                   >
                     Learn More →
                   </Link>
@@ -344,7 +346,7 @@ export default function HomePage() {
           <div className="text-center mt-8">
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 text-orange-500 font-semibold hover:text-orange-600 text-lg"
+              className="inline-flex items-center gap-2 text-brand-orange-600 font-semibold hover:text-brand-orange-700 text-lg"
             >
               View All Programs →
             </Link>
