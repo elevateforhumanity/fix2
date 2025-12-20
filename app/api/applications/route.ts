@@ -1,13 +1,20 @@
 // app/api/applications/route.ts
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
-import { rateLimitNew as rateLimit, getClientIdentifier, RATE_LIMITS } from '@/lib/rateLimit';
+import {
+  rateLimitNew as rateLimit,
+  getClientIdentifier,
+  RATE_LIMITS,
+} from '@/lib/rateLimit';
 
 export async function POST(req: Request) {
   try {
     // Rate limiting: 3 requests per minute per IP
     const identifier = getClientIdentifier(req.headers);
-    const rateLimitResult = rateLimit(`applications:${identifier}`, RATE_LIMITS.APPLICATION_FORM);
+    const rateLimitResult = rateLimit(
+      `applications:${identifier}`,
+      RATE_LIMITS.APPLICATION_FORM
+    );
 
     if (!rateLimitResult.ok) {
       return NextResponse.json(
@@ -89,22 +96,28 @@ export async function POST(req: Request) {
     // Send email notifications
     try {
       // Send confirmation email to applicant
-      await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          to: body.email,
-          subject: `Application Received [Ref: ${referenceNumber}] - Elevate for Humanity`,
-          html: `
+      await fetch(
+        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: body.email,
+            subject: `Application Received [Ref: ${referenceNumber}] - Elevate for Humanity`,
+            html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
               <h2 style="color: #ea580c;">Application Received!</h2>
               <p>Hi ${body.firstName},</p>
               <p>We've received your application for our <strong>${body.program}</strong> program.</p>
               
               <div style="background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 8px; padding: 16px; margin: 20px 0;">
-                <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748b;">Your Reference Number:</p>
-                <p style="margin: 0; font-size: 24px; font-weight: bold; font-family: monospace; color: #0f172a;">${referenceNumber}</p>
-                <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">Save this number to check your application status</p>
+                <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748b;">Your Application ID:</p>
+                <p style="margin: 0; font-size: 20px; font-weight: bold; font-family: monospace; color: #0f172a;">${data.id}</p>
+                <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">Reference: ${referenceNumber}</p>
+              </div>
+
+              <div style="text-align: center; margin: 24px 0;">
+                <a href="https://www.elevateforhumanity.org/apply/track?id=${data.id}&email=${encodeURIComponent(body.email)}" style="display: inline-block; background: #3b82f6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Track Application Status</a>
               </div>
 
               <h3 style="color: #0f172a;">What Happens Next?</h3>
@@ -124,17 +137,20 @@ export async function POST(req: Request) {
               <p>Best regards,<br><strong>Elevate for Humanity Team</strong></p>
             </div>
           `,
-        }),
-      });
+          }),
+        }
+      );
 
       // Send notification to staff
-      await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          to: 'elevate4humanityedu@gmail.com',
-          subject: `New Application [${referenceNumber}]: ${body.firstName} ${body.lastName} - ${body.program}`,
-          html: `
+      await fetch(
+        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: 'elevate4humanityedu@gmail.com',
+            subject: `New Application [${referenceNumber}]: ${body.firstName} ${body.lastName} - ${body.program}`,
+            html: `
             <h2>New Application Received</h2>
             <p><strong>Reference:</strong> ${referenceNumber}</p>
             <p><strong>Name:</strong> ${body.firstName} ${body.lastName}</p>
@@ -148,18 +164,24 @@ export async function POST(req: Request) {
             ${body.supportNeeds ? `<p><strong>Support Needs:</strong> ${body.supportNeeds}</p>` : ''}
             <p><a href="https://www.elevateforhumanity.org/admin/applications">View in Admin Portal</a></p>
           `,
-        }),
-      });
+          }),
+        }
+      );
     } catch (emailError) {
       console.error('Email notification error:', emailError);
       // Don't fail the application if email fails
     }
 
-    return NextResponse.json({ 
-      ok: true, 
-      id: data.id, 
-      referenceNumber: referenceNumber 
-    }, { status: 200 });
+    return NextResponse.json(
+      {
+        ok: true,
+        id: data.id,
+        email: data.email,
+        program: data.program_id,
+        referenceNumber: referenceNumber,
+      },
+      { status: 200 }
+    );
   } catch (err: any) {
     console.error('Application submission error:', err);
     return NextResponse.json(

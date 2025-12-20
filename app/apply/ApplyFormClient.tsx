@@ -51,19 +51,33 @@ export default function ApplyFormClient() {
         throw new Error('Failed to submit inquiry');
       }
 
-      setStatus('success');
+      const result = await response.json();
 
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          program: programParam || '',
-          message: '',
-          state_code: 'IN',
+      // Redirect to success page with application details
+      if (result.id) {
+        const params = new URLSearchParams({
+          id: result.id,
+          email: result.email || formData.email,
         });
-        setStatus('idle');
-      }, 5000);
+        if (result.program) {
+          params.append('program', result.program);
+        }
+        window.location.href = `/apply/success?${params.toString()}`;
+      } else {
+        // Fallback to inline success
+        setStatus('success');
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            program: programParam || '',
+            message: '',
+            state_code: 'IN',
+          });
+          setStatus('idle');
+        }, 5000);
+      }
     } catch (error) {
       console.error('Inquiry submission error:', error);
       setStatus('error');
@@ -134,10 +148,12 @@ export default function ApplyFormClient() {
                 Inquiry Received!
               </h2>
               <p className="text-slate-600 mb-4">
-                Thank you for your interest! We've received your inquiry and sent a confirmation to your email.
+                Thank you for your interest! We've received your inquiry and
+                sent a confirmation to your email.
               </p>
               <p className="text-sm text-slate-600 mb-6">
-                An advisor will contact you within 1-2 business days to discuss your goals and next steps.
+                An advisor will contact you within 1-2 business days to discuss
+                your goals and next steps.
               </p>
               <div className="space-y-3">
                 <button

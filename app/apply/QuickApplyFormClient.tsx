@@ -98,13 +98,27 @@ export default function QuickApplyFormClient() {
         throw new Error(data.error || 'Failed to submit application.');
       }
 
-      // Get reference number from API response
-      const refNumber = data.referenceNumber || `EFH-${Date.now().toString(36).toUpperCase()}`;
-      setReferenceNumber(refNumber);
-      
-      setSuccessMessage(
-        'Thank you! Your application has been received. Someone from Elevate for Humanity will contact you within 1–2 business days.'
-      );
+      // Redirect to success page with application details
+      if (data.id) {
+        const params = new URLSearchParams({
+          id: data.id,
+          email: data.email || form.email,
+        });
+        if (data.program) {
+          params.append('program', data.program);
+        }
+        window.location.href = `/apply/success?${params.toString()}`;
+      } else {
+        // Fallback to inline success
+        const refNumber =
+          data.referenceNumber ||
+          `EFH-${Date.now().toString(36).toUpperCase()}`;
+        setReferenceNumber(refNumber);
+
+        setSuccessMessage(
+          'Thank you! Your application has been received. Someone from Elevate for Humanity will contact you within 1–2 business days.'
+        );
+      }
     } catch (err: any) {
       console.error('Application submission error:', err);
       setErrorMessage(
@@ -128,39 +142,67 @@ export default function QuickApplyFormClient() {
             Application Received!
           </h2>
           <p className="text-lg text-slate-700 mb-6">
-            Thank you for applying! We've received your application and sent a confirmation to <strong>{form.email}</strong>.
+            Thank you for applying! We've received your application and sent a
+            confirmation to <strong>{form.email}</strong>.
           </p>
-          
+
           {/* Reference Number */}
           <div className="bg-slate-50 border-2 border-slate-200 rounded-xl p-6 mb-6 max-w-md mx-auto">
-            <p className="text-sm text-slate-600 mb-2">Your Reference Number:</p>
-            <p className="text-2xl font-bold text-slate-900 font-mono">{referenceNumber}</p>
-            <p className="text-xs text-slate-500 mt-2">Save this number to check your application status</p>
+            <p className="text-sm text-slate-600 mb-2">
+              Your Reference Number:
+            </p>
+            <p className="text-2xl font-bold text-slate-900 font-mono">
+              {referenceNumber}
+            </p>
+            <p className="text-xs text-slate-500 mt-2">
+              Save this number to check your application status
+            </p>
           </div>
 
           {/* What's Next */}
           <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-6 text-left max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">What Happens Next?</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-4">
+              What Happens Next?
+            </h3>
             <ol className="space-y-3 text-slate-700">
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                <span>We review your application and check funding eligibility (WIOA, WRG, JRI)</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  1
+                </span>
+                <span>
+                  We review your application and check funding eligibility
+                  (WIOA, WRG, JRI)
+                </span>
               </li>
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                <span>An advisor will contact you within 1-2 business days via {form.preferredContact}</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  2
+                </span>
+                <span>
+                  An advisor will contact you within 1-2 business days via{' '}
+                  {form.preferredContact}
+                </span>
               </li>
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                <span>We'll discuss your goals, program details, and next steps</span>
+                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  3
+                </span>
+                <span>
+                  We'll discuss your goals, program details, and next steps
+                </span>
               </li>
             </ol>
           </div>
 
           {/* Calendly CTA */}
           <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-6 mb-6 max-w-2xl mx-auto">
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Want to Talk Sooner?</h3>
-            <p className="text-slate-700 mb-4">Schedule your advisor call now instead of waiting for us to reach out.</p>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">
+              Want to Talk Sooner?
+            </h3>
+            <p className="text-slate-700 mb-4">
+              Schedule your advisor call now instead of waiting for us to reach
+              out.
+            </p>
             <a
               href="https://calendly.com/elevate-for-humanity/advisor-call"
               target="_blank"
@@ -196,11 +238,17 @@ export default function QuickApplyFormClient() {
           <div className="mt-8 pt-6 border-t border-slate-200">
             <p className="text-sm text-slate-600">
               Questions? Call us at{' '}
-              <a href="tel:3173143757" className="font-bold text-orange-600 hover:text-orange-700">
+              <a
+                href="tel:3173143757"
+                className="font-bold text-orange-600 hover:text-orange-700"
+              >
                 (317) 314-3757
-              </a>
-              {' '}or email{' '}
-              <a href="mailto:elevate4humanityedu@gmail.com" className="font-bold text-orange-600 hover:text-orange-700">
+              </a>{' '}
+              or email{' '}
+              <a
+                href="mailto:elevate4humanityedu@gmail.com"
+                className="font-bold text-orange-600 hover:text-orange-700"
+              >
                 elevate4humanityedu@gmail.com
               </a>
             </p>
