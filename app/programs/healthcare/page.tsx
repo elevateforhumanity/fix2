@@ -20,7 +20,7 @@ export default function HealthcarePage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-20">
+      <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
@@ -34,7 +34,7 @@ export default function HealthcarePage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Healthcare Programs
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl">
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl">
             CNA, Medical Assistant, Phlebotomy, and Home Health Aide training
             programs
           </p>
@@ -233,7 +233,7 @@ export default function HealthcarePage() {
       </section>
 
       {/* Next Steps */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-16">
+      <section className="bg-white text-white py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Next Steps</h2>
           <div className="space-y-4 text-left max-w-2xl mx-auto mb-8">
@@ -243,7 +243,7 @@ export default function HealthcarePage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Apply</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Submit your application online
                 </p>
               </div>
@@ -254,7 +254,7 @@ export default function HealthcarePage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Meet with advisor</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Discuss your goals and eligibility
                 </p>
               </div>
@@ -265,7 +265,7 @@ export default function HealthcarePage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Confirm eligibility</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   We help with funding paperwork
                 </p>
               </div>
@@ -276,7 +276,7 @@ export default function HealthcarePage() {
               </div>
               <div>
                 <h3 className="font-bold mb-1">Enroll</h3>
-                <p className="text-white/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Start your training program
                 </p>
               </div>

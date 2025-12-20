@@ -10,10 +10,10 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <video
           autoPlay
-          muted
           loop
           playsInline
           preload="auto"
+          controls
           className="w-full h-auto"
           style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
         >
@@ -230,34 +230,15 @@ export default function HomePage() {
       </section>
 
       {/* ELEVATION MESSAGE - Second Hero */}
-      <section className="relative bg-black text-white px-6 sm:px-10 lg:px-12 py-32 lg:py-40 overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover opacity-40"
-          >
-            <source
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
-        </div>
-
-        {/* Content */}
-        <div className="relative mx-auto max-w-5xl text-center">
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
+      <section className="py-20 bg-brand-orange-600 text-white px-6">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             This Is Not Graduation.
           </h2>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-brand-orange-600 leading-tight mb-12">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-8">
             This Is Elevation.
           </h2>
-          <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl leading-relaxed max-w-3xl mx-auto">
             We don't just hand you a certificate. We elevate you to a new
             level—with skills, confidence, and a career that changes everything.
           </p>
@@ -274,73 +255,59 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image
-                src="/images/artlist/hero-training-4.jpg"
-                alt="Tax Business Training"
-                fill
-                quality={70}
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black/70 flex items-end">
-                <div className="p-8 text-white w-full bg-black/80">
-                  <h3
-                    className="text-4xl font-black mb-4 text-white"
-                    style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}
-                  >
+            <Link href="/programs/tax-preparation" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/artlist/hero-training-4.jpg"
+                    alt="Tax Business Training"
+                    fill
+                    quality={70}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition">
                     Tax & Finance
                   </h3>
-                  <p
-                    className="text-lg mb-5 font-semibold leading-relaxed"
-                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
-                  >
+                  <p className="text-slate-600 mb-4">
                     Launch your own tax prep business. Work from home. Earn
                     $40k-$100k+ per year. Tax season is busy, but the rest of
                     the year is yours.
                   </p>
-                  <Link
-                    href="/programs/tax-preparation"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white font-bold text-lg rounded-lg hover:bg-brand-orange-700 transition"
-                  >
+                  <span className="inline-flex items-center gap-2 text-brand-orange-600 font-semibold">
                     Learn More →
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
 
-            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image
-                src="/images/artlist/hero-training-5.jpg"
-                alt="Business & Entrepreneurship"
-                fill
-                quality={70}
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black/70 flex items-end">
-                <div className="p-8 text-white w-full bg-black/80">
-                  <h3
-                    className="text-4xl font-black mb-4 text-white"
-                    style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}
-                  >
+            <Link href="/programs/business-startup" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/artlist/hero-training-5.jpg"
+                    alt="Business & Entrepreneurship"
+                    fill
+                    quality={70}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition">
                     Business Startup
                   </h3>
-                  <p
-                    className="text-lg mb-5 font-semibold leading-relaxed"
-                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
-                  >
+                  <p className="text-slate-600 mb-4">
                     Turn your idea into a real business. Learn marketing,
                     branding, finances, and how to actually make money doing
                     what you love.
                   </p>
-                  <Link
-                    href="/programs/business-startup"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white font-bold text-lg rounded-lg hover:bg-brand-orange-700 transition"
-                  >
+                  <span className="inline-flex items-center gap-2 text-brand-orange-600 font-semibold">
                     Learn More →
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div className="text-center mt-8">
@@ -361,8 +328,8 @@ export default function HomePage() {
             Ready to Start?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Most students qualify for 100% free training through WIOA, WRG, or
-            apprenticeships.
+            Most students qualify for 100% free training through WIOA, WRG, JRI,
+            or DOL-registered apprenticeships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -371,16 +338,27 @@ export default function HomePage() {
             >
               Apply Now
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="https://www.indianacareerconnect.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
             >
-              Talk to an Advisor
-            </Link>
+              Schedule at IndianaCareerConnect.com
+            </a>
           </div>
           <p className="mt-6 text-sm text-white/90">
             📞 Call us at{' '}
-            <span className="font-semibold text-white">317-314-3757</span>
+            <a
+              href="tel:3173143757"
+              className="font-semibold text-white underline"
+            >
+              317-314-3757
+            </a>
+          </p>
+          <p className="mt-2 text-xs text-white/80">
+            DOL Approved | DWD Approved | DOE Approved | WIOA Eligible | WRG
+            Approved | JRI Partner
           </p>
         </div>
       </section>

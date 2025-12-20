@@ -11,9 +11,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/accreditation',
   },
-  title: 'Accreditation & Approvals | Elevate For Humanity',
+  title:
+    'Accreditation & Approvals | DOL, DWD, DOE Approved Training Provider | Elevate For Humanity',
   description:
-    'Officially approved by Indiana DWD, U.S. Department of Labor, and state licensing boards. Your training is legitimate and recognized.',
+    'Officially approved by U.S. Department of Labor (DOL), Indiana Department of Workforce Development (DWD), Indiana Department of Education (DOE), WIOA eligible, WRG approved, JRI partner. Registered Apprenticeship Sponsor RAPIDS ID: 2025-IN-132301. INTraining Location ID: 10004621.',
+  keywords:
+    'DOL approved training, DWD approved, DOE approved, WIOA eligible training provider, WRG approved programs, registered apprenticeship sponsor, Indiana workforce development, accredited training Indiana, state approved training, federal approved training',
 };
 
 export default function AccreditationPage() {
@@ -32,6 +35,13 @@ export default function AccreditationPage() {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+            <span className="text-sm font-semibold">✓ DOL Approved</span>
+            <span className="text-white/50">|</span>
+            <span className="text-sm font-semibold">✓ DWD Approved</span>
+            <span className="text-white/50">|</span>
+            <span className="text-sm font-semibold">✓ DOE Approved</span>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Officially Approved. Fully Accredited.
           </h1>
@@ -39,6 +49,20 @@ export default function AccreditationPage() {
             Your training is legitimate, recognized by employers, and approved
             by state and federal agencies.
           </p>
+          <div className="flex flex-wrap justify-center gap-3 text-sm">
+            <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+              WIOA Eligible
+            </span>
+            <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+              WRG Approved
+            </span>
+            <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+              JRI Partner
+            </span>
+            <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+              Registered Apprenticeship Sponsor
+            </span>
+          </div>
         </div>
       </section>
 
@@ -380,6 +404,220 @@ export default function AccreditationPage() {
         </div>
       </section>
 
+      {/* For Donors, Grants, and Philanthropic Organizations */}
+      <section className="py-16 bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              For Donors, Grant Boards & Philanthropic Organizations
+            </h2>
+            <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+              Partner with a fully compliant, government-approved training
+              provider with proven outcomes
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+              <h3 className="text-2xl font-bold mb-6">Our Credentials</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">U.S. Department of Labor (DOL)</p>
+                    <p className="text-sm text-purple-100">
+                      Registered Apprenticeship Sponsor
+                    </p>
+                    <p className="text-xs text-purple-200">
+                      RAPIDS ID: 2025-IN-132301
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">
+                      Indiana Department of Workforce Development (DWD)
+                    </p>
+                    <p className="text-sm text-purple-100">
+                      Approved Training Provider
+                    </p>
+                    <p className="text-xs text-purple-200">
+                      INTraining Location ID: 10004621
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">
+                      Indiana Department of Education (DOE)
+                    </p>
+                    <p className="text-sm text-purple-100">
+                      Approved Training Provider
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">WIOA Eligible Training Provider</p>
+                    <p className="text-sm text-purple-100">
+                      Federal workforce funding approved
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">
+                      Workforce Ready Grant (WRG) Approved
+                    </p>
+                    <p className="text-sm text-purple-100">
+                      All programs eligible for state funding
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">
+                      Justice Reinvestment Initiative (JRI) Partner
+                    </p>
+                    <p className="text-sm text-purple-100">
+                      Official partner for justice-involved individuals
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold">State Licensing Board Approvals</p>
+                    <p className="text-sm text-purple-100">
+                      Cosmetology, Barber, Healthcare
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+              <h3 className="text-2xl font-bold mb-6">Why Partner With Us</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">📊</span>
+                  <div>
+                    <p className="font-bold">Measurable Outcomes</p>
+                    <p className="text-sm text-purple-100">
+                      Track completion rates, job placements, and wage gains
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🎯</span>
+                  <div>
+                    <p className="font-bold">Targeted Impact</p>
+                    <p className="text-sm text-purple-100">
+                      Serving justice-involved, low-income, and barrier-facing
+                      populations
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✅</span>
+                  <div>
+                    <p className="font-bold">Full Compliance</p>
+                    <p className="text-sm text-purple-100">
+                      Meet all federal and state reporting requirements
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🤝</span>
+                  <div>
+                    <p className="font-bold">Proven Partnerships</p>
+                    <p className="text-sm text-purple-100">
+                      WorkOne, EmployIndy, community corrections, nonprofits
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">💼</span>
+                  <div>
+                    <p className="font-bold">Employer Connections</p>
+                    <p className="text-sm text-purple-100">
+                      Direct job placement with hiring partners
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">📈</span>
+                  <div>
+                    <p className="font-bold">Transparent Reporting</p>
+                    <p className="text-sm text-purple-100">
+                      Regular updates on program outcomes and impact
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 text-gray-900">
+            <h3 className="text-2xl font-bold mb-4 text-center">Our Impact</h3>
+            <div className="grid md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-4xl font-bold text-purple-600 mb-2">
+                  500+
+                </div>
+                <div className="text-sm text-gray-600">Students Trained</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-purple-600 mb-2">
+                  85%
+                </div>
+                <div className="text-sm text-gray-600">Job Placement Rate</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-purple-600 mb-2">
+                  $18+
+                </div>
+                <div className="text-sm text-gray-600">
+                  Average Starting Wage
+                </div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-purple-600 mb-2">
+                  15+
+                </div>
+                <div className="text-sm text-gray-600">Career Pathways</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-lg mb-4">
+              Interested in funding workforce development that creates real
+              change?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:bg-purple-50 transition text-lg"
+              >
+                Request Partnership Information
+              </Link>
+              <a
+                href="mailto:info@elevateforhumanity.org"
+                className="inline-flex px-8 py-4 bg-purple-700 text-white font-bold rounded-lg hover:bg-purple-800 transition text-lg"
+              >
+                Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-brand-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
@@ -389,12 +627,22 @@ export default function AccreditationPage() {
           <p className="text-base md:text-lg mb-8">
             Get certified with a program employers trust.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-5 bg-white text-brand-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
-          >
-            Contact Us
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="inline-block px-10 py-5 bg-white text-brand-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
+            >
+              Apply Now
+            </Link>
+            <a
+              href="https://www.indianacareerconnect.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-5 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-all text-lg shadow-xl"
+            >
+              Schedule at IndianaCareerConnect.com
+            </a>
+          </div>
           <p className="mt-6 text-white/90">
             Call{' '}
             <a href="tel:3173143757" className="font-bold underline">

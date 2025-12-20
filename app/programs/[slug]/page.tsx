@@ -73,7 +73,7 @@ export default async function ProgramDetailPage({
               </h1>
 
               {/* Outcome Line */}
-              <p className="text-xl md:text-2xl text-white/90 mb-6 font-medium">
+              <p className="text-xl md:text-2xl text-slate-600 mb-6 font-medium">
                 Get trained, get funded (if eligible), and move into real work.
               </p>
 
@@ -412,7 +412,7 @@ export default async function ProgramDetailPage({
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Still Not Sure?
           </h2>
-          <p className="text-lg text-white/90 mb-8">
+          <p className="text-lg text-slate-600 mb-8">
             Talk to an advisor. We'll answer your questions and help you figure
             out if this program is right for you.
           </p>

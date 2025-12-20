@@ -6,9 +6,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/rise',
   },
-  title: 'RISE Foundation | Empowering Communities Through Education',
+  title:
+    'RISE Foundation | Free Tax Preparation Training | IRS VITA Volunteer | Indianapolis',
   description:
-    'RISE Foundation is a non-profit organization dedicated to providing educational opportunities and workforce development programs.',
+    'RISE Foundation offers free IRS-certified tax preparation training. Become a VITA volunteer through IRS Link & Learn. Help low-income families get free tax help. IRS-approved training provider in Indianapolis.',
+  keywords:
+    'IRS VITA volunteer, free tax preparation training, IRS Link and Learn, VITA certification, volunteer income tax assistance, IRS certified tax preparer training, free tax help Indianapolis, VITA site Indianapolis, tax volunteer training, IRS approved training',
 };
 
 export default function RiseFoundationPage() {
@@ -169,19 +172,38 @@ export default function RiseFoundationPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all duration-700">
               <h3 className="text-3xl font-semibold text-slate-900 mb-4">
-                Workforce Training
+                IRS VITA Volunteer Training
               </h3>
               <p className="text-slate-600 mb-6">
-                Free career training programs in high-demand industries
-                including healthcare, skilled trades, beauty services, and
-                technology.
+                Become an IRS-certified tax preparer through our free VITA
+                (Volunteer Income Tax Assistance) training program. Complete IRS
+                Link & Learn certification and help low-income families file
+                taxes for free.
               </p>
-              <Link
-                href="/programs"
-                className="text-brand-orange-600 font-semibold hover:underline"
-              >
-                View Programs →
-              </Link>
+              <div className="space-y-3 mb-6">
+                <a
+                  href="https://www.irs.gov/individuals/irs-tax-volunteers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-brand-orange-600 font-semibold hover:underline"
+                >
+                  IRS Volunteer Signup →
+                </a>
+                <a
+                  href="https://www.irs.gov/individuals/volunteers/link-learn-taxes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-brand-orange-600 font-semibold hover:underline"
+                >
+                  IRS Link & Learn Platform →
+                </a>
+                <Link
+                  href="/programs/tax-preparation"
+                  className="block text-brand-orange-600 font-semibold hover:underline"
+                >
+                  Our Tax Preparation Course →
+                </Link>
+              </div>
             </div>
 
             <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all duration-700">

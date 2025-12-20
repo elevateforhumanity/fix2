@@ -13,24 +13,27 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Barber Apprenticeship',
+  title:
+    'Barber Apprenticeship Indiana | Earn While You Learn | DOL Registered | Indianapolis',
   description:
-    'Earn while you learn. Get matched to a licensed barber shop, receive hands-on training, and earn your barber license through our registered apprenticeship program.',
+    'DOL-registered barber apprenticeship in Indianapolis. Earn $12-15/hour while training. Get matched to licensed barber shop, receive hands-on training, earn Indiana barber license. State Board approved. RAPIDS ID: 2025-IN-132301.',
+  keywords:
+    'barber apprenticeship Indiana, earn while you learn barber, DOL registered apprenticeship, Indiana barber license, barber training Indianapolis, paid barber training, State Board approved barber, barber school Indianapolis, apprenticeship barber program Indiana',
 };
 
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Official Badge */}
-      <div className="bg-blue-900 text-white py-2">
-        <div className="max-w-7xl mx-auto px-6 text-center text-sm">
+      <div className="bg-green-50 border-b border-green-200 py-2">
+        <div className="max-w-7xl mx-auto px-6 text-center text-sm text-slate-900">
           <strong>U.S. Department of Labor Registered Apprenticeship</strong> |
           Approved by Indiana DWD |{' '}
           <a
             href="https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417"
             target="_blank"
             rel="noopener"
-            className="underline hover:text-orange-400"
+            className="text-blue-600 underline hover:text-blue-800"
           >
             Program #10002417
           </a>
@@ -38,7 +41,7 @@ export default function BarberApprenticeshipPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-20">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
@@ -52,10 +55,10 @@ export default function BarberApprenticeshipPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
             Barber Apprenticeship
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl">
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl">
             Get matched to a licensed barber shop, receive hands-on training,
             and earn your barber license through our registered apprenticeship
             program.
@@ -70,7 +73,7 @@ export default function BarberApprenticeshipPage() {
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white hover:bg-gray-100 text-blue-900 font-bold rounded-lg transition-all text-center"
+              className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 font-bold rounded-lg border-2 border-slate-300 transition-all text-center"
             >
               Talk to an Advisor
             </Link>
@@ -432,7 +435,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Next Steps */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-16">
+      <section className="bg-brand-orange-600 text-white py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Next Steps</h2>
           <div className="space-y-4 text-left max-w-2xl mx-auto mb-8">

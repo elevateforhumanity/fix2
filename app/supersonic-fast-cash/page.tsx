@@ -16,32 +16,171 @@ export const metadata: Metadata = {
   title:
     'Tax Refund Advance Indianapolis | Get $6,000 Fast | Supersonic Fast Cash',
   description:
-    'Get your tax refund advance TODAY in Indianapolis! Up to $6,000 in minutes. Professional tax preparation included. No credit check. Same-day cash. IRS-certified preparers. Walk-ins welcome at 7009 E 56th St.',
+    'Get your tax refund advance TODAY! Up to $6,000 in minutes. Professional tax preparation included. No credit check. Same-day cash. IRS-certified preparers. Serving all 50 states online. Indianapolis office: 7009 E 56th St.',
   keywords: [
+    // Primary Keywords - High Volume
     'tax refund advance Indianapolis',
-    'fast tax refund Indianapolis',
-    'same day tax refund Indianapolis',
-    'tax advance loan Indianapolis',
-    'instant tax refund Indianapolis',
     'tax preparation Indianapolis',
-    'tax refund loan Indiana',
+    'tax services Indianapolis',
+    'tax filing Indianapolis',
+    'tax refund loan Indianapolis',
+    'instant tax refund Indianapolis',
+
+    // Competitor Alternative Keywords
+    'H&R Block alternative Indianapolis',
+    'TurboTax alternative Indianapolis',
+    'Jackson Hewitt alternative Indianapolis',
+    'Liberty Tax alternative Indianapolis',
+    'cheaper than H&R Block Indianapolis',
+    'better than TurboTax Indianapolis',
+    'free tax filing Indianapolis',
+    'affordable tax preparation Indianapolis',
+
+    // Speed & Urgency Keywords
+    'same day tax refund Indianapolis',
+    'fast tax refund Indianapolis',
     'quick tax refund Indianapolis',
+    'instant tax refund Indianapolis',
     'emergency tax refund Indianapolis',
-    'tax advance near me',
+    'get tax refund today Indianapolis',
+    'tax refund in minutes Indianapolis',
+    '24 hour tax refund Indianapolis',
+
+    // Refund Advance Keywords
+    'tax advance loan Indianapolis',
     'tax refund anticipation loan Indianapolis',
     'RAL Indianapolis',
     'tax refund cash advance Indianapolis',
-    'IRS certified tax preparer Indianapolis',
-    'free tax preparation Indianapolis',
-    'VITA tax preparation Indianapolis',
-    'tax help Indianapolis',
-    'tax services Marion County',
-    'tax filing Indianapolis',
-    'tax return advance Indianapolis',
+    'early tax refund Indianapolis',
     'get tax refund early Indianapolis',
-    'tax refund same day cash',
+    'tax advance near me',
     'no credit check tax advance',
-    'tax season Indianapolis 2024',
+    'guaranteed tax refund advance',
+
+    // Location-Based Keywords - Indianapolis
+    'tax services Marion County',
+    'tax preparation 46226',
+    'tax preparation 46220',
+    'tax services 46208',
+    'tax services 46218',
+    'tax services 46219',
+    'tax services 46201',
+    'tax services 46202',
+    'tax services 46203',
+    'tax services 46204',
+    'tax services 46205',
+    'tax services near me Indianapolis',
+    'tax preparer Indianapolis Indiana',
+    'Indianapolis tax office',
+    'east side Indianapolis tax services',
+    'north side Indianapolis tax services',
+    'downtown Indianapolis tax services',
+    '56th street tax services',
+    'Meridian street tax services',
+
+    // Nationwide Keywords
+    'online tax preparation USA',
+    'virtual tax filing nationwide',
+    'remote tax services United States',
+    'online tax preparer all states',
+    'nationwide tax preparation',
+    'tax services all 50 states',
+    'online tax filing any state',
+    'virtual tax help USA',
+    'remote tax refund advance',
+    'online tax professional nationwide',
+
+    // State-Specific Keywords (Major Markets)
+    'tax preparation Indiana',
+    'tax services Ohio',
+    'tax filing Illinois',
+    'tax preparer Michigan',
+    'tax services Kentucky',
+    'tax preparation Tennessee',
+    'tax services Wisconsin',
+    'tax filing Missouri',
+    'tax preparer Pennsylvania',
+    'tax services New York',
+    'tax preparation California',
+    'tax services Texas',
+    'tax filing Florida',
+    'tax preparer Georgia',
+    'tax services North Carolina',
+
+    // Major Cities Nationwide
+    'tax services Chicago',
+    'tax preparation New York City',
+    'tax filing Los Angeles',
+    'tax preparer Houston',
+    'tax services Phoenix',
+    'tax preparation Philadelphia',
+    'tax services San Antonio',
+    'tax filing San Diego',
+    'tax preparer Dallas',
+    'tax services San Jose',
+    'tax preparation Austin',
+    'tax services Jacksonville',
+    'tax filing Fort Worth',
+    'tax preparer Columbus',
+    'tax services Charlotte',
+
+    // Hybrid/Online Service Keywords
+    'online tax preparation',
+    'virtual tax filing',
+    'remote tax services',
+    'video tax consultation',
+    'online tax help',
+    'virtual tax appointment',
+    'online tax refund advance',
+    'remote tax filing',
+    'video call tax help',
+    'work from home tax service',
+    'file taxes online with professional',
+    'virtual tax preparer',
+    'online CPA tax help',
+    'remote enrolled agent',
+
+    // Service-Specific Keywords
+    'IRS certified tax preparer Indianapolis',
+    'professional tax preparation Indianapolis',
+    'tax expert Indianapolis',
+    'tax specialist Indianapolis',
+    'VITA tax preparation Indianapolis',
+    'free tax help Indianapolis',
+    'walk in tax services Indianapolis',
+    'no appointment tax filing Indianapolis',
+
+    // Problem-Solving Keywords
+    'need money fast Indianapolis',
+    'emergency cash Indianapolis',
+    'tax problems Indianapolis',
+    'owe IRS money Indianapolis',
+    'tax debt help Indianapolis',
+    'amended tax return Indianapolis',
+    'back taxes Indianapolis',
+
+    // Demographic Keywords
+    'low income tax help Indianapolis',
+    'EITC Indianapolis',
+    'child tax credit Indianapolis',
+    'self employed tax help Indianapolis',
+    'small business taxes Indianapolis',
+    'gig worker taxes Indianapolis',
+    '1099 tax help Indianapolis',
+
+    // Seasonal Keywords
+    'tax season 2025 Indianapolis',
+    'tax deadline Indianapolis',
+    'last minute tax filing Indianapolis',
+    'tax extension Indianapolis',
+
+    // Trust & Quality Keywords
+    'trusted tax preparer Indianapolis',
+    'best tax service Indianapolis',
+    'top rated tax preparer Indianapolis',
+    'honest tax service Indianapolis',
+    'accurate tax filing Indianapolis',
+    'guaranteed tax refund Indianapolis',
   ],
   openGraph: {
     title: 'Tax Refund Advance Indianapolis | Get $6,000 Fast Today',
@@ -74,7 +213,7 @@ export default function SupersonicFastCashPage() {
       'EPS Financial Tax Advance Indianapolis',
     ],
     description:
-      'Same-day tax refund advance $250-$7,500. Powered by EPS Financial and Pathward Bank. Professional tax preparation with IRS-certified preparers in Indianapolis, Indiana. No credit check required.',
+      'Same-day tax refund advance $250-$7,500. Powered by EPS Financial and Pathward Bank. Professional tax preparation with IRS-certified preparers serving all 50 states online. Indianapolis office available. No credit check required.',
     url: 'https://www.elevateforhumanity.org/supersonic-fast-cash',
     telephone: '+1-317-314-3757',
     priceRange: '$0-$7500',
@@ -101,10 +240,16 @@ export default function SupersonicFastCashPage() {
       latitude: 39.8386,
       longitude: -86.0586,
     },
-    areaServed: {
-      '@type': 'State',
-      name: 'Indiana',
-    },
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      {
+        '@type': 'State',
+        name: 'All 50 US States',
+      },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -366,6 +511,165 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
+      {/* Nationwide Online Service */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Serving All 50 States - 100% Online & In-Person
+            </h2>
+            <p className="text-xl text-blue-100">
+              Professional tax preparation from anywhere in the United States
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
+              <div className="text-4xl mb-4">🌎</div>
+              <h3 className="text-xl font-bold mb-3">
+                100% Online - Any State
+              </h3>
+              <p className="text-blue-100 mb-4">
+                File your taxes from anywhere in the USA via secure video call
+              </p>
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li>✓ All 50 states supported</li>
+                <li>✓ Secure video consultation</li>
+                <li>✓ Upload documents online</li>
+                <li>✓ E-signature available</li>
+                <li>✓ Same-day refund advance</li>
+                <li>✓ State & federal returns</li>
+              </ul>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
+              <div className="text-4xl mb-4">🏢</div>
+              <h3 className="text-xl font-bold mb-3">
+                In-Person (Indianapolis)
+              </h3>
+              <p className="text-blue-100 mb-4">
+                Visit our Indianapolis offices by appointment
+              </p>
+              <div className="space-y-2 text-sm">
+                <p>
+                  <strong>Location 1:</strong> 7009 E 56th St, Suite EE1 (46226)
+                </p>
+                <p>
+                  <strong>Location 2:</strong> 3737 N Meridian St (46208)
+                </p>
+                <p>
+                  <strong>Hours:</strong> Mon-Fri 9AM-5PM, Sat 10AM-2PM
+                </p>
+                <p className="text-yellow-300 font-bold mt-3">
+                  ⚠️ Appointment Required - No Walk-Ins
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
+              <div className="text-4xl mb-4">📱</div>
+              <h3 className="text-xl font-bold mb-3">Phone & Chat Support</h3>
+              <p className="text-blue-100 mb-4">
+                Get help via phone, text, or live chat
+              </p>
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li>✓ Phone consultations</li>
+                <li>✓ Text message support</li>
+                <li>✓ Live chat available</li>
+                <li>✓ Email support</li>
+                <li>✓ Document upload portal</li>
+                <li>✓ Real-time status updates</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
+            <h3 className="text-2xl font-bold mb-6 text-center">
+              States We Serve (All 50 States)
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-sm">
+              {[
+                'Alabama',
+                'Alaska',
+                'Arizona',
+                'Arkansas',
+                'California',
+                'Colorado',
+                'Connecticut',
+                'Delaware',
+                'Florida',
+                'Georgia',
+                'Hawaii',
+                'Idaho',
+                'Illinois',
+                'Indiana',
+                'Iowa',
+                'Kansas',
+                'Kentucky',
+                'Louisiana',
+                'Maine',
+                'Maryland',
+                'Massachusetts',
+                'Michigan',
+                'Minnesota',
+                'Mississippi',
+                'Missouri',
+                'Montana',
+                'Nebraska',
+                'Nevada',
+                'New Hampshire',
+                'New Jersey',
+                'New Mexico',
+                'New York',
+                'North Carolina',
+                'North Dakota',
+                'Ohio',
+                'Oklahoma',
+                'Oregon',
+                'Pennsylvania',
+                'Rhode Island',
+                'South Carolina',
+                'South Dakota',
+                'Tennessee',
+                'Texas',
+                'Utah',
+                'Vermont',
+                'Virginia',
+                'Washington',
+                'West Virginia',
+                'Wisconsin',
+                'Wyoming',
+              ].map((state) => (
+                <div key={state} className="text-blue-100">
+                  ✓ {state}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-xl mb-6">
+              <strong>Nationwide Tax Preparation</strong> - File from anywhere
+              in the United States. Federal & state returns for all 50 states.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:3173143757"
+                className="inline-block px-8 py-4 bg-yellow-400 text-blue-900 font-bold rounded-lg hover:bg-yellow-300 transition text-lg"
+              >
+                Call 317-314-3757
+              </a>
+              <Link
+                href="/supersonic-fast-cash/book-appointment"
+                className="inline-block px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition text-lg"
+              >
+                Book Online Appointment
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -374,7 +678,7 @@ export default function SupersonicFastCashPage() {
               How It Works
             </h2>
             <p className="text-base md:text-lg text-gray-600">
-              Get your refund advance in 3 simple steps
+              Get your refund advance in 3 simple steps - In-person or online
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
