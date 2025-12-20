@@ -303,13 +303,13 @@ export default function GrantProgramsPage() {
             </Link>
             <Link
               href="/funding/wioa"
-              className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg"
             >
               Learn About WIOA
             </Link>
             <Link
               href="/funding/wrg"
-              className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg"
             >
               Learn About WRG
             </Link>

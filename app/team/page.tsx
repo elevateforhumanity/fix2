@@ -106,7 +106,7 @@ export default function TeamPage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-800 text-white rounded-lg text-lg font-bold hover:bg-blue-900 border-2 border-white transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-800 text-white rounded-lg text-lg font-bold hover:bg-blue-600 border-2 border-white transition-colors"
             >
               Contact Our Team
               <ArrowRight className="ml-2 w-5 h-5" />

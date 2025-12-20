@@ -54,15 +54,15 @@ export default async function ProgramDetailPage({
         <div className="max-w-6xl mx-auto px-4">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-600 mb-6">
-            <Link href="/" className="hover:text-white">
+            <Link href="/" className="hover:text-slate-900">
               Home
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href="/programs" className="hover:text-white">
+            <Link href="/programs" className="hover:text-slate-900">
               Programs
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-white">{program.name}</span>
+            <span className="text-slate-900">{program.name}</span>
           </nav>
 
           <div className="grid lg:grid-cols-[1fr,400px] gap-8 items-start">
@@ -407,7 +407,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* Still Not Sure */}
-      <section className="py-12 md:py-16 bg-white text-white">
+      <section className="py-12 md:py-16 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Still Not Sure?

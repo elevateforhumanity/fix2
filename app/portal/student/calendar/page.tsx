@@ -383,7 +383,7 @@ export default async function CalendarPage() {
                 // @ts-expect-error TS2304: Cannot find name 'Link'.
                 <Link
                   href="/programs"
-                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-600 border-2 border-white text-lg shadow-2xl transition-all"
                 >
                   Browse All Programs // @ts-expect-error TS2304: Cannot find
                   name 'Link'.

@@ -144,7 +144,7 @@ export default async function WelcomePacketPage({ params }: PageProps) {
           </div>
 
           {/* Progress Bar */}
-          <div className="w-full bg-blue-900 rounded-full h-4 overflow-hidden">
+          <div className="w-full bg-blue-600 rounded-full h-4 overflow-hidden">
             <div
               className="bg-white h-full rounded-full transition-all duration-500"
               style={{ width: `${completionPercentage}%` }}

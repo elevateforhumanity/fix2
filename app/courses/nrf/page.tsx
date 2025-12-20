@@ -284,7 +284,7 @@ export default function NrfPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-purple-900 text-white">
+      <section className="py-16 bg-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Ready to Get Certified?

@@ -624,7 +624,7 @@ export default function EnhancedHomePage() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-3 bg-black rounded-xl hover:bg-gray-900 transition-all"
+                  className="flex items-center gap-3 px-6 py-3 bg-black rounded-xl hover:bg-slate-800 transition-all"
                 >
                   <svg
                     className="w-8 h-8"
@@ -643,7 +643,7 @@ export default function EnhancedHomePage() {
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-6 py-3 bg-black rounded-xl hover:bg-gray-900 transition-all"
+                  className="flex items-center gap-3 px-6 py-3 bg-black rounded-xl hover:bg-slate-800 transition-all"
                 >
                   <svg
                     className="w-8 h-8"
@@ -662,7 +662,7 @@ export default function EnhancedHomePage() {
 
             {/* Right - Phone Mockup */}
             <div className="relative">
-              <div className="relative mx-auto w-64 h-[500px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
+              <div className="relative mx-auto w-64 h-[500px] bg-slate-800 rounded-[3rem] p-3 shadow-2xl">
                 <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden">
                   <Image
                     src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
@@ -672,7 +672,7 @@ export default function EnhancedHomePage() {
                   />
                 </div>
                 {/* Phone Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl"></div>
               </div>
               {/* Floating Elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-500 rounded-full opacity-50 blur-2xl animate-pulse"></div>

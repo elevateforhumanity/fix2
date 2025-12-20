@@ -816,7 +816,7 @@ export default function SupersonicFastCashPage() {
                 href="https://calendly.com/supersonicfastcash/tax-appointment"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-blue-900 text-white font-bold rounded-full hover:bg-blue-800 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-800 transition text-xl shadow-2xl"
               >
                 BOOK APPOINTMENT
               </a>

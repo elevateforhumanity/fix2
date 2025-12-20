@@ -163,7 +163,7 @@ export default function LiveChatPage() {
               <h3 className="font-medium text-gray-900 mb-2">
                 3. Add to Environment Variables
               </h3>
-              <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm">
+              <div className="bg-slate-800 text-gray-100 p-4 rounded-lg font-mono text-sm">
                 <div>NEXT_PUBLIC_TAWK_PROPERTY_ID=your_property_id</div>
                 <div>NEXT_PUBLIC_TAWK_WIDGET_ID=your_widget_id</div>
               </div>
@@ -289,7 +289,7 @@ export default function LiveChatPage() {
                 </Link>
                 <Link
                   href="/programs"
-                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+                  className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-600 border-2 border-white text-lg shadow-2xl transition-all"
                 >
                   Browse All Programs
                 </Link>

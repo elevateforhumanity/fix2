@@ -319,7 +319,7 @@ export default function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 bg-green-600 text-white">
+      <section className="py-16 px-6 bg-green-600 text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your Tax Business?

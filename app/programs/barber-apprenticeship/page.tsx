@@ -416,7 +416,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Shop Owners CTA */}
-      <section className="py-12 md:py-16 bg-gray-900 text-white">
+      <section className="py-12 md:py-16 bg-slate-800 text-slate-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Barber Shop Owners

@@ -333,7 +333,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* SECTION 7: What Happens Next - ONE Path */}
-      <section className="py-16 bg-blue-900 text-white">
+      <section className="py-16 bg-blue-600 text-slate-900">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-3xl font-bold mb-8 text-center">
             What Happens Next

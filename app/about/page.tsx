@@ -263,7 +263,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-800 text-white rounded-lg text-lg font-bold hover:bg-blue-900 border-2 border-white transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-800 text-white rounded-lg text-lg font-bold hover:bg-blue-600 border-2 border-white transition-colors"
             >
               Start Your Application
               <ArrowRight className="ml-2 w-5 h-5" />

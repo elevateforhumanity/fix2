@@ -195,7 +195,7 @@ export default function LessonPage() {
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 bg-slate-900/50 z-30 md:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -284,7 +284,7 @@ export default function LessonPage() {
             }}
           />
           {/* Video overlay info */}
-          <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition">
+          <div className="absolute top-4 left-4 bg-slate-900/70 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition">
             Lesson {currentIndex + 1} of {lessons.length}
           </div>
         </div>

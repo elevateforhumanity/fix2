@@ -60,7 +60,7 @@ export default function CompliantHeader() {
   return (
     <>
       {/* Top Bar - Contact Info */}
-      <div className="bg-blue-900 text-white py-2">
+      <div className="bg-blue-600 text-white py-2">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between text-sm">
             <div className="flex items-center gap-6">

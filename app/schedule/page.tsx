@@ -28,7 +28,7 @@ export default function SchedulePage() {
         <div className="mt-5 grid gap-3 md:grid-cols-3">
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-gray-900 text-white hover:opacity-90"
+            className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-slate-800 text-white hover:opacity-90"
           >
             Start Inquiry Form
           </Link>

@@ -169,7 +169,7 @@ export default async function DevAdmin() {
                         href={`https://supabase.com/dashboard/project/_/editor/courses?filter=id%3Deq%3D${course.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                        className="bg-gray-800 hover:bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                       >
                         🗄️ Edit in Supabase
                       </a>

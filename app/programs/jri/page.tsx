@@ -139,7 +139,7 @@ export default function JRIProgramsPage() {
       </section>
 
       {/* Earn While You Learn - Apprenticeships */}
-      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-gradient-to-br from-brand-green-600 to-brand-green-700 text-white">
+      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-gradient-to-br from-brand-green-600 to-brand-green-700 text-slate-900">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
@@ -379,7 +379,7 @@ export default function JRIProgramsPage() {
       </section>
 
       {/* Indiana Career Connect Scheduling */}
-      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-indigo-600 text-white">
+      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-indigo-600 text-slate-900">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Schedule Your Appointment

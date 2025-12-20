@@ -249,7 +249,7 @@ export function PageTemplate({
                 {finalCTA.secondaryText && finalCTA.secondaryHref && (
                   <Link
                     href={finalCTA.secondaryHref}
-                    className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg transition-colors"
+                    className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg transition-colors"
                   >
                     {finalCTA.secondaryText}
                   </Link>
