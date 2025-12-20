@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'HVAC Technician | Elevate for Humanity',
   description: '100% Free HVAC training program',
+  keywords: ['Hvac Technician Indianapolis', 'free Hvac Technician training', 'WIOA Hvac Technician', 'Hvac Technician apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/hvac-technician',
+  },
 };
 
 export default function Page() {

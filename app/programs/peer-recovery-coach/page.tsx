@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Peer Recovery Coach | Elevate for Humanity',
   description: '100% Free recovery coach training',
+  keywords: ['Peer Recovery Coach Indianapolis', 'free Peer Recovery Coach training', 'WIOA Peer Recovery Coach', 'Peer Recovery Coach apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/peer-recovery-coach',
+  },
 };
 
 export default function Page() {

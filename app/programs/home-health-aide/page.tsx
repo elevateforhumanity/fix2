@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Home Health Aide | Elevate for Humanity',
   description: '100% Free HHA training',
+  keywords: ['Home Health Aide Indianapolis', 'free Home Health Aide training', 'WIOA Home Health Aide', 'Home Health Aide apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/home-health-aide',
+  },
 };
 
 export default function Page() {

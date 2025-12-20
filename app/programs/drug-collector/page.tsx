@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Drug Collector Certification | Elevate for Humanity',
   description: '100% Free drug collector training',
+  keywords: ['Drug Collector Indianapolis', 'free Drug Collector training', 'WIOA Drug Collector', 'Drug Collector apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/drug-collector',
+  },
 };
 
 export default function Page() {

@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Business Startup | Elevate for Humanity',
   description: '100% Free business training',
+  keywords: ['Business Startup Indianapolis', 'free Business Startup training', 'WIOA Business Startup', 'Business Startup apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/business-startup',
+  },
 };
 
 export default function Page() {

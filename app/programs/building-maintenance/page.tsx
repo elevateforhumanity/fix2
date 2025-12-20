@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Building Maintenance | Elevate for Humanity',
   description: '100% Free maintenance training',
+  keywords: ['Building Maintenance Indianapolis', 'free Building Maintenance training', 'WIOA Building Maintenance', 'Building Maintenance apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/building-maintenance',
+  },
 };
 
 export default function Page() {

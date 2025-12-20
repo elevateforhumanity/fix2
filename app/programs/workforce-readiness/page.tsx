@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Workforce Readiness | Elevate for Humanity',
   description: '100% Free workforce training',
+  keywords: ['Workforce Readiness Indianapolis', 'free Workforce Readiness training', 'WIOA Workforce Readiness', 'Workforce Readiness apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/workforce-readiness',
+  },
 };
 
 export default function Page() {

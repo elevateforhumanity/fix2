@@ -4,6 +4,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Direct Support Professional | Elevate for Humanity',
   description: '100% Free DSP training program',
+  keywords: ['Direct Support Professional Indianapolis', 'free Direct Support Professional training', 'WIOA Direct Support Professional', 'Direct Support Professional apprenticeship'],
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/direct-support-professional',
+  },
 };
 
 export default function Page() {
