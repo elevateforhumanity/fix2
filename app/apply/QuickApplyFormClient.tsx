@@ -86,10 +86,23 @@ export default function QuickApplyFormClient() {
 
     setSubmitting(true);
     try {
-      const res = await fetch('/api/applications', {
+      // Send as simple inquiry via email
+      const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: `${form.firstName} ${form.lastName}`,
+          email: form.email,
+          phone: form.phone,
+          program: form.program,
+          message: `Full Application Submission:
+City: ${form.city}
+ZIP: ${form.zip}
+Has Case Manager: ${form.hasCaseManager}
+${form.caseManagerAgency ? `Agency: ${form.caseManagerAgency}` : ''}
+${form.supportNeeds ? `Support Needs: ${form.supportNeeds}` : ''}
+Preferred Contact: ${form.preferredContact}`,
+        }),
       });
 
       const data = await res.json().catch(() => ({}));
