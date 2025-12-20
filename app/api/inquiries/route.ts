@@ -55,9 +55,19 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('Supabase insert error:', error);
+      console.error('Supabase insert error:', {
+        error,
+        code: error.code,
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+      });
       return NextResponse.json(
-        { error: 'Failed to save inquiry' },
+        {
+          error: 'Failed to save inquiry',
+          debug:
+            process.env.NODE_ENV === 'development' ? error.message : undefined,
+        },
         { status: 500 }
       );
     }
