@@ -1,6 +1,19 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 
+export async function GET() {
+  return NextResponse.json({
+    message: 'Use POST to test insert',
+    example: {
+      firstName: 'Test',
+      lastName: 'User',
+      email: 'test@example.com',
+      phone: '3175551234',
+      program: 'barber',
+    },
+  });
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
