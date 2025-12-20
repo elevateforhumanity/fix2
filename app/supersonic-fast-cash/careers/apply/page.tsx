@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import { CheckCircle, FileText, Award, Clock } from 'lucide-react';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export default function TaxPreparerApplication() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({

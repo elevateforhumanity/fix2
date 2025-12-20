@@ -6,6 +6,11 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect, notFound } from 'next/navigation';
 import Image from 'next/image';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 type Params = Promise<{ courseId: string }>;
 
 export async function generateMetadata({

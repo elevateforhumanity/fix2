@@ -1,6 +1,11 @@
 import RecapCreateForm from '@/components/recaps/RecapCreateForm';
 import RecapList from '@/components/recaps/RecapList';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export const dynamic = 'force-dynamic';
 
 export default function RecapsPage() {

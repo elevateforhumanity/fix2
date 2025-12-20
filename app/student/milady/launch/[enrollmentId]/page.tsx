@@ -2,6 +2,11 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { getSsoLaunchUrl } from '@/lib/partners/milady';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 type Params = Promise<{ enrollmentId: string }>;
 
 export default async function MiladyLaunchPage({ params }: { params: Params }) {

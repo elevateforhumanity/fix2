@@ -8,6 +8,11 @@ import Split from 'react-split';
 import FileTree from '@/components/editor/FileTree';
 import CodeEditor from '@/components/editor/CodeEditor';
 import Terminal from '@/components/editor/Terminal';
+
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
 export const dynamic = 'force-dynamic';
 
 // Mock file structure

@@ -14,6 +14,11 @@ import Link from 'next/link';
 import ScormPlayer from '@/components/student/ScormPlayer';
 import ExternalModuleLauncher from '@/components/student/ExternalModuleLauncher';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 interface PageProps {
   params: {
     slug: string;

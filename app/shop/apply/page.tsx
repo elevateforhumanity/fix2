@@ -7,6 +7,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Scissors, CheckCircle, ArrowRight } from 'lucide-react';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export default function ShopApplyPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

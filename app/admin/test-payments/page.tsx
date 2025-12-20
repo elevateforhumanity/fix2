@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CreditCard, CheckCircle, XCircle, DollarSign } from 'lucide-react';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export const dynamic = 'force-dynamic';
 
 export default function TestPaymentsPage() {

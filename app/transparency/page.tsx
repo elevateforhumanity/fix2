@@ -511,7 +511,7 @@ export default function TransparencyPage() {
                 Highest rating for accountability and transparency
               </p>
               <a
-                href="#"
+                href="/about"
                 className="inline-flex items-center gap-2 text-brand-blue-600 font-semibold hover:text-brand-blue-700"
               >
                 View Profile
@@ -533,7 +533,7 @@ export default function TransparencyPage() {
                 Seal of transparency from Candid
               </p>
               <a
-                href="#"
+                href="/about"
                 className="inline-flex items-center gap-2 text-brand-green-600 font-semibold hover:text-green-700"
               >
                 View Profile
@@ -553,7 +553,7 @@ export default function TransparencyPage() {
                 Better Business Bureau accreditation
               </p>
               <a
-                href="#"
+                href="/about"
                 className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:text-purple-700"
               >
                 View Profile

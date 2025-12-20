@@ -2,6 +2,11 @@ import { requireAdmin } from '@/lib/auth';
 import { createClient } from '@/utils/supabase/server';
 import CreatorApprovalActions from './CreatorApprovalActions';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export default async function AdminCreatorsPage() {
   await requireAdmin();
 

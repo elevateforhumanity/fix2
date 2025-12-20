@@ -18,6 +18,11 @@ import {
 import { DiscussionForum } from '@/components/lms/DiscussionForum';
 import { QuizSystem } from '@/components/lms/QuizSystem';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export default function LessonPage() {
   const params = useParams();
   const router = useRouter();

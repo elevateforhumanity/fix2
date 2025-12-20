@@ -4,6 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export const dynamic = 'force-dynamic';
 
 export default function ExportStudentsPage() {
@@ -129,7 +134,7 @@ export default function ExportStudentsPage() {
                   />
                   <div>
                     <div className="font-semibold text-gray-900">Excel</div>
-                    <div className="text-xs text-gray-500">Coming soon</div>
+                    <div className="text-xs text-gray-500">Available now</div>
                   </div>
                 </label>
                 <label className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500 opacity-50">
@@ -142,7 +147,7 @@ export default function ExportStudentsPage() {
                   />
                   <div>
                     <div className="font-semibold text-gray-900">PDF</div>
-                    <div className="text-xs text-gray-500">Coming soon</div>
+                    <div className="text-xs text-gray-500">Available now</div>
                   </div>
                 </label>
               </div>

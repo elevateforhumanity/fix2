@@ -2,6 +2,11 @@ import { requireCreator } from '@/lib/creator';
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export default async function CreatorDashboardPage() {
   const { user, creator } = await requireCreator();
   const supabase = await createClient();

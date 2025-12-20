@@ -12,6 +12,11 @@ import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
 import { Save, Play, GitBranch, Settings } from 'lucide-react';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export const dynamicParams = true;
 
 // Lazy load Monaco to avoid SSR issues

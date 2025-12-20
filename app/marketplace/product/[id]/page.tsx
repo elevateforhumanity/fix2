@@ -2,6 +2,11 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import ProductCheckoutButton from './ProductCheckoutButton';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 export default async function ProductPage({
   params,
 }: {

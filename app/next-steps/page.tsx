@@ -2,6 +2,11 @@
 
 import { useEffect, useMemo, useState } from 'react';
 
+export const metadata = {
+  title: 'Elevate for Humanity | Workforce Training',
+  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+};
+
 type Checklist = any;
 
 function formatPct(p?: number) {
