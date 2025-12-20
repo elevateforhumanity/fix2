@@ -41,7 +41,7 @@ export default async function CreatorDashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-md p-6">
             <p className="text-sm text-gray-600 mb-1">Total Earnings</p>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               ${(totalEarnings / 100).toFixed(2)}
             </p>
           </div>
@@ -53,7 +53,7 @@ export default async function CreatorDashboardPage() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-6">
             <p className="text-sm text-gray-600 mb-1">Paid Out</p>
-            <p className="text-3xl font-bold text-blue-600">
+            <p className="text-3xl font-bold text-brand-blue-600">
               ${(paidEarnings / 100).toFixed(2)}
             </p>
           </div>
@@ -69,7 +69,7 @@ export default async function CreatorDashboardPage() {
             <h2 className="text-2xl font-bold">Your Products</h2>
             <Link
               href="/creator/products/new"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="bg-brand-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
             >
               Add Product
             </Link>
@@ -93,7 +93,7 @@ export default async function CreatorDashboardPage() {
                       <span
                         className={
                           product.status === 'approved'
-                            ? 'text-green-600'
+                            ? 'text-brand-green-600'
                             : product.status === 'pending_review'
                               ? 'text-yellow-600'
                               : product.status === 'rejected'
@@ -107,7 +107,7 @@ export default async function CreatorDashboardPage() {
                   </div>
                   <Link
                     href={`/creator/products/${product.id}`}
-                    className="text-blue-600 hover:underline"
+                    className="text-brand-blue-600 hover:underline"
                   >
                     Edit
                   </Link>
@@ -148,12 +148,12 @@ export default async function CreatorDashboardPage() {
                       <td className="py-3 px-4">
                         ${(sale.amount_cents / 100).toFixed(2)}
                       </td>
-                      <td className="py-3 px-4 font-semibold text-green-600">
+                      <td className="py-3 px-4 font-semibold text-brand-green-600">
                         ${(sale.creator_earnings_cents / 100).toFixed(2)}
                       </td>
                       <td className="py-3 px-4">
                         {sale.paid_out ? (
-                          <span className="text-green-600">Paid</span>
+                          <span className="text-brand-green-600">Paid</span>
                         ) : (
                           <span className="text-yellow-600">Pending</span>
                         )}

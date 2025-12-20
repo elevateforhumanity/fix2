@@ -1,10 +1,15 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getActivePositions, formatSalaryRange, getEmploymentTypeDisplay } from '@/lib/data/careers';
+import {
+  getActivePositions,
+  formatSalaryRange,
+  getEmploymentTypeDisplay,
+} from '@/lib/data/careers';
 
 export const metadata: Metadata = {
   title: 'Careers - Join Our Team | Elevate For Humanity',
-  description: 'Join our mission to provide free career training and workforce development. Explore career opportunities at Elevate For Humanity.',
+  description:
+    'Join our mission to provide free career training and workforce development. Explore career opportunities at Elevate For Humanity.',
 };
 
 // Force dynamic rendering - don't try to statically generate at build time
@@ -50,7 +55,7 @@ export default async function CareersPage() {
     {
       icon: '🎯',
       title: 'Mission-Driven',
-      description: 'Make a real impact on people\'s lives',
+      description: "Make a real impact on people's lives",
     },
   ];
 
@@ -64,18 +69,19 @@ export default async function CareersPage() {
               Join Our Mission
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Help us transform lives through free career training and workforce development
+              Help us transform lives through free career training and workforce
+              development
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="#positions"
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+                className="bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
               >
                 View Open Positions
               </Link>
               <Link
                 href="#culture"
-                className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+                className="bg-brand-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
               >
                 Learn About Our Culture
               </Link>
@@ -90,21 +96,29 @@ export default async function CareersPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
             <p className="text-lg text-gray-700 mb-8">
-              At Elevate For Humanity, we believe everyone deserves access to quality career training
-              and the opportunity to build a better future. We partner with workforce boards, employers,
-              and community organizations to provide 100% free training programs that lead to real jobs.
+              At Elevate For Humanity, we believe everyone deserves access to
+              quality career training and the opportunity to build a better
+              future. We partner with workforce boards, employers, and community
+              organizations to provide 100% free training programs that lead to
+              real jobs.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">10,000+</div>
+                <div className="text-4xl font-bold text-brand-blue-600 mb-2">
+                  10,000+
+                </div>
                 <div className="text-gray-600">Students Trained</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                <div className="text-4xl font-bold text-brand-blue-600 mb-2">
+                  500+
+                </div>
                 <div className="text-gray-600">Employer Partners</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
+                <div className="text-4xl font-bold text-brand-blue-600 mb-2">
+                  85%
+                </div>
                 <div className="text-gray-600">Job Placement Rate</div>
               </div>
             </div>
@@ -116,12 +130,19 @@ export default async function CareersPage() {
       <section id="culture" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Work With Us</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Why Work With Us
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="text-center p-6 rounded-lg border border-gray-200 hover:border-blue-500 hover:shadow-lg transition">
+                <div
+                  key={index}
+                  className="text-center p-6 rounded-lg border border-gray-200 hover:border-blue-500 hover:shadow-lg transition"
+                >
                   <div className="text-4xl mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {benefit.title}
+                  </h3>
                   <p className="text-gray-600">{benefit.description}</p>
                 </div>
               ))}
@@ -134,7 +155,9 @@ export default async function CareersPage() {
       <section id="positions" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Open Positions</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Open Positions
+            </h2>
             <div className="space-y-6">
               {openPositions.map((position) => (
                 <div
@@ -143,9 +166,12 @@ export default async function CareersPage() {
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2">{position.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2">
+                        {position.title}
+                      </h3>
                       <p className="text-gray-600 mb-3">
-                        {position.description || 'Join our team and make a difference in workforce development.'}
+                        {position.description ||
+                          'Join our team and make a difference in workforce development.'}
                       </p>
                       <div className="flex flex-wrap gap-3 text-sm">
                         {position.department?.name && (
@@ -153,7 +179,7 @@ export default async function CareersPage() {
                             {position.department.name}
                           </span>
                         )}
-                        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full">
+                        <span className="bg-brand-green-100 text-green-700 px-3 py-1 rounded-full">
                           Remote
                         </span>
                         <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full">
@@ -161,7 +187,10 @@ export default async function CareersPage() {
                         </span>
                         {(position.min_salary || position.max_salary) && (
                           <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">
-                            {formatSalaryRange(position.min_salary, position.max_salary)}
+                            {formatSalaryRange(
+                              position.min_salary,
+                              position.max_salary
+                            )}
                           </span>
                         )}
                       </div>
@@ -169,7 +198,7 @@ export default async function CareersPage() {
                     <div>
                       <Link
                         href={`/careers/${position.id}`}
-                        className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                        className="inline-block bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
                       >
                         Apply Now
                       </Link>
@@ -185,7 +214,8 @@ export default async function CareersPage() {
                   No open positions at the moment.
                 </p>
                 <p className="text-gray-500">
-                  Check back soon or send us your resume for future opportunities.
+                  Check back soon or send us your resume for future
+                  opportunities.
                 </p>
               </div>
             )}
@@ -197,43 +227,48 @@ export default async function CareersPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Hiring Process</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Our Hiring Process
+            </h2>
             <div className="space-y-8">
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   1
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Apply Online</h3>
                   <p className="text-gray-600">
-                    Submit your application and resume through our online portal.
+                    Submit your application and resume through our online
+                    portal.
                   </p>
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   2
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Phone Screen</h3>
                   <p className="text-gray-600">
-                    Initial conversation with our HR team to discuss your background and the role.
+                    Initial conversation with our HR team to discuss your
+                    background and the role.
                   </p>
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   3
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Team Interview</h3>
                   <p className="text-gray-600">
-                    Meet with the hiring manager and team members to discuss the role in detail.
+                    Meet with the hiring manager and team members to discuss the
+                    role in detail.
                   </p>
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                   4
                 </div>
                 <div>
@@ -256,12 +291,13 @@ export default async function CareersPage() {
               Don't See the Right Position?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              We're always looking for talented individuals who share our mission.
-              Send us your resume and we'll keep you in mind for future opportunities.
+              We're always looking for talented individuals who share our
+              mission. Send us your resume and we'll keep you in mind for future
+              opportunities.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+              className="inline-block bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
             >
               Contact Us
             </Link>

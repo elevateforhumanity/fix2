@@ -134,7 +134,10 @@ export default function ProgramHolderApplicationPage() {
         <section className="py-16">
           <div className="max-w-2xl mx-auto px-6 text-center">
             <div className="bg-white rounded-lg shadow-sm border p-8">
-              <CheckCircle className="text-green-600 mx-auto mb-4" size={64} />
+              <CheckCircle
+                className="text-brand-green-600 mx-auto mb-4"
+                size={64}
+              />
               <h1 className="text-3xl font-bold text-slate-900 mb-4">
                 Application Submitted!
               </h1>
@@ -144,7 +147,7 @@ export default function ProgramHolderApplicationPage() {
               </p>
               <button
                 onClick={() => router.push('/')}
-                className="px-8 py-3 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800"
+                className="px-8 py-3 bg-brand-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800"
               >
                 Return to Home
               </button>
@@ -368,7 +371,7 @@ export default function ProgramHolderApplicationPage() {
                 disabled={
                   submitting || formData.programsInterested.length === 0
                 }
-                className="flex-1 px-8 py-4 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 disabled:bg-slate-300 disabled:cursor-not-allowed text-lg"
+                className="flex-1 px-8 py-4 bg-brand-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 disabled:bg-slate-300 disabled:cursor-not-allowed text-lg"
               >
                 {submitting ? 'Submitting...' : 'Submit Application'}
               </button>

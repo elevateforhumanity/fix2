@@ -39,7 +39,8 @@ export default async function SettingsPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
         // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-        // @ts-expect-error TS2607: JSX element class does not support attributes because it does not have a 'pro...
+        // @ts-expect-error TS2607: JSX element class does not support
+        attributes because it does not have a 'pro...
         <Image
           src="/images/gallery/image8.jpg"
           alt="Settings"
@@ -61,18 +62,17 @@ export default async function SettingsPage() {
             // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              Get Started Free
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
+              Get Started Free // @ts-expect-error TS2304: Cannot find name
+              'Link'.
             </Link>
             // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              View Programs
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
+              View Programs // @ts-expect-error TS2304: Cannot find name 'Link'.
             </Link>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default async function SettingsPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow p-4 space-y-2">
-              <button className="w-full text-left px-4 py-2 rounded-lg bg-blue-50 text-blue-600 font-medium flex items-center gap-2">
+              <button className="w-full text-left px-4 py-2 rounded-lg bg-blue-50 text-brand-blue-600 font-medium flex items-center gap-2">
                 <User size={20} />
                 Account
               </button>
@@ -147,7 +147,7 @@ export default async function SettingsPage() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                <button className="px-6 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700">
                   Save Changes
                 </button>
               </div>
@@ -169,7 +169,7 @@ export default async function SettingsPage() {
                       Add an extra layer of security
                     </p>
                   </div>
-                  <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                  <button className="px-4 py-2 bg-brand-green-600 text-white rounded-lg hover:bg-green-700">
                     Enable
                   </button>
                 </div>
@@ -180,7 +180,7 @@ export default async function SettingsPage() {
                       Update your password regularly
                     </p>
                   </div>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  <button className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700">
                     Change
                   </button>
                 </div>
@@ -222,7 +222,7 @@ export default async function SettingsPage() {
                       className="sr-only peer"
                       defaultChecked
                     />
-                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600" />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-blue-600" />
                   </label>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default async function SettingsPage() {
               <div className="p-6 space-y-4">
                 <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
                   <div className="flex items-center gap-3">
-                    <Download size={20} className="text-blue-600" />
+                    <Download size={20} className="text-brand-blue-600" />
                     <div className="text-left">
                       <h3 className="font-medium">Download Your Data</h3>
                       <p className="text-sm text-gray-600">
@@ -282,7 +282,7 @@ export default async function SettingsPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -300,7 +300,7 @@ export default async function SettingsPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -318,7 +318,7 @@ export default async function SettingsPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -336,7 +336,7 @@ export default async function SettingsPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -355,8 +355,9 @@ export default async function SettingsPage() {
                   </ul>
                 </div>
                 <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-                  // @ts-expect-error TS2607: JSX element class does not support attributes because it does not have a 'pro...
+                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX
+                  component. // @ts-expect-error TS2607: JSX element class does
+                  not support attributes because it does not have a 'pro...
                   <Image
                     src="/images/gallery/image3.jpg"
                     alt="Students learning"
@@ -388,16 +389,16 @@ export default async function SettingsPage() {
                   href="/contact"
                   className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
                 >
-                  Apply Now - It's Free
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
+                  Apply Now - It's Free // @ts-expect-error TS2304: Cannot find
+                  name 'Link'.
                 </Link>
                 // @ts-expect-error TS2304: Cannot find name 'Link'.
                 <Link
                   href="/programs"
                   className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
                 >
-                  Browse All Programs
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
+                  Browse All Programs // @ts-expect-error TS2304: Cannot find
+                  name 'Link'.
                 </Link>
               </div>
             </div>

@@ -99,7 +99,7 @@ export default function MicroProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-brand-blue-600 mb-4">
                 <Target className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Focused Training</h3>
@@ -109,7 +109,7 @@ export default function MicroProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-green-100 text-brand-green-600 mb-4">
                 <TrendingUp className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Career Boost</h3>
@@ -119,7 +119,7 @@ export default function MicroProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-brand-orange-600 mb-4">
                 <Zap className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Low Cost</h3>
@@ -156,7 +156,7 @@ export default function MicroProgramsPage() {
                     <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
                       {program.duration}
                     </span>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-brand-green-100 text-green-700 text-xs font-semibold rounded-full">
                       Quick Start
                     </span>
                   </div>

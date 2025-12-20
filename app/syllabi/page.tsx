@@ -445,7 +445,7 @@ export default function SyllabiPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
-            <BookOpen className="w-10 h-10 text-blue-600" />
+            <BookOpen className="w-10 h-10 text-brand-blue-600" />
             <h1 className="text-4xl font-bold text-slate-900 text-2xl md:text-3xl lg:text-4xl">
               Course Syllabi
             </h1>
@@ -462,7 +462,7 @@ export default function SyllabiPage() {
         {/* Info Banner */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
           <div className="flex items-start gap-4">
-            <Target className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <Target className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
             <div>
               <h2 className="text-lg font-bold text-slate-900 mb-2">
                 About Learning Outcomes
@@ -490,7 +490,9 @@ export default function SyllabiPage() {
             >
               {/* Program Header */}
               <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">{program.program}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                  {program.program}
+                </h2>
                 <div className="flex items-center gap-6 text-blue-100">
                   <div className="flex items-center gap-2">
                     <Clock className="w-5 h-5" />
@@ -532,7 +534,7 @@ export default function SyllabiPage() {
                       </div>
                       <a
                         href={`/downloads/syllabi/${program.slug}-${course.code}.pdf`}
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium whitespace-nowrap"
+                        className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition text-sm font-medium whitespace-nowrap"
                         download
                         aria-label={`Download ${course.code} syllabus`}
                       >
@@ -544,7 +546,7 @@ export default function SyllabiPage() {
                     {/* Learning Outcomes */}
                     <div className="mb-6">
                       <div className="flex items-center gap-2 mb-3">
-                        <Target className="w-5 h-5 text-green-600" />
+                        <Target className="w-5 h-5 text-brand-green-600" />
                         <h4 className="font-bold text-slate-900">
                           Learning Outcomes
                         </h4>
@@ -556,7 +558,7 @@ export default function SyllabiPage() {
                       <ul className="space-y-2">
                         {course.learningOutcomes.map((outcome, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                             <span className="text-slate-700">{outcome}</span>
                           </li>
                         ))}
@@ -598,7 +600,9 @@ export default function SyllabiPage() {
                             key={idx}
                             className="flex items-start gap-3 text-slate-700"
                           >
-                            <span className="text-blue-600 font-bold">•</span>
+                            <span className="text-brand-blue-600 font-bold">
+                              •
+                            </span>
                             <span>{material}</span>
                           </li>
                         ))}
@@ -613,7 +617,7 @@ export default function SyllabiPage() {
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href={`/programs/${program.slug}`}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+                    className="px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition font-medium"
                   >
                     View Full Program
                   </Link>
@@ -625,7 +629,7 @@ export default function SyllabiPage() {
                   </Link>
                   <Link
                     href="/apply"
-                    className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition font-medium"
+                    className="px-6 py-3 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition font-medium"
                   >
                     Apply Now
                   </Link>
@@ -647,19 +651,19 @@ export default function SyllabiPage() {
           </p>
           <ul className="space-y-2 text-slate-700">
             <li className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Council on Occupational Education (COE) standards</span>
             </li>
             <li className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Industry certification requirements</span>
             </li>
             <li className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>State licensing board requirements</span>
             </li>
             <li className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Employer and workforce development needs</span>
             </li>
           </ul>
@@ -677,14 +681,14 @@ export default function SyllabiPage() {
           <div className="flex flex-wrap gap-4">
             <a
               href="mailto:advising@elevateforhumanity.org"
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
             >
               advising@elevateforhumanity.org
             </a>
             <span className="text-slate-400">|</span>
             <a
               href="tel:317-314-3757"
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
             >
               317-314-3757
             </a>

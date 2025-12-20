@@ -137,7 +137,7 @@ export default function SupersonicFastCashPage() {
                 href="https://www.facebook.com/share/14NGKwHMrdq/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-brand-blue-600 text-white font-bold rounded-full hover:bg-brand-blue-700 transition text-xl shadow-2xl"
               >
                 VISIT US ON FACEBOOK
               </a>
@@ -221,18 +221,20 @@ export default function SupersonicFastCashPage() {
               {/* E-Collect */}
               <div className="   rounded-2xl p-8 shadow-xl border-2 border-blue-200">
                 <div className="text-center mb-6">
-                  <div className="inline-block px-4 py-2 bg-blue-600 text-white font-bold rounded-full text-sm mb-4">
+                  <div className="inline-block px-4 py-2 bg-brand-blue-600 text-white font-bold rounded-full text-sm mb-4">
                     LOW COST
                   </div>
                   <h3 className="text-3xl font-bold text-slate-900 mb-2">
                     E-Collect
                   </h3>
-                  <p className="text-lg font-bold text-blue-600">Only $20</p>
+                  <p className="text-lg font-bold text-brand-blue-600">
+                    Only $20
+                  </p>
                 </div>
                 <ul className="space-y-3 text-slate-700 mb-6">
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -248,7 +250,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -264,7 +266,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -280,7 +282,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -300,20 +302,20 @@ export default function SupersonicFastCashPage() {
               {/* E-Advance - CASH ADVANCE */}
               <div className="   rounded-2xl p-8 shadow-xl border-4 border-green-400">
                 <div className="text-center mb-6">
-                  <div className="inline-block px-4 py-2 bg-green-600 text-white font-bold rounded-full text-sm mb-4">
+                  <div className="inline-block px-4 py-2 bg-brand-green-600 text-white font-bold rounded-full text-sm mb-4">
                     💰 CASH ADVANCE - MOST POPULAR
                   </div>
                   <h3 className="text-3xl font-bold text-slate-900 mb-2">
                     Refund Advance Loan
                   </h3>
-                  <p className="text-lg font-bold text-green-600">
+                  <p className="text-lg font-bold text-brand-green-600">
                     $250 - $7,500 Same Day!
                   </p>
                 </div>
                 <ul className="space-y-3 text-slate-700 mb-6">
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -331,7 +333,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -347,7 +349,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -363,7 +365,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -379,7 +381,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -412,7 +414,7 @@ export default function SupersonicFastCashPage() {
                 <ul className="space-y-3 text-slate-700 mb-6">
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -430,7 +432,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -446,7 +448,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -462,7 +464,7 @@ export default function SupersonicFastCashPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
-                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -504,7 +506,7 @@ export default function SupersonicFastCashPage() {
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -523,7 +525,7 @@ export default function SupersonicFastCashPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -542,7 +544,7 @@ export default function SupersonicFastCashPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -561,7 +563,7 @@ export default function SupersonicFastCashPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -580,7 +582,7 @@ export default function SupersonicFastCashPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -609,13 +611,13 @@ export default function SupersonicFastCashPage() {
                   href="https://calendly.com/supersonicfastcash/tax-appointment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition"
+                  className="px-8 py-4 bg-brand-blue-600 text-white font-bold rounded-full hover:bg-brand-blue-700 transition"
                 >
                   Book Appointment
                 </a>
                 <Link
                   href="/supersonic/upload"
-                  className="px-8 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
+                  className="px-8 py-4 bg-brand-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
                 >
                   Upload Documents
                 </Link>
@@ -640,23 +642,23 @@ export default function SupersonicFastCashPage() {
                 </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Individual tax returns (1040)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Self-employment income (Schedule C)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Rental property income (Schedule E)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Investment income and capital gains</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>All tax credits and deductions</span>
                   </li>
                 </ul>
@@ -668,23 +670,23 @@ export default function SupersonicFastCashPage() {
                 </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Rapid refund processing</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Refund advance loans</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Prepaid debit cards</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Check cashing services</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
+                    <span className="text-brand-blue-600 font-bold">•</span>
                     <span>Payment processing (credit/debit)</span>
                   </li>
                 </ul>
@@ -855,7 +857,7 @@ export default function SupersonicFastCashPage() {
                 href="https://www.facebook.com/share/14NGKwHMrdq/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white font-bold rounded-full hover:bg-brand-blue-700 transition"
               >
                 <svg
                   className="w-5 h-5"

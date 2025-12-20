@@ -4,7 +4,8 @@ import { Phone, GraduationCap, Award, Users, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Drug Testing Training Courses | Elevate for Humanity',
-  description: 'Professional drug testing training courses. DOT and non-DOT collector training, supervisor training, DER training, and more.',
+  description:
+    'Professional drug testing training courses. DOT and non-DOT collector training, supervisor training, DER training, and more.',
 };
 
 // NDS Training Courses with 40% markup
@@ -14,7 +15,8 @@ const trainingCourses = {
       name: 'DOT Urine Specimen Collector Training and Mocks',
       ndsPrice: 655,
       price: 917, // 40% markup
-      description: 'Complete DOT urine collector training with 5 required mock collections',
+      description:
+        'Complete DOT urine collector training with 5 required mock collections',
       duration: '4-6 hours + mocks',
       certificate: true,
       popular: true,
@@ -50,7 +52,8 @@ const trainingCourses = {
       name: 'DOT Supervisor Training Course',
       ndsPrice: 65,
       price: 91,
-      description: 'Required training for supervisors of DOT-regulated employees',
+      description:
+        'Required training for supervisors of DOT-regulated employees',
       duration: '60 minutes',
       certificate: true,
       popular: true,
@@ -59,7 +62,8 @@ const trainingCourses = {
       name: 'Non-DOT Supervisor Training Course',
       ndsPrice: 65,
       price: 91,
-      description: 'Supervisor training for non-DOT workplace drug testing programs',
+      description:
+        'Supervisor training for non-DOT workplace drug testing programs',
       duration: '60 minutes',
       certificate: true,
     },
@@ -69,7 +73,8 @@ const trainingCourses = {
       name: 'DER Training Course - FMCSA',
       ndsPrice: 220,
       price: 308,
-      description: 'Designated Employer Representative training for FMCSA (trucking)',
+      description:
+        'Designated Employer Representative training for FMCSA (trucking)',
       duration: '2-3 hours',
       certificate: true,
     },
@@ -77,7 +82,8 @@ const trainingCourses = {
       name: 'DER Training Course - FAA',
       ndsPrice: 220,
       price: 308,
-      description: 'Designated Employer Representative training for FAA (aviation)',
+      description:
+        'Designated Employer Representative training for FAA (aviation)',
       duration: '2-3 hours',
       certificate: true,
     },
@@ -132,7 +138,8 @@ export default function DrugTestingTrainingPage() {
               Drug Testing Training Courses
             </h1>
             <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
-              Professional training for DOT and non-DOT drug testing. Collector training, supervisor training, DER training, and more.
+              Professional training for DOT and non-DOT drug testing. Collector
+              training, supervisor training, DER training, and more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -155,35 +162,45 @@ export default function DrugTestingTrainingPage() {
       {/* Features */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Training</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Our Training
+          </h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="font-bold mb-2">Certified Training</h3>
-              <p className="text-sm text-gray-600">All courses include certificate of completion</p>
+              <p className="text-sm text-gray-600">
+                All courses include certificate of completion
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-blue-600" />
+                <Users className="w-8 h-8 text-brand-blue-600" />
               </div>
               <h3 className="font-bold mb-2">Expert Instructors</h3>
-              <p className="text-sm text-gray-600">Learn from industry professionals</p>
+              <p className="text-sm text-gray-600">
+                Learn from industry professionals
+              </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-brand-green-600" />
               </div>
               <h3 className="font-bold mb-2">DOT Compliant</h3>
-              <p className="text-sm text-gray-600">Meets all federal requirements</p>
+              <p className="text-sm text-gray-600">
+                Meets all federal requirements
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <GraduationCap className="w-8 h-8 text-orange-600" />
+                <GraduationCap className="w-8 h-8 text-brand-orange-600" />
               </div>
               <h3 className="font-bold mb-2">Self-Paced</h3>
-              <p className="text-sm text-gray-600">Complete training on your schedule</p>
+              <p className="text-sm text-gray-600">
+                Complete training on your schedule
+              </p>
             </div>
           </div>
         </div>
@@ -192,11 +209,19 @@ export default function DrugTestingTrainingPage() {
       {/* Collector Training */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-bold mb-8">Specimen Collector Training</h2>
-          <p className="text-gray-600 mb-8">Become a qualified DOT or non-DOT specimen collector. Required for anyone performing drug test collections.</p>
+          <h2 className="text-3xl font-bold mb-8">
+            Specimen Collector Training
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Become a qualified DOT or non-DOT specimen collector. Required for
+            anyone performing drug test collections.
+          </p>
           <div className="grid md:grid-cols-2 gap-6">
             {trainingCourses.collector.map((course) => (
-              <div key={course.name} className={`bg-white border-2 rounded-lg p-6 ${course.popular ? 'border-purple-500' : course.new ? 'border-blue-500' : 'border-gray-200'}`}>
+              <div
+                key={course.name}
+                className={`bg-white border-2 rounded-lg p-6 ${course.popular ? 'border-purple-500' : course.new ? 'border-blue-500' : 'border-gray-200'}`}
+              >
                 <div className="flex gap-2 mb-3">
                   {course.popular && (
                     <div className="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -210,7 +235,9 @@ export default function DrugTestingTrainingPage() {
                   )}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{course.name}</h3>
-                <p className="text-gray-600 text-sm mb-3">{course.description}</p>
+                <p className="text-gray-600 text-sm mb-3">
+                  {course.description}
+                </p>
                 <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
                   <span>⏱️ {course.duration}</span>
                   {course.certificate && <span>📜 Certificate</span>}
@@ -234,17 +261,25 @@ export default function DrugTestingTrainingPage() {
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl font-bold mb-8">Supervisor Training</h2>
-          <p className="text-gray-600 mb-8">Required training for supervisors who make reasonable suspicion determinations. DOT requires 60 minutes of training.</p>
+          <p className="text-gray-600 mb-8">
+            Required training for supervisors who make reasonable suspicion
+            determinations. DOT requires 60 minutes of training.
+          </p>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
             {trainingCourses.supervisor.map((course) => (
-              <div key={course.name} className={`bg-white border-2 rounded-lg p-6 ${course.popular ? 'border-purple-500' : 'border-gray-200'}`}>
+              <div
+                key={course.name}
+                className={`bg-white border-2 rounded-lg p-6 ${course.popular ? 'border-purple-500' : 'border-gray-200'}`}
+              >
                 {course.popular && (
                   <div className="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
                     MOST POPULAR
                   </div>
                 )}
                 <h3 className="text-xl font-bold mb-2">{course.name}</h3>
-                <p className="text-gray-600 text-sm mb-3">{course.description}</p>
+                <p className="text-gray-600 text-sm mb-3">
+                  {course.description}
+                </p>
                 <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
                   <span>⏱️ {course.duration}</span>
                   {course.certificate && <span>📜 Certificate</span>}
@@ -267,13 +302,23 @@ export default function DrugTestingTrainingPage() {
       {/* DER Training */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-bold mb-8">Designated Employer Representative (DER) Training</h2>
-          <p className="text-gray-600 mb-8">Training for DERs who manage drug and alcohol testing programs. Learn DOT regulations, procedures, and compliance requirements.</p>
+          <h2 className="text-3xl font-bold mb-8">
+            Designated Employer Representative (DER) Training
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Training for DERs who manage drug and alcohol testing programs.
+            Learn DOT regulations, procedures, and compliance requirements.
+          </p>
           <div className="grid md:grid-cols-3 gap-6">
             {trainingCourses.der.map((course) => (
-              <div key={course.name} className="bg-white border-2 border-gray-200 rounded-lg p-6">
+              <div
+                key={course.name}
+                className="bg-white border-2 border-gray-200 rounded-lg p-6"
+              >
                 <h3 className="text-lg font-bold mb-2">{course.name}</h3>
-                <p className="text-gray-600 text-sm mb-3">{course.description}</p>
+                <p className="text-gray-600 text-sm mb-3">
+                  {course.description}
+                </p>
                 <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
                   <span>⏱️ {course.duration}</span>
                   {course.certificate && <span>📜 Certificate</span>}
@@ -297,7 +342,10 @@ export default function DrugTestingTrainingPage() {
       <section className="py-16 bg-purple-50">
         <div className="mx-auto max-w-4xl px-4">
           <h2 className="text-3xl font-bold mb-8">Employee Training</h2>
-          <p className="text-gray-600 mb-8">Educate employees on drug-free workplace policies, testing procedures, and their rights and responsibilities.</p>
+          <p className="text-gray-600 mb-8">
+            Educate employees on drug-free workplace policies, testing
+            procedures, and their rights and responsibilities.
+          </p>
           <div className="bg-white border-2 border-purple-200 rounded-lg p-6 max-w-2xl">
             {trainingCourses.employee.map((course) => (
               <div key={course.name}>
@@ -326,10 +374,16 @@ export default function DrugTestingTrainingPage() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl font-bold mb-8">Advanced Training</h2>
-          <p className="text-gray-600 mb-8">Train-the-trainer programs and business development courses for drug testing professionals.</p>
+          <p className="text-gray-600 mb-8">
+            Train-the-trainer programs and business development courses for drug
+            testing professionals.
+          </p>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
             {trainingCourses.advanced.map((course) => (
-              <div key={course.name} className="bg-white border-2 border-gray-200 rounded-lg p-6">
+              <div
+                key={course.name}
+                className="bg-white border-2 border-gray-200 rounded-lg p-6"
+              >
                 <h3 className="text-xl font-bold mb-2">{course.name}</h3>
                 <p className="text-gray-600 mb-3">{course.description}</p>
                 <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
@@ -354,41 +408,70 @@ export default function DrugTestingTrainingPage() {
       {/* How It Works */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How Training Works</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            How Training Works
+          </h2>
           <div className="space-y-6">
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                1
+              </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">Enroll in Course</h3>
-                <p className="text-gray-700">Call (317) 314-3757 to enroll. We'll set up your account and provide access.</p>
+                <p className="text-gray-700">
+                  Call (317) 314-3757 to enroll. We'll set up your account and
+                  provide access.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                2
+              </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">Complete Training</h3>
-                <p className="text-gray-700">Self-paced online training. Complete modules at your convenience.</p>
+                <p className="text-gray-700">
+                  Self-paced online training. Complete modules at your
+                  convenience.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                3
+              </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">Pass Assessment</h3>
-                <p className="text-gray-700">Complete quizzes and final assessment to demonstrate knowledge.</p>
+                <p className="text-gray-700">
+                  Complete quizzes and final assessment to demonstrate
+                  knowledge.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                4
+              </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Complete Mocks (If Required)</h3>
-                <p className="text-gray-700">For collector training, complete 5 error-free mock collections via webcam.</p>
+                <h3 className="text-xl font-bold mb-2">
+                  Complete Mocks (If Required)
+                </h3>
+                <p className="text-gray-700">
+                  For collector training, complete 5 error-free mock collections
+                  via webcam.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">5</div>
+              <div className="w-10 h-10 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                5
+              </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">Receive Certificate</h3>
-                <p className="text-gray-700">Download your certificate of completion immediately upon finishing.</p>
+                <p className="text-gray-700">
+                  Download your certificate of completion immediately upon
+                  finishing.
+                </p>
               </div>
             </div>
           </div>
@@ -418,7 +501,8 @@ export default function DrugTestingTrainingPage() {
             </Link>
           </div>
           <p className="mt-8 text-purple-100">
-            <strong>Address:</strong> 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240
+            <strong>Address:</strong> 8888 Keystone Crossing Suite 1300,
+            Indianapolis, IN 46240
           </p>
         </div>
       </section>

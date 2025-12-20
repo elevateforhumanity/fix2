@@ -36,7 +36,7 @@ export default function FullApplicationPage() {
             Need help right now? Call us at{' '}
             <a
               href="tel:3173143757"
-              className="font-semibold text-orange-600 hover:text-orange-700"
+              className="font-semibold text-brand-orange-600 hover:text-brand-orange-700"
             >
               317-314-3757
             </a>{' '}
@@ -46,7 +46,7 @@ export default function FullApplicationPage() {
             Prefer a quick inquiry?{' '}
             <a
               href="/apply"
-              className="font-semibold text-orange-600 hover:text-orange-700 underline"
+              className="font-semibold text-brand-orange-600 hover:text-brand-orange-700 underline"
             >
               Use our quick inquiry form instead
             </a>
@@ -113,7 +113,7 @@ export default function FullApplicationPage() {
                   <span className="font-semibold text-slate-900">Phone:</span>{' '}
                   <a
                     href="tel:3173143757"
-                    className="text-orange-600 hover:text-orange-700 font-semibold"
+                    className="text-brand-orange-600 hover:text-brand-orange-700 font-semibold"
                   >
                     317-314-3757
                   </a>
@@ -122,7 +122,7 @@ export default function FullApplicationPage() {
                   <span className="font-semibold text-slate-900">Email:</span>{' '}
                   <a
                     href="mailto:elevate4humanityedu@gmail.com"
-                    className="text-orange-600 hover:text-orange-700 font-semibold"
+                    className="text-brand-orange-600 hover:text-brand-orange-700 font-semibold"
                   >
                     elevate4humanityedu@gmail.com
                   </a>

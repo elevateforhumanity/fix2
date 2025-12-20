@@ -83,8 +83,8 @@ export default function BookAppointmentPage() {
 
           {status === 'success' ? (
             <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-8 text-center">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 rounded-full bg-brand-green-100 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-brand-green-600" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Appointment Request Received!
@@ -150,12 +150,12 @@ export default function BookAppointmentPage() {
                     }
                     className={`p-4 rounded-lg border-2 text-left transition ${
                       formData.appointmentType === 'in-person'
-                        ? 'border-blue-600 bg-blue-50'
+                        ? 'border-brand-blue-600 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <MapPin className="w-5 h-5 text-blue-600" />
+                      <MapPin className="w-5 h-5 text-brand-blue-600" />
                       <span className="font-semibold">In-Person</span>
                     </div>
                     <p className="text-sm text-gray-600">
@@ -170,12 +170,12 @@ export default function BookAppointmentPage() {
                     }
                     className={`p-4 rounded-lg border-2 text-left transition ${
                       formData.appointmentType === 'virtual'
-                        ? 'border-blue-600 bg-blue-50'
+                        ? 'border-brand-blue-600 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <Video className="w-5 h-5 text-blue-600" />
+                      <Video className="w-5 h-5 text-brand-blue-600" />
                       <span className="font-semibold">Virtual</span>
                     </div>
                     <p className="text-sm text-gray-600">
@@ -313,7 +313,7 @@ export default function BookAppointmentPage() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full px-6 py-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-6 py-4 bg-brand-blue-600 text-white font-bold text-lg rounded-lg hover:bg-brand-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'loading' ? 'Submitting...' : 'Request Appointment'}
               </button>
@@ -333,31 +333,31 @@ export default function BookAppointmentPage() {
             <h2 className="font-bold text-lg mb-4">Contact Us</h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-sm">Phone</div>
                   <a
                     href="tel:3173143757"
-                    className="text-blue-600 hover:underline"
+                    className="text-brand-blue-600 hover:underline"
                   >
                     317-314-3757
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-sm">Email</div>
                   <a
                     href="mailto:elevate4humanityedu@gmail.com"
-                    className="text-blue-600 hover:underline text-sm"
+                    className="text-brand-blue-600 hover:underline text-sm"
                   >
                     elevate4humanityedu@gmail.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-sm">Address</div>
                   <p className="text-sm text-gray-600">
@@ -395,7 +395,7 @@ export default function BookAppointmentPage() {
           {/* Virtual Appointment Info */}
           <div className="rounded-2xl border-2 border-blue-200 bg-blue-50 p-6">
             <div className="flex items-center gap-2 mb-3">
-              <Video className="w-5 h-5 text-blue-600" />
+              <Video className="w-5 h-5 text-brand-blue-600" />
               <h2 className="font-bold text-lg">Virtual Appointments</h2>
             </div>
             <p className="text-sm text-gray-700 mb-3">
@@ -404,15 +404,15 @@ export default function BookAppointmentPage() {
             </p>
             <ul className="space-y-2 text-sm text-gray-700">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>Same service as in-person</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>Secure document sharing</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>No software installation needed</span>
               </li>
             </ul>
@@ -430,7 +430,7 @@ export default function BookAppointmentPage() {
             </ul>
             <Link
               href="/tax/rise-up-foundation/documents"
-              className="text-blue-600 hover:underline text-sm mt-3 inline-block"
+              className="text-brand-blue-600 hover:underline text-sm mt-3 inline-block"
             >
               View complete checklist →
             </Link>

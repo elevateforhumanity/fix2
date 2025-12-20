@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function StudentCheckout() {
   const [loading, setLoading] = useState(false);
@@ -12,11 +12,11 @@ export default function StudentCheckout() {
     setError(null);
 
     try {
-      const res = await fetch("/api/checkout/student", { method: "POST" });
+      const res = await fetch('/api/checkout/student', { method: 'POST' });
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || "Checkout failed");
+        throw new Error(data.error || 'Checkout failed');
       }
 
       if (data?.url) {
@@ -39,7 +39,8 @@ export default function StudentCheckout() {
             $39/month platform access
           </p>
           <p className="text-slate-600 mb-8">
-            Includes LMS access, assigned courses, progress tracking, and completion certificates.
+            Includes LMS access, assigned courses, progress tracking, and
+            completion certificates.
           </p>
 
           {error && (
@@ -51,9 +52,11 @@ export default function StudentCheckout() {
           <button
             onClick={handleCheckout}
             disabled={loading}
-            className="w-full rounded-xl bg-orange-500 text-white px-6 py-4 font-bold hover:bg-orange-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-xl bg-brand-orange-600 text-white px-6 py-4 font-bold hover:bg-brand-orange-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? "Redirecting to secure checkout..." : "Continue to secure checkout"}
+            {loading
+              ? 'Redirecting to secure checkout...'
+              : 'Continue to secure checkout'}
           </button>
 
           <p className="text-sm text-slate-500 mt-4 text-center">
@@ -61,7 +64,10 @@ export default function StudentCheckout() {
           </p>
 
           <div className="mt-6 text-center">
-            <Link href="/pricing" className="text-slate-600 hover:text-slate-900 underline">
+            <Link
+              href="/pricing"
+              className="text-slate-600 hover:text-slate-900 underline"
+            >
               ← Back to pricing
             </Link>
           </div>

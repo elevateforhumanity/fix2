@@ -4,7 +4,11 @@ import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { category: string };
+}): Promise<Metadata> {
   const category = params.category.replace(/-/g, ' ');
   return {
     title: `${category} | Blog | Elevate For Humanity`,
@@ -16,14 +20,14 @@ async function getCategoryPosts(category: string) {
   try {
     const supabase = await createClient();
     const categoryName = category.replace(/-/g, ' ');
-    
+
     const { data: posts } = await supabase
       .from('blog_posts')
       .select('*')
       .eq('published', true)
       .ilike('category', categoryName)
       .order('published_at', { ascending: false });
-    
+
     return posts || [];
   } catch (error) {
     return [];
@@ -38,15 +42,21 @@ async function getAllCategories() {
       .select('category')
       .eq('published', true)
       .not('category', 'is', null);
-    
-    const categories = [...new Set(posts?.map(p => p.category).filter(Boolean))];
+
+    const categories = [
+      ...new Set(posts?.map((p) => p.category).filter(Boolean)),
+    ];
     return categories;
   } catch (error) {
     return [];
   }
 }
 
-export default async function CategoryPage({ params }: { params: { category: string } }) {
+export default async function CategoryPage({
+  params,
+}: {
+  params: { category: string };
+}) {
   const posts = await getCategoryPosts(params.category);
   const allCategories = await getAllCategories();
   const categoryName = params.category.replace(/-/g, ' ');
@@ -61,15 +71,20 @@ export default async function CategoryPage({ params }: { params: { category: str
         {/* Header */}
         <div className="mb-8">
           <nav className="text-sm text-slate-600 mb-4">
-            <Link href="/blog" className="hover:text-blue-600">Blog</Link>
+            <Link href="/blog" className="hover:text-brand-blue-600">
+              Blog
+            </Link>
             <span className="mx-2">/</span>
-            <span className="text-slate-900 font-semibold capitalize">{categoryName}</span>
+            <span className="text-slate-900 font-semibold capitalize">
+              {categoryName}
+            </span>
           </nav>
           <h1 className="text-4xl font-bold text-slate-900 mb-4 capitalize text-2xl md:text-3xl lg:text-4xl">
             {categoryName}
           </h1>
           <p className="text-slate-600">
-            {posts.length} article{posts.length === 1 ? '' : 's'} in this category
+            {posts.length} article{posts.length === 1 ? '' : 's'} in this
+            category
           </p>
         </div>
 
@@ -78,7 +93,10 @@ export default async function CategoryPage({ params }: { params: { category: str
           <div className="lg:col-span-3">
             <div className="grid md:grid-cols-2 gap-8">
               {posts.map((post) => (
-                <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <article
+                  key={post.id}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
                   {post.featured_image && (
                     <div className="relative h-48">
                       <Image
@@ -91,7 +109,10 @@ export default async function CategoryPage({ params }: { params: { category: str
                   )}
                   <div className="p-6">
                     <h2 className="text-xl font-bold text-slate-900 mb-2">
-                      <Link href={`/blog/${post.slug}`} className="hover:text-blue-600">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="hover:text-brand-blue-600"
+                      >
                         {post.title}
                       </Link>
                     </h2>
@@ -101,7 +122,9 @@ export default async function CategoryPage({ params }: { params: { category: str
                       </p>
                     )}
                     <div className="flex items-center justify-between text-sm text-slate-500">
-                      <span>{new Date(post.published_at).toLocaleDateString()}</span>
+                      <span>
+                        {new Date(post.published_at).toLocaleDateString()}
+                      </span>
                       {post.author && <span>By {post.author}</span>}
                     </div>
                   </div>

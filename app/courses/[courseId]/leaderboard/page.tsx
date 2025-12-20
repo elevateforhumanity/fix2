@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
@@ -99,13 +99,13 @@ export default function CourseLeaderboardPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 View Programs
               </Link>
@@ -114,7 +114,7 @@ export default function CourseLeaderboardPage() {
         </section>
 
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4" />
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600 mb-4" />
           <p className="text-gray-600">Loading leaderboard...</p>
 
           {/* Storytelling Section */}
@@ -136,7 +136,7 @@ export default function CourseLeaderboardPage() {
                     <ul className="space-y-4">
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -154,7 +154,7 @@ export default function CourseLeaderboardPage() {
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -173,7 +173,7 @@ export default function CourseLeaderboardPage() {
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -191,7 +191,7 @@ export default function CourseLeaderboardPage() {
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -403,7 +403,7 @@ export default function CourseLeaderboardPage() {
                       </span>
                     )}
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-brand-orange-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
                     3
                   </div>
                 </div>
@@ -438,7 +438,7 @@ export default function CourseLeaderboardPage() {
                               : enstart.rank === 2
                                 ? 'text-gray-400'
                                 : enstart.rank === 3
-                                  ? 'text-orange-500'
+                                  ? 'text-brand-orange-600'
                                   : 'text-gray-600'
                           }`}
                         >

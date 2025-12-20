@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 
 export default async function GrantIntakePage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -28,7 +30,10 @@ export default async function GrantIntakePage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/grants" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/grants"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Grants
           </Link>
           <h1 className="text-3xl font-bold text-gray-900">Grant Intake</h1>
@@ -40,9 +45,11 @@ export default async function GrantIntakePage() {
         {/* Intake Form */}
         <div className="bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">New Grant Application</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              New Grant Application
+            </h2>
           </div>
-          
+
           <div className="p-6 space-y-6">
             {/* Grant Information */}
             <div>
@@ -152,20 +159,38 @@ export default async function GrantIntakePage() {
               </label>
               <div className="space-y-2">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
-                  <span className="text-sm text-gray-700">Budget Narrative</span>
+                  <input
+                    type="checkbox"
+                    className="rounded text-brand-blue-600"
+                  />
+                  <span className="text-sm text-gray-700">
+                    Budget Narrative
+                  </span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
+                  <input
+                    type="checkbox"
+                    className="rounded text-brand-blue-600"
+                  />
                   <span className="text-sm text-gray-700">Program Plan</span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
-                  <span className="text-sm text-gray-700">Letters of Support</span>
+                  <input
+                    type="checkbox"
+                    className="rounded text-brand-blue-600"
+                  />
+                  <span className="text-sm text-gray-700">
+                    Letters of Support
+                  </span>
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded text-blue-600" />
-                  <span className="text-sm text-gray-700">Financial Statements</span>
+                  <input
+                    type="checkbox"
+                    className="rounded text-brand-blue-600"
+                  />
+                  <span className="text-sm text-gray-700">
+                    Financial Statements
+                  </span>
                 </label>
               </div>
             </div>
@@ -176,11 +201,18 @@ export default async function GrantIntakePage() {
                 Upload Documents
               </label>
               <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                <input type="file" multiple className="hidden" id="file-upload" />
+                <input
+                  type="file"
+                  multiple
+                  className="hidden"
+                  id="file-upload"
+                />
                 <label htmlFor="file-upload" className="cursor-pointer">
                   <div className="text-gray-600">
                     <p className="text-sm">Click to upload or drag and drop</p>
-                    <p className="text-xs text-gray-500 mt-1">PDF, DOC, DOCX up to 10MB</p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      PDF, DOC, DOCX up to 10MB
+                    </p>
                   </div>
                 </label>
               </div>
@@ -197,7 +229,7 @@ export default async function GrantIntakePage() {
               <button className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">
                 Save as Draft
               </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+              <button className="px-4 py-2 bg-brand-blue-600 text-white rounded-md hover:bg-brand-blue-700">
                 Submit Application
               </button>
             </div>

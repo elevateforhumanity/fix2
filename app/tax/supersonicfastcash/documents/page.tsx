@@ -173,7 +173,7 @@ export default function DocumentUploadPage() {
         <p className="text-gray-600 mb-6">
           Drag and drop files here, or click to browse
         </p>
-        <label className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition cursor-pointer">
+        <label className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition cursor-pointer">
           Choose Files
           <input
             type="file"
@@ -190,7 +190,7 @@ export default function DocumentUploadPage() {
           Accepted formats: PDF, JPG, PNG, DOC, DOCX (Max 10MB per file)
         </p>
         {(!contactInfo.name || !contactInfo.email || !contactInfo.phone) && (
-          <p className="text-sm text-orange-600 mt-2">
+          <p className="text-sm text-brand-orange-600 mt-2">
             Please fill in your contact information above before uploading
           </p>
         )}
@@ -224,7 +224,7 @@ export default function DocumentUploadPage() {
                     <div className="text-sm text-gray-600">Uploading...</div>
                   )}
                   {file.status === 'success' && (
-                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <CheckCircle className="w-5 h-5 text-brand-green-600" />
                   )}
                   {file.status === 'error' && (
                     <AlertCircle className="w-5 h-5 text-red-600" />
@@ -254,23 +254,23 @@ export default function DocumentUploadPage() {
             <h3 className="font-semibold mb-3">Required Documents</h3>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
-                <span className="text-blue-600">•</span>
+                <span className="text-brand-blue-600">•</span>
                 <span>Government-issued photo ID</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600">•</span>
+                <span className="text-brand-blue-600">•</span>
                 <span>Social Security cards (all persons on return)</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600">•</span>
+                <span className="text-brand-blue-600">•</span>
                 <span>W-2 forms from all employers</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600">•</span>
+                <span className="text-brand-blue-600">•</span>
                 <span>1099 forms (if applicable)</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600">•</span>
+                <span className="text-brand-blue-600">•</span>
                 <span>Bank account information for direct deposit</span>
               </li>
             </ul>
@@ -306,7 +306,7 @@ export default function DocumentUploadPage() {
       </section>
 
       {/* Security Notice */}
-      <section className="mt-6 rounded-2xl bg-blue-50 border-l-4 border-blue-600 p-6">
+      <section className="mt-6 rounded-2xl bg-blue-50 border-l-4 border-brand-blue-600 p-6">
         <h3 className="font-semibold text-gray-900 mb-2">Secure Upload</h3>
         <p className="text-sm text-gray-700">
           Your documents are encrypted during upload and stored securely. We use
@@ -320,7 +320,7 @@ export default function DocumentUploadPage() {
         <h2 className="text-xl font-bold mb-4">What Happens Next?</h2>
         <div className="space-y-4">
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-600 text-white flex items-center justify-center font-bold text-sm">
               1
             </div>
             <div>
@@ -331,7 +331,7 @@ export default function DocumentUploadPage() {
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-600 text-white flex items-center justify-center font-bold text-sm">
               2
             </div>
             <div>
@@ -342,7 +342,7 @@ export default function DocumentUploadPage() {
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-600 text-white flex items-center justify-center font-bold text-sm">
               3
             </div>
             <div>
@@ -353,7 +353,7 @@ export default function DocumentUploadPage() {
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue-600 text-white flex items-center justify-center font-bold text-sm">
               4
             </div>
             <div>
@@ -374,13 +374,13 @@ export default function DocumentUploadPage() {
         <div className="flex flex-wrap gap-4 justify-center">
           <a
             href="tel:3173143757"
-            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            className="px-6 py-3 rounded-lg bg-brand-blue-600 text-white font-semibold hover:bg-brand-blue-700 transition"
           >
             Call 317-314-3757
           </a>
           <Link
             href="/tax/book-appointment"
-            className="px-6 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition"
+            className="px-6 py-3 rounded-lg border-2 border-brand-blue-600 text-brand-blue-600 font-semibold hover:bg-blue-50 transition"
           >
             Book Appointment Online
           </Link>

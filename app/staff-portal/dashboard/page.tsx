@@ -55,7 +55,7 @@ export default async function DashboardPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/student/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Back to Dashboard
             </Link>
@@ -73,13 +73,15 @@ export default async function DashboardPage() {
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
                   Total Items
                 </h3>
-                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+                <p className="text-3xl font-bold text-brand-blue-600">
+                  {count || 0}
+                </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
                   Active
                 </h3>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-3xl font-bold text-brand-green-600">
                   {profile?.filter((i) => i.status === 'active').length || 0}
                 </p>
               </div>
@@ -126,7 +128,7 @@ export default async function DashboardPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

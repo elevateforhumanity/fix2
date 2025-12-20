@@ -179,7 +179,7 @@ export default function EditorPage() {
           <button
             onClick={handleSave}
             disabled={!unsavedChanges}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed px-4 py-1 rounded text-sm"
+            className="bg-brand-blue-600 hover:bg-brand-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed px-4 py-1 rounded text-sm"
           >
             Save
           </button>

@@ -73,13 +73,13 @@ export default async function NotificationsPage() {
   const getNotificationIcon = (type: NotificationType) => {
     switch (type) {
       case 'assignment':
-        return <BookOpen className="text-blue-600" size={20} />;
+        return <BookOpen className="text-brand-blue-600" size={20} />;
       case 'grade':
-        return <Award className="text-green-600" size={20} />;
+        return <Award className="text-brand-green-600" size={20} />;
       case 'message':
         return <MessageSquare className="text-purple-600" size={20} />;
       case 'announcement':
-        return <Bell className="text-orange-600" size={20} />;
+        return <Bell className="text-brand-orange-600" size={20} />;
       case 'achievement':
         return <Award className="text-yellow-600" size={20} />;
       case 'reminder':
@@ -126,7 +126,7 @@ export default async function NotificationsPage() {
                   className="p-1 hover:bg-blue-100 rounded"
                   title="Mark as read"
                 >
-                  <CheckCheck size={16} className="text-blue-600" />
+                  <CheckCheck size={16} className="text-brand-blue-600" />
                 </button>
               )}
               <button className="p-1 hover:bg-red-100 rounded" title="Delete">
@@ -155,7 +155,7 @@ export default async function NotificationsPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -173,7 +173,7 @@ export default async function NotificationsPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -191,7 +191,7 @@ export default async function NotificationsPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -209,7 +209,7 @@ export default async function NotificationsPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -228,8 +228,9 @@ export default async function NotificationsPage() {
                   </ul>
                 </div>
                 <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-                  // @ts-expect-error TS2607: JSX element class does not support attributes because it does not have a 'pro...
+                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX
+                  component. // @ts-expect-error TS2607: JSX element class does
+                  not support attributes because it does not have a 'pro...
                   <Image
                     src="/images/gallery/image3.jpg"
                     alt="Students learning"
@@ -261,16 +262,16 @@ export default async function NotificationsPage() {
                   href="/contact"
                   className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
                 >
-                  Apply Now - It's Free
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
+                  Apply Now - It's Free // @ts-expect-error TS2304: Cannot find
+                  name 'Link'.
                 </Link>
                 // @ts-expect-error TS2304: Cannot find name 'Link'.
                 <Link
                   href="/programs"
                   className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
                 >
-                  Browse All Programs
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
+                  Browse All Programs // @ts-expect-error TS2304: Cannot find
+                  name 'Link'.
                 </Link>
               </div>
             </div>
@@ -285,7 +286,8 @@ export default async function NotificationsPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
         // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-        // @ts-expect-error TS2607: JSX element class does not support attributes because it does not have a 'pro...
+        // @ts-expect-error TS2607: JSX element class does not support
+        attributes because it does not have a 'pro...
         <Image
           src="/images/gallery/image8.jpg"
           alt="Notifications"
@@ -307,18 +309,17 @@ export default async function NotificationsPage() {
             // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              Get Started Free
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
+              Get Started Free // @ts-expect-error TS2304: Cannot find name
+              'Link'.
             </Link>
             // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              View Programs
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
+              View Programs // @ts-expect-error TS2304: Cannot find name 'Link'.
             </Link>
           </div>
         </div>
@@ -336,7 +337,7 @@ export default async function NotificationsPage() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <button className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg flex items-center gap-2">
+            <button className="px-4 py-2 text-brand-blue-600 hover:bg-blue-50 rounded-lg flex items-center gap-2">
               <CheckCheck size={20} />
               Mark all as read
             </button>
@@ -352,7 +353,7 @@ export default async function NotificationsPage() {
           <div className="bg-white p-4 rounded-lg shadow">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Bell className="text-blue-600" size={20} />
+                <Bell className="text-brand-blue-600" size={20} />
               </div>
               <div>
                 <p className="text-base md:text-lg font-bold">
@@ -365,7 +366,7 @@ export default async function NotificationsPage() {
           <div className="bg-white p-4 rounded-lg shadow">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <AlertCircle className="text-orange-600" size={20} />
+                <AlertCircle className="text-brand-orange-600" size={20} />
               </div>
               <div>
                 <p className="text-base md:text-lg font-bold">{unreadCount}</p>
@@ -375,8 +376,8 @@ export default async function NotificationsPage() {
           </div>
           <div className="bg-white p-4 rounded-lg shadow">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <CheckCheck className="text-green-600" size={20} />
+              <div className="w-10 h-10 bg-brand-green-100 rounded-lg flex items-center justify-center">
+                <CheckCheck className="text-brand-green-600" size={20} />
               </div>
               <div>
                 <p className="text-base md:text-lg font-bold">

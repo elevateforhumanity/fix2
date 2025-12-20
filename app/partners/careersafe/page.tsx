@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -44,7 +44,7 @@ export default function CAREERSAFEPage() {
                   href="https://www.careersafeonline.com/campus/signin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-blue-600 font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
                 >
                   Student Login
                   <ExternalLink className="w-5 h-5" />
@@ -198,14 +198,14 @@ export default function CAREERSAFEPage() {
               <div className="space-y-2">
                 <a
                   href="mailto:Mark.Sattele@careersafeonline.com"
-                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                  className="flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700"
                 >
                   <Mail className="w-4 h-4" />
                   Mark.Sattele@careersafeonline.com
                 </a>
                 <a
                   href="tel:(216) 926-6536"
-                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                  className="flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700"
                 >
                   <Phone className="w-4 h-4" />
                   (216) 926-6536
@@ -217,7 +217,7 @@ export default function CAREERSAFEPage() {
               <div className="text-slate-600 mb-2">Customer Care</div>
               <a
                 href="tel:(888) 614-7233"
-                className="text-2xl font-bold text-blue-600 hover:text-blue-700"
+                className="text-2xl font-bold text-brand-blue-600 hover:text-brand-blue-700"
               >
                 (888) 614-7233
               </a>
@@ -228,7 +228,7 @@ export default function CAREERSAFEPage() {
                 href="https://www.careersafeonline.com/support"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                className="inline-flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700"
               >
                 Visit Support Center
                 <ExternalLink className="w-4 h-4" />
@@ -253,7 +253,7 @@ export default function CAREERSAFEPage() {
               href="https://www.careersafeonline.com/campus/signin"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-5 bg-white text-blue-600 text-xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
+              className="inline-flex items-center justify-center px-10 py-5 bg-white text-brand-blue-600 text-xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
             >
               Get Started
               <ExternalLink className="w-6 h-6" />

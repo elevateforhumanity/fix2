@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { 
-  Users, 
-  FileText, 
-  CheckCircle, 
-  Clock, 
+import {
+  Users,
+  FileText,
+  CheckCircle,
+  Clock,
   TrendingUp,
   Award,
   Building,
@@ -14,18 +14,21 @@ import {
   Calendar,
   DollarSign,
   BarChart3,
-  Shield
+  Shield,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'FERPA Portal | Student Privacy & Records Management',
-  description: 'Manage student education records, privacy compliance, and data protection under FERPA',
+  description:
+    'Manage student education records, privacy compliance, and data protection under FERPA',
 };
 
 export default async function FERPAPortal() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login?next=/ferpa');
   }
@@ -37,7 +40,13 @@ export default async function FERPAPortal() {
     .single();
 
   // Check if user has FERPA access
-  const allowedRoles = ['admin', 'super_admin', 'ferpa_officer', 'registrar', 'staff'];
+  const allowedRoles = [
+    'admin',
+    'super_admin',
+    'ferpa_officer',
+    'registrar',
+    'staff',
+  ];
   if (!profile || !allowedRoles.includes(profile.role)) {
     redirect('/unauthorized');
   }
@@ -98,33 +107,39 @@ export default async function FERPAPortal() {
           <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
               <div className="p-3 bg-blue-100 rounded-lg">
-                <Users className="w-6 h-6 text-blue-600" />
+                <Users className="w-6 h-6 text-brand-blue-600" />
               </div>
               <span className="text-sm text-slate-500">Total</span>
             </div>
-            <div className="text-3xl font-bold text-slate-900">{totalStudents || 0}</div>
+            <div className="text-3xl font-bold text-slate-900">
+              {totalStudents || 0}
+            </div>
             <div className="text-sm text-slate-600 mt-1">Student Records</div>
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
               <div className="p-3 bg-orange-100 rounded-lg">
-                <Clock className="w-6 h-6 text-orange-600" />
+                <Clock className="w-6 h-6 text-brand-orange-600" />
               </div>
               <span className="text-sm text-slate-500">Pending</span>
             </div>
-            <div className="text-3xl font-bold text-slate-900">{pendingRequests || 0}</div>
+            <div className="text-3xl font-bold text-slate-900">
+              {pendingRequests || 0}
+            </div>
             <div className="text-sm text-slate-600 mt-1">Access Requests</div>
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <FileText className="w-6 h-6 text-green-600" />
+              <div className="p-3 bg-brand-green-100 rounded-lg">
+                <FileText className="w-6 h-6 text-brand-green-600" />
               </div>
               <span className="text-sm text-slate-500">Active</span>
             </div>
-            <div className="text-3xl font-bold text-slate-900">{activeEnrollments || 0}</div>
+            <div className="text-3xl font-bold text-slate-900">
+              {activeEnrollments || 0}
+            </div>
             <div className="text-sm text-slate-600 mt-1">Enrollments</div>
           </div>
 
@@ -135,7 +150,7 @@ export default async function FERPAPortal() {
               </div>
               <span className="text-sm text-slate-500">Status</span>
             </div>
-            <div className="text-3xl font-bold text-green-600">✓</div>
+            <div className="text-3xl font-bold text-brand-green-600">✓</div>
             <div className="text-sm text-slate-600 mt-1">Compliant</div>
           </div>
         </div>
@@ -147,24 +162,28 @@ export default async function FERPAPortal() {
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-blue-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition">
-                  <FileText className="w-8 h-8 text-blue-600" />
+                  <FileText className="w-8 h-8 text-brand-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Student Records</h3>
-                  <p className="text-sm text-slate-600">Manage education records</p>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Student Records
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Manage education records
+                  </p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   View student records
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Update information
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Access history
                 </li>
               </ul>
@@ -175,25 +194,29 @@ export default async function FERPAPortal() {
           <Link href="/ferpa/requests" className="group">
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-green-300 transition">
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-green-100 rounded-lg group-hover:bg-green-200 transition">
-                  <Users className="w-8 h-8 text-green-600" />
+                <div className="p-3 bg-brand-green-100 rounded-lg group-hover:bg-green-200 transition">
+                  <Users className="w-8 h-8 text-brand-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Privacy Requests</h3>
-                  <p className="text-sm text-slate-600">Handle access requests</p>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Privacy Requests
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Handle access requests
+                  </p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Student access requests
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Parent/guardian requests
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Third-party disclosures
                 </li>
               </ul>
@@ -201,28 +224,36 @@ export default async function FERPAPortal() {
           </Link>
 
           {/* FERPA Compliance */}
-          <Link href="/ferpa/compliance" className="group" aria-label="FERPA Compliance and Standards">
+          <Link
+            href="/ferpa/compliance"
+            className="group"
+            aria-label="FERPA Compliance and Standards"
+          >
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-purple-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-purple-100 rounded-lg group-hover:bg-purple-200 transition">
                   <Shield className="w-8 h-8 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">FERPA Compliance</h3>
-                  <p className="text-sm text-slate-600">Privacy standards & audits</p>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    FERPA Compliance
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Privacy standards & audits
+                  </p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Compliance monitoring
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Privacy audits
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Training & policies
                 </li>
               </ul>
@@ -230,28 +261,34 @@ export default async function FERPAPortal() {
           </Link>
 
           {/* Reports & Analytics */}
-          <Link href="/ferpa/reports" className="group" aria-label="FERPA Reports and Analytics">
+          <Link
+            href="/ferpa/reports"
+            className="group"
+            aria-label="FERPA Reports and Analytics"
+          >
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-orange-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-orange-100 rounded-lg group-hover:bg-orange-200 transition">
-                  <BarChart3 className="w-8 h-8 text-orange-600" />
+                  <BarChart3 className="w-8 h-8 text-brand-orange-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Reports & Analytics</h3>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Reports & Analytics
+                  </h3>
                   <p className="text-sm text-slate-600">Performance metrics</p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Access logs
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Disclosure tracking
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Compliance metrics
                 </li>
               </ul>
@@ -259,28 +296,34 @@ export default async function FERPAPortal() {
           </Link>
 
           {/* Documentation */}
-          <Link href="/ferpa/documentation" className="group" aria-label="FERPA Documentation and Forms">
+          <Link
+            href="/ferpa/documentation"
+            className="group"
+            aria-label="FERPA Documentation and Forms"
+          >
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-indigo-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-indigo-100 rounded-lg group-hover:bg-indigo-200 transition">
                   <FileText className="w-8 h-8 text-indigo-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Documentation</h3>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Documentation
+                  </h3>
                   <p className="text-sm text-slate-600">Forms & templates</p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Consent forms
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Release forms
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-brand-green-600" />
                   Policy templates
                 </li>
               </ul>
@@ -288,14 +331,20 @@ export default async function FERPAPortal() {
           </Link>
 
           {/* Calendar & Deadlines */}
-          <Link href="/ferpa/calendar" className="group" aria-label="FERPA Calendar and Important Deadlines">
+          <Link
+            href="/ferpa/calendar"
+            className="group"
+            aria-label="FERPA Calendar and Important Deadlines"
+          >
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-red-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-red-100 rounded-lg group-hover:bg-red-200 transition">
                   <Calendar className="w-8 h-8 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Calendar & Deadlines</h3>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Calendar & Deadlines
+                  </h3>
                   <p className="text-sm text-slate-600">Important dates</p>
                 </div>
               </div>
@@ -319,18 +368,20 @@ export default async function FERPAPortal() {
 
         {/* Quick Actions */}
         <div className="mt-8 bg-white rounded-xl shadow-sm p-6 border border-slate-200">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Quick Actions</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">
+            Quick Actions
+          </h2>
           <div className="grid md:grid-cols-4 gap-4">
             <Link
               href="/ferpa/records/search"
-              className="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-center font-medium"
+              className="px-4 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition text-center font-medium"
               aria-label="Search Student Records"
             >
               Search Records
             </Link>
             <Link
               href="/ferpa/requests/new"
-              className="px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-center font-medium"
+              className="px-4 py-3 bg-brand-green-600 text-white rounded-lg hover:bg-green-700 transition text-center font-medium"
               aria-label="Process New Access Request"
             >
               Process Request

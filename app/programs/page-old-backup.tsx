@@ -131,7 +131,7 @@ export default function ProgramsPage() {
 
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-1 bg-orange-500 rounded-full" />
+              <div className="w-16 h-1 bg-brand-orange-600 rounded-full" />
               <h2 className="text-2xl md:text-2xl md:text-3xl md:text-3xl md:text-2xl md:text-3xl font-bold text-slate-900">
                 Skilled Trades
               </h2>
@@ -167,16 +167,16 @@ export default function ProgramsPage() {
                       </div>
                       <div className="p-8">
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center group-hover:bg-orange-500 group-hover:scale-110 transition-all duration-300">
+                          <div className="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center group-hover:bg-brand-orange-600 group-hover:scale-110 transition-all duration-300">
                             <span className="text-2xl group-hover:scale-110 transition-transform">
                               🛠️
                             </span>
                           </div>
-                          <span className="text-sm font-bold text-orange-600 uppercase tracking-wider">
+                          <span className="text-sm font-bold text-brand-orange-600 uppercase tracking-wider">
                             {program.duration}
                           </span>
                         </div>
-                        <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
+                        <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition">
                           {program.name}
                         </h3>
                         <p className="text-slate-700 mb-6 leading-relaxed">
@@ -190,7 +190,7 @@ export default function ProgramsPage() {
                               className="flex items-start gap-2 mb-2"
                             >
                               <div className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-orange-600 text-xs font-bold">
+                                <span className="text-brand-orange-600 text-xs font-bold">
                                   ✓
                                 </span>
                               </div>
@@ -199,7 +199,7 @@ export default function ProgramsPage() {
                               </span>
                             </div>
                           ))}
-                        <div className="mt-6 inline-flex items-center text-orange-600 font-bold group-hover:gap-2 transition-all">
+                        <div className="mt-6 inline-flex items-center text-brand-orange-600 font-bold group-hover:gap-2 transition-all">
                           Explore Program
                           <span className="ml-2 group-hover:ml-4 transition-all">
                             →
@@ -334,7 +334,7 @@ export default function ProgramsPage() {
                         />
                       </div>
                       <div className="p-8">
-                        <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
+                        <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition">
                           {program.name}
                         </h3>
                         <p className="text-slate-700 mb-6 leading-relaxed">
@@ -347,7 +347,7 @@ export default function ProgramsPage() {
                               key={idx}
                               className="flex items-start gap-2 mb-2"
                             >
-                              <span className="text-orange-500 font-bold">
+                              <span className="text-brand-orange-600 font-bold">
                                 ✓
                               </span>
                               <span className="text-sm text-slate-600">
@@ -355,7 +355,7 @@ export default function ProgramsPage() {
                               </span>
                             </div>
                           ))}
-                        <div className="mt-6 inline-flex items-center text-orange-600 font-bold group-hover:gap-2 transition-all">
+                        <div className="mt-6 inline-flex items-center text-brand-orange-600 font-bold group-hover:gap-2 transition-all">
                           Explore {program.name} →
                         </div>
                       </div>
@@ -396,7 +396,7 @@ export default function ProgramsPage() {
                         />
                       </div>
                       <div className="p-6">
-                        <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition">
+                        <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
                           {program.name}
                         </h3>
                         <p className="text-sm text-slate-600 mb-4">
@@ -405,7 +405,7 @@ export default function ProgramsPage() {
                         <p className="text-slate-700 text-sm mb-4 leading-relaxed line-clamp-2">
                           {program.heroSubtitle}
                         </p>
-                        <div className="inline-flex items-center text-orange-600 font-semibold text-sm group-hover:gap-2 transition-all">
+                        <div className="inline-flex items-center text-brand-orange-600 font-semibold text-sm group-hover:gap-2 transition-all">
                           Learn More →
                         </div>
                       </div>
@@ -429,7 +429,7 @@ export default function ProgramsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-lg"
+              className="inline-flex items-center justify-center bg-brand-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-brand-orange-700 transition shadow-lg"
             >
               Talk to an Advisor
             </Link>

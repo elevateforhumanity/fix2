@@ -129,13 +129,13 @@ export default function NewCampaignPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -182,7 +182,7 @@ export default function NewCampaignPage() {
               {campaign.scheduleType === 'now' ? (
                 <button
                   onClick={handleSendNow}
-                  className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                  className="flex items-center space-x-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Now</span>
@@ -190,7 +190,7 @@ export default function NewCampaignPage() {
               ) : (
                 <button
                   onClick={handleSchedule}
-                  className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                  className="flex items-center space-x-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Schedule</span>
@@ -220,7 +220,7 @@ export default function NewCampaignPage() {
                 }
                 className={`flex items-center space-x-2 py-4 border-b-2 transition-colors ${
                   step === s.key
-                    ? 'border-blue-600 text-blue-600'
+                    ? 'border-brand-blue-600 text-brand-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
               >
@@ -351,7 +351,7 @@ export default function NewCampaignPage() {
 
                   <button
                     onClick={() => setStep('content')}
-                    className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                    className="w-full bg-brand-blue-600 text-white py-2 rounded-lg hover:bg-brand-blue-700"
                   >
                     Continue to Content
                   </button>
@@ -375,7 +375,7 @@ export default function NewCampaignPage() {
                           }
                           className={`p-4 border-2 rounded-lg text-left transition-colors ${
                             campaign.template === key
-                              ? 'border-blue-600 bg-blue-50'
+                              ? 'border-brand-blue-600 bg-blue-50'
                               : 'border-gray-200 hover:border-gray-300'
                           }`}
                         >
@@ -420,7 +420,7 @@ export default function NewCampaignPage() {
                     </button>
                     <button
                       onClick={() => setStep('recipients')}
-                      className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                      className="flex-1 bg-brand-blue-600 text-white py-2 rounded-lg hover:bg-brand-blue-700"
                     >
                       Continue to Recipients
                     </button>
@@ -469,7 +469,7 @@ export default function NewCampaignPage() {
                         key={list.value}
                         className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${
                           campaign.recipientList === list.value
-                            ? 'border-blue-600 bg-blue-50'
+                            ? 'border-brand-blue-600 bg-blue-50'
                             : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
@@ -491,7 +491,7 @@ export default function NewCampaignPage() {
                                 recipientList: e.target.value,
                               })
                             }
-                            className="w-4 h-4 text-blue-600"
+                            className="w-4 h-4 text-brand-blue-600"
                           />
                           <div>
                             <div className="font-medium text-gray-900">
@@ -516,7 +516,7 @@ export default function NewCampaignPage() {
                     </button>
                     <button
                       onClick={() => setStep('schedule')}
-                      className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                      className="flex-1 bg-brand-blue-600 text-white py-2 rounded-lg hover:bg-brand-blue-700"
                     >
                       Continue to Schedule
                     </button>
@@ -542,7 +542,7 @@ export default function NewCampaignPage() {
                             | HTMLTextAreaElement
                           >
                         ) => setCampaign({ ...campaign, scheduleType: 'now' })}
-                        className="w-4 h-4 text-blue-600"
+                        className="w-4 h-4 text-brand-blue-600"
                       />
                       <div className="ml-3">
                         <div className="font-medium text-gray-900">
@@ -572,7 +572,7 @@ export default function NewCampaignPage() {
                             scheduleType: 'scheduled',
                           })
                         }
-                        className="w-4 h-4 text-blue-600 mt-1"
+                        className="w-4 h-4 text-brand-blue-600 mt-1"
                       />
                       <div className="ml-3 flex-1">
                         <div className="font-medium text-gray-900 mb-3">
@@ -640,14 +640,14 @@ export default function NewCampaignPage() {
                     {campaign.scheduleType === 'now' ? (
                       <button
                         onClick={handleSendNow}
-                        className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                        className="flex-1 bg-brand-blue-600 text-white py-2 rounded-lg hover:bg-brand-blue-700"
                       >
                         Send Campaign Now
                       </button>
                     ) : (
                       <button
                         onClick={handleSchedule}
-                        className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                        className="flex-1 bg-brand-blue-600 text-white py-2 rounded-lg hover:bg-brand-blue-700"
                       >
                         Schedule Campaign
                       </button>

@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 
 export default async function CashAdvanceReportsPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -39,17 +41,24 @@ export default async function CashAdvanceReportsPage() {
     .select('*')
     .eq('status', 'pending');
 
-  const totalAmount = allAdvances?.reduce((sum, adv) => sum + (adv.amount || 0), 0) || 0;
-  const approvedAmount = approvedAdvances?.reduce((sum, adv) => sum + (adv.amount || 0), 0) || 0;
+  const totalAmount =
+    allAdvances?.reduce((sum, adv) => sum + (adv.amount || 0), 0) || 0;
+  const approvedAmount =
+    approvedAdvances?.reduce((sum, adv) => sum + (adv.amount || 0), 0) || 0;
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/cash-advances" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/cash-advances"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Cash Advances
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">Cash Advance Reports</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Cash Advance Reports
+          </h1>
           <p className="mt-2 text-gray-600">
             View analytics and reports for cash advance program.
           </p>
@@ -58,22 +67,30 @@ export default async function CashAdvanceReportsPage() {
         {/* Statistics Grid */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-blue-600">{allAdvances?.length || 0}</div>
+            <div className="text-3xl font-bold text-brand-blue-600">
+              {allAdvances?.length || 0}
+            </div>
             <div className="text-gray-600 text-sm">Total Requests</div>
           </div>
-          
+
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-green-600">{approvedAdvances?.length || 0}</div>
+            <div className="text-3xl font-bold text-brand-green-600">
+              {approvedAdvances?.length || 0}
+            </div>
             <div className="text-gray-600 text-sm">Approved</div>
           </div>
-          
+
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-orange-600">{pendingAdvances?.length || 0}</div>
+            <div className="text-3xl font-bold text-brand-orange-600">
+              {pendingAdvances?.length || 0}
+            </div>
             <div className="text-gray-600 text-sm">Pending</div>
           </div>
-          
+
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-purple-600">${totalAmount.toFixed(2)}</div>
+            <div className="text-3xl font-bold text-purple-600">
+              ${totalAmount.toFixed(2)}
+            </div>
             <div className="text-gray-600 text-sm">Total Amount</div>
           </div>
         </div>
@@ -81,34 +98,47 @@ export default async function CashAdvanceReportsPage() {
         {/* Report Sections */}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Approval Rate</h2>
-            <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
-              {allAdvances?.length ? Math.round((approvedAdvances?.length || 0) / allAdvances.length * 100) : 0}%
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Approval Rate
+            </h2>
+            <div className="text-4xl font-bold text-brand-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              {allAdvances?.length
+                ? Math.round(
+                    ((approvedAdvances?.length || 0) / allAdvances.length) * 100
+                  )
+                : 0}
+              %
             </div>
             <p className="text-gray-600">
-              {approvedAdvances?.length || 0} of {allAdvances?.length || 0} requests approved
+              {approvedAdvances?.length || 0} of {allAdvances?.length || 0}{' '}
+              requests approved
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Average Amount</h2>
-            <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
-              ${allAdvances?.length ? (totalAmount / allAdvances.length).toFixed(2) : '0.00'}
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Average Amount
+            </h2>
+            <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              $
+              {allAdvances?.length
+                ? (totalAmount / allAdvances.length).toFixed(2)
+                : '0.00'}
             </div>
-            <p className="text-gray-600">
-              Average cash advance amount
-            </p>
+            <p className="text-gray-600">Average cash advance amount</p>
           </div>
         </div>
 
         {/* Export Options */}
         <div className="mt-8 bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Export Reports</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            Export Reports
+          </h2>
           <div className="flex gap-4">
-            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            <button className="px-4 py-2 bg-brand-blue-600 text-white rounded hover:bg-brand-blue-700">
               Export to CSV
             </button>
-            <button className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+            <button className="px-4 py-2 bg-brand-green-600 text-white rounded hover:bg-green-700">
               Export to PDF
             </button>
             <button className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700">

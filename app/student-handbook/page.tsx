@@ -28,7 +28,7 @@ export default function StudentHandbook() {
           <div className="mt-4">
             <a
               href="/downloads/student-handbook-2025.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition"
               download
             >
               <Download className="w-5 h-5" />
@@ -47,73 +47,73 @@ export default function StudentHandbook() {
           <nav className="space-y-2">
             <a
               href="#welcome"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               1. Welcome Message
             </a>
             <a
               href="#mission"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               2. Mission & Values
             </a>
             <a
               href="#academic"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               3. Academic Policies
             </a>
             <a
               href="#conduct"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               4. Code of Conduct
             </a>
             <a
               href="#rights"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               5. Student Rights (FERPA)
             </a>
             <a
               href="#services"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               6. Student Services
             </a>
             <a
               href="#financial"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               7. Financial Information
             </a>
             <a
               href="#refund"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               8. Refund Policy
             </a>
             <a
               href="#withdrawal"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               9. Withdrawal Policy
             </a>
             <a
               href="#safety"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               10. Campus Safety
             </a>
             <a
               href="#grievance"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               11. Complaint & Grievance Procedures
             </a>
             <a
               href="#graduation"
-              className="block text-blue-600 hover:text-blue-700"
+              className="block text-brand-blue-600 hover:text-brand-blue-700"
             >
               12. Graduation Requirements
             </a>
@@ -283,7 +283,7 @@ export default function StudentHandbook() {
                 <div className="mt-4">
                   <Link
                     href="/academic-integrity"
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+                    className="inline-flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
                   >
                     <span>View Complete Academic Integrity Policy</span>
                     <svg
@@ -472,7 +472,7 @@ export default function StudentHandbook() {
                   will be available within 45 days. Contact:{' '}
                   <a
                     href="mailto:registrar@elevateforhumanity.org"
-                    className="text-blue-600 hover:text-blue-700"
+                    className="text-brand-blue-600 hover:text-brand-blue-700"
                   >
                     registrar@elevateforhumanity.org
                   </a>

@@ -133,7 +133,7 @@ function LoginForm() {
                 </label>
                 <Link
                   href="/auth/forgot-password"
-                  className="text-blue-600 hover:text-blue-700"
+                  className="text-brand-blue-600 hover:text-brand-blue-700"
                 >
                   Forgot password?
                 </Link>
@@ -142,7 +142,7 @@ function LoginForm() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:bg-slate-400 disabled:cursor-not-allowed text-lg"
+                className="w-full px-8 py-4 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition-all disabled:bg-slate-400 disabled:cursor-not-allowed text-lg"
               >
                 {loading ? 'Logging in...' : 'Login'}
               </button>
@@ -152,7 +152,7 @@ function LoginForm() {
               Don't have an account?{' '}
               <Link
                 href={`/signup${next ? `?next=${encodeURIComponent(next)}` : ''}`}
-                className="text-blue-600 font-semibold hover:text-blue-700"
+                className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
               >
                 Sign up
               </Link>
@@ -182,7 +182,10 @@ function LoginForm() {
           <div className="mt-6 text-center text-sm text-slate-600">
             <p>
               Need help? Call{' '}
-              <a href="tel:3173143757" className="text-blue-600 font-semibold">
+              <a
+                href="tel:3173143757"
+                className="text-brand-blue-600 font-semibold"
+              >
                 317-314-3757
               </a>
             </p>

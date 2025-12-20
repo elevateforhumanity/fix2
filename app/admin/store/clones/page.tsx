@@ -123,13 +123,13 @@ export default function StoreBuilderPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -204,7 +204,7 @@ export default function StoreBuilderPage() {
                 <h2 className="text-lg font-semibold">Features Included</h2>
                 <button
                   onClick={addFeature}
-                  className="text-sm text-blue-600 hover:text-blue-700"
+                  className="text-sm text-brand-blue-600 hover:text-brand-blue-700"
                 >
                   + Add Feature
                 </button>
@@ -363,7 +363,7 @@ export default function StoreBuilderPage() {
                   <button
                     onClick={publishProduct}
                     disabled={publishing}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 disabled:opacity-50"
                   >
                     <Save className="w-4 h-4" />
                     {publishing ? 'Publishing...' : 'Publish Product'}
@@ -465,7 +465,7 @@ export default function StoreBuilderPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -483,7 +483,7 @@ export default function StoreBuilderPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -501,7 +501,7 @@ export default function StoreBuilderPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -519,7 +519,7 @@ export default function StoreBuilderPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

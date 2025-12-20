@@ -83,7 +83,7 @@ export default async function MiladyLmsPage() {
         <div className="max-w-6xl mx-auto px-6 py-6">
           <Link
             href="/student/dashboard"
-            className="text-blue-600 hover:text-blue-700 font-semibold mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
@@ -100,7 +100,7 @@ export default async function MiladyLmsPage() {
         {/* Welcome Message */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
           <div className="flex items-start gap-3">
-            <BookOpen className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <BookOpen className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
             <div>
               <h2 className="text-lg font-semibold text-blue-900 mb-2">
                 Welcome to Milady RISE
@@ -126,7 +126,7 @@ export default async function MiladyLmsPage() {
                 href="https://login.cengagebrain.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-2"
+                className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold flex items-center gap-2"
               >
                 https://login.cengagebrain.com
                 <ExternalLink className="w-4 h-4" />
@@ -142,7 +142,7 @@ export default async function MiladyLmsPage() {
                 href="https://www.milady.com/support"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
+                className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
               >
                 Milady Support Center
               </a>
@@ -192,7 +192,7 @@ export default async function MiladyLmsPage() {
                     <div className="text-2xl font-bold text-slate-900 mb-2">
                       {course.price}
                     </div>
-                    <p className="text-xs text-green-600 font-semibold">
+                    <p className="text-xs text-brand-green-600 font-semibold">
                       100% Funded
                     </p>
                   </div>
@@ -203,7 +203,7 @@ export default async function MiladyLmsPage() {
                     href={course.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors font-semibold"
                   >
                     <span>Launch Course</span>
                     <ExternalLink className="w-4 h-4" />
@@ -229,13 +229,13 @@ export default async function MiladyLmsPage() {
           </h3>
           <ol className="space-y-3 text-slate-700">
             <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+              <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                 1
               </span>
               <span>Click "Launch Course" on any course above</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+              <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                 2
               </span>
               <span>
@@ -243,13 +243,13 @@ export default async function MiladyLmsPage() {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+              <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                 3
               </span>
               <span>Complete the course at your own pace</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+              <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                 4
               </span>
               <span>Download your certificate upon completion</span>
@@ -274,7 +274,7 @@ export default async function MiladyLmsPage() {
                 href="https://www.milady.com/support"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm"
               >
                 Visit Milady Support →
               </a>
@@ -288,7 +288,7 @@ export default async function MiladyLmsPage() {
               </p>
               <a
                 href="mailto:support@elevateforhumanity.org"
-                className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm"
               >
                 support@elevateforhumanity.org
               </a>

@@ -113,7 +113,7 @@ export default function AcceptInvitePage({
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading invitation...</p>
         </div>
       </div>
@@ -146,7 +146,7 @@ export default function AcceptInvitePage({
             <p className="mt-2 text-gray-600">{error}</p>
             <button
               onClick={() => router.push('/')}
-              className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+              className="mt-6 w-full bg-brand-blue-600 text-white py-2 px-4 rounded-md hover:bg-brand-blue-700"
             >
               Go to Home
             </button>
@@ -166,7 +166,7 @@ export default function AcceptInvitePage({
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100">
             <svg
-              className="h-6 w-6 text-blue-600"
+              className="h-6 w-6 text-brand-blue-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -209,7 +209,7 @@ export default function AcceptInvitePage({
           <button
             onClick={acceptInvite}
             disabled={accepting}
-            className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="mt-6 w-full bg-brand-blue-600 text-white py-2 px-4 rounded-md hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {accepting ? 'Accepting...' : 'Accept Invitation'}
           </button>

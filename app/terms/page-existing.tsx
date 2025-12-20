@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 
-
 import Link from 'next/link';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
@@ -111,7 +110,10 @@ export default function TermsPage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Privacy</h2>
             <p className="text-slate-700 leading-relaxed">
               Your use of the platform is also governed by our{' '}
-              <Link href="/privacy" className="text-blue-600 hover:underline">
+              <Link
+                href="/privacy"
+                className="text-brand-blue-600 hover:underline"
+              >
                 Privacy Policy
               </Link>
               . By using the platform, you consent to the collection and use of
@@ -182,7 +184,7 @@ export default function TermsPage() {
                 Email:{' '}
                 <a
                   href="mailto:info@elevateforhumanity.org"
-                  className="text-blue-600 hover:underline"
+                  className="text-brand-blue-600 hover:underline"
                 >
                   info@elevateforhumanity.org
                 </a>
@@ -191,7 +193,7 @@ export default function TermsPage() {
                 Phone:{' '}
                 <a
                   href="tel:317-314-3757"
-                  className="text-blue-600 hover:underline"
+                  className="text-brand-blue-600 hover:underline"
                 >
                   317-314-3757
                 </a>
@@ -210,19 +212,19 @@ export default function TermsPage() {
         <div className="mt-12 flex gap-4">
           <Link
             href="/privacy"
-            className="text-blue-600 hover:underline font-semibold"
+            className="text-brand-blue-600 hover:underline font-semibold"
           >
             Privacy Policy
           </Link>
           <Link
             href="/refund-policy"
-            className="text-blue-600 hover:underline font-semibold"
+            className="text-brand-blue-600 hover:underline font-semibold"
           >
             Refund Policy
           </Link>
           <Link
             href="/accessibility"
-            className="text-blue-600 hover:underline font-semibold"
+            className="text-brand-blue-600 hover:underline font-semibold"
           >
             Accessibility
           </Link>

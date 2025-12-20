@@ -60,7 +60,9 @@ export default function ProductDetailPage({ params }: Props) {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             {product.name}
           </h1>
-          <p className="text-base md:text-lg text-gray-100">{product.description}</p>
+          <p className="text-base md:text-lg text-gray-100">
+            {product.description}
+          </p>
         </div>
       </section>
 
@@ -82,7 +84,7 @@ export default function ProductDetailPage({ params }: Props) {
                 <ul className="space-y-3 mb-8">
                   {product.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
-                      <Check className="w-5 h-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-brand-green-600 mr-3 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -120,7 +122,7 @@ export default function ProductDetailPage({ params }: Props) {
                 <ul className="space-y-3">
                   {product.idealFor.map((item, index) => (
                     <li key={index} className="flex items-start">
-                      <Check className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-brand-blue-600 mr-3 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -144,7 +146,7 @@ export default function ProductDetailPage({ params }: Props) {
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
-                    <Shield className="w-5 h-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <Shield className="w-5 h-5 text-brand-green-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-gray-900">
                         License Type
@@ -156,7 +158,7 @@ export default function ProductDetailPage({ params }: Props) {
                   </div>
 
                   <div className="flex items-start">
-                    <Download className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <Download className="w-5 h-5 text-brand-blue-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-gray-900">
                         Deployment
@@ -168,7 +170,7 @@ export default function ProductDetailPage({ params }: Props) {
                   </div>
 
                   <div className="flex items-start">
-                    <Zap className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <Zap className="w-5 h-5 text-brand-orange-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold text-gray-900">Support</div>
                       <div className="text-sm text-gray-600">
@@ -182,7 +184,7 @@ export default function ProductDetailPage({ params }: Props) {
                   <div>
                     <Link
                       href="/contact"
-                      className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors mb-4"
+                      className="block w-full text-center bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors mb-4"
                     >
                       Request Access
                     </Link>
@@ -196,7 +198,7 @@ export default function ProductDetailPage({ params }: Props) {
                     <input type="hidden" name="productId" value={product.id} />
                     <button
                       type="submit"
-                      className="w-full bg-orange-600 hover:bg-orange-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors mb-4"
+                      className="w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors mb-4"
                     >
                       Purchase License
                     </button>
@@ -210,7 +212,7 @@ export default function ProductDetailPage({ params }: Props) {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <Link
                     href="/platform/licensing"
-                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+                    className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-semibold"
                   >
                     View License Terms →
                   </Link>

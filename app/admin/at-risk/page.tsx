@@ -11,9 +11,11 @@ export const metadata: Metadata = {
 
 export default async function AtRiskStudentsPage() {
   const supabase = await createClient();
-  
-  const { data: { user } } = await supabase.auth.getUser();
-  
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login?next=/admin/at-risk');
   }
@@ -31,7 +33,8 @@ export default async function AtRiskStudentsPage() {
   // Fetch at-risk students
   const { data: atRiskStudents } = await supabase
     .from('student_risk_status')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -54,14 +57,16 @@ export default async function AtRiskStudentsPage() {
           )
         )
       )
-    `)
+    `
+    )
     .eq('status', 'at_risk')
     .order('overdue_count', { ascending: false });
 
   // Fetch needs action students
   const { data: needsActionStudents } = await supabase
     .from('student_risk_status')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -77,14 +82,13 @@ export default async function AtRiskStudentsPage() {
           name
         )
       )
-    `)
+    `
+    )
     .eq('status', 'needs_action')
     .order('overdue_count', { ascending: false });
 
   // Fetch programs with low completion
-  const { data: programStats } = await supabase
-    .from('enrollments')
-    .select(`
+  const { data: programStats } = await supabase.from('enrollments').select(`
       program_id,
       status,
       programs (
@@ -94,31 +98,36 @@ export default async function AtRiskStudentsPage() {
     `);
 
   // Calculate program completion rates
-  const programCompletion = programStats?.reduce((acc: any, enrollment: any) => {
-    const programId = enrollment.program_id;
-    if (!acc[programId]) {
-      acc[programId] = {
-        name: enrollment.programs?.name,
-        total: 0,
-        completed: 0,
-        dropped: 0
-      };
-    }
-    acc[programId].total++;
-    if (enrollment.status === 'completed') acc[programId].completed++;
-    if (enrollment.status === 'dropped') acc[programId].dropped++;
-    return acc;
-  }, {});
+  const programCompletion = programStats?.reduce(
+    (acc: any, enrollment: any) => {
+      const programId = enrollment.program_id;
+      if (!acc[programId]) {
+        acc[programId] = {
+          name: enrollment.programs?.name,
+          total: 0,
+          completed: 0,
+          dropped: 0,
+        };
+      }
+      acc[programId].total++;
+      if (enrollment.status === 'completed') acc[programId].completed++;
+      if (enrollment.status === 'dropped') acc[programId].dropped++;
+      return acc;
+    },
+    {}
+  );
 
   const lowCompletionPrograms = Object.entries(programCompletion || {})
     .map(([id, stats]: [string, any]) => ({
       id,
       name: stats.name,
-      completionRate: stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0,
-      dropoutRate: stats.total > 0 ? Math.round((stats.dropped / stats.total) * 100) : 0,
-      total: stats.total
+      completionRate:
+        stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0,
+      dropoutRate:
+        stats.total > 0 ? Math.round((stats.dropped / stats.total) * 100) : 0,
+      total: stats.total,
     }))
-    .filter(p => p.completionRate < 70 && p.total >= 5)
+    .filter((p) => p.completionRate < 70 && p.total >= 5)
     .sort((a, b) => a.completionRate - b.completionRate);
 
   return (
@@ -141,7 +150,9 @@ export default async function AtRiskStudentsPage() {
               <AlertCircle className="w-8 h-8 text-red-600" />
               <div>
                 <div className="text-sm text-gray-500">At-Risk Students</div>
-                <div className="text-3xl font-bold text-red-600">{atRiskStudents?.length || 0}</div>
+                <div className="text-3xl font-bold text-red-600">
+                  {atRiskStudents?.length || 0}
+                </div>
               </div>
             </div>
             <p className="text-sm text-gray-600 mt-2">
@@ -154,7 +165,9 @@ export default async function AtRiskStudentsPage() {
               <FileWarning className="w-8 h-8 text-yellow-600" />
               <div>
                 <div className="text-sm text-gray-500">Needs Action</div>
-                <div className="text-3xl font-bold text-yellow-600">{needsActionStudents?.length || 0}</div>
+                <div className="text-3xl font-bold text-yellow-600">
+                  {needsActionStudents?.length || 0}
+                </div>
               </div>
             </div>
             <p className="text-sm text-gray-600 mt-2">
@@ -166,8 +179,12 @@ export default async function AtRiskStudentsPage() {
             <div className="flex items-center gap-3 mb-2">
               <TrendingDown className="w-8 h-8 text-purple-600" />
               <div>
-                <div className="text-sm text-gray-500">Low Completion Programs</div>
-                <div className="text-3xl font-bold text-purple-600">{lowCompletionPrograms?.length || 0}</div>
+                <div className="text-sm text-gray-500">
+                  Low Completion Programs
+                </div>
+                <div className="text-3xl font-bold text-purple-600">
+                  {lowCompletionPrograms?.length || 0}
+                </div>
               </div>
             </div>
             <p className="text-sm text-gray-600 mt-2">
@@ -182,17 +199,21 @@ export default async function AtRiskStudentsPage() {
             <AlertCircle className="w-6 h-6 text-red-600" />
             Critical: At-Risk Students
           </h2>
-          
+
           {atRiskStudents && atRiskStudents.length > 0 ? (
             <div className="space-y-4">
               {atRiskStudents.map((risk: any) => {
                 const enrollment = risk.enrollments;
                 const student = enrollment?.profiles;
                 const program = enrollment?.programs;
-                const funding = enrollment?.student_funding_assignments?.[0]?.funding_sources;
-                
+                const funding =
+                  enrollment?.student_funding_assignments?.[0]?.funding_sources;
+
                 return (
-                  <div key={risk.id} className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                  <div
+                    key={risk.id}
+                    className="p-4 bg-red-50 border-l-4 border-red-500 rounded"
+                  >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
@@ -206,45 +227,61 @@ export default async function AtRiskStudentsPage() {
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div>
                             <span className="text-gray-500">Program:</span>
-                            <span className="ml-2 font-medium text-gray-900">{program?.name}</span>
+                            <span className="ml-2 font-medium text-gray-900">
+                              {program?.name}
+                            </span>
                           </div>
                           <div>
                             <span className="text-gray-500">Progress:</span>
-                            <span className="ml-2 font-medium text-gray-900">{risk.progress_percentage}%</span>
+                            <span className="ml-2 font-medium text-gray-900">
+                              {risk.progress_percentage}%
+                            </span>
                           </div>
                           <div>
                             <span className="text-gray-500">Email:</span>
-                            <span className="ml-2 text-gray-900">{student?.email}</span>
+                            <span className="ml-2 text-gray-900">
+                              {student?.email}
+                            </span>
                           </div>
                           <div>
                             <span className="text-gray-500">Funding:</span>
-                            <span className="ml-2 font-medium text-gray-900">{funding?.code || 'N/A'}</span>
+                            <span className="ml-2 font-medium text-gray-900">
+                              {funding?.code || 'N/A'}
+                            </span>
                           </div>
                           <div>
-                            <span className="text-gray-500">Last Activity:</span>
+                            <span className="text-gray-500">
+                              Last Activity:
+                            </span>
                             <span className="ml-2 text-gray-900">
-                              {risk.last_activity_date 
-                                ? new Date(risk.last_activity_date).toLocaleDateString()
+                              {risk.last_activity_date
+                                ? new Date(
+                                    risk.last_activity_date
+                                  ).toLocaleDateString()
                                 : 'No activity'}
                             </span>
                           </div>
                           <div>
-                            <span className="text-gray-500">Days Inactive:</span>
-                            <span className="ml-2 font-medium text-red-600">{risk.days_since_activity}</span>
+                            <span className="text-gray-500">
+                              Days Inactive:
+                            </span>
+                            <span className="ml-2 font-medium text-red-600">
+                              {risk.days_since_activity}
+                            </span>
                           </div>
                         </div>
                       </div>
                       <div className="flex flex-col gap-2">
                         <Link
                           href={`/admin/students/${student?.id}`}
-                          className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 text-center"
+                          className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700 text-center"
                         >
                           View Details
                         </Link>
                         {student?.phone && (
                           <a
                             href={`tel:${student.phone}`}
-                            className="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 text-center"
+                            className="px-4 py-2 bg-brand-green-600 text-white rounded-lg font-semibold hover:bg-green-700 text-center"
                           >
                             Call Student
                           </a>
@@ -274,20 +311,24 @@ export default async function AtRiskStudentsPage() {
                 const enrollment = risk.enrollments;
                 const student = enrollment?.profiles;
                 const program = enrollment?.programs;
-                
+
                 return (
-                  <div key={risk.id} className="flex items-center justify-between p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+                  <div
+                    key={risk.id}
+                    className="flex items-center justify-between p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded"
+                  >
                     <div>
                       <div className="font-semibold text-gray-900">
                         {student?.first_name} {student?.last_name}
                       </div>
                       <div className="text-sm text-gray-600">
-                        {program?.name} • {risk.overdue_count} overdue • {risk.progress_percentage}% complete
+                        {program?.name} • {risk.overdue_count} overdue •{' '}
+                        {risk.progress_percentage}% complete
                       </div>
                     </div>
                     <Link
                       href={`/admin/students/${student?.id}`}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+                      className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700"
                     >
                       Review
                     </Link>
@@ -309,30 +350,51 @@ export default async function AtRiskStudentsPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Program</th>
-                    <th className="text-center py-3 px-4 font-semibold text-gray-700">Total Students</th>
-                    <th className="text-center py-3 px-4 font-semibold text-gray-700">Completion Rate</th>
-                    <th className="text-center py-3 px-4 font-semibold text-gray-700">Dropout Rate</th>
-                    <th className="text-right py-3 px-4 font-semibold text-gray-700">Actions</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                      Program
+                    </th>
+                    <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                      Total Students
+                    </th>
+                    <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                      Completion Rate
+                    </th>
+                    <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                      Dropout Rate
+                    </th>
+                    <th className="text-right py-3 px-4 font-semibold text-gray-700">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {lowCompletionPrograms.map((program: any) => (
-                    <tr key={program.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-3 px-4 font-medium text-gray-900">{program.name}</td>
-                      <td className="py-3 px-4 text-center text-gray-700">{program.total}</td>
+                    <tr
+                      key={program.id}
+                      className="border-b border-gray-100 hover:bg-gray-50"
+                    >
+                      <td className="py-3 px-4 font-medium text-gray-900">
+                        {program.name}
+                      </td>
+                      <td className="py-3 px-4 text-center text-gray-700">
+                        {program.total}
+                      </td>
                       <td className="py-3 px-4 text-center">
-                        <span className={`font-bold ${program.completionRate < 50 ? 'text-red-600' : 'text-yellow-600'}`}>
+                        <span
+                          className={`font-bold ${program.completionRate < 50 ? 'text-red-600' : 'text-yellow-600'}`}
+                        >
                           {program.completionRate}%
                         </span>
                       </td>
                       <td className="py-3 px-4 text-center">
-                        <span className="font-bold text-red-600">{program.dropoutRate}%</span>
+                        <span className="font-bold text-red-600">
+                          {program.dropoutRate}%
+                        </span>
                       </td>
                       <td className="py-3 px-4 text-right">
                         <Link
                           href={`/admin/programs/${program.id}`}
-                          className="text-blue-600 hover:underline font-semibold"
+                          className="text-brand-blue-600 hover:underline font-semibold"
                         >
                           Investigate →
                         </Link>

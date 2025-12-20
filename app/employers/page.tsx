@@ -57,7 +57,7 @@ export default function EmployersPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#post-job"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-brand-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
               >
                 Post a Job Opening
               </Link>
@@ -82,7 +82,7 @@ export default function EmployersPage() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-blue-600" />
+                  <Users className="w-8 h-8 text-brand-blue-600" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">
                   Pre-Screened Candidates
@@ -94,8 +94,8 @@ export default function EmployersPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <DollarSign className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-8 h-8 text-brand-green-600" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">
                   Zero Recruitment Fees
@@ -117,7 +117,7 @@ export default function EmployersPage() {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-8 h-8 text-orange-600" />
+                  <Target className="w-8 h-8 text-brand-orange-600" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Customized Training</h3>
                 <p className="text-slate-600">
@@ -159,7 +159,7 @@ export default function EmployersPage() {
             </h2>
             <div className="space-y-8">
               <div className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
+                <div className="w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
                   1
                 </div>
                 <div>
@@ -175,7 +175,7 @@ export default function EmployersPage() {
                 </div>
               </div>
               <div className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
+                <div className="w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
                   2
                 </div>
                 <div>
@@ -191,7 +191,7 @@ export default function EmployersPage() {
                 </div>
               </div>
               <div className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
+                <div className="w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base flex-shrink-0">
                   3
                 </div>
                 <div>
@@ -272,7 +272,7 @@ export default function EmployersPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
+                  <CheckCircle className="w-6 h-6 text-brand-green-600" />
                   Work Opportunity Tax Credit (WOTC)
                 </h3>
                 <p className="text-slate-600 mb-4">
@@ -282,14 +282,14 @@ export default function EmployersPage() {
                 </p>
                 <Link
                   href="#contact"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Learn More →
                 </Link>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
+                  <CheckCircle className="w-6 h-6 text-brand-green-600" />
                   Federal Bonding Program
                 </h3>
                 <p className="text-slate-600 mb-4">
@@ -299,7 +299,7 @@ export default function EmployersPage() {
                 </p>
                 <Link
                   href="#contact"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Learn More →
                 </Link>
@@ -313,7 +313,7 @@ export default function EmployersPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Calendar className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <Calendar className="w-16 h-16 text-brand-blue-600 mx-auto mb-6" />
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Hiring Events
             </h2>
@@ -337,7 +337,7 @@ export default function EmployersPage() {
               </p>
               <Link
                 href="#contact"
-                className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                className="inline-block px-8 py-4 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition"
               >
                 Register for Next Event
               </Link>
@@ -355,7 +355,7 @@ export default function EmployersPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <FileText className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+              <FileText className="w-16 h-16 text-brand-blue-600 mx-auto mb-6" />
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Post a Job Opening
               </h2>
@@ -494,7 +494,7 @@ export default function EmployersPage() {
               </div>
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition"
+                className="w-full px-8 py-4 bg-brand-blue-600 text-white font-bold text-lg rounded-lg hover:bg-brand-blue-700 transition"
               >
                 Submit Job Posting
               </button>
@@ -592,7 +592,7 @@ export default function EmployersPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-block px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
+              className="inline-block px-8 py-4 bg-white text-brand-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
             >
               Schedule a Meeting
             </Link>

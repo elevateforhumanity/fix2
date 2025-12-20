@@ -72,7 +72,7 @@ export default async function ProductPage({
               </div>
 
               <div className="mb-6">
-                <p className="text-4xl font-bold text-blue-600">
+                <p className="text-4xl font-bold text-brand-blue-600">
                   ${(product.price_cents / 100).toFixed(2)}
                 </p>
               </div>

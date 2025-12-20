@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 
 export default async function TaxFilingApplicationsPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -45,10 +47,15 @@ export default async function TaxFilingApplicationsPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/tax-filing" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/tax-filing"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Tax Filing
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">Tax Filing Applications</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Tax Filing Applications
+          </h1>
           <p className="mt-2 text-gray-600">
             Manage client tax filing applications and intake process.
           </p>
@@ -57,15 +64,21 @@ export default async function TaxFilingApplicationsPage() {
         {/* Stats */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-blue-600">{applications?.length || 0}</div>
+            <div className="text-3xl font-bold text-brand-blue-600">
+              {applications?.length || 0}
+            </div>
             <div className="text-gray-600 text-sm">Total Applications</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-orange-600">{pendingCount || 0}</div>
+            <div className="text-3xl font-bold text-brand-orange-600">
+              {pendingCount || 0}
+            </div>
             <div className="text-gray-600 text-sm">Pending Review</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-green-600">{completedCount || 0}</div>
+            <div className="text-3xl font-bold text-brand-green-600">
+              {completedCount || 0}
+            </div>
             <div className="text-gray-600 text-sm">Completed</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
@@ -97,7 +110,7 @@ export default async function TaxFilingApplicationsPage() {
               <option value="2023">2023</option>
               <option value="2022">2022</option>
             </select>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+            <button className="px-4 py-2 bg-brand-blue-600 text-white rounded-md hover:bg-brand-blue-700">
               Apply Filters
             </button>
           </div>
@@ -106,15 +119,17 @@ export default async function TaxFilingApplicationsPage() {
         {/* Applications List */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-            <h2 className="text-lg font-semibold text-gray-900">Recent Applications</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Recent Applications
+            </h2>
             <Link
               href="/admin/tax-filing/applications/new"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
+              className="px-4 py-2 bg-brand-blue-600 text-white rounded-md hover:bg-brand-blue-700 text-sm"
             >
               + New Application
             </Link>
           </div>
-          
+
           {applications && applications.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
@@ -141,18 +156,26 @@ export default async function TaxFilingApplicationsPage() {
                   {applications.map((app: any) => (
                     <tr key={app.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">{app.client_name || 'N/A'}</div>
-                        <div className="text-sm text-gray-500">{app.client_email || ''}</div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {app.client_name || 'N/A'}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {app.client_email || ''}
+                        </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         {app.tax_year || '2024'}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                          app.status === 'completed' ? 'bg-green-100 text-green-800' :
-                          app.status === 'pending' ? 'bg-orange-100 text-orange-800' :
-                          'bg-blue-100 text-blue-800'
-                        }`}>
+                        <span
+                          className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                            app.status === 'completed'
+                              ? 'bg-brand-green-100 text-green-800'
+                              : app.status === 'pending'
+                                ? 'bg-orange-100 text-orange-800'
+                                : 'bg-blue-100 text-blue-800'
+                          }`}
+                        >
                           {app.status || 'pending'}
                         </span>
                       </td>
@@ -162,7 +185,7 @@ export default async function TaxFilingApplicationsPage() {
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
                         <Link
                           href={`/admin/tax-filing/applications/${app.id}`}
-                          className="text-blue-600 hover:text-blue-900"
+                          className="text-brand-blue-600 hover:text-blue-900"
                         >
                           View
                         </Link>
@@ -174,7 +197,8 @@ export default async function TaxFilingApplicationsPage() {
             </div>
           ) : (
             <div className="px-6 py-12 text-center text-gray-500">
-              No tax filing applications yet. Create your first application above.
+              No tax filing applications yet. Create your first application
+              above.
             </div>
           )}
         </div>

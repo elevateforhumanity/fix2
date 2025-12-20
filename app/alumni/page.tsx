@@ -37,13 +37,13 @@ export default async function AlumniPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Join Alumni Network
             </Link>
             <Link
               href="/success-stories"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Read Success Stories
             </Link>
@@ -56,13 +56,15 @@ export default async function AlumniPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="text-4xl font-bold text-brand-blue-600 mb-2">
                 2,500+
               </div>
               <div className="text-gray-600">Alumni Nationwide</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">85%</div>
+              <div className="text-4xl font-bold text-brand-green-600 mb-2">
+                85%
+              </div>
               <div className="text-gray-600">Employed in Field</div>
             </div>
             <div>
@@ -72,7 +74,9 @@ export default async function AlumniPage() {
               <div className="text-gray-600">Average Starting Salary</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">95%</div>
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                95%
+              </div>
               <div className="text-gray-600">Would Recommend</div>
             </div>
           </div>
@@ -95,7 +99,7 @@ export default async function AlumniPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
-                <Users className="w-6 h-6 text-blue-600" />
+                <Users className="w-6 h-6 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Networking Events
@@ -107,8 +111,8 @@ export default async function AlumniPage() {
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
-                <Briefcase className="w-6 h-6 text-green-600" />
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-green-100 rounded-lg mb-4">
+                <Briefcase className="w-6 h-6 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Job Board Access
@@ -134,7 +138,7 @@ export default async function AlumniPage() {
 
             <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
-                <Heart className="w-6 h-6 text-orange-600" />
+                <Heart className="w-6 h-6 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Mentorship Program
@@ -184,7 +188,7 @@ export default async function AlumniPage() {
                 </p>
                 <Link
                   href="/success-stories"
-                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                  className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
                 >
                   Read More →
                 </Link>
@@ -213,7 +217,7 @@ export default async function AlumniPage() {
                 </p>
                 <Link
                   href="/success-stories"
-                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                  className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
                 >
                   Read More →
                 </Link>
@@ -242,7 +246,7 @@ export default async function AlumniPage() {
                 </p>
                 <Link
                   href="/success-stories"
-                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                  className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
                 >
                   Read More →
                 </Link>
@@ -253,7 +257,7 @@ export default async function AlumniPage() {
           <div className="text-center mt-12">
             <Link
               href="/success-stories"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="inline-block bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View All Success Stories
             </Link>
@@ -262,7 +266,7 @@ export default async function AlumniPage() {
       </section>
 
       {/* Get Involved Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-brand-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -342,7 +346,7 @@ export default async function AlumniPage() {
               </ul>
               <Link
                 href="/contact"
-                className="inline-block bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+                className="inline-block bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
               >
                 Get Involved
               </Link>
@@ -374,13 +378,13 @@ export default async function AlumniPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Update Your Info
             </Link>
             <Link
               href="/success-stories"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Share Your Story
             </Link>

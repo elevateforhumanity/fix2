@@ -50,13 +50,13 @@ export default function JoinTeamPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -95,7 +95,9 @@ export default function JoinTeamPage() {
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-              <h3 className="text-lg md:text-lg font-bold mb-6">What You'll Earn</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-6">
+                What You'll Earn
+              </h3>
               <div className="space-y-4">
                 <div className="bg-white/20 rounded-lg p-4">
                   <div className="text-3xl font-bold mb-1">$50-$150</div>
@@ -152,7 +154,7 @@ export default function JoinTeamPage() {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mb-4 text-base font-bold">
+              <div className="w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center mb-4 text-base font-bold">
                 2
               </div>
               <h3 className="text-lg font-bold mb-3">Get Certified</h3>
@@ -169,7 +171,7 @@ export default function JoinTeamPage() {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mb-4 text-base font-bold">
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center mb-4 text-base font-bold">
                 3
               </div>
               <h3 className="text-lg font-bold mb-3">Start Earning</h3>
@@ -214,8 +216,10 @@ export default function JoinTeamPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Work From Home */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
-              <h3 className="text-lg md:text-lg font-bold mb-4">Work From Home</h3>
-              <div className="text-4xl font-bold text-green-600 mb-4 text-2xl md:text-3xl lg:text-4xl">
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Work From Home
+              </h3>
+              <div className="text-4xl font-bold text-brand-green-600 mb-4 text-2xl md:text-3xl lg:text-4xl">
                 $0
               </div>
               <p className="text-gray-600 mb-6">Start-up cost</p>
@@ -245,7 +249,9 @@ export default function JoinTeamPage() {
               <div className="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">
                 MOST POPULAR
               </div>
-              <h3 className="text-lg md:text-lg font-bold mb-4">Mobile Tax Service</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Mobile Tax Service
+              </h3>
               <div className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
                 $2,500
               </div>
@@ -273,7 +279,9 @@ export default function JoinTeamPage() {
 
             {/* Storefront Office */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
-              <h3 className="text-lg md:text-lg font-bold mb-4">Storefront Office</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-4">
+                Storefront Office
+              </h3>
               <div className="text-4xl font-bold text-purple-600 mb-4 text-2xl md:text-3xl lg:text-4xl">
                 $10K+
               </div>
@@ -379,7 +387,7 @@ export default function JoinTeamPage() {
           <div className="mt-12 text-center">
             <a
               href="/tax-filing/locations"
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 font-bold"
+              className="inline-block bg-brand-blue-600 text-white px-8 py-3 rounded-lg hover:bg-brand-blue-700 font-bold"
             >
               Find Training in Your State
             </a>
@@ -396,7 +404,7 @@ export default function JoinTeamPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl">💰</span>
               </div>
               <div>
@@ -465,7 +473,7 @@ export default function JoinTeamPage() {
             </div>
 
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl">🛡️</span>
               </div>
               <div>
@@ -490,7 +498,7 @@ export default function JoinTeamPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
+                <div className="w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
                   SM
                 </div>
                 <div>
@@ -509,7 +517,7 @@ export default function JoinTeamPage() {
 
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
+                <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
                   JR
                 </div>
                 <div>

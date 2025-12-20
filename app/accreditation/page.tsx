@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
 
-
 import Link from 'next/link';
 
 import Image from 'next/image';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
@@ -66,27 +65,35 @@ export default function AccreditationPage() {
 
           <ul className="space-y-3 mb-6">
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-base">✓</span>
+              <span className="text-brand-green-600 font-bold text-base">
+                ✓
+              </span>
               <span className="text-slate-700">
                 Your training is <strong>recognized by employers</strong>{' '}
                 nationwide
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-base">✓</span>
+              <span className="text-brand-green-600 font-bold text-base">
+                ✓
+              </span>
               <span className="text-slate-700">
                 You can get <strong>government funding</strong> (WRG, WIOA) to
                 pay for it
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-base">✓</span>
+              <span className="text-brand-green-600 font-bold text-base">
+                ✓
+              </span>
               <span className="text-slate-700">
                 Your certifications are <strong>valid and transferable</strong>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-base">✓</span>
+              <span className="text-brand-green-600 font-bold text-base">
+                ✓
+              </span>
               <span className="text-slate-700">
                 We meet <strong>federal and state standards</strong> for quality
                 training
@@ -192,7 +199,7 @@ export default function AccreditationPage() {
 
             {/* Partnerships */}
             <div className="bg-white rounded-lg p-8 shadow-sm">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-3xl">🤝</span>
               </div>
               <h3 className="text-lg md:text-lg font-bold mb-4">
@@ -349,7 +356,7 @@ export default function AccreditationPage() {
                 href="https://www.apprenticeship.gov/apprenticeship-finder"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 underline text-sm"
+                className="text-brand-blue-600 underline text-sm"
               >
                 apprenticeship.gov/apprenticeship-finder
               </a>
@@ -364,7 +371,7 @@ export default function AccreditationPage() {
                 href="https://intraining.dwd.in.gov/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 underline text-sm"
+                className="text-brand-blue-600 underline text-sm"
               >
                 intraining.dwd.in.gov
               </a>
@@ -374,7 +381,7 @@ export default function AccreditationPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-blue-600 text-white text-center">
+      <section className="py-16 bg-brand-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Approved Training?
@@ -384,7 +391,7 @@ export default function AccreditationPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-5 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
+            className="inline-block px-10 py-5 bg-white text-brand-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
           >
             Contact Us
           </Link>

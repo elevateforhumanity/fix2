@@ -203,7 +203,8 @@ export default function DashboardGuidePage() {
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-blue-900">
-              <strong>Pro Tip:</strong> Bookmark your dashboard at /student/dashboard for quick access!
+              <strong>Pro Tip:</strong> Bookmark your dashboard at
+              /student/dashboard for quick access!
             </p>
           </div>
         </div>
@@ -225,7 +226,7 @@ export default function DashboardGuidePage() {
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-blue-600" />
+                          <Icon className="w-6 h-6 text-brand-blue-600" />
                         </div>
                       </div>
                       <div className="flex-1">
@@ -235,7 +236,7 @@ export default function DashboardGuidePage() {
                           </h3>
                           <Link
                             href={feature.path}
-                            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                            className="flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm"
                           >
                             <span>Go to {feature.title}</span>
                             <ArrowRight className="w-4 h-4" />
@@ -254,7 +255,7 @@ export default function DashboardGuidePage() {
                                 key={itemIndex}
                                 className="flex items-start gap-2 text-sm text-slate-700"
                               >
-                                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                                <CheckCircle className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -341,8 +342,8 @@ export default function DashboardGuidePage() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-green-600" />
+                      <div className="w-10 h-10 bg-brand-green-100 rounded-lg flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-brand-green-600" />
                       </div>
                     </div>
                     <div>
@@ -371,19 +372,19 @@ export default function DashboardGuidePage() {
           </p>
           <ul className="space-y-2 text-slate-700 mb-6">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Check your dashboard on the go</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Log practical hours from your phone</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Chat with AI instructor anywhere</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>View your schedule and grades</span>
             </li>
           </ul>
@@ -413,7 +414,7 @@ export default function DashboardGuidePage() {
               </p>
               <Link
                 href="/student/ai-tutor"
-                className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1"
+                className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm flex items-center gap-1"
               >
                 Start Chat <ArrowRight className="w-4 h-4" />
               </Link>
@@ -435,7 +436,7 @@ export default function DashboardGuidePage() {
               </p>
               <Link
                 href="/faq"
-                className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1"
+                className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm flex items-center gap-1"
               >
                 View FAQs <ArrowRight className="w-4 h-4" />
               </Link>
@@ -460,14 +461,14 @@ export default function DashboardGuidePage() {
             </Link>
             <Link
               href="/student/courses"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-green-700 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold border-2 border-white"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-green-700 text-white rounded-lg hover:bg-brand-green-600 transition-colors font-semibold border-2 border-white"
             >
               <BookOpen className="w-5 h-5" />
               <span>View My Courses</span>
             </Link>
             <Link
               href="/orientation"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-green-700 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold border-2 border-white"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-green-700 text-white rounded-lg hover:bg-brand-green-600 transition-colors font-semibold border-2 border-white"
             >
               <Video className="w-5 h-5" />
               <span>Back to Orientation</span>

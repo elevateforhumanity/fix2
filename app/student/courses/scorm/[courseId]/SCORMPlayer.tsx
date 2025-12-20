@@ -28,7 +28,7 @@ export function SCORMPlayer({
     const handleMessage = async (event: MessageEvent) => {
       if (event.data.type === 'scorm_complete') {
         setCompleted(true);
-        
+
         // Save completion to database
         await fetch('/api/courses/complete', {
           method: 'POST',
@@ -65,19 +65,23 @@ export function SCORMPlayer({
               <span>Back to Courses</span>
             </button>
             <div className="h-6 w-px bg-gray-300" />
-            <h1 className="text-lg font-semibold text-gray-900">{courseName}</h1>
+            <h1 className="text-lg font-semibold text-gray-900">
+              {courseName}
+            </h1>
           </div>
-          
+
           {progress > 0 && !completed && (
             <div className="flex items-center gap-3">
               <div className="text-sm text-gray-600">Progress:</div>
               <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-blue-600 transition-all duration-300"
+                  className="h-full bg-brand-blue-600 transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <div className="text-sm font-semibold text-gray-900">{progress}%</div>
+              <div className="text-sm font-semibold text-gray-900">
+                {progress}%
+              </div>
             </div>
           )}
         </div>
@@ -95,7 +99,7 @@ export function SCORMPlayer({
 
       {/* Completion Banner */}
       {completed && (
-        <div className="bg-green-600 text-white px-6 py-4">
+        <div className="bg-brand-green-600 text-white px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <CheckCircle className="w-6 h-6" />
@@ -108,7 +112,7 @@ export function SCORMPlayer({
             </div>
             <button
               onClick={() => router.push('/student/courses')}
-              className="px-6 py-2 bg-white text-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
+              className="px-6 py-2 bg-white text-brand-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
             >
               Continue Learning
             </button>

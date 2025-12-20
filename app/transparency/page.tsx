@@ -68,7 +68,7 @@ export default function TransparencyPage() {
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center border border-blue-200">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-blue-600 rounded-full mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <div className="text-4xl font-bold text-blue-900 mb-2">87%</div>
@@ -78,7 +78,7 @@ export default function TransparencyPage() {
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center border border-green-200">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green-600 rounded-full mb-4">
                 <DollarSign className="w-8 h-8 text-white" />
               </div>
               <div className="text-4xl font-bold text-green-900 mb-2">
@@ -147,13 +147,13 @@ export default function TransparencyPage() {
                     <span className="font-semibold text-slate-900">
                       Administrative
                     </span>
-                    <span className="text-2xl font-bold text-blue-600">
+                    <span className="text-2xl font-bold text-brand-blue-600">
                       12%
                     </span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-4">
                     <div
-                      className="bg-blue-600 h-4 rounded-full"
+                      className="bg-brand-blue-600 h-4 rounded-full"
                       style={{ width: '12%' }}
                     ></div>
                   </div>
@@ -185,7 +185,7 @@ export default function TransparencyPage() {
 
               <div className="mt-8 p-6 bg-green-50 rounded-lg border border-green-200">
                 <div className="flex items-center gap-3 mb-2">
-                  <CheckCircle2 className="w-6 h-6 text-green-600" />
+                  <CheckCircle2 className="w-6 h-6 text-brand-green-600" />
                   <span className="font-bold text-green-900">
                     Industry Leading Efficiency
                   </span>
@@ -209,13 +209,13 @@ export default function TransparencyPage() {
                     <span className="font-semibold text-slate-900">
                       Government Grants
                     </span>
-                    <span className="text-2xl font-bold text-blue-600">
+                    <span className="text-2xl font-bold text-brand-blue-600">
                       45%
                     </span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-4">
                     <div
-                      className="bg-blue-600 h-4 rounded-full"
+                      className="bg-brand-blue-600 h-4 rounded-full"
                       style={{ width: '45%' }}
                     ></div>
                   </div>
@@ -269,13 +269,13 @@ export default function TransparencyPage() {
                     <span className="font-semibold text-slate-900">
                       Foundation Grants
                     </span>
-                    <span className="text-2xl font-bold text-orange-600">
+                    <span className="text-2xl font-bold text-brand-orange-600">
                       5%
                     </span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-4">
                     <div
-                      className="bg-orange-600 h-4 rounded-full"
+                      className="bg-brand-orange-600 h-4 rounded-full"
                       style={{ width: '5%' }}
                     ></div>
                   </div>
@@ -287,7 +287,7 @@ export default function TransparencyPage() {
 
               <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
                 <div className="flex items-center gap-3 mb-2">
-                  <Target className="w-6 h-6 text-blue-600" />
+                  <Target className="w-6 h-6 text-brand-blue-600" />
                   <span className="font-bold text-blue-900">
                     Diversified Funding
                   </span>
@@ -342,24 +342,26 @@ export default function TransparencyPage() {
             <div className="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
               <div className="text-center mb-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                  <Users className="w-8 h-8 text-blue-600" />
+                  <Users className="w-8 h-8 text-brand-blue-600" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Job Placement
                 </h3>
-                <div className="text-5xl font-bold text-blue-600 mb-2">87%</div>
+                <div className="text-5xl font-bold text-brand-blue-600 mb-2">
+                  87%
+                </div>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>432 graduates employed within 90 days</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Average starting salary: $45,000</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Full-time positions with benefits</span>
                 </li>
               </ul>
@@ -367,27 +369,27 @@ export default function TransparencyPage() {
 
             <div className="bg-white rounded-xl p-8 shadow-lg border border-slate-200">
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                  <TrendingUp className="w-8 h-8 text-green-600" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green-100 rounded-full mb-4">
+                  <TrendingUp className="w-8 h-8 text-brand-green-600" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Wage Growth
                 </h3>
-                <div className="text-5xl font-bold text-green-600 mb-2">
+                <div className="text-5xl font-bold text-brand-green-600 mb-2">
                   215%
                 </div>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Average income increase from $14K to $45K</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Breaking the cycle of poverty</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Long-term economic mobility</span>
                 </li>
               </ul>
@@ -471,7 +473,7 @@ export default function TransparencyPage() {
                 <a
                   href={`/downloads/${doc.title.toLowerCase().replace(/\s+/g, '-')}.pdf`}
                   download
-                  className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                  className="flex items-center justify-center gap-2 w-full bg-brand-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
                 >
                   <Download className="w-4 h-4" />
                   Download
@@ -496,13 +498,13 @@ export default function TransparencyPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center border-2 border-blue-200">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-blue-600 rounded-full mb-4">
                 <Award className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">
                 Charity Navigator
               </h3>
-              <div className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="text-4xl font-bold text-brand-blue-600 mb-2">
                 4 Stars
               </div>
               <p className="text-sm text-slate-700 mb-4">
@@ -510,7 +512,7 @@ export default function TransparencyPage() {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700"
+                className="inline-flex items-center gap-2 text-brand-blue-600 font-semibold hover:text-brand-blue-700"
               >
                 View Profile
                 <ExternalLink className="w-4 h-4" />
@@ -518,13 +520,13 @@ export default function TransparencyPage() {
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center border-2 border-green-200">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green-600 rounded-full mb-4">
                 <Shield className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">
                 GuideStar
               </h3>
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-brand-green-600 mb-2">
                 Platinum
               </div>
               <p className="text-sm text-slate-700 mb-4">
@@ -532,7 +534,7 @@ export default function TransparencyPage() {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700"
+                className="inline-flex items-center gap-2 text-brand-green-600 font-semibold hover:text-green-700"
               >
                 View Profile
                 <ExternalLink className="w-4 h-4" />

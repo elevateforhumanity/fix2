@@ -134,13 +134,13 @@ export default function LoginForm() {
           <label className="flex items-center">
             <input
               type="checkbox"
-              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              className="h-4 w-4 text-brand-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             />
             <span className="ml-2 text-sm text-gray-600">Remember me</span>
           </label>
           <Link
             href="/auth/forgot-password"
-            className="text-sm text-blue-600 hover:text-blue-700"
+            className="text-sm text-brand-blue-600 hover:text-brand-blue-700"
           >
             Forgot password?
           </Link>
@@ -149,7 +149,7 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
+          className="w-full px-4 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
@@ -197,7 +197,7 @@ export default function LoginForm() {
         Don't have an account?{' '}
         <Link
           href="/signup"
-          className="text-blue-600 hover:text-blue-700 font-medium"
+          className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
         >
           Sign up
         </Link>

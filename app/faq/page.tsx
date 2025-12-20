@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -238,7 +238,7 @@ export default function FAQPage() {
               onClick={() => setSelectedCategory('all')}
               className={`px-6 py-2 rounded-full font-semibold transition ${
                 selectedCategory === 'all'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-white text-slate-700 hover:bg-slate-100'
               }`}
             >
@@ -250,7 +250,7 @@ export default function FAQPage() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-2 rounded-full font-semibold transition ${
                   selectedCategory === category.id
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-brand-blue-600 text-white'
                     : 'bg-white text-slate-700 hover:bg-slate-100'
                 }`}
               >
@@ -324,7 +324,7 @@ export default function FAQPage() {
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-8 shadow-sm">
-                <Phone className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <Phone className="w-12 h-12 text-brand-blue-600 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-slate-900 mb-2">
                   Call Us
                 </h3>
@@ -333,7 +333,7 @@ export default function FAQPage() {
                 </p>
                 <a
                   href="tel:317-314-3757"
-                  className="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                  className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition"
                 >
                   317-314-3757
                 </a>
@@ -377,7 +377,7 @@ export default function FAQPage() {
               </Link>
               <Link
                 href="/apply"
-                className="bg-green-50 hover:bg-green-100 rounded-lg p-6 text-center transition"
+                className="bg-green-50 hover:bg-brand-green-100 rounded-lg p-6 text-center transition"
               >
                 <div className="text-3xl mb-2">✍️</div>
                 <div className="font-semibold text-slate-900">Apply Now</div>

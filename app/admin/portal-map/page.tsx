@@ -682,7 +682,7 @@ export default function AdminPortalMapPage() {
     switch (status) {
       case 'active':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-green-700 bg-brand-green-100 rounded-full">
             <CheckCircle2 className="w-3 h-3" />
             Active
           </span>
@@ -757,13 +757,13 @@ export default function AdminPortalMapPage() {
             <div className="text-sm text-gray-600">Total Routes</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-2xl font-bold text-green-600">
+            <div className="text-2xl font-bold text-brand-green-600">
               {adminRoutes.filter((r) => r.status === 'active').length}
             </div>
             <div className="text-sm text-gray-600">Active Features</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
-            <div className="text-2xl font-bold text-blue-600">155</div>
+            <div className="text-2xl font-bold text-brand-blue-600">155</div>
             <div className="text-sm text-gray-600">Total Pages</div>
           </div>
         </div>
@@ -784,7 +784,7 @@ export default function AdminPortalMapPage() {
                     <div className="flex items-start gap-4 flex-1">
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-blue-600" />
+                          <Icon className="w-6 h-6 text-brand-blue-600" />
                         </div>
                       </div>
                       <div className="flex-1">
@@ -800,7 +800,7 @@ export default function AdminPortalMapPage() {
                         <div className="flex items-center gap-4">
                           <Link
                             href={route.href}
-                            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-brand-blue-600 hover:text-brand-blue-700"
                           >
                             Visit Page
                             <ExternalLink className="w-4 h-4" />
@@ -840,7 +840,7 @@ export default function AdminPortalMapPage() {
                               </p>
                               <Link
                                 href={child.href}
-                                className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700"
+                                className="inline-flex items-center gap-1 text-xs font-medium text-brand-blue-600 hover:text-brand-blue-700"
                               >
                                 Visit Page
                                 <ExternalLink className="w-3 h-3" />

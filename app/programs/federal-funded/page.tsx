@@ -101,7 +101,7 @@ export default function FederalFundedProgramsPage() {
               </p>
               <Link
                 href="/wioa-eligibility"
-                className="text-green-600 font-semibold hover:underline"
+                className="text-brand-green-600 font-semibold hover:underline"
               >
                 Check Eligibility →
               </Link>
@@ -115,7 +115,7 @@ export default function FederalFundedProgramsPage() {
               </p>
               <Link
                 href="/funding"
-                className="text-green-600 font-semibold hover:underline"
+                className="text-brand-green-600 font-semibold hover:underline"
               >
                 Learn More →
               </Link>
@@ -129,7 +129,7 @@ export default function FederalFundedProgramsPage() {
               </p>
               <Link
                 href="/funding"
-                className="text-green-600 font-semibold hover:underline"
+                className="text-brand-green-600 font-semibold hover:underline"
               >
                 Learn More →
               </Link>
@@ -147,7 +147,7 @@ export default function FederalFundedProgramsPage() {
 
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-green-100 text-brand-green-600 mb-4">
                 <CheckCircle className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Tuition</h3>
@@ -155,7 +155,7 @@ export default function FederalFundedProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-brand-blue-600 mb-4">
                 <Award className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Certifications</h3>
@@ -175,7 +175,7 @@ export default function FederalFundedProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-brand-orange-600 mb-4">
                 <Shield className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">No Payback</h3>
@@ -213,14 +213,14 @@ export default function FederalFundedProgramsPage() {
                     {program.name}
                   </h3>
                   <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-brand-green-100 text-green-700 text-xs font-semibold rounded-full">
                       {program.duration}
                     </span>
                     <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
                       $0 Cost
                     </span>
                   </div>
-                  <span className="inline-flex items-center font-semibold text-green-600 group-hover:underline text-sm">
+                  <span className="inline-flex items-center font-semibold text-brand-green-600 group-hover:underline text-sm">
                     Learn More →
                   </span>
                 </div>
@@ -242,13 +242,13 @@ export default function FederalFundedProgramsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex px-8 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition text-lg"
+              className="inline-flex px-8 py-4 bg-brand-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition text-lg"
             >
               Apply Now
             </Link>
             <Link
               href="/wioa-eligibility"
-              className="inline-flex px-8 py-4 bg-white border-2 border-green-600 text-green-600 font-bold rounded-lg hover:bg-green-50 transition text-lg"
+              className="inline-flex px-8 py-4 bg-white border-2 border-brand-green-600 text-brand-green-600 font-bold rounded-lg hover:bg-green-50 transition text-lg"
             >
               Check Eligibility
             </Link>

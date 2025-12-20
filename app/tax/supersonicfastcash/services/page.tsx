@@ -62,13 +62,13 @@ export default function ServicesPage() {
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="/supersonic-fast-cash"
-            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            className="px-6 py-3 rounded-lg bg-brand-blue-600 text-white font-semibold hover:bg-brand-blue-700 transition"
           >
             View Full Details
           </Link>
           <Link
             href="/tax/supersonicfastcash/documents"
-            className="px-6 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition"
+            className="px-6 py-3 rounded-lg border-2 border-brand-blue-600 text-brand-blue-600 font-semibold hover:bg-blue-50 transition"
           >
             Upload Documents
           </Link>
@@ -84,7 +84,7 @@ export default function ServicesPage() {
       <section className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="rounded-2xl border-2 border-blue-200 bg-white p-6 hover:shadow-lg transition">
           <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-            <FileText className="w-6 h-6 text-blue-600" />
+            <FileText className="w-6 h-6 text-brand-blue-600" />
           </div>
           <h2 className="text-xl font-bold text-gray-900 mb-2">
             Individual Tax Preparation
@@ -95,27 +95,27 @@ export default function ServicesPage() {
           </p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span>Same-day filing available</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span>Maximum refund guarantee</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span>E-file included</span>
             </li>
           </ul>
           <div className="mt-4 pt-4 border-t">
             <div className="text-sm text-gray-500">Starting at</div>
-            <div className="text-2xl font-bold text-blue-600">$89</div>
+            <div className="text-2xl font-bold text-brand-blue-600">$89</div>
           </div>
         </div>
 
         <div className="rounded-2xl border-2 border-green-200 bg-white p-6 hover:shadow-lg transition">
-          <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
-            <DollarSign className="w-6 h-6 text-green-600" />
+          <div className="w-12 h-12 rounded-full bg-brand-green-100 flex items-center justify-center mb-4">
+            <DollarSign className="w-6 h-6 text-brand-green-600" />
           </div>
           <h2 className="text-xl font-bold text-gray-900 mb-2">
             Tax Refund Advance
@@ -126,21 +126,23 @@ export default function ServicesPage() {
           </p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>0% APR on $250-$1,000</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>No credit check required</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <span>Same-day cash available</span>
             </li>
           </ul>
           <div className="mt-4 pt-4 border-t">
             <div className="text-sm text-gray-500">Loan amounts</div>
-            <div className="text-2xl font-bold text-green-600">$250-$7,500</div>
+            <div className="text-2xl font-bold text-brand-green-600">
+              $250-$7,500
+            </div>
           </div>
         </div>
 
@@ -177,7 +179,7 @@ export default function ServicesPage() {
 
         <div className="rounded-2xl border-2 border-orange-200 bg-white p-6 hover:shadow-lg transition">
           <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-4">
-            <Calculator className="w-6 h-6 text-orange-600" />
+            <Calculator className="w-6 h-6 text-brand-orange-600" />
           </div>
           <h2 className="text-xl font-bold text-gray-900 mb-2">
             Bookkeeping Services
@@ -188,21 +190,23 @@ export default function ServicesPage() {
           </p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>QuickBooks setup & training</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Monthly reconciliation</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Financial reports</span>
             </li>
           </ul>
           <div className="mt-4 pt-4 border-t">
             <div className="text-sm text-gray-500">Starting at</div>
-            <div className="text-2xl font-bold text-orange-600">$199/mo</div>
+            <div className="text-2xl font-bold text-brand-orange-600">
+              $199/mo
+            </div>
           </div>
         </div>
 
@@ -276,25 +280,25 @@ export default function ServicesPage() {
             <h3 className="font-semibold text-lg mb-4">Professional Service</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   IRS-certified tax preparers with years of experience
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Drake Tax Software - industry-leading accuracy
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Maximum refund guarantee or your money back
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Audit support included with all returns
                 </span>
@@ -305,25 +309,25 @@ export default function ServicesPage() {
             <h3 className="font-semibold text-lg mb-4">Fast & Convenient</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Same-day filing available for most returns
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Secure online document upload
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Walk-ins welcome, no appointment needed
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">
                   Extended hours during tax season
                 </span>
@@ -333,7 +337,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mt-8 rounded-2xl bg-blue-50 border-l-4 border-blue-600 p-6">
+      <section className="mt-8 rounded-2xl bg-blue-50 border-l-4 border-brand-blue-600 p-6">
         <h2 className="text-xl font-bold mb-3">Ready to Get Started?</h2>
         <p className="text-gray-700 mb-6">
           Upload your documents online or visit us in person. Same-day service
@@ -342,13 +346,13 @@ export default function ServicesPage() {
         <div className="flex flex-wrap gap-4">
           <Link
             href="/tax/supersonicfastcash/documents"
-            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            className="px-6 py-3 rounded-lg bg-brand-blue-600 text-white font-semibold hover:bg-brand-blue-700 transition"
           >
             Upload Documents
           </Link>
           <a
             href="tel:3173143757"
-            className="px-6 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition"
+            className="px-6 py-3 rounded-lg border-2 border-brand-blue-600 text-brand-blue-600 font-semibold hover:bg-blue-50 transition"
           >
             Call 317-314-3757
           </a>

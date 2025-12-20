@@ -98,7 +98,7 @@ export default function AuditLogsPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600"></div>
       </div>
     );
   }
@@ -109,14 +109,14 @@ export default function AuditLogsPage() {
         <div className="mb-8">
           <Link
             href="/admin/dashboard"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Shield className="w-8 h-8 text-blue-600" />
+                <Shield className="w-8 h-8 text-brand-blue-600" />
                 <h1 className="text-3xl font-bold text-gray-900">Audit Logs</h1>
               </div>
               <p className="text-gray-600">
@@ -125,7 +125,7 @@ export default function AuditLogsPage() {
             </div>
             <button
               onClick={exportLogs}
-              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+              className="flex items-center gap-2 bg-brand-blue-600 text-white px-4 py-2 rounded-lg hover:bg-brand-blue-700"
             >
               <Download className="w-4 h-4" />
               Export CSV
@@ -139,11 +139,13 @@ export default function AuditLogsPage() {
             <h3 className="text-sm font-medium text-gray-600 mb-2">
               Total Events
             </h3>
-            <p className="text-3xl font-bold text-blue-600">{logs.length}</p>
+            <p className="text-3xl font-bold text-brand-blue-600">
+              {logs.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <h3 className="text-sm font-medium text-gray-600 mb-2">Today</h3>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               {
                 logs.filter(
                   (l) =>
@@ -165,7 +167,7 @@ export default function AuditLogsPage() {
             <h3 className="text-sm font-medium text-gray-600 mb-2">
               Resource Types
             </h3>
-            <p className="text-3xl font-bold text-orange-600">
+            <p className="text-3xl font-bold text-brand-orange-600">
               {new Set(logs.map((l) => l.resource_type)).size}
             </p>
           </div>
@@ -288,7 +290,7 @@ export default function AuditLogsPage() {
                         {log.metadata &&
                           Object.keys(log.metadata).length > 0 && (
                             <details className="cursor-pointer">
-                              <summary className="text-blue-600 hover:text-blue-800">
+                              <summary className="text-brand-blue-600 hover:text-blue-800">
                                 View metadata
                               </summary>
                               <pre className="mt-2 text-xs bg-gray-50 p-2 rounded overflow-auto max-w-xs">

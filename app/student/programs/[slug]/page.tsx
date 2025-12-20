@@ -4,10 +4,16 @@ import { notFound } from 'next/navigation';
 
 type Params = Promise<{ slug: string }>;
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const { slug } = await params;
-  const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  
+  const title = slug
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (l) => l.toUpperCase());
+
   return {
     title: `${title} Program | Elevate For Humanity`,
     description: `Access your ${title} program modules and resources.`,
@@ -17,9 +23,15 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-export default async function StudentProgramPage({ params }: { params: Params }) {
+export default async function StudentProgramPage({
+  params,
+}: {
+  params: Params;
+}) {
   const { slug } = await params;
-  const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const title = slug
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (l) => l.toUpperCase());
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -29,17 +41,18 @@ export default async function StudentProgramPage({ params }: { params: Params })
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
             <h1 className="text-3xl font-bold mb-2">{title}</h1>
             <p className="text-gray-600">
-              Welcome to your program. Access your modules and track your progress below.
+              Welcome to your program. Access your modules and track your
+              progress below.
             </p>
           </div>
 
           {/* Program Modules */}
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-semibold mb-4">Program Modules</h2>
-            
+
             <div className="space-y-4">
               <div className="border rounded-lg p-4 hover:border-blue-500 transition-colors">
-                <Link 
+                <Link
                   href={`/student/programs/${slug}/modules/1`}
                   className="block"
                 >
@@ -48,7 +61,7 @@ export default async function StudentProgramPage({ params }: { params: Params })
                     Start your learning journey with the first module
                   </p>
                   <div className="mt-3">
-                    <span className="text-blue-600 text-sm font-medium">
+                    <span className="text-brand-blue-600 text-sm font-medium">
                       Start Module →
                     </span>
                   </div>
@@ -56,7 +69,9 @@ export default async function StudentProgramPage({ params }: { params: Params })
               </div>
 
               <div className="border rounded-lg p-4 opacity-60">
-                <h3 className="font-semibold text-lg mb-2">Additional Modules</h3>
+                <h3 className="font-semibold text-lg mb-2">
+                  Additional Modules
+                </h3>
                 <p className="text-gray-600 text-sm">
                   More modules will appear as you progress through the program
                 </p>
@@ -66,9 +81,9 @@ export default async function StudentProgramPage({ params }: { params: Params })
 
           {/* Back Link */}
           <div className="mt-6">
-            <Link 
+            <Link
               href="/student/dashboard"
-              className="text-blue-600 hover:text-blue-700"
+              className="text-brand-blue-600 hover:text-brand-blue-700"
             >
               ← Back to Dashboard
             </Link>

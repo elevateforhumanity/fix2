@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -44,7 +44,7 @@ export default function NRFPage() {
                   href="https://riseup.nrf.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-blue-600 font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
                 >
                   Access Platform
                   <ExternalLink className="w-5 h-5" />
@@ -177,7 +177,7 @@ export default function NRFPage() {
                 href="https://support.riseup.nrf.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                className="inline-flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700"
               >
                 Visit Help Center
                 <ExternalLink className="w-4 h-4" />
@@ -202,7 +202,7 @@ export default function NRFPage() {
               href="https://riseup.nrf.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-5 bg-white text-blue-600 text-xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
+              className="inline-flex items-center justify-center px-10 py-5 bg-white text-brand-blue-600 text-xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl gap-2"
             >
               Get Started
               <ExternalLink className="w-6 h-6" />

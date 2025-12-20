@@ -22,7 +22,9 @@ export default function AcademicIntegrityPage() {
         <div className="max-w-4xl mx-auto px-6 py-12">
           <div className="flex items-center gap-4 mb-4">
             <Shield className="w-12 h-12" />
-            <h1 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">Academic Integrity Policy</h1>
+            <h1 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+              Academic Integrity Policy
+            </h1>
           </div>
           <p className="text-base md:text-lg text-blue-100">
             Upholding honesty, ethics, and professional standards in education
@@ -98,7 +100,7 @@ export default function AcademicIntegrityPage() {
             {/* Cheating */}
             <div className="border-l-4 border-orange-500 pl-6">
               <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-6 h-6 text-orange-600" />
+                <AlertTriangle className="w-6 h-6 text-brand-orange-600" />
                 Cheating
               </h3>
               <p className="text-slate-700 mb-3">
@@ -173,7 +175,7 @@ export default function AcademicIntegrityPage() {
             {/* Multiple Submissions */}
             <div className="border-l-4 border-blue-500 pl-6">
               <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <BookOpen className="w-6 h-6 text-blue-600" />
+                <BookOpen className="w-6 h-6 text-brand-blue-600" />
                 Multiple Submissions
               </h3>
               <p className="text-slate-700 mb-3">
@@ -274,7 +276,7 @@ export default function AcademicIntegrityPage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 rounded-lg p-6">
               <h3 className="font-bold text-green-900 mb-4 flex items-center gap-2">
-                <CheckCircle className="w-6 h-6 text-green-600" />
+                <CheckCircle className="w-6 h-6 text-brand-green-600" />
                 Do's
               </h3>
               <ul className="space-y-2 text-green-800 text-sm">
@@ -417,7 +419,7 @@ export default function AcademicIntegrityPage() {
               </p>
               <Link
                 href="/student/support"
-                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+                className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-semibold"
               >
                 Visit Support Center →
               </Link>
@@ -431,7 +433,7 @@ export default function AcademicIntegrityPage() {
               </p>
               <Link
                 href="/student-handbook"
-                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+                className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-semibold"
               >
                 Read Handbook →
               </Link>
@@ -443,7 +445,7 @@ export default function AcademicIntegrityPage() {
               </p>
               <a
                 href="mailto:support@elevateforhumanity.org"
-                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+                className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-semibold"
               >
                 Email Support →
               </a>

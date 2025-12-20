@@ -125,9 +125,9 @@ export default function SignUpForm() {
       <div className="w-full max-w-md mx-auto">
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
           <div className="text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg
-                className="w-8 h-8 text-green-600"
+                className="w-8 h-8 text-brand-green-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -149,7 +149,7 @@ export default function SignUpForm() {
             </p>
             <Link
               href="/student/dashboard"
-              className="inline-block px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition"
+              className="inline-block px-6 py-3 bg-brand-orange-600 text-white font-semibold rounded-lg hover:bg-brand-orange-700 transition"
             >
               Go to Dashboard
             </Link>
@@ -329,22 +329,22 @@ export default function SignUpForm() {
                 e: React.ChangeEvent<
                   HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
                 >
-              // @ts-expect-error TS2339: Property 'checked' does not exist on type 'EventTarget & (HTMLInputElement | ...
+                // @ts-expect-error TS2339: Property 'checked' does not exist on type 'EventTarget & (HTMLInputElement | ...
               ) => setAgreedToTerms(e.target.checked)}
-              className="w-4 h-4 mt-1 text-orange-600 border-slate-300 rounded focus:ring-orange-500"
+              className="w-4 h-4 mt-1 text-brand-orange-600 border-slate-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="terms" className="ml-3 text-sm text-slate-600">
               I agree to the{' '}
               <Link
                 href="/terms"
-                className="text-orange-600 hover:text-orange-700 font-medium"
+                className="text-brand-orange-600 hover:text-brand-orange-700 font-medium"
               >
                 Terms of Service
               </Link>{' '}
               and{' '}
               <Link
                 href="/privacy"
-                className="text-orange-600 hover:text-orange-700 font-medium"
+                className="text-brand-orange-600 hover:text-brand-orange-700 font-medium"
               >
                 Privacy Policy
               </Link>
@@ -354,7 +354,7 @@ export default function SignUpForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-orange-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="w-full py-3 px-4 bg-brand-orange-600 text-white font-semibold rounded-lg hover:bg-brand-orange-700 focus:ring-4 focus:ring-orange-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
           >
             {loading ? 'Creating account...' : 'Create Account'}
           </button>
@@ -422,7 +422,7 @@ export default function SignUpForm() {
           Already have an account?{' '}
           <Link
             href="/auth/signin"
-            className="font-medium text-orange-600 hover:text-orange-700"
+            className="font-medium text-brand-orange-600 hover:text-brand-orange-700"
           >
             Sign in
           </Link>

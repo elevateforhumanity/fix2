@@ -38,7 +38,7 @@ export default async function OnboardingStartPage() {
           </p>
           <a
             href="mailto:partnerships@elevateforhumanity.org"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+            className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700"
           >
             Contact Support
           </a>
@@ -87,7 +87,7 @@ export default async function OnboardingStartPage() {
           </p>
           <a
             href="mailto:partnerships@elevateforhumanity.org"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+            className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700"
           >
             Contact Support
           </a>

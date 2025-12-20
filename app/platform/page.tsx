@@ -34,7 +34,7 @@ export default function PlatformPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact?topic=platform-demo"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-brand-green-600 rounded-lg hover:bg-green-700 transition-colors"
             >
               Request a Demo
             </Link>
@@ -203,23 +203,23 @@ export default function PlatformPage() {
           </h2>
           <ul className="space-y-3 text-lg text-zinc-700">
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">✓</span>
+              <span className="text-brand-green-600 font-bold mr-2">✓</span>
               Faster deployment than custom builds
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">✓</span>
+              <span className="text-brand-green-600 font-bold mr-2">✓</span>
               Lower cost than enterprise LMS + reporting stacks
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">✓</span>
+              <span className="text-brand-green-600 font-bold mr-2">✓</span>
               Designed for workforce funding realities
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">✓</span>
+              <span className="text-brand-green-600 font-bold mr-2">✓</span>
               Built for licensing, not one-off use
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">✓</span>
+              <span className="text-brand-green-600 font-bold mr-2">✓</span>
               Proven in real training and apprenticeship environments
             </li>
           </ul>
@@ -243,7 +243,7 @@ export default function PlatformPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact?topic=platform-demo"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-brand-green-600 rounded-lg hover:bg-green-700 transition-colors"
             >
               Request a Demo
             </Link>

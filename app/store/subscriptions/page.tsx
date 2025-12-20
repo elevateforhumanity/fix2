@@ -2,7 +2,14 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
-import { Check, X, Loader2, CreditCard, Calendar, AlertCircle } from 'lucide-react';
+import {
+  Check,
+  X,
+  Loader2,
+  CreditCard,
+  Calendar,
+  AlertCircle,
+} from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import toast from 'react-hot-toast';
 
@@ -49,7 +56,8 @@ function SubscriptionsContent() {
   const [loading, setLoading] = useState(true);
   const [subscribing, setSubscribing] = useState<string | null>(null);
   const [plans, setPlans] = useState<SubscriptionPlan[]>([]);
-  const [activeSubscription, setActiveSubscription] = useState<ActiveSubscription | null>(null);
+  const [activeSubscription, setActiveSubscription] =
+    useState<ActiveSubscription | null>(null);
 
   useEffect(() => {
     loadUser();
@@ -68,7 +76,9 @@ function SubscriptionsContent() {
   }, [searchParams]);
 
   async function loadUser() {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     setUser(user);
   }
 
@@ -169,7 +179,7 @@ function SubscriptionsContent() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-brand-blue-600" />
       </div>
     );
   }
@@ -196,29 +206,42 @@ function SubscriptionsContent() {
                   Active Subscription: {activeSubscription.store_products.name}
                 </h3>
                 <p className="text-blue-700 mb-2">
-                  Status: <span className="font-medium capitalize">{activeSubscription.status}</span>
+                  Status:{' '}
+                  <span className="font-medium capitalize">
+                    {activeSubscription.status}
+                  </span>
                 </p>
                 {activeSubscription.trial_end && (
                   <p className="text-blue-700 mb-2">
                     <Calendar className="inline h-4 w-4 mr-1" />
-                    Trial ends: {new Date(activeSubscription.trial_end).toLocaleDateString()}
+                    Trial ends:{' '}
+                    {new Date(
+                      activeSubscription.trial_end
+                    ).toLocaleDateString()}
                   </p>
                 )}
                 <p className="text-blue-700">
                   <Calendar className="inline h-4 w-4 mr-1" />
-                  {activeSubscription.cancel_at_period_end ? 'Cancels' : 'Renews'} on:{' '}
-                  {new Date(activeSubscription.current_period_end).toLocaleDateString()}
+                  {activeSubscription.cancel_at_period_end
+                    ? 'Cancels'
+                    : 'Renews'}{' '}
+                  on:{' '}
+                  {new Date(
+                    activeSubscription.current_period_end
+                  ).toLocaleDateString()}
                 </p>
                 {activeSubscription.cancel_at_period_end && (
                   <div className="mt-2 flex items-center text-orange-700">
                     <AlertCircle className="h-4 w-4 mr-1" />
-                    <span className="text-sm">Your subscription will end at the current period</span>
+                    <span className="text-sm">
+                      Your subscription will end at the current period
+                    </span>
                   </div>
                 )}
               </div>
               <button
                 onClick={handleManageSubscription}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors"
               >
                 <CreditCard className="h-4 w-4" />
                 Manage Subscription
@@ -230,7 +253,8 @@ function SubscriptionsContent() {
         {/* Subscription Plans */}
         <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan) => {
-            const isCurrentPlan = activeSubscription?.store_products.name === plan.product_name;
+            const isCurrentPlan =
+              activeSubscription?.store_products.name === plan.product_name;
             const isMonthly = plan.interval === 'month';
 
             return (
@@ -242,11 +266,19 @@ function SubscriptionsContent() {
               >
                 {/* Plan Header */}
                 <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2">{plan.product_name}</h3>
-                  <p className="text-blue-100 text-sm mb-4">{plan.description}</p>
+                  <h3 className="text-2xl font-bold mb-2">
+                    {plan.product_name}
+                  </h3>
+                  <p className="text-blue-100 text-sm mb-4">
+                    {plan.description}
+                  </p>
                   <div className="flex items-baseline">
-                    <span className="text-4xl font-bold">${plan.amount_dollars}</span>
-                    <span className="text-blue-100 ml-2">/ {plan.billing_period.toLowerCase()}</span>
+                    <span className="text-4xl font-bold">
+                      ${plan.amount_dollars}
+                    </span>
+                    <span className="text-blue-100 ml-2">
+                      / {plan.billing_period.toLowerCase()}
+                    </span>
                   </div>
                   {!isMonthly && (
                     <p className="text-blue-100 text-sm mt-2">
@@ -282,7 +314,7 @@ function SubscriptionsContent() {
                   ) : activeSubscription ? (
                     <button
                       onClick={handleManageSubscription}
-                      className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                      className="w-full py-3 px-4 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700 transition-colors"
                     >
                       Switch to This Plan
                     </button>
@@ -290,7 +322,7 @@ function SubscriptionsContent() {
                     <button
                       onClick={() => handleSubscribe(plan.stripe_price_id)}
                       disabled={subscribing === plan.stripe_price_id}
-                      className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                      className="w-full py-3 px-4 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                     >
                       {subscribing === plan.stripe_price_id ? (
                         <>
@@ -315,21 +347,30 @@ function SubscriptionsContent() {
           </h2>
           <div className="space-y-4">
             <div className="bg-white rounded-lg p-6 shadow">
-              <h3 className="font-semibold text-gray-900 mb-2">Can I cancel anytime?</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Can I cancel anytime?
+              </h3>
               <p className="text-gray-600">
-                Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your billing period.
+                Yes, you can cancel your subscription at any time. You'll
+                continue to have access until the end of your billing period.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow">
-              <h3 className="font-semibold text-gray-900 mb-2">Can I switch plans?</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Can I switch plans?
+              </h3>
               <p className="text-gray-600">
-                Yes, you can upgrade or downgrade your plan at any time through the customer portal.
+                Yes, you can upgrade or downgrade your plan at any time through
+                the customer portal.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow">
-              <h3 className="font-semibold text-gray-900 mb-2">What payment methods do you accept?</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                What payment methods do you accept?
+              </h3>
               <p className="text-gray-600">
-                We accept all major credit cards through Stripe's secure payment processing.
+                We accept all major credit cards through Stripe's secure payment
+                processing.
               </p>
             </div>
           </div>
@@ -341,11 +382,13 @@ function SubscriptionsContent() {
 
 export default function SubscriptionsPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-brand-blue-600" />
+        </div>
+      }
+    >
       <SubscriptionsContent />
     </Suspense>
   );

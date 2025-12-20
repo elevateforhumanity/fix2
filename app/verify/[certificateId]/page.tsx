@@ -6,13 +6,18 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/verify/[certificateId]",
+    canonical: 'https://www.elevateforhumanity.org/verify/[certificateId]',
   },
   title: 'Verify Certificate | Elevate For Humanity',
-  description: 'Verify the authenticity of a certificate issued by Elevate For Humanity',
+  description:
+    'Verify the authenticity of a certificate issued by Elevate For Humanity',
 };
 
-export default async function VerifyCertificatePage({ params }: { params: { certificateId: string } }) {
+export default async function VerifyCertificatePage({
+  params,
+}: {
+  params: { certificateId: string };
+}) {
   const supabase = await createClient();
 
   // Start to find certificate in multiple tables
@@ -31,7 +36,8 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
 
   if (programCert) {
     certificate = programCert;
-    studentName = programCert.users?.full_name || programCert.users?.email || 'Student';
+    studentName =
+      programCert.users?.full_name || programCert.users?.email || 'Student';
     courseName = programCert.program_name || 'Program';
     completionDate = programCert.issued_at;
     certificateType = 'Program Completion';
@@ -47,7 +53,8 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
 
     if (partnerCert) {
       certificate = partnerCert;
-      studentName = partnerCert.users?.full_name || partnerCert.users?.email || 'Student';
+      studentName =
+        partnerCert.users?.full_name || partnerCert.users?.email || 'Student';
       courseName = partnerCert.partner_courses?.course_name || 'Course';
       completionDate = partnerCert.issued_at;
       certificateType = 'Partner Certification';
@@ -64,7 +71,8 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
 
     if (moduleCert) {
       certificate = moduleCert;
-      studentName = moduleCert.users?.full_name || moduleCert.users?.email || 'Student';
+      studentName =
+        moduleCert.users?.full_name || moduleCert.users?.email || 'Student';
       courseName = moduleCert.module_name || 'Module';
       completionDate = moduleCert.issued_at;
       certificateType = 'Module Completion';
@@ -105,13 +113,13 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -137,8 +145,12 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
                 />
               </svg>
             </div>
-            <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Certificate Verified</h1>
-            <p className="text-base md:text-lg text-green-100">This certificate is authentic and valid</p>
+            <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
+              Certificate Verified
+            </h1>
+            <p className="text-base md:text-lg text-green-100">
+              This certificate is authentic and valid
+            </p>
           </div>
         </div>
       </section>
@@ -150,9 +162,9 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
             {/* Verification Status */}
             <div className="bg-white rounded-lg shadow-sm border p-8 mb-6">
               <div className="flex items-center justify-center mb-6">
-                <div className="bg-green-100 rounded-full p-4">
+                <div className="bg-brand-green-100 rounded-full p-4">
                   <svg
-                    className="w-12 h-12 text-green-600"
+                    className="w-12 h-12 text-brand-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -178,7 +190,9 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm text-gray-600">Certificate Number</p>
-                    <p className="font-semibold text-lg">{params.certificateId}</p>
+                    <p className="font-semibold text-lg">
+                      {params.certificateId}
+                    </p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Certificate Type</p>
@@ -204,14 +218,18 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Issued By</p>
-                    <p className="font-semibold text-lg">Elevate For Humanity</p>
+                    <p className="font-semibold text-lg">
+                      Elevate For Humanity
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* QR Code Section */}
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-600 mb-4">Scan to verify on mobile</p>
+                <p className="text-sm text-gray-600 mb-4">
+                  Scan to verify on mobile
+                </p>
                 <div className="inline-block p-4 bg-white border-2 border-gray-200 rounded-lg">
                   <img
                     src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
@@ -232,15 +250,20 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
                   <strong>Organization:</strong> Elevate For Humanity
                 </p>
                 <p>
-                  <strong>Type:</strong> Workforce Development & Training Provider
+                  <strong>Type:</strong> Workforce Development & Training
+                  Provider
                 </p>
                 <p>
-                  <strong>Accreditation:</strong> DOL/WIOA Approved Training Provider
+                  <strong>Accreditation:</strong> DOL/WIOA Approved Training
+                  Provider
                 </p>
                 <p>
                   <strong>Website:</strong>{' '}
                   <a
-                    href={process.env.NEXT_PUBLIC_SITE_URL || "https://elevateforhumanity.com"}
+                    href={
+                      process.env.NEXT_PUBLIC_SITE_URL ||
+                      'https://elevateforhumanity.com'
+                    }
                     className="underline hover:text-blue-900"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -255,13 +278,15 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
             <div className="bg-gray-100 rounded-lg p-6 text-center">
               <p className="text-sm text-gray-600">
                 This certificate was verified on{' '}
-                <strong>{new Date().toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit'
-                })}</strong>
+                <strong>
+                  {new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </strong>
               </p>
               <p className="text-xs text-gray-500 mt-2">
                 Certificate verification is logged for security purposes
@@ -272,7 +297,7 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
             <div className="mt-8 flex justify-center gap-4">
               <Link
                 href="/certificates/verify"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors"
               >
                 Verify Another Certificate
               </Link>

@@ -53,7 +53,7 @@ export default function OnboardingFlow({
               </p>
             </div>
             <div className="text-right">
-              <div className="text-3xl font-bold text-blue-600">
+              <div className="text-3xl font-bold text-brand-blue-600">
                 {progressPercent}%
               </div>
               <div className="text-sm text-slate-600">
@@ -66,7 +66,7 @@ export default function OnboardingFlow({
           <div className="mt-6">
             <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-blue-600 transition-all duration-500"
+                className="h-full bg-brand-blue-600 transition-all duration-500"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
@@ -94,16 +94,16 @@ export default function OnboardingFlow({
                       onClick={() => setCurrentStep(index)}
                       className={`w-full flex items-start gap-3 p-3 rounded-lg text-left transition-colors ${
                         isCurrent
-                          ? 'bg-blue-50 border-2 border-blue-600'
+                          ? 'bg-blue-50 border-2 border-brand-blue-600'
                           : isComplete
-                            ? 'bg-green-50 border border-green-200 hover:bg-green-100'
+                            ? 'bg-green-50 border border-green-200 hover:bg-brand-green-100'
                             : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'
                       }`}
                     >
                       {isComplete ? (
-                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                       ) : isCurrent ? (
-                        <Circle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <Circle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                       ) : (
                         <Lock className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
                       )}
@@ -132,16 +132,16 @@ export default function OnboardingFlow({
                   onClick={() => setCurrentStep(documents.length)}
                   className={`w-full flex items-start gap-3 p-3 rounded-lg text-left transition-colors ${
                     currentStep === documents.length
-                      ? 'bg-blue-50 border-2 border-blue-600'
+                      ? 'bg-blue-50 border-2 border-brand-blue-600'
                       : payrollComplete
-                        ? 'bg-green-50 border border-green-200 hover:bg-green-100'
+                        ? 'bg-green-50 border border-green-200 hover:bg-brand-green-100'
                         : 'bg-slate-50 border border-slate-200 hover:bg-slate-100'
                   }`}
                 >
                   {payrollComplete ? (
-                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   ) : currentStep === documents.length ? (
-                    <Circle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <Circle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   ) : (
                     <Lock className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
                   )}
@@ -261,7 +261,7 @@ function DocumentStep({
     return (
       <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-8">
         <div className="text-center">
-          <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
+          <CheckCircle2 className="w-16 h-16 text-brand-green-600 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-slate-900 mb-2">
             {document.title}
           </h2>
@@ -270,7 +270,7 @@ function DocumentStep({
           </p>
           <button
             onClick={onComplete}
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+            className="px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700"
           >
             Continue to Next Step
           </button>
@@ -285,7 +285,7 @@ function DocumentStep({
       <div className="border-b border-slate-200 p-6">
         <div className="flex items-start gap-4">
           <div className="p-3 bg-blue-100 rounded-lg">
-            <FileText className="w-6 h-6 text-blue-600" />
+            <FileText className="w-6 h-6 text-brand-blue-600" />
           </div>
           <div className="flex-1">
             <h2 className="text-xl font-bold text-slate-900">
@@ -335,7 +335,7 @@ function DocumentStep({
               type="checkbox"
               checked={acknowledged}
               onChange={(e) => setAcknowledged(e.target.checked)}
-              className="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+              className="mt-1 w-5 h-5 text-brand-blue-600 border-slate-300 rounded focus:ring-blue-500"
             />
             <span className="text-sm text-slate-700">
               I have read and understood this document. I acknowledge that this
@@ -360,7 +360,7 @@ function DocumentStep({
               !acknowledged ||
               (document.requires_signature && !signature)
             }
-            className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Submitting...' : 'Sign and Continue'}
           </button>
@@ -380,8 +380,8 @@ function PayrollSetupStep({
   return (
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-8">
       <div className="flex items-start gap-4 mb-6">
-        <div className="p-3 bg-green-100 rounded-lg">
-          <DollarSign className="w-6 h-6 text-green-600" />
+        <div className="p-3 bg-brand-green-100 rounded-lg">
+          <DollarSign className="w-6 h-6 text-brand-green-600" />
         </div>
         <div className="flex-1">
           <h2 className="text-xl font-bold text-slate-900">Payroll Setup</h2>
@@ -393,7 +393,7 @@ function PayrollSetupStep({
 
       {currentStatus === 'PENDING' || currentStatus === 'ACTIVE' ? (
         <div className="text-center py-8">
-          <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
+          <CheckCircle2 className="w-16 h-16 text-brand-green-600 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-slate-900 mb-2">
             Payroll Setup Complete
           </h3>
@@ -402,7 +402,7 @@ function PayrollSetupStep({
           </p>
           <button
             onClick={onComplete}
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+            className="px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700"
           >
             Finish Onboarding
           </button>
@@ -419,7 +419,7 @@ function PayrollSetupStep({
           </ul>
           <a
             href="/onboarding/payroll-setup"
-            className="inline-block w-full text-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 mt-6"
+            className="inline-block w-full text-center px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 mt-6"
           >
             Set Up Payroll
           </a>

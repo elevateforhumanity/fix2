@@ -8,7 +8,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.elevateforhumanity.org/team',
   },
   title: 'Our Team | Elevate For Humanity',
-  description: 'People behind the work. Meet the team powering workforce development and community impact.',
+  description:
+    'People behind the work. Meet the team powering workforce development and community impact.',
 };
 
 export default function TeamPage() {
@@ -40,53 +41,58 @@ export default function TeamPage() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              Elevate for Humanity is powered by professionals across workforce development, education, compliance, technology, and community advocacy.
+              Elevate for Humanity is powered by professionals across workforce
+              development, education, compliance, technology, and community
+              advocacy.
             </p>
-            
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Our team includes:</h2>
-            
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Our team includes:
+            </h2>
+
             <ul className="space-y-4 text-lg text-gray-700">
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                 <span>Workforce and training coordinators</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                 <span>Program and compliance specialists</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                 <span>Employer and partner liaisons</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                 <span>Advisors and support staff</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                 <span>Technology and operations professionals</span>
               </li>
             </ul>
 
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+            <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-8">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Together, we ensure programs are delivered responsibly, funding requirements are met, and individuals receive consistent support throughout their journey.
+                Together, we ensure programs are delivered responsibly, funding
+                requirements are met, and individuals receive consistent support
+                throughout their journey.
               </p>
             </div>
 
-            <blockquote className="text-xl font-semibold text-gray-900 italic border-l-4 border-blue-600 pl-6 my-8">
-              We believe systems should work for people — and our team exists to make that real.
+            <blockquote className="text-xl font-semibold text-gray-900 italic border-l-4 border-brand-blue-600 pl-6 my-8">
+              We believe systems should work for people — and our team exists to
+              make that real.
             </blockquote>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Work With Us
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Work With Us</h2>
           <p className="text-xl text-blue-100 mb-8">
             Interested in partnering or joining our team?
           </p>

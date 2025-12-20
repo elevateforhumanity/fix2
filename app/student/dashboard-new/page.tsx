@@ -2,7 +2,16 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { CheckCircle, Clock, AlertCircle, User, Phone, Upload, FileText, Calendar } from 'lucide-react';
+import {
+  CheckCircle,
+  Clock,
+  AlertCircle,
+  User,
+  Phone,
+  Upload,
+  FileText,
+  Calendar,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'My Dashboard',
@@ -30,9 +39,11 @@ interface RiskStatus {
 
 export default async function StudentDashboardNew() {
   const supabase = await createClient();
-  
-  const { data: { user } } = await supabase.auth.getUser();
-  
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login?next=/student/dashboard-new');
   }
@@ -47,7 +58,8 @@ export default async function StudentDashboardNew() {
   // Fetch enrollments with funding info
   const { data: enrollments } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       *,
       programs (
         id,
@@ -60,12 +72,14 @@ export default async function StudentDashboardNew() {
           code
         )
       )
-    `)
+    `
+    )
     .eq('student_id', user.id)
     .order('created_at', { ascending: false });
 
   // Get active enrollment
-  const activeEnrollment = enrollments?.find(e => e.status === 'active') || enrollments?.[0];
+  const activeEnrollment =
+    enrollments?.find((e) => e.status === 'active') || enrollments?.[0];
 
   // Fetch requirements for active enrollment
   const { data: requirements } = await supabase
@@ -84,57 +98,59 @@ export default async function StudentDashboardNew() {
 
   const progress = riskStatus?.progress_percentage || 0;
   const statusBadge = riskStatus?.status || 'on_track';
-  
+
   // Get funding sources
-  const fundingSources = activeEnrollment?.student_funding_assignments
-    ?.map((a: any) => a.funding_sources?.code)
-    .filter(Boolean) || [];
+  const fundingSources =
+    activeEnrollment?.student_funding_assignments
+      ?.map((a: any) => a.funding_sources?.code)
+      .filter(Boolean) || [];
 
   // Prioritize requirements: overdue first, then by due date
-  const sortedRequirements = requirements?.sort((a, b) => {
-    const aOverdue = a.due_date && new Date(a.due_date) < new Date();
-    const bOverdue = b.due_date && new Date(b.due_date) < new Date();
-    
-    if (aOverdue && !bOverdue) return -1;
-    if (!aOverdue && bOverdue) return 1;
-    
-    if (a.due_date && b.due_date) {
-      return new Date(a.due_date).getTime() - new Date(b.due_date).getTime();
-    }
-    
-    return 0;
-  }) || [];
+  const sortedRequirements =
+    requirements?.sort((a, b) => {
+      const aOverdue = a.due_date && new Date(a.due_date) < new Date();
+      const bOverdue = b.due_date && new Date(b.due_date) < new Date();
+
+      if (aOverdue && !bOverdue) return -1;
+      if (!aOverdue && bOverdue) return 1;
+
+      if (a.due_date && b.due_date) {
+        return new Date(a.due_date).getTime() - new Date(b.due_date).getTime();
+      }
+
+      return 0;
+    }) || [];
 
   // Helper function to get status badge
   const getStatusBadge = () => {
     switch (statusBadge) {
       case 'on_track':
         return {
-          icon: <CheckCircle className="w-5 h-5 text-green-600" />,
+          icon: <CheckCircle className="w-5 h-5 text-brand-green-600" />,
           text: 'On Track',
-          color: 'text-green-600',
-          bgColor: 'bg-green-600'
+          color: 'text-brand-green-600',
+          bgColor: 'bg-brand-green-600',
         };
       case 'needs_action':
         return {
           icon: <AlertCircle className="w-5 h-5 text-yellow-600" />,
           text: 'Needs Action',
           color: 'text-yellow-600',
-          bgColor: 'bg-yellow-600'
+          bgColor: 'bg-yellow-600',
         };
       case 'at_risk':
         return {
           icon: <AlertCircle className="w-5 h-5 text-red-600" />,
           text: 'At Risk - Action Required',
           color: 'text-red-600',
-          bgColor: 'bg-red-600'
+          bgColor: 'bg-red-600',
         };
       default:
         return {
           icon: <Clock className="w-5 h-5 text-gray-600" />,
           text: 'Getting Started',
           color: 'text-gray-600',
-          bgColor: 'bg-gray-600'
+          bgColor: 'bg-gray-600',
         };
     }
   };
@@ -186,7 +202,9 @@ export default async function StudentDashboardNew() {
               <div className="flex items-center gap-4 flex-wrap">
                 <div className="flex items-center gap-2">
                   {badge.icon}
-                  <span className={`font-semibold ${badge.color}`}>{badge.text}</span>
+                  <span className={`font-semibold ${badge.color}`}>
+                    {badge.text}
+                  </span>
                 </div>
                 {fundingSources.length > 0 && (
                   <div className="flex items-center gap-2">
@@ -198,11 +216,13 @@ export default async function StudentDashboardNew() {
                 )}
               </div>
             </div>
-            
+
             {activeEnrollment && (
               <div className="text-right">
                 <div className="text-sm text-gray-500">Progress</div>
-                <div className="text-3xl font-bold text-blue-600">{progress}%</div>
+                <div className="text-3xl font-bold text-brand-blue-600">
+                  {progress}%
+                </div>
               </div>
             )}
           </div>
@@ -219,10 +239,12 @@ export default async function StudentDashboardNew() {
 
           {!activeEnrollment && (
             <div className="text-center py-8">
-              <p className="text-gray-600 mb-4">You're not enrolled in a program yet.</p>
+              <p className="text-gray-600 mb-4">
+                You're not enrolled in a program yet.
+              </p>
               <Link
                 href="/programs"
-                className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+                className="inline-block px-6 py-3 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700"
               >
                 Browse Programs
               </Link>
@@ -237,7 +259,7 @@ export default async function StudentDashboardNew() {
               <h2 className="text-xl font-bold text-gray-900 mb-4">
                 What You Need to Do
               </h2>
-              
+
               {sortedRequirements.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
                   <p>No requirements yet. Check back soon!</p>
@@ -245,32 +267,38 @@ export default async function StudentDashboardNew() {
               ) : (
                 <div className="space-y-3">
                   {sortedRequirements.map((req) => {
-                    const isOverdue = req.due_date && new Date(req.due_date) < new Date();
-                    const isCompleted = req.status === 'completed' || req.status === 'verified';
-                    const isPending = req.status === 'pending' || req.status === 'in_progress';
-                    
+                    const isOverdue =
+                      req.due_date && new Date(req.due_date) < new Date();
+                    const isCompleted =
+                      req.status === 'completed' || req.status === 'verified';
+                    const isPending =
+                      req.status === 'pending' || req.status === 'in_progress';
+
                     let borderColor = 'border-gray-300';
                     let bgColor = 'bg-gray-50';
                     let iconColor = 'text-gray-600';
-                    
+
                     if (isCompleted) {
                       borderColor = 'border-green-300';
                       bgColor = 'bg-green-50';
-                      iconColor = 'text-green-600';
+                      iconColor = 'text-brand-green-600';
                     } else if (isOverdue) {
                       borderColor = 'border-red-500';
                       bgColor = 'bg-red-50';
                       iconColor = 'text-red-600';
-                    } else if (req.priority === 'urgent' || req.priority === 'high') {
+                    } else if (
+                      req.priority === 'urgent' ||
+                      req.priority === 'high'
+                    ) {
                       borderColor = 'border-yellow-500';
                       bgColor = 'bg-yellow-50';
                       iconColor = 'text-yellow-600';
                     } else if (isPending) {
                       borderColor = 'border-blue-500';
                       bgColor = 'bg-blue-50';
-                      iconColor = 'text-blue-600';
+                      iconColor = 'text-brand-blue-600';
                     }
-                    
+
                     return (
                       <div
                         key={req.id}
@@ -294,29 +322,44 @@ export default async function StudentDashboardNew() {
                             </p>
                           )}
                           {req.due_date && (
-                            <p className={`text-sm mb-2 ${isOverdue ? 'text-red-600 font-semibold' : 'text-gray-600'}`}>
-                              Due: {new Date(req.due_date).toLocaleDateString('en-US', {
-                                month: 'long',
-                                day: 'numeric',
-                                year: 'numeric'
-                              })}
+                            <p
+                              className={`text-sm mb-2 ${isOverdue ? 'text-red-600 font-semibold' : 'text-gray-600'}`}
+                            >
+                              Due:{' '}
+                              {new Date(req.due_date).toLocaleDateString(
+                                'en-US',
+                                {
+                                  month: 'long',
+                                  day: 'numeric',
+                                  year: 'numeric',
+                                }
+                              )}
                               {isOverdue && ' (OVERDUE)'}
                             </p>
                           )}
                           {!isCompleted && (
                             <Link
                               href={getActionLink(req)}
-                              className="text-sm text-blue-600 hover:underline font-semibold"
+                              className="text-sm text-brand-blue-600 hover:underline font-semibold"
                             >
-                              {req.requirement_type === 'document' && 'Upload Document →'}
-                              {req.requirement_type === 'hours' && 'Log Hours →'}
-                              {req.requirement_type === 'appointment' && 'Schedule Appointment →'}
-                              {req.requirement_type === 'course' && 'Start Course →'}
-                              {!['document', 'hours', 'appointment', 'course'].includes(req.requirement_type) && 'Complete →'}
+                              {req.requirement_type === 'document' &&
+                                'Upload Document →'}
+                              {req.requirement_type === 'hours' &&
+                                'Log Hours →'}
+                              {req.requirement_type === 'appointment' &&
+                                'Schedule Appointment →'}
+                              {req.requirement_type === 'course' &&
+                                'Start Course →'}
+                              {![
+                                'document',
+                                'hours',
+                                'appointment',
+                                'course',
+                              ].includes(req.requirement_type) && 'Complete →'}
                             </Link>
                           )}
                           {isCompleted && req.status === 'verified' && (
-                            <p className="text-sm text-green-600">
+                            <p className="text-sm text-brand-green-600">
                               Verified and approved
                             </p>
                           )}
@@ -333,19 +376,25 @@ export default async function StudentDashboardNew() {
               <h2 className="text-xl font-bold text-gray-900 mb-4">
                 Your Support Team
               </h2>
-              
+
               <div className="bg-white p-4 rounded-lg mb-4">
                 <div className="flex items-center gap-3 mb-3">
-                  <User className="w-6 h-6 text-blue-600" />
-                  <h3 className="font-semibold text-gray-900 text-lg">Elevate for Humanity</h3>
+                  <User className="w-6 h-6 text-brand-blue-600" />
+                  <h3 className="font-semibold text-gray-900 text-lg">
+                    Elevate for Humanity
+                  </h3>
                 </div>
                 <p className="text-gray-700 mb-3">
-                  Our team of advisors and case managers is here to support you throughout your journey.
+                  Our team of advisors and case managers is here to support you
+                  throughout your journey.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Phone className="w-5 h-5 text-blue-600" />
-                    <a href="tel:+13173143757" className="text-lg text-blue-600 hover:underline font-bold">
+                    <Phone className="w-5 h-5 text-brand-blue-600" />
+                    <a
+                      href="tel:+13173143757"
+                      className="text-lg text-brand-blue-600 hover:underline font-bold"
+                    >
                       (317) 314-3757
                     </a>
                   </div>
@@ -358,7 +407,7 @@ export default async function StudentDashboardNew() {
               {/* Need Help Button */}
               <Link
                 href="/contact"
-                className="block w-full text-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition-colors"
+                className="block w-full text-center px-6 py-3 bg-brand-orange-600 hover:bg-brand-orange-600 text-white font-bold rounded-lg transition-colors"
               >
                 Need Help? Contact Us
               </Link>
@@ -375,7 +424,7 @@ export default async function StudentDashboardNew() {
             <div className="text-2xl mb-2">📚</div>
             <div className="font-semibold text-gray-900">My Lessons</div>
           </Link>
-          
+
           <Link
             href="/student/hours"
             className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
@@ -383,7 +432,7 @@ export default async function StudentDashboardNew() {
             <div className="text-2xl mb-2">⏱️</div>
             <div className="font-semibold text-gray-900">Log Hours</div>
           </Link>
-          
+
           <Link
             href="/student/documents"
             className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
@@ -391,7 +440,7 @@ export default async function StudentDashboardNew() {
             <div className="text-2xl mb-2">📄</div>
             <div className="font-semibold text-gray-900">Documents</div>
           </Link>
-          
+
           <Link
             href="/student/profile"
             className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"

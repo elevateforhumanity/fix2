@@ -27,22 +27,33 @@ interface TransferHour {
   };
 }
 
-export function TransferHoursTable({ transferHours }: { transferHours: TransferHour[] }) {
+export function TransferHoursTable({
+  transferHours,
+}: {
+  transferHours: TransferHour[];
+}) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterStatus, setFilterStatus] = useState<'all' | 'pending' | 'approved' | 'denied'>('all');
-  const [selectedRequest, setSelectedRequest] = useState<TransferHour | null>(null);
+  const [filterStatus, setFilterStatus] = useState<
+    'all' | 'pending' | 'approved' | 'denied'
+  >('all');
+  const [selectedRequest, setSelectedRequest] = useState<TransferHour | null>(
+    null
+  );
   const [approvalHours, setApprovalHours] = useState('');
   const [approvalNotes, setApprovalNotes] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const filteredRequests = transferHours.filter(request => {
-    const studentName = request.enrollment?.student?.full_name?.toLowerCase() || '';
+  const filteredRequests = transferHours.filter((request) => {
+    const studentName =
+      request.enrollment?.student?.full_name?.toLowerCase() || '';
     const programName = request.enrollment?.program?.name?.toLowerCase() || '';
     const searchLower = searchTerm.toLowerCase();
-    
-    const matchesSearch = studentName.includes(searchLower) || programName.includes(searchLower);
-    const matchesFilter = filterStatus === 'all' || request.status === filterStatus;
-    
+
+    const matchesSearch =
+      studentName.includes(searchLower) || programName.includes(searchLower);
+    const matchesFilter =
+      filterStatus === 'all' || request.status === filterStatus;
+
     return matchesSearch && matchesFilter;
   });
 
@@ -51,7 +62,7 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
       case 'pending':
         return 'bg-yellow-100 text-yellow-800';
       case 'approved':
-        return 'bg-green-100 text-green-800';
+        return 'bg-brand-green-100 text-green-800';
       case 'denied':
         return 'bg-red-100 text-red-800';
       default:
@@ -106,12 +117,20 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
               type="text"
               placeholder="Search by student or program..."
               value={searchTerm}
-              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchTerm(e.target.value)}
+              onChange={(
+                e: React.ChangeEvent<
+                  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+                >
+              ) => setSearchTerm(e.target.value)}
               className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <select
               value={filterStatus}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setFilterStatus(e.target.value as 'all' | 'pending' | 'approved' | 'denied')}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setFilterStatus(
+                  e.target.value as 'all' | 'pending' | 'approved' | 'denied'
+                )
+              }
               className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Statuses</option>
@@ -156,7 +175,10 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredRequests.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="px-6 py-12 text-center text-gray-500">
+                  <td
+                    colSpan={8}
+                    className="px-6 py-12 text-center text-gray-500"
+                  >
                     No transfer hour requests found
                   </td>
                 </tr>
@@ -183,10 +205,14 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                       {request.hours_requested}h
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-900">
-                      {request.hours_approved ? `${request.hours_approved}h` : '-'}
+                      {request.hours_approved
+                        ? `${request.hours_approved}h`
+                        : '-'}
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(request.status)}`}>
+                      <span
+                        className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(request.status)}`}
+                      >
                         {request.status}
                       </span>
                     </td>
@@ -196,7 +222,7 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                     <td className="px-6 py-4 text-right text-sm font-medium">
                       <button
                         onClick={() => setSelectedRequest(request)}
-                        className="text-blue-600 hover:text-blue-900"
+                        className="text-brand-blue-600 hover:text-blue-900"
                       >
                         Review
                       </button>
@@ -211,7 +237,8 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
         {/* Pagination info */}
         <div className="px-6 py-4 border-t bg-gray-50">
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{filteredRequests.length}</span> of{' '}
+            Showing{' '}
+            <span className="font-medium">{filteredRequests.length}</span> of{' '}
             <span className="font-medium">{transferHours.length}</span> requests
           </p>
         </div>
@@ -222,51 +249,73 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b">
-              <h2 className="text-2xl font-bold text-gray-900">Review Transfer Hours Request</h2>
+              <h2 className="text-2xl font-bold text-gray-900">
+                Review Transfer Hours Request
+              </h2>
             </div>
 
             <div className="p-6 space-y-4">
               {/* Student Info */}
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Student Information</h3>
-                <p className="text-gray-700">{selectedRequest.enrollment?.student?.full_name}</p>
-                <p className="text-sm text-gray-500">{selectedRequest.enrollment?.student?.email}</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Student Information
+                </h3>
+                <p className="text-gray-700">
+                  {selectedRequest.enrollment?.student?.full_name}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {selectedRequest.enrollment?.student?.email}
+                </p>
               </div>
 
               {/* Program Info */}
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Program</h3>
-                <p className="text-gray-700">{selectedRequest.enrollment?.program?.name}</p>
+                <p className="text-gray-700">
+                  {selectedRequest.enrollment?.program?.name}
+                </p>
               </div>
 
               {/* Request Details */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Hours Requested</h3>
-                  <p className="text-2xl font-bold text-blue-600">{selectedRequest.hours_requested}h</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">
+                    Hours Requested
+                  </h3>
+                  <p className="text-2xl font-bold text-brand-blue-600">
+                    {selectedRequest.hours_requested}h
+                  </p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Category</h3>
-                  <p className="text-gray-700">{selectedRequest.category || 'General'}</p>
+                  <p className="text-gray-700">
+                    {selectedRequest.category || 'General'}
+                  </p>
                 </div>
               </div>
 
               {/* Evidence */}
               {selectedRequest.evidence_description && (
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Evidence Description</h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{selectedRequest.evidence_description}</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Evidence Description
+                  </h3>
+                  <p className="text-gray-700 whitespace-pre-wrap">
+                    {selectedRequest.evidence_description}
+                  </p>
                 </div>
               )}
 
               {selectedRequest.evidence_file_url && (
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Evidence File</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Evidence File
+                  </h3>
                   <a
                     href={selectedRequest.evidence_file_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="text-brand-blue-600 hover:underline"
                   >
                     View Evidence File
                   </a>
@@ -286,7 +335,13 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                       max={selectedRequest.hours_requested}
                       step="0.5"
                       value={approvalHours}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setApprovalHours(e.target.value)}
+                      onChange={(
+                        e: React.ChangeEvent<
+                          | HTMLInputElement
+                          | HTMLSelectElement
+                          | HTMLTextAreaElement
+                        >
+                      ) => setApprovalHours(e.target.value)}
                       placeholder={`Max: ${selectedRequest.hours_requested}`}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
@@ -301,7 +356,13 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                     </label>
                     <textarea
                       value={approvalNotes}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setApprovalNotes(e.target.value)}
+                      onChange={(
+                        e: React.ChangeEvent<
+                          | HTMLInputElement
+                          | HTMLSelectElement
+                          | HTMLTextAreaElement
+                        >
+                      ) => setApprovalNotes(e.target.value)}
                       rows={3}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Add notes about your decision..."
@@ -313,26 +374,33 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
               {/* Existing Review */}
               {selectedRequest.status !== 'pending' && (
                 <div className="pt-4 border-t">
-                  <h3 className="font-semibold text-gray-900 mb-2">Review Decision</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Review Decision
+                  </h3>
                   <p className="text-gray-700">
                     <span className="font-medium">Status:</span>{' '}
-                    <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(selectedRequest.status)}`}>
+                    <span
+                      className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(selectedRequest.status)}`}
+                    >
                       {selectedRequest.status}
                     </span>
                   </p>
                   {selectedRequest.hours_approved && (
                     <p className="text-gray-700 mt-2">
-                      <span className="font-medium">Hours Approved:</span> {selectedRequest.hours_approved}h
+                      <span className="font-medium">Hours Approved:</span>{' '}
+                      {selectedRequest.hours_approved}h
                     </p>
                   )}
                   {selectedRequest.notes && (
                     <p className="text-gray-700 mt-2">
-                      <span className="font-medium">Notes:</span> {selectedRequest.notes}
+                      <span className="font-medium">Notes:</span>{' '}
+                      {selectedRequest.notes}
                     </p>
                   )}
                   {selectedRequest.reviewed_at && (
                     <p className="text-sm text-gray-500 mt-2">
-                      Reviewed on {new Date(selectedRequest.reviewed_at).toLocaleString()}
+                      Reviewed on{' '}
+                      {new Date(selectedRequest.reviewed_at).toLocaleString()}
                     </p>
                   )}
                 </div>
@@ -363,7 +431,7 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                   <button
                     onClick={handleApprove}
                     disabled={loading}
-                    className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium disabled:opacity-50"
+                    className="px-6 py-2 bg-brand-green-600 hover:bg-green-700 text-white rounded-lg font-medium disabled:opacity-50"
                   >
                     {loading ? 'Processing...' : 'Approve'}
                   </button>

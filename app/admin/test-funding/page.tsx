@@ -78,7 +78,7 @@ export default function TestFundingPage() {
           <button
             onClick={handleTest}
             disabled={loading || !studentId || !programId}
-            className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-slate-300 font-semibold"
+            className="w-full px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 disabled:bg-slate-300 font-semibold"
           >
             {loading ? 'Creating Checkout...' : 'Create Test Checkout'}
           </button>

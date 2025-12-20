@@ -123,7 +123,7 @@ export default async function AdminCreatorsPage() {
                       <td className="py-3 px-4 text-sm">
                         {(creator.revenue_split * 100).toFixed(0)}% creator
                       </td>
-                      <td className="py-3 px-4 font-semibold text-green-600">
+                      <td className="py-3 px-4 font-semibold text-brand-green-600">
                         ${(totalEarnings / 100).toFixed(2)}
                       </td>
                       <td className="py-3 px-4 font-semibold text-yellow-600">
@@ -157,7 +157,7 @@ export default async function AdminCreatorsPage() {
                 <div>
                   <h3 className="font-semibold">{creator.display_name}</h3>
                 </div>
-                <button className="text-green-600 hover:underline text-sm">
+                <button className="text-brand-green-600 hover:underline text-sm">
                   Reactivate
                 </button>
               </div>

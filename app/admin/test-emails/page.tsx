@@ -50,12 +50,12 @@ export default function TestEmailsPage() {
         <div className="mb-8">
           <Link
             href="/admin/dashboard"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center gap-3 mb-2">
-            <Mail className="w-8 h-8 text-blue-600" />
+            <Mail className="w-8 h-8 text-brand-blue-600" />
             <h1 className="text-3xl font-bold text-gray-900">
               Test Email System
             </h1>
@@ -101,13 +101,15 @@ export default function TestEmailsPage() {
               <span className="text-sm font-medium text-gray-700">
                 Configuration
               </span>
-              <span className="text-sm text-green-600 font-medium">
+              <span className="text-sm text-brand-green-600 font-medium">
                 ✓ Configured
               </span>
             </div>
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
               <span className="text-sm font-medium text-gray-700">API Key</span>
-              <span className="text-sm text-green-600 font-medium">✓ Set</span>
+              <span className="text-sm text-brand-green-600 font-medium">
+                ✓ Set
+              </span>
             </div>
           </div>
         </div>
@@ -128,7 +130,7 @@ export default function TestEmailsPage() {
               disabled={loading}
               className="flex flex-col items-center gap-3 p-6 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Send className="w-8 h-8 text-blue-600" />
+              <Send className="w-8 h-8 text-brand-blue-600" />
               <div className="text-center">
                 <div className="font-semibold text-gray-900">Welcome Email</div>
                 <div className="text-xs text-gray-500 mt-1">
@@ -142,7 +144,7 @@ export default function TestEmailsPage() {
               disabled={loading}
               className="flex flex-col items-center gap-3 p-6 border-2 border-gray-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Send className="w-8 h-8 text-orange-600" />
+              <Send className="w-8 h-8 text-brand-orange-600" />
               <div className="text-center">
                 <div className="font-semibold text-gray-900">
                   Reminder Email
@@ -158,7 +160,7 @@ export default function TestEmailsPage() {
               disabled={loading}
               className="flex flex-col items-center gap-3 p-6 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Send className="w-8 h-8 text-green-600" />
+              <Send className="w-8 h-8 text-brand-green-600" />
               <div className="text-center">
                 <div className="font-semibold text-gray-900">
                   Notification Email
@@ -178,7 +180,7 @@ export default function TestEmailsPage() {
           </h2>
           <div className="space-y-3 text-sm">
             <div className="flex items-start gap-3 p-3 bg-gray-50 rounded">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-gray-900">
                   Student Application
@@ -189,7 +191,7 @@ export default function TestEmailsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-gray-50 rounded">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-gray-900">
                   Shop Partner Application
@@ -200,7 +202,7 @@ export default function TestEmailsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-gray-50 rounded">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-gray-900">Contact Form</div>
                 <div className="text-gray-600">
@@ -209,7 +211,7 @@ export default function TestEmailsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-gray-50 rounded">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-gray-900">License Request</div>
                 <div className="text-gray-600">
@@ -218,7 +220,7 @@ export default function TestEmailsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-gray-50 rounded">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-gray-900">Partner Inquiry</div>
                 <div className="text-gray-600">

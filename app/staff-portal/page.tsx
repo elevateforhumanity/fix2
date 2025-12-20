@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/staff-portal",
+    canonical: 'https://www.elevateforhumanity.org/staff-portal',
   },
   title: 'Staff Portal | Elevate For Humanity',
   description: 'Staff portal for managing students, courses, and operations.',
@@ -13,8 +13,10 @@ export const metadata: Metadata = {
 
 export default async function StaffPortalPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   // Require authentication
   if (!user) {
     redirect('/login?next=/staff-portal');
@@ -51,13 +53,15 @@ export default async function StaffPortalPage() {
 
   const { data: recentEnrollments } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       id,
       created_at,
       status,
       profiles (full_name, email),
       courses (title)
-    `)
+    `
+    )
     .order('created_at', { ascending: false })
     .limit(5);
 
@@ -68,13 +72,17 @@ export default async function StaffPortalPage() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-slate-900">Staff Portal</h1>
-              <p className="text-slate-600 mt-1">Welcome back, {profile?.full_name || profile?.email}</p>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Staff Portal
+              </h1>
+              <p className="text-slate-600 mt-1">
+                Welcome back, {profile?.full_name || profile?.email}
+              </p>
             </div>
             <div className="flex gap-3">
               <Link
                 href="/admin"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition"
               >
                 Admin Dashboard
               </Link>
@@ -98,7 +106,9 @@ export default async function StaffPortalPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-600 mb-1">Total Students</p>
-                <p className="text-3xl font-bold text-slate-900">{totalStudents || 0}</p>
+                <p className="text-3xl font-bold text-slate-900">
+                  {totalStudents || 0}
+                </p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <span className="text-2xl">👥</span>
@@ -109,10 +119,14 @@ export default async function StaffPortalPage() {
           <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-slate-600 mb-1">Active Enrollments</p>
-                <p className="text-3xl font-bold text-green-600">{activeEnrollments || 0}</p>
+                <p className="text-sm text-slate-600 mb-1">
+                  Active Enrollments
+                </p>
+                <p className="text-3xl font-bold text-brand-green-600">
+                  {activeEnrollments || 0}
+                </p>
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center">
                 <span className="text-2xl">📚</span>
               </div>
             </div>
@@ -122,7 +136,9 @@ export default async function StaffPortalPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-slate-600 mb-1">Total Courses</p>
-                <p className="text-3xl font-bold text-orange-600">{totalCourses || 0}</p>
+                <p className="text-3xl font-bold text-brand-orange-600">
+                  {totalCourses || 0}
+                </p>
               </div>
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                 <span className="text-2xl">📊</span>
@@ -133,15 +149,21 @@ export default async function StaffPortalPage() {
 
         {/* Quick Actions */}
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Quick Actions</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">
+            Quick Actions
+          </h2>
           <div className="grid md:grid-cols-4 gap-4">
             <Link
               href="/staff-portal/students"
               className="p-4 border-2 border-slate-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-center"
             >
               <div className="text-3xl mb-2">👥</div>
-              <div className="font-semibold text-slate-900">Manage Students</div>
-              <div className="text-sm text-slate-600 mt-1">{totalStudents || 0} students</div>
+              <div className="font-semibold text-slate-900">
+                Manage Students
+              </div>
+              <div className="text-sm text-slate-600 mt-1">
+                {totalStudents || 0} students
+              </div>
             </Link>
             <Link
               href="/staff-portal/courses"
@@ -149,7 +171,9 @@ export default async function StaffPortalPage() {
             >
               <div className="text-3xl mb-2">📚</div>
               <div className="font-semibold text-slate-900">View Courses</div>
-              <div className="text-sm text-slate-600 mt-1">{totalCourses || 0} courses</div>
+              <div className="text-sm text-slate-600 mt-1">
+                {totalCourses || 0} courses
+              </div>
             </Link>
             <Link
               href="/staff-portal/dashboard"
@@ -173,10 +197,12 @@ export default async function StaffPortalPage() {
         {/* Recent Students */}
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-slate-900">Recent Students</h2>
+            <h2 className="text-xl font-bold text-slate-900">
+              Recent Students
+            </h2>
             <Link
               href="/staff-portal/students"
-              className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+              className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -186,18 +212,35 @@ export default async function StaffPortalPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-200">
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Name</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Email</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Phone</th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Joined</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
+                      Name
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
+                      Email
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
+                      Phone
+                    </th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
+                      Joined
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {students.map((student) => (
-                    <tr key={student.id} className="border-b border-slate-100 hover:bg-slate-50">
-                      <td className="py-3 px-4 text-sm text-slate-900">{student.full_name || 'N/A'}</td>
-                      <td className="py-3 px-4 text-sm text-slate-600">{student.email}</td>
-                      <td className="py-3 px-4 text-sm text-slate-600">{student.phone || 'N/A'}</td>
+                    <tr
+                      key={student.id}
+                      className="border-b border-slate-100 hover:bg-slate-50"
+                    >
+                      <td className="py-3 px-4 text-sm text-slate-900">
+                        {student.full_name || 'N/A'}
+                      </td>
+                      <td className="py-3 px-4 text-sm text-slate-600">
+                        {student.email}
+                      </td>
+                      <td className="py-3 px-4 text-sm text-slate-600">
+                        {student.phone || 'N/A'}
+                      </td>
                       <td className="py-3 px-4 text-sm text-slate-600">
                         {new Date(student.created_at).toLocaleDateString()}
                       </td>
@@ -213,23 +256,36 @@ export default async function StaffPortalPage() {
 
         {/* Recent Enrollments */}
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Recent Enrollments</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-4">
+            Recent Enrollments
+          </h2>
           {recentEnrollments && recentEnrollments.length > 0 ? (
             <div className="space-y-4">
               {recentEnrollments.map((enrollment: any) => (
-                <div key={enrollment.id} className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+                <div
+                  key={enrollment.id}
+                  className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"
+                >
                   <div>
                     <p className="font-semibold text-slate-900">
-                      {enrollment.profiles?.full_name || enrollment.profiles?.email || 'Unknown'}
+                      {enrollment.profiles?.full_name ||
+                        enrollment.profiles?.email ||
+                        'Unknown'}
                     </p>
-                    <p className="text-sm text-slate-600">{enrollment.courses?.title || 'Unknown Course'}</p>
+                    <p className="text-sm text-slate-600">
+                      {enrollment.courses?.title || 'Unknown Course'}
+                    </p>
                   </div>
                   <div className="text-right">
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                      enrollment.status === 'active' ? 'bg-green-100 text-green-800' :
-                      enrollment.status === 'completed' ? 'bg-blue-100 text-blue-800' :
-                      'bg-slate-100 text-slate-800'
-                    }`}>
+                    <span
+                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                        enrollment.status === 'active'
+                          ? 'bg-brand-green-100 text-green-800'
+                          : enrollment.status === 'completed'
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-slate-100 text-slate-800'
+                      }`}
+                    >
                       {enrollment.status}
                     </span>
                     <p className="text-xs text-slate-500 mt-1">
@@ -240,7 +296,9 @@ export default async function StaffPortalPage() {
               ))}
             </div>
           ) : (
-            <p className="text-slate-600 text-center py-8">No recent enrollments</p>
+            <p className="text-slate-600 text-center py-8">
+              No recent enrollments
+            </p>
           )}
         </div>
       </div>

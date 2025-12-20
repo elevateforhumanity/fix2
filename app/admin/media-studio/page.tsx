@@ -108,9 +108,12 @@ export default function MediaStudioPage() {
     if (!confirm(`Delete ${fileName}?`)) return;
 
     try {
-      const res = await fetch(`/api/media/delete?bucket=${selectedBucket}&file=${fileName}`, {
-        method: 'DELETE',
-      });
+      const res = await fetch(
+        `/api/media/delete?bucket=${selectedBucket}&file=${fileName}`,
+        {
+          method: 'DELETE',
+        }
+      );
       if (res.ok) {
         loadFiles(selectedBucket);
       }
@@ -157,13 +160,13 @@ export default function MediaStudioPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -225,13 +228,13 @@ export default function MediaStudioPage() {
               <div className="flex gap-1 border rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-blue-100 text-blue-600' : 'text-gray-600'}`}
+                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-blue-100 text-brand-blue-600' : 'text-gray-600'}`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-blue-100 text-blue-600' : 'text-gray-600'}`}
+                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-blue-100 text-brand-blue-600' : 'text-gray-600'}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -254,7 +257,7 @@ export default function MediaStudioPage() {
                 Optimize
               </button>
 
-              <label className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer">
+              <label className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 cursor-pointer">
                 <Upload className="w-4 h-4" />
                 Upload
                 <input
@@ -275,7 +278,7 @@ export default function MediaStudioPage() {
         {/* Files Grid/List */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600" />
           </div>
         ) : viewMode === 'grid' ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -296,9 +299,7 @@ export default function MediaStudioPage() {
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full">
-                      <ImageIcon
-                        className="w-12 h-12 text-gray-400"
-                      />
+                      <ImageIcon className="w-12 h-12 text-gray-400" />
                     </div>
                   )}
                 </div>
@@ -312,7 +313,7 @@ export default function MediaStudioPage() {
                   <div className="flex gap-2 mt-3">
                     <button
                       onClick={() => window.open(file.url, '_blank')}
-                      className="flex-1 text-xs py-1 px-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100"
+                      className="flex-1 text-xs py-1 px-2 bg-blue-50 text-brand-blue-600 rounded hover:bg-blue-100"
                     >
                       View
                     </button>

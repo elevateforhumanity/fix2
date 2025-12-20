@@ -88,7 +88,7 @@ export default function TaxHubPage() {
       {/* Two-card chooser */}
       <section className="mt-8 grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl border-2 border-green-200 bg-white p-8 shadow-sm hover:shadow-lg transition">
-          <div className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-semibold mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-brand-green-100 text-green-800 text-xs font-semibold mb-4">
             FREE PATH
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
@@ -103,36 +103,36 @@ export default function TaxHubPage() {
 
           <div className="mt-6 space-y-2">
             <div className="flex items-start gap-2">
-              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-brand-green-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">100% Free - No fees</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-brand-green-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">
                 IRS-certified volunteers
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-brand-green-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">
                 Income eligibility required
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-brand-green-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">Appointment-based</span>
             </div>
           </div>
 
           <div className="mt-6 flex flex-col gap-3">
             <Link
-              className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold text-center hover:bg-green-700 transition"
+              className="px-6 py-3 rounded-lg bg-brand-green-600 text-white font-semibold text-center hover:bg-green-700 transition"
               href="/tax/rise-up-foundation/free-tax-help"
             >
               See Free Tax Help
             </Link>
             <Link
-              className="px-6 py-3 rounded-lg border-2 border-green-600 text-green-600 font-semibold text-center hover:bg-green-50 transition"
+              className="px-6 py-3 rounded-lg border-2 border-brand-green-600 text-brand-green-600 font-semibold text-center hover:bg-green-50 transition"
               href="/tax/rise-up-foundation/volunteer"
             >
               Volunteer With Us
@@ -158,38 +158,38 @@ export default function TaxHubPage() {
 
           <div className="mt-6 space-y-2">
             <div className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brand-blue-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">
                 Professional tax preparers
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brand-blue-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">
                 Refund advances available
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brand-blue-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">
                 Business tax services
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brand-blue-600 font-bold">✓</span>
               <span className="text-sm text-gray-700">Same-day filing</span>
             </div>
           </div>
 
           <div className="mt-6 flex flex-col gap-3">
             <Link
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold text-center hover:bg-blue-700 transition"
+              className="px-6 py-3 rounded-lg bg-brand-blue-600 text-white font-semibold text-center hover:bg-brand-blue-700 transition"
               href="/tax/supersonicfastcash/services"
             >
               View Services & Pricing
             </Link>
             <Link
-              className="px-6 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold text-center hover:bg-blue-50 transition"
+              className="px-6 py-3 rounded-lg border-2 border-brand-blue-600 text-brand-blue-600 font-semibold text-center hover:bg-blue-50 transition"
               href="/tax/supersonicfastcash/documents"
             >
               Upload Documents

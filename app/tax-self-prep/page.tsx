@@ -7,10 +7,11 @@ import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/tax-self-prep",
+    canonical: 'https://www.elevateforhumanity.org/tax-self-prep',
   },
   title: 'Tax Self-Prep | Do Your Own Taxes Online',
-  description: 'Easy, guided tax preparation software. File your taxes yourself with step-by-step guidance. Free to start.',
+  description:
+    'Easy, guided tax preparation software. File your taxes yourself with step-by-step guidance. Free to start.',
 };
 
 export default function TaxSelfPrepPage() {
@@ -19,41 +20,45 @@ export default function TaxSelfPrepPage() {
       {/* Hero - TurboTax Style */}
       <section className="relative    text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Hero"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
-        </div>
-      </section>
+          {/* Hero Section */}
+          <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+            <Image
+              src="/images/gallery/image8.jpg"
+              alt="Hero"
+              fill
+              className="object-cover"
+              quality={100}
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0   " />
+            <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
+              <p className="text-base md:text-lg mb-8 text-gray-100">
+                Transform your career with free training
+              </p>
+            </div>
+          </section>
 
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Do your taxes with confidence
             </h1>
             <p className="text-base md:text-lg mb-8 font-light">
-              Easy, step-by-step guidance. Maximum refund guaranteed. Free to start.
+              Easy, step-by-step guidance. Maximum refund guaranteed. Free to
+              start.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link
                 href="/tax-self-prep/start"
-                className="px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition text-center shadow-2xl"
+                className="px-12 py-5 bg-brand-orange-600 text-white font-bold text-xl rounded-full hover:bg-brand-orange-700 transition text-center shadow-2xl"
               >
                 Start For Free →
               </Link>
             </div>
             <p className="text-sm opacity-90">
-              ✓ Free to start  ✓ Pay only when you file  ✓ Maximum refund guaranteed
+              ✓ Free to start ✓ Pay only when you file ✓ Maximum refund
+              guaranteed
             </p>
           </div>
         </div>
@@ -72,10 +77,12 @@ export default function TaxSelfPrepPage() {
 
             <div className="grid md:grid-cols-4 gap-6">
               {/* Free Edition */}
-              <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition">
+              <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-brand-blue-600 hover:shadow-xl transition">
                 <div className="text-center mb-6">
-                  <h3 className="text-lg md:text-lg font-bold mb-2">Free Edition</h3>
-                  <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  <h3 className="text-lg md:text-lg font-bold mb-2">
+                    Free Edition
+                  </h3>
+                  <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $0
                   </div>
                   <div className="text-sm text-slate-600">Federal & State</div>
@@ -84,20 +91,44 @@ export default function TaxSelfPrepPage() {
                   <div className="text-sm font-semibold mb-3">Best for:</div>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>W-2 income only</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Standard deduction</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Simple tax situations</span>
                     </li>
@@ -105,39 +136,67 @@ export default function TaxSelfPrepPage() {
                 </div>
                 <Link
                   href="/tax-self-prep/start?plan=free"
-                  className="block w-full px-6 py-3 bg-blue-600 text-white font-bold text-center rounded-lg hover:bg-blue-700 transition"
+                  className="block w-full px-6 py-3 bg-brand-blue-600 text-white font-bold text-center rounded-lg hover:bg-brand-blue-700 transition"
                 >
                   Start Free
                 </Link>
               </div>
 
               {/* Deluxe */}
-              <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition">
+              <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-brand-blue-600 hover:shadow-xl transition">
                 <div className="text-center mb-6">
                   <h3 className="text-lg md:text-lg font-bold mb-2">Deluxe</h3>
-                  <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $39
                   </div>
-                  <div className="text-sm text-slate-600">Federal + $39 State</div>
+                  <div className="text-sm text-slate-600">
+                    Federal + $39 State
+                  </div>
                 </div>
                 <div className="mb-6">
-                  <div className="text-sm font-semibold mb-3">Everything in Free, plus:</div>
+                  <div className="text-sm font-semibold mb-3">
+                    Everything in Free, plus:
+                  </div>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Itemized deductions</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Mortgage interest</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Charitable donations</span>
                     </li>
@@ -145,42 +204,70 @@ export default function TaxSelfPrepPage() {
                 </div>
                 <Link
                   href="/tax-self-prep/start?plan=deluxe"
-                  className="block w-full px-6 py-3 bg-blue-600 text-white font-bold text-center rounded-lg hover:bg-blue-700 transition"
+                  className="block w-full px-6 py-3 bg-brand-blue-600 text-white font-bold text-center rounded-lg hover:bg-brand-blue-700 transition"
                 >
                   Start Deluxe
                 </Link>
               </div>
 
               {/* Premier - Most Popular */}
-              <div className="bg-white border-2 border-orange-600 rounded-lg p-6 shadow-xl relative">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-orange-600 text-white text-xs font-bold rounded-full">
+              <div className="bg-white border-2 border-brand-orange-600 rounded-lg p-6 shadow-xl relative">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand-orange-600 text-white text-xs font-bold rounded-full">
                   MOST POPULAR
                 </div>
                 <div className="text-center mb-6">
                   <h3 className="text-lg md:text-lg font-bold mb-2">Premier</h3>
-                  <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $69
                   </div>
-                  <div className="text-sm text-slate-600">Federal + $39 State</div>
+                  <div className="text-sm text-slate-600">
+                    Federal + $39 State
+                  </div>
                 </div>
                 <div className="mb-6">
-                  <div className="text-sm font-semibold mb-3">Everything in Deluxe, plus:</div>
+                  <div className="text-sm font-semibold mb-3">
+                    Everything in Deluxe, plus:
+                  </div>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Investment income</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Rental property income</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Priority support</span>
                     </li>
@@ -188,39 +275,69 @@ export default function TaxSelfPrepPage() {
                 </div>
                 <Link
                   href="/tax-self-prep/start?plan=premier"
-                  className="block w-full px-6 py-3 bg-orange-600 text-white font-bold text-center rounded-lg hover:bg-orange-700 transition"
+                  className="block w-full px-6 py-3 bg-brand-orange-600 text-white font-bold text-center rounded-lg hover:bg-brand-orange-700 transition"
                 >
                   Start Premier
                 </Link>
               </div>
 
               {/* Self-Employed */}
-              <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition">
+              <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-brand-blue-600 hover:shadow-xl transition">
                 <div className="text-center mb-6">
-                  <h3 className="text-lg md:text-lg font-bold mb-2">Self-Employed</h3>
-                  <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  <h3 className="text-lg md:text-lg font-bold mb-2">
+                    Self-Employed
+                  </h3>
+                  <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     $99
                   </div>
-                  <div className="text-sm text-slate-600">Federal + $39 State</div>
+                  <div className="text-sm text-slate-600">
+                    Federal + $39 State
+                  </div>
                 </div>
                 <div className="mb-6">
-                  <div className="text-sm font-semibold mb-3">Everything in Premier, plus:</div>
+                  <div className="text-sm font-semibold mb-3">
+                    Everything in Premier, plus:
+                  </div>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Schedule C (business income)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>Business expenses</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      <svg
+                        className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span>1099 income</span>
                     </li>
@@ -228,7 +345,7 @@ export default function TaxSelfPrepPage() {
                 </div>
                 <Link
                   href="/tax-self-prep/start?plan=self-employed"
-                  className="block w-full px-6 py-3 bg-blue-600 text-white font-bold text-center rounded-lg hover:bg-blue-700 transition"
+                  className="block w-full px-6 py-3 bg-brand-blue-600 text-white font-bold text-center rounded-lg hover:bg-brand-blue-700 transition"
                 >
                   Start Self-Employed
                 </Link>
@@ -237,7 +354,8 @@ export default function TaxSelfPrepPage() {
 
             <div className="mt-12 text-center">
               <p className="text-sm text-slate-600">
-                Not sure which product? Start for free and we'll recommend the right one for you.
+                Not sure which product? Start for free and we'll recommend the
+                right one for you.
               </p>
             </div>
           </div>
@@ -253,42 +371,54 @@ export default function TaxSelfPrepPage() {
             </h2>
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-brand-blue-600">
                   1
                 </div>
-                <h3 className="text-lg font-bold mb-3">Answer simple questions</h3>
+                <h3 className="text-lg font-bold mb-3">
+                  Answer simple questions
+                </h3>
                 <p className="text-slate-600">
-                  We'll ask you about your income, deductions, and credits in plain English.
+                  We'll ask you about your income, deductions, and credits in
+                  plain English.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-brand-blue-600">
                   2
                 </div>
-                <h3 className="text-lg font-bold mb-3">We fill out the forms</h3>
+                <h3 className="text-lg font-bold mb-3">
+                  We fill out the forms
+                </h3>
                 <p className="text-slate-600">
-                  Our software automatically fills out all the right tax forms for you.
+                  Our software automatically fills out all the right tax forms
+                  for you.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-brand-blue-600">
                   3
                 </div>
-                <h3 className="text-lg font-bold mb-3">Double-check everything</h3>
+                <h3 className="text-lg font-bold mb-3">
+                  Double-check everything
+                </h3>
                 <p className="text-slate-600">
-                  Review your return and make sure everything looks right before filing.
+                  Review your return and make sure everything looks right before
+                  filing.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-blue-600">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-brand-blue-600">
                   4
                 </div>
-                <h3 className="text-lg font-bold mb-3">E-file and get refund</h3>
+                <h3 className="text-lg font-bold mb-3">
+                  E-file and get refund
+                </h3>
                 <p className="text-slate-600">
-                  File electronically and get your refund in as little as 8 days.
+                  File electronically and get your refund in as little as 8
+                  days.
                 </p>
               </div>
             </div>
@@ -305,50 +435,72 @@ export default function TaxSelfPrepPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg">
-                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">✓</div>
-                <h3 className="text-lg font-bold mb-3">Maximum Refund Guaranteed</h3>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                  ✓
+                </div>
+                <h3 className="text-lg font-bold mb-3">
+                  Maximum Refund Guaranteed
+                </h3>
                 <p className="text-slate-600">
-                  We guarantee you'll get the maximum refund you're entitled to, or we'll refund your service fee.
+                  We guarantee you'll get the maximum refund you're entitled to,
+                  or we'll refund your service fee.
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-lg">
-                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">🔒</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                  🔒
+                </div>
                 <h3 className="text-lg font-bold mb-3">100% Secure</h3>
                 <p className="text-slate-600">
-                  Bank-level encryption and multi-factor authentication protect your data.
+                  Bank-level encryption and multi-factor authentication protect
+                  your data.
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-lg">
-                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">💬</div>
-                <h3 className="text-lg font-bold mb-3">Expert Help Available</h3>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                  💬
+                </div>
+                <h3 className="text-lg font-bold mb-3">
+                  Expert Help Available
+                </h3>
                 <p className="text-slate-600">
-                  Get help from tax experts via chat, phone, or video call if you need it.
+                  Get help from tax experts via chat, phone, or video call if
+                  you need it.
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-lg">
-                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">📱</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                  📱
+                </div>
                 <h3 className="text-lg font-bold mb-3">Mobile App</h3>
                 <p className="text-slate-600">
-                  Do your taxes on your phone or tablet. Snap photos of W-2s and upload instantly.
+                  Do your taxes on your phone or tablet. Snap photos of W-2s and
+                  upload instantly.
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-lg">
-                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">⚡</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                  ⚡
+                </div>
                 <h3 className="text-lg font-bold mb-3">Fast & Easy</h3>
                 <p className="text-slate-600">
-                  Most people finish in under 30 minutes. Save and come back anytime.
+                  Most people finish in under 30 minutes. Save and come back
+                  anytime.
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-lg">
-                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">📊</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                  📊
+                </div>
                 <h3 className="text-lg font-bold mb-3">Import Last Year</h3>
                 <p className="text-slate-600">
-                  Import last year's return from any major tax software to save time.
+                  Import last year's return from any major tax software to save
+                  time.
                 </p>
               </div>
             </div>
@@ -357,7 +509,7 @@ export default function TaxSelfPrepPage() {
       </ScrollReveal>
 
       {/* CTA */}
-      <section className="py-20 bg-blue-600 text-white px-4">
+      <section className="py-20 bg-brand-blue-600 text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to do your taxes?
@@ -367,7 +519,7 @@ export default function TaxSelfPrepPage() {
           </p>
           <Link
             href="/tax-self-prep/start"
-            className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition shadow-2xl"
+            className="inline-block px-12 py-5 bg-brand-orange-600 text-white font-bold text-xl rounded-full hover:bg-brand-orange-700 transition shadow-2xl"
           >
             Start For Free →
           </Link>

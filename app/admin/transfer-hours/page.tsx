@@ -11,8 +11,10 @@ export const metadata: Metadata = {
 
 export default async function TransferHoursPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -22,20 +24,23 @@ export default async function TransferHoursPage() {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
+
   const { data: transferHours, count: totalRequests } = await supabase
     .from('transfer_hours')
-    .select(`
+    .select(
+      `
       *,
       enrollment:student_enrollments(
         student:profiles!student_enrollments_student_id_fkey(full_name, email),
         program:programs(name, slug)
       )
-    `, { count: 'exact' })
+    `,
+      { count: 'exact' }
+    )
     .order('created_at', { ascending: false });
 
   const { count: pendingRequests } = await supabase
@@ -60,8 +65,12 @@ export default async function TransferHoursPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Transfer Hours Management</h1>
-              <p className="text-gray-600 mt-1">Review and approve transfer hour requests from students</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Transfer Hours Management
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Review and approve transfer hour requests from students
+              </p>
             </div>
             <Link
               href="/admin/dashboard"
@@ -70,24 +79,38 @@ export default async function TransferHoursPage() {
               Back to Dashboard
             </Link>
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Total Requests</h3>
-              <p className="text-base md:text-lg font-bold text-gray-900">{totalRequests || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Total Requests
+              </h3>
+              <p className="text-base md:text-lg font-bold text-gray-900">
+                {totalRequests || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Pending Review</h3>
-              <p className="text-base md:text-lg font-bold text-yellow-600">{pendingRequests || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Pending Review
+              </h3>
+              <p className="text-base md:text-lg font-bold text-yellow-600">
+                {pendingRequests || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Approved</h3>
-              <p className="text-base md:text-lg font-bold text-green-600">{approvedRequests || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Approved
+              </h3>
+              <p className="text-base md:text-lg font-bold text-brand-green-600">
+                {approvedRequests || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Denied</h3>
-              <p className="text-base md:text-lg font-bold text-red-600">{deniedRequests || 0}</p>
+              <p className="text-base md:text-lg font-bold text-red-600">
+                {deniedRequests || 0}
+              </p>
             </div>
           </div>
         </div>

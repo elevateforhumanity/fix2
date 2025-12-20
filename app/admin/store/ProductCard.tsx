@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 
 interface Product {
   id: string;
@@ -22,7 +22,7 @@ export default function ProductCard() {
 
   async function loadProducts() {
     try {
-      const res = await fetch("/api/store/products");
+      const res = await fetch('/api/store/products');
       const data = await res.json();
       setProducts(data || []);
     } catch (error) {
@@ -34,21 +34,21 @@ export default function ProductCard() {
   async function cloneCodebase(productId: string) {
     setCloning(productId);
     try {
-      const res = await fetch("/api/store/clone-codebase", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/store/clone-codebase', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ productId }),
       });
 
       const data = await res.json();
-      
+
       if (data.ok) {
         alert(`Repository cloned successfully!\n\nNew repo: ${data.repo}`);
       } else {
-        alert("Error: " + (data.error || "Failed to clone repository"));
+        alert('Error: ' + (data.error || 'Failed to clone repository'));
       }
     } catch (error) {
-      alert("Failed to clone repository");
+      alert('Failed to clone repository');
     } finally {
       setCloning(null);
     }
@@ -74,11 +74,11 @@ export default function ProductCard() {
           className="border border-gray-200 p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow space-y-3"
         >
           <h3 className="font-bold text-lg text-gray-900">{p.title}</h3>
-          
+
           {p.description && (
             <p className="text-sm text-gray-600">{p.description}</p>
           )}
-          
+
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold text-gray-900">
               ${(p.price / 100).toLocaleString()}
@@ -93,11 +93,10 @@ export default function ProductCard() {
           <button
             onClick={() => cloneCodebase(p.id)}
             disabled={cloning === p.id}
-            className="w-full p-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed transition-colors font-medium"
+            className="w-full p-2 bg-brand-blue-600 text-white rounded hover:bg-brand-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed transition-colors font-medium"
           >
-            {cloning === p.id ? "Cloning..." : "Clone Codebase"}
+            {cloning === p.id ? 'Cloning...' : 'Clone Codebase'}
           </button>
-
         </div>
       ))}
     </>

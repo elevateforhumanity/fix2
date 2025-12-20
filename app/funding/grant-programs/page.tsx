@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ export default function GrantProgramsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               Apply for Free Training
             </Link>
@@ -109,25 +109,33 @@ export default function GrantProgramsPage() {
             </h3>
             <ul className="space-y-2">
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
                 <span className="text-slate-700">
                   <strong>100% Tuition</strong> - No cost to you
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
                 <span className="text-slate-700">
                   <strong>Books & Materials</strong> - All included
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
                 <span className="text-slate-700">
                   <strong>Certification Exams</strong> - Fees covered
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
                 <span className="text-slate-700">
                   <strong>No Payback Required</strong> - It's a grant, not a
                   loan
@@ -202,7 +210,7 @@ export default function GrantProgramsPage() {
 
                   <Link
                     href={`/programs/${program.slug}`}
-                    className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                    className="block w-full text-center bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                   >
                     Learn More
                   </Link>
@@ -222,7 +230,7 @@ export default function GrantProgramsPage() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
               <h3 className="text-lg font-bold mb-2">Apply to Program</h3>
@@ -233,7 +241,7 @@ export default function GrantProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
               <h3 className="text-lg font-bold mb-2">Check Eligibility</h3>
@@ -244,7 +252,7 @@ export default function GrantProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
               <h3 className="text-lg font-bold mb-2">Start Training</h3>
@@ -258,13 +266,16 @@ export default function GrantProgramsPage() {
           <div className="text-center">
             <Link
               href="/apply"
-              className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="inline-block bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Apply Now - It's Free
             </Link>
             <p className="text-sm text-slate-600 mt-4">
               Questions?{' '}
-              <Link href="/contact" className="text-orange-600 hover:underline">
+              <Link
+                href="/contact"
+                className="text-brand-orange-600 hover:underline"
+              >
                 Contact us
               </Link>{' '}
               or call us at (317) 314-3757
@@ -274,7 +285,7 @@ export default function GrantProgramsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Your Free Training?

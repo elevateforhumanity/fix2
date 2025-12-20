@@ -126,9 +126,9 @@ export function SignMOUForm() {
             e: React.ChangeEvent<
               HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
             >
-          // @ts-expect-error TS2339: Property 'checked' does not exist on type 'EventTarget & (HTMLInputElement | ...
+            // @ts-expect-error TS2339: Property 'checked' does not exist on type 'EventTarget & (HTMLInputElement | ...
           ) => setAgreed(e.target.checked)}
-          className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
+          className="mt-1 h-4 w-4 text-brand-blue-600 focus:ring-blue-500 border-slate-300 rounded"
         />
         <label htmlFor="agreed" className="text-sm text-slate-700">
           I have read and agree to the terms of this Memorandum of
@@ -156,7 +156,7 @@ export function SignMOUForm() {
         <button
           type="submit"
           disabled={isSubmitting || !signatureDataUrl || !agreed}
-          className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+          className="flex-1 px-6 py-3 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           {isSubmitting ? 'Signing...' : 'Sign MOU'}
         </button>

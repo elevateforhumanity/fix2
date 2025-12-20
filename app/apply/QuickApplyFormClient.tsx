@@ -135,8 +135,8 @@ export default function QuickApplyFormClient() {
     return (
       <div className="space-y-6">
         <div className="text-center py-8">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-12 h-12 text-green-600" />
+          <div className="w-20 h-20 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="w-12 h-12 text-brand-green-600" />
           </div>
           <h2 className="text-3xl font-bold text-slate-900 mb-3">
             Application Received!
@@ -166,7 +166,7 @@ export default function QuickApplyFormClient() {
             </h3>
             <ol className="space-y-3 text-slate-700">
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                   1
                 </span>
                 <span>
@@ -175,7 +175,7 @@ export default function QuickApplyFormClient() {
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                   2
                 </span>
                 <span>
@@ -184,7 +184,7 @@ export default function QuickApplyFormClient() {
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                <span className="flex-shrink-0 w-6 h-6 bg-brand-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                   3
                 </span>
                 <span>
@@ -207,7 +207,7 @@ export default function QuickApplyFormClient() {
               href="https://calendly.com/elevate-for-humanity/advisor-call"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white font-bold rounded-lg hover:bg-brand-orange-700 transition shadow-lg"
             >
               <Calendar className="w-5 h-5" />
               Schedule Call Now
@@ -228,7 +228,7 @@ export default function QuickApplyFormClient() {
             </button>
             <a
               href="/"
-              className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+              className="px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition"
             >
               Return to Home
             </a>
@@ -240,14 +240,14 @@ export default function QuickApplyFormClient() {
               Questions? Call us at{' '}
               <a
                 href="tel:3173143757"
-                className="font-bold text-orange-600 hover:text-orange-700"
+                className="font-bold text-brand-orange-600 hover:text-brand-orange-700"
               >
                 (317) 314-3757
               </a>{' '}
               or email{' '}
               <a
                 href="mailto:elevate4humanityedu@gmail.com"
-                className="font-bold text-orange-600 hover:text-orange-700"
+                className="font-bold text-brand-orange-600 hover:text-brand-orange-700"
               >
                 elevate4humanityedu@gmail.com
               </a>
@@ -448,7 +448,7 @@ export default function QuickApplyFormClient() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-brand-orange-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-brand-orange-700 hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {submitting ? (
             <>

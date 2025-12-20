@@ -104,7 +104,7 @@ export default async function Page() {
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-2xl text-lg"
+                className="px-8 py-4 bg-brand-orange-600 text-white font-bold rounded-full hover:bg-brand-orange-700 transition-all shadow-2xl text-lg"
               >
                 Apply Now - It's Free
               </Link>
@@ -177,7 +177,7 @@ export default async function Page() {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors">
+                      <h3 className="text-lg font-bold mb-3 group-hover:text-brand-orange-600 transition-colors">
                         {post.title}
                       </h3>
                       {post.excerpt && (
@@ -204,7 +204,7 @@ export default async function Page() {
                   href="https://elevateforhumanity.durable.co/blog"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg"
+                  className="inline-block px-8 py-4 bg-brand-orange-600 text-white font-bold rounded-full hover:bg-brand-orange-700 transition-all shadow-lg"
                 >
                   Visit Our Blog →
                 </a>
@@ -287,7 +287,7 @@ export default async function Page() {
                   href="https://www.facebook.com/elevateforhumanity"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all"
+                  className="px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-full hover:bg-brand-blue-700 transition-all"
                 >
                   Facebook
                 </a>
@@ -303,7 +303,7 @@ export default async function Page() {
                   href="https://www.linkedin.com/company/elevate-for-humanity"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all"
+                  className="px-6 py-3 bg-brand-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all"
                 >
                   LinkedIn
                 </a>
@@ -314,7 +314,7 @@ export default async function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-orange-600">
+      <section className="py-20 bg-brand-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-white mb-6 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
             Ready to Start Your Success Story?
@@ -326,7 +326,7 @@ export default async function Page() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
+              className="px-10 py-5 bg-white text-brand-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
             >
               Apply Now - It's Free
             </Link>

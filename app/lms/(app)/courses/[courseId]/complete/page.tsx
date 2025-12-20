@@ -37,7 +37,7 @@ export default async function CompleteCourse({ params }: { params: Params }) {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <Link
         href={`/lms/courses/${courseId}`}
-        className="text-sm text-blue-600 hover:underline"
+        className="text-sm text-brand-blue-600 hover:underline"
       >
         ← Back to Course
       </Link>
@@ -87,7 +87,7 @@ export default async function CompleteCourse({ params }: { params: Params }) {
 
             <button
               type="submit"
-              className="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white hover:bg-orange-700"
+              className="rounded-xl bg-brand-orange-600 px-6 py-3 font-semibold text-white hover:bg-brand-orange-700"
             >
               Mark Complete
             </button>

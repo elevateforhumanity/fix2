@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 
 export default async function CashAdvanceSettingsPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -28,10 +30,15 @@ export default async function CashAdvanceSettingsPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/cash-advances" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/cash-advances"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Cash Advances
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">Cash Advance Settings</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Cash Advance Settings
+          </h1>
           <p className="mt-2 text-gray-600">
             Configure cash advance program parameters and limits.
           </p>
@@ -40,9 +47,11 @@ export default async function CashAdvanceSettingsPage() {
         {/* Settings Form */}
         <div className="bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">Program Settings</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Program Settings
+            </h2>
           </div>
-          
+
           <div className="p-6 space-y-6">
             {/* Maximum Amount */}
             <div>
@@ -111,12 +120,16 @@ export default async function CashAdvanceSettingsPage() {
             {/* Enable/Disable Program */}
             <div className="flex items-center justify-between py-4 border-t border-gray-200">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Enable Cash Advance Program</h3>
-                <p className="text-sm text-gray-500">Allow students to request cash advances</p>
+                <h3 className="text-sm font-medium text-gray-900">
+                  Enable Cash Advance Program
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Allow students to request cash advances
+                </p>
               </div>
               <button
                 type="button"
-                className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-green-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-brand-green-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 <span className="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
               </button>
@@ -127,7 +140,7 @@ export default async function CashAdvanceSettingsPage() {
               <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
                 Cancel
               </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+              <button className="px-4 py-2 bg-brand-blue-600 text-white rounded-md hover:bg-brand-blue-700">
                 Save Settings
               </button>
             </div>
@@ -137,32 +150,58 @@ export default async function CashAdvanceSettingsPage() {
         {/* Notification Settings */}
         <div className="mt-6 bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">Notification Settings</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Notification Settings
+            </h2>
           </div>
-          
+
           <div className="p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Email Notifications</h3>
-                <p className="text-sm text-gray-500">Send email when request is submitted</p>
+                <h3 className="text-sm font-medium text-gray-900">
+                  Email Notifications
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Send email when request is submitted
+                </p>
               </div>
-              <input type="checkbox" defaultChecked className="h-4 w-4 text-blue-600 rounded" />
+              <input
+                type="checkbox"
+                defaultChecked
+                className="h-4 w-4 text-brand-blue-600 rounded"
+              />
             </div>
 
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">SMS Notifications</h3>
-                <p className="text-sm text-gray-500">Send SMS for status updates</p>
+                <h3 className="text-sm font-medium text-gray-900">
+                  SMS Notifications
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Send SMS for status updates
+                </p>
               </div>
-              <input type="checkbox" defaultChecked className="h-4 w-4 text-blue-600 rounded" />
+              <input
+                type="checkbox"
+                defaultChecked
+                className="h-4 w-4 text-brand-blue-600 rounded"
+              />
             </div>
 
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900">Admin Alerts</h3>
-                <p className="text-sm text-gray-500">Alert admins of new requests</p>
+                <h3 className="text-sm font-medium text-gray-900">
+                  Admin Alerts
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Alert admins of new requests
+                </p>
               </div>
-              <input type="checkbox" defaultChecked className="h-4 w-4 text-blue-600 rounded" />
+              <input
+                type="checkbox"
+                defaultChecked
+                className="h-4 w-4 text-brand-blue-600 rounded"
+              />
             </div>
           </div>
         </div>

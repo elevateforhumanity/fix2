@@ -26,7 +26,7 @@ export default async function MobileAppPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <div className="w-20 h-20 bg-brand-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
             <Smartphone className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
@@ -67,7 +67,7 @@ export default async function MobileAppPage() {
               <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center">
                 <span className="text-3xl"></span>
               </div>
-              <Download className="w-8 h-8 text-blue-600 group-hover:animate-bounce" />
+              <Download className="w-8 h-8 text-brand-blue-600 group-hover:animate-bounce" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">
               Download for iPhone
@@ -75,7 +75,7 @@ export default async function MobileAppPage() {
             <p className="text-slate-600 text-sm mb-4">
               Available on the App Store for iOS devices
             </p>
-            <div className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold group-hover:bg-blue-700 transition-all">
+            <div className="inline-block px-4 py-2 bg-brand-blue-600 text-white rounded-lg font-semibold group-hover:bg-brand-blue-700 transition-all">
               Get on App Store →
             </div>
           </a>
@@ -87,10 +87,10 @@ export default async function MobileAppPage() {
             className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all group"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
+              <div className="w-16 h-16 bg-brand-green-600 rounded-xl flex items-center justify-center">
                 <span className="text-3xl">▶</span>
               </div>
-              <Download className="w-8 h-8 text-blue-600 group-hover:animate-bounce" />
+              <Download className="w-8 h-8 text-brand-blue-600 group-hover:animate-bounce" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">
               Download for Android
@@ -98,7 +98,7 @@ export default async function MobileAppPage() {
             <p className="text-slate-600 text-sm mb-4">
               Available on Google Play for Android devices
             </p>
-            <div className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold group-hover:bg-blue-700 transition-all">
+            <div className="inline-block px-4 py-2 bg-brand-blue-600 text-white rounded-lg font-semibold group-hover:bg-brand-blue-700 transition-all">
               Get on Google Play →
             </div>
           </a>
@@ -107,12 +107,12 @@ export default async function MobileAppPage() {
         {/* Setup Instructions */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-            <CheckCircle className="w-7 h-7 text-green-600" />
+            <CheckCircle className="w-7 h-7 text-brand-green-600" />
             How to Get Started
           </h2>
           <div className="space-y-6">
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 1
               </div>
               <div>
@@ -127,7 +127,7 @@ export default async function MobileAppPage() {
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 2
               </div>
               <div>
@@ -142,7 +142,7 @@ export default async function MobileAppPage() {
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 3
               </div>
               <div>
@@ -158,7 +158,7 @@ export default async function MobileAppPage() {
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 4
               </div>
               <div>
@@ -173,7 +173,7 @@ export default async function MobileAppPage() {
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold">
                 ✓
               </div>
               <div>
@@ -239,7 +239,7 @@ export default async function MobileAppPage() {
             href="https://www.miladytraining.com/users/sign_in"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 font-semibold transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-blue-600 rounded-lg hover:bg-blue-50 font-semibold transition-all shadow-md"
           >
             <ExternalLink className="w-4 h-4" />
             Login on Web Browser
@@ -250,7 +250,7 @@ export default async function MobileAppPage() {
         <div className="text-center mt-8">
           <Link
             href="/student/dashboard"
-            className="text-blue-600 hover:text-blue-700 font-semibold"
+            className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
           >
             ← Back to Dashboard
           </Link>

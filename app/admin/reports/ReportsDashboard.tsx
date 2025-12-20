@@ -1,7 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
 interface Stats {
   totalStudents: number;
@@ -30,22 +44,35 @@ interface ReportsDashboardProps {
   programStats: any[];
 }
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
+const COLORS = [
+  '#3b82f6',
+  '#10b981',
+  '#f59e0b',
+  '#ef4444',
+  '#8b5cf6',
+  '#ec4899',
+];
 
-export default function ReportsDashboard({ stats, recentEnrollments, programStats }: ReportsDashboardProps) {
+export default function ReportsDashboard({
+  stats,
+  recentEnrollments,
+  programStats,
+}: ReportsDashboardProps) {
   const [dateRange, setDateRange] = useState('30');
 
   // Process enrollment trend data
-  const enrollmentTrendData = recentEnrollments.reduce((acc: Array<{ date: string; enrollments: number }>, enrollment) => {
-    const date = new Date(enrollment.created_at).toLocaleDateString();
-    const existing = acc.find(item => item.date === date);
-    if (existing) {
-      existing.enrollments += 1;
-    } else {
-      acc.push({ date, enrollments: 1 });
-    }
-    return acc;
-  }, []).slice(-7); // Last 7 days
+  const enrollmentTrendData = recentEnrollments
+    .reduce((acc: Array<{ date: string; enrollments: number }>, enrollment) => {
+      const date = new Date(enrollment.created_at).toLocaleDateString();
+      const existing = acc.find((item) => item.date === date);
+      if (existing) {
+        existing.enrollments += 1;
+      } else {
+        acc.push({ date, enrollments: 1 });
+      }
+      return acc;
+    }, [])
+    .slice(-7); // Last 7 days
 
   // Process status distribution
   const statusData = [
@@ -55,17 +82,23 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
   ];
 
   // Process program popularity
-  const programPopularityData: Array<{ name: string; enrollments: number }> = programStats.reduce((acc: Array<{ name: string; enrollments: number }>, item: any) => {
-    const courseTitle = item.courses?.title || 'Unknown';
-    const existing = acc.find(p => p.name === courseTitle);
-    if (existing) {
-      existing.enrollments += 1;
-    } else {
-      acc.push({ name: courseTitle, enrollments: 1 });
-    }
-    return acc;
-  }, [] as Array<{ name: string; enrollments: number }>);
-  const programPopularity = programPopularityData.sort((a, b) => b.enrollments - a.enrollments).slice(0, 5);
+  const programPopularityData: Array<{ name: string; enrollments: number }> =
+    programStats.reduce(
+      (acc: Array<{ name: string; enrollments: number }>, item: any) => {
+        const courseTitle = item.courses?.title || 'Unknown';
+        const existing = acc.find((p) => p.name === courseTitle);
+        if (existing) {
+          existing.enrollments += 1;
+        } else {
+          acc.push({ name: courseTitle, enrollments: 1 });
+        }
+        return acc;
+      },
+      [] as Array<{ name: string; enrollments: number }>
+    );
+  const programPopularity = programPopularityData
+    .sort((a, b) => b.enrollments - a.enrollments)
+    .slice(0, 5);
 
   return (
     <div className="space-y-8">
@@ -73,53 +106,105 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Total Students</h3>
-            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            <h3 className="text-sm font-medium text-gray-600">
+              Total Students
+            </h3>
+            <svg
+              className="w-8 h-8 text-brand-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+              />
             </svg>
           </div>
-          <p className="text-3xl font-bold text-gray-900">{stats.totalStudents}</p>
+          <p className="text-3xl font-bold text-gray-900">
+            {stats.totalStudents}
+          </p>
           <p className="text-sm text-gray-500 mt-1">Registered users</p>
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Total Enrollments</h3>
-            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <h3 className="text-sm font-medium text-gray-600">
+              Total Enrollments
+            </h3>
+            <svg
+              className="w-8 h-8 text-brand-green-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           </div>
-          <p className="text-3xl font-bold text-gray-900">{stats.totalEnrollments}</p>
-          <p className="text-sm text-green-600 mt-1">{stats.activeEnrollments} active</p>
+          <p className="text-3xl font-bold text-gray-900">
+            {stats.totalEnrollments}
+          </p>
+          <p className="text-sm text-brand-green-600 mt-1">
+            {stats.activeEnrollments} active
+          </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Completion Rate</h3>
-            <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            <h3 className="text-sm font-medium text-gray-600">
+              Completion Rate
+            </h3>
+            <svg
+              className="w-8 h-8 text-purple-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
             </svg>
           </div>
-          <p className="text-3xl font-bold text-gray-900">{stats.completionRate}%</p>
-          <p className="text-sm text-gray-500 mt-1">{stats.completedCourses} completed</p>
+          <p className="text-3xl font-bold text-gray-900">
+            {stats.completionRate}%
+          </p>
+          <p className="text-sm text-gray-500 mt-1">
+            {stats.completedCourses} completed
+          </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-600">Certificates Issued</h3>
-            <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            <h3 className="text-sm font-medium text-gray-600">
+              Certificates Issued
+            </h3>
+            <svg
+              className="w-8 h-8 text-brand-orange-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              />
             </svg>
           </div>
-          <p className="text-3xl font-bold text-gray-900">{stats.totalCertificates}</p>
+          <p className="text-3xl font-bold text-gray-900">
+            {stats.totalCertificates}
+          </p>
           <p className="text-sm text-gray-500 mt-1">Total awarded</p>
         </div>
       </div>
@@ -128,7 +213,9 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Enrollment Trend */}
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-lg font-semibold mb-4">Enrollment Trend (Last 7 Days)</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            Enrollment Trend (Last 7 Days)
+          </h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={enrollmentTrendData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -136,15 +223,21 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="enrollments" stroke="#3b82f6"
-strokeWidth={2} />
+              <Line
+                type="monotone"
+                dataKey="enrollments"
+                stroke="#3b82f6"
+                strokeWidth={2}
+              />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         {/* Status Distribution */}
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-lg font-semibold mb-4">Enrollment Status Distribution</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            Enrollment Status Distribution
+          </h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -152,13 +245,18 @@ strokeWidth={2} />
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                label={({ name, percent }) =>
+                  `${name}: ${(percent * 100).toFixed(0)}%`
+                }
                 outerRadius={80}
                 fill="#8884d8"
                 dataKey="value"
               >
                 {statusData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip />
@@ -171,7 +269,9 @@ strokeWidth={2} />
       <div className="grid grid-cols-1 gap-6">
         {/* Program Popularity */}
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-lg font-semibold mb-4">Top 5 Most Popular Programs</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            Top 5 Most Popular Programs
+          </h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={programPopularity}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -188,7 +288,9 @@ strokeWidth={2} />
       {/* Recent Enrollments Table */}
       <div className="bg-white rounded-lg shadow-sm border">
         <div className="p-6 border-b">
-          <h3 className="text-lg font-semibold">Recent Enrollments (Last 30 Days)</h3>
+          <h3 className="text-lg font-semibold">
+            Recent Enrollments (Last 30 Days)
+          </h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -219,11 +321,15 @@ strokeWidth={2} />
                       {enrollment.courses?.title || 'Unknown Course'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        enrollment.status === 'active' ? 'bg-green-100 text-green-800' :
-                        enrollment.status === 'completed' ? 'bg-blue-100 text-blue-800' :
-                        'bg-yellow-100 text-yellow-800'
-                      }`}>
+                      <span
+                        className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                          enrollment.status === 'active'
+                            ? 'bg-brand-green-100 text-green-800'
+                            : enrollment.status === 'completed'
+                              ? 'bg-blue-100 text-blue-800'
+                              : 'bg-yellow-100 text-yellow-800'
+                        }`}
+                      >
                         {enrollment.status}
                       </span>
                     </td>
@@ -234,7 +340,10 @@ strokeWidth={2} />
                 ))
               ) : (
                 <tr>
-                  <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
+                  <td
+                    colSpan={4}
+                    className="px-6 py-8 text-center text-gray-500"
+                  >
                     No recent enrollments
                   </td>
                 </tr>
@@ -247,16 +356,28 @@ strokeWidth={2} />
       {/* Application Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">Total Applications</h3>
-          <p className="text-3xl font-bold text-gray-900">{stats.totalApplications}</p>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">
+            Total Applications
+          </h3>
+          <p className="text-3xl font-bold text-gray-900">
+            {stats.totalApplications}
+          </p>
         </div>
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">Pending Review</h3>
-          <p className="text-3xl font-bold text-orange-600">{stats.pendingApplications}</p>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">
+            Pending Review
+          </h3>
+          <p className="text-3xl font-bold text-brand-orange-600">
+            {stats.pendingApplications}
+          </p>
         </div>
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">Approval Rate</h3>
-          <p className="text-3xl font-bold text-green-600">{stats.approvalRate}%</p>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">
+            Approval Rate
+          </h3>
+          <p className="text-3xl font-bold text-brand-green-600">
+            {stats.approvalRate}%
+          </p>
         </div>
       </div>
     </div>

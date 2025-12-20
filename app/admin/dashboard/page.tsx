@@ -142,13 +142,13 @@ export default async function AdminDashboard() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -171,7 +171,7 @@ export default async function AdminDashboard() {
             <div className="flex gap-3">
               <Link
                 href="/admin/students"
-                className="px-4 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition"
+                className="px-4 py-2 bg-brand-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition"
               >
                 Manage Students
               </Link>
@@ -194,7 +194,9 @@ export default async function AdminDashboard() {
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <Users className="text-blue-700" size={24} />
               </div>
-              <span className="text-sm font-medium text-green-600">Active</span>
+              <span className="text-sm font-medium text-brand-green-600">
+                Active
+              </span>
             </div>
             <p className="text-3xl font-bold text-slate-900">
               {totalStudents || 0}
@@ -207,7 +209,7 @@ export default async function AdminDashboard() {
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <Building2 className="text-purple-700" size={24} />
               </div>
-              <span className="text-sm font-medium text-blue-600">
+              <span className="text-sm font-medium text-brand-blue-600">
                 Partners
               </span>
             </div>
@@ -219,10 +221,10 @@ export default async function AdminDashboard() {
 
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center">
                 <GraduationCap className="text-green-700" size={24} />
               </div>
-              <span className="text-sm font-medium text-orange-600">
+              <span className="text-sm font-medium text-brand-orange-600">
                 {activeEnrollments || 0} Active
               </span>
             </div>
@@ -252,7 +254,7 @@ export default async function AdminDashboard() {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-brand-green-100 rounded-lg flex items-center justify-center">
                 <CheckCircle className="text-green-700" size={20} />
               </div>
               <div>
@@ -264,7 +266,7 @@ export default async function AdminDashboard() {
             </div>
             <div className="w-full bg-slate-200 rounded-full h-2">
               <div
-                className="bg-green-600 h-2 rounded-full"
+                className="bg-brand-green-600 h-2 rounded-full"
                 style={{ width: `${completionRate}%` }}
               />
             </div>
@@ -287,7 +289,7 @@ export default async function AdminDashboard() {
             </div>
             <div className="w-full bg-slate-200 rounded-full h-2">
               <div
-                className="bg-blue-600 h-2 rounded-full"
+                className="bg-brand-blue-600 h-2 rounded-full"
                 style={{
                   width: `${totalEnrollments ? ((activeEnrollments || 0) / totalEnrollments) * 100 : 0}%`,
                 }}
@@ -356,7 +358,7 @@ export default async function AdminDashboard() {
                             enrollment.status === 'active'
                               ? 'bg-blue-100 text-blue-700'
                               : enrollment.status === 'completed'
-                                ? 'bg-green-100 text-green-700'
+                                ? 'bg-brand-green-100 text-green-700'
                                 : 'bg-slate-100 text-slate-700'
                           }`}
                         >
@@ -399,10 +401,13 @@ export default async function AdminDashboard() {
                     const app = rec(raw);
                     const appId = str(app.id, 'unknown');
                     const fullName = str(app.full_name, 'Unknown');
-                    const programInterest = str(app.program_interest, 'No program specified');
+                    const programInterest = str(
+                      app.program_interest,
+                      'No program specified'
+                    );
                     const status = str(app.status, 'pending');
                     const createdAt = date(app.created_at);
-                    
+
                     return (
                       <div
                         key={appId}
@@ -422,7 +427,7 @@ export default async function AdminDashboard() {
                               status === 'pending'
                                 ? 'bg-orange-100 text-orange-700'
                                 : status === 'approved'
-                                  ? 'bg-green-100 text-green-700'
+                                  ? 'bg-brand-green-100 text-green-700'
                                   : 'bg-red-100 text-red-700'
                             }`}
                           >
@@ -504,7 +509,7 @@ export default async function AdminDashboard() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -522,7 +527,7 @@ export default async function AdminDashboard() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -540,7 +545,7 @@ export default async function AdminDashboard() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -558,7 +563,7 @@ export default async function AdminDashboard() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

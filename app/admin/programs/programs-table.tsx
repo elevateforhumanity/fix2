@@ -18,14 +18,18 @@ interface Program {
 
 export function ProgramsTable({ programs }: { programs: Program[] }) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterStatus, setFilterStatus] = useState<'all' | 'active' | 'inactive'>('all');
+  const [filterStatus, setFilterStatus] = useState<
+    'all' | 'active' | 'inactive'
+  >('all');
 
-  const filteredPrograms = programs.filter(program => {
-    const matchesSearch = program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         program.slug.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterStatus === 'all' || 
-                         (filterStatus === 'active' && program.is_active) ||
-                         (filterStatus === 'inactive' && !program.is_active);
+  const filteredPrograms = programs.filter((program) => {
+    const matchesSearch =
+      program.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      program.slug.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      filterStatus === 'all' ||
+      (filterStatus === 'active' && program.is_active) ||
+      (filterStatus === 'inactive' && !program.is_active);
     return matchesSearch && matchesFilter;
   });
 
@@ -38,12 +42,18 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
             type="text"
             placeholder="Search programs..."
             value={searchTerm}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchTerm(e.target.value)}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setSearchTerm(e.target.value)}
             className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <select
             value={filterStatus}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setFilterStatus(e.target.value as 'all' | 'active' | 'inactive')}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              setFilterStatus(e.target.value as 'all' | 'active' | 'inactive')
+            }
             className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Programs</option>
@@ -84,7 +94,10 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
           <tbody className="bg-white divide-y divide-gray-200">
             {filteredPrograms.length === 0 ? (
               <tr>
-                <td colSpan={7} className="px-6 py-12 text-center text-gray-500">
+                <td
+                  colSpan={7}
+                  className="px-6 py-12 text-center text-gray-500"
+                >
                   No programs found
                 </td>
               </tr>
@@ -93,14 +106,18 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
                 <tr key={program.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div>
-                      <div className="font-medium text-gray-900">{program.name}</div>
-                      <div className="text-sm text-gray-500">{program.slug}</div>
+                      <div className="font-medium text-gray-900">
+                        {program.name}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {program.slug}
+                      </div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       {program.is_active ? (
-                        <span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                        <span className="px-2 py-1 text-xs font-semibold rounded-full bg-brand-green-100 text-green-800">
                           Active
                         </span>
                       ) : (
@@ -119,10 +136,14 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
                     {program.modules?.[0]?.count || 0}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-900">
-                    {program.duration_hours ? `${program.duration_hours}h` : '-'}
+                    {program.duration_hours
+                      ? `${program.duration_hours}h`
+                      : '-'}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-900">
-                    {program.price ? `$${program.price.toLocaleString()}` : 'Free'}
+                    {program.price
+                      ? `$${program.price.toLocaleString()}`
+                      : 'Free'}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-500">
                     {new Date(program.created_at).toLocaleDateString()}
@@ -131,7 +152,7 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
                     <div className="flex items-center justify-end gap-2">
                       <Link
                         href={`/admin/programs/${program.slug}`}
-                        className="text-blue-600 hover:text-blue-900"
+                        className="text-brand-blue-600 hover:text-blue-900"
                       >
                         Edit
                       </Link>
@@ -154,8 +175,8 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
       {/* Pagination info */}
       <div className="px-6 py-4 border-t bg-gray-50">
         <p className="text-sm text-gray-700">
-          Showing <span className="font-medium">{filteredPrograms.length}</span> of{' '}
-          <span className="font-medium">{programs.length}</span> programs
+          Showing <span className="font-medium">{filteredPrograms.length}</span>{' '}
+          of <span className="font-medium">{programs.length}</span> programs
         </p>
       </div>
     </div>

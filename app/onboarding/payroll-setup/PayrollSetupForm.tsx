@@ -113,7 +113,7 @@ export default function PayrollSetupForm({
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
-          <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
+          <CheckCircle2 className="w-16 h-16 text-brand-green-600 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-slate-900 mb-2">
             Payroll Setup Complete!
           </h2>
@@ -134,8 +134,8 @@ export default function PayrollSetupForm({
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-3xl mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-green-100 rounded-lg">
-              <DollarSign className="w-6 h-6 text-green-600" />
+            <div className="p-3 bg-brand-green-100 rounded-lg">
+              <DollarSign className="w-6 h-6 text-brand-green-600" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-slate-900">
@@ -176,7 +176,7 @@ export default function PayrollSetupForm({
                   </div>
                   <div>
                     <div className="text-sm text-slate-600">Default</div>
-                    <div className="text-lg font-bold text-blue-600">
+                    <div className="text-lg font-bold text-brand-blue-600">
                       {rateConfig.payment_type === 'PERCENTAGE'
                         ? `${rateConfig.default_rate}%`
                         : `$${rateConfig.default_rate}`}
@@ -234,14 +234,14 @@ export default function PayrollSetupForm({
                 onClick={() => setPayoutMethod('STRIPE')}
                 className={`flex items-start gap-4 p-4 rounded-lg border-2 transition-colors text-left ${
                   payoutMethod === 'STRIPE'
-                    ? 'border-blue-600 bg-blue-50'
+                    ? 'border-brand-blue-600 bg-blue-50'
                     : 'border-slate-300 bg-white hover:border-slate-400'
                 }`}
               >
                 <CreditCard
                   className={`w-6 h-6 flex-shrink-0 ${
                     payoutMethod === 'STRIPE'
-                      ? 'text-blue-600'
+                      ? 'text-brand-blue-600'
                       : 'text-slate-400'
                   }`}
                 />
@@ -266,13 +266,15 @@ export default function PayrollSetupForm({
                 onClick={() => setPayoutMethod('ACH')}
                 className={`flex items-start gap-4 p-4 rounded-lg border-2 transition-colors text-left ${
                   payoutMethod === 'ACH'
-                    ? 'border-blue-600 bg-blue-50'
+                    ? 'border-brand-blue-600 bg-blue-50'
                     : 'border-slate-300 bg-white hover:border-slate-400'
                 }`}
               >
                 <Building2
                   className={`w-6 h-6 flex-shrink-0 ${
-                    payoutMethod === 'ACH' ? 'text-blue-600' : 'text-slate-400'
+                    payoutMethod === 'ACH'
+                      ? 'text-brand-blue-600'
+                      : 'text-slate-400'
                   }`}
                 />
                 <div>
@@ -320,7 +322,7 @@ export default function PayrollSetupForm({
                     href="https://www.irs.gov/pub/irs-pdf/fw9.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-700 text-sm underline"
+                    className="text-brand-blue-600 hover:text-brand-blue-700 text-sm underline"
                   >
                     Download W-9 Form
                   </a>
@@ -330,7 +332,7 @@ export default function PayrollSetupForm({
             <button
               type="button"
               onClick={() => setTaxIdUploaded(!taxIdUploaded)}
-              className="mt-3 text-sm text-blue-600 hover:text-blue-700 underline"
+              className="mt-3 text-sm text-brand-blue-600 hover:text-brand-blue-700 underline"
             >
               {taxIdUploaded ? 'Remove W-9' : 'Mark as Uploaded (Demo)'}
             </button>
@@ -341,22 +343,22 @@ export default function PayrollSetupForm({
             <h3 className="font-semibold text-slate-900 mb-3">Payment Terms</h3>
             <ul className="space-y-2 text-sm text-slate-700">
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 mt-0.5">•</span>
+                <span className="text-brand-blue-600 mt-0.5">•</span>
                 <span>Payments are processed monthly, in arrears</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 mt-0.5">•</span>
+                <span className="text-brand-blue-600 mt-0.5">•</span>
                 <span>
                   Payment is contingent on verified hours/progress and
                   compliance
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 mt-0.5">•</span>
+                <span className="text-brand-blue-600 mt-0.5">•</span>
                 <span>1099 tax form will be issued annually</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-600 mt-0.5">•</span>
+                <span className="text-brand-blue-600 mt-0.5">•</span>
                 <span>
                   Your payroll profile must be approved by Elevate for Humanity
                   admin
@@ -385,7 +387,7 @@ export default function PayrollSetupForm({
             <button
               type="submit"
               disabled={isSubmitting || !taxIdUploaded}
-              className="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Submitting...' : 'Submit for Approval'}
             </button>

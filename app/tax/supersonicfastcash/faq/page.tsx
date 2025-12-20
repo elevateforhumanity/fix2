@@ -145,7 +145,7 @@ export default function FAQPage() {
       <div className="space-y-8">
         {faqs.map((category, idx) => (
           <section key={idx} className="rounded-2xl border bg-white p-8">
-            <h2 className="text-2xl font-bold mb-6 text-blue-600">
+            <h2 className="text-2xl font-bold mb-6 text-brand-blue-600">
               {category.category}
             </h2>
             <div className="space-y-6">
@@ -162,7 +162,7 @@ export default function FAQPage() {
         ))}
       </div>
 
-      <section className="mt-8 rounded-2xl bg-blue-50 border-l-4 border-blue-600 p-6">
+      <section className="mt-8 rounded-2xl bg-blue-50 border-l-4 border-brand-blue-600 p-6">
         <h2 className="text-xl font-bold mb-3">Still Have Questions?</h2>
         <p className="text-gray-700 mb-6">
           Can't find the answer you're looking for? We're here to help.
@@ -170,13 +170,13 @@ export default function FAQPage() {
         <div className="flex flex-wrap gap-4">
           <a
             href="tel:3173143757"
-            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            className="px-6 py-3 rounded-lg bg-brand-blue-600 text-white font-semibold hover:bg-brand-blue-700 transition"
           >
             Call 317-314-3757
           </a>
           <a
             href="mailto:elevate4humanityedu@gmail.com"
-            className="px-6 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition"
+            className="px-6 py-3 rounded-lg border-2 border-brand-blue-600 text-brand-blue-600 font-semibold hover:bg-blue-50 transition"
           >
             Email Us
           </a>
@@ -194,13 +194,13 @@ export default function FAQPage() {
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
             href="/tax/supersonicfastcash/documents"
-            className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            className="px-6 py-3 rounded-lg bg-brand-blue-600 text-white font-semibold hover:bg-brand-blue-700 transition"
           >
             Upload Documents
           </Link>
           <Link
             href="/supersonic-fast-cash"
-            className="px-6 py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition"
+            className="px-6 py-3 rounded-lg border-2 border-brand-blue-600 text-brand-blue-600 font-semibold hover:bg-blue-50 transition"
           >
             View Services & Pricing
           </Link>

@@ -72,13 +72,13 @@ export default async function PartnerCoursesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -86,7 +86,7 @@ export default async function PartnerCoursesPage() {
         </div>
       </section>
 
-      <section className="bg-blue-700 text-white py-20">
+      <section className="bg-brand-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">
@@ -97,11 +97,11 @@ export default async function PartnerCoursesPage() {
               partners
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <div className="bg-blue-700 px-6 py-3 rounded-lg">
+              <div className="bg-brand-blue-700 px-6 py-3 rounded-lg">
                 <span className="text-3xl font-bold">{count || 0}</span>
                 <span className="text-sm ml-2">Courses Available</span>
               </div>
-              <div className="bg-blue-700 px-6 py-3 rounded-lg">
+              <div className="bg-brand-blue-700 px-6 py-3 rounded-lg">
                 <span className="text-3xl font-bold">
                   {providers?.length || 0}
                 </span>
@@ -173,7 +173,7 @@ export default async function PartnerCoursesPage() {
                               </span>
                             )}
                             {course.retail_price && (
-                              <span className="font-semibold text-green-600">
+                              <span className="font-semibold text-brand-green-600">
                                 ${course.retail_price}
                               </span>
                             )}
@@ -189,7 +189,7 @@ export default async function PartnerCoursesPage() {
 
                           <Link
                             href={`/courses/partners/${course.id}/enroll`}
-                            className="block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                            className="block w-full text-center px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors"
                           >
                             Enroll Now
                           </Link>
@@ -255,7 +255,7 @@ export default async function PartnerCoursesPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -273,7 +273,7 @@ export default async function PartnerCoursesPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -291,7 +291,7 @@ export default async function PartnerCoursesPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -309,7 +309,7 @@ export default async function PartnerCoursesPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

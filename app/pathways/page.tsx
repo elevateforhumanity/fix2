@@ -189,7 +189,9 @@ export default function PathwaysPage() {
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-2xl font-bold text-blue-600">1</span>
+                <span className="text-2xl font-bold text-brand-blue-600">
+                  1
+                </span>
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Foundation</h3>
               <p className="text-sm text-slate-600">
@@ -197,8 +199,10 @@ export default function PathwaysPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-2xl font-bold text-green-600">2</span>
+              <div className="w-12 h-12 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl font-bold text-brand-green-600">
+                  2
+                </span>
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Skills</h3>
               <p className="text-sm text-slate-600">
@@ -216,7 +220,9 @@ export default function PathwaysPage() {
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-2xl font-bold text-orange-600">4</span>
+                <span className="text-2xl font-bold text-brand-orange-600">
+                  4
+                </span>
               </div>
               <h3 className="font-bold text-slate-900 mb-2">Certification</h3>
               <p className="text-sm text-slate-600">Get certified and hired</p>
@@ -233,7 +239,9 @@ export default function PathwaysPage() {
             >
               {/* Pathway Header */}
               <div className="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">{pathway.title}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  {pathway.title}
+                </h2>
                 <div className="grid md:grid-cols-4 gap-6">
                   <div className="flex items-center gap-3">
                     <Clock className="w-6 h-6 text-blue-300" />
@@ -283,7 +291,7 @@ export default function PathwaysPage() {
                   {[1, 2, 3, 4].map((level) => (
                     <div key={level}>
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                        <div className="w-8 h-8 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                           {level}
                         </div>
                         <h4 className="font-bold text-slate-900">
@@ -315,7 +323,7 @@ export default function PathwaysPage() {
                                     credits
                                   </p>
                                 </div>
-                                <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                                <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0" />
                               </div>
                             </div>
                           ))}
@@ -333,7 +341,7 @@ export default function PathwaysPage() {
                     {pathway.certifications.map((cert, idx) => (
                       <span
                         key={idx}
-                        className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium"
+                        className="px-4 py-2 bg-brand-green-100 text-green-800 rounded-full text-sm font-medium"
                       >
                         {cert}
                       </span>
@@ -381,14 +389,14 @@ export default function PathwaysPage() {
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     href={`/programs/${pathway.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition font-medium"
                   >
                     View Full Program Details
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link
                     href="/apply"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition font-medium"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition font-medium"
                   >
                     Apply Now
                   </Link>
@@ -410,13 +418,13 @@ export default function PathwaysPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/advising"
-              className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition font-bold text-lg"
+              className="px-8 py-4 bg-white text-brand-blue-600 rounded-lg hover:bg-blue-50 transition font-bold text-lg"
             >
               Talk to an Advisor
             </Link>
             <Link
               href="/programs"
-              className="px-8 py-4 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition font-bold text-lg border-2 border-white"
+              className="px-8 py-4 bg-brand-blue-700 text-white rounded-lg hover:bg-blue-800 transition font-bold text-lg border-2 border-white"
             >
               Browse All Programs
             </Link>

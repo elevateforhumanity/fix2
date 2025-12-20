@@ -23,8 +23,8 @@ export default function ApplicationSuccessPage({
       <div className="max-w-3xl mx-auto px-4 py-16">
         {/* Success Icon */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-            <CheckCircle className="w-12 h-12 text-green-600" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green-100 rounded-full mb-6">
+            <CheckCircle className="w-12 h-12 text-brand-green-600" />
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             Application Received!
@@ -43,7 +43,7 @@ export default function ApplicationSuccessPage({
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-orange-600 font-bold">1</span>
+                <span className="text-brand-orange-600 font-bold">1</span>
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-1">
@@ -63,7 +63,7 @@ export default function ApplicationSuccessPage({
 
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-orange-600 font-bold">2</span>
+                <span className="text-brand-orange-600 font-bold">2</span>
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-1">
@@ -77,7 +77,7 @@ export default function ApplicationSuccessPage({
 
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-orange-600 font-bold">3</span>
+                <span className="text-brand-orange-600 font-bold">3</span>
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-1">
@@ -92,7 +92,7 @@ export default function ApplicationSuccessPage({
 
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-orange-600 font-bold">4</span>
+                <span className="text-brand-orange-600 font-bold">4</span>
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-1">Get Started</h3>
@@ -107,7 +107,9 @@ export default function ApplicationSuccessPage({
             <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <p className="text-sm text-slate-700">
                 <span className="font-semibold">Application ID:</span>{' '}
-                <span className="font-mono text-blue-600">{applicationId}</span>
+                <span className="font-mono text-brand-blue-600">
+                  {applicationId}
+                </span>
               </p>
               <p className="text-xs text-slate-600 mt-1">
                 Save this ID to track your application status.
@@ -128,42 +130,42 @@ export default function ApplicationSuccessPage({
         {/* Quick Actions */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6 text-center">
-            <Calendar className="w-8 h-8 text-orange-600 mx-auto mb-3" />
+            <Calendar className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
             <h3 className="font-bold text-slate-900 mb-2">Schedule a Call</h3>
             <p className="text-sm text-slate-600 mb-3">
               Don't want to wait? Schedule a call now.
             </p>
             <Link
               href="/contact"
-              className="inline-block text-orange-600 hover:text-orange-700 font-semibold text-sm"
+              className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
             >
               Book Appointment →
             </Link>
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-6 text-center">
-            <Phone className="w-8 h-8 text-orange-600 mx-auto mb-3" />
+            <Phone className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
             <h3 className="font-bold text-slate-900 mb-2">Call Us</h3>
             <p className="text-sm text-slate-600 mb-3">
               Monday-Friday, 9am-5pm
             </p>
             <a
               href="tel:3173143757"
-              className="inline-block text-orange-600 hover:text-orange-700 font-semibold text-sm"
+              className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
             >
               (317) 314-3757
             </a>
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-6 text-center">
-            <Mail className="w-8 h-8 text-orange-600 mx-auto mb-3" />
+            <Mail className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
             <h3 className="font-bold text-slate-900 mb-2">Email Us</h3>
             <p className="text-sm text-slate-600 mb-3">
               We respond within 24 hours
             </p>
             <a
               href="mailto:elevate4humanityedu@gmail.com"
-              className="inline-block text-orange-600 hover:text-orange-700 font-semibold text-sm"
+              className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
             >
               Send Email →
             </a>
@@ -181,7 +183,7 @@ export default function ApplicationSuccessPage({
             </p>
             <Link
               href={`/apply/track?id=${applicationId}`}
-              className="inline-block px-6 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition"
+              className="inline-block px-6 py-3 bg-brand-orange-600 text-white font-bold rounded-lg hover:bg-brand-orange-700 transition"
             >
               Track Application Status
             </Link>

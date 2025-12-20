@@ -172,13 +172,13 @@ export default function SkillsTrackingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -269,7 +269,7 @@ export default function SkillsTrackingPage() {
                     onClick={() => setQualityRating(rating)}
                     className={`w-12 h-12 rounded-full font-bold transition-all ${
                       qualityRating === rating
-                        ? 'bg-orange-500 text-white scale-110'
+                        ? 'bg-brand-orange-600 text-white scale-110'
                         : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                     }`}
                   >
@@ -304,7 +304,7 @@ export default function SkillsTrackingPage() {
             <button
               onClick={logSkill}
               disabled={loading || !selectedStudent || !selectedSkill}
-              className="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all"
+              className="w-full bg-brand-orange-600 text-white py-3 rounded-lg font-bold hover:bg-brand-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all"
             >
               {loading ? 'Logging...' : 'Log Skill'}
             </button>
@@ -321,7 +321,7 @@ export default function SkillsTrackingPage() {
                 {/* Progress Overview */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="bg-blue-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-blue-600">
+                    <div className="text-2xl font-bold text-brand-blue-600">
                       {skillLogs.length}
                     </div>
                     <div className="text-xs text-gray-600">
@@ -329,7 +329,7 @@ export default function SkillsTrackingPage() {
                     </div>
                   </div>
                   <div className="bg-green-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-green-600">
+                    <div className="text-2xl font-bold text-brand-green-600">
                       {Object.keys(studentSkillCounts).length}
                     </div>
                     <div className="text-xs text-gray-600">Unique Skills</div>

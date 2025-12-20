@@ -4,7 +4,11 @@ import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata({ params }: { params: { author: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { author: string };
+}): Promise<Metadata> {
   const author = params.author.replace(/-/g, ' ');
   return {
     title: `Articles by ${author} | Elevate For Humanity`,
@@ -16,21 +20,25 @@ async function getAuthorPosts(author: string) {
   try {
     const supabase = await createClient();
     const authorName = author.replace(/-/g, ' ');
-    
+
     const { data: posts } = await supabase
       .from('blog_posts')
       .select('*')
       .eq('published', true)
       .ilike('author', authorName)
       .order('published_at', { ascending: false });
-    
+
     return posts || [];
   } catch (error) {
     return [];
   }
 }
 
-export default async function AuthorPage({ params }: { params: { author: string } }) {
+export default async function AuthorPage({
+  params,
+}: {
+  params: { author: string };
+}) {
   const posts = await getAuthorPosts(params.author);
   const authorName = params.author.replace(/-/g, ' ');
 
@@ -44,7 +52,10 @@ export default async function AuthorPage({ params }: { params: { author: string 
         {/* Author Header */}
         <div className="mb-12 text-center">
           <div className="w-24 h-24    rounded-full mx-auto mb-4 flex items-center justify-center text-white text-3xl font-bold">
-            {authorName.split(' ').map(n => n[0]).join('')}
+            {authorName
+              .split(' ')
+              .map((n) => n[0])
+              .join('')}
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-2 capitalize text-2xl md:text-3xl lg:text-4xl">
             {authorName}
@@ -57,7 +68,10 @@ export default async function AuthorPage({ params }: { params: { author: string 
         {/* Posts Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <article
+              key={post.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
               {post.featured_image && (
                 <div className="relative h-48">
                   <Image
@@ -75,7 +89,10 @@ export default async function AuthorPage({ params }: { params: { author: string 
                   </span>
                 )}
                 <h2 className="text-xl font-bold text-slate-900 mb-2">
-                  <Link href={`/blog/${post.slug}`} className="hover:text-blue-600">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="hover:text-brand-blue-600"
+                  >
                     {post.title}
                   </Link>
                 </h2>

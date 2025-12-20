@@ -114,13 +114,13 @@ export default function AutomationPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -145,7 +145,7 @@ export default function AutomationPage() {
               onClick={() =>
                 router.push('/admin/email-marketing/automation/new')
               }
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="flex items-center space-x-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
             >
               <Plus className="w-4 h-4" />
               <span>Create Workflow</span>
@@ -159,7 +159,7 @@ export default function AutomationPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
-              <Zap className="w-8 h-8 text-blue-600" />
+              <Zap className="w-8 h-8 text-brand-blue-600" />
             </div>
             <div className="text-2xl font-bold text-gray-900">
               {workflows.length}
@@ -169,7 +169,7 @@ export default function AutomationPage() {
 
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
-              <Play className="w-8 h-8 text-green-600" />
+              <Play className="w-8 h-8 text-brand-green-600" />
             </div>
             <div className="text-2xl font-bold text-gray-900">
               {workflows.filter((w) => w.status === 'active').length}
@@ -189,7 +189,7 @@ export default function AutomationPage() {
 
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-2">
-              <Users className="w-8 h-8 text-orange-600" />
+              <Users className="w-8 h-8 text-brand-orange-600" />
             </div>
             <div className="text-2xl font-bold text-gray-900">
               {workflows.reduce((sum, w) => sum + w.recipients, 0)}
@@ -261,7 +261,7 @@ export default function AutomationPage() {
                 onClick={() =>
                   router.push('/admin/email-marketing/automation/new')
                 }
-                className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
               >
                 <Plus className="w-4 h-4" />
                 <span>Create Workflow</span>
@@ -283,7 +283,7 @@ export default function AutomationPage() {
                         <span
                           className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                             workflow.status === 'active'
-                              ? 'bg-green-100 text-green-800'
+                              ? 'bg-brand-green-100 text-green-800'
                               : workflow.status === 'paused'
                                 ? 'bg-yellow-100 text-yellow-800'
                                 : 'bg-gray-100 text-gray-800'
@@ -328,7 +328,7 @@ export default function AutomationPage() {
                         className={`p-2 rounded-lg transition-colors ${
                           workflow.status === 'active'
                             ? 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
-                            : 'bg-green-100 text-green-700 hover:bg-green-200'
+                            : 'bg-brand-green-100 text-green-700 hover:bg-green-200'
                         }`}
                         title={
                           workflow.status === 'active' ? 'Pause' : 'Activate'
@@ -387,7 +387,7 @@ export default function AutomationPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -405,7 +405,7 @@ export default function AutomationPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -423,7 +423,7 @@ export default function AutomationPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -441,7 +441,7 @@ export default function AutomationPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -494,8 +494,8 @@ function WorkflowTemplate({
   onClick,
 }: WorkflowTemplateProps) {
   const colorClasses = {
-    blue: 'bg-blue-50 text-blue-600 hover:bg-blue-100',
-    orange: 'bg-orange-50 text-orange-600 hover:bg-orange-100',
+    blue: 'bg-blue-50 text-brand-blue-600 hover:bg-blue-100',
+    orange: 'bg-orange-50 text-brand-orange-600 hover:bg-orange-100',
     purple: 'bg-purple-50 text-purple-600 hover:bg-purple-100',
   };
 

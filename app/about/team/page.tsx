@@ -69,7 +69,7 @@ export default function TeamPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-blue-700">
+      <section className="relative h-[400px] bg-brand-blue-700">
         <div className="relative h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl">
@@ -124,7 +124,7 @@ export default function TeamPage() {
                   <div className="mt-6 space-y-3">
                     <a
                       href={`mailto:${member.email}`}
-                      className="block text-blue-600 hover:text-blue-700 font-medium"
+                      className="block text-brand-blue-600 hover:text-brand-blue-700 font-medium"
                     >
                       {member.email}
                     </a>
@@ -133,7 +133,7 @@ export default function TeamPage() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block text-blue-600 hover:text-blue-700 font-medium"
+                        className="block text-brand-blue-600 hover:text-brand-blue-700 font-medium"
                       >
                         LinkedIn Profile →
                       </a>
@@ -146,7 +146,7 @@ export default function TeamPage() {
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     {member.name}
                   </h2>
-                  <p className="text-base md:text-lg text-blue-600 font-semibold mb-6">
+                  <p className="text-base md:text-lg text-brand-blue-600 font-semibold mb-6">
                     {member.title}
                   </p>
                   <div className="prose prose-lg max-w-none">
@@ -175,7 +175,7 @@ export default function TeamPage() {
           </p>
           <Link
             href="/careers"
-            className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-block px-8 py-4 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition-colors"
           >
             View Open Positions
           </Link>

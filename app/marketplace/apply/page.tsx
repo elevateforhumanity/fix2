@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -168,7 +168,7 @@ export default function MarketplaceApplyPage() {
               agree to the{' '}
               <a
                 href="/legal/creator-agreement"
-                className="text-blue-600 underline"
+                className="text-brand-blue-600 underline"
               >
                 Creator Agreement
               </a>
@@ -179,7 +179,7 @@ export default function MarketplaceApplyPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="w-full bg-brand-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
           >
             {loading ? 'Submitting...' : 'Submit Application'}
           </button>

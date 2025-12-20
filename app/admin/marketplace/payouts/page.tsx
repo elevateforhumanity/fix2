@@ -106,7 +106,7 @@ export default async function AdminPayoutsPage() {
                     <td className="py-3 px-4 text-sm">
                       {creator.payout_email}
                     </td>
-                    <td className="py-3 px-4 font-bold text-green-600">
+                    <td className="py-3 px-4 font-bold text-brand-green-600">
                       ${(creator.pendingEarnings / 100).toFixed(2)}
                     </td>
                     <td className="py-3 px-4 text-sm">
@@ -150,7 +150,7 @@ export default async function AdminPayoutsPage() {
                   <td className="py-3 px-4">
                     ${(creator.totalEarnings / 100).toFixed(2)}
                   </td>
-                  <td className="py-3 px-4 text-green-600">
+                  <td className="py-3 px-4 text-brand-green-600">
                     ${(creator.paidEarnings / 100).toFixed(2)}
                   </td>
                   <td className="py-3 px-4 text-yellow-600">

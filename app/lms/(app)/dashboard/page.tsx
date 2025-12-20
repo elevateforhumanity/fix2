@@ -98,7 +98,7 @@ export default async function DashboardPage() {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-blue-600" />
+                <BookOpen className="w-5 h-5 text-brand-blue-600" />
               </div>
               <div>
                 <div className="text-2xl font-bold text-slate-900">
@@ -111,8 +111,8 @@ export default async function DashboardPage() {
 
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-5 h-5 text-green-600" />
+              <div className="w-10 h-10 bg-brand-green-100 rounded-full flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-brand-green-600" />
               </div>
               <div>
                 <div className="text-2xl font-bold text-slate-900">
@@ -126,7 +126,7 @@ export default async function DashboardPage() {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <Award className="w-5 h-5 text-orange-600" />
+                <Award className="w-5 h-5 text-brand-orange-600" />
               </div>
               <div>
                 <div className="text-2xl font-bold text-slate-900">
@@ -158,7 +158,7 @@ export default async function DashboardPage() {
         <section className="max-w-7xl mx-auto px-4 py-8">
           <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-6 md:p-8">
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-brand-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -174,10 +174,10 @@ export default async function DashboardPage() {
 
             <div className="space-y-3">
               <div
-                className={`flex items-center gap-4 p-4 rounded-lg ${profile?.first_name ? 'bg-green-100 border-2 border-green-600' : 'bg-white border-2 border-blue-200 shadow-sm'}`}
+                className={`flex items-center gap-4 p-4 rounded-lg ${profile?.first_name ? 'bg-brand-green-100 border-2 border-brand-green-600' : 'bg-white border-2 border-blue-200 shadow-sm'}`}
               >
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center ${profile?.first_name ? 'bg-green-600' : 'bg-blue-600'}`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center ${profile?.first_name ? 'bg-brand-green-600' : 'bg-brand-blue-600'}`}
                 >
                   {profile?.first_name ? (
                     <CheckCircle className="w-6 h-6 text-white" />
@@ -202,7 +202,7 @@ export default async function DashboardPage() {
                 {!profile?.first_name && (
                   <Link
                     href="/lms/profile"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition whitespace-nowrap"
+                    className="bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition whitespace-nowrap"
                   >
                     Start Now →
                   </Link>
@@ -210,10 +210,10 @@ export default async function DashboardPage() {
               </div>
 
               <div
-                className={`flex items-center gap-4 p-4 rounded-lg ${enrollments && enrollments.length > 0 ? 'bg-green-100 border-2 border-green-600' : 'bg-white border-2 border-slate-200'}`}
+                className={`flex items-center gap-4 p-4 rounded-lg ${enrollments && enrollments.length > 0 ? 'bg-brand-green-100 border-2 border-brand-green-600' : 'bg-white border-2 border-slate-200'}`}
               >
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center ${enrollments && enrollments.length > 0 ? 'bg-green-600' : 'bg-slate-300'}`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center ${enrollments && enrollments.length > 0 ? 'bg-brand-green-600' : 'bg-slate-300'}`}
                 >
                   {enrollments && enrollments.length > 0 ? (
                     <CheckCircle className="w-6 h-6 text-white" />
@@ -239,7 +239,7 @@ export default async function DashboardPage() {
                 </div>
                 <Link
                   href="/programs"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition whitespace-nowrap"
+                  className="bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition whitespace-nowrap"
                 >
                   Browse Programs →
                 </Link>
@@ -294,7 +294,7 @@ export default async function DashboardPage() {
 
             <div className="mt-6 p-6 bg-blue-50 rounded-lg border-2 border-blue-200">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-brand-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-white text-base font-bold">?</span>
                 </div>
                 <div className="flex-1">
@@ -316,13 +316,13 @@ export default async function DashboardPage() {
                   <div className="flex flex-wrap gap-3">
                     <Link
                       href="/contact"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold text-sm transition"
+                      className="bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-6 py-2 rounded-lg font-semibold text-sm transition"
                     >
                       Contact Support
                     </Link>
                     <a
                       href="tel:+13173143757"
-                      className="bg-white hover:bg-slate-50 text-blue-600 border-2 border-blue-600 px-6 py-2 rounded-lg font-semibold text-sm transition"
+                      className="bg-white hover:bg-slate-50 text-brand-blue-600 border-2 border-brand-blue-600 px-6 py-2 rounded-lg font-semibold text-sm transition"
                     >
                       Call (317) 314-3757
                     </a>
@@ -437,7 +437,7 @@ export default async function DashboardPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-2">
                       <div
-                        className="bg-blue-600 h-2 rounded-full transition-all"
+                        className="bg-brand-blue-600 h-2 rounded-full transition-all"
                         style={{ width: `${enrollment.progress || 0}%` }}
                       />
                     </div>
@@ -445,7 +445,7 @@ export default async function DashboardPage() {
 
                   <Link
                     href={`/lms/courses/${enrollment.course_id}`}
-                    className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+                    className="block w-full text-center bg-brand-blue-600 hover:bg-brand-blue-700 text-white py-3 rounded-lg font-semibold transition"
                   >
                     {enrollment.progress === 0
                       ? 'Start Course'
@@ -458,7 +458,7 @@ export default async function DashboardPage() {
         ) : (
           <div className="text-center py-16 bg-white rounded-lg shadow-sm">
             <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <BookOpen className="w-12 h-12 text-blue-600" />
+              <BookOpen className="w-12 h-12 text-brand-blue-600" />
             </div>
             <h3 className="text-lg md:text-lg font-bold mb-3">
               Ready to Start Learning?
@@ -475,13 +475,13 @@ export default async function DashboardPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/programs"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition text-lg"
+                className="inline-block bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition text-lg"
               >
                 Browse All Programs
               </Link>
               <Link
                 href="/funding/how-it-works"
-                className="inline-block bg-white hover:bg-slate-50 text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg font-semibold transition text-lg"
+                className="inline-block bg-white hover:bg-slate-50 text-brand-blue-600 border-2 border-brand-blue-600 px-8 py-4 rounded-lg font-semibold transition text-lg"
               >
                 Learn About Funding
               </Link>
@@ -501,8 +501,8 @@ export default async function DashboardPage() {
                   key={progress.id}
                   className="flex items-center gap-4 pb-4 border-b last:border-0"
                 >
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
+                  <div className="w-10 h-10 bg-brand-green-100 rounded-full flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-brand-green-600" />
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold">

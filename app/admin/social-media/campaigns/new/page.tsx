@@ -135,13 +135,13 @@ export default function NewSocialCampaignPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -181,7 +181,7 @@ export default function NewSocialCampaignPage() {
               <button
                 onClick={activateCampaign}
                 disabled={generatedPosts.length === 0}
-                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center space-x-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Play className="w-4 h-4" />
                 <span>Activate Campaign</span>
@@ -230,7 +230,7 @@ export default function NewSocialCampaignPage() {
                       }
                       className={`p-4 border-2 rounded-lg text-left transition-colors ${
                         campaign.contentSource === 'blog'
-                          ? 'border-blue-600 bg-blue-50'
+                          ? 'border-brand-blue-600 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -247,7 +247,7 @@ export default function NewSocialCampaignPage() {
                       }
                       className={`p-4 border-2 rounded-lg text-left transition-colors ${
                         campaign.contentSource === 'ai'
-                          ? 'border-blue-600 bg-blue-50'
+                          ? 'border-brand-blue-600 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -265,7 +265,7 @@ export default function NewSocialCampaignPage() {
                       }
                       className={`p-4 border-2 rounded-lg text-left transition-colors ${
                         campaign.contentSource === 'manual'
-                          ? 'border-blue-600 bg-blue-50'
+                          ? 'border-brand-blue-600 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -352,7 +352,13 @@ export default function NewSocialCampaignPage() {
                   <select
                     value={campaign.frequency}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                      setCampaign({ ...campaign, frequency: e.target.value as '3x-daily' | 'daily' | 'weekly' })
+                      setCampaign({
+                        ...campaign,
+                        frequency: e.target.value as
+                          | '3x-daily'
+                          | 'daily'
+                          | 'weekly',
+                      })
                     }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
@@ -529,7 +535,7 @@ export default function NewSocialCampaignPage() {
                 {generatedPosts.length > 0 && (
                   <div className="pt-4 border-t border-gray-200">
                     <div className="text-xs text-gray-500 mb-1">Status</div>
-                    <div className="text-sm font-medium text-green-600">
+                    <div className="text-sm font-medium text-brand-green-600">
                       ✓ {generatedPosts.length} posts ready
                     </div>
                   </div>
@@ -590,12 +596,12 @@ function PlatformButton({
       onClick={onClick}
       className={`p-4 border-2 rounded-lg transition-colors ${
         selected
-          ? 'border-blue-600 bg-blue-50'
+          ? 'border-brand-blue-600 bg-blue-50'
           : 'border-gray-200 hover:border-gray-300'
       }`}
     >
       <Icon
-        className={`w-8 h-8 mb-2 ${selected ? 'text-blue-600' : 'text-gray-400'}`}
+        className={`w-8 h-8 mb-2 ${selected ? 'text-brand-blue-600' : 'text-gray-400'}`}
       />
       <div className="font-medium text-gray-900">{name}</div>
     </button>

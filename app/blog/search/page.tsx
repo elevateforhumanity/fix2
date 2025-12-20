@@ -6,22 +6,25 @@ import { Search } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Search Blog | Elevate For Humanity',
-  description: 'Search our blog for workforce development insights, success stories, and career tips.',
+  description:
+    'Search our blog for workforce development insights, success stories, and career tips.',
 };
 
 async function searchBlogPosts(query: string) {
   if (!query) return [];
-  
+
   try {
     const supabase = await createClient();
     const { data: posts } = await supabase
       .from('blog_posts')
       .select('*')
       .eq('published', true)
-      .or(`title.ilike.%${query}%,content.ilike.%${query}%,excerpt.ilike.%${query}%`)
+      .or(
+        `title.ilike.%${query}%,content.ilike.%${query}%,excerpt.ilike.%${query}%`
+      )
       .order('published_at', { ascending: false })
       .limit(20);
-    
+
     return posts || [];
   } catch (error) {
     return [];
@@ -44,7 +47,7 @@ export default async function BlogSearchPage({
           <h1 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
             Search Blog
           </h1>
-          
+
           {/* Search Form */}
           <form method="GET" action="/blog/search" className="max-w-2xl">
             <div className="relative">
@@ -65,10 +68,9 @@ export default async function BlogSearchPage({
         {query && (
           <div className="mb-6">
             <p className="text-slate-600">
-              {results.length > 0 
+              {results.length > 0
                 ? `Found ${results.length} result${results.length === 1 ? '' : 's'} for "${query}"`
-                : `No results found for "${query}"`
-              }
+                : `No results found for "${query}"`}
             </p>
           </div>
         )}
@@ -77,7 +79,10 @@ export default async function BlogSearchPage({
         {results.length > 0 && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {results.map((post) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <article
+                key={post.id}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
                 {post.featured_image && (
                   <div className="relative h-48">
                     <Image
@@ -95,7 +100,10 @@ export default async function BlogSearchPage({
                     </span>
                   )}
                   <h2 className="text-xl font-bold text-slate-900 mb-2">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-blue-600">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="hover:text-brand-blue-600"
+                    >
                       {post.title}
                     </Link>
                   </h2>
@@ -105,7 +113,9 @@ export default async function BlogSearchPage({
                     </p>
                   )}
                   <div className="flex items-center justify-between text-sm text-slate-500">
-                    <span>{new Date(post.published_at).toLocaleDateString()}</span>
+                    <span>
+                      {new Date(post.published_at).toLocaleDateString()}
+                    </span>
                     {post.author && <span>By {post.author}</span>}
                   </div>
                 </div>

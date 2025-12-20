@@ -32,19 +32,19 @@ export default function EnrollPage() {
             </p>
             <ul className="space-y-2 mb-6 text-slate-700 max-w-md mx-auto">
               <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">✓</span>
+                <span className="text-brand-green-600 font-bold">✓</span>
                 <span>
                   <strong>WRG</strong> - Workforce Ready Grant
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">✓</span>
+                <span className="text-brand-green-600 font-bold">✓</span>
                 <span>
                   <strong>WIOA</strong> - Workforce Innovation
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-600 font-bold">✓</span>
+                <span className="text-brand-green-600 font-bold">✓</span>
                 <span>
                   <strong>JRI</strong> - Justice Reinvestment
                 </span>
@@ -55,7 +55,7 @@ export default function EnrollPage() {
             </p>
             <Link
               href="/contact"
-              className="block w-full text-center px-6 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
+              className="block w-full text-center px-6 py-4 bg-brand-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
             >
               Apply for Free Training
             </Link>
@@ -65,7 +65,7 @@ export default function EnrollPage() {
             <p className="text-slate-600 mb-2">Questions?</p>
             <a
               href="tel:3173143757"
-              className="text-2xl font-bold text-orange-600 hover:text-orange-700"
+              className="text-2xl font-bold text-brand-orange-600 hover:text-brand-orange-700"
             >
               Call 317-314-3757
             </a>

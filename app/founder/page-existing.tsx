@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
 
-
 import Link from 'next/link';
 
 import Image from 'next/image';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
@@ -65,7 +64,7 @@ export default function Page() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <svg
-                    className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                    className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -81,7 +80,7 @@ export default function Page() {
                 </li>
                 <li className="flex items-start">
                   <svg
-                    className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                    className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -97,7 +96,7 @@ export default function Page() {
                 </li>
                 <li className="flex items-start">
                   <svg
-                    className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                    className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -114,7 +113,7 @@ export default function Page() {
               </ul>
               <Link
                 href="/contact"
-                className="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
+                className="inline-block px-8 py-4 bg-brand-orange-600 text-white font-bold rounded-full hover:bg-brand-orange-600 transition-all hover:scale-105 shadow-lg"
               >
                 Start Your Journey Today
               </Link>
@@ -158,7 +157,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-brand-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -180,7 +179,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-brand-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -202,7 +201,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-brand-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

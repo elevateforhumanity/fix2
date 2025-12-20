@@ -169,7 +169,7 @@ export default function SolutionsPage() {
                   className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
                 >
                   <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="w-8 h-8 text-blue-600" />
+                    <Icon className="w-8 h-8 text-brand-blue-600" />
                   </div>
                   <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-4">
                     {solution.title}
@@ -178,7 +178,7 @@ export default function SolutionsPage() {
                   <ul className="space-y-3 mb-8">
                     {solution.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-slate-700">
                           {feature}
                         </span>
@@ -187,7 +187,7 @@ export default function SolutionsPage() {
                   </ul>
                   <Link
                     href={solution.href}
-                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700"
+                    className="inline-flex items-center text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                   >
                     {solution.cta}
                     <ArrowRight className="ml-2 w-4 h-4" />
@@ -220,7 +220,7 @@ export default function SolutionsPage() {
                 className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition text-center group"
               >
                 <div className="text-5xl mb-4">{product.logo}</div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-brand-blue-600 transition">
                   {product.name}
                 </h3>
                 <p className="text-sm text-slate-600">{product.description}</p>
@@ -243,7 +243,7 @@ export default function SolutionsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/demo/admin"
-              className="inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-xl"
+              className="inline-flex items-center justify-center bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-xl"
             >
               Try Interactive Demo
             </Link>

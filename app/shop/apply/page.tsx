@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -73,8 +73,8 @@ export default function ShopApplyPage() {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-10 h-10 text-green-600" />
+          <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-10 h-10 text-brand-green-600" />
           </div>
           <h2 className="text-2xl font-bold text-slate-900 mb-2">
             Application Submitted!
@@ -95,7 +95,7 @@ export default function ShopApplyPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex items-center gap-3 mb-2">
-            <Scissors className="w-8 h-8 text-blue-600" />
+            <Scissors className="w-8 h-8 text-brand-blue-600" />
             <h1 className="text-3xl font-bold text-slate-900">
               Become a Shop Partner
             </h1>
@@ -116,25 +116,25 @@ export default function ShopApplyPage() {
           </h2>
           <ul className="space-y-2">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span className="text-blue-900">
                 Access to pre-screened apprentice candidates
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span className="text-blue-900">
                 RAPIDS-registered apprenticeship program
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span className="text-blue-900">
                 Streamlined hours tracking and reporting
               </span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <span className="text-blue-900">
                 Support with compliance and documentation
               </span>
@@ -340,7 +340,7 @@ export default function ShopApplyPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 bg-brand-blue-600 text-white px-6 py-3 rounded-md hover:bg-brand-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Submitting...' : 'Submit Application'}
                 <ArrowRight className="w-4 h-4" />

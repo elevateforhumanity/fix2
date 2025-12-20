@@ -67,7 +67,7 @@ export default async function ProgramHolderDashboard() {
             </div>
             <Link
               href="/instructor/students/new"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white rounded-lg font-semibold hover:bg-brand-blue-700 transition"
             >
               Add Student
             </Link>
@@ -81,7 +81,7 @@ export default async function ProgramHolderDashboard() {
           <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                <Users className="text-blue-600" size={24} />
+                <Users className="text-brand-blue-600" size={24} />
               </div>
               <div>
                 <p className="text-base md:text-lg font-bold text-slate-900">
@@ -94,8 +94,8 @@ export default async function ProgramHolderDashboard() {
 
           <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                <CheckCircle className="text-green-600" size={24} />
+              <div className="w-12 h-12 rounded-full bg-brand-green-100 flex items-center justify-center">
+                <CheckCircle className="text-brand-green-600" size={24} />
               </div>
               <div>
                 <p className="text-base md:text-lg font-bold text-slate-900">
@@ -123,7 +123,7 @@ export default async function ProgramHolderDashboard() {
           <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
-                <Clock className="text-orange-600" size={24} />
+                <Clock className="text-brand-orange-600" size={24} />
               </div>
               <div>
                 <p className="text-base md:text-lg font-bold text-slate-900">
@@ -146,7 +146,7 @@ export default async function ProgramHolderDashboard() {
                 </h2>
                 <Link
                   href="/instructor/students"
-                  className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                  className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-medium"
                 >
                   View All
                 </Link>
@@ -174,7 +174,7 @@ export default async function ProgramHolderDashboard() {
                           <span
                             className={`px-3 py-1 rounded-full text-xs font-medium ${
                               student.status === 'active'
-                                ? 'bg-green-100 text-green-700'
+                                ? 'bg-brand-green-100 text-green-700'
                                 : student.status === 'completed'
                                   ? 'bg-blue-100 text-blue-700'
                                   : 'bg-gray-100 text-gray-700'
@@ -199,7 +199,7 @@ export default async function ProgramHolderDashboard() {
                   <p className="text-slate-600 mb-4">No students yet</p>
                   <Link
                     href="/instructor/students/new"
-                    className="text-blue-600 hover:text-blue-700 font-medium"
+                    className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
                   >
                     Add Your First Student
                   </Link>

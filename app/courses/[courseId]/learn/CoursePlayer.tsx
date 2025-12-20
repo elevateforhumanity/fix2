@@ -32,8 +32,8 @@ export default function CoursePlayer({
     initialLessonId || lessons[0]?.id
   );
 
-  const currentLesson = lessons.find(l => l.id === currentLessonId);
-  const currentIndex = lessons.findIndex(l => l.id === currentLessonId);
+  const currentLesson = lessons.find((l) => l.id === currentLessonId);
+  const currentIndex = lessons.findIndex((l) => l.id === currentLessonId);
   const hasNext = currentIndex < lessons.length - 1;
   const hasPrevious = currentIndex > 0;
 
@@ -53,8 +53,10 @@ export default function CoursePlayer({
     setCurrentLessonId(lessonId);
   };
 
-  const completedCount = lessons.filter(l => l.completed).length;
-  const progressPercentage = Math.round((completedCount / lessons.length) * 100);
+  const completedCount = lessons.filter((l) => l.completed).length;
+  const progressPercentage = Math.round(
+    (completedCount / lessons.length) * 100
+  );
 
   return (
     <div className="flex h-screen bg-slate-50">
@@ -78,14 +80,24 @@ export default function CoursePlayer({
                 onClick={() => setSidebarOpen(!sidebarOpen)}
                 className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </button>
               <div>
-                <h1 className="text-xl font-bold text-slate-900">{courseTitle}</h1>
+                <h1 className="text-xl font-bold text-slate-900">
+                  {courseTitle}
+                </h1>
                 <p className="text-sm text-slate-600">
                   Lesson {currentIndex + 1} of {lessons.length}
                 </p>
@@ -97,7 +109,7 @@ d="M4 6h16M4 12h16M4 18h16" />
               </div>
               <div className="w-32 h-2 bg-slate-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-orange-600 transition-all duration-300"
+                  className="h-full bg-brand-orange-600 transition-all duration-300"
                   style={{ width: `${progressPercentage}%` }}
                 />
               </div>

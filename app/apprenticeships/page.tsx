@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -39,13 +39,13 @@ export default function ApprenticeshipsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               Apply Now
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               View All Programs
             </Link>
@@ -155,7 +155,7 @@ export default function ApprenticeshipsPage() {
                     </div>
                     <Link
                       href={`/programs/${program.slug}`}
-                      className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                      className="block w-full text-center bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                     >
                       Learn More
                     </Link>
@@ -171,7 +171,7 @@ export default function ApprenticeshipsPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="inline-block bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 Contact Us
               </Link>
@@ -181,7 +181,7 @@ export default function ApprenticeshipsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

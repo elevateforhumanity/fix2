@@ -13,21 +13,24 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/grants/submissions",
+    canonical: 'https://www.elevateforhumanity.org/admin/grants/submissions',
   },
   title: 'Submissions | Elevate For Humanity',
-  description: 'Explore Submissions and discover opportunities for career growth and development at Elevate For Humanity.',
+  description:
+    'Explore Submissions and discover opportunities for career growth and development at Elevate For Humanity.',
 };
 
 async function getSubmissionsData() {
   const { data: submissions } = await supabaseAdmin
     .from('grant_submissions')
-    .select(`
+    .select(
+      `
       *,
       grant:grant_opportunities(title, agency, due_date),
       entity:entities(name),
       application:grant_applications(draft_title)
-    `)
+    `
+    )
     .order('submitted_at', { ascending: false });
 
   return { submissions: submissions || [] };
@@ -37,15 +40,20 @@ function getStatusBadge(status: string) {
   const badges: Record<string, { color: string; text: string }> = {
     submitted: { color: 'bg-blue-100 text-blue-800', text: '🔵 Submitted' },
     confirmed: { color: 'bg-purple-100 text-purple-800', text: '🟣 Confirmed' },
-    under_review: { color: 'bg-yellow-100 text-yellow-800', text: '🟡 Under Review' },
-    awarded: { color: 'bg-green-100 text-green-800', text: '🟢 Awarded' },
+    under_review: {
+      color: 'bg-yellow-100 text-yellow-800',
+      text: '🟡 Under Review',
+    },
+    awarded: { color: 'bg-brand-green-100 text-green-800', text: '🟢 Awarded' },
     rejected: { color: 'bg-red-100 text-red-800', text: '🔴 Rejected' },
     withdrawn: { color: 'bg-gray-100 text-gray-800', text: '⚪ Withdrawn' },
   };
 
   const badge = badges[status] || badges.submitted;
   return (
-    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${badge.color}`}>
+    <span
+      className={`px-3 py-1 rounded-full text-xs font-semibold ${badge.color}`}
+    >
       {badge.text}
     </span>
   );
@@ -69,8 +77,10 @@ function getMethodBadge(method: string) {
 
 export default async function GrantSubmissionsPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
 
   const { data: profile } = await supabase
@@ -85,32 +95,42 @@ export default async function GrantSubmissionsPage() {
 
   const stats = {
     total: submissions.length,
-    submitted: submissions.filter((s: Record<string, any>) => s.status === 'submitted').length,
-    underReview: submissions.filter((s: Record<string, any>) => s.status === 'under_review').length,
-    awarded: submissions.filter((s: Record<string, any>) => s.status === 'awarded').length,
-    rejected: submissions.filter((s: Record<string, any>) => s.status === 'rejected').length,
+    submitted: submissions.filter(
+      (s: Record<string, any>) => s.status === 'submitted'
+    ).length,
+    underReview: submissions.filter(
+      (s: Record<string, any>) => s.status === 'under_review'
+    ).length,
+    awarded: submissions.filter(
+      (s: Record<string, any>) => s.status === 'awarded'
+    ).length,
+    rejected: submissions.filter(
+      (s: Record<string, any>) => s.status === 'rejected'
+    ).length,
   };
 
   return (
     <main className="min-h-screen bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Hero"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>
-        </div>
-      </section>
+        {/* Hero Section */}
+        <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+          <Image
+            src="/images/gallery/image8.jpg"
+            alt="Hero"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0   " />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
+            <p className="text-base md:text-lg mb-8 text-gray-100">
+              Transform your career with free training
+            </p>
+          </div>
+        </section>
 
         {/* Header */}
         <div className="mb-8">
@@ -125,7 +145,7 @@ export default async function GrantSubmissionsPage() {
             </div>
             <Link
               href="/admin/grants/workflow"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold"
+              className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg hover:bg-brand-blue-700 font-semibold"
             >
               ← Back to Workflow
             </Link>
@@ -140,15 +160,21 @@ export default async function GrantSubmissionsPage() {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Submitted</p>
-            <p className="text-3xl font-bold text-blue-600">{stats.submitted}</p>
+            <p className="text-3xl font-bold text-brand-blue-600">
+              {stats.submitted}
+            </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Under Review</p>
-            <p className="text-3xl font-bold text-yellow-600">{stats.underReview}</p>
+            <p className="text-3xl font-bold text-yellow-600">
+              {stats.underReview}
+            </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Awarded</p>
-            <p className="text-3xl font-bold text-green-600">{stats.awarded}</p>
+            <p className="text-3xl font-bold text-brand-green-600">
+              {stats.awarded}
+            </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Rejected</p>
@@ -212,7 +238,9 @@ export default async function GrantSubmissionsPage() {
                     <td className="px-6 py-4">
                       <div>
                         <p className="text-sm text-slate-900">
-                          {new Date(submission.submitted_at).toLocaleDateString()}
+                          {new Date(
+                            submission.submitted_at
+                          ).toLocaleDateString()}
                         </p>
                         <p className="text-xs text-slate-500">
                           by {submission.submitted_by}
@@ -232,7 +260,7 @@ export default async function GrantSubmissionsPage() {
                       <div className="flex gap-2">
                         <Link
                           href={`/admin/grants/submission/${submission.id}`}
-                          className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+                          className="text-sm text-brand-blue-600 hover:text-brand-blue-700 font-medium"
                         >
                           View Details
                         </Link>
@@ -256,7 +284,9 @@ export default async function GrantSubmissionsPage() {
 
           {submissions.length === 0 && (
             <div className="text-center py-12">
-              <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">📋</div>
+              <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">
+                📋
+              </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">
                 No Submissions Yet
               </h3>
@@ -265,7 +295,7 @@ export default async function GrantSubmissionsPage() {
               </p>
               <Link
                 href="/admin/grants/workflow"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold"
+                className="inline-block bg-brand-blue-600 text-white px-6 py-3 rounded-lg hover:bg-brand-blue-700 font-semibold"
               >
                 Go to Workflow
               </Link>
@@ -280,13 +310,13 @@ export default async function GrantSubmissionsPage() {
               Export Options
             </h2>
             <div className="flex gap-4">
-              <button className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 font-semibold">
+              <button className="bg-brand-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 font-semibold">
                 📊 Export to Excel
               </button>
               <button className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-semibold">
                 📄 Export to PDF
               </button>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold">
+              <button className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg hover:bg-brand-blue-700 font-semibold">
                 📧 Email Report
               </button>
             </div>

@@ -379,7 +379,7 @@ export default function SupersonicFastCashPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-700">1</span>
               </div>
               <h3 className="text-lg font-bold mb-3">File Your Taxes</h3>
@@ -388,7 +388,7 @@ export default function SupersonicFastCashPage() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-700">2</span>
               </div>
               <h3 className="text-lg font-bold mb-3">Get Approved</h3>
@@ -398,7 +398,7 @@ export default function SupersonicFastCashPage() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-700">3</span>
               </div>
               <h3 className="text-lg font-bold mb-3">Get Your Cash</h3>
@@ -458,27 +458,27 @@ export default function SupersonicFastCashPage() {
             </h3>
             <ul className="space-y-2 text-sm text-gray-700">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>
                   <strong>$250, $500, $1,000:</strong> Fixed amounts with 0% APR
                   (no interest)
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>
                   <strong>25%, 50%, 75% of refund:</strong> Percentage-based
                   loans up to $7,500 with 36% APR
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>
                   <strong>Average loan:</strong> $2,157 for qualified applicants
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                 <span>
                   <strong>$7,500 maximum:</strong> Requires minimum expected
                   refund of $10,592
@@ -518,23 +518,23 @@ export default function SupersonicFastCashPage() {
               </h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>IRS-approved e-file provider</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Handles all tax forms and schedules</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Maximum refund calculations</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Error checking and validation</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Fast e-file transmission</span>
                 </li>
               </ul>
@@ -545,23 +545,23 @@ export default function SupersonicFastCashPage() {
               </h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Instant refund advance processing</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Bank product integration</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Secure payment processing</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Same-day funding available</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Multiple disbursement options</span>
                 </li>
               </ul>
@@ -589,15 +589,15 @@ export default function SupersonicFastCashPage() {
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>W-2 income</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Standard deduction</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>E-file included</span>
                 </li>
               </ul>
@@ -650,19 +650,19 @@ export default function SupersonicFastCashPage() {
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Everything in Deluxe</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Rental property income</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Investment income</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Audit protection</span>
                 </li>
               </ul>
@@ -1029,7 +1029,7 @@ export default function SupersonicFastCashPage() {
             <div className="rounded-xl border-2 border-blue-200 p-6 text-left">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-brand-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1060,9 +1060,9 @@ export default function SupersonicFastCashPage() {
               </ul>
             </div>
             <div className="rounded-xl border-2 border-green-200 p-6 text-left">
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-full bg-brand-green-100 flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-green-600"
+                  className="w-6 h-6 text-brand-green-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

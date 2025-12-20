@@ -34,7 +34,7 @@ export default function AnnualReportPage() {
               Transforming lives through education, one student at a time.
               Here&apos;s what we accomplished together in 2024.
             </p>
-            <button className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg">
+            <button className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg">
               <Download className="w-5 h-5" />
               Download Full Report (PDF)
             </button>
@@ -80,9 +80,9 @@ export default function AnnualReportPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-blue-600" />
+                  <Users className="w-8 h-8 text-brand-blue-600" />
                 </div>
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+                <div className="text-4xl font-bold text-brand-blue-600 mb-2">
                   1,200+
                 </div>
                 <div className="text-slate-600 font-semibold">
@@ -93,10 +93,10 @@ export default function AnnualReportPage() {
                 </div>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-brand-green-600" />
                 </div>
-                <div className="text-4xl font-bold text-green-600 mb-2">
+                <div className="text-4xl font-bold text-brand-green-600 mb-2">
                   87%
                 </div>
                 <div className="text-slate-600 font-semibold">
@@ -108,9 +108,9 @@ export default function AnnualReportPage() {
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm text-center">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <DollarSign className="w-8 h-8 text-orange-600" />
+                  <DollarSign className="w-8 h-8 text-brand-orange-600" />
                 </div>
-                <div className="text-4xl font-bold text-orange-600 mb-2">
+                <div className="text-4xl font-bold text-brand-orange-600 mb-2">
                   $42K
                 </div>
                 <div className="text-slate-600 font-semibold">
@@ -199,7 +199,9 @@ export default function AnnualReportPage() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Revenue */}
               <div className="bg-slate-50 rounded-lg p-8">
-                <h3 className="text-lg md:text-lg font-bold mb-6">Revenue Sources</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-6">
+                  Revenue Sources
+                </h3>
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
@@ -208,7 +210,7 @@ export default function AnnualReportPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-3">
                       <div
-                        className="bg-blue-600 h-3 rounded-full"
+                        className="bg-brand-blue-600 h-3 rounded-full"
                         style={{ width: '50%' }}
                       ></div>
                     </div>
@@ -220,7 +222,7 @@ export default function AnnualReportPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-3">
                       <div
-                        className="bg-green-600 h-3 rounded-full"
+                        className="bg-brand-green-600 h-3 rounded-full"
                         style={{ width: '31%' }}
                       ></div>
                     </div>
@@ -244,7 +246,7 @@ export default function AnnualReportPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-3">
                       <div
-                        className="bg-orange-600 h-3 rounded-full"
+                        className="bg-brand-orange-600 h-3 rounded-full"
                         style={{ width: '4%' }}
                       ></div>
                     </div>
@@ -252,7 +254,7 @@ export default function AnnualReportPage() {
                   <div className="pt-4 border-t border-slate-300">
                     <div className="flex justify-between">
                       <span className="font-bold text-lg">Total Revenue</span>
-                      <span className="font-bold text-lg text-blue-600">
+                      <span className="font-bold text-lg text-brand-blue-600">
                         $4.2M
                       </span>
                     </div>
@@ -262,7 +264,9 @@ export default function AnnualReportPage() {
 
               {/* Expenses */}
               <div className="bg-slate-50 rounded-lg p-8">
-                <h3 className="text-lg md:text-lg font-bold mb-6">Program Expenses</h3>
+                <h3 className="text-lg md:text-lg font-bold mb-6">
+                  Program Expenses
+                </h3>
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
@@ -271,7 +275,7 @@ export default function AnnualReportPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-3">
                       <div
-                        className="bg-blue-600 h-3 rounded-full"
+                        className="bg-brand-blue-600 h-3 rounded-full"
                         style={{ width: '70%' }}
                       ></div>
                     </div>
@@ -283,7 +287,7 @@ export default function AnnualReportPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-3">
                       <div
-                        className="bg-green-600 h-3 rounded-full"
+                        className="bg-brand-green-600 h-3 rounded-full"
                         style={{ width: '15%' }}
                       ></div>
                     </div>
@@ -309,7 +313,7 @@ export default function AnnualReportPage() {
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-3">
                       <div
-                        className="bg-orange-600 h-3 rounded-full"
+                        className="bg-brand-orange-600 h-3 rounded-full"
                         style={{ width: '5%' }}
                       ></div>
                     </div>
@@ -317,7 +321,7 @@ export default function AnnualReportPage() {
                   <div className="pt-4 border-t border-slate-300">
                     <div className="flex justify-between">
                       <span className="font-bold text-lg">Total Expenses</span>
-                      <span className="font-bold text-lg text-blue-600">
+                      <span className="font-bold text-lg text-brand-blue-600">
                         $4.16M
                       </span>
                     </div>
@@ -356,7 +360,7 @@ export default function AnnualReportPage() {
                 </p>
                 <Link
                   href="/programs/direct-support-professional"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Learn More →
                 </Link>
@@ -372,7 +376,7 @@ export default function AnnualReportPage() {
                 </p>
                 <Link
                   href="/jri"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Learn More →
                 </Link>
@@ -388,7 +392,7 @@ export default function AnnualReportPage() {
                 </p>
                 <Link
                   href="/programs/cdl"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Learn More →
                 </Link>
@@ -404,7 +408,7 @@ export default function AnnualReportPage() {
                 </p>
                 <Link
                   href="/employers"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Partner with Us →
                 </Link>
@@ -418,14 +422,16 @@ export default function AnnualReportPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Success Stories</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Success Stories
+            </h2>
             <p className="text-lg text-slate-600 mb-8">
               Behind every statistic is a real person whose life was
               transformed. Here are just a few of their stories.
             </p>
             <Link
               href="/success-stories"
-              className="inline-block px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition"
+              className="inline-block px-8 py-4 bg-brand-blue-600 text-white font-bold text-lg rounded-lg hover:bg-brand-blue-700 transition"
             >
               Read Success Stories
             </Link>
@@ -442,7 +448,7 @@ export default function AnnualReportPage() {
             </h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                <div className="w-8 h-8 bg-brand-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
                   1
                 </div>
                 <div>
@@ -456,7 +462,7 @@ export default function AnnualReportPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                <div className="w-8 h-8 bg-brand-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
                   2
                 </div>
                 <div>
@@ -470,7 +476,7 @@ export default function AnnualReportPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                <div className="w-8 h-8 bg-brand-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
                   3
                 </div>
                 <div>
@@ -484,7 +490,7 @@ export default function AnnualReportPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+                <div className="w-8 h-8 bg-brand-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
                   4
                 </div>
                 <div>
@@ -516,7 +522,7 @@ export default function AnnualReportPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-block px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
+                className="inline-block px-8 py-4 bg-white text-brand-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
               >
                 Partner with Us
               </Link>

@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -207,7 +207,7 @@ export default function LessonPage() {
         <div className="p-6 border-b">
           <Link
             href={`/lms/courses/${courseId}`}
-            className="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-semibold mb-4 inline-block"
           >
             ← Back to Course
           </Link>
@@ -218,7 +218,7 @@ export default function LessonPage() {
             </div>
             <div className="w-full bg-slate-200 rounded-full h-2">
               <div
-                className="bg-green-600 h-2 rounded-full transition-all"
+                className="bg-brand-green-600 h-2 rounded-full transition-all"
                 style={{
                   width: `${(course?.completedLessons / course?.totalLessons) * 100}%`,
                 }}
@@ -234,16 +234,16 @@ export default function LessonPage() {
               href={`/lms/courses/${courseId}/lessons/${l.id}`}
               className={`flex items-center gap-3 p-3 rounded-lg mb-2 transition ${
                 l.id === lessonId
-                  ? 'bg-blue-50 border-l-4 border-blue-600'
+                  ? 'bg-blue-50 border-l-4 border-brand-blue-600'
                   : 'hover:bg-slate-50'
               }`}
             >
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                   l.completed
-                    ? 'bg-green-100 text-green-600'
+                    ? 'bg-brand-green-100 text-brand-green-600'
                     : l.id === lessonId
-                      ? 'bg-blue-100 text-blue-600'
+                      ? 'bg-blue-100 text-brand-blue-600'
                       : 'bg-slate-100 text-slate-600'
                 }`}
               >
@@ -297,8 +297,8 @@ export default function LessonPage() {
               onClick={markComplete}
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 isCompleted
-                  ? 'bg-green-100 text-green-700 border-2 border-green-600'
-                  : 'bg-green-600 hover:bg-green-700 text-white'
+                  ? 'bg-brand-green-100 text-green-700 border-2 border-brand-green-600'
+                  : 'bg-brand-green-600 hover:bg-green-700 text-white'
               }`}
             >
               {isCompleted ? '✓ Completed' : 'Mark as Complete'}
@@ -312,7 +312,7 @@ export default function LessonPage() {
                 onClick={() => setActiveTab('overview')}
                 className={`pb-3 px-1 font-semibold whitespace-nowrap ${
                   activeTab === 'overview'
-                    ? 'border-b-2 border-blue-600 text-blue-600'
+                    ? 'border-b-2 border-brand-blue-600 text-brand-blue-600'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -323,7 +323,7 @@ export default function LessonPage() {
                 onClick={() => setActiveTab('resources')}
                 className={`pb-3 px-1 font-semibold whitespace-nowrap ${
                   activeTab === 'resources'
-                    ? 'border-b-2 border-blue-600 text-blue-600'
+                    ? 'border-b-2 border-brand-blue-600 text-brand-blue-600'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -334,7 +334,7 @@ export default function LessonPage() {
                 onClick={() => setActiveTab('notes')}
                 className={`pb-3 px-1 font-semibold whitespace-nowrap ${
                   activeTab === 'notes'
-                    ? 'border-b-2 border-blue-600 text-blue-600'
+                    ? 'border-b-2 border-brand-blue-600 text-brand-blue-600'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -363,7 +363,7 @@ export default function LessonPage() {
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <FileText className="w-5 h-5 text-blue-600" />
+                        <FileText className="w-5 h-5 text-brand-blue-600" />
                       </div>
                       <div>
                         <div className="font-semibold">{resource.name}</div>
@@ -375,7 +375,7 @@ export default function LessonPage() {
                     <a
                       href={resource.url}
                       download
-                      className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+                      className="flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
                     >
                       <Download className="w-4 h-4" />
                       Download
@@ -391,7 +391,7 @@ export default function LessonPage() {
                   placeholder="Take notes while you learn..."
                   className="w-full h-64 p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <button className="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold">
+                <button className="mt-3 bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-6 py-2 rounded-lg font-semibold">
                   Save Notes
                 </button>
               </div>
@@ -417,7 +417,7 @@ export default function LessonPage() {
               disabled={!hasNext}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition ${
                 hasNext
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                  ? 'bg-brand-blue-600 hover:bg-brand-blue-700 text-white'
                   : 'bg-slate-50 text-slate-400 cursor-not-allowed'
               }`}
             >

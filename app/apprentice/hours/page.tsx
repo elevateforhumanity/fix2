@@ -240,7 +240,7 @@ export default function ApprenticeHoursPage() {
         </label>
 
         <button
-          className="border border-slate-300 rounded px-6 py-2 text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="border border-slate-300 rounded px-6 py-2 text-sm font-semibold bg-brand-blue-600 text-white hover:bg-brand-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={submit}
           disabled={saving || !attest}
         >
@@ -280,7 +280,7 @@ export default function ApprenticeHoursPage() {
                         e.status === 'SUBMITTED'
                           ? 'bg-yellow-100 text-yellow-800'
                           : e.status === 'APPROVED'
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : e.status === 'REJECTED'
                               ? 'bg-red-100 text-red-800'
                               : 'bg-slate-100 text-slate-800'

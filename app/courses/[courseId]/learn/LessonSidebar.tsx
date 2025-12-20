@@ -53,10 +53,18 @@ export default function LessonSidebar({
               onClick={onToggle}
               className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -65,11 +73,13 @@ d="M6 18L18 6M6 6l12 12" />
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span className="text-slate-600">Progress</span>
-              <span className="font-semibold text-slate-900">{progressPercentage}%</span>
+              <span className="font-semibold text-slate-900">
+                {progressPercentage}%
+              </span>
             </div>
             <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-orange-600 transition-all duration-300"
+                className="h-full bg-brand-orange-600 transition-all duration-300"
                 style={{ width: `${progressPercentage}%` }}
               />
             </div>
@@ -89,9 +99,10 @@ d="M6 18L18 6M6 6l12 12" />
                   onClick={() => onLessonSelect(lesson.id)}
                   className={`
                     w-full text-left p-3 rounded-lg mb-2 transition-all
-                    ${isActive
-                      ? 'bg-orange-50 border-2 border-orange-500'
-                      : 'hover:bg-slate-50 border-2 border-transparent'
+                    ${
+                      isActive
+                        ? 'bg-orange-50 border-2 border-orange-500'
+                        : 'hover:bg-slate-50 border-2 border-transparent'
                     }
                   `}
                 >
@@ -100,20 +111,31 @@ d="M6 18L18 6M6 6l12 12" />
                     <div className="flex-shrink-0 mt-0.5">
                       {isCompleted ? (
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                          <svg
+                            className="w-4 h-4 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
                           </svg>
                         </div>
                       ) : (
-                        <div className={`
+                        <div
+                          className={`
                           w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold
-                          ${isActive
-                            ? 'bg-orange-600 text-white'
-                            : 'bg-slate-200 text-slate-600'
+                          ${
+                            isActive
+                              ? 'bg-brand-orange-600 text-white'
+                              : 'bg-slate-200 text-slate-600'
                           }
-                        `}>
+                        `}
+                        >
                           {index + 1}
                         </div>
                       )}
@@ -121,10 +143,12 @@ d="M5 13l4 4L19 7" />
 
                     {/* Lesson Info */}
                     <div className="flex-1 min-w-0">
-                      <h3 className={`
+                      <h3
+                        className={`
                         text-sm font-medium mb-1 line-clamp-2
                         ${isActive ? 'text-orange-900' : 'text-slate-900'}
-                      `}>
+                      `}
+                      >
                         {lesson.title}
                       </h3>
                       {lesson.duration && (
@@ -137,7 +161,7 @@ d="M5 13l4 4L19 7" />
                     {/* Active Indicator */}
                     {isActive && (
                       <div className="flex-shrink-0">
-                        <div className="w-2 h-2 bg-orange-600 rounded-full animate-pulse" />
+                        <div className="w-2 h-2 bg-brand-orange-600 rounded-full animate-pulse" />
                       </div>
                     )}
                   </div>
@@ -150,7 +174,8 @@ d="M5 13l4 4L19 7" />
         {/* Footer */}
         <div className="p-4 border-t border-slate-200 bg-slate-50">
           <div className="text-xs text-slate-600 text-center">
-            {lessons.filter(l => l.completed).length} of {lessons.length} lessons completed
+            {lessons.filter((l) => l.completed).length} of {lessons.length}{' '}
+            lessons completed
           </div>
         </div>
       </div>

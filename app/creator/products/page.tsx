@@ -37,7 +37,7 @@ export default async function CreatorProductsPage() {
           </div>
           <Link
             href="/creator/products/new"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
           >
             Add New Product
           </Link>
@@ -47,7 +47,7 @@ export default async function CreatorProductsPage() {
           <div className="bg-white rounded-lg shadow-md p-12 text-center">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg
-                className="w-8 h-8 text-blue-600"
+                className="w-8 h-8 text-brand-blue-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -66,7 +66,7 @@ export default async function CreatorProductsPage() {
             </p>
             <Link
               href="/creator/products/new"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="inline-block bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
             >
               Create First Product
             </Link>
@@ -78,7 +78,7 @@ export default async function CreatorProductsPage() {
               const statusColors = {
                 draft: 'bg-gray-100 text-gray-700',
                 pending_review: 'bg-yellow-100 text-yellow-700',
-                approved: 'bg-green-100 text-green-700',
+                approved: 'bg-brand-green-100 text-green-700',
                 rejected: 'bg-red-100 text-red-700',
                 archived: 'bg-gray-100 text-gray-500',
               };
@@ -133,7 +133,7 @@ export default async function CreatorProductsPage() {
                     </p>
 
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-lg font-bold text-blue-600">
+                      <span className="text-lg font-bold text-brand-blue-600">
                         ${(product.price_cents / 100).toFixed(2)}
                       </span>
                       <span className="text-sm text-gray-600">
@@ -159,7 +159,7 @@ export default async function CreatorProductsPage() {
                       {product.status === 'approved' && (
                         <Link
                           href={`/marketplace/product/${product.id}`}
-                          className="flex-1 text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition text-sm"
+                          className="flex-1 text-center bg-brand-blue-600 text-white py-2 rounded hover:bg-brand-blue-700 transition text-sm"
                         >
                           View Live
                         </Link>

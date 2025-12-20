@@ -280,7 +280,7 @@ export default function ExternalModuleClient({
               className="text-xs block w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 disabled:opacity-50"
             />
             {uploading && (
-              <p className="text-[11px] text-blue-600">Uploading...</p>
+              <p className="text-[11px] text-brand-blue-600">Uploading...</p>
             )}
             {progress?.proof_file_url && (
               <div className="flex items-center gap-2">

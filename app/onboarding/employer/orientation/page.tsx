@@ -64,7 +64,7 @@ export default async function OrientationPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/student/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Back to Dashboard
             </Link>
@@ -82,13 +82,15 @@ export default async function OrientationPage() {
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
                   Total Items
                 </h3>
-                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+                <p className="text-3xl font-bold text-brand-blue-600">
+                  {count || 0}
+                </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
                   Active
                 </h3>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-3xl font-bold text-brand-green-600">
                   // @ts-expect-error TS2304: Cannot find name 'employer'.
                   {employer?.filter((i) => i.status === 'active').length || 0}
                 </p>
@@ -112,8 +114,8 @@ export default async function OrientationPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              // @ts-expect-error TS2304: Cannot find name 'employer'.
-              // @ts-expect-error TS2304: Cannot find name 'employer'.
+              // @ts-expect-error TS2304: Cannot find name 'employer'. //
+              @ts-expect-error TS2304: Cannot find name 'employer'.
               {employer && employer.length > 0 ? (
                 <div className="space-y-4">
                   // @ts-expect-error TS2304: Cannot find name 'employer'.
@@ -140,7 +142,7 @@ export default async function OrientationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

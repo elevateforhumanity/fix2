@@ -1,7 +1,7 @@
 // app/advising/page.tsx
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 
@@ -75,7 +75,7 @@ export default function AdvisingPage() {
 
         {isSubmitted ? (
           <section className="rounded-2xl bg-green-50 p-8 shadow-sm ring-1 ring-green-200 text-center">
-            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-brand-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"

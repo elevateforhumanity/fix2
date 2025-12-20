@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -66,7 +66,7 @@ export default function ShopReportsPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600"></div>
       </div>
     );
   }
@@ -77,14 +77,14 @@ export default function ShopReportsPage() {
         <div className="mb-8">
           <Link
             href="/shop/dashboard"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <FileText className="w-8 h-8 text-blue-600" />
+                <FileText className="w-8 h-8 text-brand-blue-600" />
                 <h1 className="text-3xl font-bold text-gray-900">Reports</h1>
               </div>
               <p className="text-gray-600">
@@ -93,7 +93,7 @@ export default function ShopReportsPage() {
             </div>
             <Link
               href="/shop/reports/new"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium"
+              className="bg-brand-blue-600 text-white px-4 py-2 rounded-lg hover:bg-brand-blue-700 font-medium"
             >
               + New Report
             </Link>
@@ -104,21 +104,23 @@ export default function ShopReportsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
-              <FileText className="w-6 h-6 text-blue-600" />
+              <FileText className="w-6 h-6 text-brand-blue-600" />
               <h3 className="text-sm font-medium text-gray-600">
                 Total Reports
               </h3>
             </div>
-            <p className="text-3xl font-bold text-blue-600">{reports.length}</p>
+            <p className="text-3xl font-bold text-brand-blue-600">
+              {reports.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
-              <Users className="w-6 h-6 text-green-600" />
+              <Users className="w-6 h-6 text-brand-green-600" />
               <h3 className="text-sm font-medium text-gray-600">
                 Active Students
               </h3>
             </div>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               {new Set(reports.map((r) => r.student_name)).size}
             </p>
           </div>
@@ -133,10 +135,10 @@ export default function ShopReportsPage() {
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
-              <Calendar className="w-6 h-6 text-orange-600" />
+              <Calendar className="w-6 h-6 text-brand-orange-600" />
               <h3 className="text-sm font-medium text-gray-600">This Month</h3>
             </div>
-            <p className="text-3xl font-bold text-orange-600">
+            <p className="text-3xl font-bold text-brand-orange-600">
               {
                 reports.filter((r) => {
                   const date = new Date(r.created_at);
@@ -232,7 +234,7 @@ export default function ShopReportsPage() {
                       <span
                         className={`px-2 py-1 text-xs rounded ${
                           report.status === 'approved'
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : report.status === 'pending'
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-gray-100 text-gray-800'
@@ -247,7 +249,7 @@ export default function ShopReportsPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       <button
                         onClick={() => downloadReport(report.id)}
-                        className="text-blue-600 hover:text-blue-900 mr-3"
+                        className="text-brand-blue-600 hover:text-blue-900 mr-3"
                       >
                         <Download className="w-4 h-4 inline mr-1" />
                         Download

@@ -99,13 +99,13 @@ export default function AdminApprenticeships() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -131,19 +131,19 @@ export default function AdminApprenticeships() {
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <p className="text-sm text-gray-600">Active</p>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               {apprenticeships.filter((a) => a.status === 'active').length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <p className="text-sm text-gray-600">Pending Approvals</p>
-            <p className="text-3xl font-bold text-orange-600">
+            <p className="text-3xl font-bold text-brand-orange-600">
               {pendingApprovals.length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <p className="text-sm text-gray-600">Completed</p>
-            <p className="text-3xl font-bold text-blue-600">
+            <p className="text-3xl font-bold text-brand-blue-600">
               {apprenticeships.filter((a) => a.status === 'completed').length}
             </p>
           </div>
@@ -178,7 +178,7 @@ export default function AdminApprenticeships() {
                   </div>
                   <button
                     onClick={() => approveHours(log.id)}
-                    className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
+                    className="bg-brand-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
                   >
                     Approve
                   </button>
@@ -197,7 +197,7 @@ export default function AdminApprenticeships() {
                 onClick={() => setFilter(status)}
                 className={`px-6 py-3 font-semibold capitalize ${
                   filter === status
-                    ? 'border-b-2 border-blue-600 text-blue-600'
+                    ? 'border-b-2 border-brand-blue-600 text-brand-blue-600'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -283,7 +283,7 @@ export default function AdminApprenticeships() {
                       <td className="px-6 py-4">
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div
-                            className="bg-blue-600 h-2 rounded-full"
+                            className="bg-brand-blue-600 h-2 rounded-full"
                             style={{ width: `${Math.min(progress, 100)}%` }}
                           />
                         </div>
@@ -295,7 +295,7 @@ export default function AdminApprenticeships() {
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-semibold ${
                             apprenticeship.status === 'active'
-                              ? 'bg-green-100 text-green-800'
+                              ? 'bg-brand-green-100 text-green-800'
                               : apprenticeship.status === 'completed'
                                 ? 'bg-blue-100 text-blue-800'
                                 : 'bg-gray-100 text-gray-800'
@@ -307,7 +307,7 @@ export default function AdminApprenticeships() {
                       <td className="px-6 py-4">
                         <Link
                           href={`/admin/apprenticeships/${apprenticeship.id}`}
-                          className="text-blue-600 hover:text-blue-800 font-medium"
+                          className="text-brand-blue-600 hover:text-blue-800 font-medium"
                         >
                           View Details
                         </Link>
@@ -339,7 +339,7 @@ export default function AdminApprenticeships() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -357,7 +357,7 @@ export default function AdminApprenticeships() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -375,7 +375,7 @@ export default function AdminApprenticeships() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -393,7 +393,7 @@ export default function AdminApprenticeships() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

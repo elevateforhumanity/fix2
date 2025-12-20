@@ -2,8 +2,7 @@
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
@@ -128,7 +127,7 @@ export default function TeamPage() {
                 <h2 className="text-lg font-bold text-slate-900">
                   {member.name}
                 </h2>
-                <p className="mt-2 text-sm font-semibold text-blue-600">
+                <p className="mt-2 text-sm font-semibold text-brand-blue-600">
                   {member.title}
                 </p>
                 <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -138,7 +137,7 @@ export default function TeamPage() {
                   <div className="mt-4 pt-4 border-t border-slate-200">
                     <a
                       href={member.link}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-600 hover:text-brand-blue-700 transition"
                     >
                       View Full Profile →
                     </a>

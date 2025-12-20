@@ -57,7 +57,7 @@ export function NewsClient({ newsArticles, categories }: NewsClientProps) {
                         className="object-cover"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-blue-600 text-white text-sm font-bold rounded-full">
+                        <span className="px-3 py-1 bg-brand-blue-600 text-white text-sm font-bold rounded-full">
                           Featured
                         </span>
                       </div>
@@ -85,7 +85,7 @@ export function NewsClient({ newsArticles, categories }: NewsClientProps) {
                       </p>
                       <Link
                         href={`/news/${article.slug}`}
-                        className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700"
+                        className="inline-flex items-center gap-2 text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                       >
                         Read More
                         <ArrowRight className="w-4 h-4" />
@@ -110,8 +110,8 @@ export function NewsClient({ newsArticles, categories }: NewsClientProps) {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full border transition font-semibold text-sm ${
                     selectedCategory === category
-                      ? 'border-blue-600 bg-blue-50 text-blue-600'
-                      : 'border-slate-300 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-600'
+                      ? 'border-brand-blue-600 bg-blue-50 text-brand-blue-600'
+                      : 'border-slate-300 hover:border-brand-blue-600 hover:bg-blue-50 hover:text-brand-blue-600'
                   }`}
                 >
                   {category}
@@ -164,7 +164,7 @@ export function NewsClient({ newsArticles, categories }: NewsClientProps) {
                     </p>
                     <Link
                       href={`/news/${article.slug}`}
-                      className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 text-sm"
+                      className="inline-flex items-center gap-2 text-brand-blue-600 font-semibold hover:text-brand-blue-700 text-sm"
                     >
                       Read More
                       <ArrowRight className="w-3 h-3" />

@@ -127,7 +127,7 @@ export default function NdsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
@@ -162,8 +162,8 @@ export default function NdsPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">100% Free</h3>
               <p className="text-gray-600">
@@ -172,7 +172,7 @@ export default function NdsPage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-blue-600" />
+                <Clock className="w-8 h-8 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Self-Paced</h3>
               <p className="text-gray-600">
@@ -215,7 +215,7 @@ export default function NdsPage() {
                         <Award className="w-4 h-4" />
                         <span>Certificate: {course.certificate}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="flex items-center gap-2 text-sm font-semibold text-brand-green-600">
                         <CheckCircle className="w-4 h-4" />
                         <span>{course.price}</span>
                       </div>
@@ -285,7 +285,7 @@ export default function NdsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all"
             >
               Apply Now
             </Link>

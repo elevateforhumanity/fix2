@@ -91,7 +91,7 @@ export default function MarketplaceTermsPage() {
               Contact{' '}
               <a
                 href="mailto:support@elevateforhumanity.org"
-                className="text-blue-600 hover:underline"
+                className="text-brand-blue-600 hover:underline"
               >
                 support@elevateforhumanity.org
               </a>{' '}
@@ -199,7 +199,7 @@ export default function MarketplaceTermsPage() {
               Your purchase information is handled according to our{' '}
               <a
                 href="/legal/privacy"
-                className="text-blue-600 hover:underline"
+                className="text-brand-blue-600 hover:underline"
               >
                 Privacy Policy
               </a>
@@ -238,7 +238,7 @@ export default function MarketplaceTermsPage() {
               <strong>Email:</strong>{' '}
               <a
                 href="mailto:support@elevateforhumanity.org"
-                className="text-blue-600 hover:underline"
+                className="text-brand-blue-600 hover:underline"
               >
                 support@elevateforhumanity.org
               </a>

@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export default function TestStripeIframePage() {
   return (
@@ -62,7 +62,7 @@ export default function TestStripeIframePage() {
         </div>
 
         <div className="mt-6 text-center">
-          <a href="/pay" className="text-blue-600 hover:underline">
+          <a href="/pay" className="text-brand-blue-600 hover:underline">
             ← Back to Pay Page
           </a>
         </div>

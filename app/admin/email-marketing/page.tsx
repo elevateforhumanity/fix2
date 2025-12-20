@@ -56,13 +56,13 @@ export default function EmailMarketingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -86,7 +86,7 @@ export default function EmailMarketingPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
           <div className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
             <div className="flex items-center justify-between mb-2">
-              <Mail className="h-8 w-8 text-blue-600" />
+              <Mail className="h-8 w-8 text-brand-blue-600" />
               <span className="text-xs font-semibold text-slate-500">
                 THIS MONTH
               </span>
@@ -97,7 +97,7 @@ export default function EmailMarketingPage() {
 
           <div className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
             <div className="flex items-center justify-between mb-2">
-              <Eye className="h-8 w-8 text-green-600" />
+              <Eye className="h-8 w-8 text-brand-green-600" />
               <span className="text-xs font-semibold text-slate-500">
                 OPEN RATE
               </span>
@@ -119,7 +119,7 @@ export default function EmailMarketingPage() {
 
           <div className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
             <div className="flex items-center justify-between mb-2">
-              <BarChart3 className="h-8 w-8 text-orange-600" />
+              <BarChart3 className="h-8 w-8 text-brand-orange-600" />
               <span className="text-xs font-semibold text-slate-500">
                 CLICK RATE
               </span>
@@ -136,7 +136,7 @@ export default function EmailMarketingPage() {
               onClick={() => setActiveTab('campaigns')}
               className={`pb-3 px-1 text-sm font-semibold border-b-2 transition ${
                 activeTab === 'campaigns'
-                  ? 'border-orange-600 text-orange-600'
+                  ? 'border-brand-orange-600 text-brand-orange-600'
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -146,7 +146,7 @@ export default function EmailMarketingPage() {
               onClick={() => setActiveTab('templates')}
               className={`pb-3 px-1 text-sm font-semibold border-b-2 transition ${
                 activeTab === 'templates'
-                  ? 'border-orange-600 text-orange-600'
+                  ? 'border-brand-orange-600 text-brand-orange-600'
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -172,7 +172,7 @@ export default function EmailMarketingPage() {
                 onClick={() =>
                   router.push('/admin/email-marketing/campaigns/new')
                 }
-                className="inline-flex items-center gap-2 rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700 transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-brand-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-orange-700 transition"
               >
                 <Plus className="h-4 w-4" />
                 New Campaign
@@ -220,7 +220,7 @@ export default function EmailMarketingPage() {
                         <span
                           className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                             campaign.status === 'Sent'
-                              ? 'bg-green-100 text-green-800'
+                              ? 'bg-brand-green-100 text-green-800'
                               : campaign.status === 'Scheduled'
                                 ? 'bg-blue-100 text-blue-800'
                                 : 'bg-slate-100 text-slate-800'
@@ -256,7 +256,7 @@ export default function EmailMarketingPage() {
                         </div>
                       </div>
                     </div>
-                    <button className="ml-4 text-sm font-semibold text-orange-600 hover:text-orange-700">
+                    <button className="ml-4 text-sm font-semibold text-brand-orange-600 hover:text-brand-orange-700">
                       View →
                     </button>
                   </div>
@@ -272,7 +272,7 @@ export default function EmailMarketingPage() {
               <h2 className="text-xl font-semibold text-slate-900">
                 Email Templates
               </h2>
-              <button className="inline-flex items-center gap-2 rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700 transition">
+              <button className="inline-flex items-center gap-2 rounded-xl bg-brand-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-orange-700 transition">
                 <Plus className="h-4 w-4" />
                 New Template
               </button>
@@ -300,7 +300,7 @@ export default function EmailMarketingPage() {
                     Professional email template for {template.toLowerCase()}
                   </p>
                   <div className="flex gap-2">
-                    <button className="flex-1 text-sm font-semibold text-orange-600 hover:text-orange-700">
+                    <button className="flex-1 text-sm font-semibold text-brand-orange-600 hover:text-brand-orange-700">
                       Edit
                     </button>
                     <button className="flex-1 text-sm font-semibold text-slate-600 hover:text-slate-900">
@@ -351,7 +351,7 @@ export default function EmailMarketingPage() {
                       <span className="text-sm text-slate-700">
                         {item.name}
                       </span>
-                      <span className="text-sm font-semibold text-green-600">
+                      <span className="text-sm font-semibold text-brand-green-600">
                         {item.rate}
                       </span>
                     </div>
@@ -376,7 +376,7 @@ export default function EmailMarketingPage() {
                       <span className="text-sm text-slate-700">
                         {item.name}
                       </span>
-                      <span className="text-sm font-semibold text-blue-600">
+                      <span className="text-sm font-semibold text-brand-blue-600">
                         {item.rate}
                       </span>
                     </div>
@@ -406,7 +406,7 @@ export default function EmailMarketingPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -424,7 +424,7 @@ export default function EmailMarketingPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -442,7 +442,7 @@ export default function EmailMarketingPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -460,7 +460,7 @@ export default function EmailMarketingPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

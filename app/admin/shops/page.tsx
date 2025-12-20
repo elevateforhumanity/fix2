@@ -116,7 +116,7 @@ export default async function AdminShopsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
             <div className="flex items-center gap-3">
-              <Building2 className="w-8 h-8 text-blue-600" />
+              <Building2 className="w-8 h-8 text-brand-blue-600" />
               <div>
                 <div className="text-2xl font-bold text-slate-900">
                   {shops?.length || 0}
@@ -128,7 +128,7 @@ export default async function AdminShopsPage() {
 
           <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
             <div className="flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-green-600" />
+              <CheckCircle className="w-8 h-8 text-brand-green-600" />
               <div>
                 <div className="text-2xl font-bold text-slate-900">
                   {shopsWithDocs.filter((s) => s.docsComplete).length}
@@ -195,7 +195,7 @@ export default async function AdminShopsPage() {
                   <div className="flex items-center gap-2">
                     <Link
                       href={`/admin/shops/applications/${app.id}`}
-                      className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition text-sm"
+                      className="px-4 py-2 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition text-sm"
                     >
                       Review
                     </Link>
@@ -229,7 +229,7 @@ export default async function AdminShopsPage() {
                         <div
                           className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${
                             status.color === 'green'
-                              ? 'bg-green-100 text-green-800'
+                              ? 'bg-brand-green-100 text-green-800'
                               : status.color === 'yellow'
                                 ? 'bg-yellow-100 text-yellow-800'
                                 : 'bg-red-100 text-red-800'
@@ -271,7 +271,7 @@ export default async function AdminShopsPage() {
                     <div className="flex flex-col gap-2">
                       <Link
                         href={`/admin/shops/${shop.id}`}
-                        className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition text-sm text-center"
+                        className="px-4 py-2 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition text-sm text-center"
                       >
                         Manage
                       </Link>

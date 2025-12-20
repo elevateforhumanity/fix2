@@ -33,7 +33,7 @@ export default async function StudentHandbookPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-8 h-8 text-blue-600" />
+            <BookOpen className="w-8 h-8 text-brand-blue-600" />
             <h1 className="text-3xl font-bold text-slate-900">
               Student Handbook
             </h1>
@@ -42,11 +42,13 @@ export default async function StudentHandbookPage() {
             Indiana Barber Apprenticeship Program
           </p>
           {onboarding?.handbook_reviewed && (
-            <div className="mt-4 flex items-center gap-2 text-green-600">
+            <div className="mt-4 flex items-center gap-2 text-brand-green-600">
               <CheckCircle className="w-5 h-5" />
               <span className="text-sm font-semibold">
                 Reviewed on{' '}
-                {new Date(onboarding.handbook_reviewed_at!).toLocaleDateString()}
+                {new Date(
+                  onboarding.handbook_reviewed_at!
+                ).toLocaleDateString()}
               </span>
             </div>
           )}
@@ -62,17 +64,17 @@ export default async function StudentHandbookPage() {
               Welcome to Your Apprenticeship
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              This handbook outlines the policies, procedures, and expectations for
-              your Indiana Barber Apprenticeship through Elevate for Humanity. As a
-              DOL Registered Apprenticeship program, we follow strict compliance
-              standards to ensure your success.
+              This handbook outlines the policies, procedures, and expectations
+              for your Indiana Barber Apprenticeship through Elevate for
+              Humanity. As a DOL Registered Apprenticeship program, we follow
+              strict compliance standards to ensure your success.
             </p>
           </section>
 
           {/* Program Overview */}
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <FileText className="w-6 h-6 text-blue-600" />
+              <FileText className="w-6 h-6 text-brand-blue-600" />
               Program Overview
             </h2>
             <div className="space-y-4 text-slate-700">
@@ -111,23 +113,25 @@ export default async function StudentHandbookPage() {
             </h2>
             <ul className="space-y-2 text-slate-700">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5 flex-shrink-0" />
                 <span>Complete all Milady RISE coursework on schedule</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5 flex-shrink-0" />
                 <span>Log all on-the-job training hours accurately</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5 flex-shrink-0" />
                 <span>Maintain professional conduct at your assigned shop</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <span>Communicate with your AI instructor and program coordinator</span>
+                <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5 flex-shrink-0" />
+                <span>
+                  Communicate with your AI instructor and program coordinator
+                </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5 flex-shrink-0" />
                 <span>Follow all Indiana State Board regulations</span>
               </li>
             </ul>
@@ -156,15 +160,16 @@ export default async function StudentHandbookPage() {
             </h2>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <AlertCircle className="w-5 h-5 text-brand-blue-600 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-slate-700">
                   <p className="font-semibold text-slate-900 mb-2">
                     Professional Standards
                   </p>
                   <p>
-                    As an apprentice, you represent Elevate for Humanity and your
-                    assigned barbershop. Maintain professionalism, punctuality, and
-                    respect at all times. Violations may result in program dismissal.
+                    As an apprentice, you represent Elevate for Humanity and
+                    your assigned barbershop. Maintain professionalism,
+                    punctuality, and respect at all times. Violations may result
+                    in program dismissal.
                   </p>
                 </div>
               </div>
@@ -178,11 +183,12 @@ export default async function StudentHandbookPage() {
             </h2>
             <div className="space-y-2 text-slate-700">
               <p>
-                <strong>AI Instructor:</strong> Available 24/7 through your dashboard
-                chat
+                <strong>AI Instructor:</strong> Available 24/7 through your
+                dashboard chat
               </p>
               <p>
-                <strong>Program Coordinator:</strong> elevate4humanityedu@gmail.com
+                <strong>Program Coordinator:</strong>{' '}
+                elevate4humanityedu@gmail.com
               </p>
               <p>
                 <strong>Technical Support:</strong> Available through dashboard
@@ -198,8 +204,8 @@ export default async function StudentHandbookPage() {
                   Acknowledgment Required
                 </h3>
                 <p className="text-slate-700 mb-4">
-                  By clicking "I Acknowledge," you confirm that you have read and
-                  understand the policies outlined in this handbook.
+                  By clicking "I Acknowledge," you confirm that you have read
+                  and understand the policies outlined in this handbook.
                 </p>
                 <HandbookAcknowledgeButton userId={user.id} />
               </div>
@@ -211,7 +217,7 @@ export default async function StudentHandbookPage() {
         <div className="mt-6 text-center">
           <Link
             href="/student/dashboard"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+            className="inline-flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
           >
             ← Back to Dashboard
           </Link>

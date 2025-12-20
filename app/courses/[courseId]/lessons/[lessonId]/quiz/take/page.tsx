@@ -124,13 +124,13 @@ export default function TakeQuizPage({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 View Programs
               </Link>
@@ -139,7 +139,7 @@ export default function TakeQuizPage({
         </section>
 
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange-600 mx-auto mb-4" />
           <p className="text-slate-600">Loading quiz...</p>
 
           {/* Storytelling Section */}
@@ -161,7 +161,7 @@ export default function TakeQuizPage({
                     <ul className="space-y-4">
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -179,7 +179,7 @@ export default function TakeQuizPage({
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -198,7 +198,7 @@ export default function TakeQuizPage({
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -216,7 +216,7 @@ export default function TakeQuizPage({
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -315,7 +315,7 @@ export default function TakeQuizPage({
               )}
               <div className="w-32 h-2 bg-slate-200 rounded-full overflow-hidden mt-2">
                 <div
-                  className="h-full bg-orange-600 transition-all"
+                  className="h-full bg-brand-orange-600 transition-all"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -332,7 +332,7 @@ export default function TakeQuizPage({
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <span className="text-sm font-bold text-orange-600">
+                  <span className="text-sm font-bold text-brand-orange-600">
                     {index + 1}
                   </span>
                 </div>
@@ -363,7 +363,7 @@ export default function TakeQuizPage({
                             w-5 h-5 rounded-full border-2 flex items-center justify-center
                             ${
                               answers[question.id] === optionIndex
-                                ? 'border-orange-500 bg-orange-500'
+                                ? 'border-orange-500 bg-brand-orange-600'
                                 : 'border-slate-300'
                             }
                           `}
@@ -397,7 +397,7 @@ export default function TakeQuizPage({
             <button
               onClick={handleSubmit}
               disabled={submitting}
-              className="px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+              className="px-8 py-3 bg-brand-orange-600 text-white font-semibold rounded-lg hover:bg-brand-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
             >
               {submitting ? 'Submitting...' : 'Submit Quiz'}
             </button>

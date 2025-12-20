@@ -69,7 +69,7 @@ export default async function ShopOnboardingPage() {
               Onboarding Progress
             </h2>
             <div className="text-right">
-              <div className="text-3xl font-bold text-blue-600">
+              <div className="text-3xl font-bold text-brand-blue-600">
                 {approvedDocs.length}/{requiredDocs.length}
               </div>
               <div className="text-xs text-slate-600">Documents Approved</div>
@@ -78,7 +78,7 @@ export default async function ShopOnboardingPage() {
 
           <div className="w-full bg-slate-200 rounded-full h-3">
             <div
-              className="bg-blue-600 h-3 rounded-full transition-all"
+              className="bg-brand-blue-600 h-3 rounded-full transition-all"
               style={{
                 width: `${
                   requiredDocs.length > 0
@@ -93,7 +93,7 @@ export default async function ShopOnboardingPage() {
         {/* Required Documents */}
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
           <div className="flex items-center gap-3 mb-6">
-            <FileText className="w-6 h-6 text-blue-600" />
+            <FileText className="w-6 h-6 text-brand-blue-600" />
             <h2 className="text-xl font-bold text-slate-900">
               Required Documents
             </h2>
@@ -108,7 +108,7 @@ export default async function ShopOnboardingPage() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-3 flex-1">
                     {doc.approved ? (
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5 flex-shrink-0" />
                     ) : (
                       <Clock className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                     )}
@@ -126,13 +126,13 @@ export default async function ShopOnboardingPage() {
                         </div>
                       )}
                       {doc.approved && doc.approved_at && (
-                        <div className="text-xs text-green-600 mt-2">
+                        <div className="text-xs text-brand-green-600 mt-2">
                           ✓ Approved on{' '}
                           {new Date(doc.approved_at).toLocaleDateString()}
                         </div>
                       )}
                       {!doc.approved && doc.uploaded_at && (
-                        <div className="text-xs text-orange-600 mt-2">
+                        <div className="text-xs text-brand-orange-600 mt-2">
                           ⏳ Uploaded, pending sponsor approval
                         </div>
                       )}
@@ -146,7 +146,7 @@ export default async function ShopOnboardingPage() {
                   {!doc.approved && (
                     <Link
                       href="/shop/onboarding/documents"
-                      className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition flex items-center gap-2 whitespace-nowrap"
+                      className="px-4 py-2 bg-brand-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-brand-blue-700 transition flex items-center gap-2 whitespace-nowrap"
                     >
                       <Upload className="w-4 h-4" />
                       Upload
@@ -161,7 +161,7 @@ export default async function ShopOnboardingPage() {
             <div className="mt-6 pt-6 border-t border-slate-200">
               <Link
                 href="/shop/onboarding/documents"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition"
               >
                 <Upload className="w-5 h-5" />
                 Upload Documents
@@ -179,7 +179,7 @@ export default async function ShopOnboardingPage() {
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               {onboarding?.handbook_ack ? (
-                <CheckCircle className="w-5 h-5 text-green-600" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600" />
               ) : (
                 <Clock className="w-5 h-5 text-slate-400" />
               )}
@@ -196,7 +196,7 @@ export default async function ShopOnboardingPage() {
 
             <div className="flex items-center gap-3">
               {onboarding?.reporting_trained ? (
-                <CheckCircle className="w-5 h-5 text-green-600" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600" />
               ) : (
                 <Clock className="w-5 h-5 text-slate-400" />
               )}
@@ -213,7 +213,7 @@ export default async function ShopOnboardingPage() {
 
             <div className="flex items-center gap-3">
               {onboarding?.apprentice_supervisor_assigned ? (
-                <CheckCircle className="w-5 h-5 text-green-600" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600" />
               ) : (
                 <Clock className="w-5 h-5 text-slate-400" />
               )}
@@ -230,7 +230,7 @@ export default async function ShopOnboardingPage() {
 
             <div className="flex items-center gap-3">
               {onboarding?.rapids_reporting_ready ? (
-                <CheckCircle className="w-5 h-5 text-green-600" />
+                <CheckCircle className="w-5 h-5 text-brand-green-600" />
               ) : (
                 <Clock className="w-5 h-5 text-slate-400" />
               )}
@@ -254,31 +254,31 @@ export default async function ShopOnboardingPage() {
           </h3>
           <ul className="space-y-2 text-sm text-slate-700">
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Maintain active barber license(s)</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Supervise apprentices at all times</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Pay apprentices according to agreement</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Submit weekly hours & attendance</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Report wage changes</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Maintain workers comp & insurance</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-blue-600 mt-0.5">•</span>
+              <span className="text-brand-blue-600 mt-0.5">•</span>
               <span>Comply with RAPIDS reporting standards</span>
             </li>
           </ul>
@@ -288,7 +288,7 @@ export default async function ShopOnboardingPage() {
         <div className="text-center">
           <Link
             href="/shop/dashboard"
-            className="text-blue-600 hover:text-blue-700 font-semibold"
+            className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
           >
             ← Back to Dashboard
           </Link>

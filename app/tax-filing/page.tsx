@@ -50,13 +50,13 @@ export default function TaxFilingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -84,7 +84,7 @@ export default function TaxFilingPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/tax-filing/start"
-                  className="inline-flex items-center justify-center bg-white text-green-600 px-8 py-4 rounded-lg hover:bg-green-50 font-bold text-lg"
+                  className="inline-flex items-center justify-center bg-white text-brand-green-600 px-8 py-4 rounded-lg hover:bg-green-50 font-bold text-lg"
                 >
                   Start Your Return
                 </a>
@@ -97,7 +97,9 @@ export default function TaxFilingPage() {
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-              <h3 className="text-lg md:text-lg font-bold mb-6">Why Choose Us?</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-6">
+                Why Choose Us?
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="text-green-300 mr-3">✓</span>
@@ -200,7 +202,7 @@ export default function TaxFilingPage() {
               </ul>
               <a
                 href="/tax-filing/start"
-                className="block w-full bg-white text-green-600 text-center py-3 rounded-lg font-bold hover:bg-green-50"
+                className="block w-full bg-white text-brand-green-600 text-center py-3 rounded-lg font-bold hover:bg-green-50"
               >
                 Start Filing Now
               </a>
@@ -234,7 +236,7 @@ export default function TaxFilingPage() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-base md:text-lg font-bold text-green-600">
+            <p className="text-base md:text-lg font-bold text-brand-green-600">
               Save $19-$267 compared to competitors!
             </p>
           </div>
@@ -249,7 +251,7 @@ export default function TaxFilingPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">📊</span>
               </div>
               <h3 className="text-lg font-bold mb-3">Drake Tax Software</h3>
@@ -290,7 +292,7 @@ export default function TaxFilingPage() {
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 1
               </div>
               <h3 className="font-bold mb-2">Create Account</h3>
@@ -299,7 +301,7 @@ export default function TaxFilingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 2
               </div>
               <h3 className="font-bold mb-2">Enter Information</h3>
@@ -308,7 +310,7 @@ export default function TaxFilingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 3
               </div>
               <h3 className="font-bold mb-2">Review & Approve</h3>
@@ -317,7 +319,7 @@ export default function TaxFilingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-base font-bold">
                 4
               </div>
               <h3 className="font-bold mb-2">E-File</h3>
@@ -447,7 +449,7 @@ export default function TaxFilingPage() {
           </p>
           <a
             href="/tax-filing/start"
-            className="inline-block bg-white text-green-600 px-12 py-4 rounded-lg hover:bg-green-50 font-bold text-xl"
+            className="inline-block bg-white text-brand-green-600 px-12 py-4 rounded-lg hover:bg-green-50 font-bold text-xl"
           >
             Start Your Tax Return Now
           </a>

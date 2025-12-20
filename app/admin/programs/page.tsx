@@ -6,7 +6,7 @@ import { ProgramsTable } from './programs-table';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/programs",
+    canonical: 'https://www.elevateforhumanity.org/admin/programs',
   },
   title: 'Programs Management | Admin',
   description: 'Manage training programs, courses, and curriculum',
@@ -14,8 +14,10 @@ export const metadata: Metadata = {
 
 export default async function ProgramsPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -25,17 +27,20 @@ export default async function ProgramsPage() {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
+
   const { data: programs, count: totalPrograms } = await supabase
     .from('programs')
-    .select(`
+    .select(
+      `
       *,
       modules:modules(count)
-    `, { count: 'exact' })
+    `,
+      { count: 'exact' }
+    )
     .order('created_at', { ascending: false });
 
   const { count: activePrograms } = await supabase
@@ -55,33 +60,49 @@ export default async function ProgramsPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Programs Management</h1>
-              <p className="text-gray-600 mt-1">Manage training programs and curriculum</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Programs Management
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Manage training programs and curriculum
+              </p>
             </div>
             <Link
               href="/admin/programs/new"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             >
               + Create Program
             </Link>
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Total Programs</h3>
-              <p className="text-base md:text-lg font-bold text-gray-900">{totalPrograms || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Total Programs
+              </h3>
+              <p className="text-base md:text-lg font-bold text-gray-900">
+                {totalPrograms || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Active</h3>
-              <p className="text-base md:text-lg font-bold text-green-600">{activePrograms || 0}</p>
+              <p className="text-base md:text-lg font-bold text-brand-green-600">
+                {activePrograms || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Featured</h3>
-              <p className="text-base md:text-lg font-bold text-purple-600">{featuredPrograms || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Featured
+              </h3>
+              <p className="text-base md:text-lg font-bold text-purple-600">
+                {featuredPrograms || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Inactive</h3>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Inactive
+              </h3>
               <p className="text-base md:text-lg font-bold text-gray-600">
                 {(totalPrograms || 0) - (activePrograms || 0)}
               </p>

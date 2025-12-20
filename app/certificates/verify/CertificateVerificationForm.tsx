@@ -26,7 +26,9 @@ export default function CertificateVerificationForm() {
     // Validate format (EFH-YYYY-XXXXXXXX)
     const formatRegex = /^EFH-\d{4}-[A-Z0-9]{8}$/;
     if (!formatRegex.test(cleanNumber)) {
-      setError('Invalid certificate number format. Expected format: EFH-YYYY-XXXXXXXX');
+      setError(
+        'Invalid certificate number format. Expected format: EFH-YYYY-XXXXXXXX'
+      );
       setLoading(false);
       return;
     }
@@ -40,7 +42,7 @@ export default function CertificateVerificationForm() {
       <div className="text-center mb-6">
         <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
           <svg
-            className="w-12 h-12 text-blue-600"
+            className="w-12 h-12 text-brand-blue-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -53,7 +55,9 @@ export default function CertificateVerificationForm() {
             />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900">Enter Certificate Number</h2>
+        <h2 className="text-2xl font-bold text-gray-900">
+          Enter Certificate Number
+        </h2>
         <p className="text-gray-600 mt-2">
           Enter the certificate number to verify its authenticity
         </p>
@@ -67,14 +71,21 @@ export default function CertificateVerificationForm() {
 
       <form onSubmit={handleVerify} className="space-y-4">
         <div>
-          <label htmlFor="certificateNumber" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="certificateNumber"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Certificate Number
           </label>
           <input
             type="text"
             id="certificateNumber"
             value={certificateNumber}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCertificateNumber(e.target.value.toUpperCase())}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setCertificateNumber(e.target.value.toUpperCase())}
             placeholder="EFH-2024-XXXXXXXX"
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-lg font-mono"
@@ -88,15 +99,29 @@ export default function CertificateVerificationForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium text-lg"
+          className="w-full px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium text-lg"
         >
           {loading ? (
             <span className="flex items-center justify-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12"
-r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              <svg
+                className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                />
               </svg>
               Verifying...
             </span>
@@ -109,7 +134,7 @@ r="10" stroke="currentColor" strokeWidth="4" />
       <div className="mt-6 pt-6 border-t border-gray-200">
         <div className="flex items-start space-x-3">
           <svg
-            className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0"
+            className="w-5 h-5 text-brand-blue-600 mt-0.5 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -122,10 +147,12 @@ r="10" stroke="currentColor" strokeWidth="4" />
             />
           </svg>
           <div className="text-sm text-gray-600">
-            <p className="font-semibold mb-1">Verification is instant and secure</p>
+            <p className="font-semibold mb-1">
+              Verification is instant and secure
+            </p>
             <p>
-              Our system will check the certificate against our database and display
-              the verification results immediately.
+              Our system will check the certificate against our database and
+              display the verification results immediately.
             </p>
           </div>
         </div>

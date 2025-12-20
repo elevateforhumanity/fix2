@@ -38,13 +38,13 @@ export default async function RiseFoundationPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Get Started
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View Programs
             </Link>
@@ -79,7 +79,7 @@ export default async function RiseFoundationPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg
-                      className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -95,7 +95,7 @@ export default async function RiseFoundationPage() {
                   </li>
                   <li className="flex items-start">
                     <svg
-                      className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -111,7 +111,7 @@ export default async function RiseFoundationPage() {
                   </li>
                   <li className="flex items-start">
                     <svg
-                      className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -127,7 +127,7 @@ export default async function RiseFoundationPage() {
                   </li>
                   <li className="flex items-start">
                     <svg
-                      className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1"
+                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -204,10 +204,14 @@ export default async function RiseFoundationPage() {
 
             {/* VITA Services */}
             <div className="mb-16">
-              <h3 className="text-lg md:text-lg font-bold mb-6">VITA Services Are:</h3>
+              <h3 className="text-lg md:text-lg font-bold mb-6">
+                VITA Services Are:
+              </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">✓</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                    ✓
+                  </div>
                   <h4 className="font-bold text-lg mb-2">100% Free</h4>
                   <p className="text-gray-600">
                     No fees, no hidden costs. Completely free tax preparation
@@ -215,14 +219,18 @@ export default async function RiseFoundationPage() {
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">🎓</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                    🎓
+                  </div>
                   <h4 className="font-bold text-lg mb-2">IRS-Certified</h4>
                   <p className="text-gray-600">
                     All volunteers are IRS-certified and trained in tax law.
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">🔒</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
+                    🔒
+                  </div>
                   <h4 className="font-bold text-lg mb-2">Confidential</h4>
                   <p className="text-gray-600">
                     Your information is kept private and secure.
@@ -236,7 +244,7 @@ export default async function RiseFoundationPage() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-brand-blue-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -256,9 +264,9 @@ export default async function RiseFoundationPage() {
               </div>
 
               <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-green-600"
+                    className="w-6 h-6 text-brand-green-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -300,10 +308,12 @@ export default async function RiseFoundationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
               Join thousands who have launched successful careers through our
               programs.

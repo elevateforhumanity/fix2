@@ -49,7 +49,7 @@ export default function StorePage() {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                    <Icon className="text-orange-600" size={24} />
+                    <Icon className="text-brand-orange-600" size={24} />
                   </div>
                   <div className="text-sm font-bold text-slate-500 uppercase tracking-wide">
                     {product.category}
@@ -66,7 +66,7 @@ export default function StorePage() {
                   {product.features.slice(0, 4).map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm">
                       <Check
-                        className="text-green-600 flex-shrink-0 mt-0.5"
+                        className="text-brand-green-600 flex-shrink-0 mt-0.5"
                         size={16}
                       />
                       <span className="text-slate-700">{feature}</span>
@@ -93,7 +93,7 @@ export default function StorePage() {
 
                 <Link
                   href={`/store/checkout/${product.slug}`}
-                  className="block w-full text-center bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition"
+                  className="block w-full text-center bg-brand-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-orange-600 transition"
                 >
                   {product.category === 'donation' ? 'Donate Now' : 'Buy Now'}
                 </Link>
@@ -137,7 +137,7 @@ export default function StorePage() {
               <strong>Looking for full training programs?</strong> Check out our{' '}
               <Link
                 href="/pricing"
-                className="text-orange-600 font-semibold hover:underline"
+                className="text-brand-orange-600 font-semibold hover:underline"
               >
                 Platform Access
               </Link>{' '}

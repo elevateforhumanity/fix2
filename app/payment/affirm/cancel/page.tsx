@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { XCircle } from 'lucide-react';
@@ -9,7 +9,7 @@ export default function AffirmCancelPage() {
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
-        <XCircle className="w-16 h-16 text-orange-500 mx-auto mb-4" />
+        <XCircle className="w-16 h-16 text-brand-orange-600 mx-auto mb-4" />
 
         <h1 className="text-2xl font-bold text-gray-900 mb-2">
           Payment Cancelled
@@ -30,7 +30,7 @@ export default function AffirmCancelPage() {
         <div className="flex flex-col gap-3">
           <Link
             href="/programs"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition-colors"
           >
             Browse Programs
           </Link>
@@ -57,7 +57,7 @@ export default function AffirmCancelPage() {
           </p>
           <Link
             href="/financial-aid"
-            className="text-sm text-blue-600 hover:text-blue-700 font-semibold"
+            className="text-sm text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
           >
             Learn about free training options →
           </Link>

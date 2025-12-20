@@ -122,7 +122,7 @@ export default function PlatformAppsPage() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {app.name}
                     </h3>
-                    <div className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded">
+                    <div className="inline-flex items-center px-2 py-1 bg-brand-green-100 text-green-800 text-xs font-semibold rounded">
                       <Check className="w-3 h-3 mr-1" />
                       Core App
                     </div>
@@ -216,16 +216,16 @@ export default function PlatformAppsPage() {
                       </td>
                       <td className="px-6 py-4 text-center">
                         {app.enabledByDefault ? (
-                          <Check className="w-5 h-5 text-green-600 mx-auto" />
+                          <Check className="w-5 h-5 text-brand-green-600 mx-auto" />
                         ) : (
                           <span className="text-gray-400">—</span>
                         )}
                       </td>
                       <td className="px-6 py-4 text-center">
-                        <Check className="w-5 h-5 text-green-600 mx-auto" />
+                        <Check className="w-5 h-5 text-brand-green-600 mx-auto" />
                       </td>
                       <td className="px-6 py-4 text-center">
-                        <Check className="w-5 h-5 text-green-600 mx-auto" />
+                        <Check className="w-5 h-5 text-brand-green-600 mx-auto" />
                       </td>
                     </tr>
                   ))}
@@ -237,7 +237,7 @@ export default function PlatformAppsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-brand-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl md:text-2xl md:text-3xl font-bold mb-6">
             Ready to Choose Your License?
@@ -249,13 +249,13 @@ export default function PlatformAppsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/platform#licenses"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View Licenses
             </Link>
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors border-2 border-white"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors border-2 border-white"
             >
               Talk to Sales
             </Link>

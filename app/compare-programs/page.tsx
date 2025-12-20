@@ -305,13 +305,13 @@ export default function CompareProgramsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -365,7 +365,7 @@ export default function CompareProgramsPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-50 transition-colors button-scale"
+                className="bg-white text-brand-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-50 transition-colors button-scale"
               >
                 Apply Now - It's Free
               </Link>
@@ -385,25 +385,25 @@ export default function CompareProgramsPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 28+
               </div>
               <div className="text-slate-600">Programs Available</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 $0
               </div>
               <div className="text-slate-600">Tuition Cost</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 95%
               </div>
               <div className="text-slate-600">Employment Rate</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 $45K
               </div>
               <div className="text-slate-600">Average Starting Salary</div>
@@ -426,7 +426,7 @@ export default function CompareProgramsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative aspect-video bg-slate-900 rounded-xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 flex items-center justify-center">
-                <button className="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition-colors button-scale">
+                <button className="w-20 h-20 bg-brand-orange-600 rounded-full flex items-center justify-center hover:bg-brand-orange-700 transition-colors button-scale">
                   <Play className="w-10 h-10 text-white ml-1" />
                 </button>
               </div>
@@ -472,7 +472,7 @@ export default function CompareProgramsPage() {
                     sizes="100vw"
                     quality={100}
                   />
-                  <div className="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute top-4 right-4 bg-brand-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
                     {program.category}
                   </div>
                 </div>
@@ -483,27 +483,27 @@ export default function CompareProgramsPage() {
 
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center gap-2">
-                      <DollarSign className="w-5 h-5 text-green-600" />
+                      <DollarSign className="w-5 h-5 text-brand-green-600" />
                       <span className="font-semibold">
                         ${program.salary.min.toLocaleString()} - $
                         {program.salary.max.toLocaleString()}/year
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock className="w-5 h-5 text-blue-600" />
+                      <Clock className="w-5 h-5 text-brand-blue-600" />
                       <span>
                         {program.duration} ({program.hours} hours)
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-orange-600" />
+                      <TrendingUp className="w-5 h-5 text-brand-orange-600" />
                       <span>{program.employmentRate}% Employment Rate</span>
                     </div>
                   </div>
 
                   <Link
                     href={`/programs/${program.id}`}
-                    className="block w-full text-center bg-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition-colors"
+                    className="block w-full text-center bg-brand-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-orange-700 transition-colors"
                   >
                     View Details
                   </Link>
@@ -559,7 +559,7 @@ export default function CompareProgramsPage() {
                     </td>
                     <td className="px-6 py-4">{program.duration}</td>
                     <td className="px-6 py-4">
-                      <div className="font-bold text-green-600">
+                      <div className="font-bold text-brand-green-600">
                         ${program.salary.min.toLocaleString()} - $
                         {program.salary.max.toLocaleString()}
                       </div>
@@ -571,7 +571,7 @@ export default function CompareProgramsPage() {
                       <div className="flex items-center gap-2">
                         <div className="flex-1 bg-slate-200 rounded-full h-2">
                           <div
-                            className="bg-green-600 h-2 rounded-full"
+                            className="bg-brand-green-600 h-2 rounded-full"
                             style={{ width: `${program.employmentRate}%` }}
                           />
                         </div>
@@ -584,7 +584,7 @@ export default function CompareProgramsPage() {
                       <span
                         className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
                           program.difficulty === 'Beginner'
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : program.difficulty === 'Intermediate'
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-red-100 text-red-800'
@@ -596,7 +596,7 @@ export default function CompareProgramsPage() {
                     <td className="px-6 py-4 text-center">
                       <Link
                         href={`/programs/${program.id}`}
-                        className="inline-block bg-orange-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors text-sm"
+                        className="inline-block bg-brand-orange-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-brand-orange-700 transition-colors text-sm"
                       >
                         Details
                       </Link>
@@ -657,7 +657,7 @@ export default function CompareProgramsPage() {
                   <div className="space-y-2 pt-6 border-t border-slate-200">
                     <div className="flex justify-between">
                       <span className="text-slate-600">Outcome:</span>
-                      <span className="font-bold text-green-600">
+                      <span className="font-bold text-brand-green-600">
                         {story.outcome}
                       </span>
                     </div>
@@ -688,7 +688,7 @@ export default function CompareProgramsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-orange-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-orange-50 transition-colors button-scale shadow-2xl"
+            className="inline-block bg-white text-brand-orange-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-orange-50 transition-colors button-scale shadow-2xl"
           >
             Apply Now - It's Free →
           </Link>

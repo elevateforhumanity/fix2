@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { NewsClient } from './NewsClient';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 3600; // 1 hour
 
 export const metadata: Metadata = {
@@ -188,7 +188,7 @@ export default function NewsPage() {
             </p>
             <Link
               href="#newsletter"
-              className="inline-block px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
+              className="inline-block px-8 py-4 bg-white text-brand-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
             >
               Subscribe to Newsletter
             </Link>

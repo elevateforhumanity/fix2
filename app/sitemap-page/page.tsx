@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/sitemap-page",
+    canonical: 'https://www.elevateforhumanity.org/sitemap-page',
   },
   title: 'Sitemap | Elevate For Humanity',
   description: 'Complete sitemap of all pages on Elevate For Humanity website.',
@@ -19,7 +19,7 @@ const sitemapSections = [
       { href: '/courses', label: 'Courses' },
       { href: '/contact', label: 'Contact Us' },
       { href: '/apply', label: 'Talk to an Advisor' },
-    ]
+    ],
   },
   {
     title: 'Funding Options',
@@ -28,19 +28,25 @@ const sitemapSections = [
       { href: '/funding/wioa', label: 'WIOA Funding' },
       { href: '/funding/wrg', label: 'Workforce Ready Grant' },
       { href: '/pay', label: 'Payment Options' },
-    ]
+    ],
   },
   {
     title: 'Programs',
     links: [
-      { href: '/programs/barber-apprenticeship', label: 'Barber Apprenticeship' },
+      {
+        href: '/programs/barber-apprenticeship',
+        label: 'Barber Apprenticeship',
+      },
       { href: '/programs/cna', label: 'CNA Training' },
-      { href: '/programs/direct-support-professional', label: 'Direct Support Professional (DSP)' },
+      {
+        href: '/programs/direct-support-professional',
+        label: 'Direct Support Professional (DSP)',
+      },
       { href: '/programs/hvac-technician', label: 'HVAC Technician' },
       { href: '/programs/cdl', label: 'CDL Training' },
       { href: '/programs/tax-preparation', label: 'Tax Preparation' },
       { href: '/programs/business-startup', label: 'Business Startup' },
-    ]
+    ],
   },
   {
     title: 'Student Resources',
@@ -49,7 +55,7 @@ const sitemapSections = [
       { href: '/signup', label: 'Create Account' },
       { href: '/student/dashboard', label: 'Student Dashboard' },
       { href: '/lms', label: 'Learning Management System' },
-    ]
+    ],
   },
   {
     title: 'Staff & Admin',
@@ -57,7 +63,7 @@ const sitemapSections = [
       { href: '/staff-portal', label: 'Staff Portal' },
       { href: '/admin', label: 'Admin Dashboard' },
       { href: '/workforce-board', label: 'Workforce Board' },
-    ]
+    ],
   },
   {
     title: 'Information',
@@ -66,7 +72,7 @@ const sitemapSections = [
       { href: '/blog', label: 'Blog' },
       { href: '/team', label: 'Our Team' },
       { href: '/accreditation', label: 'Accreditation' },
-    ]
+    ],
   },
   {
     title: 'Legal',
@@ -75,8 +81,8 @@ const sitemapSections = [
       { href: '/terms-of-service', label: 'Terms of Service' },
       { href: '/dmca', label: 'DMCA Policy' },
       { href: '/accessibility', label: 'Accessibility' },
-    ]
-  }
+    ],
+  },
 ];
 
 export default function SitemapPage() {
@@ -99,7 +105,10 @@ export default function SitemapPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sitemapSections.map((section, index) => (
-              <div key={index} className="bg-white rounded-lg border border-slate-200 p-6">
+              <div
+                key={index}
+                className="bg-white rounded-lg border border-slate-200 p-6"
+              >
                 <h2 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200">
                   {section.title}
                 </h2>
@@ -108,7 +117,7 @@ export default function SitemapPage() {
                     <li key={linkIndex}>
                       <Link
                         href={link.href}
-                        className="text-blue-600 hover:text-blue-700 hover:underline"
+                        className="text-brand-blue-600 hover:text-brand-blue-700 hover:underline"
                       >
                         {link.label}
                       </Link>
@@ -132,7 +141,7 @@ export default function SitemapPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition text-lg"
+            className="inline-block px-8 py-4 bg-brand-orange-600 text-white font-bold rounded-lg hover:bg-brand-orange-700 transition text-lg"
           >
             Contact Us
           </Link>

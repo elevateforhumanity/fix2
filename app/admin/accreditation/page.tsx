@@ -224,7 +224,7 @@ export default async function AccreditationPage() {
             <div className="flex items-center gap-4">
               <Link
                 href="/admin/accreditation/report"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Report</span>
@@ -248,7 +248,9 @@ export default async function AccreditationPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">{readinessScore}%</div>
+              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">
+                {readinessScore}%
+              </div>
               <div className="text-blue-100 mt-2">
                 {readinessScore >= 95
                   ? '✅ Ready'
@@ -264,7 +266,7 @@ export default async function AccreditationPage() {
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center justify-between mb-4">
-              <GraduationCap className="w-8 h-8 text-blue-600" />
+              <GraduationCap className="w-8 h-8 text-brand-blue-600" />
               <span className="text-2xl font-bold text-gray-900">
                 {programs?.length || 0}
               </span>
@@ -279,7 +281,7 @@ export default async function AccreditationPage() {
 
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center justify-between mb-4">
-              <Users className="w-8 h-8 text-green-600" />
+              <Users className="w-8 h-8 text-brand-green-600" />
               <span className="text-2xl font-bold text-gray-900">
                 {enrollments?.length || 0}
               </span>
@@ -305,7 +307,7 @@ export default async function AccreditationPage() {
 
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center justify-between mb-4">
-              <TrendingUp className="w-8 h-8 text-orange-600" />
+              <TrendingUp className="w-8 h-8 text-brand-orange-600" />
               <span className="text-2xl font-bold text-gray-900">
                 {placementRate}%
               </span>
@@ -335,9 +337,9 @@ export default async function AccreditationPage() {
                     >
                       <div className="flex items-center gap-3">
                         {item.status === 'complete' ? (
-                          <CheckCircle className="w-5 h-5 text-green-600" />
+                          <CheckCircle className="w-5 h-5 text-brand-green-600" />
                         ) : (
-                          <AlertTriangle className="w-5 h-5 text-orange-600" />
+                          <AlertTriangle className="w-5 h-5 text-brand-orange-600" />
                         )}
                         <span className="font-medium text-gray-900">
                           {item.name}
@@ -345,7 +347,7 @@ export default async function AccreditationPage() {
                       </div>
                       <Link
                         href={item.link}
-                        className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium"
+                        className="flex items-center gap-2 text-brand-blue-600 hover:text-brand-blue-700 text-sm font-medium"
                       >
                         <span>View</span>
                         <ExternalLink className="w-4 h-4" />
@@ -362,7 +364,7 @@ export default async function AccreditationPage() {
         {warningItems > 0 && (
           <div className="mt-8 bg-orange-50 border border-orange-200 rounded-lg p-6">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+              <AlertTriangle className="w-6 h-6 text-brand-orange-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="text-lg font-semibold text-orange-900 mb-2">
                   Action Required: {warningItems} Items Need Attention
@@ -381,7 +383,7 @@ export default async function AccreditationPage() {
                 <div className="mt-4">
                   <Link
                     href="/ACCREDITATION_READINESS_AUDIT.md"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition-colors"
                   >
                     <FileText className="w-4 h-4" />
                     <span>View Full Audit Report</span>
@@ -398,7 +400,7 @@ export default async function AccreditationPage() {
             href="/ACCREDITATION_COMPLIANCE.md"
             className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
           >
-            <Shield className="w-8 h-8 text-blue-600 mb-3" />
+            <Shield className="w-8 h-8 text-brand-blue-600 mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Compliance Documentation
             </h3>
@@ -411,7 +413,7 @@ export default async function AccreditationPage() {
             href="/syllabi"
             className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
           >
-            <BookOpen className="w-8 h-8 text-green-600 mb-3" />
+            <BookOpen className="w-8 h-8 text-brand-green-600 mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Course Syllabi
             </h3>

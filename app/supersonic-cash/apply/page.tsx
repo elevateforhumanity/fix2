@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -208,13 +208,13 @@ export default function ApplyPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -227,7 +227,7 @@ export default function ApplyPage() {
         <div className="mb-8">
           <button
             onClick={() => router.push('/supersonic-cash')}
-            className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 mb-4"
+            className="flex items-center space-x-2 text-brand-blue-600 hover:text-brand-blue-700 mb-4"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Supersonic Cash</span>
@@ -253,7 +253,7 @@ export default function ApplyPage() {
                     s < step
                       ? 'bg-green-500 text-white'
                       : s === step
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-brand-blue-600 text-white'
                         : 'bg-gray-200 text-gray-500'
                   }`}
                 >
@@ -292,7 +292,7 @@ export default function ApplyPage() {
           {step === 1 && (
             <div className="space-y-6">
               <div className="flex items-center space-x-3 mb-6">
-                <User className="w-8 h-8 text-blue-600" />
+                <User className="w-8 h-8 text-brand-blue-600" />
                 <h2 className="text-2xl font-bold">Personal Information</h2>
               </div>
 
@@ -509,7 +509,7 @@ export default function ApplyPage() {
           {step === 3 && (
             <div className="space-y-6">
               <div className="flex items-center space-x-3 mb-6">
-                <DollarSign className="w-8 h-8 text-blue-600" />
+                <DollarSign className="w-8 h-8 text-brand-blue-600" />
                 <h2 className="text-2xl font-bold">Income Information</h2>
               </div>
 
@@ -626,7 +626,7 @@ export default function ApplyPage() {
           {step === 4 && (
             <div className="space-y-6">
               <div className="flex items-center space-x-3 mb-6">
-                <CreditCard className="w-8 h-8 text-blue-600" />
+                <CreditCard className="w-8 h-8 text-brand-blue-600" />
                 <h2 className="text-2xl font-bold">Banking Information</h2>
               </div>
 
@@ -719,7 +719,7 @@ export default function ApplyPage() {
           {step === 5 && (
             <div className="space-y-6">
               <div className="flex items-center space-x-3 mb-6">
-                <FileText className="w-8 h-8 text-blue-600" />
+                <FileText className="w-8 h-8 text-brand-blue-600" />
                 <h2 className="text-2xl font-bold">Review & Submit</h2>
               </div>
 
@@ -869,7 +869,7 @@ export default function ApplyPage() {
             {step < 5 ? (
               <button
                 onClick={nextStep}
-                className="ml-auto flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="ml-auto flex items-center space-x-2 px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-5 h-5" />
@@ -878,7 +878,7 @@ export default function ApplyPage() {
               <button
                 onClick={submitApplication}
                 disabled={loading || !formData.repaymentDate}
-                className="ml-auto flex items-center space-x-2 px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-bold"
+                className="ml-auto flex items-center space-x-2 px-8 py-3 bg-brand-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-bold"
               >
                 {loading ? (
                   <>

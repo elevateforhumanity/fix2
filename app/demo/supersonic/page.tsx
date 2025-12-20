@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -31,13 +31,13 @@ export default function SupersonicDemoPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -81,12 +81,12 @@ export default function SupersonicDemoPage() {
             <p className="text-sm text-gray-600">Advances Issued</p>
           </div>
           <div className="bg-white rounded-xl border p-6 shadow-sm">
-            <DollarSign className="w-8 h-8 text-green-600 mb-2" />
+            <DollarSign className="w-8 h-8 text-brand-green-600 mb-2" />
             <p className="text-3xl font-bold">$234K</p>
             <p className="text-sm text-gray-600">Total Advanced</p>
           </div>
           <div className="bg-white rounded-xl border p-6 shadow-sm">
-            <Clock className="w-8 h-8 text-blue-600 mb-2" />
+            <Clock className="w-8 h-8 text-brand-blue-600 mb-2" />
             <p className="text-3xl font-bold">24hrs</p>
             <p className="text-sm text-gray-600">Avg. Processing</p>
           </div>
@@ -246,7 +246,7 @@ export default function SupersonicDemoPage() {
                   <span
                     className={`text-xs px-2 py-1 rounded-full ${
                       advance.status === 'Funded'
-                        ? 'bg-green-100 text-green-700'
+                        ? 'bg-brand-green-100 text-green-700'
                         : advance.status === 'Approved'
                           ? 'bg-blue-100 text-blue-700'
                           : 'bg-yellow-100 text-yellow-700'
@@ -302,7 +302,7 @@ export default function SupersonicDemoPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -320,7 +320,7 @@ export default function SupersonicDemoPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -338,7 +338,7 @@ export default function SupersonicDemoPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -356,7 +356,7 @@ export default function SupersonicDemoPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

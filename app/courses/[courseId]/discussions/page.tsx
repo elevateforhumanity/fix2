@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
@@ -111,13 +111,13 @@ export default function CourseDiscussionsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 View Programs
               </Link>
@@ -126,7 +126,7 @@ export default function CourseDiscussionsPage() {
         </section>
 
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4" />
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600 mb-4" />
           <p className="text-gray-600">Loading discussions...</p>
 
           {/* Storytelling Section */}
@@ -148,7 +148,7 @@ export default function CourseDiscussionsPage() {
                     <ul className="space-y-4">
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -166,7 +166,7 @@ export default function CourseDiscussionsPage() {
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -185,7 +185,7 @@ export default function CourseDiscussionsPage() {
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ export default function CourseDiscussionsPage() {
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -278,7 +278,7 @@ export default function CourseDiscussionsPage() {
             <div>
               <Link
                 href={`/courses/${courseId}`}
-                className="text-blue-600 hover:text-blue-700 text-sm mb-2 inline-block"
+                className="text-brand-blue-600 hover:text-brand-blue-700 text-sm mb-2 inline-block"
               >
                 ← Back to Course
               </Link>
@@ -289,7 +289,7 @@ export default function CourseDiscussionsPage() {
             </div>
             <button
               onClick={() => setShowNewTopic(true)}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition-colors"
             >
               + New Topic
             </button>
@@ -343,7 +343,7 @@ export default function CourseDiscussionsPage() {
                 <div className="flex gap-3">
                   <button
                     onClick={createTopic}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    className="bg-brand-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-blue-700 transition-colors"
                   >
                     Post Topic
                   </button>
@@ -370,13 +370,13 @@ export default function CourseDiscussionsPage() {
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="text-blue-600 font-semibold text-lg">
+                        <span className="text-brand-blue-600 font-semibold text-lg">
                           {discussion.profiles?.full_name?.[0] || '?'}
                         </span>
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 mb-1 hover:text-blue-600">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1 hover:text-brand-blue-600">
                         {discussion.title}
                       </h3>
                       <p className="text-gray-600 text-sm mb-3 line-clamp-2">
@@ -421,7 +421,7 @@ export default function CourseDiscussionsPage() {
               </p>
               <button
                 onClick={() => setShowNewTopic(true)}
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-block bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition-colors"
               >
                 Start Discussion
               </button>

@@ -36,23 +36,23 @@ export default function LicensingPage() {
           <p className="text-lg text-zinc-700 mb-4">Licensing provides:</p>
           <ul className="space-y-3 text-zinc-700">
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Access to the Elevate Workforce Operating System
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Organization-level configuration
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Ongoing platform updates
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Security and compliance foundation
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Support for workforce and apprenticeship use cases
             </li>
           </ul>
@@ -79,23 +79,23 @@ export default function LicensingPage() {
           </p>
           <ul className="space-y-3 text-zinc-700">
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Single-organization deployment
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Multi-organization or umbrella deployments
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               White-label or co-branded experiences
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Employer and workforce board integrations
             </li>
             <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-2">•</span>
+              <span className="text-brand-green-600 font-bold mr-2">•</span>
               Apprenticeship and Earn While You Learn configurations
             </li>
           </ul>
@@ -192,7 +192,7 @@ export default function LicensingPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact?topic=platform-demo"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-white bg-brand-green-600 rounded-lg hover:bg-green-700 transition-colors"
             >
               Request a Demo
             </Link>

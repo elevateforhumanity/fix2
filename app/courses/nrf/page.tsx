@@ -164,8 +164,8 @@ export default function NrfPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">100% Free</h3>
               <p className="text-gray-600">
@@ -175,7 +175,7 @@ export default function NrfPage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-blue-600" />
+                <Clock className="w-8 h-8 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Self-Paced</h3>
               <p className="text-gray-600">
@@ -211,7 +211,7 @@ export default function NrfPage() {
                     <Award className="w-4 h-4" />
                     <span>Certificate: {course.certificate}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-green-600">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-brand-green-600">
                     <CheckCircle className="w-4 h-4" />
                     <span>{course.price}</span>
                   </div>
@@ -286,7 +286,9 @@ export default function NrfPage() {
       {/* CTA Section */}
       <section className="py-16 bg-purple-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Certified?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Ready to Get Certified?
+          </h2>
           <p className="text-base md:text-lg mb-8">
             Enroll in a program today and get free access to NRF RISE Up
             credentials

@@ -152,13 +152,13 @@ export default function AnalyticsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 View Programs
               </Link>
@@ -167,7 +167,7 @@ export default function AnalyticsPage() {
         </section>
 
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading analytics...</p>
 
           {/* CTA Section */}
@@ -246,7 +246,7 @@ export default function AnalyticsPage() {
 
               <button
                 onClick={exportData}
-                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="flex items-center space-x-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
               >
                 <Download className="w-4 h-4" />
                 <span>Export CSV</span>
@@ -312,7 +312,7 @@ export default function AnalyticsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">Total Opens</h3>
-              <Eye className="w-5 h-5 text-green-600" />
+              <Eye className="w-5 h-5 text-brand-green-600" />
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-2">
               {data.overview.totalOpens.toLocaleString()}
@@ -367,7 +367,7 @@ export default function AnalyticsPage() {
                   <div className="flex items-center space-x-2 mb-1">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-blue-600 h-2 rounded-full"
+                        className="bg-brand-blue-600 h-2 rounded-full"
                         style={{
                           width: `${(day.sent / Math.max(...data.timeline.map((d) => d.sent))) * 100}%`,
                         }}
@@ -380,7 +380,7 @@ export default function AnalyticsPage() {
                   <div className="flex items-center space-x-2 mb-1">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-green-600 h-2 rounded-full"
+                        className="bg-brand-green-600 h-2 rounded-full"
                         style={{
                           width: `${(day.opens / Math.max(...data.timeline.map((d) => d.opens))) * 100}%`,
                         }}
@@ -464,7 +464,7 @@ export default function AnalyticsPage() {
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                           campaign.openRate > 40
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : campaign.openRate > 30
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-red-100 text-red-800'
@@ -477,7 +477,7 @@ export default function AnalyticsPage() {
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                           campaign.clickRate > 8
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : campaign.clickRate > 5
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-red-100 text-red-800'
@@ -510,8 +510,8 @@ interface StatCardProps {
 
 function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
   const colorClasses = {
-    blue: 'text-blue-600 bg-blue-50',
-    green: 'text-green-600 bg-green-50',
+    blue: 'text-brand-blue-600 bg-blue-50',
+    green: 'text-brand-green-600 bg-green-50',
     purple: 'text-purple-600 bg-purple-50',
     red: 'text-red-600 bg-red-50',
   };
@@ -524,7 +524,7 @@ function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
         </div>
         {trend && (
           <div
-            className={`flex items-center space-x-1 ${trend === 'up' ? 'text-green-600' : 'text-red-600'}`}
+            className={`flex items-center space-x-1 ${trend === 'up' ? 'text-brand-green-600' : 'text-red-600'}`}
           >
             {trend === 'up' ? (
               <TrendingUp className="w-4 h-4" />

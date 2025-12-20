@@ -59,7 +59,7 @@ export default async function HoursTrackingPage() {
           </p>
           <Link
             href="/programs"
-            className="text-blue-600 hover:text-blue-700 font-semibold"
+            className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
           >
             Browse Programs
           </Link>
@@ -260,7 +260,7 @@ export default async function HoursTrackingPage() {
                           </p>
                         </div>
                         {enrollment.status === 'completed' ? (
-                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0" />
                         ) : (
                           <Clock className="w-5 h-5 text-purple-600 flex-shrink-0" />
                         )}
@@ -335,13 +335,13 @@ export default async function HoursTrackingPage() {
                   <span className="text-slate-700 font-medium">
                     Practical Hours
                   </span>
-                  <span className="text-2xl font-bold text-green-600">
+                  <span className="text-2xl font-bold text-brand-green-600">
                     {practicalHoursTotal} / {practicalRequired}
                   </span>
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
                   <div
-                    className="bg-green-600 h-full rounded-full transition-all duration-500"
+                    className="bg-brand-green-600 h-full rounded-full transition-all duration-500"
                     style={{ width: `${Math.min(practicalProgress, 100)}%` }}
                   />
                 </div>
@@ -369,7 +369,7 @@ export default async function HoursTrackingPage() {
                             {new Date(hour.date).toLocaleDateString()}
                           </p>
                         </div>
-                        <span className="text-lg font-bold text-green-600">
+                        <span className="text-lg font-bold text-brand-green-600">
                           {hour.hours}h
                         </span>
                       </div>
@@ -417,7 +417,7 @@ export default async function HoursTrackingPage() {
               </div>
               <div className="mt-2">
                 {theoryProgress >= 100 ? (
-                  <span className="inline-flex items-center gap-1 text-green-600 text-sm font-semibold">
+                  <span className="inline-flex items-center gap-1 text-brand-green-600 text-sm font-semibold">
                     <CheckCircle className="w-4 h-4" />
                     Complete
                   </span>
@@ -438,12 +438,12 @@ export default async function HoursTrackingPage() {
               </div>
               <div className="mt-2">
                 {practicalProgress >= 100 ? (
-                  <span className="inline-flex items-center gap-1 text-green-600 text-sm font-semibold">
+                  <span className="inline-flex items-center gap-1 text-brand-green-600 text-sm font-semibold">
                     <CheckCircle className="w-4 h-4" />
                     Complete
                   </span>
                 ) : (
-                  <span className="text-green-600 text-sm font-semibold">
+                  <span className="text-brand-green-600 text-sm font-semibold">
                     {practicalRequired - practicalHoursTotal} hours remaining
                   </span>
                 )}
@@ -457,12 +457,12 @@ export default async function HoursTrackingPage() {
               <div className="text-sm text-slate-600">Total Hours Required</div>
               <div className="mt-2">
                 {progressPercentage >= 100 ? (
-                  <span className="inline-flex items-center gap-1 text-green-600 text-sm font-semibold">
+                  <span className="inline-flex items-center gap-1 text-brand-green-600 text-sm font-semibold">
                     <CheckCircle className="w-4 h-4" />
                     Complete
                   </span>
                 ) : (
-                  <span className="text-blue-600 text-sm font-semibold">
+                  <span className="text-brand-blue-600 text-sm font-semibold">
                     {requiredHours - totalHours} hours remaining
                   </span>
                 )}
@@ -474,7 +474,7 @@ export default async function HoursTrackingPage() {
         {/* Help Section */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
           <div className="flex items-start gap-3">
-            <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <AlertCircle className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
             <div>
               <h3 className="text-lg font-semibold text-blue-900 mb-2">
                 How Hour Tracking Works

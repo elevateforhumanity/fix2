@@ -7,16 +7,19 @@ import { FileSignature, CheckCircle, Clock, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/signatures",
+    canonical: 'https://www.elevateforhumanity.org/admin/signatures',
   },
   title: 'Signatures Management | Elevate For Humanity',
-  description: 'Manage digital signatures, document approvals, and electronic consent forms.',
+  description:
+    'Manage digital signatures, document approvals, and electronic consent forms.',
 };
 
 export default async function SignaturesPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -26,18 +29,21 @@ export default async function SignaturesPage() {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
+
   // Fetch signatures data
   const { data: signatures, count: totalSignatures } = await supabase
     .from('signatures')
-    .select(`
+    .select(
+      `
       *,
       signer:profiles(full_name, email)
-    `, { count: 'exact' })
+    `,
+      { count: 'exact' }
+    )
     .order('created_at', { ascending: false })
     .limit(50);
 
@@ -70,18 +76,19 @@ export default async function SignaturesPage() {
             Signatures Management
           </h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">
-            Manage digital signatures, document approvals, and electronic consent forms
+            Manage digital signatures, document approvals, and electronic
+            consent forms
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admin/signatures/new"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Request New Signature
             </Link>
             <Link
               href="/admin/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Back to Dashboard
             </Link>
@@ -93,29 +100,38 @@ export default async function SignaturesPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <FileSignature className="h-8 w-8 text-blue-600" />
-                  <h3 className="text-sm font-medium text-gray-600">Total Signatures</h3>
+                  <FileSignature className="h-8 w-8 text-brand-blue-600" />
+                  <h3 className="text-sm font-medium text-gray-600">
+                    Total Signatures
+                  </h3>
                 </div>
-                <p className="text-3xl font-bold text-blue-600">{totalSignatures || 0}</p>
+                <p className="text-3xl font-bold text-brand-blue-600">
+                  {totalSignatures || 0}
+                </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Clock className="h-8 w-8 text-orange-600" />
+                  <Clock className="h-8 w-8 text-brand-orange-600" />
                   <h3 className="text-sm font-medium text-gray-600">Pending</h3>
                 </div>
-                <p className="text-3xl font-bold text-orange-600">{pendingSignatures || 0}</p>
+                <p className="text-3xl font-bold text-brand-orange-600">
+                  {pendingSignatures || 0}
+                </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <CheckCircle className="h-8 w-8 text-green-600" />
-                  <h3 className="text-sm font-medium text-gray-600">Completed</h3>
+                  <CheckCircle className="h-8 w-8 text-brand-green-600" />
+                  <h3 className="text-sm font-medium text-gray-600">
+                    Completed
+                  </h3>
                 </div>
-                <p className="text-3xl font-bold text-green-600">{completedSignatures || 0}</p>
+                <p className="text-3xl font-bold text-brand-green-600">
+                  {completedSignatures || 0}
+                </p>
               </div>
             </div>
 
@@ -125,26 +141,37 @@ export default async function SignaturesPage() {
               {signatures && signatures.length > 0 ? (
                 <div className="space-y-4">
                   {signatures.map((signature) => (
-                    <div key={signature.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                    <div
+                      key={signature.id}
+                      className="p-4 border rounded-lg hover:bg-gray-50"
+                    >
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="font-semibold">{signature.document_name || 'Untitled Document'}</h3>
+                          <h3 className="font-semibold">
+                            {signature.document_name || 'Untitled Document'}
+                          </h3>
                           <p className="text-sm text-gray-600 mt-1">
-                            Signer: {signature.signer?.full_name || signature.signer?.email || 'Unknown'}
+                            Signer:{' '}
+                            {signature.signer?.full_name ||
+                              signature.signer?.email ||
+                              'Unknown'}
                           </p>
                           <p className="text-sm text-gray-600">
-                            Requested: {new Date(signature.created_at).toLocaleDateString()}
+                            Requested:{' '}
+                            {new Date(
+                              signature.created_at
+                            ).toLocaleDateString()}
                           </p>
                         </div>
                         <div className="flex items-center gap-2">
                           {signature.status === 'completed' && (
-                            <span className="flex items-center gap-1 text-green-600 text-sm font-medium bg-green-100 px-3 py-1 rounded-full">
+                            <span className="flex items-center gap-1 text-brand-green-600 text-sm font-medium bg-brand-green-100 px-3 py-1 rounded-full">
                               <CheckCircle className="h-4 w-4" />
                               Completed
                             </span>
                           )}
                           {signature.status === 'pending' && (
-                            <span className="flex items-center gap-1 text-orange-600 text-sm font-medium bg-orange-100 px-3 py-1 rounded-full">
+                            <span className="flex items-center gap-1 text-brand-orange-600 text-sm font-medium bg-orange-100 px-3 py-1 rounded-full">
                               <Clock className="h-4 w-4" />
                               Pending
                             </span>
@@ -161,21 +188,25 @@ export default async function SignaturesPage() {
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-500 text-center py-8">No signatures found</p>
+                <p className="text-gray-500 text-center py-8">
+                  No signatures found
+                </p>
               )}
             </div>
-            
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
+              Join thousands who have launched successful careers through our
+              programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link

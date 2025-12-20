@@ -4,10 +4,11 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/funding/wrg",
+    canonical: 'https://www.elevateforhumanity.org/funding/wrg',
   },
   title: 'WRG Free Training | Elevate For Humanity',
-  description: 'Get 100% free career training through WRG (Workforce Ready Grant). Indiana residents qualify. No income limits. No age limits.',
+  description:
+    'Get 100% free career training through WRG (Workforce Ready Grant). Indiana residents qualify. No income limits. No age limits.',
 };
 
 export default function WrgPage() {
@@ -30,19 +31,27 @@ export default function WrgPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-base md:text-lg text-slate-700 mb-6 leading-relaxed">
-            Maria didn't know WRG existed. She was working at Target for $14/hour, barely making rent.
+            Maria didn't know WRG existed. She was working at Target for
+            $14/hour, barely making rent.
           </p>
           <p className="text-lg text-slate-600 mb-6">
-            She wanted to become a Medical Assistant, but training cost $4,325. She couldn't afford it. She looked into student loans, but the interest rates were insane. She was stuck.
+            She wanted to become a Medical Assistant, but training cost $4,325.
+            She couldn't afford it. She looked into student loans, but the
+            interest rates were insane. She was stuck.
           </p>
           <p className="text-lg text-slate-600 mb-6">
-            Then a friend told her about WRG—the Workforce Ready Grant. "It's free training," her friend said. "The state of Indiana pays for it."
+            Then a friend told her about WRG—the Workforce Ready Grant. "It's
+            free training," her friend said. "The state of Indiana pays for it."
           </p>
           <p className="text-lg text-slate-600 mb-6">
-            Maria didn't believe it at first. Free? No catch? But she applied anyway. Two weeks later, she was approved. The state paid her entire $4,325 tuition. Books included. Certifications included. Everything.
+            Maria didn't believe it at first. Free? No catch? But she applied
+            anyway. Two weeks later, she was approved. The state paid her entire
+            $4,325 tuition. Books included. Certifications included. Everything.
           </p>
           <p className="text-lg text-slate-600 mb-6">
-            21 days later, Maria graduated as a Certified Medical Assistant. She got hired at a clinic making $42,000/year with health insurance. "WRG changed my life," she says. "I didn't even know it existed."
+            21 days later, Maria graduated as a Certified Medical Assistant. She
+            got hired at a clinic making $42,000/year with health insurance.
+            "WRG changed my life," she says. "I didn't even know it existed."
           </p>
           <p className="text-lg text-slate-600">
             Most people don't. But now you do.
@@ -54,33 +63,57 @@ export default function WrgPage() {
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8">What is WRG?</h2>
-          
+
           <p className="text-lg text-slate-700 mb-6">
-            WRG stands for <strong>Workforce Ready Grant</strong>. It's Indiana's program to help residents get free short-term career training (4-12 weeks) in high-demand fields.
+            WRG stands for <strong>Workforce Ready Grant</strong>. It's
+            Indiana's program to help residents get free short-term career
+            training (4-12 weeks) in high-demand fields.
           </p>
 
           <p className="text-lg text-slate-700 mb-6">
-            The state pays for your tuition, books, fees, and certifications. You pay nothing. No loans. No debt. Just free training that leads to real jobs.
+            The state pays for your tuition, books, fees, and certifications.
+            You pay nothing. No loans. No debt. Just free training that leads to
+            real jobs.
           </p>
 
           <div className="bg-green-50 rounded-lg p-6">
-            <h3 className="text-lg font-bold mb-3 text-green-900">Who Qualifies?</h3>
+            <h3 className="text-lg font-bold mb-3 text-green-900">
+              Who Qualifies?
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
-                <span className="text-slate-700"><strong>Indiana resident</strong> (live in Indiana)</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
+                <span className="text-slate-700">
+                  <strong>Indiana resident</strong> (live in Indiana)
+                </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
-                <span className="text-slate-700"><strong>High school diploma or GED</strong></span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
+                <span className="text-slate-700">
+                  <strong>High school diploma or GED</strong>
+                </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
-                <span className="text-slate-700"><strong>No bachelor's degree or higher</strong> (in most cases)</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
+                <span className="text-slate-700">
+                  <strong>No bachelor's degree or higher</strong> (in most
+                  cases)
+                </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold text-base">✓</span>
-                <span className="text-slate-700"><strong>Enroll in a WRG-approved program</strong> (we're approved!)</span>
+                <span className="text-brand-green-600 font-bold text-base">
+                  ✓
+                </span>
+                <span className="text-slate-700">
+                  <strong>Enroll in a WRG-approved program</strong> (we're
+                  approved!)
+                </span>
               </li>
             </ul>
             <p className="mt-4 text-green-900 font-bold">
@@ -93,32 +126,43 @@ export default function WrgPage() {
       {/* What WRG Covers */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">What Does WRG Cover?</h2>
-          
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            What Does WRG Cover?
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Tuition</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">
+                ✓ Tuition
+              </h3>
               <p className="text-slate-700">
-                100% of training costs. Whether it's $575 for CPR or $5,000 for HVAC, WRG pays for it.
+                100% of training costs. Whether it's $575 for CPR or $5,000 for
+                HVAC, WRG pays for it.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Books & Materials</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">
+                ✓ Books & Materials
+              </h3>
               <p className="text-slate-700">
                 Textbooks, workbooks, study guides—all included.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-3 text-green-900">✓ Certification Exams</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">
+                ✓ Certification Exams
+              </h3>
               <p className="text-slate-700">
                 State exams, industry certifications, licensing fees—covered.
               </p>
             </div>
 
             <div className="bg-green-50 rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-3 text-green-900">✓ No Payback Required</h3>
+              <h3 className="text-lg font-bold mb-3 text-green-900">
+                ✓ No Payback Required
+              </h3>
               <p className="text-slate-700">
                 WRG is a grant, not a loan. You never pay it back. Ever.
               </p>
@@ -130,8 +174,10 @@ export default function WrgPage() {
       {/* Programs Covered */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Which Programs Are WRG-Approved?</h2>
-          
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            Which Programs Are WRG-Approved?
+          </h2>
+
           <p className="text-lg text-slate-700 mb-6">
             All of our programs are WRG-approved. Here are the most popular:
           </p>
@@ -139,45 +185,73 @@ export default function WrgPage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-bold mb-2">Medical Assistant</h3>
-              <p className="text-slate-600 mb-2">21 days • $4,325 (FREE with WRG)</p>
-              <p className="text-sm text-slate-500">Start earning $40K-$45K/year</p>
+              <p className="text-slate-600 mb-2">
+                21 days • $4,325 (FREE with WRG)
+              </p>
+              <p className="text-sm text-slate-500">
+                Start earning $40K-$45K/year
+              </p>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-bold mb-2">HVAC Technician</h3>
-              <p className="text-slate-600 mb-2">60 days • $5,000 (FREE with WRG)</p>
-              <p className="text-sm text-slate-500">Start earning $45K-$60K/year</p>
+              <p className="text-slate-600 mb-2">
+                60 days • $5,000 (FREE with WRG)
+              </p>
+              <p className="text-sm text-slate-500">
+                Start earning $45K-$60K/year
+              </p>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-bold mb-2">CPR Certification</h3>
-              <p className="text-slate-600 mb-2">1 day • $575 (FREE with WRG)</p>
-              <p className="text-sm text-slate-500">Required for most healthcare jobs</p>
+              <p className="text-slate-600 mb-2">
+                1 day • $575 (FREE with WRG)
+              </p>
+              <p className="text-sm text-slate-500">
+                Required for most healthcare jobs
+              </p>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-bold mb-2">Professional Esthetician</h3>
-              <p className="text-slate-600 mb-2">5 weeks • $4,575 (FREE with WRG)</p>
-              <p className="text-sm text-slate-500">Start earning $35K-$50K/year</p>
+              <h3 className="text-lg font-bold mb-2">
+                Professional Esthetician
+              </h3>
+              <p className="text-slate-600 mb-2">
+                5 weeks • $4,575 (FREE with WRG)
+              </p>
+              <p className="text-sm text-slate-500">
+                Start earning $35K-$50K/year
+              </p>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-lg font-bold mb-2">Peer Recovery Coach</h3>
-              <p className="text-slate-600 mb-2">45 days • $4,750 (FREE with WRG)</p>
-              <p className="text-sm text-slate-500">Start earning $35K-$45K/year</p>
+              <p className="text-slate-600 mb-2">
+                45 days • $4,750 (FREE with WRG)
+              </p>
+              <p className="text-sm text-slate-500">
+                Start earning $35K-$45K/year
+              </p>
             </div>
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-bold mb-2">Tax Prep & Financial Services</h3>
-              <p className="text-slate-600 mb-2">10 weeks • $4,950 (FREE with WRG)</p>
-              <p className="text-sm text-slate-500">Seasonal income + year-round bookkeeping</p>
+              <h3 className="text-lg font-bold mb-2">
+                Tax Prep & Financial Services
+              </h3>
+              <p className="text-slate-600 mb-2">
+                10 weeks • $4,950 (FREE with WRG)
+              </p>
+              <p className="text-sm text-slate-500">
+                Seasonal income + year-round bookkeeping
+              </p>
             </div>
           </div>
 
           <div className="mt-8 text-center">
             <Link
               href="/programs"
-              className="inline-block px-8 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
+              className="inline-block px-8 py-4 bg-brand-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
             >
               View All Programs
             </Link>
@@ -188,55 +262,83 @@ export default function WrgPage() {
       {/* How to Apply */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">How to Apply for WRG</h2>
-          
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            How to Apply for WRG
+          </h2>
+
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">1</div>
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">
+                1
+              </div>
               <div>
                 <h3 className="text-lg font-bold mb-2">Contact Us</h3>
                 <p className="text-slate-600">
-                  Call <a href="tel:3173143757" className="text-green-600 font-bold">317-314-3757</a> or fill out our contact form. Tell us which program you're interested in.
+                  Call{' '}
+                  <a
+                    href="tel:3173143757"
+                    className="text-brand-green-600 font-bold"
+                  >
+                    317-314-3757
+                  </a>{' '}
+                  or fill out our contact form. Tell us which program you're
+                  interested in.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">2</div>
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">
+                2
+              </div>
               <div>
-                <h3 className="text-lg font-bold mb-2">We Check Your Eligibility</h3>
+                <h3 className="text-lg font-bold mb-2">
+                  We Check Your Eligibility
+                </h3>
                 <p className="text-slate-600">
-                  We'll verify you're an Indiana resident with a high school diploma/GED. Takes 5 minutes.
+                  We'll verify you're an Indiana resident with a high school
+                  diploma/GED. Takes 5 minutes.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">3</div>
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">
+                3
+              </div>
               <div>
                 <h3 className="text-lg font-bold mb-2">Apply for WRG</h3>
                 <p className="text-slate-600">
-                  We help you complete the WRG application online. It's simple—we walk you through every step.
+                  We help you complete the WRG application online. It's
+                  simple—we walk you through every step.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">4</div>
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">
+                4
+              </div>
               <div>
                 <h3 className="text-lg font-bold mb-2">Get Approved</h3>
                 <p className="text-slate-600">
-                  Most students get approved within 1-2 weeks. The state sends us the payment directly.
+                  Most students get approved within 1-2 weeks. The state sends
+                  us the payment directly.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">5</div>
+              <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center text-base font-bold flex-shrink-0">
+                5
+              </div>
               <div>
-                <h3 className="text-lg font-bold mb-2">Start Training (For Free)</h3>
+                <h3 className="text-lg font-bold mb-2">
+                  Start Training (For Free)
+                </h3>
                 <p className="text-slate-600">
-                  Once approved, you start immediately. No tuition bills. No loans. Just training.
+                  Once approved, you start immediately. No tuition bills. No
+                  loans. Just training.
                 </p>
               </div>
             </div>
@@ -247,32 +349,48 @@ export default function WrgPage() {
       {/* FAQ */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Common Questions</h2>
-          
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            Common Questions
+          </h2>
+
           <div className="space-y-6">
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-2">Can I use WRG if I'm working full-time?</h3>
+              <h3 className="text-lg font-bold mb-2">
+                Can I use WRG if I'm working full-time?
+              </h3>
               <p className="text-slate-600">
-                Yes! WRG has no income limits. You can be working full-time and still qualify. Most of our programs are hybrid (online + hands-on), so you can study around your work schedule.
+                Yes! WRG has no income limits. You can be working full-time and
+                still qualify. Most of our programs are hybrid (online +
+                hands-on), so you can study around your work schedule.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-2">What if I already have an associate degree?</h3>
+              <h3 className="text-lg font-bold mb-2">
+                What if I already have an associate degree?
+              </h3>
               <p className="text-slate-600">
-                You can still qualify for WRG if your degree is in a different field. For example, if you have an associate's in business but want to train in healthcare, you're eligible.
+                You can still qualify for WRG if your degree is in a different
+                field. For example, if you have an associate's in business but
+                want to train in healthcare, you're eligible.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-2">How many times can I use WRG?</h3>
+              <h3 className="text-lg font-bold mb-2">
+                How many times can I use WRG?
+              </h3>
               <p className="text-slate-600">
-                You can use WRG for multiple programs, as long as you complete each one successfully. Many students use it for CPR first, then come back for Medical Assistant or HVAC training.
+                You can use WRG for multiple programs, as long as you complete
+                each one successfully. Many students use it for CPR first, then
+                come back for Medical Assistant or HVAC training.
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-lg font-bold mb-2">Do I have to pay it back?</h3>
+              <h3 className="text-lg font-bold mb-2">
+                Do I have to pay it back?
+              </h3>
               <p className="text-slate-600">
                 No. WRG is a grant, not a loan. You never pay it back. Ever.
               </p>
@@ -284,15 +402,19 @@ export default function WrgPage() {
       {/* Real Stories */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Real WRG Success Stories</h2>
-          
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            Real WRG Success Stories
+          </h2>
+
           <div className="space-y-8">
             <div className="bg-slate-50 rounded-lg p-6">
               <p className="text-lg text-slate-700 mb-4">
                 <strong>Maria, 34 - Medical Assistant</strong>
               </p>
               <p className="text-slate-600">
-                "I was working at Target for $14/hour. I couldn't afford training. WRG paid my entire $4,325 tuition. Now I'm a Medical Assistant making $42K/year with benefits. WRG changed my life."
+                "I was working at Target for $14/hour. I couldn't afford
+                training. WRG paid my entire $4,325 tuition. Now I'm a Medical
+                Assistant making $42K/year with benefits. WRG changed my life."
               </p>
             </div>
 
@@ -301,7 +423,10 @@ export default function WrgPage() {
                 <strong>David, 28 - HVAC Technician</strong>
               </p>
               <p className="text-slate-600">
-                "I was stuck in retail making $12/hour. WRG paid for my HVAC training—$5,000, completely free. 60 days later, I got hired at $55K/year. I own a house now. I have savings. WRG gave me a future."
+                "I was stuck in retail making $12/hour. WRG paid for my HVAC
+                training—$5,000, completely free. 60 days later, I got hired at
+                $55K/year. I own a house now. I have savings. WRG gave me a
+                future."
               </p>
             </div>
 
@@ -310,7 +435,10 @@ export default function WrgPage() {
                 <strong>Tasha, 41 - Professional Esthetician</strong>
               </p>
               <p className="text-slate-600">
-                "I always wanted to work in beauty, but I couldn't afford esthetician school. WRG paid for everything—$4,575. Now I work at a spa making $45K/year plus tips. I love my job. WRG made it possible."
+                "I always wanted to work in beauty, but I couldn't afford
+                esthetician school. WRG paid for everything—$4,575. Now I work
+                at a spa making $45K/year plus tips. I love my job. WRG made it
+                possible."
               </p>
             </div>
           </div>
@@ -318,18 +446,25 @@ export default function WrgPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-green-600 text-white text-center">
+      <section className="py-16 bg-brand-green-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Apply for WRG?</h2>
-          <p className="text-base md:text-lg mb-8">Free training starts here.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Ready to Apply for WRG?
+          </h2>
+          <p className="text-base md:text-lg mb-8">
+            Free training starts here.
+          </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-5 bg-white text-green-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
+            className="inline-block px-10 py-5 bg-white text-brand-green-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
           >
             Check My Eligibility
           </Link>
           <p className="mt-6 text-white/90">
-            Questions? Call <a href="tel:3173143757" className="font-bold underline">317-314-3757</a>
+            Questions? Call{' '}
+            <a href="tel:3173143757" className="font-bold underline">
+              317-314-3757
+            </a>
           </p>
         </div>
       </section>

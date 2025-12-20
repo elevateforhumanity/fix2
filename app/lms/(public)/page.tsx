@@ -12,7 +12,7 @@ export default async function LmsPublicPage() {
   // Check if user is logged in and redirect to dashboard
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
-  
+
   if (data?.user) {
     redirect('/lms/dashboard');
   }
@@ -25,14 +25,15 @@ export default async function LmsPublicPage() {
             Student Learning Portal
           </h1>
           <p className="mt-4 text-lg text-zinc-700">
-            Access your courses, track your progress, and earn industry-recognized certifications. 
-            Your path to a better career starts here.
+            Access your courses, track your progress, and earn
+            industry-recognized certifications. Your path to a better career
+            starts here.
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href="/login?next=/lms/dashboard"
-              className="rounded-xl bg-blue-600 text-white px-5 py-3 font-bold hover:bg-blue-700 text-center"
+              className="rounded-xl bg-brand-blue-600 text-white px-5 py-3 font-bold hover:bg-brand-blue-700 text-center"
             >
               Student Login
             </Link>
@@ -80,8 +81,9 @@ export default async function LmsPublicPage() {
             Ready to Start Learning?
           </h2>
           <p className="mt-4 text-lg text-zinc-700 max-w-3xl">
-            Join thousands of students who are building better careers through our free training programs. 
-            100% funded - no tuition, no hidden costs.
+            Join thousands of students who are building better careers through
+            our free training programs. 100% funded - no tuition, no hidden
+            costs.
           </p>
           <ol className="mt-6 space-y-3 list-decimal pl-5 text-zinc-700 max-w-3xl">
             <li>Apply for a program that matches your career goals</li>
@@ -94,7 +96,7 @@ export default async function LmsPublicPage() {
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <Link
               href="/apply"
-              className="rounded-xl bg-blue-600 text-white px-5 py-3 font-bold hover:bg-blue-700 text-center"
+              className="rounded-xl bg-brand-blue-600 text-white px-5 py-3 font-bold hover:bg-brand-blue-700 text-center"
             >
               Apply Now - It's Free
             </Link>

@@ -53,7 +53,7 @@ export default function ApprovalsPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
-            <Shield className="w-12 h-12 text-blue-600" />
+            <Shield className="w-12 h-12 text-brand-blue-600" />
             <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               State & Workforce Approvals
             </h2>
@@ -61,9 +61,9 @@ export default function ApprovalsPage() {
 
           <div className="space-y-8">
             {/* INTraining */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-blue-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-blue-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     INTraining Approved Provider – Indiana Department of
@@ -83,9 +83,9 @@ export default function ApprovalsPage() {
             </div>
 
             {/* ETPL */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-blue-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-blue-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     Eligible Training Provider (ETP) – WIOA-funded training
@@ -99,9 +99,9 @@ export default function ApprovalsPage() {
             </div>
 
             {/* WRG */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-blue-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-blue-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     Workforce Ready Grant (WRG) Training Provider
@@ -115,9 +115,9 @@ export default function ApprovalsPage() {
             </div>
 
             {/* JRI */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-blue-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-blue-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     Job Ready Indy (JRI) Training Partner – Marion County
@@ -131,9 +131,9 @@ export default function ApprovalsPage() {
             </div>
 
             {/* ITAP */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-blue-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-blue-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     ITAP / INDOT Registration
@@ -163,7 +163,7 @@ export default function ApprovalsPage() {
             {/* DOL Apprenticeship */}
             <div className="bg-white rounded-2xl p-8 border-l-4 border-red-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     U.S. Department of Labor Registered Apprenticeship Sponsor
@@ -184,7 +184,7 @@ export default function ApprovalsPage() {
             {/* SAM.gov */}
             <div className="bg-white rounded-2xl p-8 border-l-4 border-red-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     SAM.gov Active Federal Contractor (Selfish Inc)
@@ -208,7 +208,7 @@ export default function ApprovalsPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
-            <Award className="w-12 h-12 text-orange-600" />
+            <Award className="w-12 h-12 text-brand-orange-600" />
             <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Certification & Testing Partnerships
             </h2>
@@ -216,9 +216,9 @@ export default function ApprovalsPage() {
 
           <div className="space-y-8">
             {/* Certiport */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-orange-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-orange-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     Certiport Authorized Testing Center
@@ -229,28 +229,29 @@ export default function ApprovalsPage() {
                   </p>
                   <ul className="grid md:grid-cols-2 gap-3">
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Microsoft Office
-                      Specialist (MOS)
+                      <span className="text-brand-green-600">✓</span> Microsoft
+                      Office Specialist (MOS)
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> IC3 Digital
-                      Literacy
+                      <span className="text-brand-green-600">✓</span> IC3
+                      Digital Literacy
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> IT Specialist
-                      (Networking, Security, Python, Databases, HTML/CSS/JS)
+                      <span className="text-brand-green-600">✓</span> IT
+                      Specialist (Networking, Security, Python, Databases,
+                      HTML/CSS/JS)
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Adobe Certified
-                      Professional
+                      <span className="text-brand-green-600">✓</span> Adobe
+                      Certified Professional
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Entrepreneurship
-                      & Small Business (ESB)
+                      <span className="text-brand-green-600">✓</span>{' '}
+                      Entrepreneurship & Small Business (ESB)
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Communication
-                      Skills for Business (CSB)
+                      <span className="text-brand-green-600">✓</span>{' '}
+                      Communication Skills for Business (CSB)
                     </li>
                   </ul>
                 </div>
@@ -258,9 +259,9 @@ export default function ApprovalsPage() {
             </div>
 
             {/* Milady RISE */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-orange-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-orange-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     Milady RISE Partner School – Client Well-Being & Safety
@@ -282,9 +283,9 @@ export default function ApprovalsPage() {
             </div>
 
             {/* CareerSafe */}
-            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-orange-600">
+            <div className="bg-slate-50 rounded-2xl p-8 border-l-4 border-brand-orange-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     CareerSafe / OSHA-aligned Safety Training
@@ -314,7 +315,7 @@ export default function ApprovalsPage() {
             {/* 501(c)(3) */}
             <div className="bg-white rounded-2xl p-8 border-l-4 border-purple-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     501(c)(3) Nonprofit – Selfish Inc
@@ -329,7 +330,7 @@ export default function ApprovalsPage() {
             {/* Candid */}
             <div className="bg-white rounded-2xl p-8 border-l-4 border-purple-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     Candid/Guidestar Registered Nonprofit
@@ -345,7 +346,7 @@ export default function ApprovalsPage() {
             {/* ByBlack */}
             <div className="bg-white rounded-2xl p-8 border-l-4 border-purple-600">
               <div className="flex items-start gap-4">
-                <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-8 h-8 text-brand-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg md:text-lg font-bold mb-3">
                     ByBlack Certified Black-Owned Business
@@ -361,7 +362,7 @@ export default function ApprovalsPage() {
       </section>
 
       {/* Why This Matters */}
-      <section className="py-20 bg-blue-700">
+      <section className="py-20 bg-brand-blue-700">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <FileCheck className="w-12 h-12 text-white" />

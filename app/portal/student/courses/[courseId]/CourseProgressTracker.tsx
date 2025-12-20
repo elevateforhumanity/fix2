@@ -63,17 +63,25 @@ export default function CourseProgressTracker({
         <div
           key={lesson.id}
           className={`flex items-center justify-between p-4 border rounded-lg transition-colors ${
-            lesson.completed ? 'bg-green-50 border-green-200' : 'bg-white hover:bg-gray-50'
+            lesson.completed
+              ? 'bg-green-50 border-green-200'
+              : 'bg-white hover:bg-gray-50'
           }`}
         >
           <div className="flex items-center">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-                lesson.completed ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-600'
+                lesson.completed
+                  ? 'bg-brand-green-600 text-white'
+                  : 'bg-gray-200 text-gray-600'
               }`}
             >
               {lesson.completed ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -85,7 +93,9 @@ export default function CourseProgressTracker({
               )}
             </div>
             <div>
-              <p className={`font-medium ${lesson.completed ? 'text-green-900' : 'text-gray-900'}`}>
+              <p
+                className={`font-medium ${lesson.completed ? 'text-green-900' : 'text-gray-900'}`}
+              >
                 {lesson.title}
               </p>
               <p className="text-sm text-gray-600">
@@ -97,13 +107,15 @@ export default function CourseProgressTracker({
             <button
               onClick={() => updateProgress(index)}
               disabled={updating || index > completed}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed text-sm"
+              className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed text-sm"
             >
               {updating ? 'Updating...' : 'Mark Complete'}
             </button>
           )}
           {lesson.completed && (
-            <span className="text-green-600 font-medium text-sm">✓ Done</span>
+            <span className="text-brand-green-600 font-medium text-sm">
+              ✓ Done
+            </span>
           )}
         </div>
       ))}

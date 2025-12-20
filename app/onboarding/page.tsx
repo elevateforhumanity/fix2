@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
@@ -90,21 +90,21 @@ export default async function OnboardingPage() {
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Access 30+ training programs</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>100% free - no tuition</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Earn industry certifications</span>
@@ -132,21 +132,21 @@ export default async function OnboardingPage() {
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Enroll and manage students</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Track student progress</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Generate compliance reports</span>
@@ -174,21 +174,21 @@ export default async function OnboardingPage() {
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Access trained candidates</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Custom training programs</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <CheckCircle
-                    className="text-green-600 mr-2 flex-shrink-0 mt-0.5"
+                    className="text-brand-green-600 mr-2 flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span>Workforce development</span>
@@ -203,7 +203,7 @@ export default async function OnboardingPage() {
           </div>
         </div>
       </section>
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Get Started?

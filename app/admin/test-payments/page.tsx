@@ -38,12 +38,12 @@ export default function TestPaymentsPage() {
         <div className="mb-8">
           <Link
             href="/admin/dashboard"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center gap-3 mb-2">
-            <CreditCard className="w-8 h-8 text-blue-600" />
+            <CreditCard className="w-8 h-8 text-brand-blue-600" />
             <h1 className="text-3xl font-bold text-gray-900">
               Payment System Status
             </h1>
@@ -61,7 +61,7 @@ export default function TestPaymentsPage() {
 
           {loading ? (
             <div className="text-center py-4">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-blue-600 mx-auto"></div>
             </div>
           ) : (
             <div className="space-y-3">
@@ -70,7 +70,7 @@ export default function TestPaymentsPage() {
                   Stripe API Key
                 </span>
                 {stripeConfigured ? (
-                  <span className="flex items-center gap-1 text-sm text-green-600 font-medium">
+                  <span className="flex items-center gap-1 text-sm text-brand-green-600 font-medium">
                     <CheckCircle className="w-4 h-4" />
                     Configured
                   </span>
@@ -85,7 +85,7 @@ export default function TestPaymentsPage() {
                 <span className="text-sm font-medium text-gray-700">
                   Checkout Endpoint
                 </span>
-                <span className="flex items-center gap-1 text-sm text-green-600 font-medium">
+                <span className="flex items-center gap-1 text-sm text-brand-green-600 font-medium">
                   <CheckCircle className="w-4 h-4" />
                   Available
                 </span>
@@ -94,7 +94,7 @@ export default function TestPaymentsPage() {
                 <span className="text-sm font-medium text-gray-700">
                   Webhook Handler
                 </span>
-                <span className="flex items-center gap-1 text-sm text-green-600 font-medium">
+                <span className="flex items-center gap-1 text-sm text-brand-green-600 font-medium">
                   <CheckCircle className="w-4 h-4" />
                   Configured
                 </span>
@@ -110,7 +110,7 @@ export default function TestPaymentsPage() {
           </h2>
           <div className="space-y-3">
             <div className="flex items-start gap-3 p-3 bg-green-50 rounded border border-green-200">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-green-900">
                   Stripe Checkout Integration
@@ -121,7 +121,7 @@ export default function TestPaymentsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-green-50 rounded border border-green-200">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-green-900">
                   Webhook Processing
@@ -132,7 +132,7 @@ export default function TestPaymentsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-green-50 rounded border border-green-200">
-              <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-green-900">
                   Subscription Management
@@ -152,7 +152,7 @@ export default function TestPaymentsPage() {
           </h2>
           <div className="space-y-3">
             <div className="flex items-start gap-3 p-3 bg-blue-50 rounded border border-blue-200">
-              <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <DollarSign className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-blue-900">
                   Free Enrollment via WIOA
@@ -163,7 +163,7 @@ export default function TestPaymentsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-blue-50 rounded border border-blue-200">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-blue-900">
                   Funding Source Tracking
@@ -175,7 +175,7 @@ export default function TestPaymentsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-blue-50 rounded border border-blue-200">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-blue-900">
                   Tuition Amount Tracking
@@ -187,7 +187,7 @@ export default function TestPaymentsPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-blue-50 rounded border border-blue-200">
-              <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="font-medium text-blue-900">
                   RAPIDS Integration

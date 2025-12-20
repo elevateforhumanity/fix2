@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 const blogPosts = [
   {
     id: 1,
-    title: 'From Unemployed to HVAC Technician: Marcus\'s Journey',
+    title: "From Unemployed to HVAC Technician: Marcus's Journey",
     excerpt:
-      'After losing his job during the pandemic, Marcus enrolled in our HVAC program. Six months later, he\'s earning $55,000/year with full benefits.',
+      "After losing his job during the pandemic, Marcus enrolled in our HVAC program. Six months later, he's earning $55,000/year with full benefits.",
     image: '/images/blog/hvac-success.jpg',
     category: 'Success Story',
     date: 'December 15, 2024',
@@ -26,7 +26,7 @@ const blogPosts = [
     id: 2,
     title: 'New Partnership with Indiana Career Connect',
     excerpt:
-      'We\'re excited to announce our expanded partnership with Indiana Career Connect, bringing more funding opportunities to students across Indianapolis.',
+      "We're excited to announce our expanded partnership with Indiana Career Connect, bringing more funding opportunities to students across Indianapolis.",
     image: '/images/blog/partnership.jpg',
     category: 'News',
     date: 'December 10, 2024',
@@ -48,7 +48,7 @@ const blogPosts = [
     id: 5,
     title: 'Meet Sarah: CNA to Nursing School',
     excerpt:
-      'Sarah started as a CNA through our program. Now she\'s enrolled in nursing school while working full-time, with her employer covering tuition.',
+      "Sarah started as a CNA through our program. Now she's enrolled in nursing school while working full-time, with her employer covering tuition.",
     image: '/images/blog/sarah-cna.jpg',
     category: 'Success Story',
     date: 'November 20, 2024',
@@ -86,7 +86,8 @@ export default function BlogPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
             <p className="text-xl text-white/90">
-              Success stories, program updates, and career insights from our students and partners.
+              Success stories, program updates, and career insights from our
+              students and partners.
             </p>
           </div>
         </div>
@@ -113,8 +114,8 @@ export default function BlogPage() {
                   key={category}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                     category === 'All Posts'
-                      ? 'bg-orange-600 text-white'
-                      : 'bg-white text-slate-700 border border-slate-300 hover:border-orange-600 hover:text-orange-600'
+                      ? 'bg-brand-orange-600 text-white'
+                      : 'bg-white text-slate-700 border border-slate-300 hover:border-brand-orange-600 hover:text-brand-orange-600'
                   }`}
                 >
                   {category}
@@ -154,10 +155,12 @@ export default function BlogPage() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition line-clamp-2">
+                  <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition line-clamp-2">
                     {post.title}
                   </h2>
-                  <p className="text-slate-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                  <p className="text-slate-600 mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
 
                   {/* Meta */}
                   <div className="flex items-center gap-4 text-sm text-slate-500">
@@ -172,7 +175,7 @@ export default function BlogPage() {
                   </div>
 
                   {/* Read More */}
-                  <div className="mt-4 flex items-center gap-2 text-orange-600 font-semibold group-hover:gap-3 transition-all">
+                  <div className="mt-4 flex items-center gap-2 text-brand-orange-600 font-semibold group-hover:gap-3 transition-all">
                     Read More
                     <ArrowRight className="w-4 h-4" />
                   </div>
@@ -197,11 +200,12 @@ export default function BlogPage() {
             Ready to Start Your Success Story?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Join hundreds of students who have transformed their careers through our free training programs.
+            Join hundreds of students who have transformed their careers through
+            our free training programs.
           </p>
           <Link
             href="/apply"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 hover:bg-slate-50 rounded-lg font-bold text-lg transition shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-orange-600 hover:bg-slate-50 rounded-lg font-bold text-lg transition shadow-lg"
           >
             Apply Now
             <ArrowRight className="w-5 h-5" />

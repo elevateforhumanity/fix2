@@ -157,7 +157,7 @@ export default function BookingPage() {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                     step >= s
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-brand-blue-600 text-white'
                       : 'bg-slate-200 text-slate-600'
                   }`}
                 >
@@ -165,7 +165,7 @@ export default function BookingPage() {
                 </div>
                 {s < 3 && (
                   <div
-                    className={`w-24 h-1 ${step > s ? 'bg-blue-600' : 'bg-slate-200'}`}
+                    className={`w-24 h-1 ${step > s ? 'bg-brand-blue-600' : 'bg-slate-200'}`}
                   />
                 )}
               </div>
@@ -275,7 +275,7 @@ export default function BookingPage() {
                   onClick={() => setSelectedPlatform('zoom')}
                   className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
                     selectedPlatform === 'zoom'
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-brand-blue-600 text-white'
                       : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
                   }`}
                 >
@@ -339,7 +339,7 @@ export default function BookingPage() {
                         className={`px-4 py-3 rounded-lg font-semibold transition-all ${
                           slot.available
                             ? selectedSlot?.id === slot.id
-                              ? 'bg-blue-600 text-white'
+                              ? 'bg-brand-blue-600 text-white'
                               : 'bg-slate-100 text-slate-900 hover:bg-blue-100'
                             : 'bg-slate-50 text-slate-400 cursor-not-allowed'
                         }`}
@@ -446,7 +446,7 @@ export default function BookingPage() {
               <button
                 onClick={handleBooking}
                 disabled={loading || !topic}
-                className="flex-1 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-8 py-4 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Booking...' : 'Confirm Booking'}
               </button>
@@ -462,7 +462,7 @@ export default function BookingPage() {
             <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-start gap-3">
                 <svg
-                  className="w-6 h-6 text-blue-600 flex-shrink-0"
+                  className="w-6 h-6 text-brand-blue-600 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

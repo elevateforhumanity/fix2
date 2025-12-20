@@ -82,13 +82,13 @@ export default async function VerifyCertificatePage({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 View Programs
               </Link>
@@ -120,7 +120,7 @@ export default async function VerifyCertificatePage({
           </div>
           <Link
             href="/certificates/verify"
-            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+            className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700"
           >
             Start Another Certificate
           </Link>
@@ -144,7 +144,7 @@ export default async function VerifyCertificatePage({
                     <ul className="space-y-4">
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -162,7 +162,7 @@ export default async function VerifyCertificatePage({
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ export default async function VerifyCertificatePage({
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -199,7 +199,7 @@ export default async function VerifyCertificatePage({
                       </li>
                       <li className="flex items-start">
                         <svg
-                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -292,7 +292,7 @@ export default async function VerifyCertificatePage({
         >
           <div className="flex items-center gap-4 mb-4">
             {isValid ? (
-              <CheckCircle className="w-12 h-12 text-green-600" />
+              <CheckCircle className="w-12 h-12 text-brand-green-600" />
             ) : (
               <XCircle className="w-12 h-12 text-red-600" />
             )}
@@ -406,7 +406,7 @@ export default async function VerifyCertificatePage({
                 <a
                   href={certificate.certificate_url}
                   download
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700"
                 >
                   <Download className="w-5 h-5" />
                   Download Certificate
@@ -432,14 +432,14 @@ export default async function VerifyCertificatePage({
             Questions about this certificate? Contact us at{' '}
             <a
               href="mailto:Elevate4humanityedu@gmail.com"
-              className="text-blue-600 hover:underline"
+              className="text-brand-blue-600 hover:underline"
             >
               Elevate4humanityedu@gmail.com
             </a>{' '}
             or call{' '}
             <a
               href="tel:+13173143757"
-              className="text-blue-600 hover:underline"
+              className="text-brand-blue-600 hover:underline"
             >
               (317) 314-3757
             </a>

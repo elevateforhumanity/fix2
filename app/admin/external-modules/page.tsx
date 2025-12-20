@@ -119,13 +119,13 @@ export default function ExternalModulesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admin/external-modules/approvals"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Pending Approvals ({pendingApprovals.length})
             </Link>
             <Link
               href="/admin/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Back to Dashboard
             </Link>
@@ -138,17 +138,19 @@ export default function ExternalModulesPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <p className="text-sm text-gray-600 mb-2">Total Modules</p>
-            <p className="text-3xl font-bold text-blue-600">{modules.length}</p>
+            <p className="text-3xl font-bold text-brand-blue-600">
+              {modules.length}
+            </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <p className="text-sm text-gray-600 mb-2">Active</p>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               {modules.filter((m) => m.status === 'active').length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <p className="text-sm text-gray-600 mb-2">Pending Approval</p>
-            <p className="text-3xl font-bold text-orange-600">
+            <p className="text-3xl font-bold text-brand-orange-600">
               {pendingApprovals.length}
             </p>
           </div>
@@ -167,7 +169,7 @@ export default function ExternalModulesPage() {
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-medium ${
                 filter === 'all'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
@@ -177,7 +179,7 @@ export default function ExternalModulesPage() {
               onClick={() => setFilter('active')}
               className={`px-4 py-2 rounded-lg font-medium ${
                 filter === 'active'
-                  ? 'bg-green-600 text-white'
+                  ? 'bg-brand-green-600 text-white'
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
@@ -187,7 +189,7 @@ export default function ExternalModulesPage() {
               onClick={() => setFilter('pending')}
               className={`px-4 py-2 rounded-lg font-medium ${
                 filter === 'pending'
-                  ? 'bg-orange-600 text-white'
+                  ? 'bg-brand-orange-600 text-white'
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
@@ -200,7 +202,7 @@ export default function ExternalModulesPage() {
         {pendingApprovals.length > 0 && (
           <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-              <AlertCircle className="h-6 w-6 text-orange-600" />
+              <AlertCircle className="h-6 w-6 text-brand-orange-600" />
               Pending Approvals
             </h2>
             <div className="space-y-4">
@@ -223,7 +225,7 @@ export default function ExternalModulesPage() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => approveModule(module.id)}
-                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
+                        className="bg-brand-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
                       >
                         Approve
                       </button>
@@ -267,13 +269,13 @@ export default function ExternalModulesPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       {module.status === 'active' && (
-                        <span className="flex items-center gap-1 text-green-600 text-sm font-medium">
+                        <span className="flex items-center gap-1 text-brand-green-600 text-sm font-medium">
                           <CheckCircle className="h-4 w-4" />
                           Active
                         </span>
                       )}
                       {module.approval_status === 'pending' && (
-                        <span className="flex items-center gap-1 text-orange-600 text-sm font-medium">
+                        <span className="flex items-center gap-1 text-brand-orange-600 text-sm font-medium">
                           <Clock className="h-4 w-4" />
                           Pending
                         </span>
@@ -298,7 +300,7 @@ export default function ExternalModulesPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

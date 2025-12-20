@@ -351,13 +351,13 @@ export default function LocationsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -393,13 +393,13 @@ export default function LocationsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 {totalPreparers.toLocaleString()}+
               </div>
               <div className="text-gray-600">Tax Preparers</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 50
               </div>
               <div className="text-gray-600">States Covered</div>
@@ -411,7 +411,7 @@ export default function LocationsPage() {
               <div className="text-gray-600">Flat Fee</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 4.9★
               </div>
               <div className="text-gray-600">Average Rating</div>
@@ -443,7 +443,7 @@ export default function LocationsPage() {
                 <div className="text-xs text-gray-500">
                   Top cities: {state.cities.slice(0, 2).join(', ')}
                 </div>
-                <div className="mt-4 text-blue-600 font-semibold text-sm">
+                <div className="mt-4 text-brand-blue-600 font-semibold text-sm">
                   View locations →
                 </div>
               </Link>
@@ -516,7 +516,7 @@ export default function LocationsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/tax-filing/start"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 font-bold"
+              className="inline-block bg-white text-brand-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 font-bold"
             >
               File Taxes Online
             </a>

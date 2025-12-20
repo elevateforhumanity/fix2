@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -68,7 +68,7 @@ function AffirmConfirmContent() {
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
         {status === 'processing' && (
           <div className="text-center">
-            <Loader2 className="w-16 h-16 text-blue-600 animate-spin mx-auto mb-4" />
+            <Loader2 className="w-16 h-16 text-brand-blue-600 animate-spin mx-auto mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Processing Payment
             </h1>
@@ -80,7 +80,7 @@ function AffirmConfirmContent() {
 
         {status === 'success' && (
           <div className="text-center">
-            <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
+            <CheckCircle className="w-16 h-16 text-brand-green-600 mx-auto mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Payment Successful!
             </h1>
@@ -124,7 +124,7 @@ function AffirmConfirmContent() {
             <div className="flex flex-col gap-3">
               <Link
                 href="/programs"
-                className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-block px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition-colors"
               >
                 Browse Programs
               </Link>
@@ -148,7 +148,7 @@ export default function AffirmConfirmPage() {
       fallback={
         <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
-            <Loader2 className="w-16 h-16 text-blue-600 animate-spin mx-auto mb-4" />
+            <Loader2 className="w-16 h-16 text-brand-blue-600 animate-spin mx-auto mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Loading...
             </h1>

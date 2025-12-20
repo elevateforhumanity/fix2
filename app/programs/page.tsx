@@ -17,7 +17,7 @@ export default function ProgramsPage() {
       <div className="bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-slate-600">
-            <Link href="/" className="hover:text-orange-600 transition">
+            <Link href="/" className="hover:text-brand-orange-600 transition">
               Home
             </Link>
             <ChevronRight className="w-4 h-4" />
@@ -35,7 +35,7 @@ export default function ProgramsPage() {
               href="https://www.in.gov/dwd/career-connect/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-full mb-6 transition shadow-lg group"
+              className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 px-6 py-3 rounded-full mb-6 transition shadow-lg group"
             >
               <MapPin className="w-5 h-5 text-white" />
               <span className="text-sm font-bold text-white">
@@ -47,16 +47,16 @@ export default function ProgramsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Your Future Starts Here
             </h1>
-            
+
             {/* Key Highlights */}
             <div className="flex flex-wrap gap-4 mb-6">
-              <div className="bg-orange-600 px-4 py-2 rounded-lg font-bold">
+              <div className="bg-brand-orange-600 px-4 py-2 rounded-lg font-bold">
                 100% Free
               </div>
-              <div className="bg-orange-600 px-4 py-2 rounded-lg font-bold">
+              <div className="bg-brand-orange-600 px-4 py-2 rounded-lg font-bold">
                 No Debt
               </div>
-              <div className="bg-orange-600 px-4 py-2 rounded-lg font-bold">
+              <div className="bg-brand-orange-600 px-4 py-2 rounded-lg font-bold">
                 Real Jobs Waiting
               </div>
             </div>
@@ -64,14 +64,23 @@ export default function ProgramsPage() {
             <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed font-medium">
               Real training. Real jobs. Real support. And it's 100% free.
             </p>
-            
+
             {/* Story */}
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-8">
               <p className="text-lg text-white leading-relaxed mb-4">
-                <strong className="text-orange-400">Here's the truth:</strong> You don't need a college degree to build a great career. You need the right training, the right support, and someone who believes in you.
+                <strong className="text-orange-400">Here's the truth:</strong>{' '}
+                You don't need a college degree to build a great career. You
+                need the right training, the right support, and someone who
+                believes in you.
               </p>
               <p className="text-lg text-white/90 leading-relaxed">
-                Whether you're starting fresh, changing careers, or getting back on your feet—we're here to help you build the life you want. Every program is fully funded through <strong className="text-orange-400">Indiana Career Connect</strong> and WIOA. No tuition. No debt. Just opportunity.
+                Whether you're starting fresh, changing careers, or getting back
+                on your feet—we're here to help you build the life you want.
+                Every program is fully funded through{' '}
+                <strong className="text-orange-400">
+                  Indiana Career Connect
+                </strong>{' '}
+                and WIOA. No tuition. No debt. Just opportunity.
               </p>
             </div>
 
@@ -79,7 +88,7 @@ export default function ProgramsPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/apply"
-                className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Apply Now - It's Free
                 <ChevronRight className="w-5 h-5" />
@@ -95,7 +104,8 @@ export default function ProgramsPage() {
 
             {/* Trust Signal */}
             <p className="text-sm text-white/60 mt-6">
-              ✓ Trusted by 500+ Indiana residents • ✓ Partnered with top employers • ✓ 90% job placement rate
+              ✓ Trusted by 500+ Indiana residents • ✓ Partnered with top
+              employers • ✓ 90% job placement rate
             </p>
           </div>
         </div>
@@ -141,7 +151,7 @@ export default function ProgramsPage() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                <div className="w-16 h-16 bg-brand-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -170,7 +180,7 @@ export default function ProgramsPage() {
           {/* Healthcare */}
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-blue-600 rounded-full" />
+              <div className="w-2 h-12 bg-brand-blue-600 rounded-full" />
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
                   Healthcare
@@ -197,7 +207,7 @@ export default function ProgramsPage() {
           {/* Skilled Trades */}
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-orange-600 rounded-full" />
+              <div className="w-2 h-12 bg-brand-orange-600 rounded-full" />
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
                   Skilled Trades
@@ -251,7 +261,7 @@ export default function ProgramsPage() {
           {/* Business & Finance */}
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-green-600 rounded-full" />
+              <div className="w-2 h-12 bg-brand-green-600 rounded-full" />
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
                   Business & Finance
@@ -292,7 +302,7 @@ export default function ProgramsPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center gap-2 bg-white text-orange-600 hover:bg-slate-50 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg"
+              className="inline-flex items-center gap-2 bg-white text-brand-orange-600 hover:bg-slate-50 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg"
             >
               Apply Now
               <ChevronRight className="w-5 h-5" />
@@ -325,11 +335,11 @@ function ProgramCard({ program }: { program: any }) {
       href={`/programs/${program.slug}`}
       className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-orange-300 transition"
     >
-      <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition">
+      <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
         {program.title}
       </h4>
       <p className="text-slate-600 mb-4 line-clamp-2">{program.description}</p>
-      <div className="flex items-center gap-2 text-orange-600 font-semibold">
+      <div className="flex items-center gap-2 text-brand-orange-600 font-semibold">
         Learn More
         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition" />
       </div>

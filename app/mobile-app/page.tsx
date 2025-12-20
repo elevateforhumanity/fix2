@@ -43,13 +43,13 @@ export default async function MobileAppPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#install"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Install Now
             </a>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View Programs
             </Link>
@@ -66,7 +66,7 @@ export default async function MobileAppPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <Smartphone className="w-8 h-8 text-blue-600" />
+                <Smartphone className="w-8 h-8 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Works Like a Native App
@@ -78,8 +78,8 @@ export default async function MobileAppPage() {
             </div>
 
             <div className="text-center p-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                <Wifi className="w-8 h-8 text-green-600" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green-100 rounded-full mb-4">
+                <Wifi className="w-8 h-8 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Works Offline
@@ -105,7 +105,7 @@ export default async function MobileAppPage() {
 
             <div className="text-center p-6">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-                <Zap className="w-8 h-8 text-orange-600" />
+                <Zap className="w-8 h-8 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Lightning Fast
@@ -158,32 +158,32 @@ export default async function MobileAppPage() {
             </h3>
             <ol className="space-y-4 text-gray-700">
               <li className="flex">
-                <span className="font-bold text-blue-600 mr-3">1.</span>
+                <span className="font-bold text-brand-blue-600 mr-3">1.</span>
                 <span>
                   Open <strong>elevateforhumanity.org</strong> in Safari
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-blue-600 mr-3">2.</span>
+                <span className="font-bold text-brand-blue-600 mr-3">2.</span>
                 <span>
                   Tap the <strong>Share</strong> button (square with arrow
                   pointing up)
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-blue-600 mr-3">3.</span>
+                <span className="font-bold text-brand-blue-600 mr-3">3.</span>
                 <span>
                   Scroll down and tap <strong>"Add to Home Screen"</strong>
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-blue-600 mr-3">4.</span>
+                <span className="font-bold text-brand-blue-600 mr-3">4.</span>
                 <span>
                   Tap <strong>"Add"</strong> in the top right corner
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-blue-600 mr-3">5.</span>
+                <span className="font-bold text-brand-blue-600 mr-3">5.</span>
                 <span>
                   Find the Elevate icon on your home screen and tap to open
                 </span>
@@ -199,32 +199,32 @@ export default async function MobileAppPage() {
             </h3>
             <ol className="space-y-4 text-gray-700">
               <li className="flex">
-                <span className="font-bold text-green-600 mr-3">1.</span>
+                <span className="font-bold text-brand-green-600 mr-3">1.</span>
                 <span>
                   Open <strong>elevateforhumanity.org</strong> in Chrome
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-green-600 mr-3">2.</span>
+                <span className="font-bold text-brand-green-600 mr-3">2.</span>
                 <span>
                   Tap the <strong>three dots menu</strong> in the top right
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-green-600 mr-3">3.</span>
+                <span className="font-bold text-brand-green-600 mr-3">3.</span>
                 <span>
                   Tap <strong>"Add to Home screen"</strong> or{' '}
                   <strong>"Install app"</strong>
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-green-600 mr-3">4.</span>
+                <span className="font-bold text-brand-green-600 mr-3">4.</span>
                 <span>
                   Tap <strong>"Install"</strong> or <strong>"Add"</strong>
                 </span>
               </li>
               <li className="flex">
-                <span className="font-bold text-green-600 mr-3">5.</span>
+                <span className="font-bold text-brand-green-600 mr-3">5.</span>
                 <span>
                   Find the Elevate icon in your app drawer and tap to open
                 </span>
@@ -235,7 +235,7 @@ export default async function MobileAppPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-brand-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Ready to Get Started?
@@ -247,13 +247,13 @@ export default async function MobileAppPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#install"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View Installation Guide
             </a>
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors border-2 border-white"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors border-2 border-white"
             >
               Need Help?
             </Link>

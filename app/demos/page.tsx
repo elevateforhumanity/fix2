@@ -36,7 +36,7 @@ export default function DemosPage() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 text-lg transition-all"
+              className="bg-brand-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 text-lg transition-all"
             >
               Apply Now
             </Link>

@@ -80,7 +80,7 @@ export default async function CertificatesPage() {
           <div className="text-center py-16 bg-white rounded-lg">
             <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg
-                className="w-12 h-12 text-blue-600"
+                className="w-12 h-12 text-brand-blue-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -93,14 +93,16 @@ export default async function CertificatesPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg md:text-lg font-bold mb-2">No Certificates Yet</h3>
+            <h3 className="text-lg md:text-lg font-bold mb-2">
+              No Certificates Yet
+            </h3>
             <p className="text-slate-600 mb-6 max-w-md mx-auto">
               Complete a course to earn your first certificate. Certificates are
               automatically generated when you finish all course requirements.
             </p>
             <Link
               href="/lms/courses"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition"
+              className="inline-block bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition"
             >
               View My Courses
             </Link>

@@ -84,7 +84,7 @@ export default async function StudentCourseDetailPage(props: Props) {
           <div className="mb-4">
             <Link
               href="/portal/student"
-              className="text-sm text-blue-600 hover:text-blue-700"
+              className="text-sm text-brand-blue-600 hover:text-brand-blue-700"
             >
               ← Back to Portal
             </Link>
@@ -121,7 +121,7 @@ export default async function StudentCourseDetailPage(props: Props) {
             </div>
             <div className="h-3 w-full overflow-hidden rounded-full bg-slate-200">
               <div
-                className="h-full bg-blue-600 transition-all duration-500"
+                className="h-full bg-brand-blue-600 transition-all duration-500"
                 style={{ width: `${progressPercentage}%` }}
               />
             </div>
@@ -129,7 +129,7 @@ export default async function StudentCourseDetailPage(props: Props) {
 
           {enrollment && (
             <div className="flex items-center gap-2 text-sm">
-              <span className="rounded-full bg-green-100 px-3 py-1 font-semibold text-green-700">
+              <span className="rounded-full bg-brand-green-100 px-3 py-1 font-semibold text-green-700">
                 Enrolled
               </span>
               <span className="text-slate-600">
@@ -168,8 +168,8 @@ export default async function StudentCourseDetailPage(props: Props) {
                           <span
                             className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold ${
                               isCompleted
-                                ? 'bg-green-100 text-green-600'
-                                : 'bg-blue-100 text-blue-600'
+                                ? 'bg-brand-green-100 text-brand-green-600'
+                                : 'bg-blue-100 text-brand-blue-600'
                             }`}
                           >
                             {isCompleted ? '✓' : index + 1}
@@ -190,8 +190,8 @@ export default async function StudentCourseDetailPage(props: Props) {
                         href={`/portal/student/courses/${courseId}/modules/${module.id}`}
                         className={`ml-4 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors ${
                           isCompleted
-                            ? 'bg-green-600 hover:bg-green-700'
-                            : 'bg-blue-600 hover:bg-blue-700'
+                            ? 'bg-brand-green-600 hover:bg-green-700'
+                            : 'bg-brand-blue-600 hover:bg-brand-blue-700'
                         }`}
                       >
                         {isCompleted ? 'Review' : 'Start'}

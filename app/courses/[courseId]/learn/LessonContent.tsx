@@ -32,9 +32,12 @@ export default function LessonContent({
   const handleMarkComplete = async () => {
     setIsCompleting(true);
     try {
-      const response = await fetch(`/api/courses/${courseId}/lessons/${lesson.id}/complete`, {
-        method: 'POST',
-      });
+      const response = await fetch(
+        `/api/courses/${courseId}/lessons/${lesson.id}/complete`,
+        {
+          method: 'POST',
+        }
+      );
 
       if (response.ok) {
         // Refresh the page to update completion status
@@ -50,7 +53,9 @@ export default function LessonContent({
     <div className="max-w-5xl mx-auto p-6">
       {/* Lesson Header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">{lesson.title}</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">
+          {lesson.title}
+        </h1>
         {lesson.duration && (
           <p className="text-slate-600">
             Duration: {Math.floor(lesson.duration / 60)} minutes
@@ -87,10 +92,18 @@ export default function LessonContent({
           disabled={!onPrevious}
           className="flex items-center gap-2 px-6 py-3 border border-slate-300 rounded-lg hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M15 19l-7-7 7-7" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           <span className="font-medium">Previous</span>
         </button>
@@ -100,17 +113,25 @@ d="M15 19l-7-7 7-7" />
             <button
               onClick={handleMarkComplete}
               disabled={isCompleting}
-              className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 disabled:opacity-50 transition"
+              className="px-6 py-3 bg-brand-green-600 text-white font-semibold rounded-lg hover:bg-green-700 disabled:opacity-50 transition"
             >
               {isCompleting ? 'Marking Complete...' : 'Mark as Complete'}
             </button>
           )}
           {lesson.completed && (
-            <div className="flex items-center gap-2 text-green-600">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="flex items-center gap-2 text-brand-green-600">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
               <span className="font-medium">Completed</span>
             </div>
@@ -120,13 +141,21 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         <button
           onClick={onNext}
           disabled={!onNext}
-          className="flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+          className="flex items-center gap-2 px-6 py-3 bg-brand-orange-600 text-white font-semibold rounded-lg hover:bg-brand-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           <span>Next Lesson</span>
-          <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 5l7 7-7 7" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </button>
       </div>

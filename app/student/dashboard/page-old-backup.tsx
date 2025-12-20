@@ -126,7 +126,7 @@ export default async function DashboardPage() {
                     </Link>
                     <Link
                       href="/student/certificates"
-                      className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition-all shadow-lg"
+                      className="px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 font-semibold transition-all shadow-lg"
                     >
                       <Award className="w-4 h-4 inline mr-2" />
                       Certificates
@@ -145,10 +145,10 @@ export default async function DashboardPage() {
           {/* Overall Progress */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-brand-blue-600 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <span className="text-3xl font-bold text-blue-600">
+              <span className="text-3xl font-bold text-brand-blue-600">
                 {programProgress}%
               </span>
             </div>
@@ -157,7 +157,7 @@ export default async function DashboardPage() {
             </h3>
             <div className="mt-3 bg-slate-100 rounded-full h-2 overflow-hidden">
               <div
-                className="bg-blue-600 h-full transition-all duration-500"
+                className="bg-brand-blue-600 h-full transition-all duration-500"
                 style={{ width: `${programProgress}%` }}
               />
             </div>
@@ -166,10 +166,10 @@ export default async function DashboardPage() {
           {/* Hours Logged (from Milady) */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-brand-green-600 rounded-lg flex items-center justify-center">
                 <Clock className="w-6 h-6 text-white" />
               </div>
-              <span className="text-3xl font-bold text-green-600">
+              <span className="text-3xl font-bold text-brand-green-600">
                 {miladyEnrollments
                   ?.reduce((sum, e) => sum + (e.time_spent_hours || 0), 0)
                   .toFixed(0) || 0}
@@ -206,10 +206,10 @@ export default async function DashboardPage() {
           {/* Certificates */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-brand-orange-600 rounded-lg flex items-center justify-center">
                 <Award className="w-6 h-6 text-white" />
               </div>
-              <span className="text-3xl font-bold text-orange-600">
+              <span className="text-3xl font-bold text-brand-orange-600">
                 {miladyEnrollments?.filter((e) => e.status === 'completed')
                   .length || 0}
               </span>
@@ -228,7 +228,7 @@ export default async function DashboardPage() {
           <div className="lg:col-span-2 space-y-6">
             {/* My Courses */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
-              <div className="bg-blue-700 px-6 py-4">
+              <div className="bg-brand-blue-700 px-6 py-4">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <BookOpen className="w-5 h-5" />
                   My Courses
@@ -257,7 +257,7 @@ export default async function DashboardPage() {
                             <span
                               className={`px-2 py-1 rounded-full text-xs font-semibold ${
                                 enrollment.status === 'active'
-                                  ? 'bg-green-100 text-green-700'
+                                  ? 'bg-brand-green-100 text-green-700'
                                   : enrollment.status === 'completed'
                                     ? 'bg-blue-100 text-blue-700'
                                     : 'bg-slate-100 text-slate-700'
@@ -269,7 +269,7 @@ export default async function DashboardPage() {
                         </div>
                         <Link
                           href={`/student/courses/${enrollment.program?.slug}`}
-                          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-all hover:scale-105 flex items-center gap-2"
+                          className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 font-semibold transition-all hover:scale-105 flex items-center gap-2"
                         >
                           <PlayCircle className="w-4 h-4" />
                           Continue
@@ -282,13 +282,13 @@ export default async function DashboardPage() {
                           <span className="text-slate-600 font-medium">
                             Progress
                           </span>
-                          <span className="text-blue-600 font-bold">
+                          <span className="text-brand-blue-600 font-bold">
                             {enrollment.progress_percentage || 0}%
                           </span>
                         </div>
                         <div className="bg-slate-100 rounded-full h-3 overflow-hidden">
                           <div
-                            className="bg-blue-600 h-full transition-all duration-500"
+                            className="bg-brand-blue-600 h-full transition-all duration-500"
                             style={{
                               width: `${enrollment.progress_percentage || 0}%`,
                             }}
@@ -305,7 +305,7 @@ export default async function DashboardPage() {
                     </p>
                     <Link
                       href="/programs"
-                      className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-all"
+                      className="inline-block px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 font-semibold transition-all"
                     >
                       Browse Programs
                     </Link>
@@ -352,7 +352,7 @@ export default async function DashboardPage() {
                         </div>
                         <Link
                           href={`/student/milady/launch/${enrollment.id}`}
-                          className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition-all hover:scale-105 flex items-center gap-2"
+                          className="px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 font-semibold transition-all hover:scale-105 flex items-center gap-2"
                         >
                           <ExternalLink className="w-4 h-4" />
                           Launch Course
@@ -365,13 +365,13 @@ export default async function DashboardPage() {
                           <span className="text-slate-600 font-medium">
                             Progress
                           </span>
-                          <span className="text-orange-600 font-bold">
+                          <span className="text-brand-orange-600 font-bold">
                             {enrollment.progress_percentage || 0}%
                           </span>
                         </div>
                         <div className="bg-slate-100 rounded-full h-3 overflow-hidden">
                           <div
-                            className="bg-orange-600 h-full transition-all duration-500"
+                            className="bg-brand-orange-600 h-full transition-all duration-500"
                             style={{
                               width: `${enrollment.progress_percentage || 0}%`,
                             }}
@@ -381,14 +381,14 @@ export default async function DashboardPage() {
 
                       {enrollment.status === 'completed' &&
                         enrollment.certificate_id && (
-                          <div className="mt-4 flex items-center gap-2 text-green-600">
+                          <div className="mt-4 flex items-center gap-2 text-brand-green-600">
                             <CheckCircle className="w-5 h-5" />
                             <span className="font-semibold">
                               Certificate Available
                             </span>
                             <Link
                               href={`/student/certificates/${enrollment.certificate_id}`}
-                              className="ml-auto text-blue-600 hover:text-blue-700 font-semibold"
+                              className="ml-auto text-brand-blue-600 hover:text-brand-blue-700 font-semibold"
                             >
                               Download →
                             </Link>
@@ -404,7 +404,7 @@ export default async function DashboardPage() {
           {/* Right Sidebar */}
           <div className="space-y-6">
             {/* Launch Milady CIMA */}
-            <div className="bg-orange-600 rounded-xl shadow-lg p-8 text-white">
+            <div className="bg-brand-orange-600 rounded-xl shadow-lg p-8 text-white">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <ExternalLink className="w-8 h-8 text-white" />
@@ -421,7 +421,7 @@ export default async function DashboardPage() {
                     <Link
                       key={enrollment.id}
                       href={`/student/milady/launch/${enrollment.id}`}
-                      className="block w-full px-6 py-4 bg-white text-orange-600 rounded-lg hover:bg-orange-50 font-bold transition-all hover:scale-105 text-center shadow-md"
+                      className="block w-full px-6 py-4 bg-white text-brand-orange-600 rounded-lg hover:bg-orange-50 font-bold transition-all hover:scale-105 text-center shadow-md"
                     >
                       Launch {enrollment.course_name || 'Course'} →
                     </Link>
@@ -434,7 +434,7 @@ export default async function DashboardPage() {
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-block px-6 py-3 bg-white text-orange-600 rounded-lg hover:bg-orange-50 font-semibold transition-all"
+                    className="inline-block px-6 py-3 bg-white text-brand-orange-600 rounded-lg hover:bg-orange-50 font-semibold transition-all"
                   >
                     Contact Support
                   </Link>
@@ -470,7 +470,7 @@ export default async function DashboardPage() {
                 </Link>
                 <Link
                   href="/student/ai-tutor"
-                  className="block w-full px-4 py-3 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 font-semibold transition-all text-center border border-green-200"
+                  className="block w-full px-4 py-3 bg-green-50 text-green-700 rounded-lg hover:bg-brand-green-100 font-semibold transition-all text-center border border-green-200"
                 >
                   <MessageCircle className="w-4 h-4 inline mr-2" />
                   AI Tutor - Ask Questions
@@ -501,14 +501,14 @@ export default async function DashboardPage() {
             </div>
 
             {/* Support */}
-            <div className="bg-blue-700 rounded-xl shadow-md p-6 text-white">
+            <div className="bg-brand-blue-700 rounded-xl shadow-md p-6 text-white">
               <h3 className="text-lg font-bold mb-2">Need Help?</h3>
               <p className="text-blue-100 text-sm mb-4">
                 Our support team is here to help you succeed
               </p>
               <Link
                 href="/contact"
-                className="block w-full px-4 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 font-semibold transition-all text-center"
+                className="block w-full px-4 py-3 bg-white text-brand-blue-600 rounded-lg hover:bg-blue-50 font-semibold transition-all text-center"
               >
                 Contact Support
               </Link>

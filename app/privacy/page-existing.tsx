@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 
-
 import Link from 'next/link';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
@@ -178,7 +177,10 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-slate-700 mb-6">
               You can control cookies through your browser settings. See our{' '}
-              <Link href="/cookies" className="text-blue-600 hover:underline">
+              <Link
+                href="/cookies"
+                className="text-brand-blue-600 hover:underline"
+              >
                 Cookie Policy
               </Link>{' '}
               for more information.
@@ -236,7 +238,7 @@ export default function PrivacyPage() {
                 Phone:{' '}
                 <a
                   href="tel:317-314-3757"
-                  className="text-blue-600 hover:underline"
+                  className="text-brand-blue-600 hover:underline"
                 >
                   317-314-3757
                 </a>
@@ -245,7 +247,7 @@ export default function PrivacyPage() {
                 Email:{' '}
                 <a
                   href="mailto:privacy@elevateforhumanity.org"
-                  className="text-blue-600 hover:underline"
+                  className="text-brand-blue-600 hover:underline"
                 >
                   privacy@elevateforhumanity.org
                 </a>
@@ -259,19 +261,19 @@ export default function PrivacyPage() {
               <div className="space-y-2">
                 <Link
                   href="/terms"
-                  className="block text-blue-600 hover:underline font-semibold"
+                  className="block text-brand-blue-600 hover:underline font-semibold"
                 >
                   Terms of Service →
                 </Link>
                 <Link
                   href="/cookies"
-                  className="block text-blue-600 hover:underline font-semibold"
+                  className="block text-brand-blue-600 hover:underline font-semibold"
                 >
                   Cookie Policy →
                 </Link>
                 <Link
                   href="/accessibility"
-                  className="block text-blue-600 hover:underline font-semibold"
+                  className="block text-brand-blue-600 hover:underline font-semibold"
                 >
                   Accessibility Statement →
                 </Link>

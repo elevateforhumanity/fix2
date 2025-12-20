@@ -63,7 +63,7 @@ export default function IncentivesPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600"></div>
       </div>
     );
   }
@@ -74,14 +74,14 @@ export default function IncentivesPage() {
         <div className="mb-8">
           <Link
             href="/admin/dashboard"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <DollarSign className="w-8 h-8 text-blue-600" />
+                <DollarSign className="w-8 h-8 text-brand-blue-600" />
                 <h1 className="text-3xl font-bold text-gray-900">
                   Employer Incentives
                 </h1>
@@ -92,7 +92,7 @@ export default function IncentivesPage() {
             </div>
             <Link
               href="/admin/incentives/create"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium"
+              className="bg-brand-blue-600 text-white px-4 py-2 rounded-lg hover:bg-brand-blue-700 font-medium"
             >
               + New Incentive
             </Link>
@@ -103,12 +103,14 @@ export default function IncentivesPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
-              <Award className="w-6 h-6 text-blue-600" />
+              <Award className="w-6 h-6 text-brand-blue-600" />
               <h3 className="text-sm font-medium text-gray-600">
                 Total Programs
               </h3>
             </div>
-            <p className="text-3xl font-bold text-blue-600">{stats.total}</p>
+            <p className="text-3xl font-bold text-brand-blue-600">
+              {stats.total}
+            </p>
             <p className="text-xs text-gray-500 mt-1">
               {stats.wex} WEX • {stats.ojt} OJT
             </p>
@@ -116,12 +118,12 @@ export default function IncentivesPage() {
 
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
-              <DollarSign className="w-6 h-6 text-green-600" />
+              <DollarSign className="w-6 h-6 text-brand-green-600" />
               <h3 className="text-sm font-medium text-gray-600">
                 Total Amount
               </h3>
             </div>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               ${stats.totalAmount.toLocaleString()}
             </p>
             <p className="text-xs text-gray-500 mt-1">Across all programs</p>
@@ -129,10 +131,10 @@ export default function IncentivesPage() {
 
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-2">
-              <TrendingUp className="w-6 h-6 text-orange-600" />
+              <TrendingUp className="w-6 h-6 text-brand-orange-600" />
               <h3 className="text-sm font-medium text-gray-600">Pending</h3>
             </div>
-            <p className="text-3xl font-bold text-orange-600">
+            <p className="text-3xl font-bold text-brand-orange-600">
               {stats.pending}
             </p>
             <p className="text-xs text-gray-500 mt-1">Awaiting approval</p>
@@ -265,7 +267,7 @@ export default function IncentivesPage() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
                         <div
-                          className="bg-blue-600 h-2 rounded-full"
+                          className="bg-brand-blue-600 h-2 rounded-full"
                           style={{
                             width: `${(incentive.hours_completed / incentive.hours_required) * 100}%`,
                           }}
@@ -276,7 +278,7 @@ export default function IncentivesPage() {
                       <span
                         className={`px-2 py-1 text-xs rounded ${
                           incentive.status === 'paid'
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : incentive.status === 'approved'
                               ? 'bg-blue-100 text-blue-800'
                               : incentive.status === 'pending'
@@ -290,7 +292,7 @@ export default function IncentivesPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       <Link
                         href={`/admin/incentives/${incentive.id}`}
-                        className="text-blue-600 hover:text-blue-900"
+                        className="text-brand-blue-600 hover:text-blue-900"
                       >
                         View
                       </Link>

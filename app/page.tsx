@@ -355,7 +355,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-orange-600">
+      <section className="py-16 bg-brand-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start?
@@ -367,7 +367,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-orange-600 bg-white rounded-lg hover:bg-slate-50 transition"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-brand-orange-600 bg-white rounded-lg hover:bg-slate-50 transition"
             >
               Apply Now
             </Link>

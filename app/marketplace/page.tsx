@@ -41,13 +41,26 @@ export default async function MarketplacePage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 text-center">
           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-8 h-8 text-brand-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold mb-4">Marketplace Setup Required</h1>
+          <h1 className="text-3xl font-bold mb-4">
+            Marketplace Setup Required
+          </h1>
           <p className="text-gray-600 mb-6">
-            The marketplace database tables need to be created. Please run the database migrations.
+            The marketplace database tables need to be created. Please run the
+            database migrations.
           </p>
           <div className="bg-gray-100 rounded-lg p-4 mb-6 text-left">
             <code className="text-sm">supabase db push</code>
@@ -55,13 +68,13 @@ export default async function MarketplacePage() {
           <div className="flex gap-4 justify-center">
             <Link
               href="/"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
             >
               Return Home
             </Link>
             <Link
               href="/programs"
-              className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+              className="border-2 border-brand-blue-600 text-brand-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
             >
               View Programs
             </Link>
@@ -84,7 +97,7 @@ export default async function MarketplacePage() {
           </p>
           <Link
             href="/marketplace/apply"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all"
+            className="inline-block bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-bold text-lg shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all"
           >
             Become a Creator
           </Link>
@@ -127,7 +140,7 @@ export default async function MarketplacePage() {
             </p>
             <Link
               href="/marketplace/apply"
-              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all"
+              className="inline-block bg-brand-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-brand-blue-700 hover:shadow-xl transition-all"
             >
               Apply to Sell
             </Link>
@@ -164,13 +177,13 @@ export default async function MarketplacePage() {
                   )}
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold mb-1 group-hover:text-blue-600 transition line-clamp-2">
+                  <h3 className="font-semibold mb-1 group-hover:text-brand-blue-600 transition line-clamp-2">
                     {product.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-2">
                     by {product.creator?.display_name || 'Unknown'}
                   </p>
-                  <p className="text-lg font-bold text-blue-600">
+                  <p className="text-lg font-bold text-brand-blue-600">
                     ${(product.price_cents / 100).toFixed(2)}
                   </p>
                 </div>
@@ -183,14 +196,16 @@ export default async function MarketplacePage() {
       {/* CTA Section */}
       <div className="bg-gray-100 py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Share Your Work?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Ready to Share Your Work?
+          </h2>
           <p className="text-gray-600 mb-8">
             Join our marketplace and earn 70% on every sale. No upfront costs,
             no technical setup required.
           </p>
           <Link
             href="/marketplace/apply"
-            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all"
+            className="inline-block bg-brand-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-brand-blue-700 hover:shadow-xl transition-all"
           >
             Apply Now
           </Link>

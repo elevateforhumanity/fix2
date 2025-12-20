@@ -29,7 +29,7 @@ export default function UnauthorizedPage() {
         <div className="space-y-3">
           <Link
             href="/dashboard"
-            className="block w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+            className="block w-full px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition"
           >
             Go to Your Dashboard
           </Link>
@@ -45,14 +45,14 @@ export default function UnauthorizedPage() {
           <p className="text-sm text-gray-600 mb-2">Need help?</p>
           <a
             href="tel:3173143757"
-            className="text-blue-600 font-semibold hover:text-blue-700"
+            className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
           >
             Call 317-314-3757
           </a>
           <span className="text-gray-400 mx-2">or</span>
           <Link
             href="/contact"
-            className="text-blue-600 font-semibold hover:text-blue-700"
+            className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
           >
             Contact Support
           </Link>

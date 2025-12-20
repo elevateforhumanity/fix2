@@ -111,7 +111,7 @@ export default function ApplyFormClient() {
             Call us at{' '}
             <a
               href="tel:3173143757"
-              className="font-bold text-orange-600 hover:text-orange-700"
+              className="font-bold text-brand-orange-600 hover:text-brand-orange-700"
             >
               317-314-3757
             </a>{' '}
@@ -124,7 +124,7 @@ export default function ApplyFormClient() {
             </p>
             <a
               href="/apply/full"
-              className="inline-block px-8 py-3 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition shadow-md"
+              className="inline-block px-8 py-3 bg-brand-orange-600 text-white font-bold text-lg rounded-lg hover:bg-brand-orange-700 transition shadow-md"
             >
               Go to Full Application Form →
             </a>
@@ -141,7 +141,7 @@ export default function ApplyFormClient() {
         <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
           {status === 'success' ? (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">✓</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">
@@ -158,14 +158,14 @@ export default function ApplyFormClient() {
               <div className="space-y-3">
                 <button
                   onClick={() => setStatus('idle')}
-                  className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition"
+                  className="px-6 py-3 bg-brand-orange-600 text-white font-semibold rounded-lg hover:bg-brand-orange-700 transition"
                 >
                   Send Another Inquiry
                 </button>
                 <div>
                   <a
                     href="/apply/full"
-                    className="inline-block text-orange-600 hover:text-orange-700 font-semibold underline"
+                    className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold underline"
                   >
                     Or complete the full application form →
                   </a>
@@ -307,7 +307,7 @@ export default function ApplyFormClient() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full px-6 py-4 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-6 py-4 bg-brand-orange-600 text-white font-bold text-lg rounded-lg hover:bg-brand-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'loading'
                   ? 'Opening Email...'

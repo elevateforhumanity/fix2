@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 
 export default async function PendingCashAdvancesPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -35,10 +37,15 @@ export default async function PendingCashAdvancesPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link href="/admin/cash-advances" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin/cash-advances"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Cash Advances
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">Pending Cash Advances</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Pending Cash Advances
+          </h1>
           <p className="mt-2 text-gray-600">
             Review and approve pending cash advance requests.
           </p>
@@ -47,7 +54,9 @@ export default async function PendingCashAdvancesPage() {
         {/* Stats */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-orange-600">{pendingAdvances?.length || 0}</div>
+            <div className="text-3xl font-bold text-brand-orange-600">
+              {pendingAdvances?.length || 0}
+            </div>
             <div className="text-gray-600">Pending Requests</div>
           </div>
         </div>
@@ -55,9 +64,11 @@ export default async function PendingCashAdvancesPage() {
         {/* Pending List */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">Pending Requests</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Pending Requests
+            </h2>
           </div>
-          
+
           {pendingAdvances && pendingAdvances.length > 0 ? (
             <div className="divide-y divide-gray-200">
               {pendingAdvances.map((advance: Record<string, any>) => (
@@ -67,9 +78,12 @@ export default async function PendingCashAdvancesPage() {
                       <h3 className="font-semibold text-gray-900">
                         {advance.profiles?.full_name || 'Unknown'}
                       </h3>
-                      <p className="text-sm text-gray-600">{advance.profiles?.email}</p>
+                      <p className="text-sm text-gray-600">
+                        {advance.profiles?.email}
+                      </p>
                       <p className="text-sm text-gray-500 mt-1">
-                        Requested: {new Date(advance.created_at).toLocaleDateString()}
+                        Requested:{' '}
+                        {new Date(advance.created_at).toLocaleDateString()}
                       </p>
                     </div>
                     <div className="text-right">
@@ -78,7 +92,7 @@ export default async function PendingCashAdvancesPage() {
                       </div>
                       <Link
                         href={`/admin/cash-advances/${advance.id}`}
-                        className="text-sm text-blue-600 hover:text-blue-800"
+                        className="text-sm text-brand-blue-600 hover:text-blue-800"
                       >
                         Review →
                       </Link>

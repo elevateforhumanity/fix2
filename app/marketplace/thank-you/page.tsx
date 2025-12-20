@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -42,7 +42,7 @@ function MarketplaceThankYouContent() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Processing your purchase...</p>
         </div>
       </div>
@@ -74,7 +74,7 @@ function MarketplaceThankYouContent() {
           </p>
           <Link
             href="/marketplace"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="inline-block bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
           >
             Return to Marketplace
           </Link>
@@ -87,9 +87,9 @@ function MarketplaceThankYouContent() {
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-lg shadow-md p-8 text-center mb-6">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg
-              className="w-8 h-8 text-green-600"
+              className="w-8 h-8 text-brand-green-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ function MarketplaceThankYouContent() {
           {purchaseData.downloadUrl && (
             <a
               href={purchaseData.downloadUrl}
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition mb-4"
+              className="inline-block bg-brand-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition mb-4"
             >
               Download Now
             </a>
@@ -182,14 +182,16 @@ function MarketplaceThankYouContent() {
 
 export default function MarketplaceThankYouPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <MarketplaceThankYouContent />
     </Suspense>
   );

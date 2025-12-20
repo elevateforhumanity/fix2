@@ -144,20 +144,18 @@ export default function PaymentOptionsClient() {
         <p className="text-sm text-slate-700 mb-4">
           Pay securely with debit or credit. Processed by Stripe.
         </p>
-
         {!stripeLoaded && (
           <p className="mb-3 text-sm text-slate-500">
             Loading secure payment button…
           </p>
         )}
-
-        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
+        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist
+        on type 'JSX.IntrinsicElements'.
         <stripe-buy-button
           buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
           publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
+          // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
         ></stripe-buy-button>
-
         <p className="mt-3 text-[11px] text-slate-500">
           By completing your payment you agree to Elevate for Humanity's refund
           policy and enrollment terms.
@@ -230,7 +228,7 @@ export default function PaymentOptionsClient() {
               );
             }
           }}
-          className="w-full mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition shadow-lg"
+          className="w-full mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-brand-blue-600 rounded-lg hover:bg-brand-blue-700 transition shadow-lg"
         >
           Continue with Affirm
         </button>
@@ -249,20 +247,18 @@ export default function PaymentOptionsClient() {
         <p className="text-sm text-slate-700 mb-4">
           Pay securely with debit or credit. Processed by Stripe.
         </p>
-
         {!stripeLoaded && (
           <p className="mb-3 text-sm text-slate-500">
             Loading secure payment button…
           </p>
         )}
-
-        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
+        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist
+        on type 'JSX.IntrinsicElements'.
         <stripe-buy-button
           buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
           publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
+          // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
         ></stripe-buy-button>
-
         <p className="mt-3 text-[11px] text-slate-500">
           By completing your payment you agree to Elevate for Humanity's refund
           policy and enrollment terms.

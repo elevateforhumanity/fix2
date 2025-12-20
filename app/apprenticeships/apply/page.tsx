@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -114,7 +114,7 @@ export default function ApplyApprenticeshipPage() {
           </div>
           <div className="w-full bg-slate-200 rounded-full h-3">
             <div
-              className="bg-blue-600 h-3 rounded-full transition-all duration-300"
+              className="bg-brand-blue-600 h-3 rounded-full transition-all duration-300"
               style={{ width: `${(step / totalSteps) * 100}%` }}
             />
           </div>
@@ -131,9 +131,9 @@ export default function ApplyApprenticeshipPage() {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
                     step === num
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-brand-blue-600 text-white'
                       : step > num
-                        ? 'bg-green-600 text-white'
+                        ? 'bg-brand-green-600 text-white'
                         : 'bg-slate-300 text-slate-600'
                   }`}
                 >
@@ -487,7 +487,7 @@ export default function ApplyApprenticeshipPage() {
                     onChange={(e) =>
                       updateField('eligibleToWork', e.target.checked)
                     }
-                    className="mt-1 w-5 h-5 text-blue-600 rounded"
+                    className="mt-1 w-5 h-5 text-brand-blue-600 rounded"
                   />
                   <span className="text-sm text-slate-700">
                     I am legally eligible to work in the United States *
@@ -500,7 +500,7 @@ export default function ApplyApprenticeshipPage() {
                     required
                     checked={formData.over18}
                     onChange={(e) => updateField('over18', e.target.checked)}
-                    className="mt-1 w-5 h-5 text-blue-600 rounded"
+                    className="mt-1 w-5 h-5 text-brand-blue-600 rounded"
                   />
                   <span className="text-sm text-slate-700">
                     I am at least 18 years old *
@@ -515,20 +515,20 @@ export default function ApplyApprenticeshipPage() {
                     onChange={(e) =>
                       updateField('agreeToTerms', e.target.checked)
                     }
-                    className="mt-1 w-5 h-5 text-blue-600 rounded"
+                    className="mt-1 w-5 h-5 text-brand-blue-600 rounded"
                   />
                   <span className="text-sm text-slate-700">
                     I agree to the{' '}
                     <Link
                       href="/terms"
-                      className="text-blue-600 hover:underline"
+                      className="text-brand-blue-600 hover:underline"
                     >
                       Terms of Service
                     </Link>{' '}
                     and{' '}
                     <Link
                       href="/privacy"
-                      className="text-blue-600 hover:underline"
+                      className="text-brand-blue-600 hover:underline"
                     >
                       Privacy Policy
                     </Link>{' '}
@@ -585,7 +585,7 @@ export default function ApplyApprenticeshipPage() {
                 type="button"
                 onClick={nextStep}
                 disabled={!isStepComplete(step)}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 px-6 py-3 bg-brand-blue-600 hover:bg-brand-blue-700 text-white rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next Step
                 <ArrowRight className="w-5 h-5" />
@@ -594,7 +594,7 @@ export default function ApplyApprenticeshipPage() {
               <button
                 type="submit"
                 disabled={!isStepComplete(step)}
-                className="flex items-center gap-2 px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 px-8 py-3 bg-brand-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5" />
                 Submit Application

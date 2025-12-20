@@ -62,7 +62,8 @@ export default async function CalendarPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
         // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-        // @ts-expect-error TS2607: JSX element class does not support attributes because it does not have a 'pro...
+        // @ts-expect-error TS2607: JSX element class does not support
+        attributes because it does not have a 'pro...
         <Image
           src="/images/gallery/image8.jpg"
           alt="Calendar"
@@ -84,18 +85,17 @@ export default async function CalendarPage() {
             // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              Get Started Free
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
+              Get Started Free // @ts-expect-error TS2304: Cannot find name
+              'Link'.
             </Link>
             // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              View Programs
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
+              View Programs // @ts-expect-error TS2304: Cannot find name 'Link'.
             </Link>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default async function CalendarPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-3xl font-bold">Calendar</h1>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2">
+          <button className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 flex items-center gap-2">
             <Plus size={20} />
             New Event
           </button>
@@ -123,7 +123,7 @@ export default async function CalendarPage() {
                   <button className="p-2 hover:bg-gray-100 rounded-lg">
                     <ChevronLeft size={20} />
                   </button>
-                  <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg">
+                  <button className="px-4 py-2 text-sm font-medium text-brand-blue-600 hover:bg-blue-50 rounded-lg">
                     Today
                   </button>
                   <button className="p-2 hover:bg-gray-100 rounded-lg">
@@ -170,15 +170,15 @@ export default async function CalendarPage() {
                         key={day}
                         className={`aspect-square p-2 rounded-lg text-sm font-medium transition ${
                           isToday
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-brand-blue-600 text-white'
                             : hasEvents
-                              ? 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+                              ? 'bg-blue-50 text-brand-blue-600 hover:bg-blue-100'
                               : 'hover:bg-gray-100'
                         }`}
                       >
                         {day}
                         {hasEvents && !isToday && (
-                          <div className="w-1 h-1 bg-blue-600 rounded-full mx-auto mt-1" />
+                          <div className="w-1 h-1 bg-brand-blue-600 rounded-full mx-auto mt-1" />
                         )}
                       </button>
                     );
@@ -243,7 +243,7 @@ export default async function CalendarPage() {
                   type="datetime-local"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                 />
-                <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                <button className="w-full px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700">
                   Add Event
                 </button>
               </div>
@@ -270,7 +270,7 @@ export default async function CalendarPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -288,7 +288,7 @@ export default async function CalendarPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -306,7 +306,7 @@ export default async function CalendarPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -324,7 +324,7 @@ export default async function CalendarPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -343,8 +343,9 @@ export default async function CalendarPage() {
                   </ul>
                 </div>
                 <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-                  // @ts-expect-error TS2607: JSX element class does not support attributes because it does not have a 'pro...
+                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX
+                  component. // @ts-expect-error TS2607: JSX element class does
+                  not support attributes because it does not have a 'pro...
                   <Image
                     src="/images/gallery/image3.jpg"
                     alt="Students learning"
@@ -376,16 +377,16 @@ export default async function CalendarPage() {
                   href="/contact"
                   className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
                 >
-                  Apply Now - It's Free
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
+                  Apply Now - It's Free // @ts-expect-error TS2304: Cannot find
+                  name 'Link'.
                 </Link>
                 // @ts-expect-error TS2304: Cannot find name 'Link'.
                 <Link
                   href="/programs"
                   className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
                 >
-                  Browse All Programs
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
+                  Browse All Programs // @ts-expect-error TS2304: Cannot find
+                  name 'Link'.
                 </Link>
               </div>
             </div>

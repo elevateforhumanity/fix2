@@ -279,7 +279,7 @@ export default function DevStudioPage() {
           ) : (
             <button
               onClick={connectGitHub}
-              className="px-4 py-1 bg-blue-600 hover:bg-blue-700 rounded text-sm"
+              className="px-4 py-1 bg-brand-blue-600 hover:bg-brand-blue-700 rounded text-sm"
             >
               Connect GitHub
             </button>
@@ -291,7 +291,7 @@ export default function DevStudioPage() {
             <input
               type="checkbox"
               checked={showCourseFilesOnly}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setShowCourseFilesOnly(e.target.checked)
               }
               className="rounded"
@@ -304,7 +304,7 @@ export default function DevStudioPage() {
             disabled={!hasChanges || loading}
             className={`flex items-center gap-2 px-4 py-2 rounded ${
               hasChanges && !loading
-                ? 'bg-green-600 hover:bg-green-700'
+                ? 'bg-brand-green-600 hover:bg-green-700'
                 : 'bg-gray-600 cursor-not-allowed'
             }`}
           >
@@ -312,7 +312,7 @@ export default function DevStudioPage() {
             Save
           </button>
 
-          <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">
+          <button className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 hover:bg-brand-blue-700 rounded">
             <Play className="w-4 h-4" />
             Run
           </button>

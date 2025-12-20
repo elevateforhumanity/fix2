@@ -4,19 +4,23 @@ import SignupForm from './SignupForm';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/signup",
+    canonical: 'https://www.elevateforhumanity.org/signup',
   },
   title: 'Create Account',
-  description: 'Create your account to apply, track progress, upload documents, and manage your training pathway.',
+  description:
+    'Create your account to apply, track progress, upload documents, and manage your training pathway.',
 };
 
 export default async function SignupPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <main className="mx-auto max-w-3xl px-4 py-10">
-        <h1 className="text-3xl font-bold text-black">Create your Elevate account</h1>
+        <h1 className="text-3xl font-bold text-black">
+          Create your Elevate account
+        </h1>
         <p className="mt-2 text-gray-600">
-          Use one account to apply, track training, and manage documents. We are appointment-based—after you apply, a real advisor follows up.
+          Use one account to apply, track training, and manage documents. We are
+          appointment-based—after you apply, a real advisor follows up.
         </p>
 
         <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -33,13 +37,13 @@ export default async function SignupPage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-600">
-          <Link href="/login" className="underline hover:text-blue-600">
+          <Link href="/login" className="underline hover:text-brand-blue-600">
             Already have an account? Log in
           </Link>
-          <Link href="/apply" className="underline hover:text-blue-600">
+          <Link href="/apply" className="underline hover:text-brand-blue-600">
             Not ready to create an account? Apply first
           </Link>
-          <Link href="/privacy" className="underline hover:text-blue-600">
+          <Link href="/privacy" className="underline hover:text-brand-blue-600">
             Privacy Policy
           </Link>
         </div>

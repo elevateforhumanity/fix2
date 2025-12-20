@@ -30,17 +30,26 @@ interface Program {
   slug: string;
 }
 
-export function ModulesTable({ modules, programs }: { modules: Module[]; programs: Program[] }) {
+export function ModulesTable({
+  modules,
+  programs,
+}: {
+  modules: Module[];
+  programs: Program[];
+}) {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterProgram, setFilterProgram] = useState<string>('all');
   const [filterType, setFilterType] = useState<string>('all');
 
-  const filteredModules = modules.filter(module => {
-    const matchesSearch = module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         module.program?.name?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesProgram = filterProgram === 'all' || module.program_id === filterProgram;
-    const matchesType = filterType === 'all' || module.module_type === filterType;
-    
+  const filteredModules = modules.filter((module) => {
+    const matchesSearch =
+      module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      module.program?.name?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesProgram =
+      filterProgram === 'all' || module.program_id === filterProgram;
+    const matchesType =
+      filterType === 'all' || module.module_type === filterType;
+
     return matchesSearch && matchesProgram && matchesType;
   });
 
@@ -49,7 +58,7 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
       case 'scorm':
         return 'bg-blue-100 text-blue-800';
       case 'lesson':
-        return 'bg-green-100 text-green-800';
+        return 'bg-brand-green-100 text-green-800';
       case 'assessment':
         return 'bg-purple-100 text-purple-800';
       case 'external':
@@ -68,12 +77,20 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
             type="text"
             placeholder="Search modules..."
             value={searchTerm}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchTerm(e.target.value)}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setSearchTerm(e.target.value)}
             className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <select
             value={filterProgram}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFilterProgram(e.target.value)}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setFilterProgram(e.target.value)}
             className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Programs</option>
@@ -85,7 +102,11 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
           </select>
           <select
             value={filterType}
-            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFilterType(e.target.value)}
+            onChange={(
+              e: React.ChangeEvent<
+                HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+              >
+            ) => setFilterType(e.target.value)}
             className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Types</option>
@@ -128,7 +149,10 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
           <tbody className="bg-white divide-y divide-gray-200">
             {filteredModules.length === 0 ? (
               <tr>
-                <td colSpan={7} className="px-6 py-12 text-center text-gray-500">
+                <td
+                  colSpan={7}
+                  className="px-6 py-12 text-center text-gray-500"
+                >
                   No modules found
                 </td>
               </tr>
@@ -137,24 +161,29 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
                 <tr key={module.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div>
-                      <div className="font-medium text-gray-900">{module.title}</div>
+                      <div className="font-medium text-gray-900">
+                        {module.title}
+                      </div>
                       {module.description && (
                         <div className="text-sm text-gray-500 line-clamp-1">
                           {module.description}
                         </div>
                       )}
-                      {module.scorm_package && module.scorm_package.length > 0 && (
-                        <div className="text-xs text-blue-600 mt-1">
-                          SCORM: {module.scorm_package[0].title}
-                        </div>
-                      )}
+                      {module.scorm_package &&
+                        module.scorm_package.length > 0 && (
+                          <div className="text-xs text-brand-blue-600 mt-1">
+                            SCORM: {module.scorm_package[0].title}
+                          </div>
+                        )}
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-900">
                     {module.program?.name || 'Unknown'}
                   </td>
                   <td className="px-6 py-4">
-                    <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getTypeColor(module.module_type)}`}>
+                    <span
+                      className={`px-2 py-1 text-xs font-semibold rounded-full ${getTypeColor(module.module_type)}`}
+                    >
                       {module.module_type}
                     </span>
                   </td>
@@ -166,7 +195,9 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
                   </td>
                   <td className="px-6 py-4">
                     {module.is_required ? (
-                      <span className="text-green-600 font-medium">✓ Required</span>
+                      <span className="text-brand-green-600 font-medium">
+                        ✓ Required
+                      </span>
                     ) : (
                       <span className="text-gray-400">Optional</span>
                     )}
@@ -175,7 +206,7 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
                     <div className="flex items-center justify-end gap-2">
                       <Link
                         href={`/admin/modules/${module.id}`}
-                        className="text-blue-600 hover:text-blue-900"
+                        className="text-brand-blue-600 hover:text-blue-900"
                       >
                         Edit
                       </Link>
@@ -200,8 +231,8 @@ export function ModulesTable({ modules, programs }: { modules: Module[]; program
       {/* Pagination info */}
       <div className="px-6 py-4 border-t bg-gray-50">
         <p className="text-sm text-gray-700">
-          Showing <span className="font-medium">{filteredModules.length}</span> of{' '}
-          <span className="font-medium">{modules.length}</span> modules
+          Showing <span className="font-medium">{filteredModules.length}</span>{' '}
+          of <span className="font-medium">{modules.length}</span> modules
         </p>
       </div>
     </div>

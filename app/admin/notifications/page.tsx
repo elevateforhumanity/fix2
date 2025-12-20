@@ -8,7 +8,15 @@ import { useRouter } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-function QuickTemplate({ title, body, onClick }: { title: string; body: string; onClick: () => void }) {
+function QuickTemplate({
+  title,
+  body,
+  onClick,
+}: {
+  title: string;
+  body: string;
+  onClick: () => void;
+}) {
   return (
     <button
       onClick={onClick}
@@ -76,13 +84,13 @@ export default function NotificationsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -94,7 +102,7 @@ export default function NotificationsPage() {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center space-x-3">
-            <Bell className="w-8 h-8 text-blue-600" />
+            <Bell className="w-8 h-8 text-brand-blue-600" />
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
                 Push Notifications
@@ -222,7 +230,7 @@ export default function NotificationsPage() {
                   disabled={
                     sending || !notification.title || !notification.body
                   }
-                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" />
                   <span>{sending ? 'Sending...' : 'Send Notification'}</span>
@@ -240,7 +248,7 @@ export default function NotificationsPage() {
                 >
                   <div className="flex items-start space-x-3">
                     {result.success ? (
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5" />
                     ) : (
                       <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
                     )}

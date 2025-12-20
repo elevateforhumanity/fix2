@@ -117,7 +117,7 @@ export default async function WorkforceBoardDashboardPage() {
       </section>
 
       {/* Header */}
-      <section className="bg-blue-700 text-white py-12">
+      <section className="bg-brand-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">
@@ -138,7 +138,7 @@ export default async function WorkforceBoardDashboardPage() {
               <h3 className="text-sm font-medium text-gray-600 mb-2">
                 Total Students
               </h3>
-              <p className="text-3xl font-bold text-blue-600">
+              <p className="text-3xl font-bold text-brand-blue-600">
                 {totalStudents || 0}
               </p>
             </div>
@@ -147,7 +147,7 @@ export default async function WorkforceBoardDashboardPage() {
               <h3 className="text-sm font-medium text-gray-600 mb-2">
                 Active Enrollments
               </h3>
-              <p className="text-3xl font-bold text-green-600">
+              <p className="text-3xl font-bold text-brand-green-600">
                 {activeEnrollments || 0}
               </p>
             </div>
@@ -165,7 +165,7 @@ export default async function WorkforceBoardDashboardPage() {
               <h3 className="text-sm font-medium text-gray-600 mb-2">
                 Active Programs
               </h3>
-              <p className="text-3xl font-bold text-orange-600">
+              <p className="text-3xl font-bold text-brand-orange-600">
                 {totalPrograms || 0}
               </p>
             </div>
@@ -182,7 +182,7 @@ export default async function WorkforceBoardDashboardPage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Completed</span>
-                  <span className="font-semibold text-green-600">
+                  <span className="font-semibold text-brand-green-600">
                     {completedEnrollments || 0}
                   </span>
                 </div>
@@ -268,7 +268,7 @@ export default async function WorkforceBoardDashboardPage() {
                           <span
                             className={`px-2 py-1 rounded-full text-xs ${
                               enrollment.status === 'completed'
-                                ? 'bg-green-100 text-green-800'
+                                ? 'bg-brand-green-100 text-green-800'
                                 : enrollment.status === 'active'
                                   ? 'bg-blue-100 text-blue-800'
                                   : 'bg-gray-100 text-gray-800'

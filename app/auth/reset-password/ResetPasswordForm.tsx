@@ -59,7 +59,7 @@ export default function ResetPasswordForm() {
         <div className="text-center">
           <div className="mb-4">
             <svg
-              className="w-16 h-16 text-green-600 mx-auto"
+              className="w-16 h-16 text-brand-green-600 mx-auto"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -145,7 +145,7 @@ export default function ResetPasswordForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
+          className="w-full px-4 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
         >
           {loading ? 'Updating...' : 'Update Password'}
         </button>
@@ -154,7 +154,7 @@ export default function ResetPasswordForm() {
       <div className="mt-6 text-center">
         <Link
           href="/login"
-          className="text-sm text-blue-600 hover:text-blue-700"
+          className="text-sm text-brand-blue-600 hover:text-brand-blue-700"
         >
           ← Back to Login
         </Link>

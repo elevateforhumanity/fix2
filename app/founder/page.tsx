@@ -8,7 +8,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.elevateforhumanity.org/founder',
   },
   title: 'Founder & Leadership | Elevate For Humanity',
-  description: 'Founded with purpose. Built for impact. Learn about the leadership behind Elevate for Humanity.',
+  description:
+    'Founded with purpose. Built for impact. Learn about the leadership behind Elevate for Humanity.',
 };
 
 export default function FounderPage() {
@@ -36,19 +37,28 @@ export default function FounderPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Founder Statement</h2>
-            
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Founder Statement
+            </h2>
+
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              Elevate for Humanity was founded to address a simple but persistent problem: too many people are motivated to improve their lives, yet are blocked by disconnected systems, unclear requirements, and lack of coordinated support.
-            </p>
-            
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Our work is grounded in real-world experience navigating workforce programs, education systems, and community services. That experience shaped a model focused on connection, accountability, and human-centered design.
+              Elevate for Humanity was founded to address a simple but
+              persistent problem: too many people are motivated to improve their
+              lives, yet are blocked by disconnected systems, unclear
+              requirements, and lack of coordinated support.
             </p>
 
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Our work is grounded in real-world experience navigating workforce
+              programs, education systems, and community services. That
+              experience shaped a model focused on connection, accountability,
+              and human-centered design.
+            </p>
+
+            <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-8">
               <p className="text-lg font-semibold text-gray-900">
-                Elevate for Humanity exists to ensure opportunity is not theoretical — it's accessible, supported, and measurable.
+                Elevate for Humanity exists to ensure opportunity is not
+                theoretical — it's accessible, supported, and measurable.
               </p>
             </div>
           </div>
@@ -61,11 +71,11 @@ export default function FounderPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             Leadership Commitment
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-blue-600" />
+                <Shield className="w-6 h-6 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
                 Ethical operations
@@ -73,8 +83,8 @@ export default function FounderPage() {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
                 Compliance with workforce and funding standards
@@ -92,7 +102,7 @@ export default function FounderPage() {
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                <Heart className="w-6 h-6 text-orange-600" />
+                <Heart className="w-6 h-6 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
                 Long-term community investment
@@ -103,7 +113,7 @@ export default function FounderPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Learn How Elevate Works

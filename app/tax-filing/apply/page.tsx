@@ -117,13 +117,13 @@ export default function TaxFilingApplicationPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -151,7 +151,7 @@ export default function TaxFilingApplicationPage() {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
                     step >= s
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-brand-blue-600 text-white'
                       : 'bg-slate-200 text-slate-600'
                   }`}
                 >
@@ -160,7 +160,7 @@ export default function TaxFilingApplicationPage() {
                 {s < 4 && (
                   <div
                     className={`w-24 h-1 mx-2 ${
-                      step > s ? 'bg-blue-600' : 'bg-slate-200'
+                      step > s ? 'bg-brand-blue-600' : 'bg-slate-200'
                     }`}
                   />
                 )}
@@ -472,7 +472,7 @@ export default function TaxFilingApplicationPage() {
                 <h3 className="font-semibold text-blue-900 mb-2">
                   Total Income
                 </h3>
-                <p className="text-base md:text-lg font-bold text-blue-600">
+                <p className="text-base md:text-lg font-bold text-brand-blue-600">
                   $
                   {(
                     formData.w2_income +
@@ -500,7 +500,7 @@ export default function TaxFilingApplicationPage() {
                     name="standard_deduction"
                     checked={formData.standard_deduction}
                     onChange={handleChange}
-                    className="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+                    className="w-5 h-5 text-brand-blue-600 border-slate-300 rounded focus:ring-blue-500"
                   />
                   <label className="ml-3 text-sm font-medium text-slate-700">
                     Use Standard Deduction (Recommended for most filers)
@@ -629,7 +629,7 @@ export default function TaxFilingApplicationPage() {
               <button
                 type="button"
                 onClick={() => setStep(step + 1)}
-                className="ml-auto px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                className="ml-auto px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition"
               >
                 Next
               </button>
@@ -637,7 +637,7 @@ export default function TaxFilingApplicationPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="ml-auto px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition disabled:opacity-50"
+                className="ml-auto px-8 py-3 bg-brand-green-600 text-white rounded-lg hover:bg-green-700 transition disabled:opacity-50"
               >
                 {loading ? 'Submitting...' : 'Submit Application'}
               </button>
@@ -664,7 +664,7 @@ export default function TaxFilingApplicationPage() {
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -682,7 +682,7 @@ export default function TaxFilingApplicationPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -700,7 +700,7 @@ export default function TaxFilingApplicationPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -718,7 +718,7 @@ export default function TaxFilingApplicationPage() {
                     </li>
                     <li className="flex items-start">
                       <svg
-                        className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1"
+                        className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

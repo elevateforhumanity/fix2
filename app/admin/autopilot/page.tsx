@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 
 export default async function AutopilotPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -29,12 +31,18 @@ export default async function AutopilotPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <Link href="/admin" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link
+            href="/admin"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
+          >
             ← Back to Admin Dashboard
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900">Autopilot Management</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            Autopilot Management
+          </h1>
           <p className="mt-2 text-gray-600">
-            Manage automation features and autopilot settings for the LMS system.
+            Manage automation features and autopilot settings for the LMS
+            system.
           </p>
         </div>
 
@@ -44,15 +52,21 @@ export default async function AutopilotPage() {
             href="/admin/autopilots"
             className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">All Autopilots</h3>
-            <p className="text-gray-600 text-sm">View and manage all autopilot configurations</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              All Autopilots
+            </h3>
+            <p className="text-gray-600 text-sm">
+              View and manage all autopilot configurations
+            </p>
           </Link>
 
           <Link
             href="/admin/workflows"
             className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Workflows</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Workflows
+            </h3>
             <p className="text-gray-600 text-sm">Manage automated workflows</p>
           </Link>
 
@@ -60,14 +74,18 @@ export default async function AutopilotPage() {
             href="/admin/copilot"
             className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Copilot</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Copilot
+            </h3>
             <p className="text-gray-600 text-sm">AI copilot management</p>
           </Link>
         </div>
 
         {/* Info Box */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">Automation Features</h3>
+          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+            Automation Features
+          </h3>
           <ul className="space-y-2 text-blue-800">
             <li>• Automated student enrollment</li>
             <li>• Course completion notifications</li>

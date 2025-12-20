@@ -164,7 +164,7 @@ export default function OrgInvitesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600"></div>
       </div>
     );
   }
@@ -183,7 +183,7 @@ export default function OrgInvitesPage() {
         <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
           <button
             onClick={() => setShowInviteForm(true)}
-            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="inline-flex items-center justify-center rounded-md border border-transparent bg-brand-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Send Invitation
           </button>
@@ -256,7 +256,7 @@ export default function OrgInvitesPage() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-50"
+                  className="inline-flex justify-center rounded-md border border-transparent bg-brand-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-blue-700 disabled:opacity-50"
                 >
                   {sending ? 'Sending...' : 'Send Invitation'}
                 </button>
@@ -316,7 +316,7 @@ export default function OrgInvitesPage() {
                           <span
                             className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
                               invite.status === 'accepted'
-                                ? 'bg-green-100 text-green-800'
+                                ? 'bg-brand-green-100 text-green-800'
                                 : invite.status === 'expired'
                                   ? 'bg-red-100 text-red-800'
                                   : 'bg-yellow-100 text-yellow-800'
@@ -336,7 +336,7 @@ export default function OrgInvitesPage() {
                             <div className="flex justify-end space-x-2">
                               <button
                                 onClick={() => resendInvite(invite.id)}
-                                className="text-blue-600 hover:text-blue-900"
+                                className="text-brand-blue-600 hover:text-blue-900"
                               >
                                 Resend
                               </button>

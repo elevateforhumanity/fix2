@@ -92,7 +92,7 @@ export default function ApprenticeshipProgramsPage() {
 
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-brand-blue-600 mb-4">
                 <DollarSign className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Get Paid</h3>
@@ -102,7 +102,7 @@ export default function ApprenticeshipProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-green-100 text-brand-green-600 mb-4">
                 <Briefcase className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">Real Experience</h3>
@@ -122,7 +122,7 @@ export default function ApprenticeshipProgramsPage() {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-brand-orange-600 mb-4">
                 <Clock className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-black mb-2">No Debt</h3>
@@ -168,11 +168,11 @@ export default function ApprenticeshipProgramsPage() {
                     <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full">
                       {program.duration}
                     </span>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-brand-green-100 text-green-700 text-sm font-semibold rounded-full">
                       Paid Training
                     </span>
                   </div>
-                  <span className="inline-flex items-center font-semibold text-blue-600 group-hover:underline">
+                  <span className="inline-flex items-center font-semibold text-brand-blue-600 group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -193,7 +193,7 @@ export default function ApprenticeshipProgramsPage() {
           </p>
           <Link
             href="/apply"
-            className="inline-flex px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition text-lg"
+            className="inline-flex px-8 py-4 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition text-lg"
           >
             Apply Now
           </Link>

@@ -79,12 +79,12 @@ export default function HoursExportPage() {
         <div className="mb-8">
           <Link
             href="/admin/dashboard"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
           <div className="flex items-center gap-3 mb-2">
-            <Clock className="w-8 h-8 text-blue-600" />
+            <Clock className="w-8 h-8 text-brand-blue-600" />
             <h1 className="text-3xl font-bold text-gray-900">
               Weekly Hours Export
             </h1>
@@ -183,7 +183,7 @@ export default function HoursExportPage() {
             <button
               onClick={handleExport}
               disabled={loading || !startDate || !endDate}
-              className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 bg-brand-blue-600 text-white px-6 py-3 rounded-md hover:bg-brand-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Download className="w-4 h-4" />
               {loading ? 'Generating...' : 'Export to CSV'}
@@ -198,25 +198,25 @@ export default function HoursExportPage() {
           </h2>
           <ol className="space-y-3 text-sm text-gray-700">
             <li className="flex gap-2">
-              <span className="font-semibold text-blue-600">1.</span>
+              <span className="font-semibold text-brand-blue-600">1.</span>
               <span>
                 Select the week you want to report (typically the previous week)
               </span>
             </li>
             <li className="flex gap-2">
-              <span className="font-semibold text-blue-600">2.</span>
+              <span className="font-semibold text-brand-blue-600">2.</span>
               <span>Click "Export to CSV" to download the file</span>
             </li>
             <li className="flex gap-2">
-              <span className="font-semibold text-blue-600">3.</span>
+              <span className="font-semibold text-brand-blue-600">3.</span>
               <span>Open the CSV file in Excel or Google Sheets</span>
             </li>
             <li className="flex gap-2">
-              <span className="font-semibold text-blue-600">4.</span>
+              <span className="font-semibold text-brand-blue-600">4.</span>
               <span>Review the data for accuracy</span>
             </li>
             <li className="flex gap-2">
-              <span className="font-semibold text-blue-600">5.</span>
+              <span className="font-semibold text-brand-blue-600">5.</span>
               <span>
                 Submit to WorkOne/DWD according to their reporting schedule
               </span>

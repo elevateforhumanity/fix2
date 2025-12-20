@@ -70,7 +70,7 @@ export default async function WorkforceBoardPage() {
               href="/workforce-board/dashboard"
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
-              <TrendingUp className="w-12 h-12 text-blue-600 mb-4" />
+              <TrendingUp className="w-12 h-12 text-brand-blue-600 mb-4" />
               <h3 className="text-lg font-bold text-slate-900 mb-2">
                 Dashboard
               </h3>
@@ -84,7 +84,7 @@ export default async function WorkforceBoardPage() {
               href="/workforce-board/reports"
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-green-500 hover:shadow-lg transition-all"
             >
-              <FileText className="w-12 h-12 text-green-600 mb-4" />
+              <FileText className="w-12 h-12 text-brand-green-600 mb-4" />
               <h3 className="text-lg font-bold text-slate-900 mb-2">Reports</h3>
               <p className="text-slate-600">
                 Access compliance reports, outcomes data, and performance
@@ -109,7 +109,7 @@ export default async function WorkforceBoardPage() {
               href="/workforce-board/training"
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-orange-500 hover:shadow-lg transition-all"
             >
-              <Award className="w-12 h-12 text-orange-600 mb-4" />
+              <Award className="w-12 h-12 text-brand-orange-600 mb-4" />
               <h3 className="text-lg font-bold text-slate-900 mb-2">
                 Training Programs
               </h3>
@@ -162,19 +162,19 @@ export default async function WorkforceBoardPage() {
               </h3>
               <ul className="space-y-3 text-slate-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-brand-green-600 font-bold">✓</span>
                   <span>WIOA Title I compliance and reporting</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-brand-green-600 font-bold">✓</span>
                   <span>Workforce Ready Grant (WRG) oversight</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-brand-green-600 font-bold">✓</span>
                   <span>Performance accountability measures</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 font-bold">✓</span>
+                  <span className="text-brand-green-600 font-bold">✓</span>
                   <span>Eligible Training Provider List (ETPL) compliance</span>
                 </li>
               </ul>
@@ -186,19 +186,19 @@ export default async function WorkforceBoardPage() {
               </h3>
               <ul className="space-y-3 text-slate-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">•</span>
+                  <span className="text-brand-blue-600 font-bold">•</span>
                   <span>Employment rate in 2nd quarter after exit</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">•</span>
+                  <span className="text-brand-blue-600 font-bold">•</span>
                   <span>Employment rate in 4th quarter after exit</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">•</span>
+                  <span className="text-brand-blue-600 font-bold">•</span>
                   <span>Median earnings in 2nd quarter after exit</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">•</span>
+                  <span className="text-brand-blue-600 font-bold">•</span>
                   <span>Credential attainment rate</span>
                 </li>
               </ul>
@@ -225,7 +225,7 @@ export default async function WorkforceBoardPage() {
               Phone:{' '}
               <a
                 href="tel:317-314-3757"
-                className="text-blue-600 hover:underline"
+                className="text-brand-blue-600 hover:underline"
               >
                 317-314-3757
               </a>
@@ -234,7 +234,7 @@ export default async function WorkforceBoardPage() {
               Email:{' '}
               <a
                 href="mailto:workforce@elevateforhumanity.org"
-                className="text-blue-600 hover:underline"
+                className="text-brand-blue-600 hover:underline"
               >
                 workforce@elevateforhumanity.org
               </a>

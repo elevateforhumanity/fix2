@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default async function CashAdvancesAdminPage() {
-
-
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -25,11 +25,11 @@ export default async function CashAdvancesAdminPage() {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
+
   const { data: items, count: totalItems } = await supabase
     .from('profiles')
     .select('*', { count: 'exact' })
@@ -41,11 +41,8 @@ export default async function CashAdvancesAdminPage() {
     .select('*', { count: 'exact', head: true })
     .eq('status', 'active');
 
-  
-
   await requireAdmin();
 
-  
   // Fetch applications
   const { data: applications, error } = await supabase
     .from('cash_advance_applications')
@@ -56,13 +53,16 @@ export default async function CashAdvancesAdminPage() {
   // Calculate stats
   const stats = {
     total: applications?.length || 0,
-    pending: applications?.filter(a => a.status === 'pending').length || 0,
-    approved: applications?.filter(a => a.status === 'approved').length || 0,
-    funded: applications?.filter(a => a.status === 'funded').length || 0,
-    denied: applications?.filter(a => a.status === 'denied').length || 0,
-    totalAmount: applications?.reduce((sum, a) => sum + (a.requested_amount || 0), 0) || 0,
-    approvedAmount: applications?.filter(a => a.status === 'approved' || a.status === 'funded')
-      .reduce((sum, a) => sum + (a.approved_amount || 0), 0) || 0
+    pending: applications?.filter((a) => a.status === 'pending').length || 0,
+    approved: applications?.filter((a) => a.status === 'approved').length || 0,
+    funded: applications?.filter((a) => a.status === 'funded').length || 0,
+    denied: applications?.filter((a) => a.status === 'denied').length || 0,
+    totalAmount:
+      applications?.reduce((sum, a) => sum + (a.requested_amount || 0), 0) || 0,
+    approvedAmount:
+      applications
+        ?.filter((a) => a.status === 'approved' || a.status === 'funded')
+        .reduce((sum, a) => sum + (a.approved_amount || 0), 0) || 0,
   };
 
   return (
@@ -79,23 +79,35 @@ export default async function CashAdvancesAdminPage() {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-          <div className="text-sm font-medium text-slate-600 mb-1">Total Applications</div>
+          <div className="text-sm font-medium text-slate-600 mb-1">
+            Total Applications
+          </div>
           <div className="text-3xl font-bold text-slate-900">{stats.total}</div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-          <div className="text-sm font-medium text-slate-600 mb-1">Pending Review</div>
-          <div className="text-3xl font-bold text-orange-600">{stats.pending}</div>
+          <div className="text-sm font-medium text-slate-600 mb-1">
+            Pending Review
+          </div>
+          <div className="text-3xl font-bold text-brand-orange-600">
+            {stats.pending}
+          </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-          <div className="text-sm font-medium text-slate-600 mb-1">Approved</div>
-          <div className="text-3xl font-bold text-green-600">{stats.approved}</div>
+          <div className="text-sm font-medium text-slate-600 mb-1">
+            Approved
+          </div>
+          <div className="text-3xl font-bold text-brand-green-600">
+            {stats.approved}
+          </div>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-          <div className="text-sm font-medium text-slate-600 mb-1">Total Funded</div>
-          <div className="text-3xl font-bold text-blue-600">
+          <div className="text-sm font-medium text-slate-600 mb-1">
+            Total Funded
+          </div>
+          <div className="text-3xl font-bold text-brand-blue-600">
             ${stats.approvedAmount.toLocaleString()}
           </div>
         </div>
@@ -107,13 +119,13 @@ export default async function CashAdvancesAdminPage() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/admin/cash-advances/pending"
-            className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition"
+            className="px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition"
           >
             Review Pending ({stats.pending})
           </Link>
           <Link
             href="/admin/cash-advances/reports"
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition"
           >
             View Reports
           </Link>
@@ -183,7 +195,7 @@ export default async function CashAdvancesAdminPage() {
                         ${app.requested_amount?.toLocaleString()}
                       </div>
                       {app.approved_amount && (
-                        <div className="text-xs text-green-600">
+                        <div className="text-xs text-brand-green-600">
                           Approved: ${app.approved_amount.toLocaleString()}
                         </div>
                       )}
@@ -195,14 +207,14 @@ export default async function CashAdvancesAdminPage() {
                       <span
                         className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
                           app.status === 'approved'
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : app.status === 'pending'
-                            ? 'bg-orange-100 text-orange-800'
-                            : app.status === 'denied'
-                            ? 'bg-red-100 text-red-800'
-                            : app.status === 'funded'
-                            ? 'bg-blue-100 text-blue-800'
-                            : 'bg-slate-100 text-slate-800'
+                              ? 'bg-orange-100 text-orange-800'
+                              : app.status === 'denied'
+                                ? 'bg-red-100 text-red-800'
+                                : app.status === 'funded'
+                                  ? 'bg-blue-100 text-blue-800'
+                                  : 'bg-slate-100 text-slate-800'
                         }`}
                       >
                         {app.status}
@@ -214,13 +226,13 @@ export default async function CashAdvancesAdminPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <Link
                         href={`/admin/cash-advances/applications/${app.id}`}
-                        className="text-blue-600 hover:text-blue-900 mr-4"
+                        className="text-brand-blue-600 hover:text-blue-900 mr-4"
                       >
                         View
                       </Link>
                       {app.status === 'pending' && (
                         <>
-                          <button className="text-green-600 hover:text-green-900 mr-4">
+                          <button className="text-brand-green-600 hover:text-green-900 mr-4">
                             Approve
                           </button>
                           <button className="text-red-600 hover:text-red-900">
@@ -261,7 +273,8 @@ export default async function CashAdvancesAdminPage() {
           <div className="bg-white/10 backdrop-blur rounded-lg p-4">
             <h4 className="font-semibold mb-2">💰 E-Advance</h4>
             <p className="text-sm text-blue-100">
-              No cost taxpayer advance loan program with no in-season marketing fees
+              No cost taxpayer advance loan program with no in-season marketing
+              fees
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-lg p-4">
@@ -305,7 +318,7 @@ export default async function CashAdvancesAdminPage() {
             href="https://www.epstax.net/getstarted/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition font-semibold"
+            className="px-4 py-2 bg-white text-brand-blue-600 rounded-lg hover:bg-blue-50 transition font-semibold"
           >
             Enroll with EPS
           </a>
@@ -319,7 +332,7 @@ export default async function CashAdvancesAdminPage() {
           </a>
         </div>
       </div>
-      
+
       {/* Storytelling Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -330,34 +343,84 @@ export default async function CashAdvancesAdminPage() {
                   Your Journey Starts Here
                 </h2>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
+                  Every great career begins with a single step. Whether you're
+                  looking to change careers, upgrade your skills, or enter the
+                  workforce for the first time, we're here to help you succeed.
+                  Our programs are 100% free, government-funded, and designed to
+                  get you hired fast.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
+                    <span className="text-gray-700">
+                      100% free training - no tuition, no hidden costs
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
+                    <span className="text-gray-700">
+                      Industry-recognized certifications that employers value
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
+                    <span className="text-gray-700">
+                      Job placement assistance and career support
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-brand-green-600 mr-3 flex-shrink-0 mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
+                    <span className="text-gray-700">
+                      Flexible scheduling for working adults
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -376,12 +439,13 @@ export default async function CashAdvancesAdminPage() {
         </div>
       </section>
 
-      
       {/* CTA Section */}
       <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg mb-8 text-blue-100">
               Take the first step toward a better career today.
             </p>

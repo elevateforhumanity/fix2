@@ -128,7 +128,7 @@ export default function AIInstructor({
               {!isSpeaking ? (
                 <button
                   onClick={speak}
-                  className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                  className="p-2 bg-brand-blue-600 text-white rounded-full hover:bg-brand-blue-700 transition-colors"
                   title="Play audio"
                 >
                   <svg
@@ -166,18 +166,18 @@ export default function AIInstructor({
           </div>
 
           {isSpeaking && (
-            <div className="mt-2 flex items-center gap-2 text-sm text-blue-600">
+            <div className="mt-2 flex items-center gap-2 text-sm text-brand-blue-600">
               <div className="flex gap-1">
                 <div
-                  className="w-1 h-4 bg-blue-600 rounded animate-pulse"
+                  className="w-1 h-4 bg-brand-blue-600 rounded animate-pulse"
                   style={{ animationDelay: '0ms' }}
                 />
                 <div
-                  className="w-1 h-4 bg-blue-600 rounded animate-pulse"
+                  className="w-1 h-4 bg-brand-blue-600 rounded animate-pulse"
                   style={{ animationDelay: '150ms' }}
                 />
                 <div
-                  className="w-1 h-4 bg-blue-600 rounded animate-pulse"
+                  className="w-1 h-4 bg-brand-blue-600 rounded animate-pulse"
                   style={{ animationDelay: '300ms' }}
                 />
               </div>

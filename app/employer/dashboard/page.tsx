@@ -71,7 +71,7 @@ export default async function EmployerDashboard() {
             </div>
             <Link
               href="/employer/jobs/new"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition"
             >
               <Plus className="w-5 h-5" />
               Post New Job
@@ -92,7 +92,7 @@ export default async function EmployerDashboard() {
                 </p>
               </div>
               <div className="p-3 bg-blue-100 rounded-lg">
-                <Briefcase className="w-6 h-6 text-blue-600" />
+                <Briefcase className="w-6 h-6 text-brand-blue-600" />
               </div>
             </div>
           </div>
@@ -107,8 +107,8 @@ export default async function EmployerDashboard() {
                   {totalApplications}
                 </p>
               </div>
-              <div className="p-3 bg-green-100 rounded-lg">
-                <FileText className="w-6 h-6 text-green-600" />
+              <div className="p-3 bg-brand-green-100 rounded-lg">
+                <FileText className="w-6 h-6 text-brand-green-600" />
               </div>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default async function EmployerDashboard() {
                                 app.status === 'pending'
                                   ? 'bg-yellow-100 text-yellow-800'
                                   : app.status === 'approved'
-                                    ? 'bg-green-100 text-green-800'
+                                    ? 'bg-brand-green-100 text-green-800'
                                     : 'bg-gray-100 text-gray-800'
                               }`}
                             >
@@ -190,7 +190,7 @@ export default async function EmployerDashboard() {
                         </div>
                         <Link
                           href={`/employer/applications/${app.id}`}
-                          className="px-4 py-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition"
+                          className="px-4 py-2 text-sm font-semibold text-brand-blue-600 hover:text-brand-blue-700 transition"
                         >
                           Review
                         </Link>
@@ -221,7 +221,7 @@ export default async function EmployerDashboard() {
                   href="/employer/jobs/new"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
                 >
-                  <Plus className="w-5 h-5 text-blue-600" />
+                  <Plus className="w-5 h-5 text-brand-blue-600" />
                   <span className="font-semibold text-gray-900">
                     Post New Job
                   </span>
@@ -230,7 +230,7 @@ export default async function EmployerDashboard() {
                   href="/employer/jobs"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
                 >
-                  <Briefcase className="w-5 h-5 text-blue-600" />
+                  <Briefcase className="w-5 h-5 text-brand-blue-600" />
                   <span className="font-semibold text-gray-900">
                     Manage Jobs
                   </span>
@@ -239,7 +239,7 @@ export default async function EmployerDashboard() {
                   href="/employer/candidates"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
                 >
-                  <Search className="w-5 h-5 text-blue-600" />
+                  <Search className="w-5 h-5 text-brand-blue-600" />
                   <span className="font-semibold text-gray-900">
                     Search Candidates
                   </span>
@@ -248,7 +248,7 @@ export default async function EmployerDashboard() {
                   href="/employer/settings"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
                 >
-                  <DollarSign className="w-5 h-5 text-blue-600" />
+                  <DollarSign className="w-5 h-5 text-brand-blue-600" />
                   <span className="font-semibold text-gray-900">Billing</span>
                 </Link>
               </div>
@@ -262,7 +262,7 @@ export default async function EmployerDashboard() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition text-sm"
+                className="inline-block px-4 py-2 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition text-sm"
               >
                 Contact Support
               </Link>

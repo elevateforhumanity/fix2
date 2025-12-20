@@ -109,7 +109,7 @@ function SignupFormContent() {
         <div className="text-center">
           <div className="mb-4">
             <svg
-              className="w-16 h-16 text-green-600 mx-auto"
+              className="w-16 h-16 text-brand-green-600 mx-auto"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ function SignupFormContent() {
           </p>
           <Link
             href="/login"
-            className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="inline-block px-6 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
           >
             Go to Login
           </Link>
@@ -272,20 +272,20 @@ function SignupFormContent() {
             type="checkbox"
             id="terms"
             required
-            className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            className="mt-1 h-4 w-4 text-brand-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
           <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
             I agree to the{' '}
             <Link
               href="/terms-of-service"
-              className="text-blue-600 hover:text-blue-700 underline"
+              className="text-brand-blue-600 hover:text-brand-blue-700 underline"
             >
               Terms of Service
             </Link>{' '}
             and{' '}
             <Link
               href="/privacy-policy"
-              className="text-blue-600 hover:text-blue-700 underline"
+              className="text-brand-blue-600 hover:text-brand-blue-700 underline"
             >
               Privacy Policy
             </Link>
@@ -295,7 +295,7 @@ function SignupFormContent() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
+          className="w-full px-4 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
         >
           {loading ? 'Creating account...' : 'Create Account'}
         </button>
@@ -343,7 +343,7 @@ function SignupFormContent() {
         Already have an account?{' '}
         <Link
           href="/login"
-          className="text-blue-600 hover:text-blue-700 font-medium"
+          className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
         >
           Sign in
         </Link>

@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 
-
 import Link from 'next/link';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
 
 import {
@@ -139,7 +138,7 @@ export default function VolunteerPage() {
             </p>
             <Link
               href="#opportunities"
-              className="inline-block px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
+              className="inline-block px-8 py-4 bg-white text-brand-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
             >
               View Opportunities
             </Link>
@@ -152,11 +151,13 @@ export default function VolunteerPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">150+</div>
+              <div className="text-4xl font-bold text-brand-blue-600 mb-2">
+                150+
+              </div>
               <div className="text-sm text-slate-600">Active Volunteers</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-brand-green-600 mb-2">
                 5,000+
               </div>
               <div className="text-sm text-slate-600">
@@ -164,7 +165,7 @@ export default function VolunteerPage() {
               </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2">
                 800+
               </div>
               <div className="text-sm text-slate-600">Students Helped</div>
@@ -194,7 +195,7 @@ export default function VolunteerPage() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-blue-600" />
+                <Heart className="w-8 h-8 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-bold mb-3">Make Real Impact</h3>
               <p className="text-slate-600">
@@ -203,8 +204,8 @@ export default function VolunteerPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-bold mb-3">Build Community</h3>
               <p className="text-slate-600">
@@ -243,7 +244,7 @@ export default function VolunteerPage() {
                   >
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-blue-600" />
+                        <Icon className="w-6 h-6 text-brand-blue-600" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-bold mb-1">
@@ -268,7 +269,7 @@ export default function VolunteerPage() {
                             key={index}
                             className="flex items-start gap-2 text-sm text-slate-600"
                           >
-                            <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5" />
                             <span>{req}</span>
                           </li>
                         ))}
@@ -281,7 +282,7 @@ export default function VolunteerPage() {
                     </div>
                     <Link
                       href="#apply"
-                      className="inline-block w-full text-center px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                      className="inline-block w-full text-center px-6 py-3 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition"
                     >
                       Apply for This Role
                     </Link>
@@ -444,7 +445,7 @@ export default function VolunteerPage() {
               </div>
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition"
+                className="w-full px-8 py-4 bg-brand-blue-600 text-white font-bold text-lg rounded-lg hover:bg-brand-blue-700 transition"
               >
                 Submit Application
               </button>
@@ -467,7 +468,7 @@ export default function VolunteerPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:317-314-3757"
-                className="inline-block px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
+                className="inline-block px-8 py-4 bg-white text-brand-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
               >
                 Call: 317-314-3757
               </a>

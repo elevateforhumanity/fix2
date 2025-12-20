@@ -119,13 +119,13 @@ export default function StatePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+                className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
               >
                 View Programs
               </Link>
@@ -148,29 +148,29 @@ export default function StatePage() {
               <span>{state.name}</span>
             </nav>
             <h1 className="text-5xl font-bold mb-4 text-3xl md:text-4xl lg:text-5xl">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              Tax Filing in {state.name}
+              // @ts-expect-error TS2304: Cannot find name 'state'. Tax Filing
+              in {state.name}
             </h1>
             <p className="text-base md:text-lg text-blue-100 mb-6">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              // @ts-expect-error TS2304: Cannot find name 'state'.
+              // @ts-expect-error TS2304: Cannot find name 'state'. //
+              @ts-expect-error TS2304: Cannot find name 'state'.
               {state.preparers}+ certified tax preparers across {state.name}.
               Drake Software certified. $100 flat fee for federal + state.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="/tax-filing/start"
-                className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 font-bold text-center"
+                className="inline-block bg-white text-brand-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 font-bold text-center"
               >
-                // @ts-expect-error TS2304: Cannot find name 'state'.
-                File Your {state.name} Taxes Now
+                // @ts-expect-error TS2304: Cannot find name 'state'. File Your{' '}
+                {state.name} Taxes Now
               </a>
               <a
                 href="/tax-filing/join-team"
                 className="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg hover:bg-yellow-300 font-bold text-center"
               >
-                // @ts-expect-error TS2304: Cannot find name 'state'.
-                Become a Tax Preparer in {state.name}
+                // @ts-expect-error TS2304: Cannot find name 'state'. Become a
+                Tax Preparer in {state.name}
               </a>
             </div>
           </div>
@@ -181,14 +181,14 @@ export default function StatePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                   // @ts-expect-error TS2304: Cannot find name 'state'.
                   {state.preparers}+
                 </div>
                 <div className="text-gray-600">Tax Preparers</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                <div className="text-4xl font-bold text-brand-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                   // @ts-expect-error TS2304: Cannot find name 'state'.
                   {state.cities.length}
                 </div>
@@ -201,7 +201,7 @@ export default function StatePage() {
                 <div className="text-gray-600">Flat Fee</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                   4.9★
                 </div>
                 <div className="text-gray-600">Average Rating</div>
@@ -214,8 +214,8 @@ export default function StatePage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              Tax Preparers by City in {state.name}
+              // @ts-expect-error TS2304: Cannot find name 'state'. Tax
+              Preparers by City in {state.name}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -247,7 +247,7 @@ export default function StatePage() {
                   <a
                     // @ts-expect-error TS2304: Cannot find name 'params'.
                     href={`/tax-filing/locations/${params.state}/${city.name.toLowerCase().replace(' ', '-')}`}
-                    className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg hover:bg-blue-700 font-bold"
+                    className="block w-full bg-brand-blue-600 text-white text-center py-3 rounded-lg hover:bg-brand-blue-700 font-bold"
                   >
                     Find Preparers in {city.name}
                   </a>
@@ -275,28 +275,28 @@ export default function StatePage() {
                     <span className="font-semibold">
                       State Income Tax Rate:
                     </span>
-                    <span className="text-blue-600 font-bold">
+                    <span className="text-brand-blue-600 font-bold">
                       // @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.taxInfo.stateTaxRate}
                     </span>
                   </div>
                   <div className="flex justify-between border-b pb-3">
                     <span className="font-semibold">Filing Deadline:</span>
-                    <span className="text-blue-600 font-bold">
+                    <span className="text-brand-blue-600 font-bold">
                       // @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.taxInfo.filingDeadline}
                     </span>
                   </div>
                   <div className="flex justify-between border-b pb-3">
                     <span className="font-semibold">Standard Deduction:</span>
-                    <span className="text-blue-600 font-bold">
+                    <span className="text-brand-blue-600 font-bold">
                       // @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.taxInfo.standardDeduction}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-semibold">Population:</span>
-                    <span className="text-blue-600 font-bold">
+                    <span className="text-brand-blue-600 font-bold">
                       // @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.population}
                     </span>
@@ -335,8 +335,8 @@ export default function StatePage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              Why Choose Us for {state.name} Tax Filing?
+              // @ts-expect-error TS2304: Cannot find name 'state'. Why Choose
+              Us for {state.name} Tax Filing?
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -345,25 +345,25 @@ export default function StatePage() {
                   <span className="text-3xl">🏆</span>
                 </div>
                 <h3 className="text-lg font-bold mb-3">
-                  // @ts-expect-error TS2304: Cannot find name 'state'.
-                  Local {state.name} Experts
+                  // @ts-expect-error TS2304: Cannot find name 'state'. Local{' '}
+                  {state.name} Experts
                 </h3>
                 <p className="text-gray-600">
-                  // @ts-expect-error TS2304: Cannot find name 'state'.
-                  Our tax preparers live and work in {state.name}. They know
-                  state tax laws inside and out.
+                  // @ts-expect-error TS2304: Cannot find name 'state'. Our tax
+                  preparers live and work in {state.name}. They know state tax
+                  laws inside and out.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">💰</span>
                 </div>
                 <h3 className="text-lg font-bold mb-3">$100 Flat Fee</h3>
                 <p className="text-gray-600">
-                  // @ts-expect-error TS2304: Cannot find name 'state'.
-                  Federal + {state.name} state return included. No hidden fees
-                  or surprises.
+                  // @ts-expect-error TS2304: Cannot find name 'state'. Federal
+                  + {state.name} state return included. No hidden fees or
+                  surprises.
                 </p>
               </div>
 
@@ -385,45 +385,45 @@ export default function StatePage() {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              What {state.name} Residents Say
+              // @ts-expect-error TS2304: Cannot find name 'state'. What{' '}
+              {state.name} Residents Say
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
+                  <div className="w-12 h-12 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
                     JD
                   </div>
                   <div>
                     <div className="font-bold">John D.</div>
                     <div className="text-sm text-gray-600">
-                      // @ts-expect-error TS2304: Cannot find name 'state'.
-                      // @ts-expect-error TS2304: Cannot find name 'state'.
+                      // @ts-expect-error TS2304: Cannot find name 'state'. //
+                      @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.capital}, {state.abbreviation}
                     </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  // @ts-expect-error TS2304: Cannot find name 'state'.
-                  "Best tax service in {state.name}! Got my refund in 10 days.
-                  // @ts-expect-error TS2304: Cannot find name 'state'.
-                  The preparer knew all the {state.name} tax credits I qualified
+                  // @ts-expect-error TS2304: Cannot find name 'state'. "Best
+                  tax service in {state.name}! Got my refund in 10 days. //
+                  @ts-expect-error TS2304: Cannot find name 'state'. The
+                  preparer knew all the {state.name} tax credits I qualified
                   for."
                 </p>
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
+                  <div className="w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
                     SM
                   </div>
                   <div>
                     <div className="font-bold">Sarah M.</div>
                     <div className="text-sm text-gray-600">
-                      // @ts-expect-error TS2304: Cannot find name 'state'.
-                      // @ts-expect-error TS2304: Cannot find name 'state'.
+                      // @ts-expect-error TS2304: Cannot find name 'state'. //
+                      @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.cities[1].name}, {state.abbreviation}
                     </div>
                     <div className="text-yellow-400">★★★★★</div>
@@ -443,16 +443,16 @@ export default function StatePage() {
                   <div>
                     <div className="font-bold">Mike T.</div>
                     <div className="text-sm text-gray-600">
-                      // @ts-expect-error TS2304: Cannot find name 'state'.
-                      // @ts-expect-error TS2304: Cannot find name 'state'.
+                      // @ts-expect-error TS2304: Cannot find name 'state'. //
+                      @ts-expect-error TS2304: Cannot find name 'state'.
                       {state.cities[2].name}, {state.abbreviation}
                     </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  // @ts-expect-error TS2304: Cannot find name 'state'.
-                  "Filed my {state.name} taxes in 20 minutes. Expert reviewed
+                  // @ts-expect-error TS2304: Cannot find name 'state'. "Filed
+                  my {state.name} taxes in 20 minutes. Expert reviewed
                   everything. Got $500 more back than last year!"
                 </p>
               </div>
@@ -464,21 +464,21 @@ export default function StatePage() {
         <section className="py-20    text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              Ready to File Your {state.name} Taxes?
+              // @ts-expect-error TS2304: Cannot find name 'state'. Ready to
+              File Your {state.name} Taxes?
             </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              // @ts-expect-error TS2304: Cannot find name 'state'.
-              Join thousands of {state.name} residents who've saved money with
-              our $100 flat-fee tax filing
+              // @ts-expect-error TS2304: Cannot find name 'state'. Join
+              thousands of {state.name} residents who've saved money with our
+              $100 flat-fee tax filing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/tax-filing/start"
-                className="inline-block bg-white text-blue-600 px-12 py-4 rounded-lg hover:bg-blue-50 font-bold text-xl"
+                className="inline-block bg-white text-brand-blue-600 px-12 py-4 rounded-lg hover:bg-blue-50 font-bold text-xl"
               >
-                // @ts-expect-error TS2304: Cannot find name 'state'.
-                Start Your {state.name} Tax Return
+                // @ts-expect-error TS2304: Cannot find name 'state'. Start Your{' '}
+                {state.name} Tax Return
               </a>
               <a
                 href="tel:3173143757"

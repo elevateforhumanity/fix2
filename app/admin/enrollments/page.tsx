@@ -87,7 +87,7 @@ export default async function AdminEnrollmentsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
             <div className="flex items-center justify-between mb-2">
-              <Users className="w-8 h-8 text-blue-600" />
+              <Users className="w-8 h-8 text-brand-blue-600" />
               <span className="text-3xl font-bold text-slate-900">
                 {totalCount}
               </span>
@@ -99,8 +99,8 @@ export default async function AdminEnrollmentsPage() {
 
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
             <div className="flex items-center justify-between mb-2">
-              <CheckCircle className="w-8 h-8 text-green-600" />
-              <span className="text-3xl font-bold text-green-600">
+              <CheckCircle className="w-8 h-8 text-brand-green-600" />
+              <span className="text-3xl font-bold text-brand-green-600">
                 {activeCount}
               </span>
             </div>
@@ -123,8 +123,8 @@ export default async function AdminEnrollmentsPage() {
 
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
             <div className="flex items-center justify-between mb-2">
-              <XCircle className="w-8 h-8 text-orange-600" />
-              <span className="text-3xl font-bold text-orange-600">
+              <XCircle className="w-8 h-8 text-brand-orange-600" />
+              <span className="text-3xl font-bold text-brand-orange-600">
                 {withdrawnCount}
               </span>
             </div>
@@ -191,7 +191,7 @@ export default async function AdminEnrollmentsPage() {
                         <span
                           className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                             enrollment.status === 'active'
-                              ? 'bg-green-100 text-green-800'
+                              ? 'bg-brand-green-100 text-green-800'
                               : enrollment.status === 'completed'
                                 ? 'bg-purple-100 text-purple-800'
                                 : enrollment.status === 'withdrawn'
@@ -205,7 +205,7 @@ export default async function AdminEnrollmentsPage() {
                       <td className="px-6 py-4">
                         <Link
                           href={`/admin/students/${enrollment.student_id}`}
-                          className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                          className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm"
                         >
                           View Details →
                         </Link>

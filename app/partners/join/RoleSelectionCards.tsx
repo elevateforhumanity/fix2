@@ -170,7 +170,7 @@ export default function RoleSelectionCards({
             key={roleData.role}
             className={`bg-white rounded-lg shadow-sm border-2 transition-all ${
               selectedRole === roleData.role
-                ? 'border-blue-600 shadow-lg'
+                ? 'border-brand-blue-600 shadow-lg'
                 : 'border-slate-200 hover:border-slate-300'
             }`}
           >
@@ -179,7 +179,7 @@ export default function RoleSelectionCards({
               <h3 className="text-xl font-bold text-slate-900 mb-1">
                 {roleData.title}
               </h3>
-              <p className="text-sm text-blue-600 font-medium mb-3">
+              <p className="text-sm text-brand-blue-600 font-medium mb-3">
                 {roleData.subtitle}
               </p>
               <p className="text-slate-600 text-sm">{roleData.description}</p>
@@ -188,7 +188,7 @@ export default function RoleSelectionCards({
             {/* Pay Model */}
             <div className="p-6 bg-green-50 border-b border-slate-200">
               <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-5 h-5 text-green-600" />
+                <DollarSign className="w-5 h-5 text-brand-green-600" />
                 <span className="font-semibold text-slate-900">Pay Model</span>
               </div>
               <p className="text-2xl font-bold text-green-700">
@@ -206,7 +206,7 @@ export default function RoleSelectionCards({
             {/* Responsibilities */}
             <div className="p-6 border-b border-slate-200">
               <div className="flex items-center gap-2 mb-3">
-                <FileText className="w-5 h-5 text-blue-600" />
+                <FileText className="w-5 h-5 text-brand-blue-600" />
                 <span className="font-semibold text-slate-900">
                   Responsibilities
                 </span>
@@ -217,7 +217,7 @@ export default function RoleSelectionCards({
                     key={idx}
                     className="flex items-start gap-2 text-sm text-slate-700"
                   >
-                    <span className="text-blue-600 mt-0.5">•</span>
+                    <span className="text-brand-blue-600 mt-0.5">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -227,7 +227,7 @@ export default function RoleSelectionCards({
             {/* What You Can Do */}
             <div className="p-6 border-b border-slate-200">
               <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                <Check className="w-5 h-5 text-green-600" />
+                <Check className="w-5 h-5 text-brand-green-600" />
                 What You Can Do
               </h4>
               <ul className="space-y-2">
@@ -236,7 +236,7 @@ export default function RoleSelectionCards({
                     key={idx}
                     className="flex items-start gap-2 text-sm text-slate-700"
                   >
-                    <Check className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-brand-green-600 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -285,7 +285,7 @@ export default function RoleSelectionCards({
               <button
                 onClick={() => handleSelectRole(roleData.role)}
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isSubmitting ? 'Processing...' : 'Select This Role'}
               </button>

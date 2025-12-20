@@ -79,14 +79,14 @@ export default function DonatePage() {
             </div>
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <GraduationCap className="w-8 h-8 text-blue-600" />
+                <GraduationCap className="w-8 h-8 text-brand-blue-600" />
               </div>
               <div className="text-4xl font-bold text-slate-900 mb-2">95%</div>
               <div className="text-slate-600">Completion Rate</div>
             </div>
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                <Briefcase className="w-8 h-8 text-green-600" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green-100 rounded-full mb-4">
+                <Briefcase className="w-8 h-8 text-brand-green-600" />
               </div>
               <div className="text-4xl font-bold text-slate-900 mb-2">87%</div>
               <div className="text-slate-600">Job Placement</div>
@@ -120,7 +120,9 @@ export default function DonatePage() {
               <div className="inline-flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mb-4">
                 <DollarSign className="w-6 h-6 text-teal-600" />
               </div>
-              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">$50</h3>
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">
+                $50
+              </h3>
               <p className="text-slate-600 mb-4">
                 Provides training materials and supplies for one student
               </p>
@@ -145,47 +147,51 @@ export default function DonatePage() {
                 MOST POPULAR
               </div>
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4">
-                <GraduationCap className="w-6 h-6 text-blue-600" />
+                <GraduationCap className="w-6 h-6 text-brand-blue-600" />
               </div>
-              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">$250</h3>
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">
+                $250
+              </h3>
               <p className="text-slate-600 mb-4">
                 Covers certification exam fees for one student
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Industry certification exam</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Study materials and prep courses</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
                   <span>Professional resume building</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
-                <Briefcase className="w-6 h-6 text-green-600" />
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-green-100 rounded-lg mb-4">
+                <Briefcase className="w-6 h-6 text-brand-green-600" />
               </div>
-              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">$1,000</h3>
+              <h3 className="text-lg md:text-lg font-bold text-slate-900 mb-2">
+                $1,000
+              </h3>
               <p className="text-slate-600 mb-4">
                 Sponsors complete training program for one student
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Full 8-12 week training program</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>All certifications and materials</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
                   <span>Job placement assistance</span>
                 </li>
               </ul>
@@ -336,7 +342,7 @@ export default function DonatePage() {
 
             {/* Security Note */}
             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-600">
-              <Shield className="w-5 h-5 text-green-600" />
+              <Shield className="w-5 h-5 text-brand-green-600" />
               <span>Secure payment processing • 501(c)(3) tax-deductible</span>
             </div>
           </div>
@@ -378,7 +384,7 @@ export default function DonatePage() {
 
             <div className="bg-white rounded-xl p-8 shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
-                <Gift className="w-6 h-6 text-orange-600" />
+                <Gift className="w-6 h-6 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-3">
                 Planned Giving
@@ -397,8 +403,8 @@ export default function DonatePage() {
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
-                <Award className="w-6 h-6 text-green-600" />
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-green-100 rounded-lg mb-4">
+                <Award className="w-6 h-6 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-3">
                 Matching Gifts

@@ -4,20 +4,29 @@ import { programs } from '@/app/data/programs';
 
 export default function ProgramsPage() {
   // Categorize programs
-  const skillsTrades = programs.filter(p => 
-    p.slug.includes('hvac') || p.slug.includes('building') || p.slug.includes('cdl')
+  const skillsTrades = programs.filter(
+    (p) =>
+      p.slug.includes('hvac') ||
+      p.slug.includes('building') ||
+      p.slug.includes('cdl')
   );
-  
-  const healthcare = programs.filter(p => 
-    p.slug.includes('cna') || p.slug.includes('medical') || p.slug.includes('health')
+
+  const healthcare = programs.filter(
+    (p) =>
+      p.slug.includes('cna') ||
+      p.slug.includes('medical') ||
+      p.slug.includes('health')
   );
-  
-  const beautyWellness = programs.filter(p => 
-    p.slug.includes('barber') || p.slug.includes('beauty') || p.slug.includes('esthetician')
+
+  const beautyWellness = programs.filter(
+    (p) =>
+      p.slug.includes('barber') ||
+      p.slug.includes('beauty') ||
+      p.slug.includes('esthetician')
   );
-  
-  const businessFinance = programs.filter(p => 
-    p.slug.includes('tax') || p.slug.includes('business')
+
+  const businessFinance = programs.filter(
+    (p) => p.slug.includes('tax') || p.slug.includes('business')
   );
 
   return (
@@ -34,7 +43,10 @@ export default function ProgramsPage() {
           quality={95}
         />
         {/* Diagonal shape overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }} />
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 bg-white"
+          style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}
+        />
       </section>
 
       {/* Skilled Trades Section - Asymmetric Layout with Circles */}
@@ -42,10 +54,10 @@ export default function ProgramsPage() {
         {/* Decorative circle shapes */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-orange-100 rounded-full opacity-20 blur-3xl" />
         <div className="absolute bottom-20 left-0 w-64 h-64 bg-blue-100 rounded-full opacity-20 blur-3xl" />
-        
+
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-1 bg-orange-500 rounded-full" />
+            <div className="w-16 h-1 bg-brand-orange-600 rounded-full" />
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
               Skilled Trades
             </h2>
@@ -56,15 +68,17 @@ export default function ProgramsPage() {
 
           <div className="grid md:grid-cols-2 gap-12">
             {skillsTrades.map((program, idx) => (
-              <Link 
-                key={program.slug} 
+              <Link
+                key={program.slug}
                 href={`/programs/${program.slug}`}
                 className="group"
               >
-                <div className={`relative ${idx % 2 === 0 ? 'md:mt-0' : 'md:mt-12'}`}>
+                <div
+                  className={`relative ${idx % 2 === 0 ? 'md:mt-0' : 'md:mt-12'}`}
+                >
                   {/* Colored accent shape */}
                   <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl opacity-10 group-hover:opacity-20 transition-opacity" />
-                  
+
                   <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100">
                     <div className="relative h-80 overflow-hidden">
                       <Image
@@ -79,12 +93,16 @@ export default function ProgramsPage() {
                     </div>
                     <div className="p-8">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center group-hover:bg-orange-500 group-hover:scale-110 transition-all duration-300">
-                          <span className="text-2xl group-hover:scale-110 transition-transform">🛠️</span>
+                        <div className="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center group-hover:bg-brand-orange-600 group-hover:scale-110 transition-all duration-300">
+                          <span className="text-2xl group-hover:scale-110 transition-transform">
+                            🛠️
+                          </span>
                         </div>
-                        <span className="text-sm font-bold text-orange-600 uppercase tracking-wider">{program.duration}</span>
+                        <span className="text-sm font-bold text-brand-orange-600 uppercase tracking-wider">
+                          {program.duration}
+                        </span>
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition">
                         {program.name}
                       </h3>
                       <p className="text-slate-700 mb-6 leading-relaxed">
@@ -93,14 +111,20 @@ export default function ProgramsPage() {
                       {program.highlights.slice(0, 2).map((highlight, idx) => (
                         <div key={idx} className="flex items-start gap-2 mb-2">
                           <div className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="text-orange-600 text-xs font-bold">✓</span>
+                            <span className="text-brand-orange-600 text-xs font-bold">
+                              ✓
+                            </span>
                           </div>
-                          <span className="text-sm text-slate-600">{highlight}</span>
+                          <span className="text-sm text-slate-600">
+                            {highlight}
+                          </span>
                         </div>
                       ))}
-                      <div className="mt-6 inline-flex items-center text-orange-600 font-bold group-hover:gap-2 transition-all">
+                      <div className="mt-6 inline-flex items-center text-brand-orange-600 font-bold group-hover:gap-2 transition-all">
                         Explore Program
-                        <span className="ml-2 group-hover:ml-4 transition-all">→</span>
+                        <span className="ml-2 group-hover:ml-4 transition-all">
+                          →
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -115,15 +139,25 @@ export default function ProgramsPage() {
       <section className="py-20 bg-gradient-to-br from-teal-50 via-blue-50 to-slate-50 relative overflow-hidden">
         {/* Wave SVG background */}
         <div className="absolute top-0 left-0 right-0 h-32 opacity-30">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,0 C300,80 600,80 900,0 L1200,0 L1200,120 L0,120 Z" fill="currentColor" className="text-teal-200" />
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="w-full h-full"
+          >
+            <path
+              d="M0,0 C300,80 600,80 900,0 L1200,0 L1200,120 L0,120 Z"
+              fill="currentColor"
+              className="text-teal-200"
+            />
           </svg>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block px-6 py-2 bg-teal-100 rounded-full mb-4">
-              <span className="text-teal-700 font-bold text-sm uppercase tracking-wider">Healthcare</span>
+              <span className="text-teal-700 font-bold text-sm uppercase tracking-wider">
+                Healthcare
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Healthcare Careers
@@ -135,16 +169,21 @@ export default function ProgramsPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {healthcare.map((program, idx) => (
-              <Link 
-                key={program.slug} 
+              <Link
+                key={program.slug}
                 href={`/programs/${program.slug}`}
                 className="group"
               >
                 <div className="relative">
                   {/* Hexagon shape behind card */}
-                  <div className="absolute -top-6 -right-6 w-32 h-32 bg-teal-200 opacity-20 group-hover:opacity-30 transition-opacity" 
-                       style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />
-                  
+                  <div
+                    className="absolute -top-6 -right-6 w-32 h-32 bg-teal-200 opacity-20 group-hover:opacity-30 transition-opacity"
+                    style={{
+                      clipPath:
+                        'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+                    }}
+                  />
+
                   <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="relative h-64 overflow-hidden">
                       <Image
@@ -165,14 +204,18 @@ export default function ProgramsPage() {
                       </h3>
                       <div className="flex items-center gap-2 mb-4">
                         <div className="h-1 w-12 bg-teal-500 rounded-full" />
-                        <span className="text-sm text-slate-600 font-semibold">{program.duration}</span>
+                        <span className="text-sm text-slate-600 font-semibold">
+                          {program.duration}
+                        </span>
                       </div>
                       <p className="text-slate-700 text-sm mb-4 leading-relaxed line-clamp-3">
                         {program.heroSubtitle}
                       </p>
                       <div className="inline-flex items-center text-teal-600 font-bold text-sm group-hover:gap-2 transition-all">
                         Learn More
-                        <span className="ml-2 group-hover:ml-4 transition-all">→</span>
+                        <span className="ml-2 group-hover:ml-4 transition-all">
+                          →
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -196,8 +239,8 @@ export default function ProgramsPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {beautyWellness.map((program) => (
-                <Link 
-                  key={program.slug} 
+                <Link
+                  key={program.slug}
                   href={`/programs/${program.slug}`}
                   className="group"
                 >
@@ -212,7 +255,7 @@ export default function ProgramsPage() {
                       />
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-orange-600 transition">
                         {program.name}
                       </h3>
                       <p className="text-slate-700 mb-6 leading-relaxed">
@@ -220,11 +263,15 @@ export default function ProgramsPage() {
                       </p>
                       {program.highlights.slice(0, 3).map((highlight, idx) => (
                         <div key={idx} className="flex items-start gap-2 mb-2">
-                          <span className="text-orange-500 font-bold">✓</span>
-                          <span className="text-sm text-slate-600">{highlight}</span>
+                          <span className="text-brand-orange-600 font-bold">
+                            ✓
+                          </span>
+                          <span className="text-sm text-slate-600">
+                            {highlight}
+                          </span>
                         </div>
                       ))}
-                      <div className="mt-6 inline-flex items-center text-orange-600 font-bold group-hover:gap-2 transition-all">
+                      <div className="mt-6 inline-flex items-center text-brand-orange-600 font-bold group-hover:gap-2 transition-all">
                         Explore {program.name} →
                       </div>
                     </div>
@@ -249,8 +296,8 @@ export default function ProgramsPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {businessFinance.map((program) => (
-                <Link 
-                  key={program.slug} 
+                <Link
+                  key={program.slug}
                   href={`/programs/${program.slug}`}
                   className="group"
                 >
@@ -265,7 +312,7 @@ export default function ProgramsPage() {
                       />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
                         {program.name}
                       </h3>
                       <p className="text-sm text-slate-600 mb-4">
@@ -274,7 +321,7 @@ export default function ProgramsPage() {
                       <p className="text-slate-700 text-sm mb-4 leading-relaxed line-clamp-2">
                         {program.heroSubtitle}
                       </p>
-                      <div className="inline-flex items-center text-orange-600 font-semibold text-sm group-hover:gap-2 transition-all">
+                      <div className="inline-flex items-center text-brand-orange-600 font-semibold text-sm group-hover:gap-2 transition-all">
                         Learn More →
                       </div>
                     </div>
@@ -293,11 +340,12 @@ export default function ProgramsPage() {
             Need help choosing a program?
           </h2>
           <p className="text-xl text-slate-700 mb-8">
-            Talk to an advisor about your goals, funding options, and which program is right for you.
+            Talk to an advisor about your goals, funding options, and which
+            program is right for you.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-lg"
+            className="inline-flex items-center justify-center bg-brand-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-brand-orange-700 transition shadow-lg"
           >
             Talk to an Advisor
           </Link>

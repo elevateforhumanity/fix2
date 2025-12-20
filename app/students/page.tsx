@@ -39,7 +39,7 @@ export default async function Page() {
             </p>
             <Link
               href="/apply"
-              className="bg-white text-green-600 px-8 py-4 rounded-full font-bold hover:bg-green-50 text-lg inline-block shadow-2xl transition-all"
+              className="bg-white text-brand-green-600 px-8 py-4 rounded-full font-bold hover:bg-green-50 text-lg inline-block shadow-2xl transition-all"
             >
               Start Your Application
             </Link>
@@ -50,7 +50,7 @@ export default async function Page() {
       {/* JRI Callout */}
       <section className="py-20 bg-blue-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 border-l-4 border-blue-600">
+          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 border-l-4 border-brand-blue-600">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Job Ready Indy (JRI) Partner – Marion County
             </h2>
@@ -236,7 +236,7 @@ export default async function Page() {
           </h2>
           <div className="max-w-5xl mx-auto space-y-8">
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
+              <div className="flex-shrink-0 w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 1
               </div>
               <div>
@@ -252,7 +252,7 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
+              <div className="flex-shrink-0 w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 2
               </div>
               <div>
@@ -269,7 +269,7 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
+              <div className="flex-shrink-0 w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 3
               </div>
               <div>
@@ -286,7 +286,7 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
+              <div className="flex-shrink-0 w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 4
               </div>
               <div>
@@ -302,7 +302,7 @@ export default async function Page() {
             </div>
 
             <div className="flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
+              <div className="flex-shrink-0 w-12 h-12 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                 5
               </div>
               <div>
@@ -332,7 +332,7 @@ export default async function Page() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-10 py-5 bg-white text-green-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
+              className="px-10 py-5 bg-white text-brand-green-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
             >
               Apply Now - It's Free
             </Link>

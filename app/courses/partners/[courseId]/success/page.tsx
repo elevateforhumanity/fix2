@@ -6,17 +6,24 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/courses/partners/[courseId]/success",
+    canonical:
+      'https://www.elevateforhumanity.org/courses/partners/[courseId]/success',
   },
   title: 'Enrollment Successful | Elevate For Humanity',
   description: 'You have successfully enrolled in the course',
 };
 
-export default async function EnrollmentSuccessPage({ params }: { params: { courseId: string } }) {
+export default async function EnrollmentSuccessPage({
+  params,
+}: {
+  params: { courseId: string };
+}) {
   const supabase = await createClient();
 
   // Get current user
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) {
     redirect('/auth/login');
   }
@@ -24,7 +31,9 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
   // Fetch enrollment details
   const { data: enrollment } = await supabase
     .from('partner_enrollments')
-    .select('*, partner_courses(course_name, partner_lms_providers(provider_name))')
+    .select(
+      '*, partner_courses(course_name, partner_lms_providers(provider_name))'
+    )
     .eq('user_id', user.id)
     .eq('partner_course_id', params.courseId)
     .single();
@@ -57,13 +66,13 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -89,7 +98,9 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
                 />
               </svg>
             </div>
-            <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Enrollment Successful!</h1>
+            <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
+              Enrollment Successful!
+            </h1>
             <p className="text-base md:text-lg text-green-100">
               You're all set to start learning
             </p>
@@ -107,25 +118,35 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
               <div className="space-y-3">
                 <div>
                   <p className="text-sm text-gray-600">Course Name</p>
-                  <p className="font-semibold text-lg">{enrollment.partner_courses?.course_name}</p>
+                  <p className="font-semibold text-lg">
+                    {enrollment.partner_courses?.course_name}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Provider</p>
-                  <p className="font-medium">{enrollment.partner_courses?.partner_lms_providers?.provider_name}</p>
+                  <p className="font-medium">
+                    {
+                      enrollment.partner_courses?.partner_lms_providers
+                        ?.provider_name
+                    }
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Enrollment Date</p>
                   <p className="font-medium">
-                    {new Date(enrollment.enrolled_at).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
+                    {new Date(enrollment.enrolled_at).toLocaleDateString(
+                      'en-US',
+                      {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }
+                    )}
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Status</p>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-brand-green-100 text-green-800">
                     {enrollment.enrollment_status}
                   </span>
                 </div>
@@ -137,28 +158,69 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
               <h3 className="font-bold text-blue-900 mb-4">What's Next?</h3>
               <ul className="space-y-3 text-blue-800">
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span>Access your course materials from the student dashboard</span>
+                  <span>
+                    Access your course materials from the student dashboard
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span>Your progress will be tracked automatically as you complete lessons</span>
+                  <span>
+                    Your progress will be tracked automatically as you complete
+                    lessons
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span>Upon completion, you'll receive a certificate of achievement</span>
+                  <span>
+                    Upon completion, you'll receive a certificate of achievement
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span>Get help from AI tutors and instructors anytime you need it</span>
+                  <span>
+                    Get help from AI tutors and instructors anytime you need it
+                  </span>
                 </li>
               </ul>
             </div>
@@ -167,7 +229,7 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/student/courses"
-                className="flex-1 px-6 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                className="flex-1 px-6 py-3 bg-brand-blue-600 text-white text-center rounded-lg hover:bg-brand-blue-700 transition-colors font-medium"
               >
                 Go to My Courses
               </Link>

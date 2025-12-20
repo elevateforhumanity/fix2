@@ -6,16 +6,19 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/compliance",
+    canonical: 'https://www.elevateforhumanity.org/admin/compliance',
   },
   title: 'Compliance Dashboard | Admin | Elevate For Humanity',
-  description: 'Monitor and manage GDPR, CCPA, and regulatory compliance. Track data requests, audit logs, and privacy compliance metrics.',
+  description:
+    'Monitor and manage GDPR, CCPA, and regulatory compliance. Track data requests, audit logs, and privacy compliance metrics.',
 };
 
 export default async function CompliancePage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -25,11 +28,11 @@ export default async function CompliancePage() {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
+
   const { data: items, count: totalItems } = await supabase
     .from('profiles')
     .select('*', { count: 'exact' })
@@ -41,14 +44,9 @@ export default async function CompliancePage() {
     .select('*', { count: 'exact', head: true })
     .eq('status', 'active');
 
-  
-  
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
-  
-  
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -72,14 +70,12 @@ export default async function CompliancePage() {
             Monitor regulatory compliance, data requests, and privacy metrics.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
             <Link
               href="/admin/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Back to Dashboard
             </Link>
-            
           </div>
         </div>
       </section>
@@ -88,23 +84,30 @@ export default async function CompliancePage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-                <p className="text-3xl font-bold text-blue-600">{totalItems || 0}</p>
+                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                  Total Items
+                </h3>
+                <p className="text-3xl font-bold text-brand-blue-600">
+                  {totalItems || 0}
+                </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
-                <p className="text-3xl font-bold text-green-600">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                  Active
+                </h3>
+                <p className="text-3xl font-bold text-brand-green-600">
                   {activeItems || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <h3 className="text-sm font-medium text-gray-600 mb-2">
+                  Recent
+                </h3>
                 <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter(i => {
+                  {items?.filter((i) => {
                     const created = new Date(i.created_at);
                     const weekAgo = new Date();
                     weekAgo.setDate(weekAgo.getDate() - 7);
@@ -120,8 +123,13 @@ export default async function CompliancePage() {
               {items && items.length > 0 ? (
                 <div className="space-y-4">
                   {items.map((item) => (
-                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
-                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                    <div
+                      key={item.id}
+                      className="p-4 border rounded-lg hover:bg-gray-50"
+                    >
+                      <p className="font-semibold">
+                        {item.title || item.name || item.id}
+                      </p>
                       <p className="text-sm text-gray-600">
                         {new Date(item.created_at).toLocaleDateString()}
                       </p>
@@ -132,18 +140,20 @@ export default async function CompliancePage() {
                 <p className="text-gray-500 text-center py-8">No items found</p>
               )}
             </div>
-            
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
+              Join thousands who have launched successful careers through our
+              programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link

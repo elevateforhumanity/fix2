@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -406,15 +406,15 @@ export default function CoursesCatalogPage() {
             130+ industry certifications from leading training providers
           </p>
           <div className="flex flex-wrap gap-4 text-sm">
-            <div className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg">
+            <div className="flex items-center gap-2 bg-brand-blue-700 px-4 py-2 rounded-lg">
               <Award className="w-5 h-5" />
               <span>Industry Recognized</span>
             </div>
-            <div className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg">
+            <div className="flex items-center gap-2 bg-brand-blue-700 px-4 py-2 rounded-lg">
               <Clock className="w-5 h-5" />
               <span>Self-Paced Learning</span>
             </div>
-            <div className="flex items-center gap-2 bg-blue-700 px-4 py-2 rounded-lg">
+            <div className="flex items-center gap-2 bg-brand-blue-700 px-4 py-2 rounded-lg">
               <DollarSign className="w-5 h-5" />
               <span>Affordable Pricing</span>
             </div>
@@ -479,7 +479,7 @@ export default function CoursesCatalogPage() {
               onClick={() => setPriceRange('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 priceRange === 'all'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -489,7 +489,7 @@ export default function CoursesCatalogPage() {
               onClick={() => setPriceRange('free')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 priceRange === 'free'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -499,7 +499,7 @@ export default function CoursesCatalogPage() {
               onClick={() => setPriceRange('under-50')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 priceRange === 'under-50'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -509,7 +509,7 @@ export default function CoursesCatalogPage() {
               onClick={() => setPriceRange('50-150')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 priceRange === '50-150'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -519,7 +519,7 @@ export default function CoursesCatalogPage() {
               onClick={() => setPriceRange('over-150')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                 priceRange === 'over-150'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -548,7 +548,7 @@ export default function CoursesCatalogPage() {
             >
               {/* Provider Badge */}
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-brand-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                   {course.providerName}
                 </span>
                 <span className="text-xs text-slate-500">
@@ -592,7 +592,7 @@ export default function CoursesCatalogPage() {
               {/* CTA */}
               <Link
                 href={`/apply?program=${course.id}`}
-                className="block w-full text-center bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                className="block w-full text-center bg-brand-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
               >
                 Enroll Now
               </Link>
@@ -610,7 +610,7 @@ export default function CoursesCatalogPage() {
                 setSelectedCategory('all');
                 setPriceRange('all');
               }}
-              className="text-blue-600 font-semibold hover:underline"
+              className="text-brand-blue-600 font-semibold hover:underline"
             >
               Clear all filters
             </button>
@@ -627,7 +627,7 @@ export default function CoursesCatalogPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-blue-600" />
+                <Award className="w-8 h-8 text-brand-blue-600" />
               </div>
               <h3 className="text-lg font-bold mb-2">Industry Recognized</h3>
               <p className="text-slate-600">
@@ -636,8 +636,8 @@ export default function CoursesCatalogPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-brand-green-600" />
               </div>
               <h3 className="text-lg font-bold mb-2">Flexible Learning</h3>
               <p className="text-slate-600">
@@ -647,7 +647,7 @@ export default function CoursesCatalogPage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-8 h-8 text-orange-600" />
+                <DollarSign className="w-8 h-8 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-bold mb-2">Affordable Pricing</h3>
               <p className="text-slate-600">

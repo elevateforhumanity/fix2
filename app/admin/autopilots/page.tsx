@@ -260,7 +260,7 @@ export default function AutopilotsPage() {
                                 status === 'running'
                                   ? 'bg-blue-100'
                                   : status === 'completed'
-                                    ? 'bg-green-100'
+                                    ? 'bg-brand-green-100'
                                     : status === 'failed'
                                       ? 'bg-red-100'
                                       : 'bg-gray-100'
@@ -269,9 +269,9 @@ export default function AutopilotsPage() {
                               <Icon
                                 className={`w-5 h-5 ${
                                   status === 'running'
-                                    ? 'text-blue-600'
+                                    ? 'text-brand-blue-600'
                                     : status === 'completed'
-                                      ? 'text-green-600'
+                                      ? 'text-brand-green-600'
                                       : status === 'failed'
                                         ? 'text-red-600'
                                         : 'text-gray-600'
@@ -289,10 +289,10 @@ export default function AutopilotsPage() {
                           </div>
 
                           {status === 'running' && (
-                            <Loader2 className="w-5 h-5 text-blue-600 animate-spin" />
+                            <Loader2 className="w-5 h-5 text-brand-blue-600 animate-spin" />
                           )}
                           {status === 'completed' && (
-                            <CheckCircle className="w-5 h-5 text-green-600" />
+                            <CheckCircle className="w-5 h-5 text-brand-green-600" />
                           )}
                           {status === 'failed' && (
                             <XCircle className="w-5 h-5 text-red-600" />
@@ -305,7 +305,7 @@ export default function AutopilotsPage() {
                           className={`w-full py-2 px-4 rounded-lg font-medium transition-colors ${
                             status === 'running'
                               ? 'bg-gray-300 cursor-not-allowed'
-                              : 'bg-blue-600 hover:bg-blue-700 text-white'
+                              : 'bg-brand-blue-600 hover:bg-brand-blue-700 text-white'
                           }`}
                         >
                           {status === 'running'

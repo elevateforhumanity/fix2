@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
@@ -9,7 +9,7 @@ export default function FundingSuccessPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center px-4 py-12">
       <div className="max-w-2xl w-full text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-6">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green-600 rounded-full mb-6">
           <CheckCircle className="w-12 h-12 text-white" />
         </div>
 
@@ -28,7 +28,7 @@ export default function FundingSuccessPage() {
 
           <div className="text-left space-y-4">
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="flex-shrink-0 w-8 h-8 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
                 ✓
               </div>
               <div>
@@ -42,7 +42,7 @@ export default function FundingSuccessPage() {
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="flex-shrink-0 w-8 h-8 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
                 ✓
               </div>
               <div>
@@ -56,7 +56,7 @@ export default function FundingSuccessPage() {
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="flex-shrink-0 w-8 h-8 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
                 ✓
               </div>
               <div>
@@ -72,13 +72,13 @@ export default function FundingSuccessPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/admin/enrollments"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold transition-all shadow-lg"
+            className="px-6 py-3 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 font-bold transition-all shadow-lg"
           >
             View Enrollments
           </Link>
           <Link
             href="/admin/dashboard"
-            className="px-6 py-3 bg-white text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 font-bold transition-all"
+            className="px-6 py-3 bg-white text-brand-blue-600 border-2 border-brand-blue-600 rounded-lg hover:bg-blue-50 font-bold transition-all"
           >
             Back to Dashboard
           </Link>

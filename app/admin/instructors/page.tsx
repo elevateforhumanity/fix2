@@ -46,8 +46,11 @@ export default function InstructorsPage() {
   }
 
   function calculateAverageRating(ratings: unknown[]) {
-    if (!ratings || ratings.length === 0) return "0";
-    const sum: number = ratings.reduce((acc: number, r) => acc + ((r as any).rating || 0), 0) as number;
+    if (!ratings || ratings.length === 0) return '0';
+    const sum: number = ratings.reduce(
+      (acc: number, r) => acc + ((r as any).rating || 0),
+      0
+    ) as number;
     return (sum / ratings.length).toFixed(1);
   }
 
@@ -79,13 +82,13 @@ export default function InstructorsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/admin/instructors/performance"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View Performance
             </Link>
             <Link
               href="/admin/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Back to Dashboard
             </Link>
@@ -98,19 +101,19 @@ export default function InstructorsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center gap-3 mb-2">
-              <Users className="h-8 w-8 text-blue-600" />
+              <Users className="h-8 w-8 text-brand-blue-600" />
               <p className="text-sm text-gray-600">Total Instructors</p>
             </div>
-            <p className="text-3xl font-bold text-blue-600">
+            <p className="text-3xl font-bold text-brand-blue-600">
               {instructors.length}
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-6">
             <div className="flex items-center gap-3 mb-2">
-              <Award className="h-8 w-8 text-green-600" />
+              <Award className="h-8 w-8 text-brand-green-600" />
               <p className="text-sm text-gray-600">Active</p>
             </div>
-            <p className="text-3xl font-bold text-green-600">
+            <p className="text-3xl font-bold text-brand-green-600">
               {instructors.filter((i) => i.is_active).length}
             </p>
           </div>
@@ -155,7 +158,7 @@ export default function InstructorsPage() {
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-medium ${
                 filter === 'all'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
@@ -165,7 +168,7 @@ export default function InstructorsPage() {
               onClick={() => setFilter('active')}
               className={`px-4 py-2 rounded-lg font-medium ${
                 filter === 'active'
-                  ? 'bg-green-600 text-white'
+                  ? 'bg-brand-green-600 text-white'
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
@@ -241,7 +244,7 @@ export default function InstructorsPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       {instructor.is_active ? (
-                        <span className="text-green-600 text-sm font-medium bg-green-100 px-3 py-1 rounded-full">
+                        <span className="text-brand-green-600 text-sm font-medium bg-brand-green-100 px-3 py-1 rounded-full">
                           Active
                         </span>
                       ) : (
@@ -251,7 +254,7 @@ export default function InstructorsPage() {
                       )}
                       <Link
                         href={`/admin/instructors/${instructor.id}`}
-                        className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                        className="text-brand-blue-600 hover:text-brand-blue-700 text-sm font-medium"
                       >
                         View Details
                       </Link>
@@ -269,7 +272,7 @@ export default function InstructorsPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">

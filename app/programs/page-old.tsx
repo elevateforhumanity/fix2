@@ -140,7 +140,7 @@ export default function ProgramsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
             >
               Apply Now
             </Link>
@@ -180,7 +180,7 @@ export default function ProgramsPage() {
               onClick={() => setProgramType('all')}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
                 programType === 'all'
-                  ? 'bg-orange-600 text-white'
+                  ? 'bg-brand-orange-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -190,7 +190,7 @@ export default function ProgramsPage() {
               onClick={() => setProgramType('grant-funded')}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
                 programType === 'grant-funded'
-                  ? 'bg-green-600 text-white'
+                  ? 'bg-brand-green-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -200,7 +200,7 @@ export default function ProgramsPage() {
               onClick={() => setProgramType('apprenticeship')}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
                 programType === 'apprenticeship'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brand-blue-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -302,7 +302,7 @@ function ProgramCard({ program }: { program: Program }) {
             {program.name}
           </h3>
           {type === 'grant-funded' && (
-            <span className="inline-block mt-1 px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">
+            <span className="inline-block mt-1 px-2 py-0.5 bg-brand-green-100 text-green-800 text-xs font-semibold rounded">
               100% FREE with ETPL/WRG
             </span>
           )}
@@ -366,7 +366,7 @@ function ProgramCard({ program }: { program: Program }) {
       <div className="flex flex-wrap gap-2">
         <Link
           href={`/programs/${program.slug}`}
-          className="inline-flex items-center justify-center rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white hover:bg-orange-600 transition shadow-sm"
+          className="inline-flex items-center justify-center rounded-full bg-brand-orange-600 px-5 py-3 text-sm font-bold text-white hover:bg-brand-orange-600 transition shadow-sm"
         >
           View Program
         </Link>

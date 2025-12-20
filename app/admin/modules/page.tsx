@@ -11,8 +11,10 @@ export const metadata: Metadata = {
 
 export default async function ModulesPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login');
   }
@@ -22,18 +24,21 @@ export default async function ModulesPage() {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-  
+
   const { data: modules, count: totalModules } = await supabase
     .from('modules')
-    .select(`
+    .select(
+      `
       *,
       program:programs(name, slug),
       scorm_package:scorm_packages(id, title, version)
-    `, { count: 'exact' })
+    `,
+      { count: 'exact' }
+    )
     .order('created_at', { ascending: false });
 
   const { count: scormModules } = await supabase
@@ -65,34 +70,54 @@ export default async function ModulesPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Modules Management</h1>
-              <p className="text-gray-600 mt-1">Manage program modules and SCORM content</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Modules Management
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Manage program modules and SCORM content
+              </p>
             </div>
             <Link
               href="/admin/modules/new"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="bg-brand-blue-600 hover:bg-brand-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             >
               + Create Module
             </Link>
           </div>
-          
+
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Total Modules</h3>
-              <p className="text-base md:text-lg font-bold text-gray-900">{totalModules || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Total Modules
+              </h3>
+              <p className="text-base md:text-lg font-bold text-gray-900">
+                {totalModules || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">SCORM Packages</h3>
-              <p className="text-base md:text-lg font-bold text-blue-600">{scormModules || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                SCORM Packages
+              </h3>
+              <p className="text-base md:text-lg font-bold text-brand-blue-600">
+                {scormModules || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Lessons</h3>
-              <p className="text-base md:text-lg font-bold text-green-600">{lessonModules || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Lessons
+              </h3>
+              <p className="text-base md:text-lg font-bold text-brand-green-600">
+                {lessonModules || 0}
+              </p>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
-              <h3 className="text-sm font-medium text-gray-600 mb-1">Assessments</h3>
-              <p className="text-base md:text-lg font-bold text-purple-600">{assessmentModules || 0}</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-1">
+                Assessments
+              </h3>
+              <p className="text-base md:text-lg font-bold text-purple-600">
+                {assessmentModules || 0}
+              </p>
             </div>
           </div>
         </div>

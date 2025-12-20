@@ -88,7 +88,7 @@ export default function WorkbooksPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
-            <BookOpen className="w-10 h-10 text-blue-600" />
+            <BookOpen className="w-10 h-10 text-brand-blue-600" />
             <h1 className="text-4xl font-bold text-slate-900 text-2xl md:text-3xl lg:text-4xl">
               Program Workbooks
             </h1>
@@ -105,7 +105,7 @@ export default function WorkbooksPage() {
         {/* Info Banner */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
           <div className="flex items-start gap-4">
-            <FileText className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <FileText className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
             <div>
               <h2 className="text-lg font-bold text-slate-900 mb-2">
                 About These Materials
@@ -128,7 +128,7 @@ export default function WorkbooksPage() {
               className="bg-white rounded-xl shadow-sm p-8"
             >
               <div className="flex items-center gap-3 mb-6">
-                <GraduationCap className="w-8 h-8 text-blue-600" />
+                <GraduationCap className="w-8 h-8 text-brand-blue-600" />
                 <h2 className="text-2xl font-bold text-slate-900">
                   {program.program}
                 </h2>
@@ -151,7 +151,7 @@ export default function WorkbooksPage() {
                       </div>
                       <a
                         href={`/downloads/workbooks/${material.file}`}
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium whitespace-nowrap"
+                        className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition text-sm font-medium whitespace-nowrap"
                         download
                         aria-label={`Download ${material.title}`}
                       >
@@ -166,7 +166,7 @@ export default function WorkbooksPage() {
               <div className="mt-4 pt-4 border-t border-slate-200">
                 <Link
                   href={`/programs/${program.slug}`}
-                  className="text-blue-600 hover:text-blue-700 font-medium"
+                  className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
                 >
                   View Program Details →
                 </Link>
@@ -185,7 +185,7 @@ export default function WorkbooksPage() {
               href="/student-handbook"
               className="block p-6 bg-white rounded-lg hover:shadow-md transition"
             >
-              <FileText className="w-8 h-8 text-blue-600 mb-3" />
+              <FileText className="w-8 h-8 text-brand-blue-600 mb-3" />
               <h3 className="font-bold text-slate-900 mb-2">
                 Student Handbook
               </h3>
@@ -197,7 +197,7 @@ export default function WorkbooksPage() {
               href="/lms/resources"
               className="block p-6 bg-white rounded-lg hover:shadow-md transition"
             >
-              <BookOpen className="w-8 h-8 text-green-600 mb-3" />
+              <BookOpen className="w-8 h-8 text-brand-green-600 mb-3" />
               <h3 className="font-bold text-slate-900 mb-2">
                 Course Materials
               </h3>
@@ -228,14 +228,14 @@ export default function WorkbooksPage() {
           <div className="flex flex-wrap gap-4">
             <a
               href="mailto:support@elevateforhumanity.org"
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
             >
               support@elevateforhumanity.org
             </a>
             <span className="text-slate-400">|</span>
             <a
               href="tel:317-314-3757"
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
             >
               317-314-3757
             </a>

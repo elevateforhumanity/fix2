@@ -29,7 +29,7 @@ export default async function SignMOUPage() {
       <div className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-4xl px-6 py-6">
           <div className="flex items-center gap-3">
-            <FileText className="text-blue-600" size={32} />
+            <FileText className="text-brand-blue-600" size={32} />
             <div>
               <h1 className="text-3xl font-bold text-slate-900">
                 Sign Program Partner MOU
@@ -44,7 +44,7 @@ export default async function SignMOUPage() {
         {/* Info Cards */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-lg p-4 border border-slate-200">
-            <Shield className="text-blue-600 mb-2" size={24} />
+            <Shield className="text-brand-blue-600 mb-2" size={24} />
             <h3 className="font-semibold text-slate-900 text-sm">
               Legally Binding
             </h3>
@@ -54,7 +54,7 @@ export default async function SignMOUPage() {
             </p>
           </div>
           <div className="bg-white rounded-lg p-4 border border-slate-200">
-            <CheckCircle className="text-green-600 mb-2" size={24} />
+            <CheckCircle className="text-brand-green-600 mb-2" size={24} />
             <h3 className="font-semibold text-slate-900 text-sm">
               Secure Process
             </h3>
@@ -149,7 +149,7 @@ export default async function SignMOUPage() {
             Questions?{' '}
             <Link
               href="/contact"
-              className="text-blue-600 hover:text-blue-700 font-medium"
+              className="text-brand-blue-600 hover:text-brand-blue-700 font-medium"
             >
               Contact us
             </Link>{' '}

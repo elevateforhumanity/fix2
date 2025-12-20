@@ -69,7 +69,7 @@ export default function ExportStudentsPage() {
         <div className="mb-8">
           <Link
             href="/admin/students"
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="text-brand-blue-600 hover:text-blue-800 mb-4 inline-block"
           >
             ← Back to Students
           </Link>
@@ -159,7 +159,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked
                     disabled
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">
                     Basic Information (Name, Email, Phone)
@@ -170,7 +170,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked
                     disabled
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">
                     Enrollment Status
@@ -181,7 +181,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked
                     disabled
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">Course Progress</span>
                 </label>
@@ -190,7 +190,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked={includeGrades}
                     onChange={(e) => setIncludeGrades(e.target.checked)}
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">
                     Grades and Assessments
@@ -201,7 +201,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked={includeAttendance}
                     onChange={(e) => setIncludeAttendance(e.target.checked)}
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">
                     Attendance Records
@@ -212,7 +212,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked={includeCertificates}
                     onChange={(e) => setIncludeCertificates(e.target.checked)}
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">
                     Certificates Earned
@@ -223,7 +223,7 @@ export default function ExportStudentsPage() {
                     type="checkbox"
                     checked={includeFinancial}
                     onChange={(e) => setIncludeFinancial(e.target.checked)}
-                    className="rounded text-blue-600"
+                    className="rounded text-brand-blue-600"
                   />
                   <span className="text-sm text-gray-700">
                     Financial Information
@@ -312,7 +312,7 @@ export default function ExportStudentsPage() {
                 <button
                   onClick={handleExport}
                   disabled={loading}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-2 bg-brand-blue-600 text-white rounded-md hover:bg-brand-blue-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? 'Generating...' : 'Generate Export'}
                 </button>

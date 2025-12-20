@@ -178,7 +178,7 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
                 onClick={() => setPriceRange(option.value)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   priceRange === option.value
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-brand-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -211,7 +211,7 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
               setSelectedCategory('all');
               setPriceRange('all');
             }}
-            className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="mt-4 px-6 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition-colors"
           >
             Clear Filters
           </button>
@@ -236,7 +236,7 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
               </p>
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <div className="text-2xl font-bold text-blue-600">
+                  <div className="text-2xl font-bold text-brand-blue-600">
                     {course.retail_price === 0
                       ? 'Free'
                       : `$${course.retail_price}`}
@@ -250,7 +250,7 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
               </div>
               <Link
                 href={`/courses/partners/${course.id}/enroll`}
-                className="block w-full px-4 py-2 bg-blue-600 text-white text-center font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                className="block w-full px-4 py-2 bg-brand-blue-600 text-white text-center font-semibold rounded-lg hover:bg-brand-blue-700 transition-colors"
               >
                 {course.requires_payment
                   ? `Enroll Now - $${course.retail_price}`

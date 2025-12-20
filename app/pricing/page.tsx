@@ -5,10 +5,11 @@ import { APP_STORE_PRODUCTS } from '@/lib/stripe/app-store-products';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/pricing",
+    canonical: 'https://www.elevateforhumanity.org/pricing',
   },
   title: 'Pricing | Elevate for Humanity',
-  description: 'Choose your access level. Free to download. Platform access starts at $39/month for enrolled learners.',
+  description:
+    'Choose your access level. Free to download. Platform access starts at $39/month for enrolled learners.',
 };
 
 export default function PricingPage() {
@@ -21,7 +22,8 @@ export default function PricingPage() {
             Choose Your Access Level
           </h1>
           <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-            The app is free to download. Some programs and services require paid platform access.
+            The app is free to download. Some programs and services require paid
+            platform access.
           </p>
           <p className="text-sm text-slate-500 mt-2">
             Payments are processed securely outside the app.
@@ -38,7 +40,7 @@ export default function PricingPage() {
               }`}
             >
               {product.recommended && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-orange-600 text-white px-4 py-1 rounded-full text-sm font-bold">
                   Recommended
                 </div>
               )}
@@ -63,7 +65,10 @@ export default function PricingPage() {
               <ul className="space-y-3 mb-8">
                 {product.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <Check className="text-green-600 flex-shrink-0 mt-0.5" size={20} />
+                    <Check
+                      className="text-brand-green-600 flex-shrink-0 mt-0.5"
+                      size={20}
+                    />
                     <span className="text-slate-700 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -81,7 +86,7 @@ export default function PricingPage() {
               {product.tier === 'student' && (
                 <Link
                   href="/checkout/student"
-                  className="block w-full text-center bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition"
+                  className="block w-full text-center bg-brand-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-orange-600 transition"
                 >
                   Get Started
                 </Link>
@@ -90,7 +95,7 @@ export default function PricingPage() {
               {product.tier === 'career' && (
                 <Link
                   href="/checkout/career"
-                  className="block w-full text-center bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition"
+                  className="block w-full text-center bg-brand-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-orange-600 transition"
                 >
                   Get Started
                 </Link>
@@ -115,20 +120,23 @@ export default function PricingPage() {
           </h2>
           <div className="space-y-4 text-slate-700">
             <p>
-              <strong>Platform Access:</strong> Prices apply to platform access for enrolled learners. 
-              Training and services may be paid separately through our website.
+              <strong>Platform Access:</strong> Prices apply to platform access
+              for enrolled learners. Training and services may be paid
+              separately through our website.
             </p>
             <p>
-              <strong>Payment Processing:</strong> All payments are processed securely through our website 
-              using Stripe. We do not process payments through app store billing.
+              <strong>Payment Processing:</strong> All payments are processed
+              securely through our website using Stripe. We do not process
+              payments through app store billing.
             </p>
             <p>
-              <strong>Enrollment:</strong> Student and Career Track access requires enrollment in a program. 
-              Apply through our inquiry form to get started.
+              <strong>Enrollment:</strong> Student and Career Track access
+              requires enrollment in a program. Apply through our inquiry form
+              to get started.
             </p>
             <p>
-              <strong>Cancellation:</strong> You can cancel your subscription at any time. 
-              Access continues until the end of your billing period.
+              <strong>Cancellation:</strong> You can cancel your subscription at
+              any time. Access continues until the end of your billing period.
             </p>
           </div>
         </div>
@@ -144,8 +152,9 @@ export default function PricingPage() {
                 Is the app really free?
               </h3>
               <p className="text-slate-700">
-                Yes! The app download is completely free. You can browse programs, submit inquiries, 
-                and view public content without paying anything.
+                Yes! The app download is completely free. You can browse
+                programs, submit inquiries, and view public content without
+                paying anything.
               </p>
             </div>
 
@@ -154,8 +163,9 @@ export default function PricingPage() {
                 What's included in Student Access?
               </h3>
               <p className="text-slate-700">
-                Student Access ($39/month) gives you full LMS access, assigned courses, progress tracking, 
-                and certificates. This is for enrolled learners actively taking courses.
+                Student Access ($39/month) gives you full LMS access, assigned
+                courses, progress tracking, and certificates. This is for
+                enrolled learners actively taking courses.
               </p>
             </div>
 
@@ -164,8 +174,9 @@ export default function PricingPage() {
                 How do I pay for access?
               </h3>
               <p className="text-slate-700">
-                Payments are processed securely on our website through Stripe. After enrolling, 
-                you'll receive a payment link to set up your subscription.
+                Payments are processed securely on our website through Stripe.
+                After enrolling, you'll receive a payment link to set up your
+                subscription.
               </p>
             </div>
 
@@ -174,8 +185,9 @@ export default function PricingPage() {
                 Can I try before I buy?
               </h3>
               <p className="text-slate-700">
-                Yes! Download the free app to explore programs and content. When you're ready to enroll, 
-                submit an inquiry and we'll guide you through the process.
+                Yes! Download the free app to explore programs and content. When
+                you're ready to enroll, submit an inquiry and we'll guide you
+                through the process.
               </p>
             </div>
           </div>
@@ -195,7 +207,7 @@ export default function PricingPage() {
             </Link>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center bg-orange-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-orange-600 transition"
+              className="inline-flex items-center justify-center bg-brand-orange-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-brand-orange-600 transition"
             >
               Apply to Enroll
             </Link>

@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -79,13 +79,13 @@ export default function StudentDemoPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               View Programs
             </Link>
@@ -94,7 +94,7 @@ export default function StudentDemoPage() {
       </section>
 
       {/* Demo Banner */}
-      <div className="bg-blue-700 text-white py-3">
+      <div className="bg-brand-blue-700 text-white py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -105,7 +105,7 @@ export default function StudentDemoPage() {
             </div>
             <Link
               href="/demo"
-              className="bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50"
+              className="bg-white text-brand-blue-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50"
             >
               Back to Store
             </Link>
@@ -126,14 +126,14 @@ export default function StudentDemoPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-xl border p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-2">
-              <BookOpen className="w-5 h-5 text-blue-600" />
+              <BookOpen className="w-5 h-5 text-brand-blue-600" />
               <p className="text-sm text-gray-500">Active Courses</p>
             </div>
             <p className="text-3xl font-bold">3</p>
           </div>
           <div className="bg-white rounded-xl border p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-2">
-              <CheckCircle className="w-5 h-5 text-green-600" />
+              <CheckCircle className="w-5 h-5 text-brand-green-600" />
               <p className="text-sm text-gray-500">Completed</p>
             </div>
             <p className="text-3xl font-bold">12</p>
@@ -187,7 +187,7 @@ export default function StudentDemoPage() {
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
-                              className="bg-blue-600 h-2 rounded-full transition-all"
+                              className="bg-brand-blue-600 h-2 rounded-full transition-all"
                               style={{ width: `${course.progress}%` }}
                             />
                           </div>
@@ -200,7 +200,7 @@ export default function StudentDemoPage() {
                             </span>{' '}
                             of {course.totalLessons} lessons
                           </div>
-                          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 flex items-center gap-2">
+                          <button className="bg-brand-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-blue-700 flex items-center gap-2">
                             <Play size={16} />
                             Continue
                           </button>
@@ -225,7 +225,7 @@ export default function StudentDemoPage() {
                     <h3 className="font-semibold">Barbering Practical Exam</h3>
                     <p className="text-sm text-gray-600">Due in 3 days</p>
                   </div>
-                  <Clock className="w-5 h-5 text-orange-500" />
+                  <Clock className="w-5 h-5 text-brand-orange-600" />
                 </div>
                 <div className="flex items-center justify-between p-3 border rounded-lg">
                   <div>
@@ -274,7 +274,7 @@ export default function StudentDemoPage() {
             <div className="bg-white rounded-xl border shadow-sm p-6">
               <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
               <div className="space-y-2">
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 text-left px-4">
+                <button className="w-full bg-brand-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-brand-blue-700 text-left px-4">
                   📚 Browse Courses
                 </button>
                 <button className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-200 text-left px-4">
@@ -314,13 +314,13 @@ export default function StudentDemoPage() {
           <div className="flex gap-4 justify-center">
             <Link
               href="/demo"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
+              className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-700"
             >
               View Pricing
             </Link>
             <Link
               href="/contact"
-              className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 border-2 border-blue-600"
+              className="bg-white text-brand-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 border-2 border-brand-blue-600"
             >
               Contact Sales
             </Link>

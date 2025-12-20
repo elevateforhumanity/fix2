@@ -131,7 +131,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
@@ -152,7 +152,7 @@ export default function AdminLoginPage() {
           <div className="mt-6 text-center space-y-2">
             <Link
               href="/auth/forgot-password"
-              className="block text-sm text-orange-600 hover:text-orange-700"
+              className="block text-sm text-brand-orange-600 hover:text-brand-orange-700"
             >
               Forgot password?
             </Link>

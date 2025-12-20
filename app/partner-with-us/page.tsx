@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -48,8 +48,8 @@ export default function PartnerWithUsPage() {
     return (
       <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
         <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg p-8 text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-green-600" />
+          <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="w-10 h-10 text-brand-green-600" />
           </div>
           <h1 className="text-3xl font-bold text-slate-900 mb-4">
             Thank you for your inquiry.
@@ -62,7 +62,7 @@ export default function PartnerWithUsPage() {
           </p>
           <Link
             href="/"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="inline-block bg-brand-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-blue-700 transition"
           >
             Return to Home
           </Link>
@@ -77,7 +77,7 @@ export default function PartnerWithUsPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-            <Shield className="w-8 h-8 text-blue-600" />
+            <Shield className="w-8 h-8 text-brand-blue-600" />
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             Partner With Elevate for Humanity
@@ -131,7 +131,7 @@ export default function PartnerWithUsPage() {
               type="checkbox"
               checked={acknowledged}
               onChange={(e) => setAcknowledged(e.target.checked)}
-              className="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-5 h-5 text-brand-blue-600 border-slate-300 rounded focus:ring-2 focus:ring-blue-500"
             />
             <span className="text-slate-700">
               I acknowledge that Elevate for Humanity owns its platform,
@@ -327,7 +327,7 @@ export default function PartnerWithUsPage() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-brand-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-brand-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'loading'
                   ? 'Submitting...'

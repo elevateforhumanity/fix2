@@ -160,7 +160,7 @@ const upcomingEvents = [
 
 const eventTypeColors = {
   'Info Session': 'bg-blue-100 text-blue-700',
-  'Hiring Event': 'bg-green-100 text-green-700',
+  'Hiring Event': 'bg-brand-green-100 text-green-700',
   'Program Orientation': 'bg-purple-100 text-purple-700',
   Workshop: 'bg-orange-100 text-orange-700',
   'Open House': 'bg-pink-100 text-pink-700',
@@ -213,7 +213,7 @@ export default function EventsPage() {
                   <div className="flex flex-col md:flex-row gap-6">
                     {/* Date Box */}
                     <div className="flex-shrink-0">
-                      <div className="bg-blue-600 text-white rounded-lg p-4 text-center w-24">
+                      <div className="bg-brand-blue-600 text-white rounded-lg p-4 text-center w-24">
                         <div className="text-3xl font-bold">
                           {new Date(event.date).getDate()}
                         </div>
@@ -277,7 +277,7 @@ export default function EventsPage() {
 
                       <Link
                         href={event.registration}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white font-bold rounded-lg hover:bg-brand-blue-700 transition"
                       >
                         Register Now
                         <ExternalLink className="w-4 h-4" />
@@ -309,7 +309,7 @@ export default function EventsPage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Register →
                 </Link>
@@ -324,7 +324,7 @@ export default function EventsPage() {
                 </p>
                 <Link
                   href="/employers"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Learn More →
                 </Link>
@@ -337,7 +337,7 @@ export default function EventsPage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Visit Us →
                 </Link>
@@ -352,7 +352,7 @@ export default function EventsPage() {
                 </p>
                 <Link
                   href="/success-stories"
-                  className="text-blue-600 font-semibold hover:text-blue-700"
+                  className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
                 >
                   Success Stories →
                 </Link>
@@ -376,7 +376,7 @@ export default function EventsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-brand-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
               >
                 Contact Us
               </Link>

@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 
@@ -84,7 +84,7 @@ export default function TestEnrollmentPage() {
           <button
             onClick={handleTest}
             disabled={loading || !selectedStudent}
-            className="w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-slate-300 font-semibold"
+            className="w-full px-6 py-3 bg-brand-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-slate-300 font-semibold"
           >
             {loading ? 'Testing...' : '🚀 Test Auto-Enrollment'}
           </button>

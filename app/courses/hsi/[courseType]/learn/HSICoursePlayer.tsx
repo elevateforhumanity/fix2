@@ -26,7 +26,7 @@ export function HSICoursePlayer({
 
   const handleCompletion = async () => {
     setCompleted(true);
-    
+
     // Save completion to database
     await fetch('/api/courses/complete', {
       method: 'POST',
@@ -58,11 +58,15 @@ export function HSICoursePlayer({
             </button>
             <div className="h-6 w-px bg-gray-300" />
             <div>
-              <h1 className="text-lg font-semibold text-gray-900">{courseName}</h1>
-              <p className="text-sm text-gray-600">HSI Health & Safety Training</p>
+              <h1 className="text-lg font-semibold text-gray-900">
+                {courseName}
+              </h1>
+              <p className="text-sm text-gray-600">
+                HSI Health & Safety Training
+              </p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3">
             <button
               onClick={() => setUseIframe(!useIframe)}
@@ -86,21 +90,24 @@ export function HSICoursePlayer({
               title={courseName}
               sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
             />
-            
+
             {/* Overlay Instructions */}
             <div className="absolute top-4 left-4 right-4 bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-lg">
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 bg-brand-blue-600 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">i</span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-1">HSI Course Instructions</h3>
+                  <h3 className="font-semibold text-gray-900 mb-1">
+                    HSI Course Instructions
+                  </h3>
                   <p className="text-sm text-gray-700 mb-2">
-                    Complete the course in the HSI system below. When finished, click "Mark as Complete" to generate your certificate.
+                    Complete the course in the HSI system below. When finished,
+                    click "Mark as Complete" to generate your certificate.
                   </p>
                   <button
                     onClick={handleCompletion}
-                    className="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors"
+                    className="px-4 py-2 bg-brand-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors"
                   >
                     ✓ Mark as Complete
                   </button>
@@ -113,20 +120,22 @@ export function HSICoursePlayer({
           <div className="flex items-center justify-center h-full p-8">
             <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8 text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <ExternalLink className="w-10 h-10 text-blue-600" />
+                <ExternalLink className="w-10 h-10 text-brand-blue-600" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Continue to HSI Training
               </h2>
               <p className="text-gray-600 mb-8">
-                Click the button below to access your HSI course in a new window. Complete the training, then return here to mark it as complete.
+                Click the button below to access your HSI course in a new
+                window. Complete the training, then return here to mark it as
+                complete.
               </p>
               <div className="space-y-4">
                 <a
                   href={hsiUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-brand-blue-600 text-white font-bold text-lg rounded-lg hover:bg-brand-blue-700 transition-colors shadow-lg"
                 >
                   Open HSI Course
                   <ExternalLink className="w-5 h-5" />
@@ -134,7 +143,7 @@ export function HSICoursePlayer({
                 <div className="pt-4">
                   <button
                     onClick={handleCompletion}
-                    className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+                    className="px-6 py-3 bg-brand-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
                   >
                     ✓ I've Completed the Course
                   </button>
@@ -147,20 +156,21 @@ export function HSICoursePlayer({
 
       {/* Completion Banner */}
       {completed && (
-        <div className="bg-green-600 text-white px-6 py-4 shadow-lg">
+        <div className="bg-brand-green-600 text-white px-6 py-4 shadow-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <CheckCircle className="w-6 h-6" />
               <div>
                 <div className="font-semibold">Course Complete!</div>
                 <div className="text-sm text-green-100">
-                  Your certificate is being generated and will be emailed to you shortly
+                  Your certificate is being generated and will be emailed to you
+                  shortly
                 </div>
               </div>
             </div>
             <button
               onClick={() => router.push('/student/courses')}
-              className="px-6 py-2 bg-white text-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
+              className="px-6 py-2 bg-white text-brand-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
             >
               Continue Learning
             </button>

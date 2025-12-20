@@ -57,7 +57,7 @@ export default function ProductCheckoutButton({
       <button
         onClick={handleCheckout}
         disabled={loading}
-        className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+        className="w-full bg-brand-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-brand-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
       >
         {loading ? 'Processing...' : 'Buy Now'}
       </button>

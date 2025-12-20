@@ -184,7 +184,7 @@ export default async function MentorApprovalsPage({
         </button>
 
         <a
-          className="border border-slate-300 rounded px-4 py-2 text-sm font-semibold bg-green-600 text-white hover:bg-green-700 transition"
+          className="border border-slate-300 rounded px-4 py-2 text-sm font-semibold bg-brand-green-600 text-white hover:bg-green-700 transition"
           href={`/api/time/export?${qs.toString()}`}
           title="Download CSV export"
         >
@@ -254,7 +254,7 @@ export default async function MentorApprovalsPage({
                         e.status === 'SUBMITTED'
                           ? 'bg-yellow-100 text-yellow-800'
                           : e.status === 'APPROVED'
-                            ? 'bg-green-100 text-green-800'
+                            ? 'bg-brand-green-100 text-green-800'
                             : e.status === 'REJECTED'
                               ? 'bg-red-100 text-red-800'
                               : 'bg-slate-100 text-slate-800'
@@ -311,7 +311,7 @@ export default async function MentorApprovalsPage({
                       }}
                     >
                       <button
-                        className="px-3 py-1 border border-green-600 text-green-600 rounded text-xs font-semibold hover:bg-green-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-3 py-1 border border-brand-green-600 text-brand-green-600 rounded text-xs font-semibold hover:bg-green-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={e.status !== 'SUBMITTED'}
                       >
                         Approve

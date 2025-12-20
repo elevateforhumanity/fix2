@@ -1,6 +1,6 @@
 'use client';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { CheckCircle, Mail, Smartphone, ExternalLink } from 'lucide-react';
@@ -11,7 +11,7 @@ export default function EnrollSuccessPage() {
       <div className="max-w-2xl w-full">
         {/* Success Icon */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green-600 rounded-full mb-6">
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
@@ -31,12 +31,12 @@ export default function EnrollSuccessPage() {
           <div className="space-y-6">
             {/* Step 1 */}
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 1
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-blue-600" />
+                  <Mail className="w-5 h-5 text-brand-blue-600" />
                   Check Your Email
                 </h3>
                 <p className="text-slate-600">
@@ -48,7 +48,7 @@ export default function EnrollSuccessPage() {
 
             {/* Step 2 */}
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 2
               </div>
               <div>
@@ -64,7 +64,7 @@ export default function EnrollSuccessPage() {
 
             {/* Step 3 */}
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 3
               </div>
               <div>
@@ -78,7 +78,7 @@ export default function EnrollSuccessPage() {
                   href="https://www.miladytraining.com/bundles/client-well-being-safety-certification"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 font-semibold transition-all"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Enroll in Milady RISE
@@ -99,12 +99,12 @@ export default function EnrollSuccessPage() {
 
             {/* Step 4 */}
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold">
                 4
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                  <Smartphone className="w-5 h-5 text-blue-600" />
+                  <Smartphone className="w-5 h-5 text-brand-blue-600" />
                   Download Mobile App (Optional)
                 </h3>
                 <p className="text-slate-600 mb-3">
@@ -123,7 +123,7 @@ export default function EnrollSuccessPage() {
                     href="https://play.google.com/store/apps/details?id=com.thinkific.mobile"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold text-center text-sm"
+                    className="px-4 py-2 bg-brand-green-600 text-white rounded-lg hover:bg-green-700 font-semibold text-center text-sm"
                   >
                     📱 Download for Android
                   </a>
@@ -158,13 +158,13 @@ export default function EnrollSuccessPage() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/student/dashboard"
-            className="flex-1 px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-center transition-all shadow-lg"
+            className="flex-1 px-6 py-4 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 font-bold text-center transition-all shadow-lg"
           >
             Go to Dashboard
           </Link>
           <Link
             href="/contact"
-            className="flex-1 px-6 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 font-bold text-center transition-all"
+            className="flex-1 px-6 py-4 bg-white text-brand-blue-600 border-2 border-brand-blue-600 rounded-lg hover:bg-blue-50 font-bold text-center transition-all"
           >
             Contact Support
           </Link>
@@ -177,7 +177,7 @@ export default function EnrollSuccessPage() {
             📞{' '}
             <a
               href="tel:317-314-3757"
-              className="text-blue-600 hover:underline"
+              className="text-brand-blue-600 hover:underline"
             >
               317-314-3757
             </a>
@@ -185,7 +185,7 @@ export default function EnrollSuccessPage() {
             📧{' '}
             <a
               href="mailto:elevate4humanityedu@gmail.com"
-              className="text-blue-600 hover:underline"
+              className="text-brand-blue-600 hover:underline"
             >
               elevate4humanityedu@gmail.com
             </a>

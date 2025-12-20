@@ -82,7 +82,7 @@ export default async function AdminProductsPage() {
                         href={product.file_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline text-sm"
+                        className="text-brand-blue-600 hover:underline text-sm"
                       >
                         View Product File →
                       </a>
@@ -115,11 +115,11 @@ export default async function AdminProductsPage() {
                 <p className="text-sm text-gray-600 mb-2">
                   by {product.creator?.display_name || 'Unknown'}
                 </p>
-                <p className="text-lg font-bold text-blue-600">
+                <p className="text-lg font-bold text-brand-blue-600">
                   ${(product.price_cents / 100).toFixed(2)}
                 </p>
                 <div className="mt-3 flex gap-2">
-                  <button className="text-sm text-blue-600 hover:underline">
+                  <button className="text-sm text-brand-blue-600 hover:underline">
                     Edit
                   </button>
                   <button className="text-sm text-red-600 hover:underline">

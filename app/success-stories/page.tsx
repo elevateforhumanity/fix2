@@ -199,19 +199,19 @@ export default function SuccessStoriesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 1,200+
               </div>
               <div className="text-sm text-slate-600">Lives Changed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 87%
               </div>
               <div className="text-sm text-slate-600">Employment Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 $42K
               </div>
               <div className="text-sm text-slate-600">Avg Starting Salary</div>
@@ -249,11 +249,11 @@ export default function SuccessStoriesPage() {
                     {story.videoPlaceholder && (
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
-                          <Play className="w-10 h-10 text-blue-600 ml-1" />
+                          <Play className="w-10 h-10 text-brand-blue-600 ml-1" />
                         </div>
                       </div>
                     )}
-                    <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 right-4 bg-brand-green-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                       Success Story
                     </div>
                   </div>
@@ -265,7 +265,7 @@ export default function SuccessStoriesPage() {
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
                       {story.name}
                     </h2>
-                    <p className="text-lg text-blue-600 font-semibold">
+                    <p className="text-lg text-brand-blue-600 font-semibold">
                       {story.program}
                     </p>
                     <p className="text-sm text-slate-600">Age {story.age}</p>
@@ -286,15 +286,15 @@ export default function SuccessStoriesPage() {
                         <div className="text-xs text-slate-500 uppercase mb-1">
                           After
                         </div>
-                        <div className="text-sm font-semibold text-green-600">
+                        <div className="text-sm font-semibold text-brand-green-600">
                           {story.afterJob}
                         </div>
                       </div>
                     </div>
                     <div className="mt-4 pt-4 border-t border-slate-200">
                       <div className="flex items-center gap-2">
-                        <TrendingUp className="w-5 h-5 text-green-600" />
-                        <span className="text-lg font-bold text-green-600">
+                        <TrendingUp className="w-5 h-5 text-brand-green-600" />
+                        <span className="text-lg font-bold text-brand-green-600">
                           {story.salary}
                         </span>
                       </div>
@@ -317,7 +317,7 @@ export default function SuccessStoriesPage() {
                   {/* CTA */}
                   <Link
                     href={`/programs/${story.program.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition"
+                    className="inline-flex items-center gap-2 text-brand-blue-600 font-semibold hover:text-brand-blue-700 transition"
                   >
                     Learn about {story.program}
                     <ArrowRight className="w-5 h-5" />
@@ -342,7 +342,7 @@ export default function SuccessStoriesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-brand-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
               >
                 Apply Now - It&apos;s Free
               </Link>
@@ -372,7 +372,7 @@ export default function SuccessStoriesPage() {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      <CheckCircle className="w-6 h-6 text-brand-blue-600" />
                     </div>
                     <div>
                       <div className="font-bold text-slate-900">

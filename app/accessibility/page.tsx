@@ -7,7 +7,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.elevateforhumanity.org/accessibility',
   },
   title: 'Accessibility Statement | Elevate For Humanity',
-  description: 'Accessibility commitment and support for Elevate for Humanity services.',
+  description:
+    'Accessibility commitment and support for Elevate for Humanity services.',
 };
 
 export default function AccessibilityPage() {
@@ -15,121 +16,152 @@ export default function AccessibilityPage() {
     <main className="min-h-screen bg-gray-50 py-16">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
-          <Accessibility className="w-10 h-10 text-blue-600" />
-          <h1 className="text-4xl font-bold text-gray-900">Accessibility Commitment</h1>
+          <Accessibility className="w-10 h-10 text-brand-blue-600" />
+          <h1 className="text-4xl font-bold text-gray-900">
+            Accessibility Commitment
+          </h1>
         </div>
-        
+
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
           <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            Elevate for Humanity is committed to accessibility for all individuals.
-          </p>
-          
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            We strive to ensure our website, programs, and services are accessible to people with disabilities. We are continuously working to improve the accessibility of our content and services.
+            Elevate for Humanity is committed to accessibility for all
+            individuals.
           </p>
 
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            We strive to ensure our website, programs, and services are
+            accessible to people with disabilities. We are continuously working
+            to improve the accessibility of our content and services.
+          </p>
+
+          <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-6">
             <p className="text-lg text-gray-900 font-semibold">
-              If you experience difficulty accessing content or services, please contact us and we will assist promptly.
+              If you experience difficulty accessing content or services, please
+              contact us and we will assist promptly.
             </p>
           </div>
         </div>
 
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Commitment Includes</h2>
-          
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Our Commitment Includes
+          </h2>
+
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-              <span>Providing alternative formats for documents and materials when requested</span>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>
+                Providing alternative formats for documents and materials when
+                requested
+              </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-              <span>Ensuring physical locations are accessible or providing alternative arrangements</span>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>
+                Ensuring physical locations are accessible or providing
+                alternative arrangements
+              </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Offering accommodations for program participation</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-              <span>Working with partners to ensure accessible training environments</span>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <span>
+                Working with partners to ensure accessible training environments
+              </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Providing support services to address barriers</span>
             </li>
           </ul>
         </div>
 
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Website Accessibility</h2>
-          
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            Website Accessibility
+          </h2>
+
           <p className="text-gray-700 mb-4">
             We aim to meet WCAG 2.1 Level AA standards and are working to:
           </p>
-          
+
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Ensure proper heading structure and navigation</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Provide text alternatives for images</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Maintain sufficient color contrast</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Support keyboard navigation</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Ensure compatibility with screen readers</span>
             </li>
           </ul>
         </div>
 
-        <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Need Assistance?</h3>
+        <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 mb-8">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">
+            Need Assistance?
+          </h3>
           <p className="text-gray-700 mb-4">
-            If you need help accessing our website, programs, or services, please contact us:
+            If you need help accessing our website, programs, or services,
+            please contact us:
           </p>
-          
+
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-blue-600" />
-              <a href="mailto:elevate4humanityedu@gmail.com" className="text-blue-600 hover:underline font-semibold">
+              <Mail className="w-5 h-5 text-brand-blue-600" />
+              <a
+                href="mailto:elevate4humanityedu@gmail.com"
+                className="text-brand-blue-600 hover:underline font-semibold"
+              >
                 elevate4humanityedu@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-blue-600" />
-              <a href="tel:+13173143757" className="text-blue-600 hover:underline font-semibold">
+              <Phone className="w-5 h-5 text-brand-blue-600" />
+              <a
+                href="tel:+13173143757"
+                className="text-brand-blue-600 hover:underline font-semibold"
+              >
                 (317) 314-3757
               </a>
             </div>
           </div>
-          
+
           <p className="text-gray-700 mt-4">
-            We will work with you to provide the information or service you need in an accessible format.
+            We will work with you to provide the information or service you need
+            in an accessible format.
           </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Feedback</h2>
           <p className="text-gray-700">
-            We welcome feedback on the accessibility of our services. If you encounter accessibility barriers or have suggestions for improvement, please let us know. Your feedback helps us improve access for everyone.
+            We welcome feedback on the accessibility of our services. If you
+            encounter accessibility barriers or have suggestions for
+            improvement, please let us know. Your feedback helps us improve
+            access for everyone.
           </p>
         </div>
 
         <div className="text-center">
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors"
+            className="inline-block px-8 py-4 bg-brand-blue-600 text-white rounded-lg text-lg font-bold hover:bg-brand-blue-700 transition-colors"
           >
             Contact Us
           </Link>
