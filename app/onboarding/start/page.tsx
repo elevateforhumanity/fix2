@@ -2,10 +2,6 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import OnboardingFlow from './OnboardingFlow';
 
-export const metadata = {
-  title: 'Complete Your Onboarding | Elevate for Humanity',
-  description: 'Complete your digital onboarding to access your dashboard',
-};
 
 export default async function OnboardingStartPage() {
   const supabase = await createClient();

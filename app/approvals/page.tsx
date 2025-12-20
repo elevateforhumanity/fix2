@@ -9,14 +9,6 @@ import {
   FileCheck,
 } from 'lucide-react';
 
-export const metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.orgrovals',
-  },
-  title: 'Approvals, Credentials & Partnerships | Elevate For Humanity',
-  description:
-    'State-approved, federally recognized workforce training institute. View our official approvals, certifications, and partnerships.',
-};
 
 export default function ApprovalsPage() {
   return (

@@ -3,11 +3,6 @@ import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 import { Shield, CheckCircle, Users, Award } from 'lucide-react';
 
-export const metadata = {
-  title: 'Federal Funded Programs - WIOA, ETPL, WRG | Elevate For Humanity',
-  description:
-    '100% free career training funded by federal workforce programs. No tuition, no costs—just opportunity.',
-};
 
 const federalFundedSlugs = [
   'cna',

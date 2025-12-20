@@ -22,11 +22,6 @@ import {
   Target,
 } from 'lucide-react';
 
-export const metadata = {
-  title: 'JRI Funding - Justice Reinvestment Initiative | Elevate for Humanity',
-  description:
-    'Transform lives through JRI-funded workforce development and reentry programs. Breaking barriers, building futures.',
-};
 
 export default function JRIPage() {
   return (

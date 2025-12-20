@@ -2,10 +2,6 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const metadata = {
-  title: 'Dev Admin - No Login Required',
-  description: 'Development admin panel for quick access',
-};
 
 export default async function DevAdmin() {
   const supabase = await createClient();

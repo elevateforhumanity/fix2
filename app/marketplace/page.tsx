@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/utils/supabase/server';
 
-export const metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/marketplace',
-  },
-  title: 'Creator Marketplace | Elevate For Humanity',
-  description: 'Discover digital products from our community of creators.',
-};
 
 // Revalidate every 60 seconds for better performance
 export const revalidate = 60;

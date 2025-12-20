@@ -2,11 +2,6 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import RoleSelectionCards from './RoleSelectionCards';
 
-export const metadata = {
-  title: 'Become a Partner | Elevate for Humanity',
-  description:
-    'Join our network of Program Holders, Worksite Partners, and Site Coordinators',
-};
 
 export default async function PartnersJoinPage() {
   const supabase = await createClient();

@@ -7,10 +7,6 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle, Loader2 } from 'lucide-react';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 function AffirmConfirmContent() {
   const searchParams = useSearchParams();

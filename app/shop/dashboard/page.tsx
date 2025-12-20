@@ -4,10 +4,6 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Award, Users, FileText, CheckCircle, Clock } from 'lucide-react';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 export default async function ShopDashboard() {
   const supabase = await createClient();

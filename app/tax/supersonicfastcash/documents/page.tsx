@@ -4,10 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Upload, FileText, CheckCircle, AlertCircle, X } from 'lucide-react';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 interface UploadedFile {
   name: string;

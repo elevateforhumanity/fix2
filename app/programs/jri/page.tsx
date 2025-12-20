@@ -3,14 +3,6 @@ import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 import { Heart, Shield, TrendingUp, Users } from 'lucide-react';
 
-export const metadata = {
-  title:
-    'JRI Programs Indiana - Free Job Training for Justice-Involved Individuals | DOL Approved | Elevate For Humanity',
-  description:
-    'Indiana Justice Reinvestment Initiative (JRI) approved training provider. 100% free career training, case management, job placement. DOL, DWD, DOE approved. Schedule at IndianaCareerConnect.com',
-  keywords:
-    'JRI Indiana, Justice Reinvestment Initiative, free job training Indiana, second chance employment, reentry programs Indiana, DOL approved training, DWD approved, justice involved training, Indianapolis job training, Marion County reentry, expungement friendly employers, ban the box jobs Indiana',
-};
 
 const jriProgramSlugs = [
   'cna',

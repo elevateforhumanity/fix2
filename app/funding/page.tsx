@@ -1,10 +1,5 @@
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Funding Options | Elevate for Humanity',
-  description:
-    'Explore workforce funding options that may reduce or cover tuition, including WIOA, WRG, JRI, and apprenticeship pathways.',
-};
 
 export default function FundingPage() {
   return (

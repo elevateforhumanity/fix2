@@ -3,14 +3,6 @@ import Link from 'next/link';
 import { programs } from '@/app/data/programs';
 import {
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-  keywords: ['[Slug] Indianapolis', 'free [Slug] training', 'WIOA [Slug]', '[Slug] apprenticeship'],
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/[slug]',
-  },
-};
   Clock,
   Calendar,
   MapPin,

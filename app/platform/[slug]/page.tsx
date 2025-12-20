@@ -5,10 +5,6 @@ import { notFound } from 'next/navigation';
 import { getProductBySlug, getAppsForProduct } from '@/app/data/store-products';
 import { Check, ArrowLeft, Shield, Download, Zap } from 'lucide-react';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 type Props = {
   params: { slug: string };

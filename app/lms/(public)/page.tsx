@@ -2,11 +2,6 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Student Learning Portal | Elevate for Humanity',
-  description:
-    'Access your courses, track your progress, and earn industry certifications through our student learning portal.',
-};
 
 export default async function LmsPublicPage() {
   // Check if user is logged in and redirect to dashboard

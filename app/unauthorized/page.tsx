@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import { ShieldAlert } from 'lucide-react';
 
-export const metadata = {
-  title: 'Access Denied | Elevate For Humanity',
-  description: 'You do not have permission to access this page',
-};
 
 export default function UnauthorizedPage() {
   return (

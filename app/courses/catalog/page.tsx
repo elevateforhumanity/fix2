@@ -7,10 +7,6 @@ import Link from 'next/link';
 
 import {
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
   Search,
   Filter,
   ShoppingCart,

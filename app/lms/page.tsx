@@ -1,10 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 
-export const metadata = {
-  title: 'Learning Management System | Elevate for Humanity',
-  description: 'Access your courses, assignments, and learning materials.',
-};
 
 export default async function LMSPage() {
   const supabase = await createClient();

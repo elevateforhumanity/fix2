@@ -2,10 +2,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { ShopReportForm } from '@/components/shop/ShopReportForm';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 export default async function NewWeeklyReport() {
   const supabase = await createClient();

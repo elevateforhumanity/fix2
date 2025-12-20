@@ -3,11 +3,6 @@ import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 import { Briefcase, Clock, DollarSign, Award } from 'lucide-react';
 
-export const metadata = {
-  title: 'Apprenticeship Programs | Elevate For Humanity',
-  description:
-    'Earn while you learn with paid apprenticeships in skilled trades. Get hands-on training and a paycheck.',
-};
 
 const apprenticeshipSlugs = [
   'barber-apprenticeship',

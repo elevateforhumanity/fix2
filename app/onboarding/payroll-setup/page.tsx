@@ -2,10 +2,6 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import PayrollSetupForm from './PayrollSetupForm';
 
-export const metadata = {
-  title: 'Payroll Setup | Elevate for Humanity',
-  description: 'Configure your payment method and tax information',
-};
 
 export default async function PayrollSetupPage() {
   const supabase = await createClient();

@@ -3,11 +3,6 @@ import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 import { Zap, Clock, Target, TrendingUp } from 'lucide-react';
 
-export const metadata = {
-  title: 'Micro Programs - Quick Certifications | Elevate For Humanity',
-  description:
-    'Get certified in weeks, not months. Short-term training programs that open doors fast.',
-};
 
 const microProgramSlugs = [
   'cpr-certification',

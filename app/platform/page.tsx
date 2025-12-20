@@ -1,10 +1,5 @@
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Workforce Operating System | Elevate for Humanity',
-  description:
-    'A complete workforce operating system for training providers, workforce boards, and employers. Manage programs, track apprenticeships, and generate compliance reports in one secure platform.',
-};
 
 export default function PlatformPage() {
   return (

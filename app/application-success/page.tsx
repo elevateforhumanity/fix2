@@ -1,9 +1,5 @@
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Application Received | Elevate for Humanity',
-  description: 'Your application has been received successfully.',
-};
 
 export default function ApplicationSuccessPage() {
   return (

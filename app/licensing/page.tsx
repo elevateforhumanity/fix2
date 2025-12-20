@@ -1,10 +1,5 @@
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Platform Licensing & Partnerships | Elevate for Humanity',
-  description:
-    'License the Elevate Workforce Operating System for your organization. Flexible licensing for workforce boards, training providers, employers, and agencies.',
-};
 
 export default function LicensingPage() {
   return (

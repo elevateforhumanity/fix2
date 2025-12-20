@@ -1,10 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Dashboard | Elevate For Humanity',
-  description: 'Your personalized dashboard',
-};
 
 // Main dashboard router - redirects to appropriate dashboard based on user role
 export default async function DashboardPage() {

@@ -5,10 +5,6 @@ export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 export default function FundingSuccessPage() {
   return (

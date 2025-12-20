@@ -1,10 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { getMyPartnerContext } from '@/lib/partner/access';
 
-export const metadata = {
-  title: 'Elevate for Humanity | Workforce Training',
-  description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
-};
 
 export default async function PartnerStudentsPage() {
   const supabase = await createClient();
