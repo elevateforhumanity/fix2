@@ -37,7 +37,7 @@ interface Booking {
   notes: string;
 }
 
-export default function BookingPage() {
+export default async function BookingPage() {
   const [instructors, setInstructors] = useState<Instructor[]>([]);
   const [selectedInstructor, setSelectedInstructor] =
     useState<Instructor | null>(null);

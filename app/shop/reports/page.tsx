@@ -21,7 +21,7 @@ type Report = {
   created_at: string;
 };
 
-export default function ShopReportsPage() {
+export default async function ShopReportsPage() {
   const [reports, setReports] = useState<Report[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');

@@ -12,7 +12,7 @@ export const metadata = {
   description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
 };
 
-export default function ShopApplyPage() {
+export default async function ShopApplyPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
