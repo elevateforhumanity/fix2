@@ -1,12 +1,14 @@
--- Migration: Create claim_my_applications RPC function
+-- Migration: Fix claim applications function conflicts
 -- Date: 2024-12-21
--- Description: Function to claim all unclaimed applications matching the authenticated user's email
+-- Description: Drop all existing claim functions and recreate with correct signature
 
--- Drop function if exists (with all possible signatures)
-drop function if exists public.claim_my_applications();
-drop function if exists public.claim_applications_for_current_user();
+-- Drop all possible existing functions
+drop function if exists public.claim_my_applications() cascade;
+drop function if exists public.claim_applications_for_current_user() cascade;
+drop function if exists public.claim_my_applications(text) cascade;
+drop function if exists public.claim_applications_for_current_user(text) cascade;
 
--- Create function to claim applications
+-- Create the correct function
 create or replace function public.claim_my_applications()
 returns integer
 language plpgsql
