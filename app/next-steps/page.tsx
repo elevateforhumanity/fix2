@@ -186,9 +186,20 @@ export default function NextStepsPage() {
             Step 3: Track your WorkOne appointments
           </p>
           <p className="mt-1 text-sm text-gray-700 leading-relaxed">
-            WorkOne may schedule multiple appointments. Add each one so we can
-            track your progress.
+            WorkOne will schedule 3-4 appointments. After EACH appointment, come
+            back here and document what happened. We get notified when you
+            update this.
           </p>
+          <div className="mt-2 rounded-lg bg-yellow-50 border border-yellow-200 p-3">
+            <p className="text-xs font-semibold text-yellow-900">
+              ⚠️ IMPORTANT: Report back after EVERY appointment
+            </p>
+            <p className="mt-1 text-xs text-yellow-800 leading-relaxed">
+              Don't wait until all appointments are done. Update this checklist
+              immediately after each appointment so we can track your progress
+              and help if something gets stuck.
+            </p>
+          </div>
 
           <div className="mt-4 space-y-4">
             <div className="rounded-xl border bg-gray-50 p-4">
@@ -245,6 +256,20 @@ export default function NextStepsPage() {
                         placeholder="City / office"
                       />
                     </div>
+                  </div>
+                  <div className="mt-3">
+                    <label className="text-xs font-semibold text-gray-700">
+                      What happened in this appointment?
+                    </label>
+                    <textarea
+                      className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                      value={data.workone_appointment_1_notes ?? ''}
+                      onChange={(e) =>
+                        patch({ workone_appointment_1_notes: e.target.value })
+                      }
+                      placeholder="Example: Orientation meeting, filled out intake forms, scheduled next appointment for assessment"
+                      rows={3}
+                    />
                   </div>
                 </div>
               </div>
@@ -305,6 +330,20 @@ export default function NextStepsPage() {
                       />
                     </div>
                   </div>
+                  <div className="mt-3">
+                    <label className="text-xs font-semibold text-gray-700">
+                      What happened in this appointment?
+                    </label>
+                    <textarea
+                      className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                      value={data.workone_appointment_2_notes ?? ''}
+                      onChange={(e) =>
+                        patch({ workone_appointment_2_notes: e.target.value })
+                      }
+                      placeholder="Example: Completed TABE assessment, discussed funding options, advisor said I qualify for WIOA"
+                      rows={3}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -363,6 +402,93 @@ export default function NextStepsPage() {
                         placeholder="City / office"
                       />
                     </div>
+                  </div>
+                  <div className="mt-3">
+                    <label className="text-xs font-semibold text-gray-700">
+                      What happened in this appointment?
+                    </label>
+                    <textarea
+                      className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                      value={data.workone_appointment_3_notes ?? ''}
+                      onChange={(e) =>
+                        patch({ workone_appointment_3_notes: e.target.value })
+                      }
+                      placeholder="Example: Met with career advisor, submitted documents, approved for WRG funding"
+                      rows={3}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border bg-gray-50 p-4">
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-5 w-5 rounded border"
+                  checked={!!data.workone_appointment_4_completed}
+                  onChange={(e) =>
+                    patch({ workone_appointment_4_completed: e.target.checked })
+                  }
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold">Appointment #4</p>
+                  <div className="mt-2 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Date
+                      </label>
+                      <input
+                        type="date"
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_4_date ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_4_date: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Time
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_4_time ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_4_time: e.target.value })
+                        }
+                        placeholder="e.g., 10:30 AM"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Location
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_4_location ?? ''}
+                        onChange={(e) =>
+                          patch({
+                            workone_appointment_4_location: e.target.value,
+                          })
+                        }
+                        placeholder="City / office"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <label className="text-xs font-semibold text-gray-700">
+                      What happened in this appointment?
+                    </label>
+                    <textarea
+                      className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                      value={data.workone_appointment_4_notes ?? ''}
+                      onChange={(e) =>
+                        patch({ workone_appointment_4_notes: e.target.value })
+                      }
+                      placeholder="Example: Final paperwork signed, received approval letter, ready to start program"
+                      rows={3}
+                    />
                   </div>
                 </div>
               </div>

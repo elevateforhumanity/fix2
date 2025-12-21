@@ -1500,11 +1500,13 @@ Once you submit your inquiry, you'll get access to your personal checklist at **
 - Go to indianacareerconnect.com and create/login to your account
 - Add your ICC username to your checklist (optional but helpful)
 
-**Step 3: Track your WorkOne appointments**
-- WorkOne may schedule multiple appointments (orientation, assessment, advisor meeting)
-- Add each appointment with date, time, and location
-- Check off each appointment when you complete it
-- This helps us know which appointments are done and which are upcoming
+**Step 3: Track your WorkOne appointments (3-4 appointments)**
+- WorkOne will schedule 3-4 appointments (orientation, assessment, advisor meetings)
+- **CRITICAL: After EACH appointment, come back to your checklist immediately**
+- Add the date, time, location, and what happened in each appointment
+- Check off the appointment when complete
+- We get notified by email every time you update your checklist
+- Don't wait until all appointments are done - report back after each one
 
 **Step 4: Tell the advisor: "I'm here for Elevate for Humanity"**
 - This connects your appointment to the right training pathway
@@ -1538,11 +1540,29 @@ Once you submit your inquiry, you'll get access to your personal checklist at **
 
 1. **After you apply:** Go to [elevateforhumanity.com/next-steps](https://elevateforhumanity.com/next-steps)
 2. **Log in** with the account you created when you applied
-3. **Check off each step** as you complete it
-4. **Add dates and details** so we can track your timeline
-5. **Come back after appointments** to update your progress
+3. **Select your program code** from the dropdown (Barber Apprenticeship)
+4. **Check off each step** as you complete it
+5. **Add dates, times, and details** for every appointment
+6. **REPORT BACK AFTER EVERY WORKONE APPOINTMENT** - don't wait until they're all done
 
-**Important:** We can see your checklist updates in real-time. The more you keep it updated, the faster we can help you move through the process.
+### Think of This Checklist Like a Sign-In Sheet
+
+**This is YOUR personal tracking form.** Every time you update it:
+- ✅ We get an email notification immediately
+- ✅ We can see exactly where you are in the process
+- ✅ We can follow up if something gets stuck
+- ✅ We can move faster once you complete each step
+
+**Bookmark this page:** [elevateforhumanity.com/next-steps](https://elevateforhumanity.com/next-steps)
+
+**After EVERY WorkOne appointment:**
+1. Open your checklist
+2. Add the appointment date, time, location
+3. Write what happened in the appointment (2-3 sentences)
+4. Check the box to mark it complete
+5. We get notified and can help with next steps
+
+**Important:** We can't move you forward if we don't know where you are. The checklist is how we track you. Keep it updated and we'll keep you moving.
 
 ---
 

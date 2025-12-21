@@ -105,16 +105,25 @@ export async function PATCH(req: Request) {
     workone_appointment_1_date: true,
     workone_appointment_1_time: true,
     workone_appointment_1_location: true,
+    workone_appointment_1_notes: true,
 
     workone_appointment_2_completed: true,
     workone_appointment_2_date: true,
     workone_appointment_2_time: true,
     workone_appointment_2_location: true,
+    workone_appointment_2_notes: true,
 
     workone_appointment_3_completed: true,
     workone_appointment_3_date: true,
     workone_appointment_3_time: true,
     workone_appointment_3_location: true,
+    workone_appointment_3_notes: true,
+
+    workone_appointment_4_completed: true,
+    workone_appointment_4_date: true,
+    workone_appointment_4_time: true,
+    workone_appointment_4_location: true,
+    workone_appointment_4_notes: true,
 
     told_advisor_efh: true,
 
@@ -145,6 +154,58 @@ export async function PATCH(req: Request) {
 
   if (error)
     return NextResponse.json({ error: error.message }, { status: 500 });
+
+  // Send email notification to admin
+  try {
+    const { data: userData } = await adminClient.auth.admin.getUserById(
+      user.id
+    );
+    const userEmail = userData?.user?.email || 'Unknown';
+    const progress = computeProgress(data);
+
+    await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        to: 'elevate4humanityedu@gmail.com',
+        subject: `🔔 Student Checklist Updated: ${userEmail}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #000;">Student Checklist Update</h2>
+            
+            <div style="background: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
+              <p style="margin: 5px 0;"><strong>Student:</strong> ${userEmail}</p>
+              <p style="margin: 5px 0;"><strong>Program:</strong> ${data.program_code || 'Not selected'}</p>
+              <p style="margin: 5px 0;"><strong>Progress:</strong> ${progress.done}/${progress.total} steps complete (${progress.percent}%)</p>
+            </div>
+            
+            <h3 style="color: #000;">Updated Fields:</h3>
+            <ul style="line-height: 1.8;">
+              ${Object.keys(update)
+                .map((key) => {
+                  const value = update[key];
+                  const displayValue = typeof value === 'boolean' 
+                    ? (value ? '✅ Yes' : '❌ No')
+                    : value || '(empty)';
+                  return `<li><strong>${key.replace(/_/g, ' ')}:</strong> ${displayValue}</li>`;
+                })
+                .join('')}
+            </ul>
+            
+            <div style="margin-top: 30px; padding: 15px; background: #000; border-radius: 8px;">
+              <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/next-steps" 
+                 style="color: #fff; text-decoration: none; font-weight: bold;">
+                📋 View All Student Checklists →
+              </a>
+            </div>
+          </div>
+        `,
+      }),
+    });
+  } catch (emailError) {
+    console.error('Failed to send notification email:', emailError);
+    // Don't fail the request if email fails
+  }
 
   return NextResponse.json({ ...data, progress: computeProgress(data) });
 }
