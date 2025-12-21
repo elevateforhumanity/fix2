@@ -139,6 +139,26 @@ export async function POST(req: Request) {
         })
         .eq('stripe_checkout_session_id', session.id);
 
+      // Update tenant license if this is a platform subscription
+      const tenantId = session.metadata?.tenant_id;
+      if (tenantId && session.customer && session.subscription) {
+        await supabaseClient
+          .from('tenant_licenses')
+          .update({
+            stripe_customer_id: session.customer as string,
+            stripe_subscription_id: session.subscription as string,
+            active: true,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('tenant_id', tenantId);
+
+        logger.info('[Webhook] Updated tenant license', {
+          tenantId,
+          customerId: session.customer,
+          subscriptionId: session.subscription,
+        });
+      }
+
       // STEP 2: Create/activate enrollment (AUTO-ENROLL)
       // Idempotency: don't double-enroll if webhook retries
       const { data: existing } = await supabaseClient
@@ -327,6 +347,29 @@ export async function POST(req: Request) {
         status: finalStatus,
         current_period_end: periodEnd,
       });
+
+      // Update tenant license if this is a platform subscription
+      const tenantId = sub.metadata?.tenant_id;
+      if (tenantId) {
+        const { createClient } = await import('@/lib/supabase/server');
+        const supabaseClient = await createClient();
+        
+        await supabaseClient
+          .from('tenant_licenses')
+          .update({
+            stripe_customer_id: customerId,
+            stripe_subscription_id: sub.id,
+            active: finalStatus === 'active' || finalStatus === 'trialing',
+            updated_at: new Date().toISOString(),
+          })
+          .eq('tenant_id', tenantId);
+
+        logger.info('[Webhook] Updated tenant license from subscription event', {
+          tenantId,
+          subscriptionId: sub.id,
+          status: finalStatus,
+        });
+      }
 
       logger.info(
         `[Webhook] ${event.type}: user=${userId}, tier=${finalTier}, status=${finalStatus}`
