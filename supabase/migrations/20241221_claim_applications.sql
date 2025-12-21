@@ -4,47 +4,38 @@
 -- ============================================================
 
 CREATE OR REPLACE FUNCTION public.claim_applications_for_current_user()
-RETURNS void
+RETURNS integer
 LANGUAGE plpgsql
 SECURITY definer
 SET search_path = public
 AS $$
 DECLARE
-  v_user_id uuid;
-  v_user_email text;
-  v_claimed_count int;
+  v_uid uuid;
+  v_email text;
+  v_count integer;
 BEGIN
-  -- Get current user
-  v_user_id := auth.uid();
+  v_uid := auth.uid();
   
-  IF v_user_id IS NULL THEN
-    RAISE EXCEPTION 'Not authenticated';
+  IF v_uid IS NULL THEN
+    RAISE EXCEPTION 'Must be authenticated';
   END IF;
 
-  -- Get user email
-  SELECT email INTO v_user_email
+  SELECT email INTO v_email
   FROM auth.users
-  WHERE id = v_user_id;
+  WHERE id = v_uid;
 
-  IF v_user_email IS NULL THEN
-    RAISE EXCEPTION 'User email not found';
+  IF v_email IS NULL THEN
+    RETURN 0;
   END IF;
 
-  -- Claim applications by email where user_id is null
   UPDATE public.applications
-  SET 
-    user_id = v_user_id,
-    updated_at = NOW()
-  WHERE 
-    email = v_user_email
-    AND user_id IS NULL;
+  SET user_id = v_uid
+  WHERE user_id IS NULL
+    AND lower(email) = lower(v_email);
 
-  GET DIAGNOSTICS v_claimed_count = ROW_COUNT;
-
-  -- Log the claim (optional)
-  IF v_claimed_count > 0 THEN
-    RAISE NOTICE 'Claimed % application(s) for user %', v_claimed_count, v_user_id;
-  END IF;
+  GET DIAGNOSTICS v_count = ROW_COUNT;
+  
+  RETURN v_count;
 END;
 $$;
 

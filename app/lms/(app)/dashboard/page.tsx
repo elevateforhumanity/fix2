@@ -88,8 +88,7 @@ export default async function DashboardPage() {
                 Your learning journey starts here.
               </p>
               <p className="text-white/80">
-                Browse our programs below and enroll in your first course to
-                begin earning industry-recognized certifications.
+                We're linking your applications to your account. Browse our programs below and enroll in your first course to begin earning industry-recognized certifications.
               </p>
             </div>
           )}

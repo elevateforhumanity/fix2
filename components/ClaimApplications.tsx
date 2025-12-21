@@ -9,35 +9,47 @@ import { createClient } from '@/lib/supabase/client';
  * Automatically claims any applications submitted before login
  * by matching the user's email address.
  * 
- * Usage: Add to any authenticated page (dashboard, student portal, etc.)
+ * Runs on:
+ * - Component mount (for page visits)
+ * - SIGNED_IN auth event (for fresh logins)
+ * 
+ * Usage: Add to layout or authenticated pages
  */
 export function ClaimApplications() {
   useEffect(() => {
+    const supabase = createClient();
+
     const claimApplications = async () => {
-      const supabase = createClient();
+      try {
+        const { data, error } = await supabase.rpc(
+          'claim_applications_for_current_user'
+        );
 
-      // Confirm user is logged in
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (!session) {
-        return;
-      }
-
-      // Call RPC function to claim applications
-      const { error } = await supabase.rpc(
-        'claim_applications_for_current_user'
-      );
-
-      if (error) {
-        console.error('Error claiming applications:', error);
-      } else {
-        console.log('Applications claimed successfully');
+        if (error) {
+          console.error('Error claiming applications:', error);
+        } else if (data > 0) {
+          console.log(`Claimed ${data} application(s)`);
+        }
+      } catch (err) {
+        console.error('Unexpected error claiming applications:', err);
       }
     };
 
+    // Claim on mount
     claimApplications();
+
+    // Also claim on auth state change (SIGNED_IN event)
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event) => {
+      if (event === 'SIGNED_IN') {
+        await claimApplications();
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   // This component doesn't render anything
