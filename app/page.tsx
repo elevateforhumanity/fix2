@@ -54,6 +54,14 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Credentials Badge */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8">
+              <p className="text-sm text-white/90 leading-relaxed">
+                <strong className="text-white">Registered Apprenticeship Sponsor & ETPL-Approved Provider.</strong>{' '}
+                We are a registered apprenticeship sponsor and ETPL-approved provider in Indiana, making our programs eligible for WIOA and WRG funding through WorkOne regions.
+              </p>
+            </div>
+
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
