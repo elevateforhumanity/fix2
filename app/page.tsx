@@ -3,23 +3,117 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* VIDEO HERO */}
-      <section className="relative overflow-hidden">
-        <video
-          autoPlay
-          loop
-          playsInline
-          preload="auto"
-          controls
-          className="w-full h-auto"
-          style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
-        >
-          <source src="/videos/hero-home.mp4" type="video/mp4" />
-        </video>
+      {/* HERO BANNER */}
+      <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-16 md:py-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-grid-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6">
+              <span className="text-sm font-bold">
+                🎓 100% Free Training • No Student Debt
+              </span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              We See Your Potential,
+              <br />
+              Not Your Past
+            </h1>
+
+            {/* Description */}
+            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              Real training. Real jobs. Real support. And it's 100% free.
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1">100%</div>
+                <div className="text-sm text-white/80">Free Training</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1">4-12</div>
+                <div className="text-sm text-white/80">Weeks</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1">14+</div>
+                <div className="text-sm text-white/80">Programs</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1">90%</div>
+                <div className="text-sm text-white/80">Job Placement</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition shadow-2xl hover:scale-105"
+              >
+                Explore Programs
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+              <Link
+                href="/apply"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
+              >
+                Apply Now - It's Free
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION - Moved below hero */}
+      <section className="py-12 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              See How We're Changing Lives
+            </h2>
+            <p className="text-lg text-slate-600">
+              Watch our story and meet the people we serve
+            </p>
+          </div>
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            style={{ maxHeight: '500px' }}
+          >
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full h-auto"
+              style={{ maxHeight: '500px', objectFit: 'cover' }}
+              poster="/images/video-poster.jpg"
+            >
+              <source src="/videos/hero-home.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </section>
 
       {/* MISSION & STORY */}

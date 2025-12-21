@@ -59,15 +59,16 @@ export function getFacebookShareUrl(config: ShareConfig): string {
  */
 export function getTwitterShareUrl(config: ShareConfig): string {
   const text = config.description || config.title;
-  const hashtags = config.hashtags?.join(',') || 'ElevateForHumanity,WorkforceDevelopment';
-  
+  const hashtags =
+    config.hashtags?.join(',') || 'ElevateForHumanity,WorkforceDevelopment';
+
   const params = new URLSearchParams({
     url: config.url,
     text: text,
     hashtags: hashtags,
     via: 'Elevate4Humani1',
   });
-  
+
   return `https://twitter.com/intent/tweet?${params.toString()}`;
 }
 
@@ -87,12 +88,12 @@ export function getLinkedInShareUrl(config: ShareConfig): string {
 export function getEmailShareUrl(config: ShareConfig): string {
   const subject = config.title;
   const body = `${config.description || ''}\n\n${config.url}`;
-  
+
   const params = new URLSearchParams({
     subject: subject,
     body: body,
   });
-  
+
   return `mailto:?${params.toString()}`;
 }
 
@@ -101,11 +102,11 @@ export function getEmailShareUrl(config: ShareConfig): string {
  */
 export function getWhatsAppShareUrl(config: ShareConfig): string {
   const text = `${config.title}\n\n${config.description || ''}\n\n${config.url}`;
-  
+
   const params = new URLSearchParams({
     text: text,
   });
-  
+
   return `https://wa.me/?${params.toString()}`;
 }
 
@@ -128,17 +129,20 @@ export function getAllShareUrls(config: ShareConfig) {
 export const defaultShareConfigs = {
   homepage: {
     title: 'Elevate for Humanity - Workforce Training & Development',
-    description: 'Connecting people to training, funding, and career opportunities. WIOA, apprenticeships, and more.',
+    description:
+      'Connecting people to training, funding, and career opportunities. WIOA, apprenticeships, and more.',
     hashtags: ['ElevateForHumanity', 'WorkforceDevelopment', 'CareerTraining'],
   },
   programs: {
     title: 'Training Programs - Elevate for Humanity',
-    description: 'Explore apprenticeships, WIOA programs, and career training opportunities.',
+    description:
+      'Explore apprenticeships, WIOA programs, and career training opportunities.',
     hashtags: ['CareerTraining', 'Apprenticeships', 'WIOA'],
   },
   taxServices: {
     title: 'Free Tax Preparation - Elevate for Humanity',
-    description: 'IRS-certified free tax preparation through VITA program. No income limits.',
+    description:
+      'IRS-certified free tax preparation through VITA program. No income limits.',
     hashtags: ['FreeTaxPrep', 'VITA', 'TaxHelp'],
   },
 };
@@ -147,10 +151,12 @@ export const defaultShareConfigs = {
  * Social Media Bio Copy (for profile updates)
  */
 export const SOCIAL_BIO = {
-  short: 'Workforce training platform connecting people to programs, funding, and careers. WIOA | Apprenticeships | Tax Services',
-  
-  medium: 'Elevate for Humanity is a workforce operating platform that coordinates access to training, funding, and career opportunities. We support WIOA programs, apprenticeships, and provide free tax services.',
-  
+  short:
+    'Workforce training platform connecting people to programs, funding, and careers. WIOA | Apprenticeships | Tax Services',
+
+  medium:
+    'Elevate for Humanity is a workforce operating platform that coordinates access to training, funding, and career opportunities. We support WIOA programs, apprenticeships, and provide free tax services.',
+
   long: `Elevate for Humanity is a multi-tenant workforce operating platform designed to support training, funding, compliance, and outcome reporting across jurisdictions.
 
 We coordinate (not control) access to:
@@ -167,11 +173,7 @@ Location: Indianapolis, IN`,
  * Hashtag Strategy
  */
 export const HASHTAGS = {
-  primary: [
-    '#ElevateForHumanity',
-    '#WorkforceDevelopment',
-    '#CareerTraining',
-  ],
+  primary: ['#ElevateForHumanity', '#WorkforceDevelopment', '#CareerTraining'],
   programs: [
     '#Apprenticeships',
     '#WIOA',
@@ -179,12 +181,7 @@ export const HASHTAGS = {
     '#CareerPathways',
     '#SkillsTraining',
   ],
-  tax: [
-    '#FreeTaxPrep',
-    '#VITA',
-    '#TaxHelp',
-    '#IRSCertified',
-  ],
+  tax: ['#FreeTaxPrep', '#VITA', '#TaxHelp', '#IRSCertified'],
   impact: [
     '#SecondChances',
     '#EconomicMobility',
@@ -197,15 +194,47 @@ export const HASHTAGS = {
  * Content Calendar Themes (30-day rotation)
  */
 export const CONTENT_THEMES = [
-  { day: 1, theme: 'Program Spotlight', focus: 'Highlight a specific training program' },
-  { day: 2, theme: 'Student Success', focus: 'Share a success story or testimonial' },
-  { day: 3, theme: 'Funding Friday', focus: 'Explain funding sources (WIOA, WRG, etc.)' },
-  { day: 4, theme: 'Weekend Motivation', focus: 'Inspirational quote or message' },
-  { day: 5, theme: 'Partner Highlight', focus: 'Feature a training provider or employer' },
+  {
+    day: 1,
+    theme: 'Program Spotlight',
+    focus: 'Highlight a specific training program',
+  },
+  {
+    day: 2,
+    theme: 'Student Success',
+    focus: 'Share a success story or testimonial',
+  },
+  {
+    day: 3,
+    theme: 'Funding Friday',
+    focus: 'Explain funding sources (WIOA, WRG, etc.)',
+  },
+  {
+    day: 4,
+    theme: 'Weekend Motivation',
+    focus: 'Inspirational quote or message',
+  },
+  {
+    day: 5,
+    theme: 'Partner Highlight',
+    focus: 'Feature a training provider or employer',
+  },
   { day: 6, theme: 'How It Works', focus: 'Explain the enrollment process' },
-  { day: 7, theme: 'Tax Tip Tuesday', focus: 'Tax preparation tips and VITA info' },
-  { day: 8, theme: 'Career Pathways', focus: 'Show career progression opportunities' },
-  { day: 9, theme: 'Community Impact', focus: 'Share impact metrics and outcomes' },
+  {
+    day: 7,
+    theme: 'Tax Tip Tuesday',
+    focus: 'Tax preparation tips and VITA info',
+  },
+  {
+    day: 8,
+    theme: 'Career Pathways',
+    focus: 'Show career progression opportunities',
+  },
+  {
+    day: 9,
+    theme: 'Community Impact',
+    focus: 'Share impact metrics and outcomes',
+  },
   { day: 10, theme: 'FAQ Friday', focus: 'Answer common questions' },
 ];
 
@@ -250,7 +279,7 @@ export const PLATFORM_GUIDELINES = {
 export const SAFE_CAPTIONS = {
   programs: [
     'Explore training programs designed to help you build a career.',
-    'Apprenticeships let you earn while you learn. See what's available.',
+    'Apprenticeships let you earn while you learn. See what is available.',
     'WIOA-funded programs may be available at no cost to eligible participants.',
   ],
   tax: [
@@ -278,7 +307,7 @@ export function trackSocialShare(platform: string, url: string, title: string) {
       content_name: title,
     });
   }
-  
+
   // Console log for debugging
   console.log(`Social share: ${platform} - ${title}`);
 }
@@ -291,7 +320,7 @@ export function openShareDialog(platform: string, url: string) {
   const height = 400;
   const left = (window.screen.width - width) / 2;
   const top = (window.screen.height - height) / 2;
-  
+
   window.open(
     url,
     'share',
@@ -306,7 +335,7 @@ export async function nativeShare(config: ShareConfig): Promise<boolean> {
   if (typeof navigator === 'undefined' || !navigator.share) {
     return false;
   }
-  
+
   try {
     await navigator.share({
       title: config.title,

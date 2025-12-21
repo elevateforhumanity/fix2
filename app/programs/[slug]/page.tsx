@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { programs } from '@/app/data/programs';
 import {
-
   Clock,
   Calendar,
   MapPin,
@@ -51,7 +50,7 @@ export default async function ProgramDetailPage({
   return (
     <main className="bg-white">
       {/* Hero Section - Instant Clarity */}
-      <section className="bg-white text-white py-12 md:py-16">
+      <section className="bg-white text-white py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-600 mb-6">
@@ -168,7 +167,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* What You'll Learn */}
-      <section className="py-12 md:py-16 bg-slate-50">
+      <section className="py-20 md:py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             What You'll Learn
@@ -197,7 +196,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* How This Program Works */}
-      <section className="py-12 md:py-16">
+      <section className="py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             How Training Works
@@ -281,7 +280,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* Funding & Support */}
-      <section className="py-12 md:py-16 bg-slate-50">
+      <section className="py-20 md:py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             Funding & Support
@@ -354,7 +353,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* Next Steps */}
-      <section className="py-12 md:py-16">
+      <section className="py-20 md:py-24">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">
             Next Steps
@@ -408,7 +407,7 @@ export default async function ProgramDetailPage({
       </section>
 
       {/* Still Not Sure */}
-      <section className="py-12 md:py-16 bg-white text-slate-900">
+      <section className="py-20 md:py-24 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Still Not Sure?

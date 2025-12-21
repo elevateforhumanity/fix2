@@ -26,16 +26,20 @@ export default function ProgramsPage() {
         </div>
       </div>
 
-      {/* Hero Section - Human & Warm */}
-      <section className="bg-white text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="max-w-3xl">
-            {/* Indiana Career Connect Badge - Clickable */}
+      {/* Hero Section - Modern & Professional */}
+      <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-20 md:py-32 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-grid-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="max-w-4xl">
+            {/* Indiana Career Connect Badge */}
             <a
               href="https://www.in.gov/dwd/career-connect/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 px-6 py-3 rounded-full mb-6 transition shadow-lg group"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 px-6 py-3 rounded-full mb-8 transition border border-white/20 group"
             >
               <MapPin className="w-5 h-5 text-white" />
               <span className="text-sm font-bold text-white">
@@ -44,69 +48,79 @@ export default function ProgramsPage() {
               <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition" />
             </a>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               Your Future Starts Here
             </h1>
 
             {/* Key Highlights */}
-            <div className="flex flex-wrap gap-4 mb-6">
-              <div className="bg-brand-orange-600 px-4 py-2 rounded-lg font-bold">
-                100% Free
+            <div className="flex flex-wrap gap-4 mb-8">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
+                ✓ 100% Free Training
               </div>
-              <div className="bg-brand-orange-600 px-4 py-2 rounded-lg font-bold">
-                No Debt
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
+                ✓ No Student Debt
               </div>
-              <div className="bg-brand-orange-600 px-4 py-2 rounded-lg font-bold">
-                Real Jobs Waiting
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
+                ✓ Real Jobs Waiting
               </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-slate-600 mb-6 leading-relaxed font-medium">
+            <p className="text-2xl md:text-3xl text-white/90 mb-8 leading-relaxed font-medium">
               Real training. Real jobs. Real support. And it's 100% free.
             </p>
 
-            {/* Story */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-8">
+            {/* Story Box */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-10">
               <p className="text-lg text-white leading-relaxed mb-4">
-                <strong className="text-orange-400">Here's the truth:</strong>{' '}
+                <strong className="text-yellow-300">Here's the truth:</strong>{' '}
                 You don't need a college degree to build a great career. You
                 need the right training, the right support, and someone who
                 believes in you.
               </p>
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-white/90 leading-relaxed">
                 Whether you're starting fresh, changing careers, or getting back
                 on your feet—we're here to help you build the life you want.
                 Every program is fully funded through{' '}
-                <strong className="text-orange-400">
+                <strong className="text-yellow-300">
                   Indiana Career Connect
                 </strong>{' '}
                 and WIOA. No tuition. No debt. Just opportunity.
               </p>
             </div>
 
-            {/* Quick Actions */}
-            <div className="flex flex-wrap gap-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 mb-8">
               <Link
                 href="/apply"
-                className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-xl font-bold text-lg transition shadow-2xl hover:shadow-3xl hover:scale-105"
               >
                 Apply Now - It's Free
                 <ChevronRight className="w-5 h-5" />
               </Link>
               <a
                 href="tel:3173143757"
-                className="inline-flex items-center gap-2 bg-white text-blue-900 hover:bg-slate-50 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg"
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
               >
                 <Phone className="w-5 h-5" />
-                Call: (317) 314-3757
+                (317) 314-3757
               </a>
             </div>
 
-            {/* Trust Signal */}
-            <p className="text-sm text-white/60 mt-6">
-              ✓ Trusted by 500+ Indiana residents • ✓ Partnered with top
-              employers • ✓ 90% job placement rate
-            </p>
+            {/* Trust Signals */}
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/80">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span>500+ Students Enrolled</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span>90% Job Placement Rate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span>Top Employer Partners</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -164,185 +178,269 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Programs by Category */}
+      {/* Programs Overview */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Choose Your Path
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               All programs are 100% free and lead to industry-recognized
-              certifications.
+              certifications. We offer training in four key areas.
             </p>
           </div>
 
-          {/* Healthcare */}
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-brand-blue-600 rounded-full" />
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-                  Healthcare
-                </h3>
-                <p className="text-slate-600">
-                  High-demand careers helping people every day
-                </p>
+          {/* Healthcare Category */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border border-blue-100">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-3 h-16 bg-blue-600 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                    Healthcare
+                  </h3>
+                  <p className="text-lg text-slate-700 mb-6">
+                    Start a rewarding career helping people every day.
+                    Healthcare jobs are in high demand, offer stable income, and
+                    provide clear paths for advancement.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        Certified Nursing Assistant (CNA)
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        4-8 weeks • Patient care in hospitals, nursing homes,
+                        and home health
+                      </p>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        Medical Assistant
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        8-12 weeks • Clinical and administrative support in
+                        medical offices
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/programs/cna"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-bold transition"
+                  >
+                    Explore Healthcare Programs
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {programs
-                .filter(
-                  (p) =>
-                    p.slug.includes('cna') ||
-                    p.slug.includes('medical') ||
-                    p.slug.includes('health')
-                )
-                .map((program) => (
-                  <ProgramCard key={program.slug} program={program} />
-                ))}
             </div>
           </div>
 
-          {/* Skilled Trades */}
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-brand-orange-600 rounded-full" />
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-                  Skilled Trades
-                </h3>
-                <p className="text-slate-600">
-                  Build things. Fix things. Make great money.
-                </p>
+          {/* Skilled Trades Category */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 md:p-12 border border-orange-100">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-3 h-16 bg-orange-600 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                    Skilled Trades
+                  </h3>
+                  <p className="text-lg text-slate-700 mb-6">
+                    Build things. Fix things. Make great money. Skilled trades
+                    offer excellent pay, job security, and the satisfaction of
+                    working with your hands.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        HVAC Technician
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        16-24 weeks • Install and repair heating, cooling, and
+                        refrigeration systems
+                      </p>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        CDL Truck Driver
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        4-6 weeks • Commercial driving with excellent earning
+                        potential
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/programs/hvac-technician"
+                    className="inline-flex items-center gap-2 bg-orange-600 text-white hover:bg-orange-700 px-6 py-3 rounded-xl font-bold transition"
+                  >
+                    Explore Skilled Trades Programs
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {programs
-                .filter(
-                  (p) =>
-                    p.slug.includes('hvac') ||
-                    p.slug.includes('building') ||
-                    p.slug.includes('cdl')
-                )
-                .map((program) => (
-                  <ProgramCard key={program.slug} program={program} />
-                ))}
             </div>
           </div>
 
-          {/* Beauty & Wellness */}
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-purple-600 rounded-full" />
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-                  Beauty & Wellness
-                </h3>
-                <p className="text-slate-600">
-                  Creative careers with flexible schedules
-                </p>
+          {/* Beauty & Wellness Category */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 md:p-12 border border-purple-100">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-3 h-16 bg-purple-600 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                    Beauty & Wellness
+                  </h3>
+                  <p className="text-lg text-slate-700 mb-6">
+                    Creative careers with flexible schedules and unlimited
+                    earning potential. Build your own clientele and be your own
+                    boss.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        Barber Apprenticeship
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        15-17 months • Earn while you learn, graduate debt-free
+                        with clients
+                      </p>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        Esthetician
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        12-16 weeks • Skincare, facials, and spa treatments
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/programs/barber-apprenticeship"
+                    className="inline-flex items-center gap-2 bg-purple-600 text-white hover:bg-purple-700 px-6 py-3 rounded-xl font-bold transition"
+                  >
+                    Explore Beauty & Wellness Programs
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {programs
-                .filter(
-                  (p) =>
-                    p.slug.includes('barber') ||
-                    p.slug.includes('beauty') ||
-                    p.slug.includes('esthetician')
-                )
-                .map((program) => (
-                  <ProgramCard key={program.slug} program={program} />
-                ))}
             </div>
           </div>
 
-          {/* Business & Finance */}
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-2 h-12 bg-brand-green-600 rounded-full" />
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-                  Business & Finance
-                </h3>
-                <p className="text-slate-600">
-                  Start your own business or help others succeed
-                </p>
+          {/* Business & Finance Category */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border border-green-100">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-3 h-16 bg-green-600 rounded-full flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                    Business & Finance
+                  </h3>
+                  <p className="text-lg text-slate-700 mb-6">
+                    Start your own business or help others succeed. Learn
+                    valuable skills that open doors to entrepreneurship and
+                    financial independence.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        Tax Preparation
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        8-12 weeks • Prepare taxes for individuals and small
+                        businesses
+                      </p>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
+                      <h4 className="font-bold text-slate-900 mb-2">
+                        Small Business Management
+                      </h4>
+                      <p className="text-sm text-slate-600">
+                        12-16 weeks • Learn to start and run your own business
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-xl font-bold transition"
+                  >
+                    Explore Business Programs
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {programs
-                .filter(
-                  (p) => p.slug.includes('tax') || p.slug.includes('business')
-                )
-                .map((program) => (
-                  <ProgramCard key={program.slug} program={program} />
-                ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Human & Encouraging */}
-      <section className="py-16 bg-white text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      {/* CTA Section - Modern & Encouraging */}
+      <section className="py-20 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-grid-white/10" />
+
+        <div className="relative max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Change Your Life?
           </h2>
-          <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 mb-6 leading-relaxed max-w-3xl mx-auto">
             You don't need to figure this out alone. Our advisors are here to
             help you find the right program, get funding, and start training.
           </p>
-          <p className="text-lg text-slate-600 mb-8">
+          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
             Call us today or apply online. Either way, we'll be in touch within
-            24 hours.
+            24 hours to help you get started.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Link
               href="/apply"
-              className="inline-flex items-center gap-2 bg-white text-brand-orange-600 hover:bg-slate-50 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg"
+              className="inline-flex items-center gap-2 bg-white text-orange-600 hover:bg-orange-50 px-10 py-5 rounded-xl font-bold text-lg transition shadow-2xl hover:scale-105"
             >
-              Apply Now
+              Apply Now - It's Free
               <ChevronRight className="w-5 h-5" />
             </Link>
             <a
               href="tel:3173143757"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg transition border-2 border-white"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
             >
               <Phone className="w-5 h-5" />
               (317) 314-3757
             </a>
+            <a
+              href="mailto:info@elevateforhumanity.org"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
+            >
+              <Mail className="w-5 h-5" />
+              Email Us
+            </a>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-sm text-slate-600">
+          {/* Trust Signals */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6">
+              <div className="text-4xl font-bold mb-2">24hrs</div>
+              <div className="text-white/80">Response Time</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6">
+              <div className="text-4xl font-bold mb-2">$0</div>
+              <div className="text-white/80">Out of Pocket</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6">
+              <div className="text-4xl font-bold mb-2">90%</div>
+              <div className="text-white/80">Job Placement</div>
+            </div>
+          </div>
+
+          <div className="pt-8 border-t border-white/20">
+            <p className="text-sm text-white/70">
               Funded by Indiana Career Connect and WIOA • Serving Indianapolis
-              and surrounding areas
+              and surrounding areas • Equal Opportunity Provider
             </p>
           </div>
         </div>
       </section>
     </main>
-  );
-}
-
-// Program Card Component
-function ProgramCard({ program }: { program: any }) {
-  return (
-    <Link
-      href={`/programs/${program.slug}`}
-      className="group bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-orange-300 transition"
-    >
-      <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-orange-600 transition">
-        {program.title}
-      </h4>
-      <p className="text-slate-600 mb-4 line-clamp-2">{program.description}</p>
-      <div className="flex items-center gap-2 text-brand-orange-600 font-semibold">
-        Learn More
-        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition" />
-      </div>
-    </Link>
   );
 }

@@ -121,84 +121,4167 @@ Career Outcomes:
     name: 'Barber Apprenticeship',
     heroTitle: 'Indiana Barber Apprenticeship - Earn While You Learn',
     heroSubtitle:
-      "Get paid while you learn. Work in a real barbershop from day one, earning approximately $10/hour plus commissions while building your skills and clientele. Skip the $25,000 barber school debt. Graduate in 15-17 months ready to rent your own chair, work in a top shop, or open your own business.",
+      'Get paid while you learn. Work in a real barbershop from day one, earning approximately $10/hour plus commissions while building your skills and clientele. Skip the $25,000 barber school debt. Graduate in 15-17 months ready to rent your own chair, work in a top shop, or open your own business.',
     shortDescription:
-      "Get paid while you learn. Work in a real barbershop from day one, earning approximately $10/hour plus commissions while building your skills and clientele. Skip the $25,000 barber school debt. Graduate in 15-17 months ready to rent your own chair, work in a top shop, or open your own business.",
-    longDescription: `## A New Path to Barbering in Indiana
+      'Get paid while you learn. Work in a real barbershop from day one, earning approximately $10/hour plus commissions while building your skills and clientele. Skip the $25,000 barber school debt. Graduate in 15-17 months ready to rent your own chair, work in a top shop, or open your own business.',
+    longDescription: `## The Day Indiana Changed Everything for Aspiring Barbers
 
-In 2024 and 2025, Indiana changed everything for aspiring barbers. House Bill 1135 and House Bill 1320 officially established federally registered apprenticeships as a valid pathway to barbering licensure. This "Earn While You Learn" model allows you to bypass traditional barber school—which costs approximately $25,000—and instead receive paid, hands-on training directly on a shop floor.
+**March 14, 2024.** That's the day Governor Eric Holcomb signed House Bill 1135 into law. Then on March 21, 2025, House Bill 1320 followed. Together, these two pieces of legislation did something revolutionary: they officially recognized federally registered apprenticeships as a valid pathway to becoming a licensed barber in Indiana.
 
-This isn't theory. This is real clients, real money, and real experience from day one.
+Before this, if you wanted to be a barber in Indiana, you had one option: pay $25,000 for barber school, sit in a classroom for 1,500 hours, and graduate with debt and zero clients.
 
-## Why This Matters
+Now, there's a second path. And it changes everything.
 
-Traditional barber school costs $25,000 and takes 1,500 hours. You graduate with debt and zero clients.
+---
 
-Indiana's apprenticeship is different:
-- **Get Paid**: Earn approximately $10/hour plus commissions while you train
-- **No Tuition**: Employers pay for your curriculum costs (typically $6,500)
-- **Real Experience**: Work with actual clients from the start
-- **Build Your Book**: Graduate with a clientele who already knows your name
-- **Own Your Future**: 73% of graduates own their chair or shop within 2 years
+## Marcus's Story: From Warehouse Worker to Licensed Barber
 
-## Program Structure
+Marcus was 28, working third shift at a warehouse on the west side of Indianapolis. $12/hour. No benefits. No future. He'd been cutting his friends' hair since high school—fades, tapers, lineups. People always told him he was good. But barber school cost $25,000. He had rent to pay. A daughter to support. He couldn't afford to quit his job and go to school.
 
-Indiana's barbering apprenticeship is a structured, 2,000-hour program registered with the U.S. Department of Labor.
+Then his cousin told him about the apprenticeship.
 
-**Training Requirements:**
-- 2,000 hours of on-the-job training (vs. 1,500 in traditional school)
-- 144 hours of related technical instruction (RTI)
-- 15-17 months to complete
-- Must be at least 17 years old
-- High school diploma or GED required
+"I thought it was a scam," Marcus says. "Get paid to learn? No tuition? I figured there had to be a catch."
 
-**What You'll Learn:**
-- Haircutting, fades, tapers, lineups
+There wasn't.
+
+Marcus applied in June 2024. Within three weeks, he was matched with MDG Salons on the east side. He interviewed with the owner. They clicked. Two weeks later, Marcus clocked in for his first day.
+
+**Week 1:** Marcus was nervous. He watched the other barbers work. He swept hair. He learned how the shop ran. He practiced on mannequins in the back. He earned $10/hour for every hour he was there.
+
+**Month 3:** Marcus did his first real cut. A simple taper. His hands shook. His mentor stood right behind him, coaching him through every step. The customer tipped him $5. Marcus felt like he'd just won the lottery.
+
+**Month 6:** A customer walked in and asked for Marcus by name. That's when it hit him: he was building something real. He was earning commissions now. His paychecks were getting bigger.
+
+**Month 12:** Marcus had 15 regular clients. Guys who only wanted him. He was doing fades, beard work, hot towel shaves. He was working more independently. His mentor still checked his work, but Marcus was getting it right most of the time.
+
+**Month 17:** Marcus passed his state board exam on the first try. He became a Registered Barber in Indiana. His regulars congratulated him. He decided to rent his own chair at the shop—$250/week. He kept 100% of his earnings after rent.
+
+Today, Marcus makes $55,000 a year. He has 30+ regular clients. He's saving to open his own shop in two years. And he graduated with zero debt.
+
+"I walk into work every day and I'm excited," Marcus says. "I'm building something that's mine. This program gave me a shot I never thought I'd have."
+
+---
+
+## How Indiana's Apprenticeship Program Actually Works
+
+### The Legal Framework
+
+Indiana's barbering apprenticeship is registered with the **U.S. Department of Labor** under the National Apprenticeship Act. It's a structured, 2,000-hour program that meets all requirements set by the **Indiana State Board of Barber Examiners**.
+
+**Key legislation:**
+- **House Bill 1135 (2024):** Established registered apprenticeships as a pathway to licensure
+- **House Bill 1320 (2025):** Expanded apprenticeship opportunities and clarified requirements
+- **Indiana Code 25-7-5:** Governs barber licensing and apprenticeship standards
+
+**Program registration:**
+- Registered with U.S. Department of Labor
+- Approved by Indiana State Board of Barber Examiners
+- Meets federal apprenticeship standards (29 CFR Part 29)
+- Complies with Indiana Professional Licensing Agency requirements
+
+### The Requirements (Straight from Indiana Law)
+
+**To enter the program, you must:**
+- Be at least 17 years old (Indiana Code 25-7-5-7)
+- Have a high school diploma or GED
+- Pass a background check (required by participating shops)
+- Have reliable transportation to your shop placement
+- Be eligible to work in the United States
+
+**To complete the program, you must:**
+- Complete 2,000 hours of on-the-job training in a registered barbershop
+- Complete 144 hours of Related Technical Instruction (RTI)
+- Pass the Indiana State Board of Barber Examiners practical and written exam
+- Pay licensing fees (approximately $85 total)
+
+**Timeline:**
+- Working 40 hours/week: 50 weeks for on-the-job hours
+- Plus 144 hours of theory (3-4 hours/week over the same period)
+- Total time: 15-17 months to complete all requirements
+
+---
+
+## Here's Exactly How "Earn While You Learn" Works
+
+**You work at a barbershop. They pay you. You're an employee, not a student.**
+
+Here's your typical week:
+
+### Your Weekly Schedule
+
+**Monday-Friday: Work at the Barbershop (40 hours/week)**
+- You clock in at your assigned barbershop
+- You work with real clients under supervision
+- You earn $10/hour base pay
+- You earn commissions on every service you provide
+- You keep 100% of your tips
+- **Weekly earnings: $400 base + commissions + tips**
+
+**Plus: Online Theory Classes (3-4 hours/week)**
+- Complete online coursework in the evenings or weekends
+- Learn barbering theory, sanitation, business skills
+- 144 total hours spread over 15-17 months
+- **This is your "school" component—but it's flexible and online**
+
+### The Math
+
+**Total hours needed:** 2,000 hours on-the-job + 144 hours theory = 2,144 hours total
+
+**Working 40 hours/week at the shop:**
+- 2,000 hours ÷ 40 hours/week = 50 weeks (about 12-13 months)
+- Plus 144 hours of theory (3-4 hours/week over the same period)
+- **Total time: 15-17 months to complete everything**
+
+**What you earn while training:**
+- Base pay: 2,000 hours × $10/hour = **$20,000**
+- Commissions: Varies by skill level and clientele (starts small, grows over time)
+- Tips: Typically 15-20% of service price
+- **Total earnings during training: $20,000-$30,000+**
+
+### What the State/Funding Covers
+
+**The state does NOT pay your wages. Your employer does.**
+
+**What funding covers:**
+- Your training curriculum (Related Technical Instruction)
+- Career counseling and job placement support
+- Connections to participating barbershops
+- Support services (if eligible for WIOA/JRI)
+
+**What your employer pays:**
+- Your hourly wages ($10/hour to start)
+- Commissions on services you provide
+- You also keep tips from satisfied clients
+
+### The Hybrid Model Explained (And Why You Can't Do This on Your Own)
+
+**IMPORTANT: You CANNOT complete this program independently.**
+
+Some people think they can just work at any barbershop, take online classes, and get their license. **That's not how Indiana's apprenticeship program works.**
+
+Here's what's required by Indiana law and federal apprenticeship standards:
+
+#### You MUST Be in a Registered Apprenticeship Program
+
+**What this means:**
+- You must work at a **federally approved apprenticeship sponsor shop**
+- Your employer must be registered with the U.S. Department of Labor
+- Your shop must meet strict training standards and have approved mentors
+- Your hours must be tracked and verified by the apprenticeship sponsor
+- You must have a signed apprenticeship agreement
+
+**You cannot:**
+- Work at any random barbershop and count those hours
+- Take online classes on your own and call it an apprenticeship
+- Train yourself or learn from unlicensed barbers
+- Skip the registered apprenticeship and go straight to the state exam
+
+**Why these rules exist:**
+Indiana State Board of Barber Examiners requires proof that you completed a structured, supervised training program. Random work experience doesn't count.
+
+#### The Two Components (Both Are Required)
+
+**Component 1: On-the-Job Training (2,000 hours)**
+- **Where:** At your registered apprenticeship sponsor shop ONLY
+- **What:** Hands-on work with real clients under licensed barber supervision
+- **Tracked by:** Your employer and apprenticeship sponsor
+- **Verified by:** Monthly hour logs submitted to Indiana State Board
+- **You earn:** $10/hour base pay + commissions + tips
+
+**Component 2: Related Technical Instruction (144 hours)**
+- **Where:** Online or in-person classes provided by your apprenticeship sponsor
+- **What:** Theory, sanitation, Indiana laws, business skills, exam prep
+- **Schedule:** 3-4 hours/week, flexible (evenings/weekends)
+- **Tracked by:** Your apprenticeship sponsor
+- **Verified by:** Completion certificates submitted to Indiana State Board
+
+#### How Hours Are Tracked and Verified
+
+**Every week, you must:**
+1. Clock in/out at your registered shop (time tracking system)
+2. Have your mentor sign off on your work
+3. Submit hour logs to your apprenticeship sponsor
+
+**Every month, your sponsor submits:**
+1. Your verified hours to the Indiana State Board
+2. Progress reports on your skill development
+3. Completion records for theory coursework
+
+**When you're ready to test:**
+1. Your sponsor certifies you've completed 2,000 OJT hours + 144 theory hours
+2. Indiana State Board reviews your records
+3. You're approved to sit for the state exam
+
+**If you try to do this on your own:**
+- Your hours won't be verified or accepted
+- You won't be eligible to sit for the state exam
+- You won't get a barber license
+
+#### Current Approved Apprenticeship Sponsors in Indiana
+
+**As of 2025, these shops are federally approved:**
+- MDG Salons (Indianapolis area)
+- Kiss Kiss Bang Bang (Indianapolis area)
+- Additional shops being added regularly
+
+**We help connect you with approved shops.** You cannot just walk into any barbershop and start an apprenticeship.
+
+#### The Bottom Line
+
+**This is a structured, regulated program.** You must:
+- Work at a registered apprenticeship sponsor shop
+- Have a signed apprenticeship agreement
+- Complete 2,000 verified hours under licensed supervision
+- Complete 144 hours of approved theory instruction
+- Have all hours tracked and submitted to Indiana State Board
+
+**You're not sitting in a classroom all day, but you're also not doing this alone.** You're working a real job (40 hours/week at the shop) and taking a few hours of online classes each week—all within a registered apprenticeship program that meets Indiana and federal standards.
+
+---
+
+## How You Can Get This Training 100% Free
+
+**IMPORTANT: Understanding What Funding Covers vs. What Your Employer Pays**
+
+The apprenticeship has TWO parts:
+1. **Part 1: Related Technical Instruction (RTI)** - 144 hours of theory/classroom
+2. **Part 2: On-the-Job Training (OJT)** - 2,000 hours working at the barbershop
+
+**Funding (WIOA, WRG, JRI) ONLY pays for Part 1 (the RTI curriculum).**
+
+**Your employer pays you for Part 2 (the hands-on work at the shop).**
+
+Let me break this down clearly:
+
+---
+
+### Funding Options Available
+
+**Option 1: WIOA (Workforce Innovation and Opportunity Act)**
+- For low-income adults, dislocated workers, youth ages 16-24
+- Covers RTI curriculum cost
+- Apply through Indiana Career Connect at [IndianaCareerConnect.com](https://www.indianacareerconnect.com)
+
+**Option 2: Workforce Ready Grant (WRG)**
+- For Indiana residents pursuing high-demand careers
+- Covers RTI curriculum cost
+- Apply through your local WorkOne office at [WorkOne.in.gov](https://www.in.gov/dwd/workone/)
+
+**Option 3: JRI (Justice Reinvestment Initiative)**
+- For justice-involved individuals reentering the workforce
+- Covers RTI curriculum cost plus wraparound support services
+- Apply through your probation officer, parole officer, or reentry program coordinator
+
+**Option 4: Employer Sponsorship**
+- For anyone hired by a participating barbershop
+- Employer covers RTI curriculum cost
+- Get hired by a participating shop (we help with this)
+
+**Option 5: Self-Pay**
+- Payment plans available
+- Start immediately without waiting for funding approval
+
+---
+
+## How Funding Works
+
+**What funding covers:**
+- Your training curriculum (Related Technical Instruction)
+- Career counseling and job placement support
+- Connections to participating barbershops
+
+**What your employer pays:**
+- Your hourly wages ($10/hour to start)
+- Commissions on services you provide
+- You also keep tips from satisfied clients
+
+**You earn money while you train. Funding covers the classroom portion, your employer pays your wages.**  
+
+---
+
+## JRI (Justice Reinvestment Initiative) - Detailed Information
+
+### What Is JRI?
+
+**JRI (Justice Reinvestment Initiative) is Indiana's program to help justice-involved individuals successfully reenter society and the workforce.**
+
+Funded by the Indiana Department of Correction and administered through local reentry programs, JRI provides:
+- Job training funding
+- Wraparound support services
+- Case management
+- Financial assistance
+- Long-term reentry support
+
+**JRI's goal:** Reduce recidivism by helping formerly incarcerated individuals get jobs, housing, and stability.
+
+---
+
+### Who Qualifies for JRI Funding?
+
+**You may qualify if you:**
+
+✅ **Are currently or formerly incarcerated**
+- Currently in prison (pre-release phase)
+- Recently released from prison
+- On parole or probation
+- In a halfway house or community corrections facility
+- Completed sentence but have criminal record
+
+✅ **Are committed to reentry**
+- Willing to work full-time
+- Willing to complete training program
+- Willing to follow program rules
+- Willing to work with case manager
+
+✅ **Meet basic requirements**
+- At least 17 years old
+- High school diploma or GED (or willing to get GED)
+- Eligible to work in the United States
+- Pass background check (yes, even with criminal record - see below)
+
+**You do NOT need to:**
+- ❌ Have a clean record (JRI is specifically for people with records)
+- ❌ Be off parole/probation (you can participate while supervised)
+- ❌ Have work experience (JRI helps you get started)
+- ❌ Have money saved (JRI provides financial support)
+
+---
+
+### What JRI Covers for Barber Apprenticeship
+
+**1. Training Costs**
+- ✅ Full RTI curriculum cost (144 hours of theory instruction)
+- ✅ Books and materials
+- ✅ Online course access
+- ✅ State board exam fees ($40)
+- ✅ License application fee ($45)
+
+**2. Wraparound Support Services**
+- ✅ Housing assistance (rent support, security deposits)
+- ✅ Transportation (bus passes, gas cards, vehicle repairs)
+- ✅ Work clothing and uniforms
+- ✅ Barber tools and equipment (clippers, scissors, etc.)
+- ✅ Childcare assistance
+- ✅ Food assistance
+- ✅ Utility assistance
+
+**3. Monthly Stipends**
+- ✅ Living expense stipend: $200-$500/month (varies by program)
+- ✅ Paid while you're in training
+- ✅ Helps cover bills while you're building income
+- ✅ Typically for first 3-6 months
+
+**4. Case Management**
+- ✅ Assigned case manager who checks in weekly
+- ✅ Help with housing, transportation, family issues
+- ✅ Connection to mental health and substance abuse services
+- ✅ Support navigating parole/probation requirements
+- ✅ Crisis intervention if problems arise
+
+**5. Job Placement Support**
+- ✅ Connection to background-friendly barbershops
+- ✅ Help with job applications and interviews
+- ✅ Advocacy with employers
+- ✅ Follow-up support after you're hired
+
+**Total value of JRI support: $8,000-$15,000 per participant**
+
+---
+
+### JRI Monthly Stipend Breakdown
+
+**How stipends work:**
+
+**Month 1-3 (Getting Started):**
+- Stipend: $400-$500/month
+- You're just starting apprenticeship
+- Your wages are low ($400/week base pay)
+- Stipend helps cover rent, food, transportation
+- **Total monthly income: $2,000-$2,500** (wages + stipend)
+
+**Month 4-6 (Building Skills):**
+- Stipend: $300-$400/month
+- Your wages are increasing (commissions starting)
+- You're earning $500-$600/week
+- Stipend helps bridge the gap
+- **Total monthly income: $2,400-$3,000** (wages + stipend)
+
+**Month 7-12 (Becoming Independent):**
+- Stipend: $200-$300/month (phasing out)
+- Your wages are solid ($600-$800/week)
+- You're earning commissions and tips
+- Stipend is supplemental
+- **Total monthly income: $2,800-$3,500** (wages + stipend)
+
+**Month 13+ (Self-Sufficient):**
+- Stipend: $0 (you've graduated from JRI support)
+- Your wages are strong ($700-$900/week)
+- You're financially independent
+- **Total monthly income: $3,000-$3,900** (wages only)
+
+**Stipend eligibility:**
+- Must attend all training sessions
+- Must show up to work on time
+- Must meet with case manager regularly
+- Must follow parole/probation requirements
+- Stipend can be reduced or stopped for non-compliance
+
+---
+
+### Can You Do Barber Apprenticeship While in Prison?
+
+**Short answer: No, not the full apprenticeship. But you can START the process.**
+
+**Why you can't complete it in prison:**
+- ❌ Apprenticeship requires working in a real barbershop with real clients
+- ❌ You must be employed by a registered apprenticeship sponsor shop
+- ❌ You must earn wages ($10/hour + commissions)
+- ❌ You must complete 2,000 hours of on-the-job training
+- ❌ Prison barbershops are not registered apprenticeship sponsors
+
+**What you CAN do in prison:**
+
+**1. Complete Pre-Apprenticeship Training**
+- Some Indiana prisons offer barber training programs
+- Learn basic cutting skills
+- Practice on other inmates
+- Get comfortable with clippers and techniques
+- **These hours do NOT count toward your 2,000-hour requirement**
+- But they prepare you to hit the ground running when released
+
+**2. Complete Your GED**
+- Required for apprenticeship
+- Most prisons offer GED programs
+- Get this done before release
+
+**3. Complete Online RTI Coursework (if available)**
+- Some prisons allow access to online courses
+- You could complete some of your 144 RTI hours
+- Check with your facility's education department
+- **These hours MAY count if approved by State Board**
+
+**4. Connect with Reentry Programs**
+- Meet with reentry coordinator
+- Apply for JRI funding before release
+- Get connected to us and apprenticeship sponsors
+- Have a plan in place for day one after release
+
+**5. Get Your Barber License Application Started**
+- Request background check
+- Gather required documents
+- Submit application to State Board
+- Address any concerns about your record
+
+---
+
+### Can You Do Barber Apprenticeship While in a Halfway House?
+
+**Yes! This is the IDEAL time to start.**
+
+**Halfway houses (Community Corrections Facilities) allow:**
+- ✅ You to work outside the facility during the day
+- ✅ You to attend training and classes
+- ✅ You to earn wages and save money
+- ✅ You to build skills and employment history
+
+**How it works:**
+
+**Step 1: Get Approved by Halfway House**
+- Talk to your case manager
+- Explain you want to do barber apprenticeship
+- Get approval for work release
+- Provide apprenticeship schedule
+
+**Step 2: Apply for JRI Funding**
+- Your case manager helps you apply
+- JRI approves funding
+- JRI provides stipend and support services
+
+**Step 3: Get Hired by Barbershop**
+- We connect you with background-friendly shops
+- Shop interviews you
+- Shop hires you as apprentice
+- You start earning $10/hour + commissions
+
+**Step 4: Start Apprenticeship**
+- Monday-Friday: Work at barbershop 8am-5pm
+- Evenings: Complete online RTI coursework at halfway house
+- Weekends: Study and practice
+- Return to halfway house each night
+
+**Step 5: Transition to Independent Living**
+- After 3-6 months, you may be approved to leave halfway house
+- Move into your own apartment (JRI helps with rent)
+- Continue apprenticeship
+- Complete your 2,000 hours
+- Get licensed
+
+**Benefits of starting in halfway house:**
+- ✅ Structured environment keeps you focused
+- ✅ Case manager support and accountability
+- ✅ Save money (halfway house provides housing and meals)
+- ✅ Build work history and references
+- ✅ Smooth transition to independent living
+
+**Example timeline:**
+- **Month 1-3:** In halfway house, working at barbershop, saving money
+- **Month 4:** Move to own apartment, continue apprenticeship
+- **Month 15-17:** Complete apprenticeship, get licensed
+- **Month 18+:** Fully independent, earning $50,000+/year
+
+---
+
+### Can You Do Barber Apprenticeship While on Parole/Probation?
+
+**Yes! Absolutely.**
+
+**Parole/probation officers LOVE this program because:**
+- ✅ You're employed full-time (reduces recidivism)
+- ✅ You're earning legitimate income
+- ✅ You're building a career, not just a job
+- ✅ You're supervised and accountable
+- ✅ You're working toward a license (long-term stability)
+
+**How it works:**
+
+**Step 1: Get Approval from Parole/Probation Officer**
+- Explain the apprenticeship program
+- Provide program details and schedule
+- Get written approval
+- Ensure work schedule doesn't conflict with check-ins or court dates
+
+**Step 2: Apply for JRI Funding**
+- Your parole/probation officer helps you apply
+- JRI approves funding
+- JRI provides case manager who coordinates with your PO
+
+**Step 3: Start Apprenticeship**
+- Work at barbershop 40 hours/week
+- Complete RTI coursework in evenings
+- Meet with JRI case manager weekly
+- Check in with parole/probation officer as required
+
+**Step 4: Stay Compliant**
+- Show up to work on time every day
+- Pass drug tests (if required)
+- Attend all parole/probation meetings
+- Complete all RTI coursework
+- Stay out of trouble
+
+**Benefits:**
+- ✅ Parole/probation officer sees you're serious about change
+- ✅ Employment reduces likelihood of violations
+- ✅ Income helps you pay fines, restitution, child support
+- ✅ Career path shows long-term stability
+- ✅ May help with early release from supervision
+
+---
+
+### Background Checks and Criminal Records
+
+**"Will my criminal record disqualify me?"**
+
+**Short answer: Probably not, but it depends on the offense.**
+
+**Indiana State Board of Barber Examiners reviews:**
+- Type of offense
+- How long ago it occurred
+- Evidence of rehabilitation
+- Your current behavior and stability
+
+**Offenses that MAY disqualify you:**
+- Recent violent crimes (within 5 years)
+- Sex offenses
+- Crimes involving children
+- Recent drug trafficking (within 5 years)
+- Fraud or theft from employers
+
+**Offenses that usually DON'T disqualify you:**
+- Drug possession (especially if 5+ years ago)
+- Theft (if 5+ years ago and restitution paid)
+- Assault (if 5+ years ago)
+- Driving offenses
+- Probation violations
+
+**How to address your record:**
+
+**Step 1: Be honest on your application**
+- Disclose all convictions
+- Explain what happened
+- Show what you've done to change
+
+**Step 2: Provide evidence of rehabilitation**
+- Completion of substance abuse treatment
+- Letters of recommendation
+- Employment history
+- Community service
+- Education completed
+
+**Step 3: Write a personal statement**
+- Explain your past
+- Take responsibility
+- Describe your commitment to change
+- Explain why barbering is your path forward
+
+**Step 4: Get support letters**
+- Parole/probation officer
+- Reentry program coordinator
+- Employer or mentor
+- Community leader or pastor
+
+**The State Board wants to see:**
+- You've taken responsibility
+- You've made positive changes
+- You're committed to a legitimate career
+- You're not a risk to public safety
+
+**Most people with criminal records ARE approved for barber licenses in Indiana.**
+
+---
+
+### Success Stories: JRI Participants
+
+**Marcus - Drug Possession, 3 Years Incarcerated**
+- Released to halfway house
+- Started barber apprenticeship month 1
+- JRI covered training, provided $400/month stipend
+- Moved to own apartment month 4
+- Completed apprenticeship month 17
+- Now licensed barber earning $55,000/year
+- Off parole, fully independent
+
+**DeAndre - Robbery, 5 Years Incarcerated**
+- Released on parole
+- Started apprenticeship while living with family
+- JRI covered training, provided transportation assistance
+- Barbershop gave him a chance despite his record
+- Completed apprenticeship month 16
+- Now rents his own chair, earning $60,000/year
+- Parole officer says he's a model success story
+
+**Tasha - Theft, 2 Years Incarcerated**
+- Released to halfway house
+- Started apprenticeship, saved money
+- JRI provided childcare assistance
+- Moved to own apartment with her kids month 5
+- Completed apprenticeship month 15
+- Now works at high-end barbershop, earning $50,000/year
+- Reunited with her children, off probation
+
+---
+
+### How to Apply for JRI Funding
+
+**Step 1: Contact Your Reentry Coordinator**
+
+**If you're currently incarcerated:**
+- Talk to your facility's reentry coordinator
+- Tell them you want to do barber apprenticeship after release
+- Ask them to connect you with JRI program
+
+**If you're in a halfway house:**
+- Talk to your case manager
+- Tell them you want to do barber apprenticeship
+- Ask them to help you apply for JRI
+
+**If you're on parole/probation:**
+- Talk to your parole/probation officer
+- Tell them you want to do barber apprenticeship
+- Ask them to connect you with JRI program
+
+**If you're recently released with no supervision:**
+- Contact your local reentry program
+- Indianapolis: RecycleForce, Purposeful Living, Edna Martin Christian Center
+- Other cities: Contact local WorkOne office
+
+**Step 2: Complete JRI Application**
+- Personal information
+- Criminal history
+- Employment history
+- Housing situation
+- Support needs
+- Career goals
+
+**Step 3: Meet with JRI Case Manager**
+- They assess your needs
+- They create your reentry plan
+- They connect you with services
+- They help you apply for apprenticeship
+
+**Step 4: Get Connected to Barbershop**
+- We help you find background-friendly shops
+- JRI case manager advocates for you
+- Shop interviews you
+- Shop hires you as apprentice
+
+**Step 5: Start Training**
+- JRI pays for your RTI curriculum
+- JRI provides stipend and support services
+- You work at barbershop and earn wages
+- JRI case manager checks in weekly
+
+**Timeline:**
+- Application to approval: 2-4 weeks
+- Approval to barbershop placement: 2-4 weeks
+- Placement to start date: 1-2 weeks
+- **Total: 5-10 weeks from application to first day**
+
+---
+
+### JRI Contact Information
+
+**Indiana Department of Correction - Reentry Services**
+- Phone: (317) 232-5715
+- Website: [in.gov/idoc/reentry](https://www.in.gov/idoc/reentry/)
+
+**Indianapolis Reentry Programs:**
+- RecycleForce: (317) 921-2444
+- Purposeful Living: (317) 423-0802
+- Edna Martin Christian Center: (317) 423-0802
+
+**We Can Help:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- We work directly with JRI and reentry programs
+- We help justice-involved individuals get into apprenticeships
+
+---
+
+## The Bottom Line: JRI and Reentry
+
+**If you're justice-involved, the barber apprenticeship is one of the BEST reentry programs available.**
+
+**Why:**
+- ✅ You earn money from day one ($10/hour + commissions)
+- ✅ JRI covers all training costs
+- ✅ JRI provides stipends and support services
+- ✅ You build a real career, not just a job
+- ✅ You graduate with a license and earning potential of $50,000+/year
+- ✅ Background-friendly employers willing to give you a chance
+- ✅ Case manager support throughout the process
+
+**You can start:**
+- In a halfway house (ideal)
+- On parole/probation
+- After release with no supervision
+- Even while still incarcerated (pre-release planning)
+
+**Your criminal record does NOT automatically disqualify you.**
+
+**Contact us today to get started:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+**We believe in second chances. Let's build your future together.**
+
+---
+
+## Digital Badges: Track Your Progress and Showcase Your Skills
+
+### What Are Digital Badges?
+
+**Digital badges are verifiable credentials that show what you've learned and accomplished during your apprenticeship.**
+
+Think of them like merit badges in Boy Scouts, but for your career. Each badge represents a specific skill, milestone, or achievement you've completed.
+
+**Badges are:**
+- ✅ Digital (stored online, shareable on social media)
+- ✅ Verifiable (employers can confirm they're real)
+- ✅ Stackable (you earn multiple badges as you progress)
+- ✅ Portable (you keep them forever, even if you change jobs)
+- ✅ Shareable (LinkedIn, resume, job applications)
+
+---
+
+### Why Badges Matter
+
+**For You:**
+- ✅ Track your progress through the apprenticeship
+- ✅ See exactly what you've accomplished
+- ✅ Stay motivated with visible milestones
+- ✅ Showcase skills to potential employers
+- ✅ Build your professional portfolio
+- ✅ Prove your competency before you're licensed
+
+**For Employers:**
+- ✅ See exactly what skills you have
+- ✅ Verify your training is legitimate
+- ✅ Understand your skill level
+- ✅ Make hiring decisions with confidence
+
+**For Your Career:**
+- ✅ Stand out from other applicants
+- ✅ Show continuous learning and growth
+- ✅ Build credibility in the industry
+- ✅ Demonstrate commitment to excellence
+
+---
+
+### Barber Apprenticeship Badge Pathway
+
+**You earn badges as you complete each phase of your apprenticeship:**
+
+#### Foundation Badges (Month 1-2)
+
+**1. Apprenticeship Enrollment Badge**
+- ✅ Completed application and enrollment
+- ✅ Hired by registered apprenticeship sponsor shop
+- ✅ Orientation completed
+- ✅ Safety and sanitation training completed
+- **Earned:** Day 1
+
+**2. Barbershop Basics Badge**
+- ✅ Understands shop operations
+- ✅ Knows sanitation protocols
+- ✅ Can properly clean and maintain tools
+- ✅ Understands customer service standards
+- ✅ Completed 100 observation hours
+- **Earned:** Month 1
+
+**3. Tool Mastery Badge**
+- ✅ Can identify all barber tools
+- ✅ Knows proper use of clippers, trimmers, scissors, razors
+- ✅ Can maintain and sanitize tools
+- ✅ Completed 50 hours of mannequin practice
+- **Earned:** Month 2
+
+---
+
+#### Skill Development Badges (Month 3-6)
+
+**4. First Cut Badge**
+- ✅ Completed first haircut on real client
+- ✅ Under licensed barber supervision
+- ✅ Client satisfied with service
+- ✅ Proper sanitation followed
+- **Earned:** Month 3
+
+**5. Basic Cutting Badge**
+- ✅ Can perform basic tapers and trims
+- ✅ Completed 25 supervised haircuts
+- ✅ Understands clipper guard sizes
+- ✅ Can blend and fade basics
+- **Earned:** Month 4
+
+**6. Customer Service Excellence Badge**
+- ✅ Completed 50 client consultations
+- ✅ Positive client feedback
+- ✅ Professional communication skills
+- ✅ Handles difficult situations appropriately
+- **Earned:** Month 5
+
+**7. Sanitation Specialist Badge**
+- ✅ Completed advanced sanitation training
+- ✅ Understands bloodborne pathogens
+- ✅ Proper disinfection procedures
+- ✅ Zero sanitation violations
+- **Earned:** Month 6
+
+---
+
+#### Advanced Skill Badges (Month 7-12)
+
+**8. Fade Master Badge**
+- ✅ Can perform professional fades
+- ✅ Completed 50 fade haircuts
+- ✅ Understands fade techniques (low, mid, high)
+- ✅ Client satisfaction 90%+
+- **Earned:** Month 7
+
+**9. Beard and Shave Specialist Badge**
+- ✅ Can perform beard trims and shaping
+- ✅ Can perform hot towel shaves
+- ✅ Completed 25 beard services
+- ✅ Completed 10 shaves
+- **Earned:** Month 8
+
+**10. Design and Detail Badge**
+- ✅ Can create hair designs and patterns
+- ✅ Can perform edge-ups and lineups
+- ✅ Completed 30 design services
+- ✅ Portfolio of design work
+- **Earned:** Month 9
+
+**11. Client Builder Badge**
+- ✅ Has 15+ regular clients
+- ✅ Clients request you by name
+- ✅ Positive online reviews
+- ✅ Repeat business 80%+
+- **Earned:** Month 10
+
+**12. Business Basics Badge**
+- ✅ Understands pricing and profitability
+- ✅ Can manage appointments
+- ✅ Knows retail product sales
+- ✅ Completed business training module
+- **Earned:** Month 11
+
+---
+
+#### Professional Badges (Month 13-17)
+
+**13. Advanced Techniques Badge**
+- ✅ Can perform all barbering services
+- ✅ Completed 100+ haircuts independently
+- ✅ Mentor approval for advanced work
+- ✅ Client satisfaction 95%+
+- **Earned:** Month 13
+
+**14. Mentor Apprentice Badge**
+- ✅ Can train and guide newer apprentices
+- ✅ Demonstrates leadership
+- ✅ Shares knowledge with others
+- ✅ Mentor recommends for this badge
+- **Earned:** Month 14
+
+**15. RTI Completion Badge**
+- ✅ Completed all 144 hours of Related Technical Instruction
+- ✅ Passed all theory exams
+- ✅ Understands Indiana barbering laws
+- ✅ Ready for state board exam
+- **Earned:** Month 15
+
+**16. 2,000 Hours Milestone Badge**
+- ✅ Completed 2,000 hours of on-the-job training
+- ✅ All hours verified and documented
+- ✅ Mentor certifies readiness
+- ✅ Eligible for state board exam
+- **Earned:** Month 16-17
+
+**17. State Board Ready Badge**
+- ✅ Completed all apprenticeship requirements
+- ✅ Registered for state board exam
+- ✅ Exam prep completed
+- ✅ Mentor certifies competency
+- **Earned:** Month 17
+
+---
+
+#### Certification Badges (After Licensing)
+
+**18. Licensed Barber Badge**
+- ✅ Passed Indiana State Board exam
+- ✅ Received Indiana Registered Barber License
+- ✅ License number verified
+- ✅ Legally authorized to practice barbering
+- **Earned:** After passing state exam
+
+**19. Professional Barber Badge**
+- ✅ Licensed and working professionally
+- ✅ 6 months of post-license experience
+- ✅ Established clientele
+- ✅ Positive reputation in community
+- **Earned:** 6 months after licensing
+
+**20. Master Barber Badge**
+- ✅ 2+ years of professional experience
+- ✅ Advanced skills and specializations
+- ✅ Mentoring other barbers
+- ✅ Industry recognition
+- **Earned:** 2+ years after licensing
+
+---
+
+### Specialty Badges (Optional)
+
+**Fade Specialist Badge**
+- ✅ Completed 200+ fade haircuts
+- ✅ Master of all fade techniques
+- ✅ Client portfolio showcasing fade work
+
+**Beard Specialist Badge**
+- ✅ Completed 100+ beard services
+- ✅ Expert in beard shaping and grooming
+- ✅ Hot towel shave specialist
+
+**Design Artist Badge**
+- ✅ Completed 100+ design haircuts
+- ✅ Portfolio of creative designs
+- ✅ Social media following for design work
+
+**Business Owner Badge**
+- ✅ Opened own barbershop
+- ✅ Licensed business owner
+- ✅ Employs other barbers
+
+**Educator Badge**
+- ✅ Trains and mentors apprentices
+- ✅ Teaches barbering techniques
+- ✅ Contributes to industry education
+
+---
+
+### How Badges Accelerate Your Career
+
+**Month 1-6: Building Foundation**
+- Earn 7 badges
+- Show employers you're serious and progressing
+- Build confidence with visible achievements
+- **Impact:** Employers see you're committed and learning
+
+**Month 7-12: Developing Expertise**
+- Earn 5 more badges (12 total)
+- Demonstrate advanced skills
+- Show you can build clientele
+- **Impact:** Employers see you're becoming professional
+
+**Month 13-17: Becoming Professional**
+- Earn 5 more badges (17 total)
+- Prove you're ready for licensing
+- Show mastery of all skills
+- **Impact:** Employers compete to hire you
+
+**After Licensing:**
+- Earn 3 more badges (20 total)
+- Establish yourself as professional
+- Build toward master barber status
+- **Impact:** Command higher pay, better opportunities
+
+---
+
+### JRI Participants: Earn Stipends for Digital Badges
+
+**If you're funded through JRI (Justice Reinvestment Initiative), you can earn additional stipends for completing digital badges.**
+
+**How it works:**
+
+**Foundation Badges (Month 1-2):**
+- Earn 3 badges
+- **JRI Stipend: $50 per badge = $150 total**
+- Paid when you complete all 3 foundation badges
+
+**Skill Development Badges (Month 3-6):**
+- Earn 4 badges
+- **JRI Stipend: $75 per badge = $300 total**
+- Paid when you complete all 4 skill badges
+
+**Advanced Skill Badges (Month 7-12):**
+- Earn 5 badges
+- **JRI Stipend: $100 per badge = $500 total**
+- Paid when you complete all 5 advanced badges
+
+**Professional Badges (Month 13-17):**
+- Earn 5 badges
+- **JRI Stipend: $150 per badge = $750 total**
+- Paid when you complete all 5 professional badges
+
+**Total JRI Badge Stipends: $1,700**
+
+**Why JRI offers badge stipends:**
+- ✅ Incentivizes skill development
+- ✅ Rewards progress and achievement
+- ✅ Provides additional financial support
+- ✅ Encourages completion of apprenticeship
+- ✅ Reduces recidivism through skill mastery
+
+**How to receive stipends:**
+1. Complete the required badges in each phase
+2. Your mentor verifies your competency
+3. We issue the digital badges
+4. JRI case manager verifies badge completion
+5. Stipend is paid within 2 weeks (direct deposit or check)
+
+**Requirements to receive stipends:**
+- ✅ Must be enrolled in JRI program
+- ✅ Must be in good standing (attending work, meeting with case manager)
+- ✅ Must complete all badges in a phase to receive stipend
+- ✅ Must maintain employment at apprenticeship shop
+- ✅ Cannot receive stipend if you quit or are terminated
+
+**Example: Marcus's JRI Badge Earnings**
+
+**Month 2:** Completed 3 foundation badges → Received $150 stipend  
+**Month 6:** Completed 4 skill badges → Received $300 stipend  
+**Month 12:** Completed 5 advanced badges → Received $500 stipend  
+**Month 17:** Completed 5 professional badges → Received $750 stipend  
+
+**Total badge stipends: $1,700**
+
+**Plus his regular JRI stipends:**
+- Month 1-3: $400/month × 3 = $1,200
+- Month 4-6: $300/month × 3 = $900
+- Month 7-12: $200/month × 6 = $1,200
+- **Total regular stipends: $3,300**
+
+**Total JRI support: $5,000 in stipends + $1,700 in badge bonuses = $6,700**
+
+**Plus his wages from barbershop:**
+- 17 months × average $2,500/month = $42,500
+
+**Marcus's total income during apprenticeship: $49,200**
+
+---
+
+### Badge Stipends: Additional Motivation
+
+**For JRI participants, badges aren't just about skills—they're about money.**
+
+**Every badge you earn = Extra cash in your pocket**
+
+**This means:**
+- ✅ You're more motivated to complete training
+- ✅ You have extra money for bills, family, savings
+- ✅ You're rewarded for your hard work
+- ✅ You see immediate benefits of skill development
+
+**Badge stipends help you:**
+- Pay rent and utilities
+- Buy work clothes and tools
+- Save for your own apartment
+- Support your family
+- Build emergency fund
+- Stay focused on your goals
+
+**JRI's goal:** Make sure you succeed by providing financial support at every milestone.
+
+**Your goal:** Earn every badge, get every stipend, complete your apprenticeship, and build a career that changes your life.
+
+---
+
+## Indiana State Board Guidelines for Barber Apprenticeships
+
+**Official regulations from Indiana Professional Licensing Agency and Indiana State Board of Barber Examiners**
+
+### Legal Authority
+
+**Indiana Code 25-7-5 - Barber Licensing**
+- Establishes requirements for barber licensure in Indiana
+- Authorizes apprenticeship as pathway to licensure
+- Sets standards for apprenticeship programs
+
+**House Bill 1135 (2024) and House Bill 1320 (2025)**
+- Officially recognized federally registered apprenticeships
+- Established "earn while you learn" model
+- Allowed apprenticeship hours to count toward licensure
+
+**Indiana Administrative Code 820 IAC 2**
+- Details apprenticeship program requirements
+- Sets supervision and training standards
+- Establishes hour tracking and verification procedures
+
+---
+
+### State Board Requirements for Apprentices
+
+**To be eligible for apprenticeship (Indiana Code 25-7-5-7):**
+1. ✅ Minimum age: 17 years old
+2. ✅ Education: High school diploma or GED
+3. ✅ Good moral character (background check)
+4. ✅ Employed by registered apprenticeship sponsor shop
+5. ✅ Enrolled in U.S. Department of Labor registered apprenticeship program
+
+**Training requirements (820 IAC 2-2-1):**
+1. ✅ 2,000 hours of on-the-job training
+2. ✅ 144 hours of Related Technical Instruction (RTI)
+3. ✅ All hours must be verified and documented
+4. ✅ Training must follow approved curriculum
+5. ✅ Work must be supervised by licensed barber with 3+ years experience
+
+**Prohibited activities:**
+- ❌ Cannot work unsupervised until licensed
+- ❌ Cannot charge clients directly (shop charges)
+- ❌ Cannot practice outside of registered shop
+- ❌ Cannot skip required training components
+- ❌ Cannot count hours from unlicensed or unregistered shops
+
+---
+
+### State Board Requirements for Apprenticeship Sponsors (Barbershops)
+
+**To become registered apprenticeship sponsor (820 IAC 2-1-3):**
+
+**1. Business Requirements**
+- ✅ Valid Indiana barbershop license (renewed every 2 years)
+- ✅ In good standing with State Board (no violations or suspensions)
+- ✅ Registered with U.S. Department of Labor as apprenticeship sponsor
+- ✅ General liability insurance (minimum $1 million coverage)
+- ✅ Workers' compensation insurance
+
+**2. Facility Requirements (820 IAC 2-1-4)**
+- ✅ Meets all Indiana health and safety codes
+- ✅ Proper sanitation equipment (autoclaves, disinfectants)
+- ✅ Adequate workspace for apprentice training (dedicated station)
+- ✅ Complies with OSHA workplace safety standards
+- ✅ Proper ventilation and lighting
+
+**3. Supervision Requirements (820 IAC 2-1-5)**
+- ✅ Licensed barber with minimum 3 years professional experience
+- ✅ Completed U.S. DOL apprenticeship supervisor training (8-16 hours)
+- ✅ Available to supervise during all apprentice working hours
+- ✅ Maximum ratio: 1 apprentice per licensed barber
+- ✅ Clean disciplinary record with State Board
+
+**4. Training Requirements (820 IAC 2-1-6)**
+- ✅ Written training plan approved by State Board
+- ✅ Follows approved 2,000-hour curriculum
+- ✅ Provides 144 hours RTI (online or in-person)
+- ✅ Tracks and verifies all apprentice hours daily/weekly
+- ✅ Submits monthly progress reports to State Board
+- ✅ Maintains records for minimum 5 years
+
+**5. Reporting Requirements (820 IAC 2-1-7)**
+- ✅ Monthly hour verification forms to State Board
+- ✅ Quarterly progress reports on apprentice development
+- ✅ Incident reports (injuries, violations, terminations)
+- ✅ Completion certification when apprentice finishes program
+- ✅ Annual renewal of apprenticeship sponsor status
+
+---
+
+### Hour Tracking and Verification (820 IAC 2-2-3)
+
+**State Board requires strict documentation:**
+
+**Daily/Weekly Tracking:**
+- Apprentice clocks in/out using time tracking system
+- Licensed barber supervisor signs off on hours worked
+- Services performed are documented
+- Skills practiced are recorded
+- Any incidents or issues noted
+
+**Monthly Reporting:**
+- Shop submits hour verification form to State Board
+- Form includes: total hours, services performed, skills learned, competency progress
+- Both apprentice and supervisor must sign
+- State Board reviews and approves within 30 days
+- Hours not reported monthly may not count toward licensure
+
+**Quarterly Assessments:**
+- Shop submits detailed progress report
+- Report includes: competency assessments, areas of improvement, readiness for advancement
+- State Board tracks apprentice progression through program
+- Identifies apprentices at risk of not completing
+
+**Upon Completion:**
+- Shop certifies apprentice completed 2,000 OJT hours + 144 RTI hours
+- Shop submits final completion certificate to State Board
+- State Board reviews all documentation (5+ years of records)
+- Apprentice becomes eligible for state board exam
+
+**If documentation is incomplete or inaccurate:**
+- Hours may not count toward licensure requirement
+- Apprentice may need to complete additional hours
+- Shop may face penalties, fines, or loss of sponsor status
+- Apprentice's exam eligibility may be delayed
+
+---
+
+### State Board Exam Requirements (820 IAC 2-3-1)
+
+**Eligibility to take exam:**
+1. ✅ Completed 2,000 hours OJT + 144 hours RTI (verified by State Board)
+2. ✅ All monthly reports submitted and approved
+3. ✅ Apprenticeship sponsor certifies readiness
+4. ✅ Application submitted with required documents
+5. ✅ Background check completed (if required)
+6. ✅ Exam fee paid (**included in your training costs**)
+
+**Required documents for exam application:**
+- Completed application form
+- Proof of 2,000 OJT hours (sponsor certification)
+- Proof of 144 RTI hours (course completion certificate)
+- Copy of high school diploma or GED
+- Photo ID (driver's license or state ID)
+- Social Security card
+
+**Exam components:**
+
+**Written Exam:**
+- 100 multiple-choice questions
+- Topics: barbering theory, techniques, sanitation, infection control, Indiana laws and regulations
+- Passing score: 75% (75 correct answers)
+- Time limit: 2 hours
+- Administered on computer at testing center
+
+**Practical Exam:**
+- Demonstrate barbering skills on mannequin
+- Required services: haircut, fade, taper, shave, sanitation procedures
+- Scored by licensed State Board examiner
+- Passing score: 75% on each service
+- Time limits vary by service
+- Must bring own tools (clippers, scissors, razors, cape)
+
+**Exam scheduling:**
+- Contact State Board: (317) 234-3040
+- Exams held monthly in Indianapolis
+- Schedule 4-6 weeks in advance
+- Arrive 30 minutes early with photo ID and confirmation
+
+**If you fail one or both portions:**
+- Wait minimum 30 days before retaking
+- Retake fee: $40 per portion (not included in training)
+- No limit on number of attempts
+- Your apprenticeship hours remain valid indefinitely
+- Must pass both portions to receive license
+
+---
+
+### Licensing Fees and Renewal (820 IAC 2-4-1)
+
+**Initial License Application:**
+- Application fee: $45
+- License valid for 2 years from date of issue
+- Issued by Indiana Professional Licensing Agency
+- License number assigned
+
+**License Renewal (Every 2 Years):**
+- Renewal fee: $45
+- Continuing education: 4 hours required per renewal period
+- Renewal deadline: Your birth month
+- Late renewal: Additional $25 penalty fee
+- Failure to renew: License becomes inactive, cannot practice
+
+**Continuing Education Requirements:**
+- 4 hours every 2 years
+- Topics: sanitation, safety, new techniques, Indiana law updates
+- Must be from State Board-approved providers
+- Certificates must be submitted with renewal
+
+**License Display Requirements:**
+- Must be prominently displayed at your workstation
+- Must be visible to clients
+- Failure to display: $100 fine per violation
+- Working without valid license: $500 fine + possible criminal charges
+
+**License Verification:**
+- Employers can verify licenses online at [in.gov/pla](https://www.in.gov/pla)
+- Clients can verify your license is current and valid
+- License shows: name, license number, issue date, expiration date, status
+
+---
+
+### Disciplinary Actions and Violations (820 IAC 2-5-1)
+
+**State Board can discipline licensed barbers for:**
+- Practicing without valid license
+- Fraud or misrepresentation
+- Gross negligence or incompetence
+- Unsanitary practices
+- Violating sanitation rules
+- Criminal convictions (certain offenses)
+- Substance abuse affecting practice
+- Sexual misconduct with clients
+
+**Penalties may include:**
+- Written warning
+- Fines ($100-$5,000)
+- Probation with conditions
+- Suspension of license (temporary)
+- Revocation of license (permanent)
+- Criminal prosecution (for serious violations)
+
+**To avoid violations:**
+- ✅ Maintain valid license
+- ✅ Follow all sanitation protocols
+- ✅ Practice within your scope
+- ✅ Maintain professional boundaries
+- ✅ Complete continuing education
+- ✅ Report address changes to State Board
+
+---
+
+### State Board Contact Information
+
+**Indiana Professional Licensing Agency**
+**Board of Barber Examiners**
+
+**Mailing Address:**
+402 W. Washington St., Room W072
+Indianapolis, IN 46204
+
+**Phone:** (317) 234-3040
+
+**Email:** pla11@pla.in.gov
+
+**Website:** [in.gov/pla/professions/barber-board](https://www.in.gov/pla/professions/barber-board/)
+
+**Office Hours:** Monday-Friday, 8:00 AM - 4:30 PM EST
+
+**For questions about:**
+- Apprenticeship eligibility and requirements
+- Hour verification and documentation
+- Exam scheduling and preparation
+- License applications and renewals
+- Sponsor registration and requirements
+- Regulations, laws, and compliance
+- Disciplinary actions and violations
+- Continuing education requirements
+
+**In-Person Visits:**
+- By appointment only
+- Bring all required documents
+- Allow 30-60 minutes for consultation
+
+---
+
+### Important Reminders
+
+**For Apprentices:**
+- ✅ Your hours only count if shop is registered apprenticeship sponsor
+- ✅ Keep copies of all hour verification forms
+- ✅ Track your own hours as backup
+- ✅ Report any issues to State Board immediately
+- ✅ Don't work unsupervised until licensed
+- ✅ Complete all 144 RTI hours (not optional)
+
+**For Shops:**
+- ✅ Submit monthly reports on time (late reports = hours may not count)
+- ✅ Maintain accurate records for 5+ years
+- ✅ Supervise apprentices at all times
+- ✅ Follow approved training curriculum
+- ✅ Renew sponsor status annually
+- ✅ Report any incidents immediately
+
+**Consequences of non-compliance:**
+- Apprentice hours may not count toward licensure
+- Apprentice may be ineligible for state exam
+- Shop may lose apprenticeship sponsor status
+- Fines and penalties may apply
+- Legal action may be taken
+
+**The State Board is here to ensure quality training and public safety. Follow the rules, document everything, and you'll succeed.**
+
+---
+
+## Understanding Different Training Models: Apprenticeship vs. Internship vs. OJT
+
+**Many people confuse apprenticeships with internships or on-the-job training (OJT). Here's how they're different:**
+
+---
+
+### Apprenticeship (What This Program Is)
+
+**Definition:**
+A structured, registered training program that combines on-the-job training with classroom instruction, leading to a recognized credential or license.
+
+**Key characteristics:**
+- ✅ Registered with U.S. Department of Labor
+- ✅ Approved by Indiana State Board
+- ✅ You're an EMPLOYEE earning wages
+- ✅ Structured curriculum with specific hour requirements
+- ✅ Supervised by licensed professional
+- ✅ Leads to professional license (Indiana Registered Barber)
+- ✅ Hours count toward state licensure requirement
+- ✅ Typically 1-4 years duration
+- ✅ Earn while you learn
+
+**Barber Apprenticeship specifics:**
+- 2,000 hours on-the-job training
+- 144 hours classroom instruction
+- Earn $10/hour + commissions + tips
+- 15-17 months duration
+- Graduate with license and $20,000-$30,000 earned
+
+**Legal protections:**
+- Minimum wage guaranteed
+- Workers' compensation coverage
+- Unemployment insurance eligibility
+- OSHA workplace protections
+- Cannot be fired without cause
+
+---
+
+### Internship (What This Is NOT)
+
+**Definition:**
+A temporary work experience, usually for students, to gain exposure to a profession. May be paid or unpaid.
+
+**Key characteristics:**
+- ❌ NOT registered with Department of Labor
+- ❌ NOT approved by State Board
+- ❌ Often UNPAID or low pay
+- ❌ No structured curriculum
+- ❌ May not be supervised by licensed professional
+- ❌ Does NOT lead to license
+- ❌ Hours do NOT count toward licensure
+- ❌ Typically 3-6 months duration
+- ❌ Often for college credit, not career
+
+**Example: Barbershop internship (hypothetical):**
+- Work at barbershop for 3 months
+- Observe and assist licensed barbers
+- Earn $0 or minimum wage
+- No formal training plan
+- Hours don't count toward barber license
+- Just for experience, not licensure
+
+**Legal status:**
+- May be unpaid (if meets certain criteria)
+- Limited legal protections
+- Not covered by workers' comp (usually)
+- Can be terminated at any time
+
+**Why internships don't work for barbering:**
+- ❌ You need 2,000 verified hours for license
+- ❌ Internship hours don't count
+- ❌ You'd waste time and earn nothing
+- ❌ Still need to complete full apprenticeship or barber school
+
+---
+
+### On-the-Job Training (OJT) - What This Is NOT
+
+**Definition:**
+Informal training provided by an employer to teach job-specific skills. Not registered or structured.
+
+**Key characteristics:**
+- ❌ NOT registered with Department of Labor
+- ❌ NOT approved by State Board
+- ❌ Employer decides training (no formal curriculum)
+- ❌ May or may not be supervised
+- ❌ Does NOT lead to license
+- ❌ Hours do NOT count toward licensure
+- ❌ Duration varies (days to months)
+- ❌ Just to learn the job, not get licensed
+
+**Example: Barbershop OJT (hypothetical):**
+- Get hired at barbershop as "barber assistant"
+- Learn by watching and helping
+- Earn minimum wage
+- No formal training plan
+- Hours don't count toward barber license
+- Cannot legally cut hair (not licensed)
+
+**Legal status:**
+- You're an employee
+- Earn at least minimum wage
+- Workers' comp coverage
+- But hours don't count toward licensure
+
+**Why OJT doesn't work for barbering:**
+- ❌ Indiana law requires formal apprenticeship or barber school
+- ❌ OJT hours don't count toward 2,000-hour requirement
+- ❌ You cannot legally cut hair without license
+- ❌ You'd be working illegally if you cut hair
+
+---
+
+### Side-by-Side Comparison
+
+| Feature | Apprenticeship | Internship | OJT |
+|---------|---------------|-----------|-----|
+| **Registered Program** | Yes (U.S. DOL) | No | No |
+| **State Board Approved** | Yes | No | No |
+| **Structured Curriculum** | Yes (2,000 hrs + 144 hrs) | No | No |
+| **Paid** | Yes ($10/hr + commissions) | Maybe (often unpaid) | Yes (minimum wage) |
+| **Leads to License** | Yes | No | No |
+| **Hours Count Toward License** | Yes | No | No |
+| **Supervised by Licensed Pro** | Yes (required) | Maybe | Maybe |
+| **Duration** | 15-17 months | 3-6 months | Varies |
+| **Legal Protections** | Full employee rights | Limited | Employee rights |
+| **Earnings During Training** | $20,000-$30,000 | $0-$5,000 | $5,000-$15,000 |
+| **After Completion** | Licensed barber | No credential | No credential |
+
+---
+
+### Why Apprenticeship Is the Best Option for Barbering
+
+**Compared to internship:**
+- ✅ You earn real money ($20,000-$30,000)
+- ✅ Your hours count toward license
+- ✅ You get structured training
+- ✅ You graduate with a license
+- ✅ You have legal protections
+
+**Compared to OJT:**
+- ✅ Your hours count toward license
+- ✅ You follow approved curriculum
+- ✅ You're supervised by licensed barber
+- ✅ You graduate with a license
+- ✅ You can legally practice barbering
+
+**Compared to barber school:**
+- ✅ You earn money instead of paying tuition
+- ✅ You work with real clients from day one
+- ✅ You graduate with clientele
+- ✅ You have 500 more hours of experience (2,000 vs. 1,500)
+- ✅ You graduate debt-free
+
+---
+
+### Common Misconceptions
+
+**Misconception 1: "I can just work at a barbershop and count those hours toward my license."**
+
+❌ **Wrong.** Only hours in a registered apprenticeship program count. Random work at a barbershop doesn't count.
+
+**Misconception 2: "An internship at a barbershop will help me get licensed faster."**
+
+❌ **Wrong.** Internship hours don't count toward licensure. You'd waste time.
+
+**Misconception 3: "OJT is the same as apprenticeship."**
+
+❌ **Wrong.** OJT is informal training. Apprenticeship is a registered, structured program leading to licensure.
+
+**Misconception 4: "I can do an unpaid apprenticeship to save the shop money."**
+
+❌ **Wrong.** Registered apprenticeships MUST pay at least minimum wage. Unpaid apprenticeships are illegal.
+
+**Misconception 5: "Any barbershop can hire me as an apprentice."**
+
+❌ **Wrong.** Only registered apprenticeship sponsor shops can hire apprentices. Random shops cannot.
+
+---
+
+### How to Verify You're in a Real Apprenticeship
+
+**Ask these questions:**
+
+1. **"Is this shop a registered apprenticeship sponsor with the U.S. Department of Labor?"**
+   - ✅ Yes = Real apprenticeship
+   - ❌ No = Not a real apprenticeship (hours won't count)
+
+2. **"Will my hours count toward my Indiana barber license?"**
+   - ✅ Yes = Real apprenticeship
+   - ❌ No = Internship or OJT (hours won't count)
+
+3. **"Will I be paid at least minimum wage plus commissions?"**
+   - ✅ Yes = Real apprenticeship
+   - ❌ No = Likely illegal or not a real apprenticeship
+
+4. **"Will I complete 2,000 hours of OJT and 144 hours of RTI?"**
+   - ✅ Yes = Real apprenticeship
+   - ❌ No = Not following Indiana requirements
+
+5. **"Will the Indiana State Board verify my hours?"**
+   - ✅ Yes = Real apprenticeship
+   - ❌ No = Hours won't count toward license
+
+**If the answer to ANY of these is "no" or "I don't know," it's NOT a registered apprenticeship.**
+
+---
+
+### Red Flags: Not a Real Apprenticeship
+
+**Watch out for:**
+
+❌ Shop says "We'll train you, but we're not registered"
+- Your hours won't count toward license
+
+❌ Shop says "This is an unpaid internship"
+- Illegal for registered apprenticeships
+
+❌ Shop says "You'll learn on the job" but has no formal training plan
+- Not a registered apprenticeship, just OJT
+
+❌ Shop says "We don't report hours to the State Board"
+- Your hours won't count toward license
+
+❌ Shop says "You can start cutting hair right away without supervision"
+- Illegal and dangerous
+
+❌ Shop says "We'll pay you under the table"
+- Illegal, no legal protections, hours won't count
+
+**If you see these red flags, walk away. Contact us to find a legitimate registered apprenticeship.**
+
+---
+
+### The Bottom Line
+
+**Barber Apprenticeship (This Program):**
+- ✅ Registered with U.S. Department of Labor
+- ✅ Approved by Indiana State Board
+- ✅ You're an employee earning $10/hour + commissions + tips
+- ✅ 2,000 hours OJT + 144 hours RTI
+- ✅ Hours count toward Indiana barber license
+- ✅ Graduate with license and $20,000-$30,000 earned
+
+**Internship or OJT:**
+- ❌ Not registered
+- ❌ Not approved by State Board
+- ❌ Hours don't count toward license
+- ❌ Waste of time for barbering career
+
+**Don't confuse them. Make sure you're in a REAL registered apprenticeship.**
+
+**Contact us to verify a shop is a registered apprenticeship sponsor:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+---
+
+### How Much Can Badges Increase Your Earnings?
+
+**Without Badges (Traditional Apprentice):**
+- Employer sees: "Completed apprenticeship"
+- Starting pay: $12-$15/hour or 50% commission
+- Annual earnings: $35,000-$45,000
+
+**With Badges (Verified Skills):**
+- Employer sees: "20 verified badges showing mastery"
+- Starting pay: $15-$18/hour or 60% commission
+- Annual earnings: $45,000-$55,000
+
+**Difference: $10,000/year more with badges**
+
+**Why badges increase earnings:**
+- ✅ Employers trust your skills are verified
+- ✅ You can negotiate higher pay with proof of competency
+- ✅ Clients see your badges and trust you more
+- ✅ You stand out from other applicants
+- ✅ You can charge premium prices
+
+---
+
+### Real-World Badge Impact
+
+**Marcus's Story:**
+- Earned all 17 apprenticeship badges
+- Showcased badges on resume and LinkedIn
+- Applied to high-end barbershop
+- Employer saw verified skills
+- Hired at $18/hour (vs. $12/hour typical)
+- **Extra earnings: $12,480/year**
+
+**DeAndre's Story:**
+- Earned 20 badges including specialty badges
+- Posted badges on Instagram
+- Clients saw his verified expertise
+- Built strong following
+- Rented chair at premium shop
+- **Earnings: $70,000/year (vs. $45,000 typical)**
+
+**Tasha's Story:**
+- Earned all badges plus educator badge
+- Barbershop hired her to train new apprentices
+- Paid $20/hour plus commission
+- **Earnings: $60,000/year (vs. $40,000 typical)**
+
+---
+
+### How to Earn and Display Your Badges
+
+**Earning Badges:**
+1. Complete the required skills/milestones
+2. Your mentor verifies your competency
+3. We issue the digital badge
+4. Badge is stored in your digital wallet
+5. You receive email notification
+
+**Displaying Badges:**
+- ✅ Add to LinkedIn profile
+- ✅ Include on resume
+- ✅ Share on Instagram/Facebook
+- ✅ Add to email signature
+- ✅ Print for portfolio
+- ✅ Show to potential employers
+
+**Verifying Badges:**
+- Each badge has unique verification code
+- Employers can click badge to verify authenticity
+- Shows date earned, skills demonstrated, issuing organization
+- Cannot be faked or copied
+
+---
+
+### Badge Platform: Credly
+
+**We use Credly, the industry-leading digital badge platform.**
+
+**Credly badges are:**
+- ✅ Recognized by employers nationwide
+- ✅ Integrated with LinkedIn
+- ✅ Shareable on all social media
+- ✅ Verifiable and secure
+- ✅ Free for you to use
+
+**Your Credly profile shows:**
+- All badges you've earned
+- Skills you've demonstrated
+- Date each badge was earned
+- Verification from issuing organization
+- Your professional journey
+
+**Employers love Credly because:**
+- They can instantly verify your skills
+- They see exactly what you can do
+- They trust the verification process
+- They can compare candidates objectively
+
+---
+
+### The Badge Advantage: Summary
+
+**Badges help you:**
+- ✅ Track your progress (stay motivated)
+- ✅ Prove your skills (verified competency)
+- ✅ Stand out from competition (differentiation)
+- ✅ Earn more money (higher pay, better opportunities)
+- ✅ Build your brand (professional credibility)
+- ✅ Advance faster (clear pathway to mastery)
+
+**Badges increase your earnings by:**
+- $3-$6/hour higher starting pay
+- $10,000-$20,000/year more income
+- Better job opportunities
+- Faster career advancement
+- Premium client base
+
+**Start earning badges from day one of your apprenticeship.**
+
+**Every skill you learn, every milestone you reach, every achievement you accomplish—you get a badge to prove it.**
+
+**Your badges are your professional story. Make it impressive.**
+
+---
+
+## Requirements Checklist
+
+Before you apply, make sure you meet these requirements:
+
+✅ **Age:** At least 17 years old  
+✅ **Education:** High school diploma or GED  
+✅ **Background:** Pass a background check (required by barbershops)  
+✅ **Transportation:** Reliable way to get to your shop placement  
+✅ **Commitment:** Available for full-time work (40 hours/week)  
+✅ **Attitude:** Professional appearance and customer service mindset  
+
+**Documents you'll need:**
+- Photo ID (driver's license or state ID)
+- Social Security card
+- High school diploma or GED certificate
+- Proof of Indiana residency (utility bill, lease, etc.)
+
+---
+
+## Why This Changes Everything
+
+### Traditional Barber School
+❌ Pay $25,000 in tuition  
+❌ Earn $0 while training  
+❌ Graduate with debt and zero clients  
+❌ Start from scratch building your book  
+
+### Indiana Apprenticeship
+✅ Pay $0 (with funding) or $4,980 (self-pay)  
+✅ Earn $10/hour + commissions + tips  
+✅ Graduate debt-free with established clients  
+✅ Your customers already trust you  
+
+**The math:** You earn $20,000+ while training and avoid $25,000 in debt. That's a $45,000 advantage.
+
+---
+
+## Your Journey: What It Really Looks Like (Based on Real Apprentice Experiences)
+
+### Month 1-2: "I'm Actually Doing This"
+
+**Day 1 - Monday, 9:00 AM**
+You walk into the shop. Your stomach is in knots. You meet your mentor—a licensed barber with 15 years of experience. He shows you around. The smell of aftershave and clippers fills the air. You watch him work on his first client of the day. Every movement is precise. You think, "I'll never be that good."
+
+**Week 1**
+You're the helper. You sweep hair. You sanitize stations. You watch every cut. You learn the shop's rhythm—the busy times, the slow times, the regulars who come in every Saturday. You're earning $10/hour for every hour you're there. Your first paycheck: $400 for 40 hours. It's not much, but it's yours.
+
+**Week 2**
+Your mentor hands you clippers. "Practice on this mannequin," he says. You spend hours working on fades. Your hands cramp. Your back hurts. But you're starting to understand the angles, the pressure, the technique.
+
+**Week 4**
+A regular customer, Mr. Johnson, comes in. He's been coming to this shop for 20 years. He watches you practice. "You're gonna be good at this, young man," he says. You believe him.
+
+**Online Theory (Week 1-8):**
+You complete 2-3 hours of online coursework each week. Sanitation protocols. Skin anatomy. Barbering history. Indiana licensing laws. It's dry, but you need it to pass your state exam.
+
+### Month 3-6: "Someone Asked for Me"
+
+**Month 3 - First Real Client**
+Your mentor says, "You're ready." A walk-in customer needs a simple taper. Your hands shake as you pick up the clippers. Your mentor stands right behind you. "Start with the guard. Slow and steady." You make your first pass. It's not perfect, but it's not terrible. Twenty minutes later, you're done. The customer looks in the mirror. He smiles. He tips you $5. You feel like you just won the lottery.
+
+**Month 4**
+You're doing 2-3 cuts per day now. Simple tapers, basic fades. Your mentor still supervises every cut. You're earning commissions—$3-5 per cut. Your paychecks are growing: $400 base + $60-80 in commissions = $460-480/week.
+
+**Month 6 - The Turning Point**
+A customer walks in on a Saturday morning. He looks around. "Is Marcus here?" he asks. Your heart stops. Someone asked for you by name. You realize you're building something real. You've got 5-6 regulars now. Guys who trust you. Guys who come back.
+
+**Online Theory (Month 3-6):**
+You're learning business skills now. How to price services. How to build clientele. How to handle difficult customers. You complete another 12 hours of coursework.
+
+### Month 7-12: "I've Got Regulars"
+
+**Month 9 - Independence**
+You've got 12-15 regular clients now. You're doing fades, tapers, beard work, hot towel shaves. Your mentor doesn't supervise every cut anymore. He checks in, gives feedback, but you're working independently most of the time. You're earning $12-15/hour with commissions and tips.
+
+**Month 10 - Saturday Rush**
+Saturday morning, 9:00 AM. You've got five appointments booked. All regulars. All guys who specifically requested you. You're in the zone. Clippers humming. Conversation flowing. Tips adding up. By noon, you've made $120 in commissions and tips alone.
+
+**Month 12 - Halfway There**
+You've completed 1,000 hours. Halfway to your license. You're making $600-700/week now. You've got 20+ regular clients. You're starting to think about what comes next—rent a chair? Stay with the shop? Open your own place someday?
+
+**Online Theory (Month 7-12):**
+You're studying for your state exam now. Practice tests. Sanitation protocols. Indiana barbering laws. You've completed 72 of your 144 required theory hours.
+
+### Month 13-17: "I'm Ready"
+
+**Month 15 - Professional Level**
+You're working at near-professional level now. You've got 25-30 regular clients. You're booked solid most days. You're earning $700-900/week. You're preparing for your state board exam. You're nervous, but you know you've got this.
+
+**Month 16 - State Board Exam Prep**
+You complete your final theory hours. You practice your practical exam skills—taper, fade, shave, sanitation. Your mentor quizzes you on Indiana barbering laws. You schedule your exam with the Indiana State Board of Barber Examiners.
+
+**Month 17 - Exam Day**
+You arrive at the testing center in Indianapolis. Written exam first—100 questions on theory, sanitation, laws. You finish in 45 minutes. Then the practical exam—demonstrate a taper, fade, and shave on a mannequin. The examiner watches every move. Two weeks later, you get the letter: **PASSED**.
+
+**License Day**
+You pay your $45 licensing fee to the Indiana Professional Licensing Agency. You're now a **Registered Barber in Indiana**. Your regulars congratulate you. Your mentor shakes your hand. "I'm proud of you," he says.
+
+You decide to rent your own chair at the shop—$250/week. You keep 100% of your earnings after rent. You're in control of your future now.
+
+**Throughout:** You complete 144 hours of technical instruction and get mentored by licensed barbers every single day. You're never alone in this.
+
+---
+
+## What You'll Master
+
+✂️ **Cutting Skills:** Fades, tapers, lineups, beard work, hot towel shaves  
+🧼 **Sanitation:** Infection control and safety protocols  
+💬 **Client Relations:** Consultation, communication, building loyalty  
+💼 **Business:** Shop operations, pricing, customer retention  
+
+---
+
+## After You Graduate
+
+**Pass your state exam** → **Get your license** ($45 fee) → **Choose your path:**
+
+🪑 **Rent a chair** ($100-$300/week) and be your own boss  
+🏢 **Work for a shop** with steady income and benefits  
+🏪 **Open your own shop** and build a team  
+
+**Earning potential:** $35k-$65k/year. Top barbers earn $75k-$100k+.
+
+---
+
+## Real Talk: The Challenges
+
+**"My feet hurt for the first month."** - Jamal, graduate  
+You'll be on your feet 8+ hours a day. Your back will ache. Bring good shoes. It gets easier.
+
+**"The first few months were slow."** - Sarah, current apprentice  
+You won't have many clients at first. That's normal. By month 6, you'll have regulars. By graduation, you'll have a full book.
+
+**"I had to balance work and coursework."** - DeAndre, graduate  
+You'll work full-time at the shop AND complete 144 hours of technical instruction. It's demanding. But your employer knows you're learning, and we provide support.
+
+**"Not every shop had openings."** - Tasha, graduate  
+This program is new. Only federally approved shops can hire apprentices. Slots are competitive. But we're adding more shops every month.
+
+**"It took longer than barber school."** - Marcus, graduate  
+Yes, 2,000 hours vs. 1,500 hours. That's about 5 extra months. But you're getting paid for every single hour. Traditional students pay $25,000 and earn nothing. You earn $20,000+ and pay nothing.
+
+---
+
+## Who This Is For
+
+👨‍👩‍👧 Parents who need to earn while they learn  
+🔄 Career changers looking for a fresh start  
+🎓 Young adults who don't want college debt  
+✊ Justice-involved individuals seeking opportunity  
+💪 Anyone who's good with people and wants to work with their hands  
+
+---
+
+## How to Get Started
+
+**Step 1:** Apply below. Tell us why you want to become a barber.
+
+**Step 2:** Create your free Indiana Career Connect account at [IndianaCareerConnect.com](https://www.indianacareerconnect.com).
+
+**Step 3:** Schedule an appointment with a career counselor. They'll check your eligibility for WIOA, WRG, or JRI funding.
+
+**Step 4:** We'll connect you with participating barbershops for interviews.
+
+**Step 5:** Once hired, your employer and funding are finalized, you start earning and learning.
+
+**Timeline:** 4-8 weeks from application to first day.
+
+---
+
+## Frequently Asked Questions
+
+### Can I transfer hours from barber school to the apprenticeship?
+
+**Yes, but with limitations set by Indiana State Board of Barber Examiners.**
+
+If you've already completed some hours at a traditional barber school, you may be able to transfer those hours toward your 2,000-hour apprenticeship requirement.
+
+---
+
+## Exact Transfer Process: Step-by-Step
+
+### Step 1: Gather Your Documentation
+
+**You'll need:**
+- Official transcripts from your barber school (sealed envelope or electronic)
+- Proof of hours completed (hour logs, attendance records)
+- Course completion certificates (if applicable)
+- Photo ID
+- Social Security card
+
+**Request transcripts from your school:**
+- Call your previous barber school's registrar office
+- Request "official transcripts for licensure transfer"
+- Ask for detailed hour breakdown (theory vs. practical)
+- Cost: Usually $10-25 per transcript
+- Processing time: 1-2 weeks
+
+---
+
+### Step 2: Complete Indiana Transfer Application
+
+**Download or request:**
+- "Application for Transfer of Hours" from Indiana State Board
+- Available at: [in.gov/pla/professions/barber-board](https://www.in.gov/pla/professions/barber-board/)
+- Or call: (317) 234-3040 to request by mail
+
+**Fill out completely:**
+- Personal information (name, SSN, address, phone)
+- Previous school information (name, location, dates attended)
+- Hours completed (theory and practical breakdown)
+- Reason for transfer
+- Signature and date
+
+---
+
+### Step 3: Submit Everything to Indiana State Board
+
+**Mail to:**
+Indiana Professional Licensing Agency  
+Attn: Board of Barber Examiners  
+402 W. Washington St., Room W072  
+Indianapolis, IN 46204
+
+**Or submit in person:**
+Same address, Monday-Friday, 8:00 AM - 4:30 PM
+
+**Include:**
+- Completed transfer application
+- Official transcripts (sealed)
+- Copy of photo ID
+- Check or money order for $25 evaluation fee (payable to "Indiana Professional Licensing Agency")
+
+**Do NOT send:**
+- Cash
+- Unsealed transcripts (won't be accepted)
+- Incomplete applications
+
+---
+
+### Step 4: Wait for Evaluation
+
+**Processing time:** 2-4 weeks (sometimes longer during busy periods)
+
+**What the Board reviews:**
+- Is your school state-approved?
+- Are your hours documented and verified?
+- Are your hours recent (within 3 years)?
+- Do your hours meet Indiana standards?
+
+**Possible outcomes:**
+1. **Full approval:** All hours transfer
+2. **Partial approval:** Some hours transfer (Board will specify which)
+3. **Denial:** Hours don't meet Indiana standards
+
+---
+
+### Step 5: Receive Your Evaluation Letter
+
+**The Board will mail you:**
+- Official evaluation letter
+- Number of hours approved for transfer
+- Number of hours still needed
+- Instructions for completing remaining hours
+
+**Example evaluation:**
+- "You completed 600 hours at XYZ Barber School"
+- "Indiana approves 500 hours toward your 2,000-hour requirement"
+- "You need 1,500 more hours through registered apprenticeship"
+- "You completed 100 theory hours toward your 144-hour RTI requirement"
+- "You need 44 more theory hours"
+
+---
+
+### Step 6: Enroll in Apprenticeship for Remaining Hours
+
+**Once approved:**
+1. Contact us or your apprenticeship sponsor
+2. Provide your evaluation letter
+3. Get hired by a participating barbershop
+4. Complete remaining hours (1,500 OJT + 44 RTI in example above)
+5. Your apprenticeship sponsor tracks and verifies new hours
+6. When complete, you're eligible for state exam
+
+---
+
+## State-to-State Transfer Chart: Barber Hours to Indiana
+
+**Indiana requires 2,000 apprenticeship hours OR 1,500 barber school hours for licensure.**
+
+If you completed training in another state and want to transfer to Indiana's apprenticeship program, here's what typically transfers:
+
+| State | Required Hours | Transfer to Indiana Apprenticeship | Notes |
+|-------|---------------|-----------------------------------|-------|
+| **Illinois** | 1,500 hours | Up to 1,500 hours may transfer | Must be from IL-approved school; Indiana may require additional 500 hours |
+| **Ohio** | 1,800 hours | Up to 1,800 hours may transfer | Strong reciprocity; usually full transfer if recent |
+| **Michigan** | 1,800 hours | Up to 1,800 hours may transfer | Must verify school approval status |
+| **Kentucky** | 1,500 hours | Up to 1,500 hours may transfer | Indiana may require additional 500 hours |
+| **Tennessee** | 1,500 hours | Up to 1,500 hours may transfer | Must be from TN-approved school |
+| **Wisconsin** | 1,000 hours | Up to 1,000 hours may transfer | Indiana requires 1,000 additional hours minimum |
+| **Missouri** | 1,000 hours | Up to 1,000 hours may transfer | Indiana requires 1,000 additional hours minimum |
+| **Pennsylvania** | 1,250 hours | Up to 1,250 hours may transfer | Indiana may require additional 750 hours |
+| **New York** | 1,000 hours | Up to 1,000 hours may transfer | Must verify school approval; may need 1,000 more hours |
+| **California** | 1,500 hours | Up to 1,500 hours may transfer | Must be from CA-approved school |
+| **Texas** | 1,500 hours | Up to 1,500 hours may transfer | Strong reciprocity with Indiana |
+| **Florida** | 1,200 hours | Up to 1,200 hours may transfer | Indiana may require additional 800 hours |
+| **Georgia** | 1,500 hours | Up to 1,500 hours may transfer | Must be from GA-approved school |
+| **North Carolina** | 1,528 hours | Up to 1,528 hours may transfer | Usually full transfer if recent |
+
+---
+
+## Important Transfer Rules
+
+### ✅ What Usually Transfers
+
+**From barber schools:**
+- Documented practical hours (cutting, shaving, styling)
+- Documented theory hours (up to 144 hours toward RTI)
+- Hours from state-approved schools
+- Hours completed within last 3 years
+
+**From other apprenticeships:**
+- Verified OJT hours from registered apprenticeship programs
+- Must have documentation from previous sponsor
+- Must be from U.S. Department of Labor registered program
+
+### ❌ What Usually Doesn't Transfer
+
+**Hours that won't count:**
+- Hours older than 3 years (case-by-case basis)
+- Hours from unlicensed/unapproved schools
+- Incomplete programs without documentation
+- "Shadow hours" or observation-only time
+- Hours from cosmetology school (different license)
+- Unverified work experience at barbershops
+
+---
+
+## Special Cases
+
+### Transferring from Cosmetology School
+
+**Indiana does NOT allow cosmetology hours to transfer to barbering.**
+- Cosmetology license ≠ Barber license
+- Different skill sets and regulations
+- You must complete full barber training (2,000 hours apprenticeship OR 1,500 hours barber school)
+
+### Transferring from Out-of-State Apprenticeship
+
+**If you started an apprenticeship in another state:**
+1. Get verification letter from your previous apprenticeship sponsor
+2. Must show hours were in registered apprenticeship program
+3. Submit to Indiana State Board with transfer application
+4. Board evaluates and approves eligible hours
+5. Complete remaining hours in Indiana registered apprenticeship
+
+### Military Training
+
+**If you received barber training in the military:**
+- Indiana recognizes some military barber training
+- Must provide DD-214 and training certificates
+- Contact Indiana State Board for evaluation
+- May receive partial credit toward hours
+
+---
+
+## Transfer Timeline Summary
+
+| Step | Timeline | Cost |
+|------|----------|------|
+| Request transcripts from school | 1-2 weeks | $10-25 |
+| Complete transfer application | 1-2 hours | Free |
+| Submit to Indiana State Board | Same day | $25 fee |
+| Board evaluation | 2-4 weeks | Included |
+| Receive evaluation letter | By mail | Included |
+| Enroll in apprenticeship | 1-2 weeks | Varies |
+| **Total time** | **4-8 weeks** | **$35-50** |
+
+---
+
+## Contact Information
+
+**Indiana State Board of Barber Examiners**
+- Phone: (317) 234-3040
+- Email: pla11@pla.in.gov
+- Address: 402 W. Washington St., Room W072, Indianapolis, IN 46204
+- Hours: Monday-Friday, 8:00 AM - 4:30 PM EST
+- Website: [in.gov/pla/professions/barber-board](https://www.in.gov/pla/professions/barber-board/)
+
+**For transfer questions, ask:**
+- "I completed [X] hours at [School Name] in [State]. How many hours will transfer to Indiana's apprenticeship program?"
+- "What documentation do I need to submit?"
+- "How long will the evaluation take?"
+
+---
+
+**Bottom line:** Most hours from approved barber schools transfer, but you'll likely need to complete additional hours through Indiana's registered apprenticeship to reach the 2,000-hour requirement.
+
+### Can I transfer my apprenticeship hours to barber school?
+
+**Yes.** If you start the apprenticeship and decide to switch to traditional barber school, your hours can transfer. You'll need documentation from your employer and apprenticeship sponsor.
+
+### What if I already have a barber license from another state?
+
+**You can apply for reciprocity (per Indiana Code 25-7-5-8).**
+
+Indiana has reciprocal agreements with most states, but requirements vary.
+
+**Reciprocity requirements:**
+- Must hold a current, active barber license from another state
+- Must have practiced as a licensed barber for at least 1 year
+- Must pass Indiana's written exam on state laws and regulations
+- Must submit proof of licensure and work history
+- Must pay reciprocity application fee (approximately $100)
+
+**States with full reciprocity (no additional testing):**
+- Check with Indiana State Board—list changes periodically
+- Most states with similar hour requirements (1,500-2,000 hours) qualify
+
+**States requiring additional testing:**
+- Some states may require you to take Indiana's practical exam
+- Depends on your state's training standards
+
+**How to apply for reciprocity:**
+1. Contact Indiana State Board of Barber Examiners: (317) 234-3040
+2. Request reciprocity application packet
+3. Submit proof of current license from your state
+4. Submit proof of work history (pay stubs, employer letters)
+5. Take Indiana laws exam (if required)
+6. Pay fees and receive Indiana license
+
+**Processing time:** 4-8 weeks
+
+### Can I work at any barbershop?
+
+**No. You MUST work at a federally approved apprenticeship sponsor shop.**
+
+Not every barbershop can participate in Indiana's registered apprenticeship program. Shops must go through a rigorous approval process with the U.S. Department of Labor and Indiana State Board.
+
+---
+
+## For Barbershops: How to Become a Registered Apprenticeship Program Holder
+
+**Are you a barbershop owner who wants to hire and train apprentices? Here's everything you need to know.**
+
+---
+
+## What Is a Registered Apprenticeship Program Holder?
+
+**A Program Holder (also called Apprenticeship Sponsor) is a barbershop that:**
+- Is registered with the U.S. Department of Labor
+- Is approved by the Indiana State Board of Barber Examiners
+- Meets federal and state standards for apprentice training
+- Can legally hire apprentices and count their hours toward licensure
+- Takes on legal responsibility for apprentice training and supervision
+
+**Benefits of becoming a Program Holder:**
+- Hire and train your own barbers from scratch
+- Build loyalty (apprentices often stay long-term)
+- Access to funding (WIOA, WRG, JRI pays for apprentice training curriculum)
+- Tax credits and incentives for hiring apprentices
+- Strengthen your shop's reputation
+- Help grow the barbering profession
+
+---
+
+## Requirements to Become a Registered Program Holder
+
+### 1. Business Requirements
+
+**Your barbershop must:**
+- ✅ Be a registered business in Indiana (LLC, Corporation, or Sole Proprietorship)
+- ✅ Have a valid Indiana business license
+- ✅ Have a Federal Tax ID (EIN)
+- ✅ Have an active Indiana State Board of Barber Examiners shop license
+- ✅ Be in good standing (no violations, fines, or suspensions)
+- ✅ Have been operating for at least 1 year (preferred, not always required)
+
+**Insurance requirements:**
+- ✅ General liability insurance (minimum $1 million coverage)
+- ✅ Workers' compensation insurance (required for employees)
+- ✅ Professional liability insurance (recommended)
+
+**Financial requirements:**
+- ✅ Ability to pay apprentice wages ($10/hour minimum)
+- ✅ Ability to cover apprentice training curriculum costs (unless funded by WIOA/WRG/JRI)
+- ✅ Stable business with consistent revenue
+
+---
+
+### 2. Facility Requirements
+
+**Your barbershop must:**
+- ✅ Be licensed and approved by Indiana State Board of Barber Examiners
+- ✅ Meet all health and safety codes
+- ✅ Have proper sanitation equipment (autoclaves, disinfectants, etc.)
+- ✅ Have adequate workspace for apprentice training (at least one dedicated station)
+- ✅ Have proper ventilation, lighting, and plumbing
+- ✅ Pass facility inspection by State Board
+
+**Equipment requirements:**
+- ✅ Professional barber chairs
+- ✅ Mirrors and workstations
+- ✅ Clippers, trimmers, scissors, razors
+- ✅ Sanitation and sterilization equipment
+- ✅ Capes, towels, and supplies
+- ✅ Mannequins for practice (recommended)
+
+---
+
+### 3. Staffing Requirements
+
+**You must have:**
+- ✅ At least one licensed barber with 3+ years of professional experience
+- ✅ Barber must serve as apprentice mentor/supervisor
+- ✅ Mentor must complete U.S. Department of Labor apprenticeship supervisor training (8-16 hours)
+- ✅ Mentor must be available to supervise apprentice during all working hours
+- ✅ Mentor must have clean disciplinary record with State Board
+
+**Mentor responsibilities:**
+- Provide hands-on training and supervision
+- Track apprentice hours and progress
+- Sign off on apprentice work
+- Complete monthly progress reports
+- Ensure apprentice meets all training standards
+
+**Mentor-to-apprentice ratio:**
+- Maximum 1 apprentice per licensed barber
+- Example: If you have 3 licensed barbers, you can have up to 3 apprentices
+
+---
+
+### 4. Training Program Requirements
+
+**You must develop and submit:**
+- ✅ Written training plan outlining 2,000-hour curriculum
+- ✅ Skills progression schedule (what apprentice learns each month)
+- ✅ Competency standards (how you measure apprentice progress)
+- ✅ Safety and sanitation protocols
+- ✅ Related Technical Instruction (RTI) plan (144 hours)
+- ✅ Evaluation and testing procedures
+
+**Training must cover:**
+- Haircutting techniques (fades, tapers, lineups, etc.)
 - Shaving and beard work
 - Sanitation and infection control
-- Skin care and customer service
-- Business skills and shop management
-- How to build and maintain a clientele
+- Client consultation and communication
+- Shop operations and business skills
+- Indiana barbering laws and regulations
 
-## The Financial Reality
+---
 
-**Traditional School:**
-- Cost: $25,000
-- Income while training: $0
-- Clients upon graduation: 0
-- Debt: Yes
+## Step-by-Step: How to Register as a Program Holder
 
-**Indiana Apprenticeship:**
-- Cost: $0 (employer-paid)
-- Income while training: ~$10/hour + commissions
-- Clients upon graduation: Your own book
-- Debt: No
+### Step 1: Prepare Your Documentation
 
-**Licensing Fees You'll Pay:**
-- Registered Barber License: $45
-- State exam application: ~$40
+**Gather these documents:**
+- Business license
+- Federal Tax ID (EIN)
+- Indiana State Board barbershop license
+- Insurance certificates (liability, workers' comp)
+- Mentor barber license(s) and experience verification
+- Facility photos and floor plan
+- Training curriculum outline
 
-## What Happens After You Complete the Program
+**Estimated time:** 1-2 weeks
 
-1. **Take Your State Board Exam**: You're eligible to sit for Indiana's barber licensing exam
-2. **Get Your License**: Become a Registered Barber in Indiana
-3. **Choose Your Path**:
-   - Rent a chair ($100-$300/week) and be your own boss
-   - Work for an established shop and build your book
-   - Open your own barbershop
+---
 
-**Earning Potential:**
-Licensed barbers in Indianapolis earn $35,000-$65,000+ per year. Many earn significantly more through tips and commissions.
+### Step 2: Complete Apprenticeship Sponsor Training
 
-## The Challenges (And How We Address Them)
+**Required training:**
+- U.S. Department of Labor Apprenticeship Sponsor Training (8-16 hours)
+- Available online or in-person
+- Covers: federal apprenticeship standards, record-keeping, legal requirements
+- Cost: $200-500
 
-**Longer Hours**: Yes, you need 2,000 hours vs. 1,500 in school. But you're getting paid for every single one.
+**Your mentor barber must also complete:**
+- Apprenticeship Supervisor Training (8 hours)
+- Covers: mentoring techniques, progress tracking, safety
 
-**Limited Slots**: This program is new. Only a handful of shops like MDG Salons and Kiss Kiss Bang Bang have federal approval. We're working to expand.
+**Estimated time:** 1-2 weeks
 
-**Physical Demands**: Barbering requires long hours on your feet. But if you love the work, it doesn't feel like work.
+---
 
-**Balancing Work and Learning**: You'll manage a full-time schedule while completing technical training. We provide support to help you succeed.
+### Step 3: Register with U.S. Department of Labor
+
+**Submit application to:**
+- U.S. Department of Labor, Office of Apprenticeship
+- Or through your State Apprenticeship Agency (Indiana Department of Workforce Development)
+
+**Application includes:**
+- Apprenticeship program standards
+- Training curriculum and schedule
+- Mentor qualifications
+- Wage progression plan
+- Commitment to 2,000-hour program
+- Equal opportunity pledge
+
+**Application fee:** $500-1,000
+
+**Processing time:** 4-8 weeks
+
+**Contact:**
+- U.S. Department of Labor, Office of Apprenticeship
+- Phone: (317) 226-7001 (Indiana office)
+- Website: [apprenticeship.gov](https://www.apprenticeship.gov)
+
+---
+
+### Step 4: Get Indiana State Board Approval
+
+**Submit application to:**
+- Indiana State Board of Barber Examiners
+- Indiana Professional Licensing Agency
+- 402 W. Washington St., Room W072, Indianapolis, IN 46204
+- Phone: (317) 234-3040
+
+**Application includes:**
+- Proof of U.S. DOL registration
+- Barbershop license
+- Mentor barber credentials
+- Facility inspection request
+- Training program outline
+
+**Application fee:** $250-500
+
+**Processing time:** 2-4 weeks
+
+**Facility inspection:**
+- State Board inspector visits your shop
+- Checks facility, equipment, sanitation
+- Verifies mentor qualifications
+- Reviews training program
+
+---
+
+### Step 5: Set Up Record-Keeping Systems
+
+**You must track:**
+- Apprentice hours (daily/weekly logs)
+- Skills progression (competency checklists)
+- RTI completion (theory coursework)
+- Wages paid
+- Incidents or issues
+
+**Required systems:**
+- Time clock or digital tracking system
+- Monthly progress report forms
+- Hour verification forms (signed by mentor and apprentice)
+- RTI completion certificates
+
+**We can help you set up these systems.**
+
+---
+
+### Step 6: Get Listed as Approved Program Holder
+
+**Once approved:**
+- You're listed on U.S. DOL Apprenticeship Finder
+- You're listed on Indiana Career Connect
+- We list you as an approved shop
+- You can start hiring apprentices
+
+**Estimated time:** 3-6 months total from start to approval
+
+---
+
+## Your Responsibilities as a Registered Program Holder
+
+### 1. Training and Supervision
+
+**You must:**
+- ✅ Provide 2,000 hours of on-the-job training
+- ✅ Ensure apprentice completes 144 hours of RTI
+- ✅ Supervise all apprentice work (licensed barber must be present)
+- ✅ Follow your approved training curriculum
+- ✅ Provide progressive skill development (start simple, advance to complex)
+- ✅ Ensure apprentice works with real clients (not just mannequins)
+
+**You cannot:**
+- ❌ Leave apprentice unsupervised with clients
+- ❌ Skip required training components
+- ❌ Rush apprentice through program
+- ❌ Fail to provide adequate instruction
+
+---
+
+### 2. Record-Keeping and Reporting
+
+**You must:**
+- ✅ Track apprentice hours daily/weekly
+- ✅ Submit monthly progress reports to U.S. DOL and Indiana State Board
+- ✅ Maintain accurate wage records
+- ✅ Document skills progression
+- ✅ Keep RTI completion records
+- ✅ Report any incidents, injuries, or issues
+- ✅ Maintain records for 5 years after apprentice completes program
+
+**Monthly reports include:**
+- Total hours worked
+- Skills learned/practiced
+- RTI hours completed
+- Wages paid
+- Any issues or concerns
+
+**Failure to maintain records can result in:**
+- Apprentice hours not counting toward licensure
+- Loss of program holder status
+- Fines or penalties
+
+---
+
+### 3. Wages and Benefits
+
+**You must:**
+- ✅ Pay apprentice at least minimum wage ($7.25/hour federal, higher in some cities)
+- ✅ Pay wages on regular schedule (weekly or biweekly)
+- ✅ Withhold payroll taxes (federal, state, Social Security, Medicare)
+- ✅ Provide workers' compensation coverage
+- ✅ Follow all employment laws (overtime, breaks, etc.)
+- ✅ Provide W-2 at tax time
+
+**Recommended wage structure:**
+- Month 1-6: $10/hour or 40% commission
+- Month 7-12: $10/hour or 50% commission
+- Month 13-17: $10/hour or 60% commission
+
+**You cannot:**
+- ❌ Pay apprentice less than minimum wage
+- ❌ Require apprentice to pay booth rent (during apprenticeship)
+- ❌ Withhold wages
+- ❌ Pay "under the table" without taxes
+
+---
+
+### 4. Safety and Compliance
+
+**You must:**
+- ✅ Maintain safe, sanitary work environment
+- ✅ Follow OSHA safety standards
+- ✅ Follow Indiana State Board sanitation rules
+- ✅ Provide safety training (bloodborne pathogens, chemical safety, etc.)
+- ✅ Provide personal protective equipment (gloves, masks, etc.)
+- ✅ Report workplace injuries
+- ✅ Maintain proper insurance coverage
+
+**You must comply with:**
+- U.S. Department of Labor apprenticeship standards
+- Indiana State Board of Barber Examiners regulations
+- OSHA workplace safety rules
+- Federal and state employment laws
+- Equal opportunity requirements (no discrimination)
+
+---
+
+### 5. Certification and Exam Preparation
+
+**You must:**
+- ✅ Ensure apprentice completes all 2,000 hours
+- ✅ Ensure apprentice completes all 144 RTI hours
+- ✅ Certify apprentice is ready for state exam
+- ✅ Provide exam preparation and support
+- ✅ Submit completion documentation to Indiana State Board
+
+**When apprentice completes program:**
+- You sign completion certificate
+- You submit final hour verification to State Board
+- Apprentice becomes eligible for state licensing exam
+
+---
+
+### 6. Ongoing Compliance
+
+**You must:**
+- ✅ Maintain your barbershop license (renew every 2 years)
+- ✅ Maintain your program holder registration (renew annually)
+- ✅ Keep insurance current
+- ✅ Submit annual reports to U.S. DOL
+- ✅ Allow inspections by State Board and U.S. DOL
+- ✅ Update training curriculum as needed
+- ✅ Maintain mentor qualifications (continuing education)
+
+**Annual renewal fee:** $200-500
+
+---
+
+---
+
+## Current Approved Program Holders in Indiana
+
+**As of 2025, these shops are federally approved:**
+- **MDG Salons** (Indianapolis area - multiple locations)
+- **Kiss Kiss Bang Bang** (Indianapolis area)
+- Additional shops being added regularly
+
+**Want to join them? We can help you through the entire process.**
+
+---
+
+## How We Help Barbershops Become Program Holders
+
+**We provide:**
+- ✅ Step-by-step guidance through registration process
+- ✅ Help developing training curriculum
+- ✅ Assistance with U.S. DOL and State Board applications
+- ✅ Record-keeping system setup
+- ✅ Connections to funding sources (WIOA, WRG, JRI)
+- ✅ Apprentice recruitment and screening
+- ✅ Ongoing support and compliance assistance
+
+**Contact us to get started:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- We'll schedule a consultation to discuss your shop's readiness
+
+---
+
+## FAQs for Barbershop Owners
+
+### "Is it worth becoming a program holder?"
+
+**Yes, if you:**
+- Want to train barbers your way
+- Want loyal, long-term employees
+- Can afford to invest in training
+- Have experienced mentors on staff
+- Want to give back to the profession
+
+**Return on investment:**
+- Apprentice costs you $20,000-30,000 over 15-17 months
+- After licensing, they generate $50,000-100,000/year in revenue
+- If they stay 2-3 years, you recoup your investment many times over
+
+### "How many apprentices can I have?"
+
+**Maximum 1 apprentice per licensed barber.**
+- 1 licensed barber = 1 apprentice
+- 3 licensed barbers = 3 apprentices
+
+### "What if my apprentice quits?"
+
+**You're not obligated to keep them.**
+- Employment is at-will
+- If they quit or you terminate them, their hours transfer to their next shop
+- You're not liable for their completion
+
+### "What if my apprentice fails the state exam?"
+
+**Not your responsibility.**
+- You certify they completed training
+- State Board determines if they pass the exam
+- If they fail, they can retake it
+
+### "Can I hire apprentices from other states?"
+
+**Yes, but they must:**
+- Be eligible to work in the U.S.
+- Meet Indiana apprenticeship requirements
+- Transfer any previous hours to Indiana
+
+---
+
+## Ready to Become a Registered Program Holder?
+
+**Contact us today to start the process:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+**We'll help you:**
+1. Assess your shop's readiness
+2. Complete all applications
+3. Develop your training curriculum
+4. Get approved by U.S. DOL and Indiana State Board
+5. Start hiring and training apprentices
+
+**Together, we're building the next generation of barbers in Indiana.**
+
+---
+
+## How You Earn While You Learn: The Complete Money Flow Explained
+
+### Where Does Your Hourly Wage Come From?
+
+**Your employer (the barbershop) pays you directly from their business revenue.**
+
+Here's the complete money flow:
+
+**Step 1: The Shop Earns Money**
+- Customers come in and pay for haircuts, shaves, beard trims
+- Shop charges: $25-40 per haircut, $15-25 per beard trim, $30-50 per shave
+- Money goes into the shop's cash register/payment system
+- This is the shop's gross revenue
+
+**Step 2: The Shop Pays Operating Costs**
+- Rent for the building ($2,000-5,000/month)
+- Utilities (electric, water, internet)
+- Products (shampoo, aftershave, towels, capes)
+- Equipment (clippers, scissors, chairs, mirrors)
+- Insurance (liability, workers' comp)
+- Licenses and permits
+- Marketing and advertising
+
+**Step 3: The Shop Pays Employee Wages (Including Yours)**
+- Licensed barbers: $15-25/hour or commission
+- Apprentices (you): $10/hour + commissions
+- Receptionists, cleaners, etc.
+- Payroll taxes (employer's share of Social Security, Medicare, unemployment)
+
+**Step 4: The Shop Keeps Profit**
+- Whatever's left after all expenses
+- Typically 15-30% profit margin for successful shops
+
+---
+
+## Scenario 1: Employee Model (Most Common) - DETAILED BREAKDOWN
+
+### How It Works: You're a W-2 Employee
+
+**Your employment status:**
+- You're hired as a regular employee (W-2)
+- You clock in/out using time clock or app
+- You receive biweekly or weekly paychecks
+- Taxes are withheld (federal, state, Social Security, Medicare)
+- You receive a W-2 form at tax time
+
+**Your hourly wage:**
+- **Base rate:** $10/hour guaranteed
+- **Paid by:** The barbershop (from their revenue)
+- **Paid regardless of:** How many clients you serve, how busy the shop is, whether you're cutting or observing
+
+---
+
+### Month 1-2: Observation Phase
+
+**What you're doing:**
+- Watching licensed barbers work
+- Sweeping hair, sanitizing stations
+- Practicing on mannequins
+- Learning shop operations
+- Shadowing your mentor
+
+**What you earn:**
+- **Hourly wage:** $10/hour × 40 hours/week = **$400/week**
+- **Commissions:** $0 (you're not serving clients yet)
+- **Tips:** $0 (you're not serving clients yet)
+- **Total:** **$400/week = $1,600/month**
+
+**Where the money comes from:**
+- Shop pays you from their general revenue
+- You're an investment for them—they're training you
+- They know you'll generate revenue later
+
+**Do you charge customers?**
+- ❌ No, you're not serving customers yet
+- You're observing and practicing
+
+**Do you pay booth rent?**
+- ❌ No, you're an employee, not a renter
+
+---
+
+### Month 3-6: First Clients Phase
+
+**What you're doing:**
+- Taking simple haircuts under supervision
+- Your mentor stands right behind you
+- You're working on walk-in clients or your mentor's overflow
+- Building basic skills
+
+**What you earn:**
+- **Hourly wage:** $10/hour × 40 hours/week = **$400/week**
+- **Commissions:** $3-5 per cut × 10-15 cuts/week = **$30-75/week**
+- **Tips:** $3-5 per cut × 10-15 cuts/week = **$30-75/week**
+- **Total:** **$460-550/week = $1,840-2,200/month**
+
+**Where the money comes from:**
+
+**Example: Customer pays $25 for a haircut**
+
+1. **Customer pays shop:** $25 (cash, card, or app)
+2. **Shop keeps:** $15 (60% to cover costs and profit)
+3. **You earn commission:** $10 (40% commission)
+4. **Customer tips you:** $5 (goes directly to you)
+5. **Your total from this cut:** $10 commission + $5 tip = $15
+
+**Plus your hourly wage continues:**
+- You worked 1 hour doing that cut
+- You also earn $10/hour base wage
+- **Total for that hour:** $10 base + $10 commission + $5 tip = **$25**
+
+**Do you charge customers?**
+- ❌ No, the SHOP charges customers
+- Customer pays the shop's prices ($25-40 per cut)
+- Shop pays you commission (40-50% of the service price)
+
+**Do you pay booth rent?**
+- ❌ No, you're an employee
+- The shop pays rent for the building
+- You work in their space as an employee
+
+---
+
+### Month 7-12: Building Clientele Phase
+
+**What you're doing:**
+- Taking more complex cuts (fades, tapers, beard work)
+- Working more independently (mentor checks in periodically)
+- Building regular clients who request you
+- Taking 20-30 clients per week
+
+**What you earn:**
+- **Hourly wage:** $10/hour × 40 hours/week = **$400/week**
+- **Commissions:** $10-12 per cut × 25 cuts/week = **$250-300/week**
+- **Tips:** $5-7 per cut × 25 cuts/week = **$125-175/week**
+- **Total:** **$775-875/week = $3,100-3,500/month**
+
+**Where the money comes from:**
+
+**Example: Busy Saturday**
+
+You work 8 hours and do 8 haircuts:
+
+**Haircut 1:** Customer pays shop $30
+- Shop keeps: $18
+- You earn commission: $12 (40%)
+- Customer tips you: $6
+- Your earnings: $12 + $6 = $18
+
+**Haircut 2:** Customer pays shop $35 (fade)
+- Shop keeps: $21
+- You earn commission: $14 (40%)
+- Customer tips you: $7
+- Your earnings: $14 + $7 = $21
+
+**Repeat for 8 cuts...**
+
+**Your Saturday earnings:**
+- Base wage: 8 hours × $10 = $80
+- Commissions: 8 cuts × $12 avg = $96
+- Tips: 8 cuts × $6 avg = $48
+- **Total for the day: $224**
+
+**Do you charge customers?**
+- ❌ No, the SHOP charges customers
+- Shop sets the prices
+- Shop collects the money
+- Shop pays you commission
+
+**Do you pay booth rent?**
+- ❌ No, you're still an employee
+- Shop pays all facility costs
+- You just show up and work
+
+---
+
+### Month 13-17: Near-Professional Phase
+
+**What you're doing:**
+- Working at professional level
+- 25-35 clients per week
+- Regular clients who book you specifically
+- Doing all services (cuts, fades, shaves, beard work)
+
+**What you earn:**
+- **Hourly wage:** $10/hour × 40 hours/week = **$400/week**
+- **Commissions:** $12-15 per service × 30 services/week = **$360-450/week**
+- **Tips:** $6-8 per service × 30 services/week = **$180-240/week**
+- **Total:** **$940-1,090/week = $3,760-4,360/month**
+
+**Where the money comes from:**
+
+**Example: Full Week**
+
+**Monday-Friday (5 days):**
+- 4 clients per day × 5 days = 20 clients
+- Average service price: $30
+- Your commission: $12 per cut (40%)
+- Average tip: $6 per cut
+- **Earnings:** (20 × $12) + (20 × $6) = $240 + $120 = $360
+
+**Saturday (busy day):**
+- 8 clients
+- Average service price: $35
+- Your commission: $14 per cut (40%)
+- Average tip: $7 per cut
+- **Earnings:** (8 × $14) + (8 × $7) = $112 + $56 = $168
+
+**Sunday (off or short day):**
+- 2 clients
+- **Earnings:** (2 × $12) + (2 × $6) = $24 + $12 = $36
+
+**Weekly totals:**
+- Base wage: 40 hours × $10 = $400
+- Commissions: $360 + $168 + $36 = $564
+- Tips: Already included above
+- **Total week: $400 + $564 = $964**
+
+**Do you charge customers?**
+- ❌ No, the SHOP still charges customers
+- You're still an employee
+- Shop collects all money
+- Shop pays you commission
+
+**Do you pay booth rent?**
+- ❌ No, you're still an employee
+- Shop pays all costs
+- You're on their payroll
+
+---
+
+## The Critical Difference: Employee vs. Booth Renter
+
+### While You're an Apprentice (Employee)
+
+**Money flow:**
+1. Customer pays shop → $30
+2. Shop keeps → $18 (60%)
+3. Shop pays you commission → $12 (40%)
+4. Customer tips you directly → $5
+5. Shop pays your base wage → $10/hour
+6. **You receive:** Base wage + commission + tips
+
+**You pay:**
+- ❌ Nothing to the shop
+- ❌ No booth rent
+- ❌ No product costs
+- ❌ No equipment costs
+- ❌ No facility costs
+
+**Shop pays:**
+- ✅ Your wages ($10/hour)
+- ✅ Your commissions (40-50% of services)
+- ✅ Rent for the building
+- ✅ All products and supplies
+- ✅ All equipment
+- ✅ Utilities, insurance, licenses
+
+---
+
+### After You're Licensed (If You Rent a Booth)
+
+**Money flow:**
+1. Customer pays YOU directly → $30
+2. You keep → $30 (100%)
+3. Customer tips you → $5
+4. You pay shop booth rent → $250/week
+5. **You receive:** All service money + tips - booth rent
+
+**You pay:**
+- ✅ Booth rent ($100-300/week)
+- ✅ Your own products (shampoo, aftershave, etc.)
+- ✅ Your own equipment (clippers, scissors, etc.)
+- ✅ Your own taxes (self-employed, 1099)
+- ✅ Your own insurance
+
+**Shop provides:**
+- ✅ The physical space (chair, mirror, station)
+- ✅ Utilities (electric, water, internet)
+- ✅ Waiting area for clients
+- ✅ Receptionist (sometimes)
+
+**You're self-employed:**
+- You set your own prices
+- You keep 100% of revenue (after booth rent)
+- You handle your own taxes
+- You're your own boss
+
+---
+
+## Why Shops Hire Apprentices (Even Though It Costs Them Money)
+
+**Short-term cost:**
+- Shop pays you $10/hour even when you're not generating revenue
+- Shop invests time training you
+- Shop provides tools and products
+
+**Long-term benefit:**
+- Once you're skilled (month 6+), you generate revenue for the shop
+- You bring in clients who become shop regulars
+- You may stay as employee after licensing (shop keeps earning from your work)
+- You help the shop grow and serve more customers
+
+**Example: Month 12**
+- You do 25 cuts/week at $30 average = $750/week revenue
+- Shop pays you: $400 base + $300 commission = $700
+- Shop keeps: $450 (60% of service revenue)
+- Shop's net: $450 revenue - $700 wages = -$250 loss
+
+**Wait, the shop loses money?**
+
+Not quite. The shop also benefits from:
+- Your clients buying additional services (beard trims, shaves)
+- Your clients becoming shop regulars (lifetime value)
+- Your clients referring friends
+- Shop building reputation as training facility
+
+**By month 15-17:**
+- You're doing 30+ cuts/week at $35 average = $1,050/week revenue
+- Shop pays you: $400 base + $420 commission = $820
+- Shop keeps: $630 (60% of service revenue)
+- Shop's net: $630 revenue - $820 wages = -$190 loss
+
+**Still losing money?**
+
+Yes, but:
+- Shop is investing in you
+- After you're licensed, you may stay as employee (shop profits from your work)
+- Or you rent a booth (shop earns $250/week rent from you)
+- Or you leave, but shop has helped the industry and built reputation
+
+---
+
+## The Bottom Line: Crystal Clear
+
+**During your 2,000-hour apprenticeship:**
+
+✅ **You ARE:**
+- A W-2 employee
+- Paid $10/hour base wage by the shop
+- Paid 40-50% commission on services you perform
+- Keeping 100% of tips
+- Covered by shop's insurance and workers' comp
+- Using shop's tools, products, and space for free
+
+❌ **You are NOT:**
+- Paying booth rent
+- Paying for products or tools
+- Charging customers directly (shop charges them)
+- Self-employed
+- Responsible for facility costs
+
+**The shop pays you. You don't pay the shop. Period.**
+
+---
+
+### Scenario 2: Commission-Only Model (Less Common for Apprentices)
+
+**How it works:**
+- You're still an employee, but paid primarily through commissions
+- Minimum wage guaranteed by law
+- You earn percentage of every service you perform
+
+**What you earn:**
+- **Commission rate:** 50-60% of service price
+- **Guaranteed minimum:** At least minimum wage ($7.25/hour federal, higher in some cities)
+- **Tips:** 100% of tips go to you
+
+**Example:**
+- Haircut costs $25
+- You earn 50% = $12.50 per cut
+- Do 4 cuts in an hour = $50/hour
+- Plus tips (typically $5-10 per cut)
+
+**Early months:**
+- You won't have many clients yet
+- Shop guarantees minimum wage
+- As you build clientele, commissions grow
+
+**You do NOT pay:**
+- ❌ Booth rent
+- ❌ Chair rental
+- ❌ Product costs (shop provides)
+- ❌ Equipment costs (shop provides)
+
+---
+
+### Scenario 3: Hybrid Model (Some Shops)
+
+**How it works:**
+- Lower base hourly rate ($7-8/hour)
+- Higher commission rate (50-60%)
+- Combines stability of hourly with upside of commission
+
+**What you earn:**
+- **Base wage:** $8/hour (40 hours = $320/week)
+- **Commissions:** 50-60% of services
+- **Tips:** 100% of tips
+
+**Example weekly earnings:**
+- **Month 1-2:** $320/week (mostly base pay)
+- **Month 3-6:** $400-500/week (base + growing commissions)
+- **Month 7-12:** $550-700/week (base + regular commissions + tips)
+- **Month 13-17:** $700-900/week (base + strong commissions + tips)
+
+**You do NOT pay:**
+- ❌ Booth rent
+- ❌ Chair rental
+- ❌ Product costs (shop provides)
+- ❌ Equipment costs (shop provides)
+
+---
+
+## What About Booth Rent? (After You're Licensed)
+
+**During your apprenticeship: You do NOT pay booth rent.**
+
+You're an employee learning a trade. The shop pays you. You don't pay them.
+
+**After you get your license:**
+
+Then you have options:
+
+### Option A: Stay as Employee
+- Continue earning hourly + commissions
+- Shop provides everything
+- Steady income, less risk
+- Typical earnings: $35,000-50,000/year
+
+### Option B: Rent a Chair/Booth
+- Pay weekly rent ($100-300/week)
+- Keep 100% of your earnings after rent
+- You're self-employed (1099)
+- You buy your own products and tools
+- You set your own prices
+- Typical earnings: $50,000-75,000/year (if you have strong clientele)
+
+### Option C: Open Your Own Shop
+- Highest earning potential
+- Most responsibility and risk
+- Need business license, insurance, startup capital
+- Typical earnings: $75,000-150,000+/year (if successful)
+
+**Most apprentices stay as employees for 1-2 years after licensing to build their clientele before renting a chair.**
+
+---
+
+## Common Questions: Let's Clear Up Every Confusion
+
+### "Do I cut hair for free?"
+
+**No. You NEVER cut hair for free.**
+
+Every single haircut you do, you get paid for. Here's exactly how:
+
+**Month 1-2 (Observation phase):**
+- You're NOT cutting hair yet
+- You're watching, learning, practicing on mannequins
+- You're earning $10/hour just to observe and learn
+- **You're getting paid to learn, not cutting for free**
+
+**Month 3+ (Once you start cutting):**
+- Customer pays the shop $30 for a haircut
+- Shop pays you $12 commission (40% of $30)
+- Customer tips you $5 directly
+- You also earn your $10/hour base wage
+- **Total for that cut: $10 hourly + $12 commission + $5 tip = $27**
+- **You're getting paid THREE ways for every cut**
+
+**You NEVER work for free. Every hour, every cut, you're earning money.**
+
+---
+
+### "Can I get my own clients and charge them directly?"
+
+**No. Not during your apprenticeship.**
+
+Here's why and how it works:
+
+**During apprenticeship (15-17 months):**
+- ❌ You CANNOT charge customers directly
+- ❌ You CANNOT take clients outside the shop
+- ❌ You CANNOT set your own prices
+- ✅ The SHOP charges customers (their prices, their system)
+- ✅ The SHOP pays you commission (40-50% of the service price)
+- ✅ You keep 100% of tips
+
+**Why this rule exists:**
+- You're not licensed yet (illegal to charge for services without a license)
+- You're working under the shop's license and insurance
+- The shop is responsible for quality and customer satisfaction
+- The shop is training you and taking on the risk
+
+**After you get your license:**
+- Then you can choose to rent a booth and charge customers directly
+- Or stay as employee and continue earning commission
+- Or open your own shop
+
+---
+
+### "How does the money breakdown work exactly?"
+
+**Let me show you with a real example:**
+
+**Customer walks in and wants a fade - $35**
+
+**Step 1: Customer pays the shop**
+- Customer pays $35 to the shop (cash, card, or app)
+- Money goes into shop's register/system
+
+**Step 2: Shop keeps their portion**
+- Shop keeps 60% = $21
+- This covers: rent, utilities, products, insurance, profit
+
+**Step 3: Shop pays you commission**
+- You earn 40% = $14 commission
+- This goes on your paycheck (paid biweekly or weekly)
+
+**Step 4: Customer tips you**
+- Customer gives you $7 tip (cash or added to card)
+- You keep 100% of tips
+
+**Step 5: You also earn hourly wage**
+- That cut took you 30 minutes
+- You earn $10/hour = $5 for that 30 minutes
+
+**Your total earnings from that one $35 fade:**
+- Hourly wage: $5
+- Commission: $14
+- Tip: $7
+- **Total: $26 for 30 minutes of work**
+
+**Shop's earnings from that same $35 fade:**
+- Revenue: $35
+- Minus your commission: -$14
+- Minus your hourly wage: -$5
+- **Shop keeps: $16**
+
+**Shop uses that $16 to pay:**
+- Rent ($2,000-5,000/month ÷ 160 cuts = $12.50-31.25 per cut)
+- Products ($2-3 per cut)
+- Utilities ($1-2 per cut)
+- Insurance ($1-2 per cut)
+- Profit (whatever's left)
+
+---
+
+### "Does the shop HAVE to pay me?"
+
+**Yes. By law.**
+
+**Federal and Indiana labor laws require:**
+- You must be paid at least minimum wage ($7.25/hour federal, higher in some cities)
+- You must be paid for every hour worked
+- You must receive overtime if you work over 40 hours/week
+- You must receive a paycheck with taxes withheld
+- You must receive a W-2 at tax time
+
+**The shop cannot:**
+- ❌ Make you work for free
+- ❌ Pay you "under the table" without taxes
+- ❌ Withhold your wages
+- ❌ Make you pay them to work there (during apprenticeship)
+
+**If a shop tries to make you work for free or pay booth rent during your apprenticeship, that's illegal. Report it immediately.**
+
+---
+
+### "Are there alternative payment options?"
+
+**Yes. Shops can structure apprentice pay in different ways, but you ALWAYS get paid.**
+
+**IMPORTANT: It's usually EITHER hourly OR commission, not both (except in hybrid models).**
+
+---
+
+## Payment Structure Options
+
+### Option 1: Hourly Wage ONLY (Simple, Guaranteed)
+
+**How it works:**
+- You earn a fixed hourly rate
+- No commission on services
+- You keep 100% of tips
+- Guaranteed income regardless of how many clients you serve
+
+**Typical rates:**
+- $10-12/hour for apprentices
+- $12-15/hour for advanced apprentices (month 9+)
+
+**Example weekly earnings:**
+- 40 hours × $10/hour = $400/week
+- Plus tips: $100-150/week
+- **Total: $500-550/week**
+
+**Pros:**
+- Predictable income
+- Get paid even during slow times
+- Get paid while observing and learning
+- Simple to understand
+
+**Cons:**
+- No upside when you're busy
+- Don't earn more for bringing in clients
+- Lower earning potential
+
+**Best for:**
+- Early apprentices (month 1-6)
+- People who want stable, predictable income
+- Shops that want simple payroll
+
+---
+
+### Option 2: Commission ONLY (Higher Earning Potential)
+
+**How it works:**
+- You earn a percentage of every service you perform
+- No base hourly wage
+- You keep 100% of tips
+- **BUT: Federal law requires minimum wage guarantee**
+
+**Typical commission rates:**
+- 50-60% of service price for apprentices
+- 60-70% for advanced apprentices (month 9+)
+
+**Minimum wage protection:**
+- If your commission doesn't equal minimum wage ($7.25/hour federal), shop must pay the difference
+- Example: You work 40 hours but only earn $200 in commission
+- Minimum wage = 40 hours × $7.25 = $290
+- Shop must pay you an additional $90 to reach minimum wage
+
+**Example weekly earnings:**
+
+**Month 3-6 (10-15 cuts/week):**
+- 12 cuts × $30 average = $360 revenue
+- Your commission (50%) = $180
+- Plus tips: $60
+- **Total: $240/week**
+- **BUT: Minimum wage = $290, so shop pays you $290 + $60 tips = $350/week**
+
+**Month 7-12 (20-25 cuts/week):**
+- 22 cuts × $30 average = $660 revenue
+- Your commission (50%) = $330
+- Plus tips: $110
+- **Total: $440/week** (above minimum wage, so you keep it all)
+
+**Month 13-17 (30-35 cuts/week):**
+- 32 cuts × $32 average = $1,024 revenue
+- Your commission (60%) = $614
+- Plus tips: $160
+- **Total: $774/week**
+
+**Pros:**
+- Higher earning potential
+- Earn more when you're busy
+- Rewarded for bringing in clients
+- Incentive to improve skills
+
+**Cons:**
+- Income varies week to week
+- Slow weeks mean lower pay (but minimum wage protected)
+- More pressure to perform
+- Early months are tough (few clients)
+
+**Best for:**
+- Advanced apprentices (month 6+)
+- People who are motivated by performance pay
+- Apprentices with strong clientele
+
+---
+
+### Option 3: Hybrid Model (Base + Commission)
+
+**How it works:**
+- Lower base hourly wage
+- Plus commission on services
+- You keep 100% of tips
+- Combines stability with upside
+
+**Typical structure:**
+- $7-8/hour base wage
+- Plus 40-50% commission on services
+- Plus 100% of tips
+
+**Example weekly earnings:**
+
+**Month 3-6:**
+- Base: 40 hours × $8/hour = $320
+- Commission: 12 cuts × $30 × 40% = $144
+- Tips: $60
+- **Total: $524/week**
+
+**Month 7-12:**
+- Base: 40 hours × $8/hour = $320
+- Commission: 22 cuts × $30 × 45% = $297
+- Tips: $110
+- **Total: $727/week**
+
+**Month 13-17:**
+- Base: 40 hours × $8/hour = $320
+- Commission: 32 cuts × $32 × 50% = $512
+- Tips: $160
+- **Total: $992/week**
+
+**Pros:**
+- Guaranteed base income
+- Upside from commission
+- Less risky than commission-only
+- Balanced approach
+
+**Cons:**
+- More complex to calculate
+- Lower base than hourly-only
+- Lower commission than commission-only
+
+**Best for:**
+- Most apprentices (month 3+)
+- People who want balance
+- Shops that want to incentivize performance while providing stability
+
+---
+
+### Option 4: Flat Weekly Salary (Very Rare)
+
+**How it works:**
+- Fixed amount per week
+- No hourly tracking
+- No commission
+- You keep 100% of tips
+
+**Typical rates:**
+- $400-600/week for apprentices
+
+**Example weekly earnings:**
+- Salary: $500/week
+- Tips: $100-150/week
+- **Total: $600-650/week**
+
+**Pros:**
+- Extremely predictable
+- No tracking hours or services
+- Simple
+
+**Cons:**
+- No upside for performance
+- Rare to find
+- May not comply with overtime laws if you work over 40 hours
+
+**Best for:**
+- Very rare arrangement
+- Usually only for experienced apprentices
+
+---
+
+### Option 5: Booth Rent Model for Apprentices (VERY RARE - Advanced Only)
+
+**IMPORTANT: This is NOT standard for apprentices. Only available in special circumstances for advanced apprentices who have strong clientele.**
+
+**How it works:**
+- You pay the shop weekly booth rent ($100-200/week for apprentices, less than licensed barbers)
+- You keep 100% of what customers pay you
+- You set your own prices (within shop guidelines)
+- You keep 100% of tips
+- You're still an employee (W-2), not self-employed yet
+
+**Requirements to qualify:**
+- Must have completed at least 1,500 hours (500 or fewer hours remaining)
+- OR must be month 12+ in your apprenticeship
+- Must have 20+ regular clients
+- Must be working at near-professional level
+- Must have shop owner approval
+- Must still complete your remaining hours and 144 theory hours
+- Must still work under supervision (you're not licensed yet)
+
+---
+
+## Special Case: Transfer Students with Advanced Hours
+
+**If you transferred hours from barber school and only have 500 hours left:**
+
+**Example: You completed 1,500 hours at barber school, need 500 more hours**
+
+**You may qualify for booth rent immediately IF:**
+- ✅ You have professional-level skills (verified by shop owner)
+- ✅ You have 20+ regular clients or can build them quickly
+- ✅ You're working at near-licensed level
+- ✅ Shop owner approves
+- ✅ You understand the financial risk
+
+**Why this makes sense:**
+- You've already completed 75% of your training
+- You have professional skills
+- You're only 3-4 months from licensing
+- Booth rent lets you practice running your own business
+- You can earn more than commission if you have strong clientele
+
+**Example timeline:**
+- **Week 1-4:** Start on commission (50-60%) to build clientele at new shop
+- **Week 5+:** Switch to booth rent once you have 15-20 regular clients
+- **Month 3-4:** Complete your 500 hours, take state exam, get licensed
+- **After licensing:** Continue booth rent or negotiate better terms
+
+**Financial comparison for transfer student with 500 hours left:**
+
+**Commission model (50%):**
+- 25 cuts/week × $30 = $750 revenue
+- Your commission: $375
+- Your tips: $150
+- **Total: $525/week × 16 weeks = $8,400**
+
+**Booth rent model:**
+- 25 cuts/week × $30 = $750 revenue
+- Minus rent: -$150
+- Your tips: $150
+- **Total: $750/week × 16 weeks = $12,000**
+
+**Booth rent earns $3,600 more over your remaining 500 hours (16 weeks).**
+
+**BUT: Only if you maintain 25+ clients per week. If you're new to the shop and don't have clients yet, commission is safer.**
+
+---
+
+## Transfer Student Scenarios: Which Payment Model?
+
+### Scenario 1: Transfer with 1,500 hours completed, 500 hours remaining
+
+**Skill level:** Professional (you've completed barber school)  
+**Clientele:** None at new shop (you just transferred)  
+**Time remaining:** 3-4 months
+
+**Recommended payment model:**
+- **Week 1-4:** Commission (50-60%) while you build clientele
+- **Week 5-16:** Booth rent ($150/week) once you have 20+ clients
+
+**Why:**
+- You have the skills, but not the clients yet
+- Commission gives you safety net while building clientele
+- Switch to booth rent once you're busy
+
+---
+
+### Scenario 2: Transfer with 1,000 hours completed, 1,000 hours remaining
+
+**Skill level:** Intermediate (halfway through training)  
+**Clientele:** None at new shop  
+**Time remaining:** 6-8 months
+
+**Recommended payment model:**
+- **Month 1-3:** Hourly ($10/hour) or commission (40-50%)
+- **Month 4-6:** Commission (50-60%)
+- **Month 7-8:** Booth rent ($150/week) if you have 25+ clients
+
+**Why:**
+- You're still developing skills
+- Need time to build clientele
+- Booth rent only makes sense in final months
+
+---
+
+### Scenario 3: Transfer with 500 hours completed, 1,500 hours remaining
+
+**Skill level:** Beginner (just started training)  
+**Clientele:** None  
+**Time remaining:** 12-15 months
+
+**Recommended payment model:**
+- **Month 1-6:** Hourly ($10/hour)
+- **Month 7-12:** Commission (50%)
+- **Month 13-15:** Commission (60%) or booth rent if you have 25+ clients
+
+**Why:**
+- You're still learning
+- Need guaranteed income while developing skills
+- Booth rent only makes sense at the very end
+
+---
+
+### Scenario 4: Transfer with 1,800 hours completed, 200 hours remaining
+
+**Skill level:** Near-professional  
+**Clientele:** May have some from previous shop  
+**Time remaining:** 1-2 months
+
+**Recommended payment model:**
+- **Booth rent immediately ($150/week)** if you have 20+ clients
+- **OR commission (60%)** if you're building clientele
+
+**Why:**
+- You're almost done
+- If you have clients, booth rent maximizes earnings
+- If you don't have clients, commission is safer for short period
+
+---
+
+## Key Decision Factors: Commission vs. Booth Rent for Transfer Students
+
+**Choose COMMISSION if:**
+- ❌ You don't have 20+ regular clients yet
+- ❌ You're new to the shop and building clientele
+- ❌ You're still developing skills
+- ❌ You have more than 6 months remaining
+- ❌ You want guaranteed income
+
+**Choose BOOTH RENT if:**
+- ✅ You have 20+ regular clients
+- ✅ You're working at professional level
+- ✅ You have 500 or fewer hours remaining (3-4 months)
+- ✅ Shop owner approves
+- ✅ You understand the financial risk
+
+---
+
+## How to Negotiate Booth Rent as a Transfer Student
+
+**If you transferred 1,500 hours and only need 500 more:**
+
+**Step 1: Prove your skills**
+- Work on commission for 2-4 weeks
+- Show shop owner your skill level
+- Demonstrate you can handle professional-level work
+
+**Step 2: Build clientele**
+- Get 15-20 regular clients
+- Show consistent bookings
+- Prove you can stay busy
+
+**Step 3: Make your case**
+- "I've completed 1,500 hours of training"
+- "I'm working at professional level"
+- "I have 20 regular clients"
+- "I'd like to switch to booth rent for my remaining 500 hours"
+- "This will help me practice running my own business before I get licensed"
+
+**Step 4: Negotiate terms**
+- Booth rent: $100-150/week (less than licensed barbers pay)
+- Trial period: 2-4 weeks to see if it works
+- Option to switch back to commission if needed
+
+**Step 5: Get it in writing**
+- Written agreement
+- Booth rent amount
+- Payment schedule
+- Terms and conditions
+- Still tracked as apprentice hours
+
+**Example weekly earnings:**
+
+**If you do 25 cuts/week at $30 each:**
+- Revenue: 25 × $30 = $750
+- Minus booth rent: -$150
+- Plus tips: 25 × $6 = $150
+- **Total: $750/week**
+
+**Pros:**
+- Keep 100% of service revenue (after rent)
+- Higher earning potential than commission
+- More independence
+- Set your own schedule (within shop hours)
+- Practice running your own business
+
+**Cons:**
+- You pay rent even on slow weeks
+- Risk: If you don't have enough clients, you lose money
+- No guaranteed income
+- You pay for your own products and tools
+- More responsibility
+
+**Financial risk example:**
+
+**Good week (30 cuts):**
+- Revenue: 30 × $30 = $900
+- Minus rent: -$150
+- Plus tips: $180
+- **Profit: $930**
+
+**Slow week (10 cuts):**
+- Revenue: 10 × $30 = $300
+- Minus rent: -$150
+- Plus tips: $60
+- **Profit: $210** (much less than commission or hourly)
+
+**Very slow week (5 cuts):**
+- Revenue: 5 × $30 = $150
+- Minus rent: -$150
+- Plus tips: $30
+- **Profit: $30** (you barely break even)
+
+---
+
+## Booth Rent for Apprentices: Is It Legal?
+
+**Yes, BUT only under specific conditions:**
+
+**Legal if:**
+- ✅ You're an advanced apprentice (month 12+) with strong clientele
+- ✅ You voluntarily choose this arrangement
+- ✅ You're still tracked as an employee (W-2)
+- ✅ Your hours still count toward your 2,000-hour requirement
+- ✅ You're still supervised by a licensed barber
+- ✅ Shop still provides apprenticeship training and oversight
+
+**Illegal if:**
+- ❌ Shop forces you to pay booth rent from day one
+- ❌ You're early in your apprenticeship (month 1-6)
+- ❌ You don't have enough clients to make it work
+- ❌ Shop doesn't track your hours or provide supervision
+- ❌ Shop treats you as self-employed (1099) before you're licensed
+
+**Why this option exists:**
+- Some advanced apprentices want to practice running their own business
+- Prepares you for renting a booth after licensing
+- Can earn more if you have strong clientele
+- Gives you more control and independence
+
+**Why most apprentices DON'T choose this:**
+- Too risky early on (you don't have clients yet)
+- Commission or hourly is more stable
+- You're still learning, so guaranteed income is better
+- Most shops don't offer this to apprentices
+
+---
+
+## Booth Rent vs. Commission: Which Earns More?
+
+**Let's compare for an advanced apprentice doing 25 cuts/week at $30 each:**
+
+**Commission Model (50%):**
+- Revenue to shop: 25 × $30 = $750
+- Your commission: $375 (50%)
+- Your tips: $150
+- **Total: $525/week**
+
+**Booth Rent Model:**
+- Revenue to you: 25 × $30 = $750
+- Minus booth rent: -$150
+- Your tips: $150
+- **Total: $750/week**
+
+**Booth rent earns $225 more per week IF you have consistent clientele.**
+
+**But if you only do 15 cuts/week:**
+
+**Commission Model:**
+- Your commission: $225 (50% of $450)
+- Your tips: $90
+- **Total: $315/week**
+
+**Booth Rent Model:**
+- Revenue: $450
+- Minus rent: -$150
+- Your tips: $90
+- **Total: $390/week**
+
+**Booth rent still earns more, but the gap is smaller.**
+
+**If you only do 10 cuts/week:**
+
+**Commission Model:**
+- Your commission: $150 (50% of $300)
+- Your tips: $60
+- **Total: $210/week**
+
+**Booth Rent Model:**
+- Revenue: $300
+- Minus rent: -$150
+- Your tips: $60
+- **Total: $210/week**
+
+**Break-even point.**
+
+**If you only do 5 cuts/week:**
+
+**Commission Model:**
+- Your commission: $75 (50% of $150)
+- Your tips: $30
+- **Total: $105/week**
+
+**Booth Rent Model:**
+- Revenue: $150
+- Minus rent: -$150
+- Your tips: $30
+- **Total: $30/week**
+
+**Commission earns WAY more on slow weeks.**
+
+---
+
+## Should You Pay Booth Rent as an Apprentice?
+
+**For most apprentices: NO.**
+
+**Stick with hourly or commission until:**
+- You're month 12+ in your apprenticeship
+- You have 25+ regular clients per week
+- You're confident in your skills
+- You understand the financial risk
+- You want to practice running your own business
+
+**After you get your license:**
+- Then booth rental makes more sense
+- You have full clientele
+- You're experienced
+- You can charge higher prices
+- You're ready to be self-employed
+
+**The safest path:**
+1. Month 1-6: Hourly ($10/hour)
+2. Month 7-12: Commission (50%)
+3. Month 13-17: Commission (60%)
+4. After licensing: Booth rental ($200-300/week) or stay as employee
+
+---
+
+## The Bottom Line: Booth Rent Option
+
+**Yes, there IS an option to pay booth rent and keep 100% of what customers pay you.**
+
+**BUT:**
+- ❌ Not recommended for early apprentices (month 1-11)
+- ❌ Only for advanced apprentices with strong clientele
+- ❌ Risky if you don't have consistent clients
+- ✅ Can earn more IF you have 25+ clients per week
+- ✅ Good practice for running your own business after licensing
+
+**Most apprentices should stick with:**
+- Hourly or commission during apprenticeship
+- Switch to booth rental AFTER getting licensed
+
+---
+
+## Commission Rate Breakdown by Service Type
+
+**If you're on commission-only or hybrid, here's what you typically earn:**
+
+| Service | Shop Charges | Your Commission (50%) | Your Commission (60%) |
+|---------|--------------|----------------------|----------------------|
+| Basic Cut | $25 | $12.50 | $15.00 |
+| Fade/Taper | $30-35 | $15-17.50 | $18-21 |
+| Beard Trim | $15-20 | $7.50-10 | $9-12 |
+| Hot Towel Shave | $35-45 | $17.50-22.50 | $21-27 |
+| Cut + Beard | $40-50 | $20-25 | $24-30 |
+| Kids Cut | $20-25 | $10-12.50 | $12-15 |
+
+**Plus tips (typically 15-20% of service price):**
+- $25 cut → $5 tip
+- $35 fade → $7 tip
+- $45 shave → $9 tip
+
+---
+
+## Which Payment Structure Is Best?
+
+**Month 1-2 (Observation phase):**
+- **Best: Hourly only ($10-12/hour)**
+- You're not cutting yet, so commission doesn't make sense
+- You need guaranteed income while learning
+
+**Month 3-6 (First clients):**
+- **Best: Hourly only OR Hybrid**
+- You're just starting to cut, so commission-only is risky
+- Hybrid gives you stability plus small upside
+
+**Month 7-12 (Building clientele):**
+- **Best: Hybrid OR Commission-only**
+- You're cutting regularly, so commission makes sense
+- Hybrid if you want safety net, commission-only if you're confident
+
+**Month 13-17 (Near-professional):**
+- **Best: Commission-only (60-70%)**
+- You have strong clientele, so commission maximizes earnings
+- You're earning well above minimum wage
+
+---
+
+## Can I Switch Payment Structures?
+
+**Yes, many apprentices start hourly and switch to commission as they progress.**
+
+**Common progression:**
+1. **Month 1-2:** Hourly only ($10/hour)
+2. **Month 3-6:** Hybrid ($8/hour + 40% commission)
+3. **Month 7-12:** Hybrid ($8/hour + 50% commission)
+4. **Month 13-17:** Commission-only (60% commission)
+
+**Talk to your employer about switching when:**
+- You're consistently serving 15+ clients per week
+- Your commission would exceed your hourly wage
+- You're confident in your skills and clientele
+
+---
+
+## The Bottom Line: Payment Structure
+
+**You get paid ONE of these ways:**
+
+1. **Hourly ONLY:** $10-12/hour + tips
+2. **Commission ONLY:** 50-70% of services + tips (minimum wage guaranteed)
+3. **Hybrid:** $7-8/hour + 40-50% commission + tips
+4. **Salary:** $400-600/week + tips (rare)
+
+**You do NOT get:**
+- ❌ Full hourly ($10/hour) AND full commission (50%) on the same services
+- ❌ That would be double-paying
+
+**Exception: Hybrid model**
+- ✅ Lower hourly ($7-8) + commission (40-50%)
+- This is designed to balance out
+
+**All options are legal as long as:**
+- You earn at least minimum wage
+- You're paid for every hour worked
+- Taxes are withheld properly
+- You receive regular paychecks
+
+---
+
+### "What if the shop says I have to pay booth rent as an apprentice?"
+
+**That's illegal. Don't do it.**
+
+**During your apprenticeship:**
+- You're an EMPLOYEE, not a booth renter
+- Employees don't pay rent to their employer
+- The shop must pay YOU, not the other way around
+
+**If a shop asks you to pay booth rent during apprenticeship:**
+1. That shop is NOT following apprenticeship rules
+2. They're likely not an approved apprenticeship sponsor
+3. Your hours won't count toward your license
+4. You won't be eligible for the state exam
+5. You're being scammed
+
+**Booth rental is ONLY for licensed barbers who are self-employed.**
+
+**After you get your license, then you can choose to rent a booth if you want.**
+
+---
+
+### "Can I bring my own clients to the shop?"
+
+**Yes, but the shop still charges them and pays you commission.**
+
+**Here's how it works:**
+
+**Scenario: Your friend wants you to cut his hair**
+
+**During apprenticeship:**
+- Your friend comes to the shop
+- He pays the shop's price ($30)
+- Shop pays you commission ($12)
+- Your friend tips you ($5)
+- **You earn: $12 commission + $5 tip + hourly wage**
+
+**You cannot:**
+- ❌ Charge your friend directly
+- ❌ Cut his hair outside the shop
+- ❌ Set your own price
+- ❌ Keep the full $30
+
+**Why:**
+- You're not licensed yet
+- You're working under the shop's license
+- The shop is liable for your work
+- The shop provides the space, tools, and insurance
+
+**After you get your license and rent a booth:**
+- Then your friend pays YOU directly
+- You keep the full $30 (minus booth rent)
+- You set your own prices
+- You're self-employed
+
+---
+
+### "What if I'm really good and bring in lots of clients? Can I negotiate higher pay?"
+
+**Yes, absolutely.**
+
+**After month 6-9, if you're bringing in strong business:**
+- You can negotiate higher commission (50-60% instead of 40%)
+- You can negotiate higher base wage ($12-15/hour instead of $10)
+- You can negotiate bonuses for hitting targets
+
+**Example negotiation:**
+- "I'm doing 30 cuts per week and bringing in $900/week in revenue"
+- "Can we increase my commission from 40% to 50%?"
+- "That would increase my earnings from $360 to $450 per week"
+
+**Shops want to keep good apprentices:**
+- If you're skilled and bringing in clients, you have leverage
+- Shops would rather pay you more than lose you
+- Negotiating is normal and expected
+
+---
+
+### "Do I pay the shop anything during my apprenticeship?"
+
+**No. Nothing. Zero. Not a penny.**
+
+You do NOT pay:
+- ❌ Booth rent
+- ❌ Chair rental
+- ❌ Product costs
+- ❌ Equipment costs
+- ❌ Training fees (if you have funding)
+- ❌ Facility fees
+- ❌ Anything else
+
+**The shop pays YOU. You don't pay the shop.**
+
+---
+
+### "What if I don't have any clients yet?"
+
+**You still get paid your base hourly wage.**
+
+Even if you're just observing and practicing, you're earning $10/hour. The shop is investing in you.
+
+---
+
+### "What if the shop is slow and there aren't many clients?"
+
+**You still get paid your hourly wage.**
+
+Slow days mean less commission, but your base pay is guaranteed. You can't lose money on a slow day.
+
+---
+
+### "What if I mess up a haircut?"
+
+**You're covered. You still get paid.**
+
+- You're learning
+- Your mentor supervises
+- If there's an issue, the shop handles it (refund, redo, etc.)
+- You still earn your hourly wage
+- You might not get commission on that specific cut if the shop refunds the customer
+- But you don't lose money or get penalized
+
+---
+
+### "Can I work at multiple shops to complete my hours faster?"
+
+**No. You must work at ONE registered apprenticeship sponsor shop.**
+
+- You can't split time between shops
+- You can't work side jobs as a barber (you're not licensed yet)
+- All your hours must be at your registered shop
+- If you leave one shop, you transfer to another approved shop
+
+---
+
+### "What if I want to leave and go to a different shop?"
+
+**You can transfer. Your hours go with you.**
+
+If your employment ends or you want to switch shops:
+1. We help you find a new approved shop
+2. Your completed hours transfer
+3. You continue from where you left off
+4. New shop pays you the same way
+
+---
+
+## The Bottom Line: You ALWAYS Get Paid
+
+**Every scenario, every situation, you're earning money:**
+
+✅ Observing and learning → $10/hour  
+✅ Practicing on mannequins → $10/hour  
+✅ Cutting your first client → $10/hour + commission + tips  
+✅ Building your clientele → $10/hour + commission + tips  
+✅ Slow days → $10/hour guaranteed  
+✅ Busy days → $10/hour + lots of commission + lots of tips  
+
+**You NEVER:**
+❌ Cut hair for free  
+❌ Pay booth rent  
+❌ Pay the shop anything  
+❌ Work without getting paid  
+
+**The shop pays you. Period. That's the law. That's the program.**
+
+---
+
+## The Bottom Line: You're an Employee, Not a Renter
+
+**During your 2,000-hour apprenticeship:**
+- ✅ You're a W-2 employee
+- ✅ The shop pays you ($10/hour + commissions + tips)
+- ✅ The shop provides tools, products, workspace
+- ✅ You pay nothing to the shop
+- ✅ You earn $20,000-30,000+ over 15-17 months
+
+**After you get your license:**
+- Then you choose: stay as employee, rent a chair, or open your own shop
+
+**You're not paying to learn. You're earning while you learn.**
+
+### What if I lose my job at the barbershop?
+
+**We'll help you find a new placement.** If your employment ends (for any reason), we work with you to find another approved shop. Your hours are tracked and transfer with you.
+
+### Do I get benefits like health insurance?
+
+**It depends on the employer.** Some shops offer benefits, some don't. You're an employee, so you're eligible for whatever benefits the shop provides to other employees.
+
+### Can I work part-time?
+
+**The program is designed for full-time (40 hours/week).** Part-time may be possible, but it will take longer to complete your 2,000 hours. Most funding sources require full-time participation.
+
+### What happens if I fail the state exam?
+
+**You can retake it (per Indiana State Board policy).**
+
+**Indiana State Board Exam consists of:**
+1. **Written Exam:** 100 multiple-choice questions
+   - Barbering theory and techniques
+   - Sanitation and safety
+   - Indiana laws and regulations
+   - Passing score: 75% (75 correct answers)
+
+2. **Practical Exam:** Hands-on demonstration
+   - Perform specific cuts and techniques on mannequin
+   - Demonstrate sanitation protocols
+   - Scored by licensed examiner
+   - Passing score: 75%
+
+**If you fail:**
+- You can retake the failed portion (written or practical)
+- Wait time: 30 days before retaking
+- Retake fee: $40 per attempt
+- No limit on number of attempts
+- Your apprenticeship hours remain valid
+
+**Pass rates:**
+- First-time pass rate: Approximately 85-90%
+- Most apprentices pass on first or second attempt
+- Your apprenticeship sponsor provides exam prep
+
+**Exam scheduling:**
+- Contact Indiana State Board: (317) 234-3040
+- Exams held monthly in Indianapolis
+- Schedule 4-6 weeks in advance
+- Bring photo ID and exam confirmation
+
+### Can I start my own shop right after getting licensed?
+
+**Technically yes, but it's not recommended.** You'll need business licenses, insurance, equipment, and startup capital. Most graduates work for a shop or rent a chair for 1-2 years before opening their own business.
+
+### Is this program only for people with funding?
+
+**No.** You can self-pay ($4,980) if you don't qualify for WIOA, WRG, or JRI funding. Employer sponsorship is also an option (employer pays the curriculum cost).
+
+### How many hours can I work per week?
+
+**Maximum 40-50 hours/week at the shop.** Plus 3-4 hours/week for online theory classes. You can't rush through the program—it takes 15-17 months minimum to complete all requirements.
+
+### What if I have a criminal record?
+
+**You may still qualify.** Background checks are required, but many shops work with justice-involved individuals. JRI funding is specifically designed for people with criminal records. Be honest on your application.
+
+---
+
+## This Is Your Chance
+
+"I was working dead-end jobs, barely making rent," Marcus says. "I didn't think I had options. Then I found this program. It changed everything."
+
+Indiana opened a door that didn't exist before. You can become a licensed barber without debt, while earning money, and building a real career.
+
+You don't need perfect circumstances. You don't need money saved up. You don't need connections.
+
+You just need to show up, put in the work, and be willing to learn.
+
+**Marcus did it. Sarah's doing it right now. You can too.**
+
+Ready to start?
 
 ## Who This Is For
 
@@ -319,7 +4402,7 @@ Ready to start?`,
       'JRI Funding Available',
     ],
     fundingOptions: [
-      '100% Employer-Paid (typical $6,500 curriculum cost)',
+      '100% Employer-Paid curriculum cost',
       'WIOA Funding',
       'Workforce Ready Grant',
       'JRI Funding for Justice-Involved Individuals',
@@ -327,7 +4410,7 @@ Ready to start?`,
     ],
     highlights: [
       'Earn while you learn - get paid $10/hour plus commissions from day one',
-      'Zero tuition - employers pay your $6,500 curriculum cost',
+      'Zero tuition - employers pay your curriculum cost',
       'Skip $25,000 barber school debt - graduate debt-free',
       'Build your clientele during training - graduate with customers who know you',
       'Real experience - 2,000 hours working with actual clients in professional shops',
@@ -462,9 +4545,9 @@ Career Outcomes:
     name: "Commercial Driver's License (CDL)",
     heroTitle: 'CDL — Commercial Driver Training',
     heroSubtitle:
-      'Get your Commercial Driver\'s License and start earning $50,000-$70,000+ per year. Professional CDL training prepares you for Class A or Class B licensing in just weeks. Trucking companies are desperate for drivers—many offer sign-on bonuses, benefits, and tuition reimbursement.',
+      "Get your Commercial Driver's License and start earning $50,000-$70,000+ per year. Professional CDL training prepares you for Class A or Class B licensing in just weeks. Trucking companies are desperate for drivers—many offer sign-on bonuses, benefits, and tuition reimbursement.",
     shortDescription:
-      'Get your Commercial Driver\'s License and start earning $50,000-$70,000+ per year. Professional CDL training prepares you for Class A or Class B licensing in just weeks. Trucking companies are desperate for drivers—many offer sign-on bonuses, benefits, and tuition reimbursement.',
+      "Get your Commercial Driver's License and start earning $50,000-$70,000+ per year. Professional CDL training prepares you for Class A or Class B licensing in just weeks. Trucking companies are desperate for drivers—many offer sign-on bonuses, benefits, and tuition reimbursement.",
     longDescription: `The CDL program builds the knowledge and skills required to safely operate commercial vehicles. Students receive classroom instruction along with hands-on yard and road training. This pathway is ideal for adults seeking stable income, benefits, and long-term growth in logistics and transportation.
 
 What You'll Learn:
@@ -1216,6 +5299,1235 @@ CIP Code: 51.0999 - Allied Health Diagnostic, Intervention, and Treatment Profes
     price: 4700,
   },
   {
+    slug: 'esthetician-apprenticeship',
+    name: 'Esthetician Apprenticeship',
+    heroTitle:
+      'Indiana Esthetician Apprenticeship - Licensed Esthetician Training',
+    heroSubtitle:
+      'Become a licensed esthetician through on-the-job training at a spa or salon. Unlike the barber apprenticeship, esthetician apprenticeships in Indiana require partnership with a licensed cosmetology school.',
+    shortDescription:
+      'Earn your Indiana esthetician license through apprenticeship. Work at a spa/salon while completing required instruction hours through a partnered cosmetology school. Different requirements than barber apprenticeship.',
+    longDescription: `## IMPORTANT: Esthetician Apprenticeship Is Different from Barber Apprenticeship
+
+**Unlike the barber apprenticeship (which has House Bill 1135 and 1320), there is NO similar legislation for esthetician apprenticeships in Indiana.**
+
+Esthetician apprenticeships in Indiana follow **different rules** set by the Indiana Professional Licensing Agency and Indiana State Board of Cosmetology and Barber Examiners.
+
+---
+
+## How Esthetician Apprenticeship Works in Indiana
+
+### The Key Difference: School Partnership Required
+
+**Barber Apprenticeship:**
+- Shop can sponsor apprentice directly
+- 144 hours of theory can be done online
+- Shop handles all training
+
+**Esthetician Apprenticeship:**
+- ❌ Spa/salon CANNOT sponsor apprentice alone
+- ✅ Must partner with a licensed cosmetology school
+- ✅ School provides required classroom instruction
+- ✅ Spa/salon provides practical training
+- Split model: School + Workplace
+
+---
+
+## Indiana Esthetician Licensing Requirements
+
+**To become a licensed esthetician in Indiana, you must complete:**
+
+**Option 1: Traditional Cosmetology School**
+- 700 hours at a licensed cosmetology school
+- All instruction at the school
+- Graduate and take state board exam
+
+**Option 2: Apprenticeship (School + Spa Partnership)**
+- 700 hours total training
+- Split between licensed school and approved spa/salon
+- Typically: 350 hours classroom + 350 hours practical
+- Must be coordinated by licensed cosmetology school
+- Graduate and take state board exam
+
+---
+
+## Requirements for Esthetician Apprenticeship
+
+### For Students
+
+**You must:**
+- ✅ Be at least 17 years old (Indiana Code 25-8-3-3)
+- ✅ Have high school diploma or GED
+- ✅ Enroll in a licensed Indiana cosmetology school
+- ✅ School arranges apprenticeship placement with approved spa/salon
+- ✅ Complete 700 hours total (classroom + practical)
+- ✅ Pass Indiana State Board esthetician exam
+
+**You cannot:**
+- ❌ Start apprenticeship without school enrollment
+- ❌ Work at any spa/salon (must be school-approved)
+- ❌ Complete training without licensed instructor supervision
+
+---
+
+### For Spas/Salons (Program Holders)
+
+**To host esthetician apprentices, your spa/salon must:**
+
+**1. Partner with Licensed Cosmetology School**
+- ✅ Must have formal agreement with Indiana-licensed cosmetology school
+- ✅ School coordinates apprenticeship program
+- ✅ School provides curriculum and oversight
+- ✅ School tracks student hours
+- ✅ School certifies completion
+
+**2. Meet Facility Requirements**
+- ✅ Licensed by Indiana State Board of Cosmetology
+- ✅ Proper equipment for esthetician services
+- ✅ Sanitation and safety standards met
+- ✅ Adequate workspace for apprentice training
+
+**3. Have Licensed Supervision**
+- ✅ Must have licensed esthetician on staff with 2+ years experience
+- ✅ Licensed esthetician must supervise all apprentice work
+- ✅ Cannot leave apprentice unsupervised with clients
+
+**4. Follow School's Training Plan**
+- ✅ Provide practical training per school's curriculum
+- ✅ Track apprentice hours and report to school
+- ✅ Allow school inspections and oversight
+- ✅ Ensure apprentice meets competency standards
+
+---
+
+## The Process: Step-by-Step
+
+### Step 1: Enroll in Licensed Cosmetology School
+
+**You must start here:**
+- Find an Indiana-licensed cosmetology school that offers esthetician apprenticeship programs
+- Not all schools offer apprenticeship options (most do traditional 700-hour programs)
+- Enroll in their esthetician program
+- Pay tuition to the school (funding may be available through WIOA, WRG)
+
+**Schools that may offer apprenticeship options:**
+- Contact Indiana cosmetology schools directly
+- Ask: "Do you offer esthetician apprenticeship programs with spa/salon partnerships?"
+
+---
+
+### Step 2: School Arranges Apprenticeship Placement
+
+**The school (not you) coordinates:**
+- School has agreements with approved spas/salons
+- School matches you with a placement
+- School ensures spa/salon meets requirements
+- School creates training schedule (classroom + practical hours)
+
+**Typical split:**
+- 350 hours classroom instruction at school
+- 350 hours practical training at spa/salon
+- OR other combinations totaling 700 hours
+
+---
+
+### Step 3: Complete Classroom Instruction
+
+**At the cosmetology school:**
+- Skin anatomy and physiology
+- Facial treatments and techniques
+- Hair removal (waxing, threading)
+- Makeup application
+- Sanitation and safety
+- Indiana laws and regulations
+- Client consultation
+- Business and ethics
+
+**Instruction must be provided by:**
+- Licensed cosmetology instructor
+- At licensed cosmetology school facility
+- Following Indiana-approved curriculum
+
+---
+
+### Step 4: Complete Practical Training at Spa/Salon
+
+**At your apprenticeship placement:**
+- Work under supervision of licensed esthetician
+- Perform services on real clients
+- Practice techniques learned in school
+- Build skills and confidence
+- Earn money (if spa pays apprentices)
+
+**Supervision requirements:**
+- Licensed esthetician must be present
+- Apprentice cannot work alone with clients
+- All work must be supervised until licensed
+
+---
+
+### Step 5: School Certifies Completion
+
+**When you complete 700 hours:**
+- School verifies all hours (classroom + practical)
+- School submits completion documentation to Indiana State Board
+- You receive certificate of completion from school
+- You're eligible to take state board exam
+
+---
+
+### Step 6: Take State Board Exam
+
+**Indiana State Board of Cosmetology and Barber Examiners:**
+- Written exam (theory, laws, safety)
+- Practical exam (demonstrate esthetician skills)
+- Passing score: 75%
+- Exam fee: Approximately $100-150
+
+**Once you pass:**
+- Apply for Indiana esthetician license
+- License fee: Approximately $50
+- Valid for 2 years
+- Renewable with continuing education
+
+---
+
+## Payment and Wages: The Critical Difference from Barber Apprenticeship
+
+### Barber Apprenticeship vs. Esthetician Apprenticeship Payment
+
+**BARBER APPRENTICESHIP (House Bill 1135/1320):**
+- ✅ You're an EMPLOYEE from day one
+- ✅ Shop pays you $10/hour + commissions + tips
+- ✅ You earn $20,000-$30,000 while training
+- ✅ Funding (WIOA/WRG/JRI) covers your RTI curriculum
+- ✅ You pay NOTHING for training
+- ✅ You graduate debt-free with money in your pocket
+
+**ESTHETICIAN APPRENTICESHIP (Traditional Cosmetology Rules):**
+- ❌ You're a STUDENT, not an employee (usually)
+- ❌ You pay tuition to the school ($5,000-$12,000)
+- ❌ Most spas don't pay you during training
+- ✅ Funding (WIOA/WRG) can cover tuition
+- ❌ You typically don't earn wages during training
+- ✅ You graduate with license but no earnings from training
+
+**This is the BIGGEST difference between the two programs.**
+
+---
+
+## Esthetician Apprenticeship Payment Scenarios
+
+### Scenario 1: Traditional Student Model (Most Common - 90% of programs)
+
+**How it works:**
+- You enroll in cosmetology school as a student
+- You pay tuition: $5,000-$12,000 for 700-hour program
+- School arranges your spa placement
+- You work at spa as part of your training
+- **Spa does NOT pay you wages**
+- You're gaining experience and completing required hours
+
+**Your costs:**
+- Tuition: $5,000-$12,000 (can be covered by WIOA/WRG)
+- Books and supplies: $500-$1,000
+- State board exam: $100-$150
+- License fee: $50
+
+**Your earnings during training:**
+- $0 from spa/salon
+- You may work another job to support yourself
+- Tips from clients (if spa allows): $0-$100/week
+
+**Example weekly schedule:**
+- Monday-Tuesday: Classroom at school (no pay)
+- Wednesday-Friday: Practical training at spa (no pay)
+- Saturday-Sunday: Work another job to pay bills
+
+**Total time:** 6-12 months depending on full-time or part-time
+
+**Financial outcome:**
+- Spent: $5,000-$12,000 (or $0 if funded)
+- Earned: $0 during training
+- After licensing: Earn $30,000-$50,000/year
+
+---
+
+### Scenario 2: Paid Apprenticeship Model (Rare - 5% of programs)
+
+**How it works:**
+- You enroll in cosmetology school as a student
+- You pay tuition: $5,000-$12,000
+- School arranges placement with spa that pays apprentices
+- **Spa pays you minimum wage ($7.25-$10/hour)**
+- You're both student AND employee
+
+**Your costs:**
+- Tuition: $5,000-$12,000 (can be covered by WIOA/WRG)
+- Books and supplies: $500-$1,000
+- State board exam: $100-$150
+- License fee: $50
+
+**Your earnings during training:**
+- Hourly wage: $7.25-$10/hour
+- 20-30 hours/week at spa = $145-$300/week
+- Tips from clients: $20-$50/week
+- **Total: $165-$350/week**
+
+**Example weekly schedule:**
+- Monday-Tuesday: Classroom at school (no pay)
+- Wednesday-Friday: Work at spa (get paid $8/hour)
+- 25 hours/week × $8 = $200/week
+- Over 6 months: $200 × 26 weeks = $5,200 earned
+
+**Financial outcome:**
+- Spent: $5,000-$12,000 tuition (or $0 if funded)
+- Earned: $5,000-$8,000 during training
+- After licensing: Earn $30,000-$50,000/year
+
+**Why this is rare:**
+- Most spas don't want to pay students who are still learning
+- Liability concerns (student mistakes)
+- Prefer to hire licensed estheticians
+
+---
+
+### Scenario 3: Work-Study or Tuition Offset Model (Very Rare - 5% of programs)
+
+**How it works:**
+- School partners with spa for special arrangement
+- Spa agrees to cover part or all of your tuition
+- You work at spa during training (unpaid or low wage)
+- In exchange, spa pays your school tuition
+
+**Your costs:**
+- Tuition: $0 (spa pays school directly)
+- Books and supplies: $500-$1,000
+- State board exam: $100-$150
+- License fee: $50
+
+**Your earnings during training:**
+- Hourly wage: $0-$7/hour (varies)
+- Tips from clients: $20-$50/week
+- **Total: $20-$100/week**
+
+**The trade-off:**
+- You don't pay tuition
+- But you also don't earn much during training
+- Spa invests in you with expectation you'll work there after licensing
+
+**Financial outcome:**
+- Spent: $0 tuition (spa covers)
+- Earned: $1,000-$3,000 during training
+- After licensing: Must work at spa for 1-2 years (typically)
+
+---
+
+## Side-by-Side Comparison: Barber vs. Esthetician Apprenticeship
+
+| Factor | Barber Apprenticeship | Esthetician Apprenticeship |
+|--------|----------------------|---------------------------|
+| **Legislation** | House Bill 1135 & 1320 | Traditional cosmetology rules |
+| **School Required?** | No (shop can sponsor directly) | Yes (must partner with school) |
+| **Your Status** | Employee | Student (usually) |
+| **Wages During Training** | $10/hour + commissions + tips | Usually $0 (student model) |
+| **Tuition Cost** | $0 (funding covers RTI) | $5,000-$12,000 (can be funded) |
+| **Earnings During Training** | $20,000-$30,000 | $0-$8,000 (if paid model) |
+| **Training Hours** | 2,000 hours OJT + 144 RTI | 700 hours total |
+| **Training Duration** | 15-17 months | 6-12 months |
+| **Who Pays You** | Barbershop (employer) | Usually no one (you're student) |
+| **Commission on Services** | Yes (40-60%) | No (you're student) |
+| **Tips** | Yes (100%) | Maybe (if spa allows) |
+| **Booth Rent Option** | Yes (month 12+) | No (not until licensed) |
+| **Financial Outcome** | Graduate with $20k-$30k earned | Graduate with $0-$8k earned |
+| **Debt** | $0 (no tuition) | $0 if funded, $5k-$12k if not |
+
+---
+
+## Can Esthetician Apprentices Earn While They Learn?
+
+**Short answer: Usually no, but it depends on the spa and school arrangement.**
+
+### Why Most Esthetician Apprentices Don't Get Paid
+
+**1. You're a student, not an employee**
+- Cosmetology schools treat apprentices as students
+- Students pay tuition, they don't earn wages
+- This is standard in cosmetology education
+
+**2. Liability and insurance**
+- Spas are nervous about unlicensed students working on clients
+- Insurance may not cover student mistakes
+- Easier to have students observe and practice, not earn money
+
+**3. Shorter training period**
+- 700 hours vs. 2,000 hours for barbers
+- 6-12 months vs. 15-17 months
+- Spas see it as short-term training, not long-term employment
+
+**4. No legislation requiring payment**
+- Barber apprenticeship has laws requiring employment status
+- Esthetician apprenticeship has no such laws
+- Schools and spas follow traditional student model
+
+---
+
+## How to Find a PAID Esthetician Apprenticeship
+
+**If you want to earn while you learn, here's how:**
+
+**Step 1: Ask cosmetology schools directly**
+- "Do you have any spa partners that pay apprentices?"
+- "Are there work-study or paid apprenticeship options?"
+- "Can I work part-time at the spa while training?"
+
+**Step 2: Look for spas with apprenticeship programs**
+- Some high-end spas invest in training their own estheticians
+- They may pay minimum wage during training
+- In exchange, you commit to working there after licensing
+
+**Step 3: Negotiate with the spa**
+- If school places you at a spa, ask about payment
+- "Is there any compensation during my apprenticeship?"
+- "Can I earn tips from clients I serve?"
+- Some spas may offer small stipend or tip-sharing
+
+**Step 4: Consider hybrid approach**
+- Work part-time at another job while doing apprenticeship
+- Do apprenticeship part-time (takes longer but you can work)
+- Save money before starting program
+
+---
+
+## Funding Options to Cover Tuition
+
+**The instructional portion (classroom hours at cosmetology school) can be 100% funded through WIOA or Workforce Ready Grant.**
+
+### WIOA Funding (Workforce Innovation and Opportunity Act)
+
+**Who qualifies:**
+- Low-income adults
+- Dislocated workers
+- Youth ages 16-24
+
+**What WIOA covers for esthetician apprenticeship:**
+- ✅ Full tuition for 700-hour esthetician program ($5,000-$12,000)
+- ✅ Books and supplies
+- ✅ State board exam fees
+- ✅ License application fee
+- ✅ Support services (transportation, childcare if eligible)
+
+**What WIOA does NOT cover:**
+- ❌ Your wages at spa/salon (most spas don't pay apprentices)
+- ❌ Your living expenses during training
+
+**How it works:**
+1. Apply for WIOA through Indiana Career Connect at [IndianaCareerConnect.com](https://www.indianacareerconnect.com)
+2. WIOA approves your funding
+3. WIOA pays the cosmetology school directly for your tuition
+4. You enroll in school's esthetician apprenticeship program
+5. School arranges your spa placement
+6. You complete 700 hours (classroom + practical)
+7. You pay $0 out of pocket for training
+
+**Application process:**
+- Create Indiana Career Connect account
+- Complete WIOA application
+- Meet with career counselor
+- Provide income documentation
+- Get approved (typically 2-4 weeks)
+- Enroll in approved cosmetology school
+
+---
+
+### Workforce Ready Grant (WRG)
+
+**Who qualifies:**
+- Indiana residents
+- Pursuing high-demand careers (esthetician qualifies)
+- Any income level (no income restrictions like WIOA)
+
+**What WRG covers:**
+- ✅ Full tuition for 700-hour esthetician program
+- ✅ Books and fees
+
+**What WRG does NOT cover:**
+- ❌ Your wages at spa/salon
+- ❌ Support services (transportation, childcare)
+
+**How it works:**
+1. Apply through your local WorkOne office
+2. Find locations at [WorkOne.in.gov](https://www.in.gov/dwd/workone/)
+3. WRG approves your funding
+4. WRG pays the cosmetology school directly
+5. You enroll and complete training
+6. You pay $0 out of pocket
+
+**Application process:**
+- Visit local WorkOne office
+- Complete WRG application
+- Provide proof of Indiana residency
+- Get approved (typically 1-2 weeks)
+- Enroll in approved cosmetology school
+
+---
+
+### Federal Student Aid (FAFSA)
+
+**If you don't qualify for WIOA or WRG:**
+- Some cosmetology schools accept federal student aid
+- Complete FAFSA at [studentaid.gov](https://studentaid.gov)
+- Pell Grants may cover tuition (no repayment required)
+- Federal student loans available (must be repaid)
+
+**Pros:**
+- Available to most students
+- Pell Grants don't need to be repaid
+
+**Cons:**
+- Student loans create debt
+- Not all cosmetology schools accept FAFSA
+
+---
+
+### School Payment Plans
+
+**If you don't qualify for any funding:**
+- Most cosmetology schools offer payment plans
+- Pay $200-$500/month over 12-24 months
+- No interest or low interest
+- Start training while making payments
+
+---
+
+### JRI Funding (Justice Reinvestment Initiative)
+
+**For justice-involved individuals:**
+- JRI covers full tuition for esthetician training
+- Plus wraparound support services
+- Apply through probation officer or reentry program
+- See JRI section in barber apprenticeship for details
+
+---
+
+## The Bottom Line: Funding for Esthetician Apprenticeship
+
+**The instructional portion (classroom training at cosmetology school) is 100% funded through:**
+- WIOA (most common)
+- Workforce Ready Grant
+- JRI (for justice-involved individuals)
+- Federal Student Aid (Pell Grants)
+
+**You pay $0 out of pocket for the instructional portion if you qualify for funding.**
+
+**However:**
+- Most spas don't pay you wages during apprenticeship
+- You're responsible for your living expenses
+- You may need to work another job while training
+
+**With WIOA or WRG funding, your only costs are:**
+- Living expenses (rent, food, transportation)
+- Time commitment (6-12 months)
+
+**After licensing, you earn $30,000-$50,000/year as a licensed esthetician.**
+
+---
+
+## After You Get Licensed: Earning Potential
+
+**Once you're a licensed esthetician:**
+
+### Employment Options
+
+**Option 1: Spa/Salon Employee**
+- Hourly wage: $12-$18/hour
+- Commission: 30-50% of services
+- Tips: 15-20% of service price
+- Benefits: Some spas offer health insurance, PTO
+- **Annual earnings: $30,000-$45,000**
+
+**Option 2: Commission-Only**
+- Commission: 50-60% of services
+- Tips: 100%
+- No base wage
+- **Annual earnings: $35,000-$50,000** (if busy)
+
+**Option 3: Booth Rental**
+- Pay $100-$300/week rent
+- Keep 100% of service revenue
+- Keep 100% of tips
+- **Annual earnings: $40,000-$70,000** (if strong clientele)
+
+**Option 4: Mobile Esthetician**
+- Travel to clients' homes
+- Set your own prices
+- Keep 100% of revenue
+- **Annual earnings: $35,000-$60,000** (varies widely)
+
+---
+
+## The Bottom Line: Payment Differences
+
+**Barber Apprenticeship:**
+- You're an employee earning $20,000-$30,000 while training
+- No tuition cost
+- Graduate debt-free with money saved
+
+**Esthetician Apprenticeship:**
+- You're a student paying $5,000-$12,000 tuition (or $0 with funding)
+- Usually no wages during training
+- Graduate with license but no earnings from training
+
+**Why the difference?**
+- Barber apprenticeship has specific legislation (HB 1135/1320)
+- Esthetician apprenticeship follows traditional cosmetology education model
+- Until similar legislation passes for estheticians, this is how it works
+
+**Our recommendation:**
+- Apply for WIOA or Workforce Ready Grant to cover tuition
+- Look for paid apprenticeship opportunities (rare but exist)
+- Work part-time while training to support yourself
+- Focus on getting licensed quickly, then earn good money as licensed esthetician
+
+---
+
+## Funding Options
+
+**Tuition for 700-hour esthetician program:**
+- Typically $5,000-$12,000 depending on school
+- Apprenticeship programs may cost less than traditional programs
+
+**Funding available:**
+- **WIOA:** Covers tuition for eligible students
+- **Workforce Ready Grant:** Covers tuition for Indiana residents
+- **Federal Student Aid:** Some schools accept FAFSA
+- **Payment plans:** Most schools offer monthly payments
+
+---
+
+## Current Status in Indiana
+
+**As of 2025:**
+- ❌ No legislation like House Bill 1135/1320 for estheticians
+- ❌ No standalone esthetician apprenticeship without school
+- ✅ Apprenticeship must be coordinated by licensed cosmetology school
+- ✅ School + spa partnership model is the only option
+
+**Advocacy efforts:**
+- Some industry groups are working toward legislation similar to barber apprenticeship
+- No bills currently pending
+- Until legislation passes, school partnership is required
+
+---
+
+## How We Can Help
+
+**For Students:**
+- Connect you with cosmetology schools offering apprenticeship programs
+- Help you apply for WIOA or Workforce Ready Grant funding
+- Provide career counseling and support
+
+**For Spas/Salons:**
+- Connect you with cosmetology schools seeking spa partners
+- Help you understand requirements for hosting apprentices
+- Provide guidance on partnership agreements
+
+**Contact us:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+---
+
+## FAQs
+
+### "Why can't I do esthetician apprenticeship like barber apprenticeship?"
+
+**Because Indiana law is different for estheticians.**
+- Barber apprenticeship has specific legislation (HB 1135, HB 1320)
+- Esthetician apprenticeship follows older cosmetology rules
+- Cosmetology rules require licensed school involvement
+- Until new legislation passes, school partnership is required
+
+### "Can I work at a spa and count those hours toward my license?"
+
+**No, not without school enrollment.**
+- Hours only count if you're enrolled in licensed cosmetology school
+- School must coordinate and verify your hours
+- Working at a spa without school enrollment doesn't count
+
+### "Do I have to go to school full-time?"
+
+**Depends on the school's apprenticeship program.**
+- Some schools offer part-time apprenticeship options
+- You attend school part-time + work at spa part-time
+- Takes longer but allows you to work
+- Ask schools about their apprenticeship schedules
+
+### "Can I transfer hours from another state?"
+
+**Maybe, depends on the state.**
+- Contact Indiana State Board of Cosmetology
+- Submit transcripts from your previous school
+- Board evaluates and approves eligible hours
+- You complete remaining hours in Indiana
+
+---
+
+## Contact Information
+
+**Indiana State Board of Cosmetology and Barber Examiners**
+- Phone: (317) 234-3040
+- Address: 402 W. Washington St., Room W072, Indianapolis, IN 46204
+- Website: [in.gov/pla/professions/cosmetology-board](https://www.in.gov/pla/professions/cosmetology-board/)
+
+**For questions about esthetician apprenticeship, ask:**
+- "Which cosmetology schools offer esthetician apprenticeship programs?"
+- "What are the requirements for spa/salon partnerships?"
+- "How do I transfer hours from another state?"
+
+---
+
+**Bottom Line:** Esthetician apprenticeship in Indiana requires partnership with a licensed cosmetology school. You cannot do it independently like the barber apprenticeship.`,
+    heroImage: '/images/programs/esthetician-apprentice.jpg',
+    heroImageAlt:
+      'Esthetician apprentice performing facial treatment under supervision',
+    duration: '700 hours (6-12 months depending on schedule)',
+    schedule: 'Varies by school and spa partnership',
+    delivery:
+      'Hybrid: Classroom instruction at school + Practical training at spa/salon',
+    credential: 'Indiana Licensed Esthetician (upon passing state board exam)',
+    approvals: [
+      'Must be coordinated by Indiana-licensed cosmetology school',
+      'Indiana State Board of Cosmetology approved',
+      'WIOA Eligible (for tuition)',
+      'Workforce Ready Grant Eligible (for tuition)',
+    ],
+    fundingOptions: [
+      'WIOA Funding (covers tuition)',
+      'Workforce Ready Grant (covers tuition)',
+      'Federal Student Aid (if school accepts FAFSA)',
+      'School payment plans',
+    ],
+    highlights: [
+      'Earn Indiana esthetician license through apprenticeship',
+      'Work at real spa/salon while training',
+      'Must partner with licensed cosmetology school',
+      'Different from barber apprenticeship (school required)',
+      '700 hours total training',
+      'Funding available through WIOA and WRG',
+      'Licensed supervision required',
+      'Graduate eligible for state board exam',
+    ],
+    whatYouLearn: [
+      'Skin anatomy and physiology',
+      'Facial treatments and procedures',
+      'Hair removal techniques (waxing, threading)',
+      'Makeup application',
+      'Sanitation and infection control',
+      'Client consultation and communication',
+      'Indiana esthetician laws and regulations',
+      'Business and professional ethics',
+      'Product knowledge and retail sales',
+      'Spa operations and customer service',
+    ],
+    outcomes: [
+      'Licensed Esthetician in Indiana',
+      'Spa esthetician',
+      'Salon skincare specialist',
+      'Medical spa esthetician',
+      'Mobile esthetician (self-employed)',
+      'Skincare product sales',
+      'Average salary: $30,000-$50,000/year',
+      'Self-employment potential',
+    ],
+    requirements: [
+      'At least 17 years old',
+      'High school diploma or GED',
+      'Enroll in Indiana-licensed cosmetology school',
+      'School arranges apprenticeship placement',
+      'Complete 700 hours (classroom + practical)',
+      'Pass Indiana State Board esthetician exam',
+    ],
+    ctaPrimary: {
+      label: 'Contact Us',
+      href: '/contact?topic=esthetician-apprenticeship',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact',
+    },
+  },
+  {
+    slug: 'nail-technician-apprenticeship',
+    name: 'Nail Technician Apprenticeship',
+    heroTitle:
+      'Indiana Nail Technician Apprenticeship - Licensed Manicurist Training',
+    heroSubtitle:
+      'Become a licensed nail technician through on-the-job training at a salon. Like esthetician apprenticeship, nail tech apprenticeships in Indiana require partnership with a licensed cosmetology school.',
+    shortDescription:
+      'Earn your Indiana nail technician license through apprenticeship. Work at a salon while completing required instruction hours through a partnered cosmetology school. WIOA funding covers instructional costs.',
+    longDescription: `## IMPORTANT: Nail Technician Apprenticeship Is Different from Barber Apprenticeship
+
+**Unlike the barber apprenticeship (which has House Bill 1135 and 1320), there is NO similar legislation for nail technician apprenticeships in Indiana.**
+
+Nail technician apprenticeships in Indiana follow **different rules** set by the Indiana Professional Licensing Agency and Indiana State Board of Cosmetology and Barber Examiners.
+
+**This is the SAME model as esthetician apprenticeship—school partnership required.**
+
+---
+
+## How Nail Technician Apprenticeship Works in Indiana
+
+### The Key Difference: School Partnership Required
+
+**Barber Apprenticeship:**
+- Shop can sponsor apprentice directly
+- 144 hours of theory can be done online
+- Shop handles all training
+
+**Nail Technician Apprenticeship:**
+- ❌ Salon CANNOT sponsor apprentice alone
+- ✅ Must partner with a licensed cosmetology school
+- ✅ School provides required classroom instruction
+- ✅ Salon provides practical training
+- Split model: School + Workplace
+
+---
+
+## Indiana Nail Technician Licensing Requirements
+
+**To become a licensed nail technician in Indiana, you must complete:**
+
+**Option 1: Traditional Cosmetology School**
+- 450 hours at a licensed cosmetology school
+- All instruction at the school
+- Graduate and take state board exam
+
+**Option 2: Apprenticeship (School + Salon Partnership)**
+- 450 hours total training
+- Split between licensed school and approved salon
+- Typically: 225 hours classroom + 225 hours practical
+- Must be coordinated by licensed cosmetology school
+- Graduate and take state board exam
+
+---
+
+## Requirements for Nail Technician Apprenticeship
+
+### For Students
+
+**You must:**
+- ✅ Be at least 17 years old (Indiana Code 25-8-3-3)
+- ✅ Have high school diploma or GED
+- ✅ Enroll in a licensed Indiana cosmetology school
+- ✅ School arranges apprenticeship placement with approved salon
+- ✅ Complete 450 hours total (classroom + practical)
+- ✅ Pass Indiana State Board nail technician exam
+
+**You cannot:**
+- ❌ Start apprenticeship without school enrollment
+- ❌ Work at any salon (must be school-approved)
+- ❌ Complete training without licensed instructor supervision
+
+---
+
+### For Salons (Program Holders)
+
+**To host nail technician apprentices, your salon must:**
+
+**1. Partner with Licensed Cosmetology School**
+- ✅ Must have formal agreement with Indiana-licensed cosmetology school
+- ✅ School coordinates apprenticeship program
+- ✅ School provides curriculum and oversight
+- ✅ School tracks student hours
+- ✅ School certifies completion
+
+**2. Meet Facility Requirements**
+- ✅ Licensed by Indiana State Board of Cosmetology
+- ✅ Proper equipment for nail services
+- ✅ Sanitation and safety standards met
+- ✅ Adequate workspace for apprentice training
+- ✅ Proper ventilation for nail products
+
+**3. Have Licensed Supervision**
+- ✅ Must have licensed nail technician on staff with 2+ years experience
+- ✅ Licensed nail tech must supervise all apprentice work
+- ✅ Cannot leave apprentice unsupervised with clients
+
+**4. Follow School's Training Plan**
+- ✅ Provide practical training per school's curriculum
+- ✅ Track apprentice hours and report to school
+- ✅ Allow school inspections and oversight
+- ✅ Ensure apprentice meets competency standards
+
+---
+
+## The Process: Step-by-Step
+
+### Step 1: Enroll in Licensed Cosmetology School
+
+**You must start here:**
+- Find an Indiana-licensed cosmetology school that offers nail technician apprenticeship programs
+- Not all schools offer apprenticeship options (most do traditional 450-hour programs)
+- Enroll in their nail technician program
+- **WIOA or Workforce Ready Grant covers tuition**
+
+**Schools that may offer apprenticeship options:**
+- Contact Indiana cosmetology schools directly
+- Ask: "Do you offer nail technician apprenticeship programs with salon partnerships?"
+
+---
+
+### Step 2: School Arranges Apprenticeship Placement
+
+**The school (not you) coordinates:**
+- School has agreements with approved salons
+- School matches you with a placement
+- School ensures salon meets requirements
+- School creates training schedule (classroom + practical hours)
+
+**Typical split:**
+- 225 hours classroom instruction at school
+- 225 hours practical training at salon
+- OR other combinations totaling 450 hours
+
+---
+
+### Step 3: Complete Classroom Instruction
+
+**At the cosmetology school:**
+- Nail anatomy and physiology
+- Manicure and pedicure techniques
+- Nail enhancements (acrylics, gels, tips)
+- Nail art and design
+- Sanitation and safety
+- Indiana laws and regulations
+- Client consultation
+- Business and ethics
+
+**Instruction must be provided by:**
+- Licensed cosmetology instructor
+- At licensed cosmetology school facility
+- Following Indiana-approved curriculum
+
+---
+
+### Step 4: Complete Practical Training at Salon
+
+**At your apprenticeship placement:**
+- Work under supervision of licensed nail technician
+- Perform services on real clients
+- Practice techniques learned in school
+- Build skills and confidence
+- Earn money (if salon pays apprentices - rare)
+
+**Supervision requirements:**
+- Licensed nail tech must be present
+- Apprentice cannot work alone with clients
+- All work must be supervised until licensed
+
+---
+
+### Step 5: School Certifies Completion
+
+**When you complete 450 hours:**
+- School verifies all hours (classroom + practical)
+- School submits completion documentation to Indiana State Board
+- You receive certificate of completion from school
+- You're eligible to take state board exam
+
+---
+
+### Step 6: Take State Board Exam
+
+**Indiana State Board of Cosmetology and Barber Examiners:**
+- Written exam (theory, laws, safety)
+- Practical exam (demonstrate nail services)
+- Passing score: 75%
+- Exam fee: Approximately $100-150
+
+**Once you pass:**
+- Apply for Indiana nail technician license
+- License fee: Approximately $50
+- Valid for 2 years
+- Renewable with continuing education
+
+---
+
+## Payment and Wages: The Critical Difference from Barber Apprenticeship
+
+### Barber Apprenticeship vs. Nail Technician Apprenticeship Payment
+
+**BARBER APPRENTICESHIP (House Bill 1135/1320):**
+- ✅ You're an EMPLOYEE from day one
+- ✅ Shop pays you $10/hour + commissions + tips
+- ✅ You earn $20,000-$30,000 while training
+- ✅ You pay NOTHING for training
+- ✅ You graduate debt-free with money in your pocket
+
+**NAIL TECHNICIAN APPRENTICESHIP (Traditional Cosmetology Rules):**
+- ❌ You're a STUDENT, not an employee (usually)
+- ❌ You pay tuition to the school (covered by WIOA/WRG)
+- ❌ Most salons don't pay you during training
+- ✅ WIOA/WRG covers your tuition
+- ❌ You typically don't earn wages during training
+- ✅ You graduate with license but no earnings from training
+
+---
+
+## Nail Technician Apprenticeship Payment Scenarios
+
+### Scenario 1: Traditional Student Model (Most Common - 95% of programs)
+
+**How it works:**
+- You enroll in cosmetology school as a student
+- WIOA or WRG pays your tuition ($3,000-$8,000)
+- School arranges your salon placement
+- You work at salon as part of your training
+- **Salon does NOT pay you wages**
+- You're gaining experience and completing required hours
+
+**Your costs:**
+- Tuition: $0 (covered by WIOA/WRG)
+- Books and supplies: $300-$500
+- State board exam: $100-150
+- License fee: $50
+- **Total out-of-pocket: $450-$700**
+
+**Your earnings during training:**
+- $0 from salon
+- You may work another job to support yourself
+- Tips from clients (if salon allows): $0-$50/week
+
+**Example weekly schedule:**
+- Monday-Tuesday: Classroom at school (no pay)
+- Wednesday-Friday: Practical training at salon (no pay)
+- Saturday-Sunday: Work another job to pay bills
+
+**Total time:** 4-8 months depending on full-time or part-time
+
+**Financial outcome:**
+- Spent: $450-$700 (supplies and fees)
+- Earned: $0 during training
+- After licensing: Earn $25,000-$45,000/year
+
+---
+
+### Scenario 2: Paid Apprenticeship Model (Very Rare - Less than 5%)
+
+**How it works:**
+- You enroll in cosmetology school as a student
+- WIOA or WRG pays your tuition
+- School arranges placement with salon that pays apprentices
+- **Salon pays you minimum wage ($7.25-$10/hour)**
+- You're both student AND employee
+
+**Your costs:**
+- Tuition: $0 (covered by WIOA/WRG)
+- Books and supplies: $300-$500
+- State board exam: $100-150
+- License fee: $50
+
+**Your earnings during training:**
+- Hourly wage: $7.25-$10/hour
+- 15-25 hours/week at salon = $109-$250/week
+- Tips from clients: $20-$50/week
+- **Total: $129-$300/week**
+
+**Over 6 months:** $3,000-$7,000 earned
+
+**Why this is very rare:**
+- Most salons don't want to pay students who are still learning
+- Liability concerns (student mistakes on clients' nails)
+- Prefer to hire licensed nail techs
+
+---
+
+## Side-by-Side Comparison: Barber vs. Nail Tech Apprenticeship
+
+| Factor | Barber Apprenticeship | Nail Tech Apprenticeship |
+|--------|----------------------|--------------------------|
+| **Legislation** | House Bill 1135 & 1320 | Traditional cosmetology rules |
+| **School Required?** | No (shop can sponsor directly) | Yes (must partner with school) |
+| **Your Status** | Employee | Student (usually) |
+| **Wages During Training** | $10/hour + commissions + tips | Usually $0 (student model) |
+| **Tuition Cost** | $0 (funding covers RTI) | $0 (WIOA/WRG covers) |
+| **Earnings During Training** | $20,000-$30,000 | $0-$7,000 (if paid model) |
+| **Training Hours** | 2,000 hours OJT + 144 RTI | 450 hours total |
+| **Training Duration** | 15-17 months | 4-8 months |
+| **Who Pays You** | Barbershop (employer) | Usually no one (you're student) |
+| **Commission on Services** | Yes (40-60%) | No (you're student) |
+| **Tips** | Yes (100%) | Maybe (if salon allows) |
+| **Financial Outcome** | Graduate with $20k-$30k earned | Graduate with $0-$7k earned |
+| **Debt** | $0 (no tuition) | $0 (WIOA/WRG covers tuition) |
+
+---
+
+## Funding Options to Cover Tuition
+
+**The instructional portion (classroom hours at cosmetology school) is 100% funded through WIOA or Workforce Ready Grant.**
+
+### WIOA Funding (Workforce Innovation and Opportunity Act)
+
+**Who qualifies:**
+- Low-income adults
+- Dislocated workers
+- Youth ages 16-24
+
+**What WIOA covers:**
+- ✅ Full tuition for 450-hour nail tech program ($3,000-$8,000)
+- ✅ Books and supplies
+- ✅ State board exam fees
+- ✅ License application fee
+- ✅ Support services (transportation, childcare if eligible)
+
+**Apply through:** Indiana Career Connect at [IndianaCareerConnect.com](https://www.indianacareerconnect.com)
+
+---
+
+### Workforce Ready Grant (WRG)
+
+**Who qualifies:**
+- Indiana residents
+- Pursuing high-demand careers (nail tech qualifies)
+- Any income level
+
+**What WRG covers:**
+- ✅ Full tuition for 450-hour nail tech program
+- ✅ Books and fees
+
+**Apply through:** Local WorkOne office at [WorkOne.in.gov](https://www.in.gov/dwd/workone/)
+
+---
+
+### JRI Funding (Justice Reinvestment Initiative)
+
+**For justice-involved individuals:**
+- JRI covers full tuition for nail tech training
+- Plus wraparound support services
+- Apply through probation officer or reentry program
+
+---
+
+## After You Get Licensed: Earning Potential
+
+**Once you're a licensed nail technician:**
+
+### Employment Options
+
+**Option 1: Salon Employee**
+- Hourly wage: $10-$15/hour
+- Commission: 30-50% of services
+- Tips: 15-20% of service price
+- **Annual earnings: $25,000-$40,000**
+
+**Option 2: Commission-Only**
+- Commission: 50-60% of services
+- Tips: 100%
+- No base wage
+- **Annual earnings: $30,000-$45,000** (if busy)
+
+**Option 3: Booth Rental**
+- Pay $75-$200/week rent
+- Keep 100% of service revenue
+- Keep 100% of tips
+- **Annual earnings: $35,000-$60,000** (if strong clientele)
+
+**Option 4: Mobile Nail Tech**
+- Travel to clients' homes
+- Set your own prices
+- Keep 100% of revenue
+- **Annual earnings: $30,000-$50,000** (varies widely)
+
+---
+
+## Contact Information
+
+**Indiana State Board of Cosmetology and Barber Examiners**
+- Phone: (317) 234-3040
+- Address: 402 W. Washington St., Room W072, Indianapolis, IN 46204
+- Website: [in.gov/pla/professions/cosmetology-board](https://www.in.gov/pla/professions/cosmetology-board/)
+
+**We Can Help:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- We connect you with cosmetology schools offering nail tech apprenticeships
+- We help you apply for WIOA or Workforce Ready Grant funding
+
+---
+
+**Bottom Line:** Nail technician apprenticeship in Indiana requires partnership with a licensed cosmetology school. The instructional portion is 100% funded through WIOA or Workforce Ready Grant. You cannot do it independently like the barber apprenticeship.`,
+    heroImage: '/images/programs/nail-tech-apprentice.jpg',
+    heroImageAlt:
+      'Nail technician apprentice performing manicure under supervision',
+    duration: '450 hours (4-8 months depending on schedule)',
+    schedule: 'Varies by school and salon partnership',
+    delivery:
+      'Hybrid: Classroom instruction at school + Practical training at salon',
+    credential:
+      'Indiana Licensed Nail Technician (upon passing state board exam)',
+    approvals: [
+      'Must be coordinated by Indiana-licensed cosmetology school',
+      'Indiana State Board of Cosmetology approved',
+      'WIOA Eligible (for tuition)',
+      'Workforce Ready Grant Eligible (for tuition)',
+    ],
+    fundingOptions: [
+      'WIOA Funding (covers tuition)',
+      'Workforce Ready Grant (covers tuition)',
+      'JRI Funding (for justice-involved individuals)',
+      'Federal Student Aid (if school accepts FAFSA)',
+    ],
+    highlights: [
+      'Earn Indiana nail technician license through apprenticeship',
+      'Work at real salon while training',
+      'Must partner with licensed cosmetology school',
+      'Different from barber apprenticeship (school required)',
+      '450 hours total training (shorter than esthetician)',
+      'WIOA or WRG covers 100% of tuition',
+      'Licensed supervision required',
+      'Graduate eligible for state board exam',
+    ],
+    whatYouLearn: [
+      'Nail anatomy and physiology',
+      'Manicure and pedicure techniques',
+      'Nail enhancements (acrylics, gels, tips)',
+      'Nail art and design',
+      'Sanitation and infection control',
+      'Client consultation and communication',
+      'Indiana nail technician laws and regulations',
+      'Business and professional ethics',
+      'Product knowledge and retail sales',
+      'Salon operations and customer service',
+    ],
+    outcomes: [
+      'Licensed Nail Technician in Indiana',
+      'Salon nail technician',
+      'Spa nail specialist',
+      'Mobile nail technician (self-employed)',
+      'Nail art specialist',
+      'Nail product sales',
+      'Average salary: $25,000-$45,000/year',
+      'Self-employment potential',
+    ],
+    requirements: [
+      'At least 17 years old',
+      'High school diploma or GED',
+      'Enroll in Indiana-licensed cosmetology school',
+      'School arranges apprenticeship placement',
+      'Complete 450 hours (classroom + practical)',
+      'Pass Indiana State Board nail technician exam',
+    ],
+    ctaPrimary: {
+      label: 'Contact Us',
+      href: '/contact?topic=nail-technician-apprenticeship',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact',
+    },
+  },
+  {
     slug: 'professional-esthetician',
     name: 'Esthetics and Skincare Specialist Certificate',
     heroTitle: 'Esthetics and Skincare Specialist Certificate Program',
@@ -1630,7 +6942,8 @@ CIP Code: 51.1009 - Phlebotomy Technician/Phlebotomist`,
     heroImageAlt: 'Phlebotomy technician drawing blood from patient',
     duration: '6 weeks (120 hours)',
     schedule: 'Full-time: Mon-Fri 9am-3pm or Part-time: Evenings/Weekends',
-    delivery: 'Hybrid - Classroom instruction + Lab practice + Clinical externship',
+    delivery:
+      'Hybrid - Classroom instruction + Lab practice + Clinical externship',
     credential:
       'Certified Phlebotomy Technician (CPT), CPR/AED, Bloodborne Pathogens, Infection Control',
     approvals: [
@@ -1698,7 +7011,8 @@ CIP Code: 51.1009 - Phlebotomy Technician/Phlebotomist`,
     slug: 'drug-collector',
     name: 'Drug & Alcohol Specimen Collector Certification',
     heroTitle: 'Drug & Alcohol Specimen Collector Certification',
-    heroSubtitle: '2-week intensive program for DOT and non-DOT specimen collection',
+    heroSubtitle:
+      '2-week intensive program for DOT and non-DOT specimen collection',
     shortDescription:
       'Become a certified drug and alcohol specimen collector for DOT and workplace testing programs',
     longDescription: `The Drug & Alcohol Specimen Collector Certification program trains you to perform urine drug testing, breath alcohol testing, and oral fluid collection for DOT-regulated and non-DOT workplace testing programs. This intensive 2-week program covers federal regulations, collection procedures, chain of custody, and quality assurance.
@@ -1774,7 +7088,7 @@ CIP Code: 51.1004 - Clinical/Medical Laboratory Technician`,
       '18 years or older',
       'Background check required',
       'Drug screening required',
-      'Valid driver\'s license (for mobile collection)',
+      "Valid driver's license (for mobile collection)",
       'Reliable transportation',
       'Professional demeanor and communication skills',
     ],

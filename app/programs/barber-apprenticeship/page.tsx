@@ -82,7 +82,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* What is a Registered Apprenticeship */}
-      <section className="py-12 md:py-16 bg-blue-50">
+      <section className="py-20 md:py-24 bg-blue-50">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
             What is a Registered Apprenticeship?
@@ -326,7 +326,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Earn While You Learn */}
-      <section className="py-12 md:py-16 bg-green-50">
+      <section className="py-20 md:py-24 bg-green-50">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
             Earn While You Learn
@@ -366,7 +366,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Official Resources */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-20 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-8">
             Official Resources & Guidelines
@@ -416,7 +416,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Shop Owners CTA */}
-      <section className="py-12 md:py-16 bg-slate-800 text-slate-900">
+      <section className="py-20 md:py-24 bg-slate-800 text-slate-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Barber Shop Owners

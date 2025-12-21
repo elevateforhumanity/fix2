@@ -36,7 +36,7 @@ export default function BarberApprenticeshipPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-16 md:py-20">
+      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap gap-2 mb-6">
             <span className="px-4 py-2 bg-brand-green-600 text-white text-sm font-bold rounded-full">
@@ -90,7 +90,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* What is a Registered Apprenticeship */}
-      <section className="py-12 md:py-16 bg-blue-50">
+      <section className="py-20 md:py-24 bg-blue-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
             What is a Registered Apprenticeship?
@@ -165,7 +165,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Program At-a-Glance */}
-      <section className="py-12 md:py-16">
+      <section className="py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             Program At-a-Glance
@@ -214,7 +214,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-12 md:py-16 bg-slate-50">
+      <section className="py-20 md:py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             How the Apprenticeship Works
@@ -279,7 +279,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Eligibility Requirements */}
-      <section className="py-12 md:py-16">
+      <section className="py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             Eligibility Requirements
@@ -311,7 +311,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Earn While You Learn */}
-      <section className="py-12 md:py-16 bg-green-50">
+      <section className="py-20 md:py-24 bg-green-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
             Earn While You Learn
@@ -351,7 +351,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* For Shops - Brief CTA */}
-      <section className="py-12 md:py-16 bg-slate-900 text-white">
+      <section className="py-20 md:py-24 bg-slate-900 text-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Barber Shop Owners
@@ -370,7 +370,7 @@ export default function BarberApprenticeshipPage() {
       </section>
 
       {/* Official Resources */}
-      <section className="py-12 md:py-16">
+      <section className="py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
             Official Resources & Guidelines

@@ -81,7 +81,7 @@ export default function BlogPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="bg-white text-white py-16 md:py-20">
+      <section className="bg-white text-white py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
@@ -127,7 +127,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-12 md:py-16">
+      <section className="py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (

@@ -13,6 +13,16 @@ const PROTECTED_ROUTES = [
   '/program-holder',
   '/delegate',
   '/lms/', // Note: /lms itself is public, only /lms/* is protected
+  '/partner/dashboard',
+  '/employer/dashboard',
+  '/workforce-board/dashboard',
+  '/staff-portal/dashboard',
+  '/board/dashboard',
+  '/shop/dashboard',
+  '/creator/dashboard',
+  '/portal/parent/dashboard',
+  '/portal/student/dashboard',
+  '/portal/staff/dashboard',
 ];
 
 // Admin-only routes

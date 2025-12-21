@@ -28,20 +28,6 @@ const teamMembers = [
     email: 'leslie@elevateforhumanity.org',
   },
   {
-    name: 'Jozanna George',
-    title: 'Beauty Programs Director',
-    image: '/images/jozanna-george.jpg', // Correct path
-    bio: 'Jozanna George is a highly experienced beauty industry-standard professional with more than 20 years as a licensed Nail Technician and Esthetician. With a proven track record of excellence, she brings deep expertise, passion, and leadership to Elevate for Humanity as our Beauty Programs Director.\n\nJozanna spent seven years successfully running a beauty school, where she oversaw enrollment, instructor coordination, curriculum management, and daily operations. Her experience gives her a strong understanding of what students need to succeed in beauty education—from mastering fundamentals to preparing for state licensure and entering the industry-standard with confidence.\n\nAs a seasoned Nail Instructor, Jozanna has trained countless students in nail technology, esthetics, sanitation, salon professionalism, and hands-on service techniques. Her teaching style balances patience, high standards, skill-building, and real-world insight—ensuring students graduate ready to excel in salons, spas, suites, or entrepreneurship.\n\nJozanna is known for her warm personality, strong communication skills, and true dedication to student success. At Elevate for Humanity, she plays a vital role in shaping the quality of our beauty industry-standard programs, supporting enrollment, and helping future beauty professionals build the foundation for long-term careers.\n\nHer mission is simple: develop confident, skilled, and industry-standard-ready students who are prepared to shine.',
-    email: 'jozanna@elevateforhumanity.org',
-  },
-  {
-    name: 'Clystjah Woodley',
-    title: 'Life Coach',
-    image: '/images/team-new/team-1.jpg', // Using team-new placeholder
-    bio: "Clystjah Woodley is a compassionate and purpose-driven Life Coach dedicated to empowering individuals to heal, grow, and navigate life with clarity and confidence. With a strong passion for personal development and emotional wellness, she helps people break through barriers, understand their own potential, and create healthier patterns that support long-term success.\n\nClystjah's coaching style blends empathy, active listening, and practical strategies that meet people exactly where they are. She specializes in mindset transformation, confidence building, accountability, and guiding individuals through life challenges with grace and resilience. Her work centers on creating safe spaces for clients to express themselves, discover their strengths, and develop the tools they need to move forward.\n\nAt Elevate for Humanity, Clystjah plays an important role in the organization's holistic support model—helping students, participants, and families feel grounded, motivated, and supported as they pursue education, career pathways, and personal growth. She believes that when a person feels seen, heard, and understood, they gain the strength to transform their lives.\n\nGuided by the belief that growth starts with self-awareness and real transformation begins with support, Clystjah is committed to walking beside every individual she serves as they step into their highest potential.",
-    email: 'clystjah@elevateforhumanity.org',
-  },
-  {
     name: 'Dr. Carlina Annette Wilkes',
     title:
       'Executive Director of Financial Operations & Organizational Compliance',
