@@ -239,7 +239,7 @@ export default function ProgramsPage() {
 
           {/* Skilled Trades Category */}
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 md:p-12 border border-orange-100">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border border-blue-100">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-3 h-16 bg-orange-600 rounded-full flex-shrink-0" />
                 <div className="flex-1">
@@ -376,7 +376,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA Section - Modern & Encouraging */}
-      <section className="py-20 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10" />
 

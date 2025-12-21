@@ -50,23 +50,35 @@ const fundingLinks = [
   { href: '/funding/federal-programs', label: 'Federal Programs' },
 ];
 
+// Simplified top-level navigation (4-6 items max)
 const mainLinks = [
   { href: '/programs', label: 'Programs' },
-  { href: '/platform', label: 'Platform', badge: 'NEW' },
-  { href: '/metrics', label: 'Metrics', badge: 'NEW' },
-  { href: '/licensing', label: 'Licensing' },
-  { href: '/ai-tutor', label: '🤖 AI Tutor' },
-  { href: '/student/badges', label: '🏆 Achievements' },
-  { href: '/student/leaderboard', label: '📊 Leaderboard' },
+  { href: '/funding', label: 'Funding' },
+  { href: '/how-it-works', label: 'How It Works' },
   { href: '/admin/partners', label: 'Partners' },
+  { href: '/about', label: 'About' },
+];
+
+// "More" dropdown - everything else
+const moreLinks = [
+  { href: '/platform', label: 'Platform', badge: 'NEW' },
+  { href: '/metrics', label: 'Impact Metrics', badge: 'NEW' },
+  { href: '/licensing', label: 'Licensing' },
+  { href: '/agencies', label: 'For Agencies', badge: 'NEW' },
   { href: '/students', label: 'For Students' },
   { href: '/employers', label: 'For Employers' },
-  { href: '/agencies', label: 'For Agencies', badge: 'NEW' },
   { href: '/transparency', label: 'Transparency', badge: 'NEW' },
-  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 
+// Student features (authenticated users only)
+const studentFeatureLinks = [
+  { href: '/ai-tutor', label: 'AI Tutor', icon: '🤖' },
+  { href: '/student/badges', label: 'Achievements', icon: '🏆' },
+  { href: '/student/leaderboard', label: 'Leaderboard', icon: '📊' },
+];
+
+// Portal/Dashboard links (role-based, not in public nav)
 const portalLinks = [
   { href: '/student/dashboard', label: 'Student Portal' },
   { href: '/admin', label: 'Admin Dashboard' },

@@ -18,7 +18,7 @@ function itemsFrom(key: string): NavItem[] {
 }
 
 /**
- * HEADER NAV - Complete site navigation
+ * HEADER NAV - Simplified (4-6 top items max)
  */
 export const headerNav: NavSection[] = [
   {
@@ -26,58 +26,36 @@ export const headerNav: NavSection[] = [
     href: '/programs',
     items: [
       { label: 'View All Programs', href: '/programs' },
-      {
-        label: 'Barber Apprenticeship',
-        href: '/programs/barber-apprenticeship',
-      },
-      {
-        label: 'Beauty & Career Educator',
-        href: '/programs/beauty-career-educator',
-      },
-      {
-        label: 'Business Start-up & Marketing',
-        href: '/programs/business-startup-marketing',
-      },
-      { label: 'CNA Healthcare', href: '/programs/cna' },
-      { label: 'CDL Training', href: '/programs/cdl' },
-      { label: 'CPR Certification', href: '/programs/cpr-certification' },
-      {
-        label: 'Emergency Health & Safety Tech',
-        href: '/programs/emergency-health-safety-tech',
-      },
-      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
       { label: 'Medical Assistant', href: '/programs/medical-assistant' },
-      {
-        label: 'Professional Esthetician',
-        href: '/programs/professional-esthetician',
-      },
-      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
-      {
-        label: 'Tax Prep & Financial Services',
-        href: '/programs/tax-prep-financial-services',
-      },
+      { label: 'Barber Apprenticeship', href: '/programs/barber-apprenticeship' },
+      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
+      { label: 'CDL Training', href: '/programs/cdl' },
+      { label: 'CNA Healthcare', href: '/programs/cna' },
+      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
     ],
   },
   {
     label: 'Funding',
     href: '/funding',
     items: [
-      { label: 'Funding Options', href: '/funding' },
+      { label: 'How Funding Works', href: '/funding' },
       { label: 'WIOA Funding', href: '/funding/wioa' },
-      { label: 'Workforce Ready Grant (WRG)', href: '/funding/wrg' },
-      { label: 'JRI Funding', href: '/funding/jri' },
+      { label: 'Workforce Ready Grant', href: '/funding/wrg' },
       { label: 'FAQ', href: '/faq' },
     ],
   },
   {
-    label: 'For You',
+    label: 'How It Works',
+    href: '/how-it-works',
+  },
+  {
+    label: 'Partners',
+    href: '/admin/partners',
     items: [
-      { label: 'For Learners', href: '/learners' },
+      { label: 'Partner Network', href: '/admin/partners' },
+      { label: 'Training Providers', href: '/training-providers' },
       { label: 'For Employers', href: '/employers' },
       { label: 'Hire Graduates', href: '/hire-graduates' },
-      { label: 'For Partners', href: '/partners' },
-      { label: 'Training Providers', href: '/training-providers' },
       { label: 'Workforce Partners', href: '/workforce-partners' },
       { label: 'Career Services', href: '/career-services' },
       { label: 'Mentorship', href: '/mentorship' },
