@@ -5,36 +5,46 @@
 -- ============================================================
 
 -- Ensure badges table exists with standard badges
-INSERT INTO public.badges (id, name, description, icon, category, points)
+-- Using key field for text identifiers, id is auto-generated UUID
+INSERT INTO public.badges (key, label, description, criteria)
 VALUES 
-  ('first-course', 'First Course Completed', 'Complete your first course', 'trophy', 'learning', 10),
-  ('five-courses', '5 Courses Completed', 'Complete 5 courses', 'trophy', 'milestone', 50),
-  ('ten-courses', '10 Courses Completed', 'Complete 10 courses', 'trophy', 'milestone', 100),
-  ('seven-day-streak', '7-Day Streak', 'Login for 7 consecutive days', 'flame', 'streak', 25),
-  ('thirty-day-streak', '30-Day Streak', 'Login for 30 consecutive days', 'flame', 'streak', 100),
-  ('perfect-score', 'Perfect Score', 'Score 100% on an assessment', 'star', 'learning', 50),
-  ('early-bird', 'Early Bird', 'Login before 8am', 'sunny', 'social', 10),
-  ('night-owl', 'Night Owl', 'Login after 10pm', 'moon', 'social', 10)
-ON CONFLICT (id) DO UPDATE SET
-  name = EXCLUDED.name,
+  ('first-course', 'First Course Completed', 'Complete your first course', '{"type": "course_completion", "count": 1}'::jsonb),
+  ('five-courses', '5 Courses Completed', 'Complete 5 courses', '{"type": "course_completion", "count": 5}'::jsonb),
+  ('ten-courses', '10 Courses Completed', 'Complete 10 courses', '{"type": "course_completion", "count": 10}'::jsonb),
+  ('seven-day-streak', '7-Day Streak', 'Login for 7 consecutive days', '{"type": "login_streak", "days": 7}'::jsonb),
+  ('thirty-day-streak', '30-Day Streak', 'Login for 30 consecutive days', '{"type": "login_streak", "days": 30}'::jsonb),
+  ('perfect-score', 'Perfect Score', 'Score 100% on an assessment', '{"type": "assessment_score", "score": 100}'::jsonb),
+  ('early-bird', 'Early Bird', 'Login before 8am', '{"type": "time_based", "hour": 8, "before": true}'::jsonb),
+  ('night-owl', 'Night Owl', 'Login after 10pm', '{"type": "time_based", "hour": 22, "before": false}'::jsonb)
+ON CONFLICT (key) DO UPDATE SET
+  label = EXCLUDED.label,
   description = EXCLUDED.description,
-  icon = EXCLUDED.icon,
-  category = EXCLUDED.category,
-  points = EXCLUDED.points;
+  criteria = EXCLUDED.criteria;
 
--- Helper function to award badge (idempotent)
-CREATE OR REPLACE FUNCTION public.award_badge(
+-- Helper function to award badge by key (idempotent)
+CREATE OR REPLACE FUNCTION public.award_badge_by_key(
   p_user_id uuid,
-  p_badge_id text
+  p_badge_key text
 )
 RETURNS void
 LANGUAGE plpgsql
 SECURITY definer
 SET search_path = public
 AS $$
+DECLARE
+  v_badge_id uuid;
 BEGIN
+  -- Get badge ID from key
+  SELECT id INTO v_badge_id FROM public.badges WHERE key = p_badge_key;
+  
+  IF v_badge_id IS NULL THEN
+    RAISE NOTICE 'Badge with key % not found', p_badge_key;
+    RETURN;
+  END IF;
+
+  -- Award badge (idempotent)
   INSERT INTO public.user_badges (user_id, badge_id, earned_at)
-  VALUES (p_user_id, p_badge_id, NOW())
+  VALUES (p_user_id, v_badge_id, NOW())
   ON CONFLICT (user_id, badge_id) DO NOTHING;
 END;
 $$;
@@ -45,7 +55,7 @@ RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.status = 'completed' AND (OLD.status IS NULL OR OLD.status != 'completed') THEN
     IF (SELECT COUNT(*) FROM public.course_enrollments WHERE user_id = NEW.user_id AND status = 'completed') = 1 THEN
-      PERFORM public.award_badge(NEW.user_id, 'first-course');
+      PERFORM public.award_badge_by_key(NEW.user_id, 'first-course');
     END IF;
   END IF;
   RETURN NEW;
@@ -64,7 +74,7 @@ RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.status = 'completed' AND (OLD.status IS NULL OR OLD.status != 'completed') THEN
     IF (SELECT COUNT(*) FROM public.course_enrollments WHERE user_id = NEW.user_id AND status = 'completed') = 5 THEN
-      PERFORM public.award_badge(NEW.user_id, 'five-courses');
+      PERFORM public.award_badge_by_key(NEW.user_id, 'five-courses');
     END IF;
   END IF;
   RETURN NEW;
@@ -83,7 +93,7 @@ RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.status = 'completed' AND (OLD.status IS NULL OR OLD.status != 'completed') THEN
     IF (SELECT COUNT(*) FROM public.course_enrollments WHERE user_id = NEW.user_id AND status = 'completed') = 10 THEN
-      PERFORM public.award_badge(NEW.user_id, 'ten-courses');
+      PERFORM public.award_badge_by_key(NEW.user_id, 'ten-courses');
     END IF;
   END IF;
   RETURN NEW;
@@ -101,7 +111,7 @@ CREATE OR REPLACE FUNCTION public.check_perfect_score_badge()
 RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.score = 100 AND (OLD.score IS NULL OR OLD.score != 100) THEN
-    PERFORM public.award_badge(NEW.user_id, 'perfect-score');
+    PERFORM public.award_badge_by_key(NEW.user_id, 'perfect-score');
   END IF;
   RETURN NEW;
 END;
@@ -177,9 +187,9 @@ BEGIN
     
     -- Award streak badges
     IF v_current_streak = 7 THEN
-      PERFORM public.award_badge(p_user_id, 'seven-day-streak');
+      PERFORM public.award_badge_by_key(p_user_id, 'seven-day-streak');
     ELSIF v_current_streak = 30 THEN
-      PERFORM public.award_badge(p_user_id, 'thirty-day-streak');
+      PERFORM public.award_badge_by_key(p_user_id, 'thirty-day-streak');
     END IF;
   ELSE
     -- Streak broken
@@ -211,12 +221,12 @@ DECLARE
 BEGIN
   -- Early Bird (before 8am)
   IF v_hour < 8 THEN
-    PERFORM public.award_badge(p_user_id, 'early-bird');
+    PERFORM public.award_badge_by_key(p_user_id, 'early-bird');
   END IF;
 
   -- Night Owl (after 10pm)
   IF v_hour >= 22 THEN
-    PERFORM public.award_badge(p_user_id, 'night-owl');
+    PERFORM public.award_badge_by_key(p_user_id, 'night-owl');
   END IF;
 END;
 $$;
@@ -224,7 +234,7 @@ $$;
 GRANT EXECUTE ON FUNCTION public.check_time_badges(uuid) TO authenticated;
 
 -- Comments
-COMMENT ON FUNCTION public.award_badge IS 'Idempotent badge awarding - safe to call multiple times';
+COMMENT ON FUNCTION public.award_badge_by_key IS 'Idempotent badge awarding by key - safe to call multiple times';
 COMMENT ON FUNCTION public.update_user_streak IS 'Update user login streak and award streak badges';
 COMMENT ON FUNCTION public.check_time_badges IS 'Check and award time-based badges (early bird, night owl)';
 COMMENT ON TABLE public.user_streaks IS 'Tracks consecutive login days for streak badges';
