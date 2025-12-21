@@ -3364,26 +3364,17 @@ Before you apply, make sure you meet these requirements:
 **The third-party sponsor (Elevate for Humanity):**
 - ❌ Does NOT pay apprentice wages (shop owner pays)
 - ✅ Receives funding (WIOA/WRG/JRI) to cover RTI curriculum
-- ✅ Pays program holder (shop owner) a fee for supervision and reporting
+- ✅ Provides support and coordination services
 - ✅ Does NOT charge fees to shops or apprentices
-
-**What Elevate pays program holder for:**
-- ✅ Supervising apprentice's practical work
-- ✅ Reporting hours and progress
-- ✅ Documenting skills and competencies
-- ✅ Tracking apprentice development
-- ✅ Administrative time and paperwork
-- **Fee amount: Negotiated during MOU signing (varies per apprentice)**
+- **Note: Financial arrangements between Elevate and program holders are negotiated in MOU agreements**
 
 **Example:**
 - Elevate for Humanity recruits Marcus as apprentice
 - Elevate and Shop A sign MOU (Memorandum of Understanding)
-- MOU specifies supervision fee per apprentice
 - Shop A hires Marcus as employee
 - Shop A pays Marcus: $10/hour + commissions
 - WIOA pays Elevate: For Marcus's RTI curriculum
 - Elevate provides: RTI training to Marcus
-- Elevate pays Shop A: Monthly supervision fee (per MOU agreement)
 - Shop A reports: Marcus's hours and progress to Elevate
 - Marcus pays Elevate: $0
 - Marcus pays Shop A: $0
@@ -3396,23 +3387,376 @@ Before you apply, make sure you meet these requirements:
 
 **What the shop owner receives:**
 
-**1. Supervision Fee from Sponsor (If Working with Elevate)**
-- Elevate pays shop owner monthly supervision fee per apprentice
-- Covers time spent supervising, reporting hours, tracking progress
-- Helps offset administrative costs
-- Paid monthly throughout apprenticeship (15-17 months)
-- **Fee amount: Negotiated and specified in MOU agreement**
-
-**2. Apprentice's Labor**
+**1. Apprentice's Labor**
 - Apprentice works and generates revenue for shop
 - Customers pay for apprentice's services
 - Shop keeps 50-60% of service revenue (after paying apprentice commission)
 
-**3. Tax Credits (Federal)**
-- Work Opportunity Tax Credit (WOTC): Up to $2,400 per apprentice
-- Available for hiring from certain target groups (veterans, ex-felons, etc.)
-- Shop owner claims on federal tax return
-- Not direct payment, but reduces tax liability
+**2. Work Opportunity Tax Credit (WOTC) - Federal Tax Benefit**
+
+**What is WOTC?**
+- Federal tax credit for employers who hire individuals from certain target groups
+- Incentivizes hiring people who face barriers to employment
+- Reduces your federal tax liability (not a direct payment)
+- Claimed on your business tax return
+
+**WOTC Target Groups (Relevant to Apprenticeships):**
+
+**1. Veterans (Multiple Categories with Different Credit Amounts)**
+
+**Category A: Unemployed Veteran (Standard)**
+- Veteran who was unemployed for at least 4 weeks (whether or not consecutive) during the 1-year period ending on hire date
+- Any length of military service
+- **Credit: 40% of first $6,000 in wages = Up to $2,400**
+- **Minimum hours:** 400 hours worked in first year
+
+**Category B: Veteran Receiving SNAP Benefits**
+- Veteran receiving SNAP (food stamps) for at least 3 months during 15-month period ending on hire date
+- **Credit: 40% of first $6,000 in wages = Up to $2,400**
+- **Minimum hours:** 400 hours worked in first year
+
+**Category C: Disabled Veteran (Unemployed 6+ Months)**
+- Veteran with service-connected disability
+- Unemployed for at least 6 months (whether or not consecutive) during the 1-year period ending on hire date
+- **Credit: 40% of first $12,000 in wages = Up to $4,800**
+- **Minimum hours:** 400 hours worked in first year
+
+**Category D: Disabled Veteran (Receiving VA Benefits)**
+- Veteran with service-connected disability
+- Hired within 1 year of discharge or release from active duty
+- **Credit: 40% of first $24,000 in wages = Up to $9,600**
+- **Minimum hours:** 400 hours worked in first year
+
+**Example: Disabled Veteran Apprentice**
+- You hire Marcus, a disabled veteran receiving VA benefits
+- Marcus was discharged 8 months ago
+- You pay Marcus $20,000 in first year
+- **WOTC credit: 40% of first $24,000 = 40% × $20,000 = $8,000**
+- Your federal tax liability reduced by $8,000
+
+**2. Ex-Felons**
+- Convicted of a felony
+- Hired within 1 year of conviction or release from prison
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**3. Designated Community Residents (Empowerment Zones)**
+- Lives in designated empowerment zone or rural renewal county
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**4. SNAP Recipients (Food Stamps)**
+- Receiving SNAP benefits (or household member receives)
+- Age 18-39
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**5. SSI Recipients**
+- Receiving Supplemental Security Income
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**6. Long-Term Unemployment Recipients**
+- Unemployed for 27+ weeks and received unemployment compensation
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**7. Vocational Rehabilitation Referrals**
+- Referred by vocational rehabilitation agency
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**8. Qualified Long-Term Unemployment Recipients**
+- Unemployed for 27+ weeks
+- Received unemployment compensation during some or all of that time
+- Credit: Up to $2,400 (if worked 400+ hours)
+
+**9. Summer Youth Employees**
+- Age 16-17
+- Lives in empowerment zone
+- Employed between May 1 and September 15
+- Credit: Up to $1,200 (for summer employment)
+
+---
+
+### Special Focus: Students and Young Adults
+
+**Important: Most apprentices are NOT eligible for WOTC just for being students.**
+
+**Students who DO qualify:**
+
+**1. Student + SNAP Recipient**
+- Age 18-39
+- Student enrolled in school
+- Receiving SNAP benefits (or household member receives)
+- **Credit: Up to $2,400**
+
+**Example:**
+- Tasha is 22, enrolled in community college part-time
+- Her household receives SNAP benefits
+- She starts barber apprenticeship
+- **You qualify for $2,400 WOTC credit**
+
+**2. Student + Designated Community Resident**
+- Age 18-39
+- Student enrolled in school
+- Lives in designated empowerment zone or rural renewal county
+- **Credit: Up to $2,400**
+
+**Example:**
+- DeAndre is 20, taking GED classes
+- Lives in designated empowerment zone in Indianapolis
+- Starts barber apprenticeship
+- **You qualify for $2,400 WOTC credit**
+
+**3. Student + Vocational Rehabilitation Referral**
+- Any age
+- Student with disability
+- Referred by state vocational rehabilitation agency
+- **Credit: Up to $2,400**
+
+**Example:**
+- Marcus is 25, has learning disability
+- Referred by Indiana Vocational Rehabilitation Services
+- Starts barber apprenticeship
+- **You qualify for $2,400 WOTC credit**
+
+**Students who DO NOT qualify:**
+- Regular high school or college student with no other qualifying factor
+- Student from middle-class family not receiving SNAP
+- Student not living in empowerment zone
+- Student without disability or vocational rehab referral
+
+**Key point: Being a student alone doesn't qualify for WOTC. Student must ALSO be in another target group (SNAP, empowerment zone, vocational rehab, etc.)**
+
+---
+
+### How WOTC Works
+
+**Credit amounts based on hours worked:**
+- **120-399 hours worked:** 25% of first-year wages (max $1,500 for most groups)
+- **400+ hours worked:** 40% of first-year wages (max $2,400 for most groups)
+- **Special groups:** Higher maximums (veterans, long-term TANF recipients)
+
+**Detailed Calculation Examples:**
+
+**Example 1: Ex-Felon Apprentice (Standard $2,400 Credit)**
+- You hire Marcus (ex-felon released 6 months ago)
+- Marcus works 2,000 hours in first year (full-time apprentice)
+- You pay Marcus $20,000 in first year wages ($10/hour × 2,000 hours)
+- **WOTC calculation:**
+  - Maximum wages considered: $6,000
+  - Credit rate: 40% (because worked 400+ hours)
+  - Credit amount: 40% × $6,000 = **$2,400**
+- Your federal tax liability reduced by $2,400
+
+**Example 2: Disabled Veteran Apprentice (Maximum $9,600 Credit)**
+- You hire DeAndre (disabled veteran, discharged 8 months ago, receiving VA benefits)
+- DeAndre works 2,000 hours in first year
+- You pay DeAndre $25,000 in first year wages
+- **WOTC calculation:**
+  - Maximum wages considered: $24,000
+  - Credit rate: 40% (because worked 400+ hours)
+  - Credit amount: 40% × $24,000 = **$9,600**
+- Your federal tax liability reduced by $9,600
+
+**Example 3: SNAP Recipient Apprentice (Standard $2,400 Credit)**
+- You hire Tasha (age 25, receiving SNAP benefits)
+- Tasha works 2,000 hours in first year
+- You pay Tasha $22,000 in first year wages
+- **WOTC calculation:**
+  - Maximum wages considered: $6,000
+  - Credit rate: 40% (because worked 400+ hours)
+  - Credit amount: 40% × $6,000 = **$2,400**
+- Your federal tax liability reduced by $2,400
+
+**Example 4: Part-Time Apprentice (Reduced Credit)**
+- You hire Sarah (ex-felon)
+- Sarah works part-time: 300 hours in first year
+- You pay Sarah $6,000 in first year wages
+- **WOTC calculation:**
+  - Maximum wages considered: $6,000
+  - Credit rate: 25% (because worked 120-399 hours, not 400+)
+  - Credit amount: 25% × $6,000 = **$1,500**
+- Your federal tax liability reduced by $1,500
+
+**Example 5: Unemployed Veteran (Standard $2,400 Credit)**
+- You hire James (veteran, unemployed for 6 weeks before hire)
+- James works 2,000 hours in first year
+- You pay James $20,000 in first year wages
+- **WOTC calculation:**
+  - Maximum wages considered: $6,000
+  - Credit rate: 40% (because worked 400+ hours)
+  - Credit amount: 40% × $6,000 = **$2,400**
+- Your federal tax liability reduced by $2,400
+
+---
+
+### WOTC Credit Amounts: Quick Reference Table
+
+| Target Group | Maximum Wages Considered | Credit Rate (400+ hrs) | Maximum Credit |
+|--------------|-------------------------|----------------------|----------------|
+| Ex-Felon | $6,000 | 40% | $2,400 |
+| SNAP Recipient (18-39) | $6,000 | 40% | $2,400 |
+| Designated Community Resident | $6,000 | 40% | $2,400 |
+| SSI Recipient | $6,000 | 40% | $2,400 |
+| Long-Term Unemployed | $6,000 | 40% | $2,400 |
+| Vocational Rehab Referral | $6,000 | 40% | $2,400 |
+| Unemployed Veteran (Standard) | $6,000 | 40% | $2,400 |
+| Veteran + SNAP | $6,000 | 40% | $2,400 |
+| Disabled Veteran (Unemployed 6+ months) | $12,000 | 40% | $4,800 |
+| Disabled Veteran (Receiving VA Benefits) | $24,000 | 40% | $9,600 |
+| Summer Youth (16-17) | $3,000 | 40% | $1,200 |
+
+**Note:** Credit rate is 25% (not 40%) if employee works 120-399 hours instead of 400+ hours.
+
+---
+
+### How to Claim WOTC
+
+**Step 1: Screen Apprentice for Eligibility**
+- Ask apprentice if they're in any target group
+- Complete IRS Form 8850 (Pre-Screening Notice)
+- Must be completed on or before day apprentice starts work
+
+**Step 2: Get Certification**
+- Submit Form 8850 to state workforce agency within 28 days of hire
+- Indiana: Submit to Indiana Department of Workforce Development
+- Also submit ETA Form 9061 or 9062 (depending on target group)
+
+**Step 3: Receive Certification**
+- State workforce agency reviews and certifies eligibility
+- You receive certification letter (typically 2-4 weeks)
+- Keep certification for your tax records
+
+**Step 4: Claim Credit on Tax Return**
+- File IRS Form 5884 (Work Opportunity Credit) with your business tax return
+- Attach certification letter
+- Credit reduces your federal income tax liability
+
+---
+
+### Indiana-Specific WOTC Information
+
+**Where to submit in Indiana:**
+- Indiana Department of Workforce Development
+- WOTC Coordinator
+- 10 N. Senate Ave.
+- Indianapolis, IN 46204
+- Email: WOTC@dwd.in.gov
+- Phone: (317) 232-7670
+
+**Indiana processing time:**
+- Typically 2-4 weeks for certification decision
+- Must submit within 28 days of hire date
+- Late submissions will be denied
+
+**Indiana target group priorities:**
+- Veterans (high priority)
+- Ex-felons (high priority)
+- SNAP recipients (common)
+- Long-term unemployed (common)
+
+---
+
+### WOTC Requirements and Restrictions
+
+**Requirements:**
+- ✅ Apprentice must be in eligible target group
+- ✅ Must complete Form 8850 on or before start date
+- ✅ Must submit to state within 28 days of hire
+- ✅ Must receive certification from state
+- ✅ Apprentice must work minimum 120 hours
+- ✅ Apprentice must be W-2 employee (not 1099)
+
+**Restrictions:**
+- ❌ Cannot claim for relatives
+- ❌ Cannot claim if apprentice worked for you before
+- ❌ Cannot claim if apprentice is rehire within 1 year
+- ❌ Cannot claim if you don't have tax liability to offset
+- ❌ Credit cannot exceed your tax liability (non-refundable)
+
+---
+
+### WOTC for Apprenticeships: Key Points
+
+**Why WOTC is valuable for apprenticeships:**
+- Many apprentices qualify (ex-felons, veterans, SNAP recipients, long-term unemployed)
+- JRI participants automatically qualify (ex-felons)
+- Credit helps offset apprentice wage costs
+- Easy to claim if you follow process
+
+**Common qualifying scenarios:**
+
+**Scenario 1: JRI Participant**
+- Marcus is justice-involved (ex-felon)
+- Automatically qualifies for WOTC
+- You claim $2,400 credit
+- Helps offset his $20,000 first-year wages
+
+**Scenario 2: Veteran**
+- DeAndre is unemployed veteran
+- Qualifies for WOTC
+- You claim $2,400-$9,600 credit (depending on disability status)
+- Significant tax savings
+
+**Scenario 3: SNAP Recipient**
+- Tasha receives food stamps
+- Age 18-39
+- Qualifies for WOTC
+- You claim $2,400 credit
+
+---
+
+### WOTC Checklist for Program Holders
+
+**Before hiring:**
+- ☐ Understand WOTC target groups
+- ☐ Have Form 8850 ready
+
+**On hire date:**
+- ☐ Ask apprentice about target group eligibility
+- ☐ Complete Form 8850 (on or before start date)
+- ☐ Have apprentice sign form
+
+**Within 28 days of hire:**
+- ☐ Submit Form 8850 to Indiana DWD
+- ☐ Submit ETA Form 9061 or 9062
+- ☐ Keep copies for your records
+
+**After certification:**
+- ☐ Receive certification letter from state
+- ☐ File with your tax records
+- ☐ Claim credit on next tax return (Form 5884)
+
+---
+
+### WOTC Resources
+
+**IRS Resources:**
+- Form 8850: [irs.gov/forms-pubs/about-form-8850](https://www.irs.gov/forms-pubs/about-form-8850)
+- Form 5884: [irs.gov/forms-pubs/about-form-5884](https://www.irs.gov/forms-pubs/about-form-5884)
+- WOTC Information: [irs.gov/businesses/small-businesses-self-employed/work-opportunity-tax-credit](https://www.irs.gov/businesses/small-businesses-self-employed/work-opportunity-tax-credit)
+
+**Indiana Resources:**
+- Indiana DWD WOTC: Email WOTC@dwd.in.gov or call (317) 232-7670
+
+**We can help:**
+- Identify if your apprentice qualifies
+- Complete WOTC forms
+- Submit to Indiana DWD
+- Track certification status
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+---
+
+### The Bottom Line: WOTC
+
+**WOTC is a valuable tax credit for program holders:**
+- Up to $2,400 per apprentice (most common)
+- Up to $9,600 for disabled veterans
+- Many apprentices qualify (especially JRI participants)
+- Easy to claim if you follow the process
+- Must complete Form 8850 on or before hire date
+- Must submit to Indiana DWD within 28 days
+- Reduces your federal tax liability
+
+**Don't miss out on this benefit - screen every apprentice for WOTC eligibility!**
 
 **What the shop owner does NOT pay for:**
 - ❌ RTI curriculum (WIOA/WRG/JRI pays sponsor directly)
@@ -3420,10 +3764,9 @@ Before you apply, make sure you meet these requirements:
 - ❌ State Board fees (FREE)
 - ❌ Apprentice's tools (shop provides, but minimal cost)
 
-**What the shop owner DOES receive (if working with Elevate):**
-- ✅ Monthly supervision fee from Elevate (negotiated in MOU)
+**What the shop owner DOES receive:**
 - ✅ Apprentice's labor and service revenue
-- ✅ Tax credits (WOTC, up to $2,400)
+- ✅ Tax credits (WOTC, up to $2,400-$9,600 depending on target group)
 
 **What the shop owner does NOT receive:**
 - ❌ Payment from apprentice
@@ -3523,12 +3866,13 @@ Before you apply, make sure you meet these requirements:
 **Revenue from apprentice (15-17 months):**
 - Service revenue: $30,000-$60,000 (depending on skill level and clientele)
 - Shop keeps 50-60%: $18,000-$36,000
-- Supervision fee from Elevate: Per MOU agreement (if working with us)
+- WOTC tax credit: Up to $2,400 (if apprentice qualifies)
 
-**Net financial outcome for shop (working with Elevate):**
-- Varies based on apprentice performance and supervision fee negotiated in MOU
-- Shop receives: Apprentice service revenue + supervision fee + tax credits
+**Net financial outcome for shop:**
+- Varies based on apprentice performance and skill development
+- Shop receives: Apprentice service revenue + WOTC tax credit
 - Shop pays: Apprentice wages + tools/supplies
+- Financial arrangements with Elevate: Negotiated in MOU
 - Most shops find apprenticeships financially beneficial long-term
 
 **Long-term benefit:**
