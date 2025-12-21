@@ -1,0 +1,62 @@
+import { NextResponse } from 'next/server';
+import { createAdminClient } from '@/lib/supabase/admin';
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+    const { apprentice_id, rapids_id, status, registration_date, completion_date } = body;
+
+    const supabase = createAdminClient();
+
+    const updateData: any = {
+      apprentice_id,
+      rapids_id,
+      status,
+    };
+
+    if (status === 'registered' && !registration_date) {
+      updateData.registration_date = new Date().toISOString().split('T')[0];
+    } else if (registration_date) {
+      updateData.registration_date = registration_date;
+    }
+
+    if (status === 'completed' && !completion_date) {
+      updateData.completion_date = new Date().toISOString().split('T')[0];
+    } else if (completion_date) {
+      updateData.completion_date = completion_date;
+    }
+
+    const { data, error } = await supabase
+      .from('rapids_tracking')
+      .upsert(updateData, { onConflict: 'apprentice_id' })
+      .select()
+      .single();
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    return NextResponse.json({ success: true, rapids: data });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+export async function GET() {
+  try {
+    const supabase = createAdminClient();
+
+    const { data, error } = await supabase
+      .from('rapids_tracking')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    return NextResponse.json({ rapids: data });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
