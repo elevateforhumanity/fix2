@@ -1,244 +1,220 @@
-// Admin audit logging system
+import { createAdminClient } from '@/lib/supabase/admin';
 
-import { createClient } from '@/lib/supabase/server';
+export type AuditAction =
+  | 'CREATE'
+  | 'UPDATE'
+  | 'DELETE'
+  | 'EXPORT'
+  | 'LOGIN'
+  | 'LOGOUT'
+  | 'APPROVE'
+  | 'REJECT'
+  | 'SUBMIT';
 
-export type AuditAction = 
-  | 'user.create'
-  | 'user.update'
-  | 'user.delete'
-  | 'course.create'
-  | 'course.update'
-  | 'course.delete'
-  | 'certificate.issue'
-  | 'certificate.revoke'
-  | 'grade.update'
-  | 'enrollment.create'
-  | 'enrollment.delete'
-  | 'settings.update'
-  | 'backup.create'
-  | 'backup.restore'
-  | 'gdpr.export'
-  | 'gdpr.delete'
-  | 'admin.login'
-  | 'admin.logout'
-  | 'content_reported'
-  | 'content_moderated';
+export type AuditEntity =
+  | 'referral'
+  | 'apprentice'
+  | 'employer'
+  | 'funding'
+  | 'rapids'
+  | 'invoice'
+  | 'wotc'
+  | 'ojt'
+  | 'user'
+  | 'audit_snapshot'
+  | 'employer_onboarding';
 
-interface AuditLogEntry {
+export type ActorRole = 'sponsor' | 'employer' | 'workone' | 'admin' | 'system';
+
+export interface AuditLogParams {
+  actor_user_id?: string;
+  actor_role?: ActorRole;
   action: AuditAction;
-  actor_id: string;
-  actor_email?: string;
-  target_type?: string;
-  target_id?: string;
-  changes?: Record<string, any>;
+  entity: AuditEntity;
+  entity_id?: string;
+  before?: any;
+  after?: any;
+  req?: Request;
   metadata?: Record<string, any>;
-  ip_address?: string;
-  user_agent?: string;
 }
 
-export async function logAuditEvent(entry: AuditLogEntry) {
-  const supabase = await createClient();
-
+/**
+ * Immutable audit logging for compliance and oversight
+ * 
+ * Usage:
+ * await auditLog({
+ *   actor_user_id: user.id,
+ *   actor_role: 'sponsor',
+ *   action: 'UPDATE',
+ *   entity: 'funding',
+ *   entity_id: fundingCase.id,
+ *   before: oldData,
+ *   after: newData,
+ *   req
+ * })
+ */
+export async function auditLog({
+  actor_user_id,
+  actor_role = 'system',
+  action,
+  entity,
+  entity_id,
+  before,
+  after,
+  req,
+  metadata,
+}: AuditLogParams): Promise<void> {
   try {
-    const { error } = await supabase.from('audit_logs').insert({
-      action: entry.action,
-      actor_id: entry.actor_id,
-      actor_email: entry.actor_email,
-      target_type: entry.target_type,
-      target_id: entry.target_id,
-      changes: entry.changes,
-      metadata: entry.metadata,
-      ip_address: entry.ip_address,
-      user_agent: entry.user_agent,
-      timestamp: new Date().toISOString(),
-    });
+    const supabase = createAdminClient();
+
+    const logEntry = {
+      actor_user_id,
+      actor_role,
+      action,
+      entity,
+      entity_id,
+      before: before ? JSON.parse(JSON.stringify(before)) : null,
+      after: after ? JSON.parse(JSON.stringify(after)) : null,
+      ip_address: req?.headers.get('x-forwarded-for') || req?.headers.get('x-real-ip') || null,
+      user_agent: req?.headers.get('user-agent') || null,
+      metadata: metadata || null,
+    };
+
+    const { error } = await supabase.from('audit_logs').insert([logEntry]);
 
     if (error) {
-      // Error: $1
-      return { success: false, error: error.message };
+      console.error('Failed to write audit log:', error);
+      // Don't throw - audit logging should never break the main flow
     }
-
-    return { success: true };
   } catch (error) {
-    // Error: $1
+    console.error('Audit log exception:', error);
+    // Silent fail - audit logging is critical but shouldn't break operations
+  }
+}
+
+/**
+ * Query audit logs for a specific entity
+ */
+export async function getAuditLogs(
+  entity: AuditEntity,
+  entity_id?: string,
+  limit = 100
+) {
+  const supabase = createAdminClient();
+
+  let query = supabase
+    .from('audit_logs')
+    .select('*')
+    .eq('entity', entity)
+    .order('created_at', { ascending: false })
+    .limit(limit);
+
+  if (entity_id) {
+    query = query.eq('entity_id', entity_id);
+  }
+
+  const { data, error } = await query;
+
+  if (error) {
+    console.error('Failed to fetch audit logs:', error);
+    return [];
+  }
+
+  return data || [];
+}
+
+/**
+ * Query audit logs by actor
+ */
+export async function getAuditLogsByActor(
+  actor_user_id: string,
+  limit = 100
+) {
+  const supabase = createAdminClient();
+
+  const { data, error } = await supabase
+    .from('audit_logs')
+    .select('*')
+    .eq('actor_user_id', actor_user_id)
+    .order('created_at', { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    console.error('Failed to fetch audit logs by actor:', error);
+    return [];
+  }
+
+  return data || [];
+}
+
+/**
+ * Get audit log statistics
+ */
+export async function getAuditStats(days = 30) {
+  const supabase = createAdminClient();
+
+  const since = new Date();
+  since.setDate(since.getDate() - days);
+
+  const { data, error } = await supabase
+    .from('audit_logs')
+    .select('action, entity, actor_role')
+    .gte('created_at', since.toISOString());
+
+  if (error || !data) {
     return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      total: 0,
+      byAction: {},
+      byEntity: {},
+      byRole: {},
     };
   }
-}
 
-export async function getAuditLogs(filters?: {
-  action?: AuditAction;
-  actor_id?: string;
-  target_type?: string;
-  target_id?: string;
-  start_date?: string;
-  end_date?: string;
-  limit?: number;
-}) {
-  const supabase = await createClient();
-
-  try {
-    let query = supabase
-      .from('audit_logs')
-      .select('*')
-      .order('timestamp', { ascending: false });
-
-    if (filters?.action) {
-      query = query.eq('action', filters.action);
-    }
-    if (filters?.actor_id) {
-      query = query.eq('actor_id', filters.actor_id);
-    }
-    if (filters?.target_type) {
-      query = query.eq('target_type', filters.target_type);
-    }
-    if (filters?.target_id) {
-      query = query.eq('target_id', filters.target_id);
-    }
-    if (filters?.start_date) {
-      query = query.gte('timestamp', filters.start_date);
-    }
-    if (filters?.end_date) {
-      query = query.lte('timestamp', filters.end_date);
-    }
-    if (filters?.limit) {
-      query = query.limit(filters.limit);
-    } else {
-      query = query.limit(100);
-    }
-
-    const { data, error } = await query;
-
-    if (error) {
-      // Error: $1
-      return { success: false, error: error.message, logs: [] };
-    }
-
-    return { success: true, logs: data || [] };
-  } catch (error) {
-    // Error: $1
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
-      logs: [],
-    };
-  }
-}
-
-export async function getAuditLogStats(days: number = 30) {
-  const supabase = await createClient();
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - days);
-
-  try {
-    const { data, error } = await supabase
-      .from('audit_logs')
-      .select('action, actor_id')
-      .gte('timestamp', startDate.toISOString());
-
-    if (error) {
-      // Error: $1
-      return null;
-    }
-
-    const stats = {
-      totalEvents: data?.length || 0,
-      uniqueActors: new Set(data?.map(log => log.actor_id)).size,
-      actionCounts: data?.reduce((acc, log) => {
-        acc[log.action] = (acc[log.action] || 0) + 1;
-        return acc;
-      }, {} as Record<string, number>) || {},
-    };
-
-    return stats;
-  } catch (error) {
-    // Error: $1
-    return null;
-  }
-}
-
-export async function exportAuditLogs(filters?: {
-  start_date?: string;
-  end_date?: string;
-}): Promise<
-  | { success: true; data: string; filename: string }
-  | { success: false; error: string }
-> {
-  const result = await getAuditLogs({
-    ...filters,
-    limit: 10000, // Export more records
-  });
-
-  if (!result.success) {
-    return { success: false as const, error: result.error };
-  }
-
-  const csv = [
-    'Timestamp,Action,Actor ID,Actor Email,Target Type,Target ID,IP Address',
-    ...result.logs.map(log => 
-      [
-        log.timestamp,
-        log.action,
-        log.actor_id,
-        log.actor_email || '',
-        log.target_type || '',
-        log.target_id || '',
-        log.ip_address || '',
-      ].map(field => `"${String(field).replace(/"/g, '""')}"`).join(',')
-    ),
-  ].join('\n');
-
-  return {
-    success: true as const,
-    data: csv,
-    filename: `audit_logs_${Date.now()}.csv`,
+  const stats = {
+    total: data.length,
+    byAction: data.reduce((acc: any, log) => {
+      acc[log.action] = (acc[log.action] || 0) + 1;
+      return acc;
+    }, {}),
+    byEntity: data.reduce((acc: any, log) => {
+      acc[log.entity] = (acc[log.entity] || 0) + 1;
+      return acc;
+    }, {}),
+    byRole: data.reduce((acc: any, log) => {
+      acc[log.actor_role] = (acc[log.actor_role] || 0) + 1;
+      return acc;
+    }, {}),
   };
+
+  return stats;
 }
 
-// Helper functions for common audit events
-export async function logUserAction(
-  action: AuditAction,
-  actorId: string,
-  targetId?: string,
-  changes?: Record<string, any>
+/**
+ * Helper to log before/after changes
+ */
+export async function auditChange(
+  params: Omit<AuditLogParams, 'action'> & { action?: AuditAction }
 ) {
-  return logAuditEvent({
-    action,
-    actor_id: actorId,
-    target_type: 'user',
-    target_id: targetId,
-    changes,
+  return auditLog({
+    ...params,
+    action: params.action || 'UPDATE',
   });
 }
 
-export async function logCourseAction(
-  action: AuditAction,
-  actorId: string,
-  courseId: string,
-  changes?: Record<string, any>
+/**
+ * Helper to log exports (for DWD/WorkOne compliance)
+ */
+export async function auditExport(
+  entity: AuditEntity,
+  actor_user_id?: string,
+  actor_role: ActorRole = 'workone',
+  req?: Request
 ) {
-  return logAuditEvent({
-    action,
-    actor_id: actorId,
-    target_type: 'course',
-    target_id: courseId,
-    changes,
-  });
-}
-
-export async function logCertificateAction(
-  action: AuditAction,
-  actorId: string,
-  certificateId: string,
-  metadata?: Record<string, any>
-) {
-  return logAuditEvent({
-    action,
-    actor_id: actorId,
-    target_type: 'certificate',
-    target_id: certificateId,
-    metadata,
+  return auditLog({
+    actor_user_id,
+    actor_role,
+    action: 'EXPORT',
+    entity,
+    req,
   });
 }

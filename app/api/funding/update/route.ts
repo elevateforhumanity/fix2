@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { auditLog } from '@/lib/auditLog';
 
 export async function POST(req: Request) {
   try {
@@ -16,6 +17,14 @@ export async function POST(req: Request) {
     } = body;
 
     const supabase = createAdminClient();
+
+    // Get existing record for audit trail
+    const { data: before } = await supabase
+      .from('funding_cases')
+      .select('*')
+      .eq('apprentice_id', apprentice_id)
+      .eq('funding_source', funding_source)
+      .single();
 
     const { data, error } = await supabase
       .from('funding_cases')
@@ -38,6 +47,18 @@ export async function POST(req: Request) {
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
+
+    // Log the change
+    await auditLog({
+      actor_user_id: req.headers.get('x-user-id') || undefined,
+      actor_role: (req.headers.get('x-user-role') as any) || 'system',
+      action: before ? 'UPDATE' : 'CREATE',
+      entity: 'funding',
+      entity_id: data.id,
+      before,
+      after: data,
+      req,
+    });
 
     return NextResponse.json({ success: true, funding: data });
   } catch (error: any) {

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { auditExport } from '@/lib/auditLog';
 
 export async function GET(req: Request) {
   try {
@@ -21,6 +22,14 @@ export async function GET(req: Request) {
         { status: 404 }
       );
     }
+
+    // Log the export action
+    await auditExport(
+      'audit_snapshot',
+      req.headers.get('x-user-id') || undefined,
+      (req.headers.get('x-user-role') as any) || 'workone',
+      req
+    );
 
     if (format === 'json') {
       return NextResponse.json({ data });
