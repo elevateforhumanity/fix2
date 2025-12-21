@@ -3,6 +3,7 @@ import { stripe } from '@/lib/stripe/client';
 import { getProductBySlug } from '@/app/data/store-products';
 import { STRIPE_PRICE_IDS, isPriceConfigured } from '@/lib/stripe/price-map';
 import { toError, toErrorMessage } from '@/lib/safe';
+import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
 
@@ -13,6 +14,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ 
         error: 'Payment system not configured. Please contact support.' 
       }, { status: 503 });
+    }
+
+    // Get authenticated user and tenant
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    let tenantId: string | null = null;
+    if (user) {
+      const { data: membership } = await supabase
+        .from('tenant_memberships')
+        .select('tenant_id')
+        .eq('user_id', user.id)
+        .single();
+      tenantId = membership?.tenant_id || null;
     }
 
     const contentType = req.headers.get('content-type') || '';
@@ -54,6 +69,14 @@ export async function POST(req: Request) {
     const priceId = STRIPE_PRICE_IDS[productId];
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
+    // Map product slug to plan name for license activation
+    const planNameMap: Record<string, string> = {
+      'starter': 'starter',
+      'professional': 'professional',
+      'enterprise': 'enterprise',
+    };
+    const planName = planNameMap[productId] || 'starter';
+
     // Create Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
       mode: product.billingType === 'subscription' ? 'subscription' : 'payment',
@@ -72,6 +95,10 @@ export async function POST(req: Request) {
         productId: product.id,
         licenseType: product.licenseType,
         appsIncluded: JSON.stringify(product.appsIncluded),
+        // Required for automatic license activation via webhook
+        tenant_id: tenantId || '',
+        plan_name: planName,
+        stripe_price_id: priceId,
       },
       // Enable automatic tax calculation if configured
       automatic_tax: {
