@@ -7,56 +7,55 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO BANNER */}
-      <section className="relative text-white py-16 md:py-24 overflow-hidden">
-        {/* Background Video or Image */}
-        <div className="absolute inset-0 bg-slate-900" />
+      <section className="relative py-16 md:py-24 overflow-hidden bg-white">
+        {/* No background overlay */}
 
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6">
-              <span className="text-sm font-bold">
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full mb-6">
+              <span className="text-sm font-bold text-blue-900">
                 🎓 100% Free Training • No Student Debt
               </span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
               We See Your Potential,
               <br />
               Not Your Past
             </h1>
 
             {/* Description */}
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
               Real training. Real jobs. Real support. And it's 100% free.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-3xl font-bold mb-1">100%</div>
-                <div className="text-sm text-white/80">Free Training</div>
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1 text-blue-600">100%</div>
+                <div className="text-sm text-gray-700">Free Training</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-3xl font-bold mb-1">4-12</div>
-                <div className="text-sm text-white/80">Weeks</div>
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1 text-blue-600">4-12</div>
+                <div className="text-sm text-gray-700">Weeks</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-3xl font-bold mb-1">14+</div>
-                <div className="text-sm text-white/80">Programs</div>
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1 text-blue-600">14+</div>
+                <div className="text-sm text-gray-700">Programs</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-3xl font-bold mb-1">90%</div>
-                <div className="text-sm text-white/80">Job Placement</div>
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold mb-1 text-blue-600">90%</div>
+                <div className="text-sm text-gray-700">Job Placement</div>
               </div>
             </div>
 
             {/* Credentials Badge */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8">
-              <p className="text-sm text-white/90 leading-relaxed">
-                <strong className="text-white">
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <strong className="text-blue-900">
                   Registered Apprenticeship Sponsor & ETPL-Approved Provider.
                 </strong>{' '}
                 We are a registered apprenticeship sponsor and ETPL-approved
@@ -88,7 +87,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-bold text-lg transition"
               >
                 Apply Now - It's Free
               </Link>
