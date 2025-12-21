@@ -15,7 +15,7 @@ export default function NextStepsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const progress = useMemo(
-    () => data?.progress || { percent: 0, done: 0, total: 8 },
+    () => data?.progress || { percent: 0, done: 0, total: 9 },
     [data]
   );
 
@@ -99,6 +99,56 @@ export default function NextStepsPage() {
       </div>
 
       <div className="mt-6 space-y-4">
+        <div className="rounded-2xl border bg-white p-5">
+          <p className="text-sm font-semibold">Program Information</p>
+          <p className="mt-1 text-sm text-gray-700 leading-relaxed">
+            Tell us which program you're applying for so we know exactly what
+            you need.
+          </p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <div>
+              <label className="text-xs font-semibold text-gray-700">
+                Program Code
+              </label>
+              <select
+                className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                value={data.program_code ?? ''}
+                onChange={(e) => patch({ program_code: e.target.value })}
+              >
+                <option value="">Select program</option>
+                <option value="barber-apprenticeship">
+                  Barber Apprenticeship
+                </option>
+                <option value="esthetician-apprenticeship">
+                  Esthetician Apprenticeship
+                </option>
+                <option value="nail-technician-apprenticeship">
+                  Nail Technician Apprenticeship
+                </option>
+                <option value="hvac-technician">HVAC Technician</option>
+                <option value="cna">CNA - Certified Nursing Assistant</option>
+                <option value="qma">QMA - Qualified Medication Aide</option>
+                <option value="cdl">CDL - Commercial Driver's License</option>
+                <option value="welding">Welding Technology</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-gray-700">
+                Program Name (if Other)
+              </label>
+              <input
+                className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                value={data.program_name_other ?? ''}
+                onChange={(e) =>
+                  patch({ program_name_other: e.target.value })
+                }
+                placeholder="Enter program name"
+              />
+            </div>
+          </div>
+        </div>
+
         <ChecklistRow
           checked={!!data.inquiry_submitted}
           title="Step 1: Submit your Elevate for Humanity Inquiry"
@@ -132,49 +182,190 @@ export default function NextStepsPage() {
         </div>
 
         <div className="rounded-2xl border bg-white p-5">
-          <ChecklistRow
-            checked={!!data.workone_appointment_scheduled}
-            title="Step 3: Schedule a WorkOne appointment"
-            note="Add the appointment details so we can track your timeline."
-            onChange={(v) => patch({ workone_appointment_scheduled: v })}
-          />
-          <div className="mt-3 grid gap-3 sm:grid-cols-3">
-            <div>
-              <label className="text-xs font-semibold text-gray-700">
-                Appointment Date
-              </label>
-              <input
-                type="date"
-                className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-                value={data.workone_appointment_date ?? ''}
-                onChange={(e) =>
-                  patch({ workone_appointment_date: e.target.value })
-                }
-              />
+          <p className="text-sm font-semibold">
+            Step 3: Track your WorkOne appointments
+          </p>
+          <p className="mt-1 text-sm text-gray-700 leading-relaxed">
+            WorkOne may schedule multiple appointments. Add each one so we can
+            track your progress.
+          </p>
+
+          <div className="mt-4 space-y-4">
+            <div className="rounded-xl border bg-gray-50 p-4">
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-5 w-5 rounded border"
+                  checked={!!data.workone_appointment_1_completed}
+                  onChange={(e) =>
+                    patch({ workone_appointment_1_completed: e.target.checked })
+                  }
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold">Appointment #1</p>
+                  <div className="mt-2 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Date
+                      </label>
+                      <input
+                        type="date"
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_1_date ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_1_date: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Time
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_1_time ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_1_time: e.target.value })
+                        }
+                        placeholder="e.g., 10:30 AM"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Location
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_1_location ?? ''}
+                        onChange={(e) =>
+                          patch({
+                            workone_appointment_1_location: e.target.value,
+                          })
+                        }
+                        placeholder="City / office"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="text-xs font-semibold text-gray-700">
-                Appointment Time
-              </label>
-              <input
-                className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-                value={data.workone_appointment_time ?? ''}
-                onChange={(e) =>
-                  patch({ workone_appointment_time: e.target.value })
-                }
-                placeholder="e.g., 10:30 AM"
-              />
+
+            <div className="rounded-xl border bg-gray-50 p-4">
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-5 w-5 rounded border"
+                  checked={!!data.workone_appointment_2_completed}
+                  onChange={(e) =>
+                    patch({ workone_appointment_2_completed: e.target.checked })
+                  }
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold">Appointment #2</p>
+                  <div className="mt-2 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Date
+                      </label>
+                      <input
+                        type="date"
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_2_date ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_2_date: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Time
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_2_time ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_2_time: e.target.value })
+                        }
+                        placeholder="e.g., 10:30 AM"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Location
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_2_location ?? ''}
+                        onChange={(e) =>
+                          patch({
+                            workone_appointment_2_location: e.target.value,
+                          })
+                        }
+                        placeholder="City / office"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="text-xs font-semibold text-gray-700">
-                WorkOne Location
-              </label>
-              <input
-                className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-                value={data.workone_location ?? ''}
-                onChange={(e) => patch({ workone_location: e.target.value })}
-                placeholder="City / office name"
-              />
+
+            <div className="rounded-xl border bg-gray-50 p-4">
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-5 w-5 rounded border"
+                  checked={!!data.workone_appointment_3_completed}
+                  onChange={(e) =>
+                    patch({ workone_appointment_3_completed: e.target.checked })
+                  }
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-semibold">Appointment #3</p>
+                  <div className="mt-2 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Date
+                      </label>
+                      <input
+                        type="date"
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_3_date ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_3_date: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Time
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_3_time ?? ''}
+                        onChange={(e) =>
+                          patch({ workone_appointment_3_time: e.target.value })
+                        }
+                        placeholder="e.g., 10:30 AM"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-700">
+                        Location
+                      </label>
+                      <input
+                        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
+                        value={data.workone_appointment_3_location ?? ''}
+                        onChange={(e) =>
+                          patch({
+                            workone_appointment_3_location: e.target.value,
+                          })
+                        }
+                        placeholder="City / office"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

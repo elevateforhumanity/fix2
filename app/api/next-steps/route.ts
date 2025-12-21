@@ -4,9 +4,10 @@ import { createClient } from '@/lib/supabase/server';
 
 function computeProgress(row: any) {
   const checks = [
+    !!row.program_code,
     !!row.inquiry_submitted,
     !!row.icc_account_created,
-    !!row.workone_appointment_scheduled,
+    !!row.workone_appointment_1_completed || !!row.workone_appointment_2_completed || !!row.workone_appointment_3_completed,
     !!row.told_advisor_efh,
     !!row.advisor_docs_uploaded,
     row.funding_status === 'approved' || row.funding_status === 'denied',
@@ -86,6 +87,9 @@ export async function PATCH(req: Request) {
 
   // Server-side allowlist (prevents random fields)
   const allowed: Record<string, boolean> = {
+    program_code: true,
+    program_name_other: true,
+
     inquiry_submitted: true,
     inquiry_submitted_at: true,
 
@@ -96,6 +100,21 @@ export async function PATCH(req: Request) {
     workone_appointment_date: true,
     workone_appointment_time: true,
     workone_location: true,
+
+    workone_appointment_1_completed: true,
+    workone_appointment_1_date: true,
+    workone_appointment_1_time: true,
+    workone_appointment_1_location: true,
+
+    workone_appointment_2_completed: true,
+    workone_appointment_2_date: true,
+    workone_appointment_2_time: true,
+    workone_appointment_2_location: true,
+
+    workone_appointment_3_completed: true,
+    workone_appointment_3_date: true,
+    workone_appointment_3_time: true,
+    workone_appointment_3_location: true,
 
     told_advisor_efh: true,
 

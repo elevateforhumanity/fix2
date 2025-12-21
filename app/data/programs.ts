@@ -1480,6 +1480,72 @@ Think of them like merit badges in Boy Scouts, but for your career. Each badge r
 
 ---
 
+## Track Your Progress: Complete Your Next Steps Checklist
+
+**After you apply, you'll need to complete several steps to move forward.** We've created a checklist to help you track your progress and ensure nothing falls through the cracks.
+
+### Your 9-Step Checklist
+
+Once you submit your inquiry, you'll get access to your personal checklist at **[elevateforhumanity.com/next-steps](https://elevateforhumanity.com/next-steps)**. Here's what you'll track:
+
+**Program Information: Select your program code**
+- Choose "Barber Apprenticeship" from the dropdown
+- This tells us exactly which program you're applying for
+- We need this to track you correctly in our system
+
+**Step 1: Submit your Elevate for Humanity Inquiry**
+- This tells us your goal and program interest
+
+**Step 2: Create or log into Indiana Career Connect**
+- Go to indianacareerconnect.com and create/login to your account
+- Add your ICC username to your checklist (optional but helpful)
+
+**Step 3: Track your WorkOne appointments**
+- WorkOne may schedule multiple appointments (orientation, assessment, advisor meeting)
+- Add each appointment with date, time, and location
+- Check off each appointment when you complete it
+- This helps us know which appointments are done and which are upcoming
+
+**Step 4: Tell the advisor: "I'm here for Elevate for Humanity"**
+- This connects your appointment to the right training pathway
+- Check this off after your appointment
+
+**Step 5: Upload or confirm documents requested by your advisor**
+- If they asked for anything, mark this once you've submitted it
+- Add notes about what documents they requested
+
+**Step 6: Funding determination received**
+- Select what your advisor decided (WIOA, WRG, JRI, Apprenticeship, Other)
+- Mark whether you were approved, denied, or still pending
+
+**Step 7: Complete your EFH onboarding call**
+- This is where we confirm your pathway, timeline, and start steps
+- Add the onboarding call date to your checklist
+
+**Step 8: Program start date confirmed**
+- Once this is checked, you are officially ready for your start timeline
+- Add your program start date
+
+### Why This Matters
+
+**We can't move you forward until we know where you are in the process.** The checklist helps us:
+- Track your progress in real-time
+- Follow up if something gets stuck
+- Move faster once you complete each step
+- Ensure nothing falls through the cracks
+
+### How to Use Your Checklist
+
+1. **After you apply:** Go to [elevateforhumanity.com/next-steps](https://elevateforhumanity.com/next-steps)
+2. **Log in** with the account you created when you applied
+3. **Check off each step** as you complete it
+4. **Add dates and details** so we can track your timeline
+5. **Come back after appointments** to update your progress
+
+**Important:** We can see your checklist updates in real-time. The more you keep it updated, the faster we can help you move through the process.
+
+---
+
 ### State Board Contact Information
 
 **Indiana Professional Licensing Agency**
