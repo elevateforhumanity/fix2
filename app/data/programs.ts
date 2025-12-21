@@ -3276,95 +3276,108 @@ Before you apply, make sure you meet these requirements:
 
 ## Who Pays Who? Understanding the Sponsor-Shop-Apprentice Relationship
 
-### Clarifying "Sponsor" vs "Shop Owner"
+### Clarifying "Sponsor" vs "Shop Owner" vs "Program Holder"
 
-**In most cases, the shop owner IS the sponsor. They are the same entity.**
+**The Shop Owner IS the Program Holder (they are the same).**
 
-**Typical structure:**
-- Barbershop owner registers as apprenticeship sponsor with U.S. Department of Labor
-- Shop owner becomes the "Program Holder" or "Apprenticeship Sponsor"
-- Shop owner hires apprentice as employee
-- Shop owner pays apprentice wages
-- Shop owner pays for or arranges RTI curriculum
+**Program Holder / Shop Owner:**
+- Barbershop owner who registers as apprenticeship sponsor with U.S. Department of Labor
+- Hires apprentice as W-2 employee
+- Provides on-the-job training
+- Pays apprentice wages ($10/hour + commissions)
+- Tracks hours and reports to State Board
+- Provides tools, equipment, supplies
+- Supervises apprentice work
 
-**There is NO separate "sponsor" paying the shop owner.**
+**The Sponsor (Third-Party Organization):**
+- Separate organization that helps coordinate apprenticeships
+- Could be: Workforce development organization, training provider, industry association, or us (Elevate for Humanity)
+- Recruits and screens apprentices
+- Matches apprentices with program holders (barbershops)
+- May provide RTI curriculum
+- May help with administrative paperwork
+- NOT the employer (shop owner is the employer)
+
+**Key distinction:**
+- **Program Holder = Shop Owner** (same entity, employer)
+- **Sponsor = Third-party coordinator** (separate entity, not employer)
 
 ---
 
 ### Payment Flow: Who Pays What
 
-**Scenario 1: Shop Owner as Direct Sponsor (Most Common - 90%)**
+**Scenario 1: Program Holder Model (Standard)**
 
-**The shop owner:**
-- ✅ Registers as apprenticeship sponsor (FREE - no registration fees)
-- ✅ Hires apprentice as W-2 employee
-- ✅ Pays apprentice wages ($10/hour + commissions)
-- ✅ Pays for RTI curriculum ($6,500) OR gets it covered by WIOA/WRG/JRI
-- ✅ Provides tools, equipment, supplies
-- ✅ Tracks and reports hours to State Board
-
-**The apprentice:**
-- ✅ Works at the shop
-- ✅ Earns wages from shop owner
-- ✅ Pays nothing to shop owner
-
-**No one pays the shop owner except:**
-- Customers paying for services
-- Funding agencies (WIOA/WRG/JRI) paying for apprentice's RTI curriculum
-
-**Example:**
-- Shop owner: "I'm registering as an apprenticeship sponsor"
-- Shop owner pays: $0 registration fees (FREE)
-- Shop owner hires: Marcus as apprentice
-- Shop owner pays Marcus: $10/hour + commissions
-- WIOA pays training provider: $6,500 for Marcus's RTI curriculum (NOT to shop owner)
-- Marcus pays shop owner: $0
-
----
-
-**Scenario 2: Third-Party Sponsor Organization (Rare - 10%)**
-
-**In some cases, a separate organization acts as the apprenticeship sponsor:**
-
-**Examples of third-party sponsors:**
-- Industry associations (e.g., Indiana Barber Association)
-- Workforce development organizations
-- Training providers
-- Union organizations
-
-**How it works:**
-
-**The third-party sponsor:**
-- ✅ Registers as apprenticeship sponsor with U.S. DOL
-- ✅ Recruits and screens apprentices
-- ✅ Matches apprentices with participating shops
-- ✅ Provides RTI curriculum
-- ✅ Tracks hours and reports to State Board
-- ✅ Handles administrative paperwork
-
-**The shop owner:**
-- ✅ Partners with third-party sponsor
+**The Program Holder (Shop Owner):**
+- ✅ Barbershop owner registers as apprenticeship program holder with U.S. Department of Labor (FREE)
 - ✅ Hires apprentice as W-2 employee
 - ✅ Pays apprentice wages ($10/hour + commissions)
 - ✅ Provides on-the-job training
-- ✅ Reports hours to third-party sponsor
+- ✅ Provides tools, equipment, supplies
+- ✅ Tracks hours and reports to State Board
+- ✅ Arranges RTI curriculum (funded by WIOA/WRG/JRI or shop pays)
+
+**The Apprentice:**
+- ✅ Works at the shop
+- ✅ Earns wages from shop owner (program holder)
+- ✅ Completes RTI curriculum
+- ✅ Pays nothing to shop owner
+
+**Example:**
+- Shop A owner: Registers as program holder with U.S. DOL (FREE)
+- Shop A hires: Marcus as apprentice
+- Shop A pays Marcus: $10/hour + commissions
+- WIOA pays RTI provider: $6,500 for Marcus's RTI curriculum
+- Marcus completes: RTI online through approved provider
+- Shop A tracks: Marcus's hours and reports to State Board
+- Marcus pays Shop A: $0
+
+---
+
+**Scenario 2: Third-Party Sponsor Coordination (How We Work)**
+
+**In some cases, a separate organization helps coordinate apprenticeships:**
+
+**Examples of third-party sponsors:**
+- Elevate for Humanity (us)
+- Workforce development organizations
+- Training providers
+- Industry associations
+
+**How it works:**
+
+**The third-party sponsor (e.g., Elevate for Humanity):**
+- ✅ Helps barbershops register as program holders with U.S. DOL
+- ✅ Recruits and screens apprentices
+- ✅ Matches apprentices with participating program holder shops
+- ✅ Provides or arranges RTI curriculum
+- ✅ Helps with administrative paperwork
+- ✅ Supports both shop and apprentice
+
+**The program holder (shop owner):**
+- ✅ Registers as program holder with U.S. DOL (with our help)
+- ✅ Hires apprentice as W-2 employee
+- ✅ Pays apprentice wages ($10/hour + commissions)
+- ✅ Provides on-the-job training
+- ✅ Tracks hours and reports to State Board
 
 **The third-party sponsor:**
 - ❌ Does NOT pay the shop owner
 - ❌ Does NOT pay apprentice wages
 - ✅ May receive funding (WIOA/WRG/JRI) to cover RTI curriculum
-- ✅ May charge administrative fees to participating shops (optional)
+- ✅ Does NOT charge fees to shops or apprentices
 
 **Example:**
-- Indiana Barber Association registers as sponsor
-- Association recruits Marcus as apprentice
-- Association matches Marcus with Shop A
+- Elevate for Humanity recruits Marcus as apprentice
+- Elevate helps Shop A register as program holder
 - Shop A hires Marcus as employee
 - Shop A pays Marcus: $10/hour + commissions
-- Association provides RTI curriculum (funded by WIOA)
-- Association tracks Marcus's hours
-- Shop A pays association: $0 (or small admin fee like $100/month)
-- Association pays Shop A: $0
+- WIOA pays Elevate: $6,500 for Marcus's RTI curriculum
+- Elevate provides: RTI training to Marcus
+- Elevate helps: Shop A with paperwork and hour tracking
+- Shop A pays Elevate: $0
+- Marcus pays Elevate: $0
+- Elevate pays Shop A: $0
 
 ---
 
