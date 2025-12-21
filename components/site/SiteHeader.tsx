@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { headerNav } from '@/config/navigation';
+import { getNavigation } from '@/config/navigation-clean';
+import { createClient } from '@/lib/supabase/client';
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,14 +12,37 @@ export default function SiteHeader() {
   const [expandedMobileSection, setExpandedMobileSection] = useState<
     string | null
   >(null);
+  const [user, setUser] = useState<any>(null);
+  const [navigation, setNavigation] = useState(getNavigation(null));
 
-  // Debug: Check if headerNav is loaded
+  // Get user and update navigation
+  useEffect(() => {
+    const supabase = createClient();
+    
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+      setNavigation(getNavigation(user));
+    };
+
+    getUser();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setNavigation(getNavigation(session?.user ?? null));
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Debug: Check if navigation is loaded
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      console.log('HeaderNav loaded:', headerNav?.length, 'sections');
-      console.log('First section:', headerNav?.[0]);
+      console.log('Navigation loaded:', navigation?.length, 'sections');
+      console.log('User authenticated:', !!user);
     }
-  }, []);
+  }, [navigation, user]);
 
   // Fix mobile nav overlay blocking clicks
   useEffect(() => {
@@ -59,8 +83,8 @@ export default function SiteHeader() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
-            {headerNav && headerNav.length > 0 ? (
-              headerNav.map((section) => (
+            {navigation && navigation.length > 0 ? (
+              navigation.map((section) => (
                 <div
                   key={section.label}
                   className="relative"
@@ -147,7 +171,7 @@ export default function SiteHeader() {
             <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe">
               <nav className="px-4 py-6 space-y-2 min-h-full">
                 {/* All Navigation Sections */}
-                {headerNav?.map((section) => (
+                {navigation?.map((section) => (
                   <div
                     key={section.label}
                     className="border-b border-gray-200 last:border-b-0"
