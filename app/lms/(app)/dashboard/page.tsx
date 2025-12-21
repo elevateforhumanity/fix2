@@ -3,6 +3,7 @@ import { requireRole } from '@/lib/auth/require-role';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
+import { ClaimApplications } from '@/components/ClaimApplications';
 
 export const metadata = { title: 'Dashboard | LMS' };
 
@@ -61,6 +62,9 @@ export default async function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
+      {/* Claim any pre-auth applications */}
+      <ClaimApplications />
+      
       {/* Welcome Banner */}
       <section className="bg-white text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
