@@ -3296,7 +3296,7 @@ Before you apply, make sure you meet these requirements:
 **Scenario 1: Shop Owner as Direct Sponsor (Most Common - 90%)**
 
 **The shop owner:**
-- ✅ Registers as apprenticeship sponsor (pays registration fees $500-1,000)
+- ✅ Registers as apprenticeship sponsor (FREE - no registration fees)
 - ✅ Hires apprentice as W-2 employee
 - ✅ Pays apprentice wages ($10/hour + commissions)
 - ✅ Pays for RTI curriculum ($6,500) OR gets it covered by WIOA/WRG/JRI
@@ -3314,10 +3314,10 @@ Before you apply, make sure you meet these requirements:
 
 **Example:**
 - Shop owner: "I'm registering as an apprenticeship sponsor"
-- Shop owner pays: $1,000 registration fees
+- Shop owner pays: $0 registration fees (FREE)
 - Shop owner hires: Marcus as apprentice
 - Shop owner pays Marcus: $10/hour + commissions
-- WIOA pays shop owner: $6,500 for Marcus's RTI curriculum
+- WIOA pays training provider: $6,500 for Marcus's RTI curriculum (NOT to shop owner)
 - Marcus pays shop owner: $0
 
 ---
@@ -3381,9 +3381,9 @@ Before you apply, make sure you meet these requirements:
 
 **2. RTI Curriculum Funding (If Applicable)**
 - WIOA/WRG/JRI pays for apprentice's RTI curriculum ($6,500)
-- This money goes to the training provider (online course or school)
-- If shop provides RTI in-house, shop may receive this funding
-- Most shops use external RTI providers, so funding goes to them
+- This money goes DIRECTLY to the training provider (online course or school)
+- Shop owner does NOT receive this money
+- Funding pays the RTI provider, not the barbershop
 
 **3. Tax Credits (Federal)**
 - Work Opportunity Tax Credit (WOTC): Up to $2,400 per apprentice
@@ -3391,14 +3391,9 @@ Before you apply, make sure you meet these requirements:
 - Shop owner claims on federal tax return
 - Not direct payment, but reduces tax liability
 
-**4. Potential Grants (Rare)**
-- Some states or organizations offer grants to apprenticeship sponsors
-- Typically $1,000-$5,000 per apprentice
-- Covers administrative costs, tools, training materials
-- Not common in Indiana for barber apprenticeships
-
 **What the shop owner does NOT receive:**
 - ❌ Payment from apprentice
+- ❌ Payment from WIOA/WRG/JRI (funding goes to RTI provider, not shop)
 - ❌ Payment from State Board
 - ❌ Payment from U.S. Department of Labor
 - ❌ Payment from third-party sponsor (usually)
@@ -3462,7 +3457,7 @@ Before you apply, make sure you meet these requirements:
 
 **Misconception 1: "The government pays shops to train apprentices"**
 
-❌ **Wrong.** The government does NOT pay shops directly. WIOA/WRG/JRI pays for the apprentice's RTI curriculum, not the shop's costs.
+❌ **Wrong.** The government does NOT pay shops at all. WIOA/WRG/JRI pays the RTI training provider directly, not the barbershop.
 
 **Misconception 2: "Apprentices pay the shop for training"**
 
@@ -3481,15 +3476,15 @@ Before you apply, make sure you meet these requirements:
 ### Financial Reality for Shop Owners
 
 **Cost to become apprenticeship sponsor:**
-- Registration fees: $500-1,000 (one-time)
-- Annual renewal: $200-500
-- Insurance increases: $500-1,000/year
+- Registration fees: $0 (FREE - no cost to register)
+- Annual renewal: $0 (FREE)
+- Insurance increases: May increase slightly (varies by insurer)
 - Administrative time: 5-10 hours/month
 
 **Cost per apprentice (15-17 months):**
 - Wages: $20,000-$30,000
-- RTI curriculum: $0 (if funded) or $6,500 (if not funded)
-- Tools and supplies: $200-500
+- RTI curriculum: $0 (if funded by WIOA/WRG/JRI) or $6,500 (if shop pays)
+- Tools and supplies: $200-500 (shop-provided tools)
 - **Total: $20,200-$37,000**
 
 **Revenue from apprentice (15-17 months):**
@@ -3516,11 +3511,13 @@ Before you apply, make sure you meet these requirements:
 
 ✅ **Shop owner pays apprentice** ($10/hour + commissions)
 
-✅ **WIOA/WRG/JRI pays training provider** (for RTI curriculum)
+✅ **WIOA/WRG/JRI pays training provider** (for RTI curriculum - NOT the shop)
 
 ✅ **Customers pay shop** (for services)
 
 ✅ **Federal government gives shop tax credits** (WOTC, up to $2,400)
+
+❌ **WIOA/WRG/JRI does NOT pay shop owner**
 
 ❌ **No one pays shop owner directly for training apprentices**
 
@@ -4441,7 +4438,7 @@ Not every barbershop can participate in Indiana's registered apprenticeship prog
 - Commitment to 2,000-hour program
 - Equal opportunity pledge
 
-**Application fee:** $500-1,000
+**Application fee:** $0 (FREE - no cost to register)
 
 **Processing time:** 4-8 weeks
 
