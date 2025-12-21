@@ -429,6 +429,306 @@ export default function BarberApprenticeshipPage() {
         </div>
       </section>
 
+      {/* Assets You Must Have Ready */}
+      <section className="py-20 bg-white border-t-4 border-orange-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Assets You Must Have Ready
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Everything you need to understand, apply, and succeed in the program.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Program Overview */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Program Overview
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    1-2 page summary of what it is and who it's for
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4 text-slate-700">
+                <div>
+                  <h4 className="font-bold text-slate-900 mb-2">What It Is:</h4>
+                  <p className="text-sm leading-relaxed">
+                    DOL-registered apprenticeship combining 2,000 hours of paid on-the-job training at a licensed barbershop with 144 hours of Related Technical Instruction (RTI). Graduate as an Indiana Registered Barber.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 mb-2">Who It's For:</h4>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span>Ages 17+ with high school diploma or GED</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span>Career changers seeking skilled trade</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span>Justice-involved individuals rebuilding</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span>Anyone wanting to earn while they learn</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 mb-2">Timeline:</h4>
+                  <p className="text-sm">15-17 months working 40 hours/week</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Eligibility Cheat Sheet */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border-2 border-green-200">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Eligibility Cheat Sheet
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    WIOA/WRG funding basics
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl p-4 border border-green-200">
+                  <h4 className="font-bold text-slate-900 mb-2">WIOA Eligibility:</h4>
+                  <ul className="text-sm text-slate-700 space-y-1">
+                    <li>✓ Low-income adults</li>
+                    <li>✓ Dislocated workers</li>
+                    <li>✓ Youth ages 16-24</li>
+                    <li>✓ Apply through WorkOne</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-4 border border-green-200">
+                  <h4 className="font-bold text-slate-900 mb-2">WRG Eligibility:</h4>
+                  <ul className="text-sm text-slate-700 space-y-1">
+                    <li>✓ Indiana residents</li>
+                    <li>✓ High-demand careers (barber qualifies)</li>
+                    <li>✓ Any income level</li>
+                    <li>✓ Apply through WorkOne</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-4 border border-green-200">
+                  <h4 className="font-bold text-slate-900 mb-2">What Funding Covers:</h4>
+                  <ul className="text-sm text-slate-700 space-y-1">
+                    <li>✓ 144 hours of RTI curriculum</li>
+                    <li>✓ Books and materials</li>
+                    <li>✓ State board exam fees</li>
+                    <li>✗ Shop pays your wages ($10/hour)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Intake Link / Referral Form */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border-2 border-purple-200">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Intake & Referral
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Start your application or refer someone
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl p-6 border border-purple-200">
+                  <h4 className="font-bold text-slate-900 mb-3">For Students:</h4>
+                  <Link
+                    href="/apply"
+                    className="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition w-full"
+                  >
+                    Apply Now - It's Free
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                  <p className="text-xs text-slate-600 mt-3">
+                    Takes 5 minutes. No commitment required.
+                  </p>
+                </div>
+                <div className="bg-white rounded-xl p-6 border border-purple-200">
+                  <h4 className="font-bold text-slate-900 mb-3">For Partners:</h4>
+                  <Link
+                    href="/contact?topic=referral"
+                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-purple-600 border-2 border-purple-600 px-6 py-3 rounded-xl font-bold text-sm transition w-full"
+                  >
+                    Refer a Candidate
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                  <p className="text-xs text-slate-600 mt-3">
+                    WorkOne, community orgs, reentry programs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Employer Value Summary */}
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-8 border-2 border-orange-200">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    Employer Value Summary
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    Wages + Funding + WOTC
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl p-4 border border-orange-200">
+                  <h4 className="font-bold text-slate-900 mb-2">What Shop Pays:</h4>
+                  <ul className="text-sm text-slate-700 space-y-1">
+                    <li>• $10-12/hour base wage</li>
+                    <li>• Commissions (40-60% of services)</li>
+                    <li>• Tips (apprentice keeps 100%)</li>
+                    <li>• Total cost: $20,000-$30,000 over 15-17 months</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-4 border border-orange-200">
+                  <h4 className="font-bold text-slate-900 mb-2">What Funding Covers:</h4>
+                  <ul className="text-sm text-slate-700 space-y-1">
+                    <li>• WIOA/WRG pays for RTI curriculum</li>
+                    <li>• Shop does NOT pay for training</li>
+                    <li>• Shop only pays wages for work performed</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-4 border border-orange-200">
+                  <h4 className="font-bold text-slate-900 mb-2">WOTC Tax Credits:</h4>
+                  <ul className="text-sm text-slate-700 space-y-1">
+                    <li>• Ex-felons: Up to $2,400</li>
+                    <li>• SNAP recipients: Up to $2,400</li>
+                    <li>• Veterans: Up to $9,600</li>
+                    <li>• Long-term unemployed: Up to $2,400</li>
+                  </ul>
+                  <p className="text-xs text-slate-600 mt-2">
+                    <strong>Net cost after WOTC:</strong> $17,600-$27,600 (or less)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Compliance Snapshot - Full Width */}
+          <div className="mt-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-8 border-2 border-slate-300">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Award className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  Compliance Snapshot
+                </h3>
+                <p className="text-sm text-slate-600">
+                  RAPIDS, Wage Progression, RTI Requirements
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <Award className="w-5 h-5 text-blue-600" />
+                  RAPIDS Registration
+                </h4>
+                <ul className="text-sm text-slate-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Program ID: 2025-IN-132301</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Registered with U.S. DOL</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Approved by Indiana DWD</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Meets Indiana State Board standards</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-green-600" />
+                  Wage Progression
+                </h4>
+                <ul className="text-sm text-slate-700 space-y-2">
+                  <li><strong>Months 1-6:</strong> $10/hour + tips</li>
+                  <li><strong>Months 7-12:</strong> $10/hour + commissions (40-50%) + tips</li>
+                  <li><strong>Months 13-17:</strong> $10-12/hour + commissions (50-60%) + tips</li>
+                  <li><strong>Post-licensing:</strong> Chair rental or commission-based (60-70%)</li>
+                </ul>
+                <p className="text-xs text-slate-600 mt-3">
+                  Wages increase as skills develop
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5 text-purple-600" />
+                  RTI Requirements
+                </h4>
+                <ul className="text-sm text-slate-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>144 hours total</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>3-4 hours/week online</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Barbering theory, sanitation, business</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Flexible schedule (evenings/weekends)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-4">
+              <p className="text-sm text-slate-700">
+                <strong className="text-slate-900">Compliance Note:</strong> All apprentices must complete 2,000 hours of on-the-job training + 144 hours of RTI to be eligible for Indiana State Board licensing exam. Shop owners must maintain wage records and hour logs for DOL compliance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-orange-500 to-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -444,7 +744,7 @@ export default function BarberApprenticeshipPage() {
               className="inline-flex items-center justify-center gap-2 bg-white text-orange-600 hover:bg-slate-100 px-10 py-5 rounded-xl font-bold text-lg transition shadow-2xl hover:scale-105"
             >
               Apply Now - It's Free
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
