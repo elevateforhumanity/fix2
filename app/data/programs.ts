@@ -3373,16 +3373,17 @@ Before you apply, make sure you meet these requirements:
 - ✅ Documenting skills and competencies
 - ✅ Tracking apprentice development
 - ✅ Administrative time and paperwork
-- **Fee amount: Varies based on agreement (typically $200-$500/month per apprentice)**
+- **Fee amount: Negotiated during MOU signing (varies per apprentice)**
 
 **Example:**
 - Elevate for Humanity recruits Marcus as apprentice
-- Elevate helps Shop A register as program holder
+- Elevate and Shop A sign MOU (Memorandum of Understanding)
+- MOU specifies supervision fee per apprentice
 - Shop A hires Marcus as employee
 - Shop A pays Marcus: $10/hour + commissions
 - WIOA pays Elevate: For Marcus's RTI curriculum
 - Elevate provides: RTI training to Marcus
-- Elevate pays Shop A: $200-$500/month for supervision and reporting
+- Elevate pays Shop A: Monthly supervision fee (per MOU agreement)
 - Shop A reports: Marcus's hours and progress to Elevate
 - Marcus pays Elevate: $0
 - Marcus pays Shop A: $0
@@ -3396,11 +3397,11 @@ Before you apply, make sure you meet these requirements:
 **What the shop owner receives:**
 
 **1. Supervision Fee from Sponsor (If Working with Elevate)**
-- Elevate pays shop owner $200-$500/month per apprentice
+- Elevate pays shop owner monthly supervision fee per apprentice
 - Covers time spent supervising, reporting hours, tracking progress
 - Helps offset administrative costs
 - Paid monthly throughout apprenticeship (15-17 months)
-- **Total: $3,000-$8,500 over full apprenticeship**
+- **Fee amount: Negotiated and specified in MOU agreement**
 
 **2. Apprentice's Labor**
 - Apprentice works and generates revenue for shop
@@ -3420,7 +3421,7 @@ Before you apply, make sure you meet these requirements:
 - ❌ Apprentice's tools (shop provides, but minimal cost)
 
 **What the shop owner DOES receive (if working with Elevate):**
-- ✅ Supervision fee from Elevate ($200-$500/month)
+- ✅ Monthly supervision fee from Elevate (negotiated in MOU)
 - ✅ Apprentice's labor and service revenue
 - ✅ Tax credits (WOTC, up to $2,400)
 
@@ -3522,12 +3523,13 @@ Before you apply, make sure you meet these requirements:
 **Revenue from apprentice (15-17 months):**
 - Service revenue: $30,000-$60,000 (depending on skill level and clientele)
 - Shop keeps 50-60%: $18,000-$36,000
-- Supervision fee from Elevate: $3,000-$8,500 (if working with us)
+- Supervision fee from Elevate: Per MOU agreement (if working with us)
 
 **Net financial outcome for shop (working with Elevate):**
-- Best case: $20,200 cost - ($36,000 revenue + $8,500 fee) = **$24,300 profit**
-- Worst case: $30,500 cost - ($18,000 revenue + $3,000 fee) = **$9,500 investment**
-- Typical: $25,000 cost - ($27,000 revenue + $5,000 fee) = **$7,000 profit**
+- Varies based on apprentice performance and supervision fee negotiated in MOU
+- Shop receives: Apprentice service revenue + supervision fee + tax credits
+- Shop pays: Apprentice wages + tools/supplies
+- Most shops find apprenticeships financially beneficial long-term
 
 **Long-term benefit:**
 - If apprentice stays after licensing: Shop profits $10,000-$30,000/year from their work
