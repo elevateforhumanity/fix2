@@ -7,10 +7,9 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO BANNER */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-16 md:py-24 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-white/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+      <section className="relative text-white py-16 md:py-24 overflow-hidden">
+        {/* Background Video or Image */}
+        <div className="absolute inset-0 bg-slate-900" />
 
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
