@@ -3469,7 +3469,7 @@ Before you apply, make sure you meet these requirements:
 
 **Misconception 4: "Shops make money from apprentices"**
 
-⚠️ **Partially true.** Shops may break even or lose money initially (months 1-12), but can profit if apprentice stays after licensing or if apprentice generates high revenue in later months.
+**It depends.** Shops invest in apprentices as a long-term strategy to build their team. The financial outcome varies based on the apprentice's skill development and whether they stay after licensing.
 
 ---
 
