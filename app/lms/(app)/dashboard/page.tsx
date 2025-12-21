@@ -66,17 +66,17 @@ export default async function DashboardPage() {
       <ClaimApplications />
       
       {/* Welcome Banner */}
-      <section className="bg-white text-white py-12">
+      <section className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-3">
             Welcome back, {profile?.first_name || 'Student'}! 👋
           </h1>
           {activeCourses > 0 ? (
             <div>
-              <p className="text-base md:text-lg text-blue-100 mb-2">
+              <p className="text-base md:text-lg text-white/90 mb-2">
                 You're making excellent progress on your training.
               </p>
-              <p className="text-blue-200">
+              <p className="text-white/80">
                 {activeCourses} active course{activeCourses > 1 ? 's' : ''} •{' '}
                 {completedCourses} completed • {certificateCount} certificate
                 {certificateCount !== 1 ? 's' : ''} earned
@@ -84,10 +84,10 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div>
-              <p className="text-base md:text-lg text-blue-100 mb-2">
+              <p className="text-base md:text-lg text-white/90 mb-2">
                 Your learning journey starts here.
               </p>
-              <p className="text-blue-200">
+              <p className="text-white/80">
                 Browse our programs below and enroll in your first course to
                 begin earning industry-recognized certifications.
               </p>
