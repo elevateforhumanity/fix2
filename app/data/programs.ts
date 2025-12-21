@@ -3315,7 +3315,7 @@ Before you apply, make sure you meet these requirements:
 - ✅ Provides on-the-job training
 - ✅ Provides tools, equipment, supplies
 - ✅ Tracks hours and reports to State Board
-- ✅ Arranges RTI curriculum (funded by WIOA/WRG/JRI or shop pays)
+- ❌ Does NOT pay for RTI curriculum (WIOA/WRG/JRI pays sponsor directly)
 
 **The Apprentice:**
 - ✅ Works at the shop
@@ -3404,12 +3404,17 @@ Before you apply, make sure you meet these requirements:
 - Shop owner claims on federal tax return
 - Not direct payment, but reduces tax liability
 
+**What the shop owner does NOT pay for:**
+- ❌ RTI curriculum (WIOA/WRG/JRI pays sponsor directly)
+- ❌ Registration fees (FREE)
+- ❌ State Board fees (FREE)
+- ❌ Apprentice's tools (shop provides, but minimal cost)
+
 **What the shop owner does NOT receive:**
 - ❌ Payment from apprentice
-- ❌ Payment from WIOA/WRG/JRI (funding goes to RTI provider, not shop)
+- ❌ Payment from WIOA/WRG/JRI (funding goes to sponsor for RTI, not shop)
 - ❌ Payment from State Board
 - ❌ Payment from U.S. Department of Labor
-- ❌ Payment from third-party sponsor (usually)
 - ❌ Reimbursement for apprentice wages
 
 ---
@@ -3496,18 +3501,18 @@ Before you apply, make sure you meet these requirements:
 
 **Cost per apprentice (15-17 months):**
 - Wages: $20,000-$30,000
-- RTI curriculum: $0 (if funded by WIOA/WRG/JRI) or $6,500 (if shop pays)
+- RTI curriculum: $0 (WIOA/WRG/JRI pays sponsor directly - shop pays nothing)
 - Tools and supplies: $200-500 (shop-provided tools)
-- **Total: $20,200-$37,000**
+- **Total: $20,200-$30,500**
 
 **Revenue from apprentice (15-17 months):**
 - Service revenue: $30,000-$60,000 (depending on skill level and clientele)
 - Shop keeps 50-60%: $18,000-$36,000
 
-**Net cost to shop:**
+**Net financial outcome for shop:**
 - Best case: $20,200 cost - $36,000 revenue = **$15,800 profit**
-- Worst case: $37,000 cost - $18,000 revenue = **$19,000 loss**
-- Typical: $25,000 cost - $27,000 revenue = **$2,000 loss**
+- Worst case: $30,500 cost - $18,000 revenue = **$12,500 investment**
+- Typical: $25,000 cost - $27,000 revenue = **$2,000 profit**
 
 **Long-term benefit:**
 - If apprentice stays after licensing: Shop profits $10,000-$30,000/year from their work
@@ -3524,15 +3529,17 @@ Before you apply, make sure you meet these requirements:
 
 ✅ **Shop owner pays apprentice** ($10/hour + commissions)
 
-✅ **WIOA/WRG/JRI pays training provider** (for RTI curriculum - NOT the shop)
+✅ **WIOA/WRG/JRI pays sponsor** (for apprentice's RTI curriculum - NOT the shop)
 
 ✅ **Customers pay shop** (for services)
 
 ✅ **Federal government gives shop tax credits** (WOTC, up to $2,400)
 
+❌ **Shop owner does NOT pay for RTI curriculum**
+
 ❌ **WIOA/WRG/JRI does NOT pay shop owner**
 
-❌ **No one pays shop owner directly for training apprentices**
+❌ **Shop owner pays ONLY apprentice wages - nothing else**
 
 ❌ **Apprentice does NOT pay shop owner**
 
