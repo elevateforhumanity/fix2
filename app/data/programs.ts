@@ -1801,6 +1801,361 @@ Informal training provided by an employer to teach job-specific skills. Not regi
 
 ---
 
+## What Happens If You Don't Complete Your Apprenticeship?
+
+### If You Stop Attending or Quit
+
+**Your hours are NOT lost. They're saved.**
+
+**What happens to your hours:**
+- ✅ All verified hours remain on record with Indiana State Board
+- ✅ Hours are permanently documented in your apprenticeship file
+- ✅ You can return to complete your apprenticeship later
+- ✅ Hours never expire (they're valid indefinitely)
+- ✅ You can transfer to a different registered shop
+
+**Example:**
+- You complete 1,200 hours at Shop A
+- You quit or stop attending
+- Your 1,200 hours are saved
+- 6 months later, you're ready to return
+- You need 800 more hours to reach 2,000
+- You can start at Shop B and complete remaining 800 hours
+
+**Important:**
+- ❌ You cannot practice barbering without completing all requirements
+- ❌ You cannot take state board exam until you complete 2,000 hours + 144 RTI
+- ❌ Your partial hours don't give you any legal right to cut hair
+- ✅ But your hours are saved and waiting for you
+
+---
+
+### If the Shop Closes or Loses Sponsor Status
+
+**Your hours are protected.**
+
+**What happens:**
+1. Shop notifies State Board they're closing or ending apprenticeship program
+2. State Board contacts you about your hour status
+3. Your completed hours are verified and saved
+4. We help you find a new registered apprenticeship sponsor shop
+5. You transfer to new shop and continue from where you left off
+
+**Example:**
+- You complete 1,500 hours at Shop A
+- Shop A closes permanently
+- Your 1,500 hours are verified and saved by State Board
+- You transfer to Shop B
+- You complete remaining 500 hours at Shop B
+- You graduate with 2,000 total hours
+
+**Timeline:**
+- Shop closure to new placement: 2-4 weeks
+- No gap in your hour count
+- New shop picks up where old shop left off
+
+---
+
+### If You're Fired or Terminated
+
+**Your hours are still saved, but circumstances matter.**
+
+**If you're fired for cause (your fault):**
+- ✅ Your completed hours are still saved
+- ✅ You can transfer to another shop
+- ❌ But finding a new shop may be harder (background check)
+- ❌ New shop will ask why you were terminated
+
+**Reasons for termination (your fault):**
+- Excessive absences or tardiness
+- Insubordination or unprofessional behavior
+- Theft or dishonesty
+- Substance abuse at work
+- Violating shop policies
+- Poor performance despite coaching
+
+**If you're fired without cause (not your fault):**
+- ✅ Your hours are saved
+- ✅ Easier to find new shop
+- ✅ We help advocate for you
+
+**Reasons for termination (not your fault):**
+- Shop downsizing or financial issues
+- Personality conflict with owner
+- Shop changing business model
+- Mentor leaving and no replacement
+
+**What to do if terminated:**
+1. Request written documentation of your hours from shop
+2. Contact State Board to verify your hours are on record
+3. Contact us immediately for help finding new placement
+4. Be honest with new shops about what happened
+5. Show you've learned from the experience
+
+---
+
+### Transferring to a Different Shop During Your Apprenticeship
+
+**Yes, you can transfer. Your hours go with you.**
+
+**Reasons you might transfer:**
+- Better opportunity at different shop
+- Moving to different city
+- Personality conflict with current shop
+- Better pay or commission at different shop
+- Current shop not providing good training
+- Closer to your home
+
+**How to transfer:**
+
+**Step 1: Find New Registered Apprenticeship Sponsor Shop**
+- Must be registered with U.S. Department of Labor
+- Must be approved by Indiana State Board
+- We can help you find approved shops
+
+**Step 2: Get Hired by New Shop**
+- Interview with new shop owner
+- Explain your situation honestly
+- Provide documentation of hours completed
+- New shop agrees to hire you as apprentice
+
+**Step 3: Notify Current Shop (If Still Employed)**
+- Give 2 weeks notice (professional courtesy)
+- Request written documentation of your hours
+- Get copy of all hour verification forms
+- Leave on good terms if possible
+
+**Step 4: Transfer Documentation**
+- Current shop submits final hour verification to State Board
+- State Board verifies your completed hours
+- New shop registers you as their apprentice
+- State Board transfers your file to new shop
+
+**Step 5: Continue Training at New Shop**
+- New shop picks up where old shop left off
+- You continue accumulating hours toward 2,000
+- New shop tracks and reports your hours
+- You complete remaining hours and RTI
+
+**Timeline:**
+- Finding new shop: 1-4 weeks
+- Transfer paperwork: 1-2 weeks
+- Starting at new shop: 1-2 weeks
+- **Total: 3-8 weeks**
+
+**Example:**
+- You complete 900 hours at Shop A
+- You transfer to Shop B
+- Shop B verifies your 900 hours with State Board
+- You complete 1,100 more hours at Shop B
+- You graduate with 2,000 total hours (900 + 1,100)
+
+---
+
+### Can You Work at Multiple Shops?
+
+**No. You can only be registered with ONE shop at a time.**
+
+**Why:**
+- State Board tracks your hours by shop
+- Only one shop can be your official apprenticeship sponsor
+- Prevents double-counting of hours
+- Ensures proper supervision
+
+**What you CANNOT do:**
+- ❌ Work at Shop A Monday-Wednesday
+- ❌ Work at Shop B Thursday-Saturday
+- ❌ Count hours from both shops
+
+**What you CAN do:**
+- ✅ Complete some hours at Shop A
+- ✅ Transfer to Shop B
+- ✅ Complete remaining hours at Shop B
+- ✅ Both sets of hours count (sequential, not simultaneous)
+
+---
+
+### What If You Stop and Start Multiple Times?
+
+**Your hours accumulate over time. No expiration.**
+
+**Example: Stop-and-start apprentice**
+
+**Year 1:**
+- Complete 600 hours at Shop A
+- Life happens, you stop
+- Hours saved: 600
+
+**Year 2:**
+- Return to apprenticeship at Shop B
+- Complete 800 hours
+- Total hours saved: 1,400 (600 + 800)
+- You stop again
+
+**Year 3:**
+- Return to apprenticeship at Shop C
+- Complete 600 hours
+- Total hours: 2,000 (600 + 800 + 600)
+- You complete apprenticeship and get licensed
+
+**This is allowed. Your hours never expire.**
+
+**However:**
+- ⚠️ Taking long breaks delays your career
+- ⚠️ Skills may get rusty if you're away too long
+- ⚠️ Finding shops willing to hire stop-and-start apprentices may be harder
+- ⚠️ Better to complete continuously if possible
+
+---
+
+### What If You Complete Hours But Not RTI (or Vice Versa)?
+
+**You need BOTH to be eligible for state exam.**
+
+**Scenario 1: Completed 2,000 OJT hours but only 100 RTI hours**
+- ❌ Not eligible for state exam yet
+- ✅ Your 2,000 OJT hours are saved
+- ✅ Complete remaining 44 RTI hours
+- ✅ Then eligible for exam
+
+**Scenario 2: Completed 144 RTI hours but only 1,500 OJT hours**
+- ❌ Not eligible for state exam yet
+- ✅ Your 144 RTI hours are saved
+- ✅ Complete remaining 500 OJT hours
+- ✅ Then eligible for exam
+
+**Both requirements must be met:**
+- 2,000 OJT hours (at registered shop)
+- 144 RTI hours (approved curriculum)
+- Both verified by State Board
+
+---
+
+### State Board Guidelines on Incomplete Apprenticeships
+
+**Indiana State Board policy (820 IAC 2-2-4):**
+
+**Hour preservation:**
+- ✅ All verified hours are permanently recorded
+- ✅ Hours remain valid indefinitely
+- ✅ No expiration date on apprenticeship hours
+- ✅ Apprentice can return at any time to complete
+
+**Transfer requirements:**
+- ✅ Apprentice must notify State Board of transfer
+- ✅ Previous shop must submit final hour verification
+- ✅ New shop must register apprentice
+- ✅ State Board transfers apprentice file
+- ✅ New shop continues tracking from previous total
+
+**Inactive apprentices:**
+- If you don't work for 12+ months, you're considered "inactive"
+- Your hours are still saved
+- You must notify State Board when you return
+- You may need to demonstrate retained skills
+- New shop may require refresher training
+
+**Shop responsibilities when apprentice leaves:**
+- ✅ Must submit final hour verification within 30 days
+- ✅ Must provide apprentice with copy of hour records
+- ✅ Must notify State Board of apprentice departure
+- ✅ Cannot withhold hour documentation
+
+**Apprentice rights:**
+- ✅ You own your hours (they're yours)
+- ✅ Shop cannot take away your hours
+- ✅ You can request hour verification at any time
+- ✅ State Board will provide your hour records upon request
+
+---
+
+### How to Protect Your Hours
+
+**Keep your own records:**
+- ✅ Take photos of weekly hour logs
+- ✅ Keep copies of monthly verification forms
+- ✅ Track your own hours in a notebook or app
+- ✅ Save all documentation from your shop
+
+**Request documentation regularly:**
+- ✅ Ask for copy of monthly reports submitted to State Board
+- ✅ Request hour verification every 3-6 months
+- ✅ Keep these in a safe place
+
+**If you're leaving a shop:**
+- ✅ Request written documentation of all hours completed
+- ✅ Get shop owner's signature on hour verification
+- ✅ Contact State Board to verify hours are on record
+- ✅ Keep copies of everything
+
+**If shop refuses to provide documentation:**
+- ✅ Contact State Board immediately: (317) 234-3040
+- ✅ State Board will investigate
+- ✅ State Board has records of all submitted monthly reports
+- ✅ Shop can be penalized for withholding documentation
+
+---
+
+### FAQs: Incomplete Apprenticeships and Transfers
+
+**"I completed 1,000 hours but haven't worked in 2 years. Are my hours still good?"**
+
+✅ Yes. Your hours never expire. Contact State Board to verify they're on record, then find a new shop to complete remaining 1,000 hours.
+
+**"My shop closed suddenly. How do I get my hours?"**
+
+Contact State Board: (317) 234-3040. They have all monthly reports on file. They'll verify your hours and help you transfer to a new shop.
+
+**"I was fired. Can I still become a barber?"**
+
+Yes. Your hours are saved. Be honest with new shops about what happened and show you've learned from it. We can help you find a second-chance shop.
+
+**"Can I transfer to a shop in a different city?"**
+
+Yes, as long as the new shop is a registered apprenticeship sponsor in Indiana. Your hours transfer anywhere in Indiana.
+
+**"I want to switch shops because I'm not learning enough. Is that okay?"**
+
+Yes. You're not obligated to stay at a shop that's not providing good training. Find a better shop, transfer your hours, and continue.
+
+**"What if I move to a different state?"**
+
+Your Indiana hours may transfer to another state, depending on that state's reciprocity rules. Contact the other state's licensing board to verify.
+
+**"Can I take a break and come back later?"**
+
+Yes. Your hours are saved. Take the time you need, then return when you're ready. Just know that finding a shop may take a few weeks.
+
+**"What if I complete my hours but fail the state exam multiple times?"**
+
+Your hours remain valid. You can retake the exam as many times as needed. There's no expiration on your apprenticeship completion.
+
+---
+
+### The Bottom Line: Your Hours Are Protected
+
+**Key takeaways:**
+
+✅ **Your hours never expire** - They're saved permanently
+
+✅ **You can transfer shops** - Your hours go with you
+
+✅ **You can stop and return** - Life happens, we understand
+
+✅ **Your hours are yours** - Shop cannot take them away
+
+✅ **State Board protects you** - They have all records
+
+✅ **We help you transfer** - We connect you with new shops
+
+**If you're struggling, having issues, or need to transfer:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+**We'll help you protect your hours and complete your apprenticeship.**
+
+---
+
 ### How Much Can Badges Increase Your Earnings?
 
 **Without Badges (Traditional Apprentice):**
