@@ -4,22 +4,9 @@
 -- Safe to run multiple times (idempotent)
 -- ============================================================
 
--- Ensure badges table exists with standard badges
--- Using key field for text identifiers, id is auto-generated UUID
-INSERT INTO public.badges (key, label, description, criteria)
-VALUES 
-  ('first-course', 'First Course Completed', 'Complete your first course', '{"type": "course_completion", "count": 1}'::jsonb),
-  ('five-courses', '5 Courses Completed', 'Complete 5 courses', '{"type": "course_completion", "count": 5}'::jsonb),
-  ('ten-courses', '10 Courses Completed', 'Complete 10 courses', '{"type": "course_completion", "count": 10}'::jsonb),
-  ('seven-day-streak', '7-Day Streak', 'Login for 7 consecutive days', '{"type": "login_streak", "days": 7}'::jsonb),
-  ('thirty-day-streak', '30-Day Streak', 'Login for 30 consecutive days', '{"type": "login_streak", "days": 30}'::jsonb),
-  ('perfect-score', 'Perfect Score', 'Score 100% on an assessment', '{"type": "assessment_score", "score": 100}'::jsonb),
-  ('early-bird', 'Early Bird', 'Login before 8am', '{"type": "time_based", "hour": 8, "before": true}'::jsonb),
-  ('night-owl', 'Night Owl', 'Login after 10pm', '{"type": "time_based", "hour": 22, "before": false}'::jsonb)
-ON CONFLICT (key) DO UPDATE SET
-  label = EXCLUDED.label,
-  description = EXCLUDED.description,
-  criteria = EXCLUDED.criteria;
+-- NOTE: This migration creates the trigger functions only.
+-- You need to manually insert badges into your badges table first.
+-- See the end of this file for the INSERT statements based on your schema.
 
 -- Helper function to award badge by key (idempotent)
 CREATE OR REPLACE FUNCTION public.award_badge_by_key(
@@ -238,3 +225,47 @@ COMMENT ON FUNCTION public.award_badge_by_key IS 'Idempotent badge awarding by k
 COMMENT ON FUNCTION public.update_user_streak IS 'Update user login streak and award streak badges';
 COMMENT ON FUNCTION public.check_time_badges IS 'Check and award time-based badges (early bird, night owl)';
 COMMENT ON TABLE public.user_streaks IS 'Tracks consecutive login days for streak badges';
+
+-- ============================================================
+-- MANUAL BADGE INSERTION
+-- Run ONE of these based on your badges table schema
+-- ============================================================
+
+-- OPTION 1: If your badges table has (key, label, description, criteria) columns:
+/*
+INSERT INTO public.badges (key, label, description, criteria)
+VALUES 
+  ('first-course', 'First Course Completed', 'Complete your first course', '{"type": "course_completion", "count": 1}'::jsonb),
+  ('five-courses', '5 Courses Completed', 'Complete 5 courses', '{"type": "course_completion", "count": 5}'::jsonb),
+  ('ten-courses', '10 Courses Completed', 'Complete 10 courses', '{"type": "course_completion", "count": 10}'::jsonb),
+  ('seven-day-streak', '7-Day Streak', 'Login for 7 consecutive days', '{"type": "login_streak", "days": 7}'::jsonb),
+  ('thirty-day-streak', '30-Day Streak', 'Login for 30 consecutive days', '{"type": "login_streak", "days": 30}'::jsonb),
+  ('perfect-score', 'Perfect Score', 'Score 100% on an assessment', '{"type": "assessment_score", "score": 100}'::jsonb),
+  ('early-bird', 'Early Bird', 'Login before 8am', '{"type": "time_based", "hour": 8, "before": true}'::jsonb),
+  ('night-owl', 'Night Owl', 'Login after 10pm', '{"type": "time_based", "hour": 22, "before": false}'::jsonb)
+ON CONFLICT (key) DO UPDATE SET
+  label = EXCLUDED.label,
+  description = EXCLUDED.description,
+  criteria = EXCLUDED.criteria;
+*/
+
+-- OPTION 2: If your badges table has (org_id, key, name, description) columns:
+/*
+-- Replace 'YOUR_ORG_ID_HERE' with your actual org UUID
+INSERT INTO public.badges (org_id, key, name, description)
+VALUES 
+  ('YOUR_ORG_ID_HERE'::uuid, 'first-course', 'First Course Completed', 'Complete your first course'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'five-courses', '5 Courses Completed', 'Complete 5 courses'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'ten-courses', '10 Courses Completed', 'Complete 10 courses'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'seven-day-streak', '7-Day Streak', 'Login for 7 consecutive days'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'thirty-day-streak', '30-Day Streak', 'Login for 30 consecutive days'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'perfect-score', 'Perfect Score', 'Score 100% on an assessment'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'early-bird', 'Early Bird', 'Login before 8am'),
+  ('YOUR_ORG_ID_HERE'::uuid, 'night-owl', 'Night Owl', 'Login after 10pm')
+ON CONFLICT (org_id, key) DO UPDATE SET
+  name = EXCLUDED.name,
+  description = EXCLUDED.description;
+*/
+
+-- To check your badges table schema, run:
+-- SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'badges' ORDER BY ordinal_position;
