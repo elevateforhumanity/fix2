@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { ComplianceBar } from '@/components/ComplianceBar';
 
 export default function HomePage() {
   return (
     <main className="bg-white">
+      <ComplianceBar />
       {/* HERO BANNER */}
       <section className="relative py-16 md:py-24 overflow-hidden bg-white">
         {/* No background overlay */}
@@ -92,6 +94,62 @@ export default function HomePage() {
                 Apply Now - It's Free
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AUDIENCE SEGMENTATION */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">
+            Choose Your Path
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Select the option that best describes you to see relevant information
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link 
+              href="/students" 
+              className="group bg-blue-50 hover:bg-blue-100 border-2 border-blue-200 hover:border-blue-400 rounded-xl p-8 text-center transition-all hover:scale-105 hover:shadow-xl"
+            >
+              <div className="text-5xl mb-4">🎓</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">For Students</h3>
+              <p className="text-gray-700 mb-4">
+                Get 100% free training and connect with employers
+              </p>
+              <span className="text-blue-600 font-bold group-hover:underline">
+                Learn More →
+              </span>
+            </Link>
+
+            <Link 
+              href="/employers" 
+              className="group bg-green-50 hover:bg-green-100 border-2 border-green-200 hover:border-green-400 rounded-xl p-8 text-center transition-all hover:scale-105 hover:shadow-xl"
+            >
+              <div className="text-5xl mb-4">💼</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">For Employers</h3>
+              <p className="text-gray-700 mb-4">
+                Access pre-trained talent and build your workforce
+              </p>
+              <span className="text-green-600 font-bold group-hover:underline">
+                Learn More →
+              </span>
+            </Link>
+
+            <Link 
+              href="/agencies" 
+              className="group bg-purple-50 hover:bg-purple-100 border-2 border-purple-200 hover:border-purple-400 rounded-xl p-8 text-center transition-all hover:scale-105 hover:shadow-xl"
+            >
+              <div className="text-5xl mb-4">🏛️</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">For Agencies</h3>
+              <p className="text-gray-700 mb-4">
+                License our platform for workforce development
+              </p>
+              <span className="text-purple-600 font-bold group-hover:underline">
+                Learn More →
+              </span>
+            </Link>
           </div>
         </div>
       </section>

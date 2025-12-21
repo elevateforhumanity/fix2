@@ -52,12 +52,17 @@ const fundingLinks = [
 
 const mainLinks = [
   { href: '/programs', label: 'Programs' },
-  { href: '/ai-tutor', label: '🤖 AI Tutor', badge: 'NEW' },
+  { href: '/platform', label: 'Platform', badge: 'NEW' },
+  { href: '/metrics', label: 'Metrics', badge: 'NEW' },
+  { href: '/licensing', label: 'Licensing' },
+  { href: '/ai-tutor', label: '🤖 AI Tutor' },
   { href: '/student/badges', label: '🏆 Achievements' },
   { href: '/student/leaderboard', label: '📊 Leaderboard' },
-  { href: '/admin/partners', label: 'Partners', badge: 'NEW' },
+  { href: '/admin/partners', label: 'Partners' },
   { href: '/students', label: 'For Students' },
   { href: '/employers', label: 'For Employers' },
+  { href: '/agencies', label: 'For Agencies', badge: 'NEW' },
+  { href: '/transparency', label: 'Transparency', badge: 'NEW' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];

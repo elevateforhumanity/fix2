@@ -8,19 +8,41 @@ export default function PlatformPage() {
       <section className="px-4 sm:px-6 lg:px-10 py-16 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl sm:text-5xl font-black text-zinc-900 tracking-tight">
-            Elevate for Humanity Workforce Operating System
+            Workforce Infrastructure Platform
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-zinc-700 leading-relaxed">
-            Elevate for Humanity is a modern Workforce Operating System designed
-            to power training programs, apprenticeships, and workforce
-            initiatives at scale.
+            Elevate for Humanity is a government-aligned workforce development
+            platform that combines accredited training delivery, funding
+            navigation, employer partnerships, and compliance reporting into a
+            single system.
           </p>
-          <p className="mt-4 text-lg text-zinc-700 leading-relaxed">
-            Built from the ground up for compliance, funding alignment, and
-            real-world outcomes, the platform replaces fragmented tools with one
-            secure, integrated system that supports learners, administrators,
-            employers, and workforce agencies—without custom development.
-          </p>
+          
+          <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6 text-left">
+            <h2 className="text-xl font-bold mb-4 text-gray-900">Official Credentials</h2>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">✓</span>
+                <span>U.S. Department of Labor Registered Apprenticeship Sponsor</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">✓</span>
+                <span>WIOA / Workforce Ready Grant eligible programs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">✓</span>
+                <span>ETPL-approved training provider in Indiana</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">✓</span>
+                <span>Multi-tenant SaaS platform licensed to schools & partners</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">✓</span>
+                <span>Mobile app, AI tutoring, compliance reporting</span>
+              </li>
+            </ul>
+          </div>
+          
           <p className="mt-6 text-xl font-bold text-zinc-900">
             This is not a course platform.
             <br />
