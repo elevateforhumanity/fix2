@@ -2318,6 +2318,964 @@ Before you apply, make sure you meet these requirements:
 
 ---
 
+## Maximum Hours Per Week: State Board Guidelines
+
+**Indiana State Board limits how many hours you can work per week:**
+
+### On-the-Job Training (OJT) Hours
+
+**Standard schedule:**
+- **40 hours/week** (full-time, 8 hours/day, 5 days/week)
+- Most common schedule
+- Completes 2,000 hours in 50 weeks (about 12-13 months)
+
+**Maximum allowed:**
+- **50 hours/week** (with overtime pay)
+- 10 hours/day, 5 days/week OR 8 hours/day, 6 days/week
+- Employer must pay overtime (1.5x wage) for hours over 40/week
+- Completes 2,000 hours in 40 weeks (about 10-11 months)
+
+**Part-time option:**
+- **20-30 hours/week** (part-time)
+- For those who need to work another job or have family obligations
+- Takes 18-26 months to complete 2,000 hours
+
+**Why there's a maximum:**
+- Federal labor laws (Fair Labor Standards Act)
+- Prevents apprentice burnout
+- Ensures quality learning, not just rushing through
+- Overtime costs discourage excessive hours
+- State Board wants proper skill development
+
+### Related Technical Instruction (RTI) Hours
+
+**Standard schedule:**
+- **3-4 hours/week** (online or in-person)
+- Completed in evenings, weekends, or during work hours
+- 144 hours total ÷ 3 hours/week = 48 weeks (about 12 months)
+
+**Can be accelerated:**
+- Some programs offer intensive RTI (8-10 hours/week)
+- Complete 144 hours in 15-18 weeks (about 4 months)
+- Then focus solely on OJT hours
+
+**Cannot exceed:**
+- Most programs cap RTI at 10 hours/week
+- Ensures retention and understanding
+
+### Total Maximum Hours Per Week
+
+**Absolute maximum:**
+- 50 hours OJT + 10 hours RTI = **60 hours/week total**
+- This is extremely demanding
+- Not recommended for most apprentices
+
+**Realistic maximum:**
+- 40-50 hours OJT + 3-4 hours RTI = **43-54 hours/week**
+- Sustainable pace
+- Allows for quality learning
+
+**Recommended schedule:**
+- 40 hours OJT + 3 hours RTI = **43 hours/week**
+- Completes program in 15-17 months
+- Balanced approach
+
+---
+
+## Timeline Based on Hours Per Week
+
+### Full-Time Schedule (40 hours/week OJT)
+
+**Weekly breakdown:**
+- Monday-Friday: 8 hours/day at shop = 40 hours OJT
+- Saturday or evenings: 3 hours RTI
+- **Total: 43 hours/week**
+
+**Timeline:**
+- 2,000 OJT hours ÷ 40 hours/week = 50 weeks
+- 144 RTI hours ÷ 3 hours/week = 48 weeks
+- **Minimum: 50 weeks (12.5 months)**
+- **Realistic: 15-17 months** (accounting for holidays, sick days, shop closures)
+
+**Earnings:**
+- $10/hour × 40 hours/week = $400/week base
+- Plus commissions and tips
+- **Total: $500-$900/week depending on skill level**
+
+---
+
+### Overtime Schedule (50 hours/week OJT)
+
+**Weekly breakdown:**
+- Monday-Friday: 10 hours/day at shop = 50 hours OJT
+- OR Monday-Saturday: 8-9 hours/day = 50 hours OJT
+- Saturday or evenings: 3 hours RTI
+- **Total: 53 hours/week**
+
+**Timeline:**
+- 2,000 OJT hours ÷ 50 hours/week = 40 weeks
+- 144 RTI hours ÷ 3 hours/week = 48 weeks
+- **Minimum: 48 weeks (12 months)**
+- **Realistic: 12-14 months** (accounting for holidays, sick days)
+
+**Earnings:**
+- $10/hour × 40 hours = $400 base
+- $15/hour (1.5x overtime) × 10 hours = $150 overtime
+- Plus commissions and tips
+- **Total: $650-$1,100/week depending on skill level**
+
+**Challenges:**
+- Very demanding schedule
+- Risk of burnout
+- Less time for family, rest, study
+- Employer must be willing to pay overtime
+
+---
+
+### Part-Time Schedule (20 hours/week OJT)
+
+**Weekly breakdown:**
+- Monday-Wednesday: 6-7 hours/day at shop = 20 hours OJT
+- OR Tuesday-Thursday: 6-7 hours/day = 20 hours OJT
+- Evenings or weekends: 3 hours RTI
+- **Total: 23 hours/week**
+
+**Timeline:**
+- 2,000 OJT hours ÷ 20 hours/week = 100 weeks
+- 144 RTI hours ÷ 3 hours/week = 48 weeks
+- **Minimum: 100 weeks (25 months)**
+- **Realistic: 24-26 months** (2+ years)
+
+**Earnings:**
+- $10/hour × 20 hours/week = $200/week base
+- Plus commissions and tips (limited due to fewer clients)
+- **Total: $250-$400/week depending on skill level**
+
+**Who this works for:**
+- Parents with childcare responsibilities
+- People working another job
+- Students in school
+- Those with health limitations
+
+---
+
+## Can You Work More Than 50 Hours/Week?
+
+**Technically no, per State Board and federal labor law guidelines.**
+
+**Why 50 hours is the maximum:**
+
+**1. Federal Labor Laws (FLSA)**
+- Fair Labor Standards Act limits excessive work hours
+- Overtime pay required over 40 hours/week
+- Prevents employer exploitation
+
+**2. State Board Policy**
+- Indiana State Board wants quality training, not rushed hours
+- Apprentices need time to practice, reflect, and develop skills
+- Burnout leads to poor learning and safety issues
+
+**3. Employer Costs**
+- Overtime pay (1.5x wage) is expensive
+- Most shops won't allow more than 50 hours/week
+- Not cost-effective for employer
+
+**4. Practical Limitations**
+- Shops aren't open 24/7
+- You need time for RTI coursework
+- You need rest and recovery
+
+**If you try to work more:**
+- Shop may not report hours over 50/week
+- State Board may reject excessive hours
+- Risk of burnout and poor performance
+
+---
+
+## Fastest Possible Completion Time
+
+**Absolute fastest (working maximum hours):**
+
+**Scenario: 50 hours/week OJT + accelerated RTI**
+- 2,000 OJT hours ÷ 50 hours/week = 40 weeks
+- 144 RTI hours completed in 4 months (intensive program)
+- **Total: 10-11 months minimum**
+
+**Realistic fastest:**
+- Accounting for holidays, sick days, shop closures
+- **12-14 months** working maximum hours
+
+**You CANNOT complete faster than 10-11 months, even working maximum hours every week.**
+
+---
+
+## State Board Verification of Hours
+
+**State Board reviews your hours to ensure compliance:**
+
+**They check:**
+- ✅ Are you working reasonable hours per week? (20-50 hours)
+- ✅ Are hours consistent and verified?
+- ✅ Is employer paying overtime for hours over 40/week?
+- ✅ Are you completing RTI alongside OJT?
+- ✅ Is training quality maintained?
+
+**Red flags that trigger review:**
+- ❌ Claiming 60-70 hours/week consistently
+- ❌ Completing 2,000 hours in less than 10 months
+- ❌ No RTI hours reported
+- ❌ Inconsistent hour reporting
+
+**If State Board finds issues:**
+- May reject some hours
+- May require additional training
+- May investigate shop for violations
+
+---
+
+## Recommended Schedule for Success
+
+**Our recommendation for most apprentices:**
+
+**Standard full-time schedule:**
+- 40 hours/week OJT (Monday-Friday, 8 hours/day)
+- 3-4 hours/week RTI (evenings or Saturday)
+- **Total: 43-44 hours/week**
+- **Completion: 15-17 months**
+
+**Why this works best:**
+- ✅ Sustainable pace
+- ✅ Time to develop skills properly
+- ✅ Work-life balance maintained
+- ✅ No overtime costs for employer
+- ✅ Consistent learning and practice
+- ✅ Lower burnout risk
+
+**You'll earn $20,000-$30,000 over 15-17 months and graduate with solid skills and clientele.**
+
+---
+
+## Part-Time vs Full-Time: Your Schedule Options
+
+### Can You Do Part-Time Hours?
+
+**Yes! You can complete the apprenticeship part-time.**
+
+**Part-time options:**
+
+**Option 1: 20 hours/week**
+- Work 3-4 days per week at shop
+- Complete in 24-26 months (2+ years)
+- Earn $200-$400/week
+
+**Option 2: 25 hours/week**
+- Work 3-4 days per week at shop
+- Complete in 18-20 months
+- Earn $250-$500/week
+
+**Option 3: 30 hours/week**
+- Work 4-5 days per week at shop
+- Complete in 15-18 months
+- Earn $300-$600/week
+
+**Who part-time works for:**
+- ✅ Parents with childcare responsibilities
+- ✅ People working another job to pay bills
+- ✅ Students in school
+- ✅ Those with health limitations
+- ✅ Anyone who can't commit to full-time
+
+**Challenges with part-time:**
+- ⚠️ Takes longer to complete (2+ years vs 15-17 months)
+- ⚠️ Slower skill development (less practice)
+- ⚠️ Harder to build clientele (fewer days in shop)
+- ⚠️ Lower income during training
+- ⚠️ Some shops prefer full-time apprentices
+
+---
+
+### Can You Make Your Own Schedule?
+
+**No. Your employer (the barbershop) sets your schedule.**
+
+**How scheduling works:**
+
+**Employer determines:**
+- ✅ Which days you work (Monday-Friday, Tuesday-Saturday, etc.)
+- ✅ What hours you work (9am-5pm, 10am-6pm, etc.)
+- ✅ How many hours per week (20, 30, 40, or 50)
+- ✅ Whether you work weekends
+- ✅ Your days off
+
+**You can negotiate:**
+- ✅ Part-time vs full-time
+- ✅ Specific days off (for childcare, school, etc.)
+- ✅ Start/end times (within reason)
+- ✅ Flexibility for emergencies
+
+**You CANNOT:**
+- ❌ Come and go as you please
+- ❌ Set your own hours each week
+- ❌ Work only when you feel like it
+- ❌ Skip days without permission
+
+**Why employer controls schedule:**
+- You're an employee, not self-employed
+- Shop needs consistent coverage
+- Clients need reliable service
+- Training requires regular practice
+- State Board requires documented hours
+
+**Example schedules:**
+
+**Full-time schedule (40 hours/week):**
+- Monday-Friday: 9am-5pm (8 hours/day)
+- Weekends: Off
+- Total: 40 hours/week
+
+**Part-time schedule (25 hours/week):**
+- Tuesday-Thursday: 10am-5pm (7 hours/day)
+- Saturday: 9am-2pm (5 hours)
+- Total: 26 hours/week
+
+**Weekend schedule (30 hours/week):**
+- Thursday-Saturday: 10am-8pm (10 hours/day)
+- Total: 30 hours/week
+
+---
+
+### Are Theory Hours (RTI) Mandatory Every Week?
+
+**Yes, but there's flexibility in HOW you complete them.**
+
+**RTI (Related Technical Instruction) requirements:**
+- **Total required:** 144 hours
+- **Must be completed:** Before you can take state board exam
+- **Typical pace:** 3-4 hours/week over 12-15 months
+- **Can be accelerated:** Yes, complete faster if you want
+
+---
+
+### RTI Schedule Options
+
+**Option 1: Weekly Schedule (Most Common)**
+
+**How it works:**
+- Complete 3-4 hours of RTI every week
+- Spread over 48 weeks (12 months)
+- Steady, consistent pace
+
+**Example:**
+- Monday-Friday: Work at shop (40 hours OJT)
+- Saturday morning: 3 hours RTI online
+- Total: 43 hours/week
+
+**Pros:**
+- ✅ Manageable pace
+- ✅ Better retention of information
+- ✅ Doesn't interfere with work schedule
+- ✅ Less overwhelming
+
+**Cons:**
+- ⚠️ Takes full 12 months to complete RTI
+- ⚠️ Must be disciplined every week
+
+---
+
+**Option 2: Accelerated Schedule**
+
+**How it works:**
+- Complete 8-10 hours of RTI per week
+- Finish 144 hours in 15-18 weeks (4 months)
+- Intensive but faster
+
+**Example:**
+- Monday-Friday: Work at shop (40 hours OJT)
+- Saturday: 8 hours RTI
+- Sunday: 2 hours RTI
+- Total: 50 hours/week for 4 months
+
+**Pros:**
+- ✅ Finish RTI quickly
+- ✅ Then focus solely on OJT
+- ✅ Complete apprenticeship faster overall
+
+**Cons:**
+- ⚠️ Very demanding for 4 months
+- ⚠️ Risk of information overload
+- ⚠️ Less time for family/rest
+
+---
+
+**Option 3: Flexible/Self-Paced Schedule**
+
+**How it works:**
+- Complete RTI hours on your own schedule
+- Some weeks 5 hours, some weeks 1 hour
+- As long as you finish 144 hours before completing OJT
+
+**Example:**
+- Busy weeks: 1-2 hours RTI
+- Slow weeks: 6-8 hours RTI
+- Average: 3-4 hours/week over 12 months
+
+**Pros:**
+- ✅ Maximum flexibility
+- ✅ Work around your life
+- ✅ No strict weekly requirement
+
+**Cons:**
+- ⚠️ Easy to fall behind
+- ⚠️ Requires self-discipline
+- ⚠️ May delay completion
+
+---
+
+**Option 4: Front-Loaded Schedule**
+
+**How it works:**
+- Complete all 144 RTI hours BEFORE starting OJT
+- Intensive 3-4 week course
+- Then focus solely on shop work
+
+**Example:**
+- Weeks 1-4: 36 hours/week RTI = 144 hours total
+- Months 2-17: 40 hours/week OJT only
+
+**Pros:**
+- ✅ Get theory out of the way first
+- ✅ Then focus 100% on practical skills
+- ✅ No juggling work and school
+
+**Cons:**
+- ⚠️ Very intensive for 3-4 weeks
+- ⚠️ Not earning money during RTI period
+- ⚠️ May forget theory by time you finish OJT
+
+---
+
+### Can You Skip RTI Weeks?
+
+**Yes, but you must complete all 144 hours eventually.**
+
+**What's allowed:**
+- ✅ Skip weeks when you're busy
+- ✅ Take breaks from RTI
+- ✅ Complete hours at your own pace
+- ✅ Catch up later
+
+**What's NOT allowed:**
+- ❌ Skip RTI entirely
+- ❌ Take state exam without completing 144 hours
+- ❌ Count shop work as RTI hours
+- ❌ Fake RTI completion
+
+**Example:**
+- Week 1-10: Complete 3 hours/week RTI = 30 hours
+- Week 11-15: Skip RTI (busy at work)
+- Week 16-25: Complete 5 hours/week RTI = 50 hours
+- Week 26-30: Skip RTI (family emergency)
+- Week 31-50: Complete 3 hours/week RTI = 60 hours
+- **Total: 140 hours, need 4 more**
+- Week 51: Complete final 4 hours
+- **Total: 144 hours complete**
+
+**State Board only cares that you complete 144 hours total, not when or how.**
+
+---
+
+### Do You Have to Do RTI and OJT at the Same Time?
+
+**No. You have options.**
+
+**Option A: Simultaneous (Most Common)**
+- Work at shop 40 hours/week (OJT)
+- Complete RTI 3 hours/week
+- Both happen at same time over 15-17 months
+
+**Option B: RTI First, Then OJT**
+- Complete all 144 RTI hours in 3-4 weeks
+- Then start working at shop for 2,000 OJT hours
+- Total time: 13-15 months
+
+**Option C: OJT First, Then RTI**
+- Work at shop full-time for 12 months (2,000 hours)
+- Then complete 144 RTI hours in 4-6 weeks
+- Total time: 13-14 months
+
+**Option D: Mixed Schedule**
+- Complete some RTI, then some OJT, then more RTI
+- Flexible based on your life
+- Total time: 15-20 months
+
+**State Board allows any of these approaches as long as you complete both requirements.**
+
+---
+
+## Real-World Schedule Examples
+
+### Example 1: Full-Time Apprentice with Family
+
+**Marcus's schedule:**
+- Monday-Friday: 9am-5pm at shop (40 hours OJT)
+- Saturday morning: 3 hours RTI online while kids watch cartoons
+- Sunday: Family time, no work
+- **Total: 43 hours/week**
+- **Completion: 16 months**
+
+**Why this works:**
+- Consistent schedule
+- Weekends mostly free
+- Manageable pace
+- Time for family
+
+---
+
+### Example 2: Part-Time Apprentice with Another Job
+
+**Sarah's schedule:**
+- Monday-Wednesday: 10am-5pm at shop (21 hours OJT)
+- Thursday-Friday: Work other job to pay bills
+- Saturday: 4 hours RTI online
+- Sunday: Off
+- **Total: 25 hours/week**
+- **Completion: 24 months**
+
+**Why this works:**
+- Can keep other job
+- Still making progress
+- Flexible schedule
+- Sustainable long-term
+
+---
+
+### Example 3: Accelerated Apprentice
+
+**DeAndre's schedule:**
+- Monday-Saturday: 8am-6pm at shop (50 hours OJT)
+- Sunday: 8 hours RTI online
+- **Total: 58 hours/week for 12 months**
+- **Completion: 12 months**
+
+**Why this works:**
+- Wants to finish fast
+- No family obligations
+- High energy and motivation
+- Earning maximum money
+
+---
+
+### Example 4: Student Apprentice
+
+**Tasha's schedule:**
+- Monday, Wednesday, Friday: 2pm-8pm at shop (18 hours OJT)
+- Tuesday, Thursday: College classes
+- Saturday: 10am-6pm at shop (8 hours OJT)
+- Sunday: 4 hours RTI online
+- **Total: 30 hours/week**
+- **Completion: 20 months**
+
+**Why this works:**
+- Can finish college degree
+- Still progressing toward barber license
+- Flexible schedule
+- Building two careers
+
+---
+
+## Key Takeaways: Schedule Flexibility
+
+**What you CAN control:**
+- ✅ Part-time vs full-time (negotiate with employer)
+- ✅ When you complete RTI hours (flexible)
+- ✅ How fast you complete RTI (3 hours/week or 10 hours/week)
+- ✅ Whether you do RTI and OJT simultaneously or separately
+
+**What you CANNOT control:**
+- ❌ Your work schedule at the shop (employer decides)
+- ❌ Coming and going as you please
+- ❌ Skipping RTI entirely
+- ❌ Working more than 50 hours/week
+
+**Bottom line:**
+- You have flexibility in HOW you complete the program
+- But you must complete 2,000 OJT + 144 RTI
+- Your employer controls your work schedule
+- RTI can be done on your own time
+- Part-time is allowed but takes longer
+
+**Talk to potential employers about schedule flexibility before accepting apprenticeship position.**
+
+---
+
+## Facility Requirements for Apprenticeship Program Holders
+
+### Barbershop Facility Requirements (Indiana State Board)
+
+**To host barber apprentices, your facility must meet these requirements:**
+
+**1. Physical Space Requirements**
+
+**Minimum square footage:**
+- ✅ At least 150 square feet per barber station (Indiana Code 820 IAC 2-1-4)
+- ✅ Adequate space for apprentice station (cannot be cramped)
+- ✅ Separate waiting area for clients
+- ✅ Proper aisle space between stations (minimum 3 feet)
+
+**Station setup:**
+- ✅ Each station must have: barber chair, mirror, counter/shelf space
+- ✅ Apprentice station must be same quality as licensed barber stations
+- ✅ Cannot put apprentice in corner or inferior space
+- ✅ Must have access to all necessary tools and equipment
+
+**Ceiling height:**
+- ✅ Minimum 8 feet ceiling height
+- ✅ Proper lighting (natural or artificial)
+- ✅ Adequate ventilation
+
+---
+
+**2. Sanitation and Safety Equipment**
+
+**Required equipment (820 IAC 2-1-4):**
+- ✅ Autoclave or approved sterilization equipment
+- ✅ Disinfectant solution containers (for tools)
+- ✅ Separate containers for clean and dirty tools
+- ✅ Hand washing sink with hot and cold running water
+- ✅ Soap and paper towels at each sink
+- ✅ Covered waste receptacles
+- ✅ First aid kit
+- ✅ Fire extinguisher
+
+**Sanitation areas:**
+- ✅ Designated area for tool cleaning and sterilization
+- ✅ Cannot be in client area
+- ✅ Must have proper drainage
+- ✅ Must have adequate lighting
+
+---
+
+**3. Plumbing and Utilities**
+
+**Required:**
+- ✅ Hot and cold running water at each station
+- ✅ Proper drainage system
+- ✅ Functional toilet facilities (separate from work area)
+- ✅ Adequate electrical outlets (no overloaded circuits)
+- ✅ Proper ventilation system (exhaust fans if needed)
+
+---
+
+**4. Tools and Equipment**
+
+**Each apprentice must have access to:**
+- ✅ Professional clippers (multiple sizes)
+- ✅ Trimmers and edgers
+- ✅ Professional scissors (cutting and thinning)
+- ✅ Straight razors and safety razors
+- ✅ Combs and brushes (various sizes)
+- ✅ Capes and neck strips
+- ✅ Spray bottles
+- ✅ Blow dryers
+- ✅ Disinfectant and cleaning supplies
+
+**Shop must provide:**
+- ✅ All tools and equipment for apprentice use
+- ✅ Products (shampoo, aftershave, styling products)
+- ✅ Towels and linens
+- ✅ Sanitation supplies
+
+**Apprentice may bring own tools but not required**
+
+---
+
+**5. Signage and Licensing**
+
+**Required displays:**
+- ✅ Barbershop license (prominently displayed)
+- ✅ All barber licenses (at each station)
+- ✅ Apprenticeship sponsor certificate (from U.S. DOL)
+- ✅ Health and safety notices
+- ✅ Pricing list (visible to clients)
+
+---
+
+**6. Accessibility and Safety**
+
+**Required:**
+- ✅ ADA compliant (wheelchair accessible if applicable)
+- ✅ Proper fire exits (clearly marked)
+- ✅ Emergency lighting
+- ✅ Smoke detectors
+- ✅ Proper flooring (non-slip, easy to clean)
+- ✅ Adequate lighting (minimum 50 foot-candles at work surface)
+
+---
+
+## Can Apprentices Work Alongside Licensed Barbers?
+
+**Yes! Apprentices MUST work alongside licensed barbers.**
+
+### Mixed Environment Is Required
+
+**Indiana State Board requires:**
+- ✅ Apprentice must work in same space as licensed barbers
+- ✅ Licensed barber must supervise apprentice at all times
+- ✅ Apprentice learns by observing and working with licensed barbers
+- ✅ This is the whole point of apprenticeship (learn from professionals)
+
+**Typical shop setup:**
+
+**Example: 4-station barbershop**
+- Station 1: Licensed barber (10 years experience)
+- Station 2: Licensed barber (5 years experience) - **Apprentice mentor**
+- Station 3: Apprentice (you)
+- Station 4: Licensed barber (3 years experience)
+
+**How it works:**
+- You work at your station (Station 3)
+- Your mentor works at Station 2 (right next to you)
+- Mentor supervises your work
+- You observe other licensed barbers
+- You learn from everyone in the shop
+
+---
+
+### Benefits of Mixed Environment
+
+**For apprentices:**
+- ✅ Learn from multiple barbers (different styles and techniques)
+- ✅ See how professionals handle clients
+- ✅ Observe business operations
+- ✅ Build relationships with experienced barbers
+- ✅ Get real-time feedback and coaching
+- ✅ Understand shop culture and professionalism
+
+**For licensed barbers:**
+- ✅ Give back to the profession
+- ✅ Fresh perspective from apprentice
+- ✅ Help build the next generation
+- ✅ Potential future colleague or employee
+
+**For clients:**
+- ✅ Can choose licensed barber or apprentice
+- ✅ Apprentice services often discounted
+- ✅ Apprentice work is supervised (quality assured)
+- ✅ Support someone learning a trade
+
+---
+
+### Supervision Requirements in Mixed Environment
+
+**Licensed barber mentor must:**
+- ✅ Be physically present in shop during all apprentice work hours
+- ✅ Be available to supervise and assist apprentice
+- ✅ Check apprentice's work before client leaves
+- ✅ Step in if apprentice struggles
+- ✅ Provide real-time coaching and feedback
+
+**Mentor CANNOT:**
+- ❌ Leave shop while apprentice is working
+- ❌ Be "too busy" to supervise
+- ❌ Let apprentice work completely unsupervised
+- ❌ Ignore apprentice's mistakes
+
+**Example of proper supervision:**
+
+**Scenario: Apprentice doing a fade**
+- Apprentice starts the fade on client
+- Mentor works on their own client at next station
+- Mentor glances over every few minutes
+- Apprentice gets stuck on blending
+- Mentor pauses their work, comes over
+- Mentor demonstrates proper technique
+- Apprentice continues with guidance
+- Mentor checks final result before client leaves
+
+---
+
+### Client Disclosure Requirements
+
+**Clients must know they're being served by an apprentice:**
+
+**Required disclosure:**
+- ✅ Shop must inform client they're booking with apprentice
+- ✅ Apprentice must introduce themselves as apprentice
+- ✅ Client must consent to apprentice service
+- ✅ Client can decline and request licensed barber
+
+**Example disclosure:**
+"Hi, I'm Marcus. I'm an apprentice barber working toward my license. I'll be doing your haircut today under the supervision of [Mentor's Name], who's a licensed barber with 10 years of experience. He'll be checking my work to make sure you're happy with the result. Is that okay with you?"
+
+**Client rights:**
+- ✅ Can ask for licensed barber instead
+- ✅ Can request mentor to finish if unhappy
+- ✅ Should receive discounted price (apprentice rate)
+- ✅ Can provide feedback to help apprentice learn
+
+---
+
+### Apprentice Pricing in Mixed Environment
+
+**Typical pricing structure:**
+
+**Licensed barber rates:**
+- Haircut: $25-$40
+- Fade: $30-$45
+- Beard trim: $15-$25
+- Shave: $35-$50
+
+**Apprentice rates (20-40% discount):**
+- Haircut: $15-$25
+- Fade: $20-$30
+- Beard trim: $10-$15
+- Shave: $20-$30
+
+**Why apprentice rates are lower:**
+- Takes longer (still learning)
+- Supervised (mentor involvement)
+- Client takes slight risk (apprentice skill level)
+- Incentive for clients to help train next generation
+
+**Apprentice still earns commission on discounted rates**
+
+---
+
+### Can Apprentices and Licensed Barbers Share Clients?
+
+**Yes, this is common and beneficial.**
+
+**Scenario 1: Overflow clients**
+- Licensed barber is fully booked
+- Walk-in client arrives
+- Licensed barber: "I'm booked, but my apprentice Marcus can take you. He's doing great work and I'll supervise."
+- Client agrees
+- Apprentice serves client
+
+**Scenario 2: Apprentice builds own clients**
+- Client comes in regularly for licensed barber
+- Licensed barber: "Marcus is ready to take on his own clients. Would you like to try him next time? I'll still check his work."
+- Client tries apprentice
+- Client becomes apprentice's regular
+
+**Scenario 3: Mentor assists apprentice**
+- Apprentice starts haircut
+- Gets stuck on difficult section
+- Mentor steps in and finishes
+- Both apprentice and mentor work on same client
+
+**This is all normal and expected in apprenticeship environment**
+
+---
+
+### Facility Setup: Apprentice-Only vs Mixed
+
+**Apprentice-only shop (NOT ALLOWED):**
+- ❌ Shop with only apprentices, no licensed barbers
+- ❌ Illegal and violates State Board rules
+- ❌ Hours would not count toward licensure
+- ❌ No one to supervise or train
+
+**Mixed shop (REQUIRED):**
+- ✅ Shop with licensed barbers AND apprentices
+- ✅ Legal and meets State Board requirements
+- ✅ Hours count toward licensure
+- ✅ Proper supervision and training
+
+**Minimum ratio:**
+- At least 1 licensed barber per apprentice
+- Example: 3 licensed barbers can supervise up to 3 apprentices
+
+**Ideal ratio:**
+- 2-3 licensed barbers per apprentice
+- Ensures adequate supervision
+- Multiple mentors to learn from
+
+---
+
+### State Board Inspection of Facilities
+
+**State Board inspects apprenticeship sponsor shops:**
+
+**What they check:**
+- ✅ Facility meets size and space requirements
+- ✅ Proper sanitation equipment present and functional
+- ✅ All licenses properly displayed
+- ✅ Adequate supervision of apprentices
+- ✅ Proper tools and equipment available
+- ✅ Safety standards met
+- ✅ Apprentice working conditions acceptable
+
+**Inspection frequency:**
+- Initial inspection before approval as sponsor
+- Random inspections during sponsorship
+- Complaint-triggered inspections
+- Annual renewal inspections
+
+**Violations can result in:**
+- Warning and required corrections
+- Fines ($100-$1,000)
+- Suspension of apprenticeship sponsor status
+- Revocation of sponsor status
+- Apprentice hours may not count
+
+---
+
+### Red Flags: Inadequate Facilities
+
+**Watch out for these issues:**
+
+❌ **Cramped, unsafe workspace**
+- Not enough room to work properly
+- Tripping hazards
+- Poor lighting
+
+❌ **No proper sanitation equipment**
+- No autoclave or sterilization
+- Dirty tools and equipment
+- No hand washing facilities
+
+❌ **Apprentice isolated from licensed barbers**
+- Apprentice in back room alone
+- No supervision or mentoring
+- Can't observe professionals
+
+❌ **Unlicensed or expired licenses**
+- Shop license expired
+- Barber licenses not current
+- No apprenticeship sponsor certificate
+
+❌ **Unsafe conditions**
+- Electrical hazards
+- No fire safety equipment
+- Blocked exits
+
+**If you see these red flags, report to State Board: (317) 234-3040**
+
+---
+
+## The Bottom Line: Facility Requirements
+
+**For Barbershops:**
+- ✅ Must meet Indiana State Board facility requirements
+- ✅ Adequate space, sanitation, safety equipment
+- ✅ Proper tools and supplies for apprentices
+- ✅ All licenses and certificates displayed
+- ✅ Pass State Board inspections
+
+**For Apprentices:**
+- ✅ You WILL work alongside licensed barbers (required)
+- ✅ You WILL be supervised at all times
+- ✅ You WILL learn in a mixed environment
+- ✅ This is the best way to learn the trade
+- ✅ Clients know you're an apprentice
+
+**Mixed environment is not just allowed—it's required and beneficial for everyone.**
+
+---
+
+---
+
 ## Your Journey: What It Really Looks Like (Based on Real Apprentice Experiences)
 
 ### Month 1-2: "I'm Actually Doing This"
@@ -4616,7 +5574,47 @@ If your employment ends or you want to switch shops:
 
 ### How many hours can I work per week?
 
-**Maximum 40-50 hours/week at the shop.** Plus 3-4 hours/week for online theory classes. You can't rush through the program—it takes 15-17 months minimum to complete all requirements.
+**Maximum hours per week (Indiana State Board guidelines):**
+
+**On-the-Job Training (OJT) at the shop:**
+- **Standard:** 40 hours/week (full-time)
+- **Maximum:** 50 hours/week (with overtime)
+- **Minimum:** 20 hours/week (part-time, takes longer to complete)
+
+**Related Technical Instruction (RTI):**
+- **Standard:** 3-4 hours/week (online or in-person)
+- **Can be completed:** Evenings, weekends, or during work hours
+
+**Total maximum per week:** 50 hours OJT + 4 hours RTI = **54 hours/week**
+
+**Why there's a maximum:**
+- ✅ Prevents burnout and ensures quality learning
+- ✅ Allows time for skill development (not just rushing through)
+- ✅ Federal labor laws limit work hours
+- ✅ Overtime pay required over 40 hours/week
+- ✅ State Board wants apprentices to learn properly, not just accumulate hours
+
+**Timeline based on hours per week:**
+
+**Full-time (40 hours/week):**
+- 2,000 hours ÷ 40 hours/week = 50 weeks
+- Plus 144 RTI hours over same period
+- **Total time: 12-13 months minimum**
+- **Realistic: 15-17 months** (accounting for holidays, sick days, shop closures)
+
+**Overtime (50 hours/week):**
+- 2,000 hours ÷ 50 hours/week = 40 weeks
+- Plus 144 RTI hours over same period
+- **Total time: 10-11 months minimum**
+- **Realistic: 12-14 months** (accounting for holidays, sick days)
+- **Note:** Employer must pay overtime (1.5x wage) for hours over 40/week
+
+**Part-time (20 hours/week):**
+- 2,000 hours ÷ 20 hours/week = 100 weeks
+- Plus 144 RTI hours over same period
+- **Total time: 24-26 months** (2+ years)
+
+**You cannot rush through faster than 10-11 months even working maximum hours.**
 
 ### What if I have a criminal record?
 
@@ -6188,6 +7186,378 @@ Esthetician apprenticeships in Indiana follow **different rules** set by the Ind
 
 ---
 
+## Spa and Salon Options for Esthetician Apprenticeships
+
+### Types of Spas/Salons That Can Host Apprentices
+
+**Not all spas and salons can host esthetician apprentices. They must partner with a licensed cosmetology school.**
+
+**Eligible facilities:**
+
+**1. Day Spas**
+- Full-service spas offering facials, body treatments, waxing
+- Must have licensed esthetician with 2+ years experience
+- Must partner with cosmetology school
+- Examples: Massage Envy, Hand & Stone, local day spas
+
+**2. Medical Spas (Med Spas)**
+- Spas offering medical-grade treatments
+- Supervised by physician or nurse practitioner
+- Must have licensed esthetician on staff
+- Must partner with cosmetology school
+- Examples: Dermatology offices with spa services, plastic surgery centers
+
+**3. Full-Service Salons**
+- Hair salons that also offer skincare services
+- Must have separate esthetician area
+- Must have licensed esthetician with 2+ years experience
+- Must partner with cosmetology school
+- Examples: Ulta Beauty, local full-service salons
+
+**4. Resort/Hotel Spas**
+- Spas located in hotels or resorts
+- Must have licensed esthetician with 2+ years experience
+- Must partner with cosmetology school
+- Examples: Hotel spa facilities, resort wellness centers
+
+**5. Wellness Centers**
+- Holistic health centers offering skincare
+- Must have licensed esthetician on staff
+- Must partner with cosmetology school
+- Examples: Yoga studios with spa services, wellness clinics
+
+---
+
+### Requirements for Spas/Salons to Host Apprentices
+
+**To host esthetician apprentices, your spa/salon must:**
+
+**1. Partner with Licensed Cosmetology School**
+- ✅ Formal written agreement with Indiana-licensed cosmetology school
+- ✅ School coordinates apprenticeship program
+- ✅ School provides curriculum and oversight
+- ✅ School tracks student hours
+- ✅ School certifies completion
+
+**2. Meet Facility Requirements**
+- ✅ Licensed by Indiana State Board of Cosmetology
+- ✅ Proper equipment for esthetician services (facial beds, steamers, waxing supplies)
+- ✅ Sanitation and safety standards met
+- ✅ Adequate workspace for apprentice training (dedicated treatment room)
+- ✅ Proper ventilation and lighting
+- ✅ Complies with all health codes
+
+**3. Have Licensed Supervision**
+- ✅ Licensed esthetician on staff with minimum 2 years professional experience
+- ✅ Licensed esthetician must supervise all apprentice work
+- ✅ Cannot leave apprentice unsupervised with clients
+- ✅ Supervisor must be available during all apprentice working hours
+
+**4. Follow School's Training Plan**
+- ✅ Provide practical training per school's curriculum
+- ✅ Track apprentice hours and report to school
+- ✅ Allow school inspections and oversight
+- ✅ Ensure apprentice meets competency standards
+- ✅ Provide feedback to school on apprentice progress
+
+**5. Maintain Proper Insurance**
+- ✅ General liability insurance
+- ✅ Professional liability insurance
+- ✅ Workers' compensation (if apprentice is paid employee)
+
+---
+
+### How Spas/Salons Become Apprenticeship Partners
+
+**Step 1: Contact Cosmetology Schools**
+- Reach out to Indiana-licensed cosmetology schools
+- Ask about their esthetician apprenticeship programs
+- Express interest in hosting apprentices
+
+**Step 2: Meet School Requirements**
+- School evaluates your facility
+- School verifies your esthetician's license and experience
+- School ensures you meet all requirements
+
+**Step 3: Sign Partnership Agreement**
+- Formal agreement outlining responsibilities
+- Training schedule and curriculum
+- Hour tracking and reporting procedures
+- Supervision requirements
+- Duration of partnership
+
+**Step 4: Receive Apprentice Placement**
+- School matches apprentice with your spa/salon
+- School provides training materials and curriculum
+- You begin providing practical training
+
+**Step 5: Track and Report Hours**
+- Document apprentice hours daily/weekly
+- Report to school monthly
+- Provide feedback on apprentice progress
+- Coordinate with school on any issues
+
+---
+
+### Benefits for Spas/Salons Hosting Apprentices
+
+**Why host an apprentice:**
+
+**1. Build Your Team**
+- Train esthetician your way
+- Develop loyalty (apprentices often stay long-term)
+- Mold skills to match your spa's style
+- Create pipeline of qualified staff
+
+**2. Low-Cost Labor (If Unpaid Model)**
+- Apprentice provides services under supervision
+- You don't pay wages (most common model)
+- School covers apprentice's tuition
+- You provide training and experience
+
+**3. Paid Labor (If Paid Model - Rare)**
+- Some spas pay apprentices minimum wage
+- Apprentice is both student and employee
+- You invest in their training
+- They're more committed to staying after licensing
+
+**4. Community Reputation**
+- Known as training facility
+- Attracts quality applicants
+- Gives back to the profession
+- Builds relationships with cosmetology schools
+
+**5. Fresh Perspectives**
+- Apprentices bring new ideas and techniques
+- Learn latest trends from school
+- Energize your team
+- Keep your spa current
+
+---
+
+### Spa/Salon Responsibilities During Apprenticeship
+
+**What you must provide:**
+
+**1. Supervision**
+- Licensed esthetician supervises all apprentice work
+- Cannot leave apprentice alone with clients
+- Provide real-time coaching and feedback
+- Ensure client safety and satisfaction
+
+**2. Training Opportunities**
+- Allow apprentice to perform services on real clients
+- Provide variety of services (facials, waxing, treatments)
+- Expose apprentice to different skin types and conditions
+- Teach spa-specific techniques and protocols
+
+**3. Equipment and Supplies**
+- Provide all necessary equipment (facial beds, steamers, tools)
+- Provide products (cleansers, masks, waxing supplies)
+- Provide sanitation equipment
+- Provide uniforms or dress code guidance
+
+**4. Documentation**
+- Track apprentice hours daily/weekly
+- Report hours to school monthly
+- Document services performed
+- Provide progress reports to school
+
+**5. Professional Environment**
+- Treat apprentice with respect
+- Provide constructive feedback
+- Model professional behavior
+- Create positive learning environment
+
+---
+
+### What Spas/Salons CANNOT Do
+
+**Prohibited practices:**
+
+❌ **Cannot host apprentice without school partnership**
+- You must have formal agreement with cosmetology school
+- Random work experience doesn't count toward licensure
+
+❌ **Cannot leave apprentice unsupervised**
+- Licensed esthetician must be present at all times
+- Apprentice cannot work alone with clients
+
+❌ **Cannot count hours without school verification**
+- Only school-verified hours count toward licensure
+- You cannot independently certify apprentice hours
+
+❌ **Cannot skip required training components**
+- Must follow school's approved curriculum
+- Cannot rush apprentice through program
+
+❌ **Cannot charge apprentice for training**
+- Apprentice pays tuition to school, not to you
+- You cannot charge "training fees" or "equipment fees"
+
+❌ **Cannot require apprentice to pay booth rent**
+- Apprentice is student, not independent contractor
+- Booth rental only for licensed estheticians
+
+---
+
+### Payment Options for Spas/Salons
+
+**Option 1: Unpaid Apprenticeship (Most Common - 90%)**
+
+**How it works:**
+- Apprentice is student, not employee
+- You provide training and experience
+- You don't pay wages
+- Apprentice pays tuition to school (covered by WIOA/WRG)
+- You provide equipment and supplies
+
+**Your costs:**
+- Equipment and supplies: $50-100/month per apprentice
+- Supervisor time: Included in esthetician's regular duties
+- No wages paid
+
+**Benefits:**
+- Low cost to you
+- Apprentice gains experience
+- You're giving back to profession
+
+---
+
+**Option 2: Paid Apprenticeship (Rare - 5-10%)**
+
+**How it works:**
+- Apprentice is both student AND employee
+- You pay minimum wage ($7.25-$10/hour)
+- Apprentice pays tuition to school (covered by WIOA/WRG)
+- You provide equipment, supplies, and wages
+
+**Your costs:**
+- Wages: $7.25-$10/hour × 15-25 hours/week = $109-$250/week
+- Equipment and supplies: $50-100/month
+- Total: $500-$1,100/month per apprentice
+
+**Benefits:**
+- Apprentice is more committed (earning money)
+- You have more control (they're your employee)
+- Apprentice likely to stay after licensing
+- You're investing in your future team
+
+**When this makes sense:**
+- High-end spa with resources to invest
+- Want to ensure apprentice stays after licensing
+- Need extra help and can afford to pay
+- Building long-term team
+
+---
+
+**Option 3: Tuition Offset Model (Very Rare - <5%)**
+
+**How it works:**
+- You pay apprentice's tuition to school
+- Apprentice works at your spa (unpaid or low wage)
+- Apprentice commits to working for you after licensing
+
+**Your costs:**
+- Tuition: $5,000-$12,000 (one-time)
+- Equipment and supplies: $50-100/month
+- Wages: $0-$7/hour (if any)
+
+**Benefits:**
+- Apprentice has no debt
+- Apprentice is very committed to you
+- You secure future employee
+- Strong loyalty and retention
+
+**Conditions:**
+- Apprentice signs agreement to work for you 1-2 years after licensing
+- If apprentice leaves early, may owe back tuition
+- Legal agreement required
+
+---
+
+### Current Spas/Salons Partnering with Schools
+
+**To find spas/salons hosting apprentices:**
+
+**Contact these Indiana cosmetology schools:**
+- Aveda Fredric's Institute (Indianapolis)
+- Paul Mitchell The School (Indianapolis, Fort Wayne)
+- Tricoci University (Indianapolis)
+- Ravenscroft Beauty College (Fort Wayne)
+- Merrillville Beauty College (Merrillville)
+- PJ's College of Cosmetology (multiple locations)
+
+**Ask:**
+- "Do you have esthetician apprenticeship programs?"
+- "Which spas/salons do you partner with?"
+- "How can I get placed at a spa for my apprenticeship?"
+
+**We can also help connect you:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- We work with schools and spas to facilitate placements
+
+---
+
+### For Spas/Salons: How to Get Started
+
+**Interested in hosting esthetician apprentices?**
+
+**Step 1: Contact us**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- Tell us about your spa/salon
+
+**Step 2: We connect you with cosmetology schools**
+- We introduce you to schools with apprenticeship programs
+- We help facilitate partnership agreements
+- We guide you through requirements
+
+**Step 3: Get approved**
+- School evaluates your facility
+- School verifies your esthetician's credentials
+- Partnership agreement signed
+
+**Step 4: Receive apprentice placements**
+- School matches apprentices with your spa
+- You begin providing training
+- We provide ongoing support
+
+**Benefits of working with us:**
+- ✅ We handle school coordination
+- ✅ We help with paperwork and agreements
+- ✅ We provide guidance on best practices
+- ✅ We support both you and the apprentice
+- ✅ We help resolve any issues
+
+---
+
+### The Bottom Line: Spa/Salon Apprenticeships
+
+**For Esthetician Apprentices:**
+- ✅ Must be placed through cosmetology school
+- ✅ Cannot just work at any spa and count hours
+- ✅ School coordinates everything
+- ✅ Most placements are unpaid (you're a student)
+- ✅ WIOA/WRG covers your tuition
+- ✅ You gain real-world experience
+
+**For Spas/Salons:**
+- ✅ Must partner with cosmetology school
+- ✅ Cannot host apprentices independently
+- ✅ Most don't pay apprentices (unpaid model)
+- ✅ Low cost way to train future employees
+- ✅ Builds reputation and gives back to profession
+
+**Contact us to get connected:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+---
+
+---
+
 ## After You Get Licensed: Earning Potential
 
 **Once you're a licensed esthetician:**
@@ -6811,7 +8181,623 @@ Nail technician apprenticeships in Indiana follow **different rules** set by the
 
 ---
 
-**Bottom Line:** Nail technician apprenticeship in Indiana requires partnership with a licensed cosmetology school. The instructional portion is 100% funded through WIOA or Workforce Ready Grant. You cannot do it independently like the barber apprenticeship.`,
+**Bottom Line:** Nail technician apprenticeship in Indiana requires partnership with a licensed cosmetology school. The instructional portion is 100% funded through WIOA or Workforce Ready Grant. You cannot do it independently like the barber apprenticeship.
+
+---
+
+## Salon Options for Nail Technician Apprenticeships
+
+### Types of Salons That Can Host Apprentices
+
+**Not all salons can host nail technician apprentices. They must partner with a licensed cosmetology school.**
+
+**Eligible facilities:**
+
+**1. Full-Service Salons**
+- Hair salons with nail services
+- Must have licensed nail technician with 2+ years experience
+- Must partner with cosmetology school
+- Examples: Local full-service salons, franchise salons
+
+**2. Nail-Only Salons**
+- Salons specializing in nail services
+- Must have licensed nail technician with 2+ years experience
+- Must partner with cosmetology school
+- Examples: Nail bars, nail boutiques, Vietnamese nail salons
+
+**3. Day Spas with Nail Services**
+- Spas offering manicures and pedicures
+- Must have licensed nail technician on staff
+- Must partner with cosmetology school
+- Examples: Day spas, resort spas with nail services
+
+**4. Beauty Salons**
+- Full-service beauty salons (hair, nails, skincare)
+- Must have licensed nail technician with 2+ years experience
+- Must partner with cosmetology school
+- Examples: Ulta Beauty, local beauty salons
+
+**5. Barbershops with Nail Services (Rare)**
+- Some barbershops offer nail services
+- Must have licensed nail technician on staff
+- Must partner with cosmetology school
+- Examples: High-end barbershops with full grooming services
+
+---
+
+### Requirements for Salons to Host Apprentices
+
+**To host nail technician apprentices, your salon must:**
+
+**1. Partner with Licensed Cosmetology School**
+- ✅ Formal written agreement with Indiana-licensed cosmetology school
+- ✅ School coordinates apprenticeship program
+- ✅ School provides curriculum and oversight
+- ✅ School tracks student hours
+- ✅ School certifies completion
+
+**2. Meet Facility Requirements**
+- ✅ Licensed by Indiana State Board of Cosmetology
+- ✅ Proper equipment for nail services (manicure tables, pedicure chairs, UV lamps, tools)
+- ✅ Sanitation and safety standards met
+- ✅ Adequate workspace for apprentice training (dedicated nail station)
+- ✅ Proper ventilation (critical for nail products)
+- ✅ Complies with all health codes
+
+**3. Have Licensed Supervision**
+- ✅ Licensed nail technician on staff with minimum 2 years professional experience
+- ✅ Licensed nail tech must supervise all apprentice work
+- ✅ Cannot leave apprentice unsupervised with clients
+- ✅ Supervisor must be available during all apprentice working hours
+
+**4. Follow School's Training Plan**
+- ✅ Provide practical training per school's curriculum
+- ✅ Track apprentice hours and report to school
+- ✅ Allow school inspections and oversight
+- ✅ Ensure apprentice meets competency standards
+- ✅ Provide feedback to school on apprentice progress
+
+**5. Maintain Proper Insurance**
+- ✅ General liability insurance
+- ✅ Professional liability insurance
+- ✅ Workers' compensation (if apprentice is paid employee)
+
+---
+
+### How Salons Become Apprenticeship Partners
+
+**Step 1: Contact Cosmetology Schools**
+- Reach out to Indiana-licensed cosmetology schools
+- Ask about their nail technician apprenticeship programs
+- Express interest in hosting apprentices
+
+**Step 2: Meet School Requirements**
+- School evaluates your facility
+- School verifies your nail tech's license and experience
+- School ensures you meet all requirements
+- School checks ventilation and safety standards
+
+**Step 3: Sign Partnership Agreement**
+- Formal agreement outlining responsibilities
+- Training schedule and curriculum
+- Hour tracking and reporting procedures
+- Supervision requirements
+- Duration of partnership
+
+**Step 4: Receive Apprentice Placement**
+- School matches apprentice with your salon
+- School provides training materials and curriculum
+- You begin providing practical training
+
+**Step 5: Track and Report Hours**
+- Document apprentice hours daily/weekly
+- Report to school monthly
+- Provide feedback on apprentice progress
+- Coordinate with school on any issues
+
+---
+
+### Benefits for Salons Hosting Apprentices
+
+**Why host an apprentice:**
+
+**1. Build Your Team**
+- Train nail tech your way
+- Develop loyalty (apprentices often stay long-term)
+- Mold skills to match your salon's style
+- Create pipeline of qualified staff
+
+**2. Low-Cost Labor (If Unpaid Model)**
+- Apprentice provides services under supervision
+- You don't pay wages (most common model)
+- School covers apprentice's tuition
+- You provide training and experience
+
+**3. Paid Labor (If Paid Model - Very Rare)**
+- Some salons pay apprentices minimum wage
+- Apprentice is both student and employee
+- You invest in their training
+- They're more committed to staying after licensing
+
+**4. Community Reputation**
+- Known as training facility
+- Attracts quality applicants
+- Gives back to the profession
+- Builds relationships with cosmetology schools
+
+**5. Fresh Perspectives**
+- Apprentices bring new ideas and nail art trends
+- Learn latest techniques from school
+- Energize your team
+- Keep your salon current
+
+---
+
+### Salon Responsibilities During Apprenticeship
+
+**What you must provide:**
+
+**1. Supervision**
+- Licensed nail technician supervises all apprentice work
+- Cannot leave apprentice alone with clients
+- Provide real-time coaching and feedback
+- Ensure client safety and satisfaction
+
+**2. Training Opportunities**
+- Allow apprentice to perform services on real clients
+- Provide variety of services (manicures, pedicures, acrylics, gels, nail art)
+- Expose apprentice to different nail types and conditions
+- Teach salon-specific techniques and protocols
+
+**3. Equipment and Supplies**
+- Provide all necessary equipment (tables, chairs, UV lamps, tools)
+- Provide products (polish, acrylics, gels, files, buffers)
+- Provide sanitation equipment
+- Provide uniforms or dress code guidance
+
+**4. Documentation**
+- Track apprentice hours daily/weekly
+- Report hours to school monthly
+- Document services performed
+- Provide progress reports to school
+
+**5. Professional Environment**
+- Treat apprentice with respect
+- Provide constructive feedback
+- Model professional behavior
+- Create positive learning environment
+
+---
+
+### What Salons CANNOT Do
+
+**Prohibited practices:**
+
+❌ **Cannot host apprentice without school partnership**
+- You must have formal agreement with cosmetology school
+- Random work experience doesn't count toward licensure
+
+❌ **Cannot leave apprentice unsupervised**
+- Licensed nail tech must be present at all times
+- Apprentice cannot work alone with clients
+
+❌ **Cannot count hours without school verification**
+- Only school-verified hours count toward licensure
+- You cannot independently certify apprentice hours
+
+❌ **Cannot skip required training components**
+- Must follow school's approved curriculum
+- Cannot rush apprentice through program
+
+❌ **Cannot charge apprentice for training**
+- Apprentice pays tuition to school, not to you
+- You cannot charge "training fees" or "equipment fees"
+
+❌ **Cannot require apprentice to pay booth rent**
+- Apprentice is student, not independent contractor
+- Booth rental only for licensed nail technicians
+
+---
+
+### Payment Options for Salons
+
+**Option 1: Unpaid Apprenticeship (Most Common - 95%)**
+
+**How it works:**
+- Apprentice is student, not employee
+- You provide training and experience
+- You don't pay wages
+- Apprentice pays tuition to school (covered by WIOA/WRG)
+- You provide equipment and supplies
+
+**Your costs:**
+- Equipment and supplies: $30-75/month per apprentice
+- Supervisor time: Included in nail tech's regular duties
+- No wages paid
+
+**Benefits:**
+- Very low cost to you
+- Apprentice gains experience
+- You're giving back to profession
+
+---
+
+**Option 2: Paid Apprenticeship (Very Rare - <5%)**
+
+**How it works:**
+- Apprentice is both student AND employee
+- You pay minimum wage ($7.25-$10/hour)
+- Apprentice pays tuition to school (covered by WIOA/WRG)
+- You provide equipment, supplies, and wages
+
+**Your costs:**
+- Wages: $7.25-$10/hour × 15-25 hours/week = $109-$250/week
+- Equipment and supplies: $30-75/month
+- Total: $450-$1,075/month per apprentice
+
+**Benefits:**
+- Apprentice is more committed (earning money)
+- You have more control (they're your employee)
+- Apprentice likely to stay after licensing
+- You're investing in your future team
+
+**When this makes sense:**
+- Busy salon with resources to invest
+- Want to ensure apprentice stays after licensing
+- Need extra help and can afford to pay
+- Building long-term team
+
+---
+
+**Option 3: Tuition Offset Model (Extremely Rare - <1%)**
+
+**How it works:**
+- You pay apprentice's tuition to school
+- Apprentice works at your salon (unpaid or low wage)
+- Apprentice commits to working for you after licensing
+
+**Your costs:**
+- Tuition: $3,000-$8,000 (one-time)
+- Equipment and supplies: $30-75/month
+- Wages: $0-$7/hour (if any)
+
+**Benefits:**
+- Apprentice has no debt
+- Apprentice is very committed to you
+- You secure future employee
+- Strong loyalty and retention
+
+**Conditions:**
+- Apprentice signs agreement to work for you 1-2 years after licensing
+- If apprentice leaves early, may owe back tuition
+- Legal agreement required
+
+---
+
+### Current Salons Partnering with Schools
+
+**To find salons hosting apprentices:**
+
+**Contact these Indiana cosmetology schools:**
+- Aveda Fredric's Institute (Indianapolis)
+- Paul Mitchell The School (Indianapolis, Fort Wayne)
+- Tricoci University (Indianapolis)
+- Ravenscroft Beauty College (Fort Wayne)
+- Merrillville Beauty College (Merrillville)
+- PJ's College of Cosmetology (multiple locations)
+
+**Ask:**
+- "Do you have nail technician apprenticeship programs?"
+- "Which salons do you partner with?"
+- "How can I get placed at a salon for my apprenticeship?"
+
+**We can also help connect you:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- We work with schools and salons to facilitate placements
+
+---
+
+### For Salons: How to Get Started
+
+**Interested in hosting nail technician apprentices?**
+
+**Step 1: Contact us**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+- Tell us about your salon
+
+**Step 2: We connect you with cosmetology schools**
+- We introduce you to schools with apprenticeship programs
+- We help facilitate partnership agreements
+- We guide you through requirements
+
+**Step 3: Get approved**
+- School evaluates your facility
+- School verifies your nail tech's credentials
+- Partnership agreement signed
+
+**Step 4: Receive apprentice placements**
+- School matches apprentices with your salon
+- You begin providing training
+- We provide ongoing support
+
+**Benefits of working with us:**
+- ✅ We handle school coordination
+- ✅ We help with paperwork and agreements
+- ✅ We provide guidance on best practices
+- ✅ We support both you and the apprentice
+- ✅ We help resolve any issues
+
+---
+
+### The Bottom Line: Salon Apprenticeships
+
+**For Nail Technician Apprentices:**
+- ✅ Must be placed through cosmetology school
+- ✅ Cannot just work at any salon and count hours
+- ✅ School coordinates everything
+- ✅ Most placements are unpaid (you're a student)
+- ✅ WIOA/WRG covers your tuition
+- ✅ You gain real-world experience
+- ✅ Shorter program than esthetician (450 vs 700 hours)
+
+**For Salons:**
+- ✅ Must partner with cosmetology school
+- ✅ Cannot host apprentices independently
+- ✅ Most don't pay apprentices (unpaid model)
+- ✅ Very low cost way to train future employees
+- ✅ Builds reputation and gives back to profession
+
+**Contact us to get connected:**
+- Email: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+---
+
+## What Happens If You Don't Complete Your Esthetician Apprenticeship?
+
+### If You Stop Attending or Quit
+
+**Your hours are saved (if properly documented by school).**
+
+**What happens to your hours:**
+- ✅ All verified hours remain on record with cosmetology school
+- ✅ School maintains your apprenticeship file
+- ✅ You can return to complete your apprenticeship later
+- ✅ Hours typically valid for 3-5 years (check with school)
+- ✅ You can transfer to a different school/spa partnership
+
+**Important differences from barber apprenticeship:**
+- ⚠️ Hours may expire after 3-5 years (school policy varies)
+- ⚠️ School controls your records, not State Board directly
+- ⚠️ Must stay enrolled in school to keep hours active
+- ⚠️ If you drop out of school, hours may not transfer
+
+**Example:**
+- You complete 400 hours at Spa A through School X
+- You stop attending
+- Your 400 hours are saved by School X
+- 6 months later, you re-enroll at School X
+- You need 300 more hours to reach 700
+- School X places you at Spa B to complete remaining hours
+
+---
+
+### If the Spa Closes or Ends Partnership
+
+**Your hours are protected if school has documentation.**
+
+**What happens:**
+1. Spa notifies school they're ending partnership
+2. School contacts you about your hour status
+3. Your completed hours are verified and saved by school
+4. School finds you a new spa placement
+5. You continue from where you left off
+
+**Example:**
+- You complete 500 hours at Spa A
+- Spa A closes permanently
+- Your 500 hours are verified and saved by school
+- School places you at Spa B
+- You complete remaining 200 hours at Spa B
+- You graduate with 700 total hours
+
+**Timeline:**
+- Spa closure to new placement: 2-6 weeks
+- School handles all coordination
+
+---
+
+### Transferring to a Different Spa During Your Apprenticeship
+
+**Yes, you can transfer. Your hours go with you (through the school).**
+
+**How to transfer:**
+
+**Step 1: Contact Your Cosmetology School**
+- Notify school you want to transfer spas
+- Explain your reason (better opportunity, moving, issues at current spa)
+- School reviews your request
+
+**Step 2: School Finds New Spa Placement**
+- School has agreements with multiple spas
+- School matches you with new spa
+- School verifies new spa meets requirements
+
+**Step 3: Current Spa Submits Final Hours**
+- Current spa reports your final hours to school
+- School verifies all hours completed
+- You receive documentation of hours
+
+**Step 4: Transfer to New Spa**
+- School places you at new spa
+- New spa receives your hour records from school
+- You continue training from where you left off
+
+**Step 5: Complete Remaining Hours**
+- New spa tracks your hours
+- New spa reports to school
+- You complete remaining hours toward 700 total
+
+**Timeline:**
+- Request to new placement: 2-6 weeks
+- Depends on spa availability
+
+**Example:**
+- You complete 300 hours at Spa A
+- You transfer to Spa B
+- School verifies your 300 hours
+- You complete 400 more hours at Spa B
+- You graduate with 700 total hours (300 + 400)
+
+---
+
+### Can You Transfer to a Different Cosmetology School?
+
+**Yes, but it's complicated.**
+
+**How to transfer schools:**
+
+**Step 1: Request Transcripts from Current School**
+- Request official transcripts showing hours completed
+- Get documentation of all coursework
+- Pay any outstanding fees to current school
+
+**Step 2: Apply to New School**
+- Enroll in new school's esthetician program
+- Submit transcripts from previous school
+- New school evaluates your credits
+
+**Step 3: New School Determines Transfer Credits**
+- New school decides which hours transfer
+- May accept all, some, or none of your hours
+- Depends on curriculum compatibility
+
+**Step 4: Complete Remaining Requirements**
+- New school places you at spa for remaining hours
+- You complete any additional coursework required
+- You finish program through new school
+
+**Challenges:**
+- Not all hours may transfer between schools
+- Different schools have different curricula
+- May need to repeat some training
+- Can delay your completion
+
+**Better option: Stay with same school, just transfer spas**
+
+---
+
+### What If You Complete Hours But Not Classroom Instruction?
+
+**You need BOTH to be eligible for state exam.**
+
+**Scenario 1: Completed 700 practical hours but only 500 classroom hours**
+- ❌ Not eligible for state exam yet
+- ✅ Your 700 practical hours are saved
+- ✅ Complete remaining 200 classroom hours
+- ✅ Then eligible for exam
+
+**Scenario 2: Completed all classroom hours but only 500 practical hours**
+- ❌ Not eligible for state exam yet
+- ✅ Your classroom hours are saved
+- ✅ Complete remaining 200 practical hours at spa
+- ✅ Then eligible for exam
+
+**Both requirements must be met:**
+- 700 total hours (classroom + practical)
+- Typically split 350/350 or similar
+- Both verified by cosmetology school
+
+---
+
+### Protecting Your Hours
+
+**Keep your own records:**
+- ✅ Take photos of weekly hour logs
+- ✅ Keep copies of monthly reports to school
+- ✅ Track your own hours in notebook or app
+- ✅ Save all documentation
+
+**Request documentation regularly:**
+- ✅ Ask school for hour verification every 3 months
+- ✅ Request transcript showing hours completed
+- ✅ Keep these in safe place
+
+**If you're leaving a spa:**
+- ✅ Request written documentation of hours from spa
+- ✅ Notify school immediately
+- ✅ Ensure school has all your hours on record
+- ✅ Get copies of everything
+
+**If spa or school refuses documentation:**
+- ✅ Contact Indiana State Board: (317) 234-3040
+- ✅ File complaint if necessary
+- ✅ State Board can investigate
+
+---
+
+### Key Differences: Esthetician vs Barber Apprenticeship Transfers
+
+| Factor | Barber Apprenticeship | Esthetician Apprenticeship |
+|--------|----------------------|---------------------------|
+| **Who Controls Hours** | Indiana State Board | Cosmetology School |
+| **Hour Expiration** | Never expire | May expire after 3-5 years |
+| **Transfer Process** | Direct shop-to-shop | Through school coordination |
+| **Transfer Timeline** | 3-8 weeks | 2-6 weeks |
+| **Can Work Multiple Places** | No (one shop at a time) | No (one spa at a time) |
+| **School Involvement** | None (direct sponsor) | Required (school coordinates) |
+| **State Board Tracking** | Direct monthly reports | Through school reports |
+
+---
+
+### FAQs: Esthetician Apprenticeship Transfers
+
+**"I completed 400 hours but haven't worked in 1 year. Are my hours still good?"**
+
+Check with your cosmetology school. Most schools keep hours valid for 3-5 years. After that, you may need to repeat some training.
+
+**"My spa closed suddenly. How do I get my hours?"**
+
+Contact your cosmetology school immediately. They have all records and will verify your hours and find you a new spa placement.
+
+**"Can I transfer to a spa in a different city?"**
+
+Yes, as long as your school has spa partnerships in that city. If not, you may need to transfer to a school in that city.
+
+**"I want to switch spas because I'm not learning enough. Is that okay?"**
+
+Yes. Contact your school and explain the situation. They'll work to find you a better placement.
+
+**"What if I move to a different state?"**
+
+Your Indiana hours may transfer to another state, depending on that state's reciprocity rules. Contact the other state's cosmetology board.
+
+---
+
+### The Bottom Line: Esthetician Apprenticeship Transfers
+
+**Key takeaways:**
+
+✅ **Your hours are saved by school** - Not State Board directly
+
+✅ **You can transfer spas** - Through school coordination
+
+✅ **Hours may expire** - Check school policy (typically 3-5 years)
+
+✅ **School controls process** - They coordinate all transfers
+
+✅ **Keep your own records** - Don't rely solely on school
+
+**If you need to transfer or have issues:**
+- Contact your cosmetology school first
+- Email us: elevate4humanityedu@gmail.com
+- Phone: (317) 314-3757
+
+**We'll help you navigate the transfer process and protect your hours.**
+
+---
     heroImage: '/images/programs/nail-tech-apprentice.jpg',
     heroImageAlt:
       'Nail technician apprentice performing manicure under supervision',
