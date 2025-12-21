@@ -1,12 +1,16 @@
 import { ComplianceBar } from '@/components/ComplianceBar';
 
+export const revalidate = 3600; // 1 hour ISR cache
+
 export default function MetricsPage() {
   return (
     <main className="bg-white">
       <ComplianceBar />
-      
+
       <div className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">Impact Metrics</h1>
+        <h1 className="text-4xl font-bold mb-4 text-gray-900">
+          Impact Metrics
+        </h1>
         <p className="text-lg text-gray-600 mb-12">
           Real outcomes from our workforce development platform
         </p>
@@ -34,31 +38,38 @@ export default function MetricsPage() {
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-900">Workforce Funding</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-900">
+            Workforce Funding
+          </h2>
           <div className="space-y-4 text-gray-700">
             <div className="flex items-start gap-3">
               <span className="text-green-600 font-bold">✓</span>
               <div>
-                <strong>WIOA Eligible:</strong> All programs qualify for Workforce Innovation and Opportunity Act funding
+                <strong>WIOA Eligible:</strong> All programs qualify for
+                Workforce Innovation and Opportunity Act funding
               </div>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-green-600 font-bold">✓</span>
               <div>
-                <strong>WRG Approved:</strong> Workforce Ready Grant eligible in Indiana
+                <strong>WRG Approved:</strong> Workforce Ready Grant eligible in
+                Indiana
               </div>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-green-600 font-bold">✓</span>
               <div>
-                <strong>SNAP E&T:</strong> Supplemental Nutrition Assistance Program Employment & Training approved
+                <strong>SNAP E&T:</strong> Supplemental Nutrition Assistance
+                Program Employment & Training approved
               </div>
             </div>
           </div>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-900">Platform Usage</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-900">
+            Platform Usage
+          </h2>
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">6</div>
@@ -80,7 +91,9 @@ export default function MetricsPage() {
         </div>
 
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">Compliance & Reporting</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">
+            Compliance & Reporting
+          </h2>
           <div className="space-y-3 text-gray-700">
             <div className="flex items-start gap-3">
               <span className="text-blue-600 font-bold">✓</span>
@@ -102,7 +115,8 @@ export default function MetricsPage() {
         </div>
 
         <p className="text-sm mt-8 text-gray-600 text-center">
-          Metrics updated quarterly. Full documentation available upon request for workforce agencies and funding partners.
+          Metrics updated quarterly. Full documentation available upon request
+          for workforce agencies and funding partners.
         </p>
       </div>
     </main>

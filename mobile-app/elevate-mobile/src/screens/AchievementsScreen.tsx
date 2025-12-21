@@ -9,10 +9,10 @@ import {
   ActivityIndicator,
   Share,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
+import { AppHeader } from '../components/AppHeader';
 
 interface Badge {
   id: string;
@@ -166,24 +166,19 @@ export default function AchievementsScreen({ navigation }: any) {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <AppHeader title="Achievements" showBack />
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#4F46E5" />
           <Text style={styles.loadingText}>Loading achievements...</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#1F2937" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Achievements</Text>
-        <View style={{ width: 24 }} />
-      </View>
+    <View style={styles.container}>
+      <AppHeader title="Achievements" showBack />
 
       <View style={styles.statsContainer}>
         <View style={styles.statCard}>
@@ -269,7 +264,7 @@ export default function AchievementsScreen({ navigation }: any) {
           filteredBadges.map(renderBadge)
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

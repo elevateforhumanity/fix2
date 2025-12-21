@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+export const revalidate = 3600; // 1 hour ISR cache
 
 export default function LicensingPage() {
   return (

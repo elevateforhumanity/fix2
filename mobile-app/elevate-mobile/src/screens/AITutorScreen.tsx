@@ -10,9 +10,9 @@ import {
   Platform,
   ActivityIndicator,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../contexts/AuthContext';
+import { AppHeader } from '../components/AppHeader';
 
 interface Message {
   id: string;
@@ -174,19 +174,15 @@ export default function AITutorScreen({ navigation }: any) {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#1F2937" />
-        </TouchableOpacity>
-        <View style={styles.headerTitleContainer}>
-          <Ionicons name="sparkles" size={20} color="#4F46E5" />
-          <Text style={styles.headerTitle}>AI Tutor</Text>
-        </View>
-        <TouchableOpacity onPress={() => setMessages([messages[0]])}>
-          <Ionicons name="refresh" size={24} color="#6B7280" />
-        </TouchableOpacity>
-      </View>
+    <View style={styles.container}>
+      <AppHeader
+        title="AI Tutor"
+        showBack
+        rightAction={{
+          icon: 'refresh',
+          onPress: () => setMessages([messages[0]]),
+        }}
+      />
 
       <KeyboardAvoidingView
         style={styles.content}
@@ -258,7 +254,7 @@ export default function AITutorScreen({ navigation }: any) {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -1,50 +1,72 @@
 import { ComplianceBar } from '@/components/ComplianceBar';
 import Link from 'next/link';
 
+export const revalidate = 3600; // 1 hour ISR cache
+
 export default function AgenciesPage() {
   return (
     <main className="bg-white">
       <ComplianceBar />
-      
+
       <div className="max-w-5xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold mb-6 text-gray-900">
           For Workforce Agencies & Partners
         </h1>
 
         <p className="text-xl mb-8 text-gray-700 leading-relaxed">
-          License our government-aligned workforce infrastructure to deliver compliant, funded programs without building technology from scratch.
+          License our government-aligned workforce infrastructure to deliver
+          compliant, funded programs without building technology from scratch.
         </p>
 
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">What We Provide</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">
+            What We Provide
+          </h2>
           <p className="text-gray-700 mb-6">
-            A complete workforce development platform that handles training delivery, compliance reporting, employer partnerships, and funding navigation—all in one system.
+            A complete workforce development platform that handles training
+            delivery, compliance reporting, employer partnerships, and funding
+            navigation—all in one system.
           </p>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
               <span className="text-blue-600 font-bold">✓</span>
-              <span><strong>DOL Registered Apprenticeship Sponsor</strong> - Official U.S. Department of Labor registration</span>
+              <span>
+                <strong>DOL Registered Apprenticeship Sponsor</strong> -
+                Official U.S. Department of Labor registration
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-blue-600 font-bold">✓</span>
-              <span><strong>WIOA/WRG Eligible Programs</strong> - All programs qualify for workforce funding</span>
+              <span>
+                <strong>WIOA/WRG Eligible Programs</strong> - All programs
+                qualify for workforce funding
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-blue-600 font-bold">✓</span>
-              <span><strong>ETPL Approved Provider</strong> - Eligible Training Provider List approved in Indiana</span>
+              <span>
+                <strong>ETPL Approved Provider</strong> - Eligible Training
+                Provider List approved in Indiana
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-blue-600 font-bold">✓</span>
-              <span><strong>Multi-Tenant SaaS Platform</strong> - White-label licensing available</span>
+              <span>
+                <strong>Multi-Tenant SaaS Platform</strong> - White-label
+                licensing available
+              </span>
             </li>
           </ul>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <div className="bg-white border border-gray-200 rounded-xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">For WorkOne Regions</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">
+              For WorkOne Regions
+            </h3>
             <p className="text-gray-700 mb-4">
-              Track WIOA and WRG funded participants, monitor outcomes, and generate compliance reports automatically.
+              Track WIOA and WRG funded participants, monitor outcomes, and
+              generate compliance reports automatically.
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>• Real-time dashboards</li>
@@ -55,9 +77,12 @@ export default function AgenciesPage() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">For Training Providers</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">
+              For Training Providers
+            </h3>
             <p className="text-gray-700 mb-4">
-              License our platform to deliver workforce-funded programs without building your own LMS and compliance systems.
+              License our platform to deliver workforce-funded programs without
+              building your own LMS and compliance systems.
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>• White-label LMS</li>
@@ -68,9 +93,12 @@ export default function AgenciesPage() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">For State Agencies</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">
+              For State Agencies
+            </h3>
             <p className="text-gray-700 mb-4">
-              Monitor statewide workforce initiatives, track performance metrics, and ensure compliance across multiple providers.
+              Monitor statewide workforce initiatives, track performance
+              metrics, and ensure compliance across multiple providers.
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>• Multi-provider oversight</li>
@@ -81,9 +109,12 @@ export default function AgenciesPage() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-xl p-6">
-            <h3 className="text-xl font-bold mb-3 text-gray-900">For Nonprofits</h3>
+            <h3 className="text-xl font-bold mb-3 text-gray-900">
+              For Nonprofits
+            </h3>
             <p className="text-gray-700 mb-4">
-              Deliver accredited training programs with built-in funding navigation and employer connections.
+              Deliver accredited training programs with built-in funding
+              navigation and employer connections.
             </p>
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>• Grant-ready programs</li>
@@ -95,7 +126,9 @@ export default function AgenciesPage() {
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-900">Platform Capabilities</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-900">
+            Platform Capabilities
+          </h2>
           <div className="grid md:grid-cols-3 gap-4 text-gray-700">
             <div>• RAPIDS integration</div>
             <div>• ETPL reporting</div>
@@ -113,23 +146,43 @@ export default function AgenciesPage() {
         </div>
 
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">Why Partner With Us?</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">
+            Why Partner With Us?
+          </h2>
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Government-Aligned</h3>
-              <p>Built specifically for DOL, WIOA, and state workforce requirements. Not adapted—designed from the ground up.</p>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Government-Aligned
+              </h3>
+              <p>
+                Built specifically for DOL, WIOA, and state workforce
+                requirements. Not adapted—designed from the ground up.
+              </p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Proven Compliance</h3>
-              <p>Active DOL registration, ETPL approval, and WIOA eligibility. We maintain all credentials and documentation.</p>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Proven Compliance
+              </h3>
+              <p>
+                Active DOL registration, ETPL approval, and WIOA eligibility. We
+                maintain all credentials and documentation.
+              </p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2">Fast Deployment</h3>
-              <p>Launch in weeks, not years. No custom development required. White-label ready.</p>
+              <p>
+                Launch in weeks, not years. No custom development required.
+                White-label ready.
+              </p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Modern Technology</h3>
-              <p>Mobile app, AI tutoring, gamification, and push notifications—features students expect and agencies need.</p>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Modern Technology
+              </h3>
+              <p>
+                Mobile app, AI tutoring, gamification, and push
+                notifications—features students expect and agencies need.
+              </p>
             </div>
           </div>
         </div>
@@ -148,7 +201,8 @@ export default function AgenciesPage() {
             Schedule a Demo
           </Link>
           <p className="mt-6 text-gray-600">
-            Questions? Call (317) 314-3757 or email elevate4humanityedu@gmail.com
+            Questions? Call (317) 314-3757 or email
+            elevate4humanityedu@gmail.com
           </p>
         </div>
       </div>

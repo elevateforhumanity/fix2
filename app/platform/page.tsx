@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+export const revalidate = 3600; // 1 hour ISR cache
 
 export default function PlatformPage() {
   return (
@@ -16,13 +17,17 @@ export default function PlatformPage() {
             navigation, employer partnerships, and compliance reporting into a
             single system.
           </p>
-          
+
           <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6 text-left">
-            <h2 className="text-xl font-bold mb-4 text-gray-900">Official Credentials</h2>
+            <h2 className="text-xl font-bold mb-4 text-gray-900">
+              Official Credentials
+            </h2>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">✓</span>
-                <span>U.S. Department of Labor Registered Apprenticeship Sponsor</span>
+                <span>
+                  U.S. Department of Labor Registered Apprenticeship Sponsor
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">✓</span>
@@ -34,7 +39,9 @@ export default function PlatformPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">✓</span>
-                <span>Multi-tenant SaaS platform licensed to schools & partners</span>
+                <span>
+                  Multi-tenant SaaS platform licensed to schools & partners
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold">✓</span>
@@ -42,7 +49,7 @@ export default function PlatformPage() {
               </li>
             </ul>
           </div>
-          
+
           <p className="mt-6 text-xl font-bold text-zinc-900">
             This is not a course platform.
             <br />

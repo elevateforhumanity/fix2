@@ -1,0 +1,91 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "search": "Search"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "myCourses": "My Courses",
+    "progress": "Progress",
+    "achievements": "Achievements",
+    "leaderboard": "Leaderboard"
+  },
+  "courses": {
+    "title": "Courses",
+    "enrolled": "Enrolled",
+    "available": "Available",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "startCourse": "Start Course",
+    "continueCourse": "Continue Course",
+    "completionRate": "Completion Rate"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "earned": "Earned",
+    "locked": "Locked",
+    "all": "All",
+    "noBadges": "No badges earned yet",
+    "allUnlocked": "All badges unlocked!",
+    "earnedOn": "Earned",
+    "share": "Share"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "thisWeek": "This Week",
+    "thisMonth": "This Month",
+    "allTime": "All Time",
+    "you": "You",
+    "points": "pts",
+    "noData": "No leaderboard data yet"
+  },
+  "aiTutor": {
+    "title": "AI Tutor",
+    "placeholder": "Ask me anything...",
+    "greeting": "Hi! I'm your AI tutor. How can I help you today?",
+    "offline": "I'm currently offline. Please check your connection and try again.",
+    "quickPrompts": {
+      "explain": "Explain this concept",
+      "help": "Help me with homework",
+      "quiz": "Quiz me on this topic"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "editProfile": "Edit Profile",
+    "settings": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "about": "About"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "biometric": "Biometric Authentication",
+    "offlineMode": "Offline Mode",
+    "clearCache": "Clear Cache",
+    "version": "Version"
+  }
+}

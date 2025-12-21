@@ -9,10 +9,10 @@ import {
   ActivityIndicator,
   RefreshControl,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
+import { AppHeader } from '../components/AppHeader';
 
 interface LeaderboardEntry {
   rank: number;
@@ -176,24 +176,19 @@ export default function LeaderboardScreen({ navigation }: any) {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <AppHeader title="Leaderboard" showBack />
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#4F46E5" />
           <Text style={styles.loadingText}>Loading leaderboard...</Text>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#1F2937" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Leaderboard</Text>
-        <View style={{ width: 24 }} />
-      </View>
+    <View style={styles.container}>
+      <AppHeader title="Leaderboard" showBack />
 
       <View style={styles.timeFrameContainer}>
         <TouchableOpacity
@@ -274,7 +269,7 @@ export default function LeaderboardScreen({ navigation }: any) {
           )
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

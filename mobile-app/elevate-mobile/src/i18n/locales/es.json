@@ -1,0 +1,91 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "done": "Hecho",
+    "search": "Buscar"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar Sesión",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta?",
+    "hasAccount": "¿Ya tienes una cuenta?"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "welcome": "Bienvenido de nuevo",
+    "myCourses": "Mis Cursos",
+    "progress": "Progreso",
+    "achievements": "Logros",
+    "leaderboard": "Tabla de Clasificación"
+  },
+  "courses": {
+    "title": "Cursos",
+    "enrolled": "Inscritos",
+    "available": "Disponibles",
+    "completed": "Completados",
+    "inProgress": "En Progreso",
+    "startCourse": "Comenzar Curso",
+    "continueCourse": "Continuar Curso",
+    "completionRate": "Tasa de Finalización"
+  },
+  "achievements": {
+    "title": "Logros",
+    "earned": "Ganados",
+    "locked": "Bloqueados",
+    "all": "Todos",
+    "noBadges": "Aún no has ganado insignias",
+    "allUnlocked": "¡Todas las insignias desbloqueadas!",
+    "earnedOn": "Ganado",
+    "share": "Compartir"
+  },
+  "leaderboard": {
+    "title": "Tabla de Clasificación",
+    "thisWeek": "Esta Semana",
+    "thisMonth": "Este Mes",
+    "allTime": "Todo el Tiempo",
+    "you": "Tú",
+    "points": "pts",
+    "noData": "Aún no hay datos de clasificación"
+  },
+  "aiTutor": {
+    "title": "Tutor IA",
+    "placeholder": "Pregúntame lo que quieras...",
+    "greeting": "¡Hola! Soy tu tutor de IA. ¿Cómo puedo ayudarte hoy?",
+    "offline": "Actualmente estoy desconectado. Por favor, verifica tu conexión e intenta de nuevo.",
+    "quickPrompts": {
+      "explain": "Explica este concepto",
+      "help": "Ayúdame con la tarea",
+      "quiz": "Hazme un cuestionario sobre este tema"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "editProfile": "Editar Perfil",
+    "settings": "Configuración",
+    "language": "Idioma",
+    "notifications": "Notificaciones",
+    "privacy": "Privacidad",
+    "about": "Acerca de"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "notifications": "Notificaciones",
+    "biometric": "Autenticación Biométrica",
+    "offlineMode": "Modo Sin Conexión",
+    "clearCache": "Limpiar Caché",
+    "version": "Versión"
+  }
+}

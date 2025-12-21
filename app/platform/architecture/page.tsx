@@ -1,113 +1,176 @@
 import { ComplianceBar } from '@/components/ComplianceBar';
 
+export const revalidate = 3600; // 1 hour ISR cache
+
 export default function ArchitecturePage() {
   return (
     <main className="bg-white">
       <ComplianceBar />
-      
+
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold mb-6 text-gray-900">Platform Architecture</h1>
-        
+        <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          Platform Architecture
+        </h1>
+
         <p className="text-xl text-gray-700 mb-12 leading-relaxed">
-          Built from the ground up as government-aligned workforce infrastructure, not adapted from generic LMS software.
+          Built from the ground up as government-aligned workforce
+          infrastructure, not adapted from generic LMS software.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">Core Infrastructure</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              Core Infrastructure
+            </h2>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>Multi-tenant architecture</strong> - Complete data isolation per organization</span>
+                <span>
+                  <strong>Multi-tenant architecture</strong> - Complete data
+                  isolation per organization
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>Row-level security (RLS)</strong> - Database-enforced access control</span>
+                <span>
+                  <strong>Row-level security (RLS)</strong> - Database-enforced
+                  access control
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>License enforcement</strong> - Automatic seat and feature limits</span>
+                <span>
+                  <strong>License enforcement</strong> - Automatic seat and
+                  feature limits
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-blue-600 font-bold">•</span>
-                <span><strong>Stripe subscription billing</strong> - Automated payment processing</span>
+                <span>
+                  <strong>Stripe subscription billing</strong> - Automated
+                  payment processing
+                </span>
               </li>
             </ul>
           </div>
 
           <div className="bg-green-50 border border-green-200 rounded-xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">Compliance & Reporting</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              Compliance & Reporting
+            </h2>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-green-600 font-bold">•</span>
-                <span><strong>RAPIDS integration</strong> - DOL apprenticeship tracking</span>
+                <span>
+                  <strong>RAPIDS integration</strong> - DOL apprenticeship
+                  tracking
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-600 font-bold">•</span>
-                <span><strong>ETPL reporting</strong> - Automated state compliance</span>
+                <span>
+                  <strong>ETPL reporting</strong> - Automated state compliance
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-600 font-bold">•</span>
-                <span><strong>Workforce dashboards</strong> - Real-time outcome tracking</span>
+                <span>
+                  <strong>Workforce dashboards</strong> - Real-time outcome
+                  tracking
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-600 font-bold">•</span>
-                <span><strong>Audit logs</strong> - Complete activity history</span>
+                <span>
+                  <strong>Audit logs</strong> - Complete activity history
+                </span>
               </li>
             </ul>
           </div>
 
           <div className="bg-purple-50 border border-purple-200 rounded-xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">Mobile & AI</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              Mobile & AI
+            </h2>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 font-bold">•</span>
-                <span><strong>Native mobile app</strong> - iOS and Android (React Native + Expo)</span>
+                <span>
+                  <strong>Native mobile app</strong> - iOS and Android (React
+                  Native + Expo)
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 font-bold">•</span>
-                <span><strong>Push notifications</strong> - Expo push notification service</span>
+                <span>
+                  <strong>Push notifications</strong> - Expo push notification
+                  service
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 font-bold">•</span>
-                <span><strong>Offline mode</strong> - Download courses, sync when online</span>
+                <span>
+                  <strong>Offline mode</strong> - Download courses, sync when
+                  online
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 font-bold">•</span>
-                <span><strong>AI tutoring</strong> - 5 AI systems for learner support</span>
+                <span>
+                  <strong>AI tutoring</strong> - 5 AI systems for learner
+                  support
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 font-bold">•</span>
-                <span><strong>Biometric auth</strong> - Face ID, Touch ID, Fingerprint</span>
+                <span>
+                  <strong>Biometric auth</strong> - Face ID, Touch ID,
+                  Fingerprint
+                </span>
               </li>
             </ul>
           </div>
 
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-8">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">Engagement & Gamification</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              Engagement & Gamification
+            </h2>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-3">
                 <span className="text-indigo-600 font-bold">•</span>
-                <span><strong>Badge system</strong> - Earned achievements with progress tracking</span>
+                <span>
+                  <strong>Badge system</strong> - Earned achievements with
+                  progress tracking
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-indigo-600 font-bold">•</span>
-                <span><strong>Leaderboards</strong> - Weekly, monthly, all-time rankings</span>
+                <span>
+                  <strong>Leaderboards</strong> - Weekly, monthly, all-time
+                  rankings
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-indigo-600 font-bold">•</span>
-                <span><strong>Points system</strong> - Rewards for activity and completion</span>
+                <span>
+                  <strong>Points system</strong> - Rewards for activity and
+                  completion
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-indigo-600 font-bold">•</span>
-                <span><strong>Streaks</strong> - Daily engagement tracking</span>
+                <span>
+                  <strong>Streaks</strong> - Daily engagement tracking
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-900">Partner Integrations</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-900">
+            Partner Integrations
+          </h2>
           <div className="grid md:grid-cols-3 gap-6 text-gray-700">
             <div>
               <h3 className="font-bold text-gray-900 mb-2">LMS Partners (6)</h3>
@@ -121,7 +184,9 @@ export default function ArchitecturePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Payment Processing</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Payment Processing
+              </h3>
               <ul className="text-sm space-y-1">
                 <li>• Stripe subscriptions</li>
                 <li>• Webhook automation</li>
@@ -130,7 +195,9 @@ export default function ArchitecturePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Government Systems</h3>
+              <h3 className="font-bold text-gray-900 mb-2">
+                Government Systems
+              </h3>
               <ul className="text-sm space-y-1">
                 <li>• RAPIDS (DOL)</li>
                 <li>• ETPL (State)</li>
@@ -142,7 +209,9 @@ export default function ArchitecturePage() {
         </div>
 
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">Technical Stack</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">
+            Technical Stack
+          </h2>
           <div className="grid md:grid-cols-2 gap-6 text-gray-700">
             <div>
               <h3 className="font-bold text-gray-900 mb-3">Frontend</h3>

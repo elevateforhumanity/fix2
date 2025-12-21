@@ -141,22 +141,44 @@ export async function POST(req: Request) {
 
       // Update tenant license if this is a platform subscription
       const tenantId = session.metadata?.tenant_id;
+      const planName = session.metadata?.plan_name ?? 'starter';
       if (tenantId && session.customer && session.subscription) {
-        await supabaseClient
-          .from('tenant_licenses')
-          .update({
-            stripe_customer_id: session.customer as string,
-            stripe_subscription_id: session.subscription as string,
-            active: true,
-            updated_at: new Date().toISOString(),
-          })
-          .eq('tenant_id', tenantId);
+        const customerId =
+          typeof session.customer === 'string'
+            ? session.customer
+            : (session.customer?.id ?? null);
+        const subscriptionId =
+          typeof session.subscription === 'string'
+            ? session.subscription
+            : (session.subscription?.id ?? null);
+        const priceId = session.metadata?.stripe_price_id ?? null;
 
-        logger.info('[Webhook] Updated tenant license', {
-          tenantId,
-          customerId: session.customer,
-          subscriptionId: session.subscription,
-        });
+        // Use RPC function for atomic update
+        const { error: rpcError } = await supabaseClient.rpc(
+          'upsert_license_from_stripe',
+          {
+            p_tenant_id: tenantId,
+            p_stripe_customer_id: customerId,
+            p_stripe_subscription_id: subscriptionId,
+            p_stripe_price_id: priceId,
+            p_status: 'active',
+            p_plan_name: planName,
+          }
+        );
+
+        if (rpcError) {
+          logger.error(
+            '[Webhook] Failed to update tenant license via RPC',
+            rpcError
+          );
+        } else {
+          logger.info('[Webhook] Updated tenant license via RPC', {
+            tenantId,
+            customerId,
+            subscriptionId,
+            planName,
+          });
+        }
       }
 
       // STEP 2: Create/activate enrollment (AUTO-ENROLL)
@@ -184,10 +206,10 @@ export async function POST(req: Request) {
           })
           .select('id')
           .single();
-        
+
         enrollmentId = newEnrollment?.id || null;
         isNewEnrollment = true;
-        
+
         logger.info('[Webhook] ✅ Created new enrollment', {
           studentId,
           programId,
@@ -203,10 +225,10 @@ export async function POST(req: Request) {
             enrolled_at: new Date().toISOString(),
           })
           .eq('id', existing.id);
-        
+
         enrollmentId = existing.id;
         isNewEnrollment = true;
-        
+
         logger.info('[Webhook] ✅ Activated existing enrollment', {
           enrollmentId: existing.id,
         });
@@ -226,13 +248,15 @@ export async function POST(req: Request) {
             .eq('id', programId)
             .single();
 
-          await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              to: email,
-              subject: `Welcome to ${programDetails?.name || 'Your Program'}!`,
-              html: `
+          await fetch(
+            `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                to: email,
+                subject: `Welcome to ${programDetails?.name || 'Your Program'}!`,
+                html: `
                 <h2>Welcome to Elevate for Humanity!</h2>
                 <p>Hi ${firstName || 'there'},</p>
                 <p>Congratulations! Your enrollment in <strong>${programDetails?.name || 'your program'}</strong> is now active.</p>
@@ -246,8 +270,9 @@ export async function POST(req: Request) {
                 <p>Questions? Call us at <a href="tel:3173143757">317-314-3757</a></p>
                 <p>Best regards,<br>Elevate for Humanity Team</p>
               `,
-            }),
-          });
+              }),
+            }
+          );
         } catch (emailError) {
           logger.warn('[Webhook] Failed to send welcome email', emailError);
         }
@@ -350,25 +375,41 @@ export async function POST(req: Request) {
 
       // Update tenant license if this is a platform subscription
       const tenantId = sub.metadata?.tenant_id;
+      const planName = sub.metadata?.plan_name ?? 'starter';
       if (tenantId) {
         const { createClient } = await import('@/lib/supabase/server');
         const supabaseClient = await createClient();
-        
-        await supabaseClient
-          .from('tenant_licenses')
-          .update({
-            stripe_customer_id: customerId,
-            stripe_subscription_id: sub.id,
-            active: finalStatus === 'active' || finalStatus === 'trialing',
-            updated_at: new Date().toISOString(),
-          })
-          .eq('tenant_id', tenantId);
+        const priceId = sub.metadata?.stripe_price_id ?? null;
 
-        logger.info('[Webhook] Updated tenant license from subscription event', {
-          tenantId,
-          subscriptionId: sub.id,
-          status: finalStatus,
-        });
+        // Use RPC function for atomic update
+        const { error: rpcError } = await supabaseClient.rpc(
+          'upsert_license_from_stripe',
+          {
+            p_tenant_id: tenantId,
+            p_stripe_customer_id: customerId,
+            p_stripe_subscription_id: sub.id,
+            p_stripe_price_id: priceId,
+            p_status: finalStatus,
+            p_plan_name: planName,
+          }
+        );
+
+        if (rpcError) {
+          logger.error(
+            '[Webhook] Failed to update tenant license from subscription via RPC',
+            rpcError
+          );
+        } else {
+          logger.info(
+            '[Webhook] Updated tenant license from subscription event via RPC',
+            {
+              tenantId,
+              subscriptionId: sub.id,
+              status: finalStatus,
+              planName,
+            }
+          );
+        }
       }
 
       logger.info(
