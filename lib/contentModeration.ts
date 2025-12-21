@@ -1,14 +1,30 @@
 import { createClient } from '@/lib/supabase/server';
-import { logAuditEvent } from '@/lib/auditLog';
+import { auditLog } from '@/lib/auditLog';
 
 // =====================================================
 // CONTENT MODERATION TYPES
 // =====================================================
 
-export type ContentType = 'course' | 'discussion' | 'comment' | 'review' | 'message' | 'profile';
-export type ModerationStatus = 'pending' | 'approved' | 'rejected' | 'flagged' | 'removed';
-export type ModerationAction = 'approve' | 'reject' | 'flag' | 'remove' | 'warn';
-export type ReportReason = 
+export type ContentType =
+  | 'course'
+  | 'discussion'
+  | 'comment'
+  | 'review'
+  | 'message'
+  | 'profile';
+export type ModerationStatus =
+  | 'pending'
+  | 'approved'
+  | 'rejected'
+  | 'flagged'
+  | 'removed';
+export type ModerationAction =
+  | 'approve'
+  | 'reject'
+  | 'flag'
+  | 'remove'
+  | 'warn';
+export type ReportReason =
   | 'spam'
   | 'harassment'
   | 'inappropriate'
@@ -48,7 +64,8 @@ export interface ModerationRule {
 
 const PROFANITY_LIST = [
   // Add profanity words here
-  'badword1', 'badword2', // Placeholder
+  'badword1',
+  'badword2', // Placeholder
 ];
 
 const SPAM_PATTERNS = [
@@ -63,14 +80,14 @@ const SPAM_PATTERNS = [
  */
 export function containsProfanity(text: string): boolean {
   const lowerText = text.toLowerCase();
-  return PROFANITY_LIST.some(word => lowerText.includes(word));
+  return PROFANITY_LIST.some((word) => lowerText.includes(word));
 }
 
 /**
  * Check if content appears to be spam
  */
 export function isSpam(text: string): boolean {
-  return SPAM_PATTERNS.some(pattern => pattern.test(text));
+  return SPAM_PATTERNS.some((pattern) => pattern.test(text));
 }
 
 /**
@@ -78,7 +95,7 @@ export function isSpam(text: string): boolean {
  */
 export function filterProfanity(text: string): string {
   let filtered = text;
-  PROFANITY_LIST.forEach(word => {
+  PROFANITY_LIST.forEach((word) => {
     const regex = new RegExp(word, 'gi');
     filtered = filtered.replace(regex, '*'.repeat(word.length));
   });
@@ -161,7 +178,7 @@ export async function reportContent(
   if (error) throw error;
 
   // Log audit event
-  await logAuditEvent({
+  await auditLog({
     action: 'content_reported',
     actor_id: reporterId,
     target_type: contentType,
@@ -183,11 +200,13 @@ export async function getPendingReports(
 
   let query = supabase
     .from('moderation_reports')
-    .select(`
+    .select(
+      `
       *,
       reporter:profiles!reporter_id(first_name, last_name, email),
       reviewer:profiles!reviewed_by(first_name, last_name, email)
-    `)
+    `
+    )
     .eq('status', 'pending')
     .order('created_at', { ascending: false })
     .limit(limit);
@@ -245,10 +264,16 @@ export async function reviewReport(
   if (!report) throw new Error('Report not found');
 
   // Update report status
-  const newStatus = action === 'approve' ? 'approved' : 
-                    action === 'reject' ? 'rejected' :
-                    action === 'flag' ? 'flagged' :
-                    action === 'remove' ? 'removed' : 'pending';
+  const newStatus =
+    action === 'approve'
+      ? 'approved'
+      : action === 'reject'
+        ? 'rejected'
+        : action === 'flag'
+          ? 'flagged'
+          : action === 'remove'
+            ? 'removed'
+            : 'pending';
 
   await supabase
     .from('moderation_reports')
@@ -270,7 +295,7 @@ export async function reviewReport(
   );
 
   // Log audit event
-  await logAuditEvent({
+  await auditLog({
     action: 'content_moderated',
     actor_id: moderatorId,
     target_type: report.content_type,
@@ -324,15 +349,13 @@ export async function moderateContent(
   }
 
   // Record moderation action
-  await supabase
-    .from('moderation_actions')
-    .insert({
-      content_type: contentType,
-      content_id: contentId,
-      moderator_id: moderatorId,
-      action,
-      notes,
-    });
+  await supabase.from('moderation_actions').insert({
+    content_type: contentType,
+    content_id: contentId,
+    moderator_id: moderatorId,
+    action,
+    notes,
+  });
 }
 
 /**
@@ -346,7 +369,7 @@ async function updateContentStatus(
   const supabase = await createClient();
 
   const tableName = getTableName(contentType);
-  
+
   await supabase
     .from(tableName)
     .update({ moderation_status: status })
@@ -377,15 +400,13 @@ async function sendModerationWarning(
   const userId = content.user_id || content.author_id || content.instructor_id;
 
   // Create notification
-  await supabase
-    .from('notifications')
-    .insert({
-      user_id: userId,
-      type: 'moderation_warning',
-      title: 'Content Moderation Warning',
-      message: `Your ${contentType} has been flagged for review. ${reason || 'Please review our community guidelines.'}`,
-      link: `/moderation/${contentType}/${contentId}`,
-    });
+  await supabase.from('notifications').insert({
+    user_id: userId,
+    type: 'moderation_warning',
+    title: 'Content Moderation Warning',
+    message: `Your ${contentType} has been flagged for review. ${reason || 'Please review our community guidelines.'}`,
+    link: `/moderation/${contentType}/${contentId}`,
+  });
 }
 
 /**
@@ -446,7 +467,7 @@ export async function applyModerationRules(
 
     // Check if any keywords match
     const lowerText = text.toLowerCase();
-    const hasMatch = rule.keywords.some(keyword => 
+    const hasMatch = rule.keywords.some((keyword) =>
       lowerText.includes(keyword.toLowerCase())
     );
 
@@ -483,15 +504,25 @@ export async function autoModerateContent(
 
   // Auto-reject if score is too high
   if (analysis.score >= 70) {
-    await moderateContent(contentType, contentId, 'remove', 'system', 
-      `Auto-moderated: High risk score (${analysis.score})`);
+    await moderateContent(
+      contentType,
+      contentId,
+      'remove',
+      'system',
+      `Auto-moderated: High risk score (${analysis.score})`
+    );
     return { approved: false, reason: 'Content flagged by automated system' };
   }
 
   // Flag for review if score is moderate
   if (analysis.score >= 40 || ruleCheck.shouldFlag) {
-    await moderateContent(contentType, contentId, 'flag', 'system',
-      `Flagged for review: Score ${analysis.score}, Rules: ${ruleCheck.matchedRules.join(', ')}`);
+    await moderateContent(
+      contentType,
+      contentId,
+      'flag',
+      'system',
+      `Flagged for review: Score ${analysis.score}, Rules: ${ruleCheck.matchedRules.join(', ')}`
+    );
     return { approved: false, reason: 'Content flagged for manual review' };
   }
 
@@ -521,9 +552,7 @@ export async function getModerationStats(
 }> {
   const supabase = await createClient();
 
-  let query = supabase
-    .from('moderation_reports')
-    .select('*');
+  let query = supabase.from('moderation_reports').select('*');
 
   if (startDate) {
     query = query.gte('created_at', startDate);
@@ -538,31 +567,34 @@ export async function getModerationStats(
 
   const stats = {
     totalReports: reports?.length || 0,
-    pendingReports: reports?.filter(r => r.status === 'pending').length || 0,
-    approvedReports: reports?.filter(r => r.status === 'approved').length || 0,
-    rejectedReports: reports?.filter(r => r.status === 'rejected').length || 0,
+    pendingReports: reports?.filter((r) => r.status === 'pending').length || 0,
+    approvedReports:
+      reports?.filter((r) => r.status === 'approved').length || 0,
+    rejectedReports:
+      reports?.filter((r) => r.status === 'rejected').length || 0,
     reportsByType: {} as Record<ContentType, number>,
     reportsByReason: {} as Record<ReportReason, number>,
     averageReviewTime: 0,
   };
 
   // Calculate by type
-  reports?.forEach(report => {
-    stats.reportsByType[report.content_type] = 
+  reports?.forEach((report) => {
+    stats.reportsByType[report.content_type] =
       (stats.reportsByType[report.content_type] || 0) + 1;
-    stats.reportsByReason[report.reason] = 
+    stats.reportsByReason[report.reason] =
       (stats.reportsByReason[report.reason] || 0) + 1;
   });
 
   // Calculate average review time
-  const reviewedReports = reports?.filter(r => r.reviewed_at) || [];
+  const reviewedReports = reports?.filter((r) => r.reviewed_at) || [];
   if (reviewedReports.length > 0) {
     const totalTime = reviewedReports.reduce((sum, report) => {
       const created = new Date(report.created_at).getTime();
       const reviewed = new Date(report.reviewed_at!).getTime();
       return sum + (reviewed - created);
     }, 0);
-    stats.averageReviewTime = totalTime / reviewedReports.length / (1000 * 60 * 60); // Convert to hours
+    stats.averageReviewTime =
+      totalTime / reviewedReports.length / (1000 * 60 * 60); // Convert to hours
   }
 
   return stats;
@@ -601,8 +633,8 @@ export async function getModeratorPerformance(
 
   const stats = {
     totalReviews: reviews?.length || 0,
-    approvals: reviews?.filter(r => r.status === 'approved').length || 0,
-    rejections: reviews?.filter(r => r.status === 'rejected').length || 0,
+    approvals: reviews?.filter((r) => r.status === 'approved').length || 0,
+    rejections: reviews?.filter((r) => r.status === 'rejected').length || 0,
     averageReviewTime: 0,
   };
 

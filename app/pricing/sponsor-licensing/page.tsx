@@ -73,9 +73,7 @@ export default function SponsorLicensingPage() {
                 <div className="text-4xl font-bold text-slate-900 mb-2">
                   $750<span className="text-xl text-slate-600">/month</span>
                 </div>
-                <div className="text-sm text-slate-600">
-                  + $1,500 setup fee
-                </div>
+                <div className="text-sm text-slate-600">+ $1,500 setup fee</div>
               </div>
 
               <div className="mb-6">
@@ -128,7 +126,7 @@ export default function SponsorLicensingPage() {
               </div>
 
               <Link
-                href="/contact?topic=licensing-starter"
+                href="/checkout?plan=starter"
                 className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-6 py-4 rounded-xl font-bold transition"
               >
                 Get Started
@@ -148,7 +146,9 @@ export default function SponsorLicensingPage() {
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Professional</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Professional
+                  </h3>
                   <p className="text-sm text-white/80">Regional Authority</p>
                 </div>
               </div>
@@ -188,7 +188,9 @@ export default function SponsorLicensingPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-white">WOTC + OJT tracking</span>
+                  <span className="text-sm text-white">
+                    WOTC + OJT tracking
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -213,7 +215,7 @@ export default function SponsorLicensingPage() {
               </div>
 
               <Link
-                href="/contact?topic=licensing-professional"
+                href="/checkout?plan=pro"
                 className="block w-full bg-white text-indigo-600 hover:bg-slate-100 text-center px-6 py-4 rounded-xl font-bold transition"
               >
                 Get Started

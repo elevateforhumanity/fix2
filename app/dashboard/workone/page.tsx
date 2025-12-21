@@ -2,6 +2,8 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import Link from 'next/link';
 import { Download, Eye, FileText } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'WorkOne Oversight Dashboard',
   description: 'Read-only view for WorkOne regional monitoring',
@@ -25,8 +27,7 @@ export default async function WorkOneView() {
   const stats = {
     total: apprentices?.length || 0,
     active: apprentices?.filter((a) => a.status === 'active').length || 0,
-    completed:
-      apprentices?.filter((a) => a.status === 'completed').length || 0,
+    completed: apprentices?.filter((a) => a.status === 'completed').length || 0,
   };
 
   return (
@@ -143,8 +144,8 @@ export default async function WorkOneView() {
                           record.funding_status === 'approved'
                             ? 'bg-green-100 text-green-800'
                             : record.funding_status === 'pending'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : 'bg-slate-100 text-slate-800'
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-slate-100 text-slate-800'
                         }`}
                       >
                         {record.funding_status || 'N/A'}
@@ -156,10 +157,10 @@ export default async function WorkOneView() {
                           record.rapids_status === 'active'
                             ? 'bg-green-100 text-green-800'
                             : record.rapids_status === 'registered'
-                            ? 'bg-blue-100 text-blue-800'
-                            : record.rapids_status === 'completed'
-                            ? 'bg-purple-100 text-purple-800'
-                            : 'bg-slate-100 text-slate-800'
+                              ? 'bg-blue-100 text-blue-800'
+                              : record.rapids_status === 'completed'
+                                ? 'bg-purple-100 text-purple-800'
+                                : 'bg-slate-100 text-slate-800'
                         }`}
                       >
                         {record.rapids_status || 'N/A'}

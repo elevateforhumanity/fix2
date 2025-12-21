@@ -60,7 +60,7 @@ export default function PitchDeckPage() {
             {[
               'Employers need skilled workers',
               'Traditional training is slow and expensive',
-              'Employers don't want compliance risk',
+              'Employers do not want compliance risk',
               'Participants need paid, funded pathways',
             ].map((problem, i) => (
               <div
@@ -318,7 +318,8 @@ export default function PitchDeckPage() {
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12 mb-12">
             <p className="text-2xl md:text-3xl leading-relaxed text-center font-medium">
               "An ETPL-approved apprenticeship sponsor helping Indiana employers
-              hire, train, and retain talent using funded earn-and-learn models."
+              hire, train, and retain talent using funded earn-and-learn
+              models."
             </p>
           </div>
 

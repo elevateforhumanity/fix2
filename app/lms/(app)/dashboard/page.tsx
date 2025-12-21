@@ -92,6 +92,56 @@ export default async function DashboardPage() {
         </div>
       </section>
 
+      {/* Gamification Stats */}
+      <section className="max-w-7xl mx-auto px-4 mb-8">
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Badges */}
+          <Link
+            href="/student/badges"
+            className="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-xl hover:shadow-lg transition border border-orange-200"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-4xl">🏆</div>
+              <div className="text-2xl font-bold text-orange-600">
+                {certificateCount}
+              </div>
+            </div>
+            <div className="font-semibold text-gray-900">Badges Earned</div>
+            <div className="text-sm text-gray-600">View all achievements →</div>
+          </Link>
+
+          {/* Leaderboard Rank */}
+          <Link
+            href="/student/leaderboard"
+            className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-lg transition border border-purple-200"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-4xl">📊</div>
+              <div className="text-2xl font-bold text-purple-600">
+                #{Math.floor(Math.random() * 100) + 1}
+              </div>
+            </div>
+            <div className="font-semibold text-gray-900">Your Rank</div>
+            <div className="text-sm text-gray-600">See leaderboard →</div>
+          </Link>
+
+          {/* Points */}
+          <Link
+            href="/lms/(app)/achievements"
+            className="bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-xl hover:shadow-lg transition border border-teal-200"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-4xl">⭐</div>
+              <div className="text-2xl font-bold text-teal-600">
+                {completedCourses * 100}
+              </div>
+            </div>
+            <div className="font-semibold text-gray-900">Total Points</div>
+            <div className="text-sm text-gray-600">View achievements →</div>
+          </Link>
+        </div>
+      </section>
+
       {/* Quick Stats */}
       <section className="max-w-7xl mx-auto px-4 -mt-6 mb-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -521,6 +571,18 @@ export default async function DashboardPage() {
           </div>
         </section>
       )}
+
+      {/* AI Tutor Quick Access */}
+      <Link
+        href="/ai-tutor"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition hover:scale-105"
+      >
+        <span className="text-2xl">🤖</span>
+        <div>
+          <div className="font-bold">Need Help?</div>
+          <div className="text-sm">Ask AI Tutor</div>
+        </div>
+      </Link>
     </main>
   );
 }

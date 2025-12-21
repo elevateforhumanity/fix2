@@ -1,7 +1,7 @@
 // Bulk operations for admin functions
 
 import { createClient } from '@/lib/supabase/server';
-import { logAuditEvent } from './auditLog';
+import { auditLog } from './auditLog';
 
 export async function bulkEnrollStudents(
   studentIds: string[],
@@ -9,9 +9,9 @@ export async function bulkEnrollStudents(
   actorId: string
 ) {
   const supabase = await createClient();
-  
+
   try {
-    const enrollments = studentIds.map(studentId => ({
+    const enrollments = studentIds.map((studentId) => ({
       student_id: studentId,
       course_id: courseId,
       enrolled_at: new Date().toISOString(),
@@ -28,7 +28,7 @@ export async function bulkEnrollStudents(
     }
 
     // Log audit event
-    await logAuditEvent({
+    await auditLog({
       action: 'enrollment.create',
       actor_id: actorId,
       target_type: 'course',
@@ -55,7 +55,7 @@ export async function bulkUnenrollStudents(
   actorId: string
 ) {
   const supabase = await createClient();
-  
+
   try {
     const { error } = await supabase
       .from('enrollments')
@@ -67,7 +67,7 @@ export async function bulkUnenrollStudents(
       return { success: false, error: error.message };
     }
 
-    await logAuditEvent({
+    await auditLog({
       action: 'enrollment.delete',
       actor_id: actorId,
       target_type: 'course',
@@ -93,7 +93,7 @@ export async function bulkIssueCertificates(
   actorId: string
 ) {
   const supabase = await createClient();
-  
+
   try {
     // Get course details
     const { data: course } = await supabase
@@ -116,7 +116,7 @@ export async function bulkIssueCertificates(
       return { success: false, error: 'Students not found' };
     }
 
-    const certificates = students.map(student => ({
+    const certificates = students.map((student) => ({
       student_id: student.id,
       student_name: student.full_name,
       course_id: courseId,
@@ -124,7 +124,10 @@ export async function bulkIssueCertificates(
       program_name: course.program_name,
       certificate_number: `CERT-${Date.now()}-${student.id.slice(0, 8)}`,
       issued_date: new Date().toISOString(),
-      verification_code: Math.random().toString(36).substring(2, 10).toUpperCase(),
+      verification_code: Math.random()
+        .toString(36)
+        .substring(2, 10)
+        .toUpperCase(),
     }));
 
     const { data, error } = await supabase
@@ -136,7 +139,7 @@ export async function bulkIssueCertificates(
       return { success: false, error: error.message };
     }
 
-    await logAuditEvent({
+    await auditLog({
       action: 'certificate.issue',
       actor_id: actorId,
       target_type: 'course',
@@ -162,31 +165,29 @@ export async function bulkUpdateGrades(
   actorId: string
 ) {
   const supabase = await createClient();
-  
+
   try {
     const results = await Promise.all(
       updates.map(async (update) => {
-        const { error } = await supabase
-          .from('grades')
-          .upsert({
-            student_id: update.student_id,
-            assignment_id: update.assignment_id,
-            grade: update.grade,
-            graded_at: new Date().toISOString(),
-            graded_by: actorId,
-          });
+        const { error } = await supabase.from('grades').upsert({
+          student_id: update.student_id,
+          assignment_id: update.assignment_id,
+          grade: update.grade,
+          graded_at: new Date().toISOString(),
+          graded_by: actorId,
+        });
 
         return { success: !error, error: error?.message };
       })
     );
 
-    const successful = results.filter(r => r.success).length;
-    const failed = results.filter(r => !r.success).length;
+    const successful = results.filter((r) => r.success).length;
+    const failed = results.filter((r) => !r.success).length;
 
-    await logAuditEvent({
+    await auditLog({
       action: 'grade.update',
       actor_id: actorId,
-      metadata: { 
+      metadata: {
         total: updates.length,
         successful,
         failed,
@@ -207,12 +208,9 @@ export async function bulkUpdateGrades(
   }
 }
 
-export async function bulkDeleteUsers(
-  userIds: string[],
-  actorId: string
-) {
+export async function bulkDeleteUsers(userIds: string[], actorId: string) {
   const supabase = await createClient();
-  
+
   try {
     // Delete related data first
     await Promise.all([
@@ -233,7 +231,7 @@ export async function bulkDeleteUsers(
       return { success: false, error: error.message };
     }
 
-    await logAuditEvent({
+    await auditLog({
       action: 'user.delete',
       actor_id: actorId,
       metadata: { user_count: userIds.length },
@@ -262,9 +260,9 @@ export async function bulkSendNotifications(
   actorId: string
 ) {
   const supabase = await createClient();
-  
+
   try {
-    const notifications = userIds.map(userId => ({
+    const notifications = userIds.map((userId) => ({
       user_id: userId,
       title: notification.title,
       message: notification.message,
@@ -300,7 +298,7 @@ export async function bulkExportData(
   filters?: Record<string, any>
 ) {
   const supabase = await createClient();
-  
+
   try {
     let query = supabase.from(table).select('*');
 
@@ -321,12 +319,14 @@ export async function bulkExportData(
       const headers = Object.keys(data[0]);
       const csv = [
         headers.join(','),
-        ...data.map(row =>
-          headers.map(header => {
-            const value = row[header];
-            const stringValue = value === null ? '' : String(value);
-            return `"${stringValue.replace(/"/g, '""')}"`;
-          }).join(',')
+        ...data.map((row) =>
+          headers
+            .map((header) => {
+              const value = row[header];
+              const stringValue = value === null ? '' : String(value);
+              return `"${stringValue.replace(/"/g, '""')}"`;
+            })
+            .join(',')
         ),
       ].join('\n');
 

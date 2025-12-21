@@ -12,7 +12,7 @@ import {
   EXPORT_TEMPLATES,
   type ExportOptions,
 } from '@/lib/dataExport';
-import { logAuditEvent } from '@/lib/auditLog';
+import { auditLog } from '@/lib/auditLog';
 import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
@@ -101,18 +101,18 @@ export async function GET(request: NextRequest) {
     }
 
     // Log audit event
-    // @ts-expect-error TS2352: Conversion of type '{ action: any; actor_id: any; resource_type: "enrollments...
-    // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'AuditLogEnt...
-    await logAuditEvent({
-      action: 'data_export' as any,
-      actor_id: user.id,
-      resource_type: type,
+    // Log export action
+    await auditLog({
+      actor_user_id: user.id,
+      action: 'EXPORT',
+      entity: 'audit_snapshot',
       metadata: {
+        export_type: type,
         format,
         record_count: data.length,
         filters: options.filters,
       },
-    } as string);
+    });
 
     // Generate export based on format
     if (format === 'csv') {
@@ -205,13 +205,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Log audit event
-    // @ts-expect-error TS2352: Conversion of type '{ action: any; actor_id: any; metadata: { tables: any[]; ...
-    // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'AuditLogEnt...
-    await logAuditEvent({
-      action: 'batch_export' as any,
-      // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
-      actor_id: user.id,
+    // Log batch export action
+    await auditLog({
+      actor_user_id: user.id,
+      action: 'EXPORT',
+      entity: 'audit_snapshot',
       metadata: {
+        export_type: 'batch',
         tables,
         format,
         total_records: Object.values(results).reduce(

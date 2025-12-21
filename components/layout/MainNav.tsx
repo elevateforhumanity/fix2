@@ -51,19 +51,15 @@ const fundingLinks = [
 ];
 
 const mainLinks = [
+  { href: '/programs', label: 'Programs' },
+  { href: '/ai-tutor', label: '🤖 AI Tutor', badge: 'NEW' },
+  { href: '/student/badges', label: '🏆 Achievements' },
+  { href: '/student/leaderboard', label: '📊 Leaderboard' },
+  { href: '/admin/partners', label: 'Partners', badge: 'NEW' },
   { href: '/students', label: 'For Students' },
   { href: '/employers', label: 'For Employers' },
-  { href: '/platform', label: 'Platform' },
-  { href: '/platform/licensing', label: 'Platform Licensing' },
-  { href: '/demos', label: 'Demos' },
-  {
-    href: 'https://elevateforhumanitylearning.com',
-    label: 'LMS',
-    external: true,
-  },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
-  { href: '/blog', label: 'Blog' },
 ];
 
 const portalLinks = [
