@@ -263,13 +263,22 @@ export default function ForEmployersPage() {
           <div className="text-center">
             <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-8 inline-block">
               <p className="text-lg font-bold mb-4">Ready to activate employers?</p>
-              <a
-                href="tel:+13173143757"
-                className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition shadow-2xl"
-              >
-                <Phone className="w-5 h-5" />
-                Call (317) 314-3757
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="tel:+13173143757"
+                  className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition shadow-2xl"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call (317) 314-3757
+                </a>
+                <Link
+                  href="/workone-partner-packet"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
+                >
+                  <FileCheck className="w-5 h-5" />
+                  WorkOne Partner Packet
+                </Link>
+              </div>
             </div>
           </div>
         </div>
