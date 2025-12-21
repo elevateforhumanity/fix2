@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { programs } from '@/app/data/programs';
+import ReactMarkdown from 'react-markdown';
 import {
   GraduationCap,
   Clock,
@@ -22,6 +24,8 @@ export const metadata: Metadata = {
 };
 
 export default function BarberApprenticeshipPage() {
+  const barberProgram = programs.find(p => p.slug === 'barber-apprenticeship');
+  
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Official Badge */}
@@ -80,6 +84,33 @@ export default function BarberApprenticeshipPage() {
           </div>
         </div>
       </section>
+
+      {/* Comprehensive Program Details from programs.ts */}
+      {barberProgram && barberProgram.longDescription && (
+        <section className="py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="prose prose-lg prose-slate max-w-none
+              prose-headings:font-bold prose-headings:text-slate-900
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+              prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
+              prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-4
+              prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-slate-900 prose-strong:font-bold
+              prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
+              prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
+              prose-li:text-slate-700 prose-li:my-2
+              prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:pl-4 prose-blockquote:italic
+              prose-code:text-sm prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+              prose-table:w-full prose-table:border-collapse
+              prose-th:bg-slate-100 prose-th:p-3 prose-th:text-left prose-th:font-bold prose-th:border prose-th:border-slate-300
+              prose-td:p-3 prose-td:border prose-td:border-slate-300
+            ">
+              <ReactMarkdown>{barberProgram.longDescription}</ReactMarkdown>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* What is a Registered Apprenticeship */}
       <section className="py-20 md:py-24 bg-blue-50">
