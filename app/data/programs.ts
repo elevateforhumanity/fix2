@@ -3361,23 +3361,31 @@ Before you apply, make sure you meet these requirements:
 - ✅ Provides on-the-job training
 - ✅ Tracks hours and reports to State Board
 
-**The third-party sponsor:**
-- ❌ Does NOT pay the shop owner
-- ❌ Does NOT pay apprentice wages
-- ✅ May receive funding (WIOA/WRG/JRI) to cover RTI curriculum
+**The third-party sponsor (Elevate for Humanity):**
+- ❌ Does NOT pay apprentice wages (shop owner pays)
+- ✅ Receives funding (WIOA/WRG/JRI) to cover RTI curriculum
+- ✅ Pays program holder (shop owner) a fee for supervision and reporting
 - ✅ Does NOT charge fees to shops or apprentices
+
+**What Elevate pays program holder for:**
+- ✅ Supervising apprentice's practical work
+- ✅ Reporting hours and progress
+- ✅ Documenting skills and competencies
+- ✅ Tracking apprentice development
+- ✅ Administrative time and paperwork
+- **Fee amount: Varies based on agreement (typically $200-$500/month per apprentice)**
 
 **Example:**
 - Elevate for Humanity recruits Marcus as apprentice
 - Elevate helps Shop A register as program holder
 - Shop A hires Marcus as employee
 - Shop A pays Marcus: $10/hour + commissions
-- WIOA pays Elevate: $6,500 for Marcus's RTI curriculum
+- WIOA pays Elevate: For Marcus's RTI curriculum
 - Elevate provides: RTI training to Marcus
-- Elevate helps: Shop A with paperwork and hour tracking
-- Shop A pays Elevate: $0
+- Elevate pays Shop A: $200-$500/month for supervision and reporting
+- Shop A reports: Marcus's hours and progress to Elevate
 - Marcus pays Elevate: $0
-- Elevate pays Shop A: $0
+- Marcus pays Shop A: $0
 
 ---
 
@@ -3387,16 +3395,17 @@ Before you apply, make sure you meet these requirements:
 
 **What the shop owner receives:**
 
-**1. Apprentice's Labor**
+**1. Supervision Fee from Sponsor (If Working with Elevate)**
+- Elevate pays shop owner $200-$500/month per apprentice
+- Covers time spent supervising, reporting hours, tracking progress
+- Helps offset administrative costs
+- Paid monthly throughout apprenticeship (15-17 months)
+- **Total: $3,000-$8,500 over full apprenticeship**
+
+**2. Apprentice's Labor**
 - Apprentice works and generates revenue for shop
 - Customers pay for apprentice's services
 - Shop keeps 50-60% of service revenue (after paying apprentice commission)
-
-**2. RTI Curriculum Funding (If Applicable)**
-- WIOA/WRG/JRI pays for apprentice's RTI curriculum ($6,500)
-- This money goes DIRECTLY to the training provider (online course or school)
-- Shop owner does NOT receive this money
-- Funding pays the RTI provider, not the barbershop
 
 **3. Tax Credits (Federal)**
 - Work Opportunity Tax Credit (WOTC): Up to $2,400 per apprentice
@@ -3409,6 +3418,11 @@ Before you apply, make sure you meet these requirements:
 - ❌ Registration fees (FREE)
 - ❌ State Board fees (FREE)
 - ❌ Apprentice's tools (shop provides, but minimal cost)
+
+**What the shop owner DOES receive (if working with Elevate):**
+- ✅ Supervision fee from Elevate ($200-$500/month)
+- ✅ Apprentice's labor and service revenue
+- ✅ Tax credits (WOTC, up to $2,400)
 
 **What the shop owner does NOT receive:**
 - ❌ Payment from apprentice
@@ -3508,11 +3522,12 @@ Before you apply, make sure you meet these requirements:
 **Revenue from apprentice (15-17 months):**
 - Service revenue: $30,000-$60,000 (depending on skill level and clientele)
 - Shop keeps 50-60%: $18,000-$36,000
+- Supervision fee from Elevate: $3,000-$8,500 (if working with us)
 
-**Net financial outcome for shop:**
-- Best case: $20,200 cost - $36,000 revenue = **$15,800 profit**
-- Worst case: $30,500 cost - $18,000 revenue = **$12,500 investment**
-- Typical: $25,000 cost - $27,000 revenue = **$2,000 profit**
+**Net financial outcome for shop (working with Elevate):**
+- Best case: $20,200 cost - ($36,000 revenue + $8,500 fee) = **$24,300 profit**
+- Worst case: $30,500 cost - ($18,000 revenue + $3,000 fee) = **$9,500 investment**
+- Typical: $25,000 cost - ($27,000 revenue + $5,000 fee) = **$7,000 profit**
 
 **Long-term benefit:**
 - If apprentice stays after licensing: Shop profits $10,000-$30,000/year from their work
