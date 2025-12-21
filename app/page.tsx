@@ -108,6 +108,7 @@ export default function HomePage() {
               className="w-full h-auto"
               style={{ maxHeight: '500px', objectFit: 'cover' }}
               poster="/images/video-poster.jpg"
+              controlsList="nodownload"
             >
               <source src="/videos/hero-home.mp4" type="video/mp4" />
               Your browser does not support the video tag.
