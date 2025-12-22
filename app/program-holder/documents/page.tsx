@@ -85,66 +85,28 @@ export default function ProgramHolderDocuments() {
     setSuccess('');
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        setError('Please login to upload documents');
+      // Use the API endpoint for secure upload
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      formData.append('document_type', documentType);
+      if (description) {
+        formData.append('description', description);
+      }
+
+      const response = await fetch('/api/program-holder/documents/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setError(result.error || 'Upload failed. Please try again.');
         setUploading(false);
         return;
       }
 
-      // Generate unique filename
-      const timestamp = Date.now();
-      const sanitizedFileName = selectedFile.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-      const fileName = `program-holders/${user.id}/${timestamp}_${sanitizedFileName}`;
-
-      // Upload to Supabase Storage
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('documents')
-        .upload(fileName, selectedFile, {
-          contentType: selectedFile.type,
-          upsert: false
-        });
-
-      if (uploadError) {
-        console.error('Upload error:', uploadError);
-        setError('Upload failed. Please try again.');
-        setUploading(false);
-        return;
-      }
-
-      // Get public URL
-      const { data: { publicUrl } } = supabase.storage
-        .from('documents')
-        .getPublicUrl(fileName);
-
-      // Save to database (if table exists)
-      try {
-        const { error: dbError } = await supabase
-          .from('program_holder_documents')
-          .insert({
-            user_id: user.id,
-            document_type: documentType,
-            file_name: selectedFile.name,
-            file_url: publicUrl,
-            file_size: selectedFile.size,
-            mime_type: selectedFile.type,
-            description: description || null,
-            uploaded_by: user.id,
-            approved: false
-          });
-
-        if (dbError) {
-          console.error('Database error:', dbError);
-          // File uploaded but couldn't save to DB
-          setSuccess('File uploaded! (Database record pending)');
-        } else {
-          setSuccess('Document uploaded successfully!');
-        }
-      } catch (dbErr) {
-        console.error('Database error:', dbErr);
-        setSuccess('File uploaded! (Database record pending)');
-      }
-
+      setSuccess('Document uploaded successfully!');
       setSelectedFile(null);
       setDocumentType('');
       setDescription('');
