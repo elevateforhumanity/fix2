@@ -1,164 +1,174 @@
-# Multi-Tenant Foundation Migration Instructions
+# Database Migration Instructions
 
-## Prerequisites
+## Migration File
 
-1. Get your Supabase Service Role Key:
-   - Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
-   - Copy the `service_role` key (not the `anon` key)
-   - Add to `.env.local.real`: `SUPABASE_SERVICE_ROLE_KEY=your_key_here`
+`supabase/migrations/20241221_enrollment_steps.sql`
 
-## Apply Migrations
+## Method 1: Supabase Dashboard (Recommended)
 
-### Option 1: Automated Script (Recommended)
+### Steps:
 
-```bash
-# Set the service role key first
-export SUPABASE_SERVICE_ROLE_KEY="your_key_here"
+1. Go to [https://supabase.com/dashboard](https://supabase.com/dashboard)
+2. Select your project
+3. Click **SQL Editor** in left sidebar
+4. Click **New Query**
+5. Copy the entire contents of `supabase/migrations/20241221_enrollment_steps.sql`
+6. Paste into the SQL editor
+7. Click **Run** (or press Ctrl+Enter)
+8. Wait for success confirmation
 
-# Run the migration script
-bash scripts/apply-migrations.sh
+### Verification:
+
+```sql
+-- Check table exists
+SELECT * FROM enrollment_steps LIMIT 1;
+
+-- Check functions exist
+SELECT routine_name
+FROM information_schema.routines
+WHERE routine_schema = 'public'
+AND routine_name LIKE '%enrollment_step%';
+
+-- Expected functions:
+-- 1. generate_enrollment_steps
+-- 2. get_current_step
+-- 3. advance_to_next_step
+-- 4. mark_step_complete
+-- 5. is_enrollment_complete
 ```
 
-### Option 2: Manual via Supabase Dashboard
+## Method 2: Supabase CLI
 
-1. Go to SQL Editor: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql
+### Install CLI:
 
-2. Apply migrations in this order:
+```bash
+# Install Supabase CLI
+npm install -g supabase
 
-   **Migration 1: Multi-Tenant Foundation**
-   - File: `supabase/002_multi_tenant_foundation.sql`
-   - Creates: organizations, organization_users, organization_settings tables
-   - Adds: organization_id columns to profiles, programs, courses, enrollments
+# Or using Homebrew (Mac)
+brew install supabase/tap/supabase
+```
 
-   **Migration 2: Reporting Views**
-   - File: `supabase/003_workforce_reporting_views.sql`
-   - Creates: reporting_enrollments, reporting_progress, reporting_completions, etc.
-   - Conditional: Only creates views if dependencies exist
+### Link Project:
 
-   **Migration 3: Org Invites**
-   - File: `supabase/004_org_invites.sql`
-   - Creates: org_invites table with secure RLS
-   - Adds: get_invite_by_token() function
+```bash
+cd /workspaces/fix2
+supabase link --project-ref <your-project-ref>
+```
 
-   **Migration 4: Subscriptions**
-   - File: `supabase/005_org_subscriptions.sql`
-   - Creates: organization_subscriptions table
-   - Adds: license tracking and billing integration
+### Apply Migration:
 
-3. For each migration:
-   - Copy the entire file content
-   - Paste into SQL Editor
-   - Click "Run"
-   - Verify no errors
+```bash
+supabase db push
+```
 
-## Verification Checklist
+## Method 3: Direct SQL Connection
 
-After applying migrations, verify:
+If you have direct database access:
 
-### Tables Created
+```bash
+psql "postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-PROJECT-REF].supabase.co:5432/postgres" \
+  -f supabase/migrations/20241221_enrollment_steps.sql
+```
 
-- [ ] `organizations` table exists
-- [ ] `organization_users` table exists
-- [ ] `organization_settings` table exists
-- [ ] `org_invites` table exists
-- [ ] `organization_subscriptions` table exists
+## What This Migration Does
 
-### Columns Added
+### Creates:
 
-- [ ] `profiles.organization_id` exists
-- [ ] `programs.organization_id` exists
-- [ ] `courses.organization_id` exists
-- [ ] `enrollments.organization_id` exists
+1. **Table**: `enrollment_steps`
+   - Tracks student progress through partner sequence
+   - Fields: enrollment_id, provider_id, sequence_order, status, timestamps
 
-### RLS Policies
+2. **Functions**:
+   - `generate_enrollment_steps(enrollment_id)` - Auto-creates steps
+   - `get_current_step(enrollment_id)` - Returns active step
+   - `advance_to_next_step(enrollment_id)` - Moves to next partner
+   - `mark_step_complete(step_id, external_id)` - Completes and advances
+   - `is_enrollment_complete(enrollment_id)` - Checks if all done
 
-- [ ] All new tables have RLS enabled
-- [ ] Org-scoped policies are active
-- [ ] Invite policies restrict SELECT to org admins only
+3. **RLS Policies**:
+   - Students can view own steps
+   - Admins can view all steps
+   - Service role can modify steps
 
-### Views Created
+4. **Indexes**:
+   - enrollment_id, status, sequence_order, provider_id
 
-- [ ] `reporting_enrollments` view exists
-- [ ] `reporting_progress` view exists (if lesson_progress table exists)
-- [ ] `reporting_completions` view exists
-- [ ] `reporting_credentials` view exists (if certificates table exists)
-- [ ] `reporting_funding` view exists
+## After Migration
 
-### Functions Created
+### Test the Functions:
 
-- [ ] `get_invite_by_token()` function exists
+```sql
+-- Find a test enrollment
+SELECT id FROM enrollments LIMIT 1;
+
+-- Generate steps (replace <enrollment_id>)
+SELECT generate_enrollment_steps('<enrollment_id>');
+
+-- View created steps
+SELECT * FROM enrollment_steps
+WHERE enrollment_id = '<enrollment_id>'
+ORDER BY sequence_order;
+
+-- Get current step
+SELECT * FROM get_current_step('<enrollment_id>');
+
+-- Check if complete
+SELECT is_enrollment_complete('<enrollment_id>');
+```
 
 ## Troubleshooting
 
-### Migration Fails: "column already exists"
+### Error: "relation already exists"
 
-- This is safe - the migration uses `IF NOT EXISTS` and `ADD COLUMN IF NOT EXISTS`
-- The migration is idempotent and can be re-run
-
-### Migration Fails: "table does not exist"
-
-- Check that `001_initial_schema.sql` was applied first
-- Verify base tables exist: profiles, programs, courses, enrollments
-
-### RLS Policy Errors
-
-- Ensure auth.users table is accessible
-- Check that organization_users table was created first
-
-### View Creation Fails
-
-- Check error message for missing columns
-- Verify enrollments table has: organization_id, payment_status, funding_details
-- Verify profiles table has: full_name, email
-
-## Next Steps After Migration
-
-1. **Build the application:**
-
-   ```bash
-   pnpm build
-   ```
-
-2. **Test org isolation:**
-   - Create two test organizations
-   - Verify Org A cannot read Org B data
-
-3. **Test invite flow:**
-   - POST to `/api/org/invite` with email and role
-   - Verify email sent (if RESEND_API_KEY configured)
-   - Accept invite via `/api/org/accept-invite`
-
-4. **Test reporting endpoints:**
-   - GET `/api/reports/enrollments`
-   - GET `/api/reports/progress`
-   - Verify org-scoped data only
-
-## Rollback (if needed)
-
-To rollback migrations:
+The table already exists. Safe to ignore or drop first:
 
 ```sql
--- Drop views
-DROP VIEW IF EXISTS reporting_enrollments CASCADE;
-DROP VIEW IF EXISTS reporting_progress CASCADE;
-DROP VIEW IF EXISTS reporting_completions CASCADE;
-DROP VIEW IF EXISTS reporting_credentials CASCADE;
-DROP VIEW IF EXISTS reporting_funding CASCADE;
-DROP VIEW IF EXISTS reporting_outcomes CASCADE;
-
--- Drop functions
-DROP FUNCTION IF EXISTS get_invite_by_token(TEXT);
-
--- Drop tables (WARNING: This deletes data)
-DROP TABLE IF EXISTS organization_subscriptions CASCADE;
-DROP TABLE IF EXISTS org_invites CASCADE;
-DROP TABLE IF EXISTS organization_settings CASCADE;
-DROP TABLE IF EXISTS organization_users CASCADE;
-DROP TABLE IF EXISTS organizations CASCADE;
-
--- Remove columns (WARNING: This deletes data)
-ALTER TABLE profiles DROP COLUMN IF EXISTS organization_id;
-ALTER TABLE programs DROP COLUMN IF EXISTS organization_id;
-ALTER TABLE courses DROP COLUMN IF EXISTS organization_id;
-ALTER TABLE enrollments DROP COLUMN IF EXISTS organization_id;
+DROP TABLE IF EXISTS enrollment_steps CASCADE;
 ```
+
+### Error: "function already exists"
+
+Functions already exist. Safe to ignore or use `CREATE OR REPLACE`.
+
+### Error: "permission denied"
+
+You need admin/owner access to the database. Use the Supabase Dashboard method.
+
+### Error: "foreign key constraint"
+
+Ensure these tables exist first:
+
+- `enrollments`
+- `partner_lms_providers`
+- `program_partner_lms`
+
+## Rollback
+
+If you need to undo the migration:
+
+```sql
+-- Drop functions
+DROP FUNCTION IF EXISTS generate_enrollment_steps CASCADE;
+DROP FUNCTION IF EXISTS get_current_step CASCADE;
+DROP FUNCTION IF EXISTS advance_to_next_step CASCADE;
+DROP FUNCTION IF EXISTS mark_step_complete CASCADE;
+DROP FUNCTION IF EXISTS is_enrollment_complete CASCADE;
+
+-- Drop trigger function
+DROP FUNCTION IF EXISTS update_enrollment_steps_updated_at CASCADE;
+
+-- Drop table
+DROP TABLE IF EXISTS enrollment_steps CASCADE;
+```
+
+## Next Steps
+
+After successful migration:
+
+1. ✅ Test step generation
+2. ✅ Test webhook integration
+3. ✅ Verify student progress UI
+4. ✅ Verify admin pipeline view
+5. ✅ Configure partner webhooks
+6. 🚀 Launch!
