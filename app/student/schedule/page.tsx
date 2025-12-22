@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Calendar, Clock, MapPin, User } from 'lucide-react';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'My Schedule | Student Portal',
   description: 'View your training schedule and upcoming sessions',
 };

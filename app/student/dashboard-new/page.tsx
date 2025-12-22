@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'My Dashboard',
   description: 'Track your progress and complete your requirements',
 };

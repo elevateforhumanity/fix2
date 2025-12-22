@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Milady RISE Courses | Elevate For Humanity',
   description: 'Access your Milady RISE certification courses',
 };

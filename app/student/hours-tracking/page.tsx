@@ -13,6 +13,7 @@ import {
 import ServiceLoggingForm from '@/components/student/ServiceLoggingForm';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Hour Tracking | Student Dashboard',
   description: 'Track your program hours and progress',
 };

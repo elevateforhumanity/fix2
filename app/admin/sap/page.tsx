@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'SAP Monitoring | Admin Dashboard',
   description: 'Monitor Satisfactory Academic Progress for all students',
 };

@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: 'How Elevate Works | Workforce Coordination Hub',
   description:
     'Understand how Elevate for Humanity coordinates access to training, funding, and career opportunities without replacing local authority or ownership.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/how-it-works',
+  },
 };
 
 export default function HowItWorksPage() {

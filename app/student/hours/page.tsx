@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Track Hours | Elevate for Humanity',
   description: 'Log and track your training hours',
 };

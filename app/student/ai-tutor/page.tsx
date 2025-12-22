@@ -6,6 +6,7 @@ import Image from 'next/image';
 import AIInstructor from '@/app/components/AIInstructor';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/student/ai-tutor',
   },

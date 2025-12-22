@@ -6,6 +6,7 @@ import { Smartphone, Download, CheckCircle, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Mobile App | Elevate For Humanity',
   description:
     'Download the Milady mobile app to access your training anywhere',

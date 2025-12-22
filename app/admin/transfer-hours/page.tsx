@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { TransferHoursTable } from './transfer-hours-table';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Transfer Hours Management | Admin',
   description: 'Review and approve transfer hour requests',
 };

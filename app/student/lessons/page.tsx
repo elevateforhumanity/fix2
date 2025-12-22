@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'My Lessons | Elevate for Humanity',
   description: 'Access your lessons and assignments',
 };

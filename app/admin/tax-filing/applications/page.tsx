@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Tax Filing Applications | Admin | Elevate For Humanity',
   description: 'Manage tax filing applications and client intake.',
 };

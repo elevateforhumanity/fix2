@@ -12,6 +12,7 @@ import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/admin/grants/submissions',
   },
@@ -178,7 +179,9 @@ export default async function GrantSubmissionsPage() {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Rejected</p>
-            <p className="text-3xl font-bold text-brand-orange-600">{stats.rejected}</p>
+            <p className="text-3xl font-bold text-brand-orange-600">
+              {stats.rejected}
+            </p>
           </div>
         </div>
 

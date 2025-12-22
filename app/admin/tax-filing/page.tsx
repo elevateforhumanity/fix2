@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/admin/tax-filing',
   },

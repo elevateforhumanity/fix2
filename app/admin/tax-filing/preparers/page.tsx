@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Tax Preparers | Admin | Elevate For Humanity',
   description: 'Manage tax preparers and their certifications.',
 };

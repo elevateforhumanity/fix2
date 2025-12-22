@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Accreditation Readiness | Admin',
   description: 'Monitor accreditation compliance and readiness status',
 };

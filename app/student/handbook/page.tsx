@@ -6,6 +6,7 @@ import { BookOpen, CheckCircle, FileText, AlertCircle } from 'lucide-react';
 import { HandbookAcknowledgeButton } from '@/components/student/HandbookAcknowledgeButton';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Student Handbook | Elevate For Humanity',
   description: 'Indiana Barber Apprenticeship Program Handbook',
 };

@@ -116,13 +116,10 @@ Disallow: /portal/
 
 User-agent: *
 Allow: /
-Allow: /programs/
-Allow: /blog/
-Allow: /apply
-Allow: /contact
-Allow: /grants
-Allow: /policies/
-Allow: /about
+Allow: /_next/static/
+Allow: /_next/image
+Allow: /images/
+Allow: /public/
 Disallow: /admin/
 Disallow: /api/
 Disallow: /portal/
@@ -130,13 +127,12 @@ Disallow: /student/dashboard/
 Disallow: /instructor/dashboard/
 Disallow: /shop/
 Disallow: /platform/
-Disallow: /_next/
 Disallow: /private/
 Disallow: /checkout/
 Disallow: /employers/intake
-Disallow: /*.json$
-Disallow: /*?page=
-Disallow: /*?sort=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?fbclid=
 
 # ============================================
 # CRAWL DELAY (PREVENT AGGRESSIVE SCRAPING)

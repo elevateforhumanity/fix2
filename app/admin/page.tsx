@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Admin Mega Dashboard | Elevate For Humanity',
   description: 'Complete admin control center with all 106 features',
 };

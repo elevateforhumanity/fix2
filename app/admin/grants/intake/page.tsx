@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Grant Intake | Admin | Elevate For Humanity',
   description: 'Submit new grant applications and manage intake process.',
 };

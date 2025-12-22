@@ -7,6 +7,7 @@ import { ComplianceNotice } from '@/components/compliance/ComplianceNotice';
 import { getPoliciesForFeature } from '@/lib/policies';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Enrollments | Admin Dashboard',
   description: 'Manage student enrollments',
 };

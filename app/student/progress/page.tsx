@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: 'My Progress | Student Portal',
 };
 

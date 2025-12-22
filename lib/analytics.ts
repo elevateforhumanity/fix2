@@ -113,3 +113,60 @@ export const trackLogin = (method: string) => {
     label: method,
   });
 };
+
+// Additional tracking for Elevate for Humanity
+export const trackApplicationSubmission = (programName: string) => {
+  event({
+    action: 'application_submit',
+    category: 'Applications',
+    label: programName,
+  });
+};
+
+export const trackProgramView = (programName: string) => {
+  event({
+    action: 'program_view',
+    category: 'Programs',
+    label: programName,
+  });
+};
+
+export const trackBlogRead = (postTitle: string, readTime?: number) => {
+  event({
+    action: 'blog_read',
+    category: 'Blog',
+    label: postTitle,
+    value: readTime,
+  });
+};
+
+export const trackContactSubmission = () => {
+  event({
+    action: 'contact_submit',
+    category: 'Contact',
+  });
+};
+
+export const trackGrantSearch = (searchTerm: string) => {
+  event({
+    action: 'grant_search',
+    category: 'Grants',
+    label: searchTerm,
+  });
+};
+
+export const trackForumPost = (forumName: string) => {
+  event({
+    action: 'forum_post',
+    category: 'Community',
+    label: forumName,
+  });
+};
+
+export const trackAITutorInteraction = (questionType: string) => {
+  event({
+    action: 'ai_tutor_interaction',
+    category: 'AI',
+    label: questionType,
+  });
+};

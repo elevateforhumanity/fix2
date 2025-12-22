@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Autopilot Management | Admin | Elevate For Humanity',
   description: 'Manage automation and autopilot features for the LMS system.',
 };

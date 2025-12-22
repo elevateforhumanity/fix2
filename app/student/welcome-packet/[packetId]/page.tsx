@@ -12,6 +12,7 @@ import {
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Welcome Packet | Student Dashboard',
   description: 'Complete your welcome packet to get started',
 };
