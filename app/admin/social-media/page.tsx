@@ -8,14 +8,12 @@ import { useRouter } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 
 import {
-
   Plus,
   Calendar,
   TrendingUp,
   Users,
   Share2,
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
   Clock,
@@ -58,7 +56,6 @@ export default function SocialMediaPage() {
       name: 'Barber Program Promotion',
       status: 'active',
       frequency: '3x-daily',
-      platforms: ['facebook', 'twitter', 'linkedin'],
       postsScheduled: 90,
       lastPost: '2025-12-07T10:00:00Z',
       nextPost: '2025-12-07T14:00:00Z',
@@ -78,7 +75,6 @@ export default function SocialMediaPage() {
       name: 'WIOA Eligibility Info',
       status: 'paused',
       frequency: 'daily',
-      platforms: ['facebook', 'twitter'],
       postsScheduled: 30,
       lastPost: '2025-12-06T12:00:00Z',
       nextPost: null,
@@ -141,9 +137,7 @@ export default function SocialMediaPage() {
               <h1 className="text-3xl font-bold text-gray-900">
                 Social Media Automation
               </h1>
-              <p className="text-gray-600 mt-1">
-                Au to Facebook, Twitter, LinkedIn, Instagram 3x daily
-              </p>
+              <p className="text-gray-600 mt-1"></p>
             </div>
 
             <button
@@ -210,13 +204,7 @@ export default function SocialMediaPage() {
               connected
               followers="2,847"
             />
-            <PlatformCard
-              name="Twitter"
-              icon={Twitter}
-              color="sky"
-              connected
-              followers="1,234"
-            />
+            <PlatformCard color="sky" connected followers="1,234" />
             <PlatformCard
               name="LinkedIn"
               icon={Linkedin}
@@ -334,9 +322,6 @@ export default function SocialMediaPage() {
                         >
                           {platform === 'facebook' && (
                             <Facebook className="w-3 h-3 mr-1" />
-                          )}
-                          {platform === 'twitter' && (
-                            <Twitter className="w-3 h-3 mr-1" />
                           )}
                           {platform === 'linkedin' && (
                             <Linkedin className="w-3 h-3 mr-1" />

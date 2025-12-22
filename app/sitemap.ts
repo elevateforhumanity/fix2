@@ -69,6 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/study-groups',
     '/community',
     '/blog',
+    '/grants',
   ];
 
   const allPages = [
@@ -83,7 +84,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: currentDate,
-    changeFrequency: page === '' ? 'daily' : page.includes('/programs/') ? 'weekly' : 'monthly',
-    priority: page === '' ? 1.0 : page.includes('/programs/') ? 0.9 : page.includes('/apply') ? 0.95 : 0.7,
+    changeFrequency:
+      page === ''
+        ? 'daily'
+        : page.includes('/programs/')
+          ? 'weekly'
+          : 'monthly',
+    priority:
+      page === ''
+        ? 1.0
+        : page.includes('/programs/')
+          ? 0.9
+          : page.includes('/apply')
+            ? 0.95
+            : 0.7,
   }));
 }

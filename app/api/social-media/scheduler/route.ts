@@ -155,7 +155,6 @@ export async function GET(req: Request) {
 
 /**
  * Post to social media platform
- * Integrates with Facebook, Twitter, LinkedIn, and Instagram APIs
  */
 async function postToSocialMedia(
   platform: string,
@@ -169,9 +168,7 @@ async function postToSocialMedia(
     case 'facebook':
       return await postToFacebook(content, campaign);
 
-    case 'twitter':
     case 'x':
-      return await postToTwitter(content, campaign);
 
     case 'linkedin':
       return await postToLinkedIn(content, campaign);
@@ -220,48 +217,6 @@ async function postToFacebook(
   } catch (error: unknown) {
     // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Facebook posting error:', error);
-    throw error;
-  }
-}
-
-async function postToTwitter(
-  content: string,
-  campaign: Record<string, unknown>
-) {
-  const apiKey = process.env.TWITTER_API_KEY;
-  const apiSecret = process.env.TWITTER_API_SECRET;
-  const accessToken = process.env.TWITTER_ACCESS_TOKEN;
-  const accessSecret = process.env.TWITTER_ACCESS_SECRET;
-
-  if (!apiKey || !apiSecret || !accessToken || !accessSecret) {
-    logger.warn('Twitter credentials not configured');
-    return { success: false, error: 'Twitter not configured' };
-  }
-
-  try {
-    // Twitter API v2 requires OAuth 1.0a
-    // For production, use a library like 'twitter-api-v2'
-    const response = await fetch('https://api.twitter.com/2/tweets', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({
-        text: content.substring(0, 280), // Twitter character limit
-      }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.detail || 'Twitter API error');
-    }
-
-    return { success: true, platform: 'twitter', postId: data.data?.id };
-  } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
-    logger.error('Twitter posting error:', error);
     throw error;
   }
 }
