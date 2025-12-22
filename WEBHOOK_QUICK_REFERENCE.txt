@@ -1,0 +1,44 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    WEBHOOK CONFIGURATION QUICK REFERENCE                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📋 WEBHOOK ENDPOINTS (Production)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HSI:        https://www.elevateforhumanity.org/api/webhooks/partners/hsi
+Certiport:  https://www.elevateforhumanity.org/api/webhooks/partners/certiport
+CareerSafe: https://www.elevateforhumanity.org/api/webhooks/partners/careersafe
+JRI:        https://www.elevateforhumanity.org/api/webhooks/partners/jri
+Milady:     https://www.elevateforhumanity.org/api/webhooks/partners/milady
+
+🔐 GENERATE WEBHOOK SECRET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$ openssl rand -base64 32
+
+📝 ENVIRONMENT VARIABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PARTNER_WEBHOOK_SECRET=<your-generated-secret>
+
+🧪 TEST WEBHOOK (Replace $WEBHOOK_SECRET with your secret)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+curl -X POST https://www.elevateforhumanity.org/api/webhooks/partners/hsi \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: $WEBHOOK_SECRET" \
+  -d '{"event":"course.completed","student_id":"test","course_id":"test"}'
+
+✅ EXPECTED RESPONSE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{"success":true}
+
+📊 MONITOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Admin Dashboard: https://www.elevateforhumanity.org/admin/dashboard
+Vercel Logs:     https://vercel.com/your-project/logs
+Supabase:        https://supabase.com/dashboard
+
+📚 FULL GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+See: WEBHOOK_CONFIGURATION.md
+
+⏱️  TIME ESTIMATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+~30 minutes per partner = ~2.5 hours total for all 5 partners
