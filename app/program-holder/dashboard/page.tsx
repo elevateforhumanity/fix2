@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { getProgramHolderState } from '@/lib/orchestration/state-machine';
+import { getProgramHolderOnboardingStatus } from '@/lib/program-holder/onboarding-status';
 import {
   StateAwareDashboard,
   SectionCard,
@@ -40,6 +41,14 @@ export default async function ProgramHolderDashboardOrchestrated() {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect('/login');
+
+  // CRITICAL: Check onboarding status and enforce gating
+  const onboardingStatus = await getProgramHolderOnboardingStatus(user.id);
+
+  if (!onboardingStatus.onboardingComplete) {
+    // Redirect to next required step
+    redirect(onboardingStatus.nextStepRoute || '/program-holder/onboarding');
+  }
 
   // Get program holder profile
   const { data: profile } = await supabase
