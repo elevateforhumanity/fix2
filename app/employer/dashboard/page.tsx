@@ -1,276 +1,363 @@
 import { createClient } from '@/lib/supabase/server';
 import { requireRole } from '@/lib/auth/require-role';
-import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { getEmployerState } from '@/lib/orchestration/state-machine';
 import {
-
+  StateAwareDashboard,
+  SectionCard,
+} from '@/components/dashboards/StateAwareDashboard';
+import {
   Briefcase,
   Users,
   FileText,
+  Shield,
+  Building2,
   TrendingUp,
-  Plus,
-  Search,
-  Calendar,
-  DollarSign,
 } from 'lucide-react';
 
-export default async function EmployerDashboard() {
-  // Require admin role (employers should have admin or specific employer role)
-  const { user, profile } = await requireRole([
-    'admin',
-    'org_admin',
-    'super_admin',
-  ]);
+/**
+ * EMPLOYER PORTAL - PROGRESSION LOGIC
+ *
+ * This is not a feature list. This is an operator.
+ *
+ * Rules:
+ * - Verification gates everything
+ * - Hiring tools unlock progressively
+ * - Apprenticeship is optional but guided
+ * - Platform protects from compliance errors
+ */
 
+export default async function EmployerDashboardOrchestrated() {
   const supabase = await createClient();
 
-  // Get employer organization
-  const { data: employer } = await supabase
-    .from('employers')
+  // Require authentication
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect('/login');
+
+  // Get employer profile
+  const { data: profile } = await supabase
+    .from('profiles')
     .select('*')
-    .eq('user_id', user.id)
+    .eq('id', user.id)
     .single();
 
+  if (!profile || profile.role !== 'employer') {
+    redirect('/');
+  }
+
   // Get job postings
-  const { data: jobPostings } = await supabase
+  const { data: postings } = await supabase
     .from('job_postings')
     .select('*')
-    .eq('employer_id', employer?.id)
-    .order('created_at', { ascending: false });
+    .eq('employer_id', user.id)
+    .eq('status', 'active');
 
-  // Get applications
+  // Get pending applications
   const { data: applications } = await supabase
-    .from('applications')
-    .select(
-      `
-      *,
-      profiles(first_name, last_name, email)
-    `
-    )
-    .in('job_posting_id', jobPostings?.map((j) => j.id) || [])
-    .order('created_at', { ascending: false })
-    .limit(10);
+    .from('job_applications')
+    .select('*')
+    .eq('employer_id', user.id)
+    .eq('status', 'pending');
 
-  const activeJobs =
-    jobPostings?.filter((j) => j.status === 'active').length || 0;
-  const totalApplications = applications?.length || 0;
-  const pendingReview =
-    applications?.filter((a) => a.status === 'pending').length || 0;
+  // Check apprenticeship program
+  const { data: apprenticeshipProgram } = await supabase
+    .from('apprenticeship_programs')
+    .select('*')
+    .eq('employer_id', user.id)
+    .single();
+
+  // Calculate state
+  const stateData = getEmployerState({
+    isVerified: profile.verified || false,
+    activePostings: postings?.length || 0,
+    hasApprenticeshipProgram: !!apprenticeshipProgram,
+    pendingApplications: applications?.length || 0,
+  });
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                Employer Dashboard
-              </h1>
-              <p className="text-gray-600 mt-1">
-                {employer?.company_name || 'Welcome back'}
-              </p>
+    <StateAwareDashboard
+      dominantAction={stateData.dominantAction}
+      availableSections={stateData.availableSections}
+      lockedSections={stateData.lockedSections}
+      alerts={stateData.alerts}
+    >
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Main Content - 2/3 width */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Metrics Dashboard */}
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+              <div className="flex items-center justify-between mb-2">
+                <Briefcase className="h-8 w-8 text-blue-600" />
+                <span className="text-3xl font-bold text-slate-900">
+                  {postings?.length || 0}
+                </span>
+              </div>
+              <div className="text-sm text-slate-600">Active Job Postings</div>
             </div>
-            <Link
-              href="/employer/jobs/new"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition"
+
+            <div
+              className={`rounded-lg shadow-sm border p-6 ${
+                (applications?.length || 0) > 0
+                  ? 'bg-green-50 border-green-600'
+                  : 'bg-white border-slate-200'
+              }`}
             >
-              <Plus className="w-5 h-5" />
-              Post New Job
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      {/* Stats */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600 font-medium">Active Jobs</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">
-                  {activeJobs}
-                </p>
+              <div className="flex items-center justify-between mb-2">
+                <Users
+                  className={`h-8 w-8 ${
+                    (applications?.length || 0) > 0
+                      ? 'text-green-600'
+                      : 'text-slate-400'
+                  }`}
+                />
+                <span
+                  className={`text-3xl font-bold ${
+                    (applications?.length || 0) > 0
+                      ? 'text-green-900'
+                      : 'text-slate-900'
+                  }`}
+                >
+                  {applications?.length || 0}
+                </span>
               </div>
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <Briefcase className="w-6 h-6 text-brand-blue-600" />
+              <div
+                className={`text-sm ${
+                  (applications?.length || 0) > 0
+                    ? 'text-green-900'
+                    : 'text-slate-600'
+                }`}
+              >
+                Pending Applications
+              </div>
+            </div>
+
+            <div
+              className={`rounded-lg shadow-sm border p-6 ${
+                apprenticeshipProgram
+                  ? 'bg-purple-50 border-purple-600'
+                  : 'bg-white border-slate-200'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <TrendingUp
+                  className={`h-8 w-8 ${
+                    apprenticeshipProgram ? 'text-purple-600' : 'text-slate-400'
+                  }`}
+                />
+                <span
+                  className={`text-3xl font-bold ${
+                    apprenticeshipProgram ? 'text-purple-900' : 'text-slate-900'
+                  }`}
+                >
+                  {apprenticeshipProgram ? '1' : '0'}
+                </span>
+              </div>
+              <div
+                className={`text-sm ${
+                  apprenticeshipProgram ? 'text-purple-900' : 'text-slate-600'
+                }`}
+              >
+                Apprenticeship Programs
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600 font-medium">
-                  Total Applications
-                </p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">
-                  {totalApplications}
-                </p>
-              </div>
-              <div className="p-3 bg-brand-green-100 rounded-lg">
-                <FileText className="w-6 h-6 text-brand-green-600" />
-              </div>
+          {/* Available Sections */}
+          <div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+              Available Actions
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {stateData.availableSections.includes('verification') && (
+                <SectionCard
+                  title="Complete Verification"
+                  description="Required before posting jobs"
+                  href="/employer/verification"
+                  icon={<Shield className="h-6 w-6" />}
+                  badge="Required"
+                />
+              )}
+
+              {stateData.availableSections.includes('postings') && (
+                <SectionCard
+                  title="Manage Job Postings"
+                  description={`${postings?.length || 0} active posting${(postings?.length || 0) !== 1 ? 's' : ''}`}
+                  href="/employer/postings"
+                  icon={<Briefcase className="h-6 w-6" />}
+                />
+              )}
+
+              {stateData.availableSections.includes('candidates') && (
+                <SectionCard
+                  title="View Candidates"
+                  description="Browse trained workers"
+                  href="/employer/candidates"
+                  icon={<Users className="h-6 w-6" />}
+                  badge={
+                    (applications?.length || 0) > 0
+                      ? `${applications?.length} New`
+                      : undefined
+                  }
+                />
+              )}
+
+              {stateData.availableSections.includes('apprenticeship') && (
+                <SectionCard
+                  title={
+                    apprenticeshipProgram
+                      ? 'Manage Apprenticeship'
+                      : 'Start Apprenticeship Program'
+                  }
+                  description={
+                    apprenticeshipProgram
+                      ? 'Track apprentices and compliance'
+                      : 'Build your talent pipeline'
+                  }
+                  href="/employer/apprenticeship"
+                  icon={<TrendingUp className="h-6 w-6" />}
+                  badge={apprenticeshipProgram ? 'Active' : undefined}
+                />
+              )}
+
+              {stateData.availableSections.includes('compliance') && (
+                <SectionCard
+                  title="Compliance Dashboard"
+                  description="Track apprenticeship requirements"
+                  href="/employer/compliance"
+                  icon={<Shield className="h-6 w-6" />}
+                />
+              )}
+
+              {stateData.availableSections.includes('reports') && (
+                <SectionCard
+                  title="Reports & Analytics"
+                  description="View hiring metrics"
+                  href="/employer/reports"
+                  icon={<FileText className="h-6 w-6" />}
+                />
+              )}
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600 font-medium">
-                  Pending Review
-                </p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">
-                  {pendingReview}
-                </p>
-              </div>
-              <div className="p-3 bg-yellow-100 rounded-lg">
-                <Users className="w-6 h-6 text-yellow-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600 font-medium">
-                  Hires This Month
-                </p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">0</p>
-              </div>
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-purple-600" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Recent Applications */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow">
-              <div className="p-6 border-b border-gray-200">
-                <h2 className="text-xl font-bold text-gray-900">
-                  Recent Applications
-                </h2>
-              </div>
-              <div className="divide-y divide-gray-200">
-                {applications && applications.length > 0 ? (
-                  applications.map((app) => (
-                    <div
-                      key={app.id}
-                      className="p-6 hover:bg-gray-50 transition"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900">
-                            {app.profiles?.first_name} {app.profiles?.last_name}
-                          </h3>
-                          <p className="text-sm text-gray-600 mt-1">
-                            {app.profiles?.email}
-                          </p>
-                          <div className="flex items-center gap-4 mt-3">
-                            <span
-                              className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                                app.status === 'pending'
-                                  ? 'bg-yellow-100 text-yellow-800'
-                                  : app.status === 'approved'
-                                    ? 'bg-brand-green-100 text-green-800'
-                                    : 'bg-gray-100 text-gray-800'
-                              }`}
-                            >
-                              {app.status}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              {new Date(app.created_at).toLocaleDateString()}
-                            </span>
-                          </div>
-                        </div>
-                        <Link
-                          href={`/employer/applications/${app.id}`}
-                          className="px-4 py-2 text-sm font-semibold text-brand-blue-600 hover:text-brand-blue-700 transition"
-                        >
-                          Review
-                        </Link>
+          {/* Recent Postings */}
+          {(postings?.length || 0) > 0 && (
+            <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">
+                Active Job Postings
+              </h3>
+              <div className="space-y-3">
+                {postings?.slice(0, 5).map((posting) => (
+                  <div
+                    key={posting.id}
+                    className="flex items-center justify-between p-3 bg-slate-50 rounded-lg"
+                  >
+                    <div>
+                      <div className="font-semibold text-slate-900">
+                        {posting.title}
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        Posted:{' '}
+                        {new Date(posting.created_at).toLocaleDateString()}
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <div className="p-12 text-center">
-                    <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">No applications yet</p>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Post a job to start receiving applications
-                    </p>
+                    <a
+                      href={`/employer/postings/${posting.id}`}
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition text-sm"
+                    >
+                      View
+                    </a>
                   </div>
-                )}
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Sidebar - 1/3 width */}
+        <div className="space-y-6">
+          {/* Company Info */}
+          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Building2 className="h-8 w-8 text-blue-600" />
+              <div>
+                <h3 className="font-bold text-slate-900">
+                  {profile.company_name || 'Your Company'}
+                </h3>
+                <div className="text-sm text-slate-600">
+                  {profile.verified ? (
+                    <span className="text-green-600 font-semibold">
+                      ✓ Verified
+                    </span>
+                  ) : (
+                    <span className="text-yellow-600 font-semibold">
+                      Pending Verification
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Quick Actions */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">
-                Quick Actions
-              </h2>
-              <div className="space-y-3">
-                <Link
-                  href="/employer/jobs/new"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
+          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+            <h3 className="text-lg font-bold text-slate-900 mb-4">
+              Quick Actions
+            </h3>
+            <div className="space-y-3">
+              {profile.verified && (
+                <a
+                  href="/employer/postings/new"
+                  className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
                 >
-                  <Plus className="w-5 h-5 text-brand-blue-600" />
-                  <span className="font-semibold text-gray-900">
-                    Post New Job
-                  </span>
-                </Link>
-                <Link
-                  href="/employer/jobs"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
-                >
-                  <Briefcase className="w-5 h-5 text-brand-blue-600" />
-                  <span className="font-semibold text-gray-900">
-                    Manage Jobs
-                  </span>
-                </Link>
-                <Link
-                  href="/employer/candidates"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
-                >
-                  <Search className="w-5 h-5 text-brand-blue-600" />
-                  <span className="font-semibold text-gray-900">
-                    Search Candidates
-                  </span>
-                </Link>
-                <Link
-                  href="/employer/settings"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition"
-                >
-                  <DollarSign className="w-5 h-5 text-brand-blue-600" />
-                  <span className="font-semibold text-gray-900">Billing</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
-              <h3 className="font-bold text-blue-900 mb-2">Need Help?</h3>
-              <p className="text-sm text-blue-800 mb-4">
-                Our team is here to help you find the right talent for your
-                organization.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-block px-4 py-2 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition text-sm"
+                  Post New Job
+                </a>
+              )}
+              <a
+                href="/employer/candidates"
+                className="block w-full text-center px-4 py-3 bg-slate-200 text-slate-900 rounded-lg font-semibold hover:bg-slate-300 transition"
               >
-                Contact Support
-              </Link>
+                Browse Candidates
+              </a>
             </div>
           </div>
+
+          {/* Apprenticeship CTA */}
+          {!apprenticeshipProgram && profile.verified && (
+            <div className="bg-purple-50 rounded-lg border-2 border-purple-600 p-6">
+              <h3 className="text-lg font-bold text-purple-900 mb-3">
+                Build Your Talent Pipeline
+              </h3>
+              <p className="text-purple-800 mb-4 text-sm">
+                Start an apprenticeship program and train workers specifically
+                for your needs.
+              </p>
+              <a
+                href="/employer/apprenticeship/new"
+                className="block w-full text-center px-4 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
+              >
+                Learn More
+              </a>
+            </div>
+          )}
+
+          {/* Support Card */}
+          <div className="bg-blue-50 rounded-lg border-2 border-blue-600 p-6">
+            <h3 className="text-lg font-bold text-blue-900 mb-3">Need Help?</h3>
+            <p className="text-blue-800 mb-4 text-sm">
+              Our team is here to help you find the right candidates.
+            </p>
+            <a
+              href="tel:+13173143757"
+              className="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Call (317) 314-3757
+            </a>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </StateAwareDashboard>
   );
 }
