@@ -29,14 +29,27 @@ export default function ProgramsPage() {
         </div>
       </div>
 
-      {/* Hero Section - Modern & Professional */}
-      <section className="relative bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-white/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-
-        <div className="relative max-w-7xl mx-auto px-4">
-          <div className="max-w-4xl">
+      {/* Hero Section - Video Background */}
+      <section className="relative text-white overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          playsInline
+          muted
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/artlist/hero-training-1.jpg"
+        >
+          <source src="/videos/programs-overview-video-with-narration.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        
+        {/* Content Container */}
+        <div className="relative py-20 md:py-32">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-4xl">
             {/* Indiana Career Connect Badge */}
             <a
               href="https://www.in.gov/dwd/career-connect/"
