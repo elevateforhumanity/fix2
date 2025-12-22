@@ -86,7 +86,7 @@ export default function HomePage() {
         )}
 
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center">
           <Container size="lg">
             <div className="max-w-2xl text-white">
               <h1 className="text-display-md lg:text-display-lg mb-4">
