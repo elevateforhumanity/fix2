@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(req: Request) {
   try {
@@ -17,34 +18,91 @@ export async function POST(req: Request) {
       );
     }
 
-    // 🔴 PLACEHOLDER STORAGE LOGIC
-    // Right now, we just log the application server-side
-    // and pretend it is stored. You (or a dev) can later:
-    // - Write it to Supabase
-    // - Send an email to your team
-    // - Push into a CRM or Airtable, etc.
+    const supabase = await createClient();
 
-    logger.info('[New Elevate Application]', {
-      firstName: body.firstName,
-      lastName: body.lastName,
-      email: body.email,
-      phone: body.phone,
-      preferredProgramId: body.preferredProgramId,
-      submittedAt: new Date().toISOString(),
-    });
+    // Get or create user profile
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    let studentId = user?.id;
+
+    // If no authenticated user, create a lead record
+    if (!studentId) {
+      // Store as partner inquiry for now (can be migrated to dedicated applications table)
+      const { data: inquiry, error: inquiryError } = await supabase
+        .from('partner_inquiries')
+        .insert({
+          name: `${body.firstName} ${body.lastName}`,
+          email: body.email,
+          phone: body.phone || null,
+          message: `Application for program: ${body.preferredProgramId}`,
+          inquiry_type: 'student_application',
+          status: 'new',
+        })
+        .select()
+        .single();
+
+      if (inquiryError) {
+        logger.error('[Enroll Apply] Failed to create inquiry:', inquiryError);
+        throw inquiryError;
+      }
+
+      logger.info('[New Application - Lead Created]', {
+        inquiryId: inquiry.id,
+        firstName: body.firstName,
+        lastName: body.lastName,
+        email: body.email,
+        phone: body.phone,
+        preferredProgramId: body.preferredProgramId,
+        submittedAt: new Date().toISOString(),
+      });
+    } else {
+      // Authenticated user - create enrollment record
+      const { data: enrollment, error: enrollmentError } = await supabase
+        .from('program_enrollments')
+        .insert({
+          student_id: studentId,
+          program_id: body.preferredProgramId,
+          funding_source: body.fundingSource || 'WIOA',
+          status: 'INTAKE',
+        })
+        .select()
+        .single();
+
+      if (enrollmentError) {
+        logger.error(
+          '[Enroll Apply] Failed to create enrollment:',
+          enrollmentError
+        );
+        throw enrollmentError;
+      }
+
+      logger.info('[New Application - Enrollment Created]', {
+        enrollmentId: enrollment.id,
+        studentId,
+        programId: body.preferredProgramId,
+        submittedAt: new Date().toISOString(),
+      });
+    }
+
+    // TODO: Send confirmation email to applicant
+    // TODO: Send notification email to admin team (elevate4humanityedu@gmail.com)
 
     return NextResponse.json(
       {
         message:
-          'Application received. A member of the Elevate team will follow up.',
+          'Application received. A member of the Elevate team will follow up within 24 hours.',
       },
       { status: 200 }
     );
   } catch (err: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('[Enroll Apply] Error:', err);
     return NextResponse.json(
-      { message: 'Something went wrong submitting your application.' },
+      {
+        message:
+          'Something went wrong submitting your application. Please try again or call (317) 314-3757.',
+      },
       { status: 500 }
     );
   }
