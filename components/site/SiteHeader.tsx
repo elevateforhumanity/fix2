@@ -4,6 +4,28 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { getNavigation } from '@/config/navigation-clean';
+
+// Get dashboard URL based on user role
+function getDashboardUrl(user: { role?: string } | null) {
+  if (!user || !user.role) return '/student/dashboard';
+  
+  switch (user.role) {
+    case 'admin':
+    case 'super_admin':
+      return '/admin';
+    case 'program_holder':
+      return '/program-holder/dashboard';
+    case 'partner':
+      return '/partner';
+    case 'employer':
+      return '/employer';
+    case 'workforce_board':
+      return '/workforce-board';
+    case 'student':
+    default:
+      return '/student/dashboard';
+  }
+}
 import { createClient } from '@/lib/supabase/client';
 
 export default function SiteHeader() {
