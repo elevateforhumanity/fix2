@@ -9,6 +9,12 @@ import {
   Phone,
   ArrowRight,
 } from 'lucide-react';
+import {
+  Container,
+  Section,
+  Button,
+  Card,
+} from '@/components/ui/design-system';
 
 export const metadata: Metadata = {
   title: 'For Employers | Hire Trained Workers | No Fees',

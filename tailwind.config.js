@@ -7,17 +7,85 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // DESIGN SYSTEM TOKENS - 10/10
+      // These are locked. No improvising.
+
       fontFamily: {
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui'],
       },
+
+      // Typography Scale (LOCKED)
+      fontSize: {
+        // Display (Hero headlines)
+        'display-lg': [
+          '3.75rem',
+          { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' },
+        ], // 60px
+        'display-md': [
+          '3rem',
+          { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' },
+        ], // 48px
+        'display-sm': [
+          '2.25rem',
+          { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '700' },
+        ], // 36px
+
+        // Headings
+        h1: [
+          '2rem',
+          { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '700' },
+        ], // 32px
+        h2: ['1.5rem', { lineHeight: '1.3', fontWeight: '700' }], // 24px
+        h3: ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }], // 20px
+        h4: ['1.125rem', { lineHeight: '1.4', fontWeight: '600' }], // 18px
+
+        // Body
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }], // 18px
+        body: ['1rem', { lineHeight: '1.6' }], // 16px
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }], // 14px
+
+        // Meta/Small
+        meta: ['0.75rem', { lineHeight: '1.5', fontWeight: '500' }], // 12px
+      },
+
+      // Spacing Scale (LOCKED)
+      spacing: {
+        // Section padding
+        'section-y': '4rem', // py-16 (64px)
+        'section-y-sm': '2.5rem', // py-10 (40px) mobile
+
+        // Container padding
+        'container-x': '1rem', // px-4 (16px)
+        'container-x-md': '1.5rem', // px-6 (24px) tablet
+        'container-x-lg': '2rem', // px-8 (32px) desktop
+
+        // Component spacing
+        'card-p': '1.5rem', // p-6 (24px)
+        'card-p-sm': '1rem', // p-4 (16px) mobile
+
+        // Stack spacing
+        stack: '1.5rem', // gap-6 (24px)
+        'stack-sm': '1rem', // gap-4 (16px) mobile
+      },
+
+      // Border Radius (LOCKED)
       borderRadius: {
+        card: '1rem', // 16px
+        button: '0.5rem', // 8px
+        input: '0.5rem', // 8px
         xl: '1rem',
         '2xl': '1.25rem',
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+
+      // Shadows (LOCKED)
       boxShadow: {
+        card: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+        'card-hover':
+          '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+        button: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
         soft: '0 10px 30px rgba(0,0,0,0.08)',
       },
       colors: {
