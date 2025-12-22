@@ -29,7 +29,7 @@ export default function HomePage() {
               loop
               playsInline
               preload="auto"
-              muted={true}
+              muted={isMuted}
               className="w-full h-auto"
               style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
               onError={() => setVideoError(true)}
