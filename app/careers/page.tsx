@@ -62,26 +62,26 @@ export default async function CareersPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
-      <section className="bg-white text-white py-20">
+      <section className="bg-brand-orange-600 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Join Our Mission
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            <p className="text-xl md:text-2xl mb-8 text-white/90">
               Help us transform lives through free career training and workforce
               development
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="#positions"
-                className="bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+                className="bg-white text-brand-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition"
               >
                 View Open Positions
               </Link>
               <Link
                 href="#culture"
-                className="bg-brand-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+                className="bg-brand-orange-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-orange-800 transition border-2 border-white"
               >
                 Learn About Our Culture
               </Link>
@@ -284,20 +284,20 @@ export default async function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-white text-white">
+      <section className="py-16 bg-brand-orange-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">
               Don't See the Right Position?
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-white/90">
               We're always looking for talented individuals who share our
               mission. Send us your resume and we'll keep you in mind for future
               opportunities.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-brand-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+              className="inline-block bg-white text-brand-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition"
             >
               Contact Us
             </Link>
