@@ -115,6 +115,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ARTISTIC HERO IMAGE - Inspiring Visual */}
+      <section className="relative h-[500px] overflow-hidden">
+        <Image
+          src="/images/heroes/about-mission.jpg"
+          alt="Empowering communities through education"
+          fill
+          className="object-cover"
+          priority
+          quality={95}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
+        <div className="absolute inset-0 flex items-end">
+          <Container size="lg" className="pb-16">
+            <div className="max-w-3xl">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                Transforming Lives Through Education
+              </h2>
+              <p className="text-xl text-white/90 leading-relaxed">
+                Every student deserves access to quality training and real career opportunities. 
+                We're breaking down barriers and building pathways to success.
+              </p>
+            </div>
+          </Container>
+        </div>
+      </section>
+
       {/* WHO WE SERVE - Intelligent Routing (Looks Like Website) */}
       <Section variant="slate">
         <h2 className="text-h1 text-center text-slate-900 mb-4">
