@@ -49,6 +49,8 @@ Configure these endpoints with each partner:
 | **CareerSafe** | `https://www.elevateforhumanity.org/api/webhooks/partners/careersafe` |
 | **JRI** | `https://www.elevateforhumanity.org/api/webhooks/partners/jri` |
 | **Milady** | `https://www.elevateforhumanity.org/api/webhooks/partners/milady` |
+| **NRF** | `https://www.elevateforhumanity.org/api/webhooks/partners/nrf` |
+| **NDS** | `https://www.elevateforhumanity.org/api/webhooks/partners/nds` |
 
 ### Development URLs (Testing)
 
@@ -59,6 +61,8 @@ Configure these endpoints with each partner:
 | **CareerSafe** | `http://localhost:3000/api/webhooks/partners/careersafe` |
 | **JRI** | `http://localhost:3000/api/webhooks/partners/jri` |
 | **Milady** | `http://localhost:3000/api/webhooks/partners/milady` |
+| **NRF** | `http://localhost:3000/api/webhooks/partners/nrf` |
+| **NDS** | `http://localhost:3000/api/webhooks/partners/nds` |
 
 ---
 
@@ -213,6 +217,66 @@ Configure these endpoints with each partner:
 
 ---
 
+### NRF (National Retail Federation)
+
+**Contact:** NRF Rise Up Support  
+**Portal:** NRF Rise Up Partner Portal
+
+**Configuration:**
+1. Login to NRF Rise Up partner portal
+2. Navigate to: Settings → Webhooks
+3. Add new webhook:
+   - **URL:** `https://www.elevateforhumanity.org/api/webhooks/partners/nrf`
+   - **Secret:** `<your-webhook-secret>`
+   - **Events:**
+     - ✅ `course.completed`
+     - ✅ `module.completed`
+     - ✅ `certificate.issued`
+4. Save and test
+
+**Expected Events:**
+```json
+{
+  "event": "course.completed",
+  "student_id": "external-student-id",
+  "course_id": "nrf-retail-303",
+  "completed_at": "2025-12-22T15:00:00Z",
+  "certificate_url": "https://nrf.com/cert/456"
+}
+```
+
+---
+
+### NDS (National Dental Solutions)
+
+**Contact:** NDS Support  
+**Portal:** NDS Partner Portal
+
+**Configuration:**
+1. Login to NDS partner portal
+2. Navigate to: Integration → Webhooks
+3. Add new webhook:
+   - **URL:** `https://www.elevateforhumanity.org/api/webhooks/partners/nds`
+   - **Secret:** `<your-webhook-secret>`
+   - **Events:**
+     - ✅ `training.completed`
+     - ✅ `certification.issued`
+     - ✅ `enrollment.created`
+4. Save and test
+
+**Expected Events:**
+```json
+{
+  "event": "training.completed",
+  "student_id": "external-student-id",
+  "training_id": "nds-dental-404",
+  "completed_at": "2025-12-22T16:00:00Z",
+  "score": 95
+}
+```
+
+---
+
 ## 🧪 Step 4: Test Webhooks
 
 ### Test Each Endpoint
@@ -275,6 +339,28 @@ curl -X POST https://www.elevateforhumanity.org/api/webhooks/partners/milady \
     "student_id": "test-student-123",
     "course_id": "milady-202",
     "completed_at": "2025-12-22T14:00:00Z"
+  }'
+
+# Test NRF webhook
+curl -X POST https://www.elevateforhumanity.org/api/webhooks/partners/nrf \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: $WEBHOOK_SECRET" \
+  -d '{
+    "event": "course.completed",
+    "student_id": "test-student-123",
+    "course_id": "nrf-303",
+    "completed_at": "2025-12-22T15:00:00Z"
+  }'
+
+# Test NDS webhook
+curl -X POST https://www.elevateforhumanity.org/api/webhooks/partners/nds \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: $WEBHOOK_SECRET" \
+  -d '{
+    "event": "training.completed",
+    "student_id": "test-student-123",
+    "training_id": "nds-404",
+    "completed_at": "2025-12-22T16:00:00Z"
   }'
 ```
 
@@ -504,6 +590,16 @@ Use this checklist to verify webhook configuration:
 - **Support:** support@milady.com
 - **Phone:** 1-800-XXX-XXXX
 - **Portal:** https://partner.milady.com
+
+### NRF (National Retail Federation)
+- **Support:** riseup@nrf.com
+- **Phone:** 1-800-XXX-XXXX
+- **Portal:** https://riseup.nrf.com/partner
+
+### NDS (National Dental Solutions)
+- **Support:** support@nds.com
+- **Phone:** 1-800-XXX-XXXX
+- **Portal:** https://partner.nds.com
 
 ---
 

@@ -58,10 +58,30 @@ curl -X POST "$BASE_URL/api/webhooks/partners/milady" \
   -s
 echo ""
 
+# Test NRF
+echo "6. Testing NRF..."
+curl -X POST "$BASE_URL/api/webhooks/partners/nrf" \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: $WEBHOOK_SECRET" \
+  -d '{"event":"course.completed","student_id":"test-123","course_id":"nrf-test"}' \
+  -w "\nHTTP Status: %{http_code}\n" \
+  -s
+echo ""
+
+# Test NDS
+echo "7. Testing NDS..."
+curl -X POST "$BASE_URL/api/webhooks/partners/nds" \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: $WEBHOOK_SECRET" \
+  -d '{"event":"training.completed","student_id":"test-123","training_id":"nds-test"}' \
+  -w "\nHTTP Status: %{http_code}\n" \
+  -s
+echo ""
+
 echo "=============================="
 echo "Testing Complete!"
 echo ""
-echo "Expected: HTTP Status 200 for all endpoints"
+echo "Expected: HTTP Status 200 for all 7 endpoints"
 echo "If you see 401: Webhook secret not configured correctly"
 echo "If you see 404: Endpoint not found"
 echo "If you see 500: Server error (check Vercel logs)"

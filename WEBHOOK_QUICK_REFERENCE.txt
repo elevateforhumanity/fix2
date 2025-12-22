@@ -9,6 +9,8 @@ Certiport:  https://www.elevateforhumanity.org/api/webhooks/partners/certiport
 CareerSafe: https://www.elevateforhumanity.org/api/webhooks/partners/careersafe
 JRI:        https://www.elevateforhumanity.org/api/webhooks/partners/jri
 Milady:     https://www.elevateforhumanity.org/api/webhooks/partners/milady
+NRF:        https://www.elevateforhumanity.org/api/webhooks/partners/nrf
+NDS:        https://www.elevateforhumanity.org/api/webhooks/partners/nds
 
 🔐 GENERATE WEBHOOK SECRET
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -41,4 +43,4 @@ See: WEBHOOK_CONFIGURATION.md
 
 ⏱️  TIME ESTIMATE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-~30 minutes per partner = ~2.5 hours total for all 5 partners
+~30 minutes per partner = ~3.5 hours total for all 7 partners

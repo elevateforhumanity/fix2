@@ -13,6 +13,8 @@ Certiport:  https://www.elevateforhumanity.org/api/webhooks/partners/certiport
 CareerSafe: https://www.elevateforhumanity.org/api/webhooks/partners/careersafe
 JRI:        https://www.elevateforhumanity.org/api/webhooks/partners/jri
 Milady:     https://www.elevateforhumanity.org/api/webhooks/partners/milady
+NRF:        https://www.elevateforhumanity.org/api/webhooks/partners/nrf
+NDS:        https://www.elevateforhumanity.org/api/webhooks/partners/nds
 
 📝 CONFIGURATION STEPS FOR EACH PARTNER
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -46,7 +48,7 @@ Student Progress: https://www.elevateforhumanity.org/student/progress
 
 ⏱️  TIME ESTIMATE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-~30 minutes per partner = ~2.5 hours total
+~30 minutes per partner = ~3.5 hours total for all 7 partners
 
 📚 FULL DOCUMENTATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
