@@ -29,23 +29,20 @@ export async function POST(
   const supabase = getSupabaseClient();
 
   try {
-    // Get webhook signature from headers
-    const signature = request.headers.get('x-webhook-signature') || '';
+    // Get webhook secret from headers
+    const providedSecret = request.headers.get('x-webhook-secret') || '';
     const rawBody = await request.text();
 
-    // Verify webhook signature
-    const client = getPartnerClient(partner);
+    // Verify webhook secret
     const webhookSecret = process.env.PARTNER_WEBHOOK_SECRET || '';
 
-    // @ts-expect-error TS2339: Property 'verifyWebhookSignature' does not exist on type 'BasePartnerAPI'.
-    const isValid = client.verifyWebhookSignature(
-      rawBody,
-      signature,
-      webhookSecret
-    );
+    if (!webhookSecret) {
+      logger.error(`[Webhook] PARTNER_WEBHOOK_SECRET not configured`);
+      return NextResponse.json({ error: 'Webhook not configured' }, { status: 500 });
+    }
 
-    if (!isValid) {
-      logger.error(`[Webhook] Invalid signature for ${partner}`);
+    if (providedSecret !== webhookSecret) {
+      logger.error(`[Webhook] Invalid secret for ${partner}`);
       return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
     }
 
