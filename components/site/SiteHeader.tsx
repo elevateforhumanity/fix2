@@ -136,18 +136,29 @@ export default function SiteHeader() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <Link
-              href="/dashboard"
-              className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
-            >
-              Dashboard
-            </Link>
-            <Link
-              href="/login"
-              className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
-            >
-              Login
-            </Link>
+            {user ? (
+              <Link
+                href={getDashboardUrl(user)}
+                className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/apply"
+                  className="inline-flex rounded-xl bg-brand-orange-600 text-white px-4 py-2 font-extrabold hover:bg-brand-orange-700 transition whitespace-nowrap"
+                >
+                  Apply Now
+                </Link>
+                <Link
+                  href="/login"
+                  className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+                >
+                  Login
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}

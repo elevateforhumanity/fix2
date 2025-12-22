@@ -45,7 +45,7 @@ export default function BarberApprenticeshipPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-8 md:py-12">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
@@ -87,13 +87,13 @@ export default function BarberApprenticeshipPage() {
 
       {/* Comprehensive Program Details from programs.ts */}
       {barberProgram && barberProgram.longDescription && (
-        <section className="py-20 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="prose prose-lg prose-slate max-w-none
               prose-headings:font-bold prose-headings:text-slate-900
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-              prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
+              prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-4
+              prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-3
+              prose-h4:text-xl prose-h4:mt-3 prose-h4:mb-2
               prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-4
               prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
               prose-strong:text-slate-900 prose-strong:font-bold

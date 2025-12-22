@@ -98,17 +98,16 @@ export const publicNav: NavSection[] = [
 ];
 
 /**
- * AUTHENTICATED NAVIGATION - Only visible after login
- * Shown in place of "Login" button
+ * STUDENT NAVIGATION - For students
  */
-export const authenticatedNav: NavSection[] = [
+export const studentNav: NavSection[] = [
   {
     label: 'Dashboard',
     requiresAuth: true,
     items: [
-      { label: 'My Dashboard', href: '/dashboard' },
+      { label: 'My Dashboard', href: '/student/dashboard' },
       { label: 'My Courses', href: '/student/courses' },
-      { label: 'My Applications', href: '/student/applications' },
+      { label: 'My Progress', href: '/student/progress' },
       { label: 'Assignments', href: '/student/assignments' },
       { label: 'Grades', href: '/student/grades' },
       { label: 'Certificates', href: '/student/certificates' },
@@ -128,8 +127,78 @@ export const adminNav: NavSection[] = [
       { label: 'Admin Dashboard', href: '/admin' },
       { label: 'Applications', href: '/admin/applications' },
       { label: 'Students', href: '/admin/students' },
+      { label: 'Enrollments', href: '/admin/enrollments' },
       { label: 'Programs', href: '/admin/programs' },
+      { label: 'Program Holders', href: '/admin/program-holders' },
       { label: 'Reports', href: '/admin/reports' },
+      { label: 'Compliance', href: '/admin/compliance' },
+    ],
+  },
+];
+
+/**
+ * PROGRAM HOLDER NAVIGATION - For program holders
+ */
+export const programHolderNav: NavSection[] = [
+  {
+    label: 'Portal',
+    requiresAuth: true,
+    items: [
+      { label: 'My Dashboard', href: '/program-holder/dashboard' },
+      { label: 'Students', href: '/program-holder/portal/students' },
+      { label: 'Attendance', href: '/program-holder/portal/attendance' },
+      { label: 'Documents', href: '/program-holder/documents' },
+      { label: 'Reports', href: '/program-holder/portal/reports' },
+      { label: 'Messages', href: '/program-holder/portal/messages' },
+      { label: 'Training', href: '/program-holder/training' },
+    ],
+  },
+];
+
+/**
+ * PARTNER NAVIGATION - For training partners
+ */
+export const partnerNav: NavSection[] = [
+  {
+    label: 'Partner Portal',
+    requiresAuth: true,
+    items: [
+      { label: 'Partner Dashboard', href: '/partner' },
+      { label: 'Students', href: '/partner/students' },
+      { label: 'Reports', href: '/partner/reports' },
+      { label: 'Resources', href: '/partner/resources' },
+    ],
+  },
+];
+
+/**
+ * EMPLOYER NAVIGATION - For employers
+ */
+export const employerNav: NavSection[] = [
+  {
+    label: 'Employer Portal',
+    requiresAuth: true,
+    items: [
+      { label: 'Employer Dashboard', href: '/employer' },
+      { label: 'Placements', href: '/employer/placements' },
+      { label: 'Candidates', href: '/employer/candidates' },
+      { label: 'Reports', href: '/employer/reports' },
+    ],
+  },
+];
+
+/**
+ * WORKFORCE BOARD NAVIGATION - For workforce boards
+ */
+export const workforceBoardNav: NavSection[] = [
+  {
+    label: 'Workforce Board',
+    requiresAuth: true,
+    items: [
+      { label: 'Board Dashboard', href: '/workforce-board' },
+      { label: 'Programs', href: '/workforce-board/programs' },
+      { label: 'Reports', href: '/workforce-board/reports' },
+      { label: 'Compliance', href: '/workforce-board/compliance' },
     ],
   },
 ];
@@ -141,13 +210,36 @@ export function getNavigation(user?: { role?: string } | null) {
   let nav = [...publicNav];
 
   if (user) {
-    // Replace "Login" with "Dashboard"
+    // Replace "Login" with role-specific dashboard
     nav = nav.filter(section => section.label !== 'Login');
-    nav.splice(4, 0, ...authenticatedNav); // Insert after "Apply"
+    
+    // Add role-specific navigation
+    switch (user.role) {
+      case 'admin':
+      case 'super_admin':
+        nav.splice(4, 0, ...adminNav);
+        break;
+      case 'program_holder':
+        nav.splice(4, 0, ...programHolderNav);
+        break;
+      case 'partner':
+        nav.splice(4, 0, ...partnerNav);
+        break;
+      case 'employer':
+        nav.splice(4, 0, ...employerNav);
+        break;
+      case 'workforce_board':
+        nav.splice(4, 0, ...workforceBoardNav);
+        break;
+      case 'student':
+      default:
+        nav.splice(4, 0, ...studentNav);
+        break;
+    }
 
-    // Add admin nav for admin users
-    if (user.role === 'admin' || user.role === 'staff') {
-      nav.push(...adminNav);
+    // Add admin nav for admin users (in addition to their main nav)
+    if (user.role === 'admin' || user.role === 'super_admin') {
+      // Admin nav already added above
     }
   }
 

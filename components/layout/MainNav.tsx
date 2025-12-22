@@ -431,7 +431,7 @@ export function MainNav() {
             {/* Strong CTA – APPLY */}
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-red-500 px-4 py-2 text-xs font-bold text-white shadow-lg hover:bg-red-600 transition"
+              className="inline-flex items-center justify-center rounded-full bg-brand-orange-600 px-4 py-2 text-xs font-bold text-white shadow-sm hover:bg-brand-orange-700 transition"
               aria-label="Apply for training or refer someone"
             >
               Apply Now
