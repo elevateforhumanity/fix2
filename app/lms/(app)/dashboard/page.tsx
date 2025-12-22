@@ -113,19 +113,19 @@ export default async function DashboardPage() {
             <div className="text-sm text-gray-600">View all achievements →</div>
           </Link>
 
-          {/* Leaderboard Rank */}
+          {/* Progress Streak */}
           <Link
-            href="/student/leaderboard"
+            href="/student/progress"
             className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-lg transition border border-purple-200"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="text-4xl">📊</div>
+              <div className="text-4xl">🔥</div>
               <div className="text-2xl font-bold text-purple-600">
-                #{Math.floor(Math.random() * 100) + 1}
+                {activeCourses}
               </div>
             </div>
-            <div className="font-semibold text-gray-900">Your Rank</div>
-            <div className="text-sm text-gray-600">See leaderboard →</div>
+            <div className="font-semibold text-gray-900">Active Courses</div>
+            <div className="text-sm text-gray-600">View progress →</div>
           </Link>
 
           {/* Points */}

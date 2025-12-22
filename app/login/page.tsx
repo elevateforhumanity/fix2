@@ -48,6 +48,14 @@ function LoginForm() {
         profile?.role === 'org_admin'
       ) {
         router.push('/admin/dashboard');
+      } else if (profile?.role === 'program_holder') {
+        router.push('/program-holder/dashboard');
+      } else if (profile?.role === 'partner') {
+        router.push('/partner');
+      } else if (profile?.role === 'employer') {
+        router.push('/employer');
+      } else if (profile?.role === 'workforce_board') {
+        router.push('/workforce-board');
       } else if (profile?.role === 'student') {
         router.push('/lms/dashboard');
       } else {
