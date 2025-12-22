@@ -63,12 +63,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/equal-opportunity',
   ];
 
+  // Community pages
+  const communityPages = [
+    '/forums',
+    '/study-groups',
+    '/community',
+    '/blog',
+  ];
+
   const allPages = [
     ...mainPages,
     ...programPages,
     ...fundingPages,
     ...aboutPages,
     ...legalPages,
+    ...communityPages,
   ];
 
   return allPages.map((page) => ({
