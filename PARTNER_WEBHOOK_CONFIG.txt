@@ -1,0 +1,64 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    PARTNER WEBHOOK CONFIGURATION                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+🔐 WEBHOOK SECRET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PGd3vzck5RBRP+SIv6t4+LSpsGIkcra9ZaKCy8hCvRU=
+
+📋 WEBHOOK ENDPOINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HSI:        https://www.elevateforhumanity.org/api/webhooks/partners/hsi
+Certiport:  https://www.elevateforhumanity.org/api/webhooks/partners/certiport
+CareerSafe: https://www.elevateforhumanity.org/api/webhooks/partners/careersafe
+JRI:        https://www.elevateforhumanity.org/api/webhooks/partners/jri
+Milady:     https://www.elevateforhumanity.org/api/webhooks/partners/milady
+
+📝 CONFIGURATION STEPS FOR EACH PARTNER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Login to partner portal
+2. Navigate to Webhooks/Integrations settings
+3. Add new webhook:
+   - URL: (see endpoint above)
+   - Secret: PGd3vzck5RBRP+SIv6t4+LSpsGIkcra9ZaKCy8hCvRU=
+   - Events: course.completed, certificate.issued, enrollment.created
+4. Save and test
+
+✅ EVENTS TO ENABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ course.completed / training.completed / exam.completed
+✓ certificate.issued
+✓ enrollment.created
+✓ progress.updated (optional)
+
+🧪 TEST COMMAND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+curl -X POST https://www.elevateforhumanity.org/api/webhooks/partners/hsi \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: PGd3vzck5RBRP+SIv6t4+LSpsGIkcra9ZaKCy8hCvRU=" \
+  -d '{"event":"course.completed","student_id":"test","course_id":"test"}'
+
+📊 MONITORING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Admin Dashboard: https://www.elevateforhumanity.org/admin/dashboard
+Student Progress: https://www.elevateforhumanity.org/student/progress
+
+⏱️  TIME ESTIMATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+~30 minutes per partner = ~2.5 hours total
+
+📚 FULL DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+See: WEBHOOK_CONFIGURATION.md
+
+🔧 VERCEL ENVIRONMENT VARIABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Add to Vercel Project Settings → Environment Variables:
+
+Name:  PARTNER_WEBHOOK_SECRET
+Value: PGd3vzck5RBRP+SIv6t4+LSpsGIkcra9ZaKCy8hCvRU=
+
+Select: Production, Preview, Development
+
+URL: https://vercel.com/elevateforhumanity/fix2/settings/environment-variables
