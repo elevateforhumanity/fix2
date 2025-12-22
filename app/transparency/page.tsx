@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function TransparencyPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>

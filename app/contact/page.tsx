@@ -40,10 +40,10 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white py-16">
+      <section className="bg-slate-900 text-white py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl text-slate-600">
+          <p className="text-xl text-slate-300">
             We're here to help you take the next step in your career journey
           </p>
         </div>

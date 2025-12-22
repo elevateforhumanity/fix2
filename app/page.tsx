@@ -125,7 +125,7 @@ export default function HomePage() {
           priority
           quality={95}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-end">
           <Container size="lg" className="pb-16">
             <div className="max-w-3xl">
@@ -133,8 +133,9 @@ export default function HomePage() {
                 Transforming Lives Through Education
               </h2>
               <p className="text-xl text-white/90 leading-relaxed">
-                Every student deserves access to quality training and real career opportunities. 
-                We're breaking down barriers and building pathways to success.
+                Every student deserves access to quality training and real
+                career opportunities. We're breaking down barriers and building
+                pathways to success.
               </p>
             </div>
           </Container>
@@ -163,7 +164,7 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent" />
+              <div className="absolute inset-0 bg-blue-900/70" />
               <div className="absolute bottom-6 left-6 right-6">
                 <GraduationCap className="h-12 w-12 text-white mb-3" />
                 <h3 className="text-2xl font-bold text-white mb-2">
@@ -195,7 +196,7 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 to-transparent" />
+              <div className="absolute inset-0 bg-purple-900/70" />
               <div className="absolute bottom-6 left-6 right-6">
                 <Briefcase className="h-12 w-12 text-white mb-3" />
                 <h3 className="text-2xl font-bold text-white mb-2">
@@ -227,7 +228,7 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/90 to-transparent" />
+              <div className="absolute inset-0 bg-green-900/70" />
               <div className="absolute bottom-6 left-6 right-6">
                 <Building2 className="h-12 w-12 text-white mb-3" />
                 <h3 className="text-2xl font-bold text-white mb-2">

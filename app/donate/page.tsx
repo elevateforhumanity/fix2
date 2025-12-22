@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
@@ -214,7 +214,7 @@ export default function DonatePage() {
 
           <DonationForm />
 
-          <div className="hidden bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
+          <div className="hidden bg-slate-50 rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
             {/* Donation Amount Selection */}
             <div className="mb-8">
               <label className="block text-sm font-bold text-slate-900 mb-4">

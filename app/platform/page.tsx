@@ -6,7 +6,7 @@ export default function PlatformPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-gradient-to-b from-slate-50 to-white">
+      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-slate-50">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl sm:text-5xl font-black text-zinc-900 tracking-tight">
             Workforce Infrastructure Platform

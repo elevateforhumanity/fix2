@@ -40,103 +40,106 @@ export default function ProgramsPage() {
           className="absolute inset-0 w-full h-full object-cover"
           poster="/images/artlist/hero-training-1.jpg"
         >
-          <source src="/videos/programs-overview-video-with-narration.mp4" type="video/mp4" />
+          <source
+            src="/videos/programs-overview-video-with-narration.mp4"
+            type="video/mp4"
+          />
         </video>
-        
+
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
-        
+        <div className="absolute inset-0 bg-black/60" />
+
         {/* Content Container */}
         <div className="relative py-20 md:py-32">
           <div className="max-w-7xl mx-auto px-4">
             <div className="max-w-4xl">
-            {/* Indiana Career Connect Badge */}
-            <a
-              href="https://www.in.gov/dwd/career-connect/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 px-6 py-3 rounded-full mb-8 transition border border-white/20 group"
-            >
-              <MapPin className="w-5 h-5 text-white" />
-              <span className="text-sm font-bold text-white">
-                Funded by Indiana Career Connect
-              </span>
-              <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition" />
-            </a>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              Your Future Starts Here
-            </h1>
-
-            {/* Key Highlights */}
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
-                ✓ 100% Free Training
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
-                ✓ No Student Debt
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
-                ✓ Real Jobs Waiting
-              </div>
-            </div>
-
-            <p className="text-2xl md:text-3xl text-white/90 mb-8 leading-relaxed font-medium">
-              Real training. Real jobs. Real support. And it's 100% free.
-            </p>
-
-            {/* Story Box */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-10">
-              <p className="text-lg text-white leading-relaxed mb-4">
-                <strong className="text-yellow-300">Here's the truth:</strong>{' '}
-                You don't need a college degree to build a great career. You
-                need the right training, the right support, and someone who
-                believes in you.
-              </p>
-              <p className="text-lg text-white/90 leading-relaxed">
-                Whether you're starting fresh, changing careers, or getting back
-                on your feet—we're here to help you build the life you want.
-                Every program is fully funded through{' '}
-                <strong className="text-yellow-300">
-                  Indiana Career Connect
-                </strong>{' '}
-                and WIOA. No tuition. No debt. Just opportunity.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-8">
-              <Link
-                href="/apply"
-                className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-xl font-bold text-lg transition shadow-2xl hover:shadow-3xl hover:scale-105"
-              >
-                Apply Now - It's Free
-                <ChevronRight className="w-5 h-5" />
-              </Link>
+              {/* Indiana Career Connect Badge */}
               <a
-                href="tel:3173143757"
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
+                href="https://www.in.gov/dwd/career-connect/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 px-6 py-3 rounded-full mb-8 transition border border-white/20 group"
               >
-                <Phone className="w-5 h-5" />
-                (317) 314-3757
+                <MapPin className="w-5 h-5 text-white" />
+                <span className="text-sm font-bold text-white">
+                  Funded by Indiana Career Connect
+                </span>
+                <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition" />
               </a>
-            </div>
 
-            {/* Trust Signals */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-white/80">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span>500+ Students Enrolled</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                Your Future Starts Here
+              </h1>
+
+              {/* Key Highlights */}
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
+                  ✓ 100% Free Training
+                </div>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
+                  ✓ No Student Debt
+                </div>
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
+                  ✓ Real Jobs Waiting
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span>90% Job Placement Rate</span>
+
+              <p className="text-2xl md:text-3xl text-white/90 mb-8 leading-relaxed font-medium">
+                Real training. Real jobs. Real support. And it's 100% free.
+              </p>
+
+              {/* Story Box */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-10">
+                <p className="text-lg text-white leading-relaxed mb-4">
+                  <strong className="text-yellow-300">Here's the truth:</strong>{' '}
+                  You don't need a college degree to build a great career. You
+                  need the right training, the right support, and someone who
+                  believes in you.
+                </p>
+                <p className="text-lg text-white/90 leading-relaxed">
+                  Whether you're starting fresh, changing careers, or getting
+                  back on your feet—we're here to help you build the life you
+                  want. Every program is fully funded through{' '}
+                  <strong className="text-yellow-300">
+                    Indiana Career Connect
+                  </strong>{' '}
+                  and WIOA. No tuition. No debt. Just opportunity.
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span>Top Employer Partners</span>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 mb-8">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-xl font-bold text-lg transition shadow-2xl hover:shadow-3xl hover:scale-105"
+                >
+                  Apply Now - It's Free
+                  <ChevronRight className="w-5 h-5" />
+                </Link>
+                <a
+                  href="tel:3173143757"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
+                >
+                  <Phone className="w-5 h-5" />
+                  (317) 314-3757
+                </a>
               </div>
-            </div>
+
+              {/* Trust Signals */}
+              <div className="flex flex-wrap items-center gap-6 text-sm text-white/80">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span>500+ Students Enrolled</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span>90% Job Placement Rate</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span>Top Employer Partners</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -210,7 +213,7 @@ export default function ProgramsPage() {
 
           {/* Healthcare Category */}
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border border-blue-100">
+            <div className="bg-blue-50 rounded-2xl p-8 md:p-12 border border-blue-100">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-3 h-16 bg-blue-600 rounded-full flex-shrink-0" />
                 <div className="flex-1">
@@ -256,7 +259,7 @@ export default function ProgramsPage() {
 
           {/* Skilled Trades Category */}
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border border-blue-100">
+            <div className="bg-orange-50 rounded-2xl p-8 md:p-12 border border-orange-100">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-3 h-16 bg-orange-600 rounded-full flex-shrink-0" />
                 <div className="flex-1">
@@ -302,7 +305,7 @@ export default function ProgramsPage() {
 
           {/* Beauty & Wellness Category */}
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 md:p-12 border border-purple-100">
+            <div className="bg-purple-50 rounded-2xl p-8 md:p-12 border border-purple-100">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-3 h-16 bg-purple-600 rounded-full flex-shrink-0" />
                 <div className="flex-1">
@@ -347,7 +350,7 @@ export default function ProgramsPage() {
 
           {/* Business & Finance Category */}
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 border border-green-100">
+            <div className="bg-green-50 rounded-2xl p-8 md:p-12 border border-green-100">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-3 h-16 bg-green-600 rounded-full flex-shrink-0" />
                 <div className="flex-1">
@@ -393,7 +396,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA Section - Modern & Encouraging */}
-      <section className="py-20 bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white relative overflow-hidden">
+      <section className="py-20 bg-brand-orange-600 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10" />
 

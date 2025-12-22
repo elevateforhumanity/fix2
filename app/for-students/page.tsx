@@ -22,7 +22,7 @@ export default function ForStudentsPage() {
       {/* 1. Hero - Problem + Anxiety Reduction */}
       <Section
         variant="blue"
-        className="relative h-[400px] flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white"
+        className="relative h-[400px] flex items-center justify-center bg-blue-700 text-white"
         noPadding
       >
         <Container size="lg">

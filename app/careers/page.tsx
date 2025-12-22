@@ -60,7 +60,7 @@ export default async function CareersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-brand-orange-600 text-white py-20">
         <div className="container mx-auto px-4">

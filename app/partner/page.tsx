@@ -21,24 +21,23 @@ export default function PartnerPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-orange-600 text-white py-20 md:py-32 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6">
               <Handshake className="w-5 h-5" />
-              <span className="text-sm font-bold">Partnership Opportunities</span>
+              <span className="text-sm font-bold">
+                Partnership Opportunities
+              </span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               Partner With Us to
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
-                Transform Lives
-              </span>
+              <span className="text-yellow-300">Transform Lives</span>
             </h1>
 
             <p className="text-2xl md:text-3xl text-white/90 mb-8 leading-relaxed font-medium">
@@ -277,7 +276,7 @@ export default function PartnerPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -304,7 +303,7 @@ export default function PartnerPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-500 to-red-600 text-white">
+      <section className="py-20 bg-orange-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Partner With Us?
