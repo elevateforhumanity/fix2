@@ -1,0 +1,142 @@
+=== MIGRATION ANALYSIS ===
+Generated: Mon Dec 22 14:16:46 UTC 2025
+
+=== ALL TABLES DEFINED ===
+      2 programs 
+      2 program_holders 
+      2 lesson_questions 
+      2 lesson_answers 
+      2 learning_goals 
+      2 discussion_threads 
+      2 discussion_posts 
+      2 daily_streaks 
+      2 ai_instructors 
+      2 achievements 
+      1 video_progress 
+      1 video_bookmarks 
+      1 user_access 
+      1 study_groups 
+      1 study_group_members 
+      1 student_enrollments 
+      1 service_requirements 
+      1 push_tokens 
+      1 profiles 
+      1 notifications 
+      1 notification_logs 
+      1 module_progress 
+      1 lesson_notes 
+      1 lesson_captions 
+      1 learning_activity 
+      1 external_partner_progress 
+      1 external_partner_modules 
+      1 course_reviews 
+      1 course_modules 
+      1 course_announcements 
+      1 contact_requests 
+      1 assignments 
+      1 apprentice_hours_log 
+      1 apprentice_funding_profile 
+      1 ai_messages 
+      1 ai_instructor_assignments 
+      1 ai_conversations 
+      1 ai_audit_log 
+
+=== TABLES DEFINED MULTIPLE TIMES ===
+      2 programs 
+      2 program_holders 
+      2 lesson_questions 
+      2 lesson_answers 
+      2 learning_goals 
+      2 discussion_threads 
+      2 discussion_posts 
+      2 daily_streaks 
+      2 ai_instructors 
+      2 achievements 
+
+=== FILES PER TABLE ===
+
+TABLE: achievements
+20251123_pack2_features.sql
+20251124_student_dashboard_extras.sql
+
+TABLE: ai_audit_log
+20251213_ai_instructors.sql
+
+TABLE: ai_conversations
+20251213_ai_instructors.sql
+
+TABLE: ai_instructor_assignments
+20251213_ai_instructors.sql
+
+TABLE: ai_instructors
+20241209_hybrid_learning_tables.sql
+20251213_ai_instructors.sql
+
+TABLE: ai_messages
+20251213_ai_instructors.sql
+
+TABLE: apprentice_funding_profile
+20251216_wioa_compliant_hours.sql
+
+TABLE: apprentice_hours_log
+20241209_hybrid_learning_tables.sql
+
+TABLE: assignments
+20251124_student_dashboard_extras.sql
+20251213_ai_instructors.sql
+
+TABLE: contact_requests
+20241126_create_contact_requests.sql
+
+TABLE: course_announcements
+20251123_dashboard_video_extras.sql
+
+TABLE: course_modules
+20241209_hybrid_learning_tables.sql
+
+TABLE: course_reviews
+20251123_dashboard_video_extras.sql
+
+TABLE: daily_streaks
+20251123_pack2_features.sql
+20251124_student_dashboard_extras.sql
+
+TABLE: discussion_posts
+20251123_pack2_features.sql
+20251124_course_social_extras.sql
+
+TABLE: discussion_threads
+20251123_pack2_features.sql
+20251124_course_social_extras.sql
+
+TABLE: external_partner_modules
+20241203_external_partner_modules.sql
+
+TABLE: external_partner_progress
+20241203_external_partner_modules.sql
+
+TABLE: learning_activity
+20251124_learning_activity_streaks.sql
+
+TABLE: learning_goals
+20251123_pack2_features.sql
+20251124_student_dashboard_extras.sql
+
+TABLE: lesson_answers
+20251123_pack2_features.sql
+20251124_course_social_extras.sql
+
+TABLE: lesson_captions
+20251124_lesson_captions.sql
+
+TABLE: lesson_notes
+20251123_dashboard_video_extras.sql
+
+TABLE: lesson_questions
+20251123_pack2_features.sql
+20251124_course_social_extras.sql
+
+TABLE: module_progress
+20241209_hybrid_learning_tables.sql
+
+TABLE: notification_logs
