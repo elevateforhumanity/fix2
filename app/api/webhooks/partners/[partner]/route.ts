@@ -99,8 +99,9 @@ async function handleEnrollmentCreated(
   partner: PartnerType,
   data: Record<string, unknown>
 ): Promise<void> {
+  const supabase = getSupabaseClient();
+  
   // Update enrollment status in database
-  // @ts-expect-error TS2304: Cannot find name 'supabase'.
   const { error } = await supabase
     .from('partner_lms_enrollments')
     .update({
@@ -121,8 +122,9 @@ async function handleProgressUpdated(
   partner: PartnerType,
   data: Record<string, unknown>
 ): Promise<void> {
+  const supabase = getSupabaseClient();
+  
   // Update progress in database
-  // @ts-expect-error TS2304: Cannot find name 'supabase'.
   const { error } = await supabase
     .from('partner_lms_enrollments')
     .update({
@@ -144,8 +146,34 @@ async function handleCourseCompleted(
   partner: PartnerType,
   data: Record<string, unknown>
 ): Promise<void> {
-  // Update enrollment to completed
-  // @ts-expect-error TS2304: Cannot find name 'supabase'.
+  const supabase = getSupabaseClient();
+  
+  // Get the enrollment step
+  const { data: step, error: stepError } = await supabase
+    .from('enrollment_steps')
+    .select('id, enrollment_id, provider_id')
+    .eq('external_enrollment_id', data.enrollmentId)
+    .eq('status', 'in_progress')
+    .single();
+
+  if (stepError || !step) {
+    logger.error('[Webhook] Failed to find enrollment step:', stepError);
+    return;
+  }
+
+  // Mark step complete and advance to next
+  const { data: nextStepId, error: advanceError } = await supabase
+    .rpc('mark_step_complete', {
+      p_step_id: step.id,
+      p_external_enrollment_id: data.enrollmentId as string
+    });
+
+  if (advanceError) {
+    logger.error('[Webhook] Failed to advance step:', advanceError);
+    return;
+  }
+
+  // Update partner enrollment record
   const { error } = await supabase
     .from('partner_lms_enrollments')
     .update({
@@ -160,25 +188,66 @@ async function handleCourseCompleted(
 
   if (error) {
     logger.error('[Webhook] Failed to update completion:', error);
-    return;
   }
 
-  // Trigger completion email
-  // @ts-expect-error TS2304: Cannot find name 'supabase'.
-  await supabase.functions.invoke('send-partner-completion-email', {
-    body: {
-      enrollmentId: data.enrollmentId,
-      partner,
-    },
-  });
+  // If there's a next step, auto-enroll
+  if (nextStepId) {
+    const { data: nextStep } = await supabase
+      .from('enrollment_steps')
+      .select('*, provider:partner_lms_providers(*), enrollment:enrollments(user_id)')
+      .eq('id', nextStepId)
+      .single();
+
+    if (nextStep) {
+      // Trigger auto-enrollment in next partner
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/partner/enroll`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            studentId: nextStep.enrollment.user_id,
+            providerId: nextStep.provider_id,
+            enrollmentId: nextStep.enrollment_id,
+            stepId: nextStep.id
+          })
+        });
+      } catch (enrollError) {
+        logger.error('[Webhook] Failed to auto-enroll in next partner:', enrollError);
+      }
+    }
+  } else {
+    // All steps complete - check if enrollment is done
+    const { data: isComplete } = await supabase
+      .rpc('is_enrollment_complete', { p_enrollment_id: step.enrollment_id });
+
+    if (isComplete) {
+      // Generate completion certificate
+      await supabase
+        .from('enrollments')
+        .update({ 
+          status: 'completed',
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', step.enrollment_id);
+
+      // Trigger completion email
+      await supabase.functions.invoke('send-completion-email', {
+        body: {
+          enrollmentId: step.enrollment_id,
+          partner,
+        },
+      });
+    }
+  }
 }
 
 async function handleCertificateIssued(
   partner: PartnerType,
   data: Record<string, unknown>
 ): Promise<void> {
+  const supabase = getSupabaseClient();
+  
   // Update enrollment with certificate data
-  // @ts-expect-error TS2304: Cannot find name 'supabase'.
   const { error } = await supabase
     .from('partner_lms_enrollments')
     .update({
