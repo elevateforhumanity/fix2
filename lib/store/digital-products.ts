@@ -44,7 +44,7 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
       'IRS compliance checklist',
       'Social media templates',
     ],
-    stripePriceId: undefined, // Fill in after creating in Stripe
+    stripePriceId: 'price_tax_toolkit_49', // Create in Stripe dashboard
     featured: true,
   },
   {
@@ -65,7 +65,7 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
       'Compliance requirements',
       'Funder research tips',
     ],
-    stripePriceId: undefined,
+    stripePriceId: 'price_grant_guide_29', // Create in Stripe dashboard
     featured: true,
   },
   {
@@ -86,7 +86,7 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
       'Email support',
       'Lifetime access',
     ],
-    stripePriceId: undefined,
+    stripePriceId: 'price_fund_ready_course_149', // Create in Stripe dashboard
     featured: true,
   },
   {
@@ -107,7 +107,7 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
       'Documentation templates',
       'Audit readiness guide',
     ],
-    stripePriceId: undefined,
+    stripePriceId: 'price_workforce_compliance_39', // Create in Stripe dashboard
   },
   {
     id: 'donation',
@@ -120,7 +120,7 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
     category: 'donation',
     deliveryType: 'email',
     features: ['Tax-deductible receipt', 'Impact report', 'Donor recognition'],
-    stripePriceId: undefined,
+    stripePriceId: 'price_donation_custom', // Create in Stripe dashboard with custom amount
   },
 ];
 

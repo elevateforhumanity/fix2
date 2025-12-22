@@ -52,10 +52,13 @@ export async function POST(request: NextRequest) {
       const session = event.data.object as Stripe.Checkout.Session;
 
       // LANE B: Handle store subscription checkout
-      if (session.mode === 'subscription' && session.metadata?.subscription_type === 'store') {
+      if (
+        session.mode === 'subscription' &&
+        session.metadata?.subscription_type === 'store'
+      ) {
         try {
           const userId = session.metadata.user_id;
-          
+
           if (!userId) {
             logger.error('No user_id in subscription checkout metadata');
             break;
@@ -63,7 +66,9 @@ export async function POST(request: NextRequest) {
 
           // Subscription will be created by customer.subscription.created event
           // Just log the checkout completion here
-          logger.info(`✅ Store subscription checkout completed: ${session.id}`);
+          logger.info(
+            `✅ Store subscription checkout completed: ${session.id}`
+          );
         } catch (err: unknown) {
           logger.error('Error processing store subscription checkout:', err);
         }
@@ -71,23 +76,29 @@ export async function POST(request: NextRequest) {
       }
 
       // LANE A: Handle enrollment payment checkout
-      if (session.mode === 'payment' && session.metadata?.payment_type === 'enrollment') {
+      if (
+        session.mode === 'payment' &&
+        session.metadata?.payment_type === 'enrollment'
+      ) {
         try {
           const enrollmentId = session.metadata.enrollment_id;
-          
+
           if (!enrollmentId) {
             logger.error('No enrollment_id in payment checkout metadata');
             break;
           }
 
           // Complete enrollment payment using RPC
-          const { data, error } = await supabase.rpc('complete_enrollment_payment', {
-            p_enrollment_id: enrollmentId,
-            p_stripe_event_id: event.id,
-            p_stripe_session_id: session.id,
-            p_stripe_payment_intent_id: session.payment_intent as string,
-            p_amount_cents: session.amount_total || 0,
-          });
+          const { data, error } = await supabase.rpc(
+            'complete_enrollment_payment',
+            {
+              p_enrollment_id: enrollmentId,
+              p_stripe_event_id: event.id,
+              p_stripe_session_id: session.id,
+              p_stripe_payment_intent_id: session.payment_intent as string,
+              p_amount_cents: session.amount_total || 0,
+            }
+          );
 
           if (error) {
             logger.error('Error completing enrollment payment:', error);
@@ -154,8 +165,11 @@ export async function POST(request: NextRequest) {
             );
           }
 
-          // TODO: Send confirmation email to customer
-          // TODO: Send notification to admin to schedule test/enroll in course
+          // Send confirmation email to customer
+          await sendOrderConfirmationEmail(session);
+
+          // Send notification to admin
+          await sendAdminNotification(session);
         } catch (err: unknown) {
           logger.error('Error processing drug testing purchase:', err);
         }
@@ -301,13 +315,16 @@ export async function POST(request: NextRequest) {
       if (enrollmentId) {
         try {
           // Use idempotent payment completion function
-          const { data, error } = await supabase.rpc('complete_stripe_payment', {
-            p_enrollment_id: enrollmentId,
-            p_stripe_event_id: event.id,
-            p_stripe_session_id: session.id,
-            p_stripe_payment_intent_id: session.payment_intent as string,
-            p_amount_cents: session.amount_total || 0,
-          });
+          const { data, error } = await supabase.rpc(
+            'complete_stripe_payment',
+            {
+              p_enrollment_id: enrollmentId,
+              p_stripe_event_id: event.id,
+              p_stripe_session_id: session.id,
+              p_stripe_payment_intent_id: session.payment_intent as string,
+              p_amount_cents: session.amount_total || 0,
+            }
+          );
 
           if (error) {
             logger.error('Error completing enrollment payment:', error);
@@ -373,7 +390,9 @@ export async function POST(request: NextRequest) {
           }
         }
 
-        logger.info(`✅ Payment processed (legacy): user ${userId}, course ${courseId}`);
+        logger.info(
+          `✅ Payment processed (legacy): user ${userId}, course ${courseId}`
+        );
       }
       break;
     }
@@ -387,7 +406,7 @@ export async function POST(request: NextRequest) {
 
     case 'payment_intent.payment_failed': {
       const failedPayment = event.data.object as Stripe.PaymentIntent;
-      
+
       // Handle enrollment payment failure
       const enrollmentId = failedPayment.metadata?.enrollment_id;
       if (enrollmentId) {
@@ -395,13 +414,16 @@ export async function POST(request: NextRequest) {
           const { error } = await supabase.rpc('fail_stripe_payment', {
             p_enrollment_id: enrollmentId,
             p_stripe_event_id: event.id,
-            p_error_message: failedPayment.last_payment_error?.message || 'Payment failed',
+            p_error_message:
+              failedPayment.last_payment_error?.message || 'Payment failed',
           });
 
           if (error) {
             logger.error('Error handling payment failure:', error);
           } else {
-            logger.info(`✅ Enrollment payment failure handled: ${enrollmentId}`);
+            logger.info(
+              `✅ Enrollment payment failure handled: ${enrollmentId}`
+            );
           }
         } catch (err: unknown) {
           logger.error('Error processing payment failure:', err);
@@ -430,26 +452,43 @@ export async function POST(request: NextRequest) {
           }
 
           // Upsert subscription
-          const { data, error } = await supabase.rpc('upsert_store_subscription', {
-            p_user_id: userId,
-            p_stripe_subscription_id: subscription.id,
-            p_stripe_customer_id: subscription.customer as string,
-            p_stripe_price_id: priceId,
-            p_status: subscription.status,
-            p_cancel_at_period_end: subscription.cancel_at_period_end,
-            p_current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-            p_current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-            p_canceled_at: subscription.canceled_at ? new Date(subscription.canceled_at * 1000).toISOString() : null,
-            p_ended_at: subscription.ended_at ? new Date(subscription.ended_at * 1000).toISOString() : null,
-            p_trial_start: subscription.trial_start ? new Date(subscription.trial_start * 1000).toISOString() : null,
-            p_trial_end: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
-            p_metadata: subscription.metadata,
-          });
+          const { data, error } = await supabase.rpc(
+            'upsert_store_subscription',
+            {
+              p_user_id: userId,
+              p_stripe_subscription_id: subscription.id,
+              p_stripe_customer_id: subscription.customer as string,
+              p_stripe_price_id: priceId,
+              p_status: subscription.status,
+              p_cancel_at_period_end: subscription.cancel_at_period_end,
+              p_current_period_start: new Date(
+                subscription.current_period_start * 1000
+              ).toISOString(),
+              p_current_period_end: new Date(
+                subscription.current_period_end * 1000
+              ).toISOString(),
+              p_canceled_at: subscription.canceled_at
+                ? new Date(subscription.canceled_at * 1000).toISOString()
+                : null,
+              p_ended_at: subscription.ended_at
+                ? new Date(subscription.ended_at * 1000).toISOString()
+                : null,
+              p_trial_start: subscription.trial_start
+                ? new Date(subscription.trial_start * 1000).toISOString()
+                : null,
+              p_trial_end: subscription.trial_end
+                ? new Date(subscription.trial_end * 1000).toISOString()
+                : null,
+              p_metadata: subscription.metadata,
+            }
+          );
 
           if (error) {
             logger.error('Error upserting subscription:', error);
           } else {
-            logger.info(`✅ Store subscription ${event.type}: ${subscription.id}`);
+            logger.info(
+              `✅ Store subscription ${event.type}: ${subscription.id}`
+            );
           }
         } catch (err: unknown) {
           logger.error('Error processing subscription event:', err);
@@ -479,12 +518,22 @@ export async function POST(request: NextRequest) {
             p_stripe_price_id: priceId,
             p_status: 'canceled',
             p_cancel_at_period_end: false,
-            p_current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-            p_current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-            p_canceled_at: subscription.canceled_at ? new Date(subscription.canceled_at * 1000).toISOString() : null,
+            p_current_period_start: new Date(
+              subscription.current_period_start * 1000
+            ).toISOString(),
+            p_current_period_end: new Date(
+              subscription.current_period_end * 1000
+            ).toISOString(),
+            p_canceled_at: subscription.canceled_at
+              ? new Date(subscription.canceled_at * 1000).toISOString()
+              : null,
             p_ended_at: new Date().toISOString(),
-            p_trial_start: subscription.trial_start ? new Date(subscription.trial_start * 1000).toISOString() : null,
-            p_trial_end: subscription.trial_end ? new Date(subscription.trial_end * 1000).toISOString() : null,
+            p_trial_start: subscription.trial_start
+              ? new Date(subscription.trial_start * 1000).toISOString()
+              : null,
+            p_trial_end: subscription.trial_end
+              ? new Date(subscription.trial_end * 1000).toISOString()
+              : null,
             p_metadata: subscription.metadata,
           });
 
@@ -505,7 +554,9 @@ export async function POST(request: NextRequest) {
 
       // Log successful subscription payment
       if (invoice.subscription) {
-        logger.info(`✅ Subscription payment succeeded: ${invoice.subscription}`);
+        logger.info(
+          `✅ Subscription payment succeeded: ${invoice.subscription}`
+        );
       }
       break;
     }
@@ -516,7 +567,7 @@ export async function POST(request: NextRequest) {
       // Handle failed subscription payment
       if (invoice.subscription) {
         logger.error(`❌ Subscription payment failed: ${invoice.subscription}`);
-        
+
         // Subscription status will be updated by customer.subscription.updated event
         // Could send notification email here
       }

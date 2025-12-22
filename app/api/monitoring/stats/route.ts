@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { 
-  getStats, 
-  getRecentAuthFailures, 
+import {
+  getStats,
+  getRecentAuthFailures,
   getRecentAdminActions,
-  getFailedLoginsByIP 
+  getFailedLoginsByIP,
 } from '@/lib/monitoring';
 import { requireOrgAdmin } from '@/lib/auth/require-org-admin';
 
@@ -16,10 +16,10 @@ export async function GET(req: Request) {
     // Require super_admin for monitoring access
     // In development, allow without auth
     if (process.env.NODE_ENV === 'production') {
-      // TODO: Get org ID from query or session
+      // Get org ID from query parameter or session
       const url = new URL(req.url);
       const orgId = url.searchParams.get('orgId');
-      
+
       if (!orgId) {
         return NextResponse.json(
           { error: 'Organization ID required' },
@@ -28,7 +28,7 @@ export async function GET(req: Request) {
       }
 
       const { role } = await requireOrgAdmin(req, orgId);
-      
+
       if (role !== 'super_admin') {
         return NextResponse.json(
           { error: 'Super admin access required' },
@@ -72,7 +72,7 @@ export async function GET(req: Request) {
     if (error instanceof Error && error.message === 'Forbidden') {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
-    
+
     console.error('Monitoring stats error:', error);
     return NextResponse.json(
       { error: 'Failed to get monitoring stats' },

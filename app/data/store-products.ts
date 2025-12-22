@@ -155,6 +155,8 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       'Pilot programs',
     ],
     requiresApproval: false,
+    stripeProductId: 'prod_efh_core_platform',
+    stripePriceId: 'price_efh_core_4999',
   },
   {
     id: 'efh-school-license',
@@ -195,6 +197,8 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       'Nonprofits with multiple programs',
     ],
     requiresApproval: true,
+    stripeProductId: 'prod_efh_school_license',
+    stripePriceId: 'price_efh_school_15000',
   },
   {
     id: 'efh-enterprise',
@@ -237,6 +241,8 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       'Enterprise employers with training programs',
     ],
     requiresApproval: true,
+    stripeProductId: 'prod_efh_enterprise',
+    stripePriceId: 'price_efh_enterprise_50000',
   },
   {
     id: 'efh-monthly',
@@ -264,6 +270,8 @@ export const STORE_PRODUCTS: StoreProduct[] = [
       'Budget-conscious organizations',
     ],
     requiresApproval: false,
+    stripeProductId: 'prod_efh_monthly_subscription',
+    stripePriceId: 'price_efh_monthly_499',
   },
 ];
 

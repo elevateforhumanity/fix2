@@ -57,7 +57,8 @@ export async function POST(request: NextRequest) {
 
     // Optional: Send daily digest emails here
     if (result.alert_count > 0) {
-      // TODO: Trigger daily digest email campaign
+      // Trigger daily digest email campaign
+      await triggerDailyDigestEmails(result);
       // await sendDailyDigestEmails(supabase, ymd);
     }
 
