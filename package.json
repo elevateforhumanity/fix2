@@ -242,7 +242,7 @@
     "clean": "rimraf dist coverage .cache",
     "clean:fast": "rimraf .turbo .next/cache dist build coverage .cache",
     "clean:all": "pnpm clean:fast && rimraf node_modules && pnpm store prune",
-    "clean:autopilot": "node scripts/autopilot-cleanup.js || true",
+
     "health": "bash scripts/efh-healthcheck.sh || true",
     "health:once": "node scripts/healthcheck.mjs --base http://localhost:3000 || true",
     "health:loop": "bash -c 'while true; do node scripts/healthcheck.mjs --base http://localhost:3000 || true; sleep 10; done'",
