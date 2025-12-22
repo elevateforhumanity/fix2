@@ -12,6 +12,7 @@
 | **[test-enrollment-flow.md](./test-enrollment-flow.md)** | Step-by-step testing procedures | ✅ Complete |
 | **[ENROLLMENT_AUTOMATION_SUMMARY.md](./ENROLLMENT_AUTOMATION_SUMMARY.md)** | Implementation summary | ✅ Complete |
 | **[MIGRATION_INSTRUCTIONS.md](./MIGRATION_INSTRUCTIONS.md)** | Database setup guide | ✅ Complete |
+| **[WEBHOOK_CONFIGURATION.md](./WEBHOOK_CONFIGURATION.md)** | Partner webhook setup guide | ✅ Complete |
 
 ---
 
