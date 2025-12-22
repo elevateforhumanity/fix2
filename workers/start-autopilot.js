@@ -4,12 +4,6 @@
  * Monitors and manages Vercel/Netlify deployments
  */
 
-
-
-
-
-
-
 // Check if workflows exist
 import fs from 'fs';
 import path from 'path';
@@ -54,14 +48,16 @@ const docs = [
 docs.forEach((doc) => {
   const exists = fs.existsSync(path.join(cwd, doc));
   const status = exists ? '✅' : '❌';
+  console.log(`${status} ${doc}`);
 });
 
-
+console.log('\n📚 Autopilot Documentation:');
+console.log(
   '  https://api.github.com/repos/elevateforhumanity/fix2/actions/workflows/autopilot-config-vercel.yml/dispatches \\'
 );
-
+console.log(
   '- GitHub Actions: https://github.com/elevateforhumanity/fix2/actions'
 );
-
+console.log(
   '💡 Tip: Run "node vercel-check.mjs" to validate your environment\n'
 );
