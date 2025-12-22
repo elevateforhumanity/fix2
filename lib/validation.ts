@@ -1,4 +1,48 @@
 // Form validation utilities
+import { createClient } from '@/lib/supabase/server';
+
+// Enhanced validation functions
+export async function checkDuplicateEnrollment(
+  studentId: string,
+  programId: string
+): Promise<{ isDuplicate: boolean; existingEnrollmentId?: string }> {
+  const supabase = await createClient();
+  const { data: existing } = await supabase
+    .from('enrollments')
+    .select('id')
+    .eq('student_id', studentId)
+    .eq('program_id', programId)
+    .in('status', ['active', 'completed'])
+    .single();
+
+  return {
+    isDuplicate: !!existing,
+    existingEnrollmentId: existing?.id,
+  };
+}
+
+export async function verifyCertificateEligibility(enrollmentId: string) {
+  const supabase = await createClient();
+  const { data: enrollment } = await supabase
+    .from('enrollments')
+    .select('*, program:programs(required_lessons), progress:lesson_progress(completed_at)')
+    .eq('id', enrollmentId)
+    .single();
+
+  if (!enrollment || enrollment.status !== 'completed') {
+    return { eligible: false, reason: 'Program not completed' };
+  }
+
+  const completedLessons = enrollment.progress?.filter((p: any) => p.completed_at).length || 0;
+  const requiredLessons = enrollment.program?.required_lessons || 0;
+  const completionPercentage = requiredLessons > 0 ? (completedLessons / requiredLessons) * 100 : 0;
+
+  if (completionPercentage < 100) {
+    return { eligible: false, reason: `Only ${completionPercentage.toFixed(0)}% completed`, completionPercentage };
+  }
+
+  return { eligible: true, completionPercentage: 100 };
+}
 
 export const validators = {
   required: (value: any) => {
