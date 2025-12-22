@@ -23,7 +23,7 @@ These partners exist in the codebase but are **not configured** in any programs:
 | Partner | Provider Type | Status |
 |---------|---------------|--------|
 | **NRF** (National Retail Federation) | `nrf` | ⚠️ Code exists, not used |
-| **NDS** (National Dental Solutions) | `nds` | ⚠️ Code exists, not used |
+| **NDS** (National Drug Screening) | `nds` | ⚠️ Code exists, not used |
 
 ---
 

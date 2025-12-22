@@ -247,7 +247,7 @@ Configure these endpoints with each partner:
 
 ---
 
-### NDS (National Dental Solutions)
+### NDS (National Drug Screening)
 
 **Contact:** NDS Support  
 **Portal:** NDS Partner Portal
@@ -269,9 +269,9 @@ Configure these endpoints with each partner:
 {
   "event": "training.completed",
   "student_id": "external-student-id",
-  "training_id": "nds-dental-404",
+  "training_id": "nds-dot-drug-awareness",
   "completed_at": "2025-12-22T16:00:00Z",
-  "score": 95
+  "certificate_number": "NDS-123456"
 }
 ```
 
@@ -596,10 +596,10 @@ Use this checklist to verify webhook configuration:
 - **Phone:** 1-800-XXX-XXXX
 - **Portal:** https://riseup.nrf.com/partner
 
-### NDS (National Dental Solutions)
-- **Support:** support@nds.com
-- **Phone:** 1-800-XXX-XXXX
-- **Portal:** https://partner.nds.com
+### NDS (National Drug Screening)
+- **Support:** support@nationaldrugscreening.com
+- **Phone:** 1-866-843-4545
+- **Portal:** https://partner.nationaldrugscreening.com
 
 ---
 

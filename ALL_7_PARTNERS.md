@@ -46,9 +46,9 @@
 - **Programs:** NRF Rise Up Program, Customer Service
 - **Events:** course.completed, module.completed
 
-### 7. NDS (National Dental Solutions)
-- **Focus:** Dental assistant training
-- **Programs:** Dental Assistant
+### 7. NDS (National Drug Screening)
+- **Focus:** Drug-free workplace training, DOT/CDL drug & alcohol awareness
+- **Programs:** CDL programs, safety-sensitive positions
 - **Events:** training.completed, certification.issued
 
 ---
@@ -167,7 +167,9 @@ Testing Complete!
 - NRF Rise Up Program
 
 **NDS (0 programs currently):**
-- Ready for Dental Assistant programs
+- Ready for CDL/DOT drug testing programs
+- Drug-free workplace training
+- DOT/CDL drug & alcohol awareness
 
 ---
 
