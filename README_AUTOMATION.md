@@ -303,7 +303,7 @@ WHERE id = 'enrollment-id';
 
 ```env
 PARTNER_WEBHOOK_SECRET=<generate-secure-secret>
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 SUPABASE_SERVICE_ROLE_KEY=<from-supabase-dashboard>
 ```
 
@@ -311,11 +311,11 @@ SUPABASE_SERVICE_ROLE_KEY=<from-supabase-dashboard>
 
 Configure partners to send webhooks to:
 
-- `https://yourdomain.com/api/webhooks/partners/hsi`
-- `https://yourdomain.com/api/webhooks/partners/certiport`
-- `https://yourdomain.com/api/webhooks/partners/careersafe`
-- `https://yourdomain.com/api/webhooks/partners/jri`
-- `https://yourdomain.com/api/webhooks/partners/milady`
+- `https://www.elevateforhumanity.org/api/webhooks/partners/hsi`
+- `https://www.elevateforhumanity.org/api/webhooks/partners/certiport`
+- `https://www.elevateforhumanity.org/api/webhooks/partners/careersafe`
+- `https://www.elevateforhumanity.org/api/webhooks/partners/jri`
+- `https://www.elevateforhumanity.org/api/webhooks/partners/milady`
 
 ### 4. Monitor
 
