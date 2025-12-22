@@ -12,9 +12,7 @@ export function ProgramTemplate({ program }: { program: Program }) {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               {program.heroTitle}
             </h1>
-            <p className="text-xl text-white/90 mb-6">
-              {program.heroSubtitle}
-            </p>
+            <p className="text-xl text-white/90 mb-6">{program.heroSubtitle}</p>
 
             {/* Format chips */}
             <div className="flex flex-wrap gap-3 mb-8">
@@ -76,12 +74,14 @@ export function ProgramTemplate({ program }: { program: Program }) {
               What You'll Achieve
             </h3>
             <ul className="space-y-3">
-              {program.outcomes.map((outcome, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold text-xl">✓</span>
-                  <span className="text-gray-700">{outcome}</span>
-                </li>
-              ))}
+              {program.outcomes
+                .filter((outcome) => outcome && outcome.trim())
+                .map((outcome, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-blue-600 font-bold text-xl">✓</span>
+                    <span className="text-gray-700">{outcome}</span>
+                  </li>
+                ))}
             </ul>
           </div>
 
@@ -97,9 +97,7 @@ export function ProgramTemplate({ program }: { program: Program }) {
                   className="bg-blue-50 border border-blue-100 rounded-xl p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-blue-600 font-bold">
-                      {i + 1}.
-                    </span>
+                    <span className="text-blue-600 font-bold">{i + 1}.</span>
                     <span className="text-gray-800">{item}</span>
                   </div>
                 </div>
@@ -258,15 +256,7 @@ function Card({ title, value }: { title: string; value: string }) {
   );
 }
 
-function Step({
-  n,
-  title,
-  desc,
-}: {
-  n: number;
-  title: string;
-  desc: string;
-}) {
+function Step({ n, title, desc }: { n: number; title: string; desc: string }) {
   return (
     <div className="bg-white border border-gray-200 rounded-xl p-6">
       <div className="flex flex-col items-center text-center">
