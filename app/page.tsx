@@ -1,6 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useRef } from 'react';
 import {
+  Volume2,
+  VolumeX,
   GraduationCap,
   Briefcase,
   Building2,
@@ -12,35 +17,97 @@ import {
 } from 'lucide-react';
 
 export default function HomePage() {
+  const [isMuted, setIsMuted] = useState(true);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
   return (
     <main className="bg-white">
-      {/* HERO - Beautiful, Professional, Above the Fold */}
-      <section className="relative h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/hero-workforce.jpg"
-          alt="Workforce training"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/70" />
+      {/* VIDEO HERO - Above the Fold */}
+      <section className="relative overflow-hidden">
+        {!videoError ? (
+          <>
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              playsInline
+              preload="auto"
+              muted={isMuted}
+              className="w-full h-auto"
+              style={{
+                display: 'block',
+                maxHeight: '600px',
+                objectFit: 'cover',
+              }}
+              onError={() => setVideoError(true)}
+              poster="/images/video-poster.jpg"
+            >
+              <source src="/videos/hero-home.mp4" type="video/mp4" />
+            </video>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Free Job Training.
-            <br />
-            Real Careers. No Debt.
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            We connect people to careers through training, funding, and employer
-            partnerships across Indiana.
-          </p>
-          <Link
-            href="/apply"
-            className="inline-block px-10 py-5 bg-orange-500 text-white rounded-lg font-bold text-xl hover:bg-orange-600 transition shadow-2xl"
-          >
-            Apply Now
-          </Link>
+            {/* Unmute Button */}
+            <button
+              onClick={toggleMute}
+              className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition z-10"
+              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+            >
+              {isMuted ? (
+                <VolumeX className="w-6 h-6" />
+              ) : (
+                <Volume2 className="w-6 h-6" />
+              )}
+            </button>
+          </>
+        ) : (
+          // Fallback if video fails
+          <div className="relative h-[600px]">
+            <Image
+              src="/images/video-poster.jpg"
+              alt="Elevate for Humanity"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
+
+        {/* Hero Content Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-2xl text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                Free Job Training.
+                <br />
+                Real Careers. No Debt.
+              </h1>
+              <p className="text-xl md:text-2xl mb-6">
+                We connect people to careers through training, funding, and
+                employer partnerships across Indiana.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-6">
+                <Link
+                  href="/apply"
+                  className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition text-lg shadow-lg"
+                >
+                  Apply Now
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-block px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition text-lg shadow-lg"
+                >
+                  Explore Programs
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

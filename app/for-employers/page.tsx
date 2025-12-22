@@ -28,18 +28,21 @@ export default function ForEmployersPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-purple-700/70" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Hire Trained Workers.
-            <br />
-            No Recruiting Fees.
-          </h1>
-          <p className="text-xl md:text-2xl text-purple-100 mb-8">
-            Access job-ready candidates with industry credentials in healthcare,
-            skilled trades, and technology.
-          </p>
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-2xl text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                Hire Trained Workers.
+                <br />
+                No Recruiting Fees.
+              </h1>
+              <p className="text-xl md:text-2xl mb-8">
+                Access job-ready candidates with industry credentials in
+                healthcare, skilled trades, and technology.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
