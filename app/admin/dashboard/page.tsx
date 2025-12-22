@@ -118,6 +118,77 @@ export default async function AdminDashboard() {
       ? Math.round(((completedEnrollments || 0) / totalEnrollments) * 100)
       : 0;
 
+  // Pipeline data - students at each enrollment step
+  const { data: pipelineData } = await supabase
+    .from('enrollment_steps')
+    .select(
+      `
+      id,
+      status,
+      started_at,
+      completed_at,
+      enrollment:enrollments(
+        id,
+        user_id,
+        profiles!enrollments_user_id_fkey(full_name, email)
+      ),
+      provider:partner_lms_providers(
+        id,
+        provider_name,
+        logo_url
+      )
+    `
+    )
+    .order('started_at', { ascending: true });
+
+  // Group by provider and status
+  const providerStats = new Map();
+  const stuckStudents: any[] = [];
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+  pipelineData?.forEach((step: any) => {
+    const providerId = step.provider?.id;
+    const providerName = step.provider?.provider_name || 'Unknown Provider';
+
+    if (!providerId) return;
+
+    if (!providerStats.has(providerId)) {
+      providerStats.set(providerId, {
+        name: providerName,
+        logo: step.provider?.logo_url,
+        pending: 0,
+        in_progress: 0,
+        completed: 0,
+        total: 0,
+      });
+    }
+
+    const stats = providerStats.get(providerId);
+    stats.total++;
+
+    if (step.status === 'pending') stats.pending++;
+    else if (step.status === 'in_progress') {
+      stats.in_progress++;
+
+      // Check if stuck (in_progress > 7 days)
+      if (step.started_at && new Date(step.started_at) < sevenDaysAgo) {
+        stuckStudents.push({
+          student: step.enrollment?.profiles?.full_name || 'Unknown',
+          email: step.enrollment?.profiles?.email,
+          provider: providerName,
+          started: step.started_at,
+          daysStuck: Math.floor(
+            (Date.now() - new Date(step.started_at).getTime()) /
+              (1000 * 60 * 60 * 24)
+          ),
+        });
+      }
+    } else if (step.status === 'completed') stats.completed++;
+  });
+
+  const pipelineStats = Array.from(providerStats.values());
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -249,6 +320,147 @@ export default async function AdminDashboard() {
             <p className="text-sm text-slate-600 mt-1">Active Programs</p>
           </div>
         </div>
+
+        {/* Enrollment Pipeline View */}
+        <div className="bg-white rounded-lg shadow-sm border mb-8">
+          <div className="p-6 border-b">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-bold text-slate-900">
+                  Training Pipeline
+                </h2>
+                <p className="text-sm text-slate-600 mt-1">
+                  Student progress through partner training sequence
+                </p>
+              </div>
+              <Link
+                href="/admin/enrollments"
+                className="text-sm text-blue-700 font-semibold hover:underline"
+              >
+                View All Enrollments →
+              </Link>
+            </div>
+          </div>
+
+          <div className="p-6">
+            {pipelineStats.length === 0 ? (
+              <div className="text-center py-8 text-gray-500">
+                <Clock className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+                <p>No enrollment steps data available</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {pipelineStats.map((stat: any, index: number) => {
+                  const completionRate =
+                    stat.total > 0
+                      ? Math.round((stat.completed / stat.total) * 100)
+                      : 0;
+
+                  return (
+                    <div key={index} className="border rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          {stat.logo && (
+                            <img
+                              src={stat.logo}
+                              alt={stat.name}
+                              className="w-8 h-8 object-contain"
+                            />
+                          )}
+                          <h3 className="font-semibold text-slate-900">
+                            {stat.name}
+                          </h3>
+                        </div>
+                        <span className="text-sm text-slate-600">
+                          {stat.total} students
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4 mb-3">
+                        <div className="text-center">
+                          <p className="text-2xl font-bold text-gray-500">
+                            {stat.pending}
+                          </p>
+                          <p className="text-xs text-slate-600">Pending</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-2xl font-bold text-blue-600">
+                            {stat.in_progress}
+                          </p>
+                          <p className="text-xs text-slate-600">In Progress</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-2xl font-bold text-green-600">
+                            {stat.completed}
+                          </p>
+                          <p className="text-xs text-slate-600">Completed</p>
+                        </div>
+                      </div>
+
+                      <div className="w-full bg-slate-200 rounded-full h-2">
+                        <div
+                          className="bg-green-600 h-2 rounded-full transition-all"
+                          style={{ width: `${completionRate}%` }}
+                        />
+                      </div>
+                      <p className="text-xs text-slate-600 mt-1 text-right">
+                        {completionRate}% completion rate
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Stuck Students Alert */}
+        {stuckStudents.length > 0 && (
+          <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6 mb-8">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+              <div className="flex-1">
+                <h3 className="font-bold text-slate-900 mb-2">
+                  ⚠️ {stuckStudents.length} Student
+                  {stuckStudents.length > 1 ? 's' : ''} Stuck in Training
+                </h3>
+                <p className="text-sm text-slate-700 mb-4">
+                  These students have been in progress for more than 7 days
+                </p>
+                <div className="space-y-2">
+                  {stuckStudents
+                    .slice(0, 5)
+                    .map((student: any, index: number) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between bg-white p-3 rounded border"
+                      >
+                        <div>
+                          <p className="font-semibold text-slate-900">
+                            {student.student}
+                          </p>
+                          <p className="text-sm text-slate-600">
+                            {student.provider} • {student.daysStuck} days
+                          </p>
+                        </div>
+                        <Link
+                          href={`mailto:${student.email}`}
+                          className="text-sm text-blue-700 font-semibold hover:underline"
+                        >
+                          Contact
+                        </Link>
+                      </div>
+                    ))}
+                </div>
+                {stuckStudents.length > 5 && (
+                  <p className="text-sm text-slate-600 mt-3">
+                    + {stuckStudents.length - 5} more students need attention
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Performance Metrics */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
