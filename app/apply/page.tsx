@@ -42,12 +42,42 @@ export default function ApplyPage() {
       {/* Header Section */}
       <section className="bg-white text-white py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Start Your Career Journey
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-slate-900">
+            Start Your Eligibility Review
           </h1>
-          <p className="text-xl text-slate-600 mb-6">
-            Free training, real jobs, and support every step of the way
+          <p className="text-xl text-slate-600 mb-8">
+            This form starts your application process. An advisor will contact
+            you within 24 hours to review eligibility and funding options.
           </p>
+
+          {/* Process Steps */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600 mb-2">1</div>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                Submit Inquiry
+              </h3>
+              <p className="text-sm text-slate-600">
+                Tell us about your career goals
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600 mb-2">2</div>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                Advisor Review
+              </h3>
+              <p className="text-sm text-slate-600">
+                We'll verify eligibility and funding
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600 mb-2">3</div>
+              <h3 className="font-semibold text-slate-900 mb-2">Get Started</h3>
+              <p className="text-sm text-slate-600">
+                Begin your training program
+              </p>
+            </div>
+          </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-left max-w-2xl mx-auto">
             <h2 className="text-lg font-bold mb-3">
               What happens after you apply:

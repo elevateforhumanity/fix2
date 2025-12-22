@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
 
 /**
  * Generate metadata with canonical URL for any page
@@ -43,6 +44,7 @@ export function generateMetadata({
       locale: 'en_US',
       type: 'website',
     },
+    twitter: {
       card: 'summary_large_image',
       title,
       description,

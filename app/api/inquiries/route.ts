@@ -39,17 +39,43 @@ export async function POST(req: Request) {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
 
+    const programId = body.program || 'general-inquiry';
+
+    // Check for existing application (prevent duplicates)
+    const { data: existing } = await supabase
+      .from('applications')
+      .select('id, status, submitted_at')
+      .eq('email', body.email.toLowerCase())
+      .eq('program_id', programId)
+      .not('status', 'in', '("rejected","withdrawn")')
+      .single();
+
+    if (existing) {
+      return NextResponse.json(
+        {
+          error: 'You have already submitted an application for this program.',
+          message: `Your application (ID: ${existing.id.slice(0, 8)}) is currently ${existing.status}. An advisor will contact you soon.`,
+          existingId: existing.id,
+          status: existing.status,
+          submittedAt: existing.submitted_at,
+        },
+        { status: 409 } // Conflict
+      );
+    }
+
     // Store as a simple application
     const { data, error } = await supabase
       .from('applications')
       .insert({
         first_name: firstName,
         last_name: lastName,
-        email: body.email,
+        email: body.email.toLowerCase(),
         phone: body.phone || null,
-        program_id: body.program || 'general-inquiry',
+        program_id: programId,
         notes: body.message || 'Quick inquiry form submission',
         status: 'pending',
+        application_type: 'inquiry',
+        eligibility_status: 'pending',
       })
       .select()
       .single();

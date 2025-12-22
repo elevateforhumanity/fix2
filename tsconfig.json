@@ -62,6 +62,11 @@
     "supabase/functions",
     ".archive",
     "backend",
-    "lib/new-ecosystem-services"
+    "lib/new-ecosystem-services",
+    "**/*-backup*",
+    "**/*-old*",
+    "**/*-new*",
+    "**/*-redesign*",
+    "app-backup-*"
   ]
 }

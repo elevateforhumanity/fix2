@@ -49,11 +49,16 @@ class SquareClient {
 
   constructor(config: SquareConfig) {
     this.config = config;
-    this.baseUrl = config.environment === 'sandbox'
-      : 'https://connect.squareup.com';
+    this.baseUrl =
+      config.environment === 'sandbox'
+        ? 'https://connect.squareupsandbox.com'
+        : 'https://connect.squareup.com';
   }
 
-  private async request(endpoint: string, options: RequestInit = {}): Promise<any> {
+  private async request(
+    endpoint: string,
+    options: RequestInit = {}
+  ): Promise<any> {
     const response = await fetch(`${this.baseUrl}${endpoint}`, {
       ...options,
       headers: {
@@ -72,7 +77,9 @@ class SquareClient {
     return response.json();
   }
 
-  async createPayment(paymentData: SquareCreatePaymentRequest): Promise<SquarePayment> {
+  async createPayment(
+    paymentData: SquareCreatePaymentRequest
+  ): Promise<SquarePayment> {
     const result = await this.request('/v2/payments', {
       method: 'POST',
       body: JSON.stringify({
@@ -89,7 +96,11 @@ class SquareClient {
     return result.payment;
   }
 
-  async refundPayment(paymentId: string, amountMoney: { amount: number; currency: string }, idempotencyKey: string): Promise<any> {
+  async refundPayment(
+    paymentId: string,
+    amountMoney: { amount: number; currency: string },
+    idempotencyKey: string
+  ): Promise<any> {
     const result = await this.request('/v2/refunds', {
       method: 'POST',
       body: JSON.stringify({
@@ -121,7 +132,10 @@ class SquareClient {
     return result.customer;
   }
 
-  async searchCustomers(query: { email_address?: string; phone_number?: string }): Promise<SquareCustomer[]> {
+  async searchCustomers(query: {
+    email_address?: string;
+    phone_number?: string;
+  }): Promise<SquareCustomer[]> {
     const result = await this.request('/v2/customers/search', {
       method: 'POST',
       body: JSON.stringify({
@@ -156,7 +170,10 @@ class SquareClient {
     });
   }
 
-  async listPayments(beginTime?: string, endTime?: string): Promise<SquarePayment[]> {
+  async listPayments(
+    beginTime?: string,
+    endTime?: string
+  ): Promise<SquarePayment[]> {
     const params = new URLSearchParams({
       location_id: this.config.locationId,
       ...(beginTime && { begin_time: beginTime }),
@@ -171,7 +188,8 @@ class SquareClient {
 export function createSquareClient(): SquareClient | null {
   const accessToken = process.env.SQUARE_ACCESS_TOKEN;
   const locationId = process.env.SQUARE_LOCATION_ID;
-  const environment = (process.env.SQUARE_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox';
+  const environment =
+    (process.env.SQUARE_ENVIRONMENT as 'sandbox' | 'production') || 'sandbox';
 
   if (!accessToken || !locationId) {
     if (process.env.NODE_ENV === 'development') {
