@@ -115,21 +115,28 @@ Disallow: /portal/
 # ============================================
 
 User-agent: *
+Allow: /
+Allow: /programs/
+Allow: /blog/
+Allow: /apply
+Allow: /contact
+Allow: /grants
+Allow: /policies/
+Allow: /about
 Disallow: /admin/
 Disallow: /api/
 Disallow: /portal/
-Disallow: /student/
-Disallow: /instructor/
+Disallow: /student/dashboard/
+Disallow: /instructor/dashboard/
 Disallow: /shop/
 Disallow: /platform/
 Disallow: /_next/
 Disallow: /private/
 Disallow: /checkout/
-Disallow: /apply
 Disallow: /employers/intake
 Disallow: /*.json$
-Disallow: /*.xml$
-Disallow: /*?*
+Disallow: /*?page=
+Disallow: /*?sort=
 
 # ============================================
 # CRAWL DELAY (PREVENT AGGRESSIVE SCRAPING)

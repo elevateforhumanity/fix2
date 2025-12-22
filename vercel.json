@@ -15,6 +15,24 @@
       "VERCEL_FORCE_NO_BUILD_CACHE": "1"
     }
   },
+  "redirects": [
+    {
+      "source": "/:path((?!.*\\.).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.elevateforhumanity.org"
+        }
+      ],
+      "destination": "https://elevateforhumanity.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "permanent": true
+    }
+  ],
   "crons": [
     {
       "path": "/api/email/scheduler",
