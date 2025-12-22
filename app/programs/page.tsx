@@ -137,6 +137,7 @@ export default function ProgramsPage() {
                 <span>Top Employer Partners</span>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </section>
