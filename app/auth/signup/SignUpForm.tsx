@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { ComplianceNotice } from '@/components/compliance/ComplianceNotice';
+import { getPoliciesForFeature } from '@/lib/policies';
 
 export default function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -319,6 +321,13 @@ export default function SignUpForm() {
               placeholder="••••••••"
             />
           </div>
+
+          <ComplianceNotice
+            policies={getPoliciesForFeature('registration')}
+            context="By creating an account, you agree to:"
+            variant="compact"
+            className="mb-4"
+          />
 
           <div className="flex items-start">
             <input

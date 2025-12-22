@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
+import { ComplianceNotice } from '@/components/compliance/ComplianceNotice';
+import { getPoliciesForFeature } from '@/lib/policies';
 
 export default function ApplyFormClient() {
   const [programParam, setProgramParam] = useState<string>('');
@@ -294,6 +296,13 @@ export default function ApplyFormClient() {
               </div>
 
               <input type="hidden" name="state_code" value="IN" />
+
+              <ComplianceNotice
+                policies={getPoliciesForFeature('application')}
+                context="By submitting this application, you acknowledge and agree to comply with:"
+                variant="compact"
+                className="mb-4"
+              />
 
               {status === 'error' && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
