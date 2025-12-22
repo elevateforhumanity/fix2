@@ -120,7 +120,7 @@ export function CourseReviewsPanel({
             className="h-20 w-full resize-none rounded border px-2 py-1 text-xs"
           />
           {error && (
-            <p className="text-[11px] text-red-600">{error}</p>
+            <p className="text-[11px] text-brand-orange-600">{error}</p>
           )}
           <button
             type="submit"

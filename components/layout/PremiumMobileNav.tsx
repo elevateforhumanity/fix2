@@ -141,7 +141,7 @@ export function PremiumMobileNav() {
           <div className="flex items-center justify-between p-4 border-b border-slate-200   ">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center">
-                <span className="text-red-600 font-black text-sm">EFH</span>
+                <span className="text-brand-orange-600 font-black text-sm">EFH</span>
               </div>
               <div className="text-white">
                 <div className="font-bold text-sm">Elevate</div>
@@ -162,7 +162,7 @@ export function PremiumMobileNav() {
             <div className="grid grid-cols-2 gap-2">
               <Link
                 href="/apply"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-red-600 rounded-xl font-bold text-sm hover:bg-red-700 transition-colors shadow-lg"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-orange-600 rounded-xl font-bold text-sm hover:bg-brand-orange-700 transition-colors shadow-lg"
                 style={{ color: '#FFFFFF' }}
                 onClick={() => setIsOpen(false)}
               >
@@ -190,7 +190,7 @@ export function PremiumMobileNav() {
                 flex items-center gap-3 px-4 py-3 rounded-xl transition-all
                 ${
                   pathname === '/'
-                    ? 'bg-red-50 text-red-600 font-semibold'
+                    ? 'bg-red-50 text-brand-orange-600 font-semibold'
                     : 'text-slate-700 hover:bg-slate-100'
                 }
               `}
@@ -242,7 +242,7 @@ export function PremiumMobileNav() {
                             flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all
                             ${
                               pathname === link.href
-                                ? 'bg-red-50 text-red-600 font-medium'
+                                ? 'bg-red-50 text-brand-orange-600 font-medium'
                                 : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                             }
                           `}
@@ -282,10 +282,10 @@ export function PremiumMobileNav() {
           <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
             <a
               href="tel:+13173143757"
-              className="flex items-center gap-3 text-slate-700 hover:text-red-600 transition-colors"
+              className="flex items-center gap-3 text-slate-700 hover:text-brand-orange-600 transition-colors"
             >
               <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
-                <Phone size={18} className="text-red-600" />
+                <Phone size={18} className="text-brand-orange-600" />
               </div>
               <div>
                 <div className="text-xs text-slate-500">Call Us</div>

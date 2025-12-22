@@ -21,7 +21,7 @@ export default function PartnerPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

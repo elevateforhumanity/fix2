@@ -20,7 +20,7 @@ export default function PitchDeckPage() {
   return (
     <main className="bg-slate-50">
       {/* Slide 1: Header */}
-      <section className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-20 md:py-32">
+      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">

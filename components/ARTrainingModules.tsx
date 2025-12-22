@@ -247,7 +247,7 @@ export function ARTrainingModules() {
                       ].map((step, idx) => (
                         <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-                            idx === 0 ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-600'
+                            idx === 0 ? 'bg-brand-orange-600 text-white' : 'bg-gray-300 text-gray-600'
                           }`}>
                             {idx + 1}
                           </div>

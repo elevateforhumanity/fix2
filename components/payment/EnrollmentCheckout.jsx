@@ -118,7 +118,7 @@ export default function EnrollmentCheckout({ program, onSuccess, onCancel }) {
       {/* Error Message */}
       {error && (
         <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-sm text-red-600">{error}</p>
+          <p className="text-sm text-brand-orange-600">{error}</p>
         </div>
       )}
       {/* Action Buttons */}

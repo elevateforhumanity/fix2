@@ -148,7 +148,7 @@ export function CalendarIntegration() {
                   <span>Meetings</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-red-500 rounded" />
+                  <div className="w-3 h-3 bg-brand-orange-500 rounded" />
                   <span>Deadlines</span>
                 </div>
                 <div className="flex items-center gap-2">

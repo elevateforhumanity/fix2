@@ -99,7 +99,7 @@ export function SocialLearningCommunity() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium capitalize ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
+                  activeTab === tab ? 'border-red-600 text-brand-orange-600' : 'border-transparent text-gray-500'
                 }`}
               >
                 {tab}
@@ -155,7 +155,7 @@ export function SocialLearningCommunity() {
                         ))}
                       </div>
                       <div className="flex gap-4 text-sm text-gray-600">
-                        <button className="hover:text-red-600">❤️ {post.likes}</button>
+                        <button className="hover:text-brand-orange-600">❤️ {post.likes}</button>
                         <button className="hover:text-blue-600">💬 {post.comments}</button>
                         <button className="hover:text-green-600">🔗 Share</button>
                       </div>

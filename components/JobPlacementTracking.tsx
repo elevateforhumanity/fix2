@@ -95,7 +95,7 @@ export function JobPlacementTracking() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium capitalize ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
+                  activeTab === tab ? 'border-red-600 text-brand-orange-600' : 'border-transparent text-gray-500'
                 }`}
               >
                 {tab}
@@ -109,7 +109,7 @@ export function JobPlacementTracking() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <Card className="p-6">
                 <h3 className="text-sm text-gray-600 mb-2">Total Placements</h3>
-                <p className="text-3xl font-bold text-red-600">{metrics.totalPlacements}</p>
+                <p className="text-3xl font-bold text-brand-orange-600">{metrics.totalPlacements}</p>
                 <p className="text-sm text-green-600">↑ 12% from last quarter</p>
               </Card>
 
@@ -264,7 +264,7 @@ export function JobPlacementTracking() {
                       </div>
                     </div>
                     <div className="text-right ml-6">
-                      <div className="text-3xl font-bold text-red-600">{placement.matchScore}%</div>
+                      <div className="text-3xl font-bold text-brand-orange-600">{placement.matchScore}%</div>
                       <p className="text-sm text-gray-600">Match Score</p>
                     </div>
                   </div>

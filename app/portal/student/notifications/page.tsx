@@ -83,7 +83,7 @@ export default async function NotificationsPage() {
       case 'achievement':
         return <Award className="text-yellow-600" size={20} />;
       case 'reminder':
-        return <Calendar className="text-red-600" size={20} />;
+        return <Calendar className="text-brand-orange-600" size={20} />;
       default:
         return <AlertCircle className="text-gray-600" size={20} />;
     }
@@ -130,7 +130,7 @@ export default async function NotificationsPage() {
                 </button>
               )}
               <button className="p-1 hover:bg-red-100 rounded" title="Delete">
-                <Trash2 size={16} className="text-red-600" />
+                <Trash2 size={16} className="text-brand-orange-600" />
               </button>
             </div>
           </div>

@@ -6,7 +6,7 @@ export function ProgramTemplate({ program }: { program: Program }) {
   return (
     <main className="bg-white">
       {/* HERO SECTION */}
-      <section className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-16">
+      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -206,7 +206,7 @@ export function ProgramTemplate({ program }: { program: Program }) {
       )}
 
       {/* FINAL CTA */}
-      <section className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-16">
+      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-white/90 mb-8">

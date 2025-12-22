@@ -62,7 +62,7 @@ export function OnboardingFlow({ steps, onComplete }: OnboardingFlowProps) {
           <div className="relative">
             <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-red-600 transition-all duration-300"
+                className="h-full bg-brand-orange-600 transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -72,9 +72,9 @@ export function OnboardingFlow({ steps, onComplete }: OnboardingFlowProps) {
                   key={step.id}
                   className={`flex items-center gap-2 text-xs ${
                     index === currentStep
-                      ? 'text-red-600 font-semibold'
+                      ? 'text-brand-orange-600 font-semibold'
                       : completedSteps.has(index)
-                      ? 'text-red-600'
+                      ? 'text-brand-orange-600'
                       : 'text-slate-400'
                   }`}
                 >
@@ -124,7 +124,7 @@ export function OnboardingFlow({ steps, onComplete }: OnboardingFlowProps) {
           
           <button
             onClick={handleNext}
-            className="flex items-center gap-2 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+            className="flex items-center gap-2 px-6 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition"
           >
             {currentStep === steps.length - 1 ? 'Get Started' : 'Next'}
             <ChevronRight className="w-4 h-4" />
@@ -154,15 +154,15 @@ export function StudentOnboarding({ onComplete }: { onComplete: () => void }) {
           </div>
           <div className="grid grid-cols-3 gap-4 mt-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-red-600">12+</div>
+              <div className="text-3xl font-bold text-brand-orange-600">12+</div>
               <div className="text-sm text-slate-600">Programs</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-red-600">100%</div>
+              <div className="text-3xl font-bold text-brand-orange-600">100%</div>
               <div className="text-sm text-slate-600">Free</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-red-600">85%</div>
+              <div className="text-3xl font-bold text-brand-orange-600">85%</div>
               <div className="text-sm text-slate-600">Job Placement</div>
             </div>
           </div>
@@ -180,19 +180,19 @@ export function StudentOnboarding({ onComplete }: { onComplete: () => void }) {
           </p>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>View your enrolled courses and progress</span>
             </li>
             <li className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Access upcoming assignments and deadlines</span>
             </li>
             <li className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Track your achievements and certificates</span>
             </li>
             <li className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <Check className="w-5 h-5 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Message instructors and classmates</span>
             </li>
           </ul>

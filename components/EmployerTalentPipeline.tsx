@@ -73,7 +73,7 @@ export function EmployerTalentPipeline() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
           {stages.slice(1).map((stage) => (
             <Card key={stage} className="p-4 text-center">
-              <p className="text-2xl font-bold text-red-600">
+              <p className="text-2xl font-bold text-brand-orange-600">
                 {candidates.filter(c => c.stage === stage).length}
               </p>
               <p className="text-sm text-gray-600 capitalize">{stage}</p>
@@ -88,7 +88,7 @@ export function EmployerTalentPipeline() {
               onClick={() => setSelectedStage(stage)}
               className={`px-4 py-2 rounded-lg text-sm font-medium capitalize ${
                 selectedStage === stage
-                  ? 'bg-red-600 text-white'
+                  ? 'bg-brand-orange-600 text-white'
                   : 'bg-white text-gray-700 border hover:bg-gray-50'
               }`}
             >
@@ -112,7 +112,7 @@ export function EmployerTalentPipeline() {
                   <p className="text-sm text-gray-500">Graduates: {candidate.graduationDate}</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-red-600">{candidate.matchScore}%</div>
+                  <div className="text-3xl font-bold text-brand-orange-600">{candidate.matchScore}%</div>
                   <p className="text-sm text-gray-600">Match Score</p>
                 </div>
               </div>

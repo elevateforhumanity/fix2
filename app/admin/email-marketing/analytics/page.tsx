@@ -339,7 +339,7 @@ export default function AnalyticsPage() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">Total Bounces</h3>
-              <AlertCircle className="w-5 h-5 text-red-600" />
+              <AlertCircle className="w-5 h-5 text-brand-orange-600" />
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-2">
               {data.overview.totalBounces.toLocaleString()}
@@ -514,7 +514,7 @@ function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
     blue: 'text-brand-blue-600 bg-blue-50',
     green: 'text-brand-green-600 bg-green-50',
     purple: 'text-purple-600 bg-purple-50',
-    red: 'text-red-600 bg-red-50',
+    red: 'text-brand-orange-600 bg-red-50',
   };
 
   return (
@@ -525,7 +525,7 @@ function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
         </div>
         {trend && (
           <div
-            className={`flex items-center space-x-1 ${trend === 'up' ? 'text-brand-green-600' : 'text-red-600'}`}
+            className={`flex items-center space-x-1 ${trend === 'up' ? 'text-brand-green-600' : 'text-brand-orange-600'}`}
           >
             {trend === 'up' ? (
               <TrendingUp className="w-4 h-4" />

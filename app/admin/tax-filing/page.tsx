@@ -163,7 +163,7 @@ export default async function TaxFilingAdminPage() {
         </div>
 
         {error && (
-          <div className="p-6 text-red-600">
+          <div className="p-6 text-brand-orange-600">
             Error loading applications: {error.message}
           </div>
         )}

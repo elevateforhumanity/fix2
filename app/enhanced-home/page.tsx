@@ -768,7 +768,7 @@ export default function EnhancedHomePage() {
               rel="noopener noreferrer"
               className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105 text-center"
             >
-              <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 bg-brand-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="currentColor"
@@ -781,7 +781,7 @@ export default function EnhancedHomePage() {
               <p className="text-gray-600 text-sm mb-4">
                 Video tutorials & testimonials
               </p>
-              <div className="text-red-600 font-semibold">Subscribe →</div>
+              <div className="text-brand-orange-600 font-semibold">Subscribe →</div>
             </a>
           </div>
 

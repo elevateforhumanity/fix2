@@ -251,7 +251,7 @@ export default function NotificationsPage() {
                     {result.success ? (
                       <CheckCircle className="w-5 h-5 text-brand-green-600 mt-0.5" />
                     ) : (
-                      <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                      <AlertCircle className="w-5 h-5 text-brand-orange-600 mt-0.5" />
                     )}
                     <div className="flex-1">
                       <h3

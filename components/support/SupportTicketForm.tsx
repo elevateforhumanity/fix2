@@ -62,12 +62,12 @@ export function SupportTicketForm() {
         {status === 'submitting' ? 'Sending…' : 'Submit Support Ticket'}
       </button>
       {status === 'success' && (
-        <p className="text-xs text-red-600">
+        <p className="text-xs text-brand-orange-600">
           Your ticket has been submitted. Our team will follow up by email.
         </p>
       )}
       {status === 'error' && (
-        <p className="text-xs text-red-600">
+        <p className="text-xs text-brand-orange-600">
           Something went wrong. Please try again later.
         </p>
       )}

@@ -127,7 +127,7 @@ export function MOUStatusAlert({
   if (status === 'pending' || status === 'sent') {
     return (
       <div className="flex items-start gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+        <AlertCircle className="h-5 w-5 text-brand-orange-600 mt-0.5 flex-shrink-0" />
         <div>
           <p className="font-medium text-blue-900">Action Required: Sign MOU</p>
           <p className="text-sm text-blue-700 mt-1">

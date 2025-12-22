@@ -67,19 +67,19 @@ export default function RefundPage() {
           </h2>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Application fees (if applicable)</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Registration or processing fees</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Services already rendered</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
               <span>Partner-delivered coursework</span>
             </li>
           </ul>

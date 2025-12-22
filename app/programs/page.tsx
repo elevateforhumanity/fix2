@@ -27,7 +27,7 @@ export default function ProgramsPage() {
       </div>
 
       {/* Hero Section - Modern & Professional */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -376,7 +376,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA Section - Modern & Encouraging */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10" />
 

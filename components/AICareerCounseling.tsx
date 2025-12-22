@@ -124,7 +124,7 @@ export default function AICareerCounseling() {
                     <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-[80%] ${
                         message.sender === 'user'
-                          ? 'bg-red-600 text-white'
+                          ? 'bg-brand-orange-600 text-white'
                           : 'bg-gray-100 text-gray-900'
                       } rounded-lg p-4`}>
                         <p className="text-sm">{message.content}</p>
@@ -203,7 +203,7 @@ export default function AICareerCounseling() {
                   <div key={idx} className="p-3 bg-gray-50 rounded-lg">
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-sm">{rec.title}</h4>
-                      <span className="text-xs font-bold text-red-600">{rec.matchScore}%</span>
+                      <span className="text-xs font-bold text-brand-orange-600">{rec.matchScore}%</span>
                     </div>
                     <p className="text-xs text-gray-600 mb-1">💰 {rec.salary}</p>
                     <p className="text-xs text-green-600">📈 {rec.growth}</p>

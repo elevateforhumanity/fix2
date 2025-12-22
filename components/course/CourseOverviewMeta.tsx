@@ -59,7 +59,7 @@ export function CourseOverviewMeta({
           <ul className="mt-2 grid gap-2 text-xs text-slate-700 md:grid-cols-2">
             {course.what_you_learn.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-red-500" />
+                <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-brand-orange-500" />
                 <span>{item}</span>
               </li>
             ))}

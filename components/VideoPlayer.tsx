@@ -89,7 +89,7 @@ export function VideoPlayer({ src, title, onProgress, onComplete }: VideoPlayerP
           <div className="flex-1">
             <div className="h-1 bg-gray-600 rounded-full overflow-hidden">
               <div
-                className="h-full bg-red-600 transition-all"
+                className="h-full bg-brand-orange-600 transition-all"
                 style={{ width: `${progress}%` }}
               />
             </div>

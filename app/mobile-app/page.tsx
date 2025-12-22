@@ -117,7 +117,7 @@ export default async function MobileAppPage() {
 
             <div className="text-center p-6">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-                <Download className="w-8 h-8 text-red-600" />
+                <Download className="w-8 h-8 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 No App Store Required

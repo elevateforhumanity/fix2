@@ -193,7 +193,7 @@ export default function PaymentOptionsClient() {
           <p className="mt-2 text-sm text-slate-500">Loading Affirm options…</p>
         )}
 
-        {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+        {error && <p className="mt-2 text-sm text-brand-orange-600">{error}</p>}
 
         <button
           onClick={() => {

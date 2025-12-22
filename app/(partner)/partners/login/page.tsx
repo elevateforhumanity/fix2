@@ -55,7 +55,7 @@ export default function PartnerLoginPage() {
           <button className="w-full rounded-xl p-3 border bg-black text-white">
             Sign in
           </button>
-          {msg && <div className="text-sm text-red-600">{msg}</div>}
+          {msg && <div className="text-sm text-brand-orange-600">{msg}</div>}
         </div>
       </form>
     </div>

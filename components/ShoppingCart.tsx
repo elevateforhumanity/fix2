@@ -90,7 +90,7 @@ export function ShoppingCart() {
                     Browse our courses and add them to your cart
                   </p>
                   <Link href="/programs">
-                    <Button className="bg-red-600 hover:bg-red-700">
+                    <Button className="bg-brand-orange-600 hover:bg-brand-orange-700">
                       Browse Courses
                     </Button>
                   </Link>
@@ -113,7 +113,7 @@ export function ShoppingCart() {
 
                       <div className="flex-1">
                         <h3 className="font-semibold mb-1">{item.title}</h3>
-                        <div className="text-lg font-bold text-red-600">
+                        <div className="text-lg font-bold text-brand-orange-600">
                           ${(item.price / 100).toFixed(2)}
                         </div>
                       </div>
@@ -139,7 +139,7 @@ export function ShoppingCart() {
 
                         <button
                           onClick={() => removeItem(item.id)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded transition"
+                          className="p-2 text-brand-orange-600 hover:bg-red-50 rounded transition"
                         >
                           <X size={20} />
                         </button>
@@ -177,7 +177,7 @@ export function ShoppingCart() {
                 <div className="pt-2 border-t">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-red-600">
+                    <span className="text-brand-orange-600">
                       ${(total / 100).toFixed(2)}
                     </span>
                   </div>
@@ -201,7 +201,7 @@ export function ShoppingCart() {
                   <Button
                     onClick={applyPromoCode}
                     variant="outline"
-                    className="border-red-600 text-red-600 hover:bg-red-50"
+                    className="border-red-600 text-brand-orange-600 hover:bg-red-50"
                   >
                     Apply
                   </Button>
@@ -215,7 +215,7 @@ export function ShoppingCart() {
 
               <Button
                 disabled={cartItems.length === 0}
-                className="w-full bg-red-600 hover:bg-red-700 py-6 text-lg"
+                className="w-full bg-brand-orange-600 hover:bg-brand-orange-700 py-6 text-lg"
               >
                 Proceed to Checkout
               </Button>

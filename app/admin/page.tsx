@@ -764,7 +764,7 @@ export default async function MegaAdminDashboard() {
           </div>
           <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
             <div className="text-xs text-slate-600">Pending</div>
-            <div className="text-base font-bold text-red-600">
+            <div className="text-base font-bold text-brand-orange-600">
               {pendingApplications || 0}
             </div>
           </div>

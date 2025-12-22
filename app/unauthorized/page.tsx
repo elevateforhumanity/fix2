@@ -8,7 +8,7 @@ export default function UnauthorizedPage() {
       <div className="max-w-md w-full text-center">
         <div className="mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-red-100 rounded-full mb-6">
-            <ShieldAlert className="w-10 h-10 text-red-600" />
+            <ShieldAlert className="w-10 h-10 text-brand-orange-600" />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Access Denied

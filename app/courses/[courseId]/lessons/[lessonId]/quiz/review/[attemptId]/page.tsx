@@ -132,7 +132,7 @@ export default async function QuizReviewPage({
                       </svg>
                     ) : (
                       <svg
-                        className="w-5 h-5 text-red-600"
+                        className="w-5 h-5 text-brand-orange-600"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -178,7 +178,7 @@ export default async function QuizReviewPage({
                                     isCorrectAnswer
                                       ? 'border-green-500 bg-green-500'
                                       : isUserAnswer
-                                        ? 'border-red-500 bg-red-500'
+                                        ? 'border-red-500 bg-brand-orange-500'
                                         : 'border-slate-300'
                                   }`}
                                 >

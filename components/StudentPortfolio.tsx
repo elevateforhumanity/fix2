@@ -211,7 +211,7 @@ className="text-white hover:text-red-100 transition-colors">
               </div>
             </div>
             <div className="flex gap-3">
-              <Button variant="secondary" className="bg-white text-red-600 hover:bg-red-50">
+              <Button variant="secondary" className="bg-white text-brand-orange-600 hover:bg-red-50">
                 Download Resume
               </Button>
               <Button variant="secondary" className="bg-red-700 text-white hover:bg-red-800">
@@ -232,7 +232,7 @@ className="text-white hover:text-red-100 transition-colors">
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
                   activeTab === tab
-                    ? 'border-red-600 text-red-600'
+                    ? 'border-red-600 text-brand-orange-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -260,7 +260,7 @@ className="text-white hover:text-red-100 transition-colors">
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       selectedCategory === category
-                        ? 'bg-red-600 text-white'
+                        ? 'bg-brand-orange-600 text-white'
                         : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
                     }`}
                   >
@@ -326,7 +326,7 @@ className="text-white hover:text-red-100 transition-colors">
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 text-center px-3 py-2 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition-colors"
+                          className="flex-1 text-center px-3 py-2 bg-brand-orange-600 text-white text-sm rounded hover:bg-brand-orange-700 transition-colors"
                         >
                           Live Demo
                         </a>
@@ -362,7 +362,7 @@ className="text-white hover:text-red-100 transition-colors">
                         <div key={skill.name}>
                           <div className="flex justify-between items-center mb-2">
                             <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                            <span className="text-sm font-semibold text-red-600">{skill.level}%</span>
+                            <span className="text-sm font-semibold text-brand-orange-600">{skill.level}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2.5">
                             <div
@@ -402,7 +402,7 @@ className="text-white hover:text-red-100 transition-colors">
                       </p>
                       <a
                         href={cert.credentialUrl}
-                        className="text-sm text-red-600 hover:text-red-700 font-medium"
+                        className="text-sm text-brand-orange-600 hover:text-red-700 font-medium"
                       >
                         View Credential →
                       </a>
@@ -450,19 +450,19 @@ className="text-white hover:text-red-100 transition-colors">
                   <h4 className="text-lg font-bold text-gray-900 mb-3">Career Goals</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start text-gray-600">
-                      <span className="text-red-600 mr-2">▸</span>
+                      <span className="text-brand-orange-600 mr-2">▸</span>
                       <span>Lead development teams on large-scale enterprise projects</span>
                     </li>
                     <li className="flex items-start text-gray-600">
-                      <span className="text-red-600 mr-2">▸</span>
+                      <span className="text-brand-orange-600 mr-2">▸</span>
                       <span>Contribute to open-source projects that make a social impact</span>
                     </li>
                     <li className="flex items-start text-gray-600">
-                      <span className="text-red-600 mr-2">▸</span>
+                      <span className="text-brand-orange-600 mr-2">▸</span>
                       <span>Obtain AWS Solutions Architect certification</span>
                     </li>
                     <li className="flex items-start text-gray-600">
-                      <span className="text-red-600 mr-2">▸</span>
+                      <span className="text-brand-orange-600 mr-2">▸</span>
                       <span>Mentor aspiring developers through Elevate for Humanity</span>
                     </li>
                   </ul>
@@ -474,7 +474,7 @@ className="text-white hover:text-red-100 transition-colors">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Stats</h3>
                   <div className="space-y-4">
                     <div>
-                      <p className="text-3xl font-bold text-red-600">{projects.length}</p>
+                      <p className="text-3xl font-bold text-brand-orange-600">{projects.length}</p>
                       <p className="text-sm text-gray-600">Completed Projects</p>
                     </div>
                     <div>
@@ -482,7 +482,7 @@ className="text-white hover:text-red-100 transition-colors">
                       <p className="text-sm text-gray-600">Certifications</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-red-600">{skills.length}</p>
+                      <p className="text-3xl font-bold text-brand-orange-600">{skills.length}</p>
                       <p className="text-sm text-gray-600">Technical Skills</p>
                     </div>
                     <div>
@@ -508,7 +508,7 @@ className="text-white hover:text-red-100 transition-colors">
                   <p className="text-red-50 text-sm mb-4">
                     I'm always open to discussing new opportunities, collaborations, or just chatting about tech.
                   </p>
-                  <Button variant="secondary" className="w-full bg-white text-red-600 hover:bg-red-50">
+                  <Button variant="secondary" className="w-full bg-white text-brand-orange-600 hover:bg-red-50">
                     Schedule a Call
                   </Button>
                 </Card>

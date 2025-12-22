@@ -160,7 +160,7 @@ export default function EmployersPage() {
 
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-red-600" />
+                <Target className="w-6 h-6 text-brand-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 Upskill Current Employees

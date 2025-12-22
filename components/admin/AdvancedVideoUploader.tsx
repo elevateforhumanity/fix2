@@ -343,7 +343,7 @@ Apply today and start your journey.`;
           {error && (
             <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
               <div className="flex items-start gap-4">
-                <AlertCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="h-6 w-6 text-brand-orange-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-red-900 mb-1">Processing Failed</h4>
                   <p className="text-sm text-red-700">{error}</p>

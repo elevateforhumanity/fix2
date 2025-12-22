@@ -195,7 +195,7 @@ export default function AILiveChat({
           aria-label="Open chat"
         >
           <MessageCircle className="w-8 h-8" />
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full animate-pulse border-2 border-white" />
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-brand-orange-500 rounded-full animate-pulse border-2 border-white" />
         </button>
 
         {/* Popup Message */}
@@ -203,7 +203,7 @@ export default function AILiveChat({
           <div className="fixed bottom-24 right-6 bg-white rounded-xl shadow-2xl p-4 z-50 max-w-xs animate-slide-up border-2 border-orange-500">
             <button
               onClick={() => setShowPopup(false)}
-              className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition"
+              className="absolute -top-2 -right-2 w-6 h-6 bg-brand-orange-500 text-white rounded-full flex items-center justify-center hover:bg-brand-orange-600 transition"
             >
               <X className="w-4 h-4" />
             </button>

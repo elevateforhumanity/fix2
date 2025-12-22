@@ -185,7 +185,7 @@ export default async function SAPMonitoringPage() {
       case 'probation':
         return <TrendingDown className="w-5 h-5 text-brand-orange-600" />;
       case 'suspension':
-        return <AlertTriangle className="w-5 h-5 text-red-600" />;
+        return <AlertTriangle className="w-5 h-5 text-brand-orange-600" />;
       default:
         return null;
     }
@@ -284,8 +284,8 @@ export default async function SAPMonitoringPage() {
 
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <div className="flex items-center justify-between mb-2">
-              <AlertTriangle className="w-8 h-8 text-red-600" />
-              <span className="text-3xl font-bold text-red-600">
+              <AlertTriangle className="w-8 h-8 text-brand-orange-600" />
+              <span className="text-3xl font-bold text-brand-orange-600">
                 {suspension}
               </span>
             </div>
@@ -416,7 +416,7 @@ export default async function SAPMonitoringPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div
-                        className={`text-sm font-semibold ${student.meetsGPA ? 'text-brand-green-600' : 'text-red-600'}`}
+                        className={`text-sm font-semibold ${student.meetsGPA ? 'text-brand-green-600' : 'text-brand-orange-600'}`}
                       >
                         {student.gpa.toFixed(2)}
                       </div>
@@ -426,7 +426,7 @@ export default async function SAPMonitoringPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div
-                        className={`text-sm font-semibold ${student.meetsAttendance ? 'text-brand-green-600' : 'text-red-600'}`}
+                        className={`text-sm font-semibold ${student.meetsAttendance ? 'text-brand-green-600' : 'text-brand-orange-600'}`}
                       >
                         {student.attendanceRate.toFixed(1)}%
                       </div>
@@ -436,7 +436,7 @@ export default async function SAPMonitoringPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       <div
-                        className={`text-sm font-semibold ${student.meetsCompletion ? 'text-brand-green-600' : 'text-red-600'}`}
+                        className={`text-sm font-semibold ${student.meetsCompletion ? 'text-brand-green-600' : 'text-brand-orange-600'}`}
                       >
                         {student.completionRate.toFixed(1)}%
                       </div>

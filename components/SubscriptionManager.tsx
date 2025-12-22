@@ -169,7 +169,7 @@ export function SubscriptionManager() {
                 <Button
                   onClick={handleCancelSubscription}
                   variant="outline"
-                  className="flex-1 text-red-600 border-red-600 hover:bg-red-50"
+                  className="flex-1 text-brand-orange-600 border-red-600 hover:bg-red-50"
                 >
                   Cancel Subscription
                 </Button>
@@ -192,7 +192,7 @@ export function SubscriptionManager() {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-red-600 text-white">Most Popular</Badge>
+                  <Badge className="bg-brand-orange-600 text-white">Most Popular</Badge>
                 </div>
               )}
               <CardHeader>
@@ -216,7 +216,7 @@ export function SubscriptionManager() {
                 <Button
                   className={`w-full ${
                     plan.popular
-                      ? 'bg-red-600 hover:bg-red-700'
+                      ? 'bg-brand-orange-600 hover:bg-brand-orange-700'
                       : 'bg-slate-900 hover:bg-slate-800'
                   }`}
                 >

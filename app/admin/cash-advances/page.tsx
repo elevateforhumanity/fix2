@@ -145,7 +145,7 @@ export default async function CashAdvancesAdminPage() {
         </div>
 
         {error && (
-          <div className="p-6 text-red-600">
+          <div className="p-6 text-brand-orange-600">
             Error loading applications: {error.message}
           </div>
         )}
@@ -235,7 +235,7 @@ export default async function CashAdvancesAdminPage() {
                           <button className="text-brand-green-600 hover:text-green-900 mr-4">
                             Approve
                           </button>
-                          <button className="text-red-600 hover:text-red-900">
+                          <button className="text-brand-orange-600 hover:text-red-900">
                             Deny
                           </button>
                         </>

@@ -108,7 +108,7 @@ export default async function TransferHoursPage() {
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-4">
               <h3 className="text-sm font-medium text-gray-600 mb-1">Denied</h3>
-              <p className="text-base md:text-lg font-bold text-red-600">
+              <p className="text-base md:text-lg font-bold text-brand-orange-600">
                 {deniedRequests || 0}
               </p>
             </div>

@@ -78,7 +78,7 @@ export function PeerReview({ assignmentId, studentName }: PeerReviewProps) {
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-3xl font-bold text-red-600 mb-1">
+              <div className="text-3xl font-bold text-brand-orange-600 mb-1">
                 {averageRating.toFixed(1)}
               </div>
               <div className="flex items-center gap-1 mb-2">
@@ -140,7 +140,7 @@ export function PeerReview({ assignmentId, studentName }: PeerReviewProps) {
 
           <Button
             onClick={handleSubmitReview}
-            className="w-full bg-red-600 hover:bg-red-700"
+            className="w-full bg-brand-orange-600 hover:bg-brand-orange-700"
           >
             Submit Review
           </Button>
@@ -180,11 +180,11 @@ export function PeerReview({ assignmentId, studentName }: PeerReviewProps) {
                   <p className="text-gray-700 mb-3">{review.comment}</p>
                   
                   <div className="flex items-center gap-4">
-                    <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition">
+                    <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-orange-600 transition">
                       <ThumbsUp size={16} />
                       <span>Helpful ({review.helpful})</span>
                     </button>
-                    <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition">
+                    <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-orange-600 transition">
                       <MessageSquare size={16} />
                       <span>Reply</span>
                     </button>

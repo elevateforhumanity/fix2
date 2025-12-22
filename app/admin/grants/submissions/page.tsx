@@ -178,7 +178,7 @@ export default async function GrantSubmissionsPage() {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Rejected</p>
-            <p className="text-3xl font-bold text-red-600">{stats.rejected}</p>
+            <p className="text-3xl font-bold text-brand-orange-600">{stats.rejected}</p>
           </div>
         </div>
 
@@ -313,7 +313,7 @@ export default async function GrantSubmissionsPage() {
               <button className="bg-brand-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 font-semibold">
                 📊 Export to Excel
               </button>
-              <button className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-semibold">
+              <button className="bg-brand-orange-600 text-white px-6 py-3 rounded-lg hover:bg-brand-orange-700 font-semibold">
                 📄 Export to PDF
               </button>
               <button className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg hover:bg-brand-blue-700 font-semibold">

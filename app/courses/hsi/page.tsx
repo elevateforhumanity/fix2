@@ -106,13 +106,13 @@ export default function HsiPage() {
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+                className="bg-white text-brand-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
               >
                 Apply for Free Training
               </Link>
               <Link
                 href="/courses/catalog"
-                className="bg-red-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-600 border-2 border-white transition-colors"
+                className="bg-red-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-orange-600 border-2 border-white transition-colors"
               >
                 Browse All Courses
               </Link>
@@ -126,25 +126,25 @@ export default function HsiPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 1,200+
               </div>
               <div className="text-gray-600">Safety Courses</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 100%
               </div>
               <div className="text-gray-600">OSHA Compliant</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 24/7
               </div>
               <div className="text-gray-600">Online Access</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+              <div className="text-4xl font-bold text-brand-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 Free
               </div>
               <div className="text-gray-600">WIOA Funded</div>
@@ -170,7 +170,7 @@ export default function HsiPage() {
                   <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-orange-600 transition-colors">
                     {category.name}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4">
@@ -180,7 +180,7 @@ export default function HsiPage() {
                     <span className="text-sm text-gray-500">
                       {category.count} courses
                     </span>
-                    <span className="text-red-600 font-semibold group-hover:translate-x-1 transition-transform">
+                    <span className="text-brand-orange-600 font-semibold group-hover:translate-x-1 transition-transform">
                       Explore →
                     </span>
                   </div>
@@ -202,7 +202,7 @@ export default function HsiPage() {
               <div className="text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-red-600"
+                    className="w-8 h-8 text-brand-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -223,7 +223,7 @@ export default function HsiPage() {
               <div className="text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-red-600"
+                    className="w-8 h-8 text-brand-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -244,7 +244,7 @@ export default function HsiPage() {
               <div className="text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-red-600"
+                    className="w-8 h-8 text-brand-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -281,7 +281,7 @@ export default function HsiPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
+              className="inline-block bg-white text-brand-orange-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
             >
               Apply Now - It's Free
             </Link>

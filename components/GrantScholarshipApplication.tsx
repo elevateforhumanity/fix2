@@ -65,7 +65,7 @@ export default function GrantScholarshipApplication() {
                   onClick={() => setSelectedGrant(grant.id)}
                 >
                   <h3 className="font-bold text-lg">{grant.name}</h3>
-                  <p className="text-2xl font-bold text-red-600">${grant.amount.toLocaleString()}</p>
+                  <p className="text-2xl font-bold text-brand-orange-600">${grant.amount.toLocaleString()}</p>
                   <p className="text-sm text-gray-600">Deadline: {grant.deadline}</p>
                   <span className={`inline-block mt-2 px-2 py-1 rounded text-xs ${
                     grant.status === 'open' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'

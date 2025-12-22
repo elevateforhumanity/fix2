@@ -147,10 +147,10 @@ export default async function AtRiskStudentsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-3 mb-2">
-              <AlertCircle className="w-8 h-8 text-red-600" />
+              <AlertCircle className="w-8 h-8 text-brand-orange-600" />
               <div>
                 <div className="text-sm text-gray-500">At-Risk Students</div>
-                <div className="text-3xl font-bold text-red-600">
+                <div className="text-3xl font-bold text-brand-orange-600">
                   {atRiskStudents?.length || 0}
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default async function AtRiskStudentsPage() {
         {/* At-Risk Students List */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <AlertCircle className="w-6 h-6 text-red-600" />
+            <AlertCircle className="w-6 h-6 text-brand-orange-600" />
             Critical: At-Risk Students
           </h2>
 
@@ -265,7 +265,7 @@ export default async function AtRiskStudentsPage() {
                             <span className="text-gray-500">
                               Days Inactive:
                             </span>
-                            <span className="ml-2 font-medium text-red-600">
+                            <span className="ml-2 font-medium text-brand-orange-600">
                               {risk.days_since_activity}
                             </span>
                           </div>
@@ -381,13 +381,13 @@ export default async function AtRiskStudentsPage() {
                       </td>
                       <td className="py-3 px-4 text-center">
                         <span
-                          className={`font-bold ${program.completionRate < 50 ? 'text-red-600' : 'text-yellow-600'}`}
+                          className={`font-bold ${program.completionRate < 50 ? 'text-brand-orange-600' : 'text-yellow-600'}`}
                         >
                           {program.completionRate}%
                         </span>
                       </td>
                       <td className="py-3 px-4 text-center">
-                        <span className="font-bold text-red-600">
+                        <span className="font-bold text-brand-orange-600">
                           {program.dropoutRate}%
                         </span>
                       </td>

@@ -294,7 +294,7 @@ export default async function VerifyCertificatePage({
             {isValid ? (
               <CheckCircle className="w-12 h-12 text-brand-green-600" />
             ) : (
-              <XCircle className="w-12 h-12 text-red-600" />
+              <XCircle className="w-12 h-12 text-brand-orange-600" />
             )}
             <div>
               <h1 className="text-3xl font-bold text-gray-900">

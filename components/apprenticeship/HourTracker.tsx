@@ -135,7 +135,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
               </div>
               <button
                 onClick={handleClockOut}
-                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:scale-105"
+                className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:scale-105"
               >
                 <Square className="w-5 h-5" />
                 Clock Out

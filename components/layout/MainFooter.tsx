@@ -16,19 +16,19 @@ export function MainFooter() {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <Link href="/privacy" className="hover:text-red-600">
+          <Link href="/privacy" className="hover:text-brand-orange-600">
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-red-600">
+          <Link href="/terms" className="hover:text-brand-orange-600">
             Terms of Use
           </Link>
-          <Link href="/refund-policy" className="hover:text-red-600">
+          <Link href="/refund-policy" className="hover:text-brand-orange-600">
             Refund Policy
           </Link>
-          <Link href="/accessibility" className="hover:text-red-600">
+          <Link href="/accessibility" className="hover:text-brand-orange-600">
             Accessibility
           </Link>
-          <Link href="/sitemap" className="hover:text-red-600">
+          <Link href="/sitemap" className="hover:text-brand-orange-600">
             Sitemap
           </Link>
         </div>
@@ -56,7 +56,7 @@ export function MainFooter() {
                 <br />
                 Trauma recovery, divorce support, addiction services
                 <br />
-                <a href="https://www.selfishinc.org" className="text-red-600 hover:underline">
+                <a href="https://www.selfishinc.org" className="text-brand-orange-600 hover:underline">
                   selfishinc.org
                 </a>
               </p>
@@ -84,7 +84,7 @@ export function MainFooter() {
             <p className="font-semibold text-slate-700">© {currentYear} Elevate For Humanity. All rights reserved.</p>
             <p className="mt-1 font-medium text-slate-600">This website, platform, and all associated training systems, workflows, and instructional materials are proprietary to Elevate for Humanity.</p>
             <p className="mt-1">A workforce development program of <strong>SELFISH INC</strong>, a 501(c)(3) nonprofit organization</p>
-            <p className="mt-1 text-[10px]">Unauthorized copying, scraping, or reproduction prohibited. <Link href="/terms" className="underline hover:text-red-600">Terms of Use</Link></p>
+            <p className="mt-1 text-[10px]">Unauthorized copying, scraping, or reproduction prohibited. <Link href="/terms" className="underline hover:text-brand-orange-600">Terms of Use</Link></p>
           </div>
           <div className="flex items-center gap-4 text-[10px] text-slate-500">
             <div className="flex items-center gap-1.5">
@@ -94,7 +94,7 @@ export function MainFooter() {
               <span>ByBlack Certified</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="h-5 w-5 rounded-full bg-red-600 flex items-center justify-center">
+              <div className="h-5 w-5 rounded-full bg-brand-orange-600 flex items-center justify-center">
                 <span className="text-white text-[7px] font-bold">NRF</span>
               </div>
               <span>NRF Partner</span>

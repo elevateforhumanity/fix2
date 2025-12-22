@@ -74,7 +74,7 @@ export function CourseCompletionTracking() {
         <Card className="p-6 mb-8">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">Overall Progress</h2>
-            <span className="text-3xl font-bold text-red-600">{overallProgress}%</span>
+            <span className="text-3xl font-bold text-brand-orange-600">{overallProgress}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-4">
             <div
@@ -106,7 +106,7 @@ export function CourseCompletionTracking() {
                       <p className="text-sm text-gray-600">{milestone.description}</p>
                       <p className="text-xs text-gray-500 mt-1">Due: {milestone.dueDate}</p>
                     </div>
-                    <span className="text-2xl font-bold text-red-600">{milestone.progress}%</span>
+                    <span className="text-2xl font-bold text-brand-orange-600">{milestone.progress}%</span>
                   </div>
 
                   <div className="w-full bg-gray-200 rounded-full h-2 mb-3">

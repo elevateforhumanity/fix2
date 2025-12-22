@@ -84,7 +84,7 @@ export function MobileVoiceOver() {
             {!isPlaying ? (
               <button
                 onClick={handlePlay}
-                className="flex-1 bg-white text-red-600 rounded-lg py-2 px-4 font-bold text-sm flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors"
+                className="flex-1 bg-white text-brand-orange-600 rounded-lg py-2 px-4 font-bold text-sm flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors"
               >
                 <Play size={16} />
                 Play Voice-Over
@@ -92,7 +92,7 @@ export function MobileVoiceOver() {
             ) : (
               <button
                 onClick={handlePause}
-                className="flex-1 bg-white text-red-600 rounded-lg py-2 px-4 font-bold text-sm flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors"
+                className="flex-1 bg-white text-brand-orange-600 rounded-lg py-2 px-4 font-bold text-sm flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors"
               >
                 <VolumeX size={16} />
                 Pause

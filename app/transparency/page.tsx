@@ -455,7 +455,7 @@ export default function TransparencyPage() {
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-red-600" />
+                    <FileText className="w-6 h-6 text-brand-orange-600" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-slate-900 mb-1">

@@ -191,7 +191,7 @@ export default function ProgramHolderApplicationPage() {
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
               <div className="flex items-center gap-2">
-                <AlertCircle className="text-red-600" size={20} />
+                <AlertCircle className="text-brand-orange-600" size={20} />
                 <p className="text-red-800 font-semibold">Error</p>
               </div>
               <p className="text-red-700 text-sm mt-1">{error}</p>

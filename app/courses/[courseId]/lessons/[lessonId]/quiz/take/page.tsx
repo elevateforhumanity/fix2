@@ -309,7 +309,7 @@ export default function TakeQuizPage({
             <div className="text-right">
               {timeRemaining !== null && (
                 <div
-                  className={`text-2xl font-bold ${timeRemaining < 60 ? 'text-red-600' : 'text-slate-900'}`}
+                  className={`text-2xl font-bold ${timeRemaining < 60 ? 'text-brand-orange-600' : 'text-slate-900'}`}
                 >
                   {formatTime(timeRemaining)}
                 </div>

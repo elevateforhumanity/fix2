@@ -155,7 +155,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
             {program.skills.map((skill, index) => (
               <div key={index} className="flex items-start gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200">
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
-                  <CheckCircle size={20} className="text-red-600" />
+                  <CheckCircle size={20} className="text-brand-orange-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 mb-1">{skill.title}</h3>
@@ -182,7 +182,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="space-y-4">
                 {program.jobTitles.map((job, index) => (
                   <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                    <Briefcase size={20} className="text-red-600 flex-shrink-0" />
+                    <Briefcase size={20} className="text-brand-orange-600 flex-shrink-0" />
                     <div>
                       <div className="font-bold text-slate-900">{job.title}</div>
                       <div className="text-sm text-slate-600">{job.setting}</div>
@@ -198,10 +198,10 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-slate-700">Job Placement Rate</span>
-                    <span className="text-2xl font-bold text-red-600">{program.outcomes.jobPlacement}%</span>
+                    <span className="text-2xl font-bold text-brand-orange-600">{program.outcomes.jobPlacement}%</span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-red-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }} />
+                    <div className="bg-brand-orange-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }} />
                   </div>
                 </div>
                 <div>
@@ -226,7 +226,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
 
               <div className="mt-8 p-4 bg-red-50 rounded-xl border border-red-200">
                 <div className="flex items-center gap-3 mb-2">
-                  <Award size={20} className="text-red-600" />
+                  <Award size={20} className="text-brand-orange-600" />
                   <span className="font-bold text-slate-900">Certification Included</span>
                 </div>
                 <p className="text-sm text-slate-600">
@@ -250,7 +250,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
           <div className="grid gap-8 md:grid-cols-3">
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
               <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
-                <Clock size={24} className="text-red-600" />
+                <Clock size={24} className="text-brand-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Schedule</h3>
               <p className="text-slate-600 mb-4">
@@ -259,7 +259,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <ul className="space-y-2 text-sm text-slate-600">
                 {program.schedule.map((item, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <CheckCircle size={16} className="text-red-600" />
+                    <CheckCircle size={16} className="text-brand-orange-600" />
                     <span>{item}</span>
                   </li>
                 ))}

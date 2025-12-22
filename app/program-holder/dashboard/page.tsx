@@ -135,10 +135,10 @@ export default async function ProgramHolderDashboard() {
 
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-3 mb-2">
-              <AlertCircle className="w-8 h-8 text-red-600" />
+              <AlertCircle className="w-8 h-8 text-brand-orange-600" />
               <div>
                 <div className="text-sm text-gray-500">At-Risk Students</div>
-                <div className="text-3xl font-bold text-red-600">
+                <div className="text-3xl font-bold text-brand-orange-600">
                   {atRiskStudents}
                 </div>
               </div>
@@ -221,9 +221,9 @@ export default async function ProgramHolderDashboard() {
 
                     if (status === 'at_risk') {
                       statusBadge = {
-                        icon: <AlertCircle className="w-5 h-5 text-red-600" />,
+                        icon: <AlertCircle className="w-5 h-5 text-brand-orange-600" />,
                         text: 'At Risk',
-                        color: 'text-red-600',
+                        color: 'text-brand-orange-600',
                         bgColor: 'bg-red-100',
                       };
                     } else if (status === 'needs_action') {
@@ -273,7 +273,7 @@ export default async function ProgramHolderDashboard() {
                         </td>
                         <td className="py-3 px-4 text-center">
                           {overdueCount > 0 ? (
-                            <span className="inline-flex items-center gap-1 text-red-600 font-semibold">
+                            <span className="inline-flex items-center gap-1 text-brand-orange-600 font-semibold">
                               <AlertCircle className="w-4 h-4" />
                               {overdueCount}
                             </span>

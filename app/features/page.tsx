@@ -133,7 +133,7 @@ export default async function FeaturesPage() {
             {/* Feature 5 */}
             <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg mb-4">
-                <Clock className="w-6 h-6 text-red-600" />
+                <Clock className="w-6 h-6 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Flexible Schedule

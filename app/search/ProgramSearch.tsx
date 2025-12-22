@@ -72,7 +72,7 @@ export function ProgramSearch() {
                 </p>
               )}
             </div>
-            <span className="mt-3 text-[11px] font-semibold text-red-600">
+            <span className="mt-3 text-[11px] font-semibold text-brand-orange-600">
               View program →
             </span>
           </Link>

@@ -274,7 +274,7 @@ export default function AutopilotsPage() {
                                     : status === 'completed'
                                       ? 'text-brand-green-600'
                                       : status === 'failed'
-                                        ? 'text-red-600'
+                                        ? 'text-brand-orange-600'
                                         : 'text-gray-600'
                                 }`}
                               />
@@ -296,7 +296,7 @@ export default function AutopilotsPage() {
                             <CheckCircle className="w-5 h-5 text-brand-green-600" />
                           )}
                           {status === 'failed' && (
-                            <XCircle className="w-5 h-5 text-red-600" />
+                            <XCircle className="w-5 h-5 text-brand-orange-600" />
                           )}
                         </div>
 

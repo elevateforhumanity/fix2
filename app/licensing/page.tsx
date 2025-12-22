@@ -152,19 +152,19 @@ export default function LicensingPage() {
           </p>
           <ul className="space-y-3 text-zinc-700">
             <li className="flex items-start">
-              <span className="text-red-600 font-bold mr-2">✗</span>
+              <span className="text-brand-orange-600 font-bold mr-2">✗</span>
               The platform is not sold outright
             </li>
             <li className="flex items-start">
-              <span className="text-red-600 font-bold mr-2">✗</span>
+              <span className="text-brand-orange-600 font-bold mr-2">✗</span>
               Source code is not transferred
             </li>
             <li className="flex items-start">
-              <span className="text-red-600 font-bold mr-2">✗</span>
+              <span className="text-brand-orange-600 font-bold mr-2">✗</span>
               Licensing does not allow redistribution without approval
             </li>
             <li className="flex items-start">
-              <span className="text-red-600 font-bold mr-2">✗</span>
+              <span className="text-brand-orange-600 font-bold mr-2">✗</span>
               Each deployment is governed by a formal agreement
             </li>
           </ul>

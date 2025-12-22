@@ -67,7 +67,7 @@ export default function AcademicIntegrityPage() {
             {/* Plagiarism */}
             <div className="border-l-4 border-red-500 pl-6">
               <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-6 h-6 text-red-600" />
+                <AlertTriangle className="w-6 h-6 text-brand-orange-600" />
                 Plagiarism
               </h3>
               <p className="text-slate-700 mb-3">
@@ -295,7 +295,7 @@ export default function AcademicIntegrityPage() {
 
             <div className="bg-red-50 rounded-lg p-6">
               <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
-                <AlertTriangle className="w-6 h-6 text-red-600" />
+                <AlertTriangle className="w-6 h-6 text-brand-orange-600" />
                 Don'ts
               </h3>
               <ul className="space-y-2 text-red-800 text-sm">

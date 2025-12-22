@@ -228,7 +228,7 @@ export default function DocumentUploadPage() {
                     <CheckCircle className="w-5 h-5 text-brand-green-600" />
                   )}
                   {file.status === 'error' && (
-                    <AlertCircle className="w-5 h-5 text-red-600" />
+                    <AlertCircle className="w-5 h-5 text-brand-orange-600" />
                   )}
                   <button
                     onClick={() => removeFile(file.name)}

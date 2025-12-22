@@ -238,8 +238,8 @@ export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
           'relative w-14 h-14 rounded-full flex items-center justify-center transition-all',
           'focus:outline-none focus:ring-2 focus:ring-offset-2',
           isListening
-            ? 'bg-red-500 hover:bg-red-600 focus:ring-red-500 animate-pulse'
-            : 'bg-red-600 hover:bg-red-700 focus:ring-blue-500',
+            ? 'bg-brand-orange-500 hover:bg-brand-orange-600 focus:ring-red-500 animate-pulse'
+            : 'bg-brand-orange-600 hover:bg-brand-orange-700 focus:ring-blue-500',
           isSpeaking ? 'opacity-50 cursor-not-allowed' : '',
         ].join(' ')}
         title={isListening ? 'Stop listening' : 'Start voice command'}
@@ -252,7 +252,7 @@ export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
           <MicOff className="h-6 w-6 text-white" />
         )}
         {isListening && (
-          <span className="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75" />
+          <span className="absolute inset-0 rounded-full bg-brand-orange-500 animate-ping opacity-75" />
         )}
       </button>
       {transcript && (

@@ -131,7 +131,7 @@ export default async function AdminCreatorsPage() {
                         ${(pendingEarnings / 100).toFixed(2)}
                       </td>
                       <td className="py-3 px-4">
-                        <button className="text-red-600 hover:underline text-sm">
+                        <button className="text-brand-orange-600 hover:underline text-sm">
                           Suspend
                         </button>
                       </td>

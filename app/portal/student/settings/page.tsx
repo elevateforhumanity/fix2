@@ -247,9 +247,9 @@ export default async function SettingsPage() {
                 </button>
                 <button className="w-full flex items-center justify-between p-4 border border-red-200 rounded-lg hover:bg-red-50">
                   <div className="flex items-center gap-3">
-                    <Trash2 size={20} className="text-red-600" />
+                    <Trash2 size={20} className="text-brand-orange-600" />
                     <div className="text-left">
-                      <h3 className="font-medium text-red-600">
+                      <h3 className="font-medium text-brand-orange-600">
                         Delete Account
                       </h3>
                       <p className="text-sm text-gray-600">

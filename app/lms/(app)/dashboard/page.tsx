@@ -66,7 +66,7 @@ export default async function DashboardPage() {
       <ClaimApplications />
       
       {/* Welcome Banner */}
-      <section className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-12">
+      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-3">
             Welcome back, {profile?.first_name || 'Student'}! 👋

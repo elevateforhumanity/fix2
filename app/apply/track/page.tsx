@@ -47,7 +47,7 @@ const statusConfig = {
   },
   rejected: {
     icon: XCircle,
-    color: 'text-red-600',
+    color: 'text-brand-orange-600',
     bg: 'bg-red-50',
     border: 'border-red-200',
     label: 'Not Approved',
@@ -185,7 +185,7 @@ export default function TrackApplicationPage() {
 
             {error && (
               <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-600">{error}</p>
+                <p className="text-sm text-brand-orange-600">{error}</p>
               </div>
             )}
 

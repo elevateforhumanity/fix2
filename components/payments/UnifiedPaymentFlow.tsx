@@ -259,7 +259,7 @@ export default function UnifiedPaymentFlow({
                   </div>
                   <p className="text-sm text-slate-600">{method.description}</p>
                   {!method.available && (
-                    <p className="text-xs text-red-600 mt-1">
+                    <p className="text-xs text-brand-orange-600 mt-1">
                       {method.minAmount && price < method.minAmount && 
                         `Minimum $${method.minAmount} required`}
                       {method.maxAmount && price > method.maxAmount && 
@@ -332,7 +332,7 @@ export default function UnifiedPaymentFlow({
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
           <div className="flex items-start gap-2">
-            <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+            <AlertCircle className="w-5 h-5 text-brand-orange-600 mt-0.5 flex-shrink-0" />
             <div>
               <p className="font-semibold text-red-900">Payment Error</p>
               <p className="text-sm text-red-700 mt-1">{error}</p>

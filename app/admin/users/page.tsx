@@ -267,7 +267,7 @@ export default async function Page() {
                           >
                             Edit
                           </Link>
-                          <button className="text-red-600 hover:text-red-700">
+                          <button className="text-brand-orange-600 hover:text-red-700">
                             Delete
                           </button>
                         </td>

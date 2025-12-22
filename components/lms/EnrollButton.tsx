@@ -69,7 +69,7 @@ export default function EnrollButton({
           'Enroll Now'
         )}
       </Button>
-      {error && <p className="text-xs text-red-600 text-center">{error}</p>}
+      {error && <p className="text-xs text-brand-orange-600 text-center">{error}</p>}
       <Button variant="outline" className="w-full" asChild>
         <a href={`/lms/courses/${courseId}`}>View Details</a>
       </Button>

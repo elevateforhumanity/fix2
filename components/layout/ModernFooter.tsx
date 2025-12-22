@@ -162,7 +162,7 @@ export function ModernFooter() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-lg transition-colors"
+                  className="flex items-center justify-center w-10 h-10 bg-slate-800 hover:bg-brand-orange-600 rounded-lg transition-colors"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5" />
@@ -264,7 +264,7 @@ export function ModernFooter() {
               />
               <button
                 type="submit"
-                className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors whitespace-nowrap"
+                className="px-8 py-3 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold rounded-lg transition-colors whitespace-nowrap"
               >
                 Subscribe
               </button>

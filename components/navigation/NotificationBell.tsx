@@ -28,7 +28,7 @@ const notifications = [
     id: 3,
     type: 'reminder',
     icon: AlertCircle,
-    color: 'text-red-600',
+    color: 'text-brand-orange-600',
     title: 'Assignment Due Soon',
     message: 'Module 3 Quiz due in 2 days',
     time: '1 day ago',
@@ -38,7 +38,7 @@ const notifications = [
     id: 4,
     type: 'info',
     icon: BookOpen,
-    color: 'text-red-600',
+    color: 'text-brand-orange-600',
     title: 'New Course Available',
     message: 'Check out the new HVAC Advanced module',
     time: '3 days ago',
@@ -78,7 +78,7 @@ export function NotificationBell() {
       >
         <Bell className="h-6 w-6 text-gray-600" />
         {unreadCount > 0 && (
-          <span className="absolute top-0 right-0 w-5 h-5 bg-red-600 text-white text-xs rounded-full flex items-center justify-center font-bold">
+          <span className="absolute top-0 right-0 w-5 h-5 bg-brand-orange-600 text-white text-xs rounded-full flex items-center justify-center font-bold">
             {unreadCount}
           </span>
         )}
@@ -91,7 +91,7 @@ export function NotificationBell() {
             {unreadCount > 0 && (
               <button
                 onClick={markAllRead}
-                className="text-xs text-red-600 hover:text-blue-700 font-medium"
+                className="text-xs text-brand-orange-600 hover:text-blue-700 font-medium"
               >
                 Mark all read
               </button>
@@ -130,7 +130,7 @@ export function NotificationBell() {
                         </p>
                       </div>
                       {notif.unread && (
-                        <div className="w-2 h-2 bg-red-600 rounded-full mt-2" />
+                        <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2" />
                       )}
                     </div>
                   </div>
@@ -140,7 +140,7 @@ export function NotificationBell() {
           </div>
           {/* Footer */}
           <div className="px-4 py-3 border-t border-gray-100 text-center">
-            <button className="text-sm text-red-600 hover:text-blue-700 font-medium">
+            <button className="text-sm text-brand-orange-600 hover:text-blue-700 font-medium">
               View All Notifications
             </button>
           </div>

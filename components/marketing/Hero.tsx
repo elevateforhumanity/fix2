@@ -17,7 +17,7 @@ export function Hero() {
       <div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col gap-12 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
         {/* Left column */}
         <div className="max-w-xl space-y-6">
-          <p className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300 ring-1 ring-emerald-500/40">
+          <p className="inline-flex items-center rounded-full bg-brand-orange-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300 ring-1 ring-emerald-500/40">
             WIOA-aligned · Workforce & employer partners
           </p>
           <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">

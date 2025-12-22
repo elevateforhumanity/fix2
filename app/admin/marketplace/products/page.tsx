@@ -123,7 +123,7 @@ export default async function AdminProductsPage() {
                   <button className="text-sm text-brand-blue-600 hover:underline">
                     Edit
                   </button>
-                  <button className="text-sm text-red-600 hover:underline">
+                  <button className="text-sm text-brand-orange-600 hover:underline">
                     Archive
                   </button>
                 </div>

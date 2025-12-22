@@ -488,7 +488,7 @@ function Step1Eligibility({ formData, updateField }: any) {
               onClick={() => updateField(field, false)}
               className={`flex-1 px-4 py-3 rounded-lg font-semibold transition ${
                 formData[field] === false
-                  ? 'bg-red-600 text-white'
+                  ? 'bg-brand-orange-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >

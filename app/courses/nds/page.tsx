@@ -153,7 +153,7 @@ export default function NdsPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-red-600" />
+                <Award className="w-8 h-8 text-brand-orange-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">DOT Required</h3>
               <p className="text-gray-600">
@@ -225,7 +225,7 @@ export default function NdsPage() {
                       href={course.enrollUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                      className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                       Enroll Now
                       <ExternalLink className="w-4 h-4" />
@@ -253,7 +253,7 @@ export default function NdsPage() {
               <p className="text-gray-600 mb-4">
                 Includes all DOT-required training and compliance courses
               </p>
-              <span className="text-red-600 font-semibold">Learn More →</span>
+              <span className="text-brand-orange-600 font-semibold">Learn More →</span>
             </Link>
 
             <Link
@@ -266,7 +266,7 @@ export default function NdsPage() {
               <p className="text-gray-600 mb-4">
                 Includes DOT drug testing procedures and compliance
               </p>
-              <span className="text-red-600 font-semibold">Learn More →</span>
+              <span className="text-brand-orange-600 font-semibold">Learn More →</span>
             </Link>
           </div>
         </div>

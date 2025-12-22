@@ -310,7 +310,7 @@ export default async function AdminDashboard() {
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                 <FileCheck className="text-orange-700" size={24} />
               </div>
-              <span className="text-sm font-medium text-red-600">
+              <span className="text-sm font-medium text-brand-orange-600">
                 {pendingApplications || 0} Pending
               </span>
             </div>

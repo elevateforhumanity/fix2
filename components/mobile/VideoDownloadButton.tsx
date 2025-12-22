@@ -100,7 +100,7 @@ export default function VideoDownloadButton({
   if (isDownloading) {
     return (
       <div
-        className={`${sizeClasses[size]} rounded-lg bg-blue-100 text-red-600 relative`}
+        className={`${sizeClasses[size]} rounded-lg bg-blue-100 text-brand-orange-600 relative`}
       >
         <Loader2 size={iconSizes[size]} className="animate-spin" />
         {progress > 0 && (

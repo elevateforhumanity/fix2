@@ -128,12 +128,12 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
           <SlidersHorizontal size={20} className="mr-2" />
           Filters
           {activeFilterCount > 0 && (
-            <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs rounded-full">
+            <span className="ml-2 px-2 py-0.5 bg-brand-orange-600 text-white text-xs rounded-full">
               {activeFilterCount}
             </span>
           )}
         </Button>
-        <Button onClick={handleSearch} className="bg-red-600 hover:bg-red-700">
+        <Button onClick={handleSearch} className="bg-brand-orange-600 hover:bg-brand-orange-700">
           Search
         </Button>
       </div>
@@ -162,7 +162,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                         type="checkbox"
                         checked={filters.category?.includes(category)}
                         onChange={() => toggleFilter('category', category)}
-                        className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
+                        className="w-4 h-4 text-brand-orange-600 rounded focus:ring-red-500"
                       />
                       <span className="text-sm">{category}</span>
                     </label>
@@ -180,7 +180,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                         type="checkbox"
                         checked={filters.duration?.includes(duration)}
                         onChange={() => toggleFilter('duration', duration)}
-                        className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
+                        className="w-4 h-4 text-brand-orange-600 rounded focus:ring-red-500"
                       />
                       <span className="text-sm">{duration}</span>
                     </label>
@@ -198,7 +198,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                         type="checkbox"
                         checked={filters.level?.includes(level)}
                         onChange={() => toggleFilter('level', level)}
-                        className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
+                        className="w-4 h-4 text-brand-orange-600 rounded focus:ring-red-500"
                       />
                       <span className="text-sm">{level}</span>
                     </label>
@@ -216,7 +216,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                         type="checkbox"
                         checked={filters.price?.includes(range)}
                         onChange={() => toggleFilter('price', range)}
-                        className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
+                        className="w-4 h-4 text-brand-orange-600 rounded focus:ring-red-500"
                       />
                       <span className="text-sm">{range}</span>
                     </label>
@@ -276,7 +276,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-red-600 text-white text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-brand-orange-600 text-white text-xs font-semibold rounded-full">
                       {result.category}
                     </span>
                   </div>

@@ -145,10 +145,10 @@ export default function FERPATrainingDashboard({
           <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
               <div className="p-3 bg-red-100 rounded-lg">
-                <AlertCircle className="w-6 h-6 text-red-600" />
+                <AlertCircle className="w-6 h-6 text-brand-orange-600" />
               </div>
             </div>
-            <div className="text-3xl font-bold text-red-600">{expiredCount}</div>
+            <div className="text-3xl font-bold text-brand-orange-600">{expiredCount}</div>
             <div className="text-sm text-slate-600 mt-1">Expired</div>
           </div>
 
@@ -210,7 +210,7 @@ export default function FERPATrainingDashboard({
                 onClick={() => setFilter('expired')}
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   filter === 'expired'
-                    ? 'bg-red-600 text-white'
+                    ? 'bg-brand-orange-600 text-white'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -285,7 +285,7 @@ export default function FERPATrainingDashboard({
                           <span className={`text-sm font-medium ${
                             record.quiz_score >= 90 ? 'text-green-600' :
                             record.quiz_score >= 80 ? 'text-blue-600' :
-                            'text-red-600'
+                            'text-brand-orange-600'
                           }`}>
                             {record.quiz_score}%
                           </span>
@@ -391,7 +391,7 @@ export default function FERPATrainingDashboard({
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={`text-sm font-medium ${
-                            daysPending > 30 ? 'text-red-600' :
+                            daysPending > 30 ? 'text-brand-orange-600' :
                             daysPending > 14 ? 'text-orange-600' :
                             'text-slate-600'
                           }`}>

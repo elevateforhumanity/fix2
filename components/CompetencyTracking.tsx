@@ -112,7 +112,7 @@ export default function CompetencyTracking() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Total Competencies</h3>
-            <p className="text-3xl font-bold text-red-600">{competencies.length}</p>
+            <p className="text-3xl font-bold text-brand-orange-600">{competencies.length}</p>
           </Card>
           <Card className="p-6">
             <h3 className="text-sm text-gray-600 mb-2">Mastered</h3>
@@ -141,7 +141,7 @@ export default function CompetencyTracking() {
               onClick={() => setActiveCategory(category)}
               className={`px-4 py-2 rounded-lg text-sm font-medium ${
                 activeCategory === category
-                  ? 'bg-red-600 text-white'
+                  ? 'bg-brand-orange-600 text-white'
                   : 'bg-white text-gray-700 border hover:bg-gray-50'
               }`}
             >
@@ -170,7 +170,7 @@ export default function CompetencyTracking() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-red-600">{competency.progress}%</div>
+                  <div className="text-3xl font-bold text-brand-orange-600">{competency.progress}%</div>
                   <p className="text-sm text-gray-600">Progress</p>
                 </div>
               </div>

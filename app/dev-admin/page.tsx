@@ -188,7 +188,7 @@ export default async function DevAdmin() {
               <p className="text-red-800 font-semibold">
                 Error loading courses:
               </p>
-              <p className="text-red-600 text-sm mt-2">
+              <p className="text-brand-orange-600 text-sm mt-2">
                 {coursesError.message}
               </p>
             </div>

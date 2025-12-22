@@ -127,7 +127,7 @@ export default function EmployersPage() {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Handshake className="w-8 h-8 text-red-600" />
+                  <Handshake className="w-8 h-8 text-brand-orange-600" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Ongoing Support</h3>
                 <p className="text-slate-600">

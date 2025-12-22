@@ -286,7 +286,7 @@ export default function ModerationDashboard() {
                       </button>
                       <button
                         onClick={() => handleReview(report.id, 'remove')}
-                        className="text-red-600 hover:text-red-800"
+                        className="text-brand-orange-600 hover:text-red-800"
                         title="Remove"
                       >
                         <Trash2 className="w-5 h-5" />
@@ -357,7 +357,7 @@ export default function ModerationDashboard() {
               </button>
               <button
                 onClick={() => handleReview(selectedReport.id, 'remove', 'Content removed for policy violation')}
-                className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                className="flex-1 px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700"
               >
                 Remove
               </button>

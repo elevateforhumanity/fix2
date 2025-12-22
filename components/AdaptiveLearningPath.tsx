@@ -142,7 +142,7 @@ export function AdaptiveLearningPath() {
                   <p className="text-gray-600 text-sm mb-3">{path.description}</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-red-600">{path.matchScore}%</div>
+                  <div className="text-3xl font-bold text-brand-orange-600">{path.matchScore}%</div>
                   <p className="text-xs text-gray-600">Match</p>
                 </div>
               </div>
@@ -195,7 +195,7 @@ export function AdaptiveLearningPath() {
                           <p className="text-sm text-gray-600">{course.duration}</p>
                         </div>
                         <div className="text-right">
-                          <div className="text-xl font-bold text-red-600">{course.matchScore}%</div>
+                          <div className="text-xl font-bold text-brand-orange-600">{course.matchScore}%</div>
                           <p className="text-xs text-gray-600">Match</p>
                         </div>
                       </div>

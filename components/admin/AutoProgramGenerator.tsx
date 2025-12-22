@@ -347,7 +347,7 @@ export function AutoProgramGenerator() {
     if (score >= 95) return 'text-brand-success';
     if (score >= 85) return 'text-brand-info';
     if (score >= 75) return 'text-yellow-600';
-    return 'text-red-600';
+    return 'text-brand-orange-600';
   };
 
   return (

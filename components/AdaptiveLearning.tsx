@@ -83,7 +83,7 @@ export function AdaptiveLearning({
       <Card className="  ">
         <CardHeader>
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-red-600 rounded-lg">
+            <div className="p-2 bg-brand-orange-600 rounded-lg">
               <Brain className="text-white" size={24} />
             </div>
             <CardTitle>Your Learning Insights</CardTitle>
@@ -92,7 +92,7 @@ export function AdaptiveLearning({
         <CardContent>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="text-center">
-              <div className="text-3xl font-bold text-red-600">{currentSkillLevel}%</div>
+              <div className="text-3xl font-bold text-brand-orange-600">{currentSkillLevel}%</div>
               <div className="text-sm text-gray-600">Skill Level</div>
             </div>
             <div className="text-center">
@@ -134,7 +134,7 @@ export function AdaptiveLearning({
                       <span className="text-sm text-gray-600">{path.estimatedTime}</span>
                     </div>
                   </div>
-                  <Target className="text-red-600" size={20} />
+                  <Target className="text-brand-orange-600" size={20} />
                 </div>
                 
                 <div className="mb-4">
@@ -151,7 +151,7 @@ export function AdaptiveLearning({
                   </div>
                 </div>
                 
-                <Button className="w-full bg-red-600 hover:bg-red-700">
+                <Button className="w-full bg-brand-orange-600 hover:bg-brand-orange-700">
                   Start Learning Path
                 </Button>
               </div>
@@ -193,10 +193,10 @@ export function AdaptiveLearning({
             <div>
               <div className="flex justify-between mb-2">
                 <span className="text-sm font-semibold">Study Consistency</span>
-                <span className="text-sm text-red-600">↓ 3%</span>
+                <span className="text-sm text-brand-orange-600">↓ 3%</span>
               </div>
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div className="h-full bg-red-600" style={{ width: '78%' }} />
+                <div className="h-full bg-brand-orange-600" style={{ width: '78%' }} />
               </div>
             </div>
           </div>

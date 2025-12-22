@@ -339,7 +339,7 @@ export default async function FERPAPortal() {
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-red-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-red-100 rounded-lg group-hover:bg-red-200 transition">
-                  <Calendar className="w-8 h-8 text-red-600" />
+                  <Calendar className="w-8 h-8 text-brand-orange-600" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">
@@ -350,15 +350,15 @@ export default async function FERPAPortal() {
               </div>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-red-600" />
+                  <AlertCircle className="w-4 h-4 text-brand-orange-600" />
                   Request deadlines
                 </li>
                 <li className="flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-red-600" />
+                  <AlertCircle className="w-4 h-4 text-brand-orange-600" />
                   Training schedules
                 </li>
                 <li className="flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-red-600" />
+                  <AlertCircle className="w-4 h-4 text-brand-orange-600" />
                   Audit dates
                 </li>
               </ul>

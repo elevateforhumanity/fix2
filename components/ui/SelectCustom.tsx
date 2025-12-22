@@ -169,7 +169,7 @@ export const Select: React.FC<SelectProps> = ({
                       className={`
                         w-full px-4 py-2 text-left text-sm transition-colors
                         ${option.disabled ? 'text-slate-400 cursor-not-allowed' : 'text-slate-900 hover:bg-slate-50 cursor-pointer'}
-                        ${isSelected ? 'bg-blue-50 text-red-600' : ''}
+                        ${isSelected ? 'bg-blue-50 text-brand-orange-600' : ''}
                       `}
                     >
                       <div className="flex items-center justify-between">
@@ -186,7 +186,7 @@ export const Select: React.FC<SelectProps> = ({
       </div>
 
       {error && (
-        <p className="mt-2 text-sm text-red-600">{error}</p>
+        <p className="mt-2 text-sm text-brand-orange-600">{error}</p>
       )}
     </div>
   );

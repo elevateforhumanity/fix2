@@ -243,7 +243,7 @@ export default function CheckoutForm(props: CheckoutFormProps) {
   if (!clientSecret) {
     return (
       <div className="text-center py-12">
-        <p className="text-red-600">Failed to initialize payment. Please try again.</p>
+        <p className="text-brand-orange-600">Failed to initialize payment. Please try again.</p>
       </div>
     );
   }

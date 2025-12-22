@@ -40,7 +40,7 @@ export default function PaymentCancelPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+              className="bg-brand-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-orange-700 transition"
             >
               Try Again
             </Link>
@@ -55,11 +55,11 @@ export default function PaymentCancelPage() {
           <div className="mt-8 pt-8 border-t border-gray-200">
             <p className="text-sm text-gray-600">
               Questions? Contact us at{' '}
-              <a href="tel:317-314-3757" className="text-red-600 hover:underline">
+              <a href="tel:317-314-3757" className="text-brand-orange-600 hover:underline">
                 317-314-3757
               </a>{' '}
               or{' '}
-              <a href="mailto:info@elevateforhumanity.org" className="text-red-600 hover:underline">
+              <a href="mailto:info@elevateforhumanity.org" className="text-brand-orange-600 hover:underline">
                 info@elevateforhumanity.org
               </a>
             </p>

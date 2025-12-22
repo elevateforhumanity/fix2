@@ -112,7 +112,7 @@ export default function TransferHoursApproval({
           key={th.id}
           className={`border rounded-lg overflow-hidden transition-all ${
             th.status === 'approved' ? 'border-green-500/30 bg-green-500/5' :
-            th.status === 'rejected' ? 'border-red-500/30 bg-red-500/5' :
+            th.status === 'rejected' ? 'border-red-500/30 bg-brand-orange-500/5' :
             'border-slate-600 bg-slate-800/30'
           }`}
         >
@@ -240,7 +240,7 @@ export default function TransferHoursApproval({
                   <button
                     onClick={() => handleReject(th.id)}
                     disabled={processing === th.id}
-                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                    className="px-4 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition-colors"
                   >
                     Reject
                   </button>
@@ -263,7 +263,7 @@ export default function TransferHoursApproval({
               )}
 
               {th.status === 'rejected' && (
-                <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3">
+                <div className="bg-brand-orange-500/10 border border-red-500/30 rounded-lg p-3">
                   <div className="text-sm text-red-400 font-medium">
                     ✗ Transfer Hours Rejected
                   </div>

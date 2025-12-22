@@ -343,7 +343,7 @@ export default function OrgInvitesPage() {
                               </button>
                               <button
                                 onClick={() => revokeInvite(invite.id)}
-                                className="text-red-600 hover:text-red-900"
+                                className="text-brand-orange-600 hover:text-red-900"
                               >
                                 Revoke
                               </button>

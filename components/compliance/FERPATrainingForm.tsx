@@ -416,7 +416,7 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
             {error && (
               <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
                 <div className="flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  <AlertCircle className="w-5 h-5 text-brand-orange-600" />
                   <p className="text-red-900">{error}</p>
                 </div>
                 <button
@@ -426,7 +426,7 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
                     setPassed(false);
                     setError('');
                   }}
-                  className="mt-3 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition text-sm"
+                  className="mt-3 px-4 py-2 bg-brand-orange-600 text-white rounded hover:bg-brand-orange-700 transition text-sm"
                 >
                   <RefreshCw className="w-4 h-4 inline mr-2" />
                   Retake Quiz
@@ -669,7 +669,7 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <div className="flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  <AlertCircle className="w-5 h-5 text-brand-orange-600" />
                   <p className="text-red-900">{error}</p>
                 </div>
               </div>

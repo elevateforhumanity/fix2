@@ -232,7 +232,7 @@ export default async function EtplDashboard() {
         {wotc.urgent > 0 && (
           <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 mb-8">
             <div className="flex items-start gap-4">
-              <AlertCircle className="w-8 h-8 text-red-600 flex-shrink-0" />
+              <AlertCircle className="w-8 h-8 text-brand-orange-600 flex-shrink-0" />
               <div>
                 <h3 className="text-xl font-bold text-red-900 mb-2">
                   WOTC Deadline Alert
@@ -244,7 +244,7 @@ export default async function EtplDashboard() {
                 </p>
                 <Link
                   href="/admin/wotc"
-                  className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+                  className="inline-flex items-center gap-2 bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition"
                 >
                   View WOTC Dashboard →
                 </Link>

@@ -246,7 +246,7 @@ export default function RoleSelectionCards({
             {/* What You Cannot Do */}
             <div className="p-6 border-b border-slate-200">
               <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-                <X className="w-5 h-5 text-red-600" />
+                <X className="w-5 h-5 text-brand-orange-600" />
                 What You Cannot Do
               </h4>
               <ul className="space-y-2">
@@ -255,7 +255,7 @@ export default function RoleSelectionCards({
                     key={idx}
                     className="flex items-start gap-2 text-sm text-slate-700"
                   >
-                    <X className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                    <X className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}

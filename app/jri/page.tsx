@@ -306,7 +306,7 @@ export default function JRIPage() {
                 <CardHeader>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="w-6 h-6 text-red-600" />
+                      <Briefcase className="w-6 h-6 text-brand-orange-600" />
                     </div>
                     <div>
                       <CardTitle>Job Placement</CardTitle>

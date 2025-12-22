@@ -136,9 +136,9 @@ export default function AnnualReportPage() {
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm text-center">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="w-8 h-8 text-red-600" />
+                  <Briefcase className="w-8 h-8 text-brand-orange-600" />
                 </div>
-                <div className="text-4xl font-bold text-red-600 mb-2">150+</div>
+                <div className="text-4xl font-bold text-brand-orange-600 mb-2">150+</div>
                 <div className="text-slate-600 font-semibold">
                   Employer Partners
                 </div>

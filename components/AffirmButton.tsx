@@ -117,7 +117,7 @@ export default function AffirmButton({ programId, programName, price, fullWidth 
         )}
       </button>
       {error && (
-        <p className="text-sm text-red-600 mt-2">{error}</p>
+        <p className="text-sm text-brand-orange-600 mt-2">{error}</p>
       )}
     </div>
   );

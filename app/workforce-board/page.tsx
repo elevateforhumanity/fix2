@@ -136,7 +136,7 @@ export default async function WorkforceBoardPage() {
               href="/workforce-board/follow-ups"
               className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-red-500 hover:shadow-lg transition-all"
             >
-              <Calendar className="w-12 h-12 text-red-600 mb-4" />
+              <Calendar className="w-12 h-12 text-brand-orange-600 mb-4" />
               <h3 className="text-lg font-bold text-slate-900 mb-2">
                 Follow-Ups
               </h3>

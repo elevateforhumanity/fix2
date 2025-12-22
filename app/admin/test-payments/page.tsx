@@ -76,7 +76,7 @@ export default function TestPaymentsPage() {
                     Configured
                   </span>
                 ) : (
-                  <span className="flex items-center gap-1 text-sm text-red-600 font-medium">
+                  <span className="flex items-center gap-1 text-sm text-brand-orange-600 font-medium">
                     <XCircle className="w-4 h-4" />
                     Not Configured
                   </span>

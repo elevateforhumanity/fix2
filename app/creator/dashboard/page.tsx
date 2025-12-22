@@ -98,7 +98,7 @@ export default async function CreatorDashboardPage() {
                             : product.status === 'pending_review'
                               ? 'text-yellow-600'
                               : product.status === 'rejected'
-                                ? 'text-red-600'
+                                ? 'text-brand-orange-600'
                                 : 'text-gray-600'
                         }
                       >

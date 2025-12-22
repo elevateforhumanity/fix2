@@ -219,14 +219,14 @@ export default function DocumentUpload({
             exit={{ opacity: 0, y: -10 }}
             className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
           >
-            <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-brand-orange-600 flex-shrink-0 mt-0.5" />
             <div>
               <h4 className="font-semibold text-red-900">Upload Error</h4>
               <p className="text-sm text-red-700">{error}</p>
             </div>
             <button
               onClick={() => setError(null)}
-              className="ml-auto text-red-600 hover:text-red-800"
+              className="ml-auto text-brand-orange-600 hover:text-red-800"
             >
               <X className="w-5 h-5" />
             </button>
@@ -270,7 +270,7 @@ export default function DocumentUpload({
                       {file.status === 'success' ? (
                         <Check className="w-6 h-6 text-green-600" />
                       ) : file.status === 'error' ? (
-                        <AlertCircle className="w-6 h-6 text-red-600" />
+                        <AlertCircle className="w-6 h-6 text-brand-orange-600" />
                       ) : (
                         <FileIcon className="w-6 h-6 text-blue-600" />
                       )}
@@ -315,7 +315,7 @@ export default function DocumentUpload({
                       )}
 
                       {file.status === 'error' && (
-                        <div className="flex items-center gap-2 text-sm text-red-600">
+                        <div className="flex items-center gap-2 text-sm text-brand-orange-600">
                           <AlertCircle className="w-4 h-4" />
                           <span>{file.error || 'Upload failed'}</span>
                         </div>
@@ -345,7 +345,7 @@ export default function DocumentUpload({
                       )}
                       <button
                         onClick={() => removeFile(file.id)}
-                        className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        className="p-2 text-gray-600 hover:text-brand-orange-600 hover:bg-red-50 rounded-lg transition-colors"
                         title="Remove"
                       >
                         <Trash2 className="w-5 h-5" />

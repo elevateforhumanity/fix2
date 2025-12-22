@@ -86,7 +86,7 @@ export function VideoConferencingIntegration() {
               </div>
 
               {meeting.status === 'live' && (
-                <Button className="w-full bg-red-600 hover:bg-red-700">Join Now</Button>
+                <Button className="w-full bg-brand-orange-600 hover:bg-brand-orange-700">Join Now</Button>
               )}
               {meeting.status === 'upcoming' && (
                 <Button className="w-full" variant="secondary">Add to Calendar</Button>

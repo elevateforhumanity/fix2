@@ -185,7 +185,7 @@ export default function PartnerCoursesPage() {
       <section id="healthcare" className="py-16 bg-gray-50">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex items-center gap-4 mb-8">
-            <Heart className="w-12 h-12 text-red-600" />
+            <Heart className="w-12 h-12 text-brand-orange-600" />
             <div>
               <h2 className="text-3xl font-bold">Healthcare Safety</h2>
               <p className="text-gray-600">HSI - Health & Safety Institute</p>

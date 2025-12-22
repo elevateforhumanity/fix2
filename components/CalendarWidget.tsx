@@ -76,7 +76,7 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
       case 'quiz':
         return 'bg-purple-500';
       case 'deadline':
-        return 'bg-red-500';
+        return 'bg-brand-orange-500';
       case 'class':
         return 'bg-green-500';
       default:

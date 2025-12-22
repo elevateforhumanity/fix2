@@ -69,7 +69,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
       label: 'Overall Progress',
       value: `${data.overall_progress}%`,
       icon: TrendingUp,
-      color: 'text-red-600',
+      color: 'text-brand-orange-600',
       bgColor: 'bg-red-50',
     },
     {
@@ -134,7 +134,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
       <div className="bg-white rounded-lg border border-slate-200 p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-slate-900">Overall Progress</h3>
-          <span className="text-2xl font-bold text-red-600">
+          <span className="text-2xl font-bold text-brand-orange-600">
             {data.overall_progress}%
           </span>
         </div>
@@ -164,7 +164,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
                   </p>
                 </div>
                 <div className="text-right ml-4">
-                  <p className="text-lg font-bold text-red-600">
+                  <p className="text-lg font-bold text-brand-orange-600">
                     {course.progress}%
                   </p>
                   {course.grade !== undefined && (
@@ -174,7 +174,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
               </div>
               <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-red-500 transition-all duration-300"
+                  className="h-full bg-brand-orange-500 transition-all duration-300"
                   style={{ width: `${course.progress}%` }}
                 />
               </div>

@@ -87,7 +87,7 @@ d="M5 13l4 4L19 7" />
         )}
       </div>
       {error && (
-        <p className="text-sm text-red-600">{error}</p>
+        <p className="text-sm text-brand-orange-600">{error}</p>
       )}
       {!isVerified && (
         <p className="text-xs text-slate-600">

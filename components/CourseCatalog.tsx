@@ -247,7 +247,7 @@ export function CourseCatalog() {
 
                 <div className="flex items-center justify-between pt-4 border-t">
                   <div>
-                    <p className="text-2xl font-bold text-red-600">${course.price}</p>
+                    <p className="text-2xl font-bold text-brand-orange-600">${course.price}</p>
                   </div>
                   <Button size="sm">Enroll Now</Button>
                 </div>

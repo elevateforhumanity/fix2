@@ -212,7 +212,7 @@ export default function ServicesPage() {
 
         <div className="rounded-2xl border-2 border-red-200 bg-white p-6 hover:shadow-lg transition">
           <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-4">
-            <FileText className="w-6 h-6 text-red-600" />
+            <FileText className="w-6 h-6 text-brand-orange-600" />
           </div>
           <h2 className="text-xl font-bold text-gray-900 mb-2">
             Amended Returns
@@ -223,21 +223,21 @@ export default function ServicesPage() {
           </p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Form 1040-X preparation</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>Prior year corrections</span>
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-4 h-4 text-brand-orange-600 flex-shrink-0 mt-0.5" />
               <span>IRS correspondence help</span>
             </li>
           </ul>
           <div className="mt-4 pt-4 border-t">
             <div className="text-sm text-gray-500">Starting at</div>
-            <div className="text-2xl font-bold text-red-600">$149</div>
+            <div className="text-2xl font-bold text-brand-orange-600">$149</div>
           </div>
         </div>
 

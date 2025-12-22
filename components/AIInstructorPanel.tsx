@@ -114,7 +114,7 @@ export function AIInstructorPanel({ instructor, programTitle }: AIInstructorPane
             className={
               "max-w-[80%] rounded-lg px-3 py-2 text-[11px] " +
               (m.sender === "student"
-                ? "ml-auto bg-red-600 text-white"
+                ? "ml-auto bg-brand-orange-600 text-white"
                 : "mr-auto bg-slate-800 text-slate-100")
             }
           >
@@ -141,7 +141,7 @@ export function AIInstructorPanel({ instructor, programTitle }: AIInstructorPane
           <button
             type="submit"
             disabled={loading || !input.trim()}
-            className="h-8 rounded-md bg-red-600 px-3 text-[11px] font-semibold text-white hover:bg-red-700 disabled:opacity-60"
+            className="h-8 rounded-md bg-brand-orange-600 px-3 text-[11px] font-semibold text-white hover:bg-brand-orange-700 disabled:opacity-60"
           >
             {loading ? "Thinking…" : "Send"}
           </button>

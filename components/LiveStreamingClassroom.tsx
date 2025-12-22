@@ -106,7 +106,7 @@ export function LiveStreamingClassroom() {
           <div className="flex gap-2">
             <Button variant="secondary" size="sm">🔴 Recording</Button>
             <Button variant="secondary" size="sm">⚙️ Settings</Button>
-            <Button size="sm" className="bg-red-600 hover:bg-red-700">Leave</Button>
+            <Button size="sm" className="bg-brand-orange-600 hover:bg-brand-orange-700">Leave</Button>
           </div>
         </div>
 
@@ -122,7 +122,7 @@ export function LiveStreamingClassroom() {
               </div>
 
               {/* Screen Share Indicator */}
-              <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded text-sm">
+              <div className="absolute top-4 left-4 bg-brand-orange-600 text-white px-3 py-1 rounded text-sm">
                 🖥️ Screen Sharing
               </div>
 
@@ -210,7 +210,7 @@ export function LiveStreamingClassroom() {
                         placeholder="Type a message..."
                         className="flex-1 px-3 py-2 bg-gray-700 text-white rounded border-none focus:ring-2 focus:ring-red-600"
                       />
-                      <button className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded">
+                      <button className="px-4 py-2 bg-brand-orange-600 hover:bg-brand-orange-700 text-white rounded">
                         Send
                       </button>
                     </div>
@@ -262,7 +262,7 @@ export function LiveStreamingClassroom() {
                               </div>
                               <div className="w-full bg-gray-800 rounded-full h-2">
                                 <div
-                                  className="bg-red-600 h-2 rounded-full transition-all"
+                                  className="bg-brand-orange-600 h-2 rounded-full transition-all"
                                   style={{ width: `${percentage}%` }}
                                 />
                               </div>

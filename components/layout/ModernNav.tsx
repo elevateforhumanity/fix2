@@ -204,7 +204,7 @@ export function ModernNav() {
               onMouseEnter={() => setActiveDropdown('programs')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-red-600 font-semibold transition-colors">
+              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-brand-orange-600 font-semibold transition-colors">
                 Programs
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -226,7 +226,7 @@ export function ModernNav() {
                           >
                             <span className="text-2xl">{item.icon}</span>
                             <div>
-                              <div className="font-semibold text-slate-900 group-hover:text-red-600 transition-colors">
+                              <div className="font-semibold text-slate-900 group-hover:text-brand-orange-600 transition-colors">
                                 {item.name}
                               </div>
                               <div className="text-sm text-slate-600">
@@ -248,7 +248,7 @@ export function ModernNav() {
                           <Link
                             key={link.href}
                             href={link.href}
-                            className="block px-3 py-2 text-slate-700 hover:text-red-600 hover:bg-slate-50 rounded-lg transition-colors"
+                            className="block px-3 py-2 text-slate-700 hover:text-brand-orange-600 hover:bg-slate-50 rounded-lg transition-colors"
                           >
                             {link.name}
                           </Link>
@@ -265,7 +265,7 @@ export function ModernNav() {
                         </p>
                         <Link
                           href={navigation.programs.cta.href}
-                          className="inline-flex items-center justify-center w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                          className="inline-flex items-center justify-center w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                         >
                           {navigation.programs.cta.button}
                         </Link>
@@ -282,7 +282,7 @@ export function ModernNav() {
               onMouseEnter={() => setActiveDropdown('resources')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-red-600 font-semibold transition-colors">
+              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-brand-orange-600 font-semibold transition-colors">
                 Resources
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -300,7 +300,7 @@ export function ModernNav() {
                             <Link
                               key={link.href}
                               href={link.href}
-                              className="flex items-center gap-2 px-2 py-2 text-sm text-slate-700 hover:text-red-600 hover:bg-slate-50 rounded-lg transition-colors"
+                              className="flex items-center gap-2 px-2 py-2 text-sm text-slate-700 hover:text-brand-orange-600 hover:bg-slate-50 rounded-lg transition-colors"
                             >
                               <span>{link.icon}</span>
                               {link.name}
@@ -320,7 +320,7 @@ export function ModernNav() {
               onMouseEnter={() => setActiveDropdown('partners')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-red-600 font-semibold transition-colors">
+              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-brand-orange-600 font-semibold transition-colors">
                 Partners
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -338,7 +338,7 @@ export function ModernNav() {
                             <Link
                               key={link.href}
                               href={link.href}
-                              className="flex items-center gap-2 px-2 py-2 text-sm text-slate-700 hover:text-red-600 hover:bg-slate-50 rounded-lg transition-colors"
+                              className="flex items-center gap-2 px-2 py-2 text-sm text-slate-700 hover:text-brand-orange-600 hover:bg-slate-50 rounded-lg transition-colors"
                             >
                               <span>{link.icon}</span>
                               {link.name}
@@ -358,7 +358,7 @@ export function ModernNav() {
               onMouseEnter={() => setActiveDropdown('about')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-red-600 font-semibold transition-colors">
+              <button className="flex items-center gap-1 px-4 py-2 text-slate-700 hover:text-brand-orange-600 font-semibold transition-colors">
                 About
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -370,7 +370,7 @@ export function ModernNav() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="flex items-center gap-2 px-3 py-2 text-slate-700 hover:text-red-600 hover:bg-slate-50 rounded-lg transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 text-slate-700 hover:text-brand-orange-600 hover:bg-slate-50 rounded-lg transition-colors"
                       >
                         <span>{link.icon}</span>
                         {link.name}
@@ -385,14 +385,14 @@ export function ModernNav() {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             {/* Search */}
-            <button className="hidden lg:flex items-center justify-center w-10 h-10 text-slate-600 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors">
+            <button className="hidden lg:flex items-center justify-center w-10 h-10 text-slate-600 hover:text-brand-orange-600 hover:bg-slate-100 rounded-lg transition-colors">
               <Search className="w-5 h-5" />
             </button>
 
             {/* Login */}
             <Link
               href="/login"
-              className="hidden lg:flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-red-600 font-semibold transition-colors"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 text-slate-700 hover:text-brand-orange-600 font-semibold transition-colors"
             >
               <User className="w-4 h-4" />
               Login
@@ -473,7 +473,7 @@ export function ModernNav() {
             <div className="space-y-3 pt-4 border-t border-slate-200">
               <Link
                 href="/apply"
-                className="block w-full bg-red-600 hover:bg-red-700 text-white text-center px-6 py-3 rounded-lg font-bold transition-colors"
+                className="block w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white text-center px-6 py-3 rounded-lg font-bold transition-colors"
               >
                 Apply Now
               </Link>

@@ -45,7 +45,7 @@ export class ErrorBoundary extends Component<Props, State> {
         <div className="min-h-screen flex items-center justify-center bg-slate-50 p-6">
           <div className="max-w-md w-full bg-white rounded-lg border border-red-200 p-8 text-center">
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <AlertTriangle className="w-8 h-8 text-red-600" />
+              <AlertTriangle className="w-8 h-8 text-brand-orange-600" />
             </div>
             <h2 className="text-2xl font-bold text-slate-900 mb-2">
               Something went wrong
@@ -65,7 +65,7 @@ export class ErrorBoundary extends Component<Props, State> {
             )}
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+              className="px-6 py-3 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition"
             >
               Refresh Page
             </button>
@@ -90,14 +90,14 @@ export function ErrorMessage({
   return (
     <div className="bg-red-50 border border-red-200 rounded-lg p-6">
       <div className="flex items-start gap-3">
-        <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+        <AlertTriangle className="w-5 h-5 text-brand-orange-600 flex-shrink-0 mt-0.5" />
         <div className="flex-1">
           <h3 className="font-semibold text-red-900 mb-1">{title}</h3>
           <p className="text-sm text-red-700">{message}</p>
           {onRetry && (
             <button
               onClick={onRetry}
-              className="mt-3 text-sm text-red-600 hover:text-red-700 font-medium"
+              className="mt-3 text-sm text-brand-orange-600 hover:text-red-700 font-medium"
             >
               Try again
             </button>

@@ -109,7 +109,7 @@ export function ElevateChatWidget() {
       >
         <MessageCircle size={28} className="group-hover:scale-110 transition-transform" />
         {!hasInteracted && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse" />
+          <span className="absolute -top-1 -right-1 w-4 h-4 bg-brand-orange-500 rounded-full animate-pulse" />
         )}
       </button>
 

@@ -161,7 +161,7 @@ export function AutoFlowCharts() {
           <div key={index} className="text-center">
             <div className="mb-2">
               <div className="w-16 h-16 mx-auto bg-brand-surface rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-red-600">
+                <span className="text-2xl font-bold text-brand-orange-600">
                   {month.rate}%
                 </span>
               </div>
@@ -190,7 +190,7 @@ export function AutoFlowCharts() {
                     ? 'text-brand-success'
                     : risk.risk === 'Medium Risk'
                       ? 'text-yellow-600'
-                      : 'text-red-600'
+                      : 'text-brand-orange-600'
                 }`}
               >
                 {risk.risk}
@@ -206,7 +206,7 @@ export function AutoFlowCharts() {
                     ? 'bg-green-500'
                     : risk.risk === 'Medium Risk'
                       ? 'bg-yellow-500'
-                      : 'bg-red-500'
+                      : 'bg-brand-orange-500'
                 }`}
                 style={{ width: `${risk.percentage}%` }}
               />

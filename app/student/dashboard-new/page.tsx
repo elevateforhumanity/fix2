@@ -140,10 +140,10 @@ export default async function StudentDashboardNew() {
         };
       case 'at_risk':
         return {
-          icon: <AlertCircle className="w-5 h-5 text-red-600" />,
+          icon: <AlertCircle className="w-5 h-5 text-brand-orange-600" />,
           text: 'At Risk - Action Required',
-          color: 'text-red-600',
-          bgColor: 'bg-red-600',
+          color: 'text-brand-orange-600',
+          bgColor: 'bg-brand-orange-600',
         };
       default:
         return {
@@ -285,7 +285,7 @@ export default async function StudentDashboardNew() {
                     } else if (isOverdue) {
                       borderColor = 'border-red-500';
                       bgColor = 'bg-red-50';
-                      iconColor = 'text-red-600';
+                      iconColor = 'text-brand-orange-600';
                     } else if (
                       req.priority === 'urgent' ||
                       req.priority === 'high'
@@ -323,7 +323,7 @@ export default async function StudentDashboardNew() {
                           )}
                           {req.due_date && (
                             <p
-                              className={`text-sm mb-2 ${isOverdue ? 'text-red-600 font-semibold' : 'text-gray-600'}`}
+                              className={`text-sm mb-2 ${isOverdue ? 'text-brand-orange-600 font-semibold' : 'text-gray-600'}`}
                             >
                               Due:{' '}
                               {new Date(req.due_date).toLocaleDateString(

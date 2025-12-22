@@ -136,7 +136,7 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
                 <p className="text-sm text-slate-600">
                   Submitted {new Date(currentSubmission.submittedAt).toLocaleString()}
                   {currentSubmission.isLate && (
-                    <span className="ml-2 text-red-600 font-medium">LATE</span>
+                    <span className="ml-2 text-brand-orange-600 font-medium">LATE</span>
                   )}
                 </p>
               </div>

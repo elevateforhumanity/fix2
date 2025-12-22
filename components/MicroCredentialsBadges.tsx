@@ -133,7 +133,7 @@ export default function MicroCredentialsBadges() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card className="p-6 text-center">
             <div className="text-4xl mb-2 text-2xl md:text-3xl lg:text-4xl">🏆</div>
-            <p className="text-3xl font-bold text-red-600">{earnedBadges.length}</p>
+            <p className="text-3xl font-bold text-brand-orange-600">{earnedBadges.length}</p>
             <p className="text-gray-600">Badges Earned</p>
           </Card>
           <Card className="p-6 text-center">
@@ -155,7 +155,7 @@ export default function MicroCredentialsBadges() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-2 border-b-2 font-medium ${
-                  activeTab === tab ? 'border-red-600 text-red-600' : 'border-transparent text-gray-500'
+                  activeTab === tab ? 'border-red-600 text-brand-orange-600' : 'border-transparent text-gray-500'
                 }`}
               >
                 {tab.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
@@ -183,7 +183,7 @@ export default function MicroCredentialsBadges() {
                 <div className="mb-4">
                   <div className="flex justify-between text-sm mb-1">
                     <span className="text-gray-600">Progress</span>
-                    <span className="font-semibold text-red-600">{badge.progress}%</span>
+                    <span className="font-semibold text-brand-orange-600">{badge.progress}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div

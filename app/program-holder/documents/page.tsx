@@ -161,7 +161,7 @@ export default function ProgramHolderDocuments() {
     if (doc.approved) {
       return <CheckCircle className="text-green-600" size={20} />;
     } else if (doc.approved === false) {
-      return <XCircle className="text-red-600" size={20} />;
+      return <XCircle className="text-brand-orange-600" size={20} />;
     } else {
       return <Clock className="text-yellow-600" size={20} />;
     }

@@ -145,7 +145,7 @@ export default function ApprovalsPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
-            <Building2 className="w-12 h-12 text-red-600" />
+            <Building2 className="w-12 h-12 text-brand-orange-600" />
             <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-2xl md:text-3xl lg:text-2xl md:text-3xl">
               Federal Approvals & Registration
             </h2>
@@ -413,7 +413,7 @@ export default function ApprovalsPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-all shadow-lg"
+              className="px-8 py-4 bg-brand-orange-600 text-white font-bold rounded-full hover:bg-brand-orange-700 transition-all shadow-lg"
             >
               Apply Now
             </Link>

@@ -38,7 +38,7 @@ export function MobileOptimizedNav() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-600 text-white text-sm font-black">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange-600 text-white text-sm font-black">
               EFH
             </div>
             <div className="flex flex-col leading-tight">
@@ -54,7 +54,7 @@ export function MobileOptimizedNav() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex items-center justify-center w-10 h-10 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-orange-600 text-white hover:bg-brand-orange-700 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -63,7 +63,7 @@ export function MobileOptimizedNav() {
 
         {/* Quick Action Bar - Always Visible on Mobile */}
         <div className="bg-slate-50 border-t border-slate-200 px-4 py-2 flex items-center justify-between text-xs">
-          <a href="tel:+13173143757" className="flex items-center gap-1 text-slate-700 hover:text-red-600">
+          <a href="tel:+13173143757" className="flex items-center gap-1 text-slate-700 hover:text-brand-orange-600">
             <Phone size={14} />
             <span className="font-semibold">(317) 314-3757</span>
           </a>
@@ -71,7 +71,7 @@ export function MobileOptimizedNav() {
             href="https://indianaconnect.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-red-600 font-bold hover:text-red-700"
+            className="flex items-center gap-1 text-brand-orange-600 font-bold hover:text-red-700"
           >
             <span>Schedule Now</span>
             <ExternalLink size={14} />
@@ -96,7 +96,7 @@ export function MobileOptimizedNav() {
                 href="https://indianaconnect.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full bg-white text-red-600 text-center py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors"
+                className="block w-full bg-white text-brand-orange-600 text-center py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors"
               >
                 Schedule at Indiana Connect →
               </a>
@@ -132,7 +132,7 @@ export function MobileOptimizedNav() {
             {/* Programs Section */}
             <div className="p-4">
               <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <GraduationCap size={20} className="text-red-600" />
+                <GraduationCap size={20} className="text-brand-orange-600" />
                 Training Programs
               </h3>
               <div className="space-y-2">
@@ -154,7 +154,7 @@ export function MobileOptimizedNav() {
               </div>
               <Link
                 href="/programs"
-                className="block mt-3 text-center py-3 bg-slate-100 text-red-600 font-bold rounded-lg hover:bg-slate-200 transition-colors"
+                className="block mt-3 text-center py-3 bg-slate-100 text-brand-orange-600 font-bold rounded-lg hover:bg-slate-200 transition-colors"
               >
                 View All Programs
               </Link>
@@ -170,7 +170,7 @@ export function MobileOptimizedNav() {
                     href={link.href}
                     className="flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-lg hover:border-red-500 hover:shadow-md transition-all"
                   >
-                    <link.icon size={24} className="text-red-600 mb-2" />
+                    <link.icon size={24} className="text-brand-orange-600 mb-2" />
                     <span className="text-sm font-semibold text-slate-900 text-center">{link.label}</span>
                   </Link>
                 ))}
@@ -181,18 +181,18 @@ export function MobileOptimizedNav() {
             <div className="p-4 bg-slate-50 border-t border-slate-200">
               <h3 className="text-lg font-bold text-slate-900 mb-3">Contact Us</h3>
               <div className="space-y-3">
-                <a href="tel:+13173143757" className="flex items-center gap-3 text-slate-700 hover:text-red-600">
+                <a href="tel:+13173143757" className="flex items-center gap-3 text-slate-700 hover:text-brand-orange-600">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                    <Phone size={18} className="text-red-600" />
+                    <Phone size={18} className="text-brand-orange-600" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-600">Call Us</div>
                     <div className="font-bold">(317) 314-3757</div>
                   </div>
                 </a>
-                <a href="mailto:elevate4humanityedu@gmail.com" className="flex items-center gap-3 text-slate-700 hover:text-red-600">
+                <a href="mailto:elevate4humanityedu@gmail.com" className="flex items-center gap-3 text-slate-700 hover:text-brand-orange-600">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                    <Mail size={18} className="text-red-600" />
+                    <Mail size={18} className="text-brand-orange-600" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-600">Email Us</div>
@@ -201,7 +201,7 @@ export function MobileOptimizedNav() {
                 </a>
                 <div className="flex items-start gap-3 text-slate-700">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={18} className="text-red-600" />
+                    <MapPin size={18} className="text-brand-orange-600" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-600">Visit Us</div>
