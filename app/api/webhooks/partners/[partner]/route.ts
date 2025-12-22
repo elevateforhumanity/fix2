@@ -8,6 +8,9 @@ import { getPartnerClient, PartnerType, WebhookPayload } from '@/lib/partners';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -38,7 +41,10 @@ export async function POST(
 
     if (!webhookSecret) {
       logger.error(`[Webhook] PARTNER_WEBHOOK_SECRET not configured`);
-      return NextResponse.json({ error: 'Webhook not configured' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Webhook not configured' },
+        { status: 500 }
+      );
     }
 
     if (providedSecret !== webhookSecret) {
@@ -78,6 +84,7 @@ export async function POST(
     }
 
     // Process webhook through partner-specific handler
+    const client = getPartnerClient(partner);
     // @ts-expect-error TS2339: Property 'processWebhook' does not exist on type 'BasePartnerAPI'.
     await client.processWebhook(payload);
 
@@ -97,7 +104,7 @@ async function handleEnrollmentCreated(
   data: Record<string, unknown>
 ): Promise<void> {
   const supabase = getSupabaseClient();
-  
+
   // Update enrollment status in database
   const { error } = await supabase
     .from('partner_lms_enrollments')
@@ -120,7 +127,7 @@ async function handleProgressUpdated(
   data: Record<string, unknown>
 ): Promise<void> {
   const supabase = getSupabaseClient();
-  
+
   // Update progress in database
   const { error } = await supabase
     .from('partner_lms_enrollments')
@@ -144,7 +151,7 @@ async function handleCourseCompleted(
   data: Record<string, unknown>
 ): Promise<void> {
   const supabase = getSupabaseClient();
-  
+
   // Get the enrollment step
   const { data: step, error: stepError } = await supabase
     .from('enrollment_steps')
@@ -159,11 +166,13 @@ async function handleCourseCompleted(
   }
 
   // Mark step complete and advance to next
-  const { data: nextStepId, error: advanceError } = await supabase
-    .rpc('mark_step_complete', {
+  const { data: nextStepId, error: advanceError } = await supabase.rpc(
+    'mark_step_complete',
+    {
       p_step_id: step.id,
-      p_external_enrollment_id: data.enrollmentId as string
-    });
+      p_external_enrollment_id: data.enrollmentId as string,
+    }
+  );
 
   if (advanceError) {
     logger.error('[Webhook] Failed to advance step:', advanceError);
@@ -191,7 +200,9 @@ async function handleCourseCompleted(
   if (nextStepId) {
     const { data: nextStep } = await supabase
       .from('enrollment_steps')
-      .select('*, provider:partner_lms_providers(*), enrollment:enrollments(user_id)')
+      .select(
+        '*, provider:partner_lms_providers(*), enrollment:enrollments(user_id)'
+      )
       .eq('id', nextStepId)
       .single();
 
@@ -205,25 +216,29 @@ async function handleCourseCompleted(
             studentId: nextStep.enrollment.user_id,
             providerId: nextStep.provider_id,
             enrollmentId: nextStep.enrollment_id,
-            stepId: nextStep.id
-          })
+            stepId: nextStep.id,
+          }),
         });
       } catch (enrollError) {
-        logger.error('[Webhook] Failed to auto-enroll in next partner:', enrollError);
+        logger.error(
+          '[Webhook] Failed to auto-enroll in next partner:',
+          enrollError
+        );
       }
     }
   } else {
     // All steps complete - check if enrollment is done
-    const { data: isComplete } = await supabase
-      .rpc('is_enrollment_complete', { p_enrollment_id: step.enrollment_id });
+    const { data: isComplete } = await supabase.rpc('is_enrollment_complete', {
+      p_enrollment_id: step.enrollment_id,
+    });
 
     if (isComplete) {
       // Generate completion certificate
       await supabase
         .from('enrollments')
-        .update({ 
+        .update({
           status: 'completed',
-          completed_at: new Date().toISOString()
+          completed_at: new Date().toISOString(),
         })
         .eq('id', step.enrollment_id);
 
@@ -243,7 +258,7 @@ async function handleCertificateIssued(
   data: Record<string, unknown>
 ): Promise<void> {
   const supabase = getSupabaseClient();
-  
+
   // Update enrollment with certificate data
   const { error } = await supabase
     .from('partner_lms_enrollments')
