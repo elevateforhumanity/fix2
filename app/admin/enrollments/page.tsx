@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { Users, CheckCircle, Clock, XCircle, TrendingUp } from 'lucide-react';
+import { ComplianceNotice } from '@/components/compliance/ComplianceNotice';
+import { getPoliciesForFeature } from '@/lib/policies';
 
 export const metadata: Metadata = {
   title: 'Enrollments | Admin Dashboard',
@@ -80,6 +82,15 @@ export default async function AdminEnrollmentsPage() {
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Compliance Notice */}
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <ComplianceNotice
+          policies={getPoliciesForFeature('enrollment')}
+          context="Enrollment requires verification of:"
+          variant="compact"
+        />
       </div>
 
       {/* Stats */}

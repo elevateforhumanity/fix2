@@ -217,11 +217,9 @@ export default function SiteFooterEnterprise() {
             {/* Social Links */}
             <div className="flex gap-3">
               <a
-                href="https://x.com/elevate4humanity"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition text-slate-900"
-                aria-label="X (Twitter)"
               >
                 <svg
                   className="w-4 h-4"

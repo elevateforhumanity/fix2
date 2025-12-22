@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
   Youtube,
@@ -78,9 +77,6 @@ const socialLinks = [
     icon: Facebook,
   },
   {
-    name: 'Twitter',
-    href: 'https://twitter.com/elevate4humanity',
-    icon: Twitter,
   },
   {
     name: 'Instagram',

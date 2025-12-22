@@ -93,7 +93,6 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
     sameAs: [
       'https://www.facebook.com/elevateforhumanity',
       'https://www.linkedin.com/company/elevate-for-humanity',
-      'https://twitter.com/elevate4humanity',
       'https://www.instagram.com/elevateforhumanity',
     ],
     

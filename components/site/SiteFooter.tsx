@@ -41,7 +41,6 @@ export default function SiteFooter() {
 
           <div className="flex gap-3 mt-8">
             <a
-              href="https://x.com/elevate4humanity"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition text-black"

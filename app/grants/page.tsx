@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { PolicyReference } from '@/components/compliance/PolicyReference';
+import { POLICIES } from '@/lib/policies';
 
 export const metadata: Metadata = {
   alternates: {
@@ -31,10 +33,19 @@ export default async function GrantsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Grants
           </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
+          <p className="text-base md:text-lg mb-4 text-gray-100">
             Explore Grants and discover opportunities for career growth and
             development.
           </p>
+          <div className="mb-8">
+            <PolicyReference
+              policyName={POLICIES.GRANT_APPLICATION.name}
+              policyUrl={POLICIES.GRANT_APPLICATION.url}
+              description="Grant applications subject to"
+              variant="inline"
+              className="text-white"
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"

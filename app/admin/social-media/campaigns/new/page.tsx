@@ -13,7 +13,6 @@ import {
   Save,
   Play,
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
   Sparkles,
@@ -321,10 +320,6 @@ export default function NewSocialCampaignPage() {
                   onClick={() => togglePlatform('facebook')}
                 />
                 <PlatformButton
-                  name="Twitter"
-                  icon={Twitter}
-                  selected={campaign.platforms.includes('twitter')}
-                  onClick={() => togglePlatform('twitter')}
                 />
                 <PlatformButton
                   name="LinkedIn"

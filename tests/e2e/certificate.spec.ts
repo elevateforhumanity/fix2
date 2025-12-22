@@ -99,7 +99,6 @@ test.describe('Certificate Generation', () => {
 
       // Should show share options
       await expect(
-        page.locator('text=/linkedin|twitter|facebook|copy link/i')
       ).toBeVisible();
     }
   });

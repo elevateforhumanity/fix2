@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 
 import {
     Plus, Calendar, TrendingUp, Users, Share2, 
-  Facebook, Twitter, Linkedin, Instagram, Clock,
   Play, Pause, Edit, Trash2, BarChart3
 } from 'lucide-react';
 
@@ -43,7 +42,6 @@ export default function SocialMediaPage() {
       name: 'Barber Program Promotion',
       status: 'active',
       frequency: '3x-daily',
-      platforms: ['facebook', 'twitter', 'linkedin'],
       postsScheduled: 90,
       lastPost: '2025-12-07T10:00:00Z',
       nextPost: '2025-12-07T14:00:00Z'
@@ -63,7 +61,6 @@ export default function SocialMediaPage() {
       name: 'WIOA Eligibility Info',
       status: 'paused',
       frequency: 'daily',
-      platforms: ['facebook', 'twitter'],
       postsScheduled: 30,
       lastPost: '2025-12-06T12:00:00Z',
       nextPost: null
@@ -122,7 +119,6 @@ export default function SocialMediaPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Social Media Automation</h1>
-              <p className="text-gray-600 mt-1">Auto-post to Facebook, Twitter, LinkedIn, Instagram 3x daily</p>
             </div>
             
             <button
@@ -188,8 +184,6 @@ export default function SocialMediaPage() {
               followers="2,847"
             />
             <PlatformCard
-              name="Twitter"
-              icon={Twitter}
               color="sky"
               connected
               followers="1,234"
@@ -276,7 +270,6 @@ export default function SocialMediaPage() {
                           className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800"
                         >
                           {platform === 'facebook' && <Facebook className="w-3 h-3 mr-1" />}
-                          {platform === 'twitter' && <Twitter className="w-3 h-3 mr-1" />}
                           {platform === 'linkedin' && <Linkedin className="w-3 h-3 mr-1" />}
                           {platform === 'instagram' && <Instagram className="w-3 h-3 mr-1" />}
                           {platform.charAt(0).toUpperCase() + platform.slice(1)}

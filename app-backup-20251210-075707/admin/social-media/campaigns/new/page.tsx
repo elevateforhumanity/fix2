@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { ArrowLeft, Save, Play, Facebook, Twitter, Linkedin, Instagram, Sparkles } from 'lucide-react';
 
 export default function NewSocialCampaignPage() {
   const router = useRouter();
@@ -263,10 +262,6 @@ export default function NewSocialCampaignPage() {
                   onClick={() => togglePlatform('facebook')}
                 />
                 <PlatformButton
-                  name="Twitter"
-                  icon={Twitter}
-                  selected={campaign.platforms.includes('twitter')}
-                  onClick={() => togglePlatform('twitter')}
                 />
                 <PlatformButton
                   name="LinkedIn"

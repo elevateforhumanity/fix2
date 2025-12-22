@@ -50,7 +50,6 @@ class SquareClient {
   constructor(config: SquareConfig) {
     this.config = config;
     this.baseUrl = config.environment === 'sandbox'
-      ? 'https://connect.squareupsandbox.com'
       : 'https://connect.squareup.com';
   }
 

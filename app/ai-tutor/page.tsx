@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import { PolicyReference } from '@/components/compliance/PolicyReference';
+import { POLICIES } from '@/lib/policies';
 
 import Link from 'next/link';
 import Image from 'next/image';

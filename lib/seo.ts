@@ -79,7 +79,6 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
       ...(publishedTime && { publishedTime }),
       ...(modifiedTime && { modifiedTime }),
     },
-    twitter: {
       card: 'summary_large_image',
       title,
       description,
@@ -143,7 +142,6 @@ export function generateStructuredData(config: {
         },
         sameAs: [
           'https://www.facebook.com/elevate4humanity',
-          'https://www.twitter.com/elevate4humanity',
           'https://www.linkedin.com/company/elevate-for-humanity',
         ],
         ...data,

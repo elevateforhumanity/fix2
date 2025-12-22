@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website'
   },
-  twitter: {
     card: 'summary_large_image',
     title: 'Compare Career Training Programs - Find Your Best Fit',
     description: 'Side-by-side comparison of 28+ free training programs. See salaries, duration, and outcomes.',

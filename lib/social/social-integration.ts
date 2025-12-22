@@ -25,11 +25,7 @@ export const SOCIAL_ACCOUNTS = {
     handle: 'Elevate for Humanity',
     icon: 'linkedin',
   },
-  twitter: {
-    name: 'Twitter/X',
-    url: 'https://x.com/Elevate4Humani1',
     handle: '@Elevate4Humani1',
-    icon: 'twitter',
   },
 };
 
@@ -55,9 +51,7 @@ export function getFacebookShareUrl(config: ShareConfig): string {
 }
 
 /**
- * Generate Twitter/X share URL
  */
-export function getTwitterShareUrl(config: ShareConfig): string {
   const text = config.description || config.title;
   const hashtags =
     config.hashtags?.join(',') || 'ElevateForHumanity,WorkforceDevelopment';
@@ -69,7 +63,6 @@ export function getTwitterShareUrl(config: ShareConfig): string {
     via: 'Elevate4Humani1',
   });
 
-  return `https://twitter.com/intent/tweet?${params.toString()}`;
 }
 
 /**
@@ -116,7 +109,6 @@ export function getWhatsAppShareUrl(config: ShareConfig): string {
 export function getAllShareUrls(config: ShareConfig) {
   return {
     facebook: getFacebookShareUrl(config),
-    twitter: getTwitterShareUrl(config),
     linkedin: getLinkedInShareUrl(config),
     email: getEmailShareUrl(config),
     whatsapp: getWhatsAppShareUrl(config),
@@ -263,7 +255,6 @@ export const PLATFORM_GUIDELINES = {
     bestTimes: ['7-8 AM, 12 PM, 5-6 PM weekdays'],
     tone: 'Professional, data-driven, impact-focused',
   },
-  twitter: {
     postLength: '71-100 characters (optimal)',
     imageSize: '1200x675px',
     videoLength: '15-45 seconds',

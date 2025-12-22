@@ -24,6 +24,8 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import Link from 'next/link';
+import { PolicyReference } from '@/components/compliance/PolicyReference';
+import { POLICIES } from '@/lib/policies';
 
 interface ForumCategory {
   id: string;
@@ -239,6 +241,14 @@ export default function DiscussionForums() {
             <p className="text-xl text-gray-600">
               Connect with peers, ask questions, and share knowledge
             </p>
+            <div className="mt-4">
+              <PolicyReference
+                policyName={POLICIES.COMMUNITY_GUIDELINES.name}
+                policyUrl={POLICIES.COMMUNITY_GUIDELINES.url}
+                description="All posts must follow our"
+                variant="inline"
+              />
+            </div>
           </div>
 
           {/* Search & Stats */}

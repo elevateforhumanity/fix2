@@ -35,7 +35,6 @@ export const CONTACT_INFO = {
     facebook: "https://www.facebook.com/profile.php?id=61571046346179",
     instagram: "https://instagram.com/elevateforhumanity",
     linkedin: "https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/",
-    twitter: "https://x.com/Elevate4Humani1",
   },
 };
 

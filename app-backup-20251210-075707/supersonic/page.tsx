@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     siteName: 'Supersonic Tax Service',
     url: 'https://elevateforhumanity.org/supersonic',
   },
-  twitter: {
     card: 'summary_large_image',
     title: 'Supersonic Tax Service - Tax Refund Advance Indianapolis',
     description: 'Get your tax refund advance TODAY in Indianapolis. Fast cash, no waiting!',

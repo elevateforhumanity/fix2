@@ -79,7 +79,6 @@ Program Details: ${programInfo}
 
 Requirements:
 - Mix of post types: success stories, program highlights, WIOA eligibility info, career outcomes, application CTAs
-- Keep posts under 280 characters for Twitter compatibility
 - Include relevant hashtags (#WorkforceDevelopment #Indianapolis #WIOA #CareerTraining)
 - Emphasize "100% free" and "earn while you learn"
 - Include call-to-action (Apply now, Learn more, Call us)
