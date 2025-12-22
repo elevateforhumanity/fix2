@@ -1,250 +1,288 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  GraduationCap,
-  DollarSign,
-  Users,
-  FileCheck,
-  Phone,
-  ArrowRight,
-} from 'lucide-react';
+import { CheckCircle, DollarSign, Clock, ArrowRight } from 'lucide-react';
+import { EligibilityChecker } from '@/components/for-you/EligibilityChecker';
+import { JourneyChecklist } from '@/components/for-you/JourneyChecklist';
 
 export const metadata: Metadata = {
-  title: 'For Students | Training, Funding & Career Support',
+  title: 'Free Job Training | No Debt | Indiana Residents',
   description:
-    'Access training programs, workforce funding, and career support. WIOA, apprenticeships, and more.',
+    'Free job training for Indiana residents. $0 tuition. Real careers. Start in 2-4 weeks. WIOA funded.',
 };
 
 export default function ForStudentsPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-white text-white py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <GraduationCap className="w-16 h-16 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">For Students</h1>
-          <p className="text-xl text-blue-100 mb-8">
-            Access training, funding, and career support to build your future.
+      {/* 1. Hero - Problem + Anxiety Reduction */}
+      <section className="relative h-[400px] flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Free Job Training. Real Careers. No Debt.
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100">
+            You qualify if you live in Indiana and want a better job.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="px-8 py-4 bg-white text-brand-blue-600 rounded-lg font-bold hover:bg-blue-50"
-            >
-              Apply Now
-            </Link>
-            <a
-              href="tel:+13173143757"
-              className="px-8 py-4 bg-brand-blue-700 text-white rounded-lg font-bold hover:bg-brand-blue-600 border-2 border-white"
-            >
-              Call (317) 314-3757
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* What We Offer */}
-      <section className="py-16 bg-gray-50">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            What We Offer
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <GraduationCap className="w-10 h-10 text-brand-blue-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Training Programs</h3>
-              <p className="text-gray-700 mb-4">
-                Access to accredited training in barbering, HVAC, CDL, medical
-                assistant, welding, and more.
-              </p>
-              <Link
-                href="/programs"
-                className="text-brand-blue-600 font-semibold hover:underline"
-              >
-                Browse Programs →
-              </Link>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <DollarSign className="w-10 h-10 text-brand-green-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Funding Support</h3>
-              <p className="text-gray-700 mb-4">
-                Help securing WIOA, WRG, JRI, apprenticeship funding, and other
-                workforce development resources.
-              </p>
-              <Link
-                href="/resources#students"
-                className="text-brand-blue-600 font-semibold hover:underline"
-              >
-                Learn About Funding →
-              </Link>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <Users className="w-10 h-10 text-purple-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Advisor Support</h3>
-              <p className="text-gray-700 mb-4">
-                Work with a real advisor who guides you through eligibility,
-                enrollment, and completion.
-              </p>
-              <a
-                href="tel:+13173143757"
-                className="text-brand-blue-600 font-semibold hover:underline"
-              >
-                Call (317) 314-3757 →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works for Students */}
+      {/* 2. Three Questions - Anxiety Reduction */}
       <section className="py-16 bg-white">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Your Path to Success
-          </h2>
-          <div className="space-y-6">
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                1
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">Apply (Free)</h3>
-                <p className="text-gray-700">
-                  Submit an application. No payment required. This is inquiry,
-                  not enrollment.
-                </p>
-              </div>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-green-50 border-2 border-green-600 rounded-lg p-8 text-center">
+              <DollarSign className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                Will this cost me?
+              </h3>
+              <p className="text-lg text-slate-900 font-semibold">
+                $0. Funded for eligible participants.
+              </p>
             </div>
 
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                2
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">Advisor Review</h3>
-                <p className="text-gray-700">
-                  An advisor contacts you within 1-2 business days to discuss
-                  options and eligibility.
-                </p>
-              </div>
+            <div className="bg-blue-50 border-2 border-blue-600 rounded-lg p-8 text-center">
+              <CheckCircle className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                Am I eligible?
+              </h3>
+              <p className="text-lg text-slate-900 font-semibold">
+                Indiana resident, 18+, want a career change.
+              </p>
             </div>
 
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                3
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">Funding Coordination</h3>
-                <p className="text-gray-700">
-                  We help secure workforce funding or discuss self-pay options
-                  if needed.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                4
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">
-                  Enrollment & Training
-                </h3>
-                <p className="text-gray-700">
-                  Once approved, you're enrolled with an accredited training
-                  provider.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4 items-start">
-              <div className="w-10 h-10 bg-brand-green-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                5
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">
-                  Complete & Earn Credentials
-                </h3>
-                <p className="text-gray-700">
-                  Finish training, earn your credential, and launch your career.
-                </p>
-              </div>
+            <div className="bg-purple-50 border-2 border-purple-600 rounded-lg p-8 text-center">
+              <Clock className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                What happens next?
+              </h3>
+              <p className="text-lg text-slate-900 font-semibold">
+                Apply → We call in 24hrs → Start in 1-2 weeks.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Important to Know */}
-      <section className="py-16 bg-blue-50">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Important to Know
+      {/* 3. What You Get - Outcomes */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+            What You Get
           </h2>
           <div className="space-y-4">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">
-                ✅ We Coordinate Access
-              </h3>
-              <p className="text-gray-700">
-                We connect you to training providers, funding sources, and
-                career opportunities.
-              </p>
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 flex items-start gap-4">
+              <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  Industry Credential
+                </h3>
+                <p className="text-slate-700">
+                  State-licensed or nationally recognized certification (barber
+                  license, CDL, CNA, HVAC, welding, etc.)
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">✅ Advisor-Led Process</h3>
-              <p className="text-gray-700">
-                Every student works with a real advisor. No instant checkout or
-                automated enrollment.
-              </p>
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 flex items-start gap-4">
+              <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  Starting Salary: $35,000-$60,000/year
+                </h3>
+                <p className="text-slate-700">
+                  Depending on program. Most graduates earn $40,000-$50,000 in
+                  first year.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">
-                ✅ No Payment Until Approved
-              </h3>
-              <p className="text-gray-700">
-                You are not charged until funding is confirmed or you approve
-                self-pay terms.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">
-                ❌ We Don't Issue Credentials
-              </h3>
-              <p className="text-gray-700">
-                Certifications come from state boards, industry bodies, and
-                accredited institutions.
-              </p>
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 flex items-start gap-4">
+              <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  Job Placement Support
+                </h3>
+                <p className="text-slate-700">
+                  Connect with partner employers hiring trained workers in your
+                  field.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* 4. Programs - Scannable List */}
       <section className="py-16 bg-white">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start?</h2>
-          <p className="text-xl text-gray-700 mb-8">
-            Apply now or call to speak with an advisor.
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+            Choose Your Program
+          </h2>
+          <p className="text-center text-slate-600 mb-12 text-lg">
+            All programs are $0 tuition for eligible participants
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Barber Apprenticeship',
+                duration: '15-17 months',
+                salary: '$45,000/year',
+                slug: 'barber-apprenticeship',
+              },
+              {
+                name: 'CNA (Nursing Assistant)',
+                duration: '4-6 weeks',
+                salary: '$37,000/year',
+                slug: 'cna-certified-nursing-assistant',
+              },
+              {
+                name: 'HVAC Technician',
+                duration: '6-12 months',
+                salary: '$52,000/year',
+                slug: 'hvac-technician',
+              },
+              {
+                name: 'CDL (Truck Driver)',
+                duration: '3-4 weeks',
+                salary: '$60,000/year',
+                slug: 'cdl-commercial-drivers-license',
+              },
+              {
+                name: 'Welding Certification',
+                duration: '6-9 months',
+                salary: '$52,000/year',
+                slug: 'welding-certification',
+              },
+              {
+                name: 'Medical Assistant',
+                duration: '9-12 months',
+                salary: '$40,000/year',
+                slug: 'medical-assistant',
+              },
+              {
+                name: 'Phlebotomy Technician',
+                duration: '4-8 weeks',
+                salary: '$37,000/year',
+                slug: 'phlebotomy-technician',
+              },
+              {
+                name: 'Pharmacy Technician',
+                duration: '6-9 months',
+                salary: '$40,000/year',
+                slug: 'pharmacy-technician',
+              },
+              {
+                name: 'Electrical Apprenticeship',
+                duration: '4-5 years',
+                salary: '$62,000/year',
+                slug: 'electrical-apprenticeship',
+              },
+              {
+                name: 'Plumbing Apprenticeship',
+                duration: '4-5 years',
+                salary: '$65,000/year',
+                slug: 'plumbing-apprenticeship',
+              },
+              {
+                name: 'Carpentry Apprenticeship',
+                duration: '3-4 years',
+                salary: '$52,000/year',
+                slug: 'carpentry-apprenticeship',
+              },
+              {
+                name: 'IT Support Specialist',
+                duration: '6-9 months',
+                salary: '$52,000/year',
+                slug: 'it-support-specialist',
+              },
+            ].map((program) => (
+              <Link
+                key={program.slug}
+                href={`/programs/${program.slug}`}
+                className="bg-slate-50 border border-slate-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-lg transition group"
+              >
+                <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600">
+                  {program.name}
+                </h3>
+                <div className="space-y-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span>{program.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4" />
+                    <span className="font-semibold">{program.salary}</span>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                  <span>Learn More</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
             <Link
-              href="/apply"
-              className="px-8 py-4 bg-brand-blue-600 text-white rounded-lg font-bold hover:bg-brand-blue-700"
+              href="/programs"
+              className="text-blue-600 font-semibold hover:underline text-lg"
             >
-              Apply Now
+              View All 20 Programs →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Eligibility Checker */}
+      <section className="py-16 bg-blue-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+            Check Your Eligibility
+          </h2>
+          <p className="text-center text-slate-600 mb-12 text-lg">
+            Answer 5 quick questions to see if you qualify
+          </p>
+          <EligibilityChecker />
+        </div>
+      </section>
+
+      {/* 6. Journey Checklist */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+            What Happens Next
+          </h2>
+          <p className="text-center text-slate-600 mb-12 text-lg">
+            From application to first day of training
+          </p>
+          <JourneyChecklist />
+        </div>
+      </section>
+
+      {/* 7. ONE CTA */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Start?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8">
+            Apply now. An advisor will call you within 24 hours.
+          </p>
+          <Link
+            href="/apply"
+            className="inline-block px-12 py-5 bg-white text-blue-600 rounded-lg font-bold text-xl hover:bg-blue-50 transition shadow-2xl"
+          >
+            Apply Now
+          </Link>
+          <p className="mt-6 text-blue-100">
+            Questions?{' '}
             <a
               href="tel:+13173143757"
-              className="px-8 py-4 bg-gray-200 text-gray-900 rounded-lg font-bold hover:bg-gray-300"
+              className="underline font-semibold hover:text-white"
             >
               Call (317) 314-3757
             </a>
-          </div>
+          </p>
         </div>
       </section>
     </main>
