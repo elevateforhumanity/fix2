@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Free Career Training Programs in Indiana | Indiana Career Connect',
   description:
     'Find your path to a better career. 100% free training programs in healthcare, skilled trades, and business. Funded by Indiana Career Connect and WIOA. Start today.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs',
+  },
 };
 
 export default function ProgramsPage() {
