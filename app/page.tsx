@@ -22,11 +22,6 @@ import {
   Card,
 } from '@/components/ui/design-system';
 
-export const metadata = {
-  title: 'Page | Elevate For Humanity',
-  description: 'Page page for Elevate For Humanity platform',
-};
-
 export default function HomePage() {
   const [isMuted, setIsMuted] = useState(true);
   const [videoError, setVideoError] = useState(false);
