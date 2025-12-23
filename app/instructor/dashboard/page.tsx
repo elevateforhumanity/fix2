@@ -29,9 +29,7 @@ export default async function ProgramHolderDashboard() {
 
   const supabase = await createClient();
 
-  // Fetch profile
-
-  // Fetch students/students under this program holder
+  // Fetch students assigned to this instructor
   const { data: students } = await supabase
     .from('enrollments')
     .select(
@@ -41,6 +39,7 @@ export default async function ProgramHolderDashboard() {
       programs (id, title, name, training_hours)
     `
     )
+    .eq('instructor_id', user.id)
     .order('created_at', { ascending: false })
     .limit(10);
 

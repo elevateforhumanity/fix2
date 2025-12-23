@@ -57,29 +57,39 @@ export default async function StudentDashboardOrchestrated() {
     (e) => e.status === 'active' || e.status === 'pending'
   );
 
-  // Get course progress
+  // Get course progress (use progress_percentage from enrollments if course_progress table doesn't exist)
   let courseProgress = 0;
   if (activeEnrollment) {
-    const { data: progress } = await supabase
+    // Try to get from course_progress table first
+    const { data: progress, error: progressError } = await supabase
       .from('course_progress')
       .select('progress_percentage')
       .eq('enrollment_id', activeEnrollment.id)
       .single();
 
-    courseProgress = progress?.progress_percentage || 0;
+    if (!progressError && progress) {
+      courseProgress = progress.progress_percentage || 0;
+    } else {
+      // Fallback to progress_percentage column in enrollments
+      courseProgress = activeEnrollment.progress_percentage || 0;
+    }
   }
 
-  // Get certifications
+  // Get certifications (gracefully handle if table doesn't exist)
   const { data: certifications } = await supabase
     .from('certifications')
     .select('*')
-    .eq('user_id', user.id);
+    .eq('user_id', user.id)
+    .then((res) => res)
+    .catch(() => ({ data: null, error: null }));
 
-  // Get job placements
+  // Get job placements (gracefully handle if table doesn't exist)
   const { data: placements } = await supabase
     .from('job_placements')
     .select('*')
-    .eq('user_id', user.id);
+    .eq('user_id', user.id)
+    .then((res) => res)
+    .catch(() => ({ data: null, error: null }));
 
   // Calculate state
   const stateData = getStudentState({
