@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       `Can Commit: ${body.canCommitToSchedule ? 'Yes' : 'No'}`,
       `\n=== DEMOGRAPHICS ===`,
       `DOB: ${body.dateOfBirth}`,
-      `Race: ${body.race.join(', ')}`,
+      `Race: ${Array.isArray(body.race) ? body.race.join(', ') : 'Not specified'}`,
       `Gender: ${body.gender}`,
       `Education: ${body.educationLevel}`,
       `Veteran: ${body.isVeteran ? 'Yes' : 'No'}`,
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
       `Employment: ${body.employmentStatus}`,
       `Income: ${body.annualIncome}`,
       `Dependents: ${body.numberOfDependents}`,
-      `Public Assistance: ${body.receivesPublicAssistance.join(', ')}`,
+      `Public Assistance: ${Array.isArray(body.receivesPublicAssistance) ? body.receivesPublicAssistance.join(', ') : 'None'}`,
       `Housing: ${body.housingStatus}`,
       `Justice Involvement: ${body.hasJusticeInvolvement ? 'Yes' : 'No'}`,
       `\n=== AUTHORIZATION ===`,
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
       body.documentExpirationDate
         ? `Expires: ${body.documentExpirationDate}`
         : '',
-      `Barriers: ${body.barriers.join(', ')}`,
+      `Barriers: ${Array.isArray(body.barriers) ? body.barriers.join(', ') : 'None'}`,
       body.otherBarrier ? `Other Barrier: ${body.otherBarrier}` : '',
       `Case Manager: ${body.hasCaseManager ? 'Yes' : 'No'}`,
       body.caseManagerAgency ? `Agency: ${body.caseManagerAgency}` : '',
@@ -78,7 +78,9 @@ export async function POST(req: Request) {
         first_name: body.firstName,
         last_name: body.lastName,
         email: body.email,
-        phone: body.phone,
+        phone: body.phone || '',
+        city: body.city || 'Indianapolis',
+        zip: body.zip || '00000',
         program_interest: body.program || 'Not specified',
         status: 'pending',
         support_notes: notes,
@@ -92,6 +94,8 @@ export async function POST(req: Request) {
         {
           error:
             'Failed to save application. Please call 317-314-3757 for assistance.',
+          details:
+            process.env.NODE_ENV === 'development' ? error.message : undefined,
         },
         { status: 500 }
       );
@@ -158,9 +162,9 @@ export async function POST(req: Request) {
             <p><strong>Location:</strong> ${body.city}, ${body.zip}</p>
             <p><strong>Income:</strong> ${body.annualIncome}</p>
             <p><strong>Employment:</strong> ${body.employmentStatus}</p>
-            <p><strong>Public Assistance:</strong> ${body.receivesPublicAssistance.join(', ')}</p>
+            <p><strong>Public Assistance:</strong> ${Array.isArray(body.receivesPublicAssistance) ? body.receivesPublicAssistance.join(', ') : 'None'}</p>
             <p><strong>Justice Involvement:</strong> ${body.hasJusticeInvolvement ? 'Yes' : 'No'}</p>
-            <p><strong>Barriers:</strong> ${body.barriers.join(', ')}</p>
+            <p><strong>Barriers:</strong> ${Array.isArray(body.barriers) ? body.barriers.join(', ') : 'None'}</p>
             <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/applications">View in Admin Portal</a></p>
           `,
         }),
