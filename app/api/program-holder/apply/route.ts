@@ -1,106 +1,94 @@
-import { NextRequest } from 'next/server';
-import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@/lib/auth';
-import { logger } from '@/lib/logger';
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+// Use service role for anonymous submissions
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 export async function POST(req: NextRequest) {
-  const supabase = await createRouteHandlerClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  try {
+    const body = await req.json();
 
-  if (!user) {
-    return new Response('You must be logged in to apply.', { status: 401 });
-  }
-
-  const body = await req.json();
-  const {
-    org_name,
-    contact_name,
-    contact_email,
-    phone,
-    site_address,
-    training_focus,
-    funding_sources,
-    agree,
-  } = body || {};
-
-  if (!agree) {
-    return new Response('You must agree to terms.', { status: 400 });
-  }
-
-  if (!org_name || !contact_name || !contact_email) {
-    return new Response('Missing required fields.', { status: 400 });
-  }
-
-  // Check if user already has a program holder
-  const { data: existingProfile } = await supabase
-    .from('user_profiles')
-    .select('program_holder_id')
-    .eq('user_id', user.id)
-    .single();
-
-  if (existingProfile?.program_holder_id) {
-    return new Response('You already have a program holder application.', {
-      status: 400,
-    });
-  }
-
-  // Create program_holder in "pending" status with default 1/3 share
-  const { data: ph, error: phError } = await supabase
-    .from('program_holders')
-    .insert({
-      name: org_name,
-      owner_user_id: user.id,
-      status: 'pending',
-      payout_share: 0.333,
-      mou_status: 'not_sent',
-    })
-    .select('id')
-    .single();
-
-  if (phError) {
-    return new Response(phError.message, { status: 500 });
-  }
-
-  // Store application details
-  const { error: appError } = await supabase
-    .from('program_holder_applications')
-    .insert({
-      program_holder_id: ph.id,
-      contact_name,
-      contact_email,
-      phone: phone || null,
-      site_address: site_address || null,
-      training_focus: training_focus || null,
-      funding_sources: funding_sources || null,
-    });
-
-  if (appError) {
-    logger.error('Failed to store application details:', appError);
-  }
-
-  // Update user profile with program holder and partner role
-  await supabase.from('user_profiles').upsert(
-    {
-      user_id: user.id,
-      role: 'partner',
-      program_holder_id: ph.id,
-    },
-    {
-      onConflict: 'user_id',
+    // Validation
+    if (!body.organizationName || !body.contactName || !body.contactEmail) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
-  );
 
-  // Create delegate record with default permissions
-  await supabase.from('delegates').insert({
-    program_holder_id: ph.id,
-    user_id: user.id,
-    can_view_reports: true,
-    can_view_learners: true,
-    can_edit_courses: false,
-    can_view_financials: false,
-  });
+    if (!body.programsInterested || body.programsInterested.length === 0) {
+      return NextResponse.json(
+        { error: 'Please select at least one program' },
+        { status: 400 }
+      );
+    }
 
-  return Response.json({ ok: true, program_holder_id: ph.id });
+    // Check for duplicate by email
+    const { data: existing } = await supabase
+      .from('program_holder_applications')
+      .select('id, status')
+      .eq('contact_email', body.contactEmail.toLowerCase())
+      .eq('status', 'pending')
+      .single();
+
+    if (existing) {
+      return NextResponse.json(
+        {
+          error:
+            'An application with this email is already pending review. Please contact us if you need to update your application.',
+        },
+        { status: 400 }
+      );
+    }
+
+    // Insert application
+    const { data: application, error: insertError } = await supabase
+      .from('program_holder_applications')
+      .insert({
+        organization_name: body.organizationName,
+        organization_type: body.organizationType || 'other',
+        contact_name: body.contactName,
+        contact_email: body.contactEmail.toLowerCase(),
+        contact_phone: body.contactPhone || null,
+        address: body.address || null,
+        city: body.city || null,
+        state: body.state || 'IN',
+        zip: body.zip || null,
+        programs_interested: body.programsInterested,
+        estimated_students: body.estimatedStudents
+          ? parseInt(body.estimatedStudents)
+          : null,
+        how_heard_about_us: body.howHeardAboutUs || null,
+        additional_info: body.additionalInfo || null,
+        status: 'pending',
+        created_at: new Date().toISOString(),
+      })
+      .select('id')
+      .single();
+
+    if (insertError) {
+      console.error('Insert error:', insertError);
+      return NextResponse.json(
+        { error: 'Failed to submit application. Please try again.' },
+        { status: 500 }
+      );
+    }
+
+    // TODO: Send confirmation email to applicant
+    // TODO: Send notification email to admin
+
+    return NextResponse.json({
+      success: true,
+      applicationId: application.id,
+    });
+  } catch (error) {
+    console.error('Application error:', error);
+    return NextResponse.json(
+      { error: 'An unexpected error occurred. Please try again.' },
+      { status: 500 }
+    );
+  }
 }
