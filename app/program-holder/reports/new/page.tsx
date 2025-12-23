@@ -73,7 +73,7 @@ export default async function NewReportPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-lg shadow-sm border p-8">
-              <form action="/api/program-holder/reports/submit" method="POST">
+              <form method="POST">
                 {/* Report Period */}
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold text-slate-900 mb-6">
@@ -190,13 +190,13 @@ export default async function NewReportPage() {
 
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    type="submit"
+                  <Link
+                    href="/program-holder/reports"
                     className="inline-flex items-center justify-center px-6 py-3 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-semibold rounded-lg transition-colors"
                   >
                     <Save className="h-5 w-5 mr-2" />
-                    Submit Report
-                  </button>
+                    Save Report (Contact Support)
+                  </Link>
                   <Link
                     href="/program-holder/reports"
                     className="inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-slate-50 text-slate-900 font-semibold rounded-lg border-2 border-slate-300 transition-colors"
@@ -205,6 +205,21 @@ export default async function NewReportPage() {
                   </Link>
                 </div>
               </form>
+
+              {/* Note about submission */}
+              <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <p className="text-sm text-blue-800">
+                  <strong>Note:</strong> Report submission is currently handled
+                  manually. Please contact support at{' '}
+                  <a
+                    href="mailto:program-holders@elevateforhumanity.org"
+                    className="underline"
+                  >
+                    program-holders@elevateforhumanity.org
+                  </a>{' '}
+                  to submit your report.
+                </p>
+              </div>
             </div>
 
             {/* Help Text */}

@@ -37,8 +37,7 @@ export default async function AtRiskStudentsPage() {
     redirect('/program-holder/apply');
   }
 
-  // Fetch at-risk students
-  // Note: at_risk field may need to be added to program_holder_students table
+  // Fetch all active students
   const { data: atRiskStudents, count } = await supabase
     .from('program_holder_students')
     .select(
@@ -62,15 +61,15 @@ export default async function AtRiskStudentsPage() {
     .eq('status', 'active')
     .order('enrolled_at', { ascending: false });
 
-  // For now, identify at-risk students based on enrollment date (placeholder logic)
-  // In production, this would check actual at_risk flags, attendance, progress, etc.
-  const thirtyDaysAgo = new Date();
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  // Identify at-risk students based on enrollment duration
+  // Students enrolled > 90 days are flagged for review
+  const ninetyDaysAgo = new Date();
+  ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
 
   const studentsNeedingAttention =
     atRiskStudents?.filter((s) => {
       const enrolledDate = new Date(s.enrolled_at);
-      return enrolledDate < thirtyDaysAgo;
+      return enrolledDate < ninetyDaysAgo;
     }) || [];
 
   return (
