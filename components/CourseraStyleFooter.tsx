@@ -201,8 +201,7 @@ export default function CourseraStyleFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
-              >
-              </a>
+               />
               <a
                 href="https://linkedin.com/company/elevate-for-humanity"
                 target="_blank"

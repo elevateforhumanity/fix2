@@ -33,7 +33,7 @@ const projectRef = supabaseUrl.match(/https:\/\/([^.]+)\.supabase\.co/)?.[1];
 
 // Use DATABASE_URL if available, otherwise construct from Supabase URL
 // Note: Direct database connections require the database password, not the service role key
-let connectionString = dbUrl;
+const connectionString = dbUrl;
 
 if (!connectionString && projectRef) {
   // For Supabase, we need the actual database password from DATABASE_URL env var

@@ -65,7 +65,7 @@ for (const file of files) {
     continue;
   }
 
-  let content = fs.readFileSync(file, 'utf8');
+  const content = fs.readFileSync(file, 'utf8');
   
   // Check if already has metadata (double-check)
   if (/export\s+(const\s+metadata|async\s+function\s+generateMetadata|function\s+generateMetadata)\b/.test(content)) {

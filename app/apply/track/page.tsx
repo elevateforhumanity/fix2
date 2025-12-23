@@ -179,7 +179,7 @@ export default function TrackApplicationPage() {
                 value={searchEmail}
                 onChange={(e) => setSearchEmail(e.target.value)}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                placeholder="you@example.com"
+                placeholder="your.email@address.com"
               />
             </div>
 

@@ -91,8 +91,7 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-lg transition"
               >
-                <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
-                </div>
+                <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center" />
               </a>
 
               {/* LinkedIn */}

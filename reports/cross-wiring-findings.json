@@ -1,0 +1,1406 @@
+{
+  "generated": "2025-12-23T19:51:00.244Z",
+  "totalFindings": 130,
+  "bySeverity": {
+    "CRITICAL": 82,
+    "HIGH": 48,
+    "MEDIUM": 0
+  },
+  "findings": {
+    "CRITICAL": [
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/admin/placements",
+        "category": "programHolder",
+        "tables": [
+          "apprentice_placements"
+        ],
+        "file": "app/(partner)/partners/admin/placements/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: apprentice_placements"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/admin/shops",
+        "category": "programHolder",
+        "tables": [
+          "shops"
+        ],
+        "file": "app/(partner)/partners/admin/shops/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shops"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/attendance",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "apprentice_placements",
+          "partner_attendance"
+        ],
+        "file": "app/(partner)/partners/attendance/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, apprentice_placements, partner_attendance"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/documents",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "partner_documents"
+        ],
+        "file": "app/(partner)/partners/documents/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, partner_documents"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/reports/weekly",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "apprentice_placements",
+          "apprentice_weekly_reports"
+        ],
+        "file": "app/(partner)/partners/reports/weekly/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, apprentice_placements, apprentice_weekly_reports"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/students",
+        "category": "programHolder",
+        "tables": [
+          "apprentice_placements"
+        ],
+        "file": "app/(partner)/partners/students/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: apprentice_placements"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/employer/dashboard",
+        "category": "employer",
+        "tables": [
+          "job_postings",
+          "job_applications",
+          "apprenticeship_programs"
+        ],
+        "file": "app/employer/dashboard/page.tsx",
+        "message": "employer route missing organization_id filter on tables: job_postings, job_applications, apprenticeship_programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/instructor/courses/:courseId/gradebook",
+        "category": "instructor",
+        "tables": [
+          "courses"
+        ],
+        "file": "app/instructor/courses/[courseId]/gradebook/page.tsx",
+        "message": "instructor route missing organization_id filter on tables: courses"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/instructor/dashboard",
+        "category": "instructor",
+        "tables": [
+          "enrollments"
+        ],
+        "file": "app/instructor/dashboard/page.tsx",
+        "message": "instructor route missing organization_id filter on tables: enrollments"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/attendance",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "student_progress"
+        ],
+        "file": "app/lms/(app)/attendance/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, enrollments, student_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/certificates",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "certificates"
+        ],
+        "file": "app/lms/(app)/certificates/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, certificates"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/courses/:courseId/complete",
+        "category": "lms",
+        "tables": [
+          "courses",
+          "lms_progress"
+        ],
+        "file": "app/lms/(app)/courses/[courseId]/complete/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: courses, lms_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/courses/:courseId/launch",
+        "category": "lms",
+        "tables": [
+          "courses",
+          "lms_progress"
+        ],
+        "file": "app/lms/(app)/courses/[courseId]/launch/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: courses, lms_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/courses/new",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "student_progress"
+        ],
+        "file": "app/lms/(app)/courses/new/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, enrollments, student_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/files",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "student_progress"
+        ],
+        "file": "app/lms/(app)/files/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, enrollments, student_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/learning-paths",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "student_progress"
+        ],
+        "file": "app/lms/(app)/learning-paths/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, enrollments, student_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/progress",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "student_progress"
+        ],
+        "file": "app/lms/(app)/progress/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, enrollments, student_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/lms/social",
+        "category": "lms",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "student_progress"
+        ],
+        "file": "app/lms/(app)/social/page.tsx",
+        "message": "lms route missing user_id/profile_id filter on tables: profiles, enrollments, student_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/partners/join",
+        "category": "programHolder",
+        "tables": [
+          "partner_profiles",
+          "role_packages"
+        ],
+        "file": "app/partners/join/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: partner_profiles, role_packages"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/compliance",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_documents",
+          "apprentice_weekly_reports",
+          "program_holder_students"
+        ],
+        "file": "app/program-holder/compliance/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_documents, apprentice_weekly_reports, program_holder_students"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/courses/create",
+        "category": "programHolder",
+        "tables": [
+          "courses"
+        ],
+        "file": "app/program-holder/courses/create/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: courses"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/dashboard",
+        "category": "programHolder",
+        "tables": [
+          "enrollments",
+          "student_verifications",
+          "compliance_reports",
+          "compliance_scores"
+        ],
+        "file": "app/program-holder/dashboard/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: enrollments, student_verifications, compliance_reports, compliance_scores"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/documents",
+        "category": "programHolder",
+        "tables": [
+          "program_holder_documents"
+        ],
+        "file": "app/program-holder/documents/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holder_documents"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/grades",
+        "category": "programHolder",
+        "tables": [
+          "programs"
+        ],
+        "file": "app/program-holder/grades/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/handbook",
+        "category": "programHolder",
+        "tables": [
+          "program_holder_acknowledgements"
+        ],
+        "file": "app/program-holder/handbook/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holder_acknowledgements"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/how-to-use",
+        "category": "programHolder",
+        "tables": [
+          "programs"
+        ],
+        "file": "app/program-holder/how-to-use/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/mou",
+        "category": "programHolder",
+        "tables": [
+          "programs"
+        ],
+        "file": "app/program-holder/mou/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/programs/:programId",
+        "category": "programHolder",
+        "tables": [
+          "programs"
+        ],
+        "file": "app/program-holder/programs/[programId]/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/reports/new",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_students"
+        ],
+        "file": "app/program-holder/reports/new/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_students"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/reports",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "apprentice_weekly_reports"
+        ],
+        "file": "app/program-holder/reports/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, apprentice_weekly_reports"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/rights-responsibilities",
+        "category": "programHolder",
+        "tables": [
+          "program_holder_acknowledgements"
+        ],
+        "file": "app/program-holder/rights-responsibilities/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holder_acknowledgements"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/settings",
+        "category": "programHolder",
+        "tables": [
+          "programs"
+        ],
+        "file": "app/program-holder/settings/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/students/at-risk",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_students"
+        ],
+        "file": "app/program-holder/students/at-risk/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_students"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/students",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_students"
+        ],
+        "file": "app/program-holder/students/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_students"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/students/pending",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_students"
+        ],
+        "file": "app/program-holder/students/pending/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_students"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/training",
+        "category": "programHolder",
+        "tables": [
+          "programs"
+        ],
+        "file": "app/program-holder/training/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: programs"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/verification",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_documents"
+        ],
+        "file": "app/program-holder/verification/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_documents"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/program-holder/verify-identity",
+        "category": "programHolder",
+        "tables": [
+          "program_holders",
+          "program_holder_verification",
+          "program_holder_documents"
+        ],
+        "file": "app/program-holder/verify-identity/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: program_holders, program_holder_verification, program_holder_documents"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/shop/dashboard",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "shop_onboarding",
+          "apprentice_placements",
+          "apprentice_weekly_reports"
+        ],
+        "file": "app/shop/dashboard/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, shop_onboarding, apprentice_placements, apprentice_weekly_reports"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/shop/onboarding/documents",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "shop_document_requirements"
+        ],
+        "file": "app/shop/onboarding/documents/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, shop_document_requirements"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/shop/onboarding",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "shop_onboarding",
+          "shop_required_docs_status"
+        ],
+        "file": "app/shop/onboarding/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, shop_onboarding, shop_required_docs_status"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_org_scope",
+        "route": "/shop/reports/new",
+        "category": "programHolder",
+        "tables": [
+          "shop_staff",
+          "apprentice_placements"
+        ],
+        "file": "app/shop/reports/new/page.tsx",
+        "message": "programHolder route missing organization_id filter on tables: shop_staff, apprentice_placements"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/analytics",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/analytics/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/apprenticeship/hours",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/apprenticeship/hours/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/apprenticeship-hours",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/apprenticeship-hours/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/assignments",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/assignments/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/badges",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/badges/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/calendar",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/calendar/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/career-counseling",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/career-counseling/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/certificates/generate",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/certificates/generate/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/certifications/milady",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/certifications/milady/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/competencies",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/competencies/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/courses/:courseId/external/:moduleId",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/courses/[courseId]/external/[moduleId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/courses/:courseId/groups",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/courses/[courseId]/groups/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/courses/:courseId/resources",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/courses/[courseId]/resources/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/courses/hvac-systems",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/courses/hvac-systems/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/courses/scorm/:courseId",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/courses/scorm/[courseId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/discussions",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/discussions/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/grades",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/grades/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/handbook",
+        "category": "student",
+        "tables": [
+          "student_onboarding"
+        ],
+        "file": "app/student/handbook/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: student_onboarding"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/hours-tracking",
+        "category": "student",
+        "tables": [
+          "profiles",
+          "enrollments",
+          "partner_lms_providers",
+          "partner_lms_enrollments",
+          "student_hours"
+        ],
+        "file": "app/student/hours-tracking/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles, enrollments, partner_lms_providers, partner_lms_enrollments, student_hours"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/hub",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/hub/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/instructor/:programId",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/instructor/[programId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/instructor",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/instructor/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/jri/:id",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/jri/[id]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/leaderboard",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/leaderboard/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/learning-path",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/learning-path/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/learning-paths",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/learning-paths/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/milady/launch/:enrollmentId",
+        "category": "student",
+        "tables": [
+          "partner_lms_enrollments"
+        ],
+        "file": "app/student/milady/launch/[enrollmentId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: partner_lms_enrollments"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/milady-lms",
+        "category": "student",
+        "tables": [
+          "profiles",
+          "enrollments"
+        ],
+        "file": "app/student/milady-lms/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles, enrollments"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/portfolio",
+        "category": "student",
+        "tables": [
+          "apprenticeship_enrollments",
+          "apprenticeship_portfolio",
+          "skill_competencies",
+          "portfolio"
+        ],
+        "file": "app/student/portfolio/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: apprenticeship_enrollments, apprenticeship_portfolio, skill_competencies, portfolio"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/profile",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/profile/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/programs/:slug/modules/:moduleId",
+        "category": "student",
+        "tables": [
+          "students",
+          "course_modules",
+          "student_enrollments",
+          "enrollment_module_progress"
+        ],
+        "file": "app/student/programs/[slug]/modules/[moduleId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: students, course_modules, student_enrollments, enrollment_module_progress"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/resources",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/resources/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/schedule",
+        "category": "student",
+        "tables": [
+          "profiles",
+          "enrollments"
+        ],
+        "file": "app/student/schedule/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles, enrollments"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/scorm/:scormId",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/scorm/[scormId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/scorm",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/scorm/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/skills-gap",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/skills-gap/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/studenthub",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/studenthub/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/success",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/success/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/support",
+        "category": "student",
+        "tables": [
+          "profiles"
+        ],
+        "file": "app/student/support/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: profiles"
+      },
+      {
+        "severity": "CRITICAL",
+        "type": "missing_user_scope",
+        "route": "/student/welcome-packet/:packetId",
+        "category": "student",
+        "tables": [
+          "welcome_packets",
+          "welcome_packet_items"
+        ],
+        "file": "app/student/welcome-packet/[packetId]/page.tsx",
+        "message": "student route missing user_id/profile_id filter on tables: welcome_packets, welcome_packet_items"
+      }
+    ],
+    "HIGH": [
+      {
+        "severity": "HIGH",
+        "type": "shop_without_scope",
+        "route": "/partners/admin/shops",
+        "category": "programHolder",
+        "file": "app/(partner)/partners/admin/shops/page.tsx",
+        "message": "Shop access without organization_id filter - potential data leakage"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/partners/attendance",
+        "category": "programHolder",
+        "table": "partner_attendance",
+        "file": "app/(partner)/partners/attendance/page.tsx",
+        "message": "programHolder route accessing table 'partner_attendance' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/partners/documents",
+        "category": "programHolder",
+        "table": "partner_documents",
+        "file": "app/(partner)/partners/documents/page.tsx",
+        "message": "programHolder route accessing table 'partner_documents' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/employer/dashboard",
+        "category": "employer",
+        "table": "job_applications",
+        "file": "app/employer/dashboard/page.tsx",
+        "message": "employer route accessing table 'job_applications' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/employer/dashboard",
+        "category": "employer",
+        "table": "apprenticeship_programs",
+        "file": "app/employer/dashboard/page.tsx",
+        "message": "employer route accessing table 'apprenticeship_programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/certificates",
+        "category": "lms",
+        "table": "certificates",
+        "file": "app/lms/(app)/certificates/page.tsx",
+        "message": "lms route accessing table 'certificates' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/courses/:courseId/complete",
+        "category": "lms",
+        "table": "lms_progress",
+        "file": "app/lms/(app)/courses/[courseId]/complete/page.tsx",
+        "message": "lms route accessing table 'lms_progress' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/courses/:courseId/launch",
+        "category": "lms",
+        "table": "lms_progress",
+        "file": "app/lms/(app)/courses/[courseId]/launch/page.tsx",
+        "message": "lms route accessing table 'lms_progress' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/courses/:courseId/lessons/:lessonId",
+        "category": "lms",
+        "table": "lesson_progress",
+        "file": "app/lms/(app)/courses/[courseId]/lessons/[lessonId]/page.tsx",
+        "message": "lms route accessing table 'lesson_progress' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/dashboard",
+        "category": "lms",
+        "table": "course_progress",
+        "file": "app/lms/(app)/dashboard/page.tsx",
+        "message": "lms route accessing table 'course_progress' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/dashboard",
+        "category": "lms",
+        "table": "certifications",
+        "file": "app/lms/(app)/dashboard/page.tsx",
+        "message": "lms route accessing table 'certifications' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/lms/dashboard",
+        "category": "lms",
+        "table": "job_placements",
+        "file": "app/lms/(app)/dashboard/page.tsx",
+        "message": "lms route accessing table 'job_placements' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/partners/join",
+        "category": "programHolder",
+        "table": "partner_profiles",
+        "file": "app/partners/join/page.tsx",
+        "message": "programHolder route accessing table 'partner_profiles' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/partners/join",
+        "category": "programHolder",
+        "table": "role_packages",
+        "file": "app/partners/join/page.tsx",
+        "message": "programHolder route accessing table 'role_packages' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/courses/create",
+        "category": "programHolder",
+        "table": "courses",
+        "file": "app/program-holder/courses/create/page.tsx",
+        "message": "programHolder route accessing table 'courses' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/dashboard",
+        "category": "programHolder",
+        "table": "enrollments",
+        "file": "app/program-holder/dashboard/page.tsx",
+        "message": "programHolder route accessing table 'enrollments' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/dashboard",
+        "category": "programHolder",
+        "table": "student_verifications",
+        "file": "app/program-holder/dashboard/page.tsx",
+        "message": "programHolder route accessing table 'student_verifications' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/dashboard",
+        "category": "programHolder",
+        "table": "compliance_reports",
+        "file": "app/program-holder/dashboard/page.tsx",
+        "message": "programHolder route accessing table 'compliance_reports' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/dashboard",
+        "category": "programHolder",
+        "table": "compliance_scores",
+        "file": "app/program-holder/dashboard/page.tsx",
+        "message": "programHolder route accessing table 'compliance_scores' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/grades",
+        "category": "programHolder",
+        "table": "programs",
+        "file": "app/program-holder/grades/page.tsx",
+        "message": "programHolder route accessing table 'programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/how-to-use",
+        "category": "programHolder",
+        "table": "programs",
+        "file": "app/program-holder/how-to-use/page.tsx",
+        "message": "programHolder route accessing table 'programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/mou",
+        "category": "programHolder",
+        "table": "programs",
+        "file": "app/program-holder/mou/page.tsx",
+        "message": "programHolder route accessing table 'programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/programs/:programId",
+        "category": "programHolder",
+        "table": "programs",
+        "file": "app/program-holder/programs/[programId]/page.tsx",
+        "message": "programHolder route accessing table 'programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/settings",
+        "category": "programHolder",
+        "table": "programs",
+        "file": "app/program-holder/settings/page.tsx",
+        "message": "programHolder route accessing table 'programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/training",
+        "category": "programHolder",
+        "table": "programs",
+        "file": "app/program-holder/training/page.tsx",
+        "message": "programHolder route accessing table 'programs' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/program-holder/verify-identity",
+        "category": "programHolder",
+        "table": "program_holder_verification",
+        "file": "app/program-holder/verify-identity/page.tsx",
+        "message": "programHolder route accessing table 'program_holder_verification' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/shop/onboarding/documents",
+        "category": "programHolder",
+        "table": "shop_document_requirements",
+        "file": "app/shop/onboarding/documents/page.tsx",
+        "message": "programHolder route accessing table 'shop_document_requirements' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/shop/onboarding",
+        "category": "programHolder",
+        "table": "shop_required_docs_status",
+        "file": "app/shop/onboarding/page.tsx",
+        "message": "programHolder route accessing table 'shop_required_docs_status' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/ai-tutor",
+        "category": "student",
+        "table": "ai_instructors",
+        "file": "app/student/ai-tutor/page.tsx",
+        "message": "student route accessing table 'ai_instructors' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/ai-tutor",
+        "category": "student",
+        "table": "ai_instructor_interactions",
+        "file": "app/student/ai-tutor/page.tsx",
+        "message": "student route accessing table 'ai_instructor_interactions' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/certificates",
+        "category": "student",
+        "table": "partner_enrollments",
+        "file": "app/student/certificates/page.tsx",
+        "message": "student route accessing table 'partner_enrollments' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/courses/:courseId",
+        "category": "student",
+        "table": "modules",
+        "file": "app/student/courses/[courseId]/page.tsx",
+        "message": "student route accessing table 'modules' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/courses/:courseId",
+        "category": "student",
+        "table": "user_progress",
+        "file": "app/student/courses/[courseId]/page.tsx",
+        "message": "student route accessing table 'user_progress' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/handbook",
+        "category": "student",
+        "table": "student_onboarding",
+        "file": "app/student/handbook/page.tsx",
+        "message": "student route accessing table 'student_onboarding' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/hours-tracking",
+        "category": "student",
+        "table": "partner_lms_providers",
+        "file": "app/student/hours-tracking/page.tsx",
+        "message": "student route accessing table 'partner_lms_providers' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/hours-tracking",
+        "category": "student",
+        "table": "partner_lms_enrollments",
+        "file": "app/student/hours-tracking/page.tsx",
+        "message": "student route accessing table 'partner_lms_enrollments' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/hours-tracking",
+        "category": "student",
+        "table": "student_hours",
+        "file": "app/student/hours-tracking/page.tsx",
+        "message": "student route accessing table 'student_hours' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/milady/launch/:enrollmentId",
+        "category": "student",
+        "table": "partner_lms_enrollments",
+        "file": "app/student/milady/launch/[enrollmentId]/page.tsx",
+        "message": "student route accessing table 'partner_lms_enrollments' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/portfolio",
+        "category": "student",
+        "table": "apprenticeship_enrollments",
+        "file": "app/student/portfolio/page.tsx",
+        "message": "student route accessing table 'apprenticeship_enrollments' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/portfolio",
+        "category": "student",
+        "table": "apprenticeship_portfolio",
+        "file": "app/student/portfolio/page.tsx",
+        "message": "student route accessing table 'apprenticeship_portfolio' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/portfolio",
+        "category": "student",
+        "table": "skill_competencies",
+        "file": "app/student/portfolio/page.tsx",
+        "message": "student route accessing table 'skill_competencies' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/portfolio",
+        "category": "student",
+        "table": "portfolio",
+        "file": "app/student/portfolio/page.tsx",
+        "message": "student route accessing table 'portfolio' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/programs/:slug/modules/:moduleId",
+        "category": "student",
+        "table": "students",
+        "file": "app/student/programs/[slug]/modules/[moduleId]/page.tsx",
+        "message": "student route accessing table 'students' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/programs/:slug/modules/:moduleId",
+        "category": "student",
+        "table": "course_modules",
+        "file": "app/student/programs/[slug]/modules/[moduleId]/page.tsx",
+        "message": "student route accessing table 'course_modules' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/programs/:slug/modules/:moduleId",
+        "category": "student",
+        "table": "student_enrollments",
+        "file": "app/student/programs/[slug]/modules/[moduleId]/page.tsx",
+        "message": "student route accessing table 'student_enrollments' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/programs/:slug/modules/:moduleId",
+        "category": "student",
+        "table": "enrollment_module_progress",
+        "file": "app/student/programs/[slug]/modules/[moduleId]/page.tsx",
+        "message": "student route accessing table 'enrollment_module_progress' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/welcome-packet/:packetId",
+        "category": "student",
+        "table": "welcome_packets",
+        "file": "app/student/welcome-packet/[packetId]/page.tsx",
+        "message": "student route accessing table 'welcome_packets' which is not in allowed list"
+      },
+      {
+        "severity": "HIGH",
+        "type": "unauthorized_table_access",
+        "route": "/student/welcome-packet/:packetId",
+        "category": "student",
+        "table": "welcome_packet_items",
+        "file": "app/student/welcome-packet/[packetId]/page.tsx",
+        "message": "student route accessing table 'welcome_packet_items' which is not in allowed list"
+      }
+    ],
+    "MEDIUM": []
+  }
+}

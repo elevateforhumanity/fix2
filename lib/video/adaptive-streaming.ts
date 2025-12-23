@@ -168,9 +168,7 @@ export function estimateDataUsage(
  * Check if device is on metered connection
  */
 export function isMeteredConnection(): boolean {
-  // @ts-expect-error TS2339: Property 'connection' does not exist on type 'string'.
-  // @ts-expect-error TS2352: Conversion of type 'Navigator' to type 'string' may be a mistake because neit...
-  const connection = (navigator as string).connection;
+  const connection = (navigator as any).connection;
   if (!connection) return false;
 
   return (
@@ -184,9 +182,7 @@ export function isMeteredConnection(): boolean {
  * Get recommended buffer size based on network
  */
 export function getRecommendedBufferSize(): number {
-  // @ts-expect-error TS2339: Property 'connection' does not exist on type 'string'.
-  // @ts-expect-error TS2352: Conversion of type 'Navigator' to type 'string' may be a mistake because neit...
-  const connection = (navigator as string).connection;
+  const connection = (navigator as any).connection;
   if (!connection) return 30; // Default 30 seconds
 
   const effectiveType = connection.effectiveType;

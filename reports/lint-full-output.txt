@@ -1,0 +1,629 @@
+
+> efh-autopilot@2.0.0 lint
+> eslint . --ext .js,.jsx,.ts,.tsx
+
+(node:35075) ESLintIgnoreWarning: The ".eslintignore" file is no longer supported. Switch to using the "ignores" property in "eslint.config.js": https://eslint.org/docs/latest/use/configure/migration-guide#ignoring-files
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+/workspaces/fix2/app/(auth)/invite/[token]/page.tsx
+  117:11  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/(dashboard)/org/invites/page.tsx
+  168:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/about/page.tsx
+  140:15  warning  Empty components are self-closing  react/self-closing-comp
+  149:15  warning  Empty components are self-closing  react/self-closing-comp
+  158:15  warning  Empty components are self-closing  react/self-closing-comp
+  167:15  warning  Empty components are self-closing  react/self-closing-comp
+  176:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/accessibility/page.tsx
+   52:15  warning  Empty components are self-closing  react/self-closing-comp
+   59:15  warning  Empty components are self-closing  react/self-closing-comp
+   66:15  warning  Empty components are self-closing  react/self-closing-comp
+   70:15  warning  Empty components are self-closing  react/self-closing-comp
+   76:15  warning  Empty components are self-closing  react/self-closing-comp
+   93:15  warning  Empty components are self-closing  react/self-closing-comp
+   97:15  warning  Empty components are self-closing  react/self-closing-comp
+  101:15  warning  Empty components are self-closing  react/self-closing-comp
+  105:15  warning  Empty components are self-closing  react/self-closing-comp
+  109:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/admin/audit-logs/page.tsx
+  102:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/admin/cash-advances/settings/page.tsx
+  134:17  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/admin/incentives/page.tsx
+  67:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/admin/next-steps/page.tsx
+  76:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+/workspaces/fix2/app/admin/program-holder-documents/page.tsx
+  144:11  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/admin/program-holders/verification/[id]/review/VerificationReviewForm.tsx
+  212:25  warning  Using target="_blank" without rel="noreferrer" (which implies rel="noopener") is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations  react/jsx-no-target-blank
+
+/workspaces/fix2/app/admin/program-holders/verification/page.tsx
+  210:29  warning  Using target="_blank" without rel="noreferrer" (which implies rel="noopener") is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations  react/jsx-no-target-blank
+
+/workspaces/fix2/app/admin/social-media/page.tsx
+  140:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/admin/test-payments/page.tsx
+  65:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/annual-report/page.tsx
+  212:23  warning  Empty components are self-closing  react/self-closing-comp
+  224:23  warning  Empty components are self-closing  react/self-closing-comp
+  236:23  warning  Empty components are self-closing  react/self-closing-comp
+  248:23  warning  Empty components are self-closing  react/self-closing-comp
+  277:23  warning  Empty components are self-closing  react/self-closing-comp
+  289:23  warning  Empty components are self-closing  react/self-closing-comp
+  301:23  warning  Empty components are self-closing  react/self-closing-comp
+  315:23  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/api/audit/launch/route.ts
+  103:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/workspaces/fix2/app/api/autopilots/run-tests/route.ts
+  38:51  error  Unnecessary escape character: \/  no-useless-escape
+
+/workspaces/fix2/app/api/checkout/route.ts
+  71:12  error  Unexpected constant nullishness on the left-hand side of a `??` expression  no-constant-binary-expression
+
+/workspaces/fix2/app/api/employer/hours/route.ts
+  33:9  warning  'query' is never reassigned. Use 'const' instead  prefer-const
+
+/workspaces/fix2/app/api/enroll/apply/route.ts
+  28:9  warning  'studentId' is never reassigned. Use 'const' instead  prefer-const
+
+/workspaces/fix2/app/api/enrollment-count/route.ts
+  4:5  warning  'enrollmentData' is never reassigned. Use 'const' instead  prefer-const
+
+/workspaces/fix2/app/api/social-media/scheduler/route.ts
+  173:5  error  Expected a 'break' statement before 'case'  no-fallthrough
+
+/workspaces/fix2/app/api/store/publish/route.ts
+  59:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/workspaces/fix2/app/blog/page-old.tsx
+  91:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/copyright/page.tsx
+   44:15  warning  Empty components are self-closing  react/self-closing-comp
+   50:15  warning  Empty components are self-closing  react/self-closing-comp
+   56:15  warning  Empty components are self-closing  react/self-closing-comp
+   60:15  warning  Empty components are self-closing  react/self-closing-comp
+   66:15  warning  Empty components are self-closing  react/self-closing-comp
+  114:15  warning  Empty components are self-closing  react/self-closing-comp
+  118:15  warning  Empty components are self-closing  react/self-closing-comp
+  122:15  warning  Empty components are self-closing  react/self-closing-comp
+  137:15  warning  Empty components are self-closing  react/self-closing-comp
+  143:15  warning  Empty components are self-closing  react/self-closing-comp
+  149:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/donate/page.tsx
+  33:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/employers/page.tsx
+  470:17  warning  Empty components are self-closing  react/self-closing-comp
+  481:17  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/enhanced-home/page.tsx
+   93:11  warning  Empty components are self-closing  react/self-closing-comp
+  112:11  warning  Empty components are self-closing  react/self-closing-comp
+  243:19  warning  Empty components are self-closing  react/self-closing-comp
+  667:17  warning  Empty components are self-closing  react/self-closing-comp
+  670:15  warning  Empty components are self-closing  react/self-closing-comp
+  671:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/enroll/PayNowSection.tsx
+  131:13  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/layout.tsx
+  174:63  warning  Prop `sizes` must be placed on a new line  react/jsx-max-props-per-line
+
+/workspaces/fix2/app/marketplace/thank-you/page.tsx
+   46:11  warning  Empty components are self-closing  react/self-closing-comp
+  190:13  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/pay/AffirmWidget.tsx
+  60:7  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/pay/PayPageClient.tsx
+   11:3  error    ES2015 module syntax is preferred over namespaces  @typescript-eslint/no-namespace
+  143:9  warning  Empty components are self-closing                  react/self-closing-comp
+  180:9  warning  Empty components are self-closing                  react/self-closing-comp
+
+/workspaces/fix2/app/pay/PaymentOptionsClient.tsx
+   11:3  error    ES2015 module syntax is preferred over namespaces  @typescript-eslint/no-namespace
+  154:9  warning  Empty components are self-closing                  react/self-closing-comp
+  257:9  warning  Empty components are self-closing                  react/self-closing-comp
+
+/workspaces/fix2/app/pay/StripePayButton.tsx
+  10:3  error    ES2015 module syntax is preferred over namespaces  @typescript-eslint/no-namespace
+  49:7  warning  Empty components are self-closing                  react/self-closing-comp
+
+/workspaces/fix2/app/privacy/page.tsx
+   37:15  warning  Empty components are self-closing  react/self-closing-comp
+   43:15  warning  Empty components are self-closing  react/self-closing-comp
+   50:15  warning  Empty components are self-closing  react/self-closing-comp
+   57:15  warning  Empty components are self-closing  react/self-closing-comp
+   73:15  warning  Empty components are self-closing  react/self-closing-comp
+   77:15  warning  Empty components are self-closing  react/self-closing-comp
+   83:15  warning  Empty components are self-closing  react/self-closing-comp
+   87:15  warning  Empty components are self-closing  react/self-closing-comp
+  101:15  warning  Empty components are self-closing  react/self-closing-comp
+  105:15  warning  Empty components are self-closing  react/self-closing-comp
+  109:15  warning  Empty components are self-closing  react/self-closing-comp
+  113:15  warning  Empty components are self-closing  react/self-closing-comp
+  128:15  warning  Empty components are self-closing  react/self-closing-comp
+  135:15  warning  Empty components are self-closing  react/self-closing-comp
+  142:15  warning  Empty components are self-closing  react/self-closing-comp
+  149:15  warning  Empty components are self-closing  react/self-closing-comp
+  162:15  warning  Empty components are self-closing  react/self-closing-comp
+  166:15  warning  Empty components are self-closing  react/self-closing-comp
+  170:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/program-holder/documents/page.tsx
+  148:11  warning  Empty components are self-closing  react/self-closing-comp
+  247:19  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/program-holder/loading.tsx
+  5:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/programs/barber-apprenticeship/page-new.tsx
+   80:13  warning  Using target="_blank" without rel="noreferrer" (which implies rel="noopener") is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations  react/jsx-no-target-blank
+  153:15  warning  Using target="_blank" without rel="noreferrer" (which implies rel="noopener") is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations  react/jsx-no-target-blank
+
+/workspaces/fix2/app/programs/barber-apprenticeship/page.tsx
+   38:11  warning  Using target="_blank" without rel="noreferrer" (which implies rel="noopener") is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations  react/jsx-no-target-blank
+  184:15  warning  Using target="_blank" without rel="noreferrer" (which implies rel="noopener") is a security risk in older browsers: see https://mathiasbynens.github.io/rel-noopener/#recommendations  react/jsx-no-target-blank
+
+/workspaces/fix2/app/refund/page.tsx
+  41:15  warning  Empty components are self-closing  react/self-closing-comp
+  48:15  warning  Empty components are self-closing  react/self-closing-comp
+  55:15  warning  Empty components are self-closing  react/self-closing-comp
+  70:15  warning  Empty components are self-closing  react/self-closing-comp
+  74:15  warning  Empty components are self-closing  react/self-closing-comp
+  78:15  warning  Empty components are self-closing  react/self-closing-comp
+  82:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/security/page.tsx
+  151:15  warning  Empty components are self-closing  react/self-closing-comp
+  157:15  warning  Empty components are self-closing  react/self-closing-comp
+  163:15  warning  Empty components are self-closing  react/self-closing-comp
+  210:15  warning  Empty components are self-closing  react/self-closing-comp
+  214:15  warning  Empty components are self-closing  react/self-closing-comp
+  218:15  warning  Empty components are self-closing  react/self-closing-comp
+  222:15  warning  Empty components are self-closing  react/self-closing-comp
+  232:15  warning  Empty components are self-closing  react/self-closing-comp
+  238:15  warning  Empty components are self-closing  react/self-closing-comp
+  244:15  warning  Empty components are self-closing  react/self-closing-comp
+  250:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/shop/reports/page.tsx
+  70:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/store/checkout/[slug]/page.tsx
+   60:13  warning  Empty components are self-closing  react/self-closing-comp
+  120:11  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/store/success/page.tsx
+  166:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/student/mobile-app/page.tsx
+  69:17  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/student/progress/page.tsx
+  131:25  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/team/page.tsx
+  55:17  warning  Empty components are self-closing  react/self-closing-comp
+  59:17  warning  Empty components are self-closing  react/self-closing-comp
+  63:17  warning  Empty components are self-closing  react/self-closing-comp
+  67:17  warning  Empty components are self-closing  react/self-closing-comp
+  71:17  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/terms/page.tsx
+  30:15  warning  Empty components are self-closing  react/self-closing-comp
+  34:15  warning  Empty components are self-closing  react/self-closing-comp
+  38:15  warning  Empty components are self-closing  react/self-closing-comp
+  45:15  warning  Empty components are self-closing  react/self-closing-comp
+  65:15  warning  Empty components are self-closing  react/self-closing-comp
+  73:15  warning  Empty components are self-closing  react/self-closing-comp
+  81:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/transparency/page.tsx
+   31:9   warning  Empty components are self-closing  react/self-closing-comp
+  135:21  warning  Empty components are self-closing  react/self-closing-comp
+  155:21  warning  Empty components are self-closing  react/self-closing-comp
+  175:21  warning  Empty components are self-closing  react/self-closing-comp
+  217:21  warning  Empty components are self-closing  react/self-closing-comp
+  237:21  warning  Empty components are self-closing  react/self-closing-comp
+  257:21  warning  Empty components are self-closing  react/self-closing-comp
+  277:21  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/app/volunteer/page.tsx
+  419:17  warning  Empty components are self-closing  react/self-closing-comp
+  429:17  warning  Empty components are self-closing  react/self-closing-comp
+  440:17  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/AchievementsBadges.tsx
+  150:25  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/CourseraStyleFooter.tsx
+  200:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/FacebookPixel.tsx
+  77:12  error  Definition for rule '@next/next/no-img-element' was not found  @next/next/no-img-element
+
+/workspaces/fix2/components/PeerReviewSystem.tsx
+  17:50  error  Parsing error: ',' expected
+
+/workspaces/fix2/components/SocialMediaHighlight.tsx
+  9:9  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/SocialShare.tsx
+  94:17  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/ThemeToggle.jsx
+  8:34  error  'useTheme' is not defined  no-undef
+
+/workspaces/fix2/components/VoiceInput.tsx
+  160:36  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/admin/CopilotDeployment.tsx
+  180:36  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/admin/HoursSummaryWidget.tsx
+  70:13  warning  Empty components are self-closing  react/self-closing-comp
+  74:13  warning  Empty components are self-closing  react/self-closing-comp
+  78:13  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/admin/LearningBarrierAnalyzer.tsx
+  268:13  error  Parsing error: JSX element 'span' has no corresponding closing tag
+
+/workspaces/fix2/components/checkout/CheckoutFlow.tsx
+  241:51  warning  Prop `fill` must be placed on a new line  react/jsx-max-props-per-line
+  247:51  warning  Prop `fill` must be placed on a new line  react/jsx-max-props-per-line
+
+/workspaces/fix2/components/compliance/CookieConsentBanner.tsx
+  216:23  warning  Empty components are self-closing  react/self-closing-comp
+  238:23  warning  Empty components are self-closing  react/self-closing-comp
+  260:23  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/course/AutomaticCourseBuilder.tsx
+  135:62  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/course/DragDropBuilder.tsx
+   74:70   warning  Prop `viewBox` must be placed on a new line   react/jsx-max-props-per-line
+   75:80   warning  Prop `d` must be placed on a new line         react/jsx-max-props-per-line
+   99:72   warning  Prop `viewBox` must be placed on a new line   react/jsx-max-props-per-line
+  100:82   warning  Prop `d` must be placed on a new line         react/jsx-max-props-per-line
+  107:72   warning  Prop `viewBox` must be placed on a new line   react/jsx-max-props-per-line
+  108:82   warning  Prop `d` must be placed on a new line         react/jsx-max-props-per-line
+  235:100  warning  Prop `viewBox` must be placed on a new line   react/jsx-max-props-per-line
+  236:80   warning  Prop `d` must be placed on a new line         react/jsx-max-props-per-line
+  251:87   warning  Prop `onDelete` must be placed on a new line  react/jsx-max-props-per-line
+
+/workspaces/fix2/components/forums/DiscussionForums.tsx
+  296:15  warning  Empty components are self-closing  react/self-closing-comp
+  311:33  warning  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  313:48  warning  Curly braces are unnecessary here  react/jsx-curly-brace-presence
+  408:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/gamification/AchievementBadges.tsx
+  11:13  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/gamification/Leaderboard.tsx
+  12:13  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/layout/CompliantFooter.tsx
+  83:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/layout/CompliantHeader.tsx
+  98:14  error  Parsing error: Expected corresponding JSX closing tag for 'div'
+
+/workspaces/fix2/components/mobile/MobileAchievementCard.tsx
+  41:19  error  Parsing error: Unterminated string literal
+
+/workspaces/fix2/components/payments/AffirmCheckout.tsx
+  227:62  warning  Prop `r` must be placed on a new line  react/jsx-max-props-per-line
+
+/workspaces/fix2/components/payments/AffirmPaymentButton.tsx
+  176:13  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/performance/PerformanceMonitor.tsx
+  16:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/components/programs/ProgramDetails.tsx
+  322:21  warning  Value must be omitted for boolean attribute `fullWidth`  react/jsx-boolean-value
+
+/workspaces/fix2/components/programs/ProgramEnrollment.tsx
+  277:109  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  278:15   warning  Empty components are self-closing            react/self-closing-comp
+  278:62   warning  Prop `r` must be placed on a new line        react/jsx-max-props-per-line
+  279:15   warning  Empty components are self-closing            react/self-closing-comp
+
+/workspaces/fix2/components/programs/ProgramsGrid.tsx
+  49:102  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  50:88   warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+
+/workspaces/fix2/components/public/LiveMetrics.tsx
+  73:11  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/scorm/SCORMPlayer.tsx
+  248:15  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/store/ProductReviews.tsx
+  184:76  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  185:86  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+
+/workspaces/fix2/components/student/ExternalModuleLauncher.tsx
+  162:23  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/student/ScormPlayer.tsx
+  163:11  warning  Empty components are self-closing  react/self-closing-comp
+
+/workspaces/fix2/components/video/AdvancedVideoPlayer.tsx
+  297:74  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  298:84  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+  304:74  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  305:84  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+  344:76  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  345:86  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+  356:76  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  357:86  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+  358:86  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+  384:76  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  385:86  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+  388:76  warning  Prop `viewBox` must be placed on a new line  react/jsx-max-props-per-line
+  389:86  warning  Prop `d` must be placed on a new line        react/jsx-max-props-per-line
+
+/workspaces/fix2/components/video/ProfessionalVideoPlayer.tsx
+  86:12  error  Parsing error: Identifier expected
+
+/workspaces/fix2/lib/certificates/certificate-delivery.ts
+   34:3  error  Unnecessary try/catch wrapper  no-useless-catch
+  144:3  error  Unnecessary try/catch wrapper  no-useless-catch
+  257:3  error  Unnecessary try/catch wrapper  no-useless-catch
+
+/workspaces/fix2/lib/course-utils.ts
+  46:42  error  Unnecessary escape character: \/  no-useless-escape
+  51:41  error  Unnecessary escape character: \/  no-useless-escape
+  51:59  error  Unnecessary escape character: \/  no-useless-escape
+
+/workspaces/fix2/lib/durable-blog.ts
+  99:55  error  Unnecessary escape character: \/  no-useless-escape
+
+/workspaces/fix2/lib/guards/course-access.ts
+  91:7  error  Expected a 'break' statement before 'case'     no-fallthrough
+  93:7  error  Expected a 'break' statement before 'case'     no-fallthrough
+  95:7  error  Expected a 'break' statement before 'default'  no-fallthrough
+
+/workspaces/fix2/lib/integrations/sam-gov.ts
+  275:3  error  Unnecessary try/catch wrapper  no-useless-catch
+
+/workspaces/fix2/lib/new-ecosystem-services/SocialMediaAutomation.ts
+  433:15  error  Parsing error: ';' expected
+
+/workspaces/fix2/lib/new-ecosystem-services/stripe.ts
+  20:3  error  Unnecessary try/catch wrapper  no-useless-catch
+  67:3  error  Unnecessary try/catch wrapper  no-useless-catch
+
+/workspaces/fix2/lib/notifications/push-client.ts
+   74:5  error  Unnecessary try/catch wrapper  no-useless-catch
+  130:5  error  Unnecessary try/catch wrapper  no-useless-catch
+  150:5  error  Unnecessary try/catch wrapper  no-useless-catch
+
+/workspaces/fix2/lib/partner-workflows/payments.ts
+  145:3  error  Unnecessary try/catch wrapper  no-useless-catch
+  211:3  error  Unnecessary try/catch wrapper  no-useless-catch
+
+/workspaces/fix2/lib/payments/stripe.ts
+   43:5  error  Unnecessary try/catch wrapper  no-useless-catch
+   61:5  error  Unnecessary try/catch wrapper  no-useless-catch
+   78:5  error  Unnecessary try/catch wrapper  no-useless-catch
+   92:5  error  Unnecessary try/catch wrapper  no-useless-catch
+  110:5  error  Unnecessary try/catch wrapper  no-useless-catch
+  189:5  error  Unnecessary try/catch wrapper  no-useless-catch
+
+/workspaces/fix2/lib/performance/web-vitals.ts
+  20:5  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+/workspaces/fix2/scripts/add-metadata-exports.mjs
+  68:7  warning  'content' is never reassigned. Use 'const' instead  prefer-const
+
+/workspaces/fix2/scripts/analyze-marketing-site.js
+  546:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/apply-google-config.js
+  71:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/auto-create-buckets.js
+  87:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/autopilot/fix-lms.ts
+  484:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/billing/reportUsage.ts
+  49:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/check-lms-marketing.mjs
+   25:5  warning  'lmsTotal' is never reassigned. Use 'const' instead        prefer-const
+   67:5  warning  'marketingTotal' is never reassigned. Use 'const' instead  prefer-const
+  108:5  warning  'featuresTotal' is never reassigned. Use 'const' instead   prefer-const
+
+/workspaces/fix2/scripts/fix-brand-colors.js
+  360:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/generate-complete-router.js
+  137:0  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/generate-comprehensive-sitemap.js
+  67:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/generate-sitemaps.js
+  152:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/health-check.ts
+  284:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/image-optimizer.js
+  56:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/inject-engagement.js
+  93:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/inject-meta.js
+  201:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/lms-setup.ts
+  94:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/optimize-images.js
+  59:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/perf/checkBudgets.ts
+  75:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/post-build-cache.js
+  105:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/prerender.js
+  82:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/puppeteer-extract-css.js
+  229:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/puppeteer-update-cloudflare-token.js
+  184:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/puppeteer-vercel-cleanup.js
+  100:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/reviewer.js
+  177:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/run-migrations-vercel.mjs
+   36:5   warning  'connectionString' is never reassigned. Use 'const' instead  prefer-const
+  205:30  error    'successCount' is not defined                                no-undef
+  206:29  error    'skipCount' is not defined                                   no-undef
+
+/workspaces/fix2/scripts/seed-courses.ts
+  837:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/setup-social-oauth.js
+  118:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/size-check.js
+  37:0  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/social-media-automation.js
+  211:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/approval-integration.js
+  137:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/asset-cache-manager.js
+  229:0  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/automated-enrollment-system.js
+  40:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/bnpl-webhook-handler.js
+  147:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/deployment-health-check.js
+  113:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/dual-certificate-system.js
+  114:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/email-notification-system.js
+  501:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/enhanced-checkout-with-coupons.js
+  28:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/enhanced-meta-tags-updater.js
+  180:0  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/enhanced-webhook.js
+  457:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/main.js
+  55:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/marketplace-automation.js
+  346:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/pay-approval-routes.js
+  220:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/payment-processing-with-splits.js
+  99:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/revenue-split-system.js
+  209:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/stripe-partner-products-setup.js
+  40:10  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/stripe-payment-system.js
+  120:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/subscription-manager.js
+  140:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/system-monitor.js
+  109:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/test-license-system.js
+  34:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/verify-approval-system.js
+  109:10  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/webhook-handler.js
+  58:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/utilities/workflow-test.js
+  99:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/validate-license-system.js
+  82:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/verify-full-site.js
+  62:4  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/scripts/verify-google-setup.js
+  68:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/supabase/functions/check-course-completion/index.ts
+  111:8  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/supabase/functions/enrollment-orchestrator/index.ts
+  221:7  error  Unexpected constant condition  no-constant-condition
+
+/workspaces/fix2/supabase/functions/health-logger/index.ts
+  95:6  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/tests/test-license-system.js
+  36:2  error  Parsing error: Declaration or statement expected
+
+/workspaces/fix2/tests/test-payment-system.js
+  73:19  error  Unreachable code  no-unreachable
+
+/workspaces/fix2/tests/workflow-test.js
+  101:6  error  Parsing error: Declaration or statement expected
+
+✖ 307 problems (108 errors, 199 warnings)
+  0 errors and 199 warnings potentially fixable with the `--fix` option.
+

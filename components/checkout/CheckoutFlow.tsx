@@ -238,13 +238,15 @@ function CheckoutForm({ courseId, courseName, price, userId, onSuccess }: Checko
 
           <div className="mt-6 flex items-center justify-center space-x-4 text-gray-400">
             <svg className="w-10 h-6" viewBox="0 0 38 24" fill="none">
-              <rect width="38" height="24" rx="3" fill="#1434CB"/>
+              <rect width="38" height="24" rx="3"
+fill="#1434CB"/>
               <path d="M13.5 8.5h11v7h-11z" fill="#FF5F00"/>
               <path d="M14.5 12a4.5 4.5 0 014.5-4.5 4.5 4.5 0 00-3 1.7 4.5 4.5 0 000 5.6 4.5 4.5 0 003 1.7 4.5 4.5 0 01-4.5-4.5z" fill="#EB001B"/>
               <path d="M23.5 12a4.5 4.5 0 01-3 4.2 4.5 4.5 0 000-8.4 4.5 4.5 0 013 4.2z" fill="#F79E1B"/>
             </svg>
             <svg className="w-10 h-6" viewBox="0 0 38 24" fill="none">
-              <rect width="38" height="24" rx="3" fill="#0066B2"/>
+              <rect width="38" height="24" rx="3"
+fill="#0066B2"/>
               <path d="M15 12l-3 6h2l.5-1h3l.5 1h2l-3-6h-2zm.5 3.5l1-2 1 2h-2z" fill="white"/>
             </svg>
             <span className="text-sm">Secure payment powered by Stripe</span>

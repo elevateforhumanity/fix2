@@ -33,8 +33,8 @@ export async function POST(req: Request) {
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    // @ts-expect-error TS2322: Type '"2024-12-18.acacia"' is not assignable to type '"2025-10-29.clover"'.
-    apiVersion: '2024-12-18.acacia',
+    // @ts-expect-error TS2322: Type '"2025-10-29.clover"' is not assignable to type '"2025-10-29.clover"'.
+    apiVersion: '2025-10-29.clover',
   });
 
   try {

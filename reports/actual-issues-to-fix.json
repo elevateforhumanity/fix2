@@ -1,0 +1,1593 @@
+[
+  {
+    "route": "//org/invites",
+    "filePath": "app/(dashboard)/org/invites/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/admin/placements",
+    "filePath": "app/(partner)/partners/admin/placements/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/admin/shops",
+    "filePath": "app/(partner)/partners/admin/shops/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/attendance",
+    "filePath": "app/(partner)/partners/attendance/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/dashboard",
+    "filePath": "app/(partner)/partners/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/documents",
+    "filePath": "app/(partner)/partners/documents/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/login",
+    "filePath": "app/(partner)/partners/login/page.tsx",
+    "pageType": "auth",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/reports/weekly",
+    "filePath": "app/(partner)/partners/reports/weekly/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/students",
+    "filePath": "app/(partner)/partners/students/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "//partners/support",
+    "filePath": "app/(partner)/partners/support/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/audit-logs",
+    "filePath": "app/admin/audit-logs/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/courses",
+    "filePath": "app/admin/courses/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/ferpa/training",
+    "filePath": "app/admin/ferpa/training/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/grants/intake",
+    "filePath": "app/admin/grants/intake/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/media-studio",
+    "filePath": "app/admin/media-studio/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/next-steps",
+    "filePath": "app/admin/next-steps/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/notifications",
+    "filePath": "app/admin/notifications/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/portal-map",
+    "filePath": "app/admin/portal-map/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/program-holder-documents",
+    "filePath": "app/admin/program-holder-documents/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/sap",
+    "filePath": "app/admin/sap/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/store/clones",
+    "filePath": "app/admin/store/clones/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/tax-filing/applications",
+    "filePath": "app/admin/tax-filing/applications/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/test-funding",
+    "filePath": "app/admin/test-funding/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/test-webhook",
+    "filePath": "app/admin/test-webhook/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin/users",
+    "filePath": "app/admin/users/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/admin-login",
+    "filePath": "app/admin-login/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/apply",
+    "filePath": "app/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/apply/track",
+    "filePath": "app/apply/track/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/apprentice/hours",
+    "filePath": "app/apprentice/hours/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/apprenticeships/apply",
+    "filePath": "app/apprenticeships/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/blog",
+    "filePath": "app/blog/page.tsx",
+    "pageType": "blog",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/booking",
+    "filePath": "app/booking/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/courses/catalog",
+    "filePath": "app/courses/catalog/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      },
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 2,
+    "hasPlaceholder": true,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/dashboard",
+    "filePath": "app/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/demo/supersonic",
+    "filePath": "app/demo/supersonic/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/donate",
+    "filePath": "app/donate/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/employer/dashboard",
+    "filePath": "app/employer/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/employers/onboard",
+    "filePath": "app/employers/onboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/employers",
+    "filePath": "app/employers/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/enroll",
+    "filePath": "app/enroll/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/faq",
+    "filePath": "app/faq/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/ferpa/training/complete",
+    "filePath": "app/ferpa/training/complete/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/forums",
+    "filePath": "app/forums/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/funding/wioa",
+    "filePath": "app/funding/wioa/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/funding/wrg",
+    "filePath": "app/funding/wrg/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/lms//dashboard",
+    "filePath": "app/lms/(app)/dashboard/page.tsx",
+    "pageType": "lms",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/lms",
+    "filePath": "app/lms/page.tsx",
+    "pageType": "lms",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/login",
+    "filePath": "app/login/page.tsx",
+    "pageType": "auth",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/marketplace/apply",
+    "filePath": "app/marketplace/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/mentor/approvals",
+    "filePath": "app/mentor/approvals/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/next-steps",
+    "filePath": "app/next-steps/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/onboarding/payroll-setup",
+    "filePath": "app/onboarding/payroll-setup/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/partner/dashboard",
+    "filePath": "app/partner/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/platform/architecture",
+    "filePath": "app/platform/architecture/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "generic",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/instructor/skills-tracking",
+    "filePath": "app/portal/instructor/skills-tracking/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/instructor/skills-tracking-esthetician",
+    "filePath": "app/portal/instructor/skills-tracking-esthetician/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/parent/dashboard",
+    "filePath": "app/portal/parent/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/staff/dashboard",
+    "filePath": "app/portal/staff/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/student/calendar",
+    "filePath": "app/portal/student/calendar/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/student/dashboard",
+    "filePath": "app/portal/student/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/portal/student/messages",
+    "filePath": "app/portal/student/messages/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-finder",
+    "filePath": "app/program-finder/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/documents",
+    "filePath": "app/program-holder/documents/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/onboarding/setup",
+    "filePath": "app/program-holder/onboarding/setup/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      },
+      {
+        "type": "placeholder_text",
+        "pattern": "TODO:",
+        "severity": "high"
+      },
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      },
+      {
+        "type": "todo_comments",
+        "severity": "low"
+      }
+    ],
+    "issueCount": 4,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/portal/attendance",
+    "filePath": "app/program-holder/portal/attendance/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/portal/live-qa",
+    "filePath": "app/program-holder/portal/live-qa/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/portal/messages",
+    "filePath": "app/program-holder/portal/messages/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/portal",
+    "filePath": "app/program-holder/portal/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/portal/reports",
+    "filePath": "app/program-holder/portal/reports/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/portal/students",
+    "filePath": "app/program-holder/portal/students/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/program-holder/verify-identity",
+    "filePath": "app/program-holder/verify-identity/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/admin/dashboard",
+    "filePath": "app/programs/admin/dashboard/page.tsx",
+    "pageType": "admin",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/barber-apprenticeship-new",
+    "filePath": "app/programs/barber-apprenticeship-new/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/business-financial",
+    "filePath": "app/programs/business-financial/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/business-startup",
+    "filePath": "app/programs/business-startup/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_cta",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": true
+  },
+  {
+    "route": "/programs/cdl-transportation",
+    "filePath": "app/programs/cdl-transportation/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/cna",
+    "filePath": "app/programs/cna/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_cta",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": true
+  },
+  {
+    "route": "/programs/direct-support-professional",
+    "filePath": "app/programs/direct-support-professional/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_cta",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": true
+  },
+  {
+    "route": "/programs/drug-collector",
+    "filePath": "app/programs/drug-collector/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_cta",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": true
+  },
+  {
+    "route": "/programs/healthcare",
+    "filePath": "app/programs/healthcare/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/home-health-aide",
+    "filePath": "app/programs/home-health-aide/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_cta",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": true
+  },
+  {
+    "route": "/programs/micro-programs",
+    "filePath": "app/programs/micro-programs/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/skilled-trades",
+    "filePath": "app/programs/skilled-trades/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/tax-entrepreneurship",
+    "filePath": "app/programs/tax-entrepreneurship/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/programs/tax-preparation",
+    "filePath": "app/programs/tax-preparation/page.tsx",
+    "pageType": "program",
+    "issues": [
+      {
+        "type": "missing_hero_media",
+        "severity": "high",
+        "note": "Hero section exists but no image/video detected"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": true,
+    "missingCTA": false
+  },
+  {
+    "route": "/reels",
+    "filePath": "app/reels/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/shop/apply",
+    "filePath": "app/shop/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/shop/onboarding/documents",
+    "filePath": "app/shop/onboarding/documents/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/shop/reports/new",
+    "filePath": "app/shop/reports/new/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/student/dashboard",
+    "filePath": "app/student/dashboard/page.tsx",
+    "pageType": "dashboard",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/success-stories",
+    "filePath": "app/success-stories/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/supersonic-cash/apply",
+    "filePath": "app/supersonic-cash/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/supersonic-fast-cash/book-appointment",
+    "filePath": "app/supersonic-fast-cash/book-appointment/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/supersonic-fast-cash/careers/apply",
+    "filePath": "app/supersonic-fast-cash/careers/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "missing_h1",
+        "severity": "medium"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": false,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/supersonic-fast-cash/careers",
+    "filePath": "app/supersonic-fast-cash/careers/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/supersonic-fast-cash",
+    "filePath": "app/supersonic-fast-cash/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "coming soon",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/tax/book-appointment",
+    "filePath": "app/tax/book-appointment/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/tax/supersonicfastcash/documents",
+    "filePath": "app/tax/supersonicfastcash/documents/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/tax-filing/apply",
+    "filePath": "app/tax-filing/apply/page.tsx",
+    "pageType": "application",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/tax-filing/locations",
+    "filePath": "app/tax-filing/locations/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  },
+  {
+    "route": "/volunteer",
+    "filePath": "app/volunteer/page.tsx",
+    "pageType": "misc",
+    "issues": [
+      {
+        "type": "placeholder_text",
+        "pattern": "placeholder",
+        "severity": "high"
+      }
+    ],
+    "issueCount": 1,
+    "hasPlaceholder": true,
+    "missingHero": false,
+    "missingCTA": false
+  }
+]

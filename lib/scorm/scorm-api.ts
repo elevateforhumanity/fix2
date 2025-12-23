@@ -17,20 +17,12 @@ export class SCORMAPIWrapper {
     while (currentWindow && attempts < maxAttempts) {
       attempts++;
       // Check for SCORM 1.2 API
-      // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
-      if ((currentWindow as string).API) {
-        // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
-        return (currentWindow as string).API;
+      if ((currentWindow as any).API) {
+        return (currentWindow as any).API;
       }
       // Check for SCORM 2004 API
-      // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
-      if ((currentWindow as string).API_1484_11) {
-        // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Window' to type 'string' may be a mistake because neither...
-        return (currentWindow as string).API_1484_11;
+      if ((currentWindow as any).API_1484_11) {
+        return (currentWindow as any).API_1484_11;
       }
       // Move up to parent window
       if (currentWindow.parent && currentWindow.parent !== currentWindow) {

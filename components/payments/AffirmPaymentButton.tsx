@@ -173,7 +173,7 @@ export function AffirmPaymentButton({
             data-affirm-color="blue"
           >
             Or pay as low as{' '}
-            <span className="affirm-ala-price font-semibold"></span>/mo with{' '}
+            <span className="affirm-ala-price font-semibold" />/mo with{' '}
             <b>Affirm</b>
           </p>
         </div>

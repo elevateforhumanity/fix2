@@ -319,7 +319,7 @@ export function ProgramDetails({ program }: { program: Program }) {
                     programId={program.slug}
                     programName={program.name}
                     price={6500}
-                    fullWidth={true}
+                    fullWidth
                   />
                 </div>
               </div>

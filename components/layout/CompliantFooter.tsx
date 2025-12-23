@@ -84,8 +84,7 @@ export default function CompliantFooter() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-sky-400"
-              >
-              </a>
+               />
               <a 
                 href="https://www.instagram.com/elevateforhumanity" 
                 target="_blank" 

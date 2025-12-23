@@ -1,3 +1,4 @@
+import Stripe from 'stripe';
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
 
 async function createStripeProduct(product: Record<string, unknown>) {
   // Create Stripe product with pricing tiers
-  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', { apiVersion: '2025-10-29.clover' });
 
   const stripeProduct = await stripe.products.create({
     name: product.title,

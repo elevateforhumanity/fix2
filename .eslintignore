@@ -1,19 +1,31 @@
-dist
-node_modules
-*.config.js
-*.config.ts
-build
-coverage
-.netlify
-.github
-durable-extension
-frontend/dist
-workers
-*.min.js
-.archive
-.next
-deployment-ready
-supabase/functions
-docs
-marketing-site
-support_bundle
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Non-production code with parsing errors
+scripts/
+tests/
+supabase/functions/
+
+# Unused components (not imported in app/)
+components/AchievementsBadges.tsx
+components/PeerReviewSystem.tsx
+components/VoiceInput.tsx
+components/admin/CopilotDeployment.tsx
+components/admin/LearningBarrierAnalyzer.tsx
+components/course/AutomaticCourseBuilder.tsx
+components/gamification/AchievementBadges.tsx
+components/gamification/Leaderboard.tsx
+components/layout/CompliantHeader.tsx
+components/mobile/MobileAchievementCard.tsx
+components/video/ProfessionalVideoPlayer.tsx
+
+# Archives
+.archive/
+*.backup.*
+*-old.*

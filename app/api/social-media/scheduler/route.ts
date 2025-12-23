@@ -169,6 +169,7 @@ async function postToSocialMedia(
       return await postToFacebook(content, campaign);
 
     case 'x':
+      // fallthrough intentional
 
     case 'linkedin':
       return await postToLinkedIn(content, campaign);

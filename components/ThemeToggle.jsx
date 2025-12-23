@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { Button } from './ui/Button';
-// ThemeContext not available - using local state
-import { useState } from 'react';
 
+// Placeholder theme toggle - ThemeContext not implemented
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   return (
     <Button

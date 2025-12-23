@@ -84,7 +84,7 @@ export default async function NewUserPage() {
               <input
                 type="email"
                 required
-                placeholder="john.doe@example.com"
+                placeholder="user@organization.org"
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
               <p className="mt-1 text-xs text-gray-500">

@@ -17,8 +17,7 @@ export function initWebVitalsDebug() {
       }
     });
     // CLS entries
-    // @ts-ignore
-    po.observe({ type: "layout-shift", buffered: true });
+    po.observe({ type: "layout-shift", buffered: true } as PerformanceObserverInit);
 
     // Resource summary (dev only)
     if (process.env.NODE_ENV === "development") {

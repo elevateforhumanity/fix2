@@ -22,7 +22,7 @@ const lmsPages = [
 ];
 
 let lmsComplete = 0;
-let lmsTotal = lmsPages.length;
+const lmsTotal = lmsPages.length;
 
 for (const page of lmsPages) {
   try {
@@ -64,7 +64,7 @@ const marketingPages = [
 ];
 
 let marketingComplete = 0;
-let marketingTotal = marketingPages.length;
+const marketingTotal = marketingPages.length;
 
 for (const { path, name } of marketingPages) {
   try {
@@ -105,7 +105,7 @@ const features = [
 ];
 
 let featuresPresent = 0;
-let featuresTotal = features.length;
+const featuresTotal = features.length;
 
 for (const { name, path, category } of features) {
   try {

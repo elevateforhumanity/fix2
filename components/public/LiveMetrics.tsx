@@ -70,7 +70,7 @@ export function LiveMetrics() {
     return (
       <div className="bg-white rounded-lg border border-slate-200 p-8">
         <div className="flex items-center justify-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
           <span className="ml-3 text-slate-600">Loading live metrics...</span>
         </div>
       </div>

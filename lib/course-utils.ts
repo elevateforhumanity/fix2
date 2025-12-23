@@ -43,12 +43,12 @@ export function validateCourseStructure(course: any): { ok: boolean; errors: str
 }
 
 export function extractCourseSlugFromPath(path: string): string | null {
-  const match = path.match(/^courses\/([^\/]+)/);
+  const match = path.match(/^courses\/([^/]+)/);
   return match ? match[1] : null;
 }
 
 export function extractModuleSlugFromPath(path: string): string | null {
-  const match = path.match(/^courses\/[^\/]+\/modules\/([^\/]+)/);
+  const match = path.match(/^courses\/[^/]+\/modules\/([^/]+)/);
   return match ? match[1] : null;
 }
 

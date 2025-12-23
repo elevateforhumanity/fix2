@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     // Check for metadata.json in each course folder
     const courseFolders = new Set<string>();
     courseFiles.forEach((file) => {
-      const match = file.path?.match(/courses\/([^\/]+)\//);
+      const match = file.path?.match(/courses\/([^/]+)\//);
       if (match) courseFolders.add(match[1]);
     });
 

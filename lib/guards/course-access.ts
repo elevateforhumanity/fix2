@@ -88,10 +88,13 @@ export async function requireCourseAccess(courseId: string) {
     switch (result.reason) {
       case 'not_enrolled':
         redirect(`/courses/${courseId}/enroll`);
+        break;
       case 'expired':
         redirect(`/courses/${courseId}/renew`);
+        break;
       case 'payment_failed':
         redirect(`/courses/${courseId}/payment`);
+        break;
       default:
         redirect(`/courses/${courseId}`);
     }

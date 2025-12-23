@@ -1,0 +1,797 @@
+[
+  {
+    "file": "app/(partner)/partners/admin/placements/page.tsx",
+    "route": "/partners/admin/placements",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "apprentice_placements"
+    ]
+  },
+  {
+    "file": "app/(partner)/partners/admin/shops/page.tsx",
+    "route": "/partners/admin/shops",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shops"
+    ]
+  },
+  {
+    "file": "app/(partner)/partners/attendance/page.tsx",
+    "route": "/partners/attendance",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "apprentice_placements",
+      "partner_attendance"
+    ]
+  },
+  {
+    "file": "app/(partner)/partners/documents/page.tsx",
+    "route": "/partners/documents",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "partner_documents"
+    ]
+  },
+  {
+    "file": "app/(partner)/partners/reports/weekly/page.tsx",
+    "route": "/partners/reports/weekly",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "apprentice_placements",
+      "apprentice_weekly_reports"
+    ]
+  },
+  {
+    "file": "app/(partner)/partners/students/page.tsx",
+    "route": "/partners/students",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "apprentice_placements"
+    ]
+  },
+  {
+    "file": "app/employer/dashboard/page.tsx",
+    "route": "/employer/dashboard",
+    "category": "employer",
+    "type": "missing_org_scope",
+    "tables": [
+      "job_postings",
+      "job_applications",
+      "apprenticeship_programs"
+    ]
+  },
+  {
+    "file": "app/instructor/courses/[courseId]/gradebook/page.tsx",
+    "route": "/instructor/courses/:courseId/gradebook",
+    "category": "instructor",
+    "type": "missing_org_scope",
+    "tables": [
+      "courses"
+    ]
+  },
+  {
+    "file": "app/instructor/dashboard/page.tsx",
+    "route": "/instructor/dashboard",
+    "category": "instructor",
+    "type": "missing_org_scope",
+    "tables": [
+      "enrollments"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/attendance/page.tsx",
+    "route": "/lms/attendance",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "student_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/certificates/page.tsx",
+    "route": "/lms/certificates",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "certificates"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/courses/[courseId]/complete/page.tsx",
+    "route": "/lms/courses/:courseId/complete",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "courses",
+      "lms_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/courses/[courseId]/launch/page.tsx",
+    "route": "/lms/courses/:courseId/launch",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "courses",
+      "lms_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/courses/new/page.tsx",
+    "route": "/lms/courses/new",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "student_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/files/page.tsx",
+    "route": "/lms/files",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "student_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/learning-paths/page.tsx",
+    "route": "/lms/learning-paths",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "student_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/progress/page.tsx",
+    "route": "/lms/progress",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "student_progress"
+    ]
+  },
+  {
+    "file": "app/lms/(app)/social/page.tsx",
+    "route": "/lms/social",
+    "category": "lms",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "student_progress"
+    ]
+  },
+  {
+    "file": "app/partners/join/page.tsx",
+    "route": "/partners/join",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "partner_profiles",
+      "role_packages"
+    ]
+  },
+  {
+    "file": "app/program-holder/compliance/page.tsx",
+    "route": "/program-holder/compliance",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_documents",
+      "apprentice_weekly_reports",
+      "program_holder_students"
+    ]
+  },
+  {
+    "file": "app/program-holder/courses/create/page.tsx",
+    "route": "/program-holder/courses/create",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "courses"
+    ]
+  },
+  {
+    "file": "app/program-holder/dashboard/page.tsx",
+    "route": "/program-holder/dashboard",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "enrollments",
+      "student_verifications",
+      "compliance_reports",
+      "compliance_scores"
+    ]
+  },
+  {
+    "file": "app/program-holder/documents/page.tsx",
+    "route": "/program-holder/documents",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holder_documents"
+    ]
+  },
+  {
+    "file": "app/program-holder/grades/page.tsx",
+    "route": "/program-holder/grades",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "programs"
+    ]
+  },
+  {
+    "file": "app/program-holder/handbook/page.tsx",
+    "route": "/program-holder/handbook",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holder_acknowledgements"
+    ]
+  },
+  {
+    "file": "app/program-holder/how-to-use/page.tsx",
+    "route": "/program-holder/how-to-use",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "programs"
+    ]
+  },
+  {
+    "file": "app/program-holder/mou/page.tsx",
+    "route": "/program-holder/mou",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "programs"
+    ]
+  },
+  {
+    "file": "app/program-holder/programs/[programId]/page.tsx",
+    "route": "/program-holder/programs/:programId",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "programs"
+    ]
+  },
+  {
+    "file": "app/program-holder/reports/new/page.tsx",
+    "route": "/program-holder/reports/new",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_students"
+    ]
+  },
+  {
+    "file": "app/program-holder/reports/page.tsx",
+    "route": "/program-holder/reports",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "apprentice_weekly_reports"
+    ]
+  },
+  {
+    "file": "app/program-holder/rights-responsibilities/page.tsx",
+    "route": "/program-holder/rights-responsibilities",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holder_acknowledgements"
+    ]
+  },
+  {
+    "file": "app/program-holder/settings/page.tsx",
+    "route": "/program-holder/settings",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "programs"
+    ]
+  },
+  {
+    "file": "app/program-holder/students/at-risk/page.tsx",
+    "route": "/program-holder/students/at-risk",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_students"
+    ]
+  },
+  {
+    "file": "app/program-holder/students/page.tsx",
+    "route": "/program-holder/students",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_students"
+    ]
+  },
+  {
+    "file": "app/program-holder/students/pending/page.tsx",
+    "route": "/program-holder/students/pending",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_students"
+    ]
+  },
+  {
+    "file": "app/program-holder/training/page.tsx",
+    "route": "/program-holder/training",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "programs"
+    ]
+  },
+  {
+    "file": "app/program-holder/verification/page.tsx",
+    "route": "/program-holder/verification",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_documents"
+    ]
+  },
+  {
+    "file": "app/program-holder/verify-identity/page.tsx",
+    "route": "/program-holder/verify-identity",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "program_holders",
+      "program_holder_verification",
+      "program_holder_documents"
+    ]
+  },
+  {
+    "file": "app/shop/dashboard/page.tsx",
+    "route": "/shop/dashboard",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "shop_onboarding",
+      "apprentice_placements",
+      "apprentice_weekly_reports"
+    ]
+  },
+  {
+    "file": "app/shop/onboarding/documents/page.tsx",
+    "route": "/shop/onboarding/documents",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "shop_document_requirements"
+    ]
+  },
+  {
+    "file": "app/shop/onboarding/page.tsx",
+    "route": "/shop/onboarding",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "shop_onboarding",
+      "shop_required_docs_status"
+    ]
+  },
+  {
+    "file": "app/shop/reports/new/page.tsx",
+    "route": "/shop/reports/new",
+    "category": "programHolder",
+    "type": "missing_org_scope",
+    "tables": [
+      "shop_staff",
+      "apprentice_placements"
+    ]
+  },
+  {
+    "file": "app/student/analytics/page.tsx",
+    "route": "/student/analytics",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/apprenticeship/hours/page.tsx",
+    "route": "/student/apprenticeship/hours",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/apprenticeship-hours/page.tsx",
+    "route": "/student/apprenticeship-hours",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/assignments/page.tsx",
+    "route": "/student/assignments",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/badges/page.tsx",
+    "route": "/student/badges",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/calendar/page.tsx",
+    "route": "/student/calendar",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/career-counseling/page.tsx",
+    "route": "/student/career-counseling",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/certificates/generate/page.tsx",
+    "route": "/student/certificates/generate",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/certifications/milady/page.tsx",
+    "route": "/student/certifications/milady",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/competencies/page.tsx",
+    "route": "/student/competencies",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/courses/[courseId]/external/[moduleId]/page.tsx",
+    "route": "/student/courses/:courseId/external/:moduleId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/courses/[courseId]/groups/page.tsx",
+    "route": "/student/courses/:courseId/groups",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/courses/[courseId]/resources/page.tsx",
+    "route": "/student/courses/:courseId/resources",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/courses/hvac-systems/page.tsx",
+    "route": "/student/courses/hvac-systems",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/courses/scorm/[courseId]/page.tsx",
+    "route": "/student/courses/scorm/:courseId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/discussions/page.tsx",
+    "route": "/student/discussions",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/grades/page.tsx",
+    "route": "/student/grades",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/handbook/page.tsx",
+    "route": "/student/handbook",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "student_onboarding"
+    ]
+  },
+  {
+    "file": "app/student/hours-tracking/page.tsx",
+    "route": "/student/hours-tracking",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments",
+      "partner_lms_providers",
+      "partner_lms_enrollments",
+      "student_hours"
+    ]
+  },
+  {
+    "file": "app/student/hub/page.tsx",
+    "route": "/student/hub",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/instructor/[programId]/page.tsx",
+    "route": "/student/instructor/:programId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/instructor/page.tsx",
+    "route": "/student/instructor",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/jri/[id]/page.tsx",
+    "route": "/student/jri/:id",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/leaderboard/page.tsx",
+    "route": "/student/leaderboard",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/learning-path/page.tsx",
+    "route": "/student/learning-path",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/learning-paths/page.tsx",
+    "route": "/student/learning-paths",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/milady/launch/[enrollmentId]/page.tsx",
+    "route": "/student/milady/launch/:enrollmentId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "partner_lms_enrollments"
+    ]
+  },
+  {
+    "file": "app/student/milady-lms/page.tsx",
+    "route": "/student/milady-lms",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments"
+    ]
+  },
+  {
+    "file": "app/student/portfolio/page.tsx",
+    "route": "/student/portfolio",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "apprenticeship_enrollments",
+      "apprenticeship_portfolio",
+      "skill_competencies",
+      "portfolio"
+    ]
+  },
+  {
+    "file": "app/student/profile/page.tsx",
+    "route": "/student/profile",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/programs/[slug]/modules/[moduleId]/page.tsx",
+    "route": "/student/programs/:slug/modules/:moduleId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "students",
+      "course_modules",
+      "student_enrollments",
+      "enrollment_module_progress"
+    ]
+  },
+  {
+    "file": "app/student/resources/page.tsx",
+    "route": "/student/resources",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/schedule/page.tsx",
+    "route": "/student/schedule",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles",
+      "enrollments"
+    ]
+  },
+  {
+    "file": "app/student/scorm/[scormId]/page.tsx",
+    "route": "/student/scorm/:scormId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/scorm/page.tsx",
+    "route": "/student/scorm",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/skills-gap/page.tsx",
+    "route": "/student/skills-gap",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/studenthub/page.tsx",
+    "route": "/student/studenthub",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/success/page.tsx",
+    "route": "/student/success",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/support/page.tsx",
+    "route": "/student/support",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "profiles"
+    ]
+  },
+  {
+    "file": "app/student/welcome-packet/[packetId]/page.tsx",
+    "route": "/student/welcome-packet/:packetId",
+    "category": "student",
+    "type": "missing_user_scope",
+    "tables": [
+      "welcome_packets",
+      "welcome_packet_items"
+    ]
+  }
+]

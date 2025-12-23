@@ -123,13 +123,9 @@ export function initializeScormAPI(attemptId: string, version: '1.2' | '2004') {
   const api = new ScormAPI(attemptId, version);
 
   if (version === '1.2') {
-    // @ts-expect-error TS2339: Property 'API' does not exist on type 'string'.
-    // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis' to type 'string' may be a mis...
-    (window as string).API = api;
+    (window as any).API = api;
   } else {
-    // @ts-expect-error TS2339: Property 'API_1484_11' does not exist on type 'string'.
-    // @ts-expect-error TS2352: Conversion of type 'Window & typeof globalThis' to type 'string' may be a mis...
-    (window as string).API_1484_11 = api;
+    (window as any).API_1484_11 = api;
   }
 
   return api;

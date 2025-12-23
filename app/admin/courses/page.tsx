@@ -178,7 +178,7 @@ export default async function AdminCoursesPage() {
               <div className="flex gap-3">
                 <input
                   type="search"
-                  placeholder="Search courses..."
+                  placeholder="Search by title or code"
                   className="px-4 py-2 border rounded-lg text-sm"
                 />
                 <Link

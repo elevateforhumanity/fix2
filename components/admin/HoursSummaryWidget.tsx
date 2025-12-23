@@ -67,15 +67,15 @@ export default function HoursSummaryWidget({
         {/* Legend */}
         <div className="flex justify-center gap-6 mt-3 text-xs">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-blue-500 rounded"></div>
+            <div className="w-3 h-3 bg-blue-500 rounded" />
             <span className="text-slate-400">Transferred</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-green-500 rounded"></div>
+            <div className="w-3 h-3 bg-green-500 rounded" />
             <span className="text-slate-400">Earned at EFH</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-slate-600 rounded"></div>
+            <div className="w-3 h-3 bg-slate-600 rounded" />
             <span className="text-slate-400">Remaining</span>
           </div>
         </div>

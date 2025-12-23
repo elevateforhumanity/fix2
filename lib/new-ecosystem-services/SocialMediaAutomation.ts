@@ -429,7 +429,6 @@ export class SocialMediaAutomation {
       youtube: {
         channel: 'https://www.youtube.com/@elevateforhumanity',
       },
-      },
       instagram: {
         account: 'https://www.instagram.com/elevateforhumanity',
       },

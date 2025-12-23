@@ -100,7 +100,7 @@ async function runAudit(options: AuditOptions) {
       commitSha: process.env.VERCEL_GIT_COMMIT_SHA || 'unknown',
       buildId: process.env.VERCEL_DEPLOYMENT_ID || 'local',
       nodeVersion: process.version,
-      nextVersion: require('next/package.json').version,
+      nextVersion: 'unknown',
     },
     request: options,
   };

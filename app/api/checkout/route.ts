@@ -70,9 +70,7 @@ export async function POST(req: NextRequest) {
         ? new URL(successUrl).origin
         : (req.headers.get('origin') ??
           process.env.NEXT_PUBLIC_SITE_URL ??
-          // @ts-expect-error TS2881: This expression is never nullish.
-          `https://${process.env.VERCEL_URL}` ??
-          'http://localhost:3000');
+          (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'));
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',

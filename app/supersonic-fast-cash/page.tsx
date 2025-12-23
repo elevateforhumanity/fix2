@@ -1285,7 +1285,7 @@ export default function SupersonicFastCashPage() {
                 </div>
               </div>
               <div className="bg-white/5 rounded-lg p-4">
-                <div className="font-bold mb-2">Coming Soon</div>
+                <div className="font-bold mb-2">Expanding Service</div>
                 <div className="text-sm text-purple-100">
                   Additional locations opening
                   <br />

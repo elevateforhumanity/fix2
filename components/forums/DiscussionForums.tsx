@@ -293,7 +293,7 @@ export default function DiscussionForums() {
           {/* Categories Grid */}
           {loading ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -308,9 +308,9 @@ export default function DiscussionForums() {
                 >
                   <div className="flex items-start gap-4">
                     <div
-                      className={`w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0`}
+                      className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"
                     >
-                      <MessageSquare className={`w-6 h-6 text-blue-600`} />
+                      <MessageSquare className="w-6 h-6 text-blue-600" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">
@@ -405,7 +405,7 @@ export default function DiscussionForums() {
           {/* Threads List */}
           {loading ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto" />
             </div>
           ) : threads.length === 0 ? (
             <div className="bg-white rounded-lg shadow-sm p-12 text-center">
