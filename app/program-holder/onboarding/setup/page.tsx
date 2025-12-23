@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Upload, FileText, CheckCircle, AlertCircle } from 'lucide-react';
 
-
 export default function ProgramHolderSetup() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -20,6 +19,13 @@ export default function ProgramHolderSetup() {
     deliveryMethod: '',
     assessmentType: '',
     customInstructions: '',
+    // Banking information
+    accountHolderName: '',
+    bankName: '',
+    accountNumber: '',
+    routingNumber: '',
+    accountType: 'checking' as 'checking' | 'savings',
+    bankDocument: null as File | null,
   });
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,11 +35,21 @@ export default function ProgramHolderSetup() {
   };
 
   const handleSubmit = async () => {
-    // Submit to API
-    console.log('Submitting:', formData);
-    alert(
-      'Program setup submitted! Our team will review and match your program to compatible courses.'
-    );
+    try {
+      // TODO: Submit to API
+      console.log('Submitting:', formData);
+
+      // After successful submission, redirect to identity verification
+      alert(
+        'Program setup submitted! Please complete identity verification to activate your account.'
+      );
+
+      // Redirect to identity verification page
+      window.location.href = '/program-holder/verify-identity';
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to submit. Please try again.');
+    }
   };
 
   return (
@@ -42,7 +58,7 @@ export default function ProgramHolderSetup() {
         {/* Progress Steps */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
-            {[1, 2, 3, 4].map((s) => (
+            {[1, 2, 3, 4, 5].map((s) => (
               <div key={s} className="flex items-center">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
@@ -53,9 +69,9 @@ export default function ProgramHolderSetup() {
                 >
                   {step > s ? <CheckCircle size={20} /> : s}
                 </div>
-                {s < 4 && (
+                {s < 5 && (
                   <div
-                    className={`h-1 w-20 ${
+                    className={`h-1 w-16 ${
                       step > s ? 'bg-green-600' : 'bg-gray-300'
                     }`}
                   />
@@ -63,10 +79,11 @@ export default function ProgramHolderSetup() {
               </div>
             ))}
           </div>
-          <div className="flex justify-between mt-2 text-sm">
+          <div className="flex justify-between mt-2 text-xs">
             <span>Organization</span>
-            <span>Program Details</span>
-            <span>Upload Syllabus</span>
+            <span>Program</span>
+            <span>Syllabus</span>
+            <span>Banking</span>
             <span>Review</span>
           </div>
         </div>
@@ -307,8 +324,163 @@ export default function ProgramHolderSetup() {
           </div>
         )}
 
-        {/* Step 4: Review & Submit */}
+        {/* Step 4: Banking Information */}
         {step === 4 && (
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold mb-6">Banking Information</h2>
+            <p className="text-gray-600 mb-6">
+              Provide your banking details for payment processing. This
+              information is encrypted and secure.
+            </p>
+            <div className="space-y-6">
+              <div>
+                <label className="block font-semibold mb-2">
+                  Account Holder Name *
+                </label>
+                <input
+                  type="text"
+                  value={formData.accountHolderName}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      accountHolderName: e.target.value,
+                    })
+                  }
+                  className="w-full px-4 py-3 border rounded-lg"
+                  placeholder="Full name on bank account"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold mb-2">Bank Name *</label>
+                <input
+                  type="text"
+                  value={formData.bankName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, bankName: e.target.value })
+                  }
+                  className="w-full px-4 py-3 border rounded-lg"
+                  placeholder="e.g., Chase, Bank of America"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold mb-2">
+                  Account Type *
+                </label>
+                <select
+                  value={formData.accountType}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      accountType: e.target.value as 'checking' | 'savings',
+                    })
+                  }
+                  className="w-full px-4 py-3 border rounded-lg"
+                >
+                  <option value="checking">Checking</option>
+                  <option value="savings">Savings</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-semibold mb-2">
+                  Routing Number *
+                </label>
+                <input
+                  type="text"
+                  value={formData.routingNumber}
+                  onChange={(e) =>
+                    setFormData({ ...formData, routingNumber: e.target.value })
+                  }
+                  className="w-full px-4 py-3 border rounded-lg"
+                  placeholder="9-digit routing number"
+                  maxLength={9}
+                />
+                <p className="text-sm text-gray-500 mt-1">
+                  Found on the bottom left of your check
+                </p>
+              </div>
+
+              <div>
+                <label className="block font-semibold mb-2">
+                  Account Number *
+                </label>
+                <input
+                  type="text"
+                  value={formData.accountNumber}
+                  onChange={(e) =>
+                    setFormData({ ...formData, accountNumber: e.target.value })
+                  }
+                  className="w-full px-4 py-3 border rounded-lg"
+                  placeholder="Account number"
+                />
+                <p className="text-sm text-gray-500 mt-1">
+                  Found on the bottom of your check, after the routing number
+                </p>
+              </div>
+
+              <div>
+                <label className="block font-semibold mb-2">
+                  Upload Voided Check or Bank Letter (Optional)
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                  <FileText className="w-12 h-12 mx-auto mb-3 text-gray-400" />
+                  <input
+                    type="file"
+                    accept="image/*,.pdf"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        bankDocument: e.target.files?.[0] || null,
+                      })
+                    }
+                    className="hidden"
+                    id="bank-document-upload"
+                  />
+                  <label
+                    htmlFor="bank-document-upload"
+                    className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-blue-700"
+                  >
+                    Choose File
+                  </label>
+                  {formData.bankDocument && (
+                    <div className="mt-3 flex items-center justify-center gap-2 text-green-600">
+                      <CheckCircle size={20} />
+                      <span>{formData.bankDocument.name}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <p className="text-sm text-yellow-800">
+                  <strong>Security:</strong> Your banking information is
+                  encrypted and stored securely. We use bank-level security to
+                  protect your data.
+                </p>
+              </div>
+
+              <div className="flex gap-4">
+                <button
+                  onClick={() => setStep(3)}
+                  className="flex-1 bg-gray-300 text-gray-700 py-4 rounded-lg font-bold hover:bg-gray-400"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={() => setStep(5)}
+                  className="flex-1 bg-green-600 text-white py-4 rounded-lg font-bold hover:bg-green-700"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Step 5: Review & Submit */}
+        {step === 5 && (
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-3xl font-bold mb-6">Review Your Program</h2>
             <div className="space-y-6">

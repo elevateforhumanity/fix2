@@ -14,7 +14,14 @@ export default function ProgramHolderSignupForm() {
     lastName: '',
     organizationName: '',
   });
+  const [documents, setDocuments] = useState<{
+    id?: File;
+    socialSecurityCard?: File;
+    syllabus?: File;
+    credentials?: File;
+  }>({});
   const [loading, setLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
@@ -43,7 +50,7 @@ export default function ProgramHolderSignupForm() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       );
 
-      // Step 1: Create auth user
+      // Step 1: Create auth user with role
       const { data: authData, error: signUpError } = await supabase.auth.signUp(
         {
           email: formData.email,
@@ -53,7 +60,7 @@ export default function ProgramHolderSignupForm() {
               first_name: formData.firstName,
               last_name: formData.lastName,
               full_name: `${formData.firstName} ${formData.lastName}`,
-              role: 'program_holder', // Set role in metadata
+              role: 'program_holder',
             },
             emailRedirectTo: `${window.location.origin}/auth/callback?next=/program-holder/dashboard`,
           },
@@ -66,39 +73,73 @@ export default function ProgramHolderSignupForm() {
         throw new Error('User creation failed');
       }
 
-      // Step 2: Create/update profile with program_holder role
+      // Step 2: Create profile with program_holder role
       const { error: profileError } = await supabase.from('profiles').upsert({
         id: authData.user.id,
         email: formData.email,
         first_name: formData.firstName,
         last_name: formData.lastName,
-        role: 'program_holder', // AUTOMATIC APPROVAL
+        role: 'program_holder',
         updated_at: new Date().toISOString(),
       });
 
       if (profileError) {
         console.error('Profile creation error:', profileError);
-        // Don't fail signup if profile creation fails - it might be created by trigger
       }
 
-      // Step 3: Create program_holder record if table exists
+      // Step 3: Create program_holder record
       const { error: holderError } = await supabase
         .from('program_holders')
         .insert({
           user_id: authData.user.id,
           organization_name: formData.organizationName || null,
-          status: 'verified_no_students', // Start in verified state
+          status: 'verified_no_students',
           created_at: new Date().toISOString(),
         });
 
       if (holderError) {
         console.error('Program holder record error:', holderError);
-        // Don't fail signup if this table doesn't exist yet
+      }
+
+      // Step 4: Upload documents if provided
+      if (Object.keys(documents).length > 0) {
+        setUploadProgress('Uploading documents...');
+
+        const uploadPromises = Object.entries(documents).map(
+          async ([docType, file]) => {
+            if (!file) return;
+
+            const fileExt = file.name.split('.').pop();
+            const fileName = `${authData.user.id}/${docType}_${Date.now()}.${fileExt}`;
+
+            const { error: uploadError } = await supabase.storage
+              .from('program-holder-documents')
+              .upload(fileName, file, {
+                cacheControl: '3600',
+                upsert: false,
+              });
+
+            if (uploadError) {
+              console.error(`Upload error for ${docType}:`, uploadError);
+            }
+
+            // Store document reference in database
+            await supabase.from('program_holder_documents').insert({
+              program_holder_id: authData.user.id,
+              document_type: docType,
+              file_path: fileName,
+              file_name: file.name,
+              uploaded_at: new Date().toISOString(),
+            });
+          }
+        );
+
+        await Promise.all(uploadPromises);
       }
 
       setSuccess(true);
 
-      // If email confirmation is disabled, redirect immediately
+      // Redirect if session exists
       if (authData.session) {
         setTimeout(() => {
           router.push('/program-holder/dashboard');
@@ -116,9 +157,8 @@ export default function ProgramHolderSignupForm() {
       <div className="rounded-lg bg-green-50 p-4 text-green-800">
         <h3 className="font-semibold">Account created successfully!</h3>
         <p className="mt-2 text-sm">
-          Your program holder account has been automatically approved. Check
-          your email to confirm your address, then you can access your
-          dashboard.
+          Your program holder account has been created. Check your email to
+          confirm your address, then you can access your dashboard.
         </p>
         <p className="mt-2 text-sm">Redirecting to dashboard...</p>
       </div>
@@ -249,11 +289,104 @@ export default function ProgramHolderSignupForm() {
         />
       </div>
 
-      <div className="rounded-lg bg-blue-50 p-4 text-sm text-blue-800">
-        <strong>Automatic Approval:</strong> Your program holder account will be
-        automatically approved upon signup. You'll have immediate access to the
-        portal after confirming your email.
+      <div className="space-y-4 border-t pt-4">
+        <h3 className="text-lg font-semibold text-gray-900">
+          Upload Documents (Optional)
+        </h3>
+        <p className="text-sm text-gray-600">
+          Upload your credentials, ID, and program materials. You can also
+          upload these later from your dashboard.
+        </p>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor="id"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Photo ID
+            </label>
+            <input
+              type="file"
+              id="id"
+              accept="image/*,.pdf"
+              onChange={(e) =>
+                setDocuments({ ...documents, id: e.target.files?.[0] })
+              }
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="socialSecurityCard"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Social Security Card
+            </label>
+            <input
+              type="file"
+              id="socialSecurityCard"
+              accept="image/*,.pdf"
+              onChange={(e) =>
+                setDocuments({
+                  ...documents,
+                  socialSecurityCard: e.target.files?.[0],
+                })
+              }
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="credentials"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Teaching Credentials
+            </label>
+            <input
+              type="file"
+              id="credentials"
+              accept="image/*,.pdf"
+              onChange={(e) =>
+                setDocuments({ ...documents, credentials: e.target.files?.[0] })
+              }
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="syllabus"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Course Syllabus
+            </label>
+            <input
+              type="file"
+              id="syllabus"
+              accept=".pdf,.doc,.docx"
+              onChange={(e) =>
+                setDocuments({ ...documents, syllabus: e.target.files?.[0] })
+              }
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            />
+          </div>
+        </div>
       </div>
+
+      <div className="rounded-lg bg-blue-50 p-4 text-sm text-blue-800">
+        <strong>Automatic Access:</strong> Your program holder account will be
+        created immediately. After confirming your email, you'll have full
+        access to the portal.
+      </div>
+
+      {uploadProgress && (
+        <div className="rounded-lg bg-blue-50 p-3 text-sm text-blue-800">
+          {uploadProgress}
+        </div>
+      )}
 
       <button
         type="submit"
