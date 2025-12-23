@@ -79,9 +79,9 @@ export async function POST(req: Request) {
         last_name: body.lastName,
         email: body.email,
         phone: body.phone,
-        program_id: body.program,
+        program_interest: body.program || 'Not specified',
         status: 'pending',
-        notes: notes,
+        support_notes: notes,
       })
       .select()
       .single();
