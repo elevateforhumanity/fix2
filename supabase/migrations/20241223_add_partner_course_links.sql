@@ -41,11 +41,25 @@ WHERE access_link IS NULL
   AND partner_id = 'certiport'
   AND active = true;
 
--- Generic fallback for other partners
+-- JRI courses (SCORM-based via EmployIndy)
 UPDATE partner_courses 
-SET access_link = 'https://partner-lms.example.com/course/' || external_course_code
+SET access_link = 'https://learning.employindy.org/jri-participant-elevatehumanitycareertraining'
 WHERE access_link IS NULL 
-  AND external_course_code IS NOT NULL
+  AND partner_id = 'jri'
+  AND active = true;
+
+-- National Drug Screening courses
+UPDATE partner_courses 
+SET access_link = 'https://www.nationaldrugscreening.com/training-consulting/'
+WHERE access_link IS NULL 
+  AND partner_id = 'nds'
+  AND active = true;
+
+-- NRF RISE Up courses
+UPDATE partner_courses 
+SET access_link = 'https://riseup.nrf.com'
+WHERE access_link IS NULL 
+  AND partner_id = 'nrf_rise'
   AND active = true;
 
 -- Add comment
