@@ -162,7 +162,7 @@
     "ci:install": "pnpm install --frozen-lockfile",
     "ci:build": "pnpm build",
     "ci:check": "pnpm archetype:check && pnpm typecheck && pnpm lint",
-    "verify": "pnpm typecheck && pnpm lint && pnpm build && echo '✅ Verification complete'",
+    "verify": "pnpm typecheck && pnpm lint && pnpm build && pnpm smoke",
     "smoke": "bash scripts/smoke-test-portal.sh",
     "clean:full": "rimraf node_modules dist .vite .turbo .next out && pnpm store prune",
     "autopilot": "node workers/start-autopilot.js",

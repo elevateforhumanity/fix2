@@ -4,7 +4,7 @@
 
 set -e
 
-BASE_URL="${1:-http://localhost:3001}"
+BASE_URL="${1:-http://localhost:3000}"
 FAILED=0
 
 echo "🔥 Program Holder Portal Smoke Test"
