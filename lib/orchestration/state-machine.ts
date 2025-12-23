@@ -567,7 +567,7 @@ export function getProgramHolderState(data: {
                 type: 'warning' as const,
                 message: `${data.pendingVerifications} verifications pending`,
                 actionLabel: 'Review',
-                actionHref: '/program-holder/verifications',
+                actionHref: '/program-holder/verification',
               },
             ]
           : []),
@@ -595,7 +595,7 @@ export function getProgramHolderState(data: {
       'compliance',
       'documentation',
       'support',
-      'resources',
+      'training',
     ],
     lockedSections: [],
     alerts:
@@ -605,7 +605,7 @@ export function getProgramHolderState(data: {
               type: 'info',
               message: `${data.pendingVerifications} verification${data.pendingVerifications > 1 ? 's' : ''} pending review`,
               actionLabel: 'Review',
-              actionHref: '/program-holder/verifications',
+              actionHref: '/program-holder/verification',
             },
           ]
         : [
