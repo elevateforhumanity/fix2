@@ -24,6 +24,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Archetype + Quality Gates
+        run: npm run archetype:check
+        continue-on-error: false
+
       - name: Run linter
         run: npm run lint
         continue-on-error: false

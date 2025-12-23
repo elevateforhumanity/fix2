@@ -157,9 +157,11 @@
   "scripts": {
     "preinstall": "corepack enable || true",
     "approve-builds": "bash scripts/pnpm-approve-builds.sh",
+    "archetype:check": "node scripts/archetype-mapper.mjs",
+    "spot-check": "node scripts/spot-check.mjs",
     "ci:install": "pnpm install --frozen-lockfile",
     "ci:build": "pnpm build",
-    "ci:check": "pnpm typecheck && pnpm lint",
+    "ci:check": "pnpm archetype:check && pnpm typecheck && pnpm lint",
     "clean:full": "rimraf node_modules dist .vite .turbo .next out && pnpm store prune",
     "autopilot": "node workers/start-autopilot.js",
     "autopilot:bg": "node workers/start-autopilot.js &",

@@ -1,0 +1,368 @@
+{
+  "global": {
+    "hero": {
+      "en": {
+        "title": "Find Your Training Path and Take the Next Step",
+        "purpose": "This page shows what you can do here, what is required, and what to do next.",
+        "primaryCTA": "View Available Programs",
+        "secondaryCTA": "Go to My Dashboard"
+      },
+      "es": {
+        "title": "Encuentra tu camino de capacitación y da el siguiente paso",
+        "purpose": "Esta página explica qué puedes hacer aquí, qué se requiere y cuál es el siguiente paso.",
+        "primaryCTA": "Ver programas disponibles",
+        "secondaryCTA": "Ir a mi panel"
+      }
+    },
+    "guarantee": {
+      "en": "If a page appears on this platform, it is complete, accurate, and ready to use.",
+      "es": "Si una página aparece en esta plataforma, está completa, es correcta y está lista para usarse."
+    }
+  },
+  "archetypes": {
+    "program_training_detail": {
+      "en": {
+        "hero": {
+          "title": "Program Overview",
+          "purpose": "This page explains who this program is for, what you will learn, and how to apply."
+        },
+        "sections": {
+          "whoThisIsFor": {
+            "title": "Who This Program Is For",
+            "content": "This program is designed for individuals who meet the eligibility requirements listed below and are ready to complete training toward employment."
+          },
+          "whatYouWillLearn": {
+            "title": "What You Will Learn",
+            "content": "You will gain the skills and knowledge needed to prepare for work in this field, including required safety, technical, and job-readiness components."
+          },
+          "eligibility": {
+            "title": "Eligibility Requirements",
+            "content": "To qualify, you must meet the listed criteria and provide required documentation during the application process."
+          },
+          "afterCompletion": {
+            "title": "What Happens After Completion",
+            "content": "After completing the program, you will be eligible for job placement support or next-step opportunities connected to this training."
+          }
+        },
+        "cta": {
+          "primary": "Apply for This Program"
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Resumen del programa",
+          "purpose": "Esta página explica para quién es el programa, qué aprenderás y cómo aplicar."
+        },
+        "sections": {
+          "eligibility": {
+            "title": "Elegibilidad",
+            "content": "Debes cumplir con los requisitos indicados."
+          },
+          "afterCompletion": {
+            "title": "Después de completar",
+            "content": "Recibirás apoyo para el siguiente paso laboral."
+          }
+        },
+        "cta": {
+          "primary": "Aplicar al programa"
+        }
+      }
+    },
+    "application_enrollment_flow": {
+      "en": {
+        "hero": {
+          "title": "Program Application",
+          "purpose": "Use this page to apply and submit the information required for review."
+        },
+        "sections": {
+          "requiredInformation": {
+            "title": "Required Information",
+            "content": "Complete all sections accurately. Missing information may delay review."
+          },
+          "afterYouApply": {
+            "title": "What Happens After You Apply",
+            "content": "Your application is reviewed by staff. You will see updates in your dashboard."
+          },
+          "needHelp": {
+            "title": "Need Help?",
+            "content": "If you are unsure about a question, contact support before submitting."
+          }
+        },
+        "cta": {
+          "primary": "Submit Application"
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Solicitud del programa",
+          "purpose": "Usa esta página para aplicar y enviar la información requerida."
+        },
+        "sections": {
+          "afterYouApply": {
+            "title": "Después de aplicar",
+            "content": "El personal revisará tu solicitud y verás actualizaciones en tu panel."
+          }
+        },
+        "cta": {
+          "primary": "Enviar solicitud"
+        }
+      }
+    },
+    "dashboard_portal": {
+      "en": {
+        "hero": {
+          "title": "My Dashboard",
+          "purpose": "This page shows your current status and next required steps."
+        },
+        "sections": {
+          "myStatus": {
+            "title": "My Status",
+            "content": "This section reflects your real application and enrollment status."
+          },
+          "myTasks": {
+            "title": "My Tasks",
+            "content": "Tasks appear here only when action is required from you.",
+            "emptyState": "No tasks appear because there are no actions required at this time."
+          },
+          "messages": {
+            "title": "Messages",
+            "content": "Messages from staff appear here when updates are available."
+          }
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Mi panel",
+          "purpose": "Este panel muestra tu estado actual y los siguientes pasos."
+        },
+        "sections": {
+          "myTasks": {
+            "emptyState": "No hay tareas porque no se requiere acción en este momento."
+          }
+        }
+      }
+    },
+    "directory_listing_search": {
+      "en": {
+        "hero": {
+          "title": "Available Programs",
+          "purpose": "Browse and filter programs that are currently open for enrollment."
+        },
+        "sections": {
+          "filters": {
+            "title": "Filters",
+            "content": "Use filters to narrow results by location, eligibility, or program type."
+          },
+          "results": {
+            "title": "Results",
+            "content": "Select a program to view full details and apply."
+          }
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Programas disponibles",
+          "purpose": "Explora programas abiertos y filtra según tus necesidades."
+        }
+      }
+    },
+    "policy_compliance_legal": {
+      "en": {
+        "hero": {
+          "title": "Policy Information",
+          "purpose": "This page explains policies that apply to your use of this platform."
+        },
+        "sections": {
+          "effectiveDate": {
+            "title": "Effective Date",
+            "content": "This policy is effective as of the date listed below."
+          },
+          "yourResponsibilities": {
+            "title": "Your Responsibilities",
+            "content": "By using this platform, you agree to follow these guidelines."
+          },
+          "contact": {
+            "title": "Contact",
+            "content": "If you have questions, contact us using the information provided."
+          }
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Información de políticas",
+          "purpose": "Esta página explica las políticas que aplican al uso de la plataforma."
+        }
+      }
+    },
+    "partner_employer_agency": {
+      "en": {
+        "hero": {
+          "title": "Partner Information",
+          "purpose": "This page explains partnership opportunities and how to get started."
+        },
+        "sections": {
+          "whoThisIsFor": {
+            "title": "Who This Is For",
+            "content": "This information is for employers, training providers, and agencies interested in partnership."
+          },
+          "howToPartner": {
+            "title": "How to Partner",
+            "content": "Review requirements and submit a partnership inquiry using the form below."
+          },
+          "contact": {
+            "title": "Contact",
+            "content": "For questions about partnership, use the contact information provided."
+          }
+        },
+        "cta": {
+          "primary": "Submit Partnership Inquiry"
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Información para socios",
+          "purpose": "Esta página explica oportunidades de asociación y cómo comenzar."
+        },
+        "cta": {
+          "primary": "Enviar consulta de asociación"
+        }
+      }
+    },
+    "auth_account_profile": {
+      "en": {
+        "hero": {
+          "title": "Account Access",
+          "purpose": "Use this page to log in, create an account, or manage your profile."
+        },
+        "sections": {
+          "login": {
+            "title": "Log In",
+            "content": "Enter your credentials to access your dashboard."
+          },
+          "createAccount": {
+            "title": "Create Account",
+            "content": "New users can create an account to get started."
+          },
+          "forgotPassword": {
+            "title": "Forgot Password?",
+            "content": "Reset your password using the link below."
+          }
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Acceso a cuenta",
+          "purpose": "Usa esta página para iniciar sesión, crear una cuenta o administrar tu perfil."
+        }
+      }
+    },
+    "reporting_admin_ops": {
+      "en": {
+        "hero": {
+          "title": "Administrative Dashboard",
+          "purpose": "This page provides tools for reporting, management, and operations."
+        },
+        "sections": {
+          "reports": {
+            "title": "Reports",
+            "content": "Generate and export reports using the tools below."
+          },
+          "management": {
+            "title": "Management",
+            "content": "Manage users, programs, and system settings."
+          },
+          "audit": {
+            "title": "Audit Logs",
+            "content": "View system activity and compliance records."
+          }
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Panel administrativo",
+          "purpose": "Esta página proporciona herramientas para informes, gestión y operaciones."
+        }
+      }
+    },
+    "marketing_informational": {
+      "en": {
+        "hero": {
+          "title": "About This Platform",
+          "purpose": "Learn about our mission, programs, and how to get involved."
+        },
+        "sections": {
+          "mission": {
+            "title": "Our Mission",
+            "content": "We connect individuals with training and employment opportunities."
+          },
+          "howItWorks": {
+            "title": "How It Works",
+            "content": "Browse programs, apply, complete training, and access job placement support."
+          },
+          "contact": {
+            "title": "Contact Us",
+            "content": "Reach out with questions or to learn more."
+          }
+        },
+        "cta": {
+          "primary": "Explore Programs"
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Acerca de esta plataforma",
+          "purpose": "Conoce nuestra misión, programas y cómo participar."
+        },
+        "cta": {
+          "primary": "Explorar programas"
+        }
+      }
+    },
+    "system_utility_error": {
+      "en": {
+        "hero": {
+          "title": "Page Not Found",
+          "purpose": "The page you're looking for doesn't exist or has been moved."
+        },
+        "sections": {
+          "whatHappened": {
+            "title": "What Happened",
+            "content": "This page may have been removed, renamed, or is temporarily unavailable."
+          },
+          "whatToDo": {
+            "title": "What to Do Next",
+            "content": "Return to the homepage or use the navigation menu to find what you need."
+          }
+        },
+        "cta": {
+          "primary": "Go to Homepage"
+        }
+      },
+      "es": {
+        "hero": {
+          "title": "Página no encontrada",
+          "purpose": "La página que buscas no existe o ha sido movida."
+        },
+        "cta": {
+          "primary": "Ir a la página principal"
+        }
+      }
+    }
+  },
+  "tooltips": {
+    "en": {
+      "whyDoISeeThis": "This shows what is required for your next step.",
+      "whyIsThisEmpty": "This will update after you complete the step listed above.",
+      "whatHappensIfISubmit": "Your information is saved and reviewed by staff.",
+      "whyCantIAccessThis": "This unlocks after required steps are completed.",
+      "whoCanSeeThis": "Only you and authorized staff working with your program."
+    },
+    "es": {
+      "whyDoISeeThis": "Muestra lo que se requiere para el siguiente paso.",
+      "whyIsThisEmpty": "Se actualizará después de completar el paso indicado.",
+      "whatHappensIfISubmit": "Tu información se guarda y el personal la revisa.",
+      "whyCantIAccessThis": "Se desbloquea después de completar los pasos requeridos.",
+      "whoCanSeeThis": "Solo tú y el personal autorizado que trabaja con tu programa."
+    }
+  }
+}
