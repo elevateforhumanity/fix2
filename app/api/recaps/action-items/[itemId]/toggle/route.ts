@@ -4,9 +4,10 @@ import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function POST(
   _: Request,
-  { params }: { params: { itemId: string } }
+  { params }: { params: Promise<{ itemId: string }> }
 ) {
   try {
+    const { itemId } = await params;
     const supabase = await createClient();
     const {
       data: { user },
@@ -40,7 +41,7 @@ export async function POST(
         meeting_recaps!inner(organization_id)
       `
       )
-      .eq('id', params.itemId)
+      .eq('id', itemId)
       .single();
 
     if (itemErr) {

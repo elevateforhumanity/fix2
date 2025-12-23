@@ -65,10 +65,10 @@ async function logDownload(
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { productId: string } }
+  { params }: { params: Promise<{ productId: string }> }
 ) {
   try {
-    const { productId } = params;
+    const { productId } = await params;
     const searchParams = request.nextUrl.searchParams;
     const token = searchParams.get('token'); // Verification token from purchase
 

@@ -4,9 +4,10 @@ import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const supabase = await createClient();
     const {
       data: { user },
@@ -38,7 +39,7 @@ export async function PATCH(
     const { data: row, error: rowErr } = await adminClient
       .from('workone_checklist')
       .select('id,organization_id,user_id,status')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
 
     if (rowErr) {

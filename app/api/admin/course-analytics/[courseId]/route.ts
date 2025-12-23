@@ -1,14 +1,21 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { getCourseAnalytics, getStudentEngagement, generateCourseReport } from '@/lib/analytics/course-analytics';
+import {
+  getCourseAnalytics,
+  getStudentEngagement,
+  generateCourseReport,
+} from '@/lib/analytics/course-analytics';
 
 export async function GET(
   req: Request,
-  { params }: { params: { courseId: string } }
+  { params }: { params: Promise<{ courseId: string }> }
 ) {
   try {
+    const { courseId } = await params;
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -21,7 +28,10 @@ export async function GET(
       .eq('id', user.id)
       .single();
 
-    if (!profile || !['admin', 'super_admin', 'instructor'].includes(profile.role)) {
+    if (
+      !profile ||
+      !['admin', 'super_admin', 'instructor'].includes(profile.role)
+    ) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
@@ -29,12 +39,12 @@ export async function GET(
     const reportType = searchParams.get('type') || 'summary';
 
     if (reportType === 'full') {
-      const report = await generateCourseReport(params.courseId);
+      const report = await generateCourseReport(courseId);
       return NextResponse.json(report);
     }
 
-    const analytics = await getCourseAnalytics(params.courseId);
-    
+    const analytics = await getCourseAnalytics(courseId);
+
     if (!analytics) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
