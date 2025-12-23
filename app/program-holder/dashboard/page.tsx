@@ -40,17 +40,9 @@ export default async function ProgramHolderDashboardOrchestrated() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+  if (!user) redirect('/login?next=/program-holder/dashboard');
 
-  // CRITICAL: Check onboarding status and enforce gating
-  const onboardingStatus = await getProgramHolderOnboardingStatus(user.id);
-
-  if (!onboardingStatus.onboardingComplete) {
-    // Redirect to next required step
-    redirect(onboardingStatus.nextStepRoute || '/program-holder/onboarding');
-  }
-
-  // Get program holder profile
+  // Get program holder profile and verify role
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
@@ -58,7 +50,15 @@ export default async function ProgramHolderDashboardOrchestrated() {
     .single();
 
   if (!profile || profile.role !== 'program_holder') {
-    redirect('/');
+    redirect('/unauthorized');
+  }
+
+  // CRITICAL: Check onboarding status and enforce gating
+  const onboardingStatus = await getProgramHolderOnboardingStatus(user.id);
+
+  if (!onboardingStatus.onboardingComplete) {
+    // Redirect to next required step
+    redirect(onboardingStatus.nextStepRoute || '/program-holder/onboarding');
   }
 
   // Get students
