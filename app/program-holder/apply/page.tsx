@@ -88,31 +88,31 @@ export default function ProgramHolderApplicationPage() {
         return;
       }
 
-      const { error: insertError } = await supabase
-        .from('program_holder_applications')
-        .insert({
-          user_id: user.id,
-          organization_name: formData.organizationName,
-          organization_type: formData.organizationType,
+      // Use API route for application submission
+      const response = await fetch('/api/program-holder/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          org_name: formData.organizationName,
           contact_name: formData.contactName,
           contact_email: formData.contactEmail,
-          contact_phone: formData.contactPhone,
-          address: formData.address,
-          city: formData.city,
-          state: formData.state,
-          zip: formData.zip,
-          programs_interested: formData.programsInterested,
-          estimated_students: parseInt(formData.estimatedStudents) || null,
-          how_heard_about_us: formData.howHeardAboutUs,
-          additional_info: formData.additionalInfo,
-          status: 'pending',
-        });
+          phone: formData.contactPhone,
+          site_address: `${formData.address}, ${formData.city}, ${formData.state} ${formData.zip}`,
+          training_focus: formData.programsInterested.join(', '),
+          funding_sources: formData.howHeardAboutUs,
+          agree: true,
+        }),
+      });
 
-      if (insertError) throw insertError;
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || 'Application submission failed');
+      }
+
       setSubmitted(true);
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
-      setError(err.message);
+      const errorMessage = err instanceof Error ? err.message : 'Application submission failed';
+      setError(errorMessage);
     } finally {
       setSubmitting(false);
     }
