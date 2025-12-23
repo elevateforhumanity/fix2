@@ -188,7 +188,7 @@ async function processPartnerLMSEnrollment(job: EnrollmentJob, supabase: any) {
     return;
   }
 
-  // Create partner enrollment record
+  // Create partner enrollment record with link-based access
   const { data: partnerEnrollment, error: createError } = await supabase
     .from('partner_enrollments')
     .insert({
@@ -197,10 +197,14 @@ async function processPartnerLMSEnrollment(job: EnrollmentJob, supabase: any) {
       partner_course_id: partnerConfig.course_id,
       learner_email: enrollment.profiles.email,
       learner_name: `${enrollment.profiles.first_name} ${enrollment.profiles.last_name}`,
-      status: 'requested',
-      request_method: partnerConfig.method || 'api',
+      status: 'confirmed',
+      request_method: 'link',
+      access_link: partnerConfig.access_link || partnerConfig.course_url,
+      confirmed_at: new Date().toISOString(),
       metadata: {
         program_id: enrollment.program_id,
+        partner_name: partnerConfig.partner_name,
+        course_name: partnerConfig.course_name,
         requested_at: new Date().toISOString(),
       },
     })
@@ -211,8 +215,9 @@ async function processPartnerLMSEnrollment(job: EnrollmentJob, supabase: any) {
     throw createError;
   }
 
-  // Attempt API enrollment if configured
-  if (partnerConfig.method === 'api' && partnerConfig.api_endpoint) {
+  // Link-based access - no API call needed
+  // Learner accesses partner LMS via provided link
+  if (false && partnerConfig.method === 'api' && partnerConfig.api_endpoint) {
     try {
       const response = await fetch(partnerConfig.api_endpoint, {
         method: 'POST',
