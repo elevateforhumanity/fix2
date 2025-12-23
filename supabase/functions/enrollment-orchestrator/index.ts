@@ -217,7 +217,8 @@ async function processPartnerLMSEnrollment(job: EnrollmentJob, supabase: any) {
 
   // Link-based access - no API call needed
   // Learner accesses partner LMS via provided link
-  if (false && partnerConfig.method === 'api' && partnerConfig.api_endpoint) {
+  // API integration disabled - using link-based access only
+  if (partnerConfig.method === 'api' && partnerConfig.api_endpoint && false) {
     try {
       const response = await fetch(partnerConfig.api_endpoint, {
         method: 'POST',
