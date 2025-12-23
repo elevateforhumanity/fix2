@@ -389,21 +389,21 @@ export default function ProgramHolderApplicationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16    text-white">
+      <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to Get Started?
+              Questions About Becoming a Program Holder?
             </h2>
             <p className="text-base md:text-lg mb-8 text-blue-100">
-              Take the first step toward a better career today.
+              Contact us to learn more about partnership opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
               >
-                Apply Now
+                Get in Touch
               </Link>
               <Link
                 href="/programs"
