@@ -126,7 +126,6 @@ export const adminNavigation: (NavItem | NavSection)[] = [
     children: [
       { href: '/admin/students', label: 'All Students', icon: Users },
       { href: '/onboarding', label: 'Onboarding', icon: ClipboardCheck },
-      { href: '/lms/(app)/attendance', label: 'Attendance', icon: Calendar },
       {
         href: '/admin/analytics/learning',
         label: 'Progress Tracking',
@@ -161,11 +160,6 @@ export const adminNavigation: (NavItem | NavSection)[] = [
         icon: Building2,
       },
       { href: '/admin/docs/mou', label: 'MOUs', icon: FileText },
-      {
-        href: '/partners/portal',
-        label: 'Partner Portal',
-        icon: LayoutDashboard,
-      },
     ],
   },
   {
@@ -249,7 +243,7 @@ export const programHolderNavigation: NavItem[] = [
 
 /**
  * Employer Navigation
- * Focus: Hiring, candidates, apprenticeships
+ * Focus: Hiring, candidates
  */
 export const employerNavigation: NavItem[] = [
   {
@@ -267,21 +261,11 @@ export const employerNavigation: NavItem[] = [
     label: 'Candidates',
     icon: Users,
   },
-  {
-    href: '/employer/apprenticeships',
-    label: 'Apprenticeships',
-    icon: GraduationCap,
-  },
-  {
-    href: '/employer/company',
-    label: 'Company Profile',
-    icon: Building2,
-  },
 ];
 
 /**
  * Staff Navigation
- * Focus: Student support, tasks, reporting
+ * Focus: Student support
  */
 export const staffNavigation: NavItem[] = [
   {
@@ -294,26 +278,11 @@ export const staffNavigation: NavItem[] = [
     label: 'Students',
     icon: Users,
   },
-  {
-    href: '/staff-portal/tasks',
-    label: 'Tasks',
-    icon: CheckSquare,
-  },
-  {
-    href: '/staff-portal/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-  {
-    href: '/staff-portal/calendar',
-    label: 'Calendar',
-    icon: Calendar,
-  },
 ];
 
 /**
  * Instructor Navigation
- * Focus: Course management, students, grading
+ * Focus: Course management, students
  */
 export const instructorNavigation: NavItem[] = [
   {
@@ -322,35 +291,16 @@ export const instructorNavigation: NavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    href: '/instructor/courses',
-    label: 'My Courses',
-    icon: BookOpen,
-  },
-  {
     href: '/instructor/students',
     label: 'Students',
     icon: Users,
-  },
-  {
-    href: '/instructor/grading',
-    label: 'Grading',
-    icon: ClipboardCheck,
-  },
-  {
-    href: '/instructor/attendance',
-    label: 'Attendance',
-    icon: Calendar,
-  },
-  {
-    href: '/instructor/profile',
-    label: 'Profile',
-    icon: User,
   },
 ];
 
 /**
  * Board Member Navigation
- * Focus: Oversight, reports, governance
+ * Focus: Oversight
+ * NOTE: Minimal routes - verify real users exist in production
  */
 export const boardNavigation: NavItem[] = [
   {
@@ -358,26 +308,12 @@ export const boardNavigation: NavItem[] = [
     label: 'Dashboard',
     icon: LayoutDashboard,
   },
-  {
-    href: '/board/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-  {
-    href: '/board/metrics',
-    label: 'Metrics',
-    icon: BarChart3,
-  },
-  {
-    href: '/board/compliance',
-    label: 'Compliance',
-    icon: Shield,
-  },
 ];
 
 /**
  * Workforce Board Navigation
- * Focus: Government oversight, compliance, outcomes
+ * Focus: Government oversight
+ * NOTE: Minimal routes - verify real users exist in production
  */
 export const workforceBoardNavigation: NavItem[] = [
   {
@@ -386,51 +322,9 @@ export const workforceBoardNavigation: NavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    href: '/workforce-board/programs',
-    label: 'Programs',
-    icon: BookOpen,
-  },
-  {
-    href: '/workforce-board/outcomes',
-    label: 'Outcomes',
-    icon: Award,
-  },
-  {
-    href: '/workforce-board/compliance',
-    label: 'Compliance',
-    icon: Shield,
-  },
-  {
     href: '/workforce-board/reports',
     label: 'Reports',
     icon: FileText,
-  },
-];
-
-/**
- * Parent Navigation
- * Focus: Student progress, communication
- */
-export const parentNavigation: NavItem[] = [
-  {
-    href: '/parent-portal/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/parent-portal/student-progress',
-    label: 'Student Progress',
-    icon: TrendingUp,
-  },
-  {
-    href: '/parent-portal/messages',
-    label: 'Messages',
-    icon: MessageCircle,
-  },
-  {
-    href: '/parent-portal/calendar',
-    label: 'Calendar',
-    icon: Calendar,
   },
 ];
 
@@ -460,8 +354,6 @@ export function getDashboardNavigation(
       return boardNavigation;
     case 'workforce_board':
       return workforceBoardNavigation;
-    case 'parent':
-      return parentNavigation;
     default:
       return studentNavigation;
   }
@@ -489,8 +381,6 @@ export function getDashboardRoute(role: string): string {
       return '/board/dashboard';
     case 'workforce_board':
       return '/workforce-board/dashboard';
-    case 'parent':
-      return '/parent-portal/dashboard';
     case 'student':
     default:
       return '/lms/dashboard';
@@ -499,6 +389,9 @@ export function getDashboardRoute(role: string): string {
 
 /**
  * Check if a user has access to a specific route based on their role
+ *
+ * NOTE: This is UI-only visibility control. Server-side guards are still required.
+ * Every dashboard route MUST enforce role authorization on the server.
  */
 export function hasRouteAccess(role: string, route: string): boolean {
   const navigation = getDashboardNavigation(role);
@@ -520,7 +413,17 @@ export function hasRouteAccess(role: string, route: string): boolean {
   };
 
   const allowedRoutes = flattenNav(navigation);
-  return allowedRoutes.some((allowed) => route.startsWith(allowed));
+
+  // Exact match or known subroute
+  return allowedRoutes.some((allowed) => {
+    // Exact match
+    if (route === allowed) return true;
+
+    // Subroute match - must have trailing slash to prevent /admin matching /admin-panel
+    if (route.startsWith(allowed + '/')) return true;
+
+    return false;
+  });
 }
 
 /**
@@ -538,7 +441,6 @@ export const roleDisplayNames: Record<string, string> = {
   employer: 'Employer',
   board_member: 'Board Member',
   workforce_board: 'Workforce Board',
-  parent: 'Parent',
 };
 
 /**
