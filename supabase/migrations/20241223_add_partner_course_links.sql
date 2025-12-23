@@ -12,8 +12,36 @@ ALTER TABLE partner_lms_enrollments
 CREATE INDEX IF NOT EXISTS idx_partner_courses_access_link 
   ON partner_courses(access_link) WHERE access_link IS NOT NULL;
 
--- Update existing partner courses with placeholder links
--- These should be replaced with actual partner LMS URLs
+-- Update existing partner courses with actual partner LMS URLs
+-- Milady RISE courses
+UPDATE partner_courses 
+SET access_link = 'https://www.miladytraining.com/users/sign_in'
+WHERE access_link IS NULL 
+  AND partner_id = 'milady'
+  AND active = true;
+
+-- HSI courses
+UPDATE partner_courses 
+SET access_link = 'https://www.hsi.com/login'
+WHERE access_link IS NULL 
+  AND partner_id = 'hsi'
+  AND active = true;
+
+-- CareerSafe courses
+UPDATE partner_courses 
+SET access_link = 'https://www.careersafeonline.com/login'
+WHERE access_link IS NULL 
+  AND partner_id = 'careersafe'
+  AND active = true;
+
+-- Certiport courses
+UPDATE partner_courses 
+SET access_link = 'https://www.certiport.com/portal/ssl/login.aspx'
+WHERE access_link IS NULL 
+  AND partner_id = 'certiport'
+  AND active = true;
+
+-- Generic fallback for other partners
 UPDATE partner_courses 
 SET access_link = 'https://partner-lms.example.com/course/' || external_course_code
 WHERE access_link IS NULL 
