@@ -8,7 +8,7 @@ import { getNavigation } from '@/config/navigation-clean';
 // Get dashboard URL based on user role
 function getDashboardUrl(user: { role?: string } | null) {
   if (!user || !user.role) return '/student/dashboard';
-  
+
   switch (user.role) {
     case 'admin':
     case 'super_admin':
@@ -40,9 +40,11 @@ export default function SiteHeader() {
   // Get user and update navigation
   useEffect(() => {
     const supabase = createClient();
-    
+
     const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       setUser(user);
       setNavigation(getNavigation(user));
     };
@@ -50,7 +52,9 @@ export default function SiteHeader() {
     getUser();
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       setNavigation(getNavigation(session?.user ?? null));
     });
@@ -263,20 +267,23 @@ export default function SiteHeader() {
 
                 {/* Action Buttons */}
                 <div className="border-t pt-4 space-y-3">
-                  <Link
-                    href="/dashboard"
-                    className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
-                  <Link
-                    href="/login"
-                    className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Login
-                  </Link>
+                  {user ? (
+                    <Link
+                      href={getDashboardUrl(user)}
+                      className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <Link
+                      href="/login"
+                      className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Login
+                    </Link>
+                  )}
                 </div>
               </nav>
             </div>
@@ -294,12 +301,6 @@ export default function SiteHeader() {
             Elevate for Humanity
           </Link>
           <div className="flex items-center gap-3">
-            <Link
-              href="/dashboard"
-              className="border border-zinc-300 bg-white px-4 py-2 rounded-xl font-bold"
-            >
-              Dashboard
-            </Link>
             <Link
               href="/login"
               className="border border-zinc-300 bg-white px-4 py-2 rounded-xl font-bold"
