@@ -1,5 +1,5 @@
-import SiteHeader from '@/components/site/SiteHeader';
-import NewSiteFooter from '@/components/site/SiteFooter';
+import SiteHeader from '@/components/layout/SiteHeader';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 export default function PublicLayout({
   children,
@@ -10,7 +10,7 @@ export default function PublicLayout({
     <>
       <SiteHeader />
       <main id="main-content">{children}</main>
-      <NewSiteFooter />
+      <SiteFooter />
     </>
   );
 }

@@ -11,12 +11,9 @@ import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-import { MainNav } from '@/components/layout/MainNav';
-import MainHeader from '@/components/layout/MainHeader';
-import MainFooter from '@/components/layout/MainFooter';
-import { SiteFooter } from '@/components/layout/Footer';
-import SiteHeader from '@/components/site/SiteHeader';
-import NewSiteFooter from '@/components/site/SiteFooter';
+// New shared header/footer components
+import SiteHeader from '@/components/layout/SiteHeader';
+import SiteFooter from '@/components/layout/SiteFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import AILiveChat from '@/components/chat/AILiveChat';
@@ -205,10 +202,10 @@ export default function RootLayout({
         <ScraperDetection />
         <SiteHeader />
         <Breadcrumbs />
-        <main id="main-content" className="min-h-screen pt-16">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
-        <NewSiteFooter />
+        <SiteFooter />
         <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
