@@ -24,8 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function BarberApprenticeshipPage() {
-  const barberProgram = programs.find(p => p.slug === 'barber-apprenticeship');
-  
+  const barberProgram = programs.find(
+    (p) => p.slug === 'barber-apprenticeship'
+  );
+
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Official Badge */}
@@ -45,8 +47,15 @@ export default function BarberApprenticeshipPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-white py-8 md:py-12">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative bg-white py-8 md:py-12">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/barber-hero.jpg"
+            alt="Barber Apprenticeship"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
               Free with funding
@@ -89,7 +98,8 @@ export default function BarberApprenticeshipPage() {
       {barberProgram && barberProgram.longDescription && (
         <section className="py-8 md:py-12 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="prose prose-lg prose-slate max-w-none
+            <div
+              className="prose prose-lg prose-slate max-w-none
               prose-headings:font-bold prose-headings:text-slate-900
               prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-4
               prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-3
@@ -105,7 +115,8 @@ export default function BarberApprenticeshipPage() {
               prose-table:w-full prose-table:border-collapse
               prose-th:bg-slate-100 prose-th:p-3 prose-th:text-left prose-th:font-bold prose-th:border prose-th:border-slate-300
               prose-td:p-3 prose-td:border prose-td:border-slate-300
-            ">
+            "
+            >
               <ReactMarkdown>{barberProgram.longDescription}</ReactMarkdown>
             </div>
           </div>
