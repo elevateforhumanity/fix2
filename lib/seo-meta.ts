@@ -31,13 +31,7 @@ export const homePageMeta: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Free Job Training Programs | Elevate for Humanity',
-    description:
-      'Get trained for free in high-demand careers. No debt. Real careers.',
-    images: [defaultImage],
-  },
+
   alternates: {
     canonical: baseUrl,
   },
@@ -73,12 +67,7 @@ export function generateProgramMeta(program: {
       images: [{ url: program.image || defaultImage }],
       type: 'website',
     },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [program.image || defaultImage],
-    },
+
     alternates: {
       canonical: url,
     },
@@ -118,12 +107,7 @@ export function generateBlogMeta(post: {
       publishedTime: post.publishedAt,
       authors: [post.author],
     },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description,
-      images: [post.image || defaultImage],
-    },
+
     alternates: {
       canonical: url,
     },

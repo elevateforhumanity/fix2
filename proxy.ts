@@ -106,6 +106,12 @@ export async function proxy(request: NextRequest) {
   const ip = getClientIp(request);
   const hostname = request.headers.get('host') || '';
 
+  // === HEALTH CHECK BYPASS ===
+  // Health endpoint must NEVER be auth-gated for monitoring
+  if (pathname === '/api/health') {
+    return NextResponse.next();
+  }
+
   // === DOMAIN-BASED ROUTING ===
   // Admin portal domains
   if (
