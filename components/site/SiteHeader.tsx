@@ -12,18 +12,17 @@ function getDashboardUrl(user: { role?: string } | null) {
   switch (user.role) {
     case 'admin':
     case 'super_admin':
-      return '/admin';
+      return '/admin/dashboard';
     case 'program_holder':
+    case 'partner': // ALIAS - partner routes to program_holder dashboard
       return '/program-holder/dashboard';
-    case 'partner':
-      return '/partner';
     case 'employer':
-      return '/employer';
+      return '/employer/dashboard';
     case 'workforce_board':
-      return '/workforce-board';
+      return '/workforce-board/dashboard';
     case 'student':
     default:
-      return '/student/dashboard';
+      return '/lms/dashboard';
   }
 }
 import { createClient } from '@/lib/supabase/client';
