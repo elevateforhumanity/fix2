@@ -31,11 +31,20 @@ export default async function DashboardPage() {
   }
 
   // Redirect based on role
-  // Only routes roles that have actual users in the database
+  // Partner is an ALIAS for program_holder (not a separate role)
   // See: docs/database-proof-RESULTS.md for verification
   switch (profile.role) {
     case 'admin':
+    case 'super_admin':
+    case 'org_admin':
       redirect('/admin/dashboard');
+
+    case 'program_holder':
+    case 'partner': // ALIAS - partner is the same as program_holder
+      redirect('/program-holder/dashboard');
+
+    case 'employer':
+      redirect('/employer/dashboard');
 
     case 'staff':
       redirect('/staff-portal/dashboard');
