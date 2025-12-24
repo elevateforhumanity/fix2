@@ -130,7 +130,7 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (err: unknown) {
-    logger.error('[Enroll Apply] Error:', err);
+    logger.error('[Enroll Apply] Error:', err as Error);
     return NextResponse.json(
       {
         message:
