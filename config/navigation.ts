@@ -71,7 +71,7 @@ export const headerNav: NavSection[] = [
       { label: '🏠 All Portals', href: '/portals' },
       { label: '📚 Student Portal', href: '/lms/dashboard' },
       { label: '⚙️ Admin Portal', href: '/admin' },
-      { label: '🤝 Partner Portal', href: '/partner/dashboard' },
+      { label: '🤝 Program Holder Portal', href: '/program-holder/dashboard' },
       { label: '💼 Workforce Board', href: '/workforce-board' },
       { label: '🏢 Program Holder', href: '/program-holder/portal' },
       { label: '👥 Staff Portal', href: '/staff-portal/dashboard' },

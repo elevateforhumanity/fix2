@@ -21,7 +21,7 @@ const PROTECTED_ROUTES = [
   '/program-holder/portal',
   '/delegate',
   '/lms/', // Note: /lms itself is public, only /lms/* is protected
-  '/partner/dashboard',
+
   '/employer/dashboard',
   '/workforce-board/dashboard',
   '/staff-portal/dashboard',

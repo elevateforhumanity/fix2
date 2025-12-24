@@ -44,11 +44,11 @@ const portals: Portal[] = [
     color: 'red',
   },
   {
-    name: 'Partner Portal',
+    name: 'Program Holder Portal',
     description: 'Manage your organization, courses, and students',
-    href: '/partner/dashboard',
+    href: '/program-holder/dashboard',
     icon: Users,
-    roles: ['admin', 'super_admin', 'partner'],
+    roles: ['admin', 'super_admin', 'program_holder', 'partner'],
     color: 'green',
   },
   {

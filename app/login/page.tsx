@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 export const dynamic = 'force-dynamic';
 
 function LoginForm() {
@@ -48,12 +47,13 @@ function LoginForm() {
         profile?.role === 'org_admin'
       ) {
         router.push('/admin/dashboard');
-      } else if (profile?.role === 'program_holder') {
+      } else if (
+        profile?.role === 'program_holder' ||
+        profile?.role === 'partner'
+      ) {
         router.push('/program-holder/dashboard');
-      } else if (profile?.role === 'partner') {
-        router.push('/partner');
       } else if (profile?.role === 'employer') {
-        router.push('/employer');
+        router.push('/employer/dashboard');
       } else if (profile?.role === 'workforce_board') {
         router.push('/workforce-board');
       } else if (profile?.role === 'student') {
