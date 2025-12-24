@@ -3,9 +3,9 @@ import { redirect } from 'next/navigation';
 /**
  * DELEGATE DASHBOARD REDIRECT
  *
- * Delegate is not a separate role - it's an admin feature.
- * Redirecting to admin dashboard.
+ * Delegate is not a separate role.
+ * Redirecting to main dashboard router.
  */
 export default function DelegateDashboardRedirect() {
-  redirect('/admin/dashboard');
+  redirect('/dashboard');
 }

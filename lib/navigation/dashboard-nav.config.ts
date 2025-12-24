@@ -290,39 +290,20 @@ export const instructorNavigation: NavItem[] = [
     label: 'Students',
     icon: Users,
   },
-    icon: User,
-  },
 ];
 
 /**
  * Board Member Navigation
- * Focus: Oversight, reports, governance
+ * Board members don't have a dedicated dashboard yet.
+ * They should use admin dashboard if they have admin access.
  */
-export const boardNavigation: NavItem[] = [
-  {
-    href: '/board/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  },
-];
+export const boardNavigation: NavItem[] = [];
 
 /**
  * Workforce Board Navigation
- * Focus: Government oversight, compliance, outcomes
+ * Workforce board members don't have a dedicated dashboard yet.
  */
-export const workforceBoardNavigation: NavItem[] = [
-  {
-    href: '/workforce-board/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/workforce-board/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-];
+export const workforceBoardNavigation: NavItem[] = [];
 
 /**
  * Parent Navigation
@@ -378,9 +359,9 @@ export function getDashboardRoute(role: string): string {
     case 'instructor':
       return '/instructor/dashboard';
     case 'board_member':
-      return '/board/dashboard';
     case 'workforce_board':
-      return '/workforce-board/dashboard';
+      // These roles don't have dedicated dashboards
+      return '/dashboard';
     case 'student':
     default:
       return '/lms/dashboard';
