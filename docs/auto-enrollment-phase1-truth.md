@@ -83,6 +83,20 @@ grep -r "can_enroll\|eligibility\|verified\|approved" /workspaces/fix2/supabase/
 
 **Finding:** No invite token tables or token validation logic exists. The only approval-related flag found is `can_enroll_students` on program holders (for program holders enrolling their students, not student self-enrollment).
 
+### Who Sets enrollment_status (Critical Boundary)
+
+**Commands used:**
+
+```bash
+grep -r "enrollment_status" app/api --include="*.ts" -B 2 -A 2 | grep -E "update|UPDATE|set|SET"
+```
+
+**Finding:** No code in `/app/api` currently sets or modifies `profiles.enrollment_status`. The field is read-only from the enrollment code's perspective.
+
+**Conclusion:** `enrollment_status` is set externally today (manual admin action, staff UI, or external system integration). Enrollment code must treat `enrollment_status` as an immutable gate. Enrollment routes must READ this field to enforce approval, but must NOT modify it except after successful enrollment completion (transition to 'active').
+
+This is a critical boundary: enrollment code does not approve students; it enforces approval decisions made elsewhere.
+
 ---
 
 ## 2. ENROLLMENT SOURCE-OF-TRUTH (CRITICAL)
