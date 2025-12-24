@@ -61,18 +61,42 @@ export default async function EmployerDashboardOrchestrated() {
     .eq('employer_id', user.id)
     .eq('status', 'pending');
 
-  // Check apprenticeship program
-  const { data: apprenticeshipProgram } = await supabase
-    .from('apprenticeship_programs')
-    .select('*')
-    .eq('employer_id', user.id)
-    .single();
+  // Get shop access for this employer
+  // Schema: employer user → shop_staff → shops → apprentice_placements
+  const { data: shopAccess } = await supabase
+    .from('shop_staff')
+    .select('shop_id, role')
+    .eq('user_id', user.id);
+
+  const shopIds = shopAccess?.map((s) => s.shop_id) || [];
+
+  // Get shops this employer has access to
+  const { data: shops } = await supabase
+    .from('shops')
+    .select('id, name, active')
+    .in('id', shopIds);
+
+  // Get apprentice placements for these shops
+  const { data: placements } = await supabase
+    .from('apprentice_placements')
+    .select('id, student_id, shop_id, program_slug, status, start_date, end_date, supervisor_user_id, created_at')
+    .in('shop_id', shopIds)
+    .order('created_at', { ascending: false });
+
+  const placementIds = placements?.map((p) => p.id) || [];
+
+  // Get weekly reports for these placements
+  const { data: weeklyReports } = await supabase
+    .from('apprentice_weekly_reports')
+    .select('id, placement_id, week_start, week_end, hours_ojt, hours_related, hours_total, status, submitted_at')
+    .in('placement_id', placementIds)
+    .order('submitted_at', { ascending: false });
 
   // Calculate state
   const stateData = getEmployerState({
     isVerified: profile.verified || false,
     activePostings: postings?.length || 0,
-    hasApprenticeshipProgram: !!apprenticeshipProgram,
+    hasApprenticeshipProgram: (placements?.length || 0) > 0,
     pendingApplications: applications?.length || 0,
   });
 
@@ -136,7 +160,7 @@ export default async function EmployerDashboardOrchestrated() {
 
             <div
               className={`rounded-lg shadow-sm border p-6 ${
-                apprenticeshipProgram
+                (placements?.length || 0) > 0
                   ? 'bg-purple-50 border-purple-600'
                   : 'bg-white border-slate-200'
               }`}
@@ -144,26 +168,44 @@ export default async function EmployerDashboardOrchestrated() {
               <div className="flex items-center justify-between mb-2">
                 <TrendingUp
                   className={`h-8 w-8 ${
-                    apprenticeshipProgram ? 'text-purple-600' : 'text-slate-400'
+                    (placements?.length || 0) > 0 ? 'text-purple-600' : 'text-slate-400'
                   }`}
                 />
                 <span
                   className={`text-3xl font-bold ${
-                    apprenticeshipProgram ? 'text-purple-900' : 'text-slate-900'
+                    (placements?.length || 0) > 0 ? 'text-purple-900' : 'text-slate-900'
                   }`}
                 >
-                  {apprenticeshipProgram ? '1' : '0'}
+                  {placements?.length || 0}
                 </span>
               </div>
               <div
                 className={`text-sm ${
-                  apprenticeshipProgram ? 'text-purple-900' : 'text-slate-600'
+                  (placements?.length || 0) > 0 ? 'text-purple-900' : 'text-slate-600'
                 }`}
               >
-                Apprenticeship Programs
+                Active Apprentice Placements
               </div>
             </div>
           </div>
+
+          {/* Shop Setup CTA */}
+          {shopIds.length === 0 && (
+            <div className="bg-blue-50 border-2 border-blue-600 rounded-lg p-6">
+              <h3 className="text-xl font-bold text-blue-900 mb-2">
+                Set Up Your Shop
+              </h3>
+              <p className="text-blue-800 mb-4">
+                Create a shop to start managing apprenticeships and track weekly reports.
+              </p>
+              <a
+                href="/employer/shop/create"
+                className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+              >
+                Create Shop
+              </a>
+            </div>
+          )}
 
           {/* Available Sections */}
           <div>
@@ -207,18 +249,18 @@ export default async function EmployerDashboardOrchestrated() {
               {stateData.availableSections.includes('apprenticeship') && (
                 <SectionCard
                   title={
-                    apprenticeshipProgram
-                      ? 'Manage Apprenticeship'
+                    (placements?.length || 0) > 0
+                      ? 'Manage Apprenticeships'
                       : 'Start Apprenticeship Program'
                   }
                   description={
-                    apprenticeshipProgram
-                      ? 'Track apprentices and compliance'
+                    (placements?.length || 0) > 0
+                      ? `${placements?.length} active placement${(placements?.length || 0) !== 1 ? 's' : ''}`
                       : 'Build your talent pipeline'
                   }
                   href="/employer/apprenticeship"
                   icon={<TrendingUp className="h-6 w-6" />}
-                  badge={apprenticeshipProgram ? 'Active' : undefined}
+                  badge={(placements?.length || 0) > 0 ? 'Active' : undefined}
                 />
               )}
 
@@ -272,6 +314,76 @@ export default async function EmployerDashboardOrchestrated() {
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Apprentice Placements */}
+          {shopIds.length > 0 && (
+            <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-slate-900">
+                  Apprentice Placements
+                </h3>
+                <a
+                  href="/employer/apprenticeships/new"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition text-sm"
+                >
+                  Add Placement
+                </a>
+              </div>
+              
+              {(placements?.length || 0) === 0 ? (
+                <div className="text-center py-8">
+                  <p className="text-slate-600 mb-4">
+                    No apprentice placements yet
+                  </p>
+                  <a
+                    href="/employer/apprenticeships/new"
+                    className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                  >
+                    Create First Placement
+                  </a>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {placements?.map((placement) => {
+                    const reportsForPlacement = weeklyReports?.filter(
+                      (r) => r.placement_id === placement.id
+                    );
+                    const totalHours = reportsForPlacement?.reduce(
+                      (sum, r) => sum + (r.hours_total || 0),
+                      0
+                    ) || 0;
+                    
+                    return (
+                      <div
+                        key={placement.id}
+                        className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"
+                      >
+                        <div className="flex-1">
+                          <div className="font-semibold text-slate-900">
+                            {placement.program_slug}
+                          </div>
+                          <div className="text-sm text-slate-600">
+                            Started: {new Date(placement.start_date).toLocaleDateString()}
+                          </div>
+                          <div className="text-sm text-slate-600">
+                            Total Hours: {totalHours} | Reports: {reportsForPlacement?.length || 0}
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <a
+                            href={`/employer/apprenticeships/${placement.id}/weekly-report/new`}
+                            className="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition text-sm"
+                          >
+                            Submit Report
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
         </div>
