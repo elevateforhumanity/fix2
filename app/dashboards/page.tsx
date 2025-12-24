@@ -92,16 +92,16 @@ export default function DashboardsPage() {
               ]}
             />
 
-            {/* Partner Dashboard */}
+            {/* Program Holder Dashboard */}
             <DashboardCard
               icon={<Building2 className="w-8 h-8" />}
-              title="Partner Dashboard"
-              description="Manage partnerships, placements, and collaborations"
-              href="/partner/dashboard"
+              title="Program Holder Dashboard"
+              description="Manage programs, students, and partnerships"
+              href="/program-holder/dashboard"
               color="orange"
               features={[
-                'Partnerships',
-                'Student Placements',
+                'Program Management',
+                'Student Tracking',
                 'Reports',
                 'Communications',
               ]}
