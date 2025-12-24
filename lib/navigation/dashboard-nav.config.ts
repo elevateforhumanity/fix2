@@ -61,16 +61,6 @@ export const studentNavigation: NavItem[] = [
     label: 'My Courses',
     icon: BookOpen,
   },
-  {
-    href: '/lms/certificates',
-    label: 'Certificates',
-    icon: Award,
-  },
-  {
-    href: '/lms/profile',
-    label: 'Profile',
-    icon: User,
-  },
 ];
 
 /**
@@ -126,7 +116,6 @@ export const adminNavigation: (NavItem | NavSection)[] = [
     children: [
       { href: '/admin/students', label: 'All Students', icon: Users },
       { href: '/onboarding', label: 'Onboarding', icon: ClipboardCheck },
-      { href: '/lms/(app)/attendance', label: 'Attendance', icon: Calendar },
       {
         href: '/admin/analytics/learning',
         label: 'Progress Tracking',
@@ -266,16 +255,6 @@ export const employerNavigation: NavItem[] = [
     href: '/employer/candidates',
     label: 'Candidates',
     icon: Users,
-  },
-  {
-    href: '/employer/apprenticeships',
-    label: 'Apprenticeships',
-    icon: GraduationCap,
-  },
-  {
-    href: '/employer/company',
-    label: 'Company Profile',
-    icon: Building2,
   },
 ];
 
