@@ -29,22 +29,14 @@ import {
  */
 
 export default async function StudentDashboardOrchestrated() {
+  // Require student role
+  const { user, profile } = await requireRole([
+    'student',
+    'admin',
+    'super_admin',
+  ]);
+
   const supabase = await createClient();
-
-  // Require authentication
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
-
-  // Get user profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
-
-  if (!profile) redirect('/onboarding');
 
   // Get enrollment data
   const { data: enrollments } = await supabase
