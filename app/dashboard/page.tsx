@@ -31,44 +31,31 @@ export default async function DashboardPage() {
   }
 
   // Redirect based on role
+  // Only 6 canonical roles have dashboards (see docs/roles-and-dashboards.md)
   switch (profile.role) {
-    // Admin roles
     case 'admin':
     case 'super_admin':
     case 'org_admin':
       redirect('/admin/dashboard');
-      break;
 
-    // Program holder / partner roles
     case 'program_holder':
-    case 'partner':
       redirect('/program-holder/dashboard');
-      break;
 
-    // Employer role
     case 'employer':
       redirect('/employer/dashboard');
-      break;
 
-    // Staff role
     case 'staff':
       redirect('/staff-portal/dashboard');
-      break;
 
-    // Instructor role
     case 'instructor':
       redirect('/instructor/dashboard');
-      break;
 
-    // Board member and workforce board - no dedicated dashboards
-    case 'board_member':
-    case 'workforce_board':
-      redirect('/unauthorized');
-      break;
-
-    // Student role (default)
     case 'student':
-    default:
       redirect('/lms/dashboard');
+
+    // All other roles (partner, board, workforce_board, delegate, creator, shop, parent)
+    // are eliminated - redirect to main dashboard
+    default:
+      redirect('/dashboard');
   }
 }
