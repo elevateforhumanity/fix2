@@ -58,12 +58,44 @@ export async function POST(req: Request) {
         submittedAt: new Date().toISOString(),
       });
     } else {
-      // Authenticated user - create enrollment record
+      // Authenticated user - check enrollment approval status
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('enrollment_status, program_holder_id')
+        .eq('id', studentId)
+        .single();
+
+      // Enrollment gate: must be approved or active
+      if (
+        !profile?.enrollment_status ||
+        !['approved', 'active'].includes(profile.enrollment_status)
+      ) {
+        return NextResponse.json(
+          {
+            message:
+              'You must be approved for enrollment before you can enroll. Please contact your program coordinator.',
+          },
+          { status: 403 }
+        );
+      }
+
+      // Program holder must be assigned
+      if (!profile.program_holder_id) {
+        return NextResponse.json(
+          {
+            message: 'No program holder assigned. Please contact support.',
+          },
+          { status: 403 }
+        );
+      }
+
+      // Create enrollment record with program holder assignment
       const { data: enrollment, error: enrollmentError } = await supabase
         .from('program_enrollments')
         .insert({
           student_id: studentId,
           program_id: body.preferredProgramId,
+          program_holder_id: profile.program_holder_id,
           funding_source: body.fundingSource || 'WIOA',
           status: 'INTAKE',
         })
@@ -82,6 +114,7 @@ export async function POST(req: Request) {
         enrollmentId: enrollment.id,
         studentId,
         programId: body.preferredProgramId,
+        programHolderId: profile.program_holder_id,
         submittedAt: new Date().toISOString(),
       });
     }
