@@ -4,8 +4,9 @@ import { redirect } from 'next/navigation';
  * PORTAL PARENT DASHBOARD REDIRECT
  *
  * Legacy portal route structure.
- * Redirects to canonical parent portal dashboard.
+ * Parent role removed from schema - no parent dashboard exists.
+ * Redirects to unauthorized page.
  */
 export default function PortalParentDashboard() {
-  redirect('/parent-portal/dashboard');
+  redirect('/unauthorized');
 }

@@ -61,16 +61,6 @@ export const studentNavigation: NavItem[] = [
     label: 'My Courses',
     icon: BookOpen,
   },
-  {
-    href: '/lms/certificates',
-    label: 'Certificates',
-    icon: Award,
-  },
-  {
-    href: '/lms/profile',
-    label: 'Profile',
-    icon: User,
-  },
 ];
 
 /**
@@ -126,7 +116,6 @@ export const adminNavigation: (NavItem | NavSection)[] = [
     children: [
       { href: '/admin/students', label: 'All Students', icon: Users },
       { href: '/onboarding', label: 'Onboarding', icon: ClipboardCheck },
-      { href: '/lms/(app)/attendance', label: 'Attendance', icon: Calendar },
       {
         href: '/admin/analytics/learning',
         label: 'Progress Tracking',
@@ -267,16 +256,6 @@ export const employerNavigation: NavItem[] = [
     label: 'Candidates',
     icon: Users,
   },
-  {
-    href: '/employer/apprenticeships',
-    label: 'Apprenticeships',
-    icon: GraduationCap,
-  },
-  {
-    href: '/employer/company',
-    label: 'Company Profile',
-    icon: Building2,
-  },
 ];
 
 /**
@@ -294,21 +273,6 @@ export const staffNavigation: NavItem[] = [
     label: 'Students',
     icon: Users,
   },
-  {
-    href: '/staff-portal/tasks',
-    label: 'Tasks',
-    icon: CheckSquare,
-  },
-  {
-    href: '/staff-portal/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-  {
-    href: '/staff-portal/calendar',
-    label: 'Calendar',
-    icon: Calendar,
-  },
 ];
 
 /**
@@ -322,118 +286,29 @@ export const instructorNavigation: NavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    href: '/instructor/courses',
-    label: 'My Courses',
-    icon: BookOpen,
-  },
-  {
     href: '/instructor/students',
     label: 'Students',
     icon: Users,
-  },
-  {
-    href: '/instructor/grading',
-    label: 'Grading',
-    icon: ClipboardCheck,
-  },
-  {
-    href: '/instructor/attendance',
-    label: 'Attendance',
-    icon: Calendar,
-  },
-  {
-    href: '/instructor/profile',
-    label: 'Profile',
-    icon: User,
   },
 ];
 
 /**
  * Board Member Navigation
- * Focus: Oversight, reports, governance
+ * Board members don't have a dedicated dashboard yet.
+ * They should use admin dashboard if they have admin access.
  */
-export const boardNavigation: NavItem[] = [
-  {
-    href: '/board/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/board/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-  {
-    href: '/board/metrics',
-    label: 'Metrics',
-    icon: BarChart3,
-  },
-  {
-    href: '/board/compliance',
-    label: 'Compliance',
-    icon: Shield,
-  },
-];
+export const boardNavigation: NavItem[] = [];
 
 /**
  * Workforce Board Navigation
- * Focus: Government oversight, compliance, outcomes
+ * Workforce board members don't have a dedicated dashboard yet.
  */
-export const workforceBoardNavigation: NavItem[] = [
-  {
-    href: '/workforce-board/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/workforce-board/programs',
-    label: 'Programs',
-    icon: BookOpen,
-  },
-  {
-    href: '/workforce-board/outcomes',
-    label: 'Outcomes',
-    icon: Award,
-  },
-  {
-    href: '/workforce-board/compliance',
-    label: 'Compliance',
-    icon: Shield,
-  },
-  {
-    href: '/workforce-board/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-];
+export const workforceBoardNavigation: NavItem[] = [];
 
 /**
  * Parent Navigation
  * Focus: Student progress, communication
  */
-export const parentNavigation: NavItem[] = [
-  {
-    href: '/parent-portal/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/parent-portal/student-progress',
-    label: 'Student Progress',
-    icon: TrendingUp,
-  },
-  {
-    href: '/parent-portal/messages',
-    label: 'Messages',
-    icon: MessageCircle,
-  },
-  {
-    href: '/parent-portal/calendar',
-    label: 'Calendar',
-    icon: Calendar,
-  },
-];
-
 /**
  * Get navigation for a specific role
  */
@@ -460,8 +335,6 @@ export function getDashboardNavigation(
       return boardNavigation;
     case 'workforce_board':
       return workforceBoardNavigation;
-    case 'parent':
-      return parentNavigation;
     default:
       return studentNavigation;
   }
@@ -486,11 +359,9 @@ export function getDashboardRoute(role: string): string {
     case 'instructor':
       return '/instructor/dashboard';
     case 'board_member':
-      return '/board/dashboard';
     case 'workforce_board':
-      return '/workforce-board/dashboard';
-    case 'parent':
-      return '/parent-portal/dashboard';
+      // These roles don't have dedicated dashboards
+      return '/dashboard';
     case 'student':
     default:
       return '/lms/dashboard';
@@ -538,7 +409,6 @@ export const roleDisplayNames: Record<string, string> = {
   employer: 'Employer',
   board_member: 'Board Member',
   workforce_board: 'Workforce Board',
-  parent: 'Parent',
 };
 
 /**
