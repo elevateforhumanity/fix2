@@ -69,11 +69,6 @@ export default async function DashboardPage() {
       redirect('/workforce-board/dashboard');
       break;
 
-    // Parent role
-    case 'parent':
-      redirect('/parent-portal/dashboard');
-      break;
-
     // Student role (default)
     case 'student':
     default:
