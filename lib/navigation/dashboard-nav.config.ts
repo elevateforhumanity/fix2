@@ -273,21 +273,6 @@ export const staffNavigation: NavItem[] = [
     label: 'Students',
     icon: Users,
   },
-  {
-    href: '/staff-portal/tasks',
-    label: 'Tasks',
-    icon: CheckSquare,
-  },
-  {
-    href: '/staff-portal/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-  {
-    href: '/staff-portal/calendar',
-    label: 'Calendar',
-    icon: Calendar,
-  },
 ];
 
 /**
@@ -301,28 +286,10 @@ export const instructorNavigation: NavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    href: '/instructor/courses',
-    label: 'My Courses',
-    icon: BookOpen,
-  },
-  {
     href: '/instructor/students',
     label: 'Students',
     icon: Users,
   },
-  {
-    href: '/instructor/grading',
-    label: 'Grading',
-    icon: ClipboardCheck,
-  },
-  {
-    href: '/instructor/attendance',
-    label: 'Attendance',
-    icon: Calendar,
-  },
-  {
-    href: '/instructor/profile',
-    label: 'Profile',
     icon: User,
   },
 ];
@@ -337,20 +304,6 @@ export const boardNavigation: NavItem[] = [
     label: 'Dashboard',
     icon: LayoutDashboard,
   },
-  {
-    href: '/board/reports',
-    label: 'Reports',
-    icon: FileText,
-  },
-  {
-    href: '/board/metrics',
-    label: 'Metrics',
-    icon: BarChart3,
-  },
-  {
-    href: '/board/compliance',
-    label: 'Compliance',
-    icon: Shield,
   },
 ];
 
@@ -365,21 +318,6 @@ export const workforceBoardNavigation: NavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    href: '/workforce-board/programs',
-    label: 'Programs',
-    icon: BookOpen,
-  },
-  {
-    href: '/workforce-board/outcomes',
-    label: 'Outcomes',
-    icon: Award,
-  },
-  {
-    href: '/workforce-board/compliance',
-    label: 'Compliance',
-    icon: Shield,
-  },
-  {
     href: '/workforce-board/reports',
     label: 'Reports',
     icon: FileText,
@@ -390,29 +328,6 @@ export const workforceBoardNavigation: NavItem[] = [
  * Parent Navigation
  * Focus: Student progress, communication
  */
-export const parentNavigation: NavItem[] = [
-  {
-    href: '/parent-portal/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/parent-portal/student-progress',
-    label: 'Student Progress',
-    icon: TrendingUp,
-  },
-  {
-    href: '/parent-portal/messages',
-    label: 'Messages',
-    icon: MessageCircle,
-  },
-  {
-    href: '/parent-portal/calendar',
-    label: 'Calendar',
-    icon: Calendar,
-  },
-];
-
 /**
  * Get navigation for a specific role
  */
@@ -439,8 +354,6 @@ export function getDashboardNavigation(
       return boardNavigation;
     case 'workforce_board':
       return workforceBoardNavigation;
-    case 'parent':
-      return parentNavigation;
     default:
       return studentNavigation;
   }
@@ -468,8 +381,6 @@ export function getDashboardRoute(role: string): string {
       return '/board/dashboard';
     case 'workforce_board':
       return '/workforce-board/dashboard';
-    case 'parent':
-      return '/parent-portal/dashboard';
     case 'student':
     default:
       return '/lms/dashboard';
@@ -517,7 +428,6 @@ export const roleDisplayNames: Record<string, string> = {
   employer: 'Employer',
   board_member: 'Board Member',
   workforce_board: 'Workforce Board',
-  parent: 'Parent',
 };
 
 /**
