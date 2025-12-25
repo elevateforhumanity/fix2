@@ -67,10 +67,10 @@ export async function POST(req: NextRequest) {
       approver_role: profile?.role,
     });
 
-    // Get enrollment details
+    // Get enrollment details (using program_enrollments table)
     const { data: enrollment, error: enrollmentError } = await supabase
-      .from('enrollments')
-      .select('id, user_id, program_id, status')
+      .from('program_enrollments')
+      .select('id, student_id, program_id, program_holder_id, status')
       .eq('id', enrollment_id)
       .single();
 
@@ -82,20 +82,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (enrollment.status !== 'pending') {
+    // Check if enrollment is in a pre-approval state
+    const preApprovalStatuses = ['INTAKE', 'AWAITING_FUNDING', 'AWAITING_SEATS'];
+    if (!preApprovalStatuses.includes(enrollment.status)) {
       return NextResponse.json(
         {
-          error: `Enrollment status is ${enrollment.status}, expected pending`,
+          error: `Enrollment status is ${enrollment.status}, expected one of: ${preApprovalStatuses.join(', ')}`,
         },
         { status: 400 }
       );
     }
 
     // STEP 1: Activate enrollment (admin-only, no program holder checks needed)
+    // Move to READY_TO_START which triggers orchestration
     const { error: updateEnrollmentError } = await supabase
-      .from('enrollments')
+      .from('program_enrollments')
       .update({
-        status: 'active',
+        status: 'READY_TO_START',
         updated_at: new Date().toISOString(),
       })
       .eq('id', enrollment_id);
@@ -117,14 +120,14 @@ export async function POST(req: NextRequest) {
         enrollment_status: 'active',
         updated_at: new Date().toISOString(),
       })
-      .eq('id', enrollment.user_id);
+      .eq('id', enrollment.student_id);
 
     if (updateProfileError) {
       logger.error('Failed to activate profile enrollment_status', updateProfileError);
       // Continue - enrollment is already active
     } else {
       logger.info('Profile enrollment_status activated', {
-        user_id: enrollment.user_id,
+        user_id: enrollment.student_id,
       });
     }
 
@@ -156,8 +159,9 @@ export async function POST(req: NextRequest) {
         entity: 'enrollment',
         entity_id: enrollment_id,
         metadata: {
-          user_id: enrollment.user_id,
+          user_id: enrollment.student_id,
           program_id: enrollment.program_id,
+          program_holder_id: enrollment.program_holder_id,
           steps_generated: stepsResult || 0,
         },
       });
@@ -168,7 +172,7 @@ export async function POST(req: NextRequest) {
     // STEP 5: Notify student of approval
     try {
       await supabase.from('notifications').insert({
-        user_id: enrollment.user_id,
+        user_id: enrollment.student_id,
         type: 'system',
         title: 'Enrollment Approved',
         message: 'Your enrollment has been approved. You now have access to the student portal.',
@@ -178,7 +182,7 @@ export async function POST(req: NextRequest) {
       const { data: studentProfile } = await supabase
         .from('profiles')
         .select('email, full_name')
-        .eq('id', enrollment.user_id)
+        .eq('id', enrollment.student_id)
         .single();
 
       if (studentProfile?.email) {
@@ -193,51 +197,51 @@ export async function POST(req: NextRequest) {
             <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard">Access Student Portal</a></p>
           `,
         });
-        logger.info('Student notification email sent', { userId: enrollment.user_id });
+        logger.info('Student notification email sent', { userId: enrollment.student_id });
       }
     } catch (notifError: any) {
       logger.warn('Failed to send student notification (non-critical)', notifError);
     }
 
-    // STEP 6: Notify program holder if student is assigned
+    // STEP 6: Notify program holder if enrollment has program_holder_id
     try {
-      const { data: phAssignment } = await supabase
-        .from('program_holder_students')
-        .select('program_holder_id')
-        .eq('student_id', enrollment.user_id)
-        .eq('program_id', enrollment.program_id)
-        .single();
-
-      if (phAssignment?.program_holder_id) {
-        // Get program holder user
-        const { data: phProfile } = await supabase
-          .from('profiles')
-          .select('id, email, full_name')
-          .eq('program_holder_id', phAssignment.program_holder_id)
-          .eq('role', 'program_holder')
+      if (enrollment.program_holder_id) {
+        // Get program holder user directly from program_holders table
+        const { data: programHolder } = await supabase
+          .from('program_holders')
+          .select('user_id, organization_name')
+          .eq('id', enrollment.program_holder_id)
           .single();
 
-        if (phProfile) {
-          await supabase.from('notifications').insert({
-            user_id: phProfile.id,
-            type: 'system',
-            title: 'New Approved Student Assigned',
-            message: `A new approved student has been assigned to your program. Student ID: ${enrollment.user_id}`,
-          });
+        if (programHolder?.user_id) {
+          const { data: phProfile } = await supabase
+            .from('profiles')
+            .select('id, email, full_name')
+            .eq('id', programHolder.user_id)
+            .single();
 
-          if (phProfile.email) {
-            const { sendEmail } = await import('@/lib/email/resend');
-            await sendEmail({
-              to: phProfile.email,
-              subject: 'New Approved Student Assigned',
-              html: `
-                <h2>New Student Assignment</h2>
-                <p>Hello ${phProfile.full_name || 'Program Holder'},</p>
-                <p>A new approved student has been assigned to your program.</p>
-                <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/program-holder/dashboard">View Students</a></p>
-              `,
+          if (phProfile) {
+            await supabase.from('notifications').insert({
+              user_id: phProfile.id,
+              type: 'system',
+              title: 'Student Enrollment Approved',
+              message: `A student enrollment for ${programHolder.organization_name} has been approved.`,
             });
-            logger.info('Program holder notification sent', { programHolderId: phAssignment.program_holder_id });
+
+            if (phProfile.email) {
+              const { sendEmail } = await import('@/lib/email/resend');
+              await sendEmail({
+                to: phProfile.email,
+                subject: 'Student Enrollment Approved',
+                html: `
+                  <h2>Enrollment Approved</h2>
+                  <p>Hello ${phProfile.full_name || 'Program Holder'},</p>
+                  <p>A student enrollment for ${programHolder.organization_name} has been approved.</p>
+                  <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/partner/dashboard">View Dashboard</a></p>
+                `,
+              });
+              logger.info('Program holder notification sent', { programHolderId: enrollment.program_holder_id });
+            }
           }
         }
       }
@@ -251,10 +255,12 @@ export async function POST(req: NextRequest) {
       enrollmentId: enrollment_id,
       enrollment: {
         id: enrollment_id,
-        status: 'active',
-        user_id: enrollment.user_id,
+        status: 'READY_TO_START',
+        student_id: enrollment.student_id,
         program_id: enrollment.program_id,
+        program_holder_id: enrollment.program_holder_id,
       },
+      profileEnrollmentStatus: 'active',
       stepsGeneratedCount: stepsResult || 0,
       message: 'Enrollment approved and activated successfully',
     });
