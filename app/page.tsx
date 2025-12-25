@@ -159,7 +159,7 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-blue-900/70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/30 to-transparent" />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                 <GraduationCap className="h-10 w-10 sm:h-12 sm:w-12 text-white mb-2 sm:mb-3" />
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -191,7 +191,7 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-purple-900/70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/30 to-transparent" />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                 <Briefcase className="h-10 w-10 sm:h-12 sm:w-12 text-white mb-2 sm:mb-3" />
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -223,7 +223,7 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-green-900/70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-green-900/90 via-green-900/30 to-transparent" />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                 <Building2 className="h-10 w-10 sm:h-12 sm:w-12 text-white mb-2 sm:mb-3" />
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
