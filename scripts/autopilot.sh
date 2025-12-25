@@ -10,7 +10,7 @@ echo "== Autopilot (Builder Mode) =="
 # - dashboard-consolidation-verification.md
 # - autopilot-run-log.md
 # Existing locked docs are also allowed.
-ALLOWED_DOCS_REGEX='^(docs/(dashboard-inventory\.md|dashboard-canonical-architecture\.md|dashboard-crossed-analysis\.md|dashboard-schema-verification\.md|dashboard-orphans-disposition\.md|dashboard-consolidation-verification\.md|autopilot-run-log\.md|dashboard-consolidation-baseline\.md))$'
+ALLOWED_DOCS_REGEX='^(docs/(dashboard-inventory\.md|dashboard-inventory-confirmed\.md|dashboard-canonical-architecture\.md|dashboard-crossed-analysis\.md|dashboard-schema-verification\.md|dashboard-orphans-disposition\.md|dashboard-consolidation-verification\.md|dashboard-verification\.md|autopilot-run-log\.md|dashboard-consolidation-baseline\.md))$'
 
 NEW_DOCS=$(git diff --name-only --diff-filter=ACMRT origin/main...HEAD 2>/dev/null | grep '^docs/.*\.md$' || true)
 
