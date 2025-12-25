@@ -22,17 +22,20 @@ export const metadata: Metadata = {
 export default function EmployerPage() {
   return (
     <main className="bg-white">
-      {/* HERO */}
+      {/* HERO - Video Background */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/employers-hero.jpg"
-          alt="Employers hiring trained workers"
-          fill
-          className="object-cover"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          playsInline
+          muted
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/employers-hero.jpg"
+        >
+          <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
+        </video>
 
-        <div className="absolute inset-0 bg-black/50 flex items-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-2xl text-white">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
