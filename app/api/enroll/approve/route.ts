@@ -192,6 +192,86 @@ export async function POST(req: NextRequest) {
       logger.warn('Failed to write audit log (non-critical)', auditError);
     }
 
+    // STEP 5: Notify student of approval
+    try {
+      await supabase.from('notifications').insert({
+        user_id: enrollment.user_id,
+        type: 'system',
+        title: 'Enrollment Approved',
+        message: 'Your enrollment has been approved. You now have access to the student portal.',
+      });
+
+      // Send email notification
+      const { data: studentProfile } = await supabase
+        .from('profiles')
+        .select('email, full_name')
+        .eq('id', enrollment.user_id)
+        .single();
+
+      if (studentProfile?.email) {
+        const { sendEmail } = await import('@/lib/email/resend');
+        await sendEmail({
+          to: studentProfile.email,
+          subject: 'Enrollment Approved - Access Granted',
+          html: `
+            <h2>Enrollment Approved</h2>
+            <p>Hello ${studentProfile.full_name || 'Student'},</p>
+            <p>Your enrollment has been approved. You now have access to the student portal.</p>
+            <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard">Access Student Portal</a></p>
+          `,
+        });
+        logger.info('Student notification email sent', { userId: enrollment.user_id });
+      }
+    } catch (notifError: any) {
+      logger.warn('Failed to send student notification (non-critical)', notifError);
+    }
+
+    // STEP 6: Notify program holder if student is assigned
+    try {
+      const { data: phAssignment } = await supabase
+        .from('program_holder_students')
+        .select('program_holder_id')
+        .eq('student_id', enrollment.user_id)
+        .eq('program_id', enrollment.program_id)
+        .single();
+
+      if (phAssignment?.program_holder_id) {
+        // Get program holder user
+        const { data: phProfile } = await supabase
+          .from('profiles')
+          .select('id, email, full_name')
+          .eq('program_holder_id', phAssignment.program_holder_id)
+          .eq('role', 'program_holder')
+          .single();
+
+        if (phProfile) {
+          await supabase.from('notifications').insert({
+            user_id: phProfile.id,
+            type: 'system',
+            title: 'New Approved Student Assigned',
+            message: `A new approved student has been assigned to your program. Student ID: ${enrollment.user_id}`,
+          });
+
+          if (phProfile.email) {
+            const { sendEmail } = await import('@/lib/email/resend');
+            await sendEmail({
+              to: phProfile.email,
+              subject: 'New Approved Student Assigned',
+              html: `
+                <h2>New Student Assignment</h2>
+                <p>Hello ${phProfile.full_name || 'Program Holder'},</p>
+                <p>A new approved student has been assigned to your program.</p>
+                <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/program-holder/dashboard">View Students</a></p>
+              `,
+            });
+            logger.info('Program holder notification sent', { programHolderId: phAssignment.program_holder_id });
+          }
+        }
+      }
+    } catch (phNotifError: any) {
+      logger.warn('Failed to send program holder notification (non-critical)', phNotifError);
+    }
+
     // Return proof
     return NextResponse.json({
       success: true,
