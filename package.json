@@ -189,7 +189,7 @@
     "make:images": "python3 tools/make_brand_images.py",
     "make:logo": "python3 tools/make_logo_assets.py",
     "lint:ts-nocheck": "bash -c '! grep -r \"@ts-nocheck\" app lib components --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null || echo \"Warning: @ts-nocheck found in codebase\"'",
-    "prebuild": "echo 'Starting build...'",
+    "prebuild": "node scripts/run-migrations-vercel.mjs || echo 'Migrations skipped'",
     "build": "NODE_OPTIONS=--max-old-space-size=4096 next build",
     "postbuild": "echo 'Next.js build complete'",
     "verify:build": "bash scripts/verify-build.sh || true",
