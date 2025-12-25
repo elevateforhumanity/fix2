@@ -50,14 +50,13 @@ export default async function StudentLayout({
     .single();
 
   const allowedRoles = ['student', 'instructor', 'admin', 'staff'];
-  const isEnrolled =
-    profile?.enrollment_status === 'active' ||
-    profile?.enrollment_status === 'enrolled';
+  // Only 'active' enrollment_status allows portal access
+  const isEnrolled = profile?.enrollment_status === 'active';
   const isStaff = allowedRoles.includes(profile?.role);
 
   if (!isEnrolled && !isStaff) {
     redirect(
-      '/apply?message=You must be enrolled in a program to access student portal'
+      '/apply?message=Your enrollment is pending approval. You will receive access once approved.'
     );
   }
 

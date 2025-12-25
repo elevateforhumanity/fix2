@@ -116,7 +116,7 @@ export async function POST(req: Request) {
     const { data: existingEnrollment } = await supabase
       .from('enrollments')
       .select('id')
-      .eq('student_id', userId)
+      .eq('user_id', userId)
       .eq('program_id', program.id)
       .single();
 
@@ -126,24 +126,25 @@ export async function POST(req: Request) {
       enrollmentId = existingEnrollment.id;
       logger.info('Student already enrolled', { enrollmentId });
 
-      // Update payment status
+      // Update status to pending (keep pending until approval)
       await supabase
         .from('enrollments')
         .update({
+          status: 'pending',
           payment_status: 'paid',
-          status: 'active',
+          stripe_checkout_session_id: sessionId,
         })
         .eq('id', enrollmentId);
     } else {
-      // Step 7: Create enrollment
+      // Step 7: Create enrollment (pending until approval)
       const { data: enrollment, error: enrollError } = await supabase
         .from('enrollments')
         .insert({
-          student_id: userId,
+          user_id: userId,
           program_id: program.id,
-          status: 'active',
-          enrolled_at: new Date().toISOString(),
+          status: 'pending',
           payment_status: 'paid',
+          stripe_checkout_session_id: sessionId,
         })
         .select('id')
         .single();
@@ -159,6 +160,24 @@ export async function POST(req: Request) {
         userId,
         programId: program.id,
       });
+
+      // Notify admins of pending enrollment
+      const { data: admins } = await supabase
+        .from('profiles')
+        .select('id')
+        .in('role', ['admin', 'super_admin']);
+
+      if (admins && admins.length > 0) {
+        const notifications = admins.map((admin) => ({
+          user_id: admin.id,
+          type: 'system',
+          title: 'New Enrollment Pending Approval',
+          message: `${firstName} ${lastName} (${email}) has completed payment for ${program.name}. Enrollment ID: ${enrollmentId}`,
+        }));
+
+        await supabase.from('notifications').insert(notifications);
+        logger.info('Admin notifications created', { count: admins.length });
+      }
     }
 
     // Step 8: Update application status
