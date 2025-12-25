@@ -67,10 +67,10 @@ export async function POST(req: NextRequest) {
       approver_role: profile?.role,
     });
 
-    // Get enrollment details (using program_enrollments table)
+    // Get enrollment details (using enrollments table)
     const { data: enrollment, error: enrollmentError } = await supabase
-      .from('program_enrollments')
-      .select('id, student_id, program_id, program_holder_id, status')
+      .from('enrollments')
+      .select('id, user_id, program_id, status')
       .eq('id', enrollment_id)
       .single();
 
@@ -83,22 +83,20 @@ export async function POST(req: NextRequest) {
     }
 
     // Check if enrollment is in a pre-approval state
-    const preApprovalStatuses = ['INTAKE', 'AWAITING_FUNDING', 'AWAITING_SEATS'];
-    if (!preApprovalStatuses.includes(enrollment.status)) {
+    if (enrollment.status !== 'pending') {
       return NextResponse.json(
         {
-          error: `Enrollment status is ${enrollment.status}, expected one of: ${preApprovalStatuses.join(', ')}`,
+          error: `Enrollment status is ${enrollment.status}, expected pending`,
         },
         { status: 400 }
       );
     }
 
     // STEP 1: Activate enrollment (admin-only, no program holder checks needed)
-    // Move to READY_TO_START which triggers orchestration
     const { error: updateEnrollmentError } = await supabase
-      .from('program_enrollments')
+      .from('enrollments')
       .update({
-        status: 'READY_TO_START',
+        status: 'active',
         updated_at: new Date().toISOString(),
       })
       .eq('id', enrollment_id);
@@ -120,14 +118,14 @@ export async function POST(req: NextRequest) {
         enrollment_status: 'active',
         updated_at: new Date().toISOString(),
       })
-      .eq('id', enrollment.student_id);
+      .eq('id', enrollment.user_id);
 
     if (updateProfileError) {
       logger.error('Failed to activate profile enrollment_status', updateProfileError);
       // Continue - enrollment is already active
     } else {
       logger.info('Profile enrollment_status activated', {
-        user_id: enrollment.student_id,
+        user_id: enrollment.user_id,
       });
     }
 
@@ -159,9 +157,8 @@ export async function POST(req: NextRequest) {
         entity: 'enrollment',
         entity_id: enrollment_id,
         metadata: {
-          user_id: enrollment.student_id,
+          user_id: enrollment.user_id,
           program_id: enrollment.program_id,
-          program_holder_id: enrollment.program_holder_id,
           steps_generated: stepsResult || 0,
         },
       });
@@ -172,7 +169,7 @@ export async function POST(req: NextRequest) {
     // STEP 5: Notify student of approval
     try {
       await supabase.from('notifications').insert({
-        user_id: enrollment.student_id,
+        user_id: enrollment.user_id,
         type: 'system',
         title: 'Enrollment Approved',
         message: 'Your enrollment has been approved. You now have access to the student portal.',
@@ -182,7 +179,7 @@ export async function POST(req: NextRequest) {
       const { data: studentProfile } = await supabase
         .from('profiles')
         .select('email, full_name')
-        .eq('id', enrollment.student_id)
+        .eq('id', enrollment.user_id)
         .single();
 
       if (studentProfile?.email) {
@@ -197,7 +194,7 @@ export async function POST(req: NextRequest) {
             <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard">Access Student Portal</a></p>
           `,
         });
-        logger.info('Student notification email sent', { userId: enrollment.student_id });
+        logger.info('Student notification email sent', { userId: enrollment.user_id });
       }
     } catch (notifError: any) {
       logger.warn('Failed to send student notification (non-critical)', notifError);
@@ -255,10 +252,9 @@ export async function POST(req: NextRequest) {
       enrollmentId: enrollment_id,
       enrollment: {
         id: enrollment_id,
-        status: 'READY_TO_START',
-        student_id: enrollment.student_id,
+        status: 'active',
+        user_id: enrollment.user_id,
         program_id: enrollment.program_id,
-        program_holder_id: enrollment.program_holder_id,
       },
       profileEnrollmentStatus: 'active',
       stepsGeneratedCount: stepsResult || 0,
