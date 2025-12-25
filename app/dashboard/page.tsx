@@ -31,7 +31,6 @@ export default async function DashboardPage() {
   }
 
   // Redirect based on role
-  // Only 6 canonical roles have dashboards (see docs/roles-and-dashboards.md)
   switch (profile.role) {
     case 'admin':
     case 'super_admin':
@@ -39,6 +38,7 @@ export default async function DashboardPage() {
       redirect('/admin/dashboard');
 
     case 'program_holder':
+    case 'partner': // Partner treated as program_holder
       redirect('/program-holder/dashboard');
 
     case 'employer':
@@ -51,11 +51,8 @@ export default async function DashboardPage() {
       redirect('/instructor/dashboard');
 
     case 'student':
-      redirect('/lms/dashboard');
-
-    // All other roles (partner, board, workforce_board, delegate, creator, shop, parent)
-    // are eliminated - redirect to main dashboard
     default:
-      redirect('/dashboard');
+      // All other roles default to student/LMS dashboard
+      redirect('/lms/dashboard');
   }
 }

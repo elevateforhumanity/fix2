@@ -3,8 +3,10 @@ import { redirect } from 'next/navigation';
 /**
  * LEGACY PARTNERS DASHBOARD REDIRECT
  *
- * This route group used an alternate partner path structure.
- * Partner and Program Holder are the same role - redirecting to canonical route.
+ * Partner is NOT a role. Partner is an organization classification.
+ * See: docs/roles-and-dashboards.md
+ *
+ * This legacy route redirects to program holder dashboard.
  */
 export default function LegacyPartnersDashboard() {
   redirect('/program-holder/dashboard');

@@ -163,7 +163,7 @@
     "ci:build": "pnpm build",
     "ci:check": "pnpm archetype:check && pnpm typecheck && pnpm lint",
     "verify": "pnpm typecheck && pnpm lint && pnpm build && pnpm smoke",
-    "smoke": "bash scripts/smoke-test-portal.sh",
+    "smoke": "next build && node -e \"require('fs').access('.next', err => { if (err) process.exit(1); else console.log('✅ Build OK'); })\"",
     "clean:full": "rimraf node_modules dist .vite .turbo .next out && pnpm store prune",
     "autopilot": "node workers/start-autopilot.js",
     "autopilot:bg": "node workers/start-autopilot.js &",
@@ -204,7 +204,6 @@
     "db:seed:auto": "node scripts/auto-seed-database.mjs",
     "seed:programs": "echo 'Run supabase-schema.sql in Supabase SQL Editor to seed data'",
     "check:features": "node scripts/check-enterprise-features.js",
-    "smoke": "next build && node -e \"require('fs').access('.next', err => { if (err) process.exit(1); else console.log('✅ Build OK'); })\"",
     "lighthouse": "npx @lhci/cli autorun --collect.staticDistDir=out --upload.target=filesystem --upload.outputDir=.lighthouse",
     "check:links": "linkinator http://127.0.0.1:8080 --recurse --skip 'mailto:|tel:'",
     "ci:lh": "lhci collect --url=http://127.0.0.1:8080 --numberOfRuns=1 --settings.preset=desktop",
@@ -246,7 +245,6 @@
     "clean": "rimraf dist coverage .cache",
     "clean:fast": "rimraf .turbo .next/cache dist build coverage .cache",
     "clean:all": "pnpm clean:fast && rimraf node_modules && pnpm store prune",
-
     "health": "bash scripts/efh-healthcheck.sh || true",
     "health:once": "node scripts/healthcheck.mjs --base http://localhost:3000 || true",
     "health:loop": "bash -c 'while true; do node scripts/healthcheck.mjs --base http://localhost:3000 || true; sleep 10; done'",
@@ -269,7 +267,8 @@
     "migrate:ai": "node scripts/run-ai-instructor-migration.mjs",
     "test:affirm": "node scripts/test-affirm-payment.mjs",
     "check:stripe": "bash scripts/pull-and-check-stripe.sh",
-    "check-env": "node -e \"if (!require(\\\"fs\\\").existsSync(\\\".env.local\\\")) { console.error(\\\"❌ .env.local not found! Run: ./setup-env.sh\\\"); process.exit(1); } else { console.log(\\\"✅ .env.local exists\\\"); }\""
+    "check-env": "node -e \"if (!require(\\\"fs\\\").existsSync(\\\".env.local\\\")) { console.error(\\\"❌ .env.local not found! Run: ./setup-env.sh\\\"); process.exit(1); } else { console.log(\\\"✅ .env.local exists\\\"); }\"",
+    "verify:nav": "tsx scripts/verify-nav-links.ts"
   },
   "overrides": {
     "inflight": "npm:lru-cache@^10.0.0"

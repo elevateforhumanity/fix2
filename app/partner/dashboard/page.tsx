@@ -3,8 +3,10 @@ import { redirect } from 'next/navigation';
 /**
  * PARTNER DASHBOARD REDIRECT
  *
- * Partner and Program Holder are the same role in this system.
- * This route redirects to the canonical program holder dashboard.
+ * Partner is NOT a role. Partner is an organization classification.
+ * See: docs/roles-and-dashboards.md
+ *
+ * This route redirects to program holder dashboard.
  */
 export default function PartnerDashboard() {
   redirect('/program-holder/dashboard');
