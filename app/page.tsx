@@ -154,7 +154,7 @@ export default function HomePage() {
           >
             <div className="relative h-48 sm:h-56 lg:h-64">
               <Image
-                src="/images/students-hero.jpg"
+                src="/images/general/students-hero.jpg"
                 alt="Students learning"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -186,7 +186,7 @@ export default function HomePage() {
           >
             <div className="relative h-48 sm:h-56 lg:h-64">
               <Image
-                src="/images/employers-hero.jpg"
+                src="/images/general/employers-hero.jpg"
                 alt="Employers hiring"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -218,7 +218,7 @@ export default function HomePage() {
           >
             <div className="relative h-48 sm:h-56 lg:h-64">
               <Image
-                src="/images/agencies-hero.jpg"
+                src="/images/general/employers-hero.jpg"
                 alt="Agencies and partners"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
