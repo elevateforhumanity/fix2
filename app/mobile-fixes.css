@@ -537,31 +537,6 @@
     flex-wrap: nowrap !important;
   }
 
-  /* Hide utility bar text on very small screens, show icons only */
-  @media (max-width: 640px) {
-    header .bg-gray-900 span {
-      display: none !important;
-    }
-
-    header .bg-gray-900 a,
-    header .bg-gray-900 button {
-      padding: 0.25rem 0.5rem;
-      white-space: nowrap;
-    }
-
-    /* Make icons more prominent when text is hidden */
-    header .bg-gray-900 svg {
-      width: 1rem !important;
-      height: 1rem !important;
-    }
-
-    /* Ensure Apply button stays visible and readable */
-    header .bg-gray-900 .bg-blue-600 {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.75rem;
-    }
-  }
-
   /* Prevent utility bar from getting too tall */
   header .h-10 {
     min-height: 2.5rem;
@@ -577,6 +552,31 @@
 
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+}
+
+/* Hide utility bar text on very small screens, show icons only */
+@media (max-width: 640px) {
+  header .bg-gray-900 span {
+    display: none !important;
+  }
+
+  header .bg-gray-900 a,
+  header .bg-gray-900 button {
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+  }
+
+  /* Make icons more prominent when text is hidden */
+  header .bg-gray-900 svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  /* Ensure Apply button stays visible and readable */
+  header .bg-gray-900 .bg-blue-600 {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
   }
 }
 
