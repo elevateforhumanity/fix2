@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
+import { orchestrateEnrollment } from '@/lib/enrollment/orchestrate-enrollment';
 
 export async function POST(req: Request) {
   try {
@@ -58,30 +59,67 @@ export async function POST(req: Request) {
         submittedAt: new Date().toISOString(),
       });
     } else {
-      // Authenticated user - create enrollment record
-      const { data: enrollment, error: enrollmentError } = await supabase
-        .from('program_enrollments')
-        .insert({
-          student_id: studentId,
-          program_id: body.preferredProgramId,
-          funding_source: body.fundingSource || 'WIOA',
-          status: 'INTAKE',
-        })
-        .select()
+      // Authenticated user - check enrollment approval status
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('enrollment_status, program_holder_id')
+        .eq('id', studentId)
         .single();
 
-      if (enrollmentError) {
-        logger.error(
-          '[Enroll Apply] Failed to create enrollment:',
-          enrollmentError
+      // Enrollment gate: must be approved or active
+      if (
+        !profile?.enrollment_status ||
+        !['approved', 'active'].includes(profile.enrollment_status)
+      ) {
+        return NextResponse.json(
+          {
+            message:
+              'You must be approved for enrollment before you can enroll. Please contact your program coordinator.',
+          },
+          { status: 403 }
         );
-        throw enrollmentError;
       }
 
-      logger.info('[New Application - Enrollment Created]', {
-        enrollmentId: enrollment.id,
+      // Program holder must be assigned
+      if (!profile.program_holder_id) {
+        return NextResponse.json(
+          {
+            message: 'No program holder assigned. Please contact support.',
+          },
+          { status: 403 }
+        );
+      }
+
+      // Orchestrate enrollment (idempotent)
+      const orchestrationResult = await orchestrateEnrollment({
         studentId,
         programId: body.preferredProgramId,
+        programHolderId: profile.program_holder_id,
+        fundingSource: body.fundingSource || 'WIOA',
+        idempotencyKey: `enrollment-${studentId}-${body.preferredProgramId}`,
+      });
+
+      if (!orchestrationResult.success) {
+        logger.error(
+          '[Enroll Apply] Orchestration failed:',
+          orchestrationResult.error
+        );
+        return NextResponse.json(
+          {
+            message:
+              orchestrationResult.error ||
+              'Enrollment failed. Please try again.',
+          },
+          { status: 500 }
+        );
+      }
+
+      logger.info('[New Application - Enrollment Orchestrated]', {
+        enrollmentId: orchestrationResult.enrollmentId,
+        studentId,
+        programId: body.preferredProgramId,
+        programHolderId: profile.program_holder_id,
+        stepsCreated: orchestrationResult.stepsCreated,
         submittedAt: new Date().toISOString(),
       });
     }
@@ -97,7 +135,7 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (err: unknown) {
-    logger.error('[Enroll Apply] Error:', err);
+    logger.error('[Enroll Apply] Error:', err as Error);
     return NextResponse.json(
       {
         message:
