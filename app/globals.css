@@ -28,7 +28,18 @@ a {
   @apply underline-offset-4;
 }
 
-/* Typography defaults removed - let components control their own styling */
+h1 {
+  @apply text-3xl md:text-5xl font-semibold tracking-tight;
+}
+h2 {
+  @apply text-2xl md:text-3xl font-semibold tracking-tight;
+}
+h3 {
+  @apply text-xl md:text-2xl font-semibold tracking-tight;
+}
+p {
+  @apply text-base leading-7 text-slate-700;
+}
 
 /* Ensure button text is always visible */
 button.text-white,
