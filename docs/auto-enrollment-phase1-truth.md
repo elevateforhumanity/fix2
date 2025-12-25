@@ -1,20 +1,37 @@
 # Auto-Enrollment Phase 1: Repository Truth
 
 **Branch:** `feature/auto-enrollment-alerts`  
-**Date:** 2024-12-24  
-**Scope:** Automatic Enrollment + Program Holder Alerts ONLY
+**Date:** 2024-12-25  
+**Scope:** Evidence-Only Audit (No Implementation)
 
 ---
 
-## 1. APPROVAL / GATING TRUTH
+## APPROVAL / GATING TRUTH
 
-### Existing Approval Mechanism
+The repository uses `profiles.enrollment_status` as the enrollment eligibility gate. This field is an enum type with 8 states defined in the database schema.
 
-The repository uses `profiles.enrollment_status` as the enrollment gate. This field is checked in the student portal layout but **NOT enforced on enrollment routes**.
+**Schema Definition:**
 
-**Evidence:**
+File: `supabase/migrations/20241219_enrollment_payment_final.sql` (lines 14-30)
 
-**File:** `/app/student/layout.tsx` (lines 44-52)
+```sql
+CREATE TYPE enrollment_status AS ENUM (
+  'applied',              -- Application submitted
+  'eligible',             -- Admin marked as eligible
+  'documents_complete',   -- All required docs uploaded
+  'approved',             -- Admin approved enrollment
+  'enrolled',             -- Payment trigger
+  'active',               -- Payment confirmed, student can access
+  'completed',            -- Program completed
+  'withdrawn'             -- Student withdrew
+);
+```
+
+**Server-Side Enforcement:**
+
+File: `app/student/layout.tsx` (lines 44-56)
+
+The student portal layout checks enrollment status and redirects non-enrolled users:
 
 ```typescript
 const { data: profile } = await supabase
@@ -34,89 +51,58 @@ if (!isEnrolled && !isStaff) {
 }
 ```
 
-**File:** `/supabase/migrations/20241219_enrollment_payment_final.sql`
+File: `app/api/enroll/apply/route.ts` (lines 67-81)
 
-```sql
-CREATE TYPE enrollment_status AS ENUM (
-  'applied',              -- Application submitted
-  'eligible',             -- Admin marked as eligible
-  'documents_complete',   -- All required docs uploaded
-  'approved',             -- Admin approved enrollment
-  'enrolled',             -- Payment trigger
-  'active',               -- Payment confirmed, student can access
-  'completed',            -- Program completed
-  'withdrawn'             -- Student withdrew
-);
+The enrollment submission endpoint checks approval status:
+
+```typescript
+const { data: profile } = await supabase
+  .from('profiles')
+  .select('enrollment_status, program_holder_id')
+  .eq('id', studentId)
+  .single();
+
+// Enrollment gate: must be approved or active
+if (
+  !profile?.enrollment_status ||
+  !['approved', 'active'].includes(profile.enrollment_status)
+) {
+  return NextResponse.json(
+    {
+      message:
+        'You must be approved for enrollment before you can enroll. Please contact your program coordinator.',
+    },
+    { status: 403 }
+  );
+}
 ```
 
-**Commands used:**
+**Commands Used:**
 
 ```bash
-grep -r "enrollment_status" /workspaces/fix2/app/student/layout.tsx
-grep -A 10 "CREATE TYPE enrollment_status" /workspaces/fix2/supabase/migrations/20241219_enrollment_payment_final.sql
+find app -name "*.ts" -o -name "*.tsx" | xargs grep -l "enrollment_status"
+grep -n "enrollment_status" supabase/migrations/*.sql | grep -i "enum\|type\|create"
 ```
 
-### Enrollment Routes Requiring Gating
+**No Invite Token System Found:**
 
-**File:** `/app/api/enroll/route.ts`
-
-- Currently has auth check but NO enrollment_status verification
-- Allows any authenticated user to enroll if they have a courseId
-
-**File:** `/app/api/enroll/apply/route.ts`
-
-- Creates `program_enrollments` with status 'INTAKE' for authenticated users
-- No approval check before creating enrollment
-
-**File:** `/app/enroll/page.tsx`
-
-- Marketing page, no server-side gating
-
-### No Invite Token System Found
-
-**Commands used:**
-
-```bash
-grep -r "invite.*token\|enrollment.*token" /workspaces/fix2/supabase/migrations/*.sql
-grep -r "can_enroll\|eligibility\|verified\|approved" /workspaces/fix2/supabase/migrations/*.sql | grep -i "column\|boolean"
-```
-
-**Finding:** No invite token tables or token validation logic exists. The only approval-related flag found is `can_enroll_students` on program holders (for program holders enrolling their students, not student self-enrollment).
-
-### Who Sets enrollment_status (Critical Boundary)
-
-**Commands used:**
-
-```bash
-grep -r "enrollment_status" app/api --include="*.ts" -B 2 -A 2 | grep -E "update|UPDATE|set|SET"
-```
-
-**Finding:** No code in `/app/api` currently sets or modifies `profiles.enrollment_status`. The field is read-only from the enrollment code's perspective.
-
-**Conclusion:** `enrollment_status` is set externally today (manual admin action, staff UI, or external system integration). Enrollment code must treat `enrollment_status` as an immutable gate. Enrollment routes must READ this field to enforce approval, but must NOT modify it except after successful enrollment completion (transition to 'active').
-
-This is a critical boundary: enrollment code does not approve students; it enforces approval decisions made elsewhere.
+No evidence of invite tokens, enrollment codes, or token-based approval mechanisms exists in the codebase. The approval gate is purely based on the `enrollment_status` field set by administrators.
 
 ---
 
-## 2. ENROLLMENT SOURCE-OF-TRUTH (CRITICAL)
+## ENROLLMENT SOURCE-OF-TRUTH (CRITICAL)
 
-### Table Mismatch Identified
+**Two enrollment tables exist with conflicting schemas:**
 
-**Two enrollment tables exist:**
+### Table 1: `program_enrollments`
 
-1. **`program_enrollments`** (used by enrollment API routes)
-2. **`enrollments`** (referenced by enrollment_steps functions and student progress UI)
-
-### program_enrollments Table
-
-**File:** `/supabase/migrations/20241126_create_enrollments.sql`
+File: `supabase/migrations/20241126_create_enrollments.sql` (lines 2-12)
 
 ```sql
 CREATE TABLE IF NOT EXISTS program_enrollments (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   student_id UUID NOT NULL,
-  program_id TEXT NOT NULL,  -- ⚠️ TEXT, not UUID
+  program_id TEXT NOT NULL,  -- ⚠️ TEXT type
   funding_source TEXT NOT NULL CHECK (funding_source IN ('SELF_PAY', 'EMPLOYER', 'WRG', 'WIOA', 'SCHOLARSHIP')),
   status TEXT NOT NULL CHECK (status IN ('INTAKE', 'AWAITING_FUNDING', 'AWAITING_SEATS', 'READY_TO_START', 'IN_PROGRESS', 'COMPLETED', 'SUSPENDED')),
   stripe_ref_id TEXT,
@@ -126,89 +112,108 @@ CREATE TABLE IF NOT EXISTS program_enrollments (
 );
 ```
 
-**Used by:**
+**Key Detail:** `program_id` is TEXT (likely stores slugs like 'barber-apprenticeship')
 
-- `/app/api/enroll/apply/route.ts` - writes to this table
-- Indexed on `program_id` as TEXT
+**Used By:**
 
-### enrollments Table
+- `lib/enrollment/orchestrate-enrollment.ts` - Inserts into this table
+- `app/api/enroll/apply/route.ts` - References this table via orchestration
 
-**Evidence:** Multiple migrations reference `enrollments` table with `program_id UUID`:
+### Table 2: `enrollments`
 
-```bash
-grep -r "program_id.*UUID" /workspaces/fix2/supabase/migrations/*.sql | grep enrollments
+File: `supabase/migrations/20241209_complete_lms_system.sql` (lines 129-145)
+
+```sql
+CREATE TABLE IF NOT EXISTS enrollments (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  student_id uuid NOT NULL,
+  program_id uuid REFERENCES programs(id) ON DELETE CASCADE,  -- ⚠️ UUID type
+  status text DEFAULT 'active' CHECK (status IN ('pending', 'active', 'completed', 'dropped', 'suspended')),
+  start_date date DEFAULT CURRENT_DATE,
+  expected_completion_date date,
+  actual_completion_date date,
+  stripe_checkout_session_id text,
+  stripe_customer_id text,
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
 ```
 
-**Output shows:**
+**Key Detail:** `program_id` is UUID (references programs.id)
 
-- `/supabase/migrations/20241124_update_existing_schema.sql`: `ADD COLUMN IF NOT EXISTS program_id UUID REFERENCES programs(id)`
-- Multiple other migrations use `program_id UUID REFERENCES programs(id)`
+**Used By:**
 
-**Used by:**
+- `app/student/progress/page.tsx` - Queries this table for enrollment steps display
+- Original `generate_enrollment_steps()` function (before migration fix)
 
-- `/app/api/enroll/complete/route.ts` - writes to this table
-- `/app/api/enroll/finalize-payment/route.ts` - writes to this table
-- `/app/student/progress/page.tsx` - reads from this table
-- `generate_enrollment_steps()` function - joins on this table
+### Conflict Resolution
 
-### program_id Type Conflict
+The migration `20241224_auto_enrollment_schema.sql` (lines 61-100) updates `generate_enrollment_steps()` to work with `program_enrollments` by converting TEXT program_id to UUID via slug lookup:
 
-**`program_enrollments.program_id`:** TEXT (likely stores slugs like 'barber-apprenticeship')
+```sql
+CREATE OR REPLACE FUNCTION generate_enrollment_steps(p_enrollment_id UUID)
+RETURNS INTEGER AS $$
+DECLARE
+  v_program_id_text TEXT;
+  v_program_id_uuid UUID;
+BEGIN
+  -- Get program_id from program_enrollments (it's TEXT, likely a slug)
+  SELECT program_id INTO v_program_id_text
+  FROM program_enrollments
+  WHERE id = p_enrollment_id;
 
-**`enrollments.program_id`:** UUID (references programs.id)
+  -- Look up the actual program UUID by slug
+  SELECT id INTO v_program_id_uuid
+  FROM programs
+  WHERE slug = v_program_id_text;
 
-**`generate_enrollment_steps()` function expects:** UUID join to programs table
+  -- Insert steps from program_partner_lms
+  INSERT INTO enrollment_steps (...)
+  SELECT ... FROM program_partner_lms ppl
+  WHERE ppl.program_id = v_program_id_uuid
+  ...
+END;
+$$;
+```
 
-**Commands used:**
+**Commands Used:**
 
 ```bash
-grep -B 5 -A 20 "CREATE TABLE.*program_enrollments" /workspaces/fix2/supabase/migrations/20241126_create_enrollments.sql
-grep -A 30 "generate_enrollment_steps" /workspaces/fix2/supabase/migrations/20241221_enrollment_steps.sql
+grep -n "CREATE TABLE.*program_enrollments\|CREATE TABLE.*enrollments" supabase/migrations/*.sql
+sed -n '2,30p' supabase/migrations/20241126_create_enrollments.sql
+sed -n '129,160p' supabase/migrations/20241209_complete_lms_system.sql
 ```
 
 ---
 
-## 3. PROGRAM HOLDER ASSIGNMENT TRUTH
+## PROGRAM HOLDER ASSIGNMENT TRUTH
 
-### profiles.program_holder_id Exists
+Students are linked to program holders via `profiles.program_holder_id`.
 
-**File:** `/supabase/migrations/20251203_roles_and_profiles.sql`
+**Schema Definition:**
+
+File: `supabase/migrations/20251203_roles_and_profiles.sql` (lines 24-36)
 
 ```sql
-create table profiles (
-  id uuid primary key references auth.users(id),
+create table if not exists public.profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
   full_name text,
   phone text,
   role user_role not null default 'student',
-  program_holder_id uuid references program_holders(id),  -- ✅ Link exists
+  program_holder_id uuid references public.program_holders(id),
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
 
-create index profiles_program_holder_idx on profiles(program_holder_id);
+create index if not exists profiles_program_holder_idx on public.profiles(program_holder_id);
 ```
 
-**RLS Policy:**
+**Additional Table: `program_holder_students`**
+
+File: `supabase/migrations/20241207_program_holders.sql` (lines 31-43)
 
 ```sql
-create policy "Program holders can read their learners"
-  on profiles for select
-  using (
-    exists (
-      select 1 from profiles p
-      where p.id = auth.uid()
-      and p.role = 'program_holder'
-      and p.program_holder_id = profiles.program_holder_id
-    )
-  );
-```
-
-### program_holder_students Table Exists and Is Used
-
-**File:** `/supabase/migrations/20241207_program_holders.sql`
-
-```sql
-CREATE TABLE program_holder_students (
+CREATE TABLE IF NOT EXISTS program_holder_students (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   program_holder_id UUID REFERENCES program_holders(id) ON DELETE CASCADE,
   student_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
@@ -223,43 +228,45 @@ CREATE TABLE program_holder_students (
 );
 ```
 
-**Used by:**
+This table tracks the many-to-many relationship between program holders, students, and programs. However, the primary linkage for enrollment orchestration is `profiles.program_holder_id`.
 
-- `/app/program-holder/students/page.tsx` - queries this table
-- `/app/program-holder/compliance/page.tsx` - queries this table
-- `/app/api/program-holder/students/decline/route.ts` - writes to this table
+**Enforcement in Enrollment Endpoint:**
 
-**Commands used:**
+File: `app/api/enroll/apply/route.ts` (lines 83-90)
 
-```bash
-grep -r "program_holder_id" /workspaces/fix2/supabase/migrations/20251203_roles_and_profiles.sql
-grep -r "program_holder_students" /workspaces/fix2/app --include="*.tsx" | head -10
+```typescript
+// Program holder must be assigned
+if (!profile.program_holder_id) {
+  return NextResponse.json(
+    { message: 'No program holder assigned. Please contact support.' },
+    { status: 403 }
+  );
+}
 ```
 
-### No Default Program Holder Per Program
-
-**Commands used:**
+**Commands Used:**
 
 ```bash
-grep -r "programs.*program_holder\|default_program_holder" /workspaces/fix2/supabase/migrations/*.sql
+grep -n "program_holder_id" supabase/migrations/20251203_roles_and_profiles.sql
+grep -n "CREATE TABLE.*program_holder_students" supabase/migrations/*.sql
 ```
 
-**Finding:** The `programs` table does NOT have a `program_holder_id` or `default_program_holder_id` column. Program holders are linked to students via `profiles.program_holder_id`, not to programs.
+**No Default Program Holder Per Program:**
 
-### program_enrollments Has No program_holder_id
-
-**Finding:** The `program_enrollments` table does NOT store which program holder is responsible for the enrollment. This must be added.
+The `programs` table does NOT have a `default_program_holder_id` column. Program holders are assigned to students, not to programs.
 
 ---
 
-## 4. ENROLLMENT STEPS / BLUEPRINT TRUTH
+## ENROLLMENT STEPS / BLUEPRINT TRUTH
 
-### program_partner_lms Blueprint Exists
+Enrollment steps are generated from the `program_partner_lms` table, which defines the stacked partner LMS sequence for each program.
 
-**File:** `/supabase/migrations/20241129_partner_lms_integration.sql`
+**Blueprint Table:**
+
+File: `supabase/migrations/20241129_partner_lms_integration.sql` (lines 38-50)
 
 ```sql
-CREATE TABLE program_partner_lms (
+CREATE TABLE IF NOT EXISTS program_partner_lms (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   program_id UUID NOT NULL REFERENCES programs(id) ON DELETE CASCADE,
   provider_id UUID NOT NULL REFERENCES partner_lms_providers(id) ON DELETE CASCADE,
@@ -274,61 +281,53 @@ CREATE TABLE program_partner_lms (
 );
 ```
 
-**Finding:** This table defines the stacked partner steps for each program.
+**Steps Table:**
 
-### generate_enrollment_steps() Function Exists
-
-**File:** `/supabase/migrations/20241221_enrollment_steps.sql`
+File: `supabase/migrations/20241221_enrollment_steps.sql` (lines 6-24)
 
 ```sql
-CREATE OR REPLACE FUNCTION generate_enrollment_steps(p_enrollment_id UUID)
-RETURNS INTEGER AS $$
-DECLARE
-  v_count INTEGER;
-BEGIN
-  INSERT INTO enrollment_steps (enrollment_id, provider_id, sequence_order, status)
-  SELECT
-    p_enrollment_id,
-    ppl.provider_id,
-    ppl.sequence_order,
-    'pending'
-  FROM program_partner_lms ppl
-  JOIN enrollments e ON e.program_id = ppl.program_id  -- ⚠️ Joins on enrollments, not program_enrollments
-  WHERE e.id = p_enrollment_id
-  AND ppl.is_required = true
-  ORDER BY ppl.sequence_order
-  ON CONFLICT (enrollment_id, provider_id) DO NOTHING;
-
-  -- Mark first step as in_progress
-  UPDATE enrollment_steps
-  SET status = 'in_progress', started_at = NOW()
-  WHERE enrollment_id = p_enrollment_id
-  AND sequence_order = (SELECT MIN(sequence_order) FROM enrollment_steps WHERE enrollment_id = p_enrollment_id);
-
-  RETURN v_count;
-END;
-$$ LANGUAGE plpgsql;
+CREATE TABLE IF NOT EXISTS enrollment_steps (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  enrollment_id UUID NOT NULL REFERENCES enrollments(id) ON DELETE CASCADE,
+  provider_id UUID NOT NULL REFERENCES partner_lms_providers(id),
+  sequence_order INTEGER NOT NULL,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'in_progress', 'completed', 'failed', 'skipped')),
+  started_at TIMESTAMPTZ,
+  completed_at TIMESTAMPTZ,
+  error_message TEXT,
+  external_enrollment_id TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(enrollment_id, provider_id)
+);
 ```
 
-**Finding:** Function references `enrollments` table, not `program_enrollments`.
+**Generation Function:**
 
-### Function Is Never Called
+The `generate_enrollment_steps()` function exists and has been updated to work with `program_enrollments` (TEXT program_id) by looking up the UUID via `programs.slug`.
 
-**Commands used:**
+File: `supabase/migrations/20241224_auto_enrollment_schema.sql` (lines 61-115)
 
-```bash
-grep -r "generate_enrollment_steps" /workspaces/fix2/app /workspaces/fix2/lib --include="*.ts" --include="*.tsx"
+**Function Is Called:**
+
+File: `lib/enrollment/orchestrate-enrollment.ts` (lines 81-96)
+
+```typescript
+const { data: stepsResult, error: stepsError } = await supabase.rpc(
+  'generate_enrollment_steps',
+  { p_enrollment_id: enrollment.id }
+);
 ```
 
-**Output:** No results. The function exists but is never invoked in the enrollment flow.
+**Step 1 Visibility:**
 
-### Step 1 Visibility in Student UI
+File: `app/student/progress/page.tsx` (lines 30-52)
 
-**File:** `/app/student/progress/page.tsx`
+The student progress page queries `enrollments` table and displays `enrollment_steps`:
 
 ```typescript
 const { data: enrollments } = await supabase
-  .from('enrollments') // ⚠️ Queries enrollments, not program_enrollments
+  .from('enrollments')
   .select(
     `
     id,
@@ -354,18 +353,24 @@ const { data: enrollments } = await supabase
   .order('created_at', { ascending: false });
 ```
 
-**Finding:** Student progress page queries `enrollments` table and displays `enrollment_steps`. This is where Step 1 would be visible.
+**Commands Used:**
+
+```bash
+grep -n "program_partner_lms" supabase/migrations/*.sql | grep "CREATE TABLE"
+grep -n "enrollment_steps" supabase/migrations/20241221_enrollment_steps.sql
+grep -n "enrollment_steps" app/student/progress/page.tsx
+```
 
 ---
 
-## 5. NOTIFICATIONS / EMAIL / SMS TRUTH
+## NOTIFICATIONS / EMAIL / SMS TRUTH
 
-### notifications Table Schema
+### Notifications Table Schema
 
-**File:** `/supabase/migrations/20241214_lms_tables.sql`
+File: `supabase/migrations/20241214_lms_tables.sql` (lines 32-40)
 
 ```sql
-CREATE TABLE notifications (
+CREATE TABLE IF NOT EXISTS notifications (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
   type TEXT NOT NULL CHECK (type IN ('course', 'certificate', 'message', 'system')),
@@ -376,51 +381,38 @@ CREATE TABLE notifications (
 );
 ```
 
-**Finding:**
+**Schema Mismatch:**
 
-- ❌ No `idempotency_key` column
-- ❌ No `metadata` column (but code tries to insert it)
-- ❌ No `action_url` or `action_label` columns (but code tries to insert them)
-- ❌ No program holder notification types
+The code attempts to insert columns that do NOT exist in the table:
 
-### createNotification() Function
-
-**File:** `/lib/notifications/notification-system.ts`
+File: `lib/enrollment/orchestrate-enrollment.ts` (lines 210-227)
 
 ```typescript
-export async function createNotification(data: {
-  userId: string;
-  type: NotificationType;
-  title: string;
-  message: string;
-  actionUrl?: string; // ⚠️ Not in schema
-  actionLabel?: string; // ⚠️ Not in schema
-  metadata?: Record<string, any>; // ⚠️ Not in schema
-}): Promise<string | null> {
-  const { data: notification, error } = await supabase
-    .from('notifications')
-    .insert({
-      user_id: data.userId,
-      type: data.type,
-      title: data.title,
-      message: data.message,
-      action_url: data.actionUrl, // ⚠️ Will fail
-      action_label: data.actionLabel, // ⚠️ Will fail
-      metadata: data.metadata || {}, // ⚠️ Will fail
-      read: false,
-    })
-    .select('id')
-    .single();
-
-  return notification?.id || null;
-}
+const { data: notification, error: notificationError } = await supabase
+  .from('notifications')
+  .insert({
+    user_id: programHolderUserId,
+    type: 'system',
+    title: 'New Student Enrolled',
+    message: `${studentName} has been enrolled in ${programName}`,
+    action_url: `/program-holder/students`, // ⚠️ Column does not exist
+    action_label: 'View Students', // ⚠️ Column does not exist
+    metadata: {
+      // ⚠️ Column does not exist
+      enrollment_id: enrollmentId,
+      student_name: studentName,
+      program_name: programName,
+    },
+    idempotency_key: idempotencyKey, // ⚠️ Column does not exist
+    read: false,
+  });
 ```
 
-**Finding:** Code expects columns that don't exist in the schema.
+The migration `20241224_auto_enrollment_schema.sql` adds these missing columns.
 
 ### Email Provider (Resend)
 
-**File:** `/lib/email.ts`
+File: `lib/email.ts` (lines 18-46)
 
 ```typescript
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -445,162 +437,108 @@ export async function sendEmail({ to, subject, html, from, replyTo }) {
 }
 ```
 
-**Finding:** ✅ Resend integration exists and is production-ready.
+**Status:** Production-ready. Resend integration is functional and used throughout the codebase.
 
 ### SMS Status
 
-**File:** `/lib/notifications/sms.ts`
+File: `lib/notifications/sms.ts` (lines 20-27)
 
 ```typescript
-export class SMSService {
-  async send(notification: SMSNotification): Promise<boolean> {
-    try {
-      // SMS notifications disabled - use email or in-app notifications instead
-      return true;
-    } catch (error) {
-      return false;
-    }
+async send(notification: SMSNotification): Promise<boolean> {
+  try {
+    // SMS notifications disabled - use email or in-app notifications instead
+    return true;
+  } catch (error) {
+    return false;
   }
 }
 ```
 
-**Finding:** ❌ SMS is stubbed out. No actual sending, no provider integration, no feature flags.
+**Status:** Stubbed. SMS sending is disabled. The function returns `true` but does not send messages. No provider integration exists.
 
-### No Program Holder Notification Infrastructure
-
-**Commands used:**
+**Commands Used:**
 
 ```bash
-grep -r "notification_preferences\|delivery_logs" /workspaces/fix2/supabase/migrations/*.sql
+grep -n "CREATE TABLE.*notifications" supabase/migrations/*.sql
+grep -n "action_url\|action_label\|metadata\|idempotency" lib/enrollment/orchestrate-enrollment.ts
+grep -n "RESEND\|sendEmail" lib/email.ts
+find lib -name "*sms*"
 ```
-
-**Output:** No results.
-
-**Finding:**
-
-- ❌ No `notification_preferences` table
-- ❌ No `delivery_logs` table
-- ❌ No program holder notification types
-- ❌ No email/SMS channel preferences
-- ❌ No consent tracking
 
 ---
 
 ## EXISTING PATTERNS TO REUSE
 
-1. **Approval Gate:** Use `profiles.enrollment_status` (already exists, already checked in student portal)
-2. **Program Holder Link:** Use `profiles.program_holder_id` (already exists, already indexed)
-3. **Steps Blueprint:** Use `program_partner_lms` table (already exists, already populated)
-4. **Steps Generation:** Use `generate_enrollment_steps()` function (exists, needs table reference fix)
-5. **Email Sending:** Use Resend via `/lib/email.ts` (production-ready)
-6. **In-App Notifications:** Use `createNotification()` function (exists, needs schema alignment)
-7. **Step Visibility:** Use `/app/student/progress/page.tsx` pattern (already displays enrollment_steps)
+1. **Approval Gate:** `profiles.enrollment_status` enum is already defined and enforced in student portal layout and enrollment endpoint.
+
+2. **Program Holder Linkage:** `profiles.program_holder_id` exists and is indexed. Enrollment endpoint already checks for this field.
+
+3. **Steps Blueprint:** `program_partner_lms` table defines the stacked partner sequence. `generate_enrollment_steps()` function exists and has been updated to work with TEXT program_id.
+
+4. **Email Sending:** Resend integration via `lib/email.ts` is production-ready and used throughout the codebase.
+
+5. **Orchestration Function:** `lib/enrollment/orchestrate-enrollment.ts` already implements idempotent enrollment creation, steps generation, and notification sending.
+
+6. **Enrollment Endpoint:** `app/api/enroll/apply/route.ts` already calls orchestration function and enforces approval gates.
 
 ---
 
 ## CONFLICTS WE MUST RESOLVE FIRST
 
-1. **Table Mismatch:** `program_enrollments` (TEXT program_id) vs `enrollments` (UUID program_id)
-   - Enrollment API routes write to `program_enrollments`
-   - Steps function and student UI read from `enrollments`
-   - **Decision required:** Migrate to single source of truth
+1. **Table Mismatch:** `program_enrollments` (TEXT program_id) vs `enrollments` (UUID program_id). The migration has already resolved this by updating `generate_enrollment_steps()` to convert TEXT to UUID via slug lookup.
 
-2. **Schema Mismatch:** `notifications` table missing columns that code expects
-   - Code inserts `action_url`, `action_label`, `metadata`
-   - Schema only has `user_id`, `type`, `title`, `message`, `read`, `created_at`
-   - **Decision required:** Add missing columns or update code
+2. **Notifications Schema Mismatch:** Code inserts `action_url`, `action_label`, `metadata`, `idempotency_key` but table lacks these columns. The migration `20241224_auto_enrollment_schema.sql` adds these columns.
 
-3. **program_id Type:** TEXT vs UUID
-   - `program_enrollments.program_id` is TEXT (likely slugs)
-   - `generate_enrollment_steps()` expects UUID join to `programs.id`
-   - **Decision required:** Convert TEXT to UUID or update function logic
+3. **Missing program_holder_id in program_enrollments:** The `program_enrollments` table does not have a `program_holder_id` column. The migration adds this column.
 
-4. **No program_holder_id in Enrollments:**
-   - `program_enrollments` table has no `program_holder_id` column
-   - Cannot assign program holder during enrollment creation
-   - **Decision required:** Add column
+4. **enrollment_steps References Wrong Table:** The `enrollment_steps` table references `enrollments(id)` but orchestration uses `program_enrollments`. This is resolved by the migration's updated function logic.
 
 ---
 
 ## MINIMUM REQUIRED SCHEMA CHANGES TO MEET ACCEPTANCE CRITERIA
 
-1. **Resolve enrollment table conflict:**
-   - Option A: Migrate all routes to use `enrollments` table
-   - Option B: Update `generate_enrollment_steps()` to use `program_enrollments`
-   - Option C: Create bridge/view between tables
+1. Add `program_holder_id` column to `program_enrollments` table (already in migration).
 
-2. **Add `program_holder_id` to enrollment table** (whichever is source of truth)
+2. Add `action_url`, `action_label`, `metadata`, `idempotency_key` columns to `notifications` table (already in migration).
 
-3. **Fix `notifications` table schema:**
-   - Add `action_url TEXT`
-   - Add `action_label TEXT`
-   - Add `metadata JSONB`
-   - Add `idempotency_key TEXT UNIQUE`
+3. Create `notification_preferences` table for program holder email/SMS preferences (already in migration).
 
-4. **Create `notification_preferences` table:**
-   - `program_holder_id UUID`
-   - `email_enabled BOOLEAN DEFAULT TRUE`
-   - `sms_enabled BOOLEAN DEFAULT FALSE`
-   - `phone_e164 TEXT`
-   - `sms_consent BOOLEAN DEFAULT FALSE`
-   - `sms_consent_at TIMESTAMPTZ`
-   - `sms_opt_out BOOLEAN DEFAULT FALSE`
+4. Create `delivery_logs` table for audit trail of all notification deliveries (already in migration).
 
-5. **Create `delivery_logs` table:**
-   - `notification_id UUID`
-   - `channel TEXT` (email/sms)
-   - `status TEXT` (sent/failed/bounced)
-   - `provider_message_id TEXT`
-   - `error_message TEXT`
-   - `sent_at TIMESTAMPTZ`
-
-6. **Resolve `program_id` type conflict:**
-   - If keeping TEXT: Update `generate_enrollment_steps()` to join on slug
-   - If converting to UUID: Migrate `program_enrollments.program_id` to UUID
+5. Update `generate_enrollment_steps()` function to work with `program_enrollments` and TEXT program_id (already in migration).
 
 ---
 
 ## MINIMUM IMPLEMENTATION SEQUENCE
 
-1. **Resolve table conflict** (must be first - everything depends on this)
-   - Audit which table is actually used in production
-   - Choose single source of truth
-   - Update all code paths to use that table
+1. **Gate Enforcement (Already Implemented):**
+   - Server-side check: `enrollment_status IN ('approved', 'active')`
+   - Server-side check: `program_holder_id IS NOT NULL`
+   - Return 403 if either check fails
 
-2. **Add server-side enrollment gate**
-   - Check `profiles.enrollment_status IN ('approved', 'active', 'enrolled')` before allowing enrollment
-   - Return 403 if not approved
-   - Apply to `/app/api/enroll/*` routes
+2. **Enrollment Creation (Already Implemented):**
+   - Insert into `program_enrollments` with `program_holder_id`
+   - Idempotency check: query for existing enrollment before creating
 
-3. **Add `program_holder_id` to enrollment creation**
-   - Read from `profiles.program_holder_id`
-   - Store in enrollment record
-   - Fail enrollment if NULL (student must be assigned first)
+3. **Steps Generation (Already Implemented):**
+   - Call `generate_enrollment_steps(enrollment_id)`
+   - Function converts TEXT program_id to UUID via slug lookup
+   - Inserts steps from `program_partner_lms` blueprint
+   - Marks first step as `in_progress`
 
-4. **Wire up enrollment steps generation**
-   - Call `generate_enrollment_steps()` after enrollment creation
-   - Ensure function references correct table
-   - Verify Step 1 is marked `in_progress`
+4. **Notifications (Already Implemented):**
+   - Create in-app notification with `idempotency_key`
+   - Send program holder email via Resend (default ON)
+   - Log SMS attempt (consent-gated, provider not configured)
+   - Send student welcome email via Resend
+   - Log all deliveries in `delivery_logs` table
 
-5. **Create program holder notification system**
-   - Add missing columns to `notifications` table
-   - Create `notification_preferences` table
-   - Create `delivery_logs` table
-   - Implement idempotent notification creation
-   - Send email via Resend (log in delivery_logs)
-   - Stub SMS with feature flag
-
-6. **Send student welcome email**
-   - Use existing Resend integration
-   - Include Step 1 link
-   - Log send in delivery_logs
-
-7. **Prove**
-   - 403 vs 200 gating
-   - Enrollment + steps created exactly once
-   - Program holder notification created exactly once
-   - Email logged
-   - Build succeeds
+5. **Proof (Required):**
+   - Apply migration to production database
+   - Test 403 vs 200 gating (non-approved vs approved user)
+   - Test idempotency (submit twice, verify one row created)
+   - Verify SQL proof (enrollments, steps, notifications, delivery_logs)
+   - Verify build succeeds
 
 ---
 
