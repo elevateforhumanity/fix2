@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
+import { orchestrateEnrollment } from '@/lib/enrollment/orchestrate-enrollment';
 
 export async function POST(req: Request) {
   try {
@@ -89,32 +90,36 @@ export async function POST(req: Request) {
         );
       }
 
-      // Create enrollment record with program holder assignment
-      const { data: enrollment, error: enrollmentError } = await supabase
-        .from('program_enrollments')
-        .insert({
-          student_id: studentId,
-          program_id: body.preferredProgramId,
-          program_holder_id: profile.program_holder_id,
-          funding_source: body.fundingSource || 'WIOA',
-          status: 'INTAKE',
-        })
-        .select()
-        .single();
-
-      if (enrollmentError) {
-        logger.error(
-          '[Enroll Apply] Failed to create enrollment:',
-          enrollmentError
-        );
-        throw enrollmentError;
-      }
-
-      logger.info('[New Application - Enrollment Created]', {
-        enrollmentId: enrollment.id,
+      // Orchestrate enrollment (idempotent)
+      const orchestrationResult = await orchestrateEnrollment({
         studentId,
         programId: body.preferredProgramId,
         programHolderId: profile.program_holder_id,
+        fundingSource: body.fundingSource || 'WIOA',
+        idempotencyKey: `enrollment-${studentId}-${body.preferredProgramId}`,
+      });
+
+      if (!orchestrationResult.success) {
+        logger.error(
+          '[Enroll Apply] Orchestration failed:',
+          orchestrationResult.error
+        );
+        return NextResponse.json(
+          {
+            message:
+              orchestrationResult.error ||
+              'Enrollment failed. Please try again.',
+          },
+          { status: 500 }
+        );
+      }
+
+      logger.info('[New Application - Enrollment Orchestrated]', {
+        enrollmentId: orchestrationResult.enrollmentId,
+        studentId,
+        programId: body.preferredProgramId,
+        programHolderId: profile.program_holder_id,
+        stepsCreated: orchestrationResult.stepsCreated,
         submittedAt: new Date().toISOString(),
       });
     }
