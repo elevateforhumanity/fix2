@@ -27,33 +27,33 @@ export default function SiteHeader() {
       {/* Utility Bar */}
       <div className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-10 text-sm">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between h-10 text-xs sm:text-sm">
+            <div className="flex items-center gap-2 sm:gap-4 min-w-0">
               <a
                 href={utilityNavigation.phone.href}
                 className="flex items-center gap-1 hover:text-blue-400 transition"
               >
-                <Phone className="w-4 h-4" />
-                {utilityNavigation.phone.label}
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="hidden sm:inline">{utilityNavigation.phone.label}</span>
               </a>
               <Link
                 href={utilityNavigation.help.href}
                 className="flex items-center gap-1 hover:text-blue-400 transition"
               >
-                <HelpCircle className="w-4 h-4" />
-                {utilityNavigation.help.label}
+                <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="hidden sm:inline">{utilityNavigation.help.label}</span>
               </Link>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
               <Link
                 href={utilityNavigation.login.href}
-                className="hover:text-blue-400 transition"
+                className="hover:text-blue-400 transition hidden sm:inline"
               >
                 {utilityNavigation.login.label}
               </Link>
               <Link
                 href={utilityNavigation.apply.href}
-                className="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded transition"
+                className="bg-blue-600 hover:bg-blue-700 px-2 sm:px-4 py-1 rounded transition text-xs sm:text-sm whitespace-nowrap"
               >
                 {utilityNavigation.apply.label}
               </Link>
