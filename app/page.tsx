@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* VIDEO HERO - Above the Fold */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
         {!videoError ? (
           <>
             <video
@@ -47,12 +47,7 @@ export default function HomePage() {
               playsInline
               preload="auto"
               muted={isMuted}
-              className="w-full h-auto"
-              style={{
-                display: 'block',
-                maxHeight: '600px',
-                objectFit: 'cover',
-              }}
+              className="absolute inset-0 w-full h-full object-cover"
               onError={() => setVideoError(true)}
               poster="/images/video-poster.jpg"
             >
@@ -62,19 +57,19 @@ export default function HomePage() {
             {/* Unmute Button */}
             <button
               onClick={toggleMute}
-              className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition z-10"
+              className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-2 sm:p-3 rounded-full transition z-10"
               aria-label={isMuted ? 'Unmute video' : 'Mute video'}
             >
               {isMuted ? (
-                <VolumeX className="w-6 h-6" />
+                <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" />
               ) : (
-                <Volume2 className="w-6 h-6" />
+                <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />
               )}
             </button>
           </>
         ) : (
           // Fallback if video fails
-          <div className="relative h-[600px]">
+          <div className="absolute inset-0">
             <Image
               src="/images/video-poster.jpg"
               alt="Elevate for Humanity"
@@ -88,25 +83,25 @@ export default function HomePage() {
         {/* Hero Content Overlay */}
         <div className="absolute inset-0 bg-black/40 flex items-center">
           <Container size="lg">
-            <div className="max-w-2xl text-white">
-              <h1 className="text-display-md lg:text-display-lg mb-4">
+            <div className="max-w-2xl text-white py-8 sm:py-12">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
                 Free Job Training.
                 <br />
                 Real Careers. No Debt.
               </h1>
-              <p className="text-body-lg md:text-h4 mb-6">
+              <p className="text-base sm:text-lg lg:text-xl mb-6 leading-relaxed">
                 We connect people to careers through training, funding, and
                 employer partnerships across Indiana.
               </p>
-              <div className="flex flex-wrap gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   href="/apply"
                   size="lg"
-                  className="bg-orange-600 hover:bg-orange-700"
+                  className="bg-orange-600 hover:bg-orange-700 w-full sm:w-auto"
                 >
                   Apply Now
                 </Button>
-                <Button href="/programs" variant="secondary" size="lg">
+                <Button href="/programs" variant="secondary" size="lg" className="w-full sm:w-auto">
                   Explore Programs
                 </Button>
               </div>
@@ -116,7 +111,7 @@ export default function HomePage() {
       </section>
 
       {/* ARTISTIC HERO IMAGE - Inspiring Visual */}
-      <section className="relative h-[500px] overflow-hidden">
+      <section className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] overflow-hidden">
         <Image
           src="/images/heroes/about-mission.jpg"
           alt="serving communities through education"
@@ -127,12 +122,12 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-end">
-          <Container size="lg" className="pb-16">
+          <Container size="lg" className="pb-8 sm:pb-12 lg:pb-16">
             <div className="max-w-3xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                improving outcomes Through Education
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">
+                Improving Outcomes Through Education
               </h2>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed">
                 Every student deserves access to quality training and real
                 career opportunities. We're breaking down barriers and building
                 pathways to success.
@@ -144,20 +139,20 @@ export default function HomePage() {
 
       {/* WHO WE SERVE - Intelligent Routing (Looks Like Website) */}
       <Section variant="slate">
-        <h2 className="text-h1 text-center text-slate-900 mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-slate-900 mb-3 sm:mb-4">
           Who We Serve
         </h2>
-        <p className="text-body-lg text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg text-center text-slate-600 mb-8 sm:mb-12 lg:mb-16 max-w-3xl mx-auto px-4">
           Choose your path to see how we can help you succeed
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* For Students */}
           <Link
             href="/for-students"
             className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
           >
-            <div className="relative h-64">
+            <div className="relative h-48 sm:h-56 lg:h-64">
               <Image
                 src="/images/students-hero.jpg"
                 alt="Students learning"
@@ -165,20 +160,20 @@ export default function HomePage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-blue-900/70" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <GraduationCap className="h-12 w-12 text-white mb-3" />
-                <h3 className="text-2xl font-bold text-white mb-2">
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                <GraduationCap className="h-10 w-10 sm:h-12 sm:w-12 text-white mb-2 sm:mb-3" />
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   For Students
                 </h3>
               </div>
             </div>
-            <div className="p-8">
-              <p className="text-slate-700 mb-6 text-lg leading-relaxed">
+            <div className="p-6 sm:p-8">
+              <p className="text-slate-700 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                 Get trained for free. Earn industry credentials. Start your
                 career in healthcare, skilled trades, or technology.
               </p>
               <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
-                <span>view details</span>
+                <span>View Details</span>
                 <ArrowRight className="h-5 w-5" />
               </div>
             </div>
@@ -189,7 +184,7 @@ export default function HomePage() {
             href="/for-employers"
             className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
           >
-            <div className="relative h-64">
+            <div className="relative h-48 sm:h-56 lg:h-64">
               <Image
                 src="/images/employers-hero.jpg"
                 alt="Employers hiring"
@@ -197,20 +192,20 @@ export default function HomePage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-purple-900/70" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <Briefcase className="h-12 w-12 text-white mb-3" />
-                <h3 className="text-2xl font-bold text-white mb-2">
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                <Briefcase className="h-10 w-10 sm:h-12 sm:w-12 text-white mb-2 sm:mb-3" />
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   For Employers
                 </h3>
               </div>
             </div>
-            <div className="p-8">
-              <p className="text-slate-700 mb-6 text-lg leading-relaxed">
+            <div className="p-6 sm:p-8">
+              <p className="text-slate-700 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                 Hire trained workers. Build apprenticeship programs. No
                 recruiting fees. Access job-ready candidates.
               </p>
               <div className="flex items-center gap-2 text-purple-600 font-semibold group-hover:gap-3 transition-all">
-                <span>view details</span>
+                <span>View Details</span>
                 <ArrowRight className="h-5 w-5" />
               </div>
             </div>
@@ -221,7 +216,7 @@ export default function HomePage() {
             href="/for-agencies"
             className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
           >
-            <div className="relative h-64">
+            <div className="relative h-48 sm:h-56 lg:h-64">
               <Image
                 src="/images/agencies-hero.jpg"
                 alt="Agencies and partners"
@@ -229,20 +224,20 @@ export default function HomePage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-green-900/70" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <Building2 className="h-12 w-12 text-white mb-3" />
-                <h3 className="text-2xl font-bold text-white mb-2">
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                <Building2 className="h-10 w-10 sm:h-12 sm:w-12 text-white mb-2 sm:mb-3" />
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   For Agencies
                 </h3>
               </div>
             </div>
-            <div className="p-8">
-              <p className="text-slate-700 mb-6 text-lg leading-relaxed">
+            <div className="p-6 sm:p-8">
+              <p className="text-slate-700 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                 License our platform. Track compliance. Monitor outcomes.
                 Government-aligned workforce infrastructure.
               </p>
               <div className="flex items-center gap-2 text-green-600 font-semibold group-hover:gap-3 transition-all">
-                <span>view details</span>
+                <span>View Details</span>
                 <ArrowRight className="h-5 w-5" />
               </div>
             </div>
@@ -252,14 +247,14 @@ export default function HomePage() {
 
       {/* FEATURED PROGRAMS */}
       <Section variant="white">
-        <h2 className="text-h1 text-center text-slate-900 mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-slate-900 mb-3 sm:mb-4">
           Featured Programs
         </h2>
-        <p className="text-body-lg text-center text-slate-600 mb-16">
+        <p className="text-base sm:text-lg text-center text-slate-600 mb-8 sm:mb-12 lg:mb-16 px-4">
           All programs are $0 tuition for eligible participants
         </p>
 
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {[
             {
               name: 'Barber Apprenticeship',
@@ -332,24 +327,24 @@ export default function HomePage() {
 
       {/* BY THE NUMBERS */}
       <Section variant="blue" className="bg-blue-600 text-white">
-        <div className="grid md:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
           <div>
-            <div className="text-display-md mb-2">1,500+</div>
-            <div className="text-blue-100 text-body-lg">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">1,500+</div>
+            <div className="text-blue-100 text-sm sm:text-base lg:text-lg">
               Graduates Since 2020
             </div>
           </div>
           <div>
-            <div className="text-display-md mb-2">200+</div>
-            <div className="text-blue-100 text-body-lg">Employer Partners</div>
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">200+</div>
+            <div className="text-blue-100 text-sm sm:text-base lg:text-lg">Employer Partners</div>
           </div>
           <div>
-            <div className="text-display-md mb-2">20</div>
-            <div className="text-blue-100 text-body-lg">Training Programs</div>
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">20</div>
+            <div className="text-blue-100 text-sm sm:text-base lg:text-lg">Training Programs</div>
           </div>
           <div>
-            <div className="text-display-md mb-2">$0</div>
-            <div className="text-blue-100 text-body-lg">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">$0</div>
+            <div className="text-blue-100 text-sm sm:text-base lg:text-lg">
               Tuition for Eligible
             </div>
           </div>
@@ -358,17 +353,17 @@ export default function HomePage() {
 
       {/* FINAL CTA */}
       <Section variant="white" containerSize="md">
-        <div className="text-center">
-          <h2 className="text-h1 text-slate-900 mb-6">
+        <div className="text-center px-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
             Ready to Start Your Career?
           </h2>
-          <p className="text-body-lg text-slate-600 mb-8">
+          <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8">
             Apply now. An advisor will call you within 24 hours.
           </p>
-          <Button href="/apply" size="lg">
+          <Button href="/apply" size="lg" className="w-full sm:w-auto">
             Apply Now
           </Button>
-          <p className="mt-6 text-slate-600">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base text-slate-600">
             Questions?{' '}
             <a
               href="tel:+13173143757"
