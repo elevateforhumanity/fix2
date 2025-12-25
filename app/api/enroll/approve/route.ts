@@ -32,20 +32,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Verify user is program holder or admin
+    // CRITICAL: Only admin or super_admin may approve enrollments
+    // Program holders are explicitly forbidden from approval authority
     const { data: profile } = await supabase
       .from('profiles')
-      .select('role, program_holder_id')
+      .select('role')
       .eq('id', user.id)
       .single();
 
     const isAdmin =
       profile?.role === 'admin' || profile?.role === 'super_admin';
-    const isProgramHolder = profile?.role === 'program_holder';
 
-    if (!isAdmin && !isProgramHolder) {
+    if (!isAdmin) {
       return NextResponse.json(
-        { error: 'Forbidden - Admin or program holder access required' },
+        { error: 'Forbidden - Only admin or super_admin may approve enrollments' },
         { status: 403 }
       );
     }
@@ -91,34 +91,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // If approver is program holder (not admin), verify authorization
-    if (isProgramHolder && profile?.program_holder_id) {
-      // Check if this enrollment is linked to this program holder
-      const { data: phLink, error: phLinkError } = await supabase
-        .from('program_holder_students')
-        .select('id')
-        .eq('program_holder_id', profile.program_holder_id)
-        .eq('student_id', enrollment.user_id)
-        .eq('program_id', enrollment.program_id)
-        .single();
-
-      if (phLinkError || !phLink) {
-        logger.warn('Program holder attempted to approve unlinked enrollment', {
-          program_holder_id: profile.program_holder_id,
-          enrollment_id,
-          user_id: enrollment.user_id,
-        });
-        return NextResponse.json(
-          {
-            error:
-              'Forbidden - You can only approve enrollments for students assigned to your organization',
-          },
-          { status: 403 }
-        );
-      }
-    }
-
-    // STEP 1: Activate enrollment
+    // STEP 1: Activate enrollment (admin-only, no program holder checks needed)
     const { error: updateEnrollmentError } = await supabase
       .from('enrollments')
       .update({
