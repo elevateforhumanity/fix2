@@ -261,28 +261,28 @@ export default function HomePage() {
               salary: '$45,000/year',
               duration: '15-17 months',
               slug: 'barber-apprenticeship',
-              image: '/images/programs/barber.jpg',
+              image: '/images/programs/barber-hero.jpg',
             },
             {
               name: 'HVAC Technician',
               salary: '$52,000/year',
               duration: '6-12 months',
               slug: 'hvac-technician',
-              image: '/images/programs/hvac.jpg',
+              image: '/images/programs/hvac-hero.jpg',
             },
             {
               name: 'CNA Healthcare',
               salary: '$37,000/year',
               duration: '4-6 weeks',
               slug: 'cna-certified-nursing-assistant',
-              image: '/images/programs/cna.jpg',
+              image: '/images/programs/cna-hero.jpg',
             },
             {
               name: 'CDL Truck Driver',
               salary: '$60,000/year',
               duration: '3-4 weeks',
               slug: 'cdl-commercial-drivers-license',
-              image: '/images/programs/cdl.jpg',
+              image: '/images/programs/cdl-hero.jpg',
             },
           ].map((program) => (
             <Link
