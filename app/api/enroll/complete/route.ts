@@ -116,7 +116,7 @@ export async function POST(req: Request) {
     const { data: existingEnrollment } = await supabase
       .from('enrollments')
       .select('id')
-      .eq('student_id', userId)
+      .eq('user_id', userId)
       .eq('program_id', program.id)
       .single();
 
@@ -131,6 +131,7 @@ export async function POST(req: Request) {
         .from('enrollments')
         .update({
           status: 'pending',
+          payment_status: 'paid',
           stripe_checkout_session_id: sessionId,
         })
         .eq('id', enrollmentId);
@@ -139,10 +140,10 @@ export async function POST(req: Request) {
       const { data: enrollment, error: enrollError } = await supabase
         .from('enrollments')
         .insert({
-          student_id: userId,
+          user_id: userId,
           program_id: program.id,
           status: 'pending',
-          start_date: new Date().toISOString().split('T')[0],
+          payment_status: 'paid',
           stripe_checkout_session_id: sessionId,
         })
         .select('id')

@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     // Get enrollment details
     const { data: enrollment, error: enrollmentError } = await supabase
       .from('enrollments')
-      .select('id, student_id, program_id, status')
+      .select('id, user_id, program_id, status')
       .eq('id', enrollment_id)
       .single();
 
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
         .from('program_holder_students')
         .select('id')
         .eq('program_holder_id', profile.program_holder_id)
-        .eq('student_id', enrollment.student_id)
+        .eq('student_id', enrollment.user_id)
         .eq('program_id', enrollment.program_id)
         .single();
 
@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
         logger.warn('Program holder attempted to approve unlinked enrollment', {
           program_holder_id: profile.program_holder_id,
           enrollment_id,
-          student_id: enrollment.student_id,
+          user_id: enrollment.user_id,
         });
         return NextResponse.json(
           {
@@ -144,14 +144,14 @@ export async function POST(req: NextRequest) {
         enrollment_status: 'active',
         updated_at: new Date().toISOString(),
       })
-      .eq('id', enrollment.student_id);
+      .eq('id', enrollment.user_id);
 
     if (updateProfileError) {
       logger.error('Failed to activate profile enrollment_status', updateProfileError);
       // Continue - enrollment is already active
     } else {
       logger.info('Profile enrollment_status activated', {
-        student_id: enrollment.student_id,
+        user_id: enrollment.user_id,
       });
     }
 
@@ -183,7 +183,7 @@ export async function POST(req: NextRequest) {
         entity: 'enrollment',
         entity_id: enrollment_id,
         metadata: {
-          student_id: enrollment.student_id,
+          user_id: enrollment.user_id,
           program_id: enrollment.program_id,
           steps_generated: stepsResult || 0,
         },
@@ -199,7 +199,7 @@ export async function POST(req: NextRequest) {
       enrollment: {
         id: enrollment_id,
         status: 'active',
-        student_id: enrollment.student_id,
+        user_id: enrollment.user_id,
         program_id: enrollment.program_id,
       },
       stepsGeneratedCount: stepsResult || 0,

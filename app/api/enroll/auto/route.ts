@@ -114,7 +114,7 @@ export async function POST(req: Request) {
     const { data: existingEnrollment } = await supabase
       .from('enrollments')
       .select('id')
-      .eq('student_id', userId)
+      .eq('user_id', userId)
       .eq('program_id', program.id)
       .single();
 
@@ -127,10 +127,10 @@ export async function POST(req: Request) {
       const { data: enrollment, error: enrollError } = await supabase
         .from('enrollments')
         .insert({
-          student_id: userId,
+          user_id: userId,
           program_id: program.id,
           status: 'pending', // Changed from 'active' - requires approval
-          start_date: new Date().toISOString().split('T')[0], // Use start_date (exists in schema)
+          payment_status: 'waived', // Program is FREE
         })
         .select('id')
         .single();
