@@ -27,7 +27,7 @@ export default function BarberApprenticeshipGoldStandard() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/40" />
         <h1 className="relative z-10 text-4xl md:text-5xl font-bold">
           Barber Apprenticeship
         </h1>

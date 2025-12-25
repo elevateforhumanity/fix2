@@ -57,7 +57,7 @@ export default function HomePage() {
             {/* Unmute Button */}
             <button
               onClick={toggleMute}
-              className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-2 sm:p-3 rounded-full transition z-10"
+              className="absolute bottom-4 right-4 bg-black/40 hover:bg-black/90 text-white p-2 sm:p-3 rounded-full transition z-10"
               aria-label={isMuted ? 'Unmute video' : 'Mute video'}
             >
               {isMuted ? (
@@ -120,7 +120,7 @@ export default function HomePage() {
           priority
           quality={95}
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-end">
           <Container size="lg" className="pb-8 sm:pb-12 lg:pb-16">
             <div className="max-w-3xl">
