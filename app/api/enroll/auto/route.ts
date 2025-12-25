@@ -130,8 +130,7 @@ export async function POST(req: Request) {
           student_id: userId,
           program_id: program.id,
           status: 'pending', // Changed from 'active' - requires approval
-          enrolled_at: new Date().toISOString(),
-          payment_status: 'waived', // Program is FREE
+          start_date: new Date().toISOString().split('T')[0], // Use start_date (exists in schema)
         })
         .select('id')
         .single();

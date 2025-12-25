@@ -39,12 +39,11 @@ export async function POST(req: NextRequest) {
       .eq('id', user.id)
       .single();
 
-    const isAuthorized =
-      profile?.role === 'admin' ||
-      profile?.role === 'super_admin' ||
-      profile?.role === 'program_holder';
+    const isAdmin =
+      profile?.role === 'admin' || profile?.role === 'super_admin';
+    const isProgramHolder = profile?.role === 'program_holder';
 
-    if (!isAuthorized) {
+    if (!isAdmin && !isProgramHolder) {
       return NextResponse.json(
         { error: 'Forbidden - Admin or program holder access required' },
         { status: 403 }
@@ -90,6 +89,33 @@ export async function POST(req: NextRequest) {
         },
         { status: 400 }
       );
+    }
+
+    // If approver is program holder (not admin), verify authorization
+    if (isProgramHolder && profile?.program_holder_id) {
+      // Check if this enrollment is linked to this program holder
+      const { data: phLink, error: phLinkError } = await supabase
+        .from('program_holder_students')
+        .select('id')
+        .eq('program_holder_id', profile.program_holder_id)
+        .eq('student_id', enrollment.student_id)
+        .eq('program_id', enrollment.program_id)
+        .single();
+
+      if (phLinkError || !phLink) {
+        logger.warn('Program holder attempted to approve unlinked enrollment', {
+          program_holder_id: profile.program_holder_id,
+          enrollment_id,
+          student_id: enrollment.student_id,
+        });
+        return NextResponse.json(
+          {
+            error:
+              'Forbidden - You can only approve enrollments for students assigned to your organization',
+          },
+          { status: 403 }
+        );
+      }
     }
 
     // STEP 1: Activate enrollment
@@ -148,18 +174,23 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // STEP 4: Log approval action
-    await supabase.from('audit_logs').insert({
-      user_id: user.id,
-      action: 'enrollment_approved',
-      resource_type: 'enrollment',
-      resource_id: enrollment_id,
-      metadata: {
-        student_id: enrollment.student_id,
-        program_id: enrollment.program_id,
-        steps_generated: stepsResult || 0,
-      },
-    });
+    // STEP 4: Log approval action (safe - do not fail if audit log fails)
+    try {
+      await supabase.from('audit_logs').insert({
+        actor_id: user.id,
+        actor_role: profile?.role || 'unknown',
+        action: 'enrollment_approved',
+        entity: 'enrollment',
+        entity_id: enrollment_id,
+        metadata: {
+          student_id: enrollment.student_id,
+          program_id: enrollment.program_id,
+          steps_generated: stepsResult || 0,
+        },
+      });
+    } catch (auditError: any) {
+      logger.warn('Failed to write audit log (non-critical)', auditError);
+    }
 
     // Return proof
     return NextResponse.json({

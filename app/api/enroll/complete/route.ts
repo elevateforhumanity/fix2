@@ -126,12 +126,12 @@ export async function POST(req: Request) {
       enrollmentId = existingEnrollment.id;
       logger.info('Student already enrolled', { enrollmentId });
 
-      // Update payment status (keep status pending until approval)
+      // Update status to pending (keep pending until approval)
       await supabase
         .from('enrollments')
         .update({
-          payment_status: 'paid',
           status: 'pending',
+          stripe_checkout_session_id: sessionId,
         })
         .eq('id', enrollmentId);
     } else {
@@ -142,8 +142,8 @@ export async function POST(req: Request) {
           student_id: userId,
           program_id: program.id,
           status: 'pending',
-          enrolled_at: new Date().toISOString(),
-          payment_status: 'paid',
+          start_date: new Date().toISOString().split('T')[0],
+          stripe_checkout_session_id: sessionId,
         })
         .select('id')
         .single();
