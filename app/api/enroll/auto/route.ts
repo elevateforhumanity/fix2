@@ -96,6 +96,7 @@ export async function POST(req: Request) {
         last_name: lastName,
         phone: phone ?? null,
         role: 'student',
+        enrollment_status: 'pending', // Requires approval before portal access
       });
 
       if (profileError) {
@@ -128,7 +129,7 @@ export async function POST(req: Request) {
         .insert({
           student_id: userId,
           program_id: program.id,
-          status: 'active',
+          status: 'pending', // Changed from 'active' - requires approval
           enrolled_at: new Date().toISOString(),
           payment_status: 'waived', // Program is FREE
         })

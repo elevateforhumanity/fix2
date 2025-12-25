@@ -126,22 +126,22 @@ export async function POST(req: Request) {
       enrollmentId = existingEnrollment.id;
       logger.info('Student already enrolled', { enrollmentId });
 
-      // Update payment status
+      // Update payment status (keep status pending until approval)
       await supabase
         .from('enrollments')
         .update({
           payment_status: 'paid',
-          status: 'active',
+          status: 'pending',
         })
         .eq('id', enrollmentId);
     } else {
-      // Step 7: Create enrollment
+      // Step 7: Create enrollment (pending until approval)
       const { data: enrollment, error: enrollError } = await supabase
         .from('enrollments')
         .insert({
           student_id: userId,
           program_id: program.id,
-          status: 'active',
+          status: 'pending',
           enrolled_at: new Date().toISOString(),
           payment_status: 'paid',
         })
