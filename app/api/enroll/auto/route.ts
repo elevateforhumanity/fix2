@@ -145,6 +145,24 @@ export async function POST(req: Request) {
 
       enrollmentId = enrollment.id;
       logger.info('Created FREE enrollment', { enrollmentId });
+
+      // Notify admins of pending enrollment
+      const { data: admins } = await supabase
+        .from('profiles')
+        .select('id')
+        .in('role', ['admin', 'super_admin']);
+
+      if (admins && admins.length > 0) {
+        const notifications = admins.map((admin) => ({
+          user_id: admin.id,
+          type: 'system',
+          title: 'New Enrollment Pending Approval',
+          message: `${firstName} ${lastName} (${emailLower}) has enrolled in ${program.name}. Enrollment ID: ${enrollmentId}`,
+        }));
+
+        await supabase.from('notifications').insert(notifications);
+        logger.info('Admin notifications created', { count: admins.length });
+      }
     }
 
     // STEP 6: Create application record

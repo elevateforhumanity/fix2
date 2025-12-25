@@ -160,6 +160,24 @@ export async function POST(req: Request) {
         userId,
         programId: program.id,
       });
+
+      // Notify admins of pending enrollment
+      const { data: admins } = await supabase
+        .from('profiles')
+        .select('id')
+        .in('role', ['admin', 'super_admin']);
+
+      if (admins && admins.length > 0) {
+        const notifications = admins.map((admin) => ({
+          user_id: admin.id,
+          type: 'system',
+          title: 'New Enrollment Pending Approval',
+          message: `${firstName} ${lastName} (${email}) has completed payment for ${program.name}. Enrollment ID: ${enrollmentId}`,
+        }));
+
+        await supabase.from('notifications').insert(notifications);
+        logger.info('Admin notifications created', { count: admins.length });
+      }
     }
 
     // Step 8: Update application status
