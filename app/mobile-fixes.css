@@ -186,9 +186,15 @@
     height: 44px;
   }
 
-  /* Fix grid layouts */
-  .grid {
+  /* Fix grid layouts - but preserve footer grid */
+  main .grid,
+  section .grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Footer keeps 2 columns on mobile */
+  footer .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   /* Fix buttons - ensure minimum touch target size (WCAG 2.5.5) */
@@ -217,20 +223,19 @@
     opacity: 0.9;
   }
 
-  /* Touch-friendly links */
-  a {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 4px;
-  }
-
   /* Navigation links */
   nav a {
     min-height: 48px;
     padding: 12px 16px;
     display: flex;
     align-items: center;
+  }
+
+  /* Footer links stay normal (don't stretch) */
+  footer a {
+    min-height: auto;
+    display: inline;
+    padding: 0;
   }
 
   /* Icon buttons */
