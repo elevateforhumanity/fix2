@@ -106,15 +106,19 @@ export const publicNav: NavSection[] = [
       // Employers
       { label: 'I Want to Hire', href: '#', isHeader: true },
       { label: 'Hire Our Graduates', href: '/hire-graduates' },
-      { label: 'Become a Partner', href: '/partners' },
       { label: 'Workforce Solutions', href: '/workforce-partners' },
 
       // Schools & Agencies
       { label: 'I Run a Program', href: '#', isHeader: true },
       { label: 'See the Platform', href: '/platform' },
+      { label: 'License Our Platform', href: '/white-label' },
       { label: 'Request Demo', href: '/contact' },
       { label: 'Training Providers', href: '/training-providers' },
     ],
+  },
+  {
+    label: 'Store',
+    href: '/white-label',
   },
   {
     label: 'Apply',
