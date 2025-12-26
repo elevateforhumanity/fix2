@@ -4,21 +4,27 @@
 INSERT INTO campaign_templates (name, subject, html_content, category, variables) VALUES
 
 -- Student Reminders
-('Complete FAFSA', 
- 'Action Required: Complete Your FAFSA',
+('Complete Enrollment', 
+ 'Action Required: Complete Your Enrollment',
  '<!DOCTYPE html>
 <html>
 <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2>Hi {{student_name}},</h2>
-  <p>This is a friendly reminder to complete your FAFSA application.</p>
-  <p><strong>Deadline:</strong> {{deadline_date}}</p>
+  <p>You''re almost there! Complete your enrollment to start your FREE training.</p>
+  <p><strong>What''s left:</strong></p>
+  <ul>
+    <li>Sign enrollment agreement</li>
+    <li>Complete orientation</li>
+    <li>Set up your account</li>
+  </ul>
   <p>Need help? Contact us at {{support_email}}</p>
-  <a href="{{fafsa_link}}" style="display: inline-block; background: #16a34a; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0;">Complete FAFSA Now</a>
+  <a href="{{enrollment_link}}" style="display: inline-block; background: #16a34a; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0;">Complete Enrollment</a>
+  <p><strong>Remember: This training is 100% FREE!</strong></p>
   <p>Best regards,<br>{{organization_name}}</p>
 </body>
 </html>',
  'student_reminder',
- '["student_name", "deadline_date", "support_email", "fafsa_link", "organization_name"]'),
+ '["student_name", "support_email", "enrollment_link", "organization_name"]'),
 
 ('Course Starting Soon',
  'Your {{course_name}} Course Starts {{start_date}}',
@@ -172,6 +178,78 @@ INSERT INTO campaign_templates (name, subject, html_content, category, variables
 </html>',
  'general',
  '["user_name", "organization_name", "profile_link", "programs_link", "advisor_link", "dashboard_link", "support_email", "support_phone"]');
+
+-- Additional FREE Training Templates
+('Free Training Reminder',
+ 'Your FREE {{program_name}} Training is Waiting',
+ '<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2>Hi {{student_name}},</h2>
+  <p><strong>Good news:</strong> Your spot in {{program_name}} is reserved!</p>
+  <p>This is 100% FREE training that leads to real jobs.</p>
+  <h3>What You Get:</h3>
+  <ul>
+    <li>✅ Free training (no cost to you)</li>
+    <li>✅ Industry certification</li>
+    <li>✅ Job placement assistance</li>
+    <li>✅ Career support</li>
+  </ul>
+  <a href="{{start_link}}" style="display: inline-block; background: #16a34a; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0;">Start Your Training</a>
+  <p>Questions? Call {{support_phone}} or email {{support_email}}</p>
+  <p>Let''s get you trained and hired!<br>{{organization_name}}</p>
+</body>
+</html>',
+ 'student_reminder',
+ '["student_name", "program_name", "start_link", "support_phone", "support_email", "organization_name"]'),
+
+('Job Ready Notification',
+ 'You''re Job Ready! {{job_count}} Openings Available',
+ '<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2>Congratulations, {{student_name}}!</h2>
+  <p>You''ve completed your training and you''re ready to work!</p>
+  <p>We have <strong>{{job_count}} job openings</strong> that match your skills:</p>
+  <ul>
+    <li>{{job_1}}</li>
+    <li>{{job_2}}</li>
+    <li>{{job_3}}</li>
+  </ul>
+  <a href="{{jobs_link}}" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0;">View All Jobs</a>
+  <p><strong>Need help applying?</strong> Schedule time with your career advisor: {{advisor_link}}</p>
+  <p>You''ve got this!<br>{{career_services_team}}</p>
+</body>
+</html>',
+ 'follow_up',
+ '["student_name", "job_count", "job_1", "job_2", "job_3", "jobs_link", "advisor_link", "career_services_team"]'),
+
+('Funding Approved',
+ 'Great News: Your Training is Funded!',
+ '<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2>🎉 Congratulations, {{student_name}}!</h2>
+  <p>Your training has been approved for funding through {{funding_source}}.</p>
+  <p><strong>What this means:</strong></p>
+  <ul>
+    <li>✅ 100% FREE training (fully funded)</li>
+    <li>✅ No cost to you</li>
+    <li>✅ All materials included</li>
+    <li>✅ Certification exam covered</li>
+  </ul>
+  <h3>Next Steps:</h3>
+  <ol>
+    <li>Complete enrollment: <a href="{{enrollment_link}}">Enroll Now</a></li>
+    <li>Attend orientation: {{orientation_date}}</li>
+    <li>Start training: {{start_date}}</li>
+  </ol>
+  <a href="{{dashboard_link}}" style="display: inline-block; background: #16a34a; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0;">Get Started</a>
+  <p>We''re excited to help you launch your career!<br>{{organization_name}}</p>
+</body>
+</html>',
+ 'program_update',
+ '["student_name", "funding_source", "enrollment_link", "orientation_date", "start_date", "dashboard_link", "organization_name"]');
 
 -- Mark all as active
 UPDATE campaign_templates SET is_active = true;
