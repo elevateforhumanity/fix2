@@ -1,106 +1,280 @@
-import Link from "next/link";
-import { footerSections } from "@/config/navigation";
+import Link from 'next/link';
+import { Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import {
+  footerNavigation,
+  socialLinks,
+  contactInfo,
+} from '@/lib/navigation/site-nav.config';
+
+/**
+ * SITE FOOTER
+ *
+ * Global footer for marketing site with:
+ * - 6 columns of links
+ * - Social media links
+ * - Contact information
+ * - Newsletter signup
+ * - Copyright and legal
+ */
 
 export default function SiteFooter() {
-  const year = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 mt-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid gap-8 lg:grid-cols-4">
-          {/* Brand / address column */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">
-                EFH
-              </span>
-              <div>
-                <div className="font-semibold text-slate-900 text-sm">
-                  Elevate For Humanity
-                </div>
-                <div className="text-xs text-slate-500">
-                  Career & Technical Institute
-                </div>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-500">
-              100% FREE career training through WIOA, WRG, and JRI funding. No
-              tuition, no debt. Real jobs waiting in Indianapolis, IN.
-            </p>
-
-            <p className="text-xs text-slate-500">
-              8888 Keystone Crossing Suite 1300
-              <br />
-              Indianapolis, IN 46240
-              <br />
-              (317) 314-3757
-            </p>
-
-            <Link
-              href="/contact"
-              className="inline-flex text-xs font-medium text-orange-600 hover:text-orange-700"
-            >
-              Contact Us →
-            </Link>
-
-            <Link
-              href="/sitemap-page"
-              className="block text-[11px] font-semibold text-slate-600 hover:text-orange-700 mt-2"
-            >
-              View Full Site Map ({footerSections.reduce(
-                (n, s) => n + s.items.length,
-                0
-              )}{" "}
-              pages)
-            </Link>
+    <footer className="bg-gray-900 text-white">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          {/* Programs Column */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">
+              {footerNavigation.programs.title}
+            </h3>
+            <ul className="space-y-2">
+              {footerNavigation.programs.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Key sections only - compact */}
-          <div className="lg:col-span-3">
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-              {footerSections.slice(0, 8).map((section) => (
-                <div key={section.id} className="space-y-1.5">
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    {section.title}
-                  </h3>
-                  <ul className="space-y-0.5 text-xs">
-                    {section.items.slice(0, 6).map((item) => (
-                      <li key={item.href}>
-                        <Link
-                          href={item.href}
-                          className="text-slate-700 hover:text-orange-700 hover:underline"
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                    {section.items.length > 6 && (
-                      <li>
-                        <Link
-                          href="/sitemap-page"
-                          className="text-xs text-orange-600 hover:text-orange-700 font-medium"
-                        >
-                          +{section.items.length - 6} more →
-                        </Link>
-                      </li>
-                    )}
-                  </ul>
-                </div>
+          {/* Students Column */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">
+              {footerNavigation.students.title}
+            </h3>
+            <ul className="space-y-2">
+              {footerNavigation.students.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+
+          {/* Partners Column */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">
+              {footerNavigation.partners.title}
+            </h3>
+            <ul className="space-y-2">
+              {footerNavigation.partners.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">
+              {footerNavigation.company.title}
+            </h3>
+            <ul className="space-y-2">
+              {footerNavigation.company.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">
+              {footerNavigation.resources.title}
+            </h3>
+            <ul className="space-y-2">
+              {footerNavigation.resources.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Column */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">
+              {footerNavigation.legal.title}
+            </h3>
+            <ul className="space-y-2">
+              {footerNavigation.legal.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-sm transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 flex flex-col items-start justify-between gap-2 border-t border-slate-200 pt-4 text-[11px] text-slate-500 sm:flex-row sm:items-center">
-          <p>
-            © {year} Elevate For Humanity. All rights reserved. Empowering
-            communities through workforce development.
-          </p>
-          <p className="text-[10px]">
-            ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
-          </p>
+        {/* Contact & Social Section */}
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Contact Info */}
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
+              <div className="space-y-2 text-sm text-gray-400">
+                <p>
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="hover:text-white transition"
+                  >
+                    {contactInfo.phone}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="hover:text-white transition"
+                  >
+                    {contactInfo.email}
+                  </a>
+                </p>
+                <p>
+                  {contactInfo.address.street}
+                  <br />
+                  {contactInfo.address.city}, {contactInfo.address.state}{' '}
+                  {contactInfo.address.zip}
+                </p>
+              </div>
+            </div>
+
+            {/* Social Media & Newsletter */}
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Stay Connected</h3>
+
+              {/* Social Links */}
+              <div className="flex gap-4 mb-6">
+                <a
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-6 h-6" />
+                </a>
+                <a
+                  href={socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-6 h-6" />
+                </a>
+                <a
+                  href={socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-6 h-6" />
+                </a>
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-6 h-6" />
+                </a>
+                <a
+                  href={socialLinks.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-6 h-6" />
+                </a>
+              </div>
+
+              {/* Newsletter Signup */}
+              <div>
+                <p className="text-sm text-gray-400 mb-2">
+                  Subscribe to our newsletter
+                </p>
+                <form className="flex gap-2">
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white text-sm focus:outline-none focus:border-blue-500"
+                  />
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-sm font-medium transition"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <p>© {currentYear} Elevate for Humanity. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition"
+              >
+                Privacy
+              </Link>
+              <Link href="/terms" className="hover:text-white transition">
+                Terms
+              </Link>
+              <Link
+                href="/accessibility"
+                className="hover:text-white transition"
+              >
+                Accessibility
+              </Link>
+              <Link href="/sitemap" className="hover:text-white transition">
+                Sitemap
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
