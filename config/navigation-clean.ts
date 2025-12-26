@@ -133,6 +133,20 @@ export const publicNav: NavSection[] = [
     ],
   },
   {
+    label: 'Services',
+    items: [
+      { label: 'Tax Services', href: '#', isHeader: true },
+      { label: 'Supersonic Fast Cash', href: '/supersonic-fast-cash' },
+      { label: 'VITA Tax Preparation', href: '/vita' },
+      { label: 'Tax Filing Services', href: '/tax-filing' },
+      
+      { label: 'Career Services', href: '#', isHeader: true },
+      { label: 'Career Counseling', href: '/career-services' },
+      { label: 'Job Placement', href: '/career-services' },
+      { label: 'Resume Help', href: '/features/resume-builder' },
+    ],
+  },
+  {
     label: 'Get Started',
     items: [
       // Students
