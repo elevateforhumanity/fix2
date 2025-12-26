@@ -1,172 +1,340 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, X, ChevronDown, Phone, HelpCircle } from 'lucide-react';
-import {
-  headerNavigation,
-  utilityNavigation,
-} from '@/lib/navigation/site-nav.config';
+import { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { getNavigation } from '@/config/navigation-clean';
 
-/**
- * SITE HEADER
- *
- * Global header for marketing site with:
- * - Utility bar (phone, help, login)
- * - Main navigation with dropdowns
- * - Mobile menu
- * - Responsive design
- */
+// Get dashboard URL based on user role
+function getDashboardUrl(user: { role?: string } | null) {
+  if (!user || !user.role) return '/student/dashboard';
+
+  switch (user.role) {
+    case 'admin':
+    case 'super_admin':
+      return '/admin';
+    case 'program_holder':
+      return '/program-holder/dashboard';
+    case 'partner':
+      return '/partner';
+    case 'employer':
+      return '/employer';
+    case 'workforce_board':
+      return '/workforce-board';
+    case 'student':
+    default:
+      return '/student/dashboard';
+  }
+}
+import { createClient } from '@/lib/supabase/client';
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [expandedMobileSection, setExpandedMobileSection] = useState<
+    string | null
+  >(null);
+  const [user, setUser] = useState<any>(null);
+  const [navigation, setNavigation] = useState(getNavigation(null));
 
-  return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      {/* Utility Bar */}
-      <div className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-10 text-sm">
-            <div className="flex items-center gap-4">
-              <a
-                href={utilityNavigation.phone.href}
-                className="flex items-center gap-1 hover:text-blue-400 transition"
-              >
-                <Phone className="w-4 h-4" />
-                {utilityNavigation.phone.label}
-              </a>
-              <Link
-                href={utilityNavigation.help.href}
-                className="flex items-center gap-1 hover:text-blue-400 transition"
-              >
-                <HelpCircle className="w-4 h-4" />
-                {utilityNavigation.help.label}
-              </Link>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link
-                href={utilityNavigation.login.href}
-                className="hover:text-blue-400 transition"
-              >
-                {utilityNavigation.login.label}
-              </Link>
-              <Link
-                href={utilityNavigation.apply.href}
-                className="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded transition"
-              >
-                {utilityNavigation.apply.label}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+  // Get user and update navigation
+  useEffect(() => {
+    const supabase = createClient();
 
-      {/* Main Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+    const getUser = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      setUser(user);
+      setNavigation(getNavigation(user));
+    };
+
+    getUser();
+
+    // Listen for auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setNavigation(getNavigation(session?.user ?? null));
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Debug: Check if navigation is loaded
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+    }
+  }, [navigation, user]);
+
+  // Fix mobile nav overlay blocking clicks
+  useEffect(() => {
+    try {
+      if (typeof document !== 'undefined') {
+        if (mobileMenuOpen) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to set body overflow:', error);
+    }
+
+    // Cleanup on unmount
+    return () => {
+      try {
+        if (typeof document !== 'undefined') {
+          document.body.style.overflow = '';
+        }
+      } catch (error) {
+        // Ignore cleanup errors
+      }
+    };
+  }, [mobileMenuOpen]);
+
+  try {
+    return (
+      <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4 relative">
+          <Link
+            href="/"
+            className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-sm sm:text-base lg:text-lg"
+          >
+            <span className="hidden sm:inline">Elevate for Humanity</span>
+            <span className="sm:hidden">Elevate</span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
+            {navigation && navigation.length > 0 ? (
+              navigation.map((section) => (
+                <div
+                  key={section.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(section.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M5 10l7-7m0 0l7 7m-7-7v18"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <div className="text-xl font-bold text-gray-900">Elevate</div>
-                <div className="text-xs text-gray-600 -mt-1">For Humanity</div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {headerNavigation.map((group) => (
-              <div
-                key={group.label}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(group.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                  {group.label}
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-
-                {/* Dropdown Menu */}
-                {activeDropdown === group.label && (
-                  <div className="absolute left-0 top-full mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                  {section.items && section.items.length > 0 ? (
+                    <>
+                      <button
+                        type="button"
+                        className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1 py-2"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                        }}
                       >
-                        <div className="font-medium">{item.label}</div>
-                        {item.description && (
-                          <div className="text-xs text-gray-500 mt-0.5">
-                            {item.description}
-                          </div>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                        {section.label}
+                        <ChevronDown className="w-4 h-4" />
+                      </button>
+                      {openDropdown === section.label && (
+                        <div className="absolute left-0 top-full mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-2xl py-2 z-[100] max-h-[80vh] overflow-y-auto">
+                          {section.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={section.href || '/'}
+                      className="font-bold text-zinc-800 hover:text-zinc-950 transition py-2"
+                    >
+                      {section.label}
+                    </Link>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className="text-sm text-gray-500">Loading navigation...</div>
+            )}
           </nav>
+
+          {/* Desktop CTAs */}
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            {user ? (
+              <Link
+                href={getDashboardUrl(user)}
+                className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/apply"
+                  className="inline-flex rounded-xl bg-brand-orange-600 text-white px-4 py-2 font-extrabold hover:bg-brand-orange-700 transition whitespace-nowrap"
+                >
+                  Apply Now
+                </Link>
+                <Link
+                  href="/login"
+                  className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+                >
+                  Login
+                </Link>
+              </>
+            )}
+          </div>
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-blue-600"
+            className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition touch-manipulation"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
-          <div className="max-w-7xl mx-auto px-4 py-4 space-y-4">
-            {headerNavigation.map((group) => (
-              <div key={group.label}>
-                <div className="font-semibold text-gray-900 mb-2">
-                  {group.label}
-                </div>
-                <div className="space-y-1 ml-4">
-                  {group.items.map((item) => (
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <>
+            <div
+              className="lg:hidden fixed inset-0 bg-black/50 z-40 top-16"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <div
+              id="mobile-menu"
+              className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe shadow-2xl"
+            >
+              <nav
+                className="px-4 py-6 space-y-2 min-h-full"
+                role="navigation"
+                aria-label="Mobile navigation"
+              >
+                {/* All Navigation Sections */}
+                {navigation?.map((section) => (
+                  <div
+                    key={section.label}
+                    className="border-b border-gray-200 last:border-b-0"
+                  >
+                    {section.items && section.items.length > 0 ? (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedMobileSection(
+                              expandedMobileSection === section.label
+                                ? null
+                                : section.label
+                            )
+                          }
+                          className="w-full flex items-center justify-between px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition touch-manipulation active:bg-gray-100"
+                          aria-expanded={
+                            expandedMobileSection === section.label
+                          }
+                          aria-controls={`mobile-section-${section.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          <span>{section.label}</span>
+                          <ChevronDown
+                            className={`w-5 h-5 transition-transform ${
+                              expandedMobileSection === section.label
+                                ? 'rotate-180'
+                                : ''
+                            }`}
+                          />
+                        </button>
+                        {expandedMobileSection === section.label && (
+                          <div
+                            id={`mobile-section-${section.label.toLowerCase().replace(/\s+/g, '-')}`}
+                            className="bg-gray-50 py-2"
+                          >
+                            {section.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition active:bg-blue-100 touch-manipulation"
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setExpandedMobileSection(null);
+                                }}
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : section.href ? (
+                      <Link
+                        href={section.href}
+                        className="block px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition active:bg-gray-100 touch-manipulation"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {section.label}
+                      </Link>
+                    ) : null}
+                  </div>
+                ))}
+
+                {/* Action Buttons */}
+                <div className="border-t pt-4 space-y-3">
+                  {user ? (
                     <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-2 text-sm text-gray-700 hover:text-blue-600"
+                      href={getDashboardUrl(user)}
+                      className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition active:bg-zinc-100 touch-manipulation"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {item.label}
+                      Dashboard
                     </Link>
-                  ))}
+                  ) : (
+                    <>
+                      <Link
+                        href="/apply"
+                        className="block text-center rounded-xl bg-brand-orange-600 text-white px-4 py-3 font-extrabold hover:bg-brand-orange-700 transition active:bg-brand-orange-800 touch-manipulation"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Apply Now
+                      </Link>
+                      <Link
+                        href="/login"
+                        className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition active:bg-zinc-100 touch-manipulation"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Login
+                      </Link>
+                    </>
+                  )}
                 </div>
-              </div>
-            ))}
+              </nav>
+            </div>
+          </>
+        )}
+      </header>
+    );
+  } catch (error) {
+    console.error('SiteHeader render failed:', error);
+    // Fallback minimal header
+    return (
+      <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
+          <Link href="/" className="font-black text-zinc-900">
+            Elevate for Humanity
+          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/login"
+              className="border border-zinc-300 bg-white px-4 py-2 rounded-xl font-bold"
+            >
+              Login
+            </Link>
           </div>
         </div>
-      )}
-    </header>
-  );
+      </header>
+    );
+  }
 }
