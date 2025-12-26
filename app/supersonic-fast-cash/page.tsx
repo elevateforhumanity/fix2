@@ -274,8 +274,7 @@ export default function SupersonicFastCashPage() {
             '@type': 'LoanOrCredit',
             name: 'Tax Refund Advance',
             description: 'Fast tax refund advance powered by EPS Financial and Pathward Bank. Terms and amounts determined per customer.',
-              maxValue: '7500',
-            },
+            maxValue: '7500',
           },
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
