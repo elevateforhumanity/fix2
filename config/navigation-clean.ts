@@ -26,36 +26,58 @@ export const publicNav: NavSection[] = [
     items: [
       // Browse All
       { label: 'Browse All Programs', href: '/programs', isHeader: true },
-      
+
       // Healthcare Programs
       { label: 'Healthcare', href: '/programs/healthcare', isHeader: true },
       { label: 'CNA (Certified Nursing Assistant)', href: '/programs/cna' },
       { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      { label: 'Direct Support Professional', href: '/programs/direct-support-professional' },
-      
+      {
+        label: 'Direct Support Professional',
+        href: '/programs/direct-support-professional',
+      },
+
       // Skilled Trades
-      { label: 'Skilled Trades', href: '/programs/skilled-trades', isHeader: true },
-      { label: 'Barber Apprenticeship', href: '/programs/barber-apprenticeship' },
+      {
+        label: 'Skilled Trades',
+        href: '/programs/skilled-trades',
+        isHeader: true,
+      },
+      {
+        label: 'Barber Apprenticeship',
+        href: '/programs/barber-apprenticeship',
+      },
       { label: 'Building Maintenance', href: '/programs/building-maintenance' },
-      
+
       // Transportation
-      { label: 'Transportation', href: '/programs/cdl-transportation', isHeader: true },
+      {
+        label: 'Transportation',
+        href: '/programs/cdl-transportation',
+        isHeader: true,
+      },
       { label: 'CDL Training', href: '/programs/cdl' },
-      
+
       // Business & Tax
-      { label: 'Business & Tax', href: '/programs/business-financial', isHeader: true },
+      {
+        label: 'Business & Tax',
+        href: '/programs/business-financial',
+        isHeader: true,
+      },
       { label: 'Business Startup', href: '/programs/business-startup' },
       { label: 'Tax Preparation', href: '/programs/tax-preparation' },
       { label: 'Tax Entrepreneurship', href: '/programs/tax-entrepreneurship' },
-      
+
       // Specialized Programs
       { label: 'Specialized Programs', href: '#', isHeader: true },
       { label: 'Drug Collector', href: '/programs/drug-collector' },
       { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
       { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
-      
+
       // Apprenticeships
-      { label: 'Apprenticeships', href: '/programs/apprenticeships', isHeader: true },
+      {
+        label: 'Apprenticeships',
+        href: '/programs/apprenticeships',
+        isHeader: true,
+      },
       { label: 'View All Apprenticeships', href: '/apprenticeships' },
     ],
   },
@@ -80,13 +102,13 @@ export const publicNav: NavSection[] = [
       { label: 'Find Funding', href: '/funding' },
       { label: 'Career Help', href: '/career-services' },
       { label: 'Get a Mentor', href: '/mentorship' },
-      
+
       // Employers
       { label: 'I Want to Hire', href: '#', isHeader: true },
       { label: 'Hire Our Graduates', href: '/hire-graduates' },
       { label: 'Become a Partner', href: '/partners' },
       { label: 'Workforce Solutions', href: '/workforce-partners' },
-      
+
       // Schools & Agencies
       { label: 'I Run a Program', href: '#', isHeader: true },
       { label: 'See the Platform', href: '/platform' },
@@ -111,19 +133,19 @@ export const publicNav: NavSection[] = [
       { label: 'Track Your Progress', href: '/features/progress-tracking' },
       { label: 'Earn Certificates', href: '/features/certificates' },
       { label: 'Get Help (AI Tutor)', href: '/features/ai-tutor' },
-      
+
       // Community
       { label: 'Connect with Others', href: '#', isHeader: true },
       { label: 'Join the Community', href: '/community' },
       { label: 'Find Study Groups', href: '/community/study-groups' },
       { label: 'Ask Questions', href: '/community/forums' },
-      
+
       // Career Services
       { label: 'Career Services', href: '#', isHeader: true },
       { label: 'Job Placement', href: '/career-services' },
       { label: 'Apprenticeships', href: '/apprenticeships' },
       { label: 'Resume Builder', href: '/features/resume-builder' },
-      
+
       // Admin & Compliance
       { label: 'Administration', href: '#', isHeader: true },
       { label: 'Program Management', href: '/features/program-management' },
@@ -141,7 +163,6 @@ export const publicNav: NavSection[] = [
       { label: 'Services', href: '/services' },
       { label: 'Resources', href: '/resources' },
       { label: 'Success Stories', href: '/success-stories' },
-      { label: 'Blog', href: '/blog' },
       { label: 'Events', href: '/events' },
       { label: 'Contact Us', href: '/contact' },
     ],
@@ -262,8 +283,8 @@ export function getNavigation(user?: { role?: string } | null) {
 
   if (user) {
     // Replace "Login" with role-specific dashboard
-    nav = nav.filter(section => section.label !== 'Login');
-    
+    nav = nav.filter((section) => section.label !== 'Login');
+
     // Add role-specific navigation
     switch (user.role) {
       case 'admin':
