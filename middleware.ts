@@ -162,7 +162,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // ============================================================================
-  // DOMAIN 3: www.elevateforhumanity.org - Public Website
+  // DOMAIN 3: www.elevateforhumanity.org - Public Website + All Portals
   // ============================================================================
   if (hostname.includes('elevateforhumanity.org')) {
     // Public pages - no authentication required
@@ -196,7 +196,56 @@ export async function middleware(request: NextRequest) {
       return supabaseResponse;
     }
 
-    // Student portal routes - require authentication
+    // Admin routes - require authentication and admin role
+    if (pathname.startsWith('/admin')) {
+      if (!user) {
+        const loginUrl = new URL('/admin/login', request.url);
+        loginUrl.searchParams.set('redirect', pathname);
+        return NextResponse.redirect(loginUrl);
+      }
+
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single();
+
+      if (profile && profile.role !== 'admin' && profile.role !== 'super_admin') {
+        return NextResponse.redirect(
+          new URL('/admin/login?error=unauthorized', request.url)
+        );
+      }
+
+      return supabaseResponse;
+    }
+
+    // Staff portal - require authentication and staff role
+    if (pathname.startsWith('/staff-portal')) {
+      if (!user) {
+        const loginUrl = new URL('/login', request.url);
+        loginUrl.searchParams.set('redirect', pathname);
+        return NextResponse.redirect(loginUrl);
+      }
+
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single();
+
+      if (
+        profile &&
+        profile.role !== 'staff' &&
+        profile.role !== 'admin' &&
+        profile.role !== 'super_admin'
+      ) {
+        return NextResponse.redirect(new URL('/login?error=unauthorized', request.url));
+      }
+
+      return supabaseResponse;
+    }
+
+    // Student portal and LMS - require authentication
     if (pathname.startsWith('/student') || pathname.startsWith('/lms')) {
       if (!user) {
         const loginUrl = new URL('/login', request.url);
@@ -204,18 +253,33 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(loginUrl);
       }
 
-      // Redirect students to LMS domain
+      return supabaseResponse;
+    }
+
+    // Program holder portal - require authentication
+    if (pathname.startsWith('/program-holder/portal')) {
+      if (!user) {
+        const loginUrl = new URL('/login', request.url);
+        loginUrl.searchParams.set('redirect', pathname);
+        return NextResponse.redirect(loginUrl);
+      }
+
       const { data: profile } = await supabase
         .from('profiles')
         .select('role')
         .eq('id', user.id)
         .single();
 
-      if (profile && (profile.role === 'student' || profile.role === 'apprentice')) {
-        return NextResponse.redirect(
-          new URL(`https://www.elevateeducationedu.com${pathname}`, request.url)
-        );
+      if (
+        profile &&
+        profile.role !== 'program_owner' &&
+        profile.role !== 'admin' &&
+        profile.role !== 'super_admin'
+      ) {
+        return NextResponse.redirect(new URL('/login?error=unauthorized', request.url));
       }
+
+      return supabaseResponse;
     }
 
     return supabaseResponse;
