@@ -120,7 +120,7 @@ export default function SiteFooter() {
           </div>
 
           {/* Main Footer Links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
             {/* For Students */}
             <div>
               <h3 className="font-semibold text-black text-sm mb-4">
@@ -128,43 +128,106 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link
-                    href="/apply"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
+                  <Link href="/apply" className="text-sm text-gray-700 hover:text-black transition">
                     Apply Now
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/programs"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
+                  <Link href="/programs" className="text-sm text-gray-700 hover:text-black transition">
                     Browse Programs
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/supersonic-fast-cash"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Tax Refund Advance
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/financial-aid"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
+                  <Link href="/funding" className="text-sm text-gray-700 hover:text-black transition">
                     Financial Aid
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/career-services"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
+                  <Link href="/career-services" className="text-sm text-gray-700 hover:text-black transition">
                     Career Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mentorship" className="text-sm text-gray-700 hover:text-black transition">
+                    Mentorship
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/community" className="text-sm text-gray-700 hover:text-black transition">
+                    Community
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h3 className="font-semibold text-black text-sm mb-4">
+                Services
+              </h3>
+              <ul className="space-y-2.5">
+                <li>
+                  <Link href="/supersonic-fast-cash" className="text-sm text-gray-700 hover:text-black transition">
+                    Supersonic Fast Cash
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/vita" className="text-sm text-gray-700 hover:text-black transition">
+                    VITA Tax Prep
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tax-filing" className="text-sm text-gray-700 hover:text-black transition">
+                    Tax Filing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/advising" className="text-sm text-gray-700 hover:text-black transition">
+                    Advising
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/career-fair" className="text-sm text-gray-700 hover:text-black transition">
+                    Career Fair
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="font-semibold text-black text-sm mb-4">
+                Resources
+              </h3>
+              <ul className="space-y-2.5">
+                <li>
+                  <Link href="/blog" className="text-sm text-gray-700 hover:text-black transition">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/videos" className="text-sm text-gray-700 hover:text-black transition">
+                    Videos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/webinars" className="text-sm text-gray-700 hover:text-black transition">
+                    Webinars
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/downloads" className="text-sm text-gray-700 hover:text-black transition">
+                    Downloads
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/help" className="text-sm text-gray-700 hover:text-black transition">
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/events" className="text-sm text-gray-700 hover:text-black transition">
+                    Events
                   </Link>
                 </li>
               </ul>
@@ -177,92 +240,28 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link
-                    href="/employers"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Employers
+                  <Link href="/hire-graduates" className="text-sm text-gray-700 hover:text-black transition">
+                    Hire Graduates
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/platform"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
+                  <Link href="/training-providers" className="text-sm text-gray-700 hover:text-black transition">
                     Training Providers
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/partners/workforce"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
+                  <Link href="/workforce-partners" className="text-sm text-gray-700 hover:text-black transition">
                     Workforce Boards
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/partners"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Partner With Us
+                  <Link href="/white-label" className="text-sm text-gray-700 hover:text-black transition">
+                    White Label
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/contact"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Schedule Demo
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Popular Programs */}
-            <div>
-              <h3 className="font-semibold text-black text-sm mb-4">
-                Popular Programs
-              </h3>
-              <ul className="space-y-2.5">
-                <li>
-                  <Link
-                    href="/programs/hvac-technician"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    HVAC Technician
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/barber-apprenticeship"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Barber Apprenticeship
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/direct-support-professional"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Direct Support Professional
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/professional-esthetician"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Professional Esthetician
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/programs/tax-prep-financial-services"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Tax Prep & Financial Services
+                  <Link href="/franchise" className="text-sm text-gray-700 hover:text-black transition">
+                    Franchise
                   </Link>
                 </li>
               </ul>

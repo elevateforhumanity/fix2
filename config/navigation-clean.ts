@@ -147,43 +147,65 @@ export const publicNav: NavSection[] = [
     ],
   },
   {
-    label: 'Get Started',
+    label: 'Learn',
     items: [
-      // Students
-      { label: 'I Want to Learn', href: '#', isHeader: true },
-      { label: 'Apply for Training', href: '/apply' },
-      { label: 'Find Funding', href: '/funding' },
-      { label: 'Career Help', href: '/career-services' },
-      { label: 'Get a Mentor', href: '/mentorship' },
-
-      // Employers
-      { label: 'I Want to Hire', href: '#', isHeader: true },
-      { label: 'Hire Our Graduates', href: '/hire-graduates' },
+      { label: 'Learning', href: '#', isHeader: true },
+      { label: 'Courses', href: '/courses' },
+      { label: 'Community', href: '/community' },
+      { label: 'Forums', href: '/forums' },
+      { label: 'Study Groups', href: '/study-groups' },
+      { label: 'Events', href: '/events' },
+      
+      { label: 'Resources', href: '#', isHeader: true },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Videos', href: '/videos' },
+      { label: 'Webinars', href: '/webinars' },
+      { label: 'Downloads', href: '/downloads' },
+      { label: 'Help Center', href: '/help' },
+      
+      { label: 'Alumni', href: '#', isHeader: true },
+      { label: 'Alumni Network', href: '/alumni' },
+      { label: 'Success Stories', href: '/success-stories' },
+    ],
+  },
+  {
+    label: 'Platform',
+    items: [
+      { label: 'For Schools', href: '#', isHeader: true },
+      { label: 'Platform Overview', href: '/platform' },
+      { label: 'For Training Providers', href: '/training-providers' },
+      { label: 'White Label', href: '/white-label' },
+      { label: 'Franchise Opportunities', href: '/franchise' },
+      
+      { label: 'For Employers', href: '#', isHeader: true },
+      { label: 'Hire Graduates', href: '/hire-graduates' },
       { label: 'Workforce Solutions', href: '/workforce-partners' },
-
-      // Schools & Agencies
-      { label: 'I Run a Program', href: '#', isHeader: true },
-      { label: 'See the Platform', href: '/platform' },
-      { label: 'License Our Platform', href: '/store/licenses' },
-      { label: 'Request Demo', href: '/contact' },
-      { label: 'Training Providers', href: '/training-providers' },
-    ],
-  },
-  {
-    label: 'AI Tools',
-    items: [
-      { label: 'AI Tutor (24/7 Help)', href: '/ai-tutor' },
-      { label: 'AI Chat Assistant', href: '/ai-chat' },
-      { label: 'AI Course Builder', href: '/ai/course-builder' },
-      { label: 'AI Job Matcher', href: '/ai/job-match' },
-    ],
-  },
-  {
-    label: 'Store',
-    items: [
+      
+      { label: 'Store', href: '#', isHeader: true },
       { label: 'Platform Licenses', href: '/store/licenses' },
       { label: 'Digital Products', href: '/store' },
-      { label: 'White-Label Info', href: '/white-label' },
+    ],
+  },
+  {
+    label: 'About',
+    items: [
+      { label: 'Company', href: '#', isHeader: true },
+      { label: 'Our Story', href: '/about' },
+      { label: 'Team', href: '/about/team' },
+      { label: 'Founder', href: '/founder' },
+      { label: 'What We Do', href: '/what-we-do' },
+      { label: 'Annual Report', href: '/annual-report' },
+      
+      { label: 'Trust & Compliance', href: '#', isHeader: true },
+      { label: 'Accreditation', href: '/accreditation' },
+      { label: 'Accessibility', href: '/accessibility' },
+      { label: 'Federal Compliance', href: '/federal-compliance' },
+      { label: 'Academic Integrity', href: '/academic-integrity' },
+      
+      { label: 'Media', href: '#', isHeader: true },
+      { label: 'News', href: '/news' },
+      { label: 'Media Showcase', href: '/media-showcase' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
@@ -193,50 +215,6 @@ export const publicNav: NavSection[] = [
   {
     label: 'Login',
     href: '/login',
-  },
-  {
-    label: 'How It Works',
-    items: [
-      // Learning
-      { label: 'Learning Online', href: '#', isHeader: true },
-      { label: 'Browse Courses', href: '/courses' },
-      { label: 'Track Your Progress', href: '/features/progress-tracking' },
-      { label: 'Earn Certificates', href: '/features/certificates' },
-      { label: 'AI Tutor (24/7 Help)', href: '/ai-tutor' },
-
-      // Community
-      { label: 'Connect with Others', href: '#', isHeader: true },
-      { label: 'Join the Community', href: '/community' },
-      { label: 'Community Marketplace', href: '/community/marketplace' },
-      { label: 'Find Study Groups', href: '/community/study-groups' },
-      { label: 'Ask Questions', href: '/community/forums' },
-
-      // Career Services
-      { label: 'Career Services', href: '#', isHeader: true },
-      { label: 'Job Placement', href: '/career-services' },
-      { label: 'Apprenticeships', href: '/apprenticeships' },
-      { label: 'Resume Builder', href: '/features/resume-builder' },
-
-      // Admin & Compliance
-      { label: 'Administration', href: '#', isHeader: true },
-      { label: 'Program Management', href: '/features/program-management' },
-      { label: 'Compliance Tracking', href: '/features/compliance' },
-      { label: 'Analytics & Reporting', href: '/features/analytics' },
-      { label: 'Accreditation', href: '/accreditation' },
-    ],
-  },
-  {
-    label: 'More',
-    items: [
-      { label: 'About Us', href: '/about' },
-      { label: 'How It Works', href: '/how-it-works' },
-      { label: 'Community', href: '/community' },
-      { label: 'Services', href: '/services' },
-      { label: 'Resources', href: '/resources' },
-      { label: 'Success Stories', href: '/success-stories' },
-      { label: 'Events', href: '/events' },
-      { label: 'Contact Us', href: '/contact' },
-    ],
   },
 ];
 
