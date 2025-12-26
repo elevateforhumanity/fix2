@@ -1,83 +1,12 @@
-import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
-import Link from 'next/link';
-import Image from 'next/image';
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/rise-foundation',
-  },
-  title: 'Rise Foundation | Elevate For Humanity',
-  description:
-    'Explore Rise Foundation and discover opportunities for career growth and development.',
-};
-
-export default async function RiseFoundationPage() {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Rise Foundation"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Rise Foundation
-          </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Rise Foundation and discover opportunities for career growth
-            and development.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              View Programs
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Content Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            {/* VITA Program Section */}
-            <div className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                VITA - Volunteer Income Tax Assistance
-              </h2>
-              <p className="text-gray-700 mb-6 text-lg">
-                The IRS's Volunteer Income Tax Assistance (VITA) program offers
-                free tax help to people who need assistance in preparing their
-                own tax returns. RISE Foundation is proud to be a VITA site
-                partner, providing free tax preparation services to qualifying
-                individuals.
-              </p>
-            </div>
-
-            {/* Feature Grid */}
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div>
-                <h3 className="text-lg md:text-lg font-bold mb-6">
-                  Who Qualifies for VITA?
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
+/**
+ * RISE Foundation = VITA (Same Organization)
+ * Redirect to main VITA page
+ */
+export default function RiseFoundationPage() {
+  redirect('/vita');
+}
                     <svg
                       className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
                       fill="none"

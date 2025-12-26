@@ -418,6 +418,45 @@ export default async function ProgramHolderDashboardOrchestrated() {
             </div>
           </div>
 
+          {/* Legal Documents */}
+          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+            <h3 className="text-lg font-bold text-slate-900 mb-4">
+              Legal Documents
+            </h3>
+            <div className="space-y-2">
+              <a
+                href="/legal/marketplace-terms"
+                className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition"
+              >
+                📄 Marketplace Terms
+              </a>
+              <a
+                href="/legal/creator-agreement"
+                className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition"
+              >
+                📄 Creator Agreement
+              </a>
+              <a
+                href="/legal/nda"
+                className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition"
+              >
+                📄 Non-Disclosure Agreement
+              </a>
+              <a
+                href="/legal/non-compete"
+                className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition"
+              >
+                📄 Non-Compete Agreement
+              </a>
+              <a
+                href="/legal/mou"
+                className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition"
+              >
+                📄 Memorandum of Understanding
+              </a>
+            </div>
+          </div>
+
           {/* Support Card */}
           <div className="bg-blue-50 rounded-lg border-2 border-blue-600 p-6">
             <h3 className="text-lg font-bold text-blue-900 mb-3">Need Help?</h3>

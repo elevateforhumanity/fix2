@@ -295,44 +295,50 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-400">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-600">
               <Link
                 href="/privacy-policy"
-                className="hover:text-white transition"
+                className="hover:text-black transition"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms-of-service"
-                className="hover:text-white transition"
+                className="hover:text-black transition"
               >
                 Terms of Service
               </Link>
               <Link
                 href="/refund-policy"
-                className="hover:text-white transition"
+                className="hover:text-black transition"
               >
                 Refund Policy
               </Link>
               <Link
                 href="/accessibility"
-                className="hover:text-white transition"
+                className="hover:text-black transition"
               >
                 Accessibility
               </Link>
-              <Link href="/cookies" className="hover:text-white transition">
-                Cookies
+              <Link href="/cookies" className="hover:text-black transition">
+                Cookie Policy
               </Link>
-              <Link href="/contact" className="hover:text-white transition">
+              <Link href="/security" className="hover:text-black transition">
+                Security
+              </Link>
+              <Link href="/federal-compliance" className="hover:text-black transition">
+                Federal Compliance
+              </Link>
+              <Link href="/contact" className="hover:text-black transition">
                 Contact
               </Link>
-              <Link href="/sitemap.xml" className="hover:text-white transition">
+              <Link href="/sitemap.xml" className="hover:text-black transition">
                 Sitemap
               </Link>
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-600">
               © {new Date().getFullYear()} Elevate For Humanity. All Rights
               Reserved.
             </p>

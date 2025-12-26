@@ -6,8 +6,11 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
-  title: 'Elevate For Humanity',
-  description: 'Career training and development programs',
+  title: 'RISE Foundation VITA | Free Tax Preparation | Elevate For Humanity',
+  description: 'RISE Foundation offers free IRS-certified tax preparation through VITA. Income $64,000 or less qualifies. Volunteer opportunities available.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/vita',
+  },
 };
 
 export default function VITAPage() {
@@ -29,15 +32,14 @@ export default function VITAPage() {
           <div className="text-white max-w-3xl">
             <div className="mb-4">
               <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
-                IRS Certified VITA Site
+                RISE Foundation | IRS Certified VITA Site
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Free Tax Prep VITA Center
+              Free Tax Preparation
             </h1>
             <p className="text-base md:text-lg mb-8 font-light">
-              IRS Volunteer Income Tax Assistance - Free tax preparation for
-              individuals earning $64,000 or less
+              RISE Foundation provides free IRS-certified tax preparation through VITA for individuals earning $64,000 or less
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

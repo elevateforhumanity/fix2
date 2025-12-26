@@ -1425,6 +1425,217 @@ export default function SupersonicFastCashPage() {
           </div>
         </div>
       </section>
+
+      {/* Required Documentation & Resources */}
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+            Required Documentation & Resources
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* IRS Requirements */}
+            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
+              <h3 className="text-xl font-bold mb-4 text-gray-900">
+                IRS Required Documents
+              </h3>
+              <p className="text-gray-700 mb-4">
+                To file your taxes and qualify for a refund advance, you'll need:
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Photo ID:</strong> Valid government-issued ID (driver's license, passport, state ID)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Social Security Card:</strong> For you and all dependents</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>W-2 Forms:</strong> From all employers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>1099 Forms:</strong> For self-employment, interest, dividends, etc.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Prior Year Return:</strong> Last year's tax return (if available)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Bank Account Info:</strong> For direct deposit (routing and account numbers)</span>
+                </li>
+              </ul>
+              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <p className="text-sm text-blue-900">
+                  <strong>IRS Resources:</strong> Visit{' '}
+                  <a 
+                    href="https://www.irs.gov/individuals/checklist-for-free-tax-return-preparation" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="underline hover:text-blue-700"
+                  >
+                    IRS.gov
+                  </a>{' '}
+                  for complete tax filing requirements and forms.
+                </p>
+              </div>
+            </div>
+
+            {/* EPS Financial Qualifications */}
+            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
+              <h3 className="text-xl font-bold mb-4 text-gray-900">
+                Refund Advance Qualifications
+              </h3>
+              <p className="text-gray-700 mb-4">
+                To qualify for an EPS Financial refund advance:
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Expected Refund:</strong> Minimum refund amount varies by loan size</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Identity Verification:</strong> Must pass identity verification process</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>No Credit Check:</strong> Credit score not required for approval</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>E-File Required:</strong> Must file electronically</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Underwriting:</strong> Subject to Pathward underwriting standards</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Age Requirement:</strong> Must be 18 years or older</span>
+                </li>
+              </ul>
+              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <p className="text-sm text-green-900">
+                  <strong>Learn More:</strong> Visit{' '}
+                  <a 
+                    href="https://www.epstax.net/taxpayer-advance-loan/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="underline hover:text-green-700"
+                  >
+                    EPSTax.net
+                  </a>{' '}
+                  for complete refund advance details and terms.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Resources */}
+          <div className="bg-blue-50 border-2 border-blue-600 rounded-xl p-8">
+            <h3 className="text-xl font-bold mb-4 text-blue-900">
+              Additional Resources
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div>
+                <h4 className="font-bold text-blue-900 mb-2">IRS Resources</h4>
+                <ul className="space-y-2 text-sm text-blue-800">
+                  <li>
+                    <a 
+                      href="https://www.irs.gov/refunds" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Check Refund Status
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="https://www.irs.gov/forms-instructions" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Tax Forms & Instructions
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="https://www.irs.gov/help/tax-law-questions" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Tax Law Questions
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-blue-900 mb-2">EPS Financial</h4>
+                <ul className="space-y-2 text-sm text-blue-800">
+                  <li>
+                    <a 
+                      href="https://www.epstax.net/taxpayer-advance-loan/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Advance Loan Details
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="https://www.epstax.net/tax-faq/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Frequently Asked Questions
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="https://www.epstax.net/contact/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Contact EPS Support
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-blue-900 mb-2">Pathward Bank</h4>
+                <ul className="space-y-2 text-sm text-blue-800">
+                  <li>
+                    <a 
+                      href="https://www.pathward.com/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-600"
+                    >
+                      Pathward.com
+                    </a>
+                  </li>
+                  <li>
+                    <span className="text-blue-800">Member FDIC</span>
+                  </li>
+                  <li>
+                    <span className="text-blue-800">Equal Housing Lender</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
