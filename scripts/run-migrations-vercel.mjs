@@ -159,9 +159,29 @@ try {
   
 } catch (err) {
   console.error('❌ Migration failed:', err.message);
+  console.error('   Error code:', err.code);
   
-  // Provide helpful error messages
-  if (err.message.includes('ENETUNREACH') || err.message.includes('2600:')) {
+  // Provide helpful error messages based on error type
+  if (err.message.includes('Tenant or user not found') || err.code === '28P01') {
+    console.log('');
+    console.log('🚨 AUTHENTICATION ERROR DETECTED');
+    console.log('   "Tenant or user not found" means PostgreSQL authentication failed.');
+    console.log('');
+    console.log('   This usually means:');
+    console.log('   1. Wrong password in DATABASE_URL');
+    console.log('   2. Wrong project reference in DATABASE_URL');
+    console.log('   3. DATABASE_URL is from a different/old Supabase project');
+    console.log('');
+    console.log('   🔍 Run diagnostic to identify the issue:');
+    console.log('   node scripts/diagnose-database-connection.mjs');
+    console.log('');
+    console.log('   ✅ To fix:');
+    console.log('   1. Go to Supabase Dashboard → Settings → Database');
+    console.log('   2. Copy "Connection string" → "Transaction mode" (pooler)');
+    console.log('   3. Update DATABASE_URL in Vercel with the EXACT string');
+    console.log('   4. Verify NEXT_PUBLIC_SUPABASE_URL matches the same project');
+    console.log('');
+  } else if (err.message.includes('ENETUNREACH') || err.message.includes('2600:')) {
     console.log('');
     console.log('💡 IPv6 Connection Issue Detected');
     console.log('   Your DATABASE_URL is using a direct connection that resolves to IPv6.');
@@ -171,6 +191,17 @@ try {
     console.log('   postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres');
     console.log('');
     console.log('   Get your pooler URL from: Supabase Dashboard → Settings → Database → Connection string → Transaction mode');
+    console.log('');
+  } else if (err.code === 'ENOTFOUND') {
+    console.log('');
+    console.log('🚨 HOST NOT FOUND');
+    console.log('   The database host in DATABASE_URL cannot be reached.');
+    console.log('   This means the hostname is wrong or the project doesn\'t exist.');
+    console.log('');
+    console.log('   ✅ To fix:');
+    console.log('   1. Verify you\'re using the correct Supabase project');
+    console.log('   2. Get fresh DATABASE_URL from Supabase Dashboard');
+    console.log('   3. Update in Vercel environment variables');
     console.log('');
   }
   
