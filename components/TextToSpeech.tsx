@@ -40,11 +40,9 @@ export default function TextToSpeech({ text, autoPlay = false, className = '' }:
     }
   }, []);
 
-  useEffect(() => {
-    if (autoPlay && text && selectedVoice) {
-      handlePlay();
-    }
-  }, [autoPlay, text, selectedVoice]);
+  // REMOVED: Auto-play on mount is blocked by browsers
+  // TTS must be user-triggered to play with sound
+  // Component is now "ready on load" but requires user click
 
   const handlePlay = () => {
     if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
@@ -71,6 +69,7 @@ export default function TextToSpeech({ text, autoPlay = false, className = '' }:
     utterance.onend = () => {
       setIsPlaying(false);
       setIsPaused(false);
+      // NO LOOP: Do not restart speech on end
     };
 
     utterance.onerror = () => {
