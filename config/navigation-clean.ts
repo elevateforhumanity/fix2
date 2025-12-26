@@ -35,6 +35,15 @@ export const publicNav: NavSection[] = [
         label: 'Direct Support Professional',
         href: '/programs/direct-support-professional',
       },
+      {
+        label: 'Phlebotomy Technician',
+        href: '/programs/phlebotomy-technician',
+      },
+      { label: 'CPR Certification', href: '/programs/cpr-certification' },
+      {
+        label: 'Emergency Health & Safety Tech',
+        href: '/programs/emergency-health-safety-tech',
+      },
 
       // Skilled Trades
       {
@@ -42,11 +51,13 @@ export const publicNav: NavSection[] = [
         href: '/programs/skilled-trades',
         isHeader: true,
       },
+      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
+      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
+      { label: 'Building Technician', href: '/programs/building-technician' },
       {
         label: 'Barber Apprenticeship',
         href: '/programs/barber-apprenticeship',
       },
-      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
 
       // Transportation
       {
@@ -62,9 +73,37 @@ export const publicNav: NavSection[] = [
         href: '/programs/business-financial',
         isHeader: true,
       },
-      { label: 'Business Startup', href: '/programs/business-startup' },
-      { label: 'Tax Preparation', href: '/programs/tax-preparation' },
-      { label: 'Tax Entrepreneurship', href: '/programs/tax-entrepreneurship' },
+      {
+        label: 'Business Startup & Marketing',
+        href: '/programs/business-startup-marketing',
+      },
+      {
+        label: 'Tax Prep & Financial Services',
+        href: '/programs/tax-prep-financial-services',
+      },
+
+      // Beauty & Wellness
+      {
+        label: 'Beauty & Wellness',
+        href: '/programs/beauty-wellness',
+        isHeader: true,
+      },
+      {
+        label: 'Professional Esthetician',
+        href: '/programs/professional-esthetician',
+      },
+      {
+        label: 'Esthetician Apprenticeship',
+        href: '/programs/esthetician-apprenticeship',
+      },
+      {
+        label: 'Nail Technician Apprenticeship',
+        href: '/programs/nail-technician-apprenticeship',
+      },
+      {
+        label: 'Beauty Career Educator',
+        href: '/programs/beauty-career-educator',
+      },
 
       // Specialized Programs
       { label: 'Specialized Programs', href: '#', isHeader: true },

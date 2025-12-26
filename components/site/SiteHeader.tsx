@@ -100,9 +100,10 @@ export default function SiteHeader() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4 relative">
           <Link
             href="/"
-            className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-base sm:text-lg"
+            className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-sm sm:text-base lg:text-lg"
           >
-            Elevate for Humanity
+            <span className="hidden sm:inline">Elevate for Humanity</span>
+            <span className="sm:hidden">Elevate</span>
           </Link>
 
           {/* Desktop Nav */}
