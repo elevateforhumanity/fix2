@@ -4,6 +4,7 @@ import {
   sendProgramHolderApplicationConfirmation,
   sendAdminProgramHolderNotification,
 } from '@/lib/email/service';
+import { checkRateLimit, verifyTurnstileToken } from '@/lib/turnstile';
 
 // Use service role for anonymous submissions
 const supabase = createClient(
@@ -14,6 +15,32 @@ const supabase = createClient(
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+
+    // Rate limiting by email
+    if (body.contactEmail) {
+      const rateLimit = checkRateLimit(
+        `program-holder:${body.contactEmail}`,
+        2,
+        300000
+      ); // 2 per 5 minutes
+      if (!rateLimit.allowed) {
+        return NextResponse.json(
+          { error: 'Too many requests. Please try again in a few minutes.' },
+          { status: 429 }
+        );
+      }
+    }
+
+    // Verify Turnstile token (if provided)
+    if (body.turnstileToken) {
+      const verification = await verifyTurnstileToken(body.turnstileToken);
+      if (!verification.success) {
+        return NextResponse.json(
+          { error: verification.error || 'Verification failed' },
+          { status: 400 }
+        );
+      }
+    }
 
     // Validation
     if (!body.organizationName || !body.contactName || !body.contactEmail) {
