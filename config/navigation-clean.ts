@@ -117,6 +117,15 @@ export const publicNav: NavSection[] = [
     ],
   },
   {
+    label: 'AI Tools',
+    items: [
+      { label: 'AI Tutor (24/7 Help)', href: '/ai-tutor' },
+      { label: 'AI Chat Assistant', href: '/ai-chat' },
+      { label: 'AI Course Builder', href: '/ai/course-builder' },
+      { label: 'AI Job Matcher', href: '/ai/job-match' },
+    ],
+  },
+  {
     label: 'Store',
     items: [
       { label: 'Platform Licenses', href: '/store/licenses' },
@@ -140,7 +149,7 @@ export const publicNav: NavSection[] = [
       { label: 'Browse Courses', href: '/courses' },
       { label: 'Track Your Progress', href: '/features/progress-tracking' },
       { label: 'Earn Certificates', href: '/features/certificates' },
-      { label: 'Get Help (AI Tutor)', href: '/features/ai-tutor' },
+      { label: 'AI Tutor (24/7 Help)', href: '/ai-tutor' },
 
       // Community
       { label: 'Connect with Others', href: '#', isHeader: true },
