@@ -2,10 +2,41 @@ import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import { orchestrateEnrollment } from '@/lib/enrollment/orchestrate-enrollment';
+import {
+  sendApplicationConfirmation,
+  sendAdminApplicationNotification,
+} from '@/lib/email/service';
+import { checkRateLimit, verifyTurnstileToken } from '@/lib/turnstile';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}));
+
+    // Rate limiting by email
+    if (body.email) {
+      const rateLimit = checkRateLimit(`enroll:${body.email}`, 3, 60000); // 3 per minute
+      if (!rateLimit.allowed) {
+        return NextResponse.json(
+          {
+            message: 'Too many requests. Please try again in a minute.',
+          },
+          { status: 429 }
+        );
+      }
+    }
+
+    // Verify Turnstile token (if provided)
+    if (body.turnstileToken) {
+      const verification = await verifyTurnstileToken(body.turnstileToken);
+      if (!verification.success) {
+        return NextResponse.json(
+          {
+            message: verification.error || 'Verification failed',
+          },
+          { status: 400 }
+        );
+      }
+    }
 
     const required = ['firstName', 'lastName', 'email', 'preferredProgramId'];
     const missing = required.filter((key) => !body[key]);
@@ -124,8 +155,23 @@ export async function POST(req: Request) {
       });
     }
 
-    // Confirmation email sent via webhook to applicant
-    
+    // Send confirmation email to applicant (non-blocking)
+    sendApplicationConfirmation(
+      body.email,
+      `${body.firstName} ${body.lastName}`,
+      body.preferredProgramId
+    ).catch((err) =>
+      logger.error('[Email] Application confirmation failed:', err)
+    );
+
+    // Send notification to admin team (non-blocking)
+    sendAdminApplicationNotification(
+      `${body.firstName} ${body.lastName}`,
+      body.email,
+      body.preferredProgramId,
+      studentId || 'pending'
+    ).catch((err) => logger.error('[Email] Admin notification failed:', err));
+
     return NextResponse.json(
       {
         message:

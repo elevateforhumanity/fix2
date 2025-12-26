@@ -1,21 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import {
+  sendProgramHolderApplicationConfirmation,
+  sendAdminProgramHolderNotification,
+} from '@/lib/email/service';
+import { checkRateLimit, verifyTurnstileToken } from '@/lib/turnstile';
 
 // Use service role for anonymous submissions
-const supabase = process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
-  ? createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    )
-  : null;
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 export async function POST(req: NextRequest) {
   try {
-    if (!supabase) {
-      return NextResponse.json({ error: 'Service not configured' }, { status: 503 });
+    const body = await req.json();
+
+    // Rate limiting by email
+    if (body.contactEmail) {
+      const rateLimit = checkRateLimit(
+        `program-holder:${body.contactEmail}`,
+        2,
+        300000
+      ); // 2 per 5 minutes
+      if (!rateLimit.allowed) {
+        return NextResponse.json(
+          { error: 'Too many requests. Please try again in a few minutes.' },
+          { status: 429 }
+        );
+      }
     }
 
-    const body = await req.json();
+    // Verify Turnstile token (if provided)
+    if (body.turnstileToken) {
+      const verification = await verifyTurnstileToken(body.turnstileToken);
+      if (!verification.success) {
+        return NextResponse.json(
+          { error: verification.error || 'Verification failed' },
+          { status: 400 }
+        );
+      }
+    }
 
     // Validation
     if (!body.organizationName || !body.contactName || !body.contactEmail) {
@@ -83,8 +108,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Confirmation email sent via webhook to applicant
-    
+    // Send confirmation email to applicant (non-blocking)
+    sendProgramHolderApplicationConfirmation(
+      body.contactEmail,
+      body.organizationName
+    ).catch((err) =>
+      console.error('[Email] Program holder confirmation failed:', err)
+    );
+
+    // Send notification to admin (non-blocking)
+    sendAdminProgramHolderNotification(
+      body.organizationName,
+      body.contactEmail,
+      application.id
+    ).catch((err) => console.error('[Email] Admin notification failed:', err));
+
     return NextResponse.json({
       success: true,
       applicationId: application.id,
