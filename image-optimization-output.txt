@@ -1,0 +1,69 @@
+🖼️  Image Optimization Script
+
+
+📸 Processing Team Photos (528x444 → 1200x800)...
+
+Upscaling: ./public/images/team-new/team-2.jpg
+✅ Upscaled to 1200x800
+Upscaling: ./public/images/team-new/team-4.jpg
+✅ Upscaled to 1200x800
+Upscaling: ./public/images/team-new/team-6.jpg
+✅ Upscaled to 1200x800
+Upscaling: ./public/images/team-new/team-8.jpg
+✅ Upscaled to 1200x800
+Upscaling: ./public/images/team-new/team-10.jpg
+✅ Upscaled to 1200x800
+Upscaling: ./public/images/team-new/team-12.jpg
+✅ Upscaled to 1200x800
+
+🎨 Processing Portfolio Pieces (400x400 → 800x800)...
+
+Upscaling: ./public/images/split/piece-1.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-2.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-4.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-5.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-6.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-7.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-9.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-10.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-11.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-12.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-13.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-14.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-15.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-16.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-17.png
+✅ Upscaled to 800x800
+Upscaling: ./public/images/split/piece-18.png
+✅ Upscaled to 800x800
+
+🖼️  Processing Hero Images (→ 1920x1080)...
+
+Upscaling: ./public/images/heroes/programs/healthcare/hero-program-cna.jpg
+✅ Upscaled to 1920x1080
+
+============================================================
+📊 Summary:
+✅ Successfully processed: 23
+❌ Failed: 0
+============================================================
+
+💡 Next Steps:
+1. Review upscaled images for quality
+2. Replace with professional photos if needed
+3. Backups saved as *.backup.jpg/png
+4. Run: git add public/images && git commit -m "Upscale images to professional resolution"
