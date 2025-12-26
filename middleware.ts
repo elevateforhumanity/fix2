@@ -1,13 +1,61 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { createClient } from '@/lib/supabase/middleware';
+import { createServerClient } from '@supabase/ssr';
 
 export async function middleware(request: NextRequest) {
   const { pathname, hostname } = request.nextUrl;
-  const response = NextResponse.next();
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
 
   // Initialize Supabase client
-  const { supabase, response: supabaseResponse } = createClient(request);
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return request.cookies.get(name)?.value;
+        },
+        set(name: string, value: string, options: any) {
+          request.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+          response = NextResponse.next({
+            request: {
+              headers: request.headers,
+            },
+          });
+          response.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+        },
+        remove(name: string, options: any) {
+          request.cookies.set({
+            name,
+            value: '',
+            ...options,
+          });
+          response = NextResponse.next({
+            request: {
+              headers: request.headers,
+            },
+          });
+          response.cookies.set({
+            name,
+            value: '',
+            ...options,
+          });
+        },
+      },
+    }
+  );
 
   // Get user session
   const {
@@ -27,7 +75,7 @@ export async function middleware(request: NextRequest) {
       pathname.startsWith('/auth') ||
       pathname.startsWith('/api')
     ) {
-      return supabaseResponse;
+      return response;
     }
 
     // Require authentication for all other pages
@@ -63,7 +111,7 @@ export async function middleware(request: NextRequest) {
       }
     }
 
-    return supabaseResponse;
+    return response;
   }
 
   // ============================================================================
@@ -79,7 +127,7 @@ export async function middleware(request: NextRequest) {
       pathname.startsWith('/auth') ||
       pathname.startsWith('/api')
     ) {
-      return supabaseResponse;
+      return response;
     }
 
     // Require authentication for all other pages
@@ -158,7 +206,7 @@ export async function middleware(request: NextRequest) {
       }
     }
 
-    return supabaseResponse;
+    return response;
   }
 
   // ============================================================================
@@ -193,7 +241,7 @@ export async function middleware(request: NextRequest) {
     );
 
     if (isPublicPath) {
-      return supabaseResponse;
+      return response;
     }
 
     // Admin routes - require authentication and admin role
@@ -216,7 +264,7 @@ export async function middleware(request: NextRequest) {
         );
       }
 
-      return supabaseResponse;
+      return response;
     }
 
     // Staff portal - require authentication and staff role
@@ -242,7 +290,7 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/login?error=unauthorized', request.url));
       }
 
-      return supabaseResponse;
+      return response;
     }
 
     // Student portal and LMS - require authentication
@@ -253,7 +301,7 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(loginUrl);
       }
 
-      return supabaseResponse;
+      return response;
     }
 
     // Program holder portal - require authentication
@@ -279,14 +327,14 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/login?error=unauthorized', request.url));
       }
 
-      return supabaseResponse;
+      return response;
     }
 
-    return supabaseResponse;
+    return response;
   }
 
   // Default - allow request
-  return supabaseResponse;
+  return response;
 }
 
 export const config = {
