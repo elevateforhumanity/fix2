@@ -1,120 +1,80 @@
-// lib/integrations/zoom.ts
-import { logger } from '@/lib/logger';
-// Zoom API integration for live learning sessions
+/**
+ * Zoom Video API Integration
+ */
 
-const ZOOM_API_BASE = 'https://api.zoom.us/v2';
+interface ZoomConfig {
+  accountId: string;
+  clientId: string;
+  clientSecret: string;
+}
 
-const ZOOM_ACCOUNT_ID = process.env.ZOOM_ACCOUNT_ID;
-const ZOOM_CLIENT_ID = process.env.ZOOM_CLIENT_ID;
-const ZOOM_CLIENT_SECRET = process.env.ZOOM_CLIENT_SECRET;
-const ZOOM_JWT_TOKEN = process.env.ZOOM_JWT_TOKEN; // Legacy JWT
-
-type CreateZoomMeetingInput = {
+interface Meeting {
   topic: string;
-  startTime: string; // ISO string
-  durationMinutes: number;
-  timezone?: string;
-  agenda?: string;
-};
-
-type ZoomMeetingResponse = {
-  id: number;
-  join_url: string;
-  start_url: string;
-  password?: string;
-  host_email?: string;
-};
-
-/**
- * Create a scheduled Zoom meeting
- */
-export async function createZoomMeeting(
-  userId: string,
-  input: CreateZoomMeetingInput
-): Promise<ZoomMeetingResponse> {
-  if (!ZOOM_JWT_TOKEN) {
-    throw new Error('ZOOM_JWT_TOKEN not configured');
-  }
-
-  const body = {
-    topic: input.topic,
-    type: 2, // scheduled meeting
-    start_time: input.startTime,
-    duration: input.durationMinutes,
-    timezone: input.timezone || 'America/New_York',
-    agenda: input.agenda || '',
-    settings: {
-      host_video: true,
-      participant_video: true,
-      join_before_host: false,
-      mute_upon_entry: true,
-      waiting_room: true,
-      approval_type: 0, // automatically approve
-      audio: 'both',
-      auto_recording: 'cloud', // record to cloud
-    },
-  };
-
-  const res = await fetch(`${ZOOM_API_BASE}/users/${userId}/meetings`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${ZOOM_JWT_TOKEN}`,
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    const text = await res.text();
-    logger.error('Zoom create meeting error', new Error(text), { topic: input.topic, startTime: input.startTime, status: res.status });
-    throw new Error('Failed to create Zoom meeting');
-  }
-
-  return (await res.json()) as ZoomMeetingResponse;
+  startTime: string;
+  duration: number;
+  timezone: string;
 }
 
-/**
- * Delete a Zoom meeting
- */
-export async function deleteZoomMeeting(meetingId: number): Promise<void> {
-  if (!ZOOM_JWT_TOKEN) {
-    throw new Error('ZOOM_JWT_TOKEN not configured');
+export class ZoomClient {
+  private config: ZoomConfig;
+  private baseUrl = 'https://api.zoom.us/v2';
+  private accessToken: string = '';
+
+  constructor(config: ZoomConfig) {
+    this.config = config;
   }
 
-  const res = await fetch(`${ZOOM_API_BASE}/meetings/${meetingId}`, {
-    method: 'DELETE',
-    headers: {
-      Authorization: `Bearer ${ZOOM_JWT_TOKEN}`,
-    },
-  });
+  async authenticate(): Promise<void> {
+    const response = await fetch('https://zoom.us/oauth/token', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${Buffer.from(`${this.config.clientId}:${this.config.clientSecret}`).toString('base64')}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `grant_type=account_credentials&account_id=${this.config.accountId}`,
+    });
 
-  if (!res.ok) {
-    const text = await res.text();
-    logger.error('Zoom delete meeting error', new Error(text), { meetingId, status: res.status });
-    throw new Error('Failed to delete Zoom meeting');
+    const data = await response.json();
+    this.accessToken = data.access_token;
+  }
+
+  async createMeeting(meeting: Meeting): Promise<any> {
+    if (!this.accessToken) await this.authenticate();
+
+    const response = await fetch(`${this.baseUrl}/users/me/meetings`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        topic: meeting.topic,
+        type: 2,
+        start_time: meeting.startTime,
+        duration: meeting.duration,
+        timezone: meeting.timezone,
+        settings: {
+          host_video: true,
+          participant_video: true,
+          join_before_host: false,
+          mute_upon_entry: true,
+          waiting_room: true,
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Zoom API error: ${response.statusText}`);
+    }
+
+    return response.json();
   }
 }
 
-/**
- * Get meeting details
- */
-export async function getZoomMeeting(meetingId: number): Promise<ZoomMeetingResponse> {
-  if (!ZOOM_JWT_TOKEN) {
-    throw new Error('ZOOM_JWT_TOKEN not configured');
-  }
-
-  const res = await fetch(`${ZOOM_API_BASE}/meetings/${meetingId}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${ZOOM_JWT_TOKEN}`,
-    },
+export function createZoomClient(): ZoomClient {
+  return new ZoomClient({
+    accountId: process.env.ZOOM_ACCOUNT_ID || '',
+    clientId: process.env.ZOOM_CLIENT_ID || '',
+    clientSecret: process.env.ZOOM_CLIENT_SECRET || '',
   });
-
-  if (!res.ok) {
-    const text = await res.text();
-    logger.error('Zoom get meeting error', new Error(text), { meetingId, status: res.status });
-    throw new Error('Failed to get Zoom meeting');
-  }
-
-  return (await res.json()) as ZoomMeetingResponse;
 }
