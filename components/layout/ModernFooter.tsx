@@ -255,8 +255,8 @@ export function ModernFooter() {
             <form className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors"
+                Content="Enter your email"
+                className="flex-1 px-6 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white Content-slate-500 focus:outline-none focus:border-red-500 transition-colors"
               />
               <button
                 type="submit"

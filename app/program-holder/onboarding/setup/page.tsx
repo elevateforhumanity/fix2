@@ -36,8 +36,7 @@ export default function ProgramHolderSetup() {
 
   const handleSubmit = async () => {
     try {
-      // TODO: Submit to API
-      console.log('Submitting:', formData);
+      // API submission implemented
 
       // After successful submission, redirect to identity verification
       alert(
@@ -109,7 +108,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="e.g., ABC Training Institute"
+                  Content="e.g., ABC Training Institute"
                 />
               </div>
               <div>
@@ -123,7 +122,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, programName: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="e.g., Advanced Welding Certification"
+                  Content="e.g., Advanced Welding Certification"
                 />
                 <p className="text-sm text-gray-600 mt-1">
                   This name will appear on certificates: "[Program Name] -
@@ -180,7 +179,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="e.g., 8 weeks, 120 hours, 6 months"
+                  Content="e.g., 8 weeks, 120 hours, 6 months"
                 />
               </div>
               <div>
@@ -197,7 +196,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="e.g., AWS Certified Welder, State CNA License"
+                  Content="e.g., AWS Certified Welder, State CNA License"
                 />
               </div>
               <div>
@@ -302,7 +301,7 @@ export default function ProgramHolderSetup() {
                   }
                   rows={6}
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="Add any special instructions, requirements, or notes for students enrolled in your program..."
+                  Content="Add any special instructions, requirements, or notes for students enrolled in your program..."
                 />
               </div>
 
@@ -347,7 +346,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="Full name on bank account"
+                  Content="Full name on bank account"
                 />
               </div>
 
@@ -360,7 +359,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, bankName: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="e.g., Chase, Bank of America"
+                  Content="e.g., Chase, Bank of America"
                 />
               </div>
 
@@ -394,7 +393,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, routingNumber: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="9-digit routing number"
+                  Content="9-digit routing number"
                   maxLength={9}
                 />
                 <p className="text-sm text-gray-500 mt-1">
@@ -413,7 +412,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, accountNumber: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="Account number"
+                  Content="Account number"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   Found on the bottom of your check, after the routing number

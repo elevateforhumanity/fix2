@@ -51,7 +51,7 @@ export function DiscussionForum({ courseId, posts = [] }: DiscussionForumProps) 
           <textarea
             value={newPost}
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewPost(e.target.value)}
-            placeholder="Share your thoughts, ask a question, or start a discussion..."
+            Content="Share your thoughts, ask a question, or start a discussion..."
             className="w-full p-4 border rounded-lg min-h-[120px] focus:ring-2 focus:ring-red-500 focus:border-red-500"
           />
           <div className="flex justify-end">

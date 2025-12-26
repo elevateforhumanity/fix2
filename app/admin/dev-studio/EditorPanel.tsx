@@ -10,7 +10,7 @@ export default function EditorPanel({ value, onChange }) {
       value={value}
       onChange={(v) => onChange(v ?? "")}
       options={{
-        minimap: { enabled: false },
+        minimap: { enabled: true },
         fontSize: 13,
         smoothScrolling: true,
       }}

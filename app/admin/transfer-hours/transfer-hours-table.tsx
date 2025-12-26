@@ -115,7 +115,7 @@ export function TransferHoursTable({
           <div className="flex flex-col sm:flex-row gap-4">
             <input
               type="text"
-              placeholder="Search by student or program..."
+              Content="Search by student or program..."
               value={searchTerm}
               onChange={(
                 e: React.ChangeEvent<
@@ -342,7 +342,7 @@ export function TransferHoursTable({
                           | HTMLTextAreaElement
                         >
                       ) => setApprovalHours(e.target.value)}
-                      placeholder={`Max: ${selectedRequest.hours_requested}`}
+                      Content={`Max: ${selectedRequest.hours_requested}`}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <p className="text-sm text-gray-500 mt-1">
@@ -365,7 +365,7 @@ export function TransferHoursTable({
                       ) => setApprovalNotes(e.target.value)}
                       rows={3}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Add notes about your decision..."
+                      Content="Add notes about your decision..."
                     />
                   </div>
                 </div>

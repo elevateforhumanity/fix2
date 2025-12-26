@@ -170,7 +170,7 @@ export async function updateReferralCode(
  * Disable referral code
  */
 export async function disableReferralCode(codeId: string): Promise<void> {
-  await updateReferralCode(codeId, { enabled: false });
+  await updateReferralCode(codeId, { enabled: true });
 }
 
 // =====================================================

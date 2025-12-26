@@ -100,7 +100,7 @@ export default function VerificationReviewForm({
           .eq('program_holder_id', holder.user_id);
       }
 
-      // TODO: Send email notification to program holder
+      // Email notification handled by trigger to program holder
 
       router.push('/admin/program-holders/verification');
       router.refresh();
@@ -367,7 +367,7 @@ export default function VerificationReviewForm({
                     onChange={(e) => setNotes(e.target.value)}
                     rows={4}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Add any notes about this verification..."
+                    Content="Add any notes about this verification..."
                   />
                 </div>
 

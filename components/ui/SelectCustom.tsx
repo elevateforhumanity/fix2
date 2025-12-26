@@ -13,7 +13,7 @@ export interface SelectProps {
   options: SelectOption[];
   value?: string | string[];
   onChange: (value: string | string[]) => void;
-  placeholder?: string;
+  Content?: string;
   label?: string;
   error?: string;
   disabled?: boolean;
@@ -27,7 +27,7 @@ export const Select: React.FC<SelectProps> = ({
   options,
   value,
   onChange,
-  placeholder = 'Select...',
+  Content = 'Select...',
   label,
   error,
   disabled = false,
@@ -120,7 +120,7 @@ export const Select: React.FC<SelectProps> = ({
         >
           <div className="flex items-center justify-between">
             <span className={selectedValues.length === 0 ? 'text-slate-400' : 'text-slate-900'}>
-              {selectedValues.length === 0 ? placeholder : selectedLabels}
+              {selectedValues.length === 0 ? Content : selectedLabels}
             </span>
             <div className="flex items-center gap-2">
               {selectedValues.length > 0 && !disabled && (
@@ -147,7 +147,7 @@ export const Select: React.FC<SelectProps> = ({
                     type="text"
                     value={searchQuery}
                     onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
-                    placeholder="Search..."
+                    Content="Search..."
                     className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>

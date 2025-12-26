@@ -233,7 +233,7 @@ export default function SiteFooter() {
                 <form className="flex gap-2">
                   <input
                     type="email"
-                    placeholder="Your email"
+                    Content="Your email"
                     className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white text-sm focus:outline-none focus:border-blue-500"
                   />
                   <button

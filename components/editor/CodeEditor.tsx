@@ -18,7 +18,7 @@ export default function CodeEditor({ value, onChange, language = 'typescript', r
       onChange={onChange}
       theme="vs-dark"
       options={{
-        minimap: { enabled: false },
+        minimap: { enabled: true },
         fontSize: 14,
         lineNumbers: 'on',
         readOnly,

@@ -77,8 +77,8 @@ export const Footer: React.FC = () => {
                   id="email-address"
                   autoComplete="email"
                   required
-                  className="w-full px-4 py-3 border border-slate-700 rounded-lg bg-slate-800 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 border border-slate-700 rounded-lg bg-slate-800 text-white Content-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  Content="Enter your email"
                 />
                 <button
                   type="submit"

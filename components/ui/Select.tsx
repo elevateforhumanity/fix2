@@ -111,14 +111,14 @@ export const SelectTrigger = React.forwardRef<
 SelectTrigger.displayName = 'SelectTrigger';
 
 interface SelectValueProps {
-  placeholder?: string;
+  Content?: string;
 }
 
 export const SelectValue: React.FC<SelectValueProps> = ({
-  placeholder = 'Select...',
+  Content = 'Select...',
 }) => {
   const { value } = useSelectContext();
-  return <span>{value || placeholder}</span>;
+  return <span>{value || Content}</span>;
 };
 
 interface SelectContentProps {

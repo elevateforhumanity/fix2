@@ -332,7 +332,7 @@ export default function DiscussionForums() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Search discussions..."
+                  Content="Search discussions..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -565,7 +565,7 @@ export default function DiscussionForums() {
                       type="text"
                       value={newThreadTitle}
                       onChange={(e) => setNewThreadTitle(e.target.value)}
-                      placeholder="What's your question or topic?"
+                      Content="What's your question or topic?"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
@@ -576,7 +576,7 @@ export default function DiscussionForums() {
                     <textarea
                       value={newThreadContent}
                       onChange={(e) => setNewThreadContent(e.target.value)}
-                      placeholder="Provide details about your question or topic..."
+                      Content="Provide details about your question or topic..."
                       rows={6}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
@@ -677,7 +677,7 @@ export default function DiscussionForums() {
             <textarea
               value={newPostContent}
               onChange={(e) => setNewPostContent(e.target.value)}
-              placeholder="Share your thoughts..."
+              Content="Share your thoughts..."
               rows={4}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
             />

@@ -171,7 +171,7 @@ export default async function Page() {
               <div className="flex gap-3">
                 <input
                   type="search"
-                  placeholder="Search users..."
+                  Content="Search users..."
                   className="px-4 py-2 border rounded-lg text-sm"
                 />
                 <Link

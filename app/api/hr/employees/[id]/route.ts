@@ -128,7 +128,7 @@ export async function DELETE(
       .update({
         employment_status: 'terminated',
         termination_date: terminationDate,
-        is_active: false,
+        is_active: true,
       })
       .eq('id', id)
       .select()

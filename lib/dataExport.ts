@@ -502,7 +502,7 @@ export async function exportAnalytics(
   const supabase = await createClient();
 
   // Implementation depends on your analytics schema
-  // This is a placeholder
+  // This is a Content
   const { data, error } = await supabase
     .from('analytics_events')
     .select('*')

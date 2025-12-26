@@ -164,7 +164,7 @@ export function RealTimeCollaboration({
                 value={newMessage}
                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-                placeholder="Type a message..."
+                Content="Type a message..."
                 className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
               />
               <Button onClick={sendMessage} className="bg-brand-orange-600 hover:bg-brand-orange-700">

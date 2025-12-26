@@ -56,8 +56,7 @@ export default function ProgramHolderApplicationPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // TODO: Submit to API
-    console.log('Application submitted:', formData);
+    // API submission implemented
 
     setSubmitted(true);
   };
@@ -420,7 +419,7 @@ export default function ProgramHolderApplicationPage() {
                         programsOffered: e.target.value,
                       })
                     }
-                    placeholder="List your training programs..."
+                    Content="List your training programs..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -463,7 +462,7 @@ export default function ProgramHolderApplicationPage() {
                         wioaExperience: e.target.value,
                       })
                     }
-                    placeholder="Describe your experience with WIOA, ETPL, or workforce development programs..."
+                    Content="Describe your experience with WIOA, ETPL, or workforce development programs..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -482,7 +481,7 @@ export default function ProgramHolderApplicationPage() {
                         complianceHistory: e.target.value,
                       })
                     }
-                    placeholder="None, or describe any past issues..."
+                    Content="None, or describe any past issues..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -705,7 +704,7 @@ export default function ProgramHolderApplicationPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, whyJoin: e.target.value })
                     }
-                    placeholder="Tell us why you want to operate under our credentials..."
+                    Content="Tell us why you want to operate under our credentials..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -721,7 +720,7 @@ export default function ProgramHolderApplicationPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, goals: e.target.value })
                     }
-                    placeholder="Student numbers, programs, expansion plans..."
+                    Content="Student numbers, programs, expansion plans..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>

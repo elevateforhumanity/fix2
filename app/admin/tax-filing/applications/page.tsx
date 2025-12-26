@@ -95,7 +95,7 @@ export default async function TaxFilingApplicationsPage() {
           <div className="grid md:grid-cols-4 gap-4">
             <input
               type="search"
-              placeholder="Search by name or email..."
+              Content="Search by name or email..."
               className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
             <select className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">

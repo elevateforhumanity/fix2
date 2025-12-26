@@ -28,7 +28,6 @@ export function ClaimApplications() {
         if (error) {
           console.error('Error claiming applications:', error);
         } else if (data > 0) {
-          console.log(`Claimed ${data} application(s)`);
         }
       } catch (err) {
         console.error('Unexpected error claiming applications:', err);

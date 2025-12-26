@@ -65,8 +65,6 @@ export default function SiteHeader() {
   // Debug: Check if navigation is loaded
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      console.log('Navigation loaded:', navigation?.length, 'sections');
-      console.log('User authenticated:', !!user);
     }
   }, [navigation, user]);
 

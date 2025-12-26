@@ -40,7 +40,7 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
         <div className="flex flex-col sm:flex-row gap-4">
           <input
             type="text"
-            placeholder="Search programs..."
+            Content="Search programs..."
             value={searchTerm}
             onChange={(
               e: React.ChangeEvent<

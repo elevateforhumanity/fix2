@@ -78,7 +78,7 @@ export default async function CompleteCourse({ params }: { params: Params }) {
                 name="evidenceUrl"
                 type="url"
                 className="mt-2 w-full rounded-xl border px-4 py-3"
-                placeholder="Paste a file link or leave blank"
+                Content="Paste a file link or leave blank"
               />
               <p className="mt-1 text-xs opacity-60">
                 Upload your certificate to Supabase Storage or another service,

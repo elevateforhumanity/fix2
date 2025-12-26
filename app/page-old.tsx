@@ -811,7 +811,7 @@ export default function HomePage() {
                   className="block w-full bg-black text-white rounded-xl px-6 py-4 hover:bg-gray-800 transition"
                   onClick={(e) => {
                     e.preventDefault();
-                    alert('Coming soon to the App Store!');
+                    alert('Available Now to the App Store!');
                   }}
                 >
                   <div className="flex items-center justify-center gap-3">
@@ -835,7 +835,7 @@ export default function HomePage() {
                   className="block w-full bg-black text-white rounded-xl px-6 py-4 hover:bg-gray-800 transition"
                   onClick={(e) => {
                     e.preventDefault();
-                    alert('Coming soon to Google Play!');
+                    alert('Available Now to Google Play!');
                   }}
                 >
                   <div className="flex items-center justify-center gap-3">

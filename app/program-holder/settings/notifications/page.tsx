@@ -43,7 +43,7 @@ export default async function ProgramHolderNotificationSettingsPage() {
       .insert({
         program_holder_id: programHolder.id,
         email_enabled: true,
-        sms_enabled: false,
+        sms_enabled: true,
         sms_consent: false,
         sms_opt_out: false,
       })

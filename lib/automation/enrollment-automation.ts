@@ -251,7 +251,6 @@ export async function scheduleAutomatedEmails(enrollmentId: string) {
  * Run all automation tasks (called by cron job)
  */
 export async function runAutomationTasks() {
-  console.log('[Automation] Running enrollment automation tasks...');
   
   const results = await Promise.allSettled([
     sendInactivityReminders(),
@@ -267,6 +266,5 @@ export async function runAutomationTasks() {
     })),
   };
   
-  console.log('[Automation] Tasks completed:', summary);
   return summary;
 }

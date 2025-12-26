@@ -234,7 +234,7 @@ export default function DonatePage() {
                 <span className="text-slate-700 font-semibold">$</span>
                 <input
                   type="number"
-                  placeholder="Custom amount"
+                  Content="Custom amount"
                   className="flex-1 px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none"
                 />
               </div>

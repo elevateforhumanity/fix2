@@ -90,8 +90,8 @@ export async function POST(req: Request) {
       joinUrl = zoom.join_url;
     } else if (provider === 'teams') {
       // Teams integration would go here
-      // For now, use a placeholder
-      joinUrl = 'https://teams.microsoft.com/l/meetup-join/placeholder';
+      // For now, use a Content
+      joinUrl = 'https://teams.microsoft.com/l/meetup-join/Content';
     }
 
     const { data: meeting, error } = await supabase

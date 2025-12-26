@@ -17,7 +17,7 @@ export const LineChart = ({ data, title }) => {
   return (
     <div className="chart-container">
       <h3>{title}</h3>
-      <div className="chart-placeholder">Line chart visualization</div>
+      <div className="chart-Content">Line chart visualization</div>
     </div>
   );
 };
@@ -26,7 +26,7 @@ export const BarChart = ({ data, title }) => {
   return (
     <div className="chart-container">
       <h3>{title}</h3>
-      <div className="chart-placeholder">Bar chart visualization</div>
+      <div className="chart-Content">Bar chart visualization</div>
     </div>
   );
 };
@@ -35,7 +35,7 @@ export const PieChart = ({ data, title }) => {
   return (
     <div className="chart-container">
       <h3>{title}</h3>
-      <div className="chart-placeholder">Pie chart visualization</div>
+      <div className="chart-Content">Pie chart visualization</div>
     </div>
   );
 };
@@ -44,7 +44,7 @@ const Chart = ({ data, type = 'line', title }) => {
   return (
     <div className="chart-container">
       <h3>{title}</h3>
-      <div className="chart-placeholder">
+      <div className="chart-Content">
         Chart visualization will be implemented here
       </div>
     </div>

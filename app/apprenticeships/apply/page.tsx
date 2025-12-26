@@ -64,7 +64,6 @@ export default function ApplyApprenticeshipPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Submit application
-    console.log('Submitting application:', formData);
     // Redirect to success page
     window.location.href = '/apprenticeships/apply/success';
   };
@@ -180,7 +179,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.firstName}
                     onChange={(e) => updateField('firstName', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="John"
+                    Content="John"
                   />
                 </div>
 
@@ -194,7 +193,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.lastName}
                     onChange={(e) => updateField('lastName', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Doe"
+                    Content="Doe"
                   />
                 </div>
 
@@ -208,7 +207,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.email}
                     onChange={(e) => updateField('email', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="john.doe@example.com"
+                    Content="john.doe@example.com"
                   />
                 </div>
 
@@ -222,7 +221,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.phone}
                     onChange={(e) => updateField('phone', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="(317) 314-3757"
+                    Content="(317) 314-3757"
                   />
                 </div>
 
@@ -235,7 +234,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.address}
                     onChange={(e) => updateField('address', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="123 Main St"
+                    Content="123 Main St"
                   />
                 </div>
 
@@ -248,7 +247,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.city}
                     onChange={(e) => updateField('city', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Indianapolis"
+                    Content="Indianapolis"
                   />
                 </div>
 
@@ -277,7 +276,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.zip}
                     onChange={(e) => updateField('zip', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="46201"
+                    Content="46201"
                   />
                 </div>
 
@@ -407,7 +406,7 @@ export default function ApplyApprenticeshipPage() {
                   onChange={(e) => updateField('experience', e.target.value)}
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Describe any relevant work experience, volunteer work, or skills..."
+                  Content="Describe any relevant work experience, volunteer work, or skills..."
                 />
               </div>
 
@@ -423,7 +422,7 @@ export default function ApplyApprenticeshipPage() {
                   }
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Tell us what motivates you to pursue this apprenticeship..."
+                  Content="Tell us what motivates you to pursue this apprenticeship..."
                 />
               </div>
 
@@ -436,7 +435,7 @@ export default function ApplyApprenticeshipPage() {
                   onChange={(e) => updateField('goals', e.target.value)}
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Where do you see yourself in 5 years?"
+                  Content="Where do you see yourself in 5 years?"
                 />
               </div>
             </div>

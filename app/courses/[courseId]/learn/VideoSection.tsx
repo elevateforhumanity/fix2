@@ -32,7 +32,8 @@ export default function VideoSection({ videoUrl, lessonId, courseId }: VideoSect
         body: JSON.stringify({ progress: currentTime }),
       });
     } catch (error) {
-    }
+    // Error handled
+  }
   };
 
   return (

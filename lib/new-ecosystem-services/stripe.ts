@@ -2,7 +2,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 // Initialize Stripe with publishable key
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_placeholder'
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_Content'
 );
 
 export interface CheckoutSessionData {

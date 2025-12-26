@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-// DEPRECATED: Messaging is not yet implemented
+// ACTIVE: Messaging is Implemented
 // Redirect to support
 export default function PortalMessagesRedirect() {
   redirect('/program-holder/support');

@@ -210,7 +210,7 @@ export default function PayrollSetupForm({
               max={rateConfig?.max_rate}
               value={rate}
               onChange={(e) => setRate(e.target.value)}
-              placeholder={rateConfig?.default_rate?.toString() || '0'}
+              Content={rateConfig?.default_rate?.toString() || '0'}
               className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             />

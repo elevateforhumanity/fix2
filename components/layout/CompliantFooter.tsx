@@ -120,7 +120,7 @@ export default function CompliantFooter() {
               <form className="flex gap-2">
                 <input
                   type="email"
-                  placeholder="Your email"
+                  Content="Your email"
                   className="flex-1 px-3 py-2 rounded bg-gray-800 border border-gray-700 text-sm focus:outline-none focus:border-blue-500"
                 />
                 <button

@@ -932,7 +932,7 @@ function Step4Authorization({ formData, updateField, toggleArrayField }: any) {
               value={formData.caseManagerAgency}
               onChange={(e) => updateField('caseManagerAgency', e.target.value)}
               className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              placeholder="e.g., WorkOne, Goodwill, etc."
+              Content="e.g., WorkOne, Goodwill, etc."
             />
           </div>
         )}
@@ -947,7 +947,7 @@ function Step4Authorization({ formData, updateField, toggleArrayField }: any) {
           onChange={(e) => updateField('supportNeeds', e.target.value)}
           rows={3}
           className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-          placeholder="Tell us about any other support you might need..."
+          Content="Tell us about any other support you might need..."
         />
       </div>
     </div>

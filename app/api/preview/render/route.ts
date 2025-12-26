@@ -20,9 +20,9 @@ export async function GET(req: NextRequest) {
   const ref = searchParams.get('ref') || 'main';
   const path = searchParams.get('path') || 'README.md';
 
-  // If no repo specified, show placeholder
+  // If no repo specified, show Content
   if (!repo) {
-    const placeholder = `
+    const Content = `
       <html>
       <head>
         <style>
@@ -56,7 +56,7 @@ export async function GET(req: NextRequest) {
       </body>
       </html>
     `;
-    return new Response(placeholder, {
+    return new Response(Content, {
       headers: { 'content-type': 'text/html' },
     });
   }

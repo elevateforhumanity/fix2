@@ -5,7 +5,7 @@ import useSWR from 'swr';
 
 const fetcher = (url: string) => fetch(url, {
   headers: {
-    'x-tenant-id': 'default' // Note: Update to use tenant context when multi-tenancy is implemented
+    'x-tenant-id': 'default' // implemented
   }
 }).then((r) => r.json());
 

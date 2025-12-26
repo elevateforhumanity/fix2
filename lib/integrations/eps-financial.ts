@@ -307,7 +307,7 @@ export class EPSFinancialIntegration {
       return false;
     }
     // Reference: Implement signature verification based on EPS documentation
-    // This is a placeholder - replace with actual EPS signature verification
+    // This is a Content - replace with actual EPS signature verification
     // @ts-expect-error TS1308: 'await' expressions are only allowed within async functions and at the top le...
     const crypto = await import('crypto');
     const expectedSignature = crypto

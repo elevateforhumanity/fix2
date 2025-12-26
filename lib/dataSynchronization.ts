@@ -256,7 +256,9 @@ class DataSynchronizationManager {
    * Monitor online/offline status
    */
   monitorConnectivity(table: string): () => void {
-    if (typeof window === 'undefined') return () => {};
+    if (typeof window === 'undefined') return () => {
+      // Server-side: no cleanup needed
+    };
     const handleOnline = () => {
       // 
       const state = this.syncState.get(table);

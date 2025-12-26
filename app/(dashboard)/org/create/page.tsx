@@ -106,8 +106,8 @@ export default function CreateOrgPage() {
                 required
                 value={formData.name}
                 onChange={(e) => handleNameChange(e.target.value)}
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Acme Training Center"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 Content-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                Content="Acme Training Center"
               />
             </div>
 
@@ -133,7 +133,7 @@ export default function CreateOrgPage() {
                   }
                   pattern="[a-z0-9-]+"
                   className="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  placeholder="acme-training"
+                  Content="acme-training"
                 />
               </div>
               <p className="mt-1 text-xs text-gray-500">

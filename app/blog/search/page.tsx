@@ -55,7 +55,7 @@ export default async function BlogSearchPage({
                 type="search"
                 name="q"
                 defaultValue={query}
-                placeholder="Search articles..."
+                Content="Search articles..."
                 className="w-full px-4 py-3 pl-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 autoFocus
               />

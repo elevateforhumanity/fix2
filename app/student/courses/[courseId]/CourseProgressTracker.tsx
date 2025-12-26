@@ -51,8 +51,9 @@ export default function CourseProgressTracker({
 
       setProgress(newProgress);
       setCompleted(newCompleted);
-    } catch (err) {
-    } finally {
+    } catch (error) {
+    // Error handled
+  } finally {
       setUpdating(false);
     }
   };

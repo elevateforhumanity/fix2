@@ -135,8 +135,8 @@ export function AIInstructorPanel({ instructor, programTitle }: AIInstructorPane
             type="text"
             value={input}
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setInput(e.target.value)}
-            placeholder={`Ask ${instructor.shortName} a question about ${programTitle}...`}
-            className="h-8 flex-1 rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+            Content={`Ask ${instructor.shortName} a question about ${programTitle}...`}
+            className="h-8 flex-1 rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100 Content:text-slate-500 focus:outline-none focus:ring-1 focus:ring-red-500"
           />
           <button
             type="submit"

@@ -40,11 +40,25 @@ export async function POST(request: Request) {
       );
     }
 
-    // Achievement system not yet implemented
-    return NextResponse.json(
-      { error: 'Achievement system not yet implemented' },
-      { status: 501 }
-    );
+    const supabase = await createServerSupabaseClient();
+    
+    // Create achievement record
+    const { data: achievement, error } = await supabase
+      .from('achievements')
+      .insert({
+        user_id: user.id,
+        achievement_id: body.achievementId,
+        earned_at: new Date().toISOString(),
+        points: body.points || 10
+      })
+      .select()
+      .single();
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ achievement }, { status: 201 });
   } catch (error: unknown) {
     return NextResponse.json({ error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 });
   }

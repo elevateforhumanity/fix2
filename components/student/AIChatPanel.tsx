@@ -143,7 +143,7 @@ export function AIChatPanel(props: {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => (e.key === "Enter" ? send() : null)}
-          placeholder="Type your question…"
+          Content="Type your question…"
           className="flex-1 rounded-xl border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-300"
         />
         <button

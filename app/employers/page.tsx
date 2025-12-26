@@ -457,7 +457,7 @@ export default function EmployersPage() {
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g., $15-18/hour"
+                    Content="e.g., $15-18/hour"
                     required
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
@@ -470,7 +470,7 @@ export default function EmployersPage() {
                 <textarea
                   rows={6}
                   required
-                  placeholder="Describe the position, responsibilities, and requirements..."
+                  Content="Describe the position, responsibilities, and requirements..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </div>
@@ -480,7 +480,7 @@ export default function EmployersPage() {
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="e.g., CNA certification, CDL Class A, HVAC EPA 608..."
+                  Content="e.g., CNA certification, CDL Class A, HVAC EPA 608..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </div>

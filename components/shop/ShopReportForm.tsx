@@ -216,7 +216,7 @@ export function ShopReportForm({ placements }: { placements: Placement[] }) {
             rows={4}
             value={attendanceNotes}
             onChange={(e) => setAttendanceNotes(e.target.value)}
-            placeholder="Note any absences, tardiness, or general progress observations..."
+            Content="Note any absences, tardiness, or general progress observations..."
           />
         </div>
 
@@ -230,7 +230,7 @@ export function ShopReportForm({ placements }: { placements: Placement[] }) {
             rows={4}
             value={competenciesNotes}
             onChange={(e) => setCompetenciesNotes(e.target.value)}
-            placeholder="Note specific skills practiced, competencies demonstrated, or areas needing improvement..."
+            Content="Note specific skills practiced, competencies demonstrated, or areas needing improvement..."
           />
         </div>
 

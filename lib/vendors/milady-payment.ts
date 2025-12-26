@@ -29,9 +29,6 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
   const amount = params.amount || MILADY_COST;
 
   try {
-    console.log(
-      `[Milady] Processing payment for enrollment ${params.enrollmentId}`
-    );
 
     // STEP 1: Trigger Milady auto-enrollment API
     // This gives student immediate access to Milady RISE
@@ -50,7 +47,6 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
       throw new Error('Milady enrollment API failed');
     }
 
-    console.log(`[Milady] ✅ Student enrolled in Milady RISE`);
 
     // STEP 2: Record vendor payment in database
     // This tracks that Milady needs to be paid
@@ -83,7 +79,6 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
       },
     });
 
-    console.log(`[Milady] ✅ Payment recorded: $${amount}`);
 
     return {
       success: true,

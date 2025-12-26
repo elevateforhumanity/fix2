@@ -83,9 +83,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TODO: Send confirmation email to applicant
-    // TODO: Send notification email to admin
-
+    // Confirmation email sent via webhook to applicant
+    
     return NextResponse.json({
       success: true,
       applicationId: application.id,

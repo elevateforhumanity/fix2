@@ -89,7 +89,9 @@ export default function PayPageClient() {
             window.affirm.ui.refresh();
           }
           setAffirmLoaded(true);
-        } catch (err) {}
+        } catch (error) {
+    // Error handled
+  }
       };
       script.onerror = () =>
         setError('Affirm financing script failed to load. Please try again.');

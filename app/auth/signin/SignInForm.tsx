@@ -106,7 +106,7 @@ export default function SignInForm() {
               ) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
-              placeholder="you@example.com"
+              Content="you@example.com"
             />
           </div>
 
@@ -129,7 +129,7 @@ export default function SignInForm() {
                 ) => setPassword(e.target.value)}
                 required
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition pr-12"
-                placeholder="••••••••"
+                Content="••••••••"
               />
               <button
                 type="button"

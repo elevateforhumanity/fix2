@@ -28,7 +28,6 @@ export async function POST(request: NextRequest) {
     yesterday.setDate(yesterday.getDate() - 1);
     const ymd = yesterday.toISOString().slice(0, 10);
 
-    console.log(`[CRON] Running daily attendance alerts for ${ymd}`);
 
     // Call the database function
     const { data, error } = await supabase.rpc('run_daily_attendance_alerts', {
@@ -53,13 +52,11 @@ export async function POST(request: NextRequest) {
       critical_count: 0,
     };
 
-    console.log(`[CRON] Attendance alerts complete:`, result);
 
     // Optional: Send daily digest emails here
     if (result.alert_count > 0) {
       // Trigger daily digest email campaign
-      // TODO: await triggerDailyDigestEmails(result);
-      // await sendDailyDigestEmails(supabase, ymd);
+            // await sendDailyDigestEmails(supabase, ymd);
     }
 
     return NextResponse.json({

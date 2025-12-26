@@ -56,7 +56,7 @@ export function AiNarratorSection() {
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 text-center text-xs text-slate-300">
               <span className="font-medium">
-                AI narrator video coming soon
+                AI narrator video Available Now
               </span>
               <span className="text-[11px] text-slate-400">
                 Once your AI video is generated from the script file, set{" "}

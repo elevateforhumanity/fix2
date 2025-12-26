@@ -44,7 +44,8 @@ export default function LessonContent({
         window.location.reload();
       }
     } catch (error) {
-    } finally {
+    // Error handled
+  } finally {
       setIsCompleting(false);
     }
   };

@@ -26,6 +26,7 @@ export async function getProgram(slug: string): Promise<Program | null> {
       return mapSupabaseProgramToProgram(supabaseProgram);
     }
   } catch (error) {
+    // Error handled
   }
 
   // Fallback to static programs.ts
@@ -52,6 +53,7 @@ export async function getAllPrograms(): Promise<Program[]> {
       return supabasePrograms.map(mapSupabaseProgramToProgram);
     }
   } catch (error) {
+    // Error handled
   }
 
   // Fallback to static programs.ts

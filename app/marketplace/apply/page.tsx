@@ -77,7 +77,7 @@ export default function MarketplaceApplyPage() {
                 setFormData({ ...formData, displayName: e.target.value })
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="How you'll appear to buyers"
+              Content="How you'll appear to buyers"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function MarketplaceApplyPage() {
               }
               rows={4}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Tell buyers about yourself and your expertise"
+              Content="Tell buyers about yourself and your expertise"
             />
           </div>
 
@@ -109,7 +109,7 @@ export default function MarketplaceApplyPage() {
               }
               rows={3}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Describe the digital products you plan to offer"
+              Content="Describe the digital products you plan to offer"
             />
           </div>
 
@@ -125,7 +125,7 @@ export default function MarketplaceApplyPage() {
                 setFormData({ ...formData, payoutEmail: e.target.value })
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Where you'll receive payments"
+              Content="Where you'll receive payments"
             />
           </div>
 

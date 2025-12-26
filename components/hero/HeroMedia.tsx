@@ -35,7 +35,9 @@ export default function HeroMedia({
     v.playsInline = true;
     v.autoplay = true;
     v.loop = !hasVoice;
-    v.play().catch(() => {});
+    v.play().catch(() => {
+      // Autoplay blocked by browser
+    });
   }, [hasVideo, hasVoice]);
 
   // Audio readiness
@@ -71,7 +73,9 @@ export default function HeroMedia({
       const v = videoRef.current;
       if (v) {
         v.muted = true;
-        if (v.paused) await v.play().catch(() => {});
+        if (v.paused) await v.play().catch(() => {
+          // Video play blocked
+        });
         v.loop = false;
       }
 

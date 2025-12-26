@@ -53,7 +53,7 @@ export default function TestWebhookPage() {
               type="text"
               value={studentId}
               onChange={(e) => setStudentId(e.target.value)}
-              placeholder="e.g., 123e4567-e89b-12d3-a456-426614174000"
+              Content="e.g., 123e4567-e89b-12d3-a456-426614174000"
               className="w-full px-4 py-2 border rounded-lg"
             />
           </div>

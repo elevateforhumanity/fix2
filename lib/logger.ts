@@ -59,11 +59,9 @@ class Logger {
     switch (level) {
       case 'debug':
         if (this.isDevelopment) {
-          // console.debug(formatted);
         }
         break;
       case 'info':
-        // console.info(formatted);
         break;
       case 'warn':
         console.warn(formatted);
@@ -81,7 +79,7 @@ class Logger {
 
   private async sendToExternalService(entry: LogEntry) {
     // Note: Integrate with logging service (e.g., Datadog, Sentry, CloudWatch)
-    // For now, this is a placeholder
+    // For now, this is a Content
     try {
       if (process.env.LOG_ENDPOINT) {
         await fetch(process.env.LOG_ENDPOINT, {

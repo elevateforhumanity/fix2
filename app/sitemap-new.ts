@@ -207,7 +207,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
-        process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
+        process.env.NEXT_PUBLIC_SUPABASE_URL.includes('Content')) {
       return staticSitemap;
     }
 

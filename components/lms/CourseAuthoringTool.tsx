@@ -312,14 +312,14 @@ export default function CourseAuthoringTool() {
                 value={course.title}
                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCourse({ ...course, title: e.target.value })}
                 className="text-2xl font-bold border-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2"
-                placeholder="Course Title"
+                Content="Course Title"
               />
               <input
                 type="text"
                 value={course.description}
                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCourse({ ...course, description: e.target.value })}
                 className="text-gray-600 border-none focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 mt-1 w-full"
-                placeholder="Course Description"
+                Content="Course Description"
               />
             </div>
             <button

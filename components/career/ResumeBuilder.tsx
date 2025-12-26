@@ -115,7 +115,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
-            placeholder="Full Name"
+            Content="Full Name"
             value={resumeData.personal_info.full_name}
             onChange={(e) =>
               setResumeData({
@@ -127,7 +127,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
           />
           <input
             type="email"
-            placeholder="Email"
+            Content="Email"
             value={resumeData.personal_info.email}
             onChange={(e) =>
               setResumeData({
@@ -139,7 +139,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
           />
           <input
             type="tel"
-            placeholder="Phone"
+            Content="Phone"
             value={resumeData.personal_info.phone}
             onChange={(e) =>
               setResumeData({
@@ -151,7 +151,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
           />
           <input
             type="text"
-            placeholder="Location"
+            Content="Location"
             value={resumeData.personal_info.location}
             onChange={(e) =>
               setResumeData({
@@ -168,7 +168,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
       <div className="bg-slate-800 rounded-lg p-6">
         <h3 className="text-lg font-semibold text-white mb-4">Professional Summary</h3>
         <textarea
-          placeholder="Write a brief summary of your professional background and career goals..."
+          Content="Write a brief summary of your professional background and career goals..."
           value={resumeData.summary}
           onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setResumeData({ ...resumeData, summary: e.target.value })}
           className="w-full bg-slate-900 text-white rounded-lg p-3 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -203,7 +203,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <input
                   type="text"
-                  placeholder="Job Title"
+                  Content="Job Title"
                   value={exp.title}
                   onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
@@ -214,7 +214,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                 />
                 <input
                   type="text"
-                  placeholder="Company"
+                  Content="Company"
                   value={exp.company}
                   onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
@@ -225,7 +225,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                 />
                 <input
                   type="text"
-                  placeholder="Location"
+                  Content="Location"
                   value={exp.location}
                   onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
@@ -237,7 +237,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                 <div className="flex gap-2">
                   <input
                     type="month"
-                    placeholder="Start Date"
+                    Content="Start Date"
                     value={exp.start_date}
                     onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const updated = [...resumeData.work_experience];
@@ -248,7 +248,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                   />
                   <input
                     type="month"
-                    placeholder="End Date"
+                    Content="End Date"
                     value={exp.end_date}
                     disabled={exp.current}
                     onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -273,7 +273,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                   I currently work here
                 </label>
                 <textarea
-                  placeholder="Describe your responsibilities and achievements..."
+                  Content="Describe your responsibilities and achievements..."
                   value={exp.description}
                   onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];

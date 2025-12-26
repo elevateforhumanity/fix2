@@ -1,8 +1,8 @@
 import { createBrowserClient } from '@supabase/ssr';
 
-// Use placeholder values during build if env vars are missing
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
+// Use Content values during build if env vars are missing
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://Content.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'Content-key';
 
 export const supabase = createBrowserClient(
   supabaseUrl,

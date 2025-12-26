@@ -59,7 +59,7 @@ export default async function GrantIntakePage() {
               </label>
               <input
                 type="text"
-                placeholder="e.g., WIOA Youth Program Grant 2024"
+                Content="e.g., WIOA Youth Program Grant 2024"
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
@@ -70,7 +70,7 @@ export default async function GrantIntakePage() {
               </label>
               <input
                 type="text"
-                placeholder="e.g., Indiana Department of Workforce Development"
+                Content="e.g., Indiana Department of Workforce Development"
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
@@ -84,7 +84,7 @@ export default async function GrantIntakePage() {
                   <span className="text-gray-500">$</span>
                   <input
                     type="number"
-                    placeholder="0.00"
+                    Content="0.00"
                     className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
@@ -137,7 +137,7 @@ export default async function GrantIntakePage() {
               </label>
               <textarea
                 rows={4}
-                placeholder="Describe the grant purpose, requirements, and goals..."
+                Content="Describe the grant purpose, requirements, and goals..."
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
@@ -148,7 +148,7 @@ export default async function GrantIntakePage() {
               </label>
               <textarea
                 rows={3}
-                placeholder="Who will this grant serve? (e.g., Youth ages 16-24, Justice-involved individuals)"
+                Content="Who will this grant serve? (e.g., Youth ages 16-24, Justice-involved individuals)"
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>

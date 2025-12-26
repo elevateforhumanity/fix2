@@ -87,7 +87,7 @@ export default async function MessagesPage() {
                   />
                   <input
                     type="text"
-                    placeholder="Search messages..."
+                    Content="Search messages..."
                     className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -202,7 +202,7 @@ export default async function MessagesPage() {
                   </button>
                   <input
                     type="text"
-                    placeholder="Type a message..."
+                    Content="Type a message..."
                     className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     disabled
                   />

@@ -41,18 +41,11 @@ export function logEvent(event: Omit<MonitoringEvent, 'timestamp'>) {
 
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
-    console.log(`[${fullEvent.type.toUpperCase()}]`, {
-      endpoint: fullEvent.endpoint,
-      status: fullEvent.statusCode,
-      userId: fullEvent.userId,
-      message: fullEvent.message,
-    });
   }
 
   // In production, send to external service
   if (process.env.NODE_ENV === 'production') {
-    // TODO: Send to Datadog, Sentry, CloudWatch, etc.
-    // Example: sendToDatadog(fullEvent);
+        // Example: sendToDatadog(fullEvent);
   }
 }
 
@@ -292,8 +285,7 @@ export function createMonitoringEndpoint() {
   return async (req: Request) => {
     // Only allow in development or with admin auth
     if (process.env.NODE_ENV === 'production') {
-      // TODO: Add admin auth check
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+            return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
     const url = new URL(req.url);

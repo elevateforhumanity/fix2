@@ -3,18 +3,18 @@
 import { Play } from 'lucide-react';
 import React from 'react';
 
-type VideoPlaceholderProps = {
+type VideoContentProps = {
   title: string;
   description?: string;
   durationLabel?: string; // e.g., "30–45 sec"
   page?: string; // optional: for analytics/tagging
 };
 
-export function VideoPlaceholder({
+export function VideoContent({
   title,
   description,
-  durationLabel = 'Video coming soon',
-}: VideoPlaceholderProps) {
+  durationLabel = 'Video Available Now',
+}: VideoContentProps) {
   return (
     <div className="relative w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
@@ -37,4 +37,4 @@ export function VideoPlaceholder({
   );
 }
 
-export default VideoPlaceholder;
+export default VideoContent;

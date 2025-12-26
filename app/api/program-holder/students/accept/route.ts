@@ -101,8 +101,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // TODO: Send notification email to student
-
+    
     return NextResponse.json(
       {
         success: true,

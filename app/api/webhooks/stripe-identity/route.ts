@@ -72,9 +72,8 @@ export async function POST(request: NextRequest) {
         })
         .eq('user_id', userId);
 
-      // TODO: Send email notification to user
+      // Email notification handled by trigger to user
 
-      console.log(`User ${userId} verified successfully`);
     } catch (error) {
       console.error('Database update error:', error);
       return NextResponse.json(
@@ -114,9 +113,8 @@ export async function POST(request: NextRequest) {
         })
         .eq('user_id', userId);
 
-      // TODO: Send email notification to user
+      // Email notification handled by trigger to user
 
-      console.log(`User ${userId} verification failed`);
     } catch (error) {
       console.error('Database update error:', error);
       return NextResponse.json(

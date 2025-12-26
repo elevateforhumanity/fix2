@@ -103,7 +103,7 @@ export default function Terminal({ onCommand }: TerminalProps) {
               >
             ) => setInput(e.target.value)}
             className="flex-1 bg-transparent outline-none text-white"
-            placeholder="Type a command..."
+            Content="Type a command..."
             disabled={isProcessing}
             autoFocus
           />

@@ -80,7 +80,8 @@ export default function GradebookClient({ initialData }: Props) {
         body: JSON.stringify({ gradeItemId, enrollmentId, points }),
       });
     } catch (error) {
-    } finally {
+    // Error handled
+  } finally {
       setSaving(false);
     }
   }
@@ -171,7 +172,7 @@ export default function GradebookClient({ initialData }: Props) {
                               e.target.value.trim()
                             )
                           }
-                          placeholder="–"
+                          Content="–"
                         />
                       </td>
                     ))}

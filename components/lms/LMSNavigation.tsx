@@ -117,7 +117,7 @@ export function LMSNavigation({ user, profile }: LMSNavigationProps) {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search courses, lessons, certificates..."
+                Content="Search courses, lessons, certificates..."
                 className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 autoFocus
               />

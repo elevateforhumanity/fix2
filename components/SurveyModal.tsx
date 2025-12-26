@@ -103,7 +103,7 @@ export default function SurveyModal({
             value={answer || ''}
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleAnswer(currentQuestion.id, e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Your answer..."
+            Content="Your answer..."
           />
         );
 
@@ -114,7 +114,7 @@ export default function SurveyModal({
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleAnswer(currentQuestion.id, e.target.value)}
             rows={4}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Your answer..."
+            Content="Your answer..."
           />
         );
 

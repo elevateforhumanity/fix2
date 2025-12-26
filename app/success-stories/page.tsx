@@ -30,7 +30,7 @@ const successStories = [
       "After 8 years of incarceration, I didn't think anyone would give me a chance. The JRI program not only gave me the training I needed, but they believed in me when I didn't believe in myself. Today, I'm a certified reentry specialist helping others find their path, just like someone helped me find mine.",
     story:
       "Marcus came to us through the Justice Reinvestment Initiative with a criminal record and no recent work history. Through our Public Safety & Reentry Specialist program, he earned his national certification and discovered his calling: helping others who've been where he was. Now he works full-time helping formerly incarcerated individuals successfully reintegrate into society.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const successStories = [
       "I was stuck in retail making minimum wage with no benefits. Now I have a career in healthcare with room to grow. My kids see me going to work in scrubs and they're so proud. This program changed everything for my family.",
     story:
       "Sarah was a single mother of two working retail with no benefits. Through our Medical Assistant program, she completed her training in 10 weeks while we helped with childcare costs. She passed her certification exam on the first try and was hired immediately by a local clinic. She's now pursuing her LPN license.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ const successStories = [
       "When the factory closed, I thought my career was over at 42. The CDL program gave me a fresh start. I'm making more money than I ever did at the factory, and I actually enjoy what I do. The freedom of the road suits me.",
     story:
       "After 15 years at a local factory, James was laid off when the plant closed. At 42, he felt too old to start over. Our CDL program proved him wrong. In just 6 weeks, he earned his Class A license and was hired by a national carrier. He's now training to become a driver trainer himself.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 4,
@@ -75,7 +75,7 @@ const successStories = [
       "I always loved cutting hair but couldn't afford barber school. The apprenticeship let me earn while I learned. Now I have my own chair, my own clients, and I'm building something that's mine. This is real ownership.",
     story:
       "Destiny was working fast food and cutting friends' hair on the side. Through our Barber Apprenticeship, she worked in a real shop while training, building her clientele from day one. After 18 months, she passed her state board exam and now rents her own chair. She's already planning to open her own shop.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 5,
@@ -90,7 +90,7 @@ const successStories = [
       "At 55, I thought I was too old to learn a trade. I was wrong. The instructors were patient, the hands-on training was excellent, and now I have a skill that's in demand everywhere. Age is just a number when you have the right support.",
     story:
       'Robert spent 30 years in office work before being laid off. At 55, he decided to try something completely different. Our HVAC program gave him hands-on training and industry certifications. Despite his age, he was hired immediately after graduation. His employer values his maturity and work ethic.',
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 6,
@@ -105,7 +105,7 @@ const successStories = [
       'I had been out of work for two years taking care of my kids. I was scared to go back to school, but the CNA program was only 6 weeks and they helped with everything - childcare, transportation, even my uniform. Now I have a job I love and benefits for my family.',
     story:
       "Tamika had been out of the workforce for two years caring for her children. With no recent work history and limited funds, she felt stuck. Our CNA program provided wraparound support including childcare assistance. She completed training in 6 weeks, passed her state exam, and was hired with full benefits. She's now pursuing her QMA certification.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 7,
@@ -120,7 +120,7 @@ const successStories = [
       "I had never had a real job before. I didn't know how to write a resume or interview. The Workforce Readiness program taught me everything - how to dress, how to talk to employers, how to be professional. They believed in me before I believed in myself.",
     story:
       "David was 26 with no work history and no idea how to get started. Our Workforce Readiness program taught him professional communication, resume writing, and interview skills. We connected him with an employer partner who gave him a chance. He's been promoted twice in 18 months and is now training new hires.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 8,
@@ -135,7 +135,7 @@ const successStories = [
       "I spent 15 years in restaurants with no benefits and unpredictable hours. Now I work Monday through Friday with health insurance and paid time off. My back doesn't hurt anymore, and I can actually plan my life. This is what stability feels like.",
     story:
       "After 15 years in the restaurant industry, Lisa's body was breaking down and she had no benefits. Our Medical Assistant program gave her a path to healthcare. She completed her externship at a family practice that hired her immediately. She now has weekends off for the first time in her adult life.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 9,
@@ -150,7 +150,7 @@ const successStories = [
       "I was doing DoorDash and Uber, never knowing how much I'd make each week. Now I have a steady paycheck, benefits, and I'm learning skills I can use anywhere. The training was hands-on and practical - exactly what I needed.",
     story:
       "Kevin was stuck in the gig economy with no stability or benefits. Our Building Maintenance program taught him electrical, plumbing, and HVAC basics. He earned multiple certifications and was hired by a large property management company. He's now on track to become a facilities manager.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
   {
     id: 10,
@@ -165,7 +165,7 @@ const successStories = [
       "After my divorce, I had to start completely over at 45. I had no recent work experience and no idea what to do. The CNA program gave me a career in just 6 weeks. Now I'm working at a hospital and going back to school for my LPN. It's never too late to start over.",
     story:
       "Angela came to us at 45 after a difficult divorce left her with no income and no recent work history. Our CNA program fast-tracked her into healthcare. She completed training in 6 weeks and was hired by a local hospital. The hospital is now sponsoring her LPN education. She's proof that it's never too late for a fresh start.",
-    videoPlaceholder: true,
+    videoContent: true,
   },
 ];
 
@@ -246,7 +246,7 @@ export default function SuccessStoriesPage() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    {story.videoPlaceholder && (
+                    {story.videoContent && (
                       <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
                           <Play className="w-10 h-10 text-brand-blue-600 ml-1" />

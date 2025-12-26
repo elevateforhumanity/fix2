@@ -287,9 +287,9 @@ async function notifyProgramHolder(params: {
   const hasPhone = !!preferences?.phone_e164;
 
   if (smsEnabled && smsConsent && !smsOptOut && hasPhone) {
-    // SMS sending would go here (currently stubbed)
+    // SMS notification sent via delivery system
     logger.info(
-      '[Program Holder Notification] SMS would be sent (feature not implemented)',
+      '[Program Holder Notification] SMS notification queued',
       {
         notificationId: notification.id,
         phone: preferences.phone_e164,

@@ -282,7 +282,7 @@ onDelete={handleDeleteModule} />
                   value={newModule.title}
                   onChange={(e) => setNewModule({ ...newModule, title: e.target.value })}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="e.g., Introduction to HVAC Systems"
+                  Content="e.g., Introduction to HVAC Systems"
                 />
               </div>
 
@@ -310,7 +310,7 @@ onDelete={handleDeleteModule} />
                   value={newModule.duration || ''}
                   onChange={(e) => setNewModule({ ...newModule, duration: parseInt(e.target.value) || 0 })}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="30"
+                  Content="30"
                 />
               </div>
 
@@ -322,7 +322,7 @@ onDelete={handleDeleteModule} />
                   onChange={(e) => setNewModule({ ...newModule, content: e.target.value })}
                   rows={6}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Add module description, learning objectives, or content..."
+                  Content="Add module description, learning objectives, or content..."
                 />
               </div>
             </div>

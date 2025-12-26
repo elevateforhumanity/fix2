@@ -151,7 +151,7 @@ Apply today and start your journey.`;
                   <textarea
                     value={voiceoverText}
                     onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setVoiceoverText(e.target.value)}
-                    placeholder={defaultVoiceoverText}
+                    Content={defaultVoiceoverText}
                     rows={4}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                   />

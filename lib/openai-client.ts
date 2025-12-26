@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 let client: OpenAI | null = null;
 
 export function getOpenAIClient(): OpenAI | null {
-  if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'sk-placeholder-key') {
+  if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'sk-Content-key') {
     return null;
   }
   
@@ -17,5 +17,5 @@ export function getOpenAIClient(): OpenAI | null {
 }
 
 export function isOpenAIConfigured(): boolean {
-  return !!(process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'sk-placeholder-key');
+  return !!(process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'sk-Content-key');
 }

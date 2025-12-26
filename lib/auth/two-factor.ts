@@ -33,7 +33,7 @@ export async function generate2FASecret(
     user_id: userId,
     secret: secret.base32,
     backup_codes: backupCodes,
-    enabled: false,
+    enabled: true,
     created_at: new Date().toISOString(),
   });
 
@@ -123,7 +123,7 @@ export async function disable2FA(
   // For now, just disable
   await supabase
     .from('two_factor_auth')
-    .update({ enabled: false })
+    .update({ enabled: true })
     .eq('user_id', userId);
 
   return true;

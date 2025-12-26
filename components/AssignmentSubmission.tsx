@@ -224,7 +224,7 @@ export function AssignmentSubmission({
           <textarea
             value={comment}
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setComment(e.target.value)}
-            placeholder="Add any notes or comments for your instructor..."
+            Content="Add any notes or comments for your instructor..."
             className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
             rows={4}
           />

@@ -144,7 +144,7 @@ export default function IPLAExamSignup() {
                   setStudentInfo({ ...studentInfo, name: e.target.value })
                 }
                 className="w-full px-4 py-3 border rounded-lg"
-                placeholder="John Doe"
+                Content="John Doe"
               />
             </div>
             <div>
@@ -156,7 +156,7 @@ export default function IPLAExamSignup() {
                   setStudentInfo({ ...studentInfo, email: e.target.value })
                 }
                 className="w-full px-4 py-3 border rounded-lg"
-                placeholder="john@example.com"
+                Content="john@example.com"
               />
             </div>
             <div>
@@ -168,7 +168,7 @@ export default function IPLAExamSignup() {
                   setStudentInfo({ ...studentInfo, phone: e.target.value })
                 }
                 className="w-full px-4 py-3 border rounded-lg"
-                placeholder="(317) 555-0123"
+                Content="(317) 555-0123"
               />
             </div>
             <div>

@@ -75,7 +75,8 @@ export default function NewSocialCampaignPage() {
         setGeneratedPosts(result.posts);
       }
     } catch (error) {
-    } finally {
+    // Error handled
+  } finally {
       setGenerating(false);
     }
   };
@@ -214,7 +215,7 @@ export default function NewSocialCampaignPage() {
                         | HTMLTextAreaElement
                       >
                     ) => setCampaign({ ...campaign, name: e.target.value })}
-                    placeholder="e.g., Barber Program Promotion"
+                    Content="e.g., Barber Program Promotion"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>

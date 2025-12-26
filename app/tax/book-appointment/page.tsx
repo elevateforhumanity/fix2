@@ -200,7 +200,7 @@ export default function BookAppointmentPage() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="John Doe"
+                    Content="John Doe"
                   />
                 </div>
 
@@ -216,7 +216,7 @@ export default function BookAppointmentPage() {
                       setFormData({ ...formData, phone: e.target.value })
                     }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="(317) 314-3757"
+                    Content="(317) 314-3757"
                   />
                 </div>
               </div>
@@ -233,7 +233,7 @@ export default function BookAppointmentPage() {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="john@example.com"
+                  Content="john@example.com"
                 />
               </div>
 
@@ -298,7 +298,7 @@ export default function BookAppointmentPage() {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Any specific questions or concerns?"
+                  Content="Any specific questions or concerns?"
                 />
               </div>
 

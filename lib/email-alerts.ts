@@ -12,11 +12,6 @@ interface EmailAlert {
 export async function sendAdminAlert(alert: EmailAlert) {
   // If Resend API key not configured, log to console
   if (!process.env.RESEND_API_KEY) {
-    console.log('[EMAIL ALERT]', {
-      to: alert.to,
-      subject: alert.subject,
-      preview: alert.html.substring(0, 100),
-    });
     return { success: true, provider: 'console' };
   }
 
@@ -43,7 +38,6 @@ export async function sendAdminAlert(alert: EmailAlert) {
   } catch (error) {
     console.error('Email alert error:', error);
     // Fallback to console logging
-    console.log('[EMAIL ALERT FALLBACK]', alert);
     return { success: false, error };
   }
 }

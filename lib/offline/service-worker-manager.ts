@@ -242,5 +242,7 @@ export function setupOfflineSync(): void {
   window.addEventListener('online', async () => {
     await syncOfflineActions();
   });
-  window.addEventListener('offline', () => {});
+  window.addEventListener('offline', () => {
+    // User went offline - data will be queued locally
+  });
 }

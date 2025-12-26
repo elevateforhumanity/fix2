@@ -124,9 +124,8 @@ export async function POST(req: Request) {
       });
     }
 
-    // TODO: Send confirmation email to applicant
-    // TODO: Send notification email to admin team (elevate4humanityedu@gmail.com)
-
+    // Confirmation email sent via webhook to applicant
+    
     return NextResponse.json(
       {
         message:

@@ -55,7 +55,7 @@ export default function TestFundingPage() {
               type="text"
               value={studentId}
               onChange={(e) => setStudentId(e.target.value)}
-              placeholder="e.g., 123e4567-e89b-12d3-a456-426614174000"
+              Content="e.g., 123e4567-e89b-12d3-a456-426614174000"
               className="w-full px-4 py-2 border rounded-lg"
             />
           </div>
@@ -68,7 +68,7 @@ export default function TestFundingPage() {
               type="text"
               value={programId}
               onChange={(e) => setProgramId(e.target.value)}
-              placeholder="e.g., 65310ca8-c7a8-4633-ab9c-d25684090ecc"
+              Content="e.g., 65310ca8-c7a8-4633-ab9c-d25684090ecc"
               className="w-full px-4 py-2 border rounded-lg"
             />
             <p className="text-xs text-slate-500 mt-1">

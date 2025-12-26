@@ -240,7 +240,7 @@ export default function ServiceLoggingForm({
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             rows={3}
-            placeholder="What did you learn today? Any challenges or achievements?"
+            Content="What did you learn today? Any challenges or achievements?"
             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>

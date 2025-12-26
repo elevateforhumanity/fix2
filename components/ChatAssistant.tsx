@@ -448,7 +448,7 @@ export default function ChatAssistant({
                 value={input}
                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Type your message..."
+                Content="Type your message..."
                 disabled={loading}
                 style={{
                   flex: 1,

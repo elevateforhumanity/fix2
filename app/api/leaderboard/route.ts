@@ -12,9 +12,69 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const timeframe = searchParams.get('timeframe') || 'week';
 
-    // Leaderboard feature not yet implemented
+    const supabase = await createServerSupabaseClient();
+    
+    // Calculate date range based on timeframe
+    const now = new Date();
+    let startDate = new Date();
+    
+    switch (timeframe) {
+      case 'day':
+        startDate.setDate(now.getDate() - 1);
+        break;
+      case 'week':
+        startDate.setDate(now.getDate() - 7);
+        break;
+      case 'month':
+        startDate.setMonth(now.getMonth() - 1);
+        break;
+      case 'all':
+        startDate = new Date(0);
+        break;
+    }
+    
+    // Get leaderboard data from achievements
+    const { data: leaderboard, error } = await supabase
+      .from('achievements')
+      .select(`
+        user_id,
+        users:user_id (
+          id,
+          email,
+          full_name
+        ),
+        points
+      `)
+      .gte('earned_at', startDate.toISOString())
+      .order('points', { ascending: false })
+      .limit(100);
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    // Aggregate points by user
+    const userPoints = {};
+    leaderboard?.forEach(entry => {
+      const userId = entry.user_id;
+      if (!userPoints[userId]) {
+        userPoints[userId] = {
+          user: entry.users,
+          totalPoints: 0
+        };
+      }
+      userPoints[userId].totalPoints += entry.points || 0;
+    });
+
+    const rankedLeaderboard = Object.values(userPoints)
+      .sort((a, b) => b.totalPoints - a.totalPoints)
+      .map((entry, index) => ({
+        rank: index + 1,
+        ...entry
+      }));
+
     return NextResponse.json({
-      leaderboard: [],
+      leaderboard: rankedLeaderboard,
       timeframe,
     });
   } catch (error: unknown) {

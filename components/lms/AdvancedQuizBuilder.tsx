@@ -161,7 +161,7 @@ export default function AdvancedQuizBuilder() {
                 >
               ) => setQuiz({ ...quiz, title: e.target.value })}
               className="text-2xl font-bold border-none focus:outline-none w-full"
-              placeholder="Quiz Title"
+              Content="Quiz Title"
             />
             <input
               type="text"
@@ -170,7 +170,7 @@ export default function AdvancedQuizBuilder() {
                 setQuiz({ ...quiz, description: e.target.value })
               }
               className="text-sm text-gray-600 border-none focus:outline-none w-full mt-1"
-              placeholder="Quiz description..."
+              Content="Quiz description..."
             />
           </div>
           <div className="flex gap-3">
@@ -205,7 +205,7 @@ export default function AdvancedQuizBuilder() {
                 })
               }
               className="w-20 px-2 py-1 border rounded"
-              placeholder="None"
+              Content="None"
             />
             <span className="text-gray-600">minutes</span>
           </div>
@@ -403,7 +403,7 @@ function QuestionEditor({
             ) => onUpdate({ question: e.target.value })}
             className="w-full p-3 border rounded-lg resize-none"
             rows={3}
-            placeholder="Enter your question here..."
+            Content="Enter your question here..."
           />
         </div>
 
@@ -434,7 +434,7 @@ function QuestionEditor({
                 >
               ) => onUpdate({ imageUrl: e.target.value })}
               className="w-full p-2 border rounded"
-              placeholder="https://..."
+              Content="https://..."
             />
           </div>
         </div>
@@ -469,7 +469,7 @@ function QuestionEditor({
                       onUpdate({ options: newOptions });
                     }}
                     className="flex-1 p-2 border rounded"
-                    placeholder={`Option ${index + 1}`}
+                    Content={`Option ${index + 1}`}
                   />
                   <button
                     onClick={() => {
@@ -543,7 +543,7 @@ function QuestionEditor({
                 >
               ) => onUpdate({ correctAnswer: e.target.value })}
               className="w-full p-2 border rounded"
-              placeholder="Enter correct answer (case-insensitive)"
+              Content="Enter correct answer (case-insensitive)"
             />
             <p className="text-xs text-gray-500 mt-1">
               Separate multiple acceptable answers with commas
@@ -574,7 +574,7 @@ function QuestionEditor({
                       onUpdate({ matchingPairs: newPairs });
                     }}
                     className="flex-1 p-2 border rounded"
-                    placeholder="Left side"
+                    Content="Left side"
                   />
                   <span className="flex items-center">↔</span>
                   <input
@@ -592,7 +592,7 @@ function QuestionEditor({
                       onUpdate({ matchingPairs: newPairs });
                     }}
                     className="flex-1 p-2 border rounded"
-                    placeholder="Right side"
+                    Content="Right side"
                   />
                   <button
                     onClick={() => {
@@ -658,7 +658,7 @@ function QuestionEditor({
               ) => onUpdate({ correctAnswer: e.target.value })}
               className="w-full p-3 border rounded font-mono text-sm resize-none"
               rows={6}
-              placeholder="Enter expected code output or solution..."
+              Content="Enter expected code output or solution..."
             />
           </div>
         )}
@@ -677,7 +677,7 @@ function QuestionEditor({
             ) => onUpdate({ explanation: e.target.value })}
             className="w-full p-3 border rounded resize-none"
             rows={3}
-            placeholder="Explain why this is the correct answer..."
+            Content="Explain why this is the correct answer..."
           />
         </div>
       </div>

@@ -47,7 +47,9 @@ export async function GET() {
   const chunks: Buffer[] = [];
 
   doc.on("data", (chunk) => chunks.push(chunk));
-  doc.on("end", () => {});
+  doc.on("end", () => {
+    // PDF generation complete
+  });
 
   // Header
   doc.fontSize(18).text("Elevate for Humanity – Compliance Status Report", {

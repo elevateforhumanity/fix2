@@ -34,8 +34,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
   
 
 
-  console.log(`Student: ${config.studentEmail}`);
-  console.log(`Program: ${config.programSlug}`);
 
 
   // Initialize Supabase client
@@ -405,12 +403,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
   // Print summary
 
 
-  console.log(`Total Steps: ${summary.total}`);
-  console.log(`✅ Passed: ${summary.passed}`);
-  console.log(`❌ Failed: ${summary.failed}`);
-  console.log(`⏭️  Skipped: ${summary.skipped}`);
 
-  console.log(success ? '✅ ALL TESTS PASSED' : '❌ SOME TESTS FAILED');
 
 
   return { success, results, summary };
@@ -431,12 +424,9 @@ if (require.main === module) {
 
       result.results.forEach((r, i) => {
         const icon = r.status === 'success' ? '✅' : r.status === 'failed' ? '❌' : '⏭️';
-        console.log(`${icon} ${i + 1}. ${r.step}: ${r.message}`);
         if (r.data) {
-          console.log(`   Data:`, JSON.stringify(r.data, null, 2));
         }
         if (r.error) {
-          console.log(`   Error:`, r.error);
         }
       });
 

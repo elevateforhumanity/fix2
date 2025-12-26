@@ -126,7 +126,7 @@ export async function POST(req: Request) {
       payment_method_types: ['card', 'klarna', 'afterpay_clearpay'],
       // Enable automatic tax if configured
       automatic_tax: {
-        enabled: false,
+        enabled: true,
       },
     });
 

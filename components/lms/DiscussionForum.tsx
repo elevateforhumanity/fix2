@@ -92,7 +92,7 @@ export function DiscussionForum({
         <textarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-          placeholder="Ask a question or share your thoughts..."
+          Content="Ask a question or share your thoughts..."
           className="w-full p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[100px]"
         />
         <div className="flex justify-end mt-3">
@@ -152,7 +152,7 @@ export function DiscussionForum({
                   <textarea
                     value={replyText}
                     onChange={(e) => setReplyText(e.target.value)}
-                    placeholder="Write a reply..."
+                    Content="Write a reply..."
                     className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[80px]"
                     autoFocus
                   />

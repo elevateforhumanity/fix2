@@ -139,7 +139,9 @@ export default function HeroBanner({
 
     try {
       v.muted = true;
-      await v.play().catch(() => {});
+      await v.play().catch(() => {
+        // Video play blocked
+      });
       a.currentTime = v.currentTime || 0;
       await a.play();
       setAudioBlocked(false);

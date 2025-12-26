@@ -28,7 +28,9 @@ export function ProgramHero({ program }: { program: Program }) {
             videoRef.current.muted = true;
             await videoRef.current.play();
           }
-        } catch (e) {}
+        } catch (error) {
+    // Error handled
+  }
       }
     };
 

@@ -51,7 +51,7 @@ export async function GET(request: Request) {
   const totalHours = hoursData || 0;
 
   // Get enrollments by sector (if you have this field)
-  // Note: This is a placeholder - adjust based on your schema
+  // Note: This is a Content - adjust based on your schema
   const { data: bySectorData } = await supabase
     .from('enrollments')
     .select('sector')

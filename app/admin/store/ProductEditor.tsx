@@ -54,7 +54,7 @@ export default function ProductEditor() {
             >
           ) => setTitle(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Product Title"
+          Content="Product Title"
         />
       </div>
 
@@ -70,7 +70,7 @@ export default function ProductEditor() {
             >
           ) => setDescription(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Product Description"
+          Content="Product Description"
           rows={3}
         />
       </div>
@@ -88,7 +88,7 @@ export default function ProductEditor() {
             >
           ) => setPrice(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Price in USD"
+          Content="Price in USD"
         />
       </div>
 
@@ -104,7 +104,7 @@ export default function ProductEditor() {
             >
           ) => setRepo(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="owner/repository"
+          Content="owner/repository"
         />
       </div>
 

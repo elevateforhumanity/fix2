@@ -160,7 +160,7 @@ export default async function MentorApprovalsPage({
           <input
             name="from"
             defaultValue={from}
-            placeholder="YYYY-MM-DD"
+            Content="YYYY-MM-DD"
             className="border border-slate-300 rounded px-3 py-2 text-sm bg-white w-40"
           />
         </div>
@@ -172,7 +172,7 @@ export default async function MentorApprovalsPage({
           <input
             name="to"
             defaultValue={to}
-            placeholder="YYYY-MM-DD"
+            Content="YYYY-MM-DD"
             className="border border-slate-300 rounded px-3 py-2 text-sm bg-white w-40"
           />
         </div>

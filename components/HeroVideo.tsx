@@ -15,9 +15,11 @@ export function HeroVideo() {
         height: '100%'
       }}
       onLoadedMetadata={(e) => {
-        // Au only after video is ready
+        // Autoplay only after video is ready
         const video = e.currentTarget;
-        video.play().catch(() => {});
+        video.play().catch(() => {
+          // Autoplay blocked by browser
+        });
       }}
     >
       <source src="/videos/barber-hero.mp4" type="video/mp4" />

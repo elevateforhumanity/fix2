@@ -62,7 +62,6 @@ export async function POST(req: Request) {
 
       // If table doesn't exist, still return success (we'll handle via email)
       if (error.code === '42P01') {
-        console.log('Table does not exist, sending email notification instead');
         // In production, you'd send an email here
         return NextResponse.json({
           success: true,

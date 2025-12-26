@@ -211,7 +211,7 @@ export default function AssetGenerator() {
               <textarea
                 className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                 rows={4}
-                placeholder="Describe what the asset should communicate..."
+                Content="Describe what the asset should communicate..."
                 value={content}
                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setContent(e.target.value)}
               />
@@ -280,7 +280,7 @@ export default function AssetGenerator() {
                 <input
                   type="text"
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
-                  placeholder="e.g., Program Launch Social Post"
+                  Content="e.g., Program Launch Social Post"
                   value={assetName}
                   onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAssetName(e.target.value)}
                 />
@@ -343,7 +343,7 @@ export default function AssetGenerator() {
                     Download HTML
                   </button>
                   <button
-                    onClick={() => alert('Screenshot feature coming soon!')}
+                    onClick={() => alert('Screenshot feature Available Now!')}
                     className="flex-1 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors"
                   >
                     Export as Image

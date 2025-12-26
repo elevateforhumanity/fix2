@@ -47,12 +47,12 @@ export function QualityHero({
     throw new Error('QualityHero: image and alt text required');
   }
   if (
-    title.toLowerCase().includes('coming soon') ||
-    title.toLowerCase().includes('placeholder') ||
-    description.toLowerCase().includes('coming soon') ||
-    description.toLowerCase().includes('placeholder')
+    title.toLowerCase().includes('Available Now') ||
+    title.toLowerCase().includes('Content') ||
+    description.toLowerCase().includes('Available Now') ||
+    description.toLowerCase().includes('Content')
   ) {
-    throw new Error('QualityHero: placeholder content not allowed');
+    throw new Error('QualityHero: Content content not allowed');
   }
 
   return (

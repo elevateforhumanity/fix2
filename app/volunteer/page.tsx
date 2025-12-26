@@ -418,7 +418,7 @@ export default function VolunteerPage() {
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Tell us about your availability (days, times, frequency)..."
+                  Content="Tell us about your availability (days, times, frequency)..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </div>
@@ -429,7 +429,7 @@ export default function VolunteerPage() {
                 <textarea
                   rows={4}
                   required
-                  placeholder="Share your motivation and what you hope to contribute..."
+                  Content="Share your motivation and what you hope to contribute..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </div>
@@ -439,7 +439,7 @@ export default function VolunteerPage() {
                 </label>
                 <textarea
                   rows={4}
-                  placeholder="Share any relevant professional or volunteer experience..."
+                  Content="Share any relevant professional or volunteer experience..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </div>

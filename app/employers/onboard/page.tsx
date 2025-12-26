@@ -99,7 +99,7 @@ export default function EmployerOnboardPage() {
                     name="business_name"
                     required
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="ABC Barbershop"
+                    Content="ABC Barbershop"
                   />
                 </div>
 
@@ -112,7 +112,7 @@ export default function EmployerOnboardPage() {
                     name="contact_name"
                     required
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="John Smith"
+                    Content="John Smith"
                   />
                 </div>
 
@@ -125,7 +125,7 @@ export default function EmployerOnboardPage() {
                     name="contact_email"
                     required
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="john@abcbarbershop.com"
+                    Content="john@abcbarbershop.com"
                   />
                 </div>
 
@@ -138,7 +138,7 @@ export default function EmployerOnboardPage() {
                     name="contact_phone"
                     required
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="(317) 555-1234"
+                    Content="(317) 555-1234"
                   />
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function EmployerOnboardPage() {
                     type="url"
                     name="license"
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://drive.google.com/..."
+                    Content="https://drive.google.com/..."
                   />
                 </div>
 
@@ -175,7 +175,7 @@ export default function EmployerOnboardPage() {
                     type="url"
                     name="insurance"
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://drive.google.com/..."
+                    Content="https://drive.google.com/..."
                   />
                 </div>
 
@@ -188,7 +188,7 @@ export default function EmployerOnboardPage() {
                     type="url"
                     name="mou"
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://drive.google.com/..."
+                    Content="https://drive.google.com/..."
                   />
                 </div>
               </div>

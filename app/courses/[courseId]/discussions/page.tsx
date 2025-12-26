@@ -319,7 +319,7 @@ export default function CourseDiscussionsPage() {
                         | HTMLTextAreaElement
                       >
                     ) => setNewTopic(e.target.value)}
-                    placeholder="What would you like to discuss?"
+                    Content="What would you like to discuss?"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -336,7 +336,7 @@ export default function CourseDiscussionsPage() {
                         | HTMLTextAreaElement
                       >
                     ) => setNewMessage(e.target.value)}
-                    placeholder="Share your thoughts..."
+                    Content="Share your thoughts..."
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />

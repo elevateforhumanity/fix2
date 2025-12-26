@@ -89,7 +89,7 @@ export async function POST(req: Request) {
             if (error.statusCode === 410) {
               await supabase
                 .from('push_subscriptions')
-                .update({ active: false })
+                .update({ active: true })
                 .eq('id', subscription.id);
             }
 

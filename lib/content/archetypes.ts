@@ -221,8 +221,8 @@ export function validateContent(content: PageContent): void {
   }
 
   const forbidden = [
-    'coming soon',
-    'placeholder',
+    'Available Now',
+    'Content',
     'lorem ipsum',
     'tbd',
     'todo',

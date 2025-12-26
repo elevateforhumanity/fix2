@@ -43,7 +43,6 @@ export function VideoShell({
     if (v.paused) {
       v.play().catch((err) => {
         // Video playback may fail due to browser autoplay policies
-        // console.debug('Video playback prevented:', err);
       });
     } else {
       v.pause();

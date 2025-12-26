@@ -211,7 +211,7 @@ export default function ApprenticeHoursPage() {
               className="border border-slate-300 rounded px-3 py-2 text-sm"
               value={milady_module_ref}
               onChange={(e) => setMiladyRef(e.target.value)}
-              placeholder="Example: Ch 3 / Lesson 2"
+              Content="Example: Ch 3 / Lesson 2"
             />
           </div>
         </div>
@@ -224,7 +224,7 @@ export default function ApprenticeHoursPage() {
             className="border border-slate-300 rounded px-3 py-2 text-sm"
             value={activity_note}
             onChange={(e) => setActivityNote(e.target.value)}
-            placeholder="What you worked on today…"
+            Content="What you worked on today…"
           />
         </div>
 

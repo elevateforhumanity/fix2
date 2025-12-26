@@ -14,7 +14,7 @@ interface HeroVideoProps {
  * Enforces design policy for hero video banners.
  * 
  * DESIGN POLICY:
- * - Real videos only (no placeholders)
+ * - Real videos only (no Contents)
  * - Light overlay (30-40% max)
  * - Autoplay, muted, looping
  * - Mobile-friendly (playsInline)

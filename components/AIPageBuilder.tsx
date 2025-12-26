@@ -215,7 +215,7 @@ export default function AIPageBuilder() {
               <textarea
                 className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                 rows={4}
-                placeholder="Describe what the page should highlight..."
+                Content="Describe what the page should highlight..."
                 value={description}
                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDescription(e.target.value)}
               />
@@ -300,7 +300,7 @@ export default function AIPageBuilder() {
                 <input
                   type="text"
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
-                  placeholder="e.g., Home Page"
+                  Content="e.g., Home Page"
                   value={pageName}
                   onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPageName(e.target.value)}
                 />
@@ -312,7 +312,7 @@ export default function AIPageBuilder() {
                 <input
                   type="text"
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
-                  placeholder="e.g., home"
+                  Content="e.g., home"
                   value={pageSlug}
                   onChange={(e) =>
                     setPageSlug(

@@ -34,7 +34,9 @@ export default function StripePayButton() {
     script.src = 'https://js.stripe.com/v3/buy-button.js';
     script.async = true;
     script.onload = () => setLoaded(true);
-    script.onerror = () => {};
+    script.onerror = () => {
+      setLoaded(false);
+    };
 
     document.body.appendChild(script);
   }, []);

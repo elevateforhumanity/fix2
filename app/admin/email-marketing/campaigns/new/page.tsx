@@ -257,7 +257,7 @@ export default function NewCampaignPage() {
                           | HTMLTextAreaElement
                         >
                       ) => setCampaign({ ...campaign, name: e.target.value })}
-                      placeholder="e.g., Welcome Series - January 2025"
+                      Content="e.g., Welcome Series - January 2025"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
@@ -278,7 +278,7 @@ export default function NewCampaignPage() {
                       ) =>
                         setCampaign({ ...campaign, subject: e.target.value })
                       }
-                      placeholder="e.g., Welcome to Elevate for Humanity!"
+                      Content="e.g., Welcome to Elevate for Humanity!"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                     <p className="mt-1 text-sm text-gray-500">
@@ -408,7 +408,7 @@ export default function NewCampaignPage() {
                       }
                       rows={12}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Edit HTML or use template..."
+                      Content="Edit HTML or use template..."
                     />
                   </div>
 

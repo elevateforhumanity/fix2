@@ -27,7 +27,7 @@ export function CourseContentAccordion({
   if (!modules.length) {
     return (
       <div className="rounded-xl border bg-white p-4 text-sm text-slate-600">
-        Course outline coming soon.
+        Course outline Available Now.
       </div>
     );
   }

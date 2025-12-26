@@ -232,7 +232,7 @@ export async function POST(req: Request) {
           paidBy: 'elevate',
         },
         payment_method_types: ['card'],
-        automatic_tax: { enabled: false },
+        automatic_tax: { enabled: true },
       });
 
       if (!session.url) {

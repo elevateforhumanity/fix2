@@ -297,7 +297,7 @@ export default function SkillsTrackingPage() {
                 ) => setNotes(e.target.value)}
                 rows={3}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                placeholder="Add any observations, tips, or areas for improvement..."
+                Content="Add any observations, tips, or areas for improvement..."
               />
             </div>
 

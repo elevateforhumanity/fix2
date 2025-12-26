@@ -27,7 +27,6 @@ function log(level: LogLevel, message: string, meta?: Record<string, any>) {
       console.warn(output);
       break;
     default:
-      console.log(output);
   }
 }
 

@@ -318,7 +318,7 @@ function DocumentStep({
                 type="text"
                 value={signature}
                 onChange={(e) => setSignature(e.target.value)}
-                placeholder="Type your full name"
+                Content="Type your full name"
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
               <p className="text-sm text-slate-600 mt-1">

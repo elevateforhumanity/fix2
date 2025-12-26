@@ -206,7 +206,7 @@ interface FormFieldProps {
   type?: string;
   required?: boolean;
   tooltipContent?: string;
-  placeholder?: string;
+  Content?: string;
   error?: string;
 }
 
@@ -216,7 +216,7 @@ export function FormField({
   type = 'text',
   required = false,
   tooltipContent,
-  placeholder,
+  Content,
   error,
 }: FormFieldProps) {
   return (
@@ -236,7 +236,7 @@ export function FormField({
         id={name}
         name={name}
         required={required}
-        placeholder={placeholder}
+        Content={Content}
         className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
           error ? 'border-red-500' : 'border-gray-300'
         }`}

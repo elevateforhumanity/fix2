@@ -14,7 +14,7 @@ export function generateCertificateNumber(): string {
 
 export async function generateCertificatePDF(data: CertificateData): Promise<Blob> {
   // This would use jsPDF or Puppeteer to generate actual PDF
-  // For now, return a placeholder
+  // For now, return a Content
   const html = generateCertificateHTML(data);
   const blob = new Blob([html], { type: 'text/html' });
   return blob;

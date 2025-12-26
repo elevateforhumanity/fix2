@@ -82,6 +82,37 @@ export const publicNav: NavSection[] = [
     href: '/login',
   },
   {
+    label: 'Features',
+    items: [
+      // Learning Management
+      { label: 'Learning Management', href: '#', isHeader: true },
+      { label: 'Course Catalog', href: '/courses' },
+      { label: 'Interactive Learning', href: '/features/interactive-learning' },
+      { label: 'Assessments & Quizzes', href: '/features/assessments' },
+      { label: 'Certificates', href: '/features/certificates' },
+      
+      // Student Tools
+      { label: 'Student Tools', href: '#', isHeader: true },
+      { label: 'Student Dashboard', href: '/student/dashboard' },
+      { label: 'Progress Tracking', href: '/features/progress-tracking' },
+      { label: 'Achievement System', href: '/features/achievements' },
+      { label: 'Leaderboards', href: '/features/leaderboards' },
+      
+      // Career Services
+      { label: 'Career Services', href: '#', isHeader: true },
+      { label: 'Job Placement', href: '/career-services' },
+      { label: 'Apprenticeships', href: '/apprenticeships' },
+      { label: 'Resume Builder', href: '/features/resume-builder' },
+      
+      // Admin & Compliance
+      { label: 'Administration', href: '#', isHeader: true },
+      { label: 'Program Management', href: '/features/program-management' },
+      { label: 'Compliance Tracking', href: '/features/compliance' },
+      { label: 'Analytics & Reporting', href: '/features/analytics' },
+      { label: 'Accreditation', href: '/accreditation' },
+    ],
+  },
+  {
     label: 'More',
     items: [
       { label: 'About Us', href: '/about' },

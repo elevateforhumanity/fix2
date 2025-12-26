@@ -364,7 +364,7 @@ export function IntelligentDataProcessor() {
         <textarea
           value={rawInput}
           onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRawInput(e.target.value)}
-          placeholder="Paste your data here - any format works!
+          Content="Paste your data here - any format works!
 
 Examples:
 • Excel copy/paste (tab-separated)

@@ -313,7 +313,7 @@ export default function ApplyPage() {
                       >
                     ) => updateField('firstName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="John"
+                    Content="John"
                   />
                 </div>
 
@@ -332,7 +332,7 @@ export default function ApplyPage() {
                       >
                     ) => updateField('lastName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Doe"
+                    Content="Doe"
                   />
                 </div>
 
@@ -351,7 +351,7 @@ export default function ApplyPage() {
                       >
                     ) => updateField('email', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="john@example.com"
+                    Content="john@example.com"
                   />
                 </div>
 
@@ -370,7 +370,7 @@ export default function ApplyPage() {
                       >
                     ) => updateField('phone', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="(317) 314-3757"
+                    Content="(317) 314-3757"
                   />
                 </div>
 
@@ -408,7 +408,7 @@ export default function ApplyPage() {
                     ) => updateField('ssn', e.target.value)}
                     maxLength={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="1234"
+                    Content="1234"
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     For identity verification only
@@ -436,7 +436,7 @@ export default function ApplyPage() {
                     >
                   ) => updateField('address', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="123 Main St"
+                  Content="123 Main St"
                 />
               </div>
 
@@ -456,7 +456,7 @@ export default function ApplyPage() {
                       >
                     ) => updateField('city', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Indianapolis"
+                    Content="Indianapolis"
                   />
                 </div>
 
@@ -499,7 +499,7 @@ export default function ApplyPage() {
                     ) => updateField('zipCode', e.target.value)}
                     maxLength={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="46240"
+                    Content="46240"
                   />
                 </div>
               </div>
@@ -551,7 +551,7 @@ export default function ApplyPage() {
                         >
                       ) => updateField('employer', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Company Name"
+                      Content="Company Name"
                     />
                   </div>
 
@@ -574,7 +574,7 @@ export default function ApplyPage() {
                           >
                         ) => updateField('monthlyIncome', e.target.value)}
                         className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="2,500"
+                        Content="2,500"
                       />
                     </div>
                   </div>
@@ -602,7 +602,7 @@ export default function ApplyPage() {
                         >
                       ) => updateField('trainingStipend', e.target.value)}
                       className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="2,400"
+                      Content="2,400"
                     />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
@@ -654,7 +654,7 @@ export default function ApplyPage() {
                     >
                   ) => updateField('bankName', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Chase, Wells Fargo, etc."
+                  Content="Chase, Wells Fargo, etc."
                 />
               </div>
 
@@ -690,7 +690,7 @@ export default function ApplyPage() {
                   ) => updateField('routingNumber', e.target.value)}
                   maxLength={9}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="123456789"
+                  Content="123456789"
                 />
                 <p className="text-xs text-gray-500 mt-1">
                   9-digit number on bottom left of check
@@ -710,7 +710,7 @@ export default function ApplyPage() {
                     >
                   ) => updateField('accountNumber', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Account number"
+                  Content="Account number"
                 />
               </div>
             </div>
@@ -782,7 +782,7 @@ export default function ApplyPage() {
                   ) => updateField('purpose', e.target.value)}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Rent, car repair, medical bills, etc."
+                  Content="Rent, car repair, medical bills, etc."
                 />
               </div>
 

@@ -4,7 +4,7 @@
  * Course Authoring Tool - Temporarily Disabled
  * 
  * This component is being rebuilt to use @dnd-kit instead of deprecated react-beautiful-dnd
- * For now, showing a placeholder message
+ * For now, showing a Content message
  */
 export default function CourseAuthoringTool() {
   return (

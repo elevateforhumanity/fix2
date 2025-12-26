@@ -85,7 +85,9 @@ export class AdaptiveStreamingManager {
       return () => connection.removeEventListener('change', handleChange);
     }
 
-    return () => {};
+    return () => {
+      // No connection API available - no cleanup needed
+    };
   }
 
   /**

@@ -221,7 +221,7 @@ export default function FAQPage() {
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search for answers..."
+                Content="Search for answers..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 rounded-lg text-slate-900 text-lg focus:outline-none focus:ring-2 focus:ring-blue-300"

@@ -72,7 +72,9 @@ export default function MediaStudioPage() {
           setSelectedBucket(data.buckets[0]);
         }
       }
-    } catch (error) {}
+    } catch (error) {
+    // Error handled
+  }
   };
 
   const loadFiles = async (bucket: string) => {
@@ -84,7 +86,8 @@ export default function MediaStudioPage() {
         setFiles(data.files);
       }
     } catch (error) {
-    } finally {
+    // Error handled
+  } finally {
       setLoading(false);
     }
   };
@@ -102,7 +105,9 @@ export default function MediaStudioPage() {
       if (res.ok) {
         loadFiles(selectedBucket);
       }
-    } catch (error) {}
+    } catch (error) {
+    // Error handled
+  }
   };
 
   const deleteFile = async (fileName: string) => {
@@ -118,7 +123,9 @@ export default function MediaStudioPage() {
       if (res.ok) {
         loadFiles(selectedBucket);
       }
-    } catch (error) {}
+    } catch (error) {
+    // Error handled
+  }
   };
 
   const optimizeImages = async () => {
@@ -130,7 +137,9 @@ export default function MediaStudioPage() {
         alert('Images optimized successfully!');
         loadFiles(selectedBucket);
       }
-    } catch (error) {}
+    } catch (error) {
+    // Error handled
+  }
   };
 
   const filteredFiles = files.filter((file) =>
@@ -212,7 +221,7 @@ export default function MediaStudioPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search files..."
+                  Content="Search files..."
                   value={searchQuery}
                   onChange={(
                     e: React.ChangeEvent<

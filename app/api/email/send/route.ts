@@ -25,7 +25,6 @@ export async function POST(req: Request) {
 
     // If no RESEND_API_KEY, log and return success (dev mode)
     if (!resend) {
-      console.log('[Email] Would send:', { to, subject });
       
       // Log as pending in dev mode
       await logEmailDelivery({
@@ -77,7 +76,6 @@ export async function POST(req: Request) {
     });
 
     const duration = Date.now() - startTime;
-    console.log(`[Email] Sent successfully in ${duration}ms:`, { to: emailTo, subject: emailSubject });
 
     return NextResponse.json({ ok: true, id: data?.id });
   } catch (err: any) {

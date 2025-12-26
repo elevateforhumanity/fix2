@@ -117,7 +117,7 @@ export function SocialLearningCommunity() {
                 <textarea
                   className="w-full p-3 border rounded-lg resize-none"
                   rows={3}
-                  placeholder="Share your learning journey, ask questions, or help others..."
+                  Content="Share your learning journey, ask questions, or help others..."
                 />
                 <div className="flex justify-between items-center mt-3">
                   <div className="flex gap-2">

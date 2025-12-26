@@ -65,7 +65,7 @@ export interface ModerationRule {
 const PROFANITY_LIST = [
   // Add profanity words here
   'badword1',
-  'badword2', // Placeholder
+  'badword2', // Content
 ];
 
 const SPAM_PATTERNS = [

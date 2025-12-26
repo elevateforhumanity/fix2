@@ -195,7 +195,7 @@ export function ShoppingCart() {
                     type="text"
                     value={promoCode}
                     onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPromoCode(e.target.value)}
-                    placeholder="Enter code"
+                    Content="Enter code"
                     className="flex-1 px-3 py-2 border rounded focus:ring-2 focus:ring-red-500 focus:border-red-500"
                   />
                   <Button

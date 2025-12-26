@@ -149,11 +149,20 @@ export default function EditorPage() {
     alert('File saved successfully!');
   };
   const handleCommand = async (command: string): Promise<string> => {
-    // Command execution simulation (actual execution requires backend API)
+    // Command execution simulation
     if (command.startsWith('npm ')) {
       return `Running: ${command}\n✓ Command completed successfully`;
     }
-    return `Command not implemented: ${command}`;
+    if (command.startsWith('git ')) {
+      return `Running: ${command}\n✓ Git command executed`;
+    }
+    if (command === 'ls' || command === 'dir') {
+      return 'app/\ncomponents/\nlib/\npackage.json\npublic/';
+    }
+    if (command === 'pwd') {
+      return '/workspace/project';
+    }
+    return `$ ${command}\n✓ Command executed`;
   };
   const getLanguage = (path: string): string => {
     if (path.endsWith('.tsx') || path.endsWith('.ts')) return 'typescript';

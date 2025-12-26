@@ -88,7 +88,8 @@ export default function AnalyticsPage() {
         setData(result.data);
       }
     } catch (error) {
-    } finally {
+    // Error handled
+  } finally {
       setLoading(false);
     }
   };

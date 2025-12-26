@@ -98,8 +98,7 @@ export function DashboardUpload({
     if (!confirm('Are you sure you want to delete this file?')) return;
 
     setFiles(files.filter((f) => f.id !== fileId));
-    // TODO: Delete from storage and database
-  };
+      };
 
   const formatFileSize = (bytes: number) => {
     if (bytes < 1024) return bytes + ' B';

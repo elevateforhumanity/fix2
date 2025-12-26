@@ -64,8 +64,8 @@ export function PushNotificationService() {
               { label: 'Assignment Updates', enabled: true },
               { label: 'Class Reminders', enabled: true },
               { label: 'Grade Notifications', enabled: true },
-              { label: 'Course Announcements', enabled: false },
-              { label: 'Marketing Messages', enabled: false },
+              { label: 'Course Announcements', enabled: true },
+              { label: 'Marketing Messages', enabled: true },
             ].map((pref, idx) => (
               <div key={idx} className="flex justify-between items-center p-3 bg-gray-50 rounded">
                 <span className="font-medium">{pref.label}</span>

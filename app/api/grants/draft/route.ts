@@ -6,7 +6,7 @@ import { logger } from '@/lib/logger';
 export async function POST(req: NextRequest) {
   if (
     !process.env.OPENAI_API_KEY ||
-    process.env.OPENAI_API_KEY === 'placeholder-key'
+    process.env.OPENAI_API_KEY === 'Content-key'
   ) {
     return NextResponse.json(
       { error: 'AI features not configured' },

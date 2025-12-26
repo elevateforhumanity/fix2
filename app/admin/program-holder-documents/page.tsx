@@ -265,7 +265,7 @@ export default function AdminProgramHolderDocuments() {
                           }}
                           rows={2}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="Add notes about your decision..."
+                          Content="Add notes about your decision..."
                         />
                       </div>
                       <div className="flex gap-2 pt-6">

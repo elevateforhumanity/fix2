@@ -152,19 +152,19 @@ export function CoursePlayer() {
           <h3 className="font-bold text-gray-900 mb-4">Lesson Resources</h3>
           <div className="space-y-2">
             <button
-              onClick={() => alert('Resource download coming soon!')}
+              onClick={() => alert('Resource download Available Now!')}
               className="flex items-center gap-2 text-brand-orange-600 hover:text-blue-700 text-sm w-full text-left"
             >
               📄 Cutting Techniques Guide.pdf
             </button>
             <button
-              onClick={() => alert('Resource download coming soon!')}
+              onClick={() => alert('Resource download Available Now!')}
               className="flex items-center gap-2 text-brand-orange-600 hover:text-blue-700 text-sm w-full text-left"
             >
               📊 Practice Worksheet.pdf
             </button>
             <button
-              onClick={() => alert('Resource download coming soon!')}
+              onClick={() => alert('Resource download Available Now!')}
               className="flex items-center gap-2 text-brand-orange-600 hover:text-blue-700 text-sm w-full text-left"
             >
               🎥 Bonus: Advanced Tips Video

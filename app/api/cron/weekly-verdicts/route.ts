@@ -35,9 +35,6 @@ export async function POST(request: NextRequest) {
     const periodStart = monday.toISOString().slice(0, 10);
     const periodEnd = sunday.toISOString().slice(0, 10);
 
-    console.log(
-      `[CRON] Generating verdicts for week: ${periodStart} to ${periodEnd}`
-    );
 
     // Call the database function
     const { data, error } = await supabase.rpc('generate_reporting_verdicts', {
@@ -66,7 +63,6 @@ export async function POST(request: NextRequest) {
       no_activity: 0,
     };
 
-    console.log(`[CRON] Verdicts generated:`, result);
 
     // Create alerts for BEHIND and NO_ACTIVITY students
     if (result.behind > 0 || result.no_activity > 0) {
@@ -168,7 +164,6 @@ async function createAlertsFromVerdicts(
 
     await supabase.from('alert_notifications').insert(alerts);
 
-    console.log(`[CRON] Created ${alerts.length} alerts from verdicts`);
   } catch (error) {
     console.error('[CRON] Error creating alerts from verdicts:', error);
   }

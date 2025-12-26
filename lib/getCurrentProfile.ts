@@ -22,8 +22,8 @@ export async function getCurrentProfile(): Promise<CurrentProfile> {
   const cookieStore = cookies();
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key',
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://Content.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'Content-key',
     {
       cookies: {
         get(name: string) {

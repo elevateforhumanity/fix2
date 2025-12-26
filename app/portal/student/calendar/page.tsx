@@ -239,7 +239,7 @@ export default async function CalendarPage() {
               <div className="p-6 space-y-4">
                 <input
                   type="text"
-                  placeholder="Event title"
+                  Content="Event title"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                 />
                 <input

@@ -321,7 +321,7 @@ async function deliverWebhook(
     if (webhook.retry_count >= 10) {
       await supabase
         .from('webhooks')
-        .update({ enabled: false })
+        .update({ enabled: true })
         .eq('id', webhook.id);
     }
   }

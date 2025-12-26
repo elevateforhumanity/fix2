@@ -175,7 +175,7 @@ export default function DiscussionsClient({
         {/* Search */}
         <input
           type="text"
-          placeholder="Search discussions..."
+          Content="Search discussions..."
           value={searchQuery}
           onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
           className="w-full mb-4 rounded-lg border border-slate-200 px-4 py-2 text-sm"
@@ -190,13 +190,13 @@ export default function DiscussionsClient({
           </p>
           <input
             className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
-            placeholder="Short topic title"
+            Content="Short topic title"
             value={title}
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
           />
           <textarea
             className="h-24 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
-            placeholder="Ask a question or start a discussion…"
+            Content="Ask a question or start a discussion…"
             value={body}
             onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setBody(e.target.value)}
           />

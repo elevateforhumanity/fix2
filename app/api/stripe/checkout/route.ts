@@ -102,7 +102,7 @@ export async function POST(req: Request) {
       },
       // Enable automatic tax calculation if configured
       automatic_tax: {
-        enabled: false, // Set to true after configuring Stripe Tax
+        enabled: true, // Set to true after configuring Stripe Tax
       },
     });
 

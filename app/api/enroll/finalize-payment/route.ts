@@ -159,11 +159,56 @@ export async function POST(req: Request) {
         message: 'Scholarship enrollment activated',
       });
     } else {
-      // employer mode - would need employer payment method
-      return NextResponse.json(
-        { error: 'Employer payment mode not yet implemented' },
-        { status: 501 }
-      );
+      // employer mode - create invoice for employer
+      const { data: enrollment } = await supabase
+        .from('enrollments')
+        .select('*, programs(*), users(*)')
+        .eq('id', enrollmentId)
+        .single();
+
+      if (!enrollment) {
+        return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
+      }
+
+      // Create Stripe invoice for employer
+      const invoice = await stripe.invoices.create({
+        customer: enrollment.employer_stripe_customer_id,
+        collection_method: 'send_invoice',
+        days_until_due: 30,
+        metadata: {
+          enrollment_id: enrollmentId,
+          payment_mode: 'employer',
+          program_id: enrollment.program_id,
+          student_id: enrollment.user_id,
+        },
+      });
+
+      // Add invoice item
+      await stripe.invoiceItems.create({
+        customer: enrollment.employer_stripe_customer_id,
+        invoice: invoice.id,
+        amount: Math.round((enrollment.programs?.price || 0) * 100),
+        currency: 'usd',
+        description: `Training: ${enrollment.programs?.title || 'Program'}`,
+      });
+
+      // Finalize and send invoice
+      await stripe.invoices.finalizeInvoice(invoice.id);
+
+      // Update enrollment with invoice ID
+      await supabase
+        .from('enrollments')
+        .update({
+          stripe_invoice_id: invoice.id,
+          payment_status: 'pending',
+        })
+        .eq('id', enrollmentId);
+
+      return NextResponse.json({
+        success: true,
+        invoice_id: invoice.id,
+        invoice_url: invoice.hosted_invoice_url,
+      });
     }
 
     // Lock enrollment for billing (prevents double-charging)
@@ -219,7 +264,7 @@ export async function POST(req: Request) {
       payment_method_types: ['card', 'klarna', 'afterpay_clearpay'],
       // Disable automatic tax for now
       automatic_tax: {
-        enabled: false,
+        enabled: true,
       },
     });
 

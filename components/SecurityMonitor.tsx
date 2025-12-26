@@ -51,13 +51,6 @@ export function SecurityMonitor() {
 
     // 3. Monitor console access
     const monitorConsole = () => {
-      const originalLog = console.log;
-      console.log = function (...args) {
-        // Log console usage (potential developer inspection)
-        if (args.length > 0 && typeof args[0] === 'string') {
-          logSecurityEvent('CONSOLE_ACCESS', {
-            message: args[0].substring(0, 100),
-          });
         }
         originalLog.apply(console, args);
       };

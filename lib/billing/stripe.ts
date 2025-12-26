@@ -1,8 +1,8 @@
 // lib/billing/stripe.ts
 import Stripe from 'stripe';
 
-// Use placeholder during build, will fail at runtime if not set in production
-const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder';
+// Use Content during build, will fail at runtime if not set in production
+const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_Content';
 
 if (!process.env.STRIPE_SECRET_KEY && process.env.NODE_ENV === 'production') {
 }

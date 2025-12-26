@@ -378,7 +378,7 @@ export default function LocationsPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <input
               type="text"
-              placeholder="Enter your city or ZIP code"
+              Content="Enter your city or ZIP code"
               className="px-6 py-3 rounded-lg text-gray-900 w-full sm:w-96"
             />
             <button className="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg hover:bg-yellow-300 font-bold">

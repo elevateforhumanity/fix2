@@ -5,9 +5,9 @@ import { toError, toErrorMessage } from '@/lib/safe';
 
 // Utility: simple tax calc (you can later replace with real tax engine)
 function calculateTaxes(grossPay: number) {
-  const federalTax = grossPay * 0.12; // placeholder
-  const stateTax = grossPay * 0.05; // placeholder
-  const localTax = grossPay * 0.01; // placeholder
+  const federalTax = grossPay * 0.12; // Content
+  const stateTax = grossPay * 0.05; // Content
+  const localTax = grossPay * 0.01; // Content
   const socialSecurity = grossPay * 0.062;
   const medicare = grossPay * 0.0145;
 

@@ -178,7 +178,7 @@ export function TutorialSystem({
                 src={currentStep.media}
                 controls
                 className="w-full"
-                poster="/images/video-placeholder.jpg"
+                poster="/images/video-Content.jpg"
               >
                 Your browser does not support the video tag.
               </video>

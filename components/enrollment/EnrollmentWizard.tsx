@@ -103,14 +103,14 @@ export default function EnrollmentWizard({
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="text"
-                placeholder="First Name"
+                Content="First Name"
                 value={formData.firstName}
                 onChange={(e) => updateField('firstName', e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg"
               />
               <input
                 type="text"
-                placeholder="Last Name"
+                Content="Last Name"
                 value={formData.lastName}
                 onChange={(e) => updateField('lastName', e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg"
@@ -124,14 +124,14 @@ export default function EnrollmentWizard({
             <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
             <input
               type="email"
-              placeholder="Email"
+              Content="Email"
               value={formData.email}
               onChange={(e) => updateField('email', e.target.value)}
               className="w-full px-4 py-2 border rounded-lg"
             />
             <input
               type="tel"
-              placeholder="Phone"
+              Content="Phone"
               value={formData.phone}
               onChange={(e) => updateField('phone', e.target.value)}
               className="w-full px-4 py-2 border rounded-lg"

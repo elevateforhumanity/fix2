@@ -129,7 +129,7 @@ export function StudyGroups() {
                 <label className="block text-sm font-semibold mb-2">Group Name</label>
                 <input
                   type="text"
-                  placeholder="Enter group name"
+                  Content="Enter group name"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500"
                 />
               </div>
@@ -137,7 +137,7 @@ export function StudyGroups() {
               <div>
                 <label className="block text-sm font-semibold mb-2">Description</label>
                 <textarea
-                  placeholder="What's this group about?"
+                  Content="What's this group about?"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500"
                   rows={3}
                 />

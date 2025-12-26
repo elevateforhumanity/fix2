@@ -54,7 +54,6 @@ function SelfHostedAnalyticsContent() {
       });
     } catch (error) {
       // Silently fail - don't break the app
-      // console.debug('Analytics tracking failed:', error);
     }
   };
 
@@ -75,8 +74,8 @@ function SelfHostedAnalyticsContent() {
         body: JSON.stringify(data),
       });
     } catch (error) {
-      // console.debug('Web Vitals tracking failed:', error);
-    }
+    // Error handled
+  }
   };
 
   // No UI - just tracking
@@ -101,8 +100,8 @@ export function useAnalytics() {
         }),
       });
     } catch (error) {
-      // console.debug('Event tracking failed:', error);
-    }
+    // Error handled
+  }
   };
 }
 

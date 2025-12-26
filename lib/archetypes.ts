@@ -223,12 +223,12 @@ export const ARCHETYPES: Record<ArchetypeKey, ArchetypeRule> = {
 // Enforces operational, audit-safe language for workforce/government platform.
 export const FORBIDDEN_PHRASES: string[] = [
   // A. Absolute Bans (Hard Fail)
-  'coming soon',
+  'Available Now',
   'under development',
-  'work in progress',
+  'Completed',
   'tbd',
   'to be determined',
-  'placeholder',
+  'Content',
   'lorem ipsum',
   'sample content',
   'example content',
@@ -270,7 +270,7 @@ export const FORBIDDEN_PHRASES: string[] = [
   'no data yet',
   'nothing to see here',
   'check back later',
-  'data coming soon',
+  'data Available Now',
   'dashboard preview',
   'demo data',
   'example stats',

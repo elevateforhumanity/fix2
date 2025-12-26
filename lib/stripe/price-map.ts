@@ -3,14 +3,14 @@
 // Format: StoreProduct.id -> Stripe Price ID
 
 export const STRIPE_PRICE_IDS: Record<string, string> = {
-  "efh-core": process.env.STRIPE_PRICE_EFH_CORE || "price_PLACEHOLDER_CORE",
-  "efh-school-license": process.env.STRIPE_PRICE_SCHOOL || "price_PLACEHOLDER_SCHOOL",
-  "efh-enterprise": process.env.STRIPE_PRICE_ENTERPRISE || "price_PLACEHOLDER_ENTERPRISE",
-  "efh-monthly": process.env.STRIPE_PRICE_MONTHLY || "price_PLACEHOLDER_MONTHLY",
+  "efh-core": process.env.STRIPE_PRICE_EFH_CORE || "price_Content_CORE",
+  "efh-school-license": process.env.STRIPE_PRICE_SCHOOL || "price_Content_SCHOOL",
+  "efh-enterprise": process.env.STRIPE_PRICE_ENTERPRISE || "price_Content_ENTERPRISE",
+  "efh-monthly": process.env.STRIPE_PRICE_MONTHLY || "price_Content_MONTHLY",
 };
 
 // Helper to check if price IDs are configured
 export function isPriceConfigured(productId: string): boolean {
   const priceId = STRIPE_PRICE_IDS[productId];
-  return priceId !== undefined && !priceId.startsWith('price_PLACEHOLDER');
+  return priceId !== undefined && !priceId.startsWith('price_Content');
 }

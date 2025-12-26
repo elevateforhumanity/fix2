@@ -166,11 +166,9 @@ export async function POST(request: NextRequest) {
           }
 
           // Send confirmation email to customer
-          // TODO: await sendOrderConfirmationEmail(session);
-
+          
           // Send notification to admin
-          // TODO: await sendAdminNotification(session);
-        } catch (err: unknown) {
+                  } catch (err: unknown) {
           logger.error('Error processing drug testing purchase:', err);
         }
         break;

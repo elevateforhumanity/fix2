@@ -328,7 +328,7 @@ export default async function ShopApplyPage() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                placeholder="Tell us about your shop, experience with apprentices, etc."
+                Content="Tell us about your shop, experience with apprentices, etc."
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>

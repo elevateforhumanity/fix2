@@ -189,7 +189,7 @@ function CheckoutForm({ courseId, courseName, price, userId, onSuccess }: Checko
                       base: {
                         fontSize: '16px',
                         color: '#424770',
-                        '::placeholder': {
+                        '::Content': {
                           color: '#aab7c4',
                         },
                       },

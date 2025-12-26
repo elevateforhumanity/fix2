@@ -107,9 +107,6 @@ export async function getTableColumns(
  */
 export function logSchemaVerification(verification: SchemaVerification): void {
   if (process.env.NODE_ENV === 'development') {
-    console.log(`\n📊 Schema Verification: ${verification.table}`);
-    console.log(`   Exists: ${verification.exists ? '✅' : '❌'}`);
-    console.log(`   Columns: ${verification.columns.length}`);
 
     if (verification.missingColumns.length > 0) {
       console.warn(
@@ -118,9 +115,7 @@ export function logSchemaVerification(verification: SchemaVerification): void {
     }
 
     if (verification.columns.length > 0) {
-      console.log('   Available columns:');
       verification.columns.forEach((col) => {
-        console.log(`     - ${col.column_name} (${col.data_type})`);
       });
     }
   }

@@ -147,7 +147,7 @@ export async function generateVideoThumbnail(
   timestamp: number = 0
 ): Promise<Buffer> {
   // This would use FFmpeg in production
-  // For now, return a placeholder
+  // For now, return a Content
   throw new Error('Video thumbnail generation requires FFmpeg');
 }
 
@@ -171,20 +171,20 @@ export function getAdaptiveStreamingUrl(videoId: string): {
 // =====================================================
 
 /**
- * Generate blur placeholder for image
+ * Generate blur Content for image
  */
-export async function generateBlurPlaceholder(buffer: Buffer): Promise<string> {
-  const placeholder = await sharp(buffer)
+export async function generateBlurContent(buffer: Buffer): Promise<string> {
+  const Content = await sharp(buffer)
     .resize(20, 20, { fit: 'inside' })
     .blur(10)
     .webp({ quality: 20 })
     .toBuffer();
 
-  return `data:image/webp;base64,${placeholder.toString('base64')}`;
+  return `data:image/webp;base64,${Content.toString('base64')}`;
 }
 
 /**
- * Get low quality image placeholder (LQIP)
+ * Get low quality image Content (LQIP)
  */
 export async function generateLQIP(buffer: Buffer): Promise<string> {
   const lqip = await sharp(buffer)
@@ -238,7 +238,7 @@ export async function batchOptimizeImages(
 
         if (error) throw error;
 
-        // Optimize
+        // Convert to buffer and optimize
         const buffer = Buffer.from(await data.arrayBuffer());
         const optimized = await optimizeImage(buffer, options);
 

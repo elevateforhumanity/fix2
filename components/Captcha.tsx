@@ -10,7 +10,7 @@ interface CaptchaProps {
 export default function Captcha({ onVerify, siteKey }: CaptchaProps) {
   const [loaded, setLoaded] = useState(false);
   const captchaRef = useRef<HTMLDivElement>(null);
-  const key = siteKey || process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || 'placeholder-key';
+  const key = siteKey || process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || 'Content-key';
 
   useEffect(() => {
     // Load hCaptcha script
@@ -33,11 +33,11 @@ export default function Captcha({ onVerify, siteKey }: CaptchaProps) {
     }
   }, [loaded, key, onVerify]);
 
-  // If no site key, show placeholder
-  if (key === 'placeholder-key') {
+  // If no site key, show Content
+  if (key === 'Content-key') {
     return (
       <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-center text-sm text-slate-600">
-        <p>CAPTCHA placeholder (configure NEXT_PUBLIC_HCAPTCHA_SITE_KEY)</p>
+        <p>CAPTCHA Content (configure NEXT_PUBLIC_HCAPTCHA_SITE_KEY)</p>
         <button
           type="button"
           onClick={() => onVerify('dev-bypass-token')}

@@ -95,7 +95,7 @@ export function ResourceLibrary() {
           <div className="flex flex-col md:flex-row gap-4">
             <input
               type="text"
-              placeholder="Search resources..."
+              Content="Search resources..."
               value={searchQuery}
               onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
               className="flex-1 px-4 py-2 border rounded-lg"

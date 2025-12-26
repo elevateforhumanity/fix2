@@ -423,7 +423,7 @@ export default async function BookingPage() {
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="e.g., HVAC System Troubleshooting"
+                  Content="e.g., HVAC System Troubleshooting"
                   required
                 />
               </div>
@@ -437,7 +437,7 @@ export default async function BookingPage() {
                   onChange={(e) => setNotes(e.target.value)}
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Any specific questions or topics you'd like to cover..."
+                  Content="Any specific questions or topics you'd like to cover..."
                 />
               </div>
             </div>
