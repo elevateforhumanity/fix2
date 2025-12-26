@@ -16,8 +16,7 @@ export default function HomePage() {
               muted
               loop
               playsInline
-              preload="metadata"
-              loading="lazy"
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source
@@ -65,7 +64,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/artlist/hero-training-1.jpg"
+                  src="/images/heroes/student-career.jpg"
                   alt="Get trained"
                   fill
                   className="object-cover"
@@ -90,7 +89,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/artlist/hero-training-2.jpg"
+                  src="/images/heroes/training-provider-1.jpg"
                   alt="Partner with us"
                   fill
                   className="object-cover"
@@ -115,7 +114,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/artlist/hero-training-3.jpg"
+                  src="/images/efh/hero/hero-support.jpg"
                   alt="License the platform"
                   fill
                   className="object-cover"
@@ -189,7 +188,7 @@ export default function HomePage() {
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source
@@ -206,7 +205,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/artlist/hero-training-4.jpg"
+              src="/images/efh/sections/classroom.jpg"
               alt="Student outcomes and support"
               fill
               className="object-cover"
@@ -278,7 +277,7 @@ export default function HomePage() {
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/artlist/hero-training-5.jpg"
+              src="/images/efh/sections/coaching.jpg"
               alt="Employers and workforce boards"
               fill
               className="object-cover"
