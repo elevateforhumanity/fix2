@@ -111,14 +111,18 @@ export const publicNav: NavSection[] = [
       // Schools & Agencies
       { label: 'I Run a Program', href: '#', isHeader: true },
       { label: 'See the Platform', href: '/platform' },
-      { label: 'License Our Platform', href: '/white-label' },
+      { label: 'License Our Platform', href: '/store/licenses' },
       { label: 'Request Demo', href: '/contact' },
       { label: 'Training Providers', href: '/training-providers' },
     ],
   },
   {
     label: 'Store',
-    href: '/white-label',
+    items: [
+      { label: 'Platform Licenses', href: '/store/licenses' },
+      { label: 'Digital Products', href: '/store' },
+      { label: 'White-Label Info', href: '/white-label' },
+    ],
   },
   {
     label: 'Apply',

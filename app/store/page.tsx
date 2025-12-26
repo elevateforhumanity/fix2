@@ -68,8 +68,99 @@ export default function StorePage() {
         </div>
       </section>
 
+      {/* Store Options */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What Are You Looking For?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Platform Licenses */}
+            <Link
+              href="/store/licenses"
+              className="group bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-brand-green-600 hover:shadow-xl transition-all"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-brand-green-600 rounded-xl flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Platform Licenses
+                  </h3>
+                  <p className="text-gray-600">Clone our entire platform</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4">
+                License the complete Elevate for Humanity workforce training
+                platform. White-label solutions for schools, training providers,
+                and workforce agencies.
+              </p>
+              <div className="flex items-center gap-2 text-brand-green-600 font-semibold group-hover:gap-4 transition-all">
+                <span>View Licenses</span>
+                <TrendingUp className="w-5 h-5" />
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-600">
+                  Starting at{' '}
+                  <span className="font-bold text-gray-900">$4,999</span>
+                </p>
+              </div>
+            </Link>
+
+            {/* Digital Products */}
+            <Link
+              href="#digital-products"
+              className="group bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-orange-600 hover:shadow-xl transition-all"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center">
+                  <Download className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Digital Products
+                  </h3>
+                  <p className="text-gray-600">Toolkits, guides & resources</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4">
+                One-time digital downloads including business toolkits,
+                compliance guides, and training resources. Instant delivery,
+                lifetime access.
+              </p>
+              <div className="flex items-center gap-2 text-orange-600 font-semibold group-hover:gap-4 transition-all">
+                <span>Browse Products</span>
+                <Download className="w-5 h-5" />
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-600">
+                  Starting at{' '}
+                  <span className="font-bold text-gray-900">$29</span>
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Products Section */}
+      <section id="digital-products" className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Digital Products
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Instant-access resources to help you launch and grow your career
+              or business.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Metrics */}
-      <section className="py-12 bg-slate-50 border-y border-slate-200">
+      <section className="py-12 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
