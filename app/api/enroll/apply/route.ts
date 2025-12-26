@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import { orchestrateEnrollment } from '@/lib/enrollment/orchestrate-enrollment';
+import {
+  sendApplicationConfirmation,
+  sendAdminApplicationNotification,
+} from '@/lib/email/service';
 
 export async function POST(req: Request) {
   try {
@@ -124,8 +128,22 @@ export async function POST(req: Request) {
       });
     }
 
-    // TODO: Send confirmation email to applicant
-    // TODO: Send notification email to admin team (elevate4humanityedu@gmail.com)
+    // Send confirmation email to applicant (non-blocking)
+    sendApplicationConfirmation(
+      body.email,
+      `${body.firstName} ${body.lastName}`,
+      body.preferredProgramId
+    ).catch((err) =>
+      logger.error('[Email] Application confirmation failed:', err)
+    );
+
+    // Send notification to admin team (non-blocking)
+    sendAdminApplicationNotification(
+      `${body.firstName} ${body.lastName}`,
+      body.email,
+      body.preferredProgramId,
+      studentId || 'pending'
+    ).catch((err) => logger.error('[Email] Admin notification failed:', err));
 
     return NextResponse.json(
       {

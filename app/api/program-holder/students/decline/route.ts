@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { sendStudentDeclineNotification } from '@/lib/email/service';
 
 export async function POST(request: NextRequest) {
   try {
@@ -103,7 +104,30 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // TODO: Send notification email to student
+    // Get student and program holder details for email
+    const { data: studentProfile } = await supabase
+      .from('profiles')
+      .select('email, full_name')
+      .eq('id', enrollment.student_id)
+      .single();
+
+    const { data: phProfile } = await supabase
+      .from('profiles')
+      .select('full_name')
+      .eq('id', user.id)
+      .single();
+
+    // Send notification email to student (non-blocking)
+    if (studentProfile?.email) {
+      sendStudentDeclineNotification(
+        studentProfile.email,
+        studentProfile.full_name || 'Student',
+        phProfile?.full_name || 'Program Holder',
+        reason
+      ).catch((err) =>
+        console.error('[Email] Student decline notification failed:', err)
+      );
+    }
 
     return NextResponse.json(
       {

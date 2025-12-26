@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import {
+  sendProgramHolderApplicationConfirmation,
+  sendAdminProgramHolderNotification,
+} from '@/lib/email/service';
 
 // Use service role for anonymous submissions
 const supabase = createClient(
@@ -77,8 +81,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TODO: Send confirmation email to applicant
-    // TODO: Send notification email to admin
+    // Send confirmation email to applicant (non-blocking)
+    sendProgramHolderApplicationConfirmation(
+      body.contactEmail,
+      body.organizationName
+    ).catch((err) =>
+      console.error('[Email] Program holder confirmation failed:', err)
+    );
+
+    // Send notification to admin (non-blocking)
+    sendAdminProgramHolderNotification(
+      body.organizationName,
+      body.contactEmail,
+      application.id
+    ).catch((err) => console.error('[Email] Admin notification failed:', err));
 
     return NextResponse.json({
       success: true,
