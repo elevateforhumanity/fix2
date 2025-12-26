@@ -24,18 +24,39 @@ export const publicNav: NavSection[] = [
     label: 'Programs',
     href: '/programs',
     items: [
-      { label: 'All Programs', href: '/programs' },
-      { label: 'Barber Apprenticeship', href: '/programs/barber-apprenticeship' },
-      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
-      { label: 'CNA Healthcare', href: '/programs/cna' },
-      { label: 'CDL Training', href: '/programs/cdl' },
+      // Browse All
+      { label: 'Browse All Programs', href: '/programs', isHeader: true },
+      
+      // Healthcare Programs
+      { label: 'Healthcare', href: '/programs/healthcare', isHeader: true },
+      { label: 'CNA (Certified Nursing Assistant)', href: '/programs/cna' },
       { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
-      { label: 'Business Startup', href: '/programs/business-startup' },
-      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
       { label: 'Direct Support Professional', href: '/programs/direct-support-professional' },
+      
+      // Skilled Trades
+      { label: 'Skilled Trades', href: '/programs/skilled-trades', isHeader: true },
+      { label: 'Barber Apprenticeship', href: '/programs/barber-apprenticeship' },
+      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
+      
+      // Transportation
+      { label: 'Transportation', href: '/programs/cdl-transportation', isHeader: true },
+      { label: 'CDL Training', href: '/programs/cdl' },
+      
+      // Business & Tax
+      { label: 'Business & Tax', href: '/programs/business-financial', isHeader: true },
+      { label: 'Business Startup', href: '/programs/business-startup' },
+      { label: 'Tax Preparation', href: '/programs/tax-preparation' },
+      { label: 'Tax Entrepreneurship', href: '/programs/tax-entrepreneurship' },
+      
+      // Specialized Programs
+      { label: 'Specialized Programs', href: '#', isHeader: true },
       { label: 'Drug Collector', href: '/programs/drug-collector' },
+      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
       { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
+      
+      // Apprenticeships
+      { label: 'Apprenticeships', href: '/programs/apprenticeships', isHeader: true },
+      { label: 'View All Apprenticeships', href: '/apprenticeships' },
     ],
   },
   {
@@ -51,25 +72,25 @@ export const publicNav: NavSection[] = [
     ],
   },
   {
-    label: 'For You',
+    label: 'Get Started',
     items: [
       // Students
-      { label: 'For Students', href: '/learners', isHeader: true },
-      { label: 'Apply Now', href: '/apply' },
-      { label: 'Career Services', href: '/career-services' },
-      { label: 'Mentorship', href: '/mentorship' },
-      { label: 'Student Handbook', href: '/student-handbook' },
+      { label: 'I Want to Learn', href: '#', isHeader: true },
+      { label: 'Apply for Training', href: '/apply' },
+      { label: 'Find Funding', href: '/funding' },
+      { label: 'Career Help', href: '/career-services' },
+      { label: 'Get a Mentor', href: '/mentorship' },
       
       // Employers
-      { label: 'For Employers', href: '/employers', isHeader: true },
-      { label: 'Hire Graduates', href: '/hire-graduates' },
-      { label: 'Partner With Us', href: '/partners' },
-      { label: 'Workforce Partners', href: '/workforce-partners' },
+      { label: 'I Want to Hire', href: '#', isHeader: true },
+      { label: 'Hire Our Graduates', href: '/hire-graduates' },
+      { label: 'Become a Partner', href: '/partners' },
+      { label: 'Workforce Solutions', href: '/workforce-partners' },
       
-      // Agencies
-      { label: 'For Agencies & Schools', href: '/partners', isHeader: true },
+      // Schools & Agencies
+      { label: 'I Run a Program', href: '#', isHeader: true },
+      { label: 'See the Platform', href: '/platform' },
       { label: 'Request Demo', href: '/contact' },
-      { label: 'Platform License', href: '/platform' },
       { label: 'Training Providers', href: '/training-providers' },
     ],
   },
@@ -82,21 +103,20 @@ export const publicNav: NavSection[] = [
     href: '/login',
   },
   {
-    label: 'Features',
+    label: 'How It Works',
     items: [
-      // Learning Management
-      { label: 'Learning Management', href: '#', isHeader: true },
-      { label: 'Course Catalog', href: '/courses' },
-      { label: 'Interactive Learning', href: '/features/interactive-learning' },
-      { label: 'Assessments & Quizzes', href: '/features/assessments' },
-      { label: 'Certificates', href: '/features/certificates' },
+      // Learning
+      { label: 'Learning Online', href: '#', isHeader: true },
+      { label: 'Browse Courses', href: '/courses' },
+      { label: 'Track Your Progress', href: '/features/progress-tracking' },
+      { label: 'Earn Certificates', href: '/features/certificates' },
+      { label: 'Get Help (AI Tutor)', href: '/features/ai-tutor' },
       
-      // Student Tools
-      { label: 'Student Tools', href: '#', isHeader: true },
-      { label: 'Student Dashboard', href: '/student/dashboard' },
-      { label: 'Progress Tracking', href: '/features/progress-tracking' },
-      { label: 'Achievement System', href: '/features/achievements' },
-      { label: 'Leaderboards', href: '/features/leaderboards' },
+      // Community
+      { label: 'Connect with Others', href: '#', isHeader: true },
+      { label: 'Join the Community', href: '/community' },
+      { label: 'Find Study Groups', href: '/community/study-groups' },
+      { label: 'Ask Questions', href: '/community/forums' },
       
       // Career Services
       { label: 'Career Services', href: '#', isHeader: true },

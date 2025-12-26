@@ -52,7 +52,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. CHOOSE YOUR PATH (3 TILES) */}
+      {/* 2. CREDENTIAL BANNER - Subtle, Professional */}
+      <section className="px-4 sm:px-6 lg:px-10 py-8 border-y border-zinc-100 bg-zinc-50/50">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-center text-sm text-zinc-600 mb-4">
+            Programs aligned with credentialing and workforce requirements
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
+            {/* IRS VITA/TCE */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-medium text-zinc-700">IRS VITA/TCE Certified</span>
+            </div>
+            {/* WIOA Aligned */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-medium text-zinc-700">WIOA Aligned</span>
+            </div>
+            {/* ACCET Accredited */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-medium text-zinc-700">ACCET Accredited</span>
+            </div>
+            {/* Registered Apprenticeships */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-medium text-zinc-700">Registered Apprenticeships</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. CHOOSE YOUR PATH (3 TILES) */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
