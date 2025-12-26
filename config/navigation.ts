@@ -201,6 +201,8 @@ export const headerNav: NavSection[] = [
     href: '/admin',
     items: [
       { label: 'Admin Dashboard', href: '/admin' },
+      { label: 'Performance Dashboard', href: '/admin/performance-dashboard' },
+      { label: 'Analytics Dashboard', href: '/admin/analytics-dashboard' },
       { label: 'Analytics', href: '/admin/analytics' },
       { label: 'Applications', href: '/admin/applications' },
       { label: 'Enrollments', href: '/admin/enrollments' },
@@ -215,6 +217,41 @@ export const headerNav: NavSection[] = [
       { label: 'Settings', href: '/admin/settings' },
       { label: 'AI Course Builder', href: '/admin/ai-course-builder' },
       { label: 'Security', href: '/admin/security' },
+    ],
+  },
+  {
+    label: 'Staff Portal',
+    href: '/staff-portal/dashboard',
+    items: [
+      { label: 'Dashboard', href: '/staff-portal/dashboard' },
+      { label: 'Training', href: '/staff-portal/training' },
+      { label: 'Processes', href: '/staff-portal/processes' },
+      { label: 'QA Checklist', href: '/staff-portal/qa-checklist' },
+      { label: 'Customer Service', href: '/staff-portal/customer-service' },
+      { label: 'Courses', href: '/staff-portal/courses' },
+      { label: 'Students', href: '/staff-portal/students' },
+    ],
+  },
+  {
+    label: 'VITA',
+    href: '/vita',
+    items: [
+      { label: 'VITA Home', href: '/vita' },
+      { label: 'Book Appointment', href: '/vita/appointments' },
+      { label: 'Upload Documents', href: '/vita/upload' },
+      { label: 'Volunteer Portal', href: '/vita/volunteer-portal' },
+      { label: 'Resources', href: '/vita/resources' },
+    ],
+  },
+  {
+    label: 'Rise Foundation',
+    href: '/rise-foundation',
+    items: [
+      { label: 'About', href: '/rise-foundation/about' },
+      { label: 'Donate', href: '/rise-foundation/donate' },
+      { label: 'Events', href: '/rise-foundation/events' },
+      { label: 'Programs', href: '/rise-foundation/programs' },
+      { label: 'Get Involved', href: '/rise-foundation/get-involved' },
     ],
   },
 ];
