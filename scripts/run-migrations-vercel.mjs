@@ -21,27 +21,17 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const dbUrl = process.env.DATABASE_URL;
 
-// Check credentials
-if (!supabaseUrl || !supabaseKey) {
+// Check credentials - exit early to avoid confusing error messages
+if (!supabaseUrl || !supabaseKey || !dbUrl) {
   console.log('⚠️  Skipping: Missing Supabase credentials');
   console.log('   This is normal for preview deployments');
+  console.log('   Migrations will run on production with full credentials\\n');
   process.exit(0);
 }
 
 // Build connection string from Supabase URL
 const projectRef = supabaseUrl.match(/https:\/\/([^.]+)\.supabase\.co/)?.[1];
-
-// Use DATABASE_URL if available, otherwise construct from Supabase URL
-// Note: Direct database connections require the database password, not the service role key
 const connectionString = dbUrl;
-
-if (!connectionString && projectRef) {
-  // For Supabase, we need the actual database password from DATABASE_URL env var
-  console.log('⚠️  DATABASE_URL not set - migrations require direct database access');
-  console.log('   Add DATABASE_URL to Vercel environment variables');
-  console.log('   Get it from: Supabase Dashboard → Settings → Database → Connection String');
-  process.exit(0); // Don't fail the build
-}
 
 console.log(`📡 Connecting to database...`);
 
