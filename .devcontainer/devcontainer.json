@@ -8,7 +8,7 @@
       "onAutoForward": "openPreview"
     },
     "5432": {
-      "label": "PostgreSQL (if local)",
+      "label": "PostgreSQL",
       "onAutoForward": "ignore"
     }
   },
@@ -16,7 +16,11 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
     },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/postgres:1": {
+      "version": "16",
+      "postgresPassword": "postgres"
+    }
   },
   "postCreateCommand": "npm install && chmod +x setup-env.sh",
   "postStartCommand": "if [ ! -f .env.local ] && [ -n \"$VERCEL_TOKEN\" ]; then ./setup-env.sh; fi",
@@ -38,7 +42,8 @@
         "christian-kohler.path-intellisense",
         "yzhang.markdown-all-in-one",
         "bradlc.vscode-tailwindcss",
-        "prisma.prisma"
+        "prisma.prisma",
+        "cweijan.vscode-postgresql-client2"
       ],
       "settings": {
         "editor.formatOnSave": true,
@@ -49,6 +54,14 @@
         "typescript.tsdk": "node_modules/typescript/lib",
         "typescript.enablePromptUseWorkspaceTsdk": true
       }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
     }
-  }
+  },
+  "mounts": [
+    "source=postgres-data,target=/var/lib/postgresql/data,type=volume"
+  ]
 }
