@@ -1,8 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { programs } from '@/app/data/programs';
 import { Heart, Shield, TrendingUp, Users } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: 'JRI Programs | Justice Reinvestment Initiative | Elevate for Humanity',
+  description: 'Second chance career training for justice-involved individuals. Free programs in healthcare, trades, and workforce readiness. Fresh start, real career.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/jri',
+  },
+};
 
 const jriProgramSlugs = [
   'cna',

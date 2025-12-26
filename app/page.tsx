@@ -1,8 +1,51 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import HeroVideo from '@/components/home/HeroVideo';
 import PrimaryCtas from '@/components/home/PrimaryCtas';
 import HeroBanner from '@/components/hero/HeroBanner';
+
+export const metadata: Metadata = {
+  title: 'Elevate for Humanity | Free Career Training & Apprenticeships Indiana',
+  description: 'Free career training in Indianapolis. WIOA-funded programs in healthcare, trades, business, and more. Get trained, get hired, get paid. No cost, no debt.',
+  keywords: [
+    'free career training Indianapolis',
+    'WIOA programs Indiana',
+    'free job training Indianapolis',
+    'apprenticeship programs Indiana',
+    'free CNA training',
+    'free CDL training',
+    'free barber school',
+    'workforce development Indianapolis',
+    'job placement assistance',
+    'career change programs',
+  ],
+  openGraph: {
+    title: 'Elevate for Humanity | Free Career Training Indiana',
+    description: 'Free career training in Indianapolis. WIOA-funded programs in healthcare, trades, business, and more.',
+    url: 'https://www.elevateforhumanity.org',
+    siteName: 'Elevate for Humanity',
+    images: [
+      {
+        url: 'https://www.elevateforhumanity.org/images/heroes/homepage-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Elevate for Humanity - Free Career Training',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elevate for Humanity | Free Career Training Indiana',
+    description: 'Free career training in Indianapolis. WIOA-funded programs in healthcare, trades, business, and more.',
+    images: ['https://www.elevateforhumanity.org/images/heroes/homepage-hero.jpg'],
+  },
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org',
+  },
+};
 
 export default function HomePage() {
   return (

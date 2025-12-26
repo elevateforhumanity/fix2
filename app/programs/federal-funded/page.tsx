@@ -1,8 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { programs } from '@/app/data/programs';
 import { Shield, CheckCircle, Users, Award } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: 'Federal Funded Programs | WIOA & WRG | Elevate for Humanity',
+  description: '100% free training programs funded by WIOA, WRG, and federal grants. CNA, CDL, Healthcare, and more. No cost to you.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/federal-funded',
+  },
+};
 
 const federalFundedSlugs = [
   'cna',

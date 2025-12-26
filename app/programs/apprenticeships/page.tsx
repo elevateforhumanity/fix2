@@ -1,8 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { programs } from '@/app/data/programs';
 import { Briefcase, Clock, DollarSign, Award } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: 'Apprenticeship Programs | Earn While You Learn | Elevate for Humanity',
+  description: 'DOL-registered apprenticeship programs in Indiana. Get paid while you learn. Barber, HVAC, Building Maintenance, and more. No debt, real wages.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/apprenticeships',
+  },
+};
 
 const apprenticeshipSlugs = [
   'barber-apprenticeship',

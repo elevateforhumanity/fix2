@@ -1,8 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { programs } from '@/app/data/programs';
 import { Zap, Clock, Target, TrendingUp } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: 'Micro-Credentials & Short Programs | Quick Certifications | Elevate for Humanity',
+  description: 'Fast-track certifications in 2-8 weeks. CPR, Workforce Readiness, Peer Recovery Coach, and more. Get certified, get hired.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/micro-programs',
+  },
+};
 
 const microProgramSlugs = [
   'cpr-certification',

@@ -18,6 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/faq',
     '/how-it-works',
     '/success-stories',
+    '/founder',
+    '/team',
+    '/learners',
+    '/training-providers',
+    '/for-employers',
+    '/for-students',
+    '/demos',
+    '/blog',
+    '/careers',
+    '/calendar',
+    '/apprenticeships',
   ];
 
   // Program pages
@@ -28,12 +39,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/programs/direct-support-professional',
     '/programs/building-maintenance',
     '/programs/business-startup',
-    '/programs/cdl',
+    '/programs/business-financial',
+    '/programs/cdl-transportation',
     '/programs/drug-collector',
     '/programs/home-health-aide',
     '/programs/peer-recovery-coach',
     '/programs/tax-preparation',
+    '/programs/tax-entrepreneurship',
     '/programs/workforce-readiness',
+    '/programs/healthcare',
+    '/programs/skilled-trades',
+    '/programs/apprenticeships',
+    '/programs/federal-funded',
+    '/programs/jri',
+    '/programs/micro-programs',
   ];
 
   // Funding pages
