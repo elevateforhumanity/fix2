@@ -1,34 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { searchWorkforceOpportunities, searchOpportunities } from '@/lib/integrations/sam-gov';
+import { searchEntities } from '@/lib/integrations/sam-gov';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
   try {
     const searchParams = req.nextUrl.searchParams;
-    const type = searchParams.get('type') || 'workforce';
-    const state = searchParams.get('state') || 'IN';
+    const name = searchParams.get('name') || '';
 
-    let opportunities;
-    
-    if (type === 'workforce') {
-      opportunities = await searchWorkforceOpportunities(state);
-    } else {
-      const keyword = searchParams.get('keyword') || '';
-      const naics = searchParams.get('naics') || '';
-      
-      opportunities = await searchOpportunities({
-        keyword,
-        naics,
-        state,
-        limit: 25,
-      });
+    if (!name) {
+      return NextResponse.json(
+        { error: 'name parameter is required' },
+        { status: 400 }
+      );
     }
+
+    const entities = await searchEntities(name);
 
     return NextResponse.json({
       ok: true,
-      count: opportunities.length,
-      opportunities,
+      count: entities.length,
+      entities,
     });
   } catch (error: unknown) {
     logger.error('SAM.gov search error:', toError(error));
