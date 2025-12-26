@@ -6,24 +6,42 @@ import { Volume2, VolumeX } from 'lucide-react';
 interface VoiceoverPlayerProps {
   text: string;
   autoPlay?: boolean;
+  voiceoverFile?: string; // Path to custom professional voiceover
 }
 
-export default function VoiceoverPlayer({ text, autoPlay = true }: VoiceoverPlayerProps) {
+export default function VoiceoverPlayer({ 
+  text, 
+  autoPlay = false,
+  voiceoverFile = '/videos/voiceover.mp3' 
+}: VoiceoverPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
+  // Load voices on mount (ready state, no autoplay)
   useEffect(() => {
-    if (autoPlay && !hasPlayed && text) {
-      // Delay to ensure page is fully loaded
-      const timer = setTimeout(() => {
-        playVoiceover();
-      }, 3000);
-      return () => clearTimeout(timer);
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      const loadVoices = () => {
+        const voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+          setIsReady(true);
+        }
+      };
+      
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+      
+      return () => {
+        window.speechSynthesis.cancel();
+      };
     }
-  }, [text, autoPlay, hasPlayed]);
+  }, []);
+
+  // REMOVED: Autoplay is blocked by browsers
+  // Component is now ready on load, requires user click
 
   const playVoiceover = async () => {
     if (isPlaying) return;
@@ -32,58 +50,30 @@ export default function VoiceoverPlayer({ text, autoPlay = true }: VoiceoverPlay
     setHasPlayed(true);
 
     try {
-      // Use pre-recorded professional voiceover from repository
+      // Use ONLY pre-recorded PROFESSIONAL voiceover from repository
+      // Available files:
+      // - /videos/voiceover.mp3 (default)
+      // - /videos/barber-voiceover.mp3 (barber page)
+      // - /videos/homepage-voiceover-natural.txt (script)
       if (audioRef.current) {
-        audioRef.current.src = '/videos/voiceover.mp3';
-        audioRef.current.muted = isMuted;
+        audioRef.current.src = voiceoverFile;
+        audioRef.current.muted = false; // NOT muted - user triggered
+        audioRef.current.loop = false; // NO LOOP - plays once
         await audioRef.current.play();
       }
     } catch (error) {
-      // Error: $1
+      // NO robotic fallback - only professional voiceovers
       useBrowserSpeech();
     }
   };
 
   const useBrowserSpeech = () => {
-    if (!window.speechSynthesis) {
-      // Error logged
-      setIsPlaying(false);
-      return;
-    }
-
-    // Cancel any ongoing speech
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    utterance.pitch = 1.0;
-    utterance.volume = isMuted ? 0 : 1.0;
-
-    // Try to use a professional-sounding voice
-    const voices = window.speechSynthesis.getVoices();
-    const preferredVoice = voices.find(
-      (voice) =>
-        voice.name.includes('Samantha') ||
-        voice.name.includes('Victoria') ||
-        voice.name.includes('Karen') ||
-        voice.name.includes('Female') ||
-        voice.lang.startsWith('en-US')
-    );
+    // DO NOT USE robotic browser speech
+    // Only professional pre-recorded voiceovers allowed
+    setIsPlaying(false);
     
-    if (preferredVoice) {
-      utterance.voice = preferredVoice;
-    }
-
-    utterance.onend = () => {
-      setIsPlaying(false);
-    };
-
-    utterance.onerror = () => {
-      setIsPlaying(false);
-    };
-
-    utteranceRef.current = utterance;
-    window.speechSynthesis.speak(utterance);
+    // Show error message to user
+    alert('Professional voiceover file not found. Please add custom voiceover to /public/videos/voiceover.mp3');
   };
 
   const stopVoiceover = () => {
@@ -146,14 +136,15 @@ export default function VoiceoverPlayer({ text, autoPlay = true }: VoiceoverPlay
         )}
       </div>
 
-      {/* Hidden audio element for professional TTS */}
+      {/* Hidden audio element for PROFESSIONAL CUSTOM voiceover ONLY */}
       <audio
         ref={audioRef}
         onEnded={() => setIsPlaying(false)}
         onError={() => {
-          // Error logged
+          // Only use custom professional voiceover - no robotic fallback
           useBrowserSpeech();
         }}
+        preload="metadata"
         className="hidden"
       />
     </>
