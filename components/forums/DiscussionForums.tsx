@@ -85,6 +85,8 @@ export default function DiscussionForums() {
   const [showNewThreadModal, setShowNewThreadModal] = useState(false);
   const [loading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   useEffect(() => {
     loadCurrentUser();
@@ -111,61 +113,87 @@ export default function DiscussionForums() {
   };
 
   const loadCategories = async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('forum_categories')
-      .select('*')
-      .order('display_order');
+    try {
+      setLoading(true);
+      setError(null);
+      const { data, error } = await supabase
+        .from('forum_categories')
+        .select('*')
+        .order('display_order');
 
-    if (data) {
-      // Mock thread/post counts for now
-      setCategories(
-        data.map((cat) => ({
-          ...cat,
-          thread_count: Math.floor(Math.random() * 50) + 10,
-          post_count: Math.floor(Math.random() * 200) + 50,
-        }))
-      );
+      if (error) throw error;
+
+      if (data) {
+        // Mock thread/post counts for now
+        setCategories(
+          data.map((cat) => ({
+            ...cat,
+            thread_count: Math.floor(Math.random() * 50) + 10,
+            post_count: Math.floor(Math.random() * 200) + 50,
+          }))
+        );
+      }
+    } catch (err: any) {
+      console.error('Error loading categories:', err);
+      setError('Failed to load forum categories. Please try again.');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const loadThreads = async (categoryId: string) => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('forum_threads')
-      .select('*')
-      .eq('category_id', categoryId)
-      .order(sortBy === 'recent' ? 'last_activity' : 'view_count', {
-        ascending: false,
-      });
+    try {
+      setLoading(true);
+      setError(null);
+      const { data, error } = await supabase
+        .from('forum_threads')
+        .select('*')
+        .eq('category_id', categoryId)
+        .order(sortBy === 'recent' ? 'last_activity' : 'view_count', {
+          ascending: false,
+        });
 
-    if (data) {
-      setThreads(
-        data.map((thread) => ({
-          ...thread,
-          author_name: 'Student',
-          reply_count: Math.floor(Math.random() * 20),
-        }))
-      );
+      if (error) throw error;
+
+      if (data) {
+        setThreads(
+          data.map((thread) => ({
+            ...thread,
+            author_name: 'Student',
+            reply_count: Math.floor(Math.random() * 20),
+          }))
+        );
+      }
+    } catch (err: any) {
+      console.error('Error loading threads:', err);
+      setError('Failed to load forum threads. Please try again.');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const loadPosts = async (threadId: string) => {
-    const { data, error } = await supabase
-      .from('forum_posts')
-      .select('*')
-      .eq('thread_id', threadId)
-      .order('created_at', { ascending: true });
+    try {
+      setError(null);
+      const { data, error } = await supabase
+        .from('forum_posts')
+        .select('*')
+        .eq('thread_id', threadId)
+        .order('created_at', { ascending: true });
 
-    if (data) {
-      setPosts(
-        data.map((post) => ({
-          ...post,
-          author_name: 'Student',
-        }))
-      );
+      if (error) throw error;
+
+      if (data) {
+        setPosts(
+          data.map((post) => ({
+            ...post,
+            author_name: 'Student',
+          }))
+        );
+      }
+    } catch (err: any) {
+      console.error('Error loading posts:', err);
+      setError('Failed to load posts. Please try again.');
     }
   };
 
@@ -178,41 +206,61 @@ export default function DiscussionForums() {
     )
       return;
 
-    const { data, error } = await supabase
-      .from('forum_threads')
-      .insert({
-        category_id: selectedCategory.id,
-        title: newThreadTitle,
-        content: newThreadContent,
-        author_id: currentUser.id,
-      })
-      .select()
-      .single();
+    try {
+      setError(null);
+      const { data, error } = await supabase
+        .from('forum_threads')
+        .insert({
+          category_id: selectedCategory.id,
+          title: newThreadTitle,
+          content: newThreadContent,
+          author_id: currentUser.id,
+        })
+        .select()
+        .single();
 
-    if (data) {
-      setNewThreadTitle('');
-      setNewThreadContent('');
-      setShowNewThreadModal(false);
-      loadThreads(selectedCategory.id);
+      if (error) throw error;
+
+      if (data) {
+        setNewThreadTitle('');
+        setNewThreadContent('');
+        setShowNewThreadModal(false);
+        setSuccessMessage('Thread created successfully!');
+        setTimeout(() => setSuccessMessage(null), 3000);
+        loadThreads(selectedCategory.id);
+      }
+    } catch (err: any) {
+      console.error('Error creating thread:', err);
+      setError('Failed to create thread. Please try again.');
     }
   };
 
   const createPost = async () => {
     if (!currentUser || !selectedThread || !newPostContent) return;
 
-    const { data, error } = await supabase
-      .from('forum_posts')
-      .insert({
-        thread_id: selectedThread.id,
-        content: newPostContent,
-        author_id: currentUser.id,
-      })
-      .select()
-      .single();
+    try {
+      setError(null);
+      const { data, error } = await supabase
+        .from('forum_posts')
+        .insert({
+          thread_id: selectedThread.id,
+          content: newPostContent,
+          author_id: currentUser.id,
+        })
+        .select()
+        .single();
 
-    if (data) {
-      setNewPostContent('');
-      loadPosts(selectedThread.id);
+      if (error) throw error;
+
+      if (data) {
+        setNewPostContent('');
+        setSuccessMessage('Reply posted successfully!');
+        setTimeout(() => setSuccessMessage(null), 3000);
+        loadPosts(selectedThread.id);
+      }
+    } catch (err: any) {
+      console.error('Error creating post:', err);
+      setError('Failed to post reply. Please try again.');
     }
   };
 
@@ -233,6 +281,32 @@ export default function DiscussionForums() {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Error Message */}
+          {error && (
+            <div className="mb-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between">
+              <span>{error}</span>
+              <button
+                onClick={() => setError(null)}
+                className="text-red-600 hover:text-red-800"
+              >
+                ×
+              </button>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {successMessage && (
+            <div className="mb-4 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between">
+              <span>{successMessage}</span>
+              <button
+                onClick={() => setSuccessMessage(null)}
+                className="text-green-600 hover:text-green-800"
+              >
+                ×
+              </button>
+            </div>
+          )}
+
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
@@ -307,9 +381,7 @@ export default function DiscussionForums() {
                   className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer border-l-4 border-blue-500"
                 >
                   <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"
-                    >
+                    <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
                       <MessageSquare className="w-6 h-6 text-blue-600" />
                     </div>
                     <div className="flex-1 min-w-0">
