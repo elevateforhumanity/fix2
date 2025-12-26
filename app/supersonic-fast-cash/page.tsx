@@ -418,36 +418,71 @@ export default function SupersonicFastCashPage() {
           __html: JSON.stringify(localBusinessSchema),
         }}
       />
-      {/* Hero Section - Professional Tax Service Style */}
-      <section className="relative    text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Hero Section - AGGRESSIVE MARKETING */}
+      <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-blue-900 text-white py-20 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-yellow-400 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block bg-yellow-400 text-green-900 px-4 py-2 rounded-full font-bold text-sm mb-4">
-                TAX SEASON 2025 • POWERED BY EPS FINANCIAL
+              {/* Urgency Badge */}
+              <div className="inline-block bg-red-600 text-white px-6 py-3 rounded-full font-black text-sm mb-4 animate-bounce shadow-2xl">
+                🔥 TAX SEASON 2025 IS HERE! • LIMITED TIME OFFER
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Get Your Tax Refund Advance Fast
+              
+              {/* Power Headline */}
+              <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight">
+                GET YOUR MONEY
+                <span className="block text-yellow-400 text-7xl md:text-8xl">TODAY!</span>
               </h1>
-              <p className="text-xl md:text-2xl mb-4 font-bold text-yellow-400">
-                $250 - $7,500 Available*
-              </p>
-              <p className="text-base md:text-lg mb-8 text-green-100">
-                Same-day tax refund advance with professional tax preparation.
-                No credit check required. Walk-ins welcome!
-              </p>
+              
+              {/* Money Amount - BIG & BOLD */}
+              <div className="bg-yellow-400 text-green-900 p-6 rounded-2xl mb-6 shadow-2xl border-4 border-yellow-300">
+                <p className="text-2xl font-bold mb-2">UP TO</p>
+                <p className="text-7xl md:text-8xl font-black">$7,500</p>
+                <p className="text-xl font-bold mt-2">IN YOUR HANDS TODAY*</p>
+              </div>
+              
+              {/* Power Benefits */}
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-green-900 font-black text-xl">✓</span>
+                  </div>
+                  <span className="text-xl font-bold">NO CREDIT CHECK - Everyone Approved!</span>
+                </div>
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-green-900 font-black text-xl">✓</span>
+                  </div>
+                  <span className="text-xl font-bold">SAME DAY CASH - Walk Out With Money!</span>
+                </div>
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-green-900 font-black text-xl">✓</span>
+                  </div>
+                  <span className="text-xl font-bold">FREE TAX PREP - Professional Service Included!</span>
+                </div>
+              </div>
+              
+              {/* CTA Buttons - AGGRESSIVE */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/supersonic-fast-cash/apply"
-                  className="inline-block px-8 py-4 bg-yellow-400 text-green-900 text-lg font-bold rounded-lg hover:bg-yellow-300 transition-all shadow-xl text-center"
+                  className="group relative inline-block px-10 py-6 bg-yellow-400 text-green-900 text-2xl font-black rounded-xl hover:bg-yellow-300 transition-all shadow-2xl text-center transform hover:scale-105"
                 >
-                  Get Started Now
+                  <span className="relative z-10">GET MY MONEY NOW! →</span>
+                  <div className="absolute inset-0 bg-yellow-300 rounded-xl blur opacity-50 group-hover:opacity-75 transition"></div>
                 </Link>
                 <Link
-                  href="/contact"
-                  className="inline-block px-8 py-4 bg-white/10 text-white text-lg font-bold rounded-lg hover:bg-white/20 transition-all border-2 border-white text-center"
+                  href="tel:+13173143757"
+                  className="inline-block px-10 py-6 bg-red-600 text-white text-2xl font-black rounded-xl hover:bg-red-700 transition-all shadow-2xl text-center border-4 border-red-400 transform hover:scale-105"
                 >
-                  Call 317-314-3757
+                  📞 CALL NOW!
                 </Link>
               </div>
             </div>
@@ -487,8 +522,153 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
+      {/* URGENCY BANNER - AGGRESSIVE */}
+      <section className="bg-red-600 text-white py-8 border-y-4 border-yellow-400">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="text-6xl animate-bounce">⚡</div>
+              <div>
+                <p className="text-3xl font-black">DON'T WAIT FOR THE IRS!</p>
+                <p className="text-xl font-bold">Get your money TODAY - Not in 21 days!</p>
+              </div>
+            </div>
+            <Link
+              href="/supersonic-fast-cash/apply"
+              className="px-8 py-4 bg-yellow-400 text-red-900 text-xl font-black rounded-lg hover:bg-yellow-300 transition-all shadow-2xl whitespace-nowrap transform hover:scale-110"
+            >
+              APPLY NOW - IT'S FREE! →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIAL PROOF - AGGRESSIVE */}
+      <section className="py-12 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-6 text-center">
+            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-green-600">
+              <div className="text-5xl font-black text-green-600 mb-2">$2.1B+</div>
+              <div className="text-sm font-bold text-gray-700">ADVANCED TO TAXPAYERS</div>
+              <div className="text-xs text-gray-500 mt-1">Powered by EPS Financial</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-blue-600">
+              <div className="text-5xl font-black text-blue-600 mb-2">44,000+</div>
+              <div className="text-sm font-bold text-gray-700">TAX OFFICES NATIONWIDE</div>
+              <div className="text-xs text-gray-500 mt-1">Trusted by professionals</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-yellow-600">
+              <div className="text-5xl font-black text-yellow-600 mb-2">15 MIN</div>
+              <div className="text-sm font-bold text-gray-700">AVERAGE APPROVAL TIME</div>
+              <div className="text-xs text-gray-500 mt-1">Fast & easy process</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-red-600">
+              <div className="text-5xl font-black text-red-600 mb-2">0%</div>
+              <div className="text-sm font-bold text-gray-700">APR ON SMALL LOANS</div>
+              <div className="text-xs text-gray-500 mt-1">$250, $500, $1,000 loans</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY WAIT? - AGGRESSIVE COMPARISON */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
+            WHY WAIT 21 DAYS?
+          </h2>
+          <p className="text-2xl text-center text-gray-600 mb-12 font-bold">
+            Get Your Money TODAY Instead!
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Waiting for IRS - BAD */}
+            <div className="bg-red-50 border-4 border-red-600 rounded-2xl p-8 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-2 rounded-full font-black text-sm">
+                ❌ WAITING FOR IRS
+              </div>
+              <div className="mt-6 space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">😰</span>
+                  <div>
+                    <p className="font-bold text-red-900">Wait 21+ Days</p>
+                    <p className="text-sm text-red-700">Bills piling up while you wait</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">💸</span>
+                  <div>
+                    <p className="font-bold text-red-900">Miss Opportunities</p>
+                    <p className="text-sm text-red-700">Can't pay bills on time</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">😟</span>
+                  <div>
+                    <p className="font-bold text-red-900">Stress & Worry</p>
+                    <p className="text-sm text-red-700">Wondering when money will arrive</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">⏰</span>
+                  <div>
+                    <p className="font-bold text-red-900">Uncertain Timeline</p>
+                    <p className="text-sm text-red-700">IRS delays are common</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Supersonic Fast Cash - GOOD */}
+            <div className="bg-green-50 border-4 border-green-600 rounded-2xl p-8 relative shadow-2xl transform md:scale-105">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-2 rounded-full font-black text-sm">
+                ✅ SUPERSONIC FAST CASH
+              </div>
+              <div className="mt-6 space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">⚡</span>
+                  <div>
+                    <p className="font-bold text-green-900">Money TODAY!</p>
+                    <p className="text-sm text-green-700">Walk out with cash in hand</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">💰</span>
+                  <div>
+                    <p className="font-bold text-green-900">Pay Bills Now</p>
+                    <p className="text-sm text-green-700">Handle emergencies immediately</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">😊</span>
+                  <div>
+                    <p className="font-bold text-green-900">Peace of Mind</p>
+                    <p className="text-sm text-green-700">Money in your account today</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✓</span>
+                  <div>
+                    <p className="font-bold text-green-900">Guaranteed Fast</p>
+                    <p className="text-sm text-green-700">15 minutes average approval</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 pt-6 border-t-2 border-green-600">
+                <Link
+                  href="/supersonic-fast-cash/apply"
+                  className="block w-full text-center px-6 py-4 bg-green-600 text-white text-xl font-black rounded-lg hover:bg-green-700 transition-all shadow-xl"
+                >
+                  GET MY MONEY NOW! →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Nationwide Online Service */}
-      <section className="py-16 bg-white text-white">
+      <section className="py-16 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -690,46 +870,131 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-      {/* Refund Advance Amounts - EPS Financial Style */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Tax Refund Advance Loan Amounts
+      {/* VISUAL ADVANCE AMOUNTS - HIGHLY VISUAL */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+        {/* Background Money Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="text-9xl font-black text-green-600 absolute top-10 left-10">$$$</div>
+          <div className="text-9xl font-black text-green-600 absolute bottom-10 right-10">$$$</div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-green-600 text-white px-6 py-3 rounded-full font-black text-sm mb-4 animate-pulse">
+              💰 CHOOSE YOUR ADVANCE AMOUNT 💰
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-4">
+              HOW MUCH DO YOU NEED?
             </h2>
-            <p className="text-lg text-gray-600">
-              Powered by EPS Financial • No Credit Check Required
+            <p className="text-2xl text-gray-700 font-bold">
+              Powered by EPS Financial • No Credit Check • Instant Approval
             </p>
           </div>
-          <div className="grid md:grid-cols-5 gap-4">
-            <div className="bg-white border-2 border-green-500 rounded-xl p-6 text-center hover:shadow-xl transition">
-              <div className="text-4xl font-bold text-green-700 mb-2">$250</div>
-              <div className="text-xs text-gray-600 mb-2">0% APR*</div>
-              <div className="text-sm text-gray-700">Quick Cash</div>
-            </div>
-            <div className="bg-white border-2 border-blue-500 rounded-xl p-6 text-center hover:shadow-xl transition">
-              <div className="text-4xl font-bold text-blue-700 mb-2">$500</div>
-              <div className="text-xs text-gray-600 mb-2">0% APR*</div>
-              <div className="text-sm text-gray-700">Popular</div>
-            </div>
-            <div className="bg-white border-2 border-purple-500 rounded-xl p-6 text-center hover:shadow-xl transition">
-              <div className="text-4xl font-bold text-purple-700 mb-2">
-                $1,000
+          
+          {/* VISUAL MONEY CARDS */}
+          <div className="grid md:grid-cols-5 gap-6 mb-12">
+            {/* $250 */}
+            <div className="group relative bg-gradient-to-br from-green-400 to-green-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-green-700">
+              <div className="absolute -top-3 -right-3 bg-yellow-400 text-green-900 px-3 py-1 rounded-full text-xs font-black">
+                0% APR
               </div>
-              <div className="text-xs text-gray-600 mb-2">0% APR*</div>
-              <div className="text-sm text-gray-700">Best Value</div>
-            </div>
-            <div className="bg-white border-2 border-orange-500 rounded-xl p-6 text-center hover:shadow-xl transition">
-              <div className="text-4xl font-bold text-orange-700 mb-2">
-                $3,500
+              <div className="text-6xl mb-2">💵</div>
+              <div className="text-5xl font-black text-white mb-2">$250</div>
+              <div className="text-sm font-bold text-green-100 mb-3">QUICK CASH</div>
+              <div className="text-xs text-white bg-green-700 rounded-full px-3 py-1">
+                Perfect for bills
               </div>
-              <div className="text-xs text-gray-600 mb-2">36% APR*</div>
-              <div className="text-sm text-gray-700">50% Refund</div>
             </div>
-            <div className="bg-white border-2 border-red-500 rounded-xl p-6 text-center hover:shadow-xl transition">
-              <div className="text-4xl font-bold text-red-700 mb-2">$7,500</div>
-              <div className="text-xs text-gray-600 mb-2">36% APR*</div>
-              <div className="text-sm text-gray-700">Maximum</div>
+
+            {/* $500 - POPULAR */}
+            <div className="group relative bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-blue-700">
+              <div className="absolute -top-3 -right-3 bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-xs font-black">
+                POPULAR!
+              </div>
+              <div className="text-6xl mb-2">💵💵</div>
+              <div className="text-5xl font-black text-white mb-2">$500</div>
+              <div className="text-sm font-bold text-blue-100 mb-3">MOST CHOSEN</div>
+              <div className="text-xs text-white bg-blue-700 rounded-full px-3 py-1">
+                0% APR • No interest
+              </div>
+            </div>
+
+            {/* $1,000 - BEST VALUE */}
+            <div className="group relative bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-purple-700 shadow-2xl">
+              <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full text-xs font-black animate-pulse">
+                ⭐ BEST VALUE
+              </div>
+              <div className="text-6xl mb-2">💵💵💵</div>
+              <div className="text-5xl font-black text-white mb-2">$1,000</div>
+              <div className="text-sm font-bold text-purple-100 mb-3">TOP CHOICE</div>
+              <div className="text-xs text-white bg-purple-700 rounded-full px-3 py-1">
+                0% APR • Maximum value
+              </div>
+            </div>
+
+            {/* $3,500 */}
+            <div className="group relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-orange-700">
+              <div className="absolute -top-3 -right-3 bg-yellow-400 text-orange-900 px-3 py-1 rounded-full text-xs font-black">
+                BIG MONEY
+              </div>
+              <div className="text-6xl mb-2">💰💰</div>
+              <div className="text-5xl font-black text-white mb-2">$3,500</div>
+              <div className="text-sm font-bold text-orange-100 mb-3">LARGE ADVANCE</div>
+              <div className="text-xs text-white bg-orange-700 rounded-full px-3 py-1">
+                50% of refund
+              </div>
+            </div>
+
+            {/* $7,500 - MAXIMUM */}
+            <div className="group relative bg-gradient-to-br from-red-500 to-red-700 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-red-800 shadow-2xl">
+              <div className="absolute -top-3 -right-3 bg-yellow-400 text-red-900 px-3 py-1 rounded-full text-xs font-black animate-pulse">
+                🔥 MAXIMUM!
+              </div>
+              <div className="text-6xl mb-2">💰💰💰</div>
+              <div className="text-5xl font-black text-white mb-2">$7,500</div>
+              <div className="text-sm font-bold text-red-100 mb-3">BIGGEST ADVANCE</div>
+              <div className="text-xs text-white bg-red-800 rounded-full px-3 py-1">
+                75% of refund
+              </div>
+            </div>
+          </div>
+
+          {/* VISUAL USE CASES */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-green-600">
+              <div className="text-5xl mb-4 text-center">🏠</div>
+              <h3 className="text-2xl font-black text-center mb-3">Pay Rent</h3>
+              <p className="text-gray-700 text-center mb-4">
+                Don't wait 21 days! Pay your rent TODAY with a refund advance.
+              </p>
+              <div className="bg-green-50 border-2 border-green-600 rounded-lg p-4 text-center">
+                <p className="text-sm font-bold text-green-900">Typical Need:</p>
+                <p className="text-3xl font-black text-green-600">$500-$1,500</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-blue-600">
+              <div className="text-5xl mb-4 text-center">🚗</div>
+              <h3 className="text-2xl font-black text-center mb-3">Fix Your Car</h3>
+              <p className="text-gray-700 text-center mb-4">
+                Car broke down? Get it fixed TODAY instead of waiting weeks.
+              </p>
+              <div className="bg-blue-50 border-2 border-blue-600 rounded-lg p-4 text-center">
+                <p className="text-sm font-bold text-blue-900">Typical Need:</p>
+                <p className="text-3xl font-black text-blue-600">$1,000-$3,500</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-600">
+              <div className="text-5xl mb-4 text-center">💳</div>
+              <h3 className="text-2xl font-black text-center mb-3">Pay Off Debt</h3>
+              <p className="text-gray-700 text-center mb-4">
+                Clear your credit cards and bills immediately with cash in hand.
+              </p>
+              <div className="bg-purple-50 border-2 border-purple-600 rounded-lg p-4 text-center">
+                <p className="text-sm font-bold text-purple-900">Typical Need:</p>
+                <p className="text-3xl font-black text-purple-600">$3,500-$7,500</p>
+              </div>
             </div>
           </div>
           <div className="mt-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
