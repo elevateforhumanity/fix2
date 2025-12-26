@@ -65,7 +65,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/student-career.jpg"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Get trained"
                   fill
                   className="object-cover"
@@ -90,7 +90,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/training-provider-1.jpg"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt="Partner with us"
                   fill
                   className="object-cover"
@@ -115,7 +115,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/efh/hero/hero-support.jpg"
+                  src="/images/artlist/hero-training-3.jpg"
                   alt="License the platform"
                   fill
                   className="object-cover"
@@ -206,7 +206,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/efh/sections/classroom.jpg"
+              src="/images/artlist/hero-training-4.jpg"
               alt="Student outcomes and support"
               fill
               className="object-cover"
@@ -278,7 +278,7 @@ export default function HomePage() {
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/efh/sections/coaching.jpg"
+              src="/images/artlist/hero-training-5.jpg"
               alt="Employers and workforce boards"
               fill
               className="object-cover"
