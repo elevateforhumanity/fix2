@@ -1,371 +1,347 @@
-// app/page.tsx - Avon-Inspired Modern Homepage
-import Link from "next/link";
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Image from "next/image";
+import Link from "next/link";
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* HERO BANNER - Full Width, Clean */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden bg-slate-100">
-        <Image
-          src="/images/artlist/hero-training-1.jpg"
-          alt="Elevate for Humanity - Transform Your Future"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
-        
-        <div className="relative h-full flex items-center justify-center text-center">
-          <div className="max-w-4xl px-6">
-            <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
-              Transform Your Future
-            </h1>
-            <p className="text-xl md:text-2xl text-white/95 font-light mb-10 max-w-2xl mx-auto">
-              State-approved workforce training programs that lead to high-wage careers
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/programs/barber-apprenticeship"
-                className="px-10 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-base"
-              >
-                Explore Programs
-              </Link>
-              <Link
-                href="/apply"
-                className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-slate-900 transition-all text-base"
-              >
-                Apply Now
-              </Link>
+    <main className="bg-white">
+      {/* VIDEO HERO */}
+      <section className="relative overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-auto"
+          style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
+        >
+          <source src="/videos/hero-home.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      {/* MISSION & STORY */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            We See Your Potential, Not Your Past
+          </h1>
+          <p className="text-xl text-slate-700 leading-relaxed mb-8">
+            At Elevate for Humanity, we believe everyone deserves a shot at a better future. 
+            Whether you're starting over, breaking barriers, or building something new—we're here to help you get there.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
+              <div className="text-sm text-slate-600">Free Training</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">4-12</div>
+              <div className="text-sm text-slate-600">Weeks</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">$0</div>
+              <div className="text-sm text-slate-600">Debt</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">Real</div>
+              <div className="text-sm text-slate-600">Jobs Waiting</div>
             </div>
           </div>
+          <p className="text-lg text-slate-600">
+            Through partnerships with WIOA, WRG, JRI, and registered apprenticeships, 
+            most students pay <span className="font-bold text-slate-900">nothing out of pocket</span>. 
+            No loans. No debt. Just real training and real opportunity.
+          </p>
         </div>
       </section>
 
-      {/* FEATURED PROGRAMS - Large Product-Style Cards */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Featured Programs</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              DOL Registered Apprenticeships and State-Approved Training
+      {/* FEATURED PROGRAMS */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Real Skills. Real Careers. Real Fast.
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our programs are designed for people with real lives—parents, workers, people starting over. 
+              Train online at your pace, practice hands-on, and step into a career that's waiting for you.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Barber Program */}
+          <div className="grid md:grid-cols-3 gap-6">
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/barber.jpg"
+                    src="/images/artlist/hero-training-1.jpg"
                     alt="Barber Apprenticeship"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={70}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Barber Apprenticeship</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    2,000-hour DOL Registered Apprenticeship. Earn while you learn with WIOA, WRG, and JRI funding.
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                    Barber Apprenticeship
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-4">
+                    Work in a real barbershop. Get paid while you train. Build your clientele. 
+                    Own your chair or open your own shop. 12-18 months.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
                     Learn More →
                   </span>
                 </div>
               </div>
             </Link>
 
-            {/* Healthcare Program */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+            <Link href="/programs/cna" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/cna.jpg"
-                    alt="Healthcare Training"
+                    src="/images/artlist/hero-training-2.jpg"
+                    alt="CNA Healthcare Training"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={70}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Healthcare Training</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    CNA certification through Choice Medical Institute. State-approved with clinical placement.
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                    CNA Healthcare
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-4">
+                    Get certified fast. Work in hospitals, nursing homes, or home health. 
+                    Stable income, flexible schedules, room to grow. 4-8 weeks.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
                     Learn More →
                   </span>
                 </div>
               </div>
             </Link>
 
-            {/* Skilled Trades */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+            <Link href="/programs/hvac-technician" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/trades.jpg"
-                    alt="Skilled Trades"
+                    src="/images/artlist/hero-training-3.jpg"
+                    alt="HVAC Technician"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={70}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Skilled Trades</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    HVAC, electrical, and plumbing training. Hands-on learning for high-wage careers.
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                    HVAC Technician
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-4">
+                    Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
+                    Start your own business or work for a company. 8-12 weeks.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Beauty & Esthetics */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/efh/programs/beauty.jpg"
-                    alt="Beauty & Esthetics"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Beauty & Esthetics</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Nails, esthetics, and cosmetology with experienced instructors and modern facilities.
-                  </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Support Services */}
-            <Link href="/support" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/efh/sections/coaching.jpg"
-                    alt="Support Services"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Support Services</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Life coaching, mental health support, and wraparound services to help you succeed.
-                  </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Classroom Training */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/efh/sections/classroom.jpg"
-                    alt="Classroom Training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Classroom Training</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Modern facilities with hands-on instruction and real-world skill development.
-                  </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
                     Learn More →
                   </span>
                 </div>
               </div>
             </Link>
           </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/programs"
+              className="inline-flex items-center gap-2 text-orange-500 font-semibold hover:text-orange-600"
+            >
+              View All Programs →
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US - Clean Feature Blocks */}
-      <section className="py-20 px-6 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Why Choose Elevate</h2>
-            <p className="text-lg text-slate-600">Built for people navigating real barriers</p>
+
+
+      {/* WHO WE SERVE */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              You Don't Need Perfect. You Just Need to Start.
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              We work with people who've been told "no" their whole lives. Justice-involved individuals. 
+              Parents juggling childcare. People with gaps in their work history. You're welcome here.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">100% Fundable</h3>
-              <p className="text-slate-600 leading-relaxed">
-                WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+              <div className="text-3xl mb-3">🔓</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Second Chances</h3>
+              <p className="text-sm text-slate-700">
+                Through our JRI partnership, justice-involved individuals get free training, 
+                certifications, and wrap-around support. Everyone deserves a path forward.
               </p>
             </div>
 
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">DOL Registered</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Federally recognized apprenticeships in barber, healthcare, and skilled trades.
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+              <div className="text-3xl mb-3">👨‍👩‍👧‍👦</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Parents & Caregivers</h3>
+              <p className="text-sm text-slate-700">
+                Our hybrid programs let you train online at your own pace and complete hands-on 
+                requirements on a flexible schedule. We get it—life is complicated.
               </p>
             </div>
 
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Wraparound Support</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Life coaching, housing assistance, childcare navigation, and mental health referrals.
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+              <div className="text-3xl mb-3">🔄</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Career Changers</h3>
+              <p className="text-sm text-slate-700">
+                Stuck in a dead-end job? Starting completely over? Our short-term programs 
+                (4-12 weeks) get you into a new career fast—no years wasted.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* DUAL IMAGE SECTION - Avon Style */}
-      <section className="py-0">
-        <div className="grid md:grid-cols-2">
-          <div className="relative h-[500px] overflow-hidden group">
-            <Image
-              src="/images/artlist/hero-training-3.jpg"
-              alt="Hands-On Training"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
+      {/* ELEVATION MESSAGE - Second Hero */}
+      <section className="relative bg-black text-white px-6 sm:px-10 lg:px-12 py-32 lg:py-40 overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover opacity-40"
+          >
+            <source
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081181154&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VwkyRzCrV6H1PWfgEOAjdlFRKVaLggSXiMJuEMfNgBvs0LcsogkXMuXNj05nyyCnO0JFmYNadPeQ5vIijEMU2LbBsiMH3dIfehwfMaBjjn5Ffphrc-BjoKc1cazP744W4YMM3MrDtBLqzQPphVXiQutv71uegGfie3jzq6jD8CwLAaCpZgEY7Ujo0e4JeJ7BZBv1WFTtOZVQDbMXHe~61~mGhAlH9eH9Z-fFjf4Wu51RNAFhlewsDWHbxyO6Qk5lIJ1pTv8jB-BQMqNNzzenXMWWW5AGhbFtd0D85-zWC2f~rUz8fuNx3jqV~99wh005J0XK6XTTJIxsgSB5o2ZT6w__"
+              type="video/mp4"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="absolute inset-0 flex items-end p-12">
-              <div>
-                <h3 className="text-3xl font-light text-white mb-4">Hands-On Training</h3>
-                <p className="text-white/90 mb-6 text-lg">Real-world skills with experienced instructors</p>
-                <Link
-                  href="/programs/barber-apprenticeship"
-                  className="inline-block px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          </div>
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        </div>
 
-          <div className="relative h-[500px] overflow-hidden group">
-            <Image
-              src="/images/artlist/hero-training-7.jpg"
-              alt="Career Services"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="absolute inset-0 flex items-end p-12">
-              <div>
-                <h3 className="text-3xl font-light text-white mb-4">Career Services</h3>
-                <p className="text-white/90 mb-6 text-lg">Job placement and ongoing support</p>
-                <Link
-                  href="/support"
-                  className="inline-block px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition"
-                >
-                  Get Support
-                </Link>
-              </div>
-            </div>
-          </div>
+        {/* Content */}
+        <div className="relative mx-auto max-w-5xl text-center">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-8">
+            This Is Not Graduation.
+          </h2>
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-orange-500 leading-tight mb-12">
+            This Is Elevation.
+          </h2>
+          <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+            We don't just hand you a certificate. We elevate you to a new
+            level—with skills, confidence, and a career that changes everything.
+          </p>
         </div>
       </section>
 
-      {/* TESTIMONIALS - Clean Cards */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Success Stories</h2>
-            <p className="text-lg text-slate-600">Hear from our graduates</p>
+      {/* MORE PROGRAMS */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              More Ways to Build Your Future
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-slate-50 rounded-2xl p-10">
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
-                  JM
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-slate-900">J. Moore</p>
-                  <p className="text-sm text-slate-600">Barber Apprentice</p>
+            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image
+                src="/images/artlist/hero-training-4.jpg"
+                alt="Tax Business Training"
+                fill
+                quality={70}
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/70 flex items-end">
+                <div className="p-8 text-white w-full bg-black/80">
+                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
+                    Tax & Finance
+                  </h3>
+                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
+                    Launch your own tax prep business. Work from home. Earn $40k-$100k+ per year. 
+                    Tax season is busy, but the rest of the year is yours.
+                  </p>
+                  <Link
+                    href="/programs/tax-preparation"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
+                  >
+                    Learn More →
+                  </Link>
                 </div>
               </div>
-              <p className="text-slate-700 leading-relaxed text-lg">
-                "Elevate helped me restart my life. I went from struggling to becoming a licensed barber apprentice. They believed in me when no one else did."
-              </p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-10">
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
-                  LA
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-slate-900">L. Anderson</p>
-                  <p className="text-sm text-slate-600">CNA Graduate</p>
+            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
+              <Image
+                src="/images/artlist/hero-training-5.jpg"
+                alt="Business & Entrepreneurship"
+                fill
+                quality={70}
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/70 flex items-end">
+                <div className="p-8 text-white w-full bg-black/80">
+                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
+                    Business Startup
+                  </h3>
+                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
+                    Turn your idea into a real business. Learn marketing, branding, finances, 
+                    and how to actually make money doing what you love.
+                  </p>
+                  <Link
+                    href="/programs/business-startup"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
+                  >
+                    Learn More →
+                  </Link>
                 </div>
               </div>
-              <p className="text-slate-700 leading-relaxed text-lg">
-                "The staff is amazing. They helped me get funding, childcare support, and confidence. I'm now working in healthcare and supporting my family."
-              </p>
             </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href="/programs"
+              className="inline-flex items-center gap-2 text-orange-500 font-semibold hover:text-orange-600 text-lg"
+            >
+              View All Programs →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA SECTION - Bold and Clean */}
-      <section className="py-24 px-6 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-light mb-6">
-            Ready to Transform Your Future?
+      {/* CTA */}
+      <section className="py-16 bg-orange-600">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to Start?
           </h2>
-          <p className="text-xl text-indigo-100 mb-10 max-w-2xl mx-auto">
-            Funding is available. Programs fill fast. Take the first step today.
+          <p className="text-xl text-white/90 mb-8">
+            Most students qualify for 100% free training through WIOA, WRG, or apprenticeships.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="px-10 py-4 bg-white text-indigo-700 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-orange-600 bg-white rounded-lg hover:bg-slate-50 transition"
             >
               Apply Now
             </Link>
             <Link
-              href="/advising"
-              className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-indigo-700 transition-all text-lg"
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
             >
               Talk to an Advisor
             </Link>
           </div>
-
-          <div className="text-indigo-100">
-            <p className="mb-2">Questions? We're here to help.</p>
-            <p>
-              Call <a href="tel:317-314-3757" className="underline font-semibold hover:text-white">317-314-3757</a> or 
-              email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold hover:text-white">elevateforhumanity.edu@gmail.com</a>
-            </p>
-          </div>
+          <p className="mt-6 text-sm text-white/90">
+            📞 Call us at <span className="font-semibold text-white">317-314-3757</span>
+          </p>
         </div>
       </section>
     </main>
