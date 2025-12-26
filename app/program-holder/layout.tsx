@@ -15,9 +15,29 @@ export default async function ProgramHolderLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // NOTE: Auth checking is done at the page level, not layout level
-  // This allows public program-holder pages (like landing pages) to work
-  // while protected pages (like dashboard) enforce their own auth
+  const supabase = await createClient();
+
+  // Check if user is authenticated
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // If not logged in, redirect to login with return URL
+  if (!user) {
+    redirect('/login?next=/program-holder/dashboard');
+  }
+
+  // Get user profile to check role
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+
+  // If not a program holder, redirect to unauthorized
+  if (!profile || profile.role !== 'program_holder') {
+    redirect('/unauthorized');
+  }
 
   const navItems = [
     {
