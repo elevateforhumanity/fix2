@@ -213,10 +213,10 @@ export default function SupersonicFastCashPage() {
       'EPS Financial Tax Advance Indianapolis',
     ],
     description:
-      'Same-day tax refund advance $250-$7,500. Powered by EPS Financial and Pathward Bank. Professional tax preparation with IRS-certified preparers serving all 50 states online. Indianapolis office available. No credit check required.',
+      'Same-day tax refund advance. Powered by EPS Financial and Pathward Bank. Professional tax preparation with IRS-certified preparers serving all 50 states online. Indianapolis office available.',
     url: 'https://www.elevateforhumanity.org/supersonic-fast-cash',
     telephone: '+1-317-314-3757',
-    priceRange: '$0-$7500',
+    // Pricing determined per customer - no fixed prices displayed
     image: 'https://www.elevateforhumanity.org/images/supersonic-hero.jpg',
     brand: {
       '@type': 'Brand',
@@ -272,32 +272,8 @@ export default function SupersonicFastCashPage() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'LoanOrCredit',
-            name: 'Tax Refund Advance $250-$1,000',
-            description: 'Fixed amount loans with 0% APR. No interest charged.',
-            amount: {
-              '@type': 'MonetaryAmount',
-              currency: 'USD',
-              minValue: '250',
-              maxValue: '1000',
-            },
-          },
-          priceSpecification: {
-            '@type': 'UnitPriceSpecification',
-            price: '0',
-            priceCurrency: 'USD',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'LoanOrCredit',
-            name: 'Tax Refund Advance up to $7,500',
-            description:
-              'Percentage-based loans (25%, 50%, 75% of expected refund) with 36% APR',
-            amount: {
-              '@type': 'MonetaryAmount',
-              currency: 'USD',
-              minValue: '1250',
+            name: 'Tax Refund Advance',
+            description: 'Fast tax refund advance powered by EPS Financial and Pathward Bank. Terms and amounts determined per customer.',
               maxValue: '7500',
             },
           },
