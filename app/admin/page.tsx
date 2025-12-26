@@ -16,7 +16,7 @@ export default async function MegaAdminDashboard() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect('/login?next=/admin');
+    redirect('/admin/login?redirect=/admin');
   }
 
   const { data: profile } = await supabase
@@ -25,8 +25,8 @@ export default async function MegaAdminDashboard() {
     .eq('id', user.id)
     .single();
 
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
+  if (!profile || (profile.role !== 'admin' && profile.role !== 'super_admin')) {
+    redirect('/admin/login?redirect=/admin&error=unauthorized');
   }
 
   // Fetch key metrics
