@@ -1,4 +1,4 @@
-export async function createMeeting(params: {
+export async function createZoomMeeting(params: {
   topic: string;
   startTime: string;
   duration: number;
@@ -36,6 +36,9 @@ export async function createMeeting(params: {
 
   return await response.json();
 }
+
+// Alias for backwards compatibility
+export const createMeeting = createZoomMeeting;
 
 export async function getMeeting(meetingId: string) {
   const response = await fetch(`https://api.zoom.us/v2/meetings/${meetingId}`, {
