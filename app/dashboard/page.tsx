@@ -60,10 +60,10 @@ export default async function DashboardPage() {
       redirect('/instructor/dashboard');
       break;
 
-    // Board member and workforce board - no dedicated dashboards
+    // Board member and workforce board
     case 'board_member':
     case 'workforce_board':
-      redirect('/unauthorized');
+      redirect('/workforce-board/dashboard');
       break;
 
     // Student role (default)
