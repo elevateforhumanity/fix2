@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { requireRole } from '@/lib/auth/require-role';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import { getEmployerState } from '@/lib/orchestration/state-machine';
 import {
   StateAwareDashboard,
@@ -355,6 +356,20 @@ export default async function EmployerDashboardOrchestrated() {
             >
               Call (317) 314-3757
             </a>
+          </div>
+
+          {/* Employer Tools */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-slate-900 mb-4">Employer Tools</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <Link href="/employer/jobs" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">My Jobs</Link>
+              <Link href="/employer/post-job" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Post Job</Link>
+              <Link href="/employer/candidates" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Candidates</Link>
+              <Link href="/employer/placements" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Placements</Link>
+              <Link href="/employer/opportunities" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Opportunities</Link>
+              <Link href="/employer/analytics" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Analytics</Link>
+              <Link href="/employer/settings" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Settings</Link>
+            </div>
           </div>
         </div>
       </div>

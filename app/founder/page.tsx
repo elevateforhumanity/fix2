@@ -35,31 +35,45 @@ export default function FounderPage() {
 
       {/* Founder Statement */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Founder Statement
-            </h2>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Founder Photo */}
+            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
+                alt="Founder"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
 
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              Elevate for Humanity was founded to address a simple but
-              persistent problem: too many people are motivated to improve their
-              lives, yet are blocked by disconnected systems, unclear
-              requirements, and lack of coordinated support.
-            </p>
+            {/* Founder Statement */}
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Founder Statement
+              </h2>
 
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Our work is grounded in real-world experience navigating workforce
-              programs, education systems, and community services. That
-              experience shaped a model focused on connection, accountability,
-              and human-centered design.
-            </p>
-
-            <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-8">
-              <p className="text-lg font-semibold text-gray-900">
-                Elevate for Humanity exists to ensure opportunity is not
-                theoretical — it's accessible, supported, and measurable.
+              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+                Elevate for Humanity was founded to address a simple but
+                persistent problem: too many people are motivated to improve their
+                lives, yet are blocked by disconnected systems, unclear
+                requirements, and lack of coordinated support.
               </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Our work is grounded in real-world experience navigating workforce
+                programs, education systems, and community services. That
+                experience shaped a model focused on connection, accountability,
+                and human-centered design.
+              </p>
+
+              <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-8">
+                <p className="text-lg font-semibold text-gray-900">
+                  Elevate for Humanity exists to ensure opportunity is not
+                  theoretical — it's accessible, supported, and measurable.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -45,7 +45,6 @@ export default async function BlogPostPage({ params }: { params: Params }) {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-slate-900/50" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             {title}

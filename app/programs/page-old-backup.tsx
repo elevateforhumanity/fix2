@@ -106,7 +106,7 @@ export default function ProgramsPage() {
       <main className="bg-white overflow-hidden">
         {/* Hero Image - Diagonal Cut */}
         <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent z-10" />
+          
           <Image
             src="/images/heroes/programs.jpg"
             alt="Career Training Programs"
@@ -163,7 +163,7 @@ export default function ProgramsPage() {
                           quality={75}
                         />
                         {/* Gradient overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        
                       </div>
                       <div className="p-8">
                         <div className="flex items-center gap-3 mb-3">

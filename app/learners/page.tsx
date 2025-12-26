@@ -19,23 +19,22 @@ export default async function LearnersPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Learners"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
+        <video
+          autoPlay
+          loop
+          playsInline
+          muted
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/gallery/image8.jpg"
+        >
+          <source src="/videos/hero-home.mp4" type="video/mp4" />
+        </video>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Learners
           </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Learners and discover opportunities for career growth and
-            development.
+          <p className="text-base md:text-lg mb-8">
+            Explore opportunities for career growth and development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -46,7 +45,7 @@ export default async function LearnersPage() {
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               View Programs
             </Link>

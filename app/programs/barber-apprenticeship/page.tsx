@@ -49,11 +49,16 @@ export default function BarberApprenticeshipPage() {
       {/* Hero */}
       <section className="relative bg-white py-8 md:py-12">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/barber-hero.jpg"
-            alt="Barber Apprenticeship"
-            className="w-full h-full object-cover opacity-20"
-          />
+          <video
+            autoPlay
+            loop
+            playsInline
+            muted
+            className="w-full h-full object-cover"
+            poster="/images/barber-hero.jpg"
+          >
+            <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">

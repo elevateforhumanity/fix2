@@ -64,7 +64,6 @@ export default function StudentsPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-green-600 px-4 py-2 rounded-full mb-6">

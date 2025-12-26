@@ -102,8 +102,8 @@ export default async function DashboardPage() {
             quality={90}
           />
 
-          {/* Overlay Content */}
-          <div className="absolute inset-0 bg-black/40 flex items-end">
+          {/* Content */}
+          <div className="absolute inset-0 flex items-end">
             <div className="w-full px-4 sm:px-6 pb-8">
               <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

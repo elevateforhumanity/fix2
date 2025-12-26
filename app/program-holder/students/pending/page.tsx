@@ -76,7 +76,7 @@ export default async function PendingStudentsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-orange-900/90 to-brand-orange-700/90" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <UserPlus className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold mb-4">

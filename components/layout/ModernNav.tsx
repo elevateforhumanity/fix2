@@ -15,6 +15,7 @@ import {
   Info,
 } from 'lucide-react';
 import Image from 'next/image';
+import { DashboardDropdown } from '@/components/navigation/DashboardDropdown';
 
 // Navigation structure with proper categorization
 const navigation = {
@@ -198,6 +199,9 @@ export function ModernNav() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
+            {/* Dashboard Dropdown */}
+            <DashboardDropdown />
+
             {/* Programs Dropdown */}
             <div
               className="relative"

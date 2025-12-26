@@ -35,7 +35,7 @@ export default function EmployerPage() {
           <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/40 flex items-center">
+        <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-2xl text-white">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">

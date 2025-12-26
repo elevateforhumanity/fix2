@@ -245,8 +245,15 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-brand-blue-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative py-16 text-white overflow-hidden">
+        <Image
+          src="/images/heroes/student-career.jpg"
+          alt="Get started"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Get Started?
           </h2>

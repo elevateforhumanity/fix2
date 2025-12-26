@@ -20,8 +20,17 @@ export default function CdlTransportationPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="bg-white text-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative text-white py-20 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          playsInline
+          muted
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/cdl-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
               Free with funding
@@ -34,20 +43,20 @@ export default function CdlTransportationPage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             CDL & Transportation
           </h1>
-          <p className="text-xl text-slate-600 mb-8 max-w-3xl">
+          <p className="text-xl mb-8 max-w-3xl">
             Commercial Driver's License training for truck driving careers
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/apply"
-              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-600 text-white font-bold rounded-lg transition-all text-center"
+              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold rounded-lg transition-all text-center"
             >
               Apply Now
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white hover:bg-gray-100 text-blue-900 font-bold rounded-lg transition-all text-center"
+              className="px-8 py-4 bg-white hover:bg-gray-100 text-slate-900 font-bold rounded-lg transition-all text-center"
             >
               Talk to an Advisor
             </Link>

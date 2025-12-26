@@ -38,8 +38,8 @@ export default function TeamPage() {
 
       {/* Main Content */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="prose prose-lg max-w-none">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="prose prose-lg max-w-none mb-12">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
               Elevate for Humanity is powered by professionals across workforce
               development, education, compliance, technology, and community
@@ -85,6 +85,21 @@ export default function TeamPage() {
               We believe systems should work for people — and our team exists to
               make that real.
             </blockquote>
+          </div>
+
+          {/* Team Photos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
+              <div key={num} className="relative aspect-square rounded-lg overflow-hidden shadow-md">
+                <Image
+                  src={`/images/team-new/team-${num}.jpg`}
+                  alt={`Team member ${num}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

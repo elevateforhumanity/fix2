@@ -46,9 +46,6 @@ export default function ProgramsPage() {
           />
         </video>
 
-        {/* Overlay - 40% per design policy */}
-        <div className="absolute inset-0 bg-black/40" />
-
         {/* Content Container */}
         <div className="relative py-20 md:py-32">
           <div className="max-w-7xl mx-auto px-4">

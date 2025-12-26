@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { requireRole } from '@/lib/auth/require-role';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import { getStudentState } from '@/lib/orchestration/state-machine';
 import {
   StateAwareDashboard,
@@ -358,6 +359,25 @@ export default async function StudentDashboardOrchestrated() {
             >
               Call (317) 314-3757
             </a>
+          </div>
+
+          {/* All Student Features */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-slate-900 mb-4">My Learning Tools</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <Link href="/lms/courses" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">My Courses</Link>
+              <Link href="/lms/assignments" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Assignments</Link>
+              <Link href="/lms/grades" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Grades</Link>
+              <Link href="/lms/calendar" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Calendar</Link>
+              <Link href="/lms/messages" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Messages</Link>
+              <Link href="/lms/forums" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Forums</Link>
+              <Link href="/lms/study-groups" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Study Groups</Link>
+              <Link href="/lms/resources" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Resources</Link>
+              <Link href="/lms/certificates" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Certificates</Link>
+              <Link href="/lms/achievements" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Achievements</Link>
+              <Link href="/lms/profile" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">My Profile</Link>
+              <Link href="/lms/support" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Support</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -294,6 +294,20 @@ export default async function StaffDashboard() {
             )}
           </div>
         </div>
+
+        {/* Staff Tools */}
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">Staff Tools</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Link href="/staff-portal/students" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Students</Link>
+            <Link href="/staff-portal/courses" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Courses</Link>
+            <Link href="/staff-portal/campaigns" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Campaigns</Link>
+            <Link href="/staff-portal/customer-service" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Customer Service</Link>
+            <Link href="/staff-portal/processes" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Processes</Link>
+            <Link href="/staff-portal/qa-checklist" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">QA Checklist</Link>
+            <Link href="/staff-portal/training" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Training</Link>
+          </div>
+        </div>
       </div>
     </div>
   );

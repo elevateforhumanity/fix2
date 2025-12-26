@@ -11,14 +11,16 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
         <div className="relative w-full overflow-hidden rounded-3xl">
           <div className="relative h-[520px] w-full md:h-[600px]">
-            <Image
-              src="/images/heroes/homepage-hero.jpg"
-              alt="Students learning and training"
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
+            <video
+              autoPlay
+              loop
+              playsInline
+              muted
+              className="absolute inset-0 w-full h-full object-cover"
+              poster="/images/heroes/homepage-hero.jpg"
+            >
+              <source src="/videos/hero-home.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
 

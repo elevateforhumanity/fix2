@@ -121,7 +121,7 @@ export default async function CompliancePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-900/90 to-brand-blue-700/90" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Compliance Dashboard

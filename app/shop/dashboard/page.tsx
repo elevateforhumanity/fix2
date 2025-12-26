@@ -243,6 +243,16 @@ export default async function ShopDashboard() {
               </Link>
             </div>
           </div>
+
+          {/* Shop Management Tools */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-slate-900 mb-4">Shop Management</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <Link href="/shop/onboarding" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Onboarding</Link>
+              <Link href="/shop/apply" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Apply</Link>
+              <Link href="/shop/reports" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Reports</Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
