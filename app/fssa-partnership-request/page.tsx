@@ -2,7 +2,17 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, Building, User, Briefcase, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  Building,
+  User,
+  Briefcase,
+  MessageSquare,
+  Send,
+  CheckCircle,
+  TrendingUp,
+} from 'lucide-react';
 
 export default function FSSAPartnershipRequestPage() {
   const [formData, setFormData] = useState({
@@ -45,7 +55,11 @@ export default function FSSAPartnershipRequestPage() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -67,7 +81,9 @@ export default function FSSAPartnershipRequestPage() {
               We've received your FSSA/SNAP E&T partnership request.
             </p>
             <div className="bg-blue-50 rounded-lg p-6 mb-6 text-left">
-              <h3 className="font-bold text-gray-900 mb-3">What Happens Next:</h3>
+              <h3 className="font-bold text-gray-900 mb-3">
+                What Happens Next:
+              </h3>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">1.</span>
@@ -129,7 +145,8 @@ export default function FSSAPartnershipRequestPage() {
             FSSA/SNAP E&T Partnership Request
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Partner with Elevate for Humanity to provide workforce training for SNAP recipients
+            Partner with Elevate for Humanity to provide workforce training for
+            SNAP recipients
           </p>
         </div>
 
@@ -169,8 +186,10 @@ export default function FSSAPartnershipRequestPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Contact Information */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Contact Information
+              </h2>
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -274,8 +293,10 @@ export default function FSSAPartnershipRequestPage() {
 
             {/* Partnership Details */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Partnership Details</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Partnership Details
+              </h2>
+
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">

@@ -189,8 +189,10 @@ export default function SiteHeader() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition"
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition touch-manipulation"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -200,11 +202,19 @@ export default function SiteHeader() {
         {mobileMenuOpen && (
           <>
             <div
-              className="lg:hidden fixed inset-0 bg-black/50 z-40"
+              className="lg:hidden fixed inset-0 bg-black/50 z-40 top-16"
               onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
             />
-            <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe">
-              <nav className="px-4 py-6 space-y-2 min-h-full">
+            <div
+              id="mobile-menu"
+              className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe shadow-2xl"
+            >
+              <nav
+                className="px-4 py-6 space-y-2 min-h-full"
+                role="navigation"
+                aria-label="Mobile navigation"
+              >
                 {/* All Navigation Sections */}
                 {navigation?.map((section) => (
                   <div
@@ -222,7 +232,11 @@ export default function SiteHeader() {
                                 : section.label
                             )
                           }
-                          className="w-full flex items-center justify-between px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
+                          className="w-full flex items-center justify-between px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition touch-manipulation active:bg-gray-100"
+                          aria-expanded={
+                            expandedMobileSection === section.label
+                          }
+                          aria-controls={`mobile-section-${section.label.toLowerCase().replace(/\s+/g, '-')}`}
                         >
                           <span>{section.label}</span>
                           <ChevronDown
@@ -234,12 +248,15 @@ export default function SiteHeader() {
                           />
                         </button>
                         {expandedMobileSection === section.label && (
-                          <div className="bg-gray-50 py-2">
+                          <div
+                            id={`mobile-section-${section.label.toLowerCase().replace(/\s+/g, '-')}`}
+                            className="bg-gray-50 py-2"
+                          >
                             {section.items.map((item) => (
                               <Link
                                 key={item.href}
                                 href={item.href}
-                                className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+                                className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition active:bg-blue-100 touch-manipulation"
                                 onClick={() => {
                                   setMobileMenuOpen(false);
                                   setExpandedMobileSection(null);
@@ -254,7 +271,7 @@ export default function SiteHeader() {
                     ) : section.href ? (
                       <Link
                         href={section.href}
-                        className="block px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition"
+                        className="block px-4 py-3 font-bold text-zinc-900 hover:bg-gray-50 transition active:bg-gray-100 touch-manipulation"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {section.label}
@@ -268,19 +285,28 @@ export default function SiteHeader() {
                   {user ? (
                     <Link
                       href={getDashboardUrl(user)}
-                      className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
+                      className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition active:bg-zinc-100 touch-manipulation"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Dashboard
                     </Link>
                   ) : (
-                    <Link
-                      href="/login"
-                      className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Login
-                    </Link>
+                    <>
+                      <Link
+                        href="/apply"
+                        className="block text-center rounded-xl bg-brand-orange-600 text-white px-4 py-3 font-extrabold hover:bg-brand-orange-700 transition active:bg-brand-orange-800 touch-manipulation"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Apply Now
+                      </Link>
+                      <Link
+                        href="/login"
+                        className="block text-center rounded-xl border-2 border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition active:bg-zinc-100 touch-manipulation"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Login
+                      </Link>
+                    </>
                   )}
                 </div>
               </nav>
