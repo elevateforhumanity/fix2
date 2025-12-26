@@ -21,10 +21,6 @@ import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
 // import PWAInstallPrompt from '@/components/PWAInstallPrompt'; // Disabled - causing issues
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
-import {
-  InvisibleWatermark,
-  DMCATrackingPixel,
-} from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
 import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
@@ -194,11 +190,6 @@ export default function RootLayout({
         <FacebookPixel />
         <SecurityMonitor />
         <CopyrightProtection />
-        <InvisibleWatermark
-          owner="Elizabeth L. Greene / Elevate for Humanity"
-          siteId="EFH-ORIGINAL-2024"
-        />
-        <DMCATrackingPixel />
         <ScraperDetection />
         <SiteHeader />
         <Breadcrumbs />
