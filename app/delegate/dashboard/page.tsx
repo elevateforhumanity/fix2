@@ -37,10 +37,47 @@ export default async function DelegateDashboard() {
     redirect('/dashboard');
   }
 
-  // Get pending tasks (mock data for now)
-  const pendingApprovals = 5;
-  const activeMembers = 142;
-  const flaggedContent = 3;
+  // Get delegate profile
+  const { data: delegateProfile } = await supabase
+    .from('delegate_profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  // Get pending approvals count
+  const { count: pendingApprovals } = await supabase
+    .from('member_applications')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'pending');
+
+  // Get active members count
+  const { count: activeMembers } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .neq('role', 'admin');
+
+  // Get flagged content count
+  const { count: flaggedContent } = await supabase
+    .from('content_reports')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'pending');
+
+  // Get today's resolved count
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const { count: resolvedToday } = await supabase
+    .from('moderation_actions')
+    .select('*', { count: 'exact', head: true })
+    .eq('delegate_id', user.id)
+    .gte('created_at', today.toISOString());
+
+  // Get recent activity
+  const { data: recentActions } = await supabase
+    .from('moderation_actions')
+    .select('*')
+    .eq('delegate_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(5);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -62,7 +99,7 @@ export default async function DelegateDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Pending Approvals</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {pendingApprovals}
+                  {pendingApprovals || 0}
                 </p>
               </div>
               <Clock className="w-8 h-8 text-yellow-600" />
@@ -74,7 +111,7 @@ export default async function DelegateDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Active Members</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {activeMembers}
+                  {activeMembers || 0}
                 </p>
               </div>
               <Users className="w-8 h-8 text-green-600" />
@@ -86,7 +123,7 @@ export default async function DelegateDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Flagged Content</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {flaggedContent}
+                  {flaggedContent || 0}
                 </p>
               </div>
               <AlertCircle className="w-8 h-8 text-red-600" />
@@ -97,7 +134,9 @@ export default async function DelegateDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Resolved Today</p>
-                <p className="text-2xl font-bold text-gray-900">12</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {resolvedToday || 0}
+                </p>
               </div>
               <CheckCircle className="w-8 h-8 text-blue-600" />
             </div>
@@ -117,7 +156,7 @@ export default async function DelegateDashboard() {
             <p className="text-sm text-gray-600">
               Approve or reject member applications
             </p>
-            {pendingApprovals > 0 && (
+            {(pendingApprovals || 0) > 0 && (
               <span className="inline-block mt-2 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded">
                 {pendingApprovals} pending
               </span>
@@ -148,7 +187,7 @@ export default async function DelegateDashboard() {
             <p className="text-sm text-gray-600">
               Review flagged posts and comments
             </p>
-            {flaggedContent > 0 && (
+            {(flaggedContent || 0) > 0 && (
               <span className="inline-block mt-2 px-2 py-1 bg-red-100 text-red-800 text-xs font-semibold rounded">
                 {flaggedContent} flagged
               </span>

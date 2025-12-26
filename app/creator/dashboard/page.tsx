@@ -37,20 +37,41 @@ export default async function CreatorDashboard() {
     redirect('/dashboard');
   }
 
-  // Get creator's courses
+  // Get creator profile with stats
+  const { data: creatorProfile } = await supabase
+    .from('creator_profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  // Get creator's courses with enrollment counts
   const { data: courses } = await supabase
-    .from('courses')
-    .select('*, enrollments(count)')
-    .eq('instructor_id', user.id)
+    .from('creator_courses')
+    .select(
+      `
+      *,
+      creator_enrollments(count)
+    `
+    )
+    .eq('creator_id', user.id)
     .order('created_at', { ascending: false });
 
-  // Get revenue stats (mock for now)
-  const totalStudents =
-    courses?.reduce(
-      (sum, course) => sum + (course.enrollments?.[0]?.count || 0),
-      0
-    ) || 0;
+  // Get total stats
   const totalCourses = courses?.length || 0;
+  const totalStudents = creatorProfile?.total_students || 0;
+  const totalRevenue = creatorProfile?.total_revenue || 0;
+
+  // Calculate engagement (students who completed at least one lesson)
+  const { data: activeEnrollments } = await supabase
+    .from('creator_enrollments')
+    .select('id')
+    .in('course_id', courses?.map((c) => c.id) || [])
+    .gt('completed_lessons', 0);
+
+  const engagementRate =
+    totalStudents > 0
+      ? Math.round(((activeEnrollments?.length || 0) / totalStudents) * 100)
+      : 0;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -95,7 +116,9 @@ export default async function CreatorDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Engagement</p>
-                <p className="text-2xl font-bold text-gray-900">85%</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {engagementRate}%
+                </p>
               </div>
               <TrendingUp className="w-8 h-8 text-purple-600" />
             </div>
@@ -105,7 +128,9 @@ export default async function CreatorDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Revenue</p>
-                <p className="text-2xl font-bold text-gray-900">$0</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  ${totalRevenue.toFixed(2)}
+                </p>
               </div>
               <DollarSign className="w-8 h-8 text-yellow-600" />
             </div>

@@ -37,11 +37,42 @@ export default async function ShopDashboard() {
     redirect('/dashboard');
   }
 
-  // Mock shop stats (will be replaced with real data)
-  const totalProducts = 8;
-  const totalOrders = 24;
-  const totalRevenue = 1250;
-  const pendingOrders = 3;
+  // Get shop profile with stats
+  const { data: shopProfile } = await supabase
+    .from('shop_profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  // Get products count
+  const { count: totalProducts } = await supabase
+    .from('shop_products')
+    .select('*', { count: 'exact', head: true })
+    .eq('shop_id', user.id);
+
+  // Get orders count
+  const { count: totalOrders } = await supabase
+    .from('shop_orders')
+    .select('*', { count: 'exact', head: true })
+    .eq('shop_id', user.id);
+
+  // Get pending orders count
+  const { count: pendingOrders } = await supabase
+    .from('shop_orders')
+    .select('*', { count: 'exact', head: true })
+    .eq('shop_id', user.id)
+    .eq('status', 'pending');
+
+  // Get recent orders
+  const { data: recentOrders } = await supabase
+    .from('shop_orders')
+    .select('*')
+    .eq('shop_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(5);
+
+  const totalRevenue = shopProfile?.total_revenue || 0;
+  const totalSales = shopProfile?.total_sales || 0;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -59,7 +90,7 @@ export default async function ShopDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Total Products</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {totalProducts}
+                  {totalProducts || 0}
                 </p>
               </div>
               <Package className="w-8 h-8 text-blue-600" />
@@ -71,7 +102,7 @@ export default async function ShopDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Total Orders</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {totalOrders}
+                  {totalOrders || 0}
                 </p>
               </div>
               <ShoppingBag className="w-8 h-8 text-green-600" />
@@ -83,7 +114,7 @@ export default async function ShopDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Revenue</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  ${totalRevenue}
+                  ${totalRevenue.toFixed(2)}
                 </p>
               </div>
               <DollarSign className="w-8 h-8 text-yellow-600" />
@@ -95,7 +126,7 @@ export default async function ShopDashboard() {
               <div>
                 <p className="text-sm text-gray-600">Pending Orders</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {pendingOrders}
+                  {pendingOrders || 0}
                 </p>
               </div>
               <TrendingUp className="w-8 h-8 text-purple-600" />
@@ -129,7 +160,7 @@ export default async function ShopDashboard() {
             <p className="text-sm text-gray-600">
               View and fulfill customer orders
             </p>
-            {pendingOrders > 0 && (
+            {(pendingOrders || 0) > 0 && (
               <span className="inline-block mt-2 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded">
                 {pendingOrders} pending
               </span>
