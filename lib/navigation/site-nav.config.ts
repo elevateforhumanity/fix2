@@ -133,9 +133,14 @@ export const headerNavigation: NavGroup[] = [
         description: 'Training provider partnerships',
       },
       {
-        label: 'License Platform',
-        href: '/partners/license',
-        description: 'White-label our platform',
+        label: '🔥 License Platform',
+        href: '/pricing/platform',
+        description: 'Use our $650K in government approvals - $2K-$200K/mo',
+      },
+      {
+        label: 'Apprenticeship Licensing',
+        href: '/pricing/sponsor-licensing',
+        description: 'RAPIDS apprenticeship infrastructure - $750/mo',
       },
       {
         label: 'Program Holder Portal',
@@ -232,7 +237,8 @@ export const footerNavigation = {
     links: [
       { label: 'Hire Talent', href: '/employers' },
       { label: 'Become a Partner', href: '/partners' },
-      { label: 'License Platform', href: '/partners/license' },
+      { label: '⭐ License Platform', href: '/pricing/platform' },
+      { label: 'Apprenticeship Licensing', href: '/pricing/sponsor-licensing' },
       { label: 'Apprenticeships', href: '/employers/apprenticeships' },
       { label: 'Employer Login', href: '/employer/dashboard' },
       { label: 'Partner Login', href: '/program-holder/dashboard' },
