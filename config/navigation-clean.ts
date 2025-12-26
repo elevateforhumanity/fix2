@@ -145,6 +145,7 @@ export const publicNav: NavSection[] = [
       // Community
       { label: 'Connect with Others', href: '#', isHeader: true },
       { label: 'Join the Community', href: '/community' },
+      { label: 'Community Marketplace', href: '/community/marketplace' },
       { label: 'Find Study Groups', href: '/community/study-groups' },
       { label: 'Ask Questions', href: '/community/forums' },
 

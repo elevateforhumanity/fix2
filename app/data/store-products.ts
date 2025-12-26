@@ -275,6 +275,110 @@ export const STORE_PRODUCTS: StoreProduct[] = [
   },
 ];
 
+// Community Edition Add-Ons (Monthly subscriptions for license holders)
+export const COMMUNITY_ADDONS: StoreProduct[] = [
+  {
+    id: 'community-basic',
+    slug: 'community-basic',
+    name: 'Community Edition - Basic',
+    description: 'Add community marketplace features to your platform.',
+    longDescription:
+      'Enable your program owners to create and sell courses, build communities, and engage students. Perfect for training providers who want to offer additional programs.',
+    price: 9900, // $99/month
+    billingType: 'subscription',
+    licenseType: 'single',
+    appsIncluded: ['creator-dashboard', 'community-marketplace'],
+    features: [
+      '1 program owner account',
+      'Create unlimited courses',
+      'Community marketplace listing',
+      'Up to 100 community members',
+      'Discussion forums',
+      'Basic analytics',
+    ],
+    idealFor: [
+      'Single program owners',
+      'Small training providers',
+      'Testing community features',
+    ],
+    requiresApproval: false,
+    stripeProductId: 'prod_community_basic',
+    stripePriceId: 'price_community_basic_99',
+  },
+  {
+    id: 'community-pro',
+    slug: 'community-pro',
+    name: 'Community Edition - Pro',
+    description: 'Full community platform with multiple program owners.',
+    longDescription:
+      'Complete community solution for training providers with multiple programs. Includes creator marketplace, shop features, and advanced moderation tools.',
+    price: 19900, // $199/month
+    billingType: 'subscription',
+    licenseType: 'school',
+    appsIncluded: [
+      'creator-dashboard',
+      'delegate-dashboard',
+      'shop-dashboard',
+      'community-marketplace',
+    ],
+    features: [
+      'Up to 5 program owner accounts',
+      'Unlimited courses and products',
+      'Community marketplace',
+      'Up to 500 community members',
+      'Discussion forums with moderation',
+      'Shop marketplace',
+      'Advanced analytics',
+      'Priority support',
+    ],
+    idealFor: [
+      'Multi-program training providers',
+      'Community colleges',
+      'Workforce boards',
+    ],
+    requiresApproval: false,
+    stripeProductId: 'prod_community_pro',
+    stripePriceId: 'price_community_pro_199',
+  },
+  {
+    id: 'community-enterprise',
+    slug: 'community-enterprise',
+    name: 'Community Edition - Enterprise',
+    description: 'Unlimited community features for large organizations.',
+    longDescription:
+      'Enterprise-grade community platform with unlimited program owners, members, and advanced features. Includes white-label branding and dedicated support.',
+    price: 29900, // $299/month
+    billingType: 'subscription',
+    licenseType: 'enterprise',
+    appsIncluded: [
+      'creator-dashboard',
+      'delegate-dashboard',
+      'shop-dashboard',
+      'community-marketplace',
+      'white-label-community',
+    ],
+    features: [
+      'Unlimited program owners',
+      'Unlimited courses and products',
+      'Unlimited community members',
+      'White-label community branding',
+      'Advanced moderation tools',
+      'Shop marketplace with revenue sharing',
+      'Custom integrations',
+      'Dedicated account manager',
+      'SLA with 99.9% uptime',
+    ],
+    idealFor: [
+      'State workforce agencies',
+      'Large training networks',
+      'Multi-state programs',
+    ],
+    requiresApproval: true,
+    stripeProductId: 'prod_community_enterprise',
+    stripePriceId: 'price_community_enterprise_299',
+  },
+];
+
 // Helper Functions
 export function getProductBySlug(slug: string): StoreProduct | undefined {
   return STORE_PRODUCTS.find((p) => p.slug === slug);
