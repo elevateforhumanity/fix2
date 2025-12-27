@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import type { Course } from "@/content/courses/catalog";
-import manifest from "@/public/generated-images/manifest.json";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { Course } from '@/content/courses/catalog';
+import manifest from '@/public/generated-images/manifest.json';
 
 type Props = {
   course: Course;
@@ -12,7 +12,7 @@ type Props = {
 export function CourseCard({ course }: Props) {
   const coverSrc =
     (manifest as Record<string, string>)[course.coverImageKey] ??
-    "/images/split/piece-16.png";
+    '/images/split/piece-16.webp';
 
   return (
     <Link

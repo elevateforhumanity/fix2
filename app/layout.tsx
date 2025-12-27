@@ -1,17 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-// Image asset: /images/programs-new/program-11.jpg
-import { Libre_Baskerville } from 'next/font/google';
 import './globals.css';
-import './ui-fixes.css';
-import './print.css';
-import './mobile-fixes.css';
-import './animations.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-// New shared header/footer components
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
@@ -19,20 +12,16 @@ import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import AILiveChat from '@/components/chat/AILiveChat';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
-// import PWAInstallPrompt from '@/components/PWAInstallPrompt'; // Disabled - causing issues
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
 import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
-
-// Import Inter for clean, modern sans-serif
 import { Inter } from 'next/font/google';
 
-// Modern sans-serif font for the entire site
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-sans',
+  variable: '--font-inter',
   fallback: [
     'system-ui',
     '-apple-system',
@@ -40,15 +29,6 @@ const inter = Inter({
     'Segoe UI',
     'sans-serif',
   ],
-});
-
-// Professional serif font for specific use cases
-const libreBaskerville = Libre_Baskerville({
-  subsets: ['latin'],
-  display: 'optional',
-  weight: ['400', '700'],
-  variable: '--font-serif',
-  fallback: ['Georgia', 'serif'],
 });
 
 // Viewport configuration (separate from metadata in Next.js 14+)
@@ -157,7 +137,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={libreBaskerville.variable}>
+    <html lang="en" className={inter.variable}>
       <head>
         {/* Preload critical assets to prevent FOUC */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -177,7 +157,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${inter.variable} ${libreBaskerville.variable} font-sans antialiased bg-white`}
+        className={`${inter.variable} antialiased bg-white`}
         style={{ fontSize: '16px' }}
       >
         <a

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import type { EcdCourse } from "@/content/courses/ecdCatalog";
-import manifest from "@/public/generated-images/manifest.json";
+import Image from 'next/image';
+import Link from 'next/link';
+import type { EcdCourse } from '@/content/courses/ecdCatalog';
+import manifest from '@/public/generated-images/manifest.json';
 
 type Props = {
   course: EcdCourse;
@@ -12,7 +12,7 @@ type Props = {
 export function EcdCourseCard({ course }: Props) {
   const coverSrc =
     (manifest as Record<string, string>)[course.coverImageKey] ??
-    "/images/split/piece-17.png";
+    '/images/split/piece-17.webp';
 
   return (
     <Link
