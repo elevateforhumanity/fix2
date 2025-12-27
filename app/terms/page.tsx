@@ -1,15 +1,11 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/terms',
-  },
-  title: 'Terms of Service | Elevate For Humanity',
-  description: 'Terms of use for Elevate for Humanity services and website.',
-};
+export default function TermsRedirect() {
+  redirect('/terms-of-service');
+}
 
-export default function TermsPage() {
+// Canonical terms of service is at /terms-of-service
+function TermsPage() {
   return (
     <main className="min-h-screen bg-gray-50 py-16">
       <div className="max-w-4xl mx-auto px-4">

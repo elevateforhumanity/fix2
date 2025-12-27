@@ -1,16 +1,11 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { Shield, Mail } from 'lucide-react';
+import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/privacy',
-  },
-  title: 'Privacy Policy | Elevate For Humanity',
-  description: 'Privacy and data protection policy for Elevate for Humanity.',
-};
+export default function PrivacyRedirect() {
+  redirect('/privacy-policy');
+}
 
-export default function PrivacyPage() {
+// Canonical privacy policy is at /privacy-policy
+function PrivacyPage() {
   return (
     <main className="min-h-screen bg-gray-50 py-16">
       <div className="max-w-4xl mx-auto px-4">
