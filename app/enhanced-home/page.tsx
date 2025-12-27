@@ -109,7 +109,7 @@ export default function EnhancedHomePage() {
             priority
             quality={90}
           />
-          <div className="absolute inset-0   "></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
         </div>
 
         {/* Content */}
@@ -240,7 +240,7 @@ export default function EnhancedHomePage() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0   "></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
                     FREE
                   </div>
