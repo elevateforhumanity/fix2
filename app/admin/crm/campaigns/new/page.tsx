@@ -28,7 +28,7 @@ export default function NewCampaignPage() {
       .then(data => setTemplates(data.templates || []));
   }, []);
 
-  const handleTemplateSelect = (item) => {
+  const handleTemplateSelect = (template) => {
     setSelectedTemplate(template);
     setFormData(prev => ({
       ...prev,
