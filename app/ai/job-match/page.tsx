@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useState } from 'react';
 import { Briefcase, Loader2 } from 'lucide-react';

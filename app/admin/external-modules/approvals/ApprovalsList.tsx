@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 // app/admin/external-modules/approvals/ApprovalsList.tsx
 // Client component for managing external module approvals

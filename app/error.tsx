@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 // Image asset: /images/hero-new/hero-9.jpg
 
 import { useEffect } from 'react';
