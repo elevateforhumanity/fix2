@@ -147,12 +147,14 @@ export default async function MarketplacePage() {
                 href={`/marketplace/product/${product.id}`}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition group"
               >
-                <div className="aspect-video bg-white flex items-center justify-center">
+                <div className="aspect-video bg-white flex items-center justify-center relative">
                   {product.thumbnail_url ? (
-                    <img
+                    <Image
                       src={product.thumbnail_url}
                       alt={product.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
                     <svg

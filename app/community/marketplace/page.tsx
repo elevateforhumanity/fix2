@@ -82,11 +82,13 @@ export default async function CommunityMarketplacePage() {
                   className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
                 >
                   {course.thumbnail_url && (
-                    <div className="aspect-video bg-gray-100 overflow-hidden">
-                      <img
+                    <div className="aspect-video bg-gray-100 overflow-hidden relative">
+                      <Image
                         src={course.thumbnail_url}
                         alt={course.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   )}
@@ -178,11 +180,13 @@ export default async function CommunityMarketplacePage() {
                   className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
                 >
                   {product.images && product.images[0] && (
-                    <div className="aspect-square bg-gray-100 overflow-hidden">
-                      <img
+                    <div className="aspect-square bg-gray-100 overflow-hidden relative">
+                      <Image
                         src={product.images[0]}
                         alt={product.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   )}

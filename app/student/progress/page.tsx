@@ -186,11 +186,14 @@ export default async function StudentProgressPage() {
                                 <div className="flex-1">
                                   <div className="flex items-center gap-3 mb-2">
                                     {provider?.logo_url && (
-                                      <img
-                                        src={provider.logo_url}
-                                        alt={provider.provider_name}
-                                        className="w-8 h-8 object-contain"
-                                      />
+                                      <div className="relative w-8 h-8">
+                                        <Image
+                                          src={provider.logo_url}
+                                          alt={provider.provider_name}
+                                          fill
+                                          className="object-contain"
+                                        />
+                                      </div>
                                     )}
                                     <h3 className="font-semibold text-gray-900">
                                       {provider?.provider_name ||

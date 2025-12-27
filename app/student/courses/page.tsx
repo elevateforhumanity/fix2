@@ -200,13 +200,17 @@ export default async function StudentCoursesPage() {
                       className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow"
                     >
                       {course?.thumbnail_url ? (
-                        <img
-                          src={course.thumbnail_url}
-                          alt={course.title}
-                          className="w-full h-48 object-cover"
-                        />
+                        <div className="relative w-full h-48">
+                          <Image
+                            src={course.thumbnail_url}
+                            alt={course.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </div>
                       ) : (
-                        <div className="w-full h-48    flex items-center justify-center">
+                        <div className="w-full h-48 flex items-center justify-center">
                           <svg
                             className="w-16 h-16 text-white"
                             fill="none"
@@ -424,11 +428,15 @@ export default async function StudentCoursesPage() {
                     className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow"
                   >
                     {course.thumbnail_url ? (
-                      <img
-                        src={course.thumbnail_url}
-                        alt={course.title}
-                        className="w-full h-48 object-cover"
-                      />
+                      <div className="relative w-full h-48">
+                        <Image
+                          src={course.thumbnail_url}
+                          alt={course.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
                     ) : (
                       <div className="w-full h-48    flex items-center justify-center">
                         <svg
