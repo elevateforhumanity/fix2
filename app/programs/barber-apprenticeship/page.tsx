@@ -99,21 +99,34 @@ export default function BarberApprenticeshipPage() {
           </div>
 
           {/* Payment Options for Self-Pay */}
-          <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-200 rounded-lg max-w-2xl">
-            <p className="text-slate-700 mb-4">
-              <strong>Don't qualify for funding?</strong> You can still enroll and pay with flexible payment options:
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/pay"
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all text-center"
-              >
-                View Payment Options
-              </Link>
-              <span className="text-sm text-slate-600 self-center">
-                Pay with Stripe or finance with Affirm
-              </span>
+          <div className="mt-8 p-6 bg-amber-50 border-2 border-amber-300 rounded-lg max-w-2xl">
+            <div className="flex items-start gap-3 mb-4">
+              <DollarSign className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  Can't Get Funded? No Problem!
+                </h3>
+                <p className="text-slate-700 mb-4">
+                  If you don't qualify for WIOA, WRG, or JRI funding, you can still enroll with flexible payment options:
+                </p>
+                <ul className="space-y-2 mb-4 text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Stripe:</strong> Pay tuition in full securely</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Affirm:</strong> Monthly payment plans with 0% APR options</span>
+                  </li>
+                </ul>
+              </div>
             </div>
+            <Link
+              href="/pay"
+              className="block w-full px-6 py-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg transition-all text-center"
+            >
+              View Self-Pay Options →
+            </Link>
           </div>
         </div>
       </section>
