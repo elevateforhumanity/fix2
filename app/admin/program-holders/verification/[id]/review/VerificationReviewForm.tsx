@@ -33,6 +33,10 @@ interface VerificationHistory {
   reviewed_by: string;
   created_at: string;
   verification_type: string;
+  verified_by_user?: {
+    first_name: string;
+    last_name: string;
+  };
 }
 
 interface VerificationReviewFormProps {
