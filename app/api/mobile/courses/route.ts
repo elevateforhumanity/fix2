@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
 
     // Calculate progress for each course
     const coursesWithProgress = await Promise.all(
-      enrollments.map((enrollment) => {
+      enrollments.map(async (enrollment) => {
         const courseId = enrollment.course_id;
         const course = enrollment.courses;
 
