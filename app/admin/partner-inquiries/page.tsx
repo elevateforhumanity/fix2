@@ -58,7 +58,7 @@ export default async function PartnerInquiriesAdminPage() {
       </p>
 
       <div className="mt-8 space-y-4">
-        {(data: unknown) => (
+        {(item) => (
           <div
             key={r.id}
             className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"

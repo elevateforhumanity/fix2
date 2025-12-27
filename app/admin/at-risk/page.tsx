@@ -99,7 +99,7 @@ export default async function AtRiskStudentsPage() {
 
   // Calculate program completion rates
   const programCompletion = programStats?.reduce(
-    (data: unknown) => {
+    (item) => {
       const programId = enrollment.program_id;
       if (!acc[programId]) {
         acc[programId] = {
@@ -202,7 +202,7 @@ export default async function AtRiskStudentsPage() {
 
           {atRiskStudents && atRiskStudents.length > 0 ? (
             <div className="space-y-4">
-              {atRiskStudents.map(data: unknown) => {
+              {atRiskStudents.map(item) => {
                 const enrollment = risk.enrollments;
                 const student = enrollment?.profiles;
                 const program = enrollment?.programs;
@@ -307,7 +307,7 @@ export default async function AtRiskStudentsPage() {
               Needs Action ({needsActionStudents.length})
             </h2>
             <div className="space-y-3">
-              {needsActionStudents.slice(data: unknown) => {
+              {needsActionStudents.slice(item) => {
                 const enrollment = risk.enrollments;
                 const student = enrollment?.profiles;
                 const program = enrollment?.programs;
@@ -368,7 +368,7 @@ export default async function AtRiskStudentsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {lowCompletionPrograms.map(data: unknown) => (
+                  {lowCompletionPrograms.map(item) => (
                     <tr
                       key={program.id}
                       className="border-b border-gray-100 hover:bg-gray-50"

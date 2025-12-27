@@ -82,7 +82,7 @@ export async function POST(req: NextRequest, { params }: Params) {
         const { error: chaptersError } = await supabase
           .from("video_chapters")
           .insert(
-            chapters.map(data: unknown) => ({
+            chapters.map(item) => ({
               video_id: videoId,
               title: ch.title,
               start_time: ch.start_time,

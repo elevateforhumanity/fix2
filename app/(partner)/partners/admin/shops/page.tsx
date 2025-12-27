@@ -1,6 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
 
-
 export default async function AdminShopsPage() {
   const supabase = await createClient();
   const { data: shops } = await supabase
@@ -27,7 +26,7 @@ export default async function AdminShopsPage() {
             </tr>
           </thead>
           <tbody>
-            {(data: unknown) => (
+            {(shops ?? []).map((s: any) => (
               <tr key={s.id} className="border-b">
                 <td className="py-2">{s.name}</td>
                 <td className="py-2">{s.active ? 'Active' : 'Inactive'}</td>

@@ -32,7 +32,7 @@ export default function InstructorCampaignsPage() {
       .then((data) => setMyStudents(data.students || []));
   }, []);
 
-  const handleTemplateSelect = (data: unknown) => {
+  const handleTemplateSelect = (item) => {
     setSelectedTemplate(template);
     setFormData({
       subject: template.subject,

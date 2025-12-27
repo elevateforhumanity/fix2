@@ -112,7 +112,7 @@ export async function GET(req: NextRequest) {
         'Approved Date',
       ];
 
-      const rows = (data: unknown) => [
+      const rows = (item) => [
         weekStart,
         weekEnd,
         h.student?.full_name || 'Unknown',
@@ -128,8 +128,8 @@ export async function GET(req: NextRequest) {
       ]);
 
       // Add summary row
-      const totalHours = (data: unknown) => sum + (h.hours_worked || 0), 0);
-      const approvedHours = (data: unknown) => sum + (h.hours_worked || 0), 0);
+      const totalHours = (item) => sum + (h.hours_worked || 0), 0);
+      const approvedHours = (item) => sum + (h.hours_worked || 0), 0);
       
       rows.push([]);
       rows.push(['SUMMARY', '', '', '', '', '', '', '', '', '', '', '']);
@@ -154,8 +154,8 @@ export async function GET(req: NextRequest) {
     }
 
     // Default JSON format
-    const totalHours = (data: unknown) => sum + (h.hours_worked || 0), 0);
-    const approvedHours = (data: unknown) => sum + (h.hours_worked || 0), 0);
+    const totalHours = (item) => sum + (h.hours_worked || 0), 0);
+    const approvedHours = (item) => sum + (h.hours_worked || 0), 0);
 
     return NextResponse.json({
       week_start: weekStart,

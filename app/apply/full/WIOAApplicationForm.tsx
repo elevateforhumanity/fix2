@@ -129,7 +129,7 @@ export default function WIOAApplicationForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const updateField = (data: unknown) => {
+  const updateField = (item) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

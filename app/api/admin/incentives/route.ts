@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
     }
 
     // Format the data
-    const formattedIncentives = (data: unknown) => ({
+    const formattedIncentives = (item) => ({
       id: inc.id,
       employer_name: inc.employer?.name || 'Unknown Employer',
       student_name: inc.student?.full_name || 'Unknown Student',

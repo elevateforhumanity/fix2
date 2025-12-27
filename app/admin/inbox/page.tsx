@@ -90,7 +90,7 @@ export default async function AdminInboxPage() {
         </div>
 
         <div className="mt-4 space-y-4">
-          {(data: unknown) => (
+          {(item) => (
             <div
               key={r.id}
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
@@ -178,7 +178,7 @@ export default async function AdminInboxPage() {
         </div>
 
         <div className="mt-4 space-y-4">
-          {(data: unknown) => (
+          {(item) => (
             <div
               key={r.id}
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"

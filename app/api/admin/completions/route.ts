@@ -68,7 +68,7 @@ export const GET = withAuth(
       return NextResponse.json({ completions: [], error: toErrorMessage(error) }, { status: 200 });
     }
 
-    const completions = (data: unknown) => {
+    const completions = (item) => {
       const e = row.partner_lms_enrollments ?? {};
       const student = e.profiles ?? {};
       const provider = e.partner_lms_providers ?? {};
@@ -103,7 +103,7 @@ export const GET = withAuth(
         "Verification URL",
       ];
 
-      const rows = completions.map(data: unknown) => [
+      const rows = completions.map(item) => [
         c.studentName,
         c.studentEmail,
         c.courseName,

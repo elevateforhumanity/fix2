@@ -1,6 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
 
-
 export default async function AdminPlacementsPage() {
   const supabase = await createClient();
   const { data } = await supabase
@@ -10,7 +9,7 @@ export default async function AdminPlacementsPage() {
 
   return (
     <div className="rounded-2xl border p-5">
-      <h1 className="font-semibold">Admin: Placements</h1>
+      <div className="font-semibold">Admin: Placements</div>
       <div className="text-sm text-gray-600 mt-1">
         All students assigned to partner locations.
       </div>
@@ -27,7 +26,7 @@ export default async function AdminPlacementsPage() {
             </tr>
           </thead>
           <tbody>
-            {(data: unknown) => (
+            {(data ?? []).map((p: any) => (
               <tr key={p.id} className="border-b">
                 <td className="py-2">{p.shop_id}</td>
                 <td className="py-2">{p.student_id}</td>

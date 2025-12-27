@@ -86,7 +86,7 @@ export default function ReportsDashboard({
   // Process program popularity
   const programPopularityData: Array<{ name: string; enrollments: number }> =
     programStats.reduce(
-      (data: unknown) => {
+      (item) => {
         const courseTitle = item.courses?.title || 'Unknown';
         const existing = acc.find((p) => p.name === courseTitle);
         if (existing) {

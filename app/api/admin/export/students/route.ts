@@ -80,10 +80,10 @@ export async function GET(req: NextRequest) {
     let filteredStudents = students || [];
     
     if (program || status) {
-      filteredStudents = filteredStudents.filter(data: unknown) => {
+      filteredStudents = filteredStudents.filter(item) => {
         if (!student.enrollments || student.enrollments.length === 0) return false;
         
-        return student.enrollments.some(data: unknown) => {
+        return student.enrollments.some(item) => {
           const programMatch = !program || enrollment.program?.slug === program;
           const statusMatch = !status || enrollment.status === status;
           return programMatch && statusMatch;
@@ -123,7 +123,7 @@ export async function GET(req: NextRequest) {
         headers.push('Tuition Amount', 'Paid Amount', 'Balance');
       }
 
-      const rows = filteredStudents.flatMap(data: unknown) => {
+      const rows = filteredStudents.flatMap(item) => {
         if (!student.enrollments || student.enrollments.length === 0) {
           // Student with no enrollments
           return [[
@@ -143,7 +143,7 @@ export async function GET(req: NextRequest) {
         }
 
         // One row per enrollment
-        return student.enrollments.map(data: unknown) => {
+        return student.enrollments.map(item) => {
           const row = [
             student.id,
             student.full_name || '',

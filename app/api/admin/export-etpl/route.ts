@@ -89,7 +89,7 @@ export async function GET(req: Request) {
     }
 
     // Format data for ETPL compliance
-    const exportData = data.map(data: unknown) => ({
+    const exportData = data.map(item) => ({
       student_id: app.id,
       first_name: app.first_name,
       last_name: app.last_name,
@@ -129,7 +129,7 @@ export async function GET(req: Request) {
       const headers = Object.keys(exportData[0] || {});
       const csvRows = [
         headers.join(','),
-        ...exportData.map(data: unknown) =>
+        ...exportData.map(item) =>
           headers.map((header) => JSON.stringify(row[header] || '')).join(',')
         ),
       ];

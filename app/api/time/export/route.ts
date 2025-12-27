@@ -93,7 +93,7 @@ export async function GET(req: Request) {
 
   const lines = [
     header.join(','),
-    ...rows.map(data: unknown) =>
+    ...rows.map(item) =>
       [
         r.student_enrollments?.student_profile?.full_name ?? '',
         r.enrollment_id,

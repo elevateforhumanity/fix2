@@ -32,12 +32,12 @@ export default async function AdminPayoutsPage() {
     creators?.map((creator) => {
       const allSales = creator.sales || [];
       const totalEarnings = allSales.reduce(
-        (data: unknown) => sum + (sale.creator_earnings_cents || 0),
+        (item) => sum + (sale.creator_earnings_cents || 0),
         0
       );
-      const pendingSales = allSales.filter(data: unknown) => !s.paid_out);
+      const pendingSales = allSales.filter(item) => !s.paid_out);
       const pendingEarnings = pendingSales.reduce(
-        (data: unknown) => sum + (sale.creator_earnings_cents || 0),
+        (item) => sum + (sale.creator_earnings_cents || 0),
         0
       );
       const paidEarnings = totalEarnings - pendingEarnings;
@@ -49,9 +49,9 @@ export default async function AdminPayoutsPage() {
         paidEarnings,
         pendingSales,
         lastPayoutDate: allSales
-          .filter(data: unknown) => s.paid_out && s.payout_date)
+          .filter(item) => s.paid_out && s.payout_date)
           .sort(
-            (data: unknown) =>
+            (item) =>
               new Date(b.payout_date).getTime() -
               new Date(a.payout_date).getTime()
           )[0]?.payout_date,

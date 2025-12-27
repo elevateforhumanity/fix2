@@ -117,7 +117,7 @@ export async function POST(req: Request) {
             assignment.ai_instructors.system_prompt ||
             'You are a helpful instructor.',
         },
-        ...(data: unknown) => ({
+        ...(item) => ({
           role: msg.role as 'user' | 'assistant',
           content: msg.content,
         })),

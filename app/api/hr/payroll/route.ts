@@ -154,11 +154,11 @@ export async function POST(request: NextRequest) {
       );
 
       const regularHours = empTime.reduce(
-        (data: unknown) => sum + (te.regular_hours || 0),
+        (item) => sum + (te.regular_hours || 0),
         0
       );
       const overtimeHours = empTime.reduce(
-        (data: unknown) => sum + (te.overtime_hours || 0),
+        (item) => sum + (te.overtime_hours || 0),
         0
       );
 

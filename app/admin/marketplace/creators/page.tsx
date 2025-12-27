@@ -95,15 +95,15 @@ export default async function AdminCreatorsPage() {
                 {approvedCreators.map((creator) => {
                   const totalEarnings =
                     creator.sales?.reduce(
-                      (data: unknown) =>
+                      (item) =>
                         sum + (sale.creator_earnings_cents || 0),
                       0
                     ) || 0;
                   const pendingEarnings =
                     creator.sales
-                      ?.filter(data: unknown) => !s.paid_out)
+                      ?.filter(item) => !s.paid_out)
                       .reduce(
-                        (data: unknown) =>
+                        (item) =>
                           sum + (sale.creator_earnings_cents || 0),
                         0
                       ) || 0;

@@ -208,7 +208,7 @@ export default function StatePage() {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {state.cities.map(data: unknown) => (
+              {state.cities.map(item) => (
                 <div
                   key={city.name}
                   className="bg-white rounded-lg shadow-lg p-6 border-2 border-gray-100 hover:border-blue-500 transition-all"

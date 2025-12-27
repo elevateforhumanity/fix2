@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     }
 
     // Upsert opportunities to database
-    const records = opportunities.map(data: unknown) => ({
+    const records = opportunities.map(item) => ({
       sam_id: opp.noticeId || opp.opportunityId || opp.id,
       notice_id: opp.noticeId,
       title: opp.title,
