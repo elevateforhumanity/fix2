@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // components/marketing/HeroCarousel.tsx
-"use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // components/support/SupportTicketForm.tsx
-"use client";
 
 import { useState } from 'react';
 

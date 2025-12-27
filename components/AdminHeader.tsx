@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // components/AdminHeader.tsx - Admin header with user info and sign out
-"use client";
 
 import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';

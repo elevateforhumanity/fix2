@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // components/marketing/FadeInSection.tsx
-"use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";

@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // components/CookieBanner.tsx
-"use client";
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';

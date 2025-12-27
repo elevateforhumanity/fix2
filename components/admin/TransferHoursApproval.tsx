@@ -1,11 +1,11 @@
+"use client";
+
 import React from 'react';
 /**
  * Transfer Hours Approval Component
  * 
  * Displays transfer hours records and allows admin to approve/reject
  */
-
-"use client";
 
 import { useState } from 'react';
 import { approveTransferHours, rejectTransferHours } from '@/lib/actions/enrollments';

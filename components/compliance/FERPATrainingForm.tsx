@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 import { memo } from 'react';
-"use client";
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';

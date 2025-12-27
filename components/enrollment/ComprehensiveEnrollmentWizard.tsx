@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 import { memo } from 'react';
-"use client";
 
 import { useState, useEffect } from 'react';
 import { 

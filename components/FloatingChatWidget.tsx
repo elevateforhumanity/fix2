@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { CONTACT_INFO } from "@/lib/contact-info";

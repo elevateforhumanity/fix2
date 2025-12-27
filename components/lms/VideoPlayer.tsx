@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 /* eslint-disable no-useless-escape */
-"use client";
 
 import { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';

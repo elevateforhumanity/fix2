@@ -1,11 +1,11 @@
+"use client";
+
 import React from 'react';
 /**
  * Funding Amount Editor Component
  * 
  * Allows admin to set/update wage, stipend, and tuition amounts
  */
-
-"use client";
 
 import { useState } from 'react';
 import { updateFundingAmounts } from '@/lib/actions/enrollments';

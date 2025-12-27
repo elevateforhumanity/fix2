@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // components/help/HelpSearchBox.tsx
-"use client";
 
 import { useState } from 'react';
 import Link from 'next/link';

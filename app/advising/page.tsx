@@ -1,6 +1,7 @@
+"use client";
+
 import React from 'react';
 // app/advising/page.tsx
-"use client";
 
 export const dynamic = 'force-dynamic';
 
