@@ -106,7 +106,7 @@ export default async function NewReportPage() {
                           min="0"
                           step="0.5"
                           required
-                          Content="40"
+                          placeholder="40"
                           className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500"
                         />
                       </div>
@@ -133,7 +133,7 @@ export default async function NewReportPage() {
                           <textarea
                             name={`student_${enrollment.id}_notes`}
                             rows={2}
-                            Content="Progress notes for this student..."
+                            placeholder="Progress notes for this student..."
                             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500"
                           />
                         </div>
@@ -159,7 +159,7 @@ export default async function NewReportPage() {
                       <textarea
                         name="skills_practiced"
                         rows={3}
-                        Content="Describe the skills and competencies practiced this week..."
+                        placeholder="Describe the skills and competencies practiced this week..."
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500"
                       />
                     </div>
@@ -170,7 +170,7 @@ export default async function NewReportPage() {
                       <textarea
                         name="challenges"
                         rows={3}
-                        Content="Note any challenges, concerns, or issues that arose..."
+                        placeholder="Note any challenges, concerns, or issues that arose..."
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500"
                       />
                     </div>
@@ -181,7 +181,7 @@ export default async function NewReportPage() {
                       <textarea
                         name="notes"
                         rows={4}
-                        Content="Any additional information or observations..."
+                        placeholder="Any additional information or observations..."
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue-500 focus:border-brand-blue-500"
                       />
                     </div>

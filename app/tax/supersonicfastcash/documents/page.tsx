@@ -133,7 +133,7 @@ export default function DocumentUploadPage() {
                 setContactInfo({ ...contactInfo, name: e.target.value })
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              Content="John Doe"
+              placeholder="John Doe"
             />
           </div>
           <div>
@@ -148,7 +148,7 @@ export default function DocumentUploadPage() {
                 setContactInfo({ ...contactInfo, email: e.target.value })
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              Content="john@example.com"
+              placeholder="john@example.com"
             />
           </div>
           <div>
@@ -163,7 +163,7 @@ export default function DocumentUploadPage() {
                 setContactInfo({ ...contactInfo, phone: e.target.value })
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              Content="(317) 314-3757"
+              placeholder="(317) 314-3757"
             />
           </div>
         </div>

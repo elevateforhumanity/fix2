@@ -185,7 +185,7 @@ export default function TaxPreparerApplication() {
                       setFormData({ ...formData, ptinNumber: e.target.value })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
-                    Content="P12345678"
+                    placeholder="P12345678"
                   />
                 </div>
               )}

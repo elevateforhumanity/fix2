@@ -110,7 +110,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="e.g., ABC Training Institute"
+                  placeholder="e.g., ABC Training Institute"
                 />
               </div>
               <div>
@@ -124,7 +124,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, programName: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="e.g., Advanced Welding Certification"
+                  placeholder="e.g., Advanced Welding Certification"
                 />
                 <p className="text-sm text-gray-600 mt-1">
                   This name will appear on certificates: "[Program Name] -
@@ -181,7 +181,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="e.g., 8 weeks, 120 hours, 6 months"
+                  placeholder="e.g., 8 weeks, 120 hours, 6 months"
                 />
               </div>
               <div>
@@ -198,7 +198,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="e.g., AWS Certified Welder, State CNA License"
+                  placeholder="e.g., AWS Certified Welder, State CNA License"
                 />
               </div>
               <div>
@@ -303,7 +303,7 @@ export default function ProgramHolderSetup() {
                   }
                   rows={6}
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="Add any special instructions, requirements, or notes for students enrolled in your program..."
+                  placeholder="Add any special instructions, requirements, or notes for students enrolled in your program..."
                 />
               </div>
 
@@ -348,7 +348,7 @@ export default function ProgramHolderSetup() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="Full name on bank account"
+                  placeholder="Full name on bank account"
                 />
               </div>
 
@@ -361,7 +361,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, bankName: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="e.g., Chase, Bank of America"
+                  placeholder="e.g., Chase, Bank of America"
                 />
               </div>
 
@@ -395,7 +395,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, routingNumber: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="9-digit routing number"
+                  placeholder="9-digit routing number"
                   maxLength={9}
                 />
                 <p className="text-sm text-gray-500 mt-1">
@@ -414,7 +414,7 @@ export default function ProgramHolderSetup() {
                     setFormData({ ...formData, accountNumber: e.target.value })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="Account number"
+                  placeholder="Account number"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   Found on the bottom of your check, after the routing number

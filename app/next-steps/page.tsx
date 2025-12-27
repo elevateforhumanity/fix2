@@ -145,7 +145,7 @@ export default function NextStepsPage() {
                 onChange={(e) =>
                   patch({ program_name_other: e.target.value })
                 }
-                Content="Enter program name"
+                placeholder="Enter program name"
               />
             </div>
           </div>
@@ -178,7 +178,7 @@ export default function NextStepsPage() {
               className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               value={data.icc_username ?? ''}
               onChange={(e) => patch({ icc_username: e.target.value })}
-              Content="Your ICC username (optional)"
+              placeholder="Your ICC username (optional)"
             />
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function NextStepsPage() {
                         onChange={(e) =>
                           patch({ workone_appointment_1_time: e.target.value })
                         }
-                        Content="e.g., 10:30 AM"
+                        placeholder="e.g., 10:30 AM"
                       />
                     </div>
                     <div>
@@ -255,7 +255,7 @@ export default function NextStepsPage() {
                             workone_appointment_1_location: e.target.value,
                           })
                         }
-                        Content="City / office"
+                        placeholder="City / office"
                       />
                     </div>
                   </div>
@@ -269,7 +269,7 @@ export default function NextStepsPage() {
                       onChange={(e) =>
                         patch({ workone_appointment_1_notes: e.target.value })
                       }
-                      Content="Example: Orientation meeting, filled out intake forms, scheduled next appointment for assessment"
+                      placeholder="Example: Orientation meeting, filled out intake forms, scheduled next appointment for assessment"
                       rows={3}
                     />
                   </div>
@@ -313,7 +313,7 @@ export default function NextStepsPage() {
                         onChange={(e) =>
                           patch({ workone_appointment_2_time: e.target.value })
                         }
-                        Content="e.g., 10:30 AM"
+                        placeholder="e.g., 10:30 AM"
                       />
                     </div>
                     <div>
@@ -328,7 +328,7 @@ export default function NextStepsPage() {
                             workone_appointment_2_location: e.target.value,
                           })
                         }
-                        Content="City / office"
+                        placeholder="City / office"
                       />
                     </div>
                   </div>
@@ -342,7 +342,7 @@ export default function NextStepsPage() {
                       onChange={(e) =>
                         patch({ workone_appointment_2_notes: e.target.value })
                       }
-                      Content="Example: Completed TABE assessment, discussed funding options, advisor said I qualify for WIOA"
+                      placeholder="Example: Completed TABE assessment, discussed funding options, advisor said I qualify for WIOA"
                       rows={3}
                     />
                   </div>
@@ -386,7 +386,7 @@ export default function NextStepsPage() {
                         onChange={(e) =>
                           patch({ workone_appointment_3_time: e.target.value })
                         }
-                        Content="e.g., 10:30 AM"
+                        placeholder="e.g., 10:30 AM"
                       />
                     </div>
                     <div>
@@ -401,7 +401,7 @@ export default function NextStepsPage() {
                             workone_appointment_3_location: e.target.value,
                           })
                         }
-                        Content="City / office"
+                        placeholder="City / office"
                       />
                     </div>
                   </div>
@@ -415,7 +415,7 @@ export default function NextStepsPage() {
                       onChange={(e) =>
                         patch({ workone_appointment_3_notes: e.target.value })
                       }
-                      Content="Example: Met with career advisor, submitted documents, approved for WRG funding"
+                      placeholder="Example: Met with career advisor, submitted documents, approved for WRG funding"
                       rows={3}
                     />
                   </div>
@@ -459,7 +459,7 @@ export default function NextStepsPage() {
                         onChange={(e) =>
                           patch({ workone_appointment_4_time: e.target.value })
                         }
-                        Content="e.g., 10:30 AM"
+                        placeholder="e.g., 10:30 AM"
                       />
                     </div>
                     <div>
@@ -474,7 +474,7 @@ export default function NextStepsPage() {
                             workone_appointment_4_location: e.target.value,
                           })
                         }
-                        Content="City / office"
+                        placeholder="City / office"
                       />
                     </div>
                   </div>
@@ -488,7 +488,7 @@ export default function NextStepsPage() {
                       onChange={(e) =>
                         patch({ workone_appointment_4_notes: e.target.value })
                       }
-                      Content="Example: Final paperwork signed, received approval letter, ready to start program"
+                      placeholder="Example: Final paperwork signed, received approval letter, ready to start program"
                       rows={3}
                     />
                   </div>
@@ -520,7 +520,7 @@ export default function NextStepsPage() {
               className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               value={data.advisor_docs_note ?? ''}
               onChange={(e) => patch({ advisor_docs_note: e.target.value })}
-              Content="What documents did they request?"
+              placeholder="What documents did they request?"
               rows={3}
             />
           </div>

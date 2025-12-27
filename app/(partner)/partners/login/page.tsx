@@ -40,13 +40,13 @@ export default function PartnerLoginPage() {
         <div className="mt-4 space-y-3">
           <input
             className="w-full border rounded-xl p-3"
-            Content="Email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className="w-full border rounded-xl p-3"
-            Content="Password"
+            placeholder="Password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

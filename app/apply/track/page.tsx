@@ -160,7 +160,7 @@ export default function TrackApplicationPage() {
                 value={searchId}
                 onChange={(e) => setSearchId(e.target.value)}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                Content="e.g., 123e4567-e89b-12d3-a456-426614174000"
+                placeholder="e.g., 123e4567-e89b-12d3-a456-426614174000"
               />
             </div>
 
@@ -181,7 +181,7 @@ export default function TrackApplicationPage() {
                 value={searchEmail}
                 onChange={(e) => setSearchEmail(e.target.value)}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                Content="your.email@address.com"
+                placeholder="your.email@address.com"
               />
             </div>
 

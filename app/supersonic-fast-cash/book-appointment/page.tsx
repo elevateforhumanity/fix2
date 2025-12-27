@@ -456,7 +456,7 @@ export default function BookAppointment() {
                       })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
-                    Content="John"
+                    placeholder="John"
                   />
                 </div>
                 <div>
@@ -473,7 +473,7 @@ export default function BookAppointment() {
                       })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
-                    Content="Doe"
+                    placeholder="Doe"
                   />
                 </div>
               </div>
@@ -490,7 +490,7 @@ export default function BookAppointment() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="john@example.com"
+                  placeholder="john@example.com"
                 />
                 <p className="text-sm text-gray-600 mt-1">
                   We'll send appointment confirmation and{' '}
@@ -513,7 +513,7 @@ export default function BookAppointment() {
                     })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="(317) 314-3757"
+                  placeholder="(317) 314-3757"
                 />
               </div>
 
@@ -531,7 +531,7 @@ export default function BookAppointment() {
                   }
                   rows={3}
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="e.g., W-2 employee, need help with deductions, etc."
+                  placeholder="e.g., W-2 employee, need help with deductions, etc."
                 />
               </div>
 

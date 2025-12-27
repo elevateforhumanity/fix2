@@ -79,7 +79,7 @@ export function SignMOUForm() {
               >
             ) => setSignerName(e.target.value)}
             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="John Doe"
+            placeholder="John Doe"
           />
         </div>
 
@@ -101,7 +101,7 @@ export function SignMOUForm() {
               >
             ) => setSignerTitle(e.target.value)}
             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="Owner, Manager, Director, etc."
+            placeholder="Owner, Manager, Director, etc."
           />
         </div>
       </div>

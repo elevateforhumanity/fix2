@@ -79,7 +79,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
             required
             defaultValue={program?.name}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="e.g., Barber Apprenticeship Program"
+            placeholder="e.g., Barber Apprenticeship Program"
           />
         </div>
 
@@ -97,7 +97,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
             required
             defaultValue={program?.slug}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="e.g., barber-apprenticeship"
+            placeholder="e.g., barber-apprenticeship"
           />
           <p className="text-sm text-gray-500 mt-1">
             Used in URL: /programs/your-slug
@@ -117,7 +117,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
             rows={4}
             defaultValue={program?.description}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="Brief description of the program..."
+            placeholder="Brief description of the program..."
           />
         </div>
 
@@ -165,7 +165,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
               step="1"
               defaultValue={program?.duration_hours}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              Content="e.g., 1500"
+              placeholder="e.g., 1500"
             />
           </div>
 
@@ -184,7 +184,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
               step="0.01"
               defaultValue={program?.price}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              Content="e.g., 2500.00"
+              placeholder="e.g., 2500.00"
             />
             <p className="text-sm text-gray-500 mt-1">
               Leave empty for free programs
@@ -205,7 +205,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
             rows={3}
             defaultValue={program?.requirements}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="List program requirements (one per line)..."
+            placeholder="List program requirements (one per line)..."
           />
         </div>
 
@@ -222,7 +222,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
             rows={3}
             defaultValue={program?.outcomes}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="List expected outcomes (one per line)..."
+            placeholder="List expected outcomes (one per line)..."
           />
         </div>
       </div>

@@ -77,7 +77,7 @@ export function ModulesTable({
         <div className="flex flex-col sm:flex-row gap-4">
           <input
             type="text"
-            Content="Search modules..."
+            placeholder="Search modules..."
             value={searchTerm}
             onChange={(
               e: React.ChangeEvent<

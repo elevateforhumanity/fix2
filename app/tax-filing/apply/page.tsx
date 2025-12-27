@@ -233,7 +233,7 @@ export default function TaxFilingApplicationPage() {
                     name="ssn"
                     value={formData.ssn}
                     onChange={handleChange}
-                    Content="XXX-XX-XXXX"
+                    placeholder="XXX-XX-XXXX"
                     required
                     className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />

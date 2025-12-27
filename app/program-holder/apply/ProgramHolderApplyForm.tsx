@@ -155,7 +155,7 @@ export default function ProgramHolderApplyForm() {
             value={formData.organizationName}
             onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="ABC Training Institute"
+            placeholder="ABC Training Institute"
           />
         </div>
 
@@ -204,7 +204,7 @@ export default function ProgramHolderApplyForm() {
             value={formData.contactName}
             onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="John Smith"
+            placeholder="John Smith"
           />
         </div>
 
@@ -224,7 +224,7 @@ export default function ProgramHolderApplyForm() {
               value={formData.contactEmail}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              Content="john@example.com"
+              placeholder="john@example.com"
             />
           </div>
 
@@ -242,7 +242,7 @@ export default function ProgramHolderApplyForm() {
               value={formData.contactPhone}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              Content="(317) 314-3757"
+              placeholder="(317) 314-3757"
             />
           </div>
         </div>
@@ -266,7 +266,7 @@ export default function ProgramHolderApplyForm() {
             value={formData.address}
             onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="123 Main St"
+            placeholder="123 Main St"
           />
         </div>
 
@@ -285,7 +285,7 @@ export default function ProgramHolderApplyForm() {
               value={formData.city}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              Content="Indianapolis"
+              placeholder="Indianapolis"
             />
           </div>
 
@@ -303,7 +303,7 @@ export default function ProgramHolderApplyForm() {
               value={formData.state}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              Content="IN"
+              placeholder="IN"
               maxLength={2}
             />
           </div>
@@ -322,7 +322,7 @@ export default function ProgramHolderApplyForm() {
               value={formData.zip}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              Content="46204"
+              placeholder="46204"
               maxLength={5}
             />
           </div>
@@ -376,7 +376,7 @@ export default function ProgramHolderApplyForm() {
             value={formData.estimatedStudents}
             onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="50"
+            placeholder="50"
             min="0"
           />
         </div>
@@ -395,7 +395,7 @@ export default function ProgramHolderApplyForm() {
             value={formData.howHeardAboutUs}
             onChange={handleChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="Referral, website, event, etc."
+            placeholder="Referral, website, event, etc."
           />
         </div>
 
@@ -413,7 +413,7 @@ export default function ProgramHolderApplyForm() {
             onChange={handleChange}
             rows={4}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            Content="Tell us more about your organization and training goals..."
+            placeholder="Tell us more about your organization and training goals..."
           />
         </div>
       </div>

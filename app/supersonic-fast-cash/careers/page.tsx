@@ -688,7 +688,7 @@ export default function TaxCareersPage() {
                   <input
                     type="text"
                     className="w-full px-4 py-3 border rounded-lg"
-                    Content="John"
+                    placeholder="John"
                     required
                   />
                 </div>
@@ -699,7 +699,7 @@ export default function TaxCareersPage() {
                   <input
                     type="text"
                     className="w-full px-4 py-3 border rounded-lg"
-                    Content="Doe"
+                    placeholder="Doe"
                     required
                   />
                 </div>
@@ -710,7 +710,7 @@ export default function TaxCareersPage() {
                 <input
                   type="email"
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="john@example.com"
+                  placeholder="john@example.com"
                   required
                 />
               </div>
@@ -720,7 +720,7 @@ export default function TaxCareersPage() {
                 <input
                   type="tel"
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="(317) 314-3757"
+                  placeholder="(317) 314-3757"
                   required
                 />
               </div>
@@ -835,7 +835,7 @@ export default function TaxCareersPage() {
                 <textarea
                   rows={4}
                   className="w-full px-4 py-3 border rounded-lg"
-                  Content="Tell us about yourself and why you'd be a great fit..."
+                  placeholder="Tell us about yourself and why you'd be a great fit..."
                 />
               </div>
 

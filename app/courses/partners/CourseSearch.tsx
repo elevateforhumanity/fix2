@@ -100,7 +100,7 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
             </label>
             <input
               type="text"
-              Content="Search by name, description, or provider..."
+              placeholder="Search by name, description, or provider..."
               value={searchQuery}
               onChange={(
                 e: React.ChangeEvent<

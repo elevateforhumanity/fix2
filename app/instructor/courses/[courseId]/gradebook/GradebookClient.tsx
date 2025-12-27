@@ -174,7 +174,7 @@ export default function GradebookClient({ initialData }: Props) {
                               e.target.value.trim()
                             )
                           }
-                          Content="–"
+                          placeholder="–"
                         />
                       </td>
                     ))}

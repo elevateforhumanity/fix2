@@ -194,7 +194,7 @@ export default function ApplyFormClient() {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  Content="Your name"
+                  placeholder="Your name"
                 />
               </div>
 
@@ -214,7 +214,7 @@ export default function ApplyFormClient() {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  Content="you@example.com"
+                  placeholder="you@example.com"
                 />
               </div>
 
@@ -234,7 +234,7 @@ export default function ApplyFormClient() {
                     setFormData({ ...formData, phone: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  Content="(317) 314-3757"
+                  placeholder="(317) 314-3757"
                 />
               </div>
 
@@ -293,7 +293,7 @@ export default function ApplyFormClient() {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  Content="Tell us about your goals and any questions you have..."
+                  placeholder="Tell us about your goals and any questions you have..."
                 />
               </div>
 

@@ -147,7 +147,7 @@ export default function NotificationsPage() {
                         title: e.target.value,
                       })
                     }
-                    Content="e.g., Class Reminder"
+                    placeholder="e.g., Class Reminder"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -167,7 +167,7 @@ export default function NotificationsPage() {
                     ) =>
                       setNotification({ ...notification, body: e.target.value })
                     }
-                    Content="e.g., Your class starts in 30 minutes"
+                    placeholder="e.g., Your class starts in 30 minutes"
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -220,7 +220,7 @@ export default function NotificationsPage() {
                     ) =>
                       setNotification({ ...notification, url: e.target.value })
                     }
-                    Content="/student/courses"
+                    placeholder="/student/courses"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                   <p className="text-sm text-gray-500 mt-1">

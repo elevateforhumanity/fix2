@@ -60,7 +60,7 @@ export default async function NewUserPage() {
                 <input
                   type="text"
                   required
-                  Content="John"
+                  placeholder="John"
                   className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
@@ -71,7 +71,7 @@ export default async function NewUserPage() {
                 <input
                   type="text"
                   required
-                  Content="Doe"
+                  placeholder="Doe"
                   className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
@@ -84,7 +84,7 @@ export default async function NewUserPage() {
               <input
                 type="email"
                 required
-                Content="user@organization.org"
+                placeholder="user@organization.org"
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
               <p className="mt-1 text-xs text-gray-500">
@@ -99,7 +99,7 @@ export default async function NewUserPage() {
                 </label>
                 <input
                   type="tel"
-                  Content="(317) 314-3757"
+                  placeholder="(317) 314-3757"
                   className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
@@ -144,7 +144,7 @@ export default async function NewUserPage() {
               <input
                 type="password"
                 required
-                Content="Enter temporary password"
+                placeholder="Enter temporary password"
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
               <p className="mt-1 text-xs text-gray-500">
@@ -208,7 +208,7 @@ export default async function NewUserPage() {
               </label>
               <textarea
                 rows={3}
-                Content="Add any notes about this user..."
+                placeholder="Add any notes about this user..."
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>

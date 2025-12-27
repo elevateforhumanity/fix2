@@ -369,7 +369,7 @@ export default function VerificationReviewForm({
                     onChange={(e) => setNotes(e.target.value)}
                     rows={4}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="Add any notes about this verification..."
+                    placeholder="Add any notes about this verification..."
                   />
                 </div>
 

@@ -114,7 +114,7 @@ export default function ResetPasswordForm() {
             required
             minLength={8}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            Content="••••••••"
+            placeholder="••••••••"
           />
           <p className="mt-1 text-xs text-gray-500">
             Must be at least 8 characters
@@ -139,7 +139,7 @@ export default function ResetPasswordForm() {
             ) => setConfirmPassword(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            Content="••••••••"
+            placeholder="••••••••"
           />
         </div>
 

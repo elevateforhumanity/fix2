@@ -170,7 +170,7 @@ function SignupFormContent() {
               ) => setFormData({ ...formData, firstName: e.target.value })}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              Content="John"
+              placeholder="John"
             />
           </div>
 
@@ -192,7 +192,7 @@ function SignupFormContent() {
               ) => setFormData({ ...formData, lastName: e.target.value })}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              Content="Doe"
+              placeholder="Doe"
             />
           </div>
         </div>
@@ -215,7 +215,7 @@ function SignupFormContent() {
             ) => setFormData({ ...formData, email: e.target.value })}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            Content="you@example.com"
+            placeholder="you@example.com"
           />
         </div>
 
@@ -238,7 +238,7 @@ function SignupFormContent() {
             required
             minLength={8}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            Content="••••••••"
+            placeholder="••••••••"
           />
           <p className="mt-1 text-xs text-gray-500">
             Must be at least 8 characters
@@ -263,7 +263,7 @@ function SignupFormContent() {
             ) => setFormData({ ...formData, confirmPassword: e.target.value })}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            Content="••••••••"
+            placeholder="••••••••"
           />
         </div>
 

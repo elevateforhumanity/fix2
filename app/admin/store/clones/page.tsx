@@ -227,7 +227,7 @@ export default function StoreBuilderPage() {
                         >
                       ) => updateFeature(index, e.target.value)}
                       className="flex-1 px-4 py-2 border rounded-lg"
-                      Content="Feature description"
+                      placeholder="Feature description"
                     />
                     <button
                       onClick={() => removeFeature(index)}

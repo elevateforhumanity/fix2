@@ -103,7 +103,7 @@ export default function AdminNextStepsPage() {
           <label className="text-xs font-semibold text-gray-700">Search</label>
           <input
             className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-            Content="Name, email, program…"
+            placeholder="Name, email, program…"
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -383,7 +383,7 @@ function QuickEdit({
             </label>
             <input
               className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-              Content="YYYY-MM-DD"
+              placeholder="YYYY-MM-DD"
               value={workoneDate}
               onChange={(e) => setWorkoneDate(e.target.value)}
             />
@@ -395,7 +395,7 @@ function QuickEdit({
             </label>
             <input
               className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-              Content="10:30 AM"
+              placeholder="10:30 AM"
               value={workoneTime}
               onChange={(e) => setWorkoneTime(e.target.value)}
             />
@@ -407,7 +407,7 @@ function QuickEdit({
             </label>
             <input
               className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-              Content="EmployIndy / WorkOne…"
+              placeholder="EmployIndy / WorkOne…"
               value={workoneLocation}
               onChange={(e) => setWorkoneLocation(e.target.value)}
             />
@@ -438,7 +438,7 @@ function QuickEdit({
             <textarea
               className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               rows={4}
-              Content="What they told you, blockers, next call date…"
+              placeholder="What they told you, blockers, next call date…"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             />

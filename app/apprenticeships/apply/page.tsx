@@ -181,7 +181,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.firstName}
                     onChange={(e) => updateField('firstName', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="John"
+                    placeholder="John"
                   />
                 </div>
 
@@ -195,7 +195,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.lastName}
                     onChange={(e) => updateField('lastName', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="Doe"
+                    placeholder="Doe"
                   />
                 </div>
 
@@ -209,7 +209,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.email}
                     onChange={(e) => updateField('email', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="john.doe@example.com"
+                    placeholder="john.doe@example.com"
                   />
                 </div>
 
@@ -223,7 +223,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.phone}
                     onChange={(e) => updateField('phone', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="(317) 314-3757"
+                    placeholder="(317) 314-3757"
                   />
                 </div>
 
@@ -236,7 +236,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.address}
                     onChange={(e) => updateField('address', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="123 Main St"
+                    placeholder="123 Main St"
                   />
                 </div>
 
@@ -249,7 +249,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.city}
                     onChange={(e) => updateField('city', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="Indianapolis"
+                    placeholder="Indianapolis"
                   />
                 </div>
 
@@ -278,7 +278,7 @@ export default function ApplyApprenticeshipPage() {
                     value={formData.zip}
                     onChange={(e) => updateField('zip', e.target.value)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    Content="46201"
+                    placeholder="46201"
                   />
                 </div>
 
@@ -408,7 +408,7 @@ export default function ApplyApprenticeshipPage() {
                   onChange={(e) => updateField('experience', e.target.value)}
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  Content="Describe any relevant work experience, volunteer work, or skills..."
+                  placeholder="Describe any relevant work experience, volunteer work, or skills..."
                 />
               </div>
 
@@ -424,7 +424,7 @@ export default function ApplyApprenticeshipPage() {
                   }
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  Content="Tell us what motivates you to pursue this apprenticeship..."
+                  placeholder="Tell us what motivates you to pursue this apprenticeship..."
                 />
               </div>
 
@@ -437,7 +437,7 @@ export default function ApplyApprenticeshipPage() {
                   onChange={(e) => updateField('goals', e.target.value)}
                   rows={4}
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  Content="Where do you see yourself in 5 years?"
+                  placeholder="Where do you see yourself in 5 years?"
                 />
               </div>
             </div>

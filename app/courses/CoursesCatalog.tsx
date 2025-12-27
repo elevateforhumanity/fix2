@@ -128,7 +128,7 @@ export default function CoursesCatalog({
                 <div className="relative">
                   <input
                     type="text"
-                    Content="Search courses..."
+                    placeholder="Search courses..."
                     value={searchQuery}
                     onChange={(
                       e: React.ChangeEvent<

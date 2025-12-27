@@ -72,7 +72,7 @@ export function AcknowledgeRightsForm() {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          Content="John Doe"
+          placeholder="John Doe"
         />
       </div>
 
@@ -90,7 +90,7 @@ export function AcknowledgeRightsForm() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          Content="Program Director"
+          placeholder="Program Director"
         />
       </div>
 

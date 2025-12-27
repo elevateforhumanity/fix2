@@ -158,7 +158,7 @@ export default function SupersonicDemoPage() {
                 </label>
                 <input
                   type="number"
-                  Content="$3,000"
+                  placeholder="$3,000"
                   className="w-full border rounded-lg px-4 py-3 text-lg"
                   defaultValue="3000"
                 />

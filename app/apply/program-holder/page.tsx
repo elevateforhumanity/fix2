@@ -421,7 +421,7 @@ export default function ProgramHolderApplicationPage() {
                         programsOffered: e.target.value,
                       })
                     }
-                    Content="List your training programs..."
+                    placeholder="List your training programs..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -464,7 +464,7 @@ export default function ProgramHolderApplicationPage() {
                         wioaExperience: e.target.value,
                       })
                     }
-                    Content="Describe your experience with WIOA, ETPL, or workforce development programs..."
+                    placeholder="Describe your experience with WIOA, ETPL, or workforce development programs..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -483,7 +483,7 @@ export default function ProgramHolderApplicationPage() {
                         complianceHistory: e.target.value,
                       })
                     }
-                    Content="None, or describe any past issues..."
+                    placeholder="None, or describe any past issues..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -706,7 +706,7 @@ export default function ProgramHolderApplicationPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, whyJoin: e.target.value })
                     }
-                    Content="Tell us why you want to operate under our credentials..."
+                    placeholder="Tell us why you want to operate under our credentials..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>
@@ -722,7 +722,7 @@ export default function ProgramHolderApplicationPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, goals: e.target.value })
                     }
-                    Content="Student numbers, programs, expansion plans..."
+                    placeholder="Student numbers, programs, expansion plans..."
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-blue-500 focus:outline-none"
                   />
                 </div>

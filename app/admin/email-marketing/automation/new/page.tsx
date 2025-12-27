@@ -219,7 +219,7 @@ export default function NewWorkflowPage() {
                         | HTMLTextAreaElement
                       >
                     ) => setWorkflow({ ...workflow, name: e.target.value })}
-                    Content="e.g., Welcome Series"
+                    placeholder="e.g., Welcome Series"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -422,7 +422,7 @@ export default function NewWorkflowPage() {
                               | HTMLTextAreaElement
                             >
                           ) => updateStep(step.id, { subject: e.target.value })}
-                          Content="Email subject"
+                          placeholder="Email subject"
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                       </div>

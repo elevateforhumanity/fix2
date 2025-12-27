@@ -106,7 +106,7 @@ export function ModuleForm({ programs, module }: ModuleFormProps) {
             required
             defaultValue={module?.title}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="e.g., Introduction to Barbering"
+            placeholder="e.g., Introduction to Barbering"
           />
         </div>
 
@@ -123,7 +123,7 @@ export function ModuleForm({ programs, module }: ModuleFormProps) {
             rows={3}
             defaultValue={module?.description}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            Content="Brief description of the module..."
+            placeholder="Brief description of the module..."
           />
         </div>
       </div>
@@ -170,7 +170,7 @@ export function ModuleForm({ programs, module }: ModuleFormProps) {
               step="1"
               defaultValue={module?.order_index ?? 0}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              Content="0"
+              placeholder="0"
             />
             <p className="text-sm text-gray-500 mt-1">
               Display order in program
@@ -192,7 +192,7 @@ export function ModuleForm({ programs, module }: ModuleFormProps) {
               step="0.5"
               defaultValue={module?.duration_hours}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              Content="e.g., 2.5"
+              placeholder="e.g., 2.5"
             />
           </div>
         </div>

@@ -223,7 +223,7 @@ export default function MediaStudioPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <input
                   type="text"
-                  Content="Search files..."
+                  placeholder="Search files..."
                   value={searchQuery}
                   onChange={(
                     e: React.ChangeEvent<
