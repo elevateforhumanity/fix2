@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
-function progressFromRow(data: unknown) {
+function progressFromRow(r: any) {
   const checks = [
     !!r.inquiry_submitted,
     !!r.icc_account_created,
@@ -71,7 +71,7 @@ export async function GET(req: Request) {
   if (error)
     return NextResponse.json({ error: error.message }, { status: 500 });
 
-  let rows = (item) => ({
+  let rows = (data || []).map((r: any) => ({
     ...r,
     progress: progressFromRow(r),
     student_name: r.profiles?.full_name || 'Student',
@@ -82,7 +82,7 @@ export async function GET(req: Request) {
 
   if (q) {
     const ql = q.toLowerCase();
-    rows = rows.filter((item) =>
+    rows = rows.filter((r: any) =>
       `${r.student_name} ${r.student_email} ${r.program_name}`
         .toLowerCase()
         .includes(ql)
@@ -90,7 +90,7 @@ export async function GET(req: Request) {
   }
 
   if (needs) {
-    rows = rows.filter((item) => {
+    rows = rows.filter((r: any) => {
       if (needs === 'appt') return !r.workone_appointment_scheduled;
       if (needs === 'docs') return !r.advisor_docs_uploaded;
       if (needs === 'onboarding') return !r.efh_onboarding_call_completed;
@@ -102,18 +102,18 @@ export async function GET(req: Request) {
   // Summary counts
   const summary = {
     total: rows.length,
-    funding_pending: rows.filter((item) => r.funding_status === 'pending')
+    funding_pending: rows.filter((r: any) => r.funding_status === 'pending')
       .length,
-    funding_approved: rows.filter((item) => r.funding_status === 'approved')
+    funding_approved: rows.filter((r: any) => r.funding_status === 'approved')
       .length,
-    funding_denied: rows.filter((item) => r.funding_status === 'denied')
+    funding_denied: rows.filter((r: any) => r.funding_status === 'denied')
       .length,
-    appt_missing: rows.filter((item) => !r.workone_appointment_scheduled)
+    appt_missing: rows.filter((r: any) => !r.workone_appointment_scheduled)
       .length,
     onboarding_missing: rows.filter(
-      (item) => !r.efh_onboarding_call_completed
+      (r: any) => !r.efh_onboarding_call_completed
     ).length,
-    start_missing: rows.filter((item) => !r.program_start_confirmed).length,
+    start_missing: rows.filter((r: any) => !r.program_start_confirmed).length,
   };
 
   return NextResponse.json({ org_id: orgId, summary, rows });

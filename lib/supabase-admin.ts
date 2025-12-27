@@ -13,8 +13,8 @@ let _supabaseAdmin: ReturnType<typeof createClient> | null = null;
 function getSupabaseAdmin() {
   if (_supabaseAdmin) return _supabaseAdmin;
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://Content.supabase.co';
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'Content-service-key';
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key';
 
   // Only throw error in production, allow build to continue in development
   if ((!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) && process.env.NODE_ENV === 'production') {
@@ -47,7 +47,7 @@ export async function getUserByEmail(email: string) {
     throw listError;
   }
 
-  const user = listData.users.find(data: unknown) => u.email === email);
+  const user = listData.users.find((u: any) => u.email === email);
   return user || null;
 }
 

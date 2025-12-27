@@ -114,10 +114,11 @@ export async function POST(req: Request) {
         {
           role: 'system',
           content:
+            // @ts-expect-error TS2339: Property 'system_prompt' does not exist on type '{ system_prompt: any; name: ...
             assignment.ai_instructors.system_prompt ||
             'You are a helpful instructor.',
         },
-        ...(item) => ({
+        ...(history || []).map((msg: any) => ({
           role: msg.role as 'user' | 'assistant',
           content: msg.content,
         })),
@@ -136,7 +137,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ reply });
-  } catch (data: unknown) {
+  } catch (error: any) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to process chat' },
@@ -176,7 +177,7 @@ export async function GET(req: Request) {
       .order('created_at', { ascending: true });
 
     return NextResponse.json({ messages: messages || [] });
-  } catch (data: unknown) {
+  } catch (error: any) {
     // Error: $1
     return NextResponse.json(
       { error: 'Failed to load chat history' },

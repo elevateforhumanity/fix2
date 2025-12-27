@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
     }
 
     // Format the data
-    const formattedIncentives = (item) => ({
+    const formattedIncentives = (incentives || []).map((inc: any) => ({
       id: inc.id,
       employer_name: inc.employer?.name || 'Unknown Employer',
       student_name: inc.student?.full_name || 'Unknown Student',
@@ -57,7 +57,7 @@ export async function GET(req: NextRequest) {
       count: formattedIncentives.length,
     });
 
-  } catch (data: unknown) {
+  } catch (err: any) {
     // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to fetch incentives' },
@@ -134,7 +134,7 @@ export async function POST(req: NextRequest) {
       incentive,
     });
 
-  } catch (data: unknown) {
+  } catch (err: any) {
     // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to create incentive' },

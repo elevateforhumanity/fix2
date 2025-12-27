@@ -9,10 +9,11 @@ export function checkBrokenLinks(
     return { missing: ['Course slug is missing'], found: [] };
   }
 
-  metadata.modules?.forEach(data: unknown) => {
+  // @ts-expect-error TS2339: Property 'forEach' does not exist on type 'unknown'.
+  metadata.modules?.forEach((mod: any) => {
     if (!mod.slug) return;
 
-    mod.lessons?.forEach(data: unknown) => {
+    mod.lessons?.forEach((l: any) => {
       if (!l.slug) return;
 
       // Check for HTML file

@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     // Build conversation history for context
     const messages = [
       { role: 'system' as const, content: RECEPTIONIST_PROMPT },
-      ...(item) => ({
+      ...(history || []).slice(-6).map((msg: any) => ({
         role: msg.role,
         content: msg.content,
       })),
@@ -76,6 +76,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ response });
   } catch (error: unknown) {
+    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Receptionist API error:', error);
 
     // Return helpful fallback

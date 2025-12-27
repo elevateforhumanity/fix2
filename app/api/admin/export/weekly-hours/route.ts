@@ -112,7 +112,7 @@ export async function GET(req: NextRequest) {
         'Approved Date',
       ];
 
-      const rows = (item) => [
+      const rows = (hours || []).map((h: any) => [
         weekStart,
         weekEnd,
         h.student?.full_name || 'Unknown',
@@ -128,8 +128,8 @@ export async function GET(req: NextRequest) {
       ]);
 
       // Add summary row
-      const totalHours = (item) => sum + (h.hours_worked || 0), 0);
-      const approvedHours = (item) => sum + (h.hours_worked || 0), 0);
+      const totalHours = (hours || []).reduce((sum: number, h: any) => sum + (h.hours_worked || 0), 0);
+      const approvedHours = (hours || []).filter((h: any) => h.approved).reduce((sum: number, h: any) => sum + (h.hours_worked || 0), 0);
       
       rows.push([]);
       rows.push(['SUMMARY', '', '', '', '', '', '', '', '', '', '', '']);
@@ -154,8 +154,8 @@ export async function GET(req: NextRequest) {
     }
 
     // Default JSON format
-    const totalHours = (item) => sum + (h.hours_worked || 0), 0);
-    const approvedHours = (item) => sum + (h.hours_worked || 0), 0);
+    const totalHours = (hours || []).reduce((sum: number, h: any) => sum + (h.hours_worked || 0), 0);
+    const approvedHours = (hours || []).filter((h: any) => h.approved).reduce((sum: number, h: any) => sum + (h.hours_worked || 0), 0);
 
     return NextResponse.json({
       week_start: weekStart,
@@ -170,7 +170,7 @@ export async function GET(req: NextRequest) {
       exported_at: new Date().toISOString(),
     });
 
-  } catch (data: unknown) {
+  } catch (err: any) {
     // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to export weekly hours' },
@@ -179,7 +179,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-function escapeCsvField(data: unknown): string {
+function escapeCsvField(field: any): string {
   if (field == null || field === '') return '';
   const str = String(field);
   if (str.includes(',') || str.includes('"') || str.includes('\n')) {
@@ -188,7 +188,7 @@ function escapeCsvField(data: unknown): string {
   return str;
 }
 
-function formatDate(data: unknown): string {
+function formatDate(date: any): string {
   if (!date) return '';
   try {
     return new Date(date).toISOString().split('T')[0];
