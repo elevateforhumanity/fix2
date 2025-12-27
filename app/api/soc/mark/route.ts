@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -72,7 +72,7 @@ export async function GET() {
         percentage: total > 0 ? Math.round((implemented / total) * 100) : 0,
       },
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

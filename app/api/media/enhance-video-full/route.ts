@@ -184,7 +184,7 @@ export async function POST(request: Request) {
           musicVolume: musicVolume,
         },
       });
-    } catch (ffmpegError: any) {
+    } catch (data: unknown) {
       logger.error('FFmpeg error:', ffmpegError);
 
       return NextResponse.json(

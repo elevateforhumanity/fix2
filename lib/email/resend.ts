@@ -31,7 +31,7 @@ export async function sendEmail(options: EmailOptions) {
     }
 
     return { success: true, data };
-  } catch (error: any) {
+  } catch (data: unknown) {
     console.error('[Email] Send error:', error);
     return { success: false, error: error.message };
   }

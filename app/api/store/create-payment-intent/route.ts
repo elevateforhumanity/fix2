@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       },
       metadata: {
         items: JSON.stringify(
-          items.map((item: any) => ({
+          items.map(data: unknown) => ({
             id: item.id,
             quantity: item.quantity,
           }))
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       clientSecret: paymentIntent.client_secret,
       paymentIntentId: paymentIntent.id,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create payment intent' },
       { status: 500 }

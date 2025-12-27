@@ -1,3 +1,4 @@
+import React from 'react';
 // app/advising/page.tsx
 'use client';
 

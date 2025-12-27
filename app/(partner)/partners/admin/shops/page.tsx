@@ -27,7 +27,7 @@ export default async function AdminShopsPage() {
             </tr>
           </thead>
           <tbody>
-            {(shops ?? []).map((s: any) => (
+            {(data: unknown) => (
               <tr key={s.id} className="border-b">
                 <td className="py-2">{s.name}</td>
                 <td className="py-2">{s.active ? 'Active' : 'Inactive'}</td>

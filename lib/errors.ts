@@ -56,15 +56,15 @@ export class AutopilotError extends Error {
   }
 }
 
-export function isNotFoundError(error: any): error is NotFoundError {
+export function isNotFoundError(data: unknown): error is NotFoundError {
   return error instanceof NotFoundError || error.name === "NotFoundError";
 }
 
-export function isValidationError(error: any): error is ValidationError {
+export function isValidationError(data: unknown): error is ValidationError {
   return error instanceof ValidationError || error.name === "ValidationError";
 }
 
-export function handleError(error: any): { message: string; status: number } {
+export function handleError(data: unknown): { message: string; status: number } {
   if (isNotFoundError(error)) {
     return { message: error.message, status: 404 };
   }

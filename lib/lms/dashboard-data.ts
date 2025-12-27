@@ -110,7 +110,7 @@ export async function getStudentProgressList(programIds: string[]): Promise<Stud
     return [];
   }
 
-  return (data || []).map((enrollment: any) => ({
+  return (data: unknown) => ({
     enrollmentId: enrollment.id,
     studentName: `${enrollment.profiles?.first_name || ''} ${enrollment.profiles?.last_name || ''}`.trim() || 'Unknown',
     programName: enrollment.programs?.name || 'Unknown Program',
@@ -148,15 +148,15 @@ export async function getProgramMetrics(orgId: string): Promise<ProgramMetrics[]
     return [];
   }
 
-  return (data || []).map((program: any) => {
+  return (data: unknown) => {
     const enrollments = program.enrollments || [];
-    const activeStudents = enrollments.filter((e: any) => e.status === 'active').length;
-    const completedStudents = enrollments.filter((e: any) => e.status === 'completed').length;
-    const atRiskCount = enrollments.filter((e: any) => 
+    const activeStudents = enrollments.filter(data: unknown) => e.status === 'active').length;
+    const completedStudents = enrollments.filter(data: unknown) => e.status === 'completed').length;
+    const atRiskCount = enrollments.filter(data: unknown) => 
       e.student_risk_status?.status === 'at_risk'
     ).length;
     
-    const totalProgress = enrollments.reduce((sum: number, e: any) => 
+    const totalProgress = enrollments.reduce(data: unknown) => 
       sum + (e.student_risk_status?.progress_percentage || 0), 0
     );
     const averageProgress = enrollments.length > 0 

@@ -37,7 +37,7 @@ export async function GET(req: Request) {
 
     // Generate CSV
     const header = Object.keys(data[0]).join(',');
-    const rows = data.map((row: any) =>
+    const rows = data.map(data: unknown) =>
       Object.values(row)
         .map((v) => `"${String(v ?? '').replace(/"/g, '""')}"`)
         .join(',')
@@ -51,7 +51,7 @@ export async function GET(req: Request) {
         'Content-Disposition': `attachment; filename="audit_export_${new Date().toISOString().split('T')[0]}.csv"`,
       },
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

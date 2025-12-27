@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -127,7 +128,7 @@ export default function WIOAApplicationForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const updateField = (field: keyof ApplicationFormState, value: any) => {
+  const updateField = (data: unknown) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -254,7 +255,7 @@ export default function WIOAApplicationForm() {
 
       // Redirect to success page with reference number
       window.location.href = `/apply/success?ref=${data.referenceNumber}`;
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(
         err.message || 'Failed to submit application. Please try again.'
       );
@@ -440,7 +441,7 @@ export default function WIOAApplicationForm() {
 }
 
 // Step Components (to be implemented)
-function Step1Eligibility({ formData, updateField }: any) {
+function Step1Eligibility(data: unknown) {
   return (
     <div className="space-y-6">
       <div>
@@ -501,7 +502,7 @@ function Step1Eligibility({ formData, updateField }: any) {
   );
 }
 
-function Step2PersonalInfo({ formData, updateField, toggleArrayField }: any) {
+function Step2PersonalInfo(data: unknown) {
   const raceOptions = [
     'American Indian/Alaska Native',
     'Asian',
@@ -654,7 +655,7 @@ function Step2PersonalInfo({ formData, updateField, toggleArrayField }: any) {
   );
 }
 
-function Step3IncomeWIOA({ formData, updateField, toggleArrayField }: any) {
+function Step3IncomeWIOA(data: unknown) {
   const publicAssistanceOptions = [
     'SNAP (Food Stamps)',
     'TANF (Cash Assistance)',
@@ -800,7 +801,7 @@ function Step3IncomeWIOA({ formData, updateField, toggleArrayField }: any) {
   );
 }
 
-function Step4Authorization({ formData, updateField, toggleArrayField }: any) {
+function Step4Authorization(data: unknown) {
   const workAuthDocs = [
     'U.S. Passport',
     'Birth Certificate',
@@ -954,7 +955,7 @@ function Step4Authorization({ formData, updateField, toggleArrayField }: any) {
   );
 }
 
-function Step5Program({ formData, updateField }: any) {
+function Step5Program(data: unknown) {
   const programs = [
     'CNA (Certified Nursing Assistant)',
     'HVAC Technician',
@@ -1083,7 +1084,7 @@ function Step5Program({ formData, updateField }: any) {
   );
 }
 
-function Step6Review({ formData, updateField }: any) {
+function Step6Review(data: unknown) {
   return (
     <div className="space-y-6">
       <div>

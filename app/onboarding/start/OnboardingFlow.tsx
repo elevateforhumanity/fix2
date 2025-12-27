@@ -1,4 +1,6 @@
+import React from 'react';
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import { useState } from 'react';
 import { CheckCircle2, Circle, Lock, FileText, DollarSign } from 'lucide-react';
@@ -250,7 +252,7 @@ function DocumentStep({
       }
 
       onComplete();
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message);
     } finally {
       setIsSubmitting(false);

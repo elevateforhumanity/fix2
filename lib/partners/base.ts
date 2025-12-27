@@ -66,7 +66,7 @@ export class BasePartnerAPI {
   /**
    * Logging helper
    */
-  protected log(message: string, data?: any): void {
+  protected log(data: unknown): void {
   }
   /**
    * Get default headers for API requests

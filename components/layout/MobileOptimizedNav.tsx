@@ -1,3 +1,4 @@
+import React from 'react';
 // components/layout/MobileOptimizedNav.tsx
 "use client";
 

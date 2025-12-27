@@ -1,3 +1,4 @@
+import React from 'react';
 // components/offline/ServiceWorkerRegister.tsx
 'use client';
 

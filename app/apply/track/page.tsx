@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -112,7 +113,7 @@ export default function TrackApplicationPage() {
 
       const data = await response.json();
       setApplication(data);
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(
         err.message || 'An error occurred while tracking your application'
       );

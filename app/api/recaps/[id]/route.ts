@@ -53,7 +53,7 @@ export async function GET(
       .order('created_at', { ascending: true });
 
     return NextResponse.json({ recap, items: items || [] }, { status: 200 });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

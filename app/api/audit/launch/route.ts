@@ -1,3 +1,4 @@
+import React from 'react';
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 
@@ -370,7 +371,7 @@ function analyzeChecks(checks: any, blockers: Finding[], warnings: Finding[]) {
       title: 'Hydration Risks Detected',
       detail: 'Components may cause hydration mismatches',
       evidence: {
-        notes: checks.clientStability.hydrationRisks.map((r: any) => r.pattern),
+        notes: checks.clientStability.hydrationRisks.map(data: unknown) => r.pattern),
       },
       fix: {
         action: 'Fix hydration patterns',
@@ -404,7 +405,7 @@ function analyzeChecks(checks: any, blockers: Finding[], warnings: Finding[]) {
 
   // Feature gaps
   const highPriorityGaps = checks.features.missingComparedToBestInClass.filter(
-    (f: any) => f.priority === 'high'
+    (data: unknown) => f.priority === 'high'
   );
   
   if (highPriorityGaps.length > 0) {
@@ -414,18 +415,18 @@ function analyzeChecks(checks: any, blockers: Finding[], warnings: Finding[]) {
       title: 'Missing High-Priority Features',
       detail: `${highPriorityGaps.length} high-priority features missing compared to best-in-class`,
       evidence: {
-        notes: highPriorityGaps.map((f: any) => f.feature),
+        notes: highPriorityGaps.map(data: unknown) => f.feature),
       },
       fix: {
         action: 'Implement high-priority features',
-        steps: highPriorityGaps.map((f: any) => `Add: ${f.feature}`),
+        steps: highPriorityGaps.map(data: unknown) => `Add: ${f.feature}`),
         owner: 'dev',
       },
     });
   }
 }
 
-function calculateLaunchGate(blockers: Finding[], warnings: Finding[], checks: any) {
+function calculateLaunchGate(data: unknown) {
   let score = 100;
   
   // Deduct points

@@ -1,4 +1,6 @@
+import React from 'react';
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
@@ -318,7 +320,7 @@ export default function AssetGenerator() {
                 >
                   <div
                     className="w-full h-full"
-                    dangerouslySetInnerHTML={{ __html: generatedAsset.html }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(generatedAsset.html) }}
                   />
                 </div>
                 {/* Copy Text */}

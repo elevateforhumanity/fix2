@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -30,7 +31,7 @@ export default function ProgramOwnerCampaignsPage() {
       .then((data) => setMyStudents(data.students || []));
   }, []);
 
-  const handleTemplateSelect = (template: any) => {
+  const handleTemplateSelect = (data: unknown) => {
     setSelectedTemplate(template);
     setFormData({
       subject: template.subject,

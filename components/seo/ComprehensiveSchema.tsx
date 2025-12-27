@@ -1,4 +1,5 @@
 /**
+import { SafeHtml } from '@/lib/sanitize';
  * Comprehensive Schema.org Structured Data
  * Includes Organization, LocalBusiness, EducationalOrganization, and Course schemas
  */
@@ -332,7 +333,7 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
         <script
           key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(schema)) }}
         />
       ))}
     </>

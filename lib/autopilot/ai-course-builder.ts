@@ -52,7 +52,7 @@ Format output as JSON:
   const json = JSON.parse(raw);
 
   json.slug = slugify(json.title);
-  json.modules.forEach((m: any) => (m.slug = slugify(m.title)));
+  json.modules.forEach(data: unknown) => (m.slug = slugify(m.title)));
 
   return json;
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -55,7 +56,7 @@ export default function PaymentButton({
       } else {
         throw new Error('No checkout URL received');
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       // Error: $1
       setError(err.message || 'Something went wrong. Please try again.');
       setLoading(false);

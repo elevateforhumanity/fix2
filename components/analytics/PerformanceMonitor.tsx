@@ -1,10 +1,11 @@
+import React from 'react';
 'use client';
 import { useEffect } from 'react';
 export function PerformanceMonitor() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     // Monitor Core Web Vitals
-    const reportWebVitals = (metric: any) => {
+    const reportWebVitals = (data: unknown) => {
       // 
       // Send to analytics
       if (window.gtag) {
@@ -38,7 +39,7 @@ export function PerformanceMonitor() {
       try {
         const fidObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          entries.forEach((entry: any) => {
+          entries.forEach(data: unknown) => {
             reportWebVitals({
               name: 'FID',
               value: entry.processingStart - entry.startTime,

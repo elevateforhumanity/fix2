@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ sessionId: session.id });
-  } catch (err: any) {
+  } catch (data: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to create checkout session' },

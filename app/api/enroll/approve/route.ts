@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
           steps_generated: stepsResult || 0,
         },
       });
-    } catch (auditError: any) {
+    } catch (data: unknown) {
       logger.warn('Failed to write audit log (non-critical)', auditError);
     }
 
@@ -196,7 +196,7 @@ export async function POST(req: NextRequest) {
         });
         logger.info('Student notification email sent', { userId: enrollment.user_id });
       }
-    } catch (notifError: any) {
+    } catch (data: unknown) {
       logger.warn('Failed to send student notification (non-critical)', notifError);
     }
 
@@ -242,7 +242,7 @@ export async function POST(req: NextRequest) {
           }
         }
       }
-    } catch (phNotifError: any) {
+    } catch (data: unknown) {
       logger.warn('Failed to send program holder notification (non-critical)', phNotifError);
     }
 
@@ -260,7 +260,7 @@ export async function POST(req: NextRequest) {
       stepsGeneratedCount: stepsResult || 0,
       message: 'Enrollment approved and activated successfully',
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('Enrollment approval error', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },

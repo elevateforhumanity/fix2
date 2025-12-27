@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     // Build conversation history for context
     const messages = [
       { role: 'system' as const, content: RECEPTIONIST_PROMPT },
-      ...(history || []).slice(-6).map((msg: any) => ({
+      ...(data: unknown) => ({
         role: msg.role,
         content: msg.content,
       })),

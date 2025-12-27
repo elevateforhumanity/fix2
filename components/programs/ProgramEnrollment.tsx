@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -98,7 +99,7 @@ export default function ProgramEnrollment({ program, userId, onEnrollmentComplet
         throw new Error(stripeError.message);
       }
 
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Enrollment failed. Please try again.');
       setLoading(false);
     }

@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 export const dynamic = 'force-dynamic';
@@ -49,7 +50,7 @@ export default function ApplyApprenticeshipPage() {
 
   const totalSteps = 4;
 
-  const updateField = (field: string, value: any) => {
+  const updateField = (data: unknown) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

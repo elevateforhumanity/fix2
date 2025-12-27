@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SafeHtml } from '@/lib/sanitize';
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
@@ -133,7 +134,7 @@ export default function UniversalMarketingPage({
                     </h2>
                     <div
                       className="text-lg text-slate-600 leading-relaxed prose prose-lg max-w-none"
-                      dangerouslySetInnerHTML={{ __html: section.content }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                     />
                   </div>
                   {section.image && (
@@ -167,7 +168,7 @@ export default function UniversalMarketingPage({
                     </h2>
                     <div
                       className="text-lg text-slate-600 leading-relaxed prose prose-lg max-w-none"
-                      dangerouslySetInnerHTML={{ __html: section.content }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                     />
                   </div>
                 </>

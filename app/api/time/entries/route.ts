@@ -167,12 +167,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: totErr.message }, { status: 500 });
 
   const existingMinutesTotal = (totals ?? []).reduce(
-    (s, r: any) => s + (r.minutes ?? 0),
+    (data: unknown) => s + (r.minutes ?? 0),
     0
   );
   const existingMinutesWioaRTI = (totals ?? [])
-    .filter((r: any) => r.funding_phase === 'WIOA' && r.hour_type === 'RTI')
-    .reduce((s, r: any) => s + (r.minutes ?? 0), 0);
+    .filter(data: unknown) => r.funding_phase === 'WIOA' && r.hour_type === 'RTI')
+    .reduce(data: unknown) => s + (r.minutes ?? 0), 0);
 
   const newMinutes = Math.max(
     1,

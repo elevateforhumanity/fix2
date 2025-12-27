@@ -1,3 +1,4 @@
+import React from 'react';
 // components/AdminHeader.tsx - Admin header with user info and sign out
 'use client';
 

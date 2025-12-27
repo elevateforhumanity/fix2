@@ -1,3 +1,4 @@
+import React from 'react';
 // app/apply/QuickApplyFormClient.tsx
 'use client';
 
@@ -132,7 +133,7 @@ Preferred Contact: ${form.preferredContact}`,
           'Thank you! Your application has been received. Someone from Elevate for Humanity will contact you within 1–2 business days.'
         );
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       console.error('Application submission error:', err);
       setErrorMessage(
         err.message ||

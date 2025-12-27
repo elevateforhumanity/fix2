@@ -83,7 +83,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ ok: true, data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('HubSpot API error', error as Error);
     return NextResponse.json(
       {

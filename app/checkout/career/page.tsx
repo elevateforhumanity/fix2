@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -25,7 +26,7 @@ export default function CareerCheckout() {
       if (data?.url) {
         window.location.href = data.url;
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message);
       setLoading(false);
     }

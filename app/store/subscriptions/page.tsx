@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
@@ -144,7 +145,7 @@ function SubscriptionsContent() {
       if (data.url) {
         window.location.href = data.url;
       }
-    } catch (error: any) {
+    } catch (data: unknown) {
       console.error('Subscription error:', error);
       toast.error(error.message || 'Failed to start subscription');
       setSubscribing(null);
@@ -171,7 +172,7 @@ function SubscriptionsContent() {
       if (data.url) {
         window.location.href = data.url;
       }
-    } catch (error: any) {
+    } catch (data: unknown) {
       console.error('Portal error:', error);
       toast.error(error.message || 'Failed to open billing portal');
     }

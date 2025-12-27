@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     try {
       event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
-    } catch (err: any) {
+    } catch (data: unknown) {
       return NextResponse.json(
         { error: `Webhook Error: ${err.message}` },
         { status: 400 }

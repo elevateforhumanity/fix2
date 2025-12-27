@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -36,7 +37,7 @@ export function ReportProduct({ productId }: { productId: string }) {
 
       setSent(true);
       setShowForm(false);
-    } catch (error: any) {
+    } catch (data: unknown) {
       alert(error.message);
     } finally {
       setLoading(false);

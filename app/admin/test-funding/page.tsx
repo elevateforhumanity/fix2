@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -34,7 +35,7 @@ export default function TestFundingPage() {
         // Open checkout in new tab
         window.open(data.url, '_blank');
       }
-    } catch (error: any) {
+    } catch (data: unknown) {
       setResult({ error: error.message });
     } finally {
       setLoading(false);

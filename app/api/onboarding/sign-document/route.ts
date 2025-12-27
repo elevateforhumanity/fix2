@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
       success: true,
       isComplete: completionCheck,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

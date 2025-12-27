@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       sent_count: sentCount,
       total_selected: students.length,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to send emails' },
       { status: 500 }

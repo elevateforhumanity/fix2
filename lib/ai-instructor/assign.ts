@@ -94,7 +94,7 @@ export async function assignAIInstructor({
         role: instructor.role,
       },
     };
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('AI instructor assignment error', error);
     return { success: false, error: error.message };
   }

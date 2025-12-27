@@ -60,7 +60,7 @@ export async function GET() {
         name: user.name,
         created_at: user.created_at,
       },
-      enrollments: (enrollments || []).map((e: any) => ({
+      enrollments: (data: unknown) => ({
         courseTitle: e.course?.title,
         status: e.status,
         startDate: e.start_date,

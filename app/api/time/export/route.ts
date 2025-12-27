@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-function csvEscape(v: any) {
+function csvEscape(data: unknown) {
   const s = String(v ?? '');
   if (/[,"\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
   return s;
@@ -93,7 +93,7 @@ export async function GET(req: Request) {
 
   const lines = [
     header.join(','),
-    ...rows.map((r: any) =>
+    ...rows.map(data: unknown) =>
       [
         r.student_enrollments?.student_profile?.full_name ?? '',
         r.enrollment_id,

@@ -74,7 +74,7 @@ export default async function AdminShopsPage() {
     })
   );
 
-  function getShopStatus(shop: any) {
+  function getShopStatus(data: unknown) {
     if (!shop.active) return { color: 'red', label: 'Inactive', icon: XCircle };
     if (shop.docsComplete && shop.shop_onboarding?.[0]?.completed_at) {
       return { color: 'green', label: 'Complete', icon: CheckCircle };

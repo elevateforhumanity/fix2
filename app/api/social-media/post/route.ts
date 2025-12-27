@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
         platform_url: result.url
       });
     }
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: 'Internal server error', details: error.message },
       { status: 500 }
@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
 /**
  * Post to LinkedIn
  */
-async function postToLinkedIn({ title, content, media_url }: any) {
+async function postToLinkedIn(data: unknown) {
   try {
     const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
     const organizationId = process.env.LINKEDIN_ORGANIZATION_ID;
@@ -185,7 +185,7 @@ async function postToLinkedIn({ title, content, media_url }: any) {
       post_id: result.id,
       url: `https://www.linkedin.com/feed/update/${result.id}`
     };
-  } catch (error: any) {
+  } catch (data: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -193,7 +193,7 @@ async function postToLinkedIn({ title, content, media_url }: any) {
 /**
  * Post to Facebook
  */
-async function postToFacebook({ content, media_url }: any) {
+async function postToFacebook(data: unknown) {
   try {
     const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
     const pageId = process.env.FACEBOOK_PAGE_ID;
@@ -230,7 +230,7 @@ async function postToFacebook({ content, media_url }: any) {
       post_id: result.id,
       url: `https://www.facebook.com/${pageId}/posts/${result.id}`
     };
-  } catch (error: any) {
+  } catch (data: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -238,7 +238,7 @@ async function postToFacebook({ content, media_url }: any) {
 /**
  * Post to YouTube (Community Post)
  */
-async function postToYouTube({ title, content, media_url }: any) {
+async function postToYouTube(data: unknown) {
   try {
     const apiKey = process.env.YOUTUBE_API_KEY;
     const channelId = process.env.YOUTUBE_CHANNEL_ID;
@@ -254,7 +254,7 @@ async function postToYouTube({ title, content, media_url }: any) {
       success: false,
       error: 'YouTube posting requires OAuth 2.0 setup. Please configure refresh token.'
     };
-  } catch (error: any) {
+  } catch (data: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -299,7 +299,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ posts });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: 'Internal server error', details: error.message },
       { status: 500 }

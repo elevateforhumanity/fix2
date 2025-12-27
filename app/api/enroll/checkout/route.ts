@@ -156,7 +156,7 @@ export async function POST(req: Request) {
       checkoutUrl: session.url,
       sessionId: session.id,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('Checkout creation error', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },

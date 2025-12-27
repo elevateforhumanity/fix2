@@ -55,14 +55,14 @@ export async function GET() {
       // This requires a join - we'll filter in JS for now
       const { data: allHours } = await query;
       const hours = allHours?.filter(
-        (h: any) => h.user_profiles?.employer_id === profile.employer_id
+        (data: unknown) => h.user_profiles?.employer_id === profile.employer_id
       );
       return NextResponse.json({ hours: hours || [] });
     }
 
     const { data: hours } = await query;
     return NextResponse.json({ hours: hours || [] });
-  } catch (error: any) {
+  } catch (data: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || "Failed to load hours" },

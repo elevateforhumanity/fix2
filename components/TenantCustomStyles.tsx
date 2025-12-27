@@ -1,4 +1,5 @@
 // components/TenantCustomStyles.tsx
+import { SafeHtml } from '@/lib/sanitize';
 import { getTenantFromHost } from "@/lib/multiTenant/tenantFromHost";
 import { headers } from "next/headers";
 
@@ -12,7 +13,7 @@ export async function TenantCustomStyles() {
   return (
     <>
       {tenant.custom_css && (
-        <style dangerouslySetInnerHTML={{ __html: tenant.custom_css }} />
+        <style dangerouslySetInnerHTML={{ __html: sanitizeHtml(tenant.custom_css) }} />
       )}
       {tenant.primary_color && (
         <style

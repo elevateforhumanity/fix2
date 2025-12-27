@@ -1,3 +1,4 @@
+import React from 'react';
 "use client";
 
 // app/admin/external-modules/approvals/ApprovalsList.tsx

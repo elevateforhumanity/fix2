@@ -64,7 +64,7 @@ export async function getAllPrograms(): Promise<Program[]> {
  * Map Supabase program data to Program type
  * Handles field name differences and ensures type compatibility
  */
-function mapSupabaseProgramToProgram(supabaseData: any): Program {
+function mapSupabaseProgramToProgram(data: unknown): Program {
   return {
     slug: supabaseData.slug,
     name: supabaseData.name || supabaseData.title,

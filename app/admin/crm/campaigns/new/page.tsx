@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -26,7 +27,7 @@ export default function NewCampaignPage() {
       .then(data => setTemplates(data.templates || []));
   }, []);
 
-  const handleTemplateSelect = (template: any) => {
+  const handleTemplateSelect = (data: unknown) => {
     setSelectedTemplate(template);
     setFormData(prev => ({
       ...prev,

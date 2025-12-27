@@ -52,7 +52,7 @@ function isCriticalEvent(eventType: string): boolean {
   );
 }
 
-async function sendSecurityAlert(event: any) {
+async function sendSecurityAlert(data: unknown) {
   // Send email/SMS/Slack notification for critical events
   // Implementation depends on your notification service
   logger.warn('[CRITICAL SECURITY EVENT]', event);

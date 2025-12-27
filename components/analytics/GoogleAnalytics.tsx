@@ -1,4 +1,6 @@
+import React from 'react';
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';

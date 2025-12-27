@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, rapids: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -56,7 +56,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ rapids: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

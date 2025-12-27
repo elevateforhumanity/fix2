@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -61,7 +62,7 @@ interface Course {
 }
 
 // Sortable Module Component
-function SortableModule({ module, onEdit, onDelete }: any) {
+function SortableModule(data: unknown) {
   const {
     attributes,
     listeners,
@@ -107,7 +108,7 @@ function SortableModule({ module, onEdit, onDelete }: any) {
 }
 
 // Sortable Lesson Component
-function SortableLesson({ lesson, onEdit, onDelete }: any) {
+function SortableLesson(data: unknown) {
   const {
     attributes,
     listeners,

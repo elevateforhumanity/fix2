@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, wotc: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -47,7 +47,7 @@ export async function GET() {
     }
 
     // Calculate urgency for each record
-    const enrichedData = data?.map((record: any) => {
+    const enrichedData = data?.map(data: unknown) => {
       const deadline = new Date(record.hire_date);
       deadline.setDate(deadline.getDate() + 28);
       const daysRemaining = Math.ceil(
@@ -63,7 +63,7 @@ export async function GET() {
     });
 
     return NextResponse.json({ wotc_tracking: enrichedData });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, ojt: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -54,7 +54,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ ojt_reimbursements: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -78,7 +78,7 @@ export async function PATCH(req: Request) {
     }
 
     return NextResponse.json({ success: true, ojt: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

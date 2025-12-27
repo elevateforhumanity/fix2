@@ -1,3 +1,4 @@
+import React from 'react';
 // components/help/HelpSearchBox.tsx
 'use client';
 

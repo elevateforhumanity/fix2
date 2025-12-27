@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -21,7 +22,7 @@ interface AnnouncementsSystemProps {
   courseId: string;
   announcements?: Announcement[];
   canCreate?: boolean;
-  onCreateAnnouncement?: (announcement: any) => void;
+  onCreateAnnouncement?: (data: unknown) => void;
 }
 
 export function AnnouncementsSystem({

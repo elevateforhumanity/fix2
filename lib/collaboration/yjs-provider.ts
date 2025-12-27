@@ -78,7 +78,7 @@ export class CollaborationProvider {
     const states = this.awareness.getStates();
     const users: Array<{ id: string; name: string; color: string }> = [];
 
-    states.forEach((state: any) => {
+    states.forEach(data: unknown) => {
       if (state.user) {
         users.push(state.user);
       }

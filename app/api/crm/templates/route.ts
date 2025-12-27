@@ -16,7 +16,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ templates: templates || [] });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to fetch templates' },
       { status: 500 }

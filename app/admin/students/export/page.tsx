@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -57,7 +58,7 @@ export default function ExportStudentsPage() {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Failed to export data');
     } finally {
       setLoading(false);

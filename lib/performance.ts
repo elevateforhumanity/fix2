@@ -41,7 +41,7 @@ export function measureWebVitals() {
   // First Input Delay (FID)
   const fidObserver = new PerformanceObserver((list) => {
     const entries = list.getEntries();
-    entries.forEach((entry: any) => {
+    entries.forEach(data: unknown) => {
       if (window.gtag) {
         window.gtag('event', 'web_vitals', {
           event_category: 'Web Vitals',

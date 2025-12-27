@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
-  } catch (err: any) {
+  } catch (data: unknown) {
     // Error logged
     return NextResponse.json({ error: err.message }, { status: 400 });
   }

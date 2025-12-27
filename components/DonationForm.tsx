@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -51,7 +52,7 @@ export default function DonationForm() {
           throw stripeError;
         }
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       // Error: $1
       setError(err.message || 'Failed to process donation. Please try again.');
     } finally {

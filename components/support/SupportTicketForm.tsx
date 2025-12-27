@@ -1,3 +1,4 @@
+import React from 'react';
 // components/support/SupportTicketForm.tsx
 'use client';
 

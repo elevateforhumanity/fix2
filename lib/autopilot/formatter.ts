@@ -13,7 +13,7 @@ export function formatHTML(html: string): string {
     .trim();
 }
 
-export function formatJSON(json: any): string {
+export function formatJSON(data: unknown): string {
   return JSON.stringify(json, null, 2);
 }
 

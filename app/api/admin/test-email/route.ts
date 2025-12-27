@@ -100,7 +100,7 @@ Recent Activity:
       email_id: result.data?.id,
       sent_to: profile.email,
     });
-  } catch (err: any) {
+  } catch (data: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to send test email' },

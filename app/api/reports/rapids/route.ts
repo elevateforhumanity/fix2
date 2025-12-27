@@ -83,7 +83,7 @@ export async function GET(req: Request) {
         'Content-Disposition': `attachment; filename=rapids-hours-${new Date().toISOString().split('T')[0]}.csv`,
       },
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate report' },

@@ -127,7 +127,7 @@ export async function POST(req: Request) {
         created_at: document.created_at,
       },
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Upload failed' },
       { status: 500 }

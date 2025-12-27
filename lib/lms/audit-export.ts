@@ -60,7 +60,7 @@ export async function generateProgramAuditExport(programId: string): Promise<str
   }
 
   // Transform data for export
-  const exportData: AuditExportData[] = enrollments.map((enrollment: any) => {
+  const exportData: AuditExportData[] = enrollments.map(data: unknown) => {
     const riskStatus = enrollment.student_risk_status?.[0];
     const funding = enrollment.student_funding_assignments?.[0]?.funding_sources;
     
@@ -136,7 +136,7 @@ export async function generateFundingSourceAuditExport(fundingSourceCode: string
   }
 
   // Transform data
-  const exportData: AuditExportData[] = assignments.map((assignment: any) => {
+  const exportData: AuditExportData[] = assignments.map(data: unknown) => {
     const enrollment = assignment.enrollments;
     const riskStatus = enrollment?.student_risk_status?.[0];
     
@@ -188,7 +188,7 @@ export async function generateStudentEvidenceExport(enrollmentId: string): Promi
     return '';
   }
 
-  const exportData = requirements.map((req: any) => ({
+  const exportData = requirements.map(data: unknown) => ({
     student_name: `${req.enrollments?.profiles?.first_name} ${req.enrollments?.profiles?.last_name}`,
     program_name: req.enrollments?.programs?.name || '',
     requirement_type: req.requirement_type,
@@ -232,13 +232,13 @@ export async function generateComplianceReport(): Promise<string> {
     return '';
   }
 
-  const reportData = programs.map((program: any) => {
+  const reportData = programs.map(data: unknown) => {
     const enrollments = program.enrollments || [];
     const total = enrollments.length;
-    const active = enrollments.filter((e: any) => e.status === 'active').length;
-    const completed = enrollments.filter((e: any) => e.status === 'completed').length;
-    const dropped = enrollments.filter((e: any) => e.status === 'dropped').length;
-    const atRisk = enrollments.filter((e: any) => 
+    const active = enrollments.filter(data: unknown) => e.status === 'active').length;
+    const completed = enrollments.filter(data: unknown) => e.status === 'completed').length;
+    const dropped = enrollments.filter(data: unknown) => e.status === 'dropped').length;
+    const atRisk = enrollments.filter(data: unknown) => 
       e.student_risk_status?.[0]?.status === 'at_risk'
     ).length;
     

@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { usePushNotifications } from '@/hooks/use-push-notifications';

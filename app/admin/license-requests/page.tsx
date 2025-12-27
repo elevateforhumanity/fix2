@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-async function requireAdmin(supabase: any) {
+async function requireAdmin(data: unknown) {
   const { data } = await supabase.auth.getUser();
   if (!data?.user) return false;
 
@@ -58,7 +58,7 @@ export default async function LicenseRequestsAdminPage() {
       </p>
 
       <div className="mt-8 space-y-4">
-        {(rows || []).map((r: any) => (
+        {(data: unknown) => (
           <div
             key={r.id}
             className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"

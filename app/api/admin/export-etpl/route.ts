@@ -89,7 +89,7 @@ export async function GET(req: Request) {
     }
 
     // Format data for ETPL compliance
-    const exportData = data.map((app: any) => ({
+    const exportData = data.map(data: unknown) => ({
       student_id: app.id,
       first_name: app.first_name,
       last_name: app.last_name,
@@ -129,7 +129,7 @@ export async function GET(req: Request) {
       const headers = Object.keys(exportData[0] || {});
       const csvRows = [
         headers.join(','),
-        ...exportData.map((row: any) =>
+        ...exportData.map(data: unknown) =>
           headers.map((header) => JSON.stringify(row[header] || '')).join(',')
         ),
       ];
@@ -149,7 +149,7 @@ export async function GET(req: Request) {
       record_count: exportData.length,
       data: exportData,
     });
-  } catch (err: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: 'Export failed' }, { status: 500 });
   }
 }

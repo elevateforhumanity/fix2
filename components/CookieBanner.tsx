@@ -1,3 +1,4 @@
+import React from 'react';
 // components/CookieBanner.tsx
 'use client';
 

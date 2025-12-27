@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
         tempPassword, // Only returned once
       },
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to provision tenant' },
       { status: 500 }
@@ -230,7 +230,7 @@ function getLicenseConfig(licenseType: string) {
   }
 }
 
-function generateWelcomeEmail(data: any): string {
+function generateWelcomeEmail(data: unknown): string {
   return `
 <!DOCTYPE html>
 <html>
@@ -314,7 +314,7 @@ function generateWelcomeEmail(data: any): string {
   `;
 }
 
-function generateSetupGuideEmail(data: any): string {
+function generateSetupGuideEmail(data: unknown): string {
   return `
 <!DOCTYPE html>
 <html>

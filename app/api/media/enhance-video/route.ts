@@ -71,7 +71,7 @@ export async function POST(request: Request) {
         message:
           'Video enhanced successfully! Quality improved, upscaled to 1080p, denoised, and color-corrected.',
       });
-    } catch (ffmpegError: any) {
+    } catch (data: unknown) {
       logger.error('FFmpeg error:', ffmpegError);
 
       // If FFmpeg fails, return the original

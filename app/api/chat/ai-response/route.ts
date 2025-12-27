@@ -126,7 +126,7 @@ If the user asks about:
       needs_human: needsHuman,
       tokens_used: completion.usage?.total_tokens || 0,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       {
         error: 'Failed to get AI response',

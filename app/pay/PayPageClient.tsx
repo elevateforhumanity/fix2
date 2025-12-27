@@ -1,3 +1,4 @@
+import React from 'react';
 // app/pay/PayPageClient.tsx
 'use client';
 

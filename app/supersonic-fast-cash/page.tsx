@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SafeHtml } from '@/lib/sanitize';
 import Link from 'next/link';
 import {
   CheckCircle,
@@ -405,11 +406,11 @@ export default function SupersonicFastCashPage() {
       {/* Schema Markup */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(taxServiceSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(taxServiceSchema)) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(faqSchema)) }}
       />
       <script
         type="application/ld+json"

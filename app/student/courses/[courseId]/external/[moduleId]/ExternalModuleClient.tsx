@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 // app/student/courses/[courseId]/external/[moduleId]/ExternalModuleClient.tsx

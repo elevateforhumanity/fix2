@@ -5,7 +5,7 @@ import { getMyPartnerContext } from '@/lib/partner/access';
 export default async function PartnerStudentsPage() {
   const supabase = await createClient();
   const ctx = await getMyPartnerContext();
-  const shopIds = (ctx?.shops ?? []).map((s: any) => s.shop_id);
+  const shopIds = (data: unknown) => s.shop_id);
 
   const { data: placements } = await supabase
     .from('apprentice_placements')
@@ -37,7 +37,7 @@ export default async function PartnerStudentsPage() {
             </tr>
           </thead>
           <tbody>
-            {(placements ?? []).map((p: any) => (
+            {(data: unknown) => (
               <tr key={p.id} className="border-b">
                 <td className="py-2">{p.program_slug}</td>
                 <td className="py-2">{p.student_id}</td>

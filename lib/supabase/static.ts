@@ -17,14 +17,14 @@ export function createStaticClient() {
         select: () => ({
           eq: () => ({
             order: () => ({
-              then: (resolve: any) => resolve({ data: [], error: null }),
+              then: (data: unknown) => resolve({ data: [], error: null }),
             }),
             single: () => ({
-              then: (resolve: any) => resolve({ data: null, error: null }),
+              then: (data: unknown) => resolve({ data: null, error: null }),
             }),
-            then: (resolve: any) => resolve({ data: [], error: null }),
+            then: (data: unknown) => resolve({ data: [], error: null }),
           }),
-          then: (resolve: any) => resolve({ data: [], error: null }),
+          then: (data: unknown) => resolve({ data: [], error: null }),
         }),
       }),
     } as any;

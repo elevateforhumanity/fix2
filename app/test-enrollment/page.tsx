@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 export const dynamic = 'force-dynamic';
@@ -35,7 +36,7 @@ export default function TestEnrollmentPage() {
 
       const data = await response.json();
       setResult(data);
-    } catch (error: any) {
+    } catch (data: unknown) {
       setResult({ error: error.message });
     } finally {
       setLoading(false);

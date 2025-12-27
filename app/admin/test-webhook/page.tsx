@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -29,7 +30,7 @@ export default function TestWebhookPage() {
 
       const data = await response.json();
       setResult(data);
-    } catch (error: any) {
+    } catch (data: unknown) {
       setResult({ error: error.message });
     } finally {
       setLoading(false);

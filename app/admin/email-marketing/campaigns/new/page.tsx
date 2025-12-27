@@ -1,4 +1,6 @@
+import React from 'react';
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';

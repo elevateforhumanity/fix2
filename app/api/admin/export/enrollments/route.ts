@@ -68,7 +68,7 @@ export const GET = withAuth(
           'created_at',
         ];
 
-        const rows = enrollments.map((e: any) => [
+        const rows = enrollments.map(data: unknown) => [
           e.id,
           e.programs?.title || '',
           e.programs?.slug || '',

@@ -1,4 +1,5 @@
 export default function StructuredData() {
+import { SafeHtml } from '@/lib/sanitize';
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': ['EducationalOrganization', 'LocalBusiness', 'Organization'],
@@ -190,7 +191,7 @@ export default function StructuredData() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(organizationSchema)) }}
       />
       <script
         type="application/ld+json"
@@ -200,11 +201,11 @@ export default function StructuredData() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(websiteSchema)) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(breadcrumbSchema)) }}
       />
     </>
   );

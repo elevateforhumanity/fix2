@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 export const dynamic = 'force-dynamic';
@@ -63,7 +64,7 @@ export default async function ShopApplyPage() {
       setTimeout(() => {
         router.push('/shop/onboarding');
       }, 2000);
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Failed to submit application');
     } finally {
       setLoading(false);

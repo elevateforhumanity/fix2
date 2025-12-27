@@ -19,7 +19,7 @@ export async function addToList(
       merge_fields: mergeFields,
     });
     return { success: true, data: response };
-  } catch (error: any) {
+  } catch (data: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -41,7 +41,7 @@ export async function updateMember(
       updates
     );
     return { success: true, data: response };
-  } catch (error: any) {
+  } catch (data: unknown) {
     return { success: false, error: error.message };
   }
 }

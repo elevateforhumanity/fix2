@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -63,7 +64,7 @@ export default function IdentityVerificationFlow({
 
       // Redirect to Stripe Identity
       window.location.href = url;
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Failed to start verification');
       setLoading(false);
     }
@@ -138,7 +139,7 @@ export default function IdentityVerificationFlow({
 
       router.push('/program-holder/verification-pending');
       router.refresh();
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Failed to upload documents');
       setLoading(false);
     }

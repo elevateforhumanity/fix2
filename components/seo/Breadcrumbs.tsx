@@ -1,4 +1,5 @@
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -52,7 +53,7 @@ export function Breadcrumbs() {
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(structuredData)) }}
       />
 
       {/* Visual Breadcrumbs */}

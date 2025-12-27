@@ -23,7 +23,7 @@ export async function PATCH(req: Request, { params }: { params: Params }) {
     }
 
     return NextResponse.json({ success: true, onboarding: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

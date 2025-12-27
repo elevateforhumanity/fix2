@@ -60,7 +60,7 @@ export async function POST(req: Request) {
       tenant,
       license,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -79,7 +79,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ tenants: data || [] });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

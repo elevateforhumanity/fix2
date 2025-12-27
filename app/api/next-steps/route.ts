@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
-function computeProgress(row: any) {
+function computeProgress(data: unknown) {
   const checks = [
     !!row.program_code,
     !!row.inquiry_submitted,

@@ -1,4 +1,6 @@
+import React from 'react';
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
@@ -356,7 +358,7 @@ export default function PageManager() {
                   <div
                     className="p-6 overflow-auto"
                     style={{ maxHeight: '600px' }}
-                    dangerouslySetInnerHTML={{ __html: selectedPage.html }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(selectedPage.html) }}
                   />
                 </div>
               )}

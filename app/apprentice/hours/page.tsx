@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
@@ -58,7 +59,7 @@ export default function ApprenticeHoursPage() {
       if (!res.ok) throw new Error(await res.text());
       const json = await res.json();
       setEntries(json.entries ?? json.data ?? []);
-    } catch (e: any) {
+    } catch (data: unknown) {
       setError(e?.message ?? 'Failed to load entries');
     } finally {
       setLoading(false);
@@ -105,7 +106,7 @@ export default function ApprenticeHoursPage() {
       setMiladyRef('');
       setActivityNote('');
       await refresh();
-    } catch (e: any) {
+    } catch (data: unknown) {
       setError(e?.message ?? 'Failed to submit');
     } finally {
       setSaving(false);

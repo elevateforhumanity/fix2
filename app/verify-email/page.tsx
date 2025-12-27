@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -43,7 +44,7 @@ export default function VerifyEmailPage() {
       if (error) throw error;
 
       setResent(true);
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Failed to resend verification email');
     } finally {
       setResending(false);

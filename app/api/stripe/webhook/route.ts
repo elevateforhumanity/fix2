@@ -79,7 +79,7 @@ export async function POST(req: Request) {
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
-  } catch (err: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: err.message }, { status: 400 });
   }
 
@@ -414,7 +414,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
+  } catch (data: unknown) {
     // Error: $1
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

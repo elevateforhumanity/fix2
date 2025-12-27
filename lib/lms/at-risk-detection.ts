@@ -52,7 +52,7 @@ export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
     return [];
   }
 
-  return data.map((risk: any) => {
+  return data.map(data: unknown) => {
     const enrollment = risk.enrollments;
     const student = enrollment?.profiles;
     const funding = enrollment?.student_funding_assignments?.[0]?.funding_sources;
@@ -111,7 +111,7 @@ export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
     return [];
   }
 
-  return data.map((risk: any) => {
+  return data.map(data: unknown) => {
     const enrollment = risk.enrollments;
     const student = enrollment?.profiles;
     const funding = enrollment?.student_funding_assignments?.[0]?.funding_sources;
@@ -167,7 +167,7 @@ export async function getInactiveStudents(daysSinceActivity: number = 14): Promi
     return [];
   }
 
-  return data.map((risk: any) => {
+  return data.map(data: unknown) => {
     const enrollment = risk.enrollments;
     const student = enrollment?.profiles;
     
@@ -210,12 +210,12 @@ export async function getLowCompletionPrograms(threshold: number = 70): Promise<
     return [];
   }
 
-  const programStats = programs.map((program: any) => {
+  const programStats = programs.map(data: unknown) => {
     const enrollments = program.enrollments || [];
     const total = enrollments.length;
-    const completed = enrollments.filter((e: any) => e.status === 'completed').length;
-    const dropped = enrollments.filter((e: any) => e.status === 'dropped').length;
-    const active = enrollments.filter((e: any) => e.status === 'active').length;
+    const completed = enrollments.filter(data: unknown) => e.status === 'completed').length;
+    const dropped = enrollments.filter(data: unknown) => e.status === 'dropped').length;
+    const active = enrollments.filter(data: unknown) => e.status === 'active').length;
     
     const completionRate = total > 0 ? Math.round((completed / total) * 100) : 0;
     const dropoutRate = total > 0 ? Math.round((dropped / total) * 100) : 0;
@@ -266,17 +266,17 @@ export async function getFundingSourceMetrics(): Promise<any[]> {
     return [];
   }
 
-  return fundingSources.map((source: any) => {
+  return fundingSources.map(data: unknown) => {
     const assignments = source.student_funding_assignments || [];
-    const enrollments = assignments.map((a: any) => a.enrollments).filter(Boolean);
+    const enrollments = assignments.map(data: unknown) => a.enrollments).filter(Boolean);
     
     const total = enrollments.length;
-    const active = enrollments.filter((e: any) => e.status === 'active').length;
-    const completed = enrollments.filter((e: any) => e.status === 'completed').length;
-    const atRisk = enrollments.filter((e: any) => 
+    const active = enrollments.filter(data: unknown) => e.status === 'active').length;
+    const completed = enrollments.filter(data: unknown) => e.status === 'completed').length;
+    const atRisk = enrollments.filter(data: unknown) => 
       e.student_risk_status?.[0]?.status === 'at_risk'
     ).length;
-    const onTrack = enrollments.filter((e: any) => 
+    const onTrack = enrollments.filter(data: unknown) => 
       e.student_risk_status?.[0]?.status === 'on_track'
     ).length;
     
@@ -324,7 +324,7 @@ export async function getStudentsWithMissingCriticalRequirements(): Promise<any[
   }
 
   // Group by enrollment
-  const grouped = data.reduce((acc: any, req: any) => {
+  const grouped = data.reduce(data: unknown) => {
     const enrollmentId = req.enrollment_id;
     if (!acc[enrollmentId]) {
       acc[enrollmentId] = {

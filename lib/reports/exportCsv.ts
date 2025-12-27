@@ -9,7 +9,7 @@ export function toCsv(rows: unknown[]): string {
 
   const headers = Object.keys(rows[0]);
 
-  const escapeCsvValue = (value: any): string => {
+  const escapeCsvValue = (data: unknown): string => {
     if (value === null || value === undefined) {
       return '';
     }

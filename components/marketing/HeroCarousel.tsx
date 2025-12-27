@@ -1,3 +1,4 @@
+import React from 'react';
 // components/marketing/HeroCarousel.tsx
 "use client";
 

@@ -128,7 +128,7 @@ export async function POST(req: Request) {
       success: sent,
       message: sent ? 'Reminder sent' : 'Failed to send reminder',
     });
-  } catch (err: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: 'Failed to send reminder' },
       { status: 500 }

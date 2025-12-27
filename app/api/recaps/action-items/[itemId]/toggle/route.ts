@@ -70,7 +70,7 @@ export async function POST(
       { ok: true, completed_at: nextCompletedAt },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

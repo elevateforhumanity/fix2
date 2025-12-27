@@ -201,7 +201,7 @@ export async function POST(request: NextRequest) {
       url: session.url,
       sessionId: session.id,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     // Error: $1
     return NextResponse.json(
       {

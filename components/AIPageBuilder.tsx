@@ -1,4 +1,6 @@
+import React from 'react';
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
@@ -364,7 +366,7 @@ export default function AIPageBuilder() {
                 <div
                   className="border border-brand-border rounded-lg p-4 bg-brand-surface overflow-auto"
                   style={{ maxHeight: '600px' }}
-                  dangerouslySetInnerHTML={{ __html: generatedPage.html }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(generatedPage.html) }}
                 />
                 <div className="mt-4 text-xs text-brand-text-light">
                   Generated at:{' '}

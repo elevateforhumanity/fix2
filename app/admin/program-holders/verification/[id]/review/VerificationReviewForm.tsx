@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -104,7 +105,7 @@ export default function VerificationReviewForm({
 
       router.push('/admin/program-holders/verification');
       router.refresh();
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Failed to process verification');
       setLoading(false);
     }

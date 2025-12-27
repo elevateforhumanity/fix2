@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     }
 
     // Upsert opportunities to database
-    const records = opportunities.map((opp: any) => ({
+    const records = opportunities.map(data: unknown) => ({
       sam_id: opp.noticeId || opp.opportunityId || opp.id,
       notice_id: opp.noticeId,
       title: opp.title,
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
         deadline: r.response_deadline,
       })),
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('SAM.gov sync failed:', error);
     return NextResponse.json(
       {

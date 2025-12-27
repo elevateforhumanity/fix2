@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -87,7 +88,7 @@ export default function AffirmButton({ programId, programName, price, fullWidth 
         throw new Error('Affirm checkout not available. Please refresh and try again.');
       }
 
-    } catch (err: any) {
+    } catch (data: unknown) {
       // Error: $1
       setError(err.message || 'Failed to initialize Affirm. Please try again.');
     } finally {

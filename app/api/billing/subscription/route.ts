@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
       subscription,
       license_status: licenseStatus,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to fetch subscription' },
       { status: 500 }

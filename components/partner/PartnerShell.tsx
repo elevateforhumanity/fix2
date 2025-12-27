@@ -1,6 +1,6 @@
 import PartnerNav from './PartnerNav';
 
-export default function PartnerShell({ ctx, children }: any) {
+export default function PartnerShell(data: unknown) {
   const shops = ctx?.shops ?? [];
   const isAdmin = ['admin', 'super_admin', 'org_admin'].includes(
     ctx?.profileRole ?? ''

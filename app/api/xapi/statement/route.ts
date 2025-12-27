@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     // xAPI statement can be single or array; normalize
     const statements = Array.isArray(body) ? body : [body];
 
-    const records = statements.map((st: any) => {
+    const records = statements.map(data: unknown) => {
       const verbId = st?.verb?.id || null;
       const objectId = st?.object?.id || null;
       const objectType = st?.object?.objectType || 'Activity';

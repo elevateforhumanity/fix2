@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState, Suspense } from 'react';
@@ -61,7 +62,7 @@ function LoginForm() {
       } else {
         router.push('/lms/dashboard');
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Invalid email or password');
     } finally {
       setLoading(false);

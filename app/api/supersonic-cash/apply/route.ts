@@ -163,7 +163,7 @@ function shouldAutoApprove(
   return incomeRatio >= 3 || requestedAmount <= 1000;
 }
 
-async function sendToEOSFinancial(application: any) {
+async function sendToEOSFinancial(data: unknown) {
   // Integration with EOS Financial API
   // This would be configured with actual EOS Financial credentials
   try {
@@ -207,7 +207,7 @@ async function sendToEOSFinancial(application: any) {
   }
 }
 
-async function sendApprovalEmail(email: string, application: any) {
+async function sendApprovalEmail(data: unknown) {
   // Send approval email via Resend
   try {
     const response = await fetch(

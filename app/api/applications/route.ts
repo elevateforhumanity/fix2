@@ -190,7 +190,7 @@ export async function POST(req: Request) {
       },
       { status: 200 }
     );
-  } catch (err: any) {
+  } catch (data: unknown) {
     console.error('Application submission error:', err);
     return NextResponse.json(
       {

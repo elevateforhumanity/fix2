@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -84,7 +85,7 @@ export default function ReportsDashboard({
   // Process program popularity
   const programPopularityData: Array<{ name: string; enrollments: number }> =
     programStats.reduce(
-      (acc: Array<{ name: string; enrollments: number }>, item: any) => {
+      (data: unknown) => {
         const courseTitle = item.courses?.title || 'Unknown';
         const existing = acc.find((p) => p.name === courseTitle);
         if (existing) {

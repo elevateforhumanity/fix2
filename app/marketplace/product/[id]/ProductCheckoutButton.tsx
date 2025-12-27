@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -41,7 +42,7 @@ export default function ProductCheckoutButton({
 
       const { url } = await res.json();
       window.location.href = url;
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message);
       setLoading(false);
     }

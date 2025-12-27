@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -102,7 +103,7 @@ export default function PayrollSetupForm({
       setTimeout(() => {
         router.push('/onboarding/start');
       }, 2000);
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message);
     } finally {
       setIsSubmitting(false);

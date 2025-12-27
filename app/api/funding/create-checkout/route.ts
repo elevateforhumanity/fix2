@@ -130,7 +130,7 @@ export async function POST(req: Request) {
       url: session.url,
       sessionId: session.id,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('Funding checkout creation error', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },

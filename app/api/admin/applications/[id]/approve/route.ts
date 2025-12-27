@@ -64,7 +64,7 @@ export async function POST(
     }
 
     let user = listUsers?.users?.find(
-      (u: any) => u.email?.toLowerCase() === email
+      (data: unknown) => u.email?.toLowerCase() === email
     );
 
     // 3) If no user, create one with a temp password

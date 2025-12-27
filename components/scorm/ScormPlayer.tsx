@@ -1,3 +1,4 @@
+import React from 'react';
 // components/scorm/ScormPlayer.tsx
 'use client';
 

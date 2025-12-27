@@ -245,9 +245,9 @@ export function shouldBlockIP(ip: string, maxFailures: number = 10, timeWindowMs
  * Middleware to add monitoring to API routes
  */
 export function withMonitoring(
-  handler: (req: Request, context?: any) => Promise<NextResponse>
+  handler: (data: unknown) => Promise<NextResponse>
 ) {
-  return async (req: Request, context?: any): Promise<NextResponse> => {
+  return async (data: unknown): Promise<NextResponse> => {
     const startTime = Date.now();
     const endpoint = new URL(req.url).pathname;
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 

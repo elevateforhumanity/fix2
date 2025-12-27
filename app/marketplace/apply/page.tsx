@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 export const dynamic = 'force-dynamic';
@@ -43,7 +44,7 @@ export default function MarketplaceApplyPage() {
       }
 
       router.push('/marketplace/apply/success');
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message);
     } finally {
       setLoading(false);

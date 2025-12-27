@@ -37,7 +37,7 @@ export async function getMyPartnerContext() {
   return {
     user,
     profileRole: (profile?.role ?? null) as string | null,
-    shops: (shops ?? []).map((s: any) => ({
+    shops: (data: unknown) => ({
       shop_id: s.shop_id,
       staff_role: s.role as PartnerRole,
       shop: s.shops,

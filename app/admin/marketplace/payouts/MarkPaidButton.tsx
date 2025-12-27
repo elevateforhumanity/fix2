@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -35,7 +36,7 @@ export default function MarkPaidButton({
 
       alert('Payout marked as paid successfully!');
       router.refresh();
-    } catch (error: any) {
+    } catch (data: unknown) {
       alert(`Error: ${error.message}`);
     } finally {
       setLoading(false);

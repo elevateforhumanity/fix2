@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -41,7 +42,7 @@ export default function SurveyModal({
   const isFirstQuestion = currentQuestionIndex === 0;
   const progress = ((currentQuestionIndex + 1) / survey.questions.length) * 100;
 
-  const handleAnswer = (questionId: string, value: any) => {
+  const handleAnswer = (data: unknown) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
   };
 

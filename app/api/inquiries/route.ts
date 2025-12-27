@@ -168,7 +168,7 @@ export async function POST(req: Request) {
       },
       { status: 200 }
     );
-  } catch (err: any) {
+  } catch (data: unknown) {
     console.error('Inquiry submission error:', err);
     return NextResponse.json(
       { error: 'Unexpected error processing inquiry' },

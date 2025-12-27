@@ -1,3 +1,4 @@
+import React from 'react';
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX, X, Play } from 'lucide-react';

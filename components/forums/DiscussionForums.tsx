@@ -134,7 +134,7 @@ export default function DiscussionForums() {
           }))
         );
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       console.error('Error loading categories:', err);
       setError('Failed to load forum categories. Please try again.');
     } finally {
@@ -165,7 +165,7 @@ export default function DiscussionForums() {
           }))
         );
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       console.error('Error loading threads:', err);
       setError('Failed to load forum threads. Please try again.');
     } finally {
@@ -192,7 +192,7 @@ export default function DiscussionForums() {
           }))
         );
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       console.error('Error loading posts:', err);
       setError('Failed to load posts. Please try again.');
     }
@@ -230,7 +230,7 @@ export default function DiscussionForums() {
         setTimeout(() => setSuccessMessage(null), 3000);
         loadThreads(selectedCategory.id);
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       console.error('Error creating thread:', err);
       setError('Failed to create thread. Please try again.');
     }
@@ -259,7 +259,7 @@ export default function DiscussionForums() {
         setTimeout(() => setSuccessMessage(null), 3000);
         loadPosts(selectedThread.id);
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       console.error('Error creating post:', err);
       setError('Failed to post reply. Please try again.');
     }

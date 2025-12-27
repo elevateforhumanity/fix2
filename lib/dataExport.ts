@@ -9,7 +9,7 @@ import autoTable from 'jspdf-autotable';
 export interface ExportColumn {
   key: string;
   label: string;
-  format?: (value: any) => string;
+  format?: (data: unknown) => string;
 }
 
 export interface ExportOptions {
@@ -56,7 +56,7 @@ export function convertToCSV(
 /**
  * Escape CSV values
  */
-function escapeCSVValue(value: any): string {
+function escapeCSVValue(data: unknown): string {
   if (value === null || value === undefined) return '';
 
   const str = String(value);

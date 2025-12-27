@@ -21,7 +21,7 @@ export function buildCourseMetadataPath(courseSlug: string): string {
   return `courses/${courseSlug}/metadata.json`;
 }
 
-export function validateCourseStructure(course: any): { ok: boolean; errors: string[] } {
+export function validateCourseStructure(data: unknown): { ok: boolean; errors: string[] } {
   const errors: string[] = [];
 
   if (!course.title) errors.push("Missing course title");

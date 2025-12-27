@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useEffect } from 'react';
@@ -156,7 +157,7 @@ export function SecurityMonitor() {
 /**
  * Log security events
  */
-function logSecurityEvent(eventType: string, data: any) {
+function logSecurityEvent(data: unknown) {
   const event = {
     type: eventType,
     timestamp: new Date().toISOString(),

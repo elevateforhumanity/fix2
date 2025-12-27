@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -35,7 +36,7 @@ export default function RoleSelectionCards({
       }
 
       router.push('/partners/onboarding');
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message);
       setIsSubmitting(false);
     }

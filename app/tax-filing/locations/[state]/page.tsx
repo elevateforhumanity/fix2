@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SafeHtml } from '@/lib/sanitize';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -88,7 +89,7 @@ export default function StatePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(structuredData)) }}
       />
 
       <div className="min-h-screen bg-gray-50">
@@ -207,7 +208,7 @@ export default function StatePage() {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {state.cities.map((city: any) => (
+              {state.cities.map(data: unknown) => (
                 <div
                   key={city.name}
                   className="bg-white rounded-lg shadow-lg p-6 border-2 border-gray-100 hover:border-blue-500 transition-all"

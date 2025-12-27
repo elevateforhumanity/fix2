@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -35,7 +36,7 @@ export default function TestEmailsPage() {
         success: true,
         message: data.message,
       });
-    } catch (err: any) {
+    } catch (data: unknown) {
       setResult({
         success: false,
         message: err.message || 'Failed to send test email',

@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ accountId: account.id, billing: data });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

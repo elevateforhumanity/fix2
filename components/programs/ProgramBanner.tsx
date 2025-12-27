@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import Link from 'next/link';
@@ -76,7 +77,7 @@ function WorkOneChecklist() {
 
   if (!state) return null;
 
-  function save(next: any) {
+  function save(data: unknown) {
     setState(next);
     localStorage.setItem(key, JSON.stringify(next));
   }

@@ -1,3 +1,4 @@
+import React from 'react';
 // components/support/IntercomWidget.tsx
 "use client";
 
@@ -31,7 +32,7 @@ export function IntercomWidget({
           i.c(args);
         } as any;
         i.q = [];
-        i.c = function (args: any) {
+        i.c = function (data: unknown) {
           i.q.push(args);
         };
         w.Intercom = i;

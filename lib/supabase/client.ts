@@ -21,18 +21,18 @@ export function createClient() {
           select: () => ({
             eq: () => ({
               single: () => ({ data: null, error: null }),
-              then: (resolve: any) => resolve({ data: [], error: null }),
+              then: (data: unknown) => resolve({ data: [], error: null }),
             }),
-            then: (resolve: any) => resolve({ data: [], error: null }),
+            then: (data: unknown) => resolve({ data: [], error: null }),
           }),
           insert: () => ({
-            then: (resolve: any) => resolve({ data: null, error: null }),
+            then: (data: unknown) => resolve({ data: null, error: null }),
           }),
           update: () => ({
-            then: (resolve: any) => resolve({ data: null, error: null }),
+            then: (data: unknown) => resolve({ data: null, error: null }),
           }),
           delete: () => ({
-            then: (resolve: any) => resolve({ data: null, error: null }),
+            then: (data: unknown) => resolve({ data: null, error: null }),
           }),
         }),
       } as any;

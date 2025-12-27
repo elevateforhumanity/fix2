@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       no_activity: result.no_activity,
       timestamp: new Date().toISOString(),
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       {
         ok: false,
@@ -125,7 +125,7 @@ async function createAlertsFromVerdicts(
     }
 
     // Create alerts
-    const alerts = verdicts.map((v: any) => {
+    const alerts = verdicts.map(data: unknown) => {
       const enrollment = v.enrollments;
       const studentName = enrollment.profiles?.full_name || 'Student';
 

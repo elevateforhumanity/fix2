@@ -1,4 +1,5 @@
 'use client';
+import { SafeHtml } from '@/lib/sanitize';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -38,7 +39,7 @@ export function Breadcrumbs() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(breadcrumbSchema)) }}
       />
       <nav aria-label="Breadcrumb" className="bg-slate-50 border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-4 py-2">

@@ -120,7 +120,7 @@ export async function GET(
         name: product.name,
       },
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: 'Failed to process download' },
       { status: 500 }

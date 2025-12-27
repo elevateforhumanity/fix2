@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useEffect, Suspense } from 'react';
@@ -57,7 +58,7 @@ function SelfHostedAnalyticsContent() {
     }
   };
 
-  const sendToAnalytics = async (metric: any) => {
+  const sendToAnalytics = async (data: unknown) => {
     try {
       const data = {
         event: 'web-vital',

@@ -26,7 +26,7 @@ export async function GET(req: Request) {
       success: true,
       results,
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: 'Automation failed', message: error.message },
       { status: 500 }

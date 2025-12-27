@@ -123,7 +123,7 @@ ${transcript}
       const { error: itemsErr } = await adminClient
         .from('meeting_action_items')
         .insert(
-          items.map((it: any) => ({
+          items.map(data: unknown) => ({
             recap_id: recap.id,
             label: String(it.label || '').slice(0, 500),
             due_date: it.due_date ? String(it.due_date) : null,
@@ -135,7 +135,7 @@ ${transcript}
     }
 
     return NextResponse.json({ recap_id: recap.id }, { status: 200 });
-  } catch (error: any) {
+  } catch (data: unknown) {
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

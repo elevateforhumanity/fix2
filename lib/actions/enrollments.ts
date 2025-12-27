@@ -480,15 +480,15 @@ export async function getEnrollmentDetails(enrollment_id: string) {
       (t: Record<string, unknown>) => t.status === 'approved'
     );
     const totalTransferredTheory = approvedTransfers.reduce(
-      (sum: number, t: any) => sum + (t.hours_theory_accepted || 0),
+      (data: unknown) => sum + (t.hours_theory_accepted || 0),
       0
     );
     const totalTransferredPractical = approvedTransfers.reduce(
-      (sum: number, t: any) => sum + (t.hours_practical_accepted || 0),
+      (data: unknown) => sum + (t.hours_practical_accepted || 0),
       0
     );
     const totalTransferredOther = approvedTransfers.reduce(
-      (sum: number, t: any) => sum + (t.hours_other_accepted || 0),
+      (data: unknown) => sum + (t.hours_other_accepted || 0),
       0
     );
     return {

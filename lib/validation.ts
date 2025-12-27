@@ -33,7 +33,7 @@ export async function verifyCertificateEligibility(enrollmentId: string) {
     return { eligible: false, reason: 'Program not completed' };
   }
 
-  const completedLessons = enrollment.progress?.filter((p: any) => p.completed_at).length || 0;
+  const completedLessons = enrollment.progress?.filter(data: unknown) => p.completed_at).length || 0;
   const requiredLessons = enrollment.program?.required_lessons || 0;
   const completionPercentage = requiredLessons > 0 ? (completedLessons / requiredLessons) * 100 : 0;
 
@@ -45,7 +45,7 @@ export async function verifyCertificateEligibility(enrollmentId: string) {
 }
 
 export const validators = {
-  required: (value: any) => {
+  required: (data: unknown) => {
     if (!value || (typeof value === 'string' && !value.trim())) {
       return 'This field is required';
     }
@@ -126,7 +126,7 @@ export const validators = {
 
 export function validateForm(
   values: Record<string, any>,
-  rules: Record<string, Array<(value: any) => string | null>>
+  rules: Record<string, Array<(data: unknown) => string | null>>
 ): Record<string, string> {
   const errors: Record<string, string> = {};
 

@@ -1,3 +1,4 @@
+import React from 'react';
 "use client";
 
 import { useState } from "react";
@@ -37,7 +38,7 @@ export function InteractiveQuiz({
   const question = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
 
-  const handleAnswer = (answer: any) => {
+  const handleAnswer = (data: unknown) => {
     setAnswers({ ...answers, [question.id]: answer });
   };
 

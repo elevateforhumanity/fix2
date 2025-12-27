@@ -116,7 +116,7 @@ export async function GET() {
 
   // Overall Status
   const allPassed = Object.values(checks.checks).every(
-    (check: any) => check.status === 'pass'
+    (data: unknown) => check.status === 'pass'
   );
   checks.status = allPassed ? 'healthy' : 'degraded';
   checks.overall = allPassed ? 'pass' : 'fail';

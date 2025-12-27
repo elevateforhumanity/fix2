@@ -381,7 +381,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
       });
     }
 
-  } catch (error: any) {
+  } catch (data: unknown) {
     results.push({
       step: 'Test Execution',
       status: 'failed',

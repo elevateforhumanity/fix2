@@ -73,7 +73,7 @@ export function isDomainAuthorized(hostname: string): boolean {
 /**
  * Log license warning (for EFH monitoring)
  */
-export function logLicenseWarning(message: string, data?: any) {
+export function logLicenseWarning(data: unknown) {
   const license = getLicense();
   
   // In production, you could send this to an external logging service

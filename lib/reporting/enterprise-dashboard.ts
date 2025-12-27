@@ -529,7 +529,7 @@ export async function calculateEquityMetrics(): Promise<EquityMetrics> {
   // By barrier
   const barrierCounts: Record<string, any[]> = {};
   participants.forEach((p) => {
-    p.eligibility_barriers?.forEach((barrier: any) => {
+    p.eligibility_barriers?.forEach(data: unknown) => {
       if (!barrierCounts[barrier.type]) {
         barrierCounts[barrier.type] = [];
       }
@@ -665,14 +665,14 @@ function groupBy<T>(array: T[], key: keyof T): Record<string, T[]> {
 
 function calculateCompletionRate(participants: unknown[]): number {
   const completed = participants.filter((p) =>
-    p.enrollments?.some((e: any) => e.status === 'completed')
+    p.enrollments?.some(data: unknown) => e.status === 'completed')
   ).length;
   return participants.length > 0 ? (completed / participants.length) * 100 : 0;
 }
 
 function calculatePlacementRate(participants: unknown[]): number {
   const placed = participants.filter((p) =>
-    p.employment_outcomes?.some((o: any) => o.employed_at_exit)
+    p.employment_outcomes?.some(data: unknown) => o.employed_at_exit)
   ).length;
   return participants.length > 0 ? (placed / participants.length) * 100 : 0;
 }
@@ -680,7 +680,7 @@ function calculatePlacementRate(participants: unknown[]): number {
 function calculateAverageWage(participants: unknown[]): number {
   const wages = participants
     .flatMap((p) => p.employment_outcomes || [])
-    .map((o: any) => o.hourly_wage)
+    .map(data: unknown) => o.hourly_wage)
     .filter(Boolean);
   return wages.length > 0
     ? wages.reduce((sum: number, w: number) => sum + w, 0) / wages.length

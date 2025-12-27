@@ -96,7 +96,7 @@ export default async function MessagesPage() {
               {/* Conversation List */}
               <div className="divide-y max-h-[600px] overflow-y-auto">
                 {conversations && conversations.length > 0 ? (
-                  conversations.map((conversation: any) => {
+                  conversations.map(data: unknown) => {
                     const lastMessage = conversation.messages?.[0];
                     const otherParticipant =
                       conversation.participant1_id === user.id

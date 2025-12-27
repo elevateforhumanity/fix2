@@ -407,7 +407,7 @@ export async function getWebhookStats(webhookId: string): Promise<{
 /**
  * Trigger user created webhook
  */
-export async function triggerUserCreated(userId: string, userData: any): Promise<void> {
+export async function triggerUserCreated(data: unknown): Promise<void> {
   await triggerWebhook('user.created', {
     user_id: userId,
     ...userData,

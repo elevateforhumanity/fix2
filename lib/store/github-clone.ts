@@ -54,7 +54,7 @@ export async function cloneRepoForCustomer({
         repoUrl: data.html_url,
         cloneUrl: data.clone_url,
       };
-    } catch (forkError: any) {
+    } catch (data: unknown) {
       return {
         success: false,
         error: forkError.message,

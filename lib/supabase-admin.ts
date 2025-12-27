@@ -47,7 +47,7 @@ export async function getUserByEmail(email: string) {
     throw listError;
   }
 
-  const user = listData.users.find((u: any) => u.email === email);
+  const user = listData.users.find(data: unknown) => u.email === email);
   return user || null;
 }
 

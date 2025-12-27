@@ -1,3 +1,4 @@
+import React from 'react';
 // lib/hooks/useAuth.ts - Client-side authentication hook
 "use client";
 

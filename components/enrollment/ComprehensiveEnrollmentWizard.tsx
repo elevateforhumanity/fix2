@@ -1,3 +1,4 @@
+import React from 'react';
 import { memo } from 'react';
 'use client';
 
@@ -229,11 +230,11 @@ export default function ComprehensiveEnrollmentWizard({
     }
   };
 
-  const updateField = (field: string, value: any) => {
+  const updateField = (data: unknown) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const updateNestedField = (parent: string, field: string, value: any) => {
+  const updateNestedField = (data: unknown) => {
     setFormData(prev => ({
       ...prev,
       [parent]: { ...(prev as any)[parent], [field]: value }

@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 // Image asset: /images/hero-new/hero-9.jpg
 

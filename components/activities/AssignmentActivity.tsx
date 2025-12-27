@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -14,7 +15,7 @@ interface AssignmentActivityProps {
   allowedFileTypes?: string[];
   maxFileSizeMB?: number;
   allowLateSubmission?: boolean;
-  onSubmit?: (submission: any) => void;
+  onSubmit?: (data: unknown) => void;
 }
 
 export function AssignmentActivity({

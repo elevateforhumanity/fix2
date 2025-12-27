@@ -112,7 +112,7 @@ export default async function AITutorPage() {
               {/* AI Instructors */}
               {aiInstructors && aiInstructors.length > 0 ? (
                 <div className="space-y-6">
-                  {aiInstructors.map((instructor: any) => {
+                  {aiInstructors.map(data: unknown) => {
                     const enrollment = enrollments?.find(
                       (e) => e.program_id === instructor.program_id
                     );
@@ -328,7 +328,7 @@ export default async function AITutorPage() {
                     Recent Interactions
                   </h2>
                   <div className="space-y-3">
-                    {recentInteractions.map((interaction: any) => (
+                    {recentInteractions.map(data: unknown) => (
                       <div
                         key={interaction.id}
                         className="p-3 bg-gray-50 rounded"

@@ -402,7 +402,7 @@ export default async function NotificationsPage() {
                 <h2 className="font-semibold text-gray-900">Today</h2>
               </div>
               <div className="divide-y">
-                {todayNotifications.map((notification: any) => (
+                {todayNotifications.map(data: unknown) => (
                   <NotificationItem
                     key={notification.id}
                     notification={notification}
@@ -419,7 +419,7 @@ export default async function NotificationsPage() {
                 <h2 className="font-semibold text-gray-900">Earlier</h2>
               </div>
               <div className="divide-y">
-                {earlierNotifications.map((notification: any) => (
+                {earlierNotifications.map(data: unknown) => (
                   <NotificationItem
                     key={notification.id}
                     notification={notification}

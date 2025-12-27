@@ -209,7 +209,7 @@ class OfflineDB {
   }
 
   // Course Progress (for offline learning)
-  async saveCourseProgress(courseId: string, lessonId: string, progress: any): Promise<void> {
+  async saveCourseProgress(data: unknown): Promise<void> {
     if (!this.db) await this.init();
 
     const progressData = {
@@ -240,7 +240,7 @@ class OfflineDB {
 
       request.onerror = () => reject(request.error);
       request.onsuccess = () => {
-        const results = request.result.filter((item: any) => !item.synced);
+        const results = request.result.filter(data: unknown) => !item.synced);
         resolve(results);
       };
     });

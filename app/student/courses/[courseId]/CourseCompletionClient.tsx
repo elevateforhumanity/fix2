@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import Link from 'next/link';
@@ -73,7 +74,7 @@ export default function CourseCompletionClient({
       if (!res.ok) {
         if (data.pending_modules && data.pending_modules.length > 0) {
           const pendingList = data.pending_modules
-            .map((m: any) => `• ${m.title} (${m.partner_name}) - ${m.status}`)
+            .map(data: unknown) => `• ${m.title} (${m.partner_name}) - ${m.status}`)
             .join('\n');
           setMessage(`${data.error}\n\nPending modules:\n${pendingList}`);
         } else {

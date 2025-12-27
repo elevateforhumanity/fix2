@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -18,7 +19,7 @@ interface AffirmCheckoutProps {
 declare global {
   interface Window {
     affirm: {
-      checkout: (config: any) => void;
+      checkout: (data: unknown) => void;
       checkout_open: () => void;
       ui: {
         ready: (callback: () => void) => void;

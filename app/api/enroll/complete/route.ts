@@ -241,7 +241,7 @@ export async function POST(req: Request) {
       enrollmentId,
       message: 'Enrollment completed successfully',
     });
-  } catch (error: any) {
+  } catch (data: unknown) {
     logger.error('Enrollment completion error', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },

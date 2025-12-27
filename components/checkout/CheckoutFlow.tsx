@@ -1,3 +1,4 @@
+import React from 'react';
 'use client';
 
 import { useState } from 'react';
@@ -80,7 +81,7 @@ function CheckoutForm({ courseId, courseName, price, userId, onSuccess }: Checko
         setStep(3);
         onSuccess(enrollmentId);
       }
-    } catch (err: any) {
+    } catch (data: unknown) {
       setError(err.message || 'Payment failed. Please try again.');
     } finally {
       setLoading(false);
