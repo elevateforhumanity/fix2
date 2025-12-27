@@ -86,9 +86,9 @@ export default function BarberApprenticeshipPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/apply"
-              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-600 text-white font-bold rounded-lg transition-all text-center"
+              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold rounded-lg transition-all text-center"
             >
-              Apply Now
+              Apply for Free Training
             </Link>
             <Link
               href="/contact"
@@ -96,6 +96,24 @@ export default function BarberApprenticeshipPage() {
             >
               Talk to an Advisor
             </Link>
+          </div>
+
+          {/* Payment Options for Self-Pay */}
+          <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-200 rounded-lg max-w-2xl">
+            <p className="text-slate-700 mb-4">
+              <strong>Don't qualify for funding?</strong> You can still enroll and pay with flexible payment options:
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/pay"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all text-center"
+              >
+                View Payment Options
+              </Link>
+              <span className="text-sm text-slate-600 self-center">
+                Pay with Stripe or finance with Affirm
+              </span>
+            </div>
           </div>
         </div>
       </section>
