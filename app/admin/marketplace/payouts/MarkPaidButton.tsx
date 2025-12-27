@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -38,7 +38,7 @@ export default function MarkPaidButton({
       alert('Payout marked as paid successfully!');
       router.refresh();
     } catch (err: unknown) {
-      alert(`Error: ${error.message}`);
+      alert(`Error: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
       setLoading(false);
     }
