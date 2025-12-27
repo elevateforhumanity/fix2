@@ -253,8 +253,8 @@ function DocumentStep({
       }
 
       onComplete();
-    } catch (data: unknown) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
     } finally {
       setIsSubmitting(false);
     }

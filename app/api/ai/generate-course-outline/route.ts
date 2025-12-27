@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const outline = await generateCourseOutline(prompt);
 
     return NextResponse.json(outline);
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate course outline' },
       { status: 500 }

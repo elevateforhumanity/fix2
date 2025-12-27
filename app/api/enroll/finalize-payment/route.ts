@@ -307,7 +307,7 @@ export async function POST(req: Request) {
       paymentMode: paymentMode,
       amountCents: amountCents,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     logger.error('Payment finalization error:', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },

@@ -55,10 +55,10 @@ export async function POST(req: Request) {
       message: 'Insert test successful (record deleted)',
       insertedId: data.id,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({
       success: false,
-      error: err.message,
+      error: (err as Error).message,
       stack: err.stack,
     });
   }

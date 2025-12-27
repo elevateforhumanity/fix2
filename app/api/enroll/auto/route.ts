@@ -277,7 +277,7 @@ export async function POST(req: Request) {
       redirectUrl: `${siteUrl}/enroll/success?enrolled=true`,
       message: 'Enrollment successful! Check your email to set your password.',
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     logger.error('Auto-enrollment error', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },

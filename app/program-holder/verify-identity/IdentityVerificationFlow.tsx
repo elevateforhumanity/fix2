@@ -65,8 +65,8 @@ export default function IdentityVerificationFlow({
 
       // Redirect to Stripe Identity
       window.location.href = url;
-    } catch (data: unknown) {
-      setError(err.message || 'Failed to start verification');
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to start verification');
       setLoading(false);
     }
   };
@@ -140,8 +140,8 @@ export default function IdentityVerificationFlow({
 
       router.push('/program-holder/verification-pending');
       router.refresh();
-    } catch (data: unknown) {
-      setError(err.message || 'Failed to upload documents');
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to upload documents');
       setLoading(false);
     }
   };

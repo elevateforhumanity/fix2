@@ -56,7 +56,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ students: students || [] });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to fetch students' },
       { status: 500 }

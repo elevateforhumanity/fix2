@@ -40,7 +40,7 @@ export async function GET(req: Request) {
     };
 
     return NextResponse.json(bundle);
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

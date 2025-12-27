@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
       .eq('user_id', userId);
 
     return NextResponse.json({ url: session.url });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to create verification session' },
       { status: 500 }

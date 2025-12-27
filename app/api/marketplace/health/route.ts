@@ -43,7 +43,7 @@ export async function GET() {
         stripe: 'configured',
       },
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       {
         ok: false,

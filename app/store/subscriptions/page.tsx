@@ -146,7 +146,7 @@ function SubscriptionsContent() {
       if (data.url) {
         window.location.href = data.url;
       }
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       console.error('Subscription error:', error);
       toast.error(error.message || 'Failed to start subscription');
       setSubscribing(null);
@@ -173,7 +173,7 @@ function SubscriptionsContent() {
       if (data.url) {
         window.location.href = data.url;
       }
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       console.error('Portal error:', error);
       toast.error(error.message || 'Failed to open billing portal');
     }

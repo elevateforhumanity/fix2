@@ -92,7 +92,7 @@ export async function GET() {
     );
 
     return NextResponse.json({ students: studentsWithData });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || "Failed to load students" },

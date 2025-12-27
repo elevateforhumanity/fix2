@@ -83,7 +83,7 @@ export async function GET() {
       },
       action: 'created',
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({
       error: toErrorMessage(error) || 'Internal server error',
     });

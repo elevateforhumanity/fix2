@@ -78,7 +78,7 @@ function SignupFormContent() {
         }, 2000);
       }
     } catch (err: unknown) {
-      setError(err.message || 'Failed to create account');
+      setError((err as Error).message || 'Failed to create account');
       setLoading(false);
     }
   };
@@ -99,7 +99,7 @@ function SignupFormContent() {
 
       if (error) throw error;
     } catch (err: unknown) {
-      setError(err.message || 'Failed to sign up with Google');
+      setError((err as Error).message || 'Failed to sign up with Google');
     }
   };
 

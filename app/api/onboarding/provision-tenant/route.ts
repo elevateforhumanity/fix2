@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
         tempPassword, // Only returned once
       },
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to provision tenant' },
       { status: 500 }

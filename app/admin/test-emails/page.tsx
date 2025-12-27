@@ -37,7 +37,7 @@ export default function TestEmailsPage() {
         success: true,
         message: data.message,
       });
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       setResult({
         success: false,
         message: err.message || 'Failed to send test email',

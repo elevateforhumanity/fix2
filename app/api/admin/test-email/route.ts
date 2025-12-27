@@ -100,10 +100,10 @@ Recent Activity:
       email_id: result.data?.id,
       sent_to: profile.email,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: err.message || 'Failed to send test email' },
+      { error: (err as Error).message || 'Failed to send test email' },
       { status: 500 }
     );
   }

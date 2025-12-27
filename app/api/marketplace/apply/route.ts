@@ -86,7 +86,7 @@ export async function POST(req: Request) {
     if (error) throw error;
 
     return NextResponse.json({ success: true, creator: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Application failed' },

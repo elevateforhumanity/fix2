@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json(data, { status: 200 });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: 'Failed to retrieve application' },
       { status: 500 }

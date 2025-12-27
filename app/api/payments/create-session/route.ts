@@ -312,7 +312,7 @@ export async function POST(request: NextRequest) {
       amount: price,
       paymentType,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
 
     // Handle specific Stripe errors
@@ -395,7 +395,7 @@ export async function GET(request: NextRequest) {
       amount_total: session.amount_total,
       customer_email: session.customer_details?.email,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: 'Failed to retrieve session' },

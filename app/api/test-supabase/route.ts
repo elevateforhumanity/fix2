@@ -46,7 +46,7 @@ export async function GET() {
             : null,
         },
       });
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       clientError = err.message;
       return NextResponse.json({
         status: 'error',
@@ -62,7 +62,7 @@ export async function GET() {
         },
       });
     }
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({
       status: 'error',
       message: err.message,

@@ -50,7 +50,7 @@ export default function LoginForm() {
       }
       router.refresh();
     } catch (err: unknown) {
-      setError(err.message || 'Failed to sign in');
+      setError((err as Error).message || 'Failed to sign in');
       setLoading(false);
     }
   };
@@ -71,7 +71,7 @@ export default function LoginForm() {
 
       if (error) throw error;
     } catch (err: unknown) {
-      setError(err.message || 'Failed to sign in with Google');
+      setError((err as Error).message || 'Failed to sign in with Google');
     }
   };
 

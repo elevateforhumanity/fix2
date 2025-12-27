@@ -65,8 +65,8 @@ export default async function ShopApplyPage() {
       setTimeout(() => {
         router.push('/shop/onboarding');
       }, 2000);
-    } catch (data: unknown) {
-      setError(err.message || 'Failed to submit application');
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to submit application');
     } finally {
       setLoading(false);
     }

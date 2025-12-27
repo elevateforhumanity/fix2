@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       success: true,
       salesUpdated: data?.length || 0,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }

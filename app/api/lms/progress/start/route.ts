@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to start course progress' },
       { status: 500 }

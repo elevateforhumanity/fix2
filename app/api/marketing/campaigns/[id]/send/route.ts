@@ -77,7 +77,7 @@ export async function POST(
   } catch (err: unknown) {
     logger.error('POST /marketing/campaigns/[id]/send error', err);
     return NextResponse.json(
-      { error: err.message || 'Failed to queue campaign' },
+      { error: (err as Error).message || 'Failed to queue campaign' },
       { status: 500 }
     );
   }

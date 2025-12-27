@@ -49,7 +49,7 @@ export default function ResetPasswordForm() {
         router.push('/login');
       }, 2000);
     } catch (err: unknown) {
-      setError(err.message || 'Failed to update password');
+      setError((err as Error).message || 'Failed to update password');
       setLoading(false);
     }
   };

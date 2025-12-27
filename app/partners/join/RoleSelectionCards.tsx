@@ -37,8 +37,8 @@ export default function RoleSelectionCards({
       }
 
       router.push('/partners/onboarding');
-    } catch (data: unknown) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
       setIsSubmitting(false);
     }
   };

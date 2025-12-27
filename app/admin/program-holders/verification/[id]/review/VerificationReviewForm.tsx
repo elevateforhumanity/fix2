@@ -106,8 +106,8 @@ export default function VerificationReviewForm({
 
       router.push('/admin/program-holders/verification');
       router.refresh();
-    } catch (data: unknown) {
-      setError(err.message || 'Failed to process verification');
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to process verification');
       setLoading(false);
     }
   };

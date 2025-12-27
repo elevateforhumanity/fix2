@@ -45,8 +45,8 @@ export default function VerifyEmailPage() {
       if (error) throw error;
 
       setResent(true);
-    } catch (data: unknown) {
-      setError(err.message || 'Failed to resend verification email');
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to resend verification email');
     } finally {
       setResending(false);
     }

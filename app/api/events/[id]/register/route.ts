@@ -87,7 +87,7 @@ export async function POST(
   } catch (err: unknown) {
     logger.error('POST /events/[id]/register error', err);
     return NextResponse.json(
-      { error: err.message || 'Failed to register' },
+      { error: (err as Error).message || 'Failed to register' },
       { status: 500 }
     );
   }

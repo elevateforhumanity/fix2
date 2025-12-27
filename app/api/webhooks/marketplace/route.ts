@@ -32,9 +32,9 @@ export async function POST(req: Request) {
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error logged
-    return NextResponse.json({ error: err.message }, { status: 400 });
+    return NextResponse.json({ error: (err as Error).message }, { status: 400 });
   }
 
   if (event.type === 'checkout.session.completed') {

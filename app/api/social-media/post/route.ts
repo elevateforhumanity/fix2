@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
         platform_url: result.url
       });
     }
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: 'Internal server error', details: error.message },
       { status: 500 }
@@ -185,7 +185,7 @@ async function postToLinkedIn(data: unknown) {
       post_id: result.id,
       url: `https://www.linkedin.com/feed/update/${result.id}`
     };
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -230,7 +230,7 @@ async function postToFacebook(data: unknown) {
       post_id: result.id,
       url: `https://www.facebook.com/${pageId}/posts/${result.id}`
     };
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -254,7 +254,7 @@ async function postToYouTube(data: unknown) {
       success: false,
       error: 'YouTube posting requires OAuth 2.0 setup. Please configure refresh token.'
     };
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return { success: false, error: error.message };
   }
 }
@@ -299,7 +299,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ posts });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: 'Internal server error', details: error.message },
       { status: 500 }

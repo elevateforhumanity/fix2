@@ -25,8 +25,8 @@ export default function StudentCheckout() {
       if (data?.url) {
         window.location.href = data.url;
       }
-    } catch (data: unknown) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
       setLoading(false);
     }
   };

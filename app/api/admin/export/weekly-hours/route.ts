@@ -173,7 +173,7 @@ export async function GET(req: NextRequest) {
   } catch (err: any) {
     // Error: $1
     return NextResponse.json(
-      { error: err.message || 'Failed to export weekly hours' },
+      { error: (err as Error).message || 'Failed to export weekly hours' },
       { status: 500 }
     );
   }

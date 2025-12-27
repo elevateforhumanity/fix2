@@ -47,7 +47,7 @@ export const POST = withAuth(
               results.push({ file, status: 'success' });
             }
           } catch (err: unknown) {
-            results.push({ file, status: 'error', error: err.message });
+            results.push({ file, status: 'error', error: (err as Error).message });
           }
         } else {
           results.push({ file, status: 'not_found' });

@@ -52,8 +52,8 @@ export default function HoursExportPage() {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-    } catch (data: unknown) {
-      setError(err.message || 'Failed to export data');
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to export data');
     } finally {
       setLoading(false);
     }

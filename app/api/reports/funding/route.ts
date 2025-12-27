@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json({ data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -36,7 +36,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ students: students || [] });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to fetch students' },
       { status: 500 }

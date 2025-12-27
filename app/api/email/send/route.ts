@@ -77,7 +77,7 @@ export async function POST(req: Request) {
     const duration = Date.now() - startTime;
 
     return NextResponse.json({ ok: true, id: data?.id });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     
     // Log failure
     if (emailTo && emailSubject) {

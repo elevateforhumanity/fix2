@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       no_activity: result.no_activity,
       timestamp: new Date().toISOString(),
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       {
         ok: false,

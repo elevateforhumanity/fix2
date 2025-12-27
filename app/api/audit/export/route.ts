@@ -51,7 +51,7 @@ export async function GET(req: Request) {
         'Content-Disposition': `attachment; filename="audit_export_${new Date().toISOString().split('T')[0]}.csv"`,
       },
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

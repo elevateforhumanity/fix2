@@ -32,7 +32,7 @@ export async function GET(req: Request) {
       secure: true,
       message: 'Access granted to secure admin endpoint',
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

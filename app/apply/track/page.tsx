@@ -114,7 +114,7 @@ export default function TrackApplicationPage() {
 
       const data = await response.json();
       setApplication(data);
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       setError(
         err.message || 'An error occurred while tracking your application'
       );

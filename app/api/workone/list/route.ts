@@ -43,7 +43,7 @@ export async function GET(req: Request) {
     }
 
     return NextResponse.json({ items: data || [] }, { status: 200 });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

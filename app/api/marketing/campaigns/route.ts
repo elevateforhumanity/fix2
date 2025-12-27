@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
   } catch (err: unknown) {
     logger.error('GET /marketing/campaigns error', err);
     return NextResponse.json(
-      { error: err.message || 'Failed to fetch campaigns' },
+      { error: (err as Error).message || 'Failed to fetch campaigns' },
       { status: 500 }
     );
   }
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     logger.error('POST /marketing/campaigns error', err);
     return NextResponse.json(
-      { error: err.message || 'Failed to create campaign' },
+      { error: (err as Error).message || 'Failed to create campaign' },
       { status: 500 }
     );
   }

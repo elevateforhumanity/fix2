@@ -134,7 +134,7 @@ Preferred Contact: ${form.preferredContact}`,
           'Thank you! Your application has been received. Someone from Elevate for Humanity will contact you within 1–2 business days.'
         );
       }
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       console.error('Application submission error:', err);
       setErrorMessage(
         err.message ||

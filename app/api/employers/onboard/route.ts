@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, onboarding: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -70,7 +70,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ onboardings: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

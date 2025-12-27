@@ -95,7 +95,7 @@ Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus o
         "I'm here to help. Please try asking your question again.";
 
       return NextResponse.json({ text: reply });
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       logger.error('OpenAI API error:', aiError);
       return NextResponse.json(
         { message: 'AI service temporarily unavailable. Please try again.' },

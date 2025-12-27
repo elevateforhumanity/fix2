@@ -45,8 +45,8 @@ export default function MarketplaceApplyPage() {
       }
 
       router.push('/marketplace/apply/success');
-    } catch (data: unknown) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
     } finally {
       setLoading(false);
     }

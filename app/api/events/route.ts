@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
   } catch (err: unknown) {
     logger.error('GET /events error', err);
     return NextResponse.json(
-      { error: err.message || 'Failed to fetch events' },
+      { error: (err as Error).message || 'Failed to fetch events' },
       { status: 500 }
     );
   }
@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     logger.error('POST /events error', err);
     return NextResponse.json(
-      { error: err.message || 'Failed to create event' },
+      { error: (err as Error).message || 'Failed to create event' },
       { status: 500 }
     );
   }

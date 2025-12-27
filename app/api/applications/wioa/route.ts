@@ -178,7 +178,7 @@ export async function POST(req: Request) {
       },
       { status: 200 }
     );
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

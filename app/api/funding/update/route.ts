@@ -61,7 +61,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true, funding: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -80,7 +80,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ funding_cases: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

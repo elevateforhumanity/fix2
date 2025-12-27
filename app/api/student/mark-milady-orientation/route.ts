@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to mark orientation complete' },

@@ -89,7 +89,7 @@ export async function POST(req: Request) {
         action: 'already_active',
       });
     }
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },

@@ -50,7 +50,7 @@ export async function GET(
     }
 
     return NextResponse.json(analytics);
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: 'Failed to fetch analytics' },
       { status: 500 }

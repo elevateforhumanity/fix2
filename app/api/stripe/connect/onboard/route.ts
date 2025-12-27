@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ url: link.url });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

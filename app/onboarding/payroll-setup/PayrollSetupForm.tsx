@@ -104,8 +104,8 @@ export default function PayrollSetupForm({
       setTimeout(() => {
         router.push('/onboarding/start');
       }, 2000);
-    } catch (data: unknown) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
     } finally {
       setIsSubmitting(false);
     }

@@ -147,10 +147,10 @@ Welcome to the Elevate for Humanity network!
       shop_id: shop.id,
       user_id: userId,
     });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: err.message || 'Application failed' },
+      { error: (err as Error).message || 'Application failed' },
       { status: 500 }
     );
   }

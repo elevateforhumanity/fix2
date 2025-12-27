@@ -185,7 +185,7 @@ export async function POST(req: Request) {
     // Send notification to assigned advisor (non-blocking)
 
     return NextResponse.json({ success: true, id: data.id });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       {
         error:

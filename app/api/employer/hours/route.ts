@@ -62,7 +62,7 @@ export async function GET() {
 
     const { data: hours } = await query;
     return NextResponse.json({ hours: hours || [] });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: toErrorMessage(error) || "Failed to load hours" },

@@ -185,7 +185,7 @@ export async function POST(request: NextRequest) {
       total_recipients: recipients.length,
     });
 
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to send campaign' },
       { status: 500 }

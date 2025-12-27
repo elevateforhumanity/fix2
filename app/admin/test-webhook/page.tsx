@@ -31,7 +31,7 @@ export default function TestWebhookPage() {
 
       const data = await response.json();
       setResult(data);
-    } catch (data: unknown) {
+    } catch (err: unknown) {
       setResult({ error: error.message });
     } finally {
       setLoading(false);

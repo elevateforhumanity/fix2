@@ -75,7 +75,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ invoiceId: invoice.id, invoice: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -94,7 +94,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ invoices: data });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

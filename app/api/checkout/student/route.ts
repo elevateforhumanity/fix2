@@ -44,7 +44,7 @@ export async function POST() {
     });
 
     return NextResponse.json({ url: session.url });
-  } catch (data: unknown) {
+  } catch (err: unknown) {
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

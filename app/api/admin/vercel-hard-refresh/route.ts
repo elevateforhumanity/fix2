@@ -62,7 +62,7 @@ export const POST = withAuth(
     } catch (err: unknown) {
       logger.error('Hard refresh error:', err);
       return NextResponse.json(
-        { error: err.message || 'Failed to trigger hard refresh' },
+        { error: (err as Error).message || 'Failed to trigger hard refresh' },
         { status: 500 }
       );
     }

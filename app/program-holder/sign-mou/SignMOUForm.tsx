@@ -51,7 +51,7 @@ export function SignMOUForm() {
       // Success! Redirect to dashboard
       router.push('/program-holder/dashboard?mou=signed');
     } catch (err: unknown) {
-      setError(err.message || 'Failed to sign MOU');
+      setError((err as Error).message || 'Failed to sign MOU');
     } finally {
       setIsSubmitting(false);
     }
