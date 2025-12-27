@@ -1,6 +1,4 @@
-"use client";
-
-import React from 'react';
+'use client';
 
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft, Check, Loader2 } from 'lucide-react';
@@ -129,7 +127,7 @@ export default function WIOAApplicationForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const updateField = (item) => {
+  const updateField = (field: keyof ApplicationFormState, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -256,7 +254,7 @@ export default function WIOAApplicationForm() {
 
       // Redirect to success page with reference number
       window.location.href = `/apply/success?ref=${data.referenceNumber}`;
-    } catch (data: unknown) {
+    } catch (err: any) {
       setError(
         err.message || 'Failed to submit application. Please try again.'
       );
@@ -442,7 +440,7 @@ export default function WIOAApplicationForm() {
 }
 
 // Step Components (to be implemented)
-function Step1Eligibility(data: unknown) {
+function Step1Eligibility({ formData, updateField }: any) {
   return (
     <div className="space-y-6">
       <div>
@@ -490,7 +488,7 @@ function Step1Eligibility(data: unknown) {
               onClick={() => updateField(field, false)}
               className={`flex-1 px-4 py-3 rounded-lg font-semibold transition ${
                 formData[field] === false
-                  ? 'bg-brand-orange-600 text-white'
+                  ? 'bg-red-600 text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -503,7 +501,7 @@ function Step1Eligibility(data: unknown) {
   );
 }
 
-function Step2PersonalInfo(data: unknown) {
+function Step2PersonalInfo({ formData, updateField, toggleArrayField }: any) {
   const raceOptions = [
     'American Indian/Alaska Native',
     'Asian',
@@ -656,7 +654,7 @@ function Step2PersonalInfo(data: unknown) {
   );
 }
 
-function Step3IncomeWIOA(data: unknown) {
+function Step3IncomeWIOA({ formData, updateField, toggleArrayField }: any) {
   const publicAssistanceOptions = [
     'SNAP (Food Stamps)',
     'TANF (Cash Assistance)',
@@ -802,7 +800,7 @@ function Step3IncomeWIOA(data: unknown) {
   );
 }
 
-function Step4Authorization(data: unknown) {
+function Step4Authorization({ formData, updateField, toggleArrayField }: any) {
   const workAuthDocs = [
     'U.S. Passport',
     'Birth Certificate',
@@ -934,7 +932,7 @@ function Step4Authorization(data: unknown) {
               value={formData.caseManagerAgency}
               onChange={(e) => updateField('caseManagerAgency', e.target.value)}
               className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              Content="e.g., WorkOne, Goodwill, etc."
+              placeholder="e.g., WorkOne, Goodwill, etc."
             />
           </div>
         )}
@@ -949,14 +947,14 @@ function Step4Authorization(data: unknown) {
           onChange={(e) => updateField('supportNeeds', e.target.value)}
           rows={3}
           className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-          Content="Tell us about any other support you might need..."
+          placeholder="Tell us about any other support you might need..."
         />
       </div>
     </div>
   );
 }
 
-function Step5Program(data: unknown) {
+function Step5Program({ formData, updateField }: any) {
   const programs = [
     'CNA (Certified Nursing Assistant)',
     'HVAC Technician',
@@ -1085,7 +1083,7 @@ function Step5Program(data: unknown) {
   );
 }
 
-function Step6Review(data: unknown) {
+function Step6Review({ formData, updateField }: any) {
   return (
     <div className="space-y-6">
       <div>
