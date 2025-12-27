@@ -16,11 +16,27 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
+interface Document {
+  id: string;
+  document_type: string;
+  file_name: string;
+  uploaded_at: string;
+  file_url: string;
+}
+
+interface VerificationHistory {
+  id: string;
+  decision: string;
+  notes: string;
+  reviewed_at: string;
+  reviewed_by: string;
+}
+
 interface VerificationReviewFormProps {
   holder: any;
-  documents: unknown[];
+  documents: Document[];
   banking: any;
-  verificationHistory: unknown[];
+  verificationHistory: VerificationHistory[];
   adminUserId: string;
 }
 
