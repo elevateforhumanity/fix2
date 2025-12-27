@@ -28,10 +28,10 @@ export default async function CustomerServicePage() {
     .order('category');
 
   const { data: tickets } = await supabase
-    .from('service_tickets')
+    .from('customer_service_tickets')
     .select(`*, student:student_id(id, first_name, last_name, email)`)
     .in('status', ['open', 'in_progress'])
-    .or(`assigned_to.eq.${user.id},assigned_to.is.null`)
+    .or(`staff_id.eq.${user.id},staff_id.is.null`)
     .order('priority', { ascending: false })
     .order('created_at', { ascending: true });
 

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -84,20 +84,18 @@ export default function ReportsDashboard({
   ];
 
   // Process program popularity
-  const programPopularityData: Array<{ name: string; enrollments: number }> =
-    programStats.reduce(
-      (acc, item) => {
-        const courseTitle = item.courses?.title || 'Unknown';
-        const existing = acc.find((p) => p.name === courseTitle);
-        if (existing) {
-          existing.enrollments += 1;
-        } else {
-          acc.push({ name: courseTitle, enrollments: 1 });
-        }
-        return acc;
-      },
-      [] as Array<{ name: string; enrollments: number }>
-    );
+  const programPopularityData = programStats.reduce<
+    Array<{ name: string; enrollments: number }>
+  >((acc, item) => {
+    const courseTitle = item.courses?.title || 'Unknown';
+    const existing = acc.find((p) => p.name === courseTitle);
+    if (existing) {
+      existing.enrollments += 1;
+    } else {
+      acc.push({ name: courseTitle, enrollments: 1 });
+    }
+    return acc;
+  }, []);
   const programPopularity = programPopularityData
     .sort((a, b) => b.enrollments - a.enrollments)
     .slice(0, 5);

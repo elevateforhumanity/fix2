@@ -30,11 +30,12 @@ export default async function BadgesPage() {
     .eq('id', user.id)
     .single();
 
-  // Fetch relevant data
+  // Fetch user badges
   const { data: items, count } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
+    .from('user_badges')
+    .select('*, badges(*)', { count: 'exact' })
+    .eq('user_id', user.id)
+    .order('earned_at', { ascending: false })
     .limit(20);
 
   return (

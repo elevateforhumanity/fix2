@@ -29,10 +29,11 @@ export default async function StudentsPage() {
     .eq('id', user.id)
     .single();
 
-  // Fetch relevant data
+  // Fetch students with enrollments
   const { data: items, count } = await supabase
     .from('profiles')
-    .select('*', { count: 'exact' })
+    .select('*, enrollments(*, courses(title))', { count: 'exact' })
+    .eq('role', 'student')
     .order('created_at', { ascending: false })
     .limit(20);
 

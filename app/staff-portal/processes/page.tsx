@@ -22,8 +22,8 @@ export default async function ProcessesPage() {
   const supabase = await createClient();
 
   const { data: processes, error } = await supabase
-    .from('processes')
-    .select('*, process_steps(*)')
+    .from('staff_processes')
+    .select('*')
     .order('name');
 
   return (
