@@ -49,9 +49,9 @@ export default async function AdminPayoutsPage() {
         paidEarnings,
         pendingSales,
         lastPayoutDate: allSales
-          .filter((item) => s.paid_out && s.payout_date)
+          .filter((sale) => sale.paid_out && sale.payout_date)
           .sort(
-            (item) =>
+            (a, b) =>
               new Date(b.payout_date).getTime() -
               new Date(a.payout_date).getTime()
           )[0]?.payout_date,
