@@ -124,11 +124,11 @@ export default function CookieConsentBanner() {
                     By clicking "Accept All", you consent to our use of cookies.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <Link href="/privacy-policy" className="text-blue-600 hover:underline">
+                    <Link href="/privacy-policy" aria-label="Link" className="text-blue-600 hover:underline">
                       Privacy Policy
                     </Link>
                     <span className="text-gray-400">•</span>
-                    <Link href="/cookies" className="text-blue-600 hover:underline">
+                    <Link href="/cookies" aria-label="Link" className="text-blue-600 hover:underline">
                       Cookie Policy
                     </Link>
                     <span className="text-gray-400">•</span>

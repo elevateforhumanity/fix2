@@ -112,10 +112,10 @@ export default function EmployerNav() {
   };
 
   return (
-    <nav className="w-64 bg-gray-900 text-white min-h-screen p-4 overflow-y-auto">
+    <nav role="navigation" aria-label="Main navigation" className="w-64 bg-gray-900 text-white min-h-screen p-4 overflow-y-auto">
       {/* Logo/Brand */}
       <div className="mb-8">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" aria-label="Link" className="flex items-center gap-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
             <svg
               className="w-6 h-6 text-white"

@@ -7,7 +7,7 @@ export default function SiteFooter() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
           {/* Our Story Section */}
           <div className="mb-16 max-w-4xl">
-            <Link href="/" className="inline-block mb-8">
+            <Link href="/" aria-label="Link" className="inline-block mb-8">
               <div className="font-black text-black text-3xl tracking-tight">
                 Elevate
               </div>
@@ -128,32 +128,32 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/apply" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/apply" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Apply Now
                   </Link>
                 </li>
                 <li>
-                  <Link href="/programs" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/programs" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Browse Programs
                   </Link>
                 </li>
                 <li>
-                  <Link href="/funding" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/funding" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Financial Aid
                   </Link>
                 </li>
                 <li>
-                  <Link href="/career-services" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/career-services" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Career Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/mentorship" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/mentorship" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Mentorship
                   </Link>
                 </li>
                 <li>
-                  <Link href="/community" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/community" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Community
                   </Link>
                 </li>
@@ -167,27 +167,27 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/supersonic-fast-cash" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/supersonic-fast-cash" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Supersonic Fast Cash
                   </Link>
                 </li>
                 <li>
-                  <Link href="/vita" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/vita" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     VITA Tax Prep
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tax-filing" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/tax-filing" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Tax Filing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/advising" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/advising" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Advising
                   </Link>
                 </li>
                 <li>
-                  <Link href="/career-fair" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/career-fair" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Career Fair
                   </Link>
                 </li>
@@ -201,32 +201,32 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/blog" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/blog" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/videos" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/videos" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Videos
                   </Link>
                 </li>
                 <li>
-                  <Link href="/webinars" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/webinars" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Webinars
                   </Link>
                 </li>
                 <li>
-                  <Link href="/downloads" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/downloads" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Downloads
                   </Link>
                 </li>
                 <li>
-                  <Link href="/help" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/help" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Help Center
                   </Link>
                 </li>
                 <li>
-                  <Link href="/events" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/events" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Events
                   </Link>
                 </li>
@@ -240,27 +240,27 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/hire-graduates" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/hire-graduates" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Hire Graduates
                   </Link>
                 </li>
                 <li>
-                  <Link href="/training-providers" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/training-providers" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Training Providers
                   </Link>
                 </li>
                 <li>
-                  <Link href="/workforce-partners" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/workforce-partners" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Workforce Boards
                   </Link>
                 </li>
                 <li>
-                  <Link href="/white-label" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/white-label" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     White Label
                   </Link>
                 </li>
                 <li>
-                  <Link href="/franchise" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/franchise" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
                     Franchise
                   </Link>
                 </li>
@@ -343,10 +343,10 @@ export default function SiteFooter() {
                 >
                   Accessibility
                 </Link>
-                <Link href="/cookies" className="hover:text-black transition">
+                <Link href="/cookies" aria-label="Link" className="hover:text-black transition">
                   Cookie Policy
                 </Link>
-                <Link href="/security" className="hover:text-black transition">
+                <Link href="/security" aria-label="Link" className="hover:text-black transition">
                   Security
                 </Link>
                 <Link
@@ -355,7 +355,7 @@ export default function SiteFooter() {
                 >
                   Federal Compliance
                 </Link>
-                <Link href="/contact" className="hover:text-black transition">
+                <Link href="/contact" aria-label="Link" className="hover:text-black transition">
                   Contact
                 </Link>
                 <Link

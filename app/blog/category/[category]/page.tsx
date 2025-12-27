@@ -71,8 +71,8 @@ export default async function CategoryPage({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
         <div className="mb-8">
-          <nav className="text-sm text-slate-600 mb-4">
-            <Link href="/blog" className="hover:text-brand-blue-600">
+          <nav role="navigation" aria-label="Main navigation" className="text-sm text-slate-600 mb-4">
+            <Link href="/blog" aria-label="Link" className="hover:text-brand-blue-600">
               Blog
             </Link>
             <span className="mx-2">/</span>

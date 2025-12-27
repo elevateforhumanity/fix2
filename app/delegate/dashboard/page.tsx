@@ -246,9 +246,9 @@ export default async function DelegateDashboard() {
             <div className="mt-8">
               <h3 className="text-lg font-semibold text-slate-900 mb-4">Delegate Tools</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                <Link href="/delegate/students" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Students</Link>
-                <Link href="/delegate/messages" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Messages</Link>
-                <Link href="/delegate/reports" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Reports</Link>
+                <Link href="/delegate/students" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Students</Link>
+                <Link href="/delegate/messages" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Messages</Link>
+                <Link href="/delegate/reports" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Reports</Link>
               </div>
             </div>
           </div>

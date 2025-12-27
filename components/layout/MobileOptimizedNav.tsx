@@ -38,7 +38,7 @@ export function MobileOptimizedNav() {
       <header className="border-b border-slate-200 bg-white sticky top-0 z-50 shadow-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" aria-label="Link" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orange-600 text-white text-sm font-black">
               EFH
             </div>

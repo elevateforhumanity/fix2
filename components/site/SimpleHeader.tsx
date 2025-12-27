@@ -40,14 +40,14 @@ export default function SimpleHeader() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" aria-label="Link" className="flex items-center">
             <span className="text-xl font-bold text-blue-900">
               Elevate for Humanity
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center space-x-6">
             {headerNav.map((section) => (
               <div
                 key={section.label}

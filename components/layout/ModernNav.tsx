@@ -183,7 +183,7 @@ export function ModernNav() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" aria-label="Link" className="flex items-center gap-3 group">
             <div className="relative w-12 h-12">
               <Image
                 src="/images/logo.png"

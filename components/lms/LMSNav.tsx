@@ -56,11 +56,11 @@ export default function LMSNav() {
   };
 
   return (
-    <nav className="border-b bg-card sticky top-0 z-50">
+    <nav role="navigation" aria-label="Main navigation" className="border-b bg-card sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/lms/dashboard" className="flex items-center gap-2">
+          <Link href="/lms/dashboard" aria-label="Link" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">
                 E
@@ -114,13 +114,13 @@ export default function LMSNav() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link href="/lms/profile" className="cursor-pointer">
+                  <Link href="/lms/profile" aria-label="Link" className="cursor-pointer">
                     <User className="mr-2 h-4 w-4" />
                     Profile & Settings
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/lms/certificates" className="cursor-pointer">
+                  <Link href="/lms/certificates" aria-label="Link" className="cursor-pointer">
                     <Award className="mr-2 h-4 w-4" />
                     My Certificates
                   </Link>

@@ -24,7 +24,7 @@ export default function MobileNav() {
       {/* Mobile Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
         <div className="flex items-center justify-between px-4 py-3">
-          <Link href="/" className="text-xl font-bold text-brand-orange-600">
+          <Link href="/" aria-label="Link" className="text-xl font-bold text-brand-orange-600">
             Elevate
           </Link>
           <button
@@ -38,7 +38,7 @@ export default function MobileNav() {
         {/* Mobile Menu Overlay */}
         {isOpen && (
           <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
-            <nav className="px-4 py-2">
+            <nav role="navigation" aria-label="Main navigation" className="px-4 py-2">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -62,7 +62,7 @@ export default function MobileNav() {
         )}
       </header>
       {/* Bottom Navigation Bar */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 safe-area-inset-bottom shadow-lg">
+      <nav role="navigation" aria-label="Main navigation" className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 safe-area-inset-bottom shadow-lg">
         <div className="flex items-center justify-around px-2 py-2 max-w-md mx-auto">
           {navItems.map((item) => {
             const Icon = item.icon;

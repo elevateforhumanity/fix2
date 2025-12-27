@@ -1,3 +1,4 @@
+import React from 'react';
 import { QualityHero } from '@/components/shared/QualityHero';
 import { getDashboardContent } from '@/lib/content/archetypes';
 

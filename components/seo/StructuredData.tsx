@@ -9,6 +9,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
   return (
     <script
       type="application/ld+json"
+          {/* Safe: JSON-LD structured data for SEO */}
       dangerouslySetInnerHTML={injectSchema(data)}
     />
   );

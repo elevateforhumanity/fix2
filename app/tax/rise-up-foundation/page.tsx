@@ -29,7 +29,7 @@ export default function RiseUpFoundationPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
       <div className="mb-6">
-        <Link href="/tax" className="text-sm text-gray-600 hover:text-gray-900">
+        <Link href="/tax" aria-label="Link" className="text-sm text-gray-600 hover:text-gray-900">
           ← Back to Tax Services
         </Link>
       </div>

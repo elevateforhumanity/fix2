@@ -1,3 +1,4 @@
+import React from 'react';
 import { redirect } from 'next/navigation';
 // Image asset: /images/location-1.jpg
 import { createServerSupabaseClient } from '@/lib/auth';

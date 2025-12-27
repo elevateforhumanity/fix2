@@ -1,3 +1,4 @@
+import React from 'react';
 import { WorkOneBanner } from '@/components/banners/WorkOneBanner';
 import { ProgramBanner } from '@/components/programs/ProgramBanner';
 

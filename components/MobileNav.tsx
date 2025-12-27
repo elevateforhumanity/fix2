@@ -119,7 +119,7 @@ export default function MobileNav() {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-2">
+            <nav role="navigation" aria-label="Main navigation" className="flex flex-col gap-2">
               {NAV.map((item) => {
                 const active = pathname === item.href;
                 return (

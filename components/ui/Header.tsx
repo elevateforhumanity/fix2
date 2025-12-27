@@ -97,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" aria-label="Link" className="flex items-center gap-3">
               <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-2xl">E</span>
               </div>
@@ -113,7 +113,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
           </div>
 
           {/* Desktop Navigation with Dropdowns */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -254,7 +254,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
               </div>
 
               {/* Drawer Content */}
-              <nav className="px-4 py-6 space-y-2">
+              <nav role="navigation" aria-label="Main navigation" className="px-4 py-6 space-y-2">
                 {navigation.map((item) => (
                   <div key={item.name}>
                     {item.dropdown ? (

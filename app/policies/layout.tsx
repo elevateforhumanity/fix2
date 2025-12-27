@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { FileText, Home } from 'lucide-react';
 
@@ -16,7 +17,7 @@ export default function PoliciesLayout({
             <h1 className="text-2xl font-bold text-gray-900">Policies & Compliance</h1>
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-orange-600 flex items-center gap-1">
+            <Link href="/" aria-label="Link" className="hover:text-orange-600 flex items-center gap-1">
               <Home className="w-4 h-4" />
               Home
             </Link>

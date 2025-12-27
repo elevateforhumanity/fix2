@@ -19,8 +19,8 @@ export default function ProgramsPage() {
       {/* Breadcrumbs */}
       <div className="bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <nav className="flex items-center gap-2 text-sm text-slate-600">
-            <Link href="/" className="hover:text-brand-orange-600 transition">
+          <nav role="navigation" aria-label="Main navigation" className="flex items-center gap-2 text-sm text-slate-600">
+            <Link href="/" aria-label="Link" className="hover:text-brand-orange-600 transition">
               Home
             </Link>
             <ChevronRight className="w-4 h-4" />

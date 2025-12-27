@@ -163,7 +163,7 @@ export default function AdminLoginPage() {
 
         {/* Back to Site */}
         <div className="mt-6 text-center">
-          <Link href="/" className="text-sm text-slate-400 hover:text-white">
+          <Link href="/" aria-label="Link" className="text-sm text-slate-400 hover:text-white">
             ← Back to site
           </Link>
         </div>

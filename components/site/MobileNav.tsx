@@ -43,7 +43,7 @@ export function MobileNav({
           </button>
         </div>
 
-        <nav className="p-4 space-y-2">
+        <nav role="navigation" aria-label="Main navigation" className="p-4 space-y-2">
           <Link
             onClick={onClose}
             className="block rounded-xl px-3 py-3 hover:bg-slate-50"

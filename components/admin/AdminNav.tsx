@@ -144,11 +144,11 @@ export default function AdminNav({ userRole }: AdminNavProps) {
   };
 
   return (
-    <nav className="bg-slate-900 text-white border-b border-slate-700">
+    <nav role="navigation" aria-label="Main navigation" className="bg-slate-900 text-white border-b border-slate-700">
       <div className="max-w-full px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/admin" className="flex items-center gap-2">
+          <Link href="/admin" aria-label="Link" className="flex items-center gap-2">
             <div className="text-2xl font-bold bg-clip-text text-transparent bg-white">
               Elevate
             </div>

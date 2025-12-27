@@ -1,3 +1,4 @@
+import React from 'react';
 import { Metadata } from 'next';
 // Image asset: /images/success-new/success-8.jpg
 import { redirect } from 'next/navigation';

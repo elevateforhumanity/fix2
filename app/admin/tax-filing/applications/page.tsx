@@ -83,7 +83,7 @@ export default async function TaxFilingApplicationsPage() {
             <div className="text-gray-600 text-sm">Completed</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <Link href="/admin/tax-filing/applications/new" className="block">
+            <Link href="/admin/tax-filing/applications/new" aria-label="Link" className="block">
               <div className="text-lg font-bold text-purple-600">+ New</div>
               <div className="text-gray-600 text-sm">Add Application</div>
             </Link>

@@ -158,7 +158,7 @@ export default async function FERPAPortal() {
         {/* Main Navigation */}
         <div className="grid md:grid-cols-3 gap-6">
           {/* Student Records */}
-          <Link href="/ferpa/records" className="group">
+          <Link href="/ferpa/records" aria-label="Link" className="group">
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-blue-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition">
@@ -191,7 +191,7 @@ export default async function FERPAPortal() {
           </Link>
 
           {/* Privacy Requests */}
-          <Link href="/ferpa/requests" className="group">
+          <Link href="/ferpa/requests" aria-label="Link" className="group">
             <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-200 hover:shadow-lg hover:border-green-300 transition">
               <div className="flex items-center gap-4 mb-4">
                 <div className="p-3 bg-brand-green-100 rounded-lg group-hover:bg-green-200 transition">

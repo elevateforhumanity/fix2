@@ -336,7 +336,7 @@ export default async function ShopApplyPage() {
 
             {/* Submit */}
             <div className="flex items-center justify-between pt-4 border-t border-slate-200">
-              <Link href="/" className="text-slate-600 hover:text-slate-900">
+              <Link href="/" aria-label="Link" className="text-slate-600 hover:text-slate-900">
                 ← Back to Home
               </Link>
               <button

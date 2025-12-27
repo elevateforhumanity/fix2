@@ -34,7 +34,7 @@ export function LmsSidebar() {
   return (
     <aside className="w-64 border-r bg-white/80 backdrop-blur-sm h-screen sticky top-0">
       <div className="p-4 border-b">
-        <Link href="/lms/dashboard" className="flex items-center gap-2">
+        <Link href="/lms/dashboard" aria-label="Link" className="flex items-center gap-2">
           <div className="h-9 w-9 rounded-xl    flex items-center justify-center text-white font-bold text-sm">
             E
           </div>
@@ -45,7 +45,7 @@ export function LmsSidebar() {
         </Link>
       </div>
 
-      <nav className="p-2 space-y-1 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 80px)' }}>
+      <nav role="navigation" aria-label="Main navigation" className="p-2 space-y-1 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 80px)' }}>
         {navItems.map((item) => {
           const active = pathname === item.href || pathname.startsWith(item.href + '/');
           const Icon = item.icon;

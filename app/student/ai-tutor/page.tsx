@@ -461,7 +461,7 @@ export default async function AITutorPage() {
               {/* Quick Links */}
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="font-semibold mb-4">Quick Links</h3>
-                <nav className="space-y-2">
+                <nav role="navigation" aria-label="Main navigation" className="space-y-2">
                   <Link
                     href="/student/courses"
                     className="block p-2 hover:bg-gray-50 rounded text-sm"

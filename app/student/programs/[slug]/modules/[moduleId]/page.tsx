@@ -81,7 +81,7 @@ export default async function ModulePlayerPage({ params }: PageProps) {
             You must be enrolled in {module.program?.name} to access this
             module.
           </p>
-          <Link href="/programs" className="glow-btn">
+          <Link href="/programs" aria-label="Link" className="glow-btn">
             Browse Programs
           </Link>
         </div>

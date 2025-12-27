@@ -29,6 +29,7 @@ export function Analytics() {
       <Script
         id="google-analytics"
         strategy="afterInteractive"
+          {/* Safe: Google Analytics tracking script */}
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

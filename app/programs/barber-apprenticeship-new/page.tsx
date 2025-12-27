@@ -402,7 +402,7 @@ export default function BarberApprenticeshipPage() {
             </Link>
             <p className="text-sm text-blue-200 mt-4">
               Questions?{' '}
-              <Link href="/contact" className="underline">
+              <Link href="/contact" aria-label="Link" className="underline">
                 Contact us
               </Link>{' '}
               anytime.

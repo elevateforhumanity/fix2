@@ -67,7 +67,7 @@ export default async function CRMHubPage() {
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Link href="/admin/crm/contacts" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <Link href="/admin/crm/contacts" aria-label="Link" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <Users className="w-6 h-6 text-blue-600" />
@@ -77,7 +77,7 @@ export default async function CRMHubPage() {
             <h3 className="text-sm font-semibold text-gray-600">Total Contacts</h3>
           </Link>
 
-          <Link href="/admin/crm/leads" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <Link href="/admin/crm/leads" aria-label="Link" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <Target className="w-6 h-6 text-green-600" />
@@ -87,7 +87,7 @@ export default async function CRMHubPage() {
             <h3 className="text-sm font-semibold text-gray-600">Active Leads</h3>
           </Link>
 
-          <Link href="/admin/crm/follow-ups" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <Link href="/admin/crm/follow-ups" aria-label="Link" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
                 <Clock className="w-6 h-6 text-yellow-600" />
@@ -97,7 +97,7 @@ export default async function CRMHubPage() {
             <h3 className="text-sm font-semibold text-gray-600">Pending Follow-ups</h3>
           </Link>
 
-          <Link href="/admin/crm/appointments" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <Link href="/admin/crm/appointments" aria-label="Link" className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <Calendar className="w-6 h-6 text-purple-600" />
@@ -144,7 +144,7 @@ export default async function CRMHubPage() {
           <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-gray-900">Recent Campaigns</h2>
-              <Link href="/admin/crm/campaigns" className="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+              <Link href="/admin/crm/campaigns" aria-label="Link" className="text-blue-600 hover:text-blue-700 text-sm font-semibold">
                 View All →
               </Link>
             </div>
@@ -171,7 +171,7 @@ export default async function CRMHubPage() {
               <div className="text-center py-8 text-gray-500">
                 <Mail className="w-12 h-12 mx-auto mb-4 text-gray-400" />
                 <p>No campaigns yet</p>
-                <Link href="/admin/crm/campaigns/new" className="text-blue-600 hover:text-blue-700 text-sm font-semibold mt-2 inline-block">
+                <Link href="/admin/crm/campaigns/new" aria-label="Link" className="text-blue-600 hover:text-blue-700 text-sm font-semibold mt-2 inline-block">
                   Create your first campaign
                 </Link>
               </div>
@@ -187,7 +187,7 @@ export default async function CRMHubPage() {
                   Pipeline Value: <span className="font-bold text-green-600">${pipelineValue.toLocaleString()}</span>
                 </p>
               </div>
-              <Link href="/admin/crm/deals" className="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+              <Link href="/admin/crm/deals" aria-label="Link" className="text-blue-600 hover:text-blue-700 text-sm font-semibold">
                 View All →
               </Link>
             </div>
@@ -219,7 +219,7 @@ export default async function CRMHubPage() {
               <div className="text-center py-8 text-gray-500">
                 <DollarSign className="w-12 h-12 mx-auto mb-4 text-gray-400" />
                 <p>No open deals</p>
-                <Link href="/admin/crm/deals/new" className="text-blue-600 hover:text-blue-700 text-sm font-semibold mt-2 inline-block">
+                <Link href="/admin/crm/deals/new" aria-label="Link" className="text-blue-600 hover:text-blue-700 text-sm font-semibold mt-2 inline-block">
                   Create your first deal
                 </Link>
               </div>

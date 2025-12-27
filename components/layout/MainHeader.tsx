@@ -53,7 +53,7 @@ export default function MainHeader() {
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center gap-6">
             {headerNav.map((section) => {
               const isActive =
                 section.href && pathname?.startsWith(section.href);
@@ -178,7 +178,7 @@ export default function MainHeader() {
           {/* Panel */}
           <div className="absolute right-0 top-0 h-full w-[90%] max-w-sm bg-white shadow-xl overflow-y-auto">
             {/* Scrollable content */}
-            <nav className="px-4 py-6 space-y-2">
+            <nav role="navigation" aria-label="Main navigation" className="px-4 py-6 space-y-2">
               {headerNav.map((section) => {
                 const hasChildren = section.items && section.items.length > 0;
                 const expanded = openMenu === section.label;

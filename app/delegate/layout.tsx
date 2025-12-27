@@ -1,3 +1,4 @@
+import React from 'react';
 export const dynamic = 'force-dynamic';
 
 // Image asset: /images/students-new/student-5.jpg

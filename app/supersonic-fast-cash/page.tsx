@@ -406,11 +406,11 @@ export default function SupersonicFastCashPage() {
       {/* Schema Markup */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(taxServiceSchema)) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(sanitizeHtml(JSON.stringify(taxServiceSchema))) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(faqSchema)) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(sanitizeHtml(JSON.stringify(faqSchema))) }}
       />
       <script
         type="application/ld+json"

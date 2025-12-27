@@ -1,3 +1,4 @@
+import React from 'react';
 // components/marketing/FadeInSection.tsx
 "use client";
 

@@ -183,7 +183,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">📋</div>
             <h4 className="font-bold text-slate-900 mb-2">Eligibility Requirements</h4>
             <p className="text-sm text-slate-600 mb-4">Check if you qualify for WIOA funding</p>
-            <Link href="/wioa-eligibility" className="text-orange-600 font-semibold hover:underline">
+            <Link href="/wioa-eligibility" aria-label="Link" className="text-orange-600 font-semibold hover:underline">
               Learn More →
             </Link>
           </div>
@@ -204,7 +204,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">💰</div>
             <h4 className="font-bold text-slate-900 mb-2">Funding Options</h4>
             <p className="text-sm text-slate-600 mb-4">Learn about WIOA, WRG, and JRI funding</p>
-            <Link href="/funding" className="text-orange-600 font-semibold hover:underline">
+            <Link href="/funding" aria-label="Link" className="text-orange-600 font-semibold hover:underline">
               View Options →
             </Link>
           </div>

@@ -40,12 +40,12 @@ export default function CompliantFooter() {
           <div>
             <h3 className="font-bold text-lg mb-4">Programs</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/programs?category=healthcare" className="text-gray-300 hover:text-white">Healthcare</Link></li>
-              <li><Link href="/programs?category=trades" className="text-gray-300 hover:text-white">Skilled Trades</Link></li>
-              <li><Link href="/programs?category=business" className="text-gray-300 hover:text-white">Business & Technology</Link></li>
-              <li><Link href="/programs?category=beauty" className="text-gray-300 hover:text-white">Beauty & Wellness</Link></li>
-              <li><Link href="/apprenticeships" className="text-gray-300 hover:text-white">Apprenticeships</Link></li>
-              <li><Link href="/programs" className="text-gray-300 hover:text-white">View All Programs</Link></li>
+              <li><Link href="/programs?category=healthcare" aria-label="Link" className="text-gray-300 hover:text-white">Healthcare</Link></li>
+              <li><Link href="/programs?category=trades" aria-label="Link" className="text-gray-300 hover:text-white">Skilled Trades</Link></li>
+              <li><Link href="/programs?category=business" aria-label="Link" className="text-gray-300 hover:text-white">Business & Technology</Link></li>
+              <li><Link href="/programs?category=beauty" aria-label="Link" className="text-gray-300 hover:text-white">Beauty & Wellness</Link></li>
+              <li><Link href="/apprenticeships" aria-label="Link" className="text-gray-300 hover:text-white">Apprenticeships</Link></li>
+              <li><Link href="/programs" aria-label="Link" className="text-gray-300 hover:text-white">View All Programs</Link></li>
             </ul>
           </div>
 
@@ -53,12 +53,12 @@ export default function CompliantFooter() {
           <div>
             <h3 className="font-bold text-lg mb-4">Resources</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/funding" className="text-gray-300 hover:text-white">Funding Options</Link></li>
-              <li><Link href="/eligibility" className="text-gray-300 hover:text-white">Check Eligibility</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-white">Student Services</Link></li>
-              <li><Link href="/employers" className="text-gray-300 hover:text-white">For Employers</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-white">About Us</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link></li>
+              <li><Link href="/funding" aria-label="Link" className="text-gray-300 hover:text-white">Funding Options</Link></li>
+              <li><Link href="/eligibility" aria-label="Link" className="text-gray-300 hover:text-white">Check Eligibility</Link></li>
+              <li><Link href="/services" aria-label="Link" className="text-gray-300 hover:text-white">Student Services</Link></li>
+              <li><Link href="/employers" aria-label="Link" className="text-gray-300 hover:text-white">For Employers</Link></li>
+              <li><Link href="/about" aria-label="Link" className="text-gray-300 hover:text-white">About Us</Link></li>
+              <li><Link href="/contact" aria-label="Link" className="text-gray-300 hover:text-white">Contact</Link></li>
             </ul>
           </div>
 
@@ -202,12 +202,12 @@ export default function CompliantFooter() {
               <p className="mt-1">A 501(c)(3) nonprofit workforce development program of SELFISH INC</p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-              <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
-              <Link href="/refund-policy" className="hover:text-white">Refund Policy</Link>
-              <Link href="/equal-opportunity" className="hover:text-white">Equal Opportunity</Link>
-              <Link href="/grievance" className="hover:text-white">Grievance Procedure</Link>
-              <Link href="/accessibility" className="hover:text-white">Accessibility</Link>
+              <Link href="/privacy-policy" aria-label="Link" className="hover:text-white">Privacy Policy</Link>
+              <Link href="/terms-of-service" aria-label="Link" className="hover:text-white">Terms of Service</Link>
+              <Link href="/refund-policy" aria-label="Link" className="hover:text-white">Refund Policy</Link>
+              <Link href="/equal-opportunity" aria-label="Link" className="hover:text-white">Equal Opportunity</Link>
+              <Link href="/grievance" aria-label="Link" className="hover:text-white">Grievance Procedure</Link>
+              <Link href="/accessibility" aria-label="Link" className="hover:text-white">Accessibility</Link>
             </div>
           </div>
           <div className="mt-4 text-center">

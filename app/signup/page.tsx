@@ -37,13 +37,13 @@ export default async function SignupPage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-600">
-          <Link href="/login" className="underline hover:text-brand-blue-600">
+          <Link href="/login" aria-label="Link" className="underline hover:text-brand-blue-600">
             Already have an account? Log in
           </Link>
-          <Link href="/apply" className="underline hover:text-brand-blue-600">
+          <Link href="/apply" aria-label="Link" className="underline hover:text-brand-blue-600">
             Not ready to create an account? Apply first
           </Link>
-          <Link href="/privacy" className="underline hover:text-brand-blue-600">
+          <Link href="/privacy" aria-label="Link" className="underline hover:text-brand-blue-600">
             Privacy Policy
           </Link>
         </div>

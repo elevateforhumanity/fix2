@@ -7,7 +7,7 @@ type SiteLogoProps = {
 
 export function SiteLogo({ className }: SiteLogoProps) {
   return (
-    <Link href="/" className={`inline-flex items-center ${className ?? ""}`}>
+    <Link href="/" aria-label="Link" className ?? ""}`}>
       <Image
         src="/logo.png"
         alt="Elevate for Humanity – Building Success Stories"

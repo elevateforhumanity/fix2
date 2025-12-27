@@ -83,7 +83,7 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
               <div
                 key={item.label}

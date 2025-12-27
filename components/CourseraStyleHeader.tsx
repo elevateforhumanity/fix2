@@ -17,7 +17,7 @@ export default function CourseraStyleHeader() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" aria-label="Link" className="flex items-center gap-2">
               <img 
                 src="/images/Elevate_for_Humanity_logo_81bf0fab.png" 
                 alt="Elevate for Humanity" 
@@ -26,7 +26,7 @@ export default function CourseraStyleHeader() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center gap-6">
               <div className="relative">
                 <button
                   onClick={() => setExploreOpen(!exploreOpen)}

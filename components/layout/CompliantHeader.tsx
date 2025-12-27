@@ -99,7 +99,7 @@ export default function CompliantHeader() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
               {navigation.map((section) => {
                 const isActive = pathname?.startsWith(section.href || "");
 
@@ -180,7 +180,7 @@ export default function CompliantHeader() {
           {/* Mobile Navigation */}
           {mobileOpen && (
             <div className="lg:hidden py-4 border-t">
-              <nav className="flex flex-col gap-2">
+              <nav role="navigation" aria-label="Main navigation" className="flex flex-col gap-2">
                 {navigation.map((section) => (
                   <div key={section.label}>
                     <Link

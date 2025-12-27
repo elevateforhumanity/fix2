@@ -229,7 +229,7 @@ export default function LessonPage() {
           </div>
         </div>
 
-        <nav className="p-4">
+        <nav role="navigation" aria-label="Main navigation" className="p-4">
           {lessons.map((l, idx) => (
             <Link
               key={l.id}

@@ -233,13 +233,13 @@ export default function CourseraStyleFooter() {
 
             {/* Legal Links */}
             <div className="flex items-center gap-4 text-sm text-gray-500">
-              <Link href="/privacy-policy" className="hover:text-blue-600">
+              <Link href="/privacy-policy" aria-label="Link" className="hover:text-blue-600">
                 Privacy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-blue-600">
+              <Link href="/terms-of-service" aria-label="Link" className="hover:text-blue-600">
                 Terms
               </Link>
-              <Link href="/accessibility" className="hover:text-blue-600">
+              <Link href="/accessibility" aria-label="Link" className="hover:text-blue-600">
                 Accessibility
               </Link>
             </div>

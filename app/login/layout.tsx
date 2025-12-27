@@ -1,3 +1,4 @@
+import React from 'react';
 import { Metadata } from 'next';
 // Image asset: /images/gallery/image10.jpg
 

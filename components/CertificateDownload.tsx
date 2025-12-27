@@ -42,7 +42,7 @@ export default function CertificateDownload({
             SVG download (print-ready)
           </div>
         </div>
-        <button className="btn" aria-label="Action button" onClick={download}>
+        <button className="btn" aria-label="Button" onClick={download}>
           Download SVG
         </button>
       </div>

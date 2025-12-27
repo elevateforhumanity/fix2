@@ -183,7 +183,7 @@ export function PremiumMobileNav() {
           </div>
 
           {/* Navigation Sections */}
-          <nav className="flex-1 overflow-y-auto p-4 space-y-2">
+          <nav role="navigation" aria-label="Main navigation" className="flex-1 overflow-y-auto p-4 space-y-2">
             {/* Home Link */}
             <Link
               href="/"

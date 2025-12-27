@@ -25,7 +25,7 @@ export default function SiteFooterEnterprise() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         {/* 1. Hero Block */}
         <div className="mb-12 text-center">
-          <Link href="/" className="inline-block mb-4">
+          <Link href="/" aria-label="Link" className="inline-block mb-4">
             <div className="font-black text-slate-900 text-3xl tracking-tight">
               Elevate
             </div>

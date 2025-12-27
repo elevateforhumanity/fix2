@@ -244,12 +244,12 @@ export default async function ProgramHolderDashboard() {
               <div className="mt-8">
                 <h3 className="text-lg font-semibold text-slate-900 mb-4">Instructor Tools</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  <Link href="/instructor/courses" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Courses</Link>
-                  <Link href="/instructor/students" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Students</Link>
-                  <Link href="/instructor/programs" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Programs</Link>
-                  <Link href="/instructor/campaigns" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Campaigns</Link>
-                  <Link href="/instructor/analytics" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Analytics</Link>
-                  <Link href="/instructor/settings" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Settings</Link>
+                  <Link href="/instructor/courses" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Courses</Link>
+                  <Link href="/instructor/students" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Students</Link>
+                  <Link href="/instructor/programs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Programs</Link>
+                  <Link href="/instructor/campaigns" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Campaigns</Link>
+                  <Link href="/instructor/analytics" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Analytics</Link>
+                  <Link href="/instructor/settings" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Settings</Link>
                 </div>
               </div>
             </div>

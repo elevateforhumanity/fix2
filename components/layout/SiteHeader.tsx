@@ -107,7 +107,7 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 gap-6">
+          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center justify-center flex-1 gap-6">
             {navigation && navigation.length > 0 ? (
               navigation.map((section) => (
                 <div
@@ -322,7 +322,7 @@ export default function SiteHeader() {
     return (
       <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
-          <Link href="/" className="font-black text-zinc-900">
+          <Link href="/" aria-label="Link" className="font-black text-zinc-900">
             Elevate for Humanity
           </Link>
           <div className="flex items-center gap-3">

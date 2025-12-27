@@ -425,7 +425,7 @@ export default function EnhancedHomePage() {
           <p className="mt-8 text-orange-100">
             Questions? Call us at{' '}
             <strong className="text-white">(317) 314-3757</strong> or{' '}
-            <Link href="/contact" className="underline hover:text-white">
+            <Link href="/contact" aria-label="Link" className="underline hover:text-white">
               contact us online
             </Link>
           </p>

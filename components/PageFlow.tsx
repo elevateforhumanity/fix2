@@ -72,15 +72,15 @@ export function PageFlow({ currentStep = 'learn', nextStepHref = '/apply', nextS
         {/* Quick Links */}
         <div className="mt-6 text-center text-sm text-slate-600">
           <span>Not sure if you qualify? </span>
-          <Link href="/funding" className="text-brand-orange-600 hover:underline font-semibold">
+          <Link href="/funding" aria-label="Link" className="text-brand-orange-600 hover:underline font-semibold">
             Check Eligibility
           </Link>
           <span className="mx-2">•</span>
-          <Link href="/how-it-works" className="text-brand-orange-600 hover:underline font-semibold">
+          <Link href="/how-it-works" aria-label="Link" className="text-brand-orange-600 hover:underline font-semibold">
             How It Works
           </Link>
           <span className="mx-2">•</span>
-          <Link href="/faq" className="text-brand-orange-600 hover:underline font-semibold">
+          <Link href="/faq" aria-label="Link" className="text-brand-orange-600 hover:underline font-semibold">
             FAQ
           </Link>
         </div>
@@ -108,11 +108,11 @@ export function ComplianceFooter() {
             WIOA, WRG, and JRI funding require meeting specific eligibility criteria. Contact us to verify your eligibility.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
-            <Link href="/privacy-policy" className="hover:text-brand-orange-600">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-brand-orange-600">Terms of Service</Link>
-            <Link href="/accessibility" className="hover:text-brand-orange-600">Accessibility</Link>
-            <Link href="/ferpa" className="hover:text-brand-orange-600">FERPA Notice</Link>
-            <Link href="/equal-opportunity" className="hover:text-brand-orange-600">Equal Opportunity</Link>
+            <Link href="/privacy-policy" aria-label="Link" className="hover:text-brand-orange-600">Privacy Policy</Link>
+            <Link href="/terms-of-service" aria-label="Link" className="hover:text-brand-orange-600">Terms of Service</Link>
+            <Link href="/accessibility" aria-label="Link" className="hover:text-brand-orange-600">Accessibility</Link>
+            <Link href="/ferpa" aria-label="Link" className="hover:text-brand-orange-600">FERPA Notice</Link>
+            <Link href="/equal-opportunity" aria-label="Link" className="hover:text-brand-orange-600">Equal Opportunity</Link>
           </div>
         </div>
       </div>

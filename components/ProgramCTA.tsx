@@ -177,7 +177,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                 <p className="text-slate-600 mb-4">
                   One-on-one guidance to help you choose the right career path and achieve your goals.
                 </p>
-                <Link href="/advising" className="text-orange-600 font-semibold hover:underline">
+                <Link href="/advising" aria-label="Link" className="text-orange-600 font-semibold hover:underline">
                   Schedule Counseling →
                 </Link>
               </div>
@@ -198,7 +198,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                 <p className="text-slate-600 mb-4">
                   We connect you with employers actively hiring in your field. Resume help and interview prep included.
                 </p>
-                <Link href="/employers" className="text-orange-600 font-semibold hover:underline">
+                <Link href="/employers" aria-label="Link" className="text-orange-600 font-semibold hover:underline">
                   View Employers →
                 </Link>
               </div>
@@ -219,7 +219,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                 <p className="text-slate-600 mb-4">
                   Transportation assistance, childcare support, and other services to help you complete training.
                 </p>
-                <Link href="/support" className="text-orange-600 font-semibold hover:underline">
+                <Link href="/support" aria-label="Link" className="text-orange-600 font-semibold hover:underline">
                   Learn More →
                 </Link>
               </div>

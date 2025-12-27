@@ -201,7 +201,7 @@ export function DashboardSidebar({
 export function LeftSidebar() {
   return (
     <div className="w-64 bg-slate-50 border-r border-slate-200 p-4 space-y-4">
-      <nav className="space-y-1">
+      <nav role="navigation" aria-label="Main navigation" className="space-y-1">
         <Link
           href="/lms/dashboard"
           className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-900 bg-white rounded-lg"

@@ -133,7 +133,7 @@ export default function StatePage() {
         {/* Hero */}
         <section className="   text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="text-sm mb-4">
+            <nav role="navigation" aria-label="Main navigation" className="text-sm mb-4">
               <Link
                 href="/tax-filing/locations"
                 className="text-blue-200 hover:text-white"

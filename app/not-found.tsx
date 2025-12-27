@@ -54,13 +54,13 @@ export default function NotFound() {
         <div className="text-sm text-slate-500">
           <p className="mb-2">Looking for something specific?</p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/about" className="hover:text-brand-orange-600 transition">About Us</Link>
+            <Link href="/about" aria-label="Link" className="hover:text-brand-orange-600 transition">About Us</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-brand-orange-600 transition">Contact</Link>
+            <Link href="/contact" aria-label="Link" className="hover:text-brand-orange-600 transition">Contact</Link>
             <span>•</span>
-            <Link href="/wioa-eligibility" className="hover:text-brand-orange-600 transition">WIOA Eligibility</Link>
+            <Link href="/wioa-eligibility" aria-label="Link" className="hover:text-brand-orange-600 transition">WIOA Eligibility</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-brand-orange-600 transition">Contact Us</Link>
+            <Link href="/contact" aria-label="Link" className="hover:text-brand-orange-600 transition">Contact Us</Link>
           </div>
         </div>
       </div>

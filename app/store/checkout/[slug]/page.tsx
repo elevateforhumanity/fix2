@@ -130,7 +130,7 @@ export default function CheckoutPage() {
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
           <p className="text-slate-600 mb-4">Unable to load checkout</p>
-          <Link href="/store" className="text-brand-orange-600 hover:underline">
+          <Link href="/store" aria-label="Link" className="text-brand-orange-600 hover:underline">
             Return to store
           </Link>
         </div>

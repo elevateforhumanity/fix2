@@ -44,7 +44,7 @@ export default function StudentHandbook() {
           <h2 className="text-2xl font-bold text-slate-900 mb-6">
             Table of Contents
           </h2>
-          <nav className="space-y-2">
+          <nav role="navigation" aria-label="Main navigation" className="space-y-2">
             <a
               href="#welcome"
               className="block text-brand-blue-600 hover:text-brand-blue-700"

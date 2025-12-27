@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { Shield, FileText } from 'lucide-react';
 
@@ -26,7 +27,7 @@ export default function AuditsLayout({
             <Shield className="w-8 h-8 text-orange-600" />
             <h1 className="text-3xl font-bold text-gray-900">Audit Dashboards</h1>
           </div>
-          <nav className="flex gap-4 overflow-x-auto">
+          <nav role="navigation" aria-label="Main navigation" className="flex gap-4 overflow-x-auto">
             {auditTypes.map((audit) => (
               <Link
                 key={audit.href}
