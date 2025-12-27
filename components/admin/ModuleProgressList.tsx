@@ -1,10 +1,10 @@
+"use client";
+
 /**
  * Module Progress List Component
  * 
  * Displays all modules for an enrollment with status and actions
  */
-
-"use client";
 
 import Link from 'next/link';
 

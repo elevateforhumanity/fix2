@@ -1,10 +1,10 @@
+"use client";
+
 /**
  * Hours Summary Widget Component
  * 
  * Visual display of required vs transferred vs earned vs remaining hours
  */
-
-"use client";
 
 interface HoursSummaryWidgetProps {
   required: number;

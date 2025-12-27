@@ -170,7 +170,7 @@ export default function IPLAExamSignup() {
                   setStudentInfo({ ...studentInfo, phone: e.target.value })
                 }
                 className="w-full px-4 py-3 border rounded-lg"
-                Content="(317) 555-0123"
+                Content="(317) 314-3757"
               />
             </div>
             <div>

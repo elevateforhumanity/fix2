@@ -41,7 +41,7 @@ export default function IndustryPartnershipPortal() {
       joinedDate: '2023-01',
       contactPerson: 'Sarah Johnson',
       email: 'sarah@techsolutions.com',
-      phone: '(555) 100-1000',
+      phone: '(317) 314-3757',
     },
     {
       id: '2',

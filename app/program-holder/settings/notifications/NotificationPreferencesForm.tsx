@@ -141,7 +141,7 @@ export default function NotificationPreferencesForm({
             <div className="pl-8 space-y-2">
               <input
                 type="tel"
-                Content="+1 (555) 123-4567"
+                Content="+1 (317) 314-3757"
                 value={preferences.phone_e164 || ''}
                 onChange={(e) =>
                   setPreferences({ ...preferences, phone_e164: e.target.value })

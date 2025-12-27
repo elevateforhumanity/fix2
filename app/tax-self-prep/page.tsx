@@ -524,7 +524,7 @@ export default function TaxSelfPrepPage() {
             Start For Free →
           </Link>
           <p className="mt-6 text-sm opacity-90">
-            Questions? Chat with us 24/7 or call (555) TAX-EASY
+            Questions? Chat with us 24/7 or call (317) 314-3757
           </p>
         </div>
       </section>
