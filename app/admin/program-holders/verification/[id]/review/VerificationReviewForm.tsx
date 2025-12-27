@@ -32,6 +32,7 @@ interface VerificationHistory {
   reviewed_at: string;
   reviewed_by: string;
   created_at: string;
+  verification_type: string;
 }
 
 interface VerificationReviewFormProps {
