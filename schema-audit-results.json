@@ -1,0 +1,88 @@
+{
+  "marketplace_creators": {
+    "exists": true,
+    "count": 0
+  },
+  "marketplace_products": {
+    "exists": true,
+    "count": 0
+  },
+  "marketplace_sales": {
+    "exists": true,
+    "count": 0
+  },
+  "program_holder_documents": {
+    "exists": true,
+    "count": 0
+  },
+  "program_holder_banking": {
+    "exists": true,
+    "count": null
+  },
+  "program_holder_verification": {
+    "exists": true,
+    "count": 0
+  },
+  "program_holders": {
+    "exists": true,
+    "count": 1,
+    "columns": [
+      "id",
+      "organization_name",
+      "status",
+      "created_at",
+      "user_id",
+      "contact_name",
+      "contact_email",
+      "contact_phone",
+      "mou_signed",
+      "mou_signed_at",
+      "payout_status"
+    ]
+  },
+  "profiles": {
+    "exists": true,
+    "count": 11,
+    "columns": [
+      "id",
+      "email",
+      "full_name",
+      "role",
+      "enrollment_status",
+      "phone",
+      "address",
+      "city",
+      "state",
+      "zip",
+      "avatar_url",
+      "created_at",
+      "updated_at",
+      "organization_id"
+    ]
+  },
+  "applications": {
+    "exists": true,
+    "count": 9,
+    "columns": [
+      "id",
+      "first_name",
+      "last_name",
+      "phone",
+      "email",
+      "city",
+      "zip",
+      "program_interest",
+      "has_case_manager",
+      "case_manager_agency",
+      "support_notes",
+      "contact_preference",
+      "advisor_email",
+      "status",
+      "created_at",
+      "employer_sponsor_id",
+      "submit_token",
+      "program_id",
+      "user_id"
+    ]
+  }
+}
