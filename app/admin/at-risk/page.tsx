@@ -202,7 +202,7 @@ export default async function AtRiskStudentsPage() {
 
           {atRiskStudents && atRiskStudents.length > 0 ? (
             <div className="space-y-4">
-              {atRiskStudents.map(item) => {
+              {atRiskStudents.map((item) => {
                 const enrollment = risk.enrollments;
                 const student = enrollment?.profiles;
                 const program = enrollment?.programs;
@@ -368,7 +368,7 @@ export default async function AtRiskStudentsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {lowCompletionPrograms.map(item) => (
+                  {lowCompletionPrograms.map((item) => (
                     <tr
                       key={program.id}
                       className="border-b border-gray-100 hover:bg-gray-50"

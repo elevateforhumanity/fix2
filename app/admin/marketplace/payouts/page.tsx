@@ -35,7 +35,7 @@ export default async function AdminPayoutsPage() {
         (item) => sum + (sale.creator_earnings_cents || 0),
         0
       );
-      const pendingSales = allSales.filter(item) => !s.paid_out);
+      const pendingSales = allSales.filter((item) => !s.paid_out);
       const pendingEarnings = pendingSales.reduce(
         (item) => sum + (sale.creator_earnings_cents || 0),
         0
@@ -49,7 +49,7 @@ export default async function AdminPayoutsPage() {
         paidEarnings,
         pendingSales,
         lastPayoutDate: allSales
-          .filter(item) => s.paid_out && s.payout_date)
+          .filter((item) => s.paid_out && s.payout_date)
           .sort(
             (item) =>
               new Date(b.payout_date).getTime() -

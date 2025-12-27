@@ -63,7 +63,7 @@ export async function GET(req: Request) {
   }));
 
   if (needs) {
-    rows = rows.filter(item) => {
+    rows = rows.filter((item) => {
       if (needs === 'appt') return !r.workone_appointment_scheduled;
       if (needs === 'docs') return !r.advisor_docs_uploaded;
       if (needs === 'onboarding') return !r.efh_onboarding_call_completed;
@@ -97,7 +97,7 @@ export async function GET(req: Request) {
 
   const lines = [
     header.join(','),
-    ...rows.map(item) =>
+    ...rows.map((item) =>
       [
         r.student_name,
         r.student_email,

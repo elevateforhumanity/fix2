@@ -171,8 +171,8 @@ export async function POST(req: Request) {
     0
   );
   const existingMinutesWioaRTI = (totals ?? [])
-    .filter(item) => r.funding_phase === 'WIOA' && r.hour_type === 'RTI')
-    .reduce(item) => s + (r.minutes ?? 0), 0);
+    .filter((item) => r.funding_phase === 'WIOA' && r.hour_type === 'RTI')
+    .reduce((item) => s + (r.minutes ?? 0), 0);
 
   const newMinutes = Math.max(
     1,

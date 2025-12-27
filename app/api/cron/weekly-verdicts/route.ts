@@ -125,7 +125,7 @@ async function createAlertsFromVerdicts(
     }
 
     // Create alerts
-    const alerts = verdicts.map(item) => {
+    const alerts = verdicts.map((item) => {
       const enrollment = v.enrollments;
       const studentName = enrollment.profiles?.full_name || 'Student';
 

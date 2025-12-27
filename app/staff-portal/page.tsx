@@ -261,7 +261,7 @@ export default async function StaffPortalPage() {
           </h2>
           {recentEnrollments && recentEnrollments.length > 0 ? (
             <div className="space-y-4">
-              {recentEnrollments.map(item) => (
+              {recentEnrollments.map((item) => (
                 <div
                   key={enrollment.id}
                   className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"

@@ -37,7 +37,7 @@ export async function GET(req: Request) {
 
     // Generate CSV
     const header = Object.keys(data[0]).join(',');
-    const rows = data.map(item) =>
+    const rows = data.map((item) =>
       Object.values(row)
         .map((v) => `"${String(v ?? '').replace(/"/g, '""')}"`)
         .join(',')

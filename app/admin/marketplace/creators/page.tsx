@@ -101,7 +101,7 @@ export default async function AdminCreatorsPage() {
                     ) || 0;
                   const pendingEarnings =
                     creator.sales
-                      ?.filter(item) => !s.paid_out)
+                      ?.filter((item) => !s.paid_out)
                       .reduce(
                         (item) =>
                           sum + (sale.creator_earnings_cents || 0),

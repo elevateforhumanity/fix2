@@ -47,7 +47,7 @@ export async function GET() {
     }
 
     // Calculate urgency for each record
-    const enrichedData = data?.map(item) => {
+    const enrichedData = data?.map((item) => {
       const deadline = new Date(record.hire_date);
       deadline.setDate(deadline.getDate() + 28);
       const daysRemaining = Math.ceil(

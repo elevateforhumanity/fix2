@@ -103,7 +103,7 @@ export const GET = withAuth(
         "Verification URL",
       ];
 
-      const rows = completions.map(item) => [
+      const rows = completions.map((item) => [
         c.studentName,
         c.studentEmail,
         c.courseName,

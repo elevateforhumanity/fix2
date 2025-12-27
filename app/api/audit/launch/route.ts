@@ -371,7 +371,7 @@ function analyzeChecks(checks: any, blockers: Finding[], warnings: Finding[]) {
       title: 'Hydration Risks Detected',
       detail: 'Components may cause hydration mismatches',
       evidence: {
-        notes: checks.clientStability.hydrationRisks.map(item) => r.pattern),
+        notes: checks.clientStability.hydrationRisks.map((item) => r.pattern),
       },
       fix: {
         action: 'Fix hydration patterns',
@@ -415,11 +415,11 @@ function analyzeChecks(checks: any, blockers: Finding[], warnings: Finding[]) {
       title: 'Missing High-Priority Features',
       detail: `${highPriorityGaps.length} high-priority features missing compared to best-in-class`,
       evidence: {
-        notes: highPriorityGaps.map(item) => f.feature),
+        notes: highPriorityGaps.map((item) => f.feature),
       },
       fix: {
         action: 'Implement high-priority features',
-        steps: highPriorityGaps.map(item) => `Add: ${f.feature}`),
+        steps: highPriorityGaps.map((item) => `Add: ${f.feature}`),
         owner: 'dev',
       },
     });

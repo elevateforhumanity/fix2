@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       },
       metadata: {
         items: JSON.stringify(
-          items.map(item) => ({
+          items.map((item) => ({
             id: item.id,
             quantity: item.quantity,
           }))

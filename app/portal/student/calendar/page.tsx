@@ -193,7 +193,7 @@ export default async function CalendarPage() {
               </div>
               <div className="p-6 space-y-4">
                 {upcomingEvents.length > 0 ? (
-                  upcomingEvents.map(item) => (
+                  upcomingEvents.map((item) => (
                     <div
                       key={event.id}
                       className="border-l-4 border-blue-500 pl-4 py-2"
