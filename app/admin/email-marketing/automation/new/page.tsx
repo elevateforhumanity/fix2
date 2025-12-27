@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { sanitizeHtml } from '@/lib/sanitize';
-import { sanitizeHtml } from '@/lib/sanitize';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';

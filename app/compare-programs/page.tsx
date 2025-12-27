@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { sanitizeHtml } from '@/lib/sanitize';
-import { sanitizeHtml } from '@/lib/sanitize';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
