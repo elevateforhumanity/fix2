@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import Image from 'next/image';
 import Link from 'next/link';
 import { BookOpen, Users, Star, DollarSign, ShoppingBag } from 'lucide-react';
 

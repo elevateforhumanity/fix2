@@ -1,4 +1,5 @@
 import { requireCreator } from '@/lib/creator';
+import Image from 'next/image';
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
 

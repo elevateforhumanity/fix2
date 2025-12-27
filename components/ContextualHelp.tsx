@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 import { useState, useRef, useEffect } from 'react';
 import { HelpCircle, X, ExternalLink } from 'lucide-react';
