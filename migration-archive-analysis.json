@@ -1,0 +1,518 @@
+{
+  "summary": {
+    "totalFiles": 253,
+    "totalSizeMB": "1.77",
+    "uniqueTables": 480,
+    "tablesWithDuplicates": 74
+  },
+  "categories": {
+    "core_tables": {
+      "count": 3,
+      "sizeMB": "0.00",
+      "files": [
+        "20251203_roles_and_profiles.sql",
+        "20251225_add_profiles_enrollment_status.sql",
+        "20251225_enforce_profiles_enrollment_status_not_null.sql"
+      ]
+    },
+    "lms_courses": {
+      "count": 37,
+      "sizeMB": "0.34",
+      "files": [
+        "20240109000000_create_courses_table.sql",
+        "20241116_add_jri_courses.sql",
+        "20241116_add_nrf_rise_up_courses.sql",
+        "20241116_create_lms_courses_part1.sql",
+        "20241116_create_lms_courses_part2.sql",
+        "20241116_create_lms_courses_part3.sql",
+        "20241116_create_lms_courses_part4.sql",
+        "20241116_create_medical_assistant_course.sql",
+        "20241128_critical_lms_features_part1.sql",
+        "20241128_critical_lms_features_part2.sql",
+        "20241128_critical_lms_features_part3.sql",
+        "20241128_critical_lms_features_part4.sql",
+        "20241129_add_all_partner_courses.sql",
+        "20241129_add_milady_rise_courses.sql",
+        "20241129_course_player_enhancements.sql",
+        "20241129_full_partner_courses_1200plus.sql",
+        "20241129_partner_courses_two_models.sql",
+        "20241129_partner_courses_with_external_links.sql",
+        "20241129_partner_lms_integration.sql",
+        "20241130_create_partner_lms_tables.sql",
+        "20241202_lesson_content_system.sql",
+        "20241203_course_completion_with_external.sql",
+        "20241205_fix_courses_schema_and_seed.sql",
+        "20241207_complete_course_security.sql",
+        "20241214_lms_tables.sql",
+        "20241223_add_partner_course_links.sql",
+        "20251116020545_lesson_progress.sql",
+        "20251116020748_course_completion_view.sql",
+        "20251117_advanced_lms_features.sql",
+        "20251124_course_outcomes_skills.sql",
+        "20251124_course_social_extras.sql",
+        "20251124_lesson_captions.sql",
+        "20251218_create_lms_progress_table.sql",
+        "20251218_lms_requirements_system.sql",
+        "20251220_all_partner_courses.sql",
+        "20251222_add_lesson_time_tracking.sql",
+        "20251226_add_lesson_time_tracking.sql"
+      ]
+    },
+    "marketplace": {
+      "count": 7,
+      "sizeMB": "0.05",
+      "files": [
+        "20231214000001_create_marketplace_tables.sql",
+        "20231214000002_product_reports.sql",
+        "20240108000000_create_products_table.sql",
+        "20241212_complete_production_setup.sql",
+        "20241219_store_subscription_products.sql",
+        "20251212_production_programs.sql",
+        "20251226_creator_delegate_shop_schema.sql"
+      ]
+    },
+    "hr_payroll": {
+      "count": 4,
+      "sizeMB": "0.08",
+      "files": [
+        "20241207_complete_hr_documents.sql",
+        "20241219_onboarding_payroll_system.sql",
+        "20251117_hr_payroll_system.sql",
+        "20251129_payroll_cards.sql"
+      ]
+    },
+    "content": {
+      "count": 3,
+      "sizeMB": "0.04",
+      "files": [
+        "20251207_social_media.sql",
+        "20251212_complete_social_learning_system.sql",
+        "20251226_social_media_automation.sql"
+      ]
+    },
+    "analytics": {
+      "count": 4,
+      "sizeMB": "0.01",
+      "files": [
+        "20251218_funding_tracking.sql",
+        "20251222_add_followup_tracking.sql",
+        "20251226_performance_analytics_system.sql",
+        "create_skills_tracking.sql"
+      ]
+    },
+    "complete_schema": {
+      "count": 2,
+      "sizeMB": "0.03",
+      "files": [
+        "20240110000000_complete_schema.sql",
+        "20241209_complete_lms_system.sql"
+      ]
+    },
+    "other": {
+      "count": 193,
+      "sizeMB": "1.21",
+      "files": [
+        "20231214000000_create_digital_purchases.sql",
+        "20231214_indiana_enrollment_fields.sql",
+        "20240115_onboarding_tutorials.sql",
+        "20240116_add_cip_soc_codes.sql",
+        "20240116_content_moderation.sql",
+        "20240116_seed_cip_soc_codes.sql",
+        "20240117_webhooks.sql",
+        "20240118_referrals.sql",
+        "20240119_payments.sql",
+        "20240120_invoicing.sql",
+        "20241115_add_all_etpl_programs.sql",
+        "20241118_events_management.sql",
+        "20241118_marketing_automation.sql",
+        "20241118_sso_connections.sql",
+        "20241124_simple_add_columns.sql",
+        "20241124_update_existing_schema.sql",
+        "20241126_create_contact_requests.sql",
+        "20241126_create_contacts_table.sql",
+        "20241126_create_enrollments.sql",
+        "20241128_seed_feature_data.sql",
+        "20241129_add_certiport_certifications.sql",
+        "20241129_add_hsi_certifications.sql",
+        "20241129_add_jri_integration.sql",
+        "20241129_add_nrf_rise_up.sql",
+        "20241129_ai_instructor_and_certificates.sql",
+        "20241129_ai_instructor_certificates.sql",
+        "20241129_all_certiport_programs.sql",
+        "20241129_certiport_accurate_pricing.sql",
+        "20241129_complete_partner_system.sql",
+        "20241129_embed_partner_certs_in_programs.sql",
+        "20241129_seed_partner_credentials.sql",
+        "20241201_certificates_enhancement.sql",
+        "20241202_complete_all_19_programs.sql",
+        "20241202_complete_programs_schema.sql",
+        "20241202_insert_27_programs.sql",
+        "20241202_insert_remaining_24_programs.sql",
+        "20241202_web_vitals.sql",
+        "20241203_external_partner_modules.sql",
+        "20241203_integrate_all_partners.sql",
+        "20241204_create_applications_table.sql",
+        "20241207_mou_system.sql",
+        "20241207_program_holder_flexible_permissions.sql",
+        "20241207_program_holder_permissions.sql",
+        "20241207_program_holders.sql",
+        "20241209_barber_complete_with_transfer.sql",
+        "20241209_ensure_all_features_active.sql",
+        "20241209_hybrid_learning_tables.sql",
+        "20241212_fixed_migration.sql",
+        "20241214_ai_instructors.sql",
+        "20241214_create_avatars_bucket.sql",
+        "20241214_funding_payments.sql",
+        "20241218_tax_services_tables.sql",
+        "20241219221400_create_enrollments_normalized_view.sql",
+        "20241219221500_create_schema_guard_functions.sql",
+        "20241219_daily_attendance_alerts.sql",
+        "20241219_enrollment_payment_final.sql",
+        "20241219_enrollment_state_transitions.sql",
+        "20241219_fix_payment_flow.sql",
+        "20241219_normalize_enrollment_payments.sql",
+        "20241219_partner_monitoring_system.sql",
+        "20241219_schedule_policies_system.sql",
+        "20241219_secure_applications_policies.sql",
+        "20241219_security_hardening.sql",
+        "20241219_seed_onboarding_packets.sql",
+        "20241219_store_subscriptions.sql",
+        "20241219_stripe_workflow_final.sql",
+        "20241219_weekly_hours_compliance.sql",
+        "20241220_partner_documents_attendance.sql",
+        "20241220_snap_et_outreach.sql",
+        "20241221_badge_triggers.sql",
+        "20241221_claim_applications.sql",
+        "20241221_claim_applications_function.sql",
+        "20241221_complete_infrastructure.sql",
+        "20241221_enrollment_steps.sql",
+        "20241221_fix_claim_function.sql",
+        "20241221_leaderboard_views.sql",
+        "20241221_push_tokens.sql",
+        "20241221_students_claim_applications.sql",
+        "20241221_tenant_bootstrap.sql",
+        "20241221_tenant_licenses.sql",
+        "20241222_application_constraints.sql",
+        "20241222_program_holder_acknowledgements_update.sql",
+        "20241222_storage_complete_setup.sql",
+        "20241223_cycle2_orchestrator_tables.sql",
+        "20241223_phase1_compliance_spine.sql",
+        "20241223_program_holder_verification.sql",
+        "20241224_auto_enrollment_schema.sql",
+        "20241226000000_program_holder_licensing.sql",
+        "20241226020000_compliance_automation_tables.sql",
+        "20241226030000_license_checkout_tables.sql",
+        "20251117_advanced_rbac.sql",
+        "20251117_multi_tenancy.sql",
+        "20251117_sso_and_2fa.sql",
+        "20251118_enterprise_audit_and_branding.sql",
+        "20251118_perf_indexes.sql",
+        "20251118_scorm_xapi.sql",
+        "20251118_user_activity.sql",
+        "20251123_dashboard_video_extras.sql",
+        "20251123_pack2_features.sql",
+        "20251124_achievements_rls.sql",
+        "20251124_leaderboards_views.sql",
+        "20251124_learning_activity_streaks.sql",
+        "20251124_student_dashboard_extras.sql",
+        "20251125_activation_complete.sql",
+        "20251201_employer_job_tables.sql",
+        "20251204022427_create_applications_table.sql",
+        "20251205082111_create_programs_table.sql",
+        "20251205_programs_complete.sql",
+        "20251207_email_campaigns.sql",
+        "20251207_email_workflows.sql",
+        "20251207_fix_referral_codes.sql",
+        "20251207_supersonic_cash_tax_filing.sql",
+        "20251209163338_security_patch_rls.sql",
+        "20251209163357_security_patch_rls.sql",
+        "20251212_automation_triggers.sql",
+        "20251212_complete_accreditation_systems.sql",
+        "20251212_ferpa_compliance_system.sql",
+        "20251212_ferpa_compliance_system_fixed.sql",
+        "20251213_ai_instructors.sql",
+        "20251213_milady_barber_integration.sql",
+        "20251214_license_requests.sql",
+        "20251214_payment_splits.sql",
+        "20251215_ai_chat.sql",
+        "20251215_ai_instructors.sql",
+        "20251215_apprenticeship_hours.sql",
+        "20251216_wioa_compliant_hours.sql",
+        "20251217_employers.sql",
+        "20251218_add_payment_status_to_applications.sql",
+        "20251218_audit_logs.sql",
+        "20251218_complete_system.sql",
+        "20251218_create_email_logs_table.sql",
+        "20251218_drug_testing_orders.sql",
+        "20251218_drug_testing_system.sql",
+        "20251218_email_and_appointments_system.sql",
+        "20251218_shop_partner_portal.sql",
+        "20251218_shop_partner_rls.sql",
+        "20251218_shop_placements.sql",
+        "20251218_state_compliance.sql",
+        "20251218_student_onboarding.sql",
+        "20251218_white_label.sql",
+        "20251219_shop_doc_types_and_requirements.sql",
+        "20251219_shop_onboarding_docs.sql",
+        "20251220_add_non_compete.sql",
+        "20251220_fix_function_security.sql",
+        "20251222_add_certificate_revocation.sql",
+        "20251222_add_forum_moderation.sql",
+        "20251222_add_funding_verification.sql",
+        "20251222_cleanup_migration_conflicts.sql",
+        "20251222_create_sam_gov_opportunities.sql",
+        "20251222_final_cleanup_indexes_and_consistency.sql",
+        "20251222_fix_rls_public_access.sql",
+        "20251222_program_holder_documents.sql",
+        "20251222_program_holder_documents_storage.sql",
+        "20251222_resolve_programs_schema_conflict.sql",
+        "20251223_add_tenant_id_columns.sql",
+        "20251223_backfill_default_tenant.sql",
+        "20251223_dashboard_schema_fixes.sql",
+        "20251223_demo_tenant.sql",
+        "20251223_employer_applications.sql",
+        "20251223_licenses.sql",
+        "20251223_staff_applications.sql",
+        "20251223_tenant_branding.sql",
+        "20251223_tenant_domains.sql",
+        "20251223_tenant_rls_policies.sql",
+        "20251225_fix_enrollment_status_constraint.sql",
+        "20251225_fix_enrollment_status_final.sql",
+        "20251226_add_certificate_revocation.sql",
+        "20251226_add_forum_moderation.sql",
+        "20251226_add_funding_verification.sql",
+        "20251226_crm_system_complete.sql",
+        "20251226_customer_service_system.sql",
+        "20251226_default_campaign_templates.sql",
+        "20251226_donations_campaigns_system.sql",
+        "20251226_license_purchases.sql",
+        "20251226_process_documentation_system.sql",
+        "20251226_qa_checklist_system.sql",
+        "20251226_reviews_system.sql",
+        "20251226_seed_processes.sql",
+        "20251226_seed_qa_checklists.sql",
+        "20251226_seed_training_modules.sql",
+        "20251226_staff_training_system.sql",
+        "20251226_tax_documents_system.sql",
+        "20251226_volunteer_applications_system.sql",
+        "20251227_fix_verification_schema.sql",
+        "RUN_ALL_MIGRATIONS.sql",
+        "applications_table.sql",
+        "create_call_requests.sql",
+        "create_mou_signatures.sql",
+        "create_partner_enrollments.sql",
+        "create_phone_system_tables.sql",
+        "create_program_holder_acknowledgements.sql",
+        "create_user_access_table.sql",
+        "partner_inquiries.sql"
+      ]
+    }
+  },
+  "topDuplicates": [
+    {
+      "table": "public",
+      "count": 76,
+      "files": [
+        "20241126_create_contact_requests.sql",
+        "20241130_create_partner_lms_tables.sql",
+        "20241130_create_partner_lms_tables.sql",
+        "20241130_create_partner_lms_tables.sql",
+        "20241130_create_partner_lms_tables.sql"
+      ]
+    },
+    {
+      "table": "forum_categories",
+      "count": 5,
+      "files": [
+        "20241128_critical_lms_features_part1.sql",
+        "20241212_complete_production_setup.sql",
+        "20241212_fixed_migration.sql",
+        "20251117_advanced_lms_features.sql",
+        "20251212_complete_social_learning_system.sql"
+      ]
+    },
+    {
+      "table": "forum_threads",
+      "count": 5,
+      "files": [
+        "20241128_critical_lms_features_part1.sql",
+        "20241212_complete_production_setup.sql",
+        "20241212_fixed_migration.sql",
+        "20251117_advanced_lms_features.sql",
+        "20251212_complete_social_learning_system.sql"
+      ]
+    },
+    {
+      "table": "programs",
+      "count": 4,
+      "files": [
+        "20241124_update_existing_schema.sql",
+        "20241209_complete_lms_system.sql",
+        "20241209_hybrid_learning_tables.sql",
+        "20251205_programs_complete.sql"
+      ]
+    },
+    {
+      "table": "ai_instructors",
+      "count": 4,
+      "files": [
+        "20241129_ai_instructor_and_certificates.sql",
+        "20241209_complete_lms_system.sql",
+        "20241209_hybrid_learning_tables.sql",
+        "20241214_ai_instructors.sql"
+      ]
+    },
+    {
+      "table": "licenses",
+      "count": 3,
+      "files": [
+        "20240110000000_complete_schema.sql",
+        "20241226030000_license_checkout_tables.sql",
+        "20251223_licenses.sql"
+      ]
+    },
+    {
+      "table": "modules",
+      "count": 3,
+      "files": [
+        "20241124_simple_add_columns.sql",
+        "20241124_update_existing_schema.sql",
+        "20241209_complete_lms_system.sql"
+      ]
+    },
+    {
+      "table": "external_lms_enrollments",
+      "count": 3,
+      "files": [
+        "20241124_simple_add_columns.sql",
+        "20241124_update_existing_schema.sql",
+        "20241129_partner_lms_integration.sql"
+      ]
+    },
+    {
+      "table": "forum_votes",
+      "count": 3,
+      "files": [
+        "20241128_critical_lms_features_part1.sql",
+        "20241212_complete_production_setup.sql",
+        "20241212_fixed_migration.sql"
+      ]
+    },
+    {
+      "table": "peer_review_assignments",
+      "count": 3,
+      "files": [
+        "20241128_critical_lms_features_part2.sql",
+        "20251117_advanced_lms_features.sql",
+        "20251212_complete_social_learning_system.sql"
+      ]
+    },
+    {
+      "table": "peer_reviews",
+      "count": 3,
+      "files": [
+        "20241128_critical_lms_features_part2.sql",
+        "20251117_advanced_lms_features.sql",
+        "20251212_complete_social_learning_system.sql"
+      ]
+    },
+    {
+      "table": "partner_courses",
+      "count": 3,
+      "files": [
+        "20241129_add_all_partner_courses.sql",
+        "20241129_complete_partner_system.sql",
+        "20241209_ensure_all_features_active.sql"
+      ]
+    },
+    {
+      "table": "applications",
+      "count": 3,
+      "files": [
+        "20241204_create_applications_table.sql",
+        "20251204022427_create_applications_table.sql",
+        "applications_table.sql"
+      ]
+    },
+    {
+      "table": "mou_signatures",
+      "count": 3,
+      "files": [
+        "20241207_mou_system.sql",
+        "20251212_complete_accreditation_systems.sql",
+        "create_mou_signatures.sql"
+      ]
+    },
+    {
+      "table": "program_holders",
+      "count": 3,
+      "files": [
+        "20241207_program_holders.sql",
+        "20241209_complete_lms_system.sql",
+        "20241209_hybrid_learning_tables.sql"
+      ]
+    },
+    {
+      "table": "module_progress",
+      "count": 3,
+      "files": [
+        "20241209_complete_lms_system.sql",
+        "20241209_ensure_all_features_active.sql",
+        "20241209_hybrid_learning_tables.sql"
+      ]
+    },
+    {
+      "table": "partner_enrollments",
+      "count": 3,
+      "files": [
+        "20241209_ensure_all_features_active.sql",
+        "20241223_cycle2_orchestrator_tables.sql",
+        "create_partner_enrollments.sql"
+      ]
+    },
+    {
+      "table": "job_postings",
+      "count": 3,
+      "files": [
+        "20241209_ensure_all_features_active.sql",
+        "20251201_employer_job_tables.sql",
+        "20251212_complete_social_learning_system.sql"
+      ]
+    },
+    {
+      "table": "job_applications",
+      "count": 3,
+      "files": [
+        "20241209_ensure_all_features_active.sql",
+        "20251201_employer_job_tables.sql",
+        "20251212_complete_social_learning_system.sql"
+      ]
+    },
+    {
+      "table": "social_media_posts",
+      "count": 3,
+      "files": [
+        "20241209_ensure_all_features_active.sql",
+        "20251207_social_media.sql",
+        "20251226_social_media_automation.sql"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "category": "complete_schema",
+      "action": "DELETE",
+      "reason": "These files duplicate ALL tables. Keep only the latest one for reference.",
+      "files": [
+        "20240110000000_complete_schema.sql",
+        "20241209_complete_lms_system.sql"
+      ]
+    },
+    {
+      "category": "lms_courses",
+      "action": "CONSOLIDATE",
+      "reason": "37 files for LMS courses. Consolidate into one reference file.",
+      "count": 37
+    }
+  ]
+}
