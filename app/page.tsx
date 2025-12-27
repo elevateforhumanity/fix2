@@ -5,6 +5,8 @@ import { OptimizedVideo } from '@/components/OptimizedVideo';
 import HeroVideo from '@/components/home/HeroVideo';
 import PrimaryCtas from '@/components/home/PrimaryCtas';
 import HeroBanner from '@/components/hero/HeroBanner';
+import PartnerLogos from '@/components/marketing/PartnerLogos';
+import SuccessStoryCards from '@/components/marketing/SuccessStoryCards';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Free Career Training & Apprenticeships Indiana',
@@ -114,6 +116,33 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 2.5. STATS SECTION - Social Proof */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-brand-orange-600">10,000+</div>
+              <div className="text-sm md:text-base text-slate-700 mt-2">Students Trained</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-brand-orange-600">80%</div>
+              <div className="text-sm md:text-base text-slate-700 mt-2">Job Placement Rate</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-brand-orange-600">$45K</div>
+              <div className="text-sm md:text-base text-slate-700 mt-2">Average Starting Salary</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-brand-orange-600">500+</div>
+              <div className="text-sm md:text-base text-slate-700 mt-2">Employer Partners</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.6. PARTNER LOGOS */}
+      <PartnerLogos />
 
       {/* 3. CHOOSE YOUR PATH (3 TILES) */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">
@@ -455,6 +484,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 7.5. SUCCESS STORIES */}
+      <SuccessStoryCards />
 
       {/* 8. FINAL CTA */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">

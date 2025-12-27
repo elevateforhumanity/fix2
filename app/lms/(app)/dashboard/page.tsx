@@ -16,6 +16,9 @@ import {
   Users,
   HelpCircle,
 } from 'lucide-react';
+import { PointsDisplay } from '@/components/gamification/PointsDisplay';
+import { BadgeShowcase } from '@/components/gamification/BadgeShowcase';
+import { StreakTracker } from '@/components/gamification/StreakTracker';
 
 /**
  * STUDENT PORTAL - ORCHESTRATED
@@ -155,6 +158,13 @@ export default async function StudentDashboardOrchestrated() {
       progressPercentage={stateData.progressPercentage}
       alerts={stateData.alerts}
     >
+      {/* Gamification Stats */}
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <PointsDisplay userId={user.id} />
+        <StreakTracker userId={user.id} />
+        <BadgeShowcase userId={user.id} limit={3} />
+      </div>
+
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main Content - 2/3 width */}
         <div className="lg:col-span-2 space-y-6">

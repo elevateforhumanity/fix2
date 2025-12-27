@@ -194,6 +194,7 @@ export const publicNav: NavSection[] = [
       { label: 'Team', href: '/about/team' },
       { label: 'Founder', href: '/founder' },
       { label: 'What We Do', href: '/what-we-do' },
+      { label: 'Success Stories', href: '/success-stories' },
       { label: 'Annual Report', href: '/annual-report' },
       
       { label: 'Trust & Compliance', href: '#', isHeader: true },
