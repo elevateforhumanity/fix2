@@ -3,8 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const supabase = await createClient();
 
@@ -33,7 +34,7 @@ export async function GET(
     const { data: process, error } = await supabase
       .from('processes')
       .select('*, process_steps(*)')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
 
     if (error) {

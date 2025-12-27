@@ -3,8 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const supabase = await createClient();
 
@@ -20,7 +21,7 @@ export async function DELETE(
     const { data: document, error: fetchError } = await supabase
       .from('tax_documents')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', user.id)
       .single();
 
@@ -44,7 +45,7 @@ export async function DELETE(
     const { error: deleteError } = await supabase
       .from('tax_documents')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('user_id', user.id);
 
     if (deleteError) {

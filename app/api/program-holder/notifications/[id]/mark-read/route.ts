@@ -3,8 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const supabase = await createClient();
 
   const {
@@ -18,7 +19,7 @@ export async function POST(
   const { error } = await supabase
     .from('notifications')
     .update({ read: true, read_at: new Date().toISOString() })
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('user_id', user.id);
 
   if (error) {
