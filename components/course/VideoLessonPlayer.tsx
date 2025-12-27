@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useRef, useState } from "react";
 import type { Lesson } from "@/lms-data/courses";

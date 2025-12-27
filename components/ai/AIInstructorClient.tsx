@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useEffect, useState, useRef } from 'react';
 import { Volume2, VolumeX, X } from 'lucide-react';

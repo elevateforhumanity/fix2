@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { BadgeCheck, GraduationCap, Briefcase, Landmark, Users } from "lucide-react";
 

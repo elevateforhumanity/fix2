@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useEffect, useRef, useState } from 'react';
 import videojs from 'video.js';

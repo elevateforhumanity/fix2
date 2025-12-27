@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useState } from 'react';
 import { MessageSquare, X, Send, Camera } from 'lucide-react';

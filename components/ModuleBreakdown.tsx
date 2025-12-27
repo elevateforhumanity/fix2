@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, Video, FileText, CheckSquare, Clock } from 'lucide-react';

@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useState, useRef, useEffect } from 'react';
 import { Heart, MessageCircle, Share2, Bookmark } from 'lucide-react';

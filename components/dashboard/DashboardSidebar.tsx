@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useState } from 'react';
 import { Calendar, Clock, Bell, TrendingUp, BookOpen, Award, Target } from 'lucide-react';

@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useEffect, useRef } from 'react';
 import { Terminal as TerminalIcon, X } from 'lucide-react';

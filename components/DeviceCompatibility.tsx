@@ -1,5 +1,6 @@
-import React from 'react';
 "use client";
+
+import React from 'react';
 
 import { useState, useEffect } from 'react';
 import { CheckCircle2, XCircle, AlertCircle, Smartphone } from 'lucide-react';
