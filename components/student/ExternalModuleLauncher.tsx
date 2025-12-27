@@ -5,7 +5,7 @@ import React from 'react';
  * For modules hosted on partner platforms (Milady, Choice Medical, etc.)
  * Provides launch button and certificate upload
  */
-'use client';
+"use client";
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 interface ExternalModuleLauncherProps {

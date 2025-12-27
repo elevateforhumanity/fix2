@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';

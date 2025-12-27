@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Award, Star, Trophy, Target, Zap, Crown } from 'lucide-react';
 

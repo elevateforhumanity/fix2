@@ -1,6 +1,6 @@
 import React from 'react';
 // app/pay/StripePayButton.tsx
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
 

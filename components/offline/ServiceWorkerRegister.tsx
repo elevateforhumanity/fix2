@@ -1,6 +1,6 @@
 import React from 'react';
 // components/offline/ServiceWorkerRegister.tsx
-'use client';
+"use client";
 
 import { useEffect } from 'react';
 

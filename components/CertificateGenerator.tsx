@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Download, Share2, Award } from 'lucide-react';

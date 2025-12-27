@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useCallback } from 'react';
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';

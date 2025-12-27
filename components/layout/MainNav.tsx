@@ -1,6 +1,6 @@
 import React from 'react';
 // components/layout/MainNav.tsx
-'use client';
+"use client";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';

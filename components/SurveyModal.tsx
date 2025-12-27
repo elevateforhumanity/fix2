@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { X, ChevronRight, ChevronLeft, Check } from 'lucide-react';

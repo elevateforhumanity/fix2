@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 /*
   Copyright (c) 2025 Elevate for Humanity

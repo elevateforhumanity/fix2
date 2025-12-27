@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Trophy, TrendingUp, Award } from 'lucide-react';
 

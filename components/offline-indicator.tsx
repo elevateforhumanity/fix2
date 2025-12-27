@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useOffline } from '@/hooks/use-offline';
 import { useEffect, useState } from 'react';

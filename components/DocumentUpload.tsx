@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

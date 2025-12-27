@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useEffect, useRef } from 'react';
 import { Mic, MicOff, Volume2 } from 'lucide-react';

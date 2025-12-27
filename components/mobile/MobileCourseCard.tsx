@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { Clock, BookOpen, Award, ChevronRight } from 'lucide-react';

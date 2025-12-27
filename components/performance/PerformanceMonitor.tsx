@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 import { useEffect } from 'react';
 import { reportWebVitals, observePerformance, monitorResources } from '@/lib/performance/web-vitals';
 export function PerformanceMonitor() {

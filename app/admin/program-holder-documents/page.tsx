@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useEffect } from 'react';
 import { FileText, CheckCircle, XCircle, Clock, Download, User, Building2 } from 'lucide-react';

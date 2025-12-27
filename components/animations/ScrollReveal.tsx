@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface ScrollRevealProps {

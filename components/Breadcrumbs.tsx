@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { SafeHtml } from '@/lib/sanitize';
 
 import Link from 'next/link';

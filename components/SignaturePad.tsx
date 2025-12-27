@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useRef, useEffect, useState } from 'react';
 import SignatureCanvas from 'signature_pad';

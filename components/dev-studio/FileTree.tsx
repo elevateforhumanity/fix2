@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useMemo } from 'react';
 import { ChevronRight, ChevronDown, File, Folder } from 'lucide-react';

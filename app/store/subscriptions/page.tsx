@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useEffect, useState, Suspense } from 'react';
 import { createBrowserClient } from '@supabase/ssr';

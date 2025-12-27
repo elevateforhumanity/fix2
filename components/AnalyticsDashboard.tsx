@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { TrendingUp, Users, BookOpen, Award, Clock, Target, DollarSign, CheckCircle } from 'lucide-react';

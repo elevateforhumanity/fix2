@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import type { Program } from '@/app/data/programs';
 import Link from 'next/link';

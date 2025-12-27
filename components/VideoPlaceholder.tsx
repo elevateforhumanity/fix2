@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Play } from 'lucide-react';
 import React from 'react';

@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useEffect } from 'react';
 import { initSentry } from '@/lib/monitoring/sentry';

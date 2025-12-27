@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { CheckCircle2, Circle, Lock, PlayCircle } from 'lucide-react';
 

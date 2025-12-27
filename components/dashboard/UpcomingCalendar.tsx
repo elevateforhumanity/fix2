@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Calendar, Clock } from 'lucide-react';
 

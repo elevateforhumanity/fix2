@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 import Image from 'next/image';
 
 import { useState, useRef, useEffect } from 'react';

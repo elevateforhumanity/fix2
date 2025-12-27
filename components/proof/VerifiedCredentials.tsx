@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Shield, ExternalLink, CheckCircle, Calendar } from 'lucide-react';
 

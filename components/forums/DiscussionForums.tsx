@@ -4,7 +4,7 @@ import { memo } from 'react';
  * Complete student community and peer support system
  */
 
-'use client';
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import { createBrowserClient } from '@supabase/ssr';

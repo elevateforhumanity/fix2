@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useEffect, useRef, useState } from 'react';
 import { trackLessonProgress } from '@/lib/xapi/xapi-client';

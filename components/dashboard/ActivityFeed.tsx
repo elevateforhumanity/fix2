@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { CheckCircle, Award, BookOpen, TrendingUp } from 'lucide-react';
 

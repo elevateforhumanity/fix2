@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 export default function CommitBar({ repo, branch, path, content, sha }) {
   async function save() {

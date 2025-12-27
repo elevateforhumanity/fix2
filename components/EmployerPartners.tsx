@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion } from 'framer-motion';
 import { Building2, Briefcase, TrendingUp, Users, ArrowRight } from 'lucide-react';

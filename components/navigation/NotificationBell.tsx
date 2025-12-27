@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useRef, useEffect } from 'react';
 import { Bell, CheckCircle, Award, BookOpen, AlertCircle } from 'lucide-react';

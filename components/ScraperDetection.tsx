@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 import { useEffect, useRef } from 'react';
 /**
  * Scraper Detection Component

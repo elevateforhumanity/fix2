@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { CheckCircle, Clock, Upload, FileText, Calendar, AlertCircle } from 'lucide-react';

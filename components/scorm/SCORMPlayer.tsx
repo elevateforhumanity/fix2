@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, ArrowLeft, Play, Pause, RotateCcw, AlertCircle } from 'lucide-react';

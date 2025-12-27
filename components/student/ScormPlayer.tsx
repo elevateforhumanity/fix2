@@ -5,7 +5,7 @@ import React from 'react';
  * Loads and plays SCORM 1.2 and SCORM 2004 packages
  * Tracks progress and completion
  */
-'use client';
+"use client";
 import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 interface ScormPlayerProps {

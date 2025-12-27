@@ -1,6 +1,6 @@
 import React from 'react';
 import { sanitizeHtml } from '@/lib/sanitize';
-'use client';
+"use client";
 import { SafeHtml } from '@/lib/sanitize';
 
 import { useEffect, useState } from 'react';

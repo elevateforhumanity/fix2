@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 // Skeleton Screens for Loading States
 export function SkeletonCard() {

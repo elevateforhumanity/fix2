@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 import { useEffect, useState } from 'react';
 import { initServiceWorker, setupOfflineSync } from '@/lib/offline/service-worker-manager';
 import toast from 'react-hot-toast';

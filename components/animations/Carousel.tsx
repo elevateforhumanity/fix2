@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect, useRef, ReactNode, TouchEvent } from 'react';
 
 interface CarouselProps {

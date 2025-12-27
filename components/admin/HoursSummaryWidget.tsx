@@ -4,7 +4,7 @@
  * Visual display of required vs transferred vs earned vs remaining hours
  */
 
-'use client';
+"use client";
 
 interface HoursSummaryWidgetProps {
   required: number;

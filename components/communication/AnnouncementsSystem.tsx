@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { Megaphone, Pin, Mail, Bell, Eye, Calendar } from 'lucide-react';

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { CheckCircle, AlertCircle, Clock } from 'lucide-react';
 

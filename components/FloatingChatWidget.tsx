@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 "use client";
 

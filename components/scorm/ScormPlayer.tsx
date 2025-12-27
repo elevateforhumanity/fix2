@@ -1,6 +1,6 @@
 import React from 'react';
 // components/scorm/ScormPlayer.tsx
-'use client';
+"use client";
 
 import { useEffect, useRef, useState } from 'react';
 import { initializeScormAPI } from '@/lib/scorm/api';

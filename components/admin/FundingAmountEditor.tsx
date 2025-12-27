@@ -5,7 +5,7 @@ import React from 'react';
  * Allows admin to set/update wage, stipend, and tuition amounts
  */
 
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { updateFundingAmounts } from '@/lib/actions/enrollments';

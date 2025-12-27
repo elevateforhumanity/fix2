@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from 'next/image';
 import { Mail, Linkedin, Award, BookOpen } from 'lucide-react';

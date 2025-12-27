@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * Course Authoring Tool - Temporarily Disabled

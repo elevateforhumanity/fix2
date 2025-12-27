@@ -1,5 +1,5 @@
 import React from 'react';
-'use client';
+"use client";
 
 import { useState, useEffect } from 'react';
 import { Cookie, X, Settings, Shield, CheckCircle } from 'lucide-react';

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { CheckCircle, Circle, Clock } from 'lucide-react';
