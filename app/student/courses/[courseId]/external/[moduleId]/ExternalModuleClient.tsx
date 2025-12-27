@@ -1,5 +1,6 @@
-import React from 'react';
 'use client';
+
+import React from 'react';
 
 // app/student/courses/[courseId]/external/[moduleId]/ExternalModuleClient.tsx
 // Client component for external partner module interaction

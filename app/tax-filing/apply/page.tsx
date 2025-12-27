@@ -1,6 +1,7 @@
+'use client';
+
 import React from 'react';
 // app/tax-filing/apply/page.tsx - Custom Tax Filing Application
-'use client';
 
 export const dynamic = 'force-dynamic';
 

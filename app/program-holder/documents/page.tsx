@@ -1,5 +1,6 @@
-import React from 'react';
 'use client';
+
+import React from 'react';
 
 import { useState, useEffect } from 'react';
 import { Upload, FileText, CheckCircle, XCircle, Clock, Download } from 'lucide-react';
