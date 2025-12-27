@@ -32,12 +32,12 @@ export default async function AdminPayoutsPage() {
     creators?.map((creator) => {
       const allSales = creator.sales || [];
       const totalEarnings = allSales.reduce(
-        (item) => sum + (sale.creator_earnings_cents || 0),
+        (sum, sale) => sum + (sale.creator_earnings_cents || 0),
         0
       );
-      const pendingSales = allSales.filter((item) => !s.paid_out);
+      const pendingSales = allSales.filter((sale) => !sale.paid_out);
       const pendingEarnings = pendingSales.reduce(
-        (item) => sum + (sale.creator_earnings_cents || 0),
+        (sum, sale) => sum + (sale.creator_earnings_cents || 0),
         0
       );
       const paidEarnings = totalEarnings - pendingEarnings;
