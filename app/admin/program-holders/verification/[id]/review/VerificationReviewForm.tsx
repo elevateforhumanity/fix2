@@ -27,6 +27,7 @@ interface Document {
 interface VerificationHistory {
   id: string;
   decision: string;
+  status: string;
   notes: string;
   reviewed_at: string;
   reviewed_by: string;
