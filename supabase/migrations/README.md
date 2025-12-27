@@ -1,269 +1,161 @@
-# Supabase Migrations
+# Database Migrations
 
-Database schema migrations for Elevate for Humanity.
+## Current State
 
-## Applications Table
+**Clean slate as of December 27, 2025**
 
-The `applications` table stores student applications for training programs.
+All legacy migrations (253 files) have been archived. The database schema is now managed through:
 
-### Running the Migration
+1. **Migration tracking system** - Prevents duplicate migrations
+2. **Two active migrations** - Schema fixes and tracking system
+3. **Archived legacy files** - Preserved in `archive-legacy/` for reference
 
-#### Option 1: Supabase Dashboard (Recommended)
-1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
-2. Select your project
-3. Navigate to SQL Editor
-4. Copy contents of `applications_table.sql`
-5. Paste and run
+## Active Migrations
 
-#### Option 2: Supabase CLI
-```bash
-# Install Supabase CLI
-npm install -g supabase
+### 20251227_fix_schema_mismatches.sql
+Fixes schema mismatches between database and TypeScript code:
+- Adds `uploaded_at` to `program_holder_documents`
+- Adds `decision`, `reviewed_at`, `reviewed_by` to `program_holder_verification`
+- Includes triggers to keep mirrored columns in sync
 
-# Link to your project
-supabase link --project-ref your-project-ref
+### 20251227_create_migration_tracking.sql
+Creates migration tracking system:
+- `schema_migrations` table tracks applied migrations
+- Helper functions to check/record migrations
+- Marks all legacy migrations as applied
 
-# Run migration
-supabase db push
+## How to Create New Migrations
+
+### 1. Name Your Migration
+Use timestamp format: `YYYYMMDD_description.sql`
+
+Example: `20251228_add_user_preferences.sql`
+
+### 2. Check If Already Applied
+```sql
+SELECT migration_applied('20251228_add_user_preferences');
 ```
 
-### Schema Overview
+### 3. Write Your Migration
+```sql
+-- Check if already applied
+DO $$
+BEGIN
+  IF NOT migration_applied('20251228_add_user_preferences') THEN
+    
+    -- Your migration code here
+    ALTER TABLE users ADD COLUMN preferences JSONB;
+    
+    -- Record migration
+    PERFORM record_migration(
+      '20251228_add_user_preferences',
+      'Add user preferences column'
+    );
+    
+  END IF;
+END $$;
+```
+
+### 4. Test Locally First
+```bash
+# Run migration
+psql $DATABASE_URL -f supabase/migrations/20251228_add_user_preferences.sql
+
+# Verify it worked
+psql $DATABASE_URL -c "SELECT * FROM migration_history LIMIT 5;"
+```
+
+### 5. Apply to Production
+Via Supabase Dashboard:
+1. Go to SQL Editor
+2. Copy migration file contents
+3. Run it
+4. Verify in `migration_history` view
+
+## Migration Best Practices
+
+### ✅ DO
+- Use `IF NOT EXISTS` for CREATE statements
+- Check `migration_applied()` before running
+- Record with `record_migration()` after success
+- Test in staging first
+- Keep migrations small and focused
+- Add comments explaining why
+
+### ❌ DON'T
+- Drop tables without backup
+- Change column types on large tables
+- Run migrations twice
+- Skip the tracking system
+- Make breaking changes without migration path
+
+## Viewing Migration History
 
 ```sql
-applications (
-  id UUID PRIMARY KEY,
-  
-  -- Personal Info
-  first_name TEXT NOT NULL,
-  last_name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  phone TEXT NOT NULL,
-  
-  -- Address
-  street_address TEXT,
-  city TEXT NOT NULL,
-  state TEXT DEFAULT 'IN',
-  zip_code TEXT NOT NULL,
-  
-  -- Program
-  program_id UUID,
-  program_name TEXT NOT NULL,
-  
-  -- Additional
-  notes TEXT,
-  referral_source TEXT,
-  funding_type TEXT,
-  has_barriers BOOLEAN,
-  barrier_types TEXT[],
-  
-  -- Status
-  status TEXT DEFAULT 'pending',
-  
-  -- Timestamps
-  submitted_at TIMESTAMP,
-  reviewed_at TIMESTAMP,
-  approved_at TIMESTAMP,
-  enrolled_at TIMESTAMP,
-  
-  -- Reviewer
-  reviewed_by UUID,
-  reviewer_notes TEXT
-)
+-- See all applied migrations
+SELECT * FROM migration_history;
+
+-- See recent migrations
+SELECT * FROM migration_history LIMIT 10;
+
+-- Check specific migration
+SELECT * FROM schema_migrations WHERE version = '20251227_fix_schema_mismatches';
 ```
 
-### Status Workflow
+## Rollback Strategy
 
-1. **pending** - Initial submission
-2. **reviewing** - Under review by staff
-3. **approved** - Approved for enrollment
-4. **rejected** - Application denied
-5. **enrolled** - Student enrolled in program
-6. **withdrawn** - Application withdrawn
+Migrations are **forward-only**. To rollback:
 
-### Funding Types
+1. **Create a new migration** that reverses changes
+2. **Don't delete** from `schema_migrations`
+3. **Test thoroughly** before applying
 
-- `WIOA` - Workforce Innovation and Opportunity Act
-- `WRG` - Workforce Ready Grant
-- `JRI` - Justice Reinvestment Initiative
-- `Self-Pay` - Student paying directly
-- `Other` - Other funding sources
+Example rollback:
+```sql
+-- Original: 20251228_add_user_preferences.sql
+ALTER TABLE users ADD COLUMN preferences JSONB;
 
-### API Integration
-
-#### Submit Application
-
-```typescript
-const { data, error } = await supabase
-  .from('applications')
-  .insert({
-    first_name: 'John',
-    last_name: 'Doe',
-    email: 'john@example.com',
-    phone: '317-555-0100',
-    city: 'Indianapolis',
-    zip_code: '46226',
-    program_name: 'CNA Training',
-    funding_type: 'WIOA',
-  })
-  .select()
-  .single();
+-- Rollback: 20251229_remove_user_preferences.sql
+ALTER TABLE users DROP COLUMN IF EXISTS preferences;
 ```
 
-#### Query Applications
+## Archived Migrations
 
-```typescript
-// Get all pending applications
-const { data } = await supabase
-  .from('applications')
-  .select('*')
-  .eq('status', 'pending')
-  .order('submitted_at', { ascending: false });
+**Location:** `archive-legacy/`
 
-// Search applications
-const { data } = await supabase
-  .from('applications')
-  .select('*')
-  .textSearch('fts', 'john doe');
+**Count:** 253 files
 
-// Get applications by program
-const { data } = await supabase
-  .from('applications')
-  .select('*')
-  .eq('program_name', 'CNA Training');
+**Status:** All marked as applied in `schema_migrations`
+
+**Purpose:** Historical reference only - DO NOT run these
+
+These files represent the messy history that led to the current schema. They're preserved for:
+- Understanding how we got here
+- Debugging historical issues
+- Reference for table structures
+
+## Emergency: Reset Migration Tracking
+
+If migration tracking gets corrupted:
+
+```sql
+-- DANGER: Only use if absolutely necessary
+TRUNCATE schema_migrations;
+
+-- Re-run tracking migration
+\i supabase/migrations/20251227_create_migration_tracking.sql
 ```
 
-#### Update Application Status
+## Questions?
 
-```typescript
-const { data, error } = await supabase
-  .from('applications')
-  .update({
-    status: 'approved',
-    approved_at: new Date().toISOString(),
-    reviewed_by: userId,
-    reviewer_notes: 'Approved for enrollment',
-  })
-  .eq('id', applicationId);
-```
+- Check `migration_history` view first
+- Review archived migrations for reference
+- Test in staging before production
+- Document complex migrations
 
-### Row Level Security (RLS)
+## Schema Documentation
 
-The table has RLS enabled with the following policies:
-
-1. **Public Insert** - Anyone can submit applications
-2. **User Select** - Users can view their own applications
-3. **Admin Select** - Admins can view all applications
-4. **Admin Update** - Admins can update applications
-
-### Indexes
-
-Optimized indexes for common queries:
-- Email lookup
-- Status filtering
-- Program filtering
-- Date sorting
-- Full-text search
-
-### Integration with Apply Form
-
-Update your apply form to use this table:
-
-```typescript
-// app/apply/actions.ts
-'use server';
-
-import { createClient } from '@supabase/supabase-js';
-import { ApplySchema } from '@/lib/validation/apply';
-
-export async function submitApplication(formData: FormData) {
-  const data = Object.fromEntries(formData.entries());
-  const parsed = ApplySchema.safeParse(data);
-  
-  if (!parsed.success) {
-    return { error: parsed.error.flatten().fieldErrors };
-  }
-  
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
-  
-  const { data: application, error } = await supabase
-    .from('applications')
-    .insert({
-      first_name: parsed.data.firstName,
-      last_name: parsed.data.lastName,
-      email: parsed.data.email,
-      phone: parsed.data.phone,
-      city: parsed.data.city,
-      zip_code: parsed.data.zip,
-      program_name: parsed.data.program,
-      notes: parsed.data.notes,
-    })
-    .select()
-    .single();
-  
-  if (error) {
-    return { error: 'Failed to submit application' };
-  }
-  
-  // Send confirmation email
-  // await sendConfirmationEmail(application);
-  
-  return { success: true, applicationId: application.id };
-}
-```
-
-### Admin Dashboard Integration
-
-Query for admin dashboard:
-
-```typescript
-// Get application statistics
-const { data: stats } = await supabase
-  .rpc('get_application_stats');
-
-// Get recent applications
-const { data: recent } = await supabase
-  .from('applications')
-  .select('*')
-  .order('submitted_at', { ascending: false })
-  .limit(10);
-
-// Get applications by status
-const { data: pending } = await supabase
-  .from('applications')
-  .select('*')
-  .eq('status', 'pending')
-  .order('submitted_at', { ascending: false });
-```
-
-### Email Notifications
-
-Set up email notifications for:
-- Application submitted (to applicant)
-- Application received (to admin)
-- Application approved (to applicant)
-- Application rejected (to applicant)
-
-### Future Enhancements
-
-- [ ] Document upload support
-- [ ] Interview scheduling
-- [ ] Automated eligibility checking
-- [ ] Integration with student records
-- [ ] Automated status updates
-- [ ] SMS notifications
-- [ ] Application analytics dashboard
-
-## Other Migrations
-
-Add additional migration files here as needed:
-- `certificates_table.sql` - Certificate records
-- `students_table.sql` - Student profiles
-- `programs_table.sql` - Training programs
-- `enrollments_table.sql` - Student enrollments
-
-## Support
-
-For database issues, contact: tech@elevateforhumanity.org
+Current schema state documented in:
+- `schema-audit-results.json` - Actual database state
+- `SCHEMA_FIX_SUMMARY.md` - Recent fixes applied
+- `DATABASE_AUDIT_REPORT.md` - Full audit findings

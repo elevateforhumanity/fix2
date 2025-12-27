@@ -1,0 +1,163 @@
+{
+  "exported_at": "2025-12-27T21:14:24.301Z",
+  "method": "sample_query",
+  "tables": {
+    "profiles": {
+      "exists": true,
+      "columns": [
+        "id",
+        "email",
+        "full_name",
+        "role",
+        "enrollment_status",
+        "phone",
+        "address",
+        "city",
+        "state",
+        "zip",
+        "avatar_url",
+        "created_at",
+        "updated_at",
+        "organization_id"
+      ]
+    },
+    "applications": {
+      "exists": true,
+      "columns": [
+        "id",
+        "first_name",
+        "last_name",
+        "phone",
+        "email",
+        "city",
+        "zip",
+        "program_interest",
+        "has_case_manager",
+        "case_manager_agency",
+        "support_notes",
+        "contact_preference",
+        "advisor_email",
+        "status",
+        "created_at",
+        "employer_sponsor_id",
+        "submit_token",
+        "program_id",
+        "user_id"
+      ]
+    },
+    "programs": {
+      "exists": true,
+      "columns": [
+        "id",
+        "slug",
+        "title",
+        "category",
+        "description",
+        "estimated_weeks",
+        "estimated_hours",
+        "funding_tags",
+        "is_active",
+        "created_at",
+        "full_description",
+        "what_you_learn",
+        "day_in_life",
+        "salary_min",
+        "salary_max",
+        "credential_type",
+        "credential_name",
+        "employers",
+        "funding_pathways",
+        "delivery_method",
+        "training_hours",
+        "prerequisites",
+        "career_outcomes",
+        "industry_demand",
+        "image_url",
+        "hero_image_url",
+        "icon_url",
+        "featured",
+        "wioa_approved",
+        "dol_registered",
+        "placement_rate",
+        "completion_rate",
+        "total_cost",
+        "toolkit_cost",
+        "credentialing_cost",
+        "name",
+        "duration_weeks",
+        "updated_at",
+        "cip_code",
+        "soc_code",
+        "funding_eligibility",
+        "state_code",
+        "organization_id",
+        "category_norm"
+      ]
+    },
+    "enrollments": {
+      "exists": true,
+      "columns": [
+        "id",
+        "user_id",
+        "program_id",
+        "status",
+        "started_at",
+        "completed_at",
+        "created_at",
+        "internal_complete",
+        "state_code",
+        "apprenticeship",
+        "rapids_registered",
+        "organization_id",
+        "billing_lock",
+        "billing_lock_at",
+        "billing_lock_reason",
+        "payment_mode",
+        "stripe_checkout_session_id",
+        "stripe_payment_intent_id",
+        "payment_status",
+        "amount_paid_cents",
+        "paid_at",
+        "updated_at",
+        "partner_course_id",
+        "program_holder_id"
+      ]
+    },
+    "marketplace_creators": {
+      "exists": true,
+      "columns": []
+    },
+    "marketplace_products": {
+      "exists": true,
+      "columns": []
+    },
+    "marketplace_sales": {
+      "exists": true,
+      "columns": []
+    },
+    "program_holders": {
+      "exists": true,
+      "columns": [
+        "id",
+        "organization_name",
+        "status",
+        "created_at",
+        "user_id",
+        "contact_name",
+        "contact_email",
+        "contact_phone",
+        "mou_signed",
+        "mou_signed_at",
+        "payout_status"
+      ]
+    },
+    "program_holder_documents": {
+      "exists": true,
+      "columns": []
+    },
+    "program_holder_verification": {
+      "exists": true,
+      "columns": []
+    }
+  }
+}
