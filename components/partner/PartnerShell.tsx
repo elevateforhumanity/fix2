@@ -1,6 +1,21 @@
+import { ReactNode } from 'react';
 import PartnerNav from './PartnerNav';
+import { User } from '@supabase/supabase-js';
 
-export default function PartnerShell(data: unknown) {
+interface PartnerShellProps {
+  ctx: {
+    user: User;
+    profileRole: string;
+    shops: Array<{
+      shop_id: any;
+      staff_role: string;
+      shop: any;
+    }>;
+  };
+  children: ReactNode;
+}
+
+export default function PartnerShell({ ctx, children }: PartnerShellProps) {
   const shops = ctx?.shops ?? [];
   const isAdmin = ['admin', 'super_admin', 'org_admin'].includes(
     ctx?.profileRole ?? ''
