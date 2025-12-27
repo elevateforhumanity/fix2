@@ -69,7 +69,7 @@ export default async function EmployerOnboardingReview() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
-                {onboardings?.map((item) => {
+                {onboardings?.map((onboarding) => {
                   const StatusIcon = statusIcons[onboarding.status] || Clock;
                   return (
                     <tr key={onboarding.id} className="hover:bg-slate-50">
