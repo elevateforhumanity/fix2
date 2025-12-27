@@ -126,7 +126,6 @@ export async function POST(request: Request) {
       donation_id: donation.id,
     });
   } catch (error) {
-    console.error('Error creating checkout session:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

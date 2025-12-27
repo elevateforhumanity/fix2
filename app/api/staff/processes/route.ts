@@ -49,7 +49,6 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ processes });
   } catch (error) {
-    console.error('Error fetching processes:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

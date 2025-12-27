@@ -71,7 +71,6 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (appError) {
-      console.error('Employer application error:', appError);
       return NextResponse.json(
         { error: 'Failed to submit application' },
         { status: 500 }
@@ -83,7 +82,6 @@ export async function POST(request: NextRequest) {
       new URL('/apply/employer/success', request.url)
     );
   } catch (error) {
-    console.error('Employer application error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

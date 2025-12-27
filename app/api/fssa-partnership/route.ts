@@ -18,7 +18,6 @@ export async function POST(request: NextRequest) {
     });
 
     if (logError) {
-      console.error('Failed to log FSSA partnership request:', logError);
     }
 
     // Send notification to admin
@@ -96,7 +95,6 @@ export async function POST(request: NextRequest) {
         `,
       });
     } catch (emailError) {
-      console.error('Failed to send FSSA partnership emails:', emailError);
       // Continue - request is logged
     }
 
@@ -105,7 +103,6 @@ export async function POST(request: NextRequest) {
       message: 'Partnership request received. We will contact you within 1-2 business days.'
     });
   } catch (error) {
-    console.error('FSSA partnership request error:', error);
     return NextResponse.json(
       { error: 'Failed to process partnership request' },
       { status: 500 }

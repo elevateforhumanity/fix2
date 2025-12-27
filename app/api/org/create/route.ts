@@ -86,7 +86,6 @@ export async function POST(req: NextRequest) {
       message: 'Organization created successfully',
     });
   } catch (error: any) {
-    console.error('Error creating organization:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create organization' },
       { status: 500 }

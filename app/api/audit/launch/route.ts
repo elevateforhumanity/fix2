@@ -77,7 +77,6 @@ async function handleAudit(request: NextRequest, options: AuditOptions) {
       },
     });
   } catch (error) {
-    console.error('Audit crashed:', error);
     return NextResponse.json(
       {
         error: 'Audit failed',

@@ -56,7 +56,6 @@ export async function POST(req: Request) {
           name: profile.full_name || 'Creator',
         });
       } catch (emailError) {
-        console.error('Failed to send approval email:', emailError);
       }
     }
 

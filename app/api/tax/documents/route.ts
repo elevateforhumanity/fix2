@@ -43,7 +43,6 @@ export async function GET() {
       total: documents?.length || 0,
     });
   } catch (error) {
-    console.error('Error fetching tax documents:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -96,7 +96,6 @@ export async function POST(req: NextRequest) {
         });
 
       if (certError) {
-        console.error('Certificate creation error:', certError);
       }
 
       // Send completion email
@@ -118,10 +117,8 @@ export async function POST(req: NextRequest) {
           }),
         });
       } catch (emailError) {
-        console.error('Email notification error:', emailError);
       }
     } catch (certError) {
-      console.error('Certificate generation error:', certError);
       // Don't fail the completion if certificate fails
     }
 
@@ -137,7 +134,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Error completing course:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to complete course' },
       { status: 500 }

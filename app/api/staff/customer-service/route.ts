@@ -70,7 +70,6 @@ export async function GET() {
         tickets?.filter((t) => t.status === 'in_progress').length || 0,
     });
   } catch (error) {
-    console.error('Error fetching customer service data:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

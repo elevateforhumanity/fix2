@@ -71,7 +71,6 @@ export async function POST(request: NextRequest) {
 
         sentCount++;
       } catch (error) {
-        console.error(`Failed to send to ${student.email}:`, error);
       }
     }
 
@@ -81,7 +80,6 @@ export async function POST(request: NextRequest) {
       total_selected: students.length,
     });
   } catch (error: any) {
-    console.error('Staff campaign send error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to send emails' },
       { status: 500 }

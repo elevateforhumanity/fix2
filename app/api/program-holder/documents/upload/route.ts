@@ -73,7 +73,6 @@ export async function POST(req: Request) {
       });
 
     if (uploadError) {
-      console.error('Storage upload error:', uploadError);
       return NextResponse.json(
         { error: `Upload failed: ${uploadError.message}` },
         { status: 500 }
@@ -106,7 +105,6 @@ export async function POST(req: Request) {
       .single();
 
     if (dbError) {
-      console.error('Database insert error:', dbError);
       // Clean up uploaded file
       await supabase.storage
         .from('program-holder-documents')
@@ -130,7 +128,6 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: any) {
-    console.error('Upload error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Upload failed' },
       { status: 500 }

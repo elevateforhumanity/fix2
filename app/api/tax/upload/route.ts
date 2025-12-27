@@ -62,7 +62,6 @@ export async function POST(request: Request) {
       });
 
     if (uploadError) {
-      console.error('Upload error:', uploadError);
       return NextResponse.json(
         { error: 'Failed to upload file' },
         { status: 500 }
@@ -107,7 +106,6 @@ export async function POST(request: Request) {
       message: 'File uploaded successfully. Virus scan in progress.',
     });
   } catch (error) {
-    console.error('Error uploading tax document:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

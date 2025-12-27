@@ -168,7 +168,6 @@ export async function GET() {
 
     return NextResponse.json({ metrics });
   } catch (error) {
-    console.error('Error fetching performance metrics:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

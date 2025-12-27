@@ -43,7 +43,6 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('[CRON] Error generating verdicts:', error);
       return NextResponse.json(
         {
           ok: false,
@@ -81,7 +80,6 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
   } catch (error: any) {
-    console.error('[CRON] Unexpected error:', error);
     return NextResponse.json(
       {
         ok: false,
@@ -165,7 +163,6 @@ async function createAlertsFromVerdicts(
     await supabase.from('alert_notifications').insert(alerts);
 
   } catch (error) {
-    console.error('[CRON] Error creating alerts from verdicts:', error);
   }
 }
 

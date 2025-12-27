@@ -58,7 +58,6 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('Database error:', error);
 
       // If table doesn't exist, still return success (we'll handle via email)
       if (error.code === '42P01') {
@@ -87,7 +86,6 @@ export async function POST(req: Request) {
       message: 'Appointment request received successfully',
     });
   } catch (error) {
-    console.error('Appointment booking error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

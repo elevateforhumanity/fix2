@@ -48,7 +48,6 @@ export async function POST(req: Request) {
         }),
       });
     } catch (emailError) {
-      console.error('Failed to send notification email:', emailError);
     }
 
     return NextResponse.json({ success: true, onboarding: data });

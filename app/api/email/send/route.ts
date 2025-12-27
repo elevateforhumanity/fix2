@@ -49,7 +49,6 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error('[Email] Send error:', error);
       
       // Log failure
       await logEmailDelivery({
@@ -79,7 +78,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true, id: data?.id });
   } catch (err: any) {
-    console.error('[Email] Unexpected error:', err);
     
     // Log failure
     if (emailTo && emailSubject) {

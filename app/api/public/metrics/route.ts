@@ -114,7 +114,6 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error('Public metrics error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch metrics' },
       { status: 500 }

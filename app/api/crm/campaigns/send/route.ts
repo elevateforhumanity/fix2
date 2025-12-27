@@ -155,7 +155,6 @@ export async function POST(request: NextRequest) {
             sent_at: new Date().toISOString(),
           });
         } catch (error) {
-          console.error(`Failed to send to ${recipient.email}:`, error);
           
           // Log failure
           await supabase.from('email_logs').insert({
@@ -187,7 +186,6 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error('Campaign send error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to send campaign' },
       { status: 500 }

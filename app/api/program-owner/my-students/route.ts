@@ -57,7 +57,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ students: students || [] });
   } catch (error: any) {
-    console.error('Program owner my-students error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch students' },
       { status: 500 }

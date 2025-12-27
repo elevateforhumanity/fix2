@@ -34,7 +34,6 @@ async function verifyDownloadToken(
 
     return true;
   } catch (error) {
-    console.error('Token verification error:', error);
     return false;
   }
 }
@@ -56,7 +55,6 @@ async function logDownload(
       user_agent: request.headers.get('user-agent'),
     });
   } catch (error) {
-    console.error('Download logging error:', error);
   }
 }
 
@@ -123,7 +121,6 @@ export async function GET(
       },
     });
   } catch (error: any) {
-    console.error('Download error:', error);
     return NextResponse.json(
       { error: 'Failed to process download' },
       { status: 500 }

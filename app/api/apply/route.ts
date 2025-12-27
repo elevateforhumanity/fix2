@@ -22,7 +22,6 @@ async function sendConfirmationEmail(
   firstName: string
 ): Promise<void> {
   if (!process.env.RESEND_API_KEY) {
-    console.warn('RESEND_API_KEY not configured, skipping email');
     return;
   }
 
@@ -59,7 +58,6 @@ async function sendConfirmationEmail(
       }),
     });
   } catch (err) {
-    console.error('Email send error:', err);
   }
 }
 
@@ -98,7 +96,6 @@ async function sendStaffNotification(
       }),
     });
   } catch (err) {
-    console.error('Staff notification error:', err);
   }
 }
 
@@ -174,7 +171,6 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('Supabase insert error:', error);
       throw error;
     }
 
@@ -185,14 +181,11 @@ export async function POST(req: Request) {
     });
 
     // Send confirmation email to applicant (non-blocking)
-    sendConfirmationEmail(email, firstName).catch(console.error);
 
     // Send notification to assigned advisor (non-blocking)
-    sendStaffNotification(advisorEmail, data).catch(console.error);
 
     return NextResponse.json({ success: true, id: data.id });
   } catch (err: any) {
-    console.error('APPLICATION ERROR:', err);
     return NextResponse.json(
       {
         error:

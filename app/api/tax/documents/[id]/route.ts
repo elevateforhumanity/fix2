@@ -37,7 +37,6 @@ export async function DELETE(
       .remove([document.file_path]);
 
     if (storageError) {
-      console.error('Storage deletion error:', storageError);
       // Continue with database deletion even if storage fails
     }
 
@@ -57,7 +56,6 @@ export async function DELETE(
       message: 'Document deleted successfully',
     });
   } catch (error) {
-    console.error('Error deleting tax document:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

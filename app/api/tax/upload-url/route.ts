@@ -39,7 +39,6 @@ export async function POST(req: Request) {
       .createSignedUploadUrl(path);
 
     if (error) {
-      console.error('Supabase storage error:', error);
 
       // If bucket doesn't exist, return helpful error
       if (error.message.includes('not found')) {
@@ -73,7 +72,6 @@ export async function POST(req: Request) {
       ]);
     } catch (logError) {
       // Don't fail upload if logging fails
-      console.error('Failed to log upload:', logError);
     }
 
     return NextResponse.json({
@@ -83,7 +81,6 @@ export async function POST(req: Request) {
       expiresIn: 3600, // 1 hour
     });
   } catch (error) {
-    console.error('Upload URL generation error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

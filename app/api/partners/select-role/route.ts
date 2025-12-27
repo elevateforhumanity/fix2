@@ -47,7 +47,6 @@ export async function POST(request: NextRequest) {
       });
 
     if (profileError) {
-      console.error('Error creating partner profile:', profileError);
       return NextResponse.json(
         { error: 'Failed to create partner profile' },
         { status: 500 }
@@ -64,7 +63,6 @@ export async function POST(request: NextRequest) {
     );
 
     if (onboardingError) {
-      console.error('Error initiating onboarding:', onboardingError);
       // Don't fail the request, onboarding can be initiated later
     }
 
@@ -85,7 +83,6 @@ export async function POST(request: NextRequest) {
       role,
     });
   } catch (error: any) {
-    console.error('Error selecting partner role:', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

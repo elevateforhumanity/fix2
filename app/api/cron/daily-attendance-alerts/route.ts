@@ -35,7 +35,6 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('[CRON] Error running attendance alerts:', error);
       return NextResponse.json(
         {
           ok: false,
@@ -68,7 +67,6 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
   } catch (error: any) {
-    console.error('[CRON] Unexpected error:', error);
     return NextResponse.json(
       {
         ok: false,

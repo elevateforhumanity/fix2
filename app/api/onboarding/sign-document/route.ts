@@ -99,7 +99,6 @@ export async function POST(request: NextRequest) {
       });
 
     if (signError) {
-      console.error('Error inserting signature:', signError);
       return NextResponse.json(
         { error: 'Failed to save signature' },
         { status: 500 }
@@ -126,7 +125,6 @@ export async function POST(request: NextRequest) {
       isComplete: completionCheck,
     });
   } catch (error: any) {
-    console.error('Error signing document:', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

@@ -94,7 +94,6 @@ export async function GET(request: Request) {
       totalAmount,
     });
   } catch (error) {
-    console.error('Error fetching donations:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

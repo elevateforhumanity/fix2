@@ -24,7 +24,6 @@ export async function POST(request: NextRequest) {
     try {
       event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
     } catch (err: any) {
-      console.error('Webhook signature verification failed:', err.message);
       return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
     }
 
@@ -81,9 +80,6 @@ export async function POST(request: NextRequest) {
               .eq('id', purchase.id);
 
             // Send welcome email (TODO: implement email service)
-            console.log('License provisioned for:', purchase.organization_name);
-            console.log('Tenant ID:', tenant.id);
-            console.log('Tenant slug:', tenant.slug);
           }
         }
         break;
@@ -100,12 +96,10 @@ export async function POST(request: NextRequest) {
       }
 
       default:
-        console.log(`Unhandled event type: ${event.type}`);
     }
 
     return NextResponse.json({ received: true });
   } catch (error: any) {
-    console.error('Webhook error:', error);
     return NextResponse.json(
       { error: error.message || 'Webhook handler failed' },
       { status: 500 }

@@ -38,7 +38,6 @@ export async function GET(req: Request) {
       timeframe,
     });
   } catch (error: any) {
-    console.error('[Email Stats] Error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch email statistics' },
       { status: 500 }

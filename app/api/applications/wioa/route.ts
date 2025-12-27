@@ -89,7 +89,6 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('Supabase error:', error);
       return NextResponse.json(
         {
           error:
@@ -141,7 +140,6 @@ export async function POST(req: Request) {
         }),
       });
     } catch (emailError) {
-      console.error('Email error:', emailError);
     }
 
     // Send notification to admin
@@ -170,7 +168,6 @@ export async function POST(req: Request) {
         }),
       });
     } catch (emailError) {
-      console.error('Admin email error:', emailError);
     }
 
     return NextResponse.json(
@@ -182,7 +179,6 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error: any) {
-    console.error('Application error:', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

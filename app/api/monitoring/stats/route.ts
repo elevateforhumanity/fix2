@@ -73,7 +73,6 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    console.error('Monitoring stats error:', error);
     return NextResponse.json(
       { error: 'Failed to get monitoring stats' },
       { status: 500 }

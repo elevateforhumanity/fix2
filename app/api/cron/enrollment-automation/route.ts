@@ -27,7 +27,6 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: any) {
-    console.error('[Cron] Automation error:', error);
     return NextResponse.json(
       { error: 'Automation failed', message: error.message },
       { status: 500 }

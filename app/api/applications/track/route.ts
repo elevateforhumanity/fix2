@@ -42,7 +42,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(data, { status: 200 });
   } catch (err: any) {
-    console.error('Application tracking error:', err);
     return NextResponse.json(
       { error: 'Failed to retrieve application' },
       { status: 500 }

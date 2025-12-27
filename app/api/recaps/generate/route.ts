@@ -83,7 +83,6 @@ ${transcript}
 
     if (!response.ok) {
       const error = await response.text();
-      console.error('OpenAI API error:', error);
       return NextResponse.json(
         { error: 'Failed to generate recap' },
         { status: 500 }
@@ -115,7 +114,6 @@ ${transcript}
       .single();
 
     if (recapErr) {
-      console.error('Recap insert error:', recapErr);
       return NextResponse.json({ error: recapErr.message }, { status: 500 });
     }
 
@@ -133,13 +131,11 @@ ${transcript}
         );
 
       if (itemsErr) {
-        console.error('Action items insert error:', itemsErr);
       }
     }
 
     return NextResponse.json({ recap_id: recap.id }, { status: 200 });
   } catch (error: any) {
-    console.error('Generate recap error:', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

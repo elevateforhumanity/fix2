@@ -138,7 +138,6 @@ export async function POST(req: NextRequest) {
       email_sent: !!process.env.RESEND_API_KEY,
     });
   } catch (error: any) {
-    console.error('Error creating invite:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create invite' },
       { status: 500 }
@@ -181,7 +180,6 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ invites });
   } catch (error: any) {
-    console.error('Error fetching invites:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch invites' },
       { status: 500 }

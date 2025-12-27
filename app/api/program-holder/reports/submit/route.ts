@@ -76,7 +76,6 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (insertError) {
-      console.error('Report submission error:', insertError);
       return NextResponse.json(
         { error: 'Failed to submit report', details: insertError.message },
         { status: 500 }
@@ -104,7 +103,6 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('Unexpected error in report submission:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -14,6 +14,5 @@ export const metadata: Metadata = {
  */
 export default function StudentApplicationPage() {
   // Redirect to existing full application
-  // TODO: Replace with dedicated student application form
   redirect('/apply/full');
 }

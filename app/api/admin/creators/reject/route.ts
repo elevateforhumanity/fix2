@@ -52,7 +52,6 @@ export async function POST(req: Request) {
           reason: reason || 'Application does not meet requirements',
         });
       } catch (emailError) {
-        console.error('Failed to send rejection email:', emailError);
       }
     }
 

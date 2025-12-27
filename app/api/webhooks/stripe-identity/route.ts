@@ -39,7 +39,6 @@ export async function POST(request: NextRequest) {
       process.env.STRIPE_IDENTITY_WEBHOOK_SECRET!
     );
   } catch (err: any) {
-    console.error('Webhook signature verification failed:', err.message);
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
   }
 
@@ -49,7 +48,6 @@ export async function POST(request: NextRequest) {
     const userId = session.metadata?.user_id;
 
     if (!userId) {
-      console.error('No user_id in session metadata');
       return NextResponse.json({ error: 'No user_id' }, { status: 400 });
     }
 
@@ -75,7 +73,6 @@ export async function POST(request: NextRequest) {
       // Email notification handled by trigger to user
 
     } catch (error) {
-      console.error('Database update error:', error);
       return NextResponse.json(
         { error: 'Database update failed' },
         { status: 500 }
@@ -116,7 +113,6 @@ export async function POST(request: NextRequest) {
       // Email notification handled by trigger to user
 
     } catch (error) {
-      console.error('Database update error:', error);
       return NextResponse.json(
         { error: 'Database update failed' },
         { status: 500 }

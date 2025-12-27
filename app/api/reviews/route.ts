@@ -64,7 +64,6 @@ export async function GET(request: Request) {
       averageRating: parseFloat(avgRating),
     });
   } catch (error) {
-    console.error('Error fetching reviews:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -141,7 +140,6 @@ export async function POST(request: Request) {
         'Thank you for your review! It will be published after moderation.',
     });
   } catch (error) {
-    console.error('Error submitting review:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

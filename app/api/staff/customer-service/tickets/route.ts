@@ -66,7 +66,6 @@ export async function POST(request: Request) {
       ticket,
     });
   } catch (error) {
-    console.error('Error creating ticket:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

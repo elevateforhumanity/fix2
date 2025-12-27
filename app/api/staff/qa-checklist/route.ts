@@ -73,7 +73,6 @@ export async function GET() {
       completedToday: completions?.length || 0,
     });
   } catch (error) {
-    console.error('Error fetching QA checklists:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -141,7 +140,6 @@ export async function POST(request: Request) {
       completion,
     });
   } catch (error) {
-    console.error('Error completing QA checklist:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

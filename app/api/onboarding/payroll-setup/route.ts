@@ -73,7 +73,6 @@ export async function POST(request: NextRequest) {
         .eq('id', existingProfile.id);
 
       if (updateError) {
-        console.error('Error updating payroll profile:', updateError);
         return NextResponse.json(
           { error: 'Failed to update payroll profile' },
           { status: 500 }
@@ -94,7 +93,6 @@ export async function POST(request: NextRequest) {
         });
 
       if (insertError) {
-        console.error('Error creating payroll profile:', insertError);
         return NextResponse.json(
           { error: 'Failed to create payroll profile' },
           { status: 500 }
@@ -124,7 +122,6 @@ export async function POST(request: NextRequest) {
       success: true,
     });
   } catch (error: any) {
-    console.error('Error setting up payroll:', error);
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

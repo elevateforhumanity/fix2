@@ -51,7 +51,6 @@ export async function GET(
 
     return NextResponse.json(analytics);
   } catch (error: any) {
-    console.error('[Course Analytics] Error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch analytics' },
       { status: 500 }

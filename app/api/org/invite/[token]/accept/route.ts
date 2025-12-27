@@ -70,7 +70,6 @@ export async function POST(
       });
 
     if (memberError) {
-      console.error('Failed to add member:', memberError);
       return jsonErr('Failed to accept invitation', 500);
     }
 
@@ -81,7 +80,6 @@ export async function POST(
       .eq('token', params.token);
 
     if (updateError) {
-      console.error('Failed to update invite:', updateError);
       // Don't fail - member was added successfully
     }
 
@@ -106,7 +104,6 @@ export async function POST(
       organizationName: invite.organization_name,
     });
   } catch (error) {
-    console.error('Accept invite error:', error);
     return jsonErr('Internal server error', 500);
   }
 }

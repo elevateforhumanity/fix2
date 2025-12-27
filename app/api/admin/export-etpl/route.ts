@@ -85,7 +85,6 @@ export async function GET(req: Request) {
     const { data, error } = await query;
 
     if (error) {
-      console.error('Export query error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
@@ -151,7 +150,6 @@ export async function GET(req: Request) {
       data: exportData,
     });
   } catch (err: any) {
-    console.error('Export error:', err);
     return NextResponse.json({ error: 'Export failed' }, { status: 500 });
   }
 }

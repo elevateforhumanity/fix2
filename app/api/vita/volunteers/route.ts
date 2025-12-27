@@ -79,7 +79,6 @@ export async function GET(request: Request) {
       statusCounts,
     });
   } catch (error) {
-    console.error('Error fetching volunteer applications:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -167,7 +166,6 @@ export async function PATCH(request: Request) {
       application,
     });
   } catch (error) {
-    console.error('Error updating volunteer application:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

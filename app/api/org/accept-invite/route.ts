@@ -75,7 +75,6 @@ export async function POST(req: NextRequest) {
       organization_id: invite.organization_id,
     });
   } catch (error: any) {
-    console.error('Error accepting invite:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to accept invite' },
       { status: 500 }
@@ -117,7 +116,6 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (error: any) {
-    console.error('Error fetching invite:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch invite' },
       { status: 500 }

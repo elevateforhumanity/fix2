@@ -54,7 +54,6 @@ export async function GET() {
       completedModules: progress?.filter((p) => p.completed_at).length || 0,
     });
   } catch (error) {
-    console.error('Error fetching training data:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -128,7 +127,6 @@ export async function POST(request: Request) {
       certified: quiz_score && quiz_score >= 80,
     });
   } catch (error) {
-    console.error('Error saving training progress:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

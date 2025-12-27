@@ -203,7 +203,6 @@ export async function PATCH(req: Request) {
       }),
     });
   } catch (emailError) {
-    console.error('Failed to send notification email:', emailError);
     // Don't fail the request if email fails
   }
 

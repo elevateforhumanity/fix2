@@ -7,7 +7,6 @@ async function sendSMS(phone: string, message: string): Promise<boolean> {
     !process.env.TWILIO_AUTH_TOKEN ||
     !process.env.TWILIO_PHONE
   ) {
-    console.warn('Twilio not configured, skipping SMS');
     return false;
   }
 
@@ -34,7 +33,6 @@ async function sendSMS(phone: string, message: string): Promise<boolean> {
 
     return response.ok;
   } catch (err) {
-    console.error('SMS send error:', err);
     return false;
   }
 }
@@ -131,7 +129,6 @@ export async function POST(req: Request) {
       message: sent ? 'Reminder sent' : 'Failed to send reminder',
     });
   } catch (err: any) {
-    console.error('Reminder error:', err);
     return NextResponse.json(
       { error: 'Failed to send reminder' },
       { status: 500 }
