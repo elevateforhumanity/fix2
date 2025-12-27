@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { sanitizeHtml } from '@/lib/sanitize';
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 import { useState } from 'react';
 import { CheckCircle2, Circle, Lock, FileText, DollarSign } from 'lucide-react';

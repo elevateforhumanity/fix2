@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 import { useState } from 'react';
 import VideoSection from './VideoSection';

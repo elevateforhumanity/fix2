@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';

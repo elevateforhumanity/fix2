@@ -1,5 +1,5 @@
 /**
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
  * Comprehensive Schema.org Structured Data
  * Includes Organization, LocalBusiness, EducationalOrganization, and Course schemas
  */

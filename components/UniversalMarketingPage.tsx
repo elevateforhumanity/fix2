@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
 import Link from 'next/link';
 import {
   CheckCircle,

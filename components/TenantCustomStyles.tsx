@@ -1,5 +1,5 @@
 // components/TenantCustomStyles.tsx
-import { SafeHtml } from '@/lib/sanitize';
+import { sanitizeHtml } from '@/lib/sanitize';
 import { getTenantFromHost } from "@/lib/multiTenant/tenantFromHost";
 import { headers } from "next/headers";
 
