@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
-
+// Force cache bust
 interface InviteData {
   organizationName: string;
   inviterName?: string;

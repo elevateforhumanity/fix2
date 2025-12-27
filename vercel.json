@@ -13,7 +13,7 @@
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=4096",
       "VERCEL_FORCE_NO_BUILD_CACHE": "1",
-      "TURBOPACK_FORCE_CACHE_CLEAR": "1"
+      "NEXT_PRIVATE_SKIP_CACHE": "1"
     }
   },
   "redirects": [
