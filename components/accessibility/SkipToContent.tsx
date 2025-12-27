@@ -1,4 +1,3 @@
-// components/accessibility/SkipToContent.tsx
 'use client';
 
 export function SkipToContent() {

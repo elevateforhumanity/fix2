@@ -1,4 +1,3 @@
-// components/OptimizedImage.tsx
 "use client";
 
 import Image, { ImageProps } from "next/image";
