@@ -436,8 +436,9 @@ export default function NewWorkflowPage() {
                             <div
                               className="text-xs"
                               dangerouslySetInnerHTML={{
-                                __html:
-                                  step.customHtml.substring(0, 500) + '...',
+                                __html: sanitizeHtml(
+                                  step.customHtml.substring(0, 500) + '...'
+                                ),
                               }}
                             />
                           ) : (

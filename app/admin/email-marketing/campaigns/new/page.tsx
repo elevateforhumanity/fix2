@@ -713,7 +713,7 @@ export default function NewCampaignPage() {
                       <div
                         className="text-xs"
                         dangerouslySetInnerHTML={{
-                          __html: campaign.customHtml,
+                          __html: sanitizeHtml(campaign.customHtml),
                         }}
                       />
                     ) : (
