@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Force cache bust - build timestamp
+  generateBuildId: async () => {
+    return `build-${Date.now()}`;
+  },
   output: 'standalone',
   reactStrictMode: true,
   trailingSlash: false,
