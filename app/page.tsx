@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { OptimizedVideo } from '@/components/OptimizedVideo';
 import HeroVideo from '@/components/home/HeroVideo';
 import PrimaryCtas from '@/components/home/PrimaryCtas';
 import HeroBanner from '@/components/hero/HeroBanner';
@@ -54,16 +55,11 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
         <div className="relative w-full overflow-hidden rounded-3xl">
           <div className="relative h-[520px] w-full md:h-[600px]">
-            <video
-              autoPlay
-              loop
-              playsInline
-              muted
-              className="absolute inset-0 w-full h-full object-cover"
+            <OptimizedVideo
+              src="/videos/hero-home.mp4"
               poster="/images/heroes/homepage-hero.jpg"
-            >
-              <source src="/videos/hero-home.mp4" type="video/mp4" />
-            </video>
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </div>
 

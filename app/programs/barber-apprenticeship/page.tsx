@@ -1,3 +1,4 @@
+import { OptimizedVideo } from '@/components/OptimizedVideo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { programs } from '@/app/data/programs';
