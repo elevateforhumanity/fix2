@@ -52,7 +52,7 @@ export function SecurityMonitor() {
     // 3. Monitor console access
     const monitorConsole = () => {
       const originalLog = console.log;
-      console.log = (...args: any[]) => {
+      console.log = (...args: unknown[]) => {
         logSecurityEvent('CONSOLE_ACCESS', { args });
         originalLog.apply(console, args);
       };
@@ -90,11 +90,9 @@ export function SecurityMonitor() {
 
         // Attempt to break out of iframe
         try {
-          // @ts-expect-error TS2322: Type 'Location' is not assignable to type 'string'.
           window.top!.location = window.self.location;
         } catch (e) {
           // If we can't break out, at least log it
-          console.warn('Site embedded in unauthorized iframe');
         }
       }
     };
@@ -169,7 +167,6 @@ function logSecurityEvent(eventType: string, data: any) {
 
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
-    console.warn('[SECURITY EVENT]', event);
   }
 
   // Send to analytics/monitoring service

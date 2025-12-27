@@ -101,7 +101,6 @@ export async function POST(request: NextRequest) {
       logger.info('=== WELCOME EMAIL ===');
       logger.info('To:', to);
       logger.info('Subject: Welcome! Your LMS Access is Ready');
-      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
       logger.info('Content:', emailHTML);
       logger.info('====================');
 
@@ -112,7 +111,6 @@ export async function POST(request: NextRequest) {
       });
     }
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Send welcome email error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to send email' },

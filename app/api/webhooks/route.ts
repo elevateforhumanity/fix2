@@ -98,7 +98,6 @@ export async function POST(request: NextRequest) {
         const webhook = await createWebhook(
           url,
           events as WebhookEvent[],
-          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           {
             description,

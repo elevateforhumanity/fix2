@@ -191,8 +191,6 @@ export default function ContentLibrary() {
                   e: React.ChangeEvent<
                     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
                   >
-                // @ts-expect-error TS2339: Property 'files' does not exist on type 'EventTarget & (HTMLInputElement | HT...
-                // @ts-expect-error TS2339: Property 'files' does not exist on type 'EventTarget & (HTMLInputElement | HT...
                 ) => e.target.files && handleUpload(e.target.files)}
                 className="hidden"
               />

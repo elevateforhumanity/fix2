@@ -24,7 +24,6 @@ function log(level: LogLevel, message: string, meta?: Record<string, any>) {
       console.error(output);
       break;
     case 'warn':
-      console.warn(output);
       break;
     default:
   }

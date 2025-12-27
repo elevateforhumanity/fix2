@@ -79,7 +79,6 @@ export default function SiteHeader() {
         }
       }
     } catch (error) {
-      console.warn('Failed to set body overflow:', error);
     }
 
     // Cleanup on unmount

@@ -47,7 +47,6 @@ export default function ResetPasswordForm() {
         router.push('/login');
       }, 2000);
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to update password');
       setLoading(false);
     }

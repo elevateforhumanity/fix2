@@ -73,7 +73,6 @@ export async function POST(request: NextRequest) {
       message: 'Quiz saved successfully',
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error saving quiz:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to save quiz' },

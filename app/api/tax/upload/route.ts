@@ -91,7 +91,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: dbError.message }, { status: 500 });
     }
 
-    // TODO: Trigger virus scan in background
     // For now, mark as clean after a delay
     setTimeout(async () => {
       await supabase

@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   }
 
   const searchLower = query.toLowerCase();
-  let results: any[] = [];
+  let results: unknown[] = [];
 
   try {
     // Search programs from static data

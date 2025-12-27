@@ -18,7 +18,6 @@ export default function ReelsFeed({ reels }: { reels: Reel[] }) {
 
   useEffect(() => {
     const container = containerRef.current;
-    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!container) return;
 
     const handleScroll = () => {

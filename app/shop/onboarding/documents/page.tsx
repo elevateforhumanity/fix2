@@ -35,7 +35,6 @@ export default async function ShopDocumentsPage() {
     .order('display_name');
 
   return (
-    // @ts-expect-error TS2339: Property 'id' does not exist on type 'any[]'.
     <ShopDocumentUpload shopId={shop.id} requirements={requirements || []} />
   );
 }

@@ -34,7 +34,6 @@ async function getHandler(
   }
 }
 
-// @ts-expect-error TS2345: Argument of type '(req: Request, context: Record<string, unknown>, user: Reco...
 export const GET = withAuth(getHandler, {
   roles: ['admin', 'super_admin'],
 });

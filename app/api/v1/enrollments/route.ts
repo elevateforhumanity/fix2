@@ -88,9 +88,7 @@ export async function GET(request: NextRequest) {
     );
   } catch (err: unknown) {
     statusCode = 500;
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('API Error:', err);
-    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     return NextResponse.json(apiResponse(false, null, err.message), {
       status: 500,
     });
@@ -158,9 +156,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(apiResponse(true, enrollment), { status: 201 });
   } catch (err: unknown) {
     statusCode = 500;
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('API Error:', err);
-    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     return NextResponse.json(apiResponse(false, null, err.message), {
       status: 500,
     });

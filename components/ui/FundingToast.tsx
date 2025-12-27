@@ -8,9 +8,7 @@ const STORAGE_KEY = 'efh_funding_toast_dismissed';
 export default function FundingToast() {
   const [visible, setVisible] = useState(false);
 
-  // @ts-expect-error TS7030: Not all code paths return a value.
   useEffect(() => {
-    // @ts-expect-error TS7030: Not all code paths return a value.
     if (typeof window === 'undefined') return;
     const dismissed = window.localStorage.getItem(STORAGE_KEY);
     if (!dismissed) {

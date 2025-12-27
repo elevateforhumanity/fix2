@@ -85,7 +85,6 @@ Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus o
 
       const completion = await client.chat.completions.create({
         model: 'gpt-4o-mini',
-        // @ts-expect-error TS2769: No overload matches this call.
         messages,
         temperature: 0.7,
         max_tokens: 500,
@@ -104,7 +103,6 @@ Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus o
       );
     }
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('AI instructor route error:', error);
     return NextResponse.json(
       { message: 'Internal server error.' },

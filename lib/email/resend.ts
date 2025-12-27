@@ -13,7 +13,6 @@ export interface EmailOptions {
 
 export async function sendEmail(options: EmailOptions) {
   if (!resend) {
-    console.warn('[Email] RESEND_API_KEY not configured - email not sent');
     return { success: false, error: 'Email service not configured' };
   }
 

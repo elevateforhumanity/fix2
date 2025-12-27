@@ -89,7 +89,6 @@ export async function POST(request: NextRequest) {
       { status: 503 }
     );
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Text-to-speech error:', error);
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }

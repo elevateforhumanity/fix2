@@ -7,7 +7,6 @@ import { createClient } from '@/lib/supabase/server';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  // @ts-expect-error TS2322: Type '"2023-10-16"' is not assignable to type '"2025-10-29.clover"'.
   apiVersion: '2023-10-16',
 });
 

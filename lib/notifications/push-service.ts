@@ -54,8 +54,6 @@ export class PushNotificationService {
       return true;
     } catch (error: unknown) {
       // Handle expired subscriptions
-      // @ts-expect-error TS2339: Property 'statusCode' does not exist on type 'unknown'.
-      // @ts-expect-error TS2339: Property 'statusCode' does not exist on type 'unknown'.
       if (error.statusCode === 410 || error.statusCode === 404) {
         await this.removeSubscription(subscription.endpoint);
       } else {

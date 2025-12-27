@@ -280,7 +280,6 @@ export async function createForumPost(data: {
   await supabase
     .from('forum_threads')
     .update({
-      // @ts-expect-error TS2339: Property 'reply_count' does not exist on type '{ locked: any; }'.
       reply_count: thread.reply_count + 1,
       last_activity_at: new Date().toISOString(),
     })

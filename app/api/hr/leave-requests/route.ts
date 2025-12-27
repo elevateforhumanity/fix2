@@ -35,7 +35,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ leaveRequests: data });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching leave requests:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch leave requests' },
@@ -94,7 +93,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ leaveRequest: data }, { status: 201 });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating leave request:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create leave request' },

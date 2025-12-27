@@ -1,4 +1,3 @@
-// @ts-expect-error TS2724: '"./supabaseServer"' has no exported member named 'createSupabaseServerClient...
 import { createSupabaseServerClient } from './supabaseServer';
 import integrations from '../config/integrations.json';
 

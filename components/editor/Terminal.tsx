@@ -62,7 +62,6 @@ export default function Terminal({ onCommand }: TerminalProps) {
     } catch (error: unknown) {
       setHistory((prev) => [
         ...prev,
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         { type: 'output', text: `Error: ${error.message}` },
       ]);
     } finally {

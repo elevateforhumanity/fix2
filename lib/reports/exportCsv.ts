@@ -2,7 +2,7 @@
  * Convert array of objects to CSV format
  * Handles null/undefined values and escapes quotes
  */
-export function toCsv(rows: any[]): string {
+export function toCsv(rows: unknown[]): string {
   if (!rows || rows.length === 0) {
     return '';
   }

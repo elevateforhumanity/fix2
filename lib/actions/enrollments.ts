@@ -196,7 +196,6 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
     // Error: $1
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Failed to create enrollment',
     };
   }
@@ -253,7 +252,6 @@ export async function addTransferHours(input: AddTransferHoursInput) {
     // Error: $1
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Failed to add transfer hours',
     };
   }
@@ -363,7 +361,6 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
     // Error: $1
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Failed to approve transfer hours',
     };
   }
@@ -395,7 +392,6 @@ export async function rejectTransferHours(
     // Error: $1
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Failed to reject transfer hours',
     };
   }
@@ -442,7 +438,6 @@ export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
     // Error: $1
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Failed to update funding amounts',
     };
   }
@@ -480,7 +475,6 @@ export async function getEnrollmentDetails(enrollment_id: string) {
       throw new Error(`Failed to fetch enrollment: ${error.message}`);
     }
     // Calculate hours summary
-    // @ts-expect-error TS2339: Property 'transfer_hours' does not exist on type 'ParserError<"Unable to pars...
     const transferHours = data.transfer_hours || [];
     const approvedTransfers = transferHours.filter(
       (t: Record<string, unknown>) => t.status === 'approved'
@@ -500,7 +494,6 @@ export async function getEnrollmentDetails(enrollment_id: string) {
     return {
       success: true,
       data: {
-        // @ts-expect-error TS2698: Spread types may only be created from object types.
         ...data,
         hours_summary: {
           transferred: {
@@ -519,7 +512,6 @@ export async function getEnrollmentDetails(enrollment_id: string) {
     // Error: $1
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message || 'Failed to fetch enrollment details',
     };
   }

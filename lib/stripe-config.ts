@@ -20,7 +20,6 @@ export function getStripeServerConfig() {
   }
 
   return new Stripe(secretKey, {
-    // @ts-expect-error TS2322: Type '"2024-11-20.acacia"' is not assignable to type '"2025-10-29.clover"'.
     apiVersion: '2024-11-20.acacia',
     typescript: true,
     appInfo: {

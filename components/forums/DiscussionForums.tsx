@@ -1,3 +1,4 @@
+import { memo } from 'react';
 /**
  * Discussion Forums Component
  * Complete student community and peer support system

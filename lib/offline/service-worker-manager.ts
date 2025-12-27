@@ -108,8 +108,6 @@ export class ServiceWorkerManager {
       return;
     }
     try {
-      // @ts-expect-error TS2339: Property 'sync' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'ServiceWorkerRegistration & Record<"sync", unknown>' to t...
       const syncManager = (this.registration as string).sync;
       await syncManager.register(tag);
     } catch (error) {
@@ -186,8 +184,6 @@ export class ServiceWorkerManager {
     });
     window.dispatchEvent(event);
     this.syncListeners.forEach((listener) => {
-      // @ts-expect-error TS2352: Conversion of type '{ syncedCount: number; }' to type 'string' may be a mista...
-      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'SyncEvent'.
       listener({ syncedCount } as string);
     });
   }

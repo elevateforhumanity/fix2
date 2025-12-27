@@ -16,9 +16,9 @@ import Link from 'next/link';
 
 interface VerificationReviewFormProps {
   holder: any;
-  documents: any[];
+  documents: unknown[];
   banking: any;
-  verificationHistory: any[];
+  verificationHistory: unknown[];
   adminUserId: string;
 }
 

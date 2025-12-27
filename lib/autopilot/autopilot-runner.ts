@@ -18,7 +18,6 @@ export async function runAutopilot(
     switch (type) {
       case 'course':
         // Build AI-powered course content
-        // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type '{ title: s...
         const courseResult = await buildCourse(payload);
         return { success: true, data: courseResult };
         

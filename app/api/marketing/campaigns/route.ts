@@ -33,10 +33,8 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (err: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('GET /marketing/campaigns error', err);
     return NextResponse.json(
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       { error: err.message || 'Failed to fetch campaigns' },
       { status: 500 }
     );
@@ -91,10 +89,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ campaign: data }, { status: 201 });
   } catch (err: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('POST /marketing/campaigns error', err);
     return NextResponse.json(
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       { error: err.message || 'Failed to create campaign' },
       { status: 500 }
     );

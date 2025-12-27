@@ -103,7 +103,6 @@ export function analyzeResourceTiming() {
   const resources = performance.getEntriesByType('resource') as PerformanceResourceTiming[];
   const slowResources = resources.filter(r => r.duration > 1000);
   if (slowResources.length > 0 && process.env.NODE_ENV === 'development') {
-    console.warn('Slow resources detected:', slowResources.map(r => ({
       name: r.name,
       duration: `${Math.round(r.duration)}ms`,
       size: r.transferSize,

@@ -8,7 +8,6 @@ import { logger } from '@/lib/logger';
 // Protected by /admin route middleware in production
 
 export const GET = withAuth(
-  // @ts-expect-error TS2345: Argument of type '(req: any, context: any, user: any) => Promise<NextResponse...
   async (req, context, user) => {
     if (!supabaseAdmin) {
       return NextResponse.json(

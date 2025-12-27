@@ -27,11 +27,9 @@ export class NdsAPI extends BasePartnerAPI {
   }
 
   async createAccount(student: StudentData): Promise<PartnerAccount> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Creating NDS account', { studentId: student.id });
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         participantId: string;
         username: string;
@@ -43,7 +41,6 @@ export class NdsAPI extends BasePartnerAPI {
         clientId: this.config.orgId,
       });
 
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'NDS account created', {
         externalId: response.data.participantId,
       });
@@ -54,9 +51,7 @@ export class NdsAPI extends BasePartnerAPI {
         loginUrl: response.data.portalUrl,
       };
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to create NDS account', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -67,14 +62,12 @@ export class NdsAPI extends BasePartnerAPI {
     accountExternalId: string,
     courseExternalCode: string
   ): Promise<CourseEnrollment> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Enrolling in NDS course', {
       accountExternalId,
       courseExternalCode,
     });
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         enrollmentId: string;
         courseName: string;
@@ -84,7 +77,6 @@ export class NdsAPI extends BasePartnerAPI {
         courseCode: courseExternalCode,
       });
 
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'NDS enrollment created', {
         enrollmentId: response.data.enrollmentId,
       });
@@ -96,9 +88,7 @@ export class NdsAPI extends BasePartnerAPI {
         accessUrl: response.data.trainingUrl,
       };
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to enroll in NDS course', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -108,11 +98,9 @@ export class NdsAPI extends BasePartnerAPI {
   async getProgress(
     externalEnrollmentId: string
   ): Promise<ProgressData | null> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching NDS progress', { externalEnrollmentId });
 
     try {
-      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         percentComplete: number;
         status: string;
@@ -140,9 +128,7 @@ export class NdsAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch NDS progress', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -152,11 +138,9 @@ export class NdsAPI extends BasePartnerAPI {
   async getCertificate(
     externalEnrollmentId: string
   ): Promise<CertificateData | null> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching NDS certificate', { externalEnrollmentId });
 
     try {
-      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         certificateId: string;
         certificateNumber: string;
@@ -176,9 +160,7 @@ export class NdsAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch NDS certificate', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -190,11 +172,9 @@ export class NdsAPI extends BasePartnerAPI {
     externalEnrollmentId: string;
     returnTo?: string;
   }): Promise<string> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Generating NDS SSO launch URL', params);
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         launchUrl: string;
         expiresAt: string;
@@ -206,9 +186,7 @@ export class NdsAPI extends BasePartnerAPI {
 
       return response.data.launchUrl;
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to generate NDS SSO URL', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;

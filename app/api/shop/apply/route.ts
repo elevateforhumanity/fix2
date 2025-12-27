@@ -98,7 +98,6 @@ export async function POST(req: Request) {
 
     // Send welcome email
     try {
-      // @ts-expect-error TS2304: Cannot find name 'resend'.
       await resend.emails.send({
         from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
         to: email,

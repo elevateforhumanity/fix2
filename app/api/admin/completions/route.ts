@@ -117,7 +117,7 @@ export const GET = withAuth(
 
       const csv = [
         headers.join(","),
-        ...rows.map((row: any[]) =>
+        ...rows.map((row: unknown[]) =>
           row.map((cell: unknown) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
         ),
       ].join("\n");

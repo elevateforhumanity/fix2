@@ -26,7 +26,6 @@ export async function createOrUpdateContact(
   const instanceUrl = process.env.SALESFORCE_INSTANCE_URL;
 
   if (!apiKey || !instanceUrl) {
-    console.warn('Salesforce API credentials not configured');
     return null;
   }
 
@@ -117,7 +116,6 @@ export async function createOpportunity(
   const instanceUrl = process.env.SALESFORCE_INSTANCE_URL;
 
   if (!apiKey || !instanceUrl) {
-    console.warn('Salesforce API credentials not configured');
     return null;
   }
 

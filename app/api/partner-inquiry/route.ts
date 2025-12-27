@@ -29,7 +29,6 @@ export async function POST(request: NextRequest) {
 
     // Send notification email
     try {
-      // @ts-expect-error TS2304: Cannot find name 'resend'.
       await resend.emails.send({
         from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
         to: process.env.NOTIFY_EMAIL_TO || 'admin@elevateforhumanity.org',
@@ -48,7 +47,6 @@ export async function POST(request: NextRequest) {
       });
 
       // Send auto-reply to submitter
-      // @ts-expect-error TS2304: Cannot find name 'resend'.
       await resend.emails.send({
         from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
         to: data.email,

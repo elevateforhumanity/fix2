@@ -74,7 +74,6 @@ Component should be a default export function.`;
       description,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('AI Page Builder error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate page' },

@@ -49,7 +49,6 @@ export async function POST() {
       .select('*');
 
     if (entitiesError || !entities) {
-      // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
       logger.error(entitiesError);
       return NextResponse.json(
         { error: 'Failed to fetch entities' },
@@ -63,7 +62,6 @@ export async function POST() {
       .gte('due_date', new Date().toISOString().slice(0, 10));
 
     if (grantsError || !grants) {
-      // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
       logger.error(grantsError);
       return NextResponse.json(
         { error: 'Failed to fetch grants' },
@@ -101,7 +99,6 @@ export async function POST() {
             'Error upserting grant_match',
             grant.id,
             entity.id,
-            // @ts-expect-error TS2554: Expected 1-3 arguments, but got 4.
             error
           );
         }

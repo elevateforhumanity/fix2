@@ -126,7 +126,7 @@ export default function PartnerDocumentsPage() {
         >
           Upload
         </button>
-        <button className="border rounded-xl px-4 py-2" onClick={refresh}>
+        <button className="border rounded-xl px-4 py-2" aria-label="Action button" onClick={refresh}>
           Refresh
         </button>
       </div>

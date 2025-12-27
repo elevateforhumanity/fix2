@@ -16,7 +16,6 @@ export async function GET(_request: NextRequest) {
 
     return NextResponse.json({ plans: data });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching benefits plans:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch benefits plans' },
@@ -55,7 +54,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ plan: data }, { status: 201 });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating benefits plan:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create benefits plan' },

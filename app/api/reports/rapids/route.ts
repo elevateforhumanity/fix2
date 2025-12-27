@@ -64,9 +64,6 @@ export async function GET(req: Request) {
 
     for (const r of rows || []) {
       const profile = r.user_profiles;
-      // @ts-expect-error TS2339: Property 'email' does not exist on type '{ first_name: any; last_name: any; e...
-      // @ts-expect-error TS2339: Property 'last_name' does not exist on type '{ first_name: any; last_name: an...
-      // @ts-expect-error TS2339: Property 'first_name' does not exist on type '{ first_name: any; last_name: a...
       csv += `"${profile?.first_name || ''}","${profile?.last_name || ''}","${profile?.email || ''}","${r.program_slug}","${r.date_worked}",${r.hours},"${r.category}","${r.approved_at || ''}"\n`;
     }
 

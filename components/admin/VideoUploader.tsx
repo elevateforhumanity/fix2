@@ -62,7 +62,6 @@ export default function VideoUploader({
       }
     } catch (err: unknown) {
       // Error: $1
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to upload video');
     } finally {
       setUploading(false);

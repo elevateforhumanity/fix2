@@ -59,7 +59,6 @@ export async function POST(req: Request) {
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    // @ts-expect-error TS2322: Type '"2025-10-29.clover"' is not assignable to type '"2025-10-29.clover"'.
     apiVersion: '2025-10-29.clover',
   });
 
@@ -296,7 +295,6 @@ export async function POST(req: Request) {
           } else {
             logger.warn(
               '[Webhook] ⚠️ AI instructor assignment failed:',
-              // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
               assignResult.reason
             );
           }
@@ -325,7 +323,6 @@ export async function POST(req: Request) {
             const errorText = await miladyResponse.text();
             logger.warn(
               '[Webhook] ⚠️ Milady auto-enrollment failed',
-              // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
               errorText
             );
           }
@@ -354,7 +351,6 @@ export async function POST(req: Request) {
       const priceId = sub.items.data[0]?.price?.id ?? null;
       const tier = tierFromPrice(priceId);
       const status = sub.status;
-      // @ts-expect-error TS2339: Property 'current_period_end' does not exist on type 'Subscription'.
       const periodEnd = sub.current_period_end ?? null;
 
       // If deleted, downgrade to free

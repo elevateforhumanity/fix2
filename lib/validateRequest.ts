@@ -17,7 +17,6 @@ export async function validateRequest<T>(
         error: NextResponse.json(
           {
             error: 'Validation failed',
-            // @ts-expect-error TS2339: Property 'errors' does not exist on type 'ZodError<unknown>'.
             details: error.errors,
           },
           { status: 400 }

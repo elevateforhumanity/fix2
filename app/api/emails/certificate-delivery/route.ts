@@ -145,7 +145,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Email delivery error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to send email' },

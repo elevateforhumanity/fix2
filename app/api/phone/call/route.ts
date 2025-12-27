@@ -44,7 +44,6 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Phone API error:', error);
     return NextResponse.json({ error: 'Phone system error' }, { status: 500 });
   }

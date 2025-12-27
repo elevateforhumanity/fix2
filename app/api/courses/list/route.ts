@@ -58,7 +58,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ courses });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Courses list error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch courses' },

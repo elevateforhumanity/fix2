@@ -451,7 +451,7 @@ export async function triggerEnrollmentCompleted(
  */
 export async function triggerCoursePublished(
   courseId: string,
-  courseData: any
+  courseData: unknown
 ): Promise<void> {
   await triggerWebhook('course.published', {
     course_id: courseId,

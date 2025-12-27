@@ -31,7 +31,6 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (grantError || !grant) {
-      // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
       logger.error(grantError);
       return NextResponse.json({ error: 'Grant not found' }, { status: 404 });
     }
@@ -43,7 +42,6 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (entityError || !entity) {
-      // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
       logger.error(entityError);
       return NextResponse.json({ error: 'Entity not found' }, { status: 404 });
     }
@@ -88,7 +86,6 @@ Write a full draft grant narrative tailored to this opportunity and organization
 Focus on workforce, community impact, and elevation if applicable.
 `;
 
-    // @ts-expect-error TS2552: Cannot find name 'openai'. Did you mean 'open'?
     const completion = await openai.chat.completions.create({
       model: 'gpt-4-turbo-preview',
       messages: [
@@ -116,7 +113,6 @@ Focus on workforce, community impact, and elevation if applicable.
       .single();
 
     if (appError || !app) {
-      // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
       logger.error(appError);
       return NextResponse.json(
         { error: 'Failed to save grant application' },

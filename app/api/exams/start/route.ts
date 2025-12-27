@@ -24,8 +24,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Exam not found' }, { status: 404 });
   }
 
-  // @ts-expect-error TS2339: Property 'userId' does not exist on type 'string'.
-  // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
   const studentId = (session as string).userId;
 
   // Check attempts
@@ -92,7 +90,6 @@ export async function POST(request: Request) {
   const proctoringUrl =
     exam.proctoring_required && exam.proctoring_provider
       ? getProctoringLaunchUrl({
-          // @ts-expect-error TS2322: Type 'string' is not assignable to type 'ProctoringProvider'.
           provider: exam.proctoring_provider as string,
           examId: exam.id,
           attemptId: attempt.id,

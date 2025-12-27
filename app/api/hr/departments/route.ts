@@ -25,7 +25,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ departments });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching departments:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch departments' },
@@ -81,7 +80,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ department }, { status: 201 });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating department:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create department' },

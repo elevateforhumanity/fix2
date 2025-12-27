@@ -3,7 +3,6 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-// @ts-expect-error TS2305: Module '"@/lib/partners"' has no exported member 'WebhookPayload'.
 import { getPartnerClient, PartnerType, WebhookPayload } from '@/lib/partners';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -55,7 +54,6 @@ export async function POST(
     // Parse webhook payload
     const payload: WebhookPayload = JSON.parse(rawBody);
 
-    // @ts-expect-error TS2345: Argument of type '{ event: any; timestamp: any; }' is not assignable to param...
     logger.info({
       event: payload.event,
       timestamp: payload.timestamp,
@@ -85,12 +83,10 @@ export async function POST(
 
     // Process webhook through partner-specific handler
     const client = getPartnerClient(partner);
-    // @ts-expect-error TS2339: Property 'processWebhook' does not exist on type 'BasePartnerAPI'.
     await client.processWebhook(payload);
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error(`[Webhook] Error processing ${partner} webhook:`, error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },

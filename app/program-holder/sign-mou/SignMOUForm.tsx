@@ -49,7 +49,6 @@ export function SignMOUForm() {
       // Success! Redirect to dashboard
       router.push('/program-holder/dashboard?mou=signed');
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to sign MOU');
     } finally {
       setIsSubmitting(false);
@@ -126,7 +125,6 @@ export function SignMOUForm() {
             e: React.ChangeEvent<
               HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
             >
-            // @ts-expect-error TS2339: Property 'checked' does not exist on type 'EventTarget & (HTMLInputElement | ...
           ) => setAgreed(e.target.checked)}
           className="mt-1 h-4 w-4 text-brand-blue-600 focus:ring-blue-500 border-slate-300 rounded"
         />

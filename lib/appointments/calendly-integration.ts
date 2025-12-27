@@ -141,7 +141,7 @@ export async function createAppointment(data: {
  */
 export async function handleCalendlyWebhook(
   eventType: string,
-  payload: any
+  payload: unknown
 ): Promise<boolean> {
   const supabase = await createClient();
   
@@ -163,7 +163,6 @@ export async function handleCalendlyWebhook(
         .single();
       
       if (!profile) {
-        console.warn('Student not found for email:', studentEmail);
         return false;
       }
       

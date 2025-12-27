@@ -29,7 +29,6 @@ export class CollaborationProvider {
     this.provider = new WebsocketProvider(wsUrl, config.documentId, this.doc);
 
     this.awareness = this.provider.awareness;
-    // @ts-expect-error TS2339: Property 'setLocalStateField' does not exist on type 'unknown'.
     this.awareness.setLocalStateField('user', {
       id: config.userId,
       name: config.userName,
@@ -76,7 +75,6 @@ export class CollaborationProvider {
    * Get all connected users
    */
   getConnectedUsers(): Array<{ id: string; name: string; color: string }> {
-    // @ts-expect-error TS2339: Property 'getStates' does not exist on type 'unknown'.
     const states = this.awareness.getStates();
     const users: Array<{ id: string; name: string; color: string }> = [];
 
@@ -94,7 +92,6 @@ export class CollaborationProvider {
    */
   updateLocalState(state: Record<string, any>) {
     Object.entries(state).forEach(([key, value]) => {
-      // @ts-expect-error TS2339: Property 'setLocalStateField' does not exist on type 'unknown'.
       this.awareness.setLocalStateField(key, value);
     });
   }
@@ -103,9 +100,7 @@ export class CollaborationProvider {
    * Subscribe to awareness changes (users joining/leaving, cursor moves)
    */
   onAwarenessChange(callback: (states: Map<number, any>) => void) {
-    // @ts-expect-error TS2339: Property 'on' does not exist on type 'unknown'.
     this.awareness.on('change', () => {
-      // @ts-expect-error TS2339: Property 'getStates' does not exist on type 'unknown'.
       callback(this.awareness.getStates());
     });
   }

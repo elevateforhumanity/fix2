@@ -55,7 +55,6 @@ export function TurnstileWidget({
     const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
     if (!siteKey) {
-      console.warn('⚠️  NEXT_PUBLIC_TURNSTILE_SITE_KEY not set');
       return;
     }
 

@@ -44,7 +44,6 @@ export const POST = withAuth(
 
       if (!response.ok) {
         const error = await response.text();
-        // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Error'.
         logger.error('Vercel deployment error:', error);
         return NextResponse.json(
           { error: 'Failed to trigger deployment' },
@@ -61,10 +60,8 @@ export const POST = withAuth(
         message: 'New deployment triggered successfully',
       });
     } catch (err: unknown) {
-      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
       logger.error('Hard refresh error:', err);
       return NextResponse.json(
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         { error: err.message || 'Failed to trigger hard refresh' },
         { status: 500 }
       );

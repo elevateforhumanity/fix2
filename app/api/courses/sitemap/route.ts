@@ -76,7 +76,6 @@ export async function GET(req: NextRequest) {
       totalFiles: courseFiles.length,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Generate sitemap error:', error);
     return NextResponse.json(
       { error: 'Failed to generate sitemap', message: toErrorMessage(error) },

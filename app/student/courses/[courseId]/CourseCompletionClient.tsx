@@ -93,7 +93,6 @@ export default function CourseCompletionClient({
           : prev
       );
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setMessage(err?.message ?? 'Unexpected error.');
     } finally {
       setChecking(false);

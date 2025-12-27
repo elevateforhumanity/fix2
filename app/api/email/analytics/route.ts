@@ -170,7 +170,6 @@ export async function GET(req: Request) {
       },
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Analytics error:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },

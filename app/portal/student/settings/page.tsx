@@ -41,8 +41,6 @@ export default async function SettingsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        // @ts-expect-error TS2786: 'Image' cannot be used as a JSX component.
-        // @ts-expect-error TS2607: JSX element class does not support
         attributes because it does not have a 'pro...
         <Image
           src="/images/gallery/image8.jpg"
@@ -62,20 +60,16 @@ export default async function SettingsPage() {
             Transform your career with free training and industry certifications
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/contact"
               className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              Get Started Free // @ts-expect-error TS2304: Cannot find name
               'Link'.
             </Link>
-            // @ts-expect-error TS2304: Cannot find name 'Link'.
             <Link
               href="/programs"
               className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
-              View Programs // @ts-expect-error TS2304: Cannot find name 'Link'.
             </Link>
           </div>
         </div>
@@ -358,8 +352,6 @@ export default async function SettingsPage() {
                   </ul>
                 </div>
                 <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                  // @ts-expect-error TS2786: 'Image' cannot be used as a JSX
-                  component. // @ts-expect-error TS2607: JSX element class does
                   not support attributes because it does not have a 'pro...
                   <Image
                     src="/images/gallery/image3.jpg"
@@ -387,20 +379,16 @@ export default async function SettingsPage() {
                 free training programs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
                 <Link
                   href="/contact"
                   className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
                 >
-                  Apply Now - It's Free // @ts-expect-error TS2304: Cannot find
                   name 'Link'.
                 </Link>
-                // @ts-expect-error TS2304: Cannot find name 'Link'.
                 <Link
                   href="/programs"
                   className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-600 border-2 border-white text-lg shadow-2xl transition-all"
                 >
-                  Browse All Programs // @ts-expect-error TS2304: Cannot find
                   name 'Link'.
                 </Link>
               </div>

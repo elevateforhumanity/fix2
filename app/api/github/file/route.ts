@@ -43,7 +43,6 @@ export async function GET(req: NextRequest) {
     }
 
     // Decode base64 content
-    // @ts-expect-error TS2339: Property 'content' does not exist on type '{ type: "file"; encoding: string; ...
     const content = Buffer.from(data.content || '', 'base64').toString('utf8');
 
     // Detect language for syntax highlighting
@@ -56,7 +55,6 @@ export async function GET(req: NextRequest) {
       name: data.name,
       path: data.path,
       language,
-      // @ts-expect-error TS2339: Property 'encoding' does not exist on type '{ type: "file"; encoding: string;...
       encoding: data.encoding,
       url: data.url,
       git_url: data.git_url,
@@ -64,16 +62,13 @@ export async function GET(req: NextRequest) {
       download_url: data.download_url,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('GitHub file read error:', error);
     return NextResponse.json(
       {
         error: 'Failed to fetch file',
         message: toErrorMessage(error),
-        // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
         status: error.status,
       },
-      // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
       { status: error.status || 500 }
     );
   }
@@ -121,17 +116,14 @@ export async function PUT(req: NextRequest) {
 
     // Add SHA if updating existing file
     if (sha) {
-      // @ts-expect-error TS2339: Property 'sha' does not exist on type 'unknown'.
       requestData.sha = sha;
     }
 
     // Add committer info if provided
     if (committer) {
-      // @ts-expect-error TS2339: Property 'committer' does not exist on type 'unknown'.
       requestData.committer = committer;
     }
 
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'RequestPar...
     const res = await client.repos.createOrUpdateFileContents(requestData);
 
     return NextResponse.json({
@@ -145,16 +137,13 @@ export async function PUT(req: NextRequest) {
       message: commitMessage,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('GitHub file write error:', error);
     return NextResponse.json(
       {
         error: 'Failed to save file',
         message: toErrorMessage(error),
-        // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
         status: error.status,
       },
-      // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
       { status: error.status || 500 }
     );
   }
@@ -196,16 +185,13 @@ export async function DELETE(req: NextRequest) {
       message: commitMessage,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('GitHub file delete error:', error);
     return NextResponse.json(
       {
         error: 'Failed to delete file',
         message: toErrorMessage(error),
-        // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
         status: error.status,
       },
-      // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
       { status: error.status || 500 }
     );
   }

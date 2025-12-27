@@ -57,7 +57,6 @@ export async function POST(req: NextRequest) {
       type: file.type,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Upload error:', error);
     return NextResponse.json(
       { error: 'Failed to upload file', message: toErrorMessage(error) },

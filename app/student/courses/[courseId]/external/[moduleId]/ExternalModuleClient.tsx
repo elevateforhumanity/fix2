@@ -57,7 +57,6 @@ export default function ExternalModuleClient({
     const nextStatus = statusOverride ?? status;
 
     const { data, error } = await supabase
-      // @ts-expect-error TS2339: Property 'from' does not exist on type 'string | SupabaseClient<any, "public"...
       .from('external_partner_progress')
       .upsert(
         {
@@ -81,7 +80,6 @@ export default function ExternalModuleClient({
       await ensureRow('in_progress');
       window.open(module.launch_url, '_blank', 'noopener,noreferrer');
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setMessage(err?.message ?? 'Error launching external module.');
     }
   }
@@ -95,20 +93,17 @@ export default function ExternalModuleClient({
     try {
       // Create storage path: moduleId/userId/filename
       const path = `${module.id}/${userId}/${file.name}`;
-      // @ts-expect-error TS2339: Property 'storage' does not exist on type 'string | SupabaseClient<any, "publ...
       const { error: uploadError } = await supabase.storage
         .from('external-proof')
         .upload(path, file, { upsert: true });
 
       if (uploadError) throw uploadError;
 
-      // @ts-expect-error TS2339: Property 'storage' does not exist on type 'string | SupabaseClient<any, "publ...
       const publicUrl = supabase.storage
         .from('external-proof')
         .getPublicUrl(path).data.publicUrl;
 
       const { data, error } = await supabase
-        // @ts-expect-error TS2339: Property 'from' does not exist on type 'string | SupabaseClient<any, "public"...
         .from('external_partner_progress')
         .upsert(
           {
@@ -126,7 +121,6 @@ export default function ExternalModuleClient({
       setProgress(data as Progress);
       setMessage('Proof uploaded. Your instructor or admin will review.');
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setMessage(err?.message ?? 'Error uploading proof.');
     } finally {
       setUploading(false);

@@ -65,7 +65,6 @@ export async function GET(request: NextRequest) {
       }
 
       // Only send summary if student checked in today
-      // @ts-expect-error TS2339: Property 'email' does not exist on type '{ id: any; email: any; full_name: an...
       if (todayLog && apprenticeship.student?.email) {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_SITE_URL}/api/apprentice/email-alerts`,
@@ -76,11 +75,8 @@ export async function GET(request: NextRequest) {
               type: 'daily_summary',
               apprenticeshipId: apprenticeship.id,
               data: {
-                // @ts-expect-error TS2339: Property 'full_name' does not exist on type '{ id: any; email: any; full_name...
                 studentName: apprenticeship.student.full_name,
-                // @ts-expect-error TS2339: Property 'email' does not exist on type '{ id: any; email: any; full_name: an...
                 studentEmail: apprenticeship.student.email,
-                // @ts-expect-error TS2339: Property 'name' does not exist on type '{ id: any; name: any; }[]'.
                 programName: apprenticeship.program?.name,
                 todayHours: todayLog.total_hours || 0,
                 totalHours: apprenticeship.hours_completed || 0,
@@ -95,7 +91,6 @@ export async function GET(request: NextRequest) {
         );
 
         results.push({
-          // @ts-expect-error TS2339: Property 'full_name' does not exist on type '{ id: any; email: any; full_name...
           student: apprenticeship.student.full_name,
           hours: todayLog.total_hours,
           status: response.ok ? 'sent' : 'failed',

@@ -64,7 +64,7 @@ async function sendConfirmationEmail(
 // Send staff notification
 async function sendStaffNotification(
   advisorEmail: string,
-  applicationData: any
+  applicationData: unknown
 ): Promise<void> {
   if (!process.env.RESEND_API_KEY) {
     return;

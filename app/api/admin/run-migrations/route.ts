@@ -47,7 +47,6 @@ export const POST = withAuth(
               results.push({ file, status: 'success' });
             }
           } catch (err: unknown) {
-            // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
             results.push({ file, status: 'error', error: err.message });
           }
         } else {

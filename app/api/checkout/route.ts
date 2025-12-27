@@ -94,7 +94,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('[Elevate] Error in /api/checkout:', err);
     return NextResponse.json(
       { error: 'Unable to create checkout session.' },

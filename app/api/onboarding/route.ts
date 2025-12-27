@@ -19,12 +19,8 @@ export async function GET(request: NextRequest) {
     const flowId = searchParams.get('flowId');
 
     if (action === 'recommended') {
-      // @ts-expect-error TS2339: Property 'role' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
       const userRole = (user as string).role || 'student';
       const recommended = await getRecommendedOnboarding(
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
         (user as string).id,
         userRole as 'student' | 'instructor' | 'admin'
       );
@@ -32,8 +28,6 @@ export async function GET(request: NextRequest) {
     }
 
     if (action === 'progress' && flowId) {
-      // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
       const progress = await getOnboardingProgress((user as string).id, flowId);
       return NextResponse.json({ progress });
     }
@@ -66,8 +60,6 @@ export async function POST(request: NextRequest) {
 
     switch (action) {
       case 'start':
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
         await startOnboarding((user as string).id, flowId);
         return NextResponse.json({
           success: true,
@@ -75,8 +67,6 @@ export async function POST(request: NextRequest) {
         });
 
       case 'complete':
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
         await completeOnboarding((user as string).id, flowId);
         return NextResponse.json({
           success: true,
@@ -84,8 +74,6 @@ export async function POST(request: NextRequest) {
         });
 
       case 'skip':
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
         await skipOnboarding((user as string).id, flowId);
         return NextResponse.json({
           success: true,
@@ -93,8 +81,6 @@ export async function POST(request: NextRequest) {
         });
 
       case 'reset':
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
         await resetOnboarding((user as string).id, flowId);
         return NextResponse.json({
           success: true,

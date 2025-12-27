@@ -149,12 +149,10 @@ export default function PaymentOptionsClient() {
             Loading secure payment button…
           </p>
         )}
-        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist
         on type 'JSX.IntrinsicElements'.
         <stripe-buy-button
           buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
           publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-          // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
         ></stripe-buy-button>
         <p className="mt-3 text-[11px] text-slate-500">
           By completing your payment you agree to Elevate for Humanity's refund
@@ -252,12 +250,10 @@ export default function PaymentOptionsClient() {
             Loading secure payment button…
           </p>
         )}
-        // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist
         on type 'JSX.IntrinsicElements'.
         <stripe-buy-button
           buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
           publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-          // @ts-expect-error TS2339: Property 'stripe-buy-button' does not exist on type 'JSX.IntrinsicElements'.
         ></stripe-buy-button>
         <p className="mt-3 text-[11px] text-slate-500">
           By completing your payment you agree to Elevate for Humanity's refund

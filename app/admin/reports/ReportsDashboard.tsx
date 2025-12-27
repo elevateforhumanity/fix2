@@ -41,7 +41,7 @@ interface Enrollment {
 interface ReportsDashboardProps {
   stats: Stats;
   recentEnrollments: Enrollment[];
-  programStats: any[];
+  programStats: unknown[];
 }
 
 const COLORS = [

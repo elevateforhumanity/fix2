@@ -250,11 +250,9 @@ export const POST = withAuth(
         },
       });
     } catch (err: unknown) {
-      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
       logger.error('Setup error:', err);
       return NextResponse.json(
         {
-          // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
           error: err.message || 'Setup failed',
           details: err.toString(),
         },

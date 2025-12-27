@@ -78,7 +78,6 @@ export async function POST(
     const feedback: unknown = {};
 
     questions.forEach((question: Record<string, unknown>) => {
-      // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
       const userAnswer = answers[question.id];
       const correctAnswer = question.correct_answer;
 
@@ -86,7 +85,6 @@ export async function POST(
         JSON.stringify(userAnswer) === JSON.stringify(correctAnswer);
       if (isCorrect) correctCount++;
 
-      // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
       feedback[question.id] = {
         correct: isCorrect,
         userAnswer,

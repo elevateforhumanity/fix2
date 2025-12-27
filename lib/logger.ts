@@ -64,7 +64,6 @@ class Logger {
       case 'info':
         break;
       case 'warn':
-        console.warn(formatted);
         break;
       case 'error':
         // Error logged

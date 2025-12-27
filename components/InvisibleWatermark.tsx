@@ -35,7 +35,6 @@ export function InvisibleWatermark({
         setClientTimestamp(timestamp || new Date().toISOString());
       }
     } catch (error) {
-      console.warn('Failed to set timestamp:', error);
     }
   }, [timestamp]);
 
@@ -91,7 +90,6 @@ export function InvisibleWatermark({
       fpDiv.setAttribute('data-fp', fingerprint);
       document.body.appendChild(fpDiv);
     } catch (error) {
-      console.warn('Watermark setup failed:', error);
     }
   }, [owner, siteId, clientTimestamp]);
   try {
@@ -144,7 +142,6 @@ export function InvisibleWatermark({
       </>
     );
   } catch (error) {
-    console.warn('InvisibleWatermark render failed:', error);
     return null;
   }
 }
@@ -172,7 +169,6 @@ function generateFingerprint(): string {
     }
     return 'EFH-' + Math.abs(hash).toString(36).toUpperCase();
   } catch (error) {
-    console.warn('Fingerprint generation failed:', error);
     return 'EFH-ERROR';
   }
 }

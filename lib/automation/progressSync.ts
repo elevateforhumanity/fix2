@@ -11,7 +11,6 @@ function getSupabaseServerClient() {
     {
       cookies: {
         get(name: string) {
-          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
       },

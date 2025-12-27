@@ -52,8 +52,6 @@ export async function POST(req: Request) {
     .eq('id', gradeItemId)
     .single();
 
-  // @ts-expect-error TS2339: Property 'instructor_id' does not exist on type 'string'.
-  // @ts-expect-error TS2352: Conversion of type '{ instructor_id: any; }[]' to type 'string' may be a mist...
   if (!gradeItem || (gradeItem.courses as string)?.instructor_id !== user.id) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }

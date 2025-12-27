@@ -19,7 +19,6 @@ export async function getEntityByUEI(uei: string): Promise<SAMEntity | null> {
   const apiKey = process.env.SAM_GOV_API_KEY;
   
   if (!apiKey) {
-    console.warn('SAM.gov API key not configured');
     return null;
   }
 
@@ -53,7 +52,6 @@ export async function checkExclusions(uei: string): Promise<boolean> {
   const apiKey = process.env.SAM_GOV_API_KEY;
   
   if (!apiKey) {
-    console.warn('SAM.gov API key not configured');
     return false;
   }
 
@@ -86,7 +84,6 @@ export async function searchEntities(name: string): Promise<SAMEntity[]> {
   const apiKey = process.env.SAM_GOV_API_KEY;
   
   if (!apiKey) {
-    console.warn('SAM.gov API key not configured');
     return [];
   }
 

@@ -225,8 +225,8 @@ async function checkBrokenLinks(options: AuditOptions) {
 }
 
 async function checkClientStability() {
-  const hydrationRisks: any[] = [];
-  const runtimeErrors: any[] = [];
+  const hydrationRisks: unknown[] = [];
+  const runtimeErrors: unknown[] = [];
 
   // Check for common hydration patterns (would scan files in production)
   // For now, report that fixes were applied

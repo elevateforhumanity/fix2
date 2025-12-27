@@ -27,7 +27,6 @@ export async function POST(req: NextRequest, { params }: Params) {
     .single();
 
   if (enrollError || !enrollment) {
-    // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
     logger.error(enrollError);
     return NextResponse.json(
       { error: 'Enrollment not found for this course' },
@@ -57,7 +56,6 @@ export async function POST(req: NextRequest, { params }: Params) {
   );
 
   if (extError) {
-    // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
     logger.error(extError);
     return NextResponse.json(
       { error: 'Error checking external modules' },
@@ -97,7 +95,6 @@ export async function POST(req: NextRequest, { params }: Params) {
     .eq('id', enrollment.id);
 
   if (updateError) {
-    // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
     logger.error(updateError);
     return NextResponse.json(
       { error: 'Failed to set course as completed' },
@@ -134,7 +131,6 @@ export async function GET(req: NextRequest, { params }: Params) {
   );
 
   if (error) {
-    // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
     logger.error(error);
     return NextResponse.json(
       { error: 'Error checking completion status' },

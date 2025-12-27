@@ -19,7 +19,6 @@ export default function MainHeader() {
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!mobileOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -30,7 +29,6 @@ export default function MainHeader() {
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    // @ts-expect-error TS7030: Not all code paths return a value.
     if (!openMenu) return;
 
     const handleClickOutside = (e: MouseEvent) => {

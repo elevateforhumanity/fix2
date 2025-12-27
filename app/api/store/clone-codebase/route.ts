@@ -45,7 +45,6 @@ export async function POST(req: NextRequest) {
       url: `https://github.com/${clonedRepo}`,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Clone codebase error:', error);
     return NextResponse.json(
       {

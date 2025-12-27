@@ -138,7 +138,6 @@ Return ONLY a JSON array of ${count} posts, no other text.`;
 
     return NextResponse.json({ success: true, posts });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Social media generation error:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },

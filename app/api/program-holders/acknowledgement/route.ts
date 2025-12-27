@@ -37,7 +37,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('API error:', err);
     return NextResponse.json({ error: 'Unexpected error.' }, { status: 500 });
   }

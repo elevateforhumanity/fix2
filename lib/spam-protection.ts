@@ -38,7 +38,6 @@ export function validateFormTiming(startTime: number, minSeconds = 3): boolean {
 // Cloudflare Turnstile verification
 export async function verifyTurnstile(token: string): Promise<boolean> {
   if (!process.env.TURNSTILE_SECRET_KEY) {
-    console.warn('Turnstile not configured, skipping verification');
     return true; // Allow in development
   }
 

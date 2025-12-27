@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Check, X, DollarSign, FileText, AlertCircle } from 'lucide-react';
 
 interface RoleSelectionCardsProps {
-  rolePackages: any[];
+  rolePackages: unknown[];
   userId: string;
 }
 

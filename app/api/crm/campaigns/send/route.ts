@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     const { name, subject, from_name, from_email, html_content, target_audience } = body;
 
     // Get recipients based on target audience
-    let recipients: any[] = [];
+    let recipients: unknown[] = [];
 
     switch (target_audience) {
       case 'all_students':

@@ -44,7 +44,6 @@ export async function GET(req: NextRequest) {
       files: metadataFiles.map((f) => f.path),
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Scan courses error:', error);
     return NextResponse.json(
       { error: 'Failed to scan courses', message: toErrorMessage(error) },

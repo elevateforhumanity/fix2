@@ -11,7 +11,6 @@ if (!stripeKey) {
 
 const stripe = stripeKey
   ? new Stripe(stripeKey, {
-      // @ts-expect-error TS2322: Type '"2025-10-29.clover"' is not assignable to type '"2025-10-29.clover"'.
       apiVersion: '2025-10-29.clover',
       typescript: true,
     })

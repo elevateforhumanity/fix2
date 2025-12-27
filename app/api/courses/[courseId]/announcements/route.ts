@@ -54,7 +54,6 @@ export async function POST(
     .single();
 
   if (courseError || !course) {
-    // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
     logger.error(courseError);
     return NextResponse.json({ error: 'Course not found' }, { status: 404 });
   }

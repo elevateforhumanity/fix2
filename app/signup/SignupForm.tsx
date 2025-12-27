@@ -76,7 +76,6 @@ function SignupFormContent() {
         }, 2000);
       }
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to create account');
       setLoading(false);
     }
@@ -98,7 +97,6 @@ function SignupFormContent() {
 
       if (error) throw error;
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to sign up with Google');
     }
   };

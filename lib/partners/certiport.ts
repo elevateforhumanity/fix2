@@ -27,11 +27,9 @@ export class CertiportAPI extends BasePartnerAPI {
   }
 
   async createAccount(student: StudentData): Promise<PartnerAccount> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Creating Certiport account', { studentId: student.id });
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         userId: string;
         username: string;
@@ -43,7 +41,6 @@ export class CertiportAPI extends BasePartnerAPI {
         organizationId: this.config.orgId,
       });
 
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'Certiport account created', {
         externalId: response.data.userId,
       });
@@ -54,9 +51,7 @@ export class CertiportAPI extends BasePartnerAPI {
         loginUrl: response.data.portalUrl,
       };
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to create Certiport account', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -67,7 +62,6 @@ export class CertiportAPI extends BasePartnerAPI {
     accountExternalId: string,
     courseExternalCode: string
   ): Promise<CourseEnrollment> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Enrolling in Certiport exam', {
       accountExternalId,
       courseExternalCode,
@@ -75,7 +69,6 @@ export class CertiportAPI extends BasePartnerAPI {
 
     try {
       // Generate exam voucher
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const voucherResponse = await this.httpClient.post<{
         voucherId: string;
         voucherCode: string;
@@ -88,7 +81,6 @@ export class CertiportAPI extends BasePartnerAPI {
       });
 
       // Create enrollment record
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const enrollmentResponse = await this.httpClient.post<{
         enrollmentId: string;
         accessUrl: string;
@@ -98,7 +90,6 @@ export class CertiportAPI extends BasePartnerAPI {
         examCode: courseExternalCode,
       });
 
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'Certiport enrollment created', {
         enrollmentId: enrollmentResponse.data.enrollmentId,
         voucherCode: voucherResponse.data.voucherCode,
@@ -111,9 +102,7 @@ export class CertiportAPI extends BasePartnerAPI {
         accessUrl: enrollmentResponse.data.accessUrl,
       };
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to enroll in Certiport exam', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -123,11 +112,9 @@ export class CertiportAPI extends BasePartnerAPI {
   async getProgress(
     externalEnrollmentId: string
   ): Promise<ProgressData | null> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching Certiport progress', { externalEnrollmentId });
 
     try {
-      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         status: string;
         examTaken: boolean;
@@ -160,9 +147,7 @@ export class CertiportAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch Certiport progress', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -172,13 +157,11 @@ export class CertiportAPI extends BasePartnerAPI {
   async getCertificate(
     externalEnrollmentId: string
   ): Promise<CertificateData | null> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching Certiport certificate', {
       externalEnrollmentId,
     });
 
     try {
-      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         certificateId: string;
         certificationNumber: string;
@@ -202,9 +185,7 @@ export class CertiportAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch Certiport certificate', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -216,11 +197,9 @@ export class CertiportAPI extends BasePartnerAPI {
     externalEnrollmentId: string;
     returnTo?: string;
   }): Promise<string> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Generating Certiport SSO launch URL', params);
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         ssoUrl: string;
         expiresIn: number;
@@ -232,9 +211,7 @@ export class CertiportAPI extends BasePartnerAPI {
 
       return response.data.ssoUrl;
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to generate Certiport SSO URL', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;

@@ -28,7 +28,6 @@ function getSupabaseServerClient() {
     {
       cookies: {
         get(name: string) {
-          // @ts-expect-error TS2339: Property 'get' does not exist on type 'Promise<ReadonlyRequestCookies>'.
           return cookieStore.get(name)?.value;
         },
       },
@@ -157,13 +156,11 @@ export async function autoEnrollPartnerCourse(
       provider_id: payload.partnerId,
       course_id: payload.courseId,
       program_id: payload.programId ?? null,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error_message: err.message ?? 'Unknown error',
     });
 
     return {
       success: false,
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: err.message ?? 'Unknown error',
     };
   }

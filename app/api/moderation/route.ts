@@ -61,7 +61,6 @@ export async function GET(request: NextRequest) {
       }
 
       case 'performance': {
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         const moderatorId = searchParams.get('moderatorId') || user.id;
         const perfStartDate = searchParams.get('startDate') || undefined;
         const perfEndDate = searchParams.get('endDate') || undefined;
@@ -109,7 +108,6 @@ export async function POST(request: NextRequest) {
         const report = await reportContent(
           contentType as ContentType,
           contentId,
-          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           reason as ReportReason,
           description
@@ -127,7 +125,6 @@ export async function POST(request: NextRequest) {
         }
         await reviewReport(
           reportId,
-          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           moderationAction as ModerationAction,
           notes
@@ -147,7 +144,6 @@ export async function POST(request: NextRequest) {
           type as ContentType,
           id,
           action2 as ModerationAction,
-          // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
           user.id,
           moderatorNotes
         );

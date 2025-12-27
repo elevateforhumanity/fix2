@@ -56,7 +56,6 @@ export async function GET(req: Request) {
           processed,
         });
       } catch (error: unknown) {
-        // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
         logger.error(`Error processing workflow ${workflow.id}:`, error);
         results.push({
           workflowId: workflow.id,
@@ -72,7 +71,6 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Workflow processor error:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
@@ -151,7 +149,6 @@ async function processNewTriggers(supabase: any, workflow: any, now: Date) {
       .from('workflow_enrollments')
       .select('id')
       .eq('workflow_id', workflow.id)
-      // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
       .eq('user_id', user.id)
       .single();
 
@@ -160,9 +157,7 @@ async function processNewTriggers(supabase: any, workflow: any, now: Date) {
     // Enroll user
     await supabase.from('workflow_enrollments').insert({
       workflow_id: workflow.id,
-      // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
       user_id: user.id,
-      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       user_email: user.email,
       current_step: 0,
       enrolled_at: now.toISOString(),
@@ -284,7 +279,6 @@ async function processPendingEmails(supabase: any, workflow: any, now: Date) {
 
       processed++;
     } catch (error: unknown) {
-      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
       logger.error(`Error processing enrollment ${enrollment.id}:`, error);
 
       // Log failure

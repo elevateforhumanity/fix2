@@ -52,7 +52,6 @@ export async function POST(req: NextRequest) {
       details: optimized,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Optimize images error:', error);
     return NextResponse.json(
       {

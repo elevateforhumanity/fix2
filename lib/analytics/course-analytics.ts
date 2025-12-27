@@ -268,7 +268,7 @@ export async function generateCourseReport(courseId: string) {
  */
 function generateRecommendations(
   analytics: CourseAnalytics | null,
-  engagement: any
+  engagement: unknown
 ): string[] {
   const recommendations: string[] = [];
   

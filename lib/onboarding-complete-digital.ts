@@ -393,7 +393,6 @@ export function generateCompleteOnboardingPackage(
       checklistCompleted,
       checklistTotal: checklist.length,
       isComplete,
-      // @ts-expect-error TS2322: Type 'string' is not assignable to type 'boolean'.
       canStartWork,
     },
   };

@@ -67,7 +67,6 @@ export async function POST() {
       .single();
 
     if (sourceError || !source) {
-      // @ts-expect-error TS2345: Argument of type 'PostgrestError' is not assignable to parameter of type 'str...
       logger.error(sourceError);
       return NextResponse.json(
         { error: 'Failed to ensure grant source' },
@@ -97,7 +96,6 @@ export async function POST() {
       );
 
       if (error) {
-        // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Error'.
         logger.error('Error upserting grant', g.externalId, error);
       }
     }

@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
     const { type, url, timestamp, ...additionalData } = body;
 
     const ip =
-      // @ts-expect-error TS2339: Property 'ip' does not exist on type 'NextRequest'.
       request.ip || request.headers.get('x-forwarded-for') || 'unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
 
@@ -110,7 +109,6 @@ View full details: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhuma
 This is an automated alert from Elevate for Humanity Security System.
   `;
 
-  // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
   logger.info('[EMAIL ALERT]', emailContent);
 
   // Email sending via SendGrid when configured

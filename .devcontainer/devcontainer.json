@@ -22,8 +22,8 @@
       "postgresPassword": "postgres"
     }
   },
-  "postCreateCommand": "npm install && chmod +x setup-env.sh",
-  "postStartCommand": "if [ ! -f .env.local ] && [ -n \"$VERCEL_TOKEN\" ]; then ./setup-env.sh; fi",
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && chmod +x setup-env.sh || true",
+  "postStartCommand": "if [ ! -f .env.local ] && [ -n \"$VERCEL_TOKEN\" ]; then ./setup-env.sh; fi || true",
   "remoteEnv": {
     "VERCEL_TOKEN": "${localEnv:VERCEL_TOKEN}"
   },

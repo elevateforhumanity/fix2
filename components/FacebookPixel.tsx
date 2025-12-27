@@ -28,7 +28,6 @@ export default function FacebookPixel() {
       try {
         setPathname(window.location.pathname);
       } catch (error) {
-        console.warn('Failed to get pathname:', error);
       }
     }
   }, [mounted]);
@@ -44,7 +43,6 @@ export default function FacebookPixel() {
       }
     } catch (error) {
       // Silently fail - don't break the app
-      console.warn('Facebook Pixel tracking failed:', error);
     }
   }, [mounted, pathname]);
 
@@ -68,7 +66,6 @@ export default function FacebookPixel() {
               fbq('init', '${FB_PIXEL_ID}');
               fbq('track', 'PageView');
             } catch (e) {
-              console.warn('FB Pixel init failed:', e);
             }
           `}
         </Script>
@@ -85,7 +82,6 @@ export default function FacebookPixel() {
       </>
     );
   } catch (error) {
-    console.warn('FacebookPixel render failed:', error);
     return null;
   }
 }

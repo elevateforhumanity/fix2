@@ -44,16 +44,13 @@ export async function POST(req: NextRequest) {
       message: commitMessage,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('GitHub commit error:', error);
     return NextResponse.json(
       {
         error: 'Failed to commit file',
         message: toErrorMessage(error),
-        // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
         status: error.status,
       },
-      // @ts-expect-error TS2339: Property 'status' does not exist on type 'unknown'.
       { status: error.status || 500 }
     );
   }

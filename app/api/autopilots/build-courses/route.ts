@@ -46,7 +46,6 @@ export async function POST(req: NextRequest) {
           content: Buffer.from(content).toString('base64'),
         });
       } catch (error: unknown) {
-        // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
         logger.error(`Failed to save ${path}:`, error);
         throw error;
       }
@@ -107,7 +106,6 @@ ${parsed.modules?.map((mod: any, i: number) => `${i + 1}. ${mod.title || mod}`).
       filesCreated: parsed.modules?.length || 0,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Build course error:', error);
     return NextResponse.json(
       {

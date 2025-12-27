@@ -5,7 +5,6 @@ import { withAuth } from '@/lib/with-auth';
 
 // GET /api/admin/sso - List SSO connections
 export const GET = withAuth(
-  // @ts-expect-error TS2345: Argument of type '(req: any, context: any, user: any) => Promise<NextResponse...
   async (req, context, user) => {
     try {
       await requireRole(['admin']);
@@ -20,7 +19,6 @@ export const GET = withAuth(
 
       return NextResponse.json({ connections: data });
     } catch (err: unknown) {
-      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
       const { error, status } = handleRBACError(err);
       return NextResponse.json({ error }, { status });
     }
@@ -91,7 +89,6 @@ export const POST = withAuth(
 
       return NextResponse.json({ connection: data }, { status: 201 });
     } catch (err: unknown) {
-      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
       const { error, status } = handleRBACError(err);
       return NextResponse.json({ error }, { status });
     }

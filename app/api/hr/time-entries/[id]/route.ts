@@ -34,9 +34,7 @@ export async function PATCH(
         0,
         diffHours - (break_minutes || 0 + (lunch_minutes || 0)) / 60
       );
-      // @ts-expect-error TS2339: Property 'regular_hours' does not exist on type 'unknown'.
       update.regular_hours = regHours;
-      // @ts-expect-error TS2339: Property 'total_hours' does not exist on type 'unknown'.
       update.total_hours = regHours;
     }
 
@@ -51,7 +49,6 @@ export async function PATCH(
 
     return NextResponse.json({ timeEntry: data });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error updating time entry:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update time entry' },
@@ -73,7 +70,6 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Time entry deleted' });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error deleting time entry:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to delete time entry' },

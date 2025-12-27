@@ -73,7 +73,6 @@ export async function POST(req: NextRequest) {
         { status: 201 }
       );
     } catch (err: unknown) {
-      // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
       logger.error('Enrollment error', err);
       return NextResponse.json(
         { ok: false, error: 'Failed to complete enrollment' },
@@ -129,13 +128,11 @@ export async function POST(req: NextRequest) {
       { status: 201 }
     );
   } catch (err: unknown) {
-    // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
     logger.error('Enrollment API error', err?.message ?? err);
     return NextResponse.json(
       {
         ok: false,
         error:
-          // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
           err?.message ??
           'Unexpected error while creating checkout. Please try again.',
       },

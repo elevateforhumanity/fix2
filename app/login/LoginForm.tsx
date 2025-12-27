@@ -48,7 +48,6 @@ export default function LoginForm() {
       }
       router.refresh();
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to sign in');
       setLoading(false);
     }
@@ -70,7 +69,6 @@ export default function LoginForm() {
 
       if (error) throw error;
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to sign in with Google');
     }
   };

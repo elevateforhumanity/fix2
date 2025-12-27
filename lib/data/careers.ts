@@ -31,7 +31,6 @@ export async function getActivePositions(): Promise<JobPosition[]> {
   const supabase = createClient();
 
   const { data, error } = await supabase
-    // @ts-expect-error TS2339: Property 'from' does not exist on type 'Promise<SupabaseClient<any, "public",...
     .from('positions')
     .select(
       `
@@ -57,7 +56,6 @@ export async function getPositionById(id: string): Promise<JobPosition | null> {
   const supabase = createClient();
 
   const { data, error } = await supabase
-    // @ts-expect-error TS2339: Property 'from' does not exist on type 'Promise<SupabaseClient<any, "public",...
     .from('positions')
     .select(
       `
@@ -86,7 +84,6 @@ export async function getPositionsByDepartment(
   const supabase = createClient();
 
   const { data, error } = await supabase
-    // @ts-expect-error TS2339: Property 'from' does not exist on type 'Promise<SupabaseClient<any, "public",...
     .from('positions')
     .select(
       `
@@ -115,7 +112,6 @@ export async function getPositionsByType(
   const supabase = createClient();
 
   const { data, error } = await supabase
-    // @ts-expect-error TS2339: Property 'from' does not exist on type 'Promise<SupabaseClient<any, "public",...
     .from('positions')
     .select(
       `

@@ -52,7 +52,6 @@ export async function POST(req: NextRequest) {
       stripeProductId: product.id,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Create product error:', error);
     return NextResponse.json(
       {

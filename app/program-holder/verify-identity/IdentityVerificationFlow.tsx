@@ -18,7 +18,7 @@ interface IdentityVerificationFlowProps {
   email: string;
   programHolder: any;
   verification: any;
-  documents: any[];
+  documents: unknown[];
 }
 
 export default function IdentityVerificationFlow({

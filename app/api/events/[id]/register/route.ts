@@ -85,10 +85,8 @@ export async function POST(
       { status: 201 }
     );
   } catch (err: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('POST /events/[id]/register error', err);
     return NextResponse.json(
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       { error: err.message || 'Failed to register' },
       { status: 500 }
     );

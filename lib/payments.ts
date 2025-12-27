@@ -441,13 +441,9 @@ export async function createSubscription(
     stripe_customer_id: customerId,
     status: subscription.status,
     current_period_start: new Date(
-      // @ts-expect-error TS2339: Property 'current_period_start' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'Response<Subscription>' to type 'string' may be a mistake...
       (subscription as string).current_period_start * 1000
     ).toISOString(),
     current_period_end: new Date(
-      // @ts-expect-error TS2339: Property 'current_period_end' does not exist on type 'string'.
-      // @ts-expect-error TS2352: Conversion of type 'Response<Subscription>' to type 'string' may be a mistake...
       (subscription as string).current_period_end * 1000
     ).toISOString(),
   });
@@ -545,13 +541,9 @@ export async function handleStripeWebhook(event: Stripe.Event): Promise<void> {
         .update({
           status: subscription.status,
           current_period_start: new Date(
-            // @ts-expect-error TS2339: Property 'current_period_start' does not exist on type 'string'.
-            // @ts-expect-error TS2352: Conversion of type 'Subscription' to type 'string' may be a mistake because n...
             (subscription as string).current_period_start * 1000
           ).toISOString(),
           current_period_end: new Date(
-            // @ts-expect-error TS2339: Property 'current_period_end' does not exist on type 'string'.
-            // @ts-expect-error TS2352: Conversion of type 'Subscription' to type 'string' may be a mistake because n...
             (subscription as string).current_period_end * 1000
           ).toISOString(),
         })

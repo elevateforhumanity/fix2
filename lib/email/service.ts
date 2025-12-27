@@ -25,7 +25,6 @@ export interface EmailOptions {
 export async function sendEmail(options: EmailOptions): Promise<boolean> {
   try {
     if (!process.env.RESEND_API_KEY) {
-      console.warn('⚠️  RESEND_API_KEY not set, skipping email');
       return false;
     }
 
@@ -37,7 +36,6 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
       text: options.text,
     });
 
-    console.log(`✅ Email sent: ${options.subject} to ${options.to}`);
     return true;
   } catch (error) {
     console.error('❌ Email failed:', error);

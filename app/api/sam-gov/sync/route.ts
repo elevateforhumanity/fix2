@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
     // For now, return empty result since searchEntities requires a name parameter
     // This endpoint would need to be redesigned to work with the actual SAM.gov API
-    const opportunities: any[] = [];
+    const opportunities: unknown[] = [];
 
     if (!opportunities || opportunities.length === 0) {
       logger.info('SAM.gov sync: No opportunities found');

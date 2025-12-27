@@ -108,7 +108,6 @@ export async function POST(request: NextRequest) {
       );
     }
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('AI Asset Generator error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate asset' },

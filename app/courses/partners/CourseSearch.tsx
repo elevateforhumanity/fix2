@@ -26,7 +26,6 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
 
   // Get unique providers and categories
   const providers = useMemo(() => {
-    // @ts-expect-error TS2339: Property 'provider_name' does not exist on type 'Course'.
     return [...new Set(courses.map((c) => c.provider_name))].sort();
   }, [courses]);
 
@@ -43,7 +42,6 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
         const matchesSearch =
           course.course_name.toLowerCase().includes(query) ||
           course.description.toLowerCase().includes(query) ||
-          // @ts-expect-error TS2339: Property 'provider_name' does not exist on type 'Course'.
           course.provider_name.toLowerCase().includes(query) ||
           course.category.toLowerCase().includes(query);
         if (!matchesSearch) return false;
@@ -52,7 +50,6 @@ export default function CourseSearch({ courses }: CourseSearchProps) {
       // Provider filter
       if (
         selectedProvider !== 'all' &&
-        // @ts-expect-error TS2339: Property 'provider_name' does not exist on type 'Course'.
         course.provider_name !== selectedProvider
       ) {
         return false;

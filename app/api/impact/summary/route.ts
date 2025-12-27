@@ -61,8 +61,6 @@ export async function GET(request: Request) {
   const sectorCounts: Record<string, number> = {};
   (bySectorData || []).forEach((row: Record<string, unknown>) => {
     const sector = row.sector || 'Unspecified';
-    // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
-    // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
     sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
   });
 
@@ -81,8 +79,6 @@ export async function GET(request: Request) {
   const zipCounts: Record<string, number> = {};
   (byZipData || []).forEach((row: Record<string, unknown>) => {
     const zip = row.zip_code || 'Unknown';
-    // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
-    // @ts-expect-error TS2538: Type 'unknown' cannot be used as an index type.
     zipCounts[zip] = (zipCounts[zip] || 0) + 1;
   });
 

@@ -27,13 +27,11 @@ export class CareerSafeAPI extends BasePartnerAPI {
   }
 
   async createAccount(student: StudentData): Promise<PartnerAccount> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Creating CareerSafe account', {
       studentId: student.id,
     });
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         memberId: string;
         username: string;
@@ -46,7 +44,6 @@ export class CareerSafeAPI extends BasePartnerAPI {
         organizationCode: this.config.orgId,
       });
 
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'CareerSafe account created', {
         externalId: response.data.memberId,
       });
@@ -58,9 +55,7 @@ export class CareerSafeAPI extends BasePartnerAPI {
         passwordPlaintext: response.data.temporaryPassword,
       };
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to create CareerSafe account', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -71,14 +66,12 @@ export class CareerSafeAPI extends BasePartnerAPI {
     accountExternalId: string,
     courseExternalCode: string
   ): Promise<CourseEnrollment> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Enrolling in CareerSafe course', {
       accountExternalId,
       courseExternalCode,
     });
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         enrollmentId: string;
         courseName: string;
@@ -89,7 +82,6 @@ export class CareerSafeAPI extends BasePartnerAPI {
         organizationCode: this.config.orgId,
       });
 
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('info', 'CareerSafe enrollment created', {
         enrollmentId: response.data.enrollmentId,
       });
@@ -101,9 +93,7 @@ export class CareerSafeAPI extends BasePartnerAPI {
         accessUrl: response.data.courseUrl,
       };
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to enroll in CareerSafe course', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -113,13 +103,11 @@ export class CareerSafeAPI extends BasePartnerAPI {
   async getProgress(
     externalEnrollmentId: string
   ): Promise<ProgressData | null> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching CareerSafe progress', {
       externalEnrollmentId,
     });
 
     try {
-      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         percentComplete: number;
         status: string;
@@ -147,9 +135,7 @@ export class CareerSafeAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch CareerSafe progress', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -159,13 +145,11 @@ export class CareerSafeAPI extends BasePartnerAPI {
   async getCertificate(
     externalEnrollmentId: string
   ): Promise<CertificateData | null> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Fetching CareerSafe certificate', {
       externalEnrollmentId,
     });
 
     try {
-      // @ts-expect-error TS2339: Property 'get' does not exist on type 'unknown'.
       const response = await this.httpClient.get<{
         certificateId: string;
         cardNumber: string;
@@ -187,9 +171,7 @@ export class CareerSafeAPI extends BasePartnerAPI {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to fetch CareerSafe certificate', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;
@@ -201,11 +183,9 @@ export class CareerSafeAPI extends BasePartnerAPI {
     externalEnrollmentId: string;
     returnTo?: string;
   }): Promise<string> {
-    // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
     this.log('info', 'Generating CareerSafe SSO launch URL', params);
 
     try {
-      // @ts-expect-error TS2339: Property 'post' does not exist on type 'unknown'.
       const response = await this.httpClient.post<{
         launchUrl: string;
         expiresAt: string;
@@ -217,9 +197,7 @@ export class CareerSafeAPI extends BasePartnerAPI {
 
       return response.data.launchUrl;
     } catch (error: unknown) {
-      // @ts-expect-error TS2554: Expected 1-2 arguments, but got 3.
       this.log('error', 'Failed to generate CareerSafe SSO URL', {
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         error: error.message,
       });
       throw error;

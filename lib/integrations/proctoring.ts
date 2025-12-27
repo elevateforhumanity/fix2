@@ -30,7 +30,6 @@ export function getProctoringLaunchUrl(
       return `https://honorlock.com/launch?exam=${examId}&attempt=${attemptId}&student=${studentId}`;
 
     default:
-      console.warn(`Unknown proctoring provider: ${provider}`);
       return null;
   }
 }
@@ -44,6 +43,5 @@ export async function verifyProctoringSession(
 ): Promise<boolean> {
   // This would integrate with the actual proctoring provider's API
   // For now, return true as a placeholder
-  console.log(`Verifying ${provider} session: ${sessionId}`);
   return true;
 }

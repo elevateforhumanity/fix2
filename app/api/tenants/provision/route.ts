@@ -7,8 +7,6 @@ import { sendSlackMessage } from '@/lib/notifications/slack';
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();
   const session = await requireAuth();
-  // @ts-expect-error TS2339: Property 'isAdmin' does not exist on type 'string'.
-  // @ts-expect-error TS2352: Conversion of type 'Session' to type 'string' may be a mistake because neithe...
   if (!(session as string).isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }

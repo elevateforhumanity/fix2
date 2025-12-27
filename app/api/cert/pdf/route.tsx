@@ -97,7 +97,6 @@ export async function GET(req: NextRequest) {
           <Image
             src={qrDataUrl}
             style={{ width: 88, height: 88 }}
-            // @ts-expect-error TS2769: No overload matches this call.
             quality={100}
           />
           <View>

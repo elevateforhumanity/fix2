@@ -36,7 +36,7 @@ class PartnerMonitoring {
     partner: PartnerType,
     requestId: string,
     success: boolean,
-    error?: any
+    error?: unknown
   ): void {
     const startTime = this.requestTimes.get(requestId);
     if (!startTime) return;
@@ -217,7 +217,6 @@ export async function checkPartnerHealth(
       partner,
       healthy: false,
       lastChecked: new Date().toISOString(),
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       error: error.message,
     };
   }

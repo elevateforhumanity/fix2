@@ -14,7 +14,7 @@ import {
 interface PayrollSetupFormProps {
   user: any;
   profile: any;
-  rateConfigs: any[];
+  rateConfigs: unknown[];
   existingProfile: any;
 }
 

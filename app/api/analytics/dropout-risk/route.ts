@@ -65,11 +65,9 @@ export async function GET(request: Request) {
 
   const features = enrollments.map((e: Record<string, unknown>) => {
     const daysSinceStart = Math.floor(
-      // @ts-expect-error TS2769: No overload matches this call.
       (Date.now() - new Date(e.created_at).getTime()) / (1000 * 60 * 60 * 24)
     );
     const daysSinceActivity = Math.floor(
-      // @ts-expect-error TS2769: No overload matches this call.
       (Date.now() - new Date(e.updated_at).getTime()) / (1000 * 60 * 60 * 24)
     );
 
@@ -78,7 +76,6 @@ export async function GET(request: Request) {
       progress: e.progress || 0,
       daysSinceStart,
       daysSinceActivity,
-      // @ts-expect-error TS2339: Property 'email' does not exist on type 'unknown'.
       userEmail: e.profiles?.email || 'unknown',
     };
   });
@@ -121,7 +118,6 @@ ${JSON.stringify(features, null, 2)}
 
     return NextResponse.json({ scores: parsed });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Dropout risk prediction error:', error);
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to predict dropout risk' },

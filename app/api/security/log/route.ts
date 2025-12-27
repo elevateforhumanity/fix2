@@ -12,7 +12,6 @@ export async function POST(request: NextRequest) {
       timestamp: body.timestamp,
       url: body.url,
       user_agent: body.userAgent,
-      // @ts-expect-error TS2339: Property 'ip' does not exist on type 'NextRequest'.
       ip_address: request.ip || request.headers.get('x-forwarded-for'),
       data: body.data,
       severity: getSeverity(body.type),
@@ -56,7 +55,6 @@ function isCriticalEvent(eventType: string): boolean {
 async function sendSecurityAlert(event: any) {
   // Send email/SMS/Slack notification for critical events
   // Implementation depends on your notification service
-  // @ts-expect-error TS2304: Cannot find name 'logger'.
   logger.warn('[CRITICAL SECURITY EVENT]', event);
 
   // Example: Send to admin email

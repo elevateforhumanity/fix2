@@ -32,7 +32,6 @@ export default function ForgotPasswordForm() {
 
       setSuccess(true);
     } catch (err: unknown) {
-      // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
       setError(err.message || 'Failed to send reset email');
       setLoading(false);
     }

@@ -20,7 +20,6 @@ export async function GET(request: NextRequest) {
       const { data, error } = await supabase
         .from('user_tutorials')
         .select('*')
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         .eq('user_id', user.id)
         .eq('tutorial_id', tutorialId)
         .single();
@@ -65,7 +64,6 @@ export async function POST(request: NextRequest) {
       const { data: current } = await supabase
         .from('user_tutorials')
         .select('completed_steps')
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         .eq('user_id', user.id)
         .eq('tutorial_id', tutorialId)
         .single();
@@ -76,7 +74,6 @@ export async function POST(request: NextRequest) {
       }
 
       await supabase.from('user_tutorials').upsert({
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         user_id: user.id,
         tutorial_id: tutorialId,
         current_step: stepIndex + 1,
@@ -94,7 +91,6 @@ export async function POST(request: NextRequest) {
           completed: true,
           completed_at: new Date().toISOString(),
         })
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'unknown'.
         .eq('user_id', user.id)
         .eq('tutorial_id', tutorialId);
 

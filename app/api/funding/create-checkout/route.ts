@@ -40,7 +40,6 @@ export async function POST(req: Request) {
 
     if (profileError || !profile?.email) {
       logger.error('Student profile not found', {
-        // @ts-expect-error TS2353: Object literal may only specify known properties, and 'studentId' does not ex...
         studentId,
         error: profileError,
       });

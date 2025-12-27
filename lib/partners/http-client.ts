@@ -19,7 +19,7 @@ export class PartnerAPIError extends Error {
   constructor(
     message: string,
     public statusCode?: number,
-    public response?: any
+    public response?: unknown
   ) {
     super(message);
     this.name = 'PartnerAPIError';
@@ -83,7 +83,6 @@ export class HttpClient {
         }
 
         throw new PartnerAPIError(
-          // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
           `HTTP ${response.status}: ${data?.message || response.statusText}`,
           response.status,
           data
@@ -91,7 +90,6 @@ export class HttpClient {
       }
 
       return {
-        // @ts-expect-error TS2322: Type 'unknown' is not assignable to type 'T'.
         data,
         status: response.status,
         headers: responseHeaders,
@@ -99,7 +97,6 @@ export class HttpClient {
     } catch (error: unknown) {
       clearTimeout(timeoutId);
 
-      // @ts-expect-error TS2339: Property 'name' does not exist on type 'unknown'.
       if (error.name === 'AbortError') {
         throw new PartnerAPIError('Request timeout', 408);
       }
@@ -119,7 +116,6 @@ export class HttpClient {
       }
 
       throw new PartnerAPIError(
-        // @ts-expect-error TS2339: Property 'message' does not exist on type 'unknown'.
         `Network error: ${error.message}`,
         undefined,
         error

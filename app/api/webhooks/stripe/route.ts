@@ -203,7 +203,6 @@ export async function POST(request: NextRequest) {
           } else {
             logger.info(
               '✅ Partner course enrollment created:',
-              // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
               session.metadata.course_code
             );
           }
@@ -220,7 +219,6 @@ export async function POST(request: NextRequest) {
 
           logger.info('✅ Partner course payment logged');
         } catch (err: unknown) {
-          // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
           logger.error('Error processing partner course enrollment:', err);
         }
         break;
@@ -237,7 +235,6 @@ export async function POST(request: NextRequest) {
             .single();
 
           if (!course) {
-            // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Error'.
             logger.error('HSI course not found:', session.metadata.course_type);
             break;
           }
@@ -264,7 +261,6 @@ export async function POST(request: NextRequest) {
           } else {
             logger.info(
               '✅ HSI enrollment queued:',
-              // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
               session.metadata.student_name
             );
           }
@@ -301,7 +297,6 @@ export async function POST(request: NextRequest) {
 
           logger.info('✅ HSI payment logged successfully');
         } catch (err: unknown) {
-          // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
           logger.error('Error processing HSI enrollment:', err);
         }
         break;
@@ -397,7 +392,6 @@ export async function POST(request: NextRequest) {
 
     case 'payment_intent.succeeded': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
       logger.info('PaymentIntent succeeded:', paymentIntent.id);
       break;
     }
@@ -427,7 +421,6 @@ export async function POST(request: NextRequest) {
           logger.error('Error processing payment failure:', err);
         }
       } else {
-        // @ts-expect-error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<stri...
         logger.info('Payment failed:', failedPayment.id);
       }
       break;

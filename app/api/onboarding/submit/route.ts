@@ -105,7 +105,6 @@ export async function POST(request: NextRequest) {
         ip_address:
           data.ipAddress ||
           request.headers.get('x-forwarded-for') ||
-          // @ts-expect-error TS2339: Property 'ip' does not exist on type 'NextRequest'.
           request.ip,
         forms_generated: {
           w4: w4Form,
@@ -220,7 +219,6 @@ export async function POST(request: NextRequest) {
         : 'Onboarding saved. Please complete remaining items.',
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Onboarding submission error:', error);
     return NextResponse.json(
       { error: 'Failed to process onboarding', details: toErrorMessage(error) },
@@ -264,7 +262,6 @@ export async function GET(request: NextRequest) {
       hasOnboarding: !!onboarding,
     });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Onboarding fetch error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch onboarding', details: toErrorMessage(error) },

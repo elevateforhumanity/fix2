@@ -93,19 +93,13 @@ export async function GET(
         .from('certificates')
         .select('certificate_url')
         .eq('user_id', learnerId)
-        // @ts-expect-error TS2339: Property 'id' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type '{ title: any; slug: any; }[]' to type 'string' may be a m...
         .eq('program_id', (enrollment.programs as string)?.id)
         .maybeSingle();
 
       enrollmentDetails.push({
         id: enrollment.id,
         program_title:
-          // @ts-expect-error TS2339: Property 'title' does not exist on type 'string'.
-          // @ts-expect-error TS2352: Conversion of type '{ title: any; slug: any; }[]' to type 'string' may be a m...
           (enrollment.programs as string)?.title || 'Unknown Program',
-        // @ts-expect-error TS2339: Property 'slug' does not exist on type 'string'.
-        // @ts-expect-error TS2352: Conversion of type '{ title: any; slug: any; }[]' to type 'string' may be a m...
         program_slug: (enrollment.programs as string)?.slug || '',
         status: enrollment.status,
         funding_type: enrollment.funding_type,

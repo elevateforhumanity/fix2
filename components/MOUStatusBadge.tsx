@@ -77,8 +77,6 @@ export function MOUStatusBadge({
     <span
       className={`inline-flex items-center gap-1.5 rounded-full font-medium ${config.bgColor} ${config.color} ${sizeClasses[size]}`}
     >
-      // @ts-expect-error TS2786: 'Icon' cannot be used as a JSX component.
-      // @ts-expect-error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
       {showIcon && <Icon className={iconSizes[size]} />}
       {config.label}
     </span>

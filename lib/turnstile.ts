@@ -25,7 +25,6 @@ export async function verifyTurnstileToken(
     const secretKey = process.env.TURNSTILE_SECRET_KEY;
 
     if (!secretKey) {
-      console.warn('⚠️  TURNSTILE_SECRET_KEY not set, skipping verification');
       return { success: true }; // Allow in development
     }
 
@@ -58,7 +57,6 @@ export async function verifyTurnstileToken(
       };
     }
 
-    console.log('✅ Turnstile verification passed');
     return { success: true };
   } catch (error) {
     console.error('❌ Turnstile verification error:', error);

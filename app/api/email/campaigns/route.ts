@@ -16,7 +16,6 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ success: true, campaigns });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error fetching campaigns:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
@@ -51,7 +50,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, campaign });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Error creating campaign:', error);
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },

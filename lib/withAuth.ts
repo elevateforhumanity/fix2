@@ -2,7 +2,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
-// @ts-expect-error TS2305: Module '"@/types/database"' has no exported member 'Database'.
 import type { Database } from '@/types/database';
 
 type Role = 'student' | 'staff' | 'admin' | 'super_admin' | 'partner';

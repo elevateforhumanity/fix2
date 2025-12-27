@@ -338,7 +338,6 @@ export default function SignUpForm() {
                 e: React.ChangeEvent<
                   HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
                 >
-                // @ts-expect-error TS2339: Property 'checked' does not exist on type 'EventTarget & (HTMLInputElement | ...
               ) => setAgreedToTerms(e.target.checked)}
               className="w-4 h-4 mt-1 text-brand-orange-600 border-slate-300 rounded focus:ring-orange-500"
             />

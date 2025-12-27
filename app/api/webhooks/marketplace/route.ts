@@ -101,7 +101,6 @@ export async function POST(req: Request) {
       },
     });
 
-    // @ts-expect-error TS2304: Cannot find name 'logger'.
     logger.info('Marketplace sale recorded:', {
       productId,
       creatorId,

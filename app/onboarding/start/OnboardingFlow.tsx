@@ -7,7 +7,7 @@ interface OnboardingFlowProps {
   user: any;
   profile: any;
   packet: any;
-  documents: any[];
+  documents: unknown[];
   signedDocumentIds: Set<string>;
   payrollStatus: string | null;
 }

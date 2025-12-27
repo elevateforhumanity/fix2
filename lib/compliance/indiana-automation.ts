@@ -122,7 +122,6 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
   enforcementActions: number;
   errors: string[];
 }> {
-  console.log('[Indiana Compliance] Starting daily compliance check...');
 
   const results = {
     totalChecked: 0,
@@ -135,7 +134,6 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
     // Get all active program holders with Indiana credentials
     const programHolders = await getProgramHoldersWithIndianaCredentials();
 
-    console.log(
       `[Indiana Compliance] Found ${programHolders.length} program holders to check`
     );
 
@@ -144,7 +142,6 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
 
     for (let i = 0; i < batches.length; i++) {
       const batch = batches[i];
-      console.log(
         `[Indiana Compliance] Processing batch ${i + 1}/${batches.length} (${batch.length} program holders)`
       );
 
@@ -188,11 +185,6 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
       }
     }
 
-    console.log('[Indiana Compliance] Daily compliance check complete');
-    console.log(`  - Checked: ${results.totalChecked} program holders`);
-    console.log(`  - Alerts sent: ${results.alertsSent}`);
-    console.log(`  - Enforcement actions: ${results.enforcementActions}`);
-    console.log(`  - Errors: ${results.errors.length}`);
   } catch (error) {
     console.error(
       '[Indiana Compliance] Fatal error during compliance check:',
@@ -208,7 +200,7 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
  * CHECK INDIVIDUAL PROGRAM HOLDER COMPLIANCE
  */
 async function checkProgramHolderCompliance(
-  programHolder: any
+  programHolder: unknown
 ): Promise<ComplianceCheckResult> {
   const result: ComplianceCheckResult = {
     programHolderId: programHolder.id,
@@ -272,7 +264,7 @@ async function checkProgramHolderCompliance(
  * CHECK REPORTING COMPLIANCE
  */
 async function checkReportingCompliance(
-  programHolder: any
+  programHolder: unknown
 ): Promise<ReportingComplianceCheck[]> {
   const checks: ReportingComplianceCheck[] = [];
   const today = new Date();
@@ -337,7 +329,7 @@ async function checkReportingCompliance(
  * CHECK PERFORMANCE COMPLIANCE
  */
 async function checkPerformanceCompliance(
-  programHolder: any
+  programHolder: unknown
 ): Promise<PerformanceComplianceCheck> {
   // Get performance metrics from database
   const metrics = await getProgramHolderPerformanceMetrics(programHolder.id);
@@ -376,7 +368,7 @@ async function checkPerformanceCompliance(
  * CHECK DATA QUALITY COMPLIANCE
  */
 async function checkDataQualityCompliance(
-  programHolder: any
+  programHolder: unknown
 ): Promise<DataQualityComplianceCheck> {
   // Get data quality score from database
   const dataQuality = await getProgramHolderDataQuality(programHolder.id);
@@ -405,7 +397,7 @@ async function checkDataQualityCompliance(
  * CHECK ETPL RENEWAL COMPLIANCE
  */
 async function checkETPLRenewalCompliance(
-  programHolder: any
+  programHolder: unknown
 ): Promise<ETPLRenewalComplianceCheck> {
   // Get ETPL expiration date from database
   const etplData = await getProgramHolderETPLData(programHolder.id);
@@ -690,11 +682,8 @@ async function getProgramHolderETPLData(programHolderId: string): Promise<{
 async function sendAlert(alert: AlertToSend): Promise<void> {
   // Send alert via appropriate channels
   // This would integrate with email service, SMS service, etc.
-  console.log(
     `[Alert] Sending ${alert.level} alert to ${alert.programHolderId}`
   );
-  console.log(`  Subject: ${alert.subject}`);
-  console.log(`  Channels: ${alert.channels.join(', ')}`);
 
   // Implementation needed:
   // - Send email via Resend/SendGrid
@@ -707,10 +696,8 @@ async function executeEnforcementAction(
   action: EnforcementAction
 ): Promise<void> {
   // Execute enforcement action
-  console.log(
     `[Enforcement] Executing ${action.action} for ${action.programHolderId}`
   );
-  console.log(`  Reason: ${action.reason}`);
 
   // Implementation needed:
   // - Update database to reflect enforcement action

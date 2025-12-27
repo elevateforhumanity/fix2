@@ -1,3 +1,4 @@
+import { memo } from 'react';
 'use client';
 
 import { useState, useEffect } from 'react';

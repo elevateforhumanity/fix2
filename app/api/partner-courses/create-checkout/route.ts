@@ -6,7 +6,6 @@ import { toError, toErrorMessage } from '@/lib/safe';
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      // @ts-expect-error TS2322: Type '"2025-10-29.clover"' is not assignable to type '"2025-10-29.clover"'.
       apiVersion: '2025-10-29.clover',
     })
   : null;
@@ -61,7 +60,6 @@ export async function POST(request: NextRequest) {
     // Create Stripe checkout session with Buy Now Pay Later options
     const session = await stripe.checkout.sessions.create({
       // Enable multiple payment methods including BNPL and ACH
-      // @ts-expect-error TS2769: No overload matches this call.
       payment_method_types: [
         'card',
         'afterpay_clearpay',
@@ -121,7 +119,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ sessionId: session.id });
   } catch (error: unknown) {
-    // @ts-expect-error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Error'.
     logger.error('Stripe checkout error:', error);
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
