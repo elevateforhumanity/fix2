@@ -21,10 +21,11 @@ export interface AtRiskStudent {
  */
 export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
   const supabase = await createClient();
-  
+
   const { data } = await supabase
     .from('student_risk_status')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -44,7 +45,8 @@ export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
           )
         )
       )
-    `)
+    `
+    )
     .eq('status', 'at_risk')
     .order('overdue_count', { ascending: false });
 
@@ -52,11 +54,12 @@ export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
     return [];
   }
 
-  return data.map(data: unknown) => {
+  return data.map((risk: any) => {
     const enrollment = risk.enrollments;
     const student = enrollment?.profiles;
-    const funding = enrollment?.student_funding_assignments?.[0]?.funding_sources;
-    
+    const funding =
+      enrollment?.student_funding_assignments?.[0]?.funding_sources;
+
     return {
       enrollment_id: enrollment?.id || '',
       student_id: enrollment?.student_id || '',
@@ -70,7 +73,7 @@ export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
       progress_percentage: risk.progress_percentage,
       days_since_activity: risk.days_since_activity,
       last_activity_date: risk.last_activity_date,
-      has_critical_overdue: risk.has_critical_overdue
+      has_critical_overdue: risk.has_critical_overdue,
     };
   });
 }
@@ -80,10 +83,11 @@ export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
  */
 export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
   const supabase = await createClient();
-  
+
   const { data } = await supabase
     .from('student_risk_status')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -103,7 +107,8 @@ export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
           )
         )
       )
-    `)
+    `
+    )
     .eq('status', 'needs_action')
     .order('overdue_count', { ascending: false });
 
@@ -111,11 +116,12 @@ export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
     return [];
   }
 
-  return data.map(data: unknown) => {
+  return data.map((risk: any) => {
     const enrollment = risk.enrollments;
     const student = enrollment?.profiles;
-    const funding = enrollment?.student_funding_assignments?.[0]?.funding_sources;
-    
+    const funding =
+      enrollment?.student_funding_assignments?.[0]?.funding_sources;
+
     return {
       enrollment_id: enrollment?.id || '',
       student_id: enrollment?.student_id || '',
@@ -129,7 +135,7 @@ export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
       progress_percentage: risk.progress_percentage,
       days_since_activity: risk.days_since_activity,
       last_activity_date: risk.last_activity_date,
-      has_critical_overdue: risk.has_critical_overdue
+      has_critical_overdue: risk.has_critical_overdue,
     };
   });
 }
@@ -137,12 +143,15 @@ export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
 /**
  * Get inactive students (no activity in X days)
  */
-export async function getInactiveStudents(daysSinceActivity: number = 14): Promise<AtRiskStudent[]> {
+export async function getInactiveStudents(
+  daysSinceActivity: number = 14
+): Promise<AtRiskStudent[]> {
   const supabase = await createClient();
-  
+
   const { data } = await supabase
     .from('student_risk_status')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -158,7 +167,8 @@ export async function getInactiveStudents(daysSinceActivity: number = 14): Promi
           name
         )
       )
-    `)
+    `
+    )
     .eq('enrollments.status', 'active')
     .gte('days_since_activity', daysSinceActivity)
     .order('days_since_activity', { ascending: false });
@@ -167,10 +177,10 @@ export async function getInactiveStudents(daysSinceActivity: number = 14): Promi
     return [];
   }
 
-  return data.map(data: unknown) => {
+  return data.map((risk: any) => {
     const enrollment = risk.enrollments;
     const student = enrollment?.profiles;
-    
+
     return {
       enrollment_id: enrollment?.id || '',
       student_id: enrollment?.student_id || '',
@@ -184,7 +194,7 @@ export async function getInactiveStudents(daysSinceActivity: number = 14): Promi
       progress_percentage: risk.progress_percentage,
       days_since_activity: risk.days_since_activity,
       last_activity_date: risk.last_activity_date,
-      has_critical_overdue: risk.has_critical_overdue
+      has_critical_overdue: risk.has_critical_overdue,
     };
   });
 }
@@ -192,12 +202,12 @@ export async function getInactiveStudents(daysSinceActivity: number = 14): Promi
 /**
  * Get programs with low completion rates
  */
-export async function getLowCompletionPrograms(threshold: number = 70): Promise<any[]> {
+export async function getLowCompletionPrograms(
+  threshold: number = 70
+): Promise<any[]> {
   const supabase = await createClient();
-  
-  const { data: programs } = await supabase
-    .from('programs')
-    .select(`
+
+  const { data: programs } = await supabase.from('programs').select(`
       id,
       name,
       enrollments (
@@ -210,16 +220,21 @@ export async function getLowCompletionPrograms(threshold: number = 70): Promise<
     return [];
   }
 
-  const programStats = programs.map(data: unknown) => {
+  const programStats = programs.map((program: any) => {
     const enrollments = program.enrollments || [];
     const total = enrollments.length;
-    const completed = enrollments.filter(data: unknown) => e.status === 'completed').length;
-    const dropped = enrollments.filter(data: unknown) => e.status === 'dropped').length;
-    const active = enrollments.filter(data: unknown) => e.status === 'active').length;
-    
-    const completionRate = total > 0 ? Math.round((completed / total) * 100) : 0;
+    const completed = enrollments.filter(
+      (e: any) => e.status === 'completed'
+    ).length;
+    const dropped = enrollments.filter(
+      (e: any) => e.status === 'dropped'
+    ).length;
+    const active = enrollments.filter((e: any) => e.status === 'active').length;
+
+    const completionRate =
+      total > 0 ? Math.round((completed / total) * 100) : 0;
     const dropoutRate = total > 0 ? Math.round((dropped / total) * 100) : 0;
-    
+
     return {
       id: program.id,
       name: program.name,
@@ -228,13 +243,13 @@ export async function getLowCompletionPrograms(threshold: number = 70): Promise<
       completed_students: completed,
       dropped_students: dropped,
       completion_rate: completionRate,
-      dropout_rate: dropoutRate
+      dropout_rate: dropoutRate,
     };
   });
 
   // Filter programs with low completion and minimum enrollment
   return programStats
-    .filter(p => p.completion_rate < threshold && p.total_enrollments >= 5)
+    .filter((p) => p.completion_rate < threshold && p.total_enrollments >= 5)
     .sort((a, b) => a.completion_rate - b.completion_rate);
 }
 
@@ -243,10 +258,11 @@ export async function getLowCompletionPrograms(threshold: number = 70): Promise<
  */
 export async function getFundingSourceMetrics(): Promise<any[]> {
   const supabase = await createClient();
-  
+
   const { data: fundingSources } = await supabase
     .from('funding_sources')
-    .select(`
+    .select(
+      `
       id,
       name,
       code,
@@ -259,49 +275,61 @@ export async function getFundingSourceMetrics(): Promise<any[]> {
           )
         )
       )
-    `)
+    `
+    )
     .eq('active', true);
 
   if (!fundingSources) {
     return [];
   }
 
-  return fundingSources.map(data: unknown) => {
-    const assignments = source.student_funding_assignments || [];
-    const enrollments = assignments.map(data: unknown) => a.enrollments).filter(Boolean);
-    
-    const total = enrollments.length;
-    const active = enrollments.filter(data: unknown) => e.status === 'active').length;
-    const completed = enrollments.filter(data: unknown) => e.status === 'completed').length;
-    const atRisk = enrollments.filter(data: unknown) => 
-      e.student_risk_status?.[0]?.status === 'at_risk'
-    ).length;
-    const onTrack = enrollments.filter(data: unknown) => 
-      e.student_risk_status?.[0]?.status === 'on_track'
-    ).length;
-    
-    return {
-      funding_source: source.code,
-      funding_name: source.name,
-      total_students: total,
-      active_students: active,
-      completed_students: completed,
-      at_risk_students: atRisk,
-      on_track_students: onTrack,
-      completion_rate: total > 0 ? Math.round((completed / total) * 100) : 0
-    };
-  }).filter(m => m.total_students > 0);
+  return fundingSources
+    .map((source: any) => {
+      const assignments = source.student_funding_assignments || [];
+      const enrollments = assignments
+        .map((a: any) => a.enrollments)
+        .filter(Boolean);
+
+      const total = enrollments.length;
+      const active = enrollments.filter(
+        (e: any) => e.status === 'active'
+      ).length;
+      const completed = enrollments.filter(
+        (e: any) => e.status === 'completed'
+      ).length;
+      const atRisk = enrollments.filter(
+        (e: any) => e.student_risk_status?.[0]?.status === 'at_risk'
+      ).length;
+      const onTrack = enrollments.filter(
+        (e: any) => e.student_risk_status?.[0]?.status === 'on_track'
+      ).length;
+
+      return {
+        funding_source: source.code,
+        funding_name: source.name,
+        total_students: total,
+        active_students: active,
+        completed_students: completed,
+        at_risk_students: atRisk,
+        on_track_students: onTrack,
+        completion_rate: total > 0 ? Math.round((completed / total) * 100) : 0,
+      };
+    })
+    .filter((m) => m.total_students > 0);
 }
 
 /**
  * Detect students with missing critical requirements
  */
-export async function getStudentsWithMissingCriticalRequirements(): Promise<any[]> {
+export async function getStudentsWithMissingCriticalRequirements(): Promise<
+  any[]
+> {
   const supabase = await createClient();
-  
+
   const { data } = await supabase
     .from('student_requirements')
-    .select(`
+    .select(
+      `
       *,
       enrollments (
         id,
@@ -314,7 +342,8 @@ export async function getStudentsWithMissingCriticalRequirements(): Promise<any[
           name
         )
       )
-    `)
+    `
+    )
     .eq('priority', 'urgent')
     .in('status', ['pending', 'in_progress'])
     .lt('due_date', new Date().toISOString().split('T')[0]);
@@ -324,7 +353,7 @@ export async function getStudentsWithMissingCriticalRequirements(): Promise<any[
   }
 
   // Group by enrollment
-  const grouped = data.reduce(data: unknown) => {
+  const grouped = data.reduce((acc: any, req: any) => {
     const enrollmentId = req.enrollment_id;
     if (!acc[enrollmentId]) {
       acc[enrollmentId] = {
@@ -332,12 +361,12 @@ export async function getStudentsWithMissingCriticalRequirements(): Promise<any[
         student_name: `${req.enrollments?.profiles?.first_name} ${req.enrollments?.profiles?.last_name}`,
         student_email: req.enrollments?.profiles?.email,
         program_name: req.enrollments?.programs?.name,
-        critical_requirements: []
+        critical_requirements: [],
       };
     }
     acc[enrollmentId].critical_requirements.push({
       title: req.title,
-      due_date: req.due_date
+      due_date: req.due_date,
     });
     return acc;
   }, {});

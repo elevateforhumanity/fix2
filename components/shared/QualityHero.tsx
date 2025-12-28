@@ -59,7 +59,11 @@ export function QualityHero({
     <section className="relative bg-white">
       {/* Breadcrumbs */}
       {breadcrumbs.length > 0 && (
-        <nav role="navigation" aria-label="Main navigation" className="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+        <nav
+          role="navigation"
+          className="container mx-auto px-4 py-4"
+          aria-label="Breadcrumb"
+        >
           <ol className="flex items-center space-x-2 text-sm">
             {breadcrumbs.map((crumb, index) => (
               <li key={crumb.href} className="flex items-center">

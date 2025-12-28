@@ -9,6 +9,7 @@ import {
   getNextIndianaReportDueDate,
   INDIANA_ETPL_STANDARDS,
   INDIANA_REPORTING_SCHEDULES,
+  INDIANA_EMAIL_TEMPLATES,
 } from '../indiana-compliance';
 
 import {
@@ -282,7 +283,7 @@ describe('Indiana Alert Scenarios', () => {
 
 describe('Mass Scale Processing', () => {
   test('Batch configuration is set for mass scale', () => {
-    const { BATCH_CONFIG } = require('../alert-system');
+    import { BATCH_CONFIG } from '../alert-system';
 
     expect(BATCH_CONFIG.batchSize).toBe(50);
     expect(BATCH_CONFIG.delayBetweenBatches).toBeGreaterThan(0);
@@ -291,7 +292,7 @@ describe('Mass Scale Processing', () => {
   });
 
   test('Can process 500 program holders in batches', () => {
-    const { BATCH_CONFIG } = require('../alert-system');
+    import { BATCH_CONFIG } from '../alert-system';
     const totalProgramHolders = 500;
     const expectedBatches = Math.ceil(
       totalProgramHolders / BATCH_CONFIG.batchSize
@@ -303,8 +304,6 @@ describe('Mass Scale Processing', () => {
 
 describe('Indiana Email Templates', () => {
   test('Student data submission reminder template exists', () => {
-    const { INDIANA_EMAIL_TEMPLATES } = require('../indiana-compliance');
-
     expect(
       INDIANA_EMAIL_TEMPLATES.student_data_submission_reminder
     ).toBeDefined();
@@ -317,8 +316,6 @@ describe('Indiana Email Templates', () => {
   });
 
   test('ETPL renewal reminder template exists', () => {
-    const { INDIANA_EMAIL_TEMPLATES } = require('../indiana-compliance');
-
     expect(INDIANA_EMAIL_TEMPLATES.etpl_renewal_reminder).toBeDefined();
     expect(INDIANA_EMAIL_TEMPLATES.etpl_renewal_reminder.body).toContain(
       '70% employment rate'
@@ -329,8 +326,6 @@ describe('Indiana Email Templates', () => {
   });
 
   test('Performance below threshold template exists', () => {
-    const { INDIANA_EMAIL_TEMPLATES } = require('../indiana-compliance');
-
     expect(INDIANA_EMAIL_TEMPLATES.performance_below_threshold).toBeDefined();
     expect(INDIANA_EMAIL_TEMPLATES.performance_below_threshold.body).toContain(
       'Corrective Action Plan'
@@ -338,8 +333,6 @@ describe('Indiana Email Templates', () => {
   });
 
   test('Federal reporting overdue template exists', () => {
-    const { INDIANA_EMAIL_TEMPLATES } = require('../indiana-compliance');
-
     expect(INDIANA_EMAIL_TEMPLATES.federal_reporting_overdue).toBeDefined();
     expect(INDIANA_EMAIL_TEMPLATES.federal_reporting_overdue.body).toContain(
       'immediate removal'

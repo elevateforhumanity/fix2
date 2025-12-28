@@ -122,7 +122,6 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
   enforcementActions: number;
   errors: string[];
 }> {
-
   const results = {
     totalChecked: 0,
     alertsSent: 0,
@@ -134,6 +133,7 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
     // Get all active program holders with Indiana credentials
     const programHolders = await getProgramHoldersWithIndianaCredentials();
 
+    console.log(
       `[Indiana Compliance] Found ${programHolders.length} program holders to check`
     );
 
@@ -142,6 +142,7 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
 
     for (let i = 0; i < batches.length; i++) {
       const batch = batches[i];
+      console.log(
         `[Indiana Compliance] Processing batch ${i + 1}/${batches.length} (${batch.length} program holders)`
       );
 
@@ -184,7 +185,6 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
         await delay(BATCH_CONFIG.delayBetweenBatches);
       }
     }
-
   } catch (error) {
     console.error(
       '[Indiana Compliance] Fatal error during compliance check:',
@@ -682,6 +682,7 @@ async function getProgramHolderETPLData(programHolderId: string): Promise<{
 async function sendAlert(alert: AlertToSend): Promise<void> {
   // Send alert via appropriate channels
   // This would integrate with email service, SMS service, etc.
+  console.log(
     `[Alert] Sending ${alert.level} alert to ${alert.programHolderId}`
   );
 
@@ -696,6 +697,7 @@ async function executeEnforcementAction(
   action: EnforcementAction
 ): Promise<void> {
   // Execute enforcement action
+  console.log(
     `[Enforcement] Executing ${action.action} for ${action.programHolderId}`
   );
 

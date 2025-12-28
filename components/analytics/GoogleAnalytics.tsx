@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { sanitizeHtml } from '@/lib/sanitize';
@@ -31,10 +31,10 @@ export default function GoogleAnalytics() {
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
+      {/* Safe: Google Analytics tracking script */}
       <Script
         id="google-analytics"
         strategy="afterInteractive"
-          {/* Safe: Google Analytics tracking script */}
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 type SiteLogoProps = {
   className?: string;
@@ -7,7 +7,7 @@ type SiteLogoProps = {
 
 export function SiteLogo({ className }: SiteLogoProps) {
   return (
-    <Link href="/" aria-label="Link" className ?? ""}`}>
+    <Link href="/" aria-label="Link" className={className ?? ''}>
       <Image
         src="/logo.png"
         alt="Elevate for Humanity – Building Success Stories"

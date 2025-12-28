@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { useEffect } from 'react';
@@ -7,7 +7,7 @@ export function PerformanceMonitor() {
     if (typeof window === 'undefined') return;
     // Monitor Core Web Vitals
     const reportWebVitals = (data: unknown) => {
-      // 
+      //
       // Send to analytics
       if (window.gtag) {
         window.gtag('event', metric.name, {
@@ -40,7 +40,7 @@ export function PerformanceMonitor() {
       try {
         const fidObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          entries.forEach(data: unknown) => {
+          entries.forEach((entry: any) => {
             reportWebVitals({
               name: 'FID',
               value: entry.processingStart - entry.startTime,

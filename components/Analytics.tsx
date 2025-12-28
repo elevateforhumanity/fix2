@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { sanitizeHtml } from '@/lib/sanitize';
@@ -22,8 +22,10 @@ function AnalyticsContent() {
   useEffect(() => {
     if (!GA_MEASUREMENT_ID || !window.gtag) return;
 
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
-    
+    const url =
+      pathname +
+      (searchParams?.toString() ? `?${searchParams.toString()}` : '');
+
     window.gtag('config', GA_MEASUREMENT_ID, {
       page_path: url,
     });
@@ -39,10 +41,10 @@ function AnalyticsContent() {
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
+      {/* Safe: Google Analytics tracking script */}
       <Script
         id="google-analytics"
         strategy="afterInteractive"
-          {/* Safe: Google Analytics tracking script */}
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -66,7 +68,10 @@ export function Analytics() {
   );
 }
 
-export function trackEvent(eventName: string, eventParams?: Record<string, any>) {
+export function trackEvent(
+  eventName: string,
+  eventParams?: Record<string, any>
+) {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, eventParams);
   }

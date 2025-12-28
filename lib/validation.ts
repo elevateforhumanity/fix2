@@ -25,7 +25,9 @@ export async function verifyCertificateEligibility(enrollmentId: string) {
   const supabase = await createClient();
   const { data: enrollment } = await supabase
     .from('enrollments')
-    .select('*, program:programs(required_lessons), progress:lesson_progress(completed_at)')
+    .select(
+      '*, program:programs(required_lessons), progress:lesson_progress(completed_at)'
+    )
     .eq('id', enrollmentId)
     .single();
 
@@ -33,12 +35,18 @@ export async function verifyCertificateEligibility(enrollmentId: string) {
     return { eligible: false, reason: 'Program not completed' };
   }
 
-  const completedLessons = enrollment.progress?.filter(data: unknown) => p.completed_at).length || 0;
+  const completedLessons =
+    enrollment.progress?.filter((p: any) => p.completed_at).length || 0;
   const requiredLessons = enrollment.program?.required_lessons || 0;
-  const completionPercentage = requiredLessons > 0 ? (completedLessons / requiredLessons) * 100 : 0;
+  const completionPercentage =
+    requiredLessons > 0 ? (completedLessons / requiredLessons) * 100 : 0;
 
   if (completionPercentage < 100) {
-    return { eligible: false, reason: `Only ${completionPercentage.toFixed(0)}% completed`, completionPercentage };
+    return {
+      eligible: false,
+      reason: `Only ${completionPercentage.toFixed(0)}% completed`,
+      completionPercentage,
+    };
   }
 
   return { eligible: true, completionPercentage: 100 };
@@ -111,12 +119,15 @@ export const validators = {
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
-    
+
     // Adjust age if birthday hasn't occurred yet this year
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
       age--;
     }
-    
+
     if (age < min) {
       return `Must be at least ${min} years old`;
     }

@@ -1,4 +1,5 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import crypto from 'crypto';
 
 if (process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_SERVER_PREFIX) {
   mailchimp.setConfig({
@@ -30,7 +31,7 @@ export async function updateMember(
   updates: Record<string, any>
 ) {
   try {
-    const subscriberHash = require('crypto')
+    const subscriberHash = crypto
       .createHash('md5')
       .update(email.toLowerCase())
       .digest('hex');

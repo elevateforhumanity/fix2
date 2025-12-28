@@ -6,10 +6,12 @@ interface StructuredDataProps {
 }
 
 export default function StructuredData({ data }: StructuredDataProps) {
+  {
+    /* Safe: JSON-LD structured data for SEO */
+  }
   return (
     <script
       type="application/ld+json"
-          {/* Safe: JSON-LD structured data for SEO */}
       dangerouslySetInnerHTML={injectSchema(data)}
     />
   );

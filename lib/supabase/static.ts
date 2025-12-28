@@ -9,6 +9,7 @@ export function createStaticClient() {
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
   if (!supabaseUrl || !supabaseAnonKey) {
+    console.log(
       '[Supabase Static] Missing environment variables - returning mock client'
     );
     // Return a mock client that returns empty data for build-time
@@ -17,14 +18,14 @@ export function createStaticClient() {
         select: () => ({
           eq: () => ({
             order: () => ({
-              then: (data: unknown) => resolve({ data: [], error: null }),
+              then: (resolve: any) => resolve({ data: [], error: null }),
             }),
             single: () => ({
-              then: (data: unknown) => resolve({ data: null, error: null }),
+              then: (resolve: any) => resolve({ data: null, error: null }),
             }),
-            then: (data: unknown) => resolve({ data: [], error: null }),
+            then: (resolve: any) => resolve({ data: [], error: null }),
           }),
-          then: (data: unknown) => resolve({ data: [], error: null }),
+          then: (resolve: any) => resolve({ data: [], error: null }),
         }),
       }),
     } as any;

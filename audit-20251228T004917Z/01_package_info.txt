@@ -1,0 +1,7 @@
+## PACKAGE MANAGER / LOCKFILE
+lockfile=pnpm-lock.yaml
+
+## PACKAGE.JSON (top level)
+name=efh-autopilot
+private=undefined
+scripts=preinstall,approve-builds,archetype:check,spot-check,ci:install,ci:build,ci:check,verify,smoke,clean:full,autopilot,autopilot:bg,autopilot:vercel:hard-refresh,dev:with-autopilot,predev,dev,setup:env,env:pull,env:setup,cleanup:console,cleanup:root,autopilot:sync-env,check:db,db:setup,db:migrate,db:seed,db:check,supabase:auto,supabase:test,validate-env,audit-rls,make:images,make:logo,lint:ts-nocheck,prebuild,build,postbuild,verify:build,verify:pwa,generate:vapid,generate:icons,deploy:vercel,start,preview,preview:serve,db:migrate:auto,db:seed:auto,seed:programs,check:features,lighthouse,check:links,ci:lh,test,test:watch,test:ui,test:coverage,test:e2e,test:smoke,test:smoke:headed,format,format:check,lint-staged,type-check,typecheck,lint,healthcheck,lint:brand,lint:brand:all,fix:brand,fix:brand:dry,brand:guard,polish:check,polish:fix,tokens:guard,sitemap:gen,robots:gen,autopilot:migrate,autopilot:setup,autopilot:fix,autopilot:check,lms:setup,lms:fix-types,lms:check,lms:build,lms:migrations,lms:activate,autopilot:prepush,clean,clean:fast,clean:all,health,health:once,health:loop,serve:keepalive,prepare,lint:fix,css:lint,css:fix,doctor,mobile:copy,mobile:sync,mobile:android,mobile:ios,video:server,video:test,video:generate-samples,video:download-media,generate-covers,test:enrollment,migrate:ai,test:affirm,check:stripe,check-env

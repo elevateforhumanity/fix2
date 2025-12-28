@@ -1,6 +1,7 @@
-import React from 'react';
 // lib/hooks/useAuth.ts - Client-side authentication hook
-"use client";
+'use client';
+
+import React from 'react';
 
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
@@ -20,7 +21,7 @@ export function useAuth() {
   useEffect(() => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user as AuthUser || null);
+      setUser((session?.user as AuthUser) || null);
       setLoading(false);
     });
 
@@ -28,7 +29,7 @@ export function useAuth() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user as AuthUser || null);
+      setUser((session?.user as AuthUser) || null);
       setLoading(false);
     });
 
@@ -45,7 +46,11 @@ export function useAuth() {
     return data;
   };
 
-  const signUp = async (email: string, password: string, metadata?: { role?: UserRole; name?: string }) => {
+  const signUp = async (
+    email: string,
+    password: string,
+    metadata?: { role?: UserRole; name?: string }
+  ) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,

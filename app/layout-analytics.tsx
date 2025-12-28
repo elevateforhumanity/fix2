@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { sanitizeHtml } from '@/lib/sanitize';
@@ -7,7 +7,8 @@ import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
 
 export function Analytics() {
   const pathname = usePathname();
@@ -16,7 +17,9 @@ export function Analytics() {
   useEffect(() => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('config', GA_MEASUREMENT_ID, {
-        page_path: pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : ''),
+        page_path:
+          pathname +
+          (searchParams?.toString() ? `?${searchParams.toString()}` : ''),
       });
     }
   }, [pathname, searchParams]);
@@ -27,10 +30,10 @@ export function Analytics() {
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
+      {/* Safe: Google Analytics tracking script */}
       <Script
         id="google-analytics"
         strategy="afterInteractive"
-          {/* Safe: Google Analytics tracking script */}
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -48,14 +51,19 @@ export function Analytics() {
 }
 
 // Event tracking helper
-export function trackEvent(eventName: string, eventParams?: Record<string, any>) {
+export function trackEvent(
+  eventName: string,
+  eventParams?: Record<string, any>
+) {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', eventName, eventParams);
   }
 }
 
 // Conversion tracking
-export function trackConversion(conversionType: 'application' | 'enrollment' | 'contact' | 'download') {
+export function trackConversion(
+  conversionType: 'application' | 'enrollment' | 'contact' | 'download'
+) {
   trackEvent('conversion', {
     conversion_type: conversionType,
     timestamp: new Date().toISOString(),

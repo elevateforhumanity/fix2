@@ -40,10 +40,14 @@ interface Enrollment {
   profiles?: { full_name: string };
 }
 
+interface ProgramStat {
+  courses?: { title: string };
+}
+
 interface ReportsDashboardProps {
   stats: Stats;
   recentEnrollments: Enrollment[];
-  programStats: unknown[];
+  programStats: ProgramStat[];
 }
 
 const COLORS = [

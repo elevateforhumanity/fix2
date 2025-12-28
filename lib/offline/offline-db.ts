@@ -77,9 +77,12 @@ class OfflineDB {
   // Offline Actions
   async addOfflineAction(action: Omit<OfflineAction, 'id'>): Promise<number> {
     if (!this.db) await this.init();
-    
+
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction(['offline-actions'], 'readwrite');
+      const transaction = this.db!.transaction(
+        ['offline-actions'],
+        'readwrite'
+      );
       const store = transaction.objectStore('offline-actions');
       const request = store.add(action);
 
@@ -105,7 +108,10 @@ class OfflineDB {
     if (!this.db) await this.init();
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction(['offline-actions'], 'readwrite');
+      const transaction = this.db!.transaction(
+        ['offline-actions'],
+        'readwrite'
+      );
       const store = transaction.objectStore('offline-actions');
       const request = store.delete(id);
 
@@ -120,7 +126,11 @@ class OfflineDB {
   }
 
   // Cached Data
-  async setCachedData(key: string, data: Record<string, unknown>, expiresIn?: number): Promise<void> {
+  async setCachedData(
+    key: string,
+    data: Record<string, unknown>,
+    expiresIn?: number
+  ): Promise<void> {
     if (!this.db) await this.init();
 
     const cachedData: CachedData = {
@@ -221,7 +231,10 @@ class OfflineDB {
     };
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction(['course-progress'], 'readwrite');
+      const transaction = this.db!.transaction(
+        ['course-progress'],
+        'readwrite'
+      );
       const store = transaction.objectStore('course-progress');
       const request = store.add(progressData);
 
@@ -240,7 +253,7 @@ class OfflineDB {
 
       request.onerror = () => reject(request.error);
       request.onsuccess = () => {
-        const results = request.result.filter(data: unknown) => !item.synced);
+        const results = request.result.filter((item: any) => !item.synced);
         resolve(results);
       };
     });

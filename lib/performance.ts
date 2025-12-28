@@ -41,7 +41,7 @@ export function measureWebVitals() {
   // First Input Delay (FID)
   const fidObserver = new PerformanceObserver((list) => {
     const entries = list.getEntries();
-    entries.forEach(data: unknown) => {
+    entries.forEach((entry: any) => {
       if (window.gtag) {
         window.gtag('event', 'web_vitals', {
           event_category: 'Web Vitals',
@@ -100,17 +100,26 @@ export function trackComponentRender(componentName: string, duration: number) {
 // Resource timing
 export function analyzeResourceTiming() {
   if (typeof window === 'undefined') return;
-  const resources = performance.getEntriesByType('resource') as PerformanceResourceTiming[];
-  const slowResources = resources.filter(r => r.duration > 1000);
+  const resources = performance.getEntriesByType(
+    'resource'
+  ) as PerformanceResourceTiming[];
+  const slowResources = resources.filter((r) => r.duration > 1000);
   if (slowResources.length > 0 && process.env.NODE_ENV === 'development') {
-      name: r.name,
-      duration: `${Math.round(r.duration)}ms`,
-      size: r.transferSize,
-    })));
+    console.log(
+      'Slow resources:',
+      slowResources.map((r) => ({
+        name: r.name,
+        duration: `${Math.round(r.duration)}ms`,
+        size: r.transferSize,
+      }))
+    );
   }
   // Track to analytics
   if (window.gtag) {
-    const totalSize = resources.reduce((sum, r) => sum + (r.transferSize || 0), 0);
+    const totalSize = resources.reduce(
+      (sum, r) => sum + (r.transferSize || 0),
+      0
+    );
     window.gtag('event', 'resource_timing', {
       event_category: 'Performance',
       event_label: 'total_resources',
@@ -126,15 +135,15 @@ export function analyzeResourceTiming() {
 // Memory usage (if available)
 export function trackMemoryUsage() {
   if (typeof window === 'undefined') return;
-  
+
   const memory = (performance as any).memory;
   if (memory) {
     const usedMemory = memory.usedJSHeapSize / 1048576; // MB
     const totalMemory = memory.totalJSHeapSize / 1048576; // MB
-    
+
     if (process.env.NODE_ENV === 'development') {
     }
-    
+
     if (window.gtag) {
       window.gtag('event', 'memory_usage', {
         event_category: 'Performance',
