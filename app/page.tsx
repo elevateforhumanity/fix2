@@ -303,88 +303,28 @@ export default function HomePage() {
       {/* 2.6. PARTNER LOGOS */}
       <PartnerLogos />
 
-      {/* 3. CHOOSE YOUR PATH (3 TILES) */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
-            Choose Your Path
+      {/* 3. PLATFORM LICENSING (Moved below primary paths) */}
+      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900 mb-4">
+            License the Platform
           </h2>
-
-          <div className="mt-7 grid md:grid-cols-3 gap-6">
-            {/* Get Trained */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
-                <Image
-                  src="/images/artlist/hero-training-1.jpg"
-                  alt="Get trained"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
-                Get Trained
-              </h3>
-              <p className="mt-2 text-zinc-700">
-                Free or funded training programs connected to real careers,
-                employers, and credentials.
-              </p>
-              <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
-                href="/apply"
-              >
-                Apply Now →
-              </Link>
-            </div>
-
-            {/* Partner With Us */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
-                <Image
-                  src="/images/artlist/hero-training-2.jpg"
-                  alt="Partner with us"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
-                Partner With Us
-              </h3>
-              <p className="mt-2 text-zinc-700">
-                Hire talent, host apprenticeships, or partner with a
-                workforce-ready training provider.
-              </p>
-              <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
-                href="/employers"
-              >
-                Partner With EFH →
-              </Link>
-            </div>
-
-            {/* License the Platform */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
-                <Image
-                  src="/images/artlist/hero-training-3.jpg"
-                  alt="License the platform"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
-                License the Platform
-              </h3>
-              <p className="mt-2 text-zinc-700">
-                Deploy a complete workforce operating system for your
-                organization, school, or agency.
-              </p>
-              <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
-                href="/platform"
-              >
-                View Licensing →
-              </Link>
-            </div>
+          <p className="text-lg text-zinc-700 mb-8">
+            Deploy a complete workforce operating system for your organization, school, or agency.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/platform"
+              className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-8 py-4 text-base font-semibold text-white hover:bg-zinc-800 transition-colors"
+            >
+              View Licensing Options
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-900 bg-white px-8 py-4 text-base font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+            >
+              Contact Sales
+            </Link>
           </div>
         </div>
       </section>
