@@ -31,23 +31,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/apprenticeships',
   ];
 
-  // Program pages
+  // Program pages (ETPL-approved only)
   const programPages = [
     '/programs/barber-apprenticeship',
     '/programs/hvac-technician',
-    '/programs/cna',
+    '/programs/cna-certification',
+    '/programs/cdl-training',
     '/programs/direct-support-professional',
-    '/programs/building-maintenance',
-    '/programs/business-startup',
-    '/programs/business-financial',
-    '/programs/cdl-transportation',
-    '/programs/drug-collector',
-    '/programs/home-health-aide',
-    '/programs/peer-recovery-coach',
-    '/programs/tax-preparation',
-    '/programs/tax-entrepreneurship',
-    '/programs/workforce-readiness',
-    '/programs/healthcare',
+    '/programs/building-maintenance-tech',
+    '/programs/business-startup-marketing',
+    '/programs/emergency-health-safety-tech',
+    '/programs/certified-peer-recovery-coach',
+    '/programs/tax-prep-financial-services',
+    '/programs/beauty-career-educator',
+    '/programs/professional-esthetician',
+    '/programs/phlebotomy-technician',
     '/programs/skilled-trades',
     '/programs/apprenticeships',
     '/programs/federal-funded',
@@ -70,7 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about/team',
     '/about/founder',
     '/what-we-do',
-    '/annual-report',
   ];
 
   // Legal pages

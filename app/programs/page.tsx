@@ -243,7 +243,7 @@ export default function ProgramsPage() {
                     </div>
                   </div>
                   <Link
-                    href="/programs/cna"
+                    href="/programs/cna-certification"
                     className="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-bold transition"
                   >
                     Explore Healthcare Programs

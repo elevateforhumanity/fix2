@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Phone, Mail } from 'lucide-react';
 import type { Program } from '@/app/data/programs';
+import { ProgramPaymentButton } from './ProgramPaymentButton';
 
 export function ProgramTemplate({ program }: { program: Program }) {
   return (
@@ -60,9 +61,9 @@ export function ProgramTemplate({ program }: { program: Program }) {
 
       {/* PROGRAM OVERVIEW */}
       <section className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-3 gap-12">
           {/* Left: Overview + Outcomes */}
-          <div>
+          <div className="md:col-span-2">
             <h2 className="text-3xl font-bold mb-6 text-gray-900">
               Program Overview
             </h2>
@@ -85,8 +86,8 @@ export function ProgramTemplate({ program }: { program: Program }) {
             </ul>
           </div>
 
-          {/* Right: What You'll Learn */}
-          <div>
+          {/* Middle: What You'll Learn */}
+          <div className="md:col-span-2">
             <h2 className="text-3xl font-bold mb-6 text-gray-900">
               What You'll Learn
             </h2>
@@ -104,6 +105,18 @@ export function ProgramTemplate({ program }: { program: Program }) {
               ))}
             </div>
           </div>
+
+          {/* Right: Payment/Enrollment */}
+          {program.price && (
+            <div>
+              <ProgramPaymentButton
+                programSlug={program.slug}
+                programName={program.name}
+                price={program.price}
+                etplProgramId={program.etplProgramId}
+              />
+            </div>
+          )}
         </div>
       </section>
 

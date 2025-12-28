@@ -297,14 +297,6 @@ export default function SiteFooter() {
                 </li>
                 <li>
                   <Link
-                    href="/annual-report"
-                    className="text-sm text-gray-700 hover:text-black transition"
-                  >
-                    Annual Report
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/contact"
                     className="text-sm text-gray-700 hover:text-black transition"
                   >

@@ -24,8 +24,39 @@ export type Program = {
   requirements: string[];
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
-  price?: number; // Optional price for self-pay programs
+  price?: number;
+  etplProgramId?: string;
+  partners?: string[];
+  vendorCost?: number;
+  averageSalary?: string;
+  salaryRange?: string;
+  jobGrowth?: string;
+  curriculum?: Module[];
+  faq?: FAQ[];
+  testimonials?: Testimonial[];
 };
+
+interface Module {
+  id: string;
+  title: string;
+  description: string;
+  hours: number;
+  topics: string[];
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Testimonial {
+  id: string;
+  name: string;
+  photo: string;
+  program: string;
+  quote: string;
+  outcome: string;
+}
 
 export const programs: Program[] = [
   {
@@ -33,16 +64,16 @@ export const programs: Program[] = [
     name: 'HVAC Technician',
     heroTitle: 'HVAC Technician Career Training',
     heroSubtitle:
-      'Master heating, cooling, and refrigeration in 16-24 weeks. HVAC technicians are in high demand everywhere—companies need skilled workers now. Get hands-on training with real equipment and graduate ready for a career with excellent pay and job security.',
+      'Master heating, cooling, and refrigeration in 4-9 months. HVAC technicians are in high demand everywhere—companies need skilled workers now. Get hands-on training with real equipment and graduate ready for a career with excellent pay and job security.',
     shortDescription:
-      'Master heating, cooling, and refrigeration in 16-24 weeks. HVAC technicians are in high demand everywhere—companies need skilled workers now. Get hands-on training with real equipment and graduate ready for a career with excellent pay and job security.',
+      'Master heating, cooling, and refrigeration in 4-9 months. HVAC technicians are in high demand everywhere—companies need skilled workers now. Get hands-on training with real equipment and graduate ready for a career with excellent pay and job security.',
     longDescription:
       "The HVAC Technician program is designed for individuals who enjoy working with their hands, solving problems, and building technical skill. This program teaches students how to diagnose, repair, and maintain HVAC systems while understanding safety, electrical fundamentals, and customer service. You will complete online theory and hands-on lab practice, giving you the confidence to enter the field ready to work. This pathway leads to in-demand roles, with strong long-term career growth.\n\nWhat You'll Learn:\n- HVAC system components and operation\n- Electrical testing and troubleshooting\n- Refrigeration cycle fundamentals\n- Equipment installation and repair\n- Preventative maintenance practices\n- Safety, EPA preparation, and customer communication\n\nWho This Program Is For:\n- Career changers seeking a skilled trade\n- Individuals who enjoy technical, hands-on work\n- Adults needing a stable, high-demand job path\n- Students preparing for apprenticeships or OJT\n\nProgram Format:\n- Hybrid: Online coursework + hands-on labs\n- Length: 16–24 weeks\n- Schedule: Day, evening, or weekend options\n\nFunding & Approvals:\n- Workforce funding may be available (location dependent)\n- Employer OJT/sponsorship options may apply\n\nCareer Outcomes:\n- HVAC Technician (entry-level)\n- Maintenance Technician\n- Building Operations Support",
     heroImage: '/images/programs/hvac-hero.jpg',
     heroImageAlt: 'HVAC student working on an air conditioning unit',
-    duration: '16–24 weeks',
+    duration: '4-9 months (320-720 hours)',
     schedule: 'Day, evening, or weekend options',
-    delivery: 'Hybrid: Online coursework + hands-on labs',
+    delivery: 'Hybrid (Lab + Field Training)',
     credential:
       'Industry-recognized HVAC Technician certificate; EPA 608 prep included',
     approvals: [
@@ -169,7 +200,10 @@ export const programs: Program[] = [
     price: 4980, // Self-pay option price
   },
   {
-    slug: 'cna',
+    slug: 'cna-certification',
+    averageSalary: "$35,000/year",
+    salaryRange: "$28,000 - $42,000",
+    jobGrowth: "+8% (Faster than average)",
     name: 'Certified Nursing Assistant (CNA)',
     heroTitle: 'CNA — Certified Nursing Assistant',
     heroSubtitle:
@@ -229,7 +263,7 @@ export const programs: Program[] = [
     },
   },
   {
-    slug: 'cdl',
+    slug: 'cdl-training',
     name: "Commercial Driver's License (CDL)",
     heroTitle: 'CDL — Commercial Driver Training',
     heroSubtitle:
@@ -290,8 +324,8 @@ export const programs: Program[] = [
     },
   },
   {
-    slug: 'building-maintenance',
-    name: '2Exclusive Apprenticeship Program - Sanitation & Infection Control',
+    slug: 'building-maintenance-tech',
+    name: 'Building Maintenance Technician',
     heroTitle:
       '2Exclusive Apprenticeship Program - Advanced Sanitation & Infection Control',
     heroSubtitle:
@@ -372,187 +406,8 @@ export const programs: Program[] = [
     },
   },
   {
-    slug: 'building-technician',
-    name: 'Building Technician — Advanced Pathway',
-    heroTitle: 'Building Technician — Advanced Pathway',
-    heroSubtitle:
-      'An advanced pathway designed to build deeper technical skills for building operations, maintenance, and facility engineering.',
-    shortDescription:
-      'An advanced pathway designed to build deeper technical skills for building operations, maintenance, and facility engineering.',
-    longDescription:
-      "The Building Technician program expands on core maintenance skills by introducing advanced diagnostics, building system operations, compliance, and preventative strategies. Ideal for individuals pursuing higher-skill roles or preparing for facility engineering pathways.\n\nWhat You'll Learn:\n- Advanced systems troubleshooting\n- Electrical and mechanical safety\n- Building automation basics\n- Documentation and compliance\n- Preventative maintenance strategies\n\nWho This Program Is For:\n- Students who completed Building Maintenance\n- Individuals wanting higher-skill trade roles\n- Adults preparing for facility engineering\n\nProgram Format:\n- Hybrid\n- Length: 12–20 weeks\n\nFunding & Approvals:\n- Workforce funding may be available\n\nCareer Outcomes:\n- Building Technician\n- Facilities Operations Specialist\n- Entry-Level Building Engineer",
-    heroImage: 'https://i.imgur.com/rOagiKC.jpg',
-    heroImageAlt: 'Building technician working on advanced facility systems',
-    duration: '12–20 weeks',
-    schedule: 'Day or evening options',
-    delivery: 'Hybrid',
-    credential: 'Building Technician certificate',
-    approvals: ['Workforce funding may be available'],
-    fundingOptions: ['Workforce funding may be available'],
-    highlights: [
-      'Advanced systems troubleshooting',
-      'Building automation basics',
-      'Documentation and compliance training',
-      'Pathways to facility engineering',
-    ],
-    whatYouLearn: [
-      'Advanced systems troubleshooting',
-      'Electrical and mechanical safety',
-      'Building automation basics',
-      'Documentation and compliance',
-      'Preventative maintenance strategies',
-    ],
-    outcomes: [
-      'Building Technician',
-      'Facilities Operations Specialist',
-      'Entry-Level Building Engineer',
-    ],
-    requirements: [
-      'Students who completed Building Maintenance',
-      'Individuals wanting higher-skill trade roles',
-      'Adults preparing for facility engineering',
-    ],
-    ctaPrimary: {
-      label: 'Apply for Building Technician',
-      href: '/contact?topic=building-technician',
-    },
-    ctaSecondary: {
-      label: 'Talk to a Career Coach',
-      href: '/contact?topic=building-technician',
-    },
-  },
   {
-    slug: 'workforce-readiness',
-    name: 'Workforce Readiness (Youth & Adult)',
-    heroTitle: 'Workforce Readiness (Youth & Adult)',
-    heroSubtitle:
-      'A job-readiness program that builds the essential skills needed to succeed in employment, training, and career advancement.',
-    shortDescription:
-      'A job-readiness program that builds the essential skills needed to succeed in employment, training, and career advancement.',
-    longDescription:
-      "The Workforce Readiness program prepares youth and adults with the communication, professionalism, and foundational skills needed for employment. Students learn how to communicate with employers, build resumes, interview confidently, and understand workplace expectations. This program supports success across all career and training pathways.\n\nWhat You'll Learn:\n- Professional communication\n- Resume and interview preparation\n- Workplace expectations and employer needs\n- Customer service and teamwork\n- Career and job search strategies\n\nWho This Program Is For:\n- Youth ages 16–24\n- Adults re-entering the workforce\n- Individuals preparing for training or employment\n- Students building confidence and communication\n\nProgram Format:\n- Classroom or hybrid\n- Length: 1–4 weeks\n\nCareer Outcomes:\n- Job-ready graduate prepared for employment\n- Stronger candidate for workforce training programs",
-    heroImage: '/images/programs/workforce-readiness-hero.jpg',
-    heroImageAlt: 'Workforce readiness training session',
-    duration: '1–4 weeks',
-    schedule: 'Flexible',
-    delivery: 'Classroom or hybrid',
-    credential: 'Workforce Readiness certificate',
-    approvals: ['Available for youth and adult participants'],
-    fundingOptions: ['Workforce funding may be available'],
-    highlights: [
-      'Professional communication skills',
-      'Resume and interview preparation',
-      'Workplace expectations training',
-      'Career and job search strategies',
-    ],
-    whatYouLearn: [
-      'Professional communication',
-      'Resume and interview preparation',
-      'Workplace expectations and employer needs',
-      'Customer service and teamwork',
-      'Career and job search strategies',
-    ],
-    outcomes: [
-      'Job-ready graduate prepared for employment',
-      'Stronger candidate for workforce training programs',
-    ],
-    requirements: [
-      'Youth ages 16–24',
-      'Adults re-entering the workforce',
-      'Individuals preparing for training or employment',
-      'Students building confidence and communication',
-    ],
-    ctaPrimary: {
-      label: 'Apply for Workforce Readiness',
-      href: '/contact?topic=workforce-readiness',
-    },
-    ctaSecondary: {
-      label: 'Talk to a Career Coach',
-      href: '/contact?topic=workforce-readiness',
-    },
-  },
   {
-    slug: 'direct-support-professional',
-    name: 'Direct Support Professional (DSP) Training',
-    heroTitle: 'Direct Support Professional (DSP) Training Program',
-    heroSubtitle:
-      'Compassionate care training for meaningful work supporting individuals with developmental, physical, or emotional needs',
-    shortDescription:
-      'Hands-on DSP training with real-world scenarios preparing you for rewarding careers in behavioral health, direct support, and caregiving',
-    longDescription:
-      "Our Direct Support Professional (DSP) training program is built to prepare compassionate individuals for meaningful work in the care and support field. This program offers hands-on instruction, real-world scenarios, and practical skills that help students feel confident working with individuals who have developmental, physical, or emotional needs. Whether you're starting a new career or looking to grow in the healthcare field, this training gives you the tools to make a real difference in someone's life while also building a rewarding future for yourself.\n\nAll instructors possess a minimum of a High School Diploma or GED and have at least two years of hands-on experience in behavioral health, direct support, or caregiving. Preference is given to faculty with credentials such as Certified Direct Support Professional (CDSP), CNA licensure, QIDP designation, or completion of state-approved Train-the-Trainer programs. Faculty complete ongoing professional development annually.\n\nThis comprehensive program provides training in patient care, behavioral health support, person-centered planning, and professional communication. Students learn to work effectively with individuals with disabilities, mental health needs, and other support requirements in residential, community, and healthcare settings.\n\nCredentialing Partners:\n• National Alliance for Direct Support Professionals (NADSP) - CDSP Certification (https://nadsp.org)\n• Certified Community Healthcare Worker (CCHW) Programs\n• CPR/First Aid Certification Bodies\n• Rise Up - Career Readiness Certification (https://riseup.com)\n\nCIP Code: 51.0801 - Medical/Clinical Assistant",
-    heroImage: '/images/programs/dsp-hero.jpg',
-    heroImageAlt: 'Direct support professional providing compassionate care',
-    duration: '21 days (3 weeks)',
-    schedule: 'Cohorts start 1st and 15th of each month',
-    delivery: 'Hands-on instruction with real-world scenarios',
-    credential:
-      'Certified Community Healthcare Worker (CCHW), CPR, Rise Up Certificate',
-    approvals: [
-      'ETPL Approved - Program ID #10004639',
-      'WIOA Eligible',
-      'Workforce Ready Grant Eligible',
-      'CIP Code: 51.0801',
-    ],
-    fundingOptions: [
-      '100% FREE through WIOA',
-      'Workforce Ready Grant',
-      'Employer-sponsored enrollment',
-      'Self-Pay: $4,325',
-    ],
-    highlights: [
-      'Certified Community Healthcare Worker (CCHW) credential',
-      'CPR and First Aid certification',
-      'Rise Up career readiness certificate',
-      'Hands-on training with real-world scenarios',
-      'Fast 21-day completion',
-      'Cohorts start twice monthly (1st and 15th)',
-      'Meaningful work supporting individuals with disabilities',
-      'Pathways to behavioral health and healthcare careers',
-    ],
-    whatYouLearn: [
-      'Person-centered care and support planning',
-      'Working with individuals with developmental disabilities',
-      'Behavioral health support techniques',
-      'Communication and relationship building',
-      'CPR and First Aid emergency response',
-      'Medication administration basics',
-      'Documentation and reporting',
-      'Professional boundaries and ethics',
-      'Crisis intervention and de-escalation',
-      'Activities of daily living (ADL) assistance',
-    ],
-    outcomes: [
-      'Direct Support Professional in residential settings',
-      'Behavioral health support specialist',
-      'Community support worker',
-      'Personal care assistant',
-      'Group home staff',
-      'Day program facilitator',
-      'Average salary: $30,000-$42,000/year',
-      'Foundation for nursing or advanced healthcare careers',
-    ],
-    requirements: [
-      '18 years or older',
-      'High school diploma or GED',
-      'Pass background check',
-      'Reliable transportation encouraged',
-      'No prior healthcare experience required',
-      'Willingness to complete all required training hours',
-      'Interest in supporting individuals with disabilities or behavioral health needs',
-      'Legally authorized to work in the U.S.',
-      'Application deadline: Apply at least 7 days before cohort start date',
-    ],
-    ctaPrimary: {
-      label: 'Apply Now',
-      href: '/contact',
-    },
-    ctaSecondary: {
-      label: 'Learn More',
-      href: '/contact?topic=direct-support-professional',
-    },
-    price: 4325,
-  },
   {
     slug: 'beauty-career-educator',
     name: 'Beauty and Career Educator Training',
@@ -793,236 +648,8 @@ export const programs: Program[] = [
     price: 4950,
   },
   {
-    slug: 'home-health-aide',
-    name: 'Home Health Aide Certification',
-    heroTitle: 'Home Health Aide Certification Program',
-    heroSubtitle: '4-week program to become a certified Home Health Aide',
-    shortDescription:
-      'Comprehensive training for in-home patient care with HHA licensure and CPR certification',
-    longDescription:
-      "The Home Health Aide Certification program prepares you to provide compassionate, professional care to patients in their homes. In 4 weeks, you'll earn your Home Health Aide (HHA) license, Certified Community Healthcare Worker (CCHW) certification, CPR certification, and Rise Up career readiness credentials. This program includes OSHA-compliant safety training through CareerSafe, covering bloodborne pathogens, infection control, and patient safety. This comprehensive training combines medical knowledge with practical caregiving skills, preparing you for a rewarding career helping those who need it most.",
-    heroImage: '/images/programs/home-health-aide.jpg',
-    heroImageAlt: 'Home health aide caring for patient',
-    duration: '4 weeks',
-    schedule: 'Full-time or Part-time options available',
-    delivery: 'Hybrid - Online coursework + In-person clinical training',
-    credential:
-      'Home Health Aide (HHA) License, Certified Community Healthcare Worker (CCHW), CPR, Rise Up Certificate',
-    approvals: [
-      'ETPL Approved - Program ID #10004626',
-      'WIOA Eligible',
-      'Workforce Ready Grant Eligible',
-    ],
-    fundingOptions: [
-      '100% FREE through WIOA',
-      'Workforce Ready Grant',
-      'Self-Pay: $4,700',
-    ],
-    highlights: [
-      'Home Health Aide state licensure',
-      'Certified Community Healthcare Worker',
-      'CPR certified',
-      'Rise Up career readiness',
-      'Fast 4-week completion',
-      'High-demand career',
-    ],
-    whatYouLearn: [
-      'Patient care and assistance',
-      'Vital signs monitoring',
-      'Medication reminders',
-      'Personal hygiene assistance',
-      'Meal preparation and nutrition',
-      'Mobility and transfer techniques',
-      'CPR and First Aid',
-      'Documentation and reporting',
-      'Communication with healthcare teams',
-    ],
-    outcomes: [
-      'Home Health Aide positions',
-      'In-home care provider',
-      'Senior care facilities',
-      'Hospice care roles',
-      'Average salary: $28,000-$38,000/year',
-      'Flexible scheduling options',
-    ],
-    requirements: [
-      'High school diploma or GED',
-      '18 years or older',
-      'Background check required',
-      'Immunizations required',
-      'Compassionate and patient demeanor',
-    ],
-    ctaPrimary: {
-      label: 'Apply Now',
-      href: '/contact',
-    },
-    ctaSecondary: {
-      label: 'Learn More',
-      href: '/contact?topic=home-health-aide',
-    },
-    price: 4700,
-  },
   {
-    slug: 'esthetician-apprenticeship',
-    name: 'Esthetician Apprenticeship',
-    heroTitle:
-      'Indiana Esthetician Apprenticeship - Licensed Esthetician Training',
-    heroSubtitle:
-      'Become a licensed esthetician through on-the-job training at a spa or salon. Unlike the barber apprenticeship, esthetician apprenticeships in Indiana require partnership with a licensed cosmetology school.',
-    shortDescription:
-      'Earn your Indiana esthetician license through apprenticeship. Work at a spa/salon while completing required instruction hours through a partnered cosmetology school. Different requirements than barber apprenticeship.',
-    longDescription:
-      "The Esthetician Apprenticeship in Indiana requires partnership with a licensed cosmetology school. Unlike the barber apprenticeship, you cannot complete this independently through a spa alone.\n\nProgram Structure:\n- 700 total hours required for Indiana esthetician license\n- Split between classroom instruction and practical training\n- Must be coordinated by licensed cosmetology school\n- School arranges spa/salon placement\n\nWhat You'll Learn:\n- Skin anatomy and physiology\n- Facial treatments and techniques\n- Hair removal (waxing, threading)\n- Makeup application\n- Sanitation and safety protocols\n- Indiana laws and regulations\n- Client consultation\n- Business and professional ethics\n\nWho This Program Is For:\n- Individuals interested in skincare careers\n- Those seeking beauty industry opportunities\n- Adults wanting flexible, creative work\n- Career changers interested in wellness\n\nProgram Format:\n- Enroll in licensed Indiana cosmetology school\n- School coordinates apprenticeship placement\n- Classroom instruction at school\n- Practical training at approved spa/salon\n- Duration: 6-12 months\n\nFunding & Approvals:\n- WIOA Funding (covers tuition)\n- Workforce Ready Grant\n- JRI Funding for Justice-Involved Individuals\n- Federal Student Aid (FAFSA)\n- School payment plans\n\nImportant Notes:\n- Most apprentices are students, not employees\n- Tuition typically $5,000-$12,000 (can be fully funded)\n- Most spas do not pay wages during training\n- Different from barber apprenticeship employment model\n\nCareer Outcomes:\n- Licensed Esthetician\n- Spa/salon esthetician\n- Medical spa technician\n- Skincare specialist\n- Earning potential: $30,000-$50,000+ per year",
-    heroImage: '/images/programs/esthetician-apprentice.jpg',
-    heroImageAlt:
-      'Esthetician apprentice performing facial treatment under supervision',
-    duration: '700 hours (6-12 months depending on schedule)',
-    schedule: 'Varies by school and spa partnership',
-    delivery:
-      'Hybrid: Classroom instruction at school + Practical training at spa/salon',
-    credential: 'Indiana Licensed Esthetician (upon passing state board exam)',
-    approvals: [
-      'Must be coordinated by Indiana-licensed cosmetology school',
-      'Indiana State Board of Cosmetology approved',
-      'WIOA Eligible (for tuition)',
-      'Workforce Ready Grant Eligible (for tuition)',
-    ],
-    fundingOptions: [
-      'WIOA Funding (covers tuition)',
-      'Workforce Ready Grant (covers tuition)',
-      'Federal Student Aid (if school accepts FAFSA)',
-      'School payment plans',
-    ],
-    highlights: [
-      'Earn Indiana esthetician license through apprenticeship',
-      'Work at real spa/salon while training',
-      'Must partner with licensed cosmetology school',
-      'Different from barber apprenticeship (school required)',
-      '700 hours total training',
-      'Funding available through WIOA and WRG',
-      'Licensed supervision required',
-      'Graduate eligible for state board exam',
-    ],
-    whatYouLearn: [
-      'Skin anatomy and physiology',
-      'Facial treatments and procedures',
-      'Hair removal techniques (waxing, threading)',
-      'Makeup application',
-      'Sanitation and infection control',
-      'Client consultation and communication',
-      'Indiana esthetician laws and regulations',
-      'Business and professional ethics',
-      'Product knowledge and retail sales',
-      'Spa operations and customer service',
-    ],
-    outcomes: [
-      'Licensed Esthetician in Indiana',
-      'Spa esthetician',
-      'Salon skincare specialist',
-      'Medical spa esthetician',
-      'Mobile esthetician (self-employed)',
-      'Skincare product sales',
-      'Average salary: $30,000-$50,000/year',
-      'Self-employment potential',
-    ],
-    requirements: [
-      'At least 17 years old',
-      'High school diploma or GED',
-      'Enroll in Indiana-licensed cosmetology school',
-      'School arranges apprenticeship placement',
-      'Complete 700 hours (classroom + practical)',
-      'Pass Indiana State Board esthetician exam',
-    ],
-    ctaPrimary: {
-      label: 'Contact Us',
-      href: '/contact?topic=esthetician-apprenticeship',
-    },
-    ctaSecondary: {
-      label: 'Learn More',
-      href: '/contact',
-    },
-  },
   {
-    slug: 'nail-technician-apprenticeship',
-    name: 'Nail Technician Apprenticeship',
-    heroTitle:
-      'Indiana Nail Technician Apprenticeship - Licensed Manicurist Training',
-    heroSubtitle:
-      'Become a licensed nail technician through on-the-job training at a salon. Like esthetician apprenticeship, nail tech apprenticeships in Indiana require partnership with a licensed cosmetology school.',
-    shortDescription:
-      'Earn your Indiana nail technician license through apprenticeship. Work at a salon while completing required instruction hours through a partnered cosmetology school. WIOA funding covers instructional costs.',
-    longDescription:
-      "The Nail Technician Apprenticeship in Indiana requires partnership with a licensed cosmetology school. Similar to esthetician apprenticeships, you cannot complete this independently through a salon alone.\n\nProgram Structure:\n- 450 total hours required for Indiana nail technician license\n- Split between classroom instruction and practical training\n- Must be coordinated by licensed cosmetology school\n- School arranges salon placement\n\nWhat You'll Learn:\n- Manicure and pedicure techniques\n- Nail art and design\n- Acrylic and gel applications\n- Nail health and disorders\n- Sanitation and infection control\n- Indiana laws and regulations\n- Client consultation\n- Business and professional practices\n\nWho This Program Is For:\n- Individuals interested in nail care careers\n- Those seeking beauty industry opportunities\n- Adults wanting creative, flexible work\n- Career changers interested in personal services\n\nProgram Format:\n- Enroll in licensed Indiana cosmetology school\n- School coordinates apprenticeship placement\n- Classroom instruction at school\n- Practical training at approved salon\n- Duration: 4-8 months\n\nFunding & Approvals:\n- WIOA Funding (covers tuition)\n- Workforce Ready Grant\n- JRI Funding for Justice-Involved Individuals\n- Federal Student Aid (FAFSA)\n- School payment plans\n\nImportant Notes:\n- Most apprentices are students, not employees\n- Tuition typically $3,000-$8,000 (can be fully funded)\n- Most salons do not pay wages during training\n- Different from barber apprenticeship employment model\n\nCareer Outcomes:\n- Licensed Nail Technician\n- Salon nail technician\n- Spa nail specialist\n- Mobile nail services\n- Salon owner/booth renter\n- Earning potential: $25,000-$45,000+ per year",
-    heroImage: '/images/programs/nail-tech-apprentice.jpg',
-    heroImageAlt:
-      'Nail technician apprentice performing manicure under supervision',
-    duration: '450 hours (4-8 months depending on schedule)',
-    schedule: 'Varies by school and salon partnership',
-    delivery:
-      'Hybrid: Classroom instruction at school + Practical training at salon',
-    credential:
-      'Indiana Licensed Nail Technician (upon passing state board exam)',
-    approvals: [
-      'Must be coordinated by Indiana-licensed cosmetology school',
-      'Indiana State Board of Cosmetology approved',
-      'WIOA Eligible (for tuition)',
-      'Workforce Ready Grant Eligible (for tuition)',
-    ],
-    fundingOptions: [
-      'WIOA Funding (covers tuition)',
-      'Workforce Ready Grant (covers tuition)',
-      'JRI Funding (for justice-involved individuals)',
-      'Federal Student Aid (if school accepts FAFSA)',
-    ],
-    highlights: [
-      'Earn Indiana nail technician license through apprenticeship',
-      'Work at real salon while training',
-      'Must partner with licensed cosmetology school',
-      'Different from barber apprenticeship (school required)',
-      '450 hours total training (shorter than esthetician)',
-      'WIOA or WRG covers 100% of tuition',
-      'Licensed supervision required',
-      'Graduate eligible for state board exam',
-    ],
-    whatYouLearn: [
-      'Nail anatomy and physiology',
-      'Manicure and pedicure techniques',
-      'Nail enhancements (acrylics, gels, tips)',
-      'Nail art and design',
-      'Sanitation and infection control',
-      'Client consultation and communication',
-      'Indiana nail technician laws and regulations',
-      'Business and professional ethics',
-      'Product knowledge and retail sales',
-      'Salon operations and customer service',
-    ],
-    outcomes: [
-      'Licensed Nail Technician in Indiana',
-      'Salon nail technician',
-      'Spa nail specialist',
-      'Mobile nail technician (self-employed)',
-      'Nail art specialist',
-      'Nail product sales',
-      'Average salary: $25,000-$45,000/year',
-      'Self-employment potential',
-    ],
-    requirements: [
-      'At least 17 years old',
-      'High school diploma or GED',
-      'Enroll in Indiana-licensed cosmetology school',
-      'School arranges apprenticeship placement',
-      'Complete 450 hours (classroom + practical)',
-      'Pass Indiana State Board nail technician exam',
-    ],
-    ctaPrimary: {
-      label: 'Contact Us',
-      href: '/contact?topic=nail-technician-apprenticeship',
-    },
-    ctaSecondary: {
-      label: 'Learn More',
-      href: '/contact',
-    },
-  },
   {
     slug: 'professional-esthetician',
     name: 'Esthetics and Skincare Specialist Certificate',
@@ -1114,7 +741,7 @@ export const programs: Program[] = [
     price: 4575,
   },
   {
-    slug: 'peer-recovery-coach',
+    slug: 'certified-peer-recovery-coach',
     name: 'Public Safety Reentry Specialist',
     heroTitle: 'Public Safety Reentry Specialist Program',
     heroSubtitle:
@@ -1297,79 +924,6 @@ export const programs: Program[] = [
     price: 4750,
   },
   {
-    slug: 'cpr-certification',
-    name: 'CPR, AED & First Aid Certification',
-    heroTitle: 'CPR, AED & First Aid Certification',
-    heroSubtitle:
-      'One-day hands-on training to earn your American Heart Association CPR certification',
-    shortDescription:
-      'Essential life-saving skills training with AHA CPR card valid for 2 years',
-    longDescription:
-      "This hands-on CPR Certification course provides participants with essential life-saving skills through instructor-led training in adult, child, and infant CPR, AED usage, and basic first aid. Students will practice on industry-approved equipment and complete the course with an American Heart Association (or equivalent) CPR card valid for two years. This one-day, in-person program is ideal for aspiring healthcare workers, caregivers, and anyone seeking life-saving credentials.\n\nAll instructors are certified American Heart Association (AHA) BLS Instructors or equivalent through nationally recognized organizations such as the Red Cross. Instructors maintain current credentials and hands-on skills testing ability in compliance with training center protocols.\n\nThis certification is required for many healthcare positions and is valuable for anyone who wants to be prepared to respond in an emergency. The course combines video instruction, hands-on practice, and skills testing to ensure you're confident and competent in performing CPR and using an AED.\n\nCredentialing Partners:\n• American Heart Association (AHA) - CPR/AED/First Aid Certification (https://cpr.heart.org)\n• American Red Cross - CPR/AED/First Aid Certification (https://redcross.org)\n\nCIP Code: 51.0810 - Emergency Care Attendant (EMT Ambulance)",
-    heroImage: '/images/programs/cpr-certification.jpg',
-    heroImageAlt: 'Student practicing CPR on training manikin',
-    duration: '1 day (4-6 hours)',
-    schedule: 'Multiple dates available monthly - Rolling admissions',
-    delivery: 'In-person hands-on training',
-    credential:
-      'American Heart Association CPR/AED/First Aid Certification (valid 2 years)',
-    approvals: [
-      'ETPL Approved - Program ID #10004674',
-      'WIOA Eligible',
-      'Workforce Ready Grant Eligible',
-      'CIP Code: 51.0810',
-      'AHA Training Center',
-    ],
-    fundingOptions: [
-      '100% FREE through WIOA',
-      'Workforce Ready Grant',
-      'Self-Pay: $575',
-    ],
-    highlights: [
-      'American Heart Association certification',
-      'Valid for 2 years',
-      'One-day completion',
-      'Hands-on practice with industry equipment',
-      'Adult, child, and infant CPR training',
-      'AED usage and basic first aid',
-      'Required for many healthcare jobs',
-      'Certified AHA instructors',
-    ],
-    whatYouLearn: [
-      'Adult CPR techniques and compressions',
-      'Child CPR procedures',
-      'Infant CPR and special considerations',
-      'AED (Automated External Defibrillator) operation',
-      'Choking relief for all ages',
-      'Basic first aid for common emergencies',
-      'Recognition of cardiac arrest and stroke',
-      'Emergency response protocols',
-      'Scene safety and infection control',
-    ],
-    outcomes: [
-      'AHA CPR/AED/First Aid certification card',
-      'Qualify for healthcare positions requiring CPR',
-      'Confidence to respond in emergencies',
-      'Meet employment requirements for CNA, Medical Assistant, EMT, and other healthcare roles',
-      'Valuable skill for childcare, education, and public safety positions',
-    ],
-    requirements: [
-      'No prior medical experience required',
-      'Physically able to perform CPR compressions on a manikin',
-      'Able to kneel and perform floor-based skills',
-      'Basic reading and comprehension of safety protocols',
-      'Application deadline: Apply at least 2 weeks before class date for availability',
-    ],
-    ctaPrimary: {
-      label: 'Apply Now',
-      href: '/contact',
-    },
-    ctaSecondary: {
-      label: 'View Class Schedule',
-      href: '/contact?topic=cpr-certification',
-    },
-    price: 575,
-  },
   {
     slug: 'phlebotomy-technician',
     name: 'Phlebotomy Technician Certification',
@@ -1449,15 +1003,276 @@ export const programs: Program[] = [
     price: 2800,
   },
   {
-    slug: 'drug-collector',
+    slug: 'cpr-first-aid-hsi',
+    name: 'CPR, AED & First Aid Certification',
+    heroTitle: 'CPR, AED & First Aid Certification',
+    heroSubtitle:
+      'Get certified in life-saving skills in just one day. Learn CPR, AED operation, and first aid through hands-on training with HSI-certified instructors.',
+    shortDescription:
+      'One-day certification course in CPR, AED, and first aid. Required for healthcare, childcare, fitness, and many other careers.',
+    longDescription:
+      "The CPR, AED & First Aid Certification program provides essential emergency response training in a single day. Students learn adult, child, and infant CPR, automated external defibrillator (AED) operation, choking relief, and basic first aid. This certification is required for many healthcare, childcare, fitness, and public safety positions.\n\nWhat You'll Learn:\n- Adult, child, and infant CPR\n- AED operation and safety\n- Choking relief techniques\n- Basic first aid and wound care\n- Emergency response protocols\n- Hands-on practice with manikins and AED trainers\n\nWho This Program Is For:\n- Healthcare workers and students\n- Childcare providers and teachers\n- Fitness instructors and coaches\n- Anyone needing CPR certification for employment\n\nProgram Format:\n- In-person, hands-on training\n- Length: 1 day (4-8 hours)\n- Schedule: Multiple dates available\n\nFunding & Approvals:\n- ETPL Program ID: #10004674\n- WIOA Eligible\n- Workforce Ready Grant Eligible\n\nCareer Outcomes:\n- Required certification for healthcare positions\n- Childcare and education requirements\n- Fitness and recreation industry standard",
+    heroImage: '/images/programs/cpr-hero.jpg',
+    heroImageAlt: 'CPR training with instructor and manikin',
+    duration: '1 day',
+    schedule: 'Multiple dates available',
+    delivery: 'In-person hands-on training',
+    credential: 'CPR/AED/First Aid Certification (HSI)',
+    approvals: ['ETPL Program ID: #10004674', 'WIOA Eligible', 'WRG Eligible'],
+    fundingOptions: ['WIOA', 'Workforce Ready Grant', 'Self-Pay: $575'],
+    highlights: [
+      'One-day certification',
+      'Hands-on training with equipment',
+      'HSI-certified instructors',
+      'Required for many careers',
+      'Valid for 2 years',
+      'Immediate certification',
+    ],
+    whatYouLearn: [
+      'Adult, child, and infant CPR',
+      'AED operation and safety',
+      'Choking relief techniques',
+      'Basic first aid',
+      'Emergency response protocols',
+      'Hands-on practice',
+    ],
+    outcomes: [
+      'CPR/AED certified',
+      'Meet healthcare job requirements',
+      'Childcare certification requirement',
+      'Fitness industry standard',
+    ],
+    requirements: [
+      'No prerequisites',
+      'Physical ability to perform CPR compressions',
+      'Attend full day of training',
+    ],
+    ctaPrimary: {
+      label: 'Enroll Now',
+      href: '/apply',
+    },
+    ctaSecondary: {
+      label: 'View Schedule',
+      href: '/contact?topic=cpr-first-aid',
+    },
+    price: 575,
+  },
+  {
+    slug: 'home-health-aide',
+    name: 'Home Health Aide Certification',
+    heroTitle: 'Home Health Aide Certification',
+    heroSubtitle:
+      'Become a certified Home Health Aide in just 4 weeks. Provide compassionate in-home care for elderly and disabled clients while earning a stable income.',
+    shortDescription:
+      'Train to provide in-home care for elderly and disabled clients. Earn Certified Community Healthcare Worker (CCHW) and Home Health Aide (HHA) certifications in 4 weeks.',
+    longDescription:
+      "The Home Health Aide Certification program prepares students to provide compassionate, professional in-home care for elderly, disabled, and chronically ill clients. This 4-week program combines classroom instruction with hands-on clinical practice, covering personal care, vital signs, infection control, and client communication.\n\nWhat You'll Learn:\n- Personal care and hygiene assistance\n- Vital signs monitoring\n- Medication reminders and documentation\n- Infection control and safety\n- Client communication and dignity\n- Emergency response procedures\n- Documentation and reporting\n\nWho This Program Is For:\n- Individuals seeking healthcare careers\n- Career changers wanting stable employment\n- Those passionate about helping others\n- Students preparing for nursing pathways\n\nProgram Format:\n- Hybrid: Classroom + clinical practicum\n- Length: 4 weeks\n- Schedule: Day or evening options\n\nFunding & Approvals:\n- ETPL Program ID: #10004626\n- WIOA Eligible (certain areas)\n- Workforce Ready Grant Eligible\n\nCareer Outcomes:\n- Home Health Aide\n- Personal Care Assistant\n- Certified Community Healthcare Worker\n- Average salary: $28,000-$35,000/year",
+    heroImage: '/images/programs/home-health-aide.jpg',
+    heroImageAlt: 'Home health aide assisting elderly client',
+    duration: '4 weeks',
+    schedule: 'Day or evening options',
+    delivery: 'Hybrid: Classroom + clinical practicum',
+    credential:
+      'Certified Community Healthcare Worker (CCHW), Home Health Aide (HHA) License, CPR, Rise Up Certificate',
+    approvals: [
+      'ETPL Program ID: #10004626',
+      'WIOA Eligible (certain areas)',
+      'WRG Eligible',
+    ],
+    fundingOptions: [
+      'WIOA (certain areas)',
+      'Workforce Ready Grant',
+      'Self-Pay: $4,700',
+      'Payment plans available',
+    ],
+    highlights: [
+      'Quick 4-week program',
+      'Multiple certifications included',
+      'Hands-on clinical experience',
+      'High demand for HHAs',
+      'Flexible work schedules',
+      'Pathway to nursing careers',
+    ],
+    whatYouLearn: [
+      'Personal care assistance',
+      'Vital signs monitoring',
+      'Medication reminders',
+      'Infection control',
+      'Client communication',
+      'Emergency response',
+      'Documentation',
+    ],
+    outcomes: [
+      'Home Health Aide',
+      'Personal Care Assistant',
+      'Certified Community Healthcare Worker',
+      'Entry to nursing pathways',
+    ],
+    requirements: [
+      'High school diploma or GED',
+      '18 years or older',
+      'Background check required',
+      'Physical ability to assist clients',
+    ],
+    ctaPrimary: {
+      label: 'Apply Now',
+      href: '/apply',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact?topic=home-health-aide',
+    },
+    price: 4700,
+  },
+  {
+    slug: 'medical-assistant',
+    name: 'Medical Assistant',
+    heroTitle: 'Medical Assistant Certification',
+    heroSubtitle:
+      'Train for a rewarding healthcare career in just 21 days. Learn clinical and administrative skills to work in doctors offices, hospitals, and clinics.',
+    shortDescription:
+      'Accelerated 21-day program to become a certified medical assistant. Earn Certified Community Healthcare Worker (CCHW) certification and start your healthcare career.',
+    longDescription:
+      "The Medical Assistant program provides accelerated training in both clinical and administrative healthcare skills. In just 21 days, students learn vital signs, EKG, phlebotomy, medical records, patient care, and office procedures. This hybrid program combines online theory with hands-on clinical practice.\n\nWhat You'll Learn:\n- Clinical procedures (vital signs, EKG, phlebotomy)\n- Patient examination assistance\n- Electronic health records (EHR)\n- Infection control and safety\n- Medical terminology and anatomy\n- Appointment scheduling and billing\n- Professional patient communication\n- Medical office operations\n\nWho This Program Is For:\n- Career changers seeking healthcare careers\n- High school graduates entering workforce\n- Individuals wanting stable employment\n- Students preparing for nursing pathways\n\nProgram Format:\n- Hybrid: Online theory + clinical practicum\n- Length: 21 days\n- Schedule: Full-time intensive\n\nFunding & Approvals:\n- ETPL Program ID: #10004639\n- WIOA Eligible\n- Workforce Ready Grant Eligible\n\nCareer Outcomes:\n- Medical Assistant\n- Clinical Assistant\n- Healthcare Office Coordinator\n- Average salary: $32,000-$38,000/year",
+    heroImage: '/images/programs/medical-assistant.jpg',
+    heroImageAlt: 'Medical assistant taking patient vital signs',
+    duration: '21 days',
+    schedule: 'Full-time intensive',
+    delivery: 'Hybrid: Online theory + clinical practicum',
+    credential:
+      'Certified Community Healthcare Worker (CCHW), CPR, Rise Up Certificate',
+    approvals: [
+      'ETPL Program ID: #10004639',
+      'WIOA Eligible',
+      'WRG Eligible',
+    ],
+    fundingOptions: [
+      'WIOA',
+      'Workforce Ready Grant',
+      'Self-Pay: $4,325',
+      'Payment plans available',
+    ],
+    highlights: [
+      'Fast 21-day program',
+      'Clinical and administrative skills',
+      'Hands-on clinical experience',
+      'High demand in healthcare',
+      'Multiple career pathways',
+      'Immediate job placement assistance',
+    ],
+    whatYouLearn: [
+      'Clinical procedures',
+      'Patient examination assistance',
+      'Electronic health records',
+      'Infection control',
+      'Medical terminology',
+      'Office operations',
+      'Patient communication',
+    ],
+    outcomes: [
+      'Medical Assistant',
+      'Clinical Assistant',
+      'Healthcare Office Coordinator',
+      'Entry to nursing pathways',
+    ],
+    requirements: [
+      'High school diploma or GED',
+      '18 years or older',
+      'Background check required',
+      'Drug screening required',
+    ],
+    ctaPrimary: {
+      label: 'Apply Now',
+      href: '/apply',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact?topic=medical-assistant',
+    },
+    price: 4325,
+  },
+  {
+    slug: 'public-safety-reentry-specialist',
+    name: 'Public Safety Reentry Specialist Program',
+    heroTitle: 'Public Safety Reentry Specialist Program',
+    heroSubtitle:
+      'Transform your life and help others. Earn multiple certifications in peer recovery, peer support, and community healthcare in 45 days. Justice-involved individuals welcome.',
+    shortDescription:
+      'Comprehensive 45-day program combining Certified Peer Recovery Coach (CPRC), Certified Peer Support Professional, and Certified Community Healthcare Worker (CCHW) certifications.',
+    longDescription:
+      "The Public Safety Reentry Specialist Program is designed specifically for justice-involved individuals seeking meaningful careers in behavioral health, addiction recovery, and community support. This comprehensive 45-day program combines three powerful certifications: Certified Peer Recovery Coach (CPRC), Certified Peer Support Professional, and Certified Community Healthcare Worker (CCHW).\n\nWhat You'll Learn:\n- Peer recovery coaching and support\n- Motivational interviewing techniques\n- Trauma-informed care\n- Crisis intervention and de-escalation\n- Community resource navigation\n- Relapse prevention strategies\n- Basic healthcare and vital signs\n- Professional boundaries and ethics\n- Documentation and case management\n\nWho This Program Is For:\n- Justice-involved individuals\n- Individuals in recovery\n- Career changers seeking purpose-driven work\n- Those passionate about helping others\n\nProgram Format:\n- Hybrid: Classroom + practicum\n- Length: 45 days\n- Schedule: Full-time\n\nFunding & Approvals:\n- ETPL Program ID: #10004666\n- WIOA Eligible\n- JRI (Justice Reinvestment Initiative) Eligible\n- Workforce Ready Grant Eligible\n\nCareer Outcomes:\n- Certified Peer Recovery Coach\n- Peer Support Specialist\n- Community Healthcare Worker\n- Reentry Navigator\n- Average salary: $32,000-$45,000/year",
+    heroImage: '/images/programs/peer-recovery.jpg',
+    heroImageAlt: 'Peer recovery coach supporting client',
+    duration: '45 days',
+    schedule: 'Full-time',
+    delivery: 'Hybrid: Classroom + practicum',
+    credential:
+      'Certified Peer Recovery Coach (CPRC), Certified Peer Support Professional, Certified Community Healthcare Worker (CCHW), CPR, Rise Up Certificate',
+    approvals: [
+      'ETPL Program ID: #10004666',
+      'WIOA Eligible',
+      'JRI Eligible',
+      'WRG Eligible',
+    ],
+    fundingOptions: [
+      'WIOA',
+      'JRI (Justice Reinvestment Initiative)',
+      'Workforce Ready Grant',
+      'Self-Pay: $4,750',
+      'Payment plans available',
+    ],
+    highlights: [
+      'Three certifications in one program',
+      'Justice-involved individuals welcome',
+      'Purpose-driven career',
+      'High demand for peer specialists',
+      'Make a real difference',
+      'Immediate job placement assistance',
+    ],
+    whatYouLearn: [
+      'Peer recovery coaching',
+      'Motivational interviewing',
+      'Trauma-informed care',
+      'Crisis intervention',
+      'Community resources',
+      'Relapse prevention',
+      'Basic healthcare skills',
+      'Professional ethics',
+    ],
+    outcomes: [
+      'Certified Peer Recovery Coach',
+      'Peer Support Specialist',
+      'Community Healthcare Worker',
+      'Reentry Navigator',
+      'Case Manager',
+    ],
+    requirements: [
+      'High school diploma or GED',
+      '18 years or older',
+      'Personal recovery experience preferred',
+      'Background check required',
+      'Commitment to helping others',
+    ],
+    ctaPrimary: {
+      label: 'Apply Now',
+      href: '/apply',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact?topic=public-safety-reentry',
+    },
+    price: 4750,
+  },
+  {
+    slug: 'drug-alcohol-specimen-collector',
     name: 'Drug & Alcohol Specimen Collector Certification',
     heroTitle: 'Drug & Alcohol Specimen Collector Certification',
     heroSubtitle:
-      '2-week intensive program for DOT and non-DOT specimen collection',
+      'DOT-certified training in 2 weeks. Become a certified specimen collector for workplace drug testing programs. High demand, flexible schedule, excellent pay.',
     shortDescription:
-      'Become a certified drug and alcohol specimen collector for DOT and workplace testing programs',
+      'Become a certified drug and alcohol specimen collector for DOT and workplace testing programs in just 2 weeks.',
     longDescription:
-      "The Drug & Alcohol Specimen Collector Certification program trains you to perform urine drug testing, breath alcohol testing, and oral fluid collection for DOT-regulated and non-DOT workplace testing programs. This intensive 2-week program covers federal regulations, collection procedures, chain of custody, and quality assurance.\n\nYou'll learn both DOT (Department of Transportation) and non-DOT collection procedures, making you qualified to work with transportation companies, employers, third-party administrators (TPAs), and drug testing facilities nationwide. The program includes hands-on training with actual collection devices and mock collections to ensure you're confident and compliant.\n\nUpon completion, you'll earn your Specimen Collector certification and be qualified to perform:\n• DOT urine drug testing\n• DOT breath alcohol testing  \n• Non-DOT urine drug testing\n• Oral fluid (saliva) drug testing\n• Instant and lab-based testing\n\nThis is a high-demand career with flexible work options including full-time positions, part-time work, mobile collection services, and independent contractor opportunities. Many collectors earn $40,000-$60,000+ annually with the ability to set their own schedules.\n\nPartner Integration:\n• National Drug Screening - DOT compliance training and certification\n• Hands-on training with actual collection devices\n• Access to nationwide collector network\n\nCIP Code: 51.1004 - Clinical/Medical Laboratory Technician",
+      "The Drug & Alcohol Specimen Collector Certification program trains you to perform urine drug testing, breath alcohol testing, and oral fluid collection for DOT-regulated and non-DOT workplace testing programs. This intensive 2-week program covers federal regulations, collection procedures, chain of custody, and quality assurance.\n\nYou'll learn both DOT (Department of Transportation) and non-DOT collection procedures, making you qualified to work with transportation companies, employers, third-party administrators (TPAs), and drug testing facilities nationwide. The program includes hands-on training with actual collection devices and mock collections to ensure you're confident and compliant.\n\nUpon completion, you'll earn your Specimen Collector certification and be qualified to perform:\n• DOT urine drug testing\n• DOT breath alcohol testing\n• Non-DOT urine drug testing\n• Oral fluid (saliva) drug testing\n• Instant and lab-based testing\n\nThis is a high-demand career with flexible work options including full-time positions, part-time work, mobile collection services, and independent contractor opportunities. Many collectors earn $40,000-$60,000+ annually with the ability to set their own schedules.\n\nPartner Integration:\n• National Drug Screening - DOT compliance training and certification\n• Hands-on training with actual collection devices\n• Access to nationwide collector network",
     heroImage: '/images/programs/drug-collector.jpg',
     heroImageAlt: 'Drug collector performing specimen collection',
     duration: '2 weeks (40 hours)',
@@ -1466,15 +1281,13 @@ export const programs: Program[] = [
     credential:
       'Certified Specimen Collector (DOT & Non-DOT), Breath Alcohol Technician (BAT)',
     approvals: [
-      'ETPL Approved - Program ID #10004681',
-      'WIOA Eligible',
-      'Workforce Ready Grant Eligible',
-      'CIP Code: 51.1004',
       'DOT Compliant Training',
+      'National Drug Screening Certified',
+      'CIP Code: 51.1004',
     ],
     fundingOptions: [
-      '100% FREE through WIOA',
-      'Workforce Ready Grant',
+      'WIOA (pending approval)',
+      'Workforce Ready Grant (pending)',
       'Self-Pay: $1,500',
       'Payment plans available',
     ],
@@ -1482,7 +1295,7 @@ export const programs: Program[] = [
       'DOT and non-DOT certified',
       'Hands-on training with real devices',
       'Flexible career options',
-      'High earning potential',
+      'High earning potential $40K-$60K+',
       'Fast 2-week completion',
       'Nationwide job opportunities',
     ],
@@ -1505,7 +1318,6 @@ export const programs: Program[] = [
       'Occupational health clinic collector',
       'Independent contractor',
       'Average salary: $40,000-$60,000/year',
-      'Flexible scheduling options',
     ],
     requirements: [
       'High school diploma or GED',
@@ -1514,7 +1326,7 @@ export const programs: Program[] = [
       'Drug screening required',
       "Valid driver's license (for mobile collection)",
       'Reliable transportation',
-      'Professional demeanor and communication skills',
+      'Professional demeanor',
     ],
     ctaPrimary: {
       label: 'Apply Now',
