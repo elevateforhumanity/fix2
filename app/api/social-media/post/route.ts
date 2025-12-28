@@ -128,8 +128,8 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     return NextResponse.json(
       {
-        err: 'Internal server err',
-        details: err instanceof Error ? err.message : String(err),
+        error: 'Internal server err',
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     );
@@ -198,7 +198,7 @@ async function postToLinkedIn(data: unknown) {
   } catch (error: unknown) {
     return {
       success: false,
-      err: err instanceof Error ? err.message : String(err),
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }
@@ -249,7 +249,7 @@ async function postToFacebook(data: unknown) {
   } catch (error: unknown) {
     return {
       success: false,
-      err: err instanceof Error ? err.message : String(err),
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }
@@ -277,7 +277,7 @@ async function postToYouTube(data: unknown) {
   } catch (error: unknown) {
     return {
       success: false,
-      err: err instanceof Error ? err.message : String(err),
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }
@@ -328,8 +328,8 @@ export async function GET(request: NextRequest) {
   } catch (error: unknown) {
     return NextResponse.json(
       {
-        err: 'Internal server err',
-        details: err instanceof Error ? err.message : String(err),
+        error: 'Internal server err',
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     );

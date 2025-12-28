@@ -218,8 +218,8 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     return NextResponse.json(
       {
-        err:
-          (err instanceof Error ? err.message : String(err)) ||
+        error:
+          (error instanceof Error ? error.message : String(error)) ||
           'Failed to send campaign',
       },
       { status: 500 }

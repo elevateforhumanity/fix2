@@ -109,11 +109,11 @@ export async function POST(request: NextRequest) {
       sent_count: sentCount,
       total_selected: students.length,
     });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
-        err:
-          (err instanceof Error ? err.message : String(err)) ||
+        error:
+          (error instanceof Error ? error.message : String(error)) ||
           'Failed to send emails',
       },
       { status: 500 }

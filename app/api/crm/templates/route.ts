@@ -19,8 +19,8 @@ export async function GET() {
   } catch (error: unknown) {
     return NextResponse.json(
       {
-        err:
-          (err instanceof Error ? err.message : String(err)) ||
+        error:
+          (error instanceof Error ? error.message : String(error)) ||
           'Failed to fetch templates',
       },
       { status: 500 }

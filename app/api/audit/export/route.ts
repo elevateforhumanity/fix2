@@ -53,7 +53,7 @@ export async function GET(req: Request) {
     });
   } catch (error: unknown) {
     return NextResponse.json(
-      { err: err instanceof Error ? err.message : String(err) },
+      { error: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }

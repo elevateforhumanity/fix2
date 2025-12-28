@@ -25,7 +25,7 @@ export async function PATCH(req: Request, { params }: { params: Params }) {
     return NextResponse.json({ success: true, onboarding: data });
   } catch (error: unknown) {
     return NextResponse.json(
-      { err: err instanceof Error ? err.message : String(err) },
+      { error: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }

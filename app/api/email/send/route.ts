@@ -86,7 +86,7 @@ export async function POST(req: Request) {
         status: 'failed',
         provider: 'resend',
         error_message:
-          (err instanceof Error ? err.message : String(err)) ||
+          (error instanceof Error ? error.message : String(error)) ||
           'Unexpected error',
       });
     }

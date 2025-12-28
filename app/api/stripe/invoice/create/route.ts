@@ -77,7 +77,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ invoiceId: invoice.id, invoice: data });
   } catch (error: unknown) {
     return NextResponse.json(
-      { err: err instanceof Error ? err.message : String(err) },
+      { error: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }
@@ -99,7 +99,7 @@ export async function GET() {
     return NextResponse.json({ invoices: data });
   } catch (error: unknown) {
     return NextResponse.json(
-      { err: err instanceof Error ? err.message : String(err) },
+      { error: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }
