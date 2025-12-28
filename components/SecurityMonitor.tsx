@@ -10,6 +10,9 @@ import { useEffect } from 'react';
  */
 export function SecurityMonitor() {
   useEffect(() => {
+    // Safety check - only run in browser
+    if (typeof window === 'undefined') return;
+    
     // 1. Monitor for suspicious activity
     const monitorActivity = () => {
       // Track rapid page navigation (potential scraping)
@@ -38,6 +41,7 @@ export function SecurityMonitor() {
 
     // 2. Detect automated tools
     const detectAutomation = () => {
+      if (typeof navigator === 'undefined') return;
       // Check for common automation indicators
       const win = window as any;
       const indicators = {
@@ -86,6 +90,7 @@ export function SecurityMonitor() {
 
     // 5. Monitor for iframe embedding attempts
     const detectIframeEmbedding = () => {
+      if (typeof document === 'undefined') return;
       if (window.self !== window.top) {
         logSecurityEvent('IFRAME_EMBEDDING_DETECTED', {
           parentOrigin: document.referrer,
@@ -119,6 +124,7 @@ export function SecurityMonitor() {
 
     // 7. Monitor for clipboard access
     const monitorClipboard = () => {
+      if (typeof document === 'undefined') return;
       document.addEventListener('paste', (e) => {
         logSecurityEvent('CLIPBOARD_PASTE', {
           dataLength: e.clipboardData?.getData('text').length || 0,
@@ -128,6 +134,7 @@ export function SecurityMonitor() {
 
     // 8. Detect screen recording software
     const detectScreenRecording = () => {
+      if (typeof navigator === 'undefined') return;
       if (
         'mediaDevices' in navigator &&
         'getDisplayMedia' in navigator.mediaDevices
@@ -161,6 +168,9 @@ export function SecurityMonitor() {
  * Log security events
  */
 function logSecurityEvent(eventType: string, data: unknown) {
+  // Safety checks for SSR
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
+  
   const event = {
     type: eventType,
     timestamp: new Date().toISOString(),
