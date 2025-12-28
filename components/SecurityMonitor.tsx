@@ -158,7 +158,7 @@ export function SecurityMonitor() {
 /**
  * Log security events
  */
-function logSecurityEvent(data: unknown) {
+function logSecurityEvent(eventType: string, data: unknown) {
   const event = {
     type: eventType,
     timestamp: new Date().toISOString(),
