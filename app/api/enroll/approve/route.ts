@@ -8,9 +8,9 @@ interface ApproveEnrollmentRequest {
 
 /**
  * SINGLE APPROVAL ENDPOINT
- * 
+ *
  * This is the authoritative trigger point for enrollment activation.
- * 
+ *
  * Flow:
  * 1. Verify caller is program holder or admin
  * 2. Flip enrollments.status: pending -> active
@@ -45,7 +45,10 @@ export async function POST(req: NextRequest) {
 
     if (!isAdmin) {
       return NextResponse.json(
-        { error: 'Forbidden - Only admin or super_admin may approve enrollments' },
+        {
+          error:
+            'Forbidden - Only admin or super_admin may approve enrollments',
+        },
         { status: 403 }
       );
     }
@@ -121,7 +124,10 @@ export async function POST(req: NextRequest) {
       .eq('id', enrollment.user_id);
 
     if (updateProfileError) {
-      logger.error('Failed to activate profile enrollment_status', updateProfileError);
+      logger.error(
+        'Failed to activate profile enrollment_status',
+        updateProfileError
+      );
       // Continue - enrollment is already active
     } else {
       logger.info('Profile enrollment_status activated', {
@@ -172,7 +178,8 @@ export async function POST(req: NextRequest) {
         user_id: enrollment.user_id,
         type: 'system',
         title: 'Enrollment Approved',
-        message: 'Your enrollment has been approved. You now have access to the student portal.',
+        message:
+          'Your enrollment has been approved. You now have access to the student portal.',
       });
 
       // Send email notification
@@ -194,10 +201,15 @@ export async function POST(req: NextRequest) {
             <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard">Access Student Portal</a></p>
           `,
         });
-        logger.info('Student notification email sent', { userId: enrollment.user_id });
+        logger.info('Student notification email sent', {
+          userId: enrollment.user_id,
+        });
       }
     } catch (err: unknown) {
-      logger.warn('Failed to send student notification (non-critical)', notifError);
+      logger.warn(
+        'Failed to send student notification (non-critical)',
+        notifError
+      );
     }
 
     // STEP 6: Notify program holder if enrollment has program_holder_id
@@ -237,13 +249,18 @@ export async function POST(req: NextRequest) {
                   <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/partner/dashboard">View Dashboard</a></p>
                 `,
               });
-              logger.info('Program holder notification sent', { programHolderId: enrollment.program_holder_id });
+              logger.info('Program holder notification sent', {
+                programHolderId: enrollment.program_holder_id,
+              });
             }
           }
         }
       }
     } catch (err: unknown) {
-      logger.warn('Failed to send program holder notification (non-critical)', phNotifError);
+      logger.warn(
+        'Failed to send program holder notification (non-critical)',
+        phNotifError
+      );
     }
 
     // Return proof
@@ -261,9 +278,13 @@ export async function POST(req: NextRequest) {
       message: 'Enrollment approved and activated successfully',
     });
   } catch (err: unknown) {
-    logger.error('Enrollment approval error', error);
+    logger.err('Enrollment approval err', err);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Internal server err',
+      },
       { status: 500 }
     );
   }

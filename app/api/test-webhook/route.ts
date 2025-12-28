@@ -44,7 +44,10 @@ export async function POST(req: Request) {
 
       if (error) {
         // Error: $1
-        return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+        return NextResponse.json(
+          { error: toErrorMessage(error) },
+          { status: 500 }
+        );
       }
 
       logger.info('[TEST] ✅ Created enrollment:', newEnrollment.id);
@@ -68,7 +71,10 @@ export async function POST(req: Request) {
 
       if (error) {
         // Error: $1
-        return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+        return NextResponse.json(
+          { error: toErrorMessage(error) },
+          { status: 500 }
+        );
       }
 
       logger.info('[TEST] ✅ Activated enrollment:', existing.id);
@@ -92,7 +98,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Internal server error' },
+      { err: toErrorMessage(err) || 'Internal server err' },
       { status: 500 }
     );
   }

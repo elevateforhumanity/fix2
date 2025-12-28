@@ -54,7 +54,7 @@ export class NrfAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to create NRF RISE Up account', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -91,7 +91,7 @@ export class NrfAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to enroll in NRF RISE Up course', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -133,7 +133,7 @@ export class NrfAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch NRF RISE Up progress', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -167,7 +167,7 @@ export class NrfAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch NRF RISE Up certificate', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -193,7 +193,7 @@ export class NrfAPI extends BasePartnerAPI {
       return response.data.ssoUrl;
     } catch (error: unknown) {
       this.log('error', 'Failed to generate NRF RISE Up SSO URL', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }

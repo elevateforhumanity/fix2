@@ -250,7 +250,10 @@ export const POST = withAuth(
         },
       });
     } catch (err: unknown) {
-      logger.error('Setup error:', err);
+      logger.error(
+        'Setup error:',
+        err instanceof Error ? err : new Error(String(err))
+      );
       return NextResponse.json(
         {
           error: (err as Error).message || 'Setup failed',

@@ -51,7 +51,7 @@ export async function getStatus(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Failed to get autopilot status',
-      message: error.message,
+      message: error instanceof Error ? error.message : String(error),
     });
   }
 }
@@ -79,7 +79,7 @@ export async function triggerHealthCheck(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Health check failed',
-      message: error.message,
+      message: error instanceof Error ? error.message : String(error),
     });
   }
 }
@@ -108,7 +108,7 @@ export async function triggerSelfHeal(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Self-heal failed',
-      message: error.message,
+      message: error instanceof Error ? error.message : String(error),
     });
   }
 }
@@ -140,7 +140,7 @@ export async function syncSecrets(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Secret sync failed',
-      message: error.message,
+      message: error instanceof Error ? error.message : String(error),
     });
   }
 }
@@ -175,7 +175,7 @@ export async function startWorker(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Failed to start autopilot',
-      message: error.message,
+      message: error instanceof Error ? error.message : String(error),
     });
   }
 }
@@ -203,7 +203,7 @@ export async function stopWorker(req: Request, res: Response) {
   } catch (error: unknown) {
     res.status(500).json({
       error: 'Failed to stop autopilot',
-      message: error.message,
+      message: error instanceof Error ? error.message : String(error),
     });
   }
 }

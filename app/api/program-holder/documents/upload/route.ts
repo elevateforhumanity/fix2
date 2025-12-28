@@ -53,7 +53,9 @@ export async function POST(req: Request) {
 
     if (!validTypes.includes(documentType)) {
       return NextResponse.json(
-        { error: `Invalid document_type. Must be one of: ${validTypes.join(', ')}` },
+        {
+          error: `Invalid document_type. Must be one of: ${validTypes.join(', ')}`,
+        },
         { status: 400 }
       );
     }
@@ -129,7 +131,7 @@ export async function POST(req: Request) {
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Upload failed' },
+      { err: toErrorMessage(err) || 'Upload failed' },
       { status: 500 }
     );
   }

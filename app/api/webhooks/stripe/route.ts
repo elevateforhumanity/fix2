@@ -70,7 +70,10 @@ export async function POST(request: NextRequest) {
             `✅ Store subscription checkout completed: ${session.id}`
           );
         } catch (err: unknown) {
-          logger.error('Error processing store subscription checkout:', err);
+          logger.error(
+            'Error processing store subscription checkout:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
         break;
       }
@@ -108,7 +111,10 @@ export async function POST(request: NextRequest) {
             logger.info(`✅ Enrollment payment completed: ${enrollmentId}`);
           }
         } catch (err: unknown) {
-          logger.error('Error processing enrollment payment:', err);
+          logger.error(
+            'Error processing enrollment payment:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
         break;
       }
@@ -166,10 +172,13 @@ export async function POST(request: NextRequest) {
           }
 
           // Send confirmation email to customer
-          
+
           // Send notification to admin
-                  } catch (err: unknown) {
-          logger.error('Error processing drug testing purchase:', err);
+        } catch (err: unknown) {
+          logger.error(
+            'Error processing drug testing purchase:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
         break;
       }
@@ -219,7 +228,10 @@ export async function POST(request: NextRequest) {
 
           logger.info('✅ Partner course payment logged');
         } catch (err: unknown) {
-          logger.error('Error processing partner course enrollment:', err);
+          logger.error(
+            'Error processing partner course enrollment:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
         break;
       }
@@ -297,7 +309,10 @@ export async function POST(request: NextRequest) {
 
           logger.info('✅ HSI payment logged successfully');
         } catch (err: unknown) {
-          logger.error('Error processing HSI enrollment:', err);
+          logger.error(
+            'Error processing HSI enrollment:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
         break;
       }
@@ -327,7 +342,10 @@ export async function POST(request: NextRequest) {
             logger.info(`✅ Enrollment payment completed: ${enrollmentId}`);
           }
         } catch (err: unknown) {
-          logger.error('Error processing enrollment payment:', err);
+          logger.error(
+            'Error processing enrollment payment:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
         break;
       }
@@ -418,7 +436,10 @@ export async function POST(request: NextRequest) {
             );
           }
         } catch (err: unknown) {
-          logger.error('Error processing payment failure:', err);
+          logger.error(
+            'Error processing payment failure:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
       } else {
         logger.info('Payment failed:', failedPayment.id);
@@ -482,7 +503,10 @@ export async function POST(request: NextRequest) {
             );
           }
         } catch (err: unknown) {
-          logger.error('Error processing subscription event:', err);
+          logger.error(
+            'Error processing subscription event:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
       }
       break;
@@ -534,7 +558,10 @@ export async function POST(request: NextRequest) {
             logger.info(`✅ Store subscription canceled: ${subscription.id}`);
           }
         } catch (err: unknown) {
-          logger.error('Error processing subscription deletion:', err);
+          logger.error(
+            'Error processing subscription deletion:',
+            err instanceof Error ? err : new Error(String(err))
+          );
         }
       }
       break;
@@ -557,7 +584,9 @@ export async function POST(request: NextRequest) {
 
       // Handle failed subscription payment
       if ((invoice as any).subscription) {
-        logger.error(`❌ Subscription payment failed: ${(invoice as any).subscription}`);
+        logger.error(
+          `❌ Subscription payment failed: ${(invoice as any).subscription}`
+        );
 
         // Subscription status will be updated by customer.subscription.updated event
         // Could send notification email here

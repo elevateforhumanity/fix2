@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
     if (!provider) {
       return NextResponse.json(
-        { error: "Provider is required" },
+        { error: 'Provider is required' },
         { status: 400 }
       );
     }
@@ -19,42 +19,40 @@ export async function POST(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Update credential status
     const { error } = await supabase
-      .from("external_credentials")
+      .from('external_credentials')
       .update({
-        status: "completed",
+        status: 'completed',
         completed_at: new Date().toISOString(),
       })
-      .eq("student_id", user.id)
-      .eq("provider", provider);
+      .eq('student_id', user.id)
+      .eq('provider', provider);
 
     if (error) {
       // Error: $1
       return NextResponse.json(
-        { error: "Failed to mark credential complete" },
+        { error: 'Failed to mark credential complete' },
         { status: 500 }
       );
     }
 
     // Update exam readiness if Milady RISE
-    if (provider === "Milady RISE") {
-      await supabase
-        .from("exam_readiness")
-        .upsert({
-          student_id: user.id,
-          theory_complete: true,
-        });
+    if (provider === 'Milady RISE') {
+      await supabase.from('exam_readiness').upsert({
+        student_id: user.id,
+        theory_complete: true,
+      });
     }
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || "Failed to mark credential complete" },
+      { err: toErrorMessage(err) || 'Failed to mark credential complete' },
       { status: 500 }
     );
   }

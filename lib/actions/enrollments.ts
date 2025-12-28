@@ -196,7 +196,9 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
     // Error: $1
     return {
       success: false,
-      error: error.message || 'Failed to create enrollment',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Failed to create enrollment',
     };
   }
 }
@@ -252,7 +254,9 @@ export async function addTransferHours(input: AddTransferHoursInput) {
     // Error: $1
     return {
       success: false,
-      error: error.message || 'Failed to add transfer hours',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Failed to add transfer hours',
     };
   }
 }
@@ -361,7 +365,9 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
     // Error: $1
     return {
       success: false,
-      error: error.message || 'Failed to approve transfer hours',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Failed to approve transfer hours',
     };
   }
 }
@@ -382,7 +388,9 @@ export async function rejectTransferHours(
       })
       .eq('id', transfer_hours_id);
     if (error) {
-      throw new Error(`Failed to reject transfer hours: ${error.message}`);
+      throw new Error(
+        `Failed to reject transfer hours: ${error instanceof Error ? error.message : String(error)}`
+      );
     }
     return {
       success: true,
@@ -392,7 +400,9 @@ export async function rejectTransferHours(
     // Error: $1
     return {
       success: false,
-      error: error.message || 'Failed to reject transfer hours',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Failed to reject transfer hours',
     };
   }
 }
@@ -438,7 +448,9 @@ export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
     // Error: $1
     return {
       success: false,
-      error: error.message || 'Failed to update funding amounts',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Failed to update funding amounts',
     };
   }
 }
@@ -472,7 +484,9 @@ export async function getEnrollmentDetails(enrollment_id: string) {
       .eq('id', enrollment_id)
       .single();
     if (error) {
-      throw new Error(`Failed to fetch enrollment: ${error.message}`);
+      throw new Error(
+        `Failed to fetch enrollment: ${error instanceof Error ? error.message : String(error)}`
+      );
     }
     // Calculate hours summary
     const transferHours = data.transfer_hours || [];
@@ -512,7 +526,9 @@ export async function getEnrollmentDetails(enrollment_id: string) {
     // Error: $1
     return {
       success: false,
-      error: error.message || 'Failed to fetch enrollment details',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Failed to fetch enrollment details',
     };
   }
 }

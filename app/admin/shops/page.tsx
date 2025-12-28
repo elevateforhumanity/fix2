@@ -2,7 +2,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import {
-
   Building2,
   CheckCircle,
   Clock,
@@ -74,7 +73,7 @@ export default async function AdminShopsPage() {
     })
   );
 
-  function getShopStatus(data: unknown) {
+  function getShopStatus(shop: any) {
     if (!shop.active) return { color: 'red', label: 'Inactive', icon: XCircle };
     if (shop.docsComplete && shop.shop_onboarding?.[0]?.completed_at) {
       return { color: 'green', label: 'Complete', icon: CheckCircle };

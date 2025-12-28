@@ -132,7 +132,10 @@ export async function POST(request: NextRequest) {
       url: session.url,
     });
   } catch (error: unknown) {
-    logger.error('Checkout error:', error);
+    logger.error(
+      'Checkout error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create checkout' },
       { status: 500 }

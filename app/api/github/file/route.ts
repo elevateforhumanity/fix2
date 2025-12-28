@@ -62,7 +62,10 @@ export async function GET(req: NextRequest) {
       download_url: data.download_url,
     });
   } catch (error: unknown) {
-    logger.error('GitHub file read error:', error);
+    logger.error(
+      'GitHub file read error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to fetch file',
@@ -137,7 +140,10 @@ export async function PUT(req: NextRequest) {
       message: commitMessage,
     });
   } catch (error: unknown) {
-    logger.error('GitHub file write error:', error);
+    logger.error(
+      'GitHub file write error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to save file',
@@ -185,7 +191,10 @@ export async function DELETE(req: NextRequest) {
       message: commitMessage,
     });
   } catch (error: unknown) {
-    logger.error('GitHub file delete error:', error);
+    logger.error(
+      'GitHub file delete error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to delete file',

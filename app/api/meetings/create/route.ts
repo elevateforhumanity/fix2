@@ -116,7 +116,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, meeting });
   } catch (error: unknown) {
-    logger.error('Meeting creation error:', error);
+    logger.error(
+      'Meeting creation error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create meeting' },
       { status: 500 }

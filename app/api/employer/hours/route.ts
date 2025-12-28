@@ -67,7 +67,7 @@ export async function GET() {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to load hours' },
+      { err: toErrorMessage(err) || 'Failed to load hours' },
       { status: 500 }
     );
   }

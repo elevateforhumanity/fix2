@@ -76,7 +76,10 @@ export async function POST(req: Request) {
           sent_at: new Date().toISOString(),
         });
       } catch (error: unknown) {
-        logger.error(`Error sending to ${recipient.email}:`, error);
+        logger.error(
+          `Error sending to ${recipient.email}:`,
+          error instanceof Error ? error : new Error(String(error))
+        );
         results.push({
           email: recipient.email,
           success: false,
@@ -117,7 +120,10 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: unknown) {
-    logger.error('Error sending campaign:', error);
+    logger.error(
+      'Error sending campaign:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }

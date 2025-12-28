@@ -45,7 +45,10 @@ export async function POST(req: Request) {
 
     if (error) {
       // Error: $1
-      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+      return NextResponse.json(
+        { error: toErrorMessage(error) },
+        { status: 500 }
+      );
     }
 
     // Check if all required docs are now approved
@@ -83,7 +86,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Approval failed' },
+      { err: toErrorMessage(err) || 'Approval failed' },
       { status: 500 }
     );
   }

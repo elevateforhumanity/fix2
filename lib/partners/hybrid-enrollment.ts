@@ -79,7 +79,9 @@ export async function enrollInExternalModule(
     return {
       success: false,
       mode: 'link',
-      error: error.message || 'Enrollment failed',
+      error:
+        (error instanceof Error ? error.message : String(error)) ||
+        'Enrollment failed',
     };
   }
 }

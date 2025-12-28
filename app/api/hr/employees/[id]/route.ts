@@ -55,7 +55,10 @@ export async function GET(
 
     return NextResponse.json({ employee });
   } catch (error: unknown) {
-    logger.error('Error fetching employee:', error);
+    logger.error(
+      'Error fetching employee:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch employee' },
       { status: 500 }
@@ -100,7 +103,10 @@ export async function PATCH(
 
     return NextResponse.json({ employee });
   } catch (error: unknown) {
-    logger.error('Error updating employee:', error);
+    logger.error(
+      'Error updating employee:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update employee' },
       { status: 500 }
@@ -149,7 +155,10 @@ export async function DELETE(
       employee,
     });
   } catch (error: unknown) {
-    logger.error('Error terminating employee:', error);
+    logger.error(
+      'Error terminating employee:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to terminate employee' },
       { status: 500 }

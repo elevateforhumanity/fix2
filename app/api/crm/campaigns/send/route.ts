@@ -216,7 +216,11 @@ export async function POST(request: NextRequest) {
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to send campaign' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to send campaign',
+      },
       { status: 500 }
     );
   }

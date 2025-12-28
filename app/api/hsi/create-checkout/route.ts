@@ -88,7 +88,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ sessionId: session.id });
   } catch (error: unknown) {
-    logger.error('Stripe checkout error:', error);
+    logger.error(
+      'Stripe checkout error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

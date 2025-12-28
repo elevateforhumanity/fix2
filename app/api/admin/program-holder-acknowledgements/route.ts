@@ -4,7 +4,8 @@ import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
-  async (req, context, user) => {
+  async (req, context) => {
+    const user = context.user;
     try {
       const supabase = await createClient();
 
@@ -29,7 +30,10 @@ export const GET = withAuth(
 
       return NextResponse.json({ acknowledgements: data || [] });
     } catch (err: unknown) {
-      logger.error('API error:', err);
+      logger.error(
+        'API error:',
+        err instanceof Error ? err : new Error(String(err))
+      );
       return NextResponse.json({ error: 'Unexpected error' }, { status: 500 });
     }
   },

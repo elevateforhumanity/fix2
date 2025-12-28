@@ -78,7 +78,10 @@ export async function POST(req: Request) {
       answer: completion.choices[0].message.content,
     });
   } catch (error: unknown) {
-    logger.error('AI tutor error:', error);
+    logger.error(
+      'AI tutor error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to get answer' },
       { status: 500 }

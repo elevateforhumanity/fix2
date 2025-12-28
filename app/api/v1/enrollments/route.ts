@@ -88,10 +88,20 @@ export async function GET(request: NextRequest) {
     );
   } catch (err: unknown) {
     statusCode = 500;
-    logger.error('API Error:', err);
-    return NextResponse.json(apiResponse(false, null, err.message), {
-      status: 500,
-    });
+    logger.error(
+      'API Error:',
+      err instanceof Error ? err : new Error(String(err))
+    );
+    return NextResponse.json(
+      apiResponse(
+        false,
+        null,
+        err instanceof Error ? err.message : String(err)
+      ),
+      {
+        status: 500,
+      }
+    );
   }
 }
 
@@ -156,9 +166,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(apiResponse(true, enrollment), { status: 201 });
   } catch (err: unknown) {
     statusCode = 500;
-    logger.error('API Error:', err);
-    return NextResponse.json(apiResponse(false, null, err.message), {
-      status: 500,
-    });
+    logger.error(
+      'API Error:',
+      err instanceof Error ? err : new Error(String(err))
+    );
+    return NextResponse.json(
+      apiResponse(
+        false,
+        null,
+        err instanceof Error ? err.message : String(err)
+      ),
+      {
+        status: 500,
+      }
+    );
   }
 }

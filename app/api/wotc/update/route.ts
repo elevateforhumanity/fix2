@@ -29,7 +29,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, wotc: data });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }
 
@@ -64,6 +67,9 @@ export async function GET() {
 
     return NextResponse.json({ wotc_tracking: enrichedData });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }

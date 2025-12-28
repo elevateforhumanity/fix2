@@ -58,7 +58,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ courses });
   } catch (error: unknown) {
-    logger.error('Courses list error:', error);
+    logger.error(
+      'Courses list error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch courses' },
       { status: 500 }

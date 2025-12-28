@@ -6,10 +6,13 @@ import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
 async function getHandler(
-  req: Request,
-  context: Record<string, unknown>,
-  user: Record<string, unknown>
+  req: NextRequest,
+  context: {
+    params: Promise<Record<string, string>>;
+    user: Record<string, unknown>;
+  }
 ) {
+  const user = context.user;
   const url = new URL(req.url);
   const user_id = url.searchParams.get('user_id');
 

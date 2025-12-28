@@ -12,23 +12,23 @@ export async function GET(req: Request) {
     // Verify cron secret to prevent unauthorized access
     const authHeader = req.headers.get('authorization');
     const cronSecret = process.env.CRON_SECRET || 'dev-secret';
-    
+
     if (authHeader !== `Bearer ${cronSecret}`) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
-    
+
     const results = await runAutomationTasks();
-    
+
     return NextResponse.json({
       success: true,
       results,
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: 'Automation failed', message: error.message },
+      {
+        err: 'Automation failed',
+        message: err instanceof Error ? err.message : String(err),
+      },
       { status: 500 }
     );
   }

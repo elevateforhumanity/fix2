@@ -38,7 +38,9 @@ export async function POST(request: NextRequest) {
     // 1. Load enrollment with lock
     const { data: enrollment, error: enrollmentError } = await supabase
       .from('enrollments')
-      .select('id, partner_course_id, payment_status, payment_mode, billing_lock')
+      .select(
+        'id, partner_course_id, payment_status, payment_mode, billing_lock'
+      )
       .eq('id', enrollmentId)
       .single();
 
@@ -94,7 +96,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!partnerCourse.retail_price_cents || partnerCourse.retail_price_cents <= 0) {
+    if (
+      !partnerCourse.retail_price_cents ||
+      partnerCourse.retail_price_cents <= 0
+    ) {
       return NextResponse.json(
         { error: 'Invalid course pricing' },
         { status: 400 }
@@ -178,7 +183,10 @@ export async function POST(request: NextRequest) {
       url: session.url,
     });
   } catch (error: unknown) {
-    logger.error('Error creating enrollment checkout:', error);
+    logger.error(
+      'Error creating enrollment checkout:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error:

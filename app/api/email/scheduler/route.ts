@@ -87,7 +87,10 @@ export async function GET(req: Request) {
           });
         }
       } catch (error: unknown) {
-        logger.error(`Error processing campaign ${campaign.id}:`, error);
+        logger.error(
+          `Error processing campaign ${campaign.id}:`,
+          error instanceof Error ? error : new Error(String(error))
+        );
 
         // Mark as failed
         await supabase
@@ -114,7 +117,10 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: unknown) {
-    logger.error('Scheduler error:', error);
+    logger.error(
+      'Scheduler error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }

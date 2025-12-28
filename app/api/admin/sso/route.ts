@@ -5,7 +5,8 @@ import { withAuth } from '@/lib/with-auth';
 
 // GET /api/admin/sso - List SSO connections
 export const GET = withAuth(
-  async (req, context, user) => {
+  async (req, context) => {
+    const user = context.user;
     try {
       await requireRole(['admin']);
       const supabase = await createClient();

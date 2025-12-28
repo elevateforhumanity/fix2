@@ -38,7 +38,11 @@ export async function GET() {
     return NextResponse.json({ students: students || [] });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch students' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to fetch students',
+      },
       { status: 500 }
     );
   }

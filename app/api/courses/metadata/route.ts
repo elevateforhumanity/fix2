@@ -43,7 +43,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(metadata);
   } catch (error: unknown) {
-    logger.error('Get metadata error:', error);
+    logger.error(
+      'Get metadata error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
 
     if (error.status === 404) {
       return NextResponse.json(

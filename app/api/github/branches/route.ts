@@ -36,7 +36,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(branches);
   } catch (error: unknown) {
-    logger.error('GitHub branches error:', error);
+    logger.error(
+      'GitHub branches error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to fetch branches',

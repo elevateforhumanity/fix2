@@ -38,7 +38,10 @@ export async function GET() {
 
     return NextResponse.json({ employee });
   } catch (error: unknown) {
-    logger.error('Error fetching employee:', error);
+    logger.error(
+      'Error fetching employee:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch employee data' },
       { status: 500 }

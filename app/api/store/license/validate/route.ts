@@ -51,7 +51,10 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: unknown) {
-    logger.error('License validation error:', error);
+    logger.error(
+      'License validation error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

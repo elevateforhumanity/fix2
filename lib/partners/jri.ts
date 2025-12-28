@@ -52,7 +52,7 @@ export class JriAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to create JRI account', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -89,7 +89,7 @@ export class JriAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to enroll in JRI course', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -129,7 +129,7 @@ export class JriAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch JRI progress', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -161,7 +161,7 @@ export class JriAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch JRI certificate', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -187,7 +187,7 @@ export class JriAPI extends BasePartnerAPI {
       return response.data.launchUrl;
     } catch (error: unknown) {
       this.log('error', 'Failed to generate JRI SSO URL', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }

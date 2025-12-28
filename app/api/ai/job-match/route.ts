@@ -73,7 +73,10 @@ Provide specific, actionable recommendations.`,
 
     return NextResponse.json({ matches });
   } catch (error: unknown) {
-    logger.error('Job match error:', error);
+    logger.error(
+      'Job match error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to match jobs' },
       { status: 500 }

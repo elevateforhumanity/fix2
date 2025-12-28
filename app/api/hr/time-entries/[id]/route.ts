@@ -49,7 +49,10 @@ export async function PATCH(
 
     return NextResponse.json({ timeEntry: data });
   } catch (error: unknown) {
-    logger.error('Error updating time entry:', error);
+    logger.error(
+      'Error updating time entry:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update time entry' },
       { status: 500 }
@@ -70,7 +73,10 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Time entry deleted' });
   } catch (error: unknown) {
-    logger.error('Error deleting time entry:', error);
+    logger.error(
+      'Error deleting time entry:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to delete time entry' },
       { status: 500 }

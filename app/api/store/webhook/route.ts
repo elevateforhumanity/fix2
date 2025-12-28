@@ -108,7 +108,10 @@ export async function POST(req: Request) {
 
     return Response.json({ received: true });
   } catch (error: unknown) {
-    logger.error('Webhook error:', error);
+    logger.error(
+      'Webhook error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

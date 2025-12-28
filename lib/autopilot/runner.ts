@@ -35,7 +35,7 @@ export async function runAutopilots(
   } catch (error: unknown) {
     return {
       ok: false,
-      error: error.message,
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }
@@ -55,7 +55,7 @@ export async function runFullAnalysis(repo = 'elevateforhumanity/fix2') {
   } catch (error: unknown) {
     return {
       ok: false,
-      error: error.message,
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }

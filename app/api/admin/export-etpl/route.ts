@@ -90,38 +90,38 @@ export async function GET(req: Request) {
 
     // Format data for ETPL compliance
     const exportData = data.map((item) => ({
-      student_id: app.id,
-      first_name: app.first_name,
-      last_name: app.last_name,
-      email: app.email,
-      phone: app.phone,
-      city: app.city,
-      zip: app.zip,
-      program: app.program_interest,
-      status: app.status,
-      advisor: app.advisor_email,
-      application_date: app.created_at,
+      student_id: item.id,
+      first_name: item.first_name,
+      last_name: item.last_name,
+      email: item.email,
+      phone: item.phone,
+      city: item.city,
+      zip: item.zip,
+      program: item.program_interest,
+      status: item.status,
+      advisor: item.advisor_email,
+      application_date: item.created_at,
       icc_account_created:
-        app.application_checklist?.[0]?.created_icc_account || false,
+        item.application_checklist?.[0]?.created_icc_account || false,
       workone_scheduled:
-        app.application_checklist?.[0]?.scheduled_workone_appointment || false,
+        item.application_checklist?.[0]?.scheduled_workone_appointment || false,
       workone_date:
-        app.application_checklist?.[0]?.workone_appointment_date || null,
+        item.application_checklist?.[0]?.workone_appointment_date || null,
       workone_location:
-        app.application_checklist?.[0]?.workone_location || null,
+        item.application_checklist?.[0]?.workone_location || null,
       workone_attended:
-        app.application_checklist?.[0]?.attended_workone_appointment || false,
+        item.application_checklist?.[0]?.attended_workone_appointment || false,
       funding_verified:
-        app.application_checklist?.[0]?.funding_verified || false,
+        item.application_checklist?.[0]?.funding_verified || false,
       enrollment_started:
-        app.application_checklist?.[0]?.enrollment_started || false,
+        item.application_checklist?.[0]?.enrollment_started || false,
       enrollment_completed:
-        app.application_checklist?.[0]?.enrollment_completed || false,
-      employer: app.employer_sponsors?.[0]?.company_name || null,
-      employer_contact: app.employer_sponsors?.[0]?.contact_name || null,
-      wage_commitment: app.employer_sponsors?.[0]?.wage_commitment || null,
-      agreement_signed: app.enrollment_agreements?.[0]?.signed || false,
-      agreement_date: app.enrollment_agreements?.[0]?.signed_at || null,
+        item.application_checklist?.[0]?.enrollment_completed || false,
+      employer: item.employer_sponsors?.[0]?.company_name || null,
+      employer_contact: item.employer_sponsors?.[0]?.contact_name || null,
+      wage_commitment: item.employer_sponsors?.[0]?.wage_commitment || null,
+      agreement_signed: item.enrollment_agreements?.[0]?.signed || false,
+      agreement_date: item.enrollment_agreements?.[0]?.signed_at || null,
     }));
 
     if (format === 'csv') {

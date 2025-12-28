@@ -36,7 +36,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true, course: data });
   } catch (error: unknown) {
-    logger.error('Save course error:', error);
+    logger.error(
+      'Save course error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: 'Failed to save course', message: toErrorMessage(error) },
       { status: 500 }

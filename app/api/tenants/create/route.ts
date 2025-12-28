@@ -61,7 +61,10 @@ export async function POST(req: Request) {
       license,
     });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }
 
@@ -80,6 +83,9 @@ export async function GET() {
 
     return NextResponse.json({ tenants: data || [] });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }

@@ -101,7 +101,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ received: true });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Webhook handler failed' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Webhook handler failed',
+      },
       { status: 500 }
     );
   }

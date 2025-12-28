@@ -29,6 +29,9 @@ export async function GET(req: Request) {
       generated_at: new Date().toISOString(),
     });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }

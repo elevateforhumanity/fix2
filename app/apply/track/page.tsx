@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState, useEffect } from 'react';
 import { Search, CheckCircle, Clock, XCircle, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
-
 
 type ApplicationStatus = 'pending' | 'approved' | 'rejected' | 'contacted';
 
@@ -116,7 +115,8 @@ export default function TrackApplicationPage() {
       setApplication(data);
     } catch (err: unknown) {
       setError(
-        err.message || 'An error occurred while tracking your application'
+        (err instanceof Error ? err.message : String(err)) ||
+          'An error occurred while tracking your application'
       );
     } finally {
       setLoading(false);

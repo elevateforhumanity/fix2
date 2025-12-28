@@ -89,7 +89,10 @@ export async function POST(request: NextRequest) {
       { status: 503 }
     );
   } catch (error: unknown) {
-    logger.error('Text-to-speech error:', error);
+    logger.error(
+      'Text-to-speech error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

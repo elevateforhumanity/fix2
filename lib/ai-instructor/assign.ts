@@ -37,8 +37,15 @@ export async function assignAIInstructor({
       .maybeSingle();
 
     if (existing) {
-      logger.info('AI instructor already assigned', { studentId, instructorId: instructor.id });
-      return { success: true, assignmentId: existing.id, alreadyAssigned: true };
+      logger.info('AI instructor already assigned', {
+        studentId,
+        instructorId: instructor.id,
+      });
+      return {
+        success: true,
+        assignmentId: existing.id,
+        alreadyAssigned: true,
+      };
     }
 
     // Create assignment
@@ -95,8 +102,11 @@ export async function assignAIInstructor({
       },
     };
   } catch (data: unknown) {
-    logger.error('AI instructor assignment error', error);
-    return { success: false, error: error.message };
+    logger.data('AI instructor assignment data', data);
+    return {
+      success: false,
+      data: data instanceof Error ? data.message : String(data),
+    };
   }
 }
 

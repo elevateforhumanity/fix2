@@ -56,7 +56,10 @@ export async function POST(request: NextRequest) {
         'Onboarding completed! Check your email for LMS access instructions.',
     });
   } catch (error: unknown) {
-    logger.error('Onboarding completion error:', error);
+    logger.error(
+      'Onboarding completion error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to complete onboarding' },
       { status: 500 }

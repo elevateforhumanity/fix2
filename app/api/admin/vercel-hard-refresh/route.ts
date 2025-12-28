@@ -60,7 +60,10 @@ export const POST = withAuth(
         message: 'New deployment triggered successfully',
       });
     } catch (err: unknown) {
-      logger.error('Hard refresh error:', err);
+      logger.error(
+        'Hard refresh error:',
+        err instanceof Error ? err : new Error(String(err))
+      );
       return NextResponse.json(
         { error: (err as Error).message || 'Failed to trigger hard refresh' },
         { status: 500 }

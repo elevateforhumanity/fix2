@@ -121,7 +121,10 @@ export async function POST(request: NextRequest) {
       conversationId: newConversationId,
     });
   } catch (error: unknown) {
-    logger.error('AI Tutor error:', error);
+    logger.error(
+      'AI Tutor error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to process request' },
       { status: 500 }

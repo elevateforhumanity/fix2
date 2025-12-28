@@ -108,7 +108,11 @@ export async function POST(request: NextRequest) {
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to send emails' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to send emails',
+      },
       { status: 500 }
     );
   }

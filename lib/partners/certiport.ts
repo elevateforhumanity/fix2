@@ -52,7 +52,7 @@ export class CertiportAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to create Certiport account', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -103,7 +103,7 @@ export class CertiportAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to enroll in Certiport exam', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -148,7 +148,7 @@ export class CertiportAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch Certiport progress', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -186,7 +186,7 @@ export class CertiportAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch Certiport certificate', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -212,7 +212,7 @@ export class CertiportAPI extends BasePartnerAPI {
       return response.data.ssoUrl;
     } catch (error: unknown) {
       this.log('error', 'Failed to generate Certiport SSO URL', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }

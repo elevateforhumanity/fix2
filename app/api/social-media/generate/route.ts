@@ -138,7 +138,10 @@ Return ONLY a JSON array of ${count} posts, no other text.`;
 
     return NextResponse.json({ success: true, posts });
   } catch (error: unknown) {
-    logger.error('Social media generation error:', error);
+    logger.error(
+      'Social media generation error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }

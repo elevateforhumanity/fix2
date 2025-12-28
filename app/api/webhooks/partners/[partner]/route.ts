@@ -87,7 +87,10 @@ export async function POST(
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
-    logger.error(`[Webhook] Error processing ${partner} webhook:`, error);
+    logger.error(
+      `[Webhook] Error processing ${partner} webhook:`,
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Internal server error' },
       { status: 500 }

@@ -45,10 +45,7 @@ export async function POST(request: NextRequest) {
 
     if (priceError || !price) {
       logger.error('Price not found:', priceError);
-      return NextResponse.json(
-        { error: 'Invalid price ID' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid price ID' }, { status: 400 });
     }
 
     // Get or create Stripe customer
@@ -134,7 +131,10 @@ export async function POST(request: NextRequest) {
       url: session.url,
     });
   } catch (error: unknown) {
-    logger.error('Error creating subscription checkout:', error);
+    logger.error(
+      'Error creating subscription checkout:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error:

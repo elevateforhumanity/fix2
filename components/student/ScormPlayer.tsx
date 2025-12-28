@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 /**
@@ -50,7 +50,10 @@ export default function ScormPlayer({
       setLoading(false);
     } catch (err: unknown) {
       // Error: $1
-      setError(err.message || 'Failed to load SCORM package');
+      setError(
+        (err instanceof Error ? err.message : String(err)) ||
+          'Failed to load SCORM package'
+      );
       setLoading(false);
     }
   }

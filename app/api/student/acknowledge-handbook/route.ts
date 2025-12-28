@@ -20,14 +20,17 @@ export async function POST(req: Request) {
 
     if (error) {
       // Error: $1
-      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+      return NextResponse.json(
+        { error: toErrorMessage(error) },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to acknowledge handbook' },
+      { err: toErrorMessage(err) || 'Failed to acknowledge handbook' },
       { status: 500 }
     );
   }

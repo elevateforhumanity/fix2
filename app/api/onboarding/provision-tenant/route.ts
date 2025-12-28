@@ -150,7 +150,11 @@ export async function POST(request: NextRequest) {
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to provision tenant' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to provision tenant',
+      },
       { status: 500 }
     );
   }

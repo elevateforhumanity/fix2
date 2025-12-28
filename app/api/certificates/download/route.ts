@@ -272,7 +272,10 @@ export async function GET(request: Request) {
       },
     });
   } catch (error: unknown) {
-    logger.error('Certificate download error:', error);
+    logger.error(
+      'Certificate download error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate certificate' },
       { status: 500 }

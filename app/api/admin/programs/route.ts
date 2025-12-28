@@ -8,7 +8,8 @@ import { logger } from '@/lib/logger';
 // Protected by /admin route middleware in production
 
 export const GET = withAuth(
-  async (req, context, user) => {
+  async (req, context) => {
+    const user = context.user;
     if (!supabaseAdmin) {
       return NextResponse.json(
         { error: 'Supabase not configured' },

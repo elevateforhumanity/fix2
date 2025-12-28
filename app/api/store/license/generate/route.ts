@@ -56,7 +56,10 @@ export async function POST(req: Request) {
       licenseId: license.id,
     });
   } catch (error: unknown) {
-    logger.error('License generation error:', error);
+    logger.error(
+      'License generation error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

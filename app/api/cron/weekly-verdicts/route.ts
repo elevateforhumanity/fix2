@@ -35,7 +35,6 @@ export async function POST(request: NextRequest) {
     const periodStart = monday.toISOString().slice(0, 10);
     const periodEnd = sunday.toISOString().slice(0, 10);
 
-
     // Call the database function
     const { data, error } = await supabase.rpc('generate_reporting_verdicts', {
       p_period_start: periodStart,
@@ -62,7 +61,6 @@ export async function POST(request: NextRequest) {
       no_activity: 0,
     };
 
-
     // Create alerts for BEHIND and NO_ACTIVITY students
     if (result.behind > 0 || result.no_activity > 0) {
       await createAlertsFromVerdicts(supabase, periodStart, periodEnd);
@@ -83,7 +81,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         ok: false,
-        error: error.message || 'Internal server error',
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Internal server err',
       },
       { status: 500 }
     );
@@ -161,9 +161,7 @@ async function createAlertsFromVerdicts(
     });
 
     await supabase.from('alert_notifications').insert(alerts);
-
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 // Allow GET for manual testing (development only)

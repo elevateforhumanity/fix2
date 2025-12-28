@@ -49,10 +49,7 @@ export async function POST(req: Request) {
 
     if (uploadError) {
       // Error: $1
-      return NextResponse.json(
-        { error: uploadError.message },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: uploadError.message }, { status: 500 });
     }
 
     // Save document record
@@ -72,7 +69,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Upload failed' },
+      { err: toErrorMessage(err) || 'Upload failed' },
       { status: 500 }
     );
   }

@@ -76,14 +76,17 @@ export async function POST(req: Request) {
 
     if (error) {
       // Error: $1
-      return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+      return NextResponse.json(
+        { error: toErrorMessage(error) },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to submit report' },
+      { err: toErrorMessage(err) || 'Failed to submit report' },
       { status: 500 }
     );
   }

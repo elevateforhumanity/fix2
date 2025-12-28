@@ -131,7 +131,10 @@ export async function POST(req: Request) {
         : "Your application is being reviewed. You'll hear from us within 1 hour.",
     });
   } catch (error: unknown) {
-    logger.error('Cash advance application error:', error);
+    logger.error(
+      'Cash advance application error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) || 'Application failed' },
       { status: 500 }

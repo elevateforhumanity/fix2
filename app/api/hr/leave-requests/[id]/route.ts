@@ -70,7 +70,10 @@ export async function PATCH(
 
     return NextResponse.json({ leaveRequest: updated });
   } catch (error: unknown) {
-    logger.error('Error updating leave request:', error);
+    logger.error(
+      'Error updating leave request:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update leave request' },
       { status: 500 }

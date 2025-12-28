@@ -267,7 +267,10 @@ export async function GET(req: NextRequest) {
       headers: { 'content-type': 'text/html' },
     });
   } catch (error: unknown) {
-    logger.error('Preview render error:', error);
+    logger.error(
+      'Preview render error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
 
     const errorHtml = `
       <html>

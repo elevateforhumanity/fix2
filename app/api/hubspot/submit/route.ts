@@ -84,11 +84,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true, data });
   } catch (err: unknown) {
-    logger.error('HubSpot API error', error as Error);
+    logger.err('HubSpot API err', err as Error);
     return NextResponse.json(
       {
         ok: false,
-        error: toErrorMessage(error) || 'Internal server error',
+        err: toErrorMessage(err) || 'Internal server err',
       },
       { status: 500 }
     );

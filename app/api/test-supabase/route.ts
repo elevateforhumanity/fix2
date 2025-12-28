@@ -47,7 +47,7 @@ export async function GET() {
         },
       });
     } catch (err: unknown) {
-      clientError = err.message;
+      clientError = err instanceof Error ? err.message : String(err);
       return NextResponse.json({
         status: 'error',
         environment: {
@@ -65,7 +65,7 @@ export async function GET() {
   } catch (err: unknown) {
     return NextResponse.json({
       status: 'error',
-      message: err.message,
+      message: err instanceof Error ? err.message : String(err),
     });
   }
 }

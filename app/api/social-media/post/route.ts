@@ -8,9 +8,12 @@ import { createClient } from '@/lib/supabase/server';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     // Check authentication
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
     if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -26,16 +29,20 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate platform
-    const validPlatforms = ['linkedin', 'facebook', 'youtube', 'instagram', 'twitter'];
+    const validPlatforms = [
+      'linkedin',
+      'facebook',
+      'youtube',
+      'instagram',
+      'twitter',
+    ];
     if (!validPlatforms.includes(platform)) {
-      return NextResponse.json(
-        { error: 'Invalid platform' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid platform' }, { status: 400 });
     }
 
     // Check if platform is enabled
-    const platformEnabled = process.env[`SOCIAL_MEDIA_${platform.toUpperCase()}_ENABLED`] === 'true';
+    const platformEnabled =
+      process.env[`SOCIAL_MEDIA_${platform.toUpperCase()}_ENABLED`] === 'true';
     if (!platformEnabled) {
       return NextResponse.json(
         { error: `${platform} is not enabled` },
@@ -54,7 +61,7 @@ export async function POST(request: NextRequest) {
           content,
           media_url,
           scheduled_for,
-          status: 'scheduled'
+          status: 'scheduled',
         })
         .select()
         .single();
@@ -69,7 +76,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         message: 'Post scheduled successfully',
-        post: scheduledPost
+        post: scheduledPost,
       });
     } else {
       // Post immediately
@@ -92,10 +99,7 @@ export async function POST(request: NextRequest) {
       }
 
       if (!result.success) {
-        return NextResponse.json(
-          { error: result.error },
-          { status: 500 }
-        );
+        return NextResponse.json({ error: result.error }, { status: 500 });
       }
 
       // Save to database
@@ -108,7 +112,7 @@ export async function POST(request: NextRequest) {
           media_url,
           posted_at: new Date().toISOString(),
           status: 'posted',
-          platform_post_id: result.post_id
+          platform_post_id: result.post_id,
         })
         .select()
         .single();
@@ -117,12 +121,15 @@ export async function POST(request: NextRequest) {
         success: true,
         message: 'Posted successfully',
         post: savedPost,
-        platform_url: result.url
+        platform_url: result.url,
       });
     }
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      {
+        err: 'Internal server err',
+        details: err instanceof Error ? err.message : String(err),
+      },
       { status: 500 }
     );
   }
@@ -147,31 +154,33 @@ async function postToLinkedIn(data: unknown) {
       specificContent: {
         'com.linkedin.ugc.ShareContent': {
           shareCommentary: {
-            text: `${title}\n\n${content}`
+            text: `${title}\n\n${content}`,
           },
-          shareMediaCategory: media_url ? 'IMAGE' : 'NONE'
-        }
+          shareMediaCategory: media_url ? 'IMAGE' : 'NONE',
+        },
       },
       visibility: {
-        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
-      }
+        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC',
+      },
     };
 
     if (media_url) {
-      postData.specificContent['com.linkedin.ugc.ShareContent'].media = [{
-        status: 'READY',
-        originalUrl: media_url
-      }];
+      postData.specificContent['com.linkedin.ugc.ShareContent'].media = [
+        {
+          status: 'READY',
+          originalUrl: media_url,
+        },
+      ];
     }
 
     const response = await fetch('https://api.linkedin.com/v2/ugcPosts', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
-        'X-Restli-Protocol-Version': '2.0.0'
+        'X-Restli-Protocol-Version': '2.0.0',
       },
-      body: JSON.stringify(postData)
+      body: JSON.stringify(postData),
     });
 
     if (!response.ok) {
@@ -183,10 +192,13 @@ async function postToLinkedIn(data: unknown) {
     return {
       success: true,
       post_id: result.id,
-      url: `https://www.linkedin.com/feed/update/${result.id}`
+      url: `https://www.linkedin.com/feed/update/${result.id}`,
     };
   } catch (err: unknown) {
-    return { success: false, error: error.message };
+    return {
+      success: false,
+      err: err instanceof Error ? err.message : String(err),
+    };
   }
 }
 
@@ -208,7 +220,7 @@ async function postToFacebook(data: unknown) {
 
     const params = new URLSearchParams({
       access_token: accessToken,
-      message: content
+      message: content,
     });
 
     if (media_url) {
@@ -216,22 +228,28 @@ async function postToFacebook(data: unknown) {
     }
 
     const response = await fetch(`${endpoint}?${params.toString()}`, {
-      method: 'POST'
+      method: 'POST',
     });
 
     if (!response.ok) {
       const error = await response.json();
-      return { success: false, error: `Facebook API error: ${JSON.stringify(error)}` };
+      return {
+        success: false,
+        error: `Facebook API error: ${JSON.stringify(error)}`,
+      };
     }
 
     const result = await response.json();
     return {
       success: true,
       post_id: result.id,
-      url: `https://www.facebook.com/${pageId}/posts/${result.id}`
+      url: `https://www.facebook.com/${pageId}/posts/${result.id}`,
     };
   } catch (err: unknown) {
-    return { success: false, error: error.message };
+    return {
+      success: false,
+      err: err instanceof Error ? err.message : String(err),
+    };
   }
 }
 
@@ -249,13 +267,17 @@ async function postToYouTube(data: unknown) {
 
     // Note: YouTube Community Posts require OAuth 2.0
     // This is a simplified version - full implementation needs OAuth flow
-    
+
     return {
       success: false,
-      error: 'YouTube posting requires OAuth 2.0 setup. Please configure refresh token.'
+      error:
+        'YouTube posting requires OAuth 2.0 setup. Please configure refresh token.',
     };
   } catch (err: unknown) {
-    return { success: false, error: error.message };
+    return {
+      success: false,
+      err: err instanceof Error ? err.message : String(err),
+    };
   }
 }
 
@@ -266,8 +288,11 @@ async function postToYouTube(data: unknown) {
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();
-    
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
     if (authError || !user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -301,7 +326,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ posts });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      {
+        err: 'Internal server err',
+        details: err instanceof Error ? err.message : String(err),
+      },
       { status: 500 }
     );
   }

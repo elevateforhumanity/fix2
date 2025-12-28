@@ -56,7 +56,10 @@ export async function POST(req: Request) {
       synced: pendingActions?.length || 0,
     });
   } catch (error: unknown) {
-    logger.error('Sync error:', error);
+    logger.error(
+      'Sync error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Sync failed' },
       { status: 500 }

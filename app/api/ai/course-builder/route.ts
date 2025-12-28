@@ -93,7 +93,10 @@ Format as JSON with this structure:
 
     return NextResponse.json({ course, content });
   } catch (error: unknown) {
-    logger.error('AI course builder error:', error);
+    logger.error(
+      'AI course builder error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate course' },
       { status: 500 }

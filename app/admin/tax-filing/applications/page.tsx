@@ -83,7 +83,11 @@ export default async function TaxFilingApplicationsPage() {
             <div className="text-gray-600 text-sm">Completed</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <Link href="/admin/tax-filing/applications/new" aria-label="Link" className="block">
+            <Link
+              href="/admin/tax-filing/applications/new"
+              aria-label="Link"
+              className="block"
+            >
               <div className="text-lg font-bold text-purple-600">+ New</div>
               <div className="text-gray-600 text-sm">Add Application</div>
             </Link>
@@ -155,37 +159,37 @@ export default async function TaxFilingApplicationsPage() {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {applications.map((item) => (
-                    <tr key={app.id} className="hover:bg-gray-50">
+                    <tr key={item.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">
-                          {app.client_name || 'N/A'}
+                          {item.client_name || 'N/A'}
                         </div>
                         <div className="text-sm text-gray-500">
-                          {app.client_email || ''}
+                          {item.client_email || ''}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {app.tax_year || '2024'}
+                        {item.tax_year || '2024'}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
                           className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            app.status === 'completed'
+                            item.status === 'completed'
                               ? 'bg-brand-green-100 text-green-800'
-                              : app.status === 'pending'
+                              : item.status === 'pending'
                                 ? 'bg-orange-100 text-orange-800'
                                 : 'bg-blue-100 text-blue-800'
                           }`}
                         >
-                          {app.status || 'pending'}
+                          {item.status || 'pending'}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {new Date(app.created_at).toLocaleDateString()}
+                        {new Date(item.created_at).toLocaleDateString()}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
                         <Link
-                          href={`/admin/tax-filing/applications/${app.id}`}
+                          href={`/admin/tax-filing/applications/${item.id}`}
                           className="text-brand-blue-600 hover:text-blue-900"
                         >
                           View

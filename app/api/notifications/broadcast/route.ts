@@ -103,7 +103,10 @@ export async function POST(req: Request) {
           }
         }
       } catch (error: unknown) {
-        logger.error(`Error processing user ${user.id}:`, error);
+        logger.error(
+          `Error processing user ${user.id}:`,
+          error instanceof Error ? error : new Error(String(error))
+        );
         failed++;
       }
     }
@@ -117,7 +120,10 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: unknown) {
-    logger.error('Broadcast notification error:', error);
+    logger.error(
+      'Broadcast notification error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }

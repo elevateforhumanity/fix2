@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to create payment intent' },
+      { err: toErrorMessage(err) || 'Failed to create payment intent' },
       { status: 500 }
     );
   }

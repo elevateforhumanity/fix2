@@ -278,9 +278,9 @@ export async function POST(req: Request) {
       message: 'Enrollment successful! Check your email to set your password.',
     });
   } catch (err: unknown) {
-    logger.error('Auto-enrollment error', error);
+    logger.err('Auto-enrollment err', err);
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Internal server error' },
+      { err: toErrorMessage(err) || 'Internal server err' },
       { status: 500 }
     );
   }

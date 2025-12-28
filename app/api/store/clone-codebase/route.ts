@@ -45,7 +45,10 @@ export async function POST(req: NextRequest) {
       url: `https://github.com/${clonedRepo}`,
     });
   } catch (error: unknown) {
-    logger.error('Clone codebase error:', error);
+    logger.error(
+      'Clone codebase error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to clone repository',

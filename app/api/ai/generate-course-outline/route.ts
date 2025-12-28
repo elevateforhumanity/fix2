@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(outline);
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to generate course outline' },
+      { err: toErrorMessage(err) || 'Failed to generate course outline' },
       { status: 500 }
     );
   }
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 async function generateCourseOutline(prompt: string) {
   // Analyze prompt to determine course type
   const promptLower = prompt.toLowerCase();
-  
+
   // Detect course type
   let courseType = 'general';
   let title = 'Professional Training Course';
@@ -39,11 +39,17 @@ async function generateCourseOutline(prompt: string) {
     courseType = 'hvac';
     title = 'HVAC Technician Certification Training';
     duration = '120 hours';
-  } else if (promptLower.includes('cna') || promptLower.includes('nursing assistant')) {
+  } else if (
+    promptLower.includes('cna') ||
+    promptLower.includes('nursing assistant')
+  ) {
     courseType = 'cna';
     title = 'Certified Nursing Assistant (CNA) Training';
     duration = '75 hours';
-  } else if (promptLower.includes('cdl') || promptLower.includes('commercial driver')) {
+  } else if (
+    promptLower.includes('cdl') ||
+    promptLower.includes('commercial driver')
+  ) {
     courseType = 'cdl';
     title = 'Commercial Driver License (CDL) Training';
     duration = '160 hours';
@@ -51,16 +57,27 @@ async function generateCourseOutline(prompt: string) {
     courseType = 'barber';
     title = 'Professional Barber Apprenticeship';
     duration = '1500 hours';
-  } else if (promptLower.includes('medical assistant') || promptLower.includes('direct support professional') || promptLower.includes('dsp')) {
+  } else if (
+    promptLower.includes('medical assistant') ||
+    promptLower.includes('direct support professional') ||
+    promptLower.includes('dsp')
+  ) {
     courseType = 'direct-support-professional';
     title = 'Direct Support Professional (DSP) Training Program';
     duration = '720 hours';
   }
 
   // Detect level
-  if (promptLower.includes('beginner') || promptLower.includes('basic') || promptLower.includes('introduction')) {
+  if (
+    promptLower.includes('beginner') ||
+    promptLower.includes('basic') ||
+    promptLower.includes('introduction')
+  ) {
     level = 'beginner';
-  } else if (promptLower.includes('advanced') || promptLower.includes('expert')) {
+  } else if (
+    promptLower.includes('advanced') ||
+    promptLower.includes('expert')
+  ) {
     level = 'advanced';
   }
 
@@ -82,7 +99,8 @@ function generateModules(courseType: string, level: string) {
       {
         id: 'mod-1',
         title: 'HVAC Fundamentals',
-        description: 'Introduction to heating, ventilation, and air conditioning systems',
+        description:
+          'Introduction to heating, ventilation, and air conditioning systems',
         duration: 480,
         lessons: [
           {
@@ -356,7 +374,8 @@ function generateModules(courseType: string, level: string) {
       {
         id: 'mod-1',
         title: 'Introduction to Nursing Assistance',
-        description: 'Role and responsibilities of a Certified Nursing Assistant',
+        description:
+          'Role and responsibilities of a Certified Nursing Assistant',
         duration: 240,
         lessons: [
           {
@@ -460,7 +479,8 @@ function generateModules(courseType: string, level: string) {
       {
         id: 'mod-3',
         title: 'Infection Control',
-        description: 'Preventing the spread of infection in healthcare settings',
+        description:
+          'Preventing the spread of infection in healthcare settings',
         duration: 300,
         lessons: [
           {

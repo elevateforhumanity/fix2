@@ -118,7 +118,10 @@ ${JSON.stringify(features, null, 2)}
 
     return NextResponse.json({ scores: parsed });
   } catch (error: unknown) {
-    logger.error('Dropout risk prediction error:', error);
+    logger.error(
+      'Dropout risk prediction error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to predict dropout risk' },
       { status: 500 }

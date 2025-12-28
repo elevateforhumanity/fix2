@@ -114,20 +114,20 @@ export default async function AITutorPage() {
                 <div className="space-y-6">
                   {aiInstructors.map((item) => {
                     const enrollment = enrollments?.find(
-                      (e) => e.program_id === instructor.program_id
+                      (e) => e.program_id === item.program_id
                     );
                     const program = enrollment?.programs;
 
                     return (
                       <div
-                        key={instructor.id}
+                        key={item.id}
                         className="bg-white rounded-lg shadow-sm border p-6"
                       >
                         <div className="flex items-start gap-4 mb-4">
-                          {instructor.instructor_avatar_url ? (
+                          {item.instructor_avatar_url ? (
                             <img
-                              src={instructor.instructor_avatar_url}
-                              alt={instructor.instructor_name}
+                              src={item.instructor_avatar_url}
+                              alt={item.instructor_name}
                               className="w-20 h-20 rounded-full object-cover"
                             />
                           ) : (
@@ -149,14 +149,14 @@ export default async function AITutorPage() {
                           )}
                           <div className="flex-1">
                             <h3 className="text-lg font-semibold">
-                              {instructor.instructor_name}
+                              {item.instructor_name}
                             </h3>
                             <p className="text-sm text-gray-600">
                               {program?.title}
                             </p>
-                            {instructor.welcome_message && (
+                            {item.welcome_message && (
                               <p className="text-sm text-gray-700 mt-2 italic">
-                                "{instructor.welcome_message}"
+                                "{item.welcome_message}"
                               </p>
                             )}
                           </div>
@@ -167,7 +167,7 @@ export default async function AITutorPage() {
                             href={`/student/programs/${program?.slug}/chat`}
                             className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700"
                           >
-                            Chat with {instructor.instructor_name.split(' ')[0]}
+                            Chat with {item.instructor_name.split(' ')[0]}
                           </Link>
                           <Link
                             href="/student/courses"
@@ -329,22 +329,17 @@ export default async function AITutorPage() {
                   </h2>
                   <div className="space-y-3">
                     {recentInteractions.map((item) => (
-                      <div
-                        key={interaction.id}
-                        className="p-3 bg-gray-50 rounded"
-                      >
+                      <div key={item.id} className="p-3 bg-gray-50 rounded">
                         <div className="flex items-center justify-between mb-1">
                           <span className="text-xs font-medium text-purple-600 uppercase">
-                            {interaction.interaction_type.replace('_', ' ')}
+                            {item.interaction_type.replace('_', ' ')}
                           </span>
                           <span className="text-xs text-gray-500">
-                            {new Date(
-                              interaction.created_at
-                            ).toLocaleDateString()}
+                            {new Date(item.created_at).toLocaleDateString()}
                           </span>
                         </div>
                         <p className="text-sm text-gray-700">
-                          {interaction.message_text}
+                          {item.message_text}
                         </p>
                       </div>
                     ))}
@@ -461,7 +456,11 @@ export default async function AITutorPage() {
               {/* Quick Links */}
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="font-semibold mb-4">Quick Links</h3>
-                <nav role="navigation" aria-label="Main navigation" className="space-y-2">
+                <nav
+                  role="navigation"
+                  aria-label="Main navigation"
+                  className="space-y-2"
+                >
                   <Link
                     href="/student/courses"
                     className="block p-2 hover:bg-gray-50 rounded text-sm"

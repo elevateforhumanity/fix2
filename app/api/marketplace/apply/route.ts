@@ -89,7 +89,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Application failed' },
+      { err: toErrorMessage(err) || 'Application failed' },
       { status: 500 }
     );
   }

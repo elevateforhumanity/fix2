@@ -13,11 +13,11 @@ export async function GET(request: Request) {
     const timeframe = searchParams.get('timeframe') || 'week';
 
     const supabase = await createServerSupabaseClient();
-    
+
     // Calculate date range based on timeframe
     const now = new Date();
     let startDate = new Date();
-    
+
     switch (timeframe) {
       case 'day':
         startDate.setDate(now.getDate() - 1);
@@ -32,11 +32,12 @@ export async function GET(request: Request) {
         startDate = new Date(0);
         break;
     }
-    
+
     // Get leaderboard data from achievements
     const { data: leaderboard, error } = await supabase
       .from('achievements')
-      .select(`
+      .select(
+        `
         user_id,
         users:user_id (
           id,
@@ -44,23 +45,27 @@ export async function GET(request: Request) {
           full_name
         ),
         points
-      `)
+      `
+      )
       .gte('earned_at', startDate.toISOString())
       .order('points', { ascending: false })
       .limit(100);
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json(
+        { error: error instanceof Error ? error.message : String(error) },
+        { status: 500 }
+      );
     }
 
     // Aggregate points by user
     const userPoints = {};
-    leaderboard?.forEach(entry => {
+    leaderboard?.forEach((entry) => {
       const userId = entry.user_id;
       if (!userPoints[userId]) {
         userPoints[userId] = {
           user: entry.users,
-          totalPoints: 0
+          totalPoints: 0,
         };
       }
       userPoints[userId].totalPoints += entry.points || 0;
@@ -70,7 +75,7 @@ export async function GET(request: Request) {
       .sort((a, b) => b.totalPoints - a.totalPoints)
       .map((entry, index) => ({
         rank: index + 1,
-        ...entry
+        ...entry,
       }));
 
     return NextResponse.json({

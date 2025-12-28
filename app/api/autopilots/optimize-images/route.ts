@@ -52,7 +52,10 @@ export async function POST(req: NextRequest) {
       details: optimized,
     });
   } catch (error: unknown) {
-    logger.error('Optimize images error:', error);
+    logger.error(
+      'Optimize images error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to optimize images',

@@ -20,7 +20,9 @@ interface EnrollmentTestConfig {
   skipPayment?: boolean;
 }
 
-export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<{
+export async function testEnrollmentFlow(
+  config: EnrollmentTestConfig
+): Promise<{
   success: boolean;
   results: TestResult[];
   summary: {
@@ -31,10 +33,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
   };
 }> {
   const results: TestResult[] = [];
-  
-
-
-
 
   // Initialize Supabase client
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -57,34 +55,34 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
   // STEP 1: Create or get test student
   try {
-
-    
     // Try to sign in first
-    const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
-      email: config.studentEmail,
-      password: config.studentPassword,
-    });
+    const { data: signInData, error: signInError } =
+      await supabase.auth.signInWithPassword({
+        email: config.studentEmail,
+        password: config.studentPassword,
+      });
 
     let userId: string;
 
     if (signInError) {
       // Create new user
-      const { data: signUpData, error: signUpError } = await supabase.auth.admin.createUser({
-        email: config.studentEmail,
-        password: config.studentPassword,
-        email_confirm: true,
-        user_metadata: {
-          full_name: 'Test Student (Autopilot)',
-          role: 'student',
-        },
-      });
+      const { data: signUpData, error: signUpError } =
+        await supabase.auth.admin.createUser({
+          email: config.studentEmail,
+          password: config.studentPassword,
+          email_confirm: true,
+          user_metadata: {
+            full_name: 'Test Student (Autopilot)',
+            role: 'student',
+          },
+        });
 
       if (signUpError || !signUpData.user) {
         throw new Error(`Failed to create user: ${signUpError?.message}`);
       }
 
       userId = signUpData.user.id;
-      
+
       results.push({
         step: 'Create Student',
         status: 'success',
@@ -93,7 +91,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
       });
     } else {
       userId = signInData.user.id;
-      
+
       results.push({
         step: 'Get Student',
         status: 'success',
@@ -104,7 +102,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 2: Get program details
 
-    
     const { data: program, error: programError } = await supabase
       .from('programs')
       .select('*')
@@ -124,7 +121,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 3: Create enrollment
 
-    
     const { data: existingEnrollment } = await supabase
       .from('enrollments')
       .select('*')
@@ -136,7 +132,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     if (existingEnrollment) {
       enrollmentId = existingEnrollment.id;
-      
+
       // Update to active
       await supabase
         .from('enrollments')
@@ -183,7 +179,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 4: Check AI instructor exists for program
 
-    
     const { data: instructor, error: instructorError } = await supabase
       .from('ai_instructors')
       .select('*')
@@ -192,7 +187,9 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
       .maybeSingle();
 
     if (instructorError) {
-      throw new Error(`Failed to query instructors: ${instructorError.message}`);
+      throw new Error(
+        `Failed to query instructors: ${instructorError.message}`
+      );
     }
 
     if (!instructor) {
@@ -212,7 +209,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 5: Assign AI instructor
 
-    
     if (instructor) {
       const { data: existingAssignment } = await supabase
         .from('ai_instructor_assignments')
@@ -241,7 +237,9 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
           .single();
 
         if (assignError || !assignment) {
-          throw new Error(`Failed to assign instructor: ${assignError?.message}`);
+          throw new Error(
+            `Failed to assign instructor: ${assignError?.message}`
+          );
         }
 
         results.push({
@@ -256,7 +254,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
           student_id: userId,
           program_slug: config.programSlug,
           action: 'ASSIGN_INSTRUCTOR',
-          details: { 
+          details: {
             instructor_slug: instructor.slug,
             source: 'autopilot_test',
           },
@@ -266,13 +264,14 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 6: Verify assignment
 
-    
     const { data: verifyAssignment } = await supabase
       .from('ai_instructor_assignments')
-      .select(`
+      .select(
+        `
         *,
         instructor:ai_instructors(*)
-      `)
+      `
+      )
       .eq('student_id', userId)
       .eq('program_slug', config.programSlug)
       .eq('status', 'active')
@@ -298,7 +297,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 7: Test chat conversation creation
 
-    
     if (instructor) {
       const { data: conversation, error: convError } = await supabase
         .from('ai_conversations')
@@ -327,16 +325,14 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
         });
 
         // Test message insertion
-        const { error: msgError } = await supabase
-          .from('ai_messages')
-          .insert({
-            conversation_id: conversation.id,
-            student_id: userId,
-            instructor_id: instructor.id,
-            role: 'student',
-            content: 'Test message from autopilot',
-            metadata: { source: 'autopilot_test' },
-          });
+        const { error: msgError } = await supabase.from('ai_messages').insert({
+          conversation_id: conversation.id,
+          student_id: userId,
+          instructor_id: instructor.id,
+          role: 'student',
+          content: 'Test message from autopilot',
+          metadata: { source: 'autopilot_test' },
+        });
 
         if (msgError) {
           results.push({
@@ -357,7 +353,6 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
     // STEP 8: Check audit log
 
-    
     const { data: auditLogs, error: auditError } = await supabase
       .from('ai_audit_log')
       .select('*')
@@ -380,31 +375,27 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
         data: { logCount: auditLogs?.length || 0 },
       });
     }
-
   } catch (data: unknown) {
     results.push({
       step: 'Test Execution',
       status: 'failed',
-      message: error.message || 'Unknown error',
-      error,
+      message:
+        (data instanceof Error ? data.message : String(data)) || 'Unknown data',
+      data,
     });
   }
 
   // Calculate summary
   const summary = {
     total: results.length,
-    passed: results.filter(r => r.status === 'success').length,
-    failed: results.filter(r => r.status === 'failed').length,
-    skipped: results.filter(r => r.status === 'skipped').length,
+    passed: results.filter((r) => r.status === 'success').length,
+    failed: results.filter((r) => r.status === 'failed').length,
+    skipped: results.filter((r) => r.status === 'skipped').length,
   };
 
   const success = summary.failed === 0 && summary.passed > 0;
 
   // Print summary
-
-
-
-
 
   return { success, results, summary };
 }
@@ -412,18 +403,18 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 // CLI execution
 if (require.main === module) {
   const config: EnrollmentTestConfig = {
-    studentEmail: process.env.TEST_STUDENT_EMAIL || 'test-student@autopilot.test',
+    studentEmail:
+      process.env.TEST_STUDENT_EMAIL || 'test-student@autopilot.test',
     studentPassword: process.env.TEST_STUDENT_PASSWORD || 'TestPassword123!',
     programSlug: process.env.TEST_PROGRAM_SLUG || 'barber-apprenticeship',
     skipPayment: true,
   };
 
   testEnrollmentFlow(config)
-    .then(result => {
-
-
+    .then((result) => {
       result.results.forEach((r, i) => {
-        const icon = r.status === 'success' ? '✅' : r.status === 'failed' ? '❌' : '⏭️';
+        const icon =
+          r.status === 'success' ? '✅' : r.status === 'failed' ? '❌' : '⏭️';
         if (r.data) {
         }
         if (r.error) {
@@ -432,7 +423,7 @@ if (require.main === module) {
 
       process.exit(result.success ? 0 : 1);
     })
-    .catch(error => {
+    .catch((error) => {
       // Error: $1
       process.exit(1);
     });

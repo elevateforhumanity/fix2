@@ -205,10 +205,10 @@ export async function POST(request: NextRequest) {
     // Error: $1
     return NextResponse.json(
       {
-        error: 'Failed to create checkout session',
+        err: 'Failed to create checkout session',
         details:
           process.env.NODE_ENV === 'development'
-            ? toErrorMessage(error)
+            ? toErrorMessage(err)
             : undefined,
       },
       { status: 500 }

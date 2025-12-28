@@ -25,7 +25,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
-    logger.error('Slow resources API error:', error);
+    logger.error(
+      'Slow resources API error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         success: false,

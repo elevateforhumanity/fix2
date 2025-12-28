@@ -67,7 +67,10 @@ export async function POST(req: Request) {
       data,
     });
   } catch (err: unknown) {
-    logger.error('[Acknowledge Handbook] Error:', err);
+    logger.error(
+      '[Acknowledge Handbook] Error:',
+      err instanceof Error ? err : new Error(String(err))
+    );
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

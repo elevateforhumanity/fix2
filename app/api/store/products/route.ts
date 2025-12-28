@@ -22,7 +22,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(data || []);
   } catch (error: unknown) {
-    logger.error('Get products error:', error);
+    logger.error(
+      'Get products error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to fetch products',

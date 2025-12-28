@@ -316,11 +316,11 @@ export async function POST(request: NextRequest) {
     // Error: $1
 
     // Handle specific Stripe errors
-    if (error.type === 'StripeCardError') {
+    if (err.type === 'StripeCardError') {
       return NextResponse.json(
         {
-          error: 'Card error',
-          message: toErrorMessage(error),
+          err: 'Card err',
+          message: toErrorMessage(err),
           code: 'CARD_ERROR',
         },
         { status: 400 }

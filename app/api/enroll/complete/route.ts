@@ -242,9 +242,9 @@ export async function POST(req: Request) {
       message: 'Enrollment completed successfully',
     });
   } catch (err: unknown) {
-    logger.error('Enrollment completion error', error);
+    logger.err('Enrollment completion err', err);
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Internal server error' },
+      { err: toErrorMessage(err) || 'Internal server err' },
       { status: 500 }
     );
   }

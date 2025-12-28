@@ -38,23 +38,23 @@ export async function POST(request: Request) {
 
     // Upsert opportunities to database
     const records = opportunities.map((item) => ({
-      sam_id: opp.noticeId || opp.opportunityId || opp.id,
-      notice_id: opp.noticeId,
-      title: opp.title,
-      description: opp.description,
-      type: opp.type || 'assistance',
-      agency: opp.fullParentPathName || opp.organizationName,
-      office: opp.officeAddress?.city,
-      naics_code: opp.naicsCode,
-      cfda_number: opp.cfdaNumber,
-      assistance_listing: opp.assistanceListing,
-      posted_date: opp.postedDate,
-      response_deadline: opp.responseDeadLine || opp.archiveDate,
-      archive_date: opp.archiveDate,
-      url: opp.uiLink,
-      attachment_url: opp.attachmentLink,
-      place_of_performance: opp.placeOfPerformance || {},
-      set_aside: opp.typeOfSetAside,
+      sam_id: item.noticeId || item.opportunityId || item.id,
+      notice_id: item.noticeId,
+      title: item.title,
+      description: item.description,
+      type: item.type || 'assistance',
+      agency: item.fullParentPathName || item.organizationName,
+      office: item.officeAddress?.city,
+      naics_code: item.naicsCode,
+      cfda_number: item.cfdaNumber,
+      assistance_listing: item.assistanceListing,
+      posted_date: item.postedDate,
+      response_deadline: item.responseDeadLine || item.archiveDate,
+      archive_date: item.archiveDate,
+      url: item.uiLink,
+      attachment_url: item.attachmentLink,
+      place_of_performance: item.placeOfPerformance || {},
+      set_aside: item.typeOfSetAside,
       raw_data: opp,
       last_synced_at: new Date().toISOString(),
     }));
@@ -91,11 +91,11 @@ export async function POST(request: Request) {
       })),
     });
   } catch (err: unknown) {
-    logger.error('SAM.gov sync failed:', error);
+    logger.err('SAM.gov sync failed:', err);
     return NextResponse.json(
       {
         success: false,
-        error: error.message,
+        err: err instanceof Error ? err.message : String(err),
       },
       { status: 500 }
     );

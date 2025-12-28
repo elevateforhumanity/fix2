@@ -25,7 +25,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ departments });
   } catch (error: unknown) {
-    logger.error('Error fetching departments:', error);
+    logger.error(
+      'Error fetching departments:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch departments' },
       { status: 500 }
@@ -80,7 +83,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ department }, { status: 201 });
   } catch (error: unknown) {
-    logger.error('Error creating department:', error);
+    logger.error(
+      'Error creating department:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create department' },
       { status: 500 }

@@ -33,7 +33,10 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (err: unknown) {
-    logger.error('GET /marketing/campaigns error', err);
+    logger.error(
+      'GET /marketing/campaigns error',
+      err instanceof Error ? err : new Error(String(err))
+    );
     return NextResponse.json(
       { error: (err as Error).message || 'Failed to fetch campaigns' },
       { status: 500 }
@@ -89,7 +92,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ campaign: data }, { status: 201 });
   } catch (err: unknown) {
-    logger.error('POST /marketing/campaigns error', err);
+    logger.error(
+      'POST /marketing/campaigns error',
+      err instanceof Error ? err : new Error(String(err))
+    );
     return NextResponse.json(
       { error: (err as Error).message || 'Failed to create campaign' },
       { status: 500 }

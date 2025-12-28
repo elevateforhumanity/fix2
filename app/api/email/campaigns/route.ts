@@ -16,7 +16,10 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ success: true, campaigns });
   } catch (error: unknown) {
-    logger.error('Error fetching campaigns:', error);
+    logger.error(
+      'Error fetching campaigns:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }
@@ -50,7 +53,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, campaign });
   } catch (error: unknown) {
-    logger.error('Error creating campaign:', error);
+    logger.error(
+      'Error creating campaign:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }

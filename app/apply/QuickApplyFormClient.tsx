@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 // app/apply/QuickApplyFormClient.tsx
@@ -137,7 +137,7 @@ Preferred Contact: ${form.preferredContact}`,
     } catch (err: unknown) {
       console.error('Application submission error:', err);
       setErrorMessage(
-        err.message ||
+        (err instanceof Error ? err.message : String(err)) ||
           "We're having a temporary issue submitting this form. Please call 317-314-3757 or use the Quick Inquiry form while we fix this."
       );
     } finally {

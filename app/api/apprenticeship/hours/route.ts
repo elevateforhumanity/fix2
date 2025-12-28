@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
@@ -12,19 +12,19 @@ export async function POST(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const { date_worked, hours, category, notes, program_slug } = body;
 
     if (!date_worked || !hours || !category || !program_slug) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    const { error } = await supabase.from("apprenticeship_hours").insert({
+    const { error } = await supabase.from('apprenticeship_hours').insert({
       student_id: user.id,
       program_slug,
       date_worked,
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     if (error) {
       // Error: $1
       return NextResponse.json(
-        { error: "Failed to log hours" },
+        { error: 'Failed to log hours' },
         { status: 500 }
       );
     }
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || "Failed to log hours" },
+      { err: toErrorMessage(err) || 'Failed to log hours' },
       { status: 500 }
     );
   }
@@ -60,28 +60,38 @@ export async function GET(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const { data: hours, error } = await supabase
-      .from("apprenticeship_hours")
-      .select("*")
-      .eq("student_id", user.id)
-      .order("date_worked", { ascending: false });
+      .from('apprenticeship_hours')
+      .select('*')
+      .eq('student_id', user.id)
+      .order('date_worked', { ascending: false });
 
     if (error) {
       // Error: $1
       return NextResponse.json(
-        { error: "Failed to load hours" },
+        { error: 'Failed to load hours' },
         { status: 500 }
       );
     }
 
     // Calculate totals
-    const totalHours = hours?.reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
-    const approvedHours = hours?.filter(h => h.approved).reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
-    const classroomHours = hours?.filter(h => h.category === 'classroom').reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
-    const onTheJobHours = hours?.filter(h => h.category === 'on-the-job').reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
+    const totalHours =
+      hours?.reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
+    const approvedHours =
+      hours
+        ?.filter((h) => h.approved)
+        .reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
+    const classroomHours =
+      hours
+        ?.filter((h) => h.category === 'classroom')
+        .reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
+    const onTheJobHours =
+      hours
+        ?.filter((h) => h.category === 'on-the-job')
+        .reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
 
     return NextResponse.json({
       hours: hours || [],
@@ -95,7 +105,7 @@ export async function GET(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: "Failed to load hours" },
+      { error: 'Failed to load hours' },
       { status: 500 }
     );
   }

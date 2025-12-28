@@ -70,7 +70,9 @@ export async function POST(req: NextRequest) {
         ? new URL(successUrl).origin
         : (req.headers.get('origin') ??
           process.env.NEXT_PUBLIC_SITE_URL ??
-          (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'));
+          (process.env.VERCEL_URL
+            ? `https://${process.env.VERCEL_URL}`
+            : 'http://localhost:3000'));
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
@@ -94,7 +96,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err: unknown) {
-    logger.error('[Elevate] Error in /api/checkout:', err);
+    logger.error(
+      '[Elevate] Error in /api/checkout:',
+      err instanceof Error ? err : new Error(String(err))
+    );
     return NextResponse.json(
       { error: 'Unable to create checkout session.' },
       { status: 500 }

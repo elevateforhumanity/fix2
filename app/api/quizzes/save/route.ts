@@ -73,7 +73,10 @@ export async function POST(request: NextRequest) {
       message: 'Quiz saved successfully',
     });
   } catch (error: unknown) {
-    logger.error('Error saving quiz:', error);
+    logger.error(
+      'Error saving quiz:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to save quiz' },
       { status: 500 }

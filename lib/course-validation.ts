@@ -4,6 +4,9 @@ export function validateCourse(json: string) {
     if (!data.title) throw new Error('Missing course title');
     return { ok: true, data };
   } catch (err: unknown) {
-    return { ok: false, error: err.message };
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : String(err),
+    };
   }
 }

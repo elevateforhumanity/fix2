@@ -104,7 +104,10 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error: unknown) {
-    logger.error('Course creation error:', error);
+    logger.error(
+      'Course creation error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create course' },
       { status: 500 }

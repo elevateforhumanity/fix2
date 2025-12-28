@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -8,7 +8,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 import {
-
   CheckCircle,
   ArrowRight,
   ArrowLeft,
@@ -51,7 +50,7 @@ export default function ApplyApprenticeshipPage() {
 
   const totalSteps = 4;
 
-  const updateField = (item) => {
+  const updateField = (field: string, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

@@ -170,7 +170,10 @@ export async function GET(req: Request) {
       },
     });
   } catch (error: unknown) {
-    logger.error('Analytics error:', error);
+    logger.error(
+      'Analytics error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }

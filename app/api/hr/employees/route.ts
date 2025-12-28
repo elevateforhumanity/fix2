@@ -61,7 +61,10 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error: unknown) {
-    logger.error('Error fetching employees:', error);
+    logger.error(
+      'Error fetching employees:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch employees' },
       { status: 500 }
@@ -169,7 +172,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ employee }, { status: 201 });
   } catch (error: unknown) {
-    logger.error('Error creating employee:', error);
+    logger.error(
+      'Error creating employee:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create employee' },
       { status: 500 }

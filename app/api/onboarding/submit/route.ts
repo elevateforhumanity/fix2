@@ -219,7 +219,10 @@ export async function POST(request: NextRequest) {
         : 'Onboarding saved. Please complete remaining items.',
     });
   } catch (error: unknown) {
-    logger.error('Onboarding submission error:', error);
+    logger.error(
+      'Onboarding submission error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: 'Failed to process onboarding', details: toErrorMessage(error) },
       { status: 500 }
@@ -262,7 +265,10 @@ export async function GET(request: NextRequest) {
       hasOnboarding: !!onboarding,
     });
   } catch (error: unknown) {
-    logger.error('Onboarding fetch error:', error);
+    logger.error(
+      'Onboarding fetch error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: 'Failed to fetch onboarding', details: toErrorMessage(error) },
       { status: 500 }

@@ -4,7 +4,13 @@ import { createAdminClient } from '@/lib/supabase/admin';
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { apprentice_id, rapids_id, status, registration_date, completion_date } = body;
+    const {
+      apprentice_id,
+      rapids_id,
+      status,
+      registration_date,
+      completion_date,
+    } = body;
 
     const supabase = createAdminClient();
 
@@ -38,7 +44,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, rapids: data });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }
 
@@ -57,6 +66,9 @@ export async function GET() {
 
     return NextResponse.json({ rapids: data });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }

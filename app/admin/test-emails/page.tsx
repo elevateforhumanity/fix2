@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -40,7 +39,9 @@ export default function TestEmailsPage() {
     } catch (err: unknown) {
       setResult({
         success: false,
-        message: err.message || 'Failed to send test email',
+        message:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to send test email',
       });
     } finally {
       setLoading(false);

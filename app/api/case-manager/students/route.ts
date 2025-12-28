@@ -1,5 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
-import { NextResponse } from "next/server";
+import { createClient } from '@/lib/supabase/server';
+import { NextResponse } from 'next/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET() {
@@ -10,40 +10,42 @@ export async function GET() {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const { data: profile } = await supabase
-      .from("user_profiles")
-      .select("role")
-      .eq("user_id", user.id)
+      .from('user_profiles')
+      .select('role')
+      .eq('user_id', user.id)
       .single();
 
-    if (!profile || profile.role !== "case_manager") {
+    if (!profile || profile.role !== 'case_manager') {
       return NextResponse.json(
-        { error: "Forbidden - requires case_manager role" },
+        { error: 'Forbidden - requires case_manager role' },
         { status: 403 }
       );
     }
 
     // Get students assigned to this case manager
     const { data: students, error } = await supabase
-      .from("user_profiles")
-      .select(`
+      .from('user_profiles')
+      .select(
+        `
         user_id,
         first_name,
         last_name,
         email,
         phone,
         created_at
-      `)
-      .eq("case_manager_id", user.id)
-      .eq("role", "student");
+      `
+      )
+      .eq('case_manager_id', user.id)
+      .eq('role', 'student');
 
     if (error) {
       // Error: $1
       return NextResponse.json(
-        { error: "Failed to load students" },
+        { error: 'Failed to load students' },
         { status: 500 }
       );
     }
@@ -53,29 +55,35 @@ export async function GET() {
       (students || []).map(async (student) => {
         // Get enrollments
         const { data: enrollments } = await supabase
-          .from("enrollments")
-          .select(`
+          .from('enrollments')
+          .select(
+            `
             id,
             status,
             enrolled_at,
             programs(name, slug)
-          `)
-          .eq("student_id", student.user_id);
+          `
+          )
+          .eq('student_id', student.user_id);
 
         // Get hours summary
         const { data: hours } = await supabase
-          .from("apprenticeship_hours")
-          .select("hours, approved")
-          .eq("student_id", student.user_id);
+          .from('apprenticeship_hours')
+          .select('hours, approved')
+          .eq('student_id', student.user_id);
 
-        const totalHours = hours?.reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
-        const approvedHours = hours?.filter(h => h.approved).reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
+        const totalHours =
+          hours?.reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
+        const approvedHours =
+          hours
+            ?.filter((h) => h.approved)
+            .reduce((sum, h) => sum + parseFloat(h.hours || 0), 0) || 0;
 
         // Get exam readiness
         const { data: readiness } = await supabase
-          .from("exam_readiness")
-          .select("*")
-          .eq("student_id", student.user_id)
+          .from('exam_readiness')
+          .select('*')
+          .eq('student_id', student.user_id)
           .single();
 
         return {
@@ -95,7 +103,7 @@ export async function GET() {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || "Failed to load students" },
+      { err: toErrorMessage(err) || 'Failed to load students' },
       { status: 500 }
     );
   }

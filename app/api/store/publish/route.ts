@@ -46,7 +46,10 @@ export async function POST(req: NextRequest) {
       productId: data.id,
     });
   } catch (error: unknown) {
-    logger.error('Failed to publish product:', error);
+    logger.error(
+      'Failed to publish product:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: 'Failed to publish product', message: toErrorMessage(error) },
       { status: 500 }
@@ -56,7 +59,9 @@ export async function POST(req: NextRequest) {
 
 async function createStripeProduct(product: Record<string, unknown>) {
   // Create Stripe product with pricing tiers
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', { apiVersion: '2025-10-29.clover' });
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+    apiVersion: '2025-10-29.clover',
+  });
 
   const stripeProduct = await stripe.products.create({
     name: product.title,

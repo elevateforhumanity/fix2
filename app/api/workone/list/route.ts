@@ -45,7 +45,11 @@ export async function GET(req: Request) {
     return NextResponse.json({ items: data || [] }, { status: 200 });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Internal server err',
+      },
       { status: 500 }
     );
   }

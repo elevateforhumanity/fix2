@@ -139,7 +139,11 @@ export async function POST(req: NextRequest) {
     });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to create invite' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to create invite',
+      },
       { status: 500 }
     );
   }
@@ -181,7 +185,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ invites });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch invites' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to fetch invites',
+      },
       { status: 500 }
     );
   }

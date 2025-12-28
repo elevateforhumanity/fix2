@@ -62,7 +62,10 @@ export async function POST(req: NextRequest) {
       // audioUrl,
     });
   } catch (error: unknown) {
-    logger.error('AI Instructor error:', error);
+    logger.error(
+      'AI Instructor error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
 
     // Fallback messages if API fails
     const fallbackMessages = {

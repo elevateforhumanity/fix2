@@ -56,7 +56,10 @@ export async function GET(req: Request) {
           processed,
         });
       } catch (error: unknown) {
-        logger.error(`Error processing workflow ${workflow.id}:`, error);
+        logger.error(
+          `Error processing workflow ${workflow.id}:`,
+          error instanceof Error ? error : new Error(String(error))
+        );
         results.push({
           workflowId: workflow.id,
           name: workflow.name,
@@ -71,7 +74,10 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: unknown) {
-    logger.error('Workflow processor error:', error);
+    logger.error(
+      'Workflow processor error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }
@@ -279,7 +285,10 @@ async function processPendingEmails(supabase: any, workflow: any, now: Date) {
 
       processed++;
     } catch (error: unknown) {
-      logger.error(`Error processing enrollment ${enrollment.id}:`, error);
+      logger.error(
+        `Error processing enrollment ${enrollment.id}:`,
+        error instanceof Error ? error : new Error(String(error))
+      );
 
       // Log failure
       await supabase.from('email_logs').insert({

@@ -69,7 +69,7 @@ export class HsiAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to create HSI account', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -112,7 +112,7 @@ export class HsiAPI extends BasePartnerAPI {
       };
     } catch (error: unknown) {
       this.log('error', 'Failed to enroll in HSI course', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -152,7 +152,7 @@ export class HsiAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch HSI progress', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -186,7 +186,7 @@ export class HsiAPI extends BasePartnerAPI {
         return null;
       }
       this.log('error', 'Failed to fetch HSI certificate', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }
@@ -212,7 +212,7 @@ export class HsiAPI extends BasePartnerAPI {
       return response.data.launchUrl;
     } catch (error: unknown) {
       this.log('error', 'Failed to generate HSI SSO URL', {
-        error: error.message,
+        error: error instanceof Error ? error.message : String(error),
       });
       throw error;
     }

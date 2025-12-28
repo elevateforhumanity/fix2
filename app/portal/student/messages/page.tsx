@@ -97,16 +97,16 @@ export default async function MessagesPage() {
               <div className="divide-y max-h-[600px] overflow-y-auto">
                 {conversations && conversations.length > 0 ? (
                   conversations.map((item) => {
-                    const lastMessage = conversation.messages?.[0];
+                    const lastMessage = item.messages?.[0];
                     const otherParticipant =
-                      conversation.participant1_id === user.id
-                        ? conversation.participant2
-                        : conversation.participant1;
+                      item.participant1_id === user.id
+                        ? item.participant2
+                        : item.participant1;
 
                     return (
                       <Link
-                        key={conversation.id}
-                        href={`/portal/student/messages/${conversation.id}`}
+                        key={item.id}
+                        href={`/portal/student/messages/${item.id}`}
                         className="block p-4 hover:bg-gray-50 transition"
                       >
                         <div className="flex items-start gap-3">
@@ -130,9 +130,9 @@ export default async function MessagesPage() {
                               {lastMessage?.content || 'No messages yet'}
                             </p>
                           </div>
-                          {conversation.unread_count > 0 && (
+                          {item.unread_count > 0 && (
                             <span className="bg-brand-blue-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                              {conversation.unread_count}
+                              {item.unread_count}
                             </span>
                           )}
                         </div>

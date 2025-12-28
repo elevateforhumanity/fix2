@@ -51,12 +51,11 @@ export async function POST(req: Request) {
           name: creatorProfile.full_name || 'Applicant',
           reason: reason || 'Application does not meet requirements',
         });
-      } catch (emailError) {
-      }
+      } catch (emailError) {}
     }
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
-    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+    return NextResponse.json({ err: toErrorMessage(err) }, { status: 500 });
   }
 }

@@ -263,33 +263,33 @@ export default async function StaffPortalPage() {
             <div className="space-y-4">
               {recentEnrollments.map((item) => (
                 <div
-                  key={enrollment.id}
+                  key={item.id}
                   className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"
                 >
                   <div>
                     <p className="font-semibold text-slate-900">
-                      {enrollment.profiles?.full_name ||
-                        enrollment.profiles?.email ||
+                      {item.profiles?.full_name ||
+                        item.profiles?.email ||
                         'Unknown'}
                     </p>
                     <p className="text-sm text-slate-600">
-                      {enrollment.courses?.title || 'Unknown Course'}
+                      {item.courses?.title || 'Unknown Course'}
                     </p>
                   </div>
                   <div className="text-right">
                     <span
                       className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                        enrollment.status === 'active'
+                        item.status === 'active'
                           ? 'bg-brand-green-100 text-green-800'
-                          : enrollment.status === 'completed'
+                          : item.status === 'completed'
                             ? 'bg-blue-100 text-blue-800'
                             : 'bg-slate-100 text-slate-800'
                       }`}
                     >
-                      {enrollment.status}
+                      {item.status}
                     </span>
                     <p className="text-xs text-slate-500 mt-1">
-                      {new Date(enrollment.created_at).toLocaleDateString()}
+                      {new Date(item.created_at).toLocaleDateString()}
                     </p>
                   </div>
                 </div>

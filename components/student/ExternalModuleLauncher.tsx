@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 /**
@@ -66,7 +66,9 @@ export default function ExternalModuleLauncher({
       );
     } catch (err: unknown) {
       // Error: $1
-      alert(`Upload failed: ${err.message}`);
+      alert(
+        `Upload failed: ${err instanceof Error ? err.message : String(err)}`
+      );
     } finally {
       setUploading(false);
     }

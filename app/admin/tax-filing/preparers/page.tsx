@@ -82,13 +82,13 @@ export default async function TaxPreparersPage() {
           {preparers && preparers.length > 0 ? (
             <div className="divide-y divide-gray-200">
               {preparers.map((item) => (
-                <div key={preparer.id} className="px-6 py-4 hover:bg-gray-50">
+                <div key={item.id} className="px-6 py-4 hover:bg-gray-50">
                   <div className="flex justify-between items-start">
                     <div>
                       <h3 className="font-semibold text-gray-900">
-                        {preparer.full_name}
+                        {item.full_name}
                       </h3>
-                      <p className="text-sm text-gray-600">{preparer.email}</p>
+                      <p className="text-sm text-gray-600">{item.email}</p>
                       <div className="mt-2 flex gap-2">
                         <span className="px-2 py-1 bg-brand-green-100 text-green-800 text-xs rounded">
                           VITA Certified
@@ -99,7 +99,7 @@ export default async function TaxPreparersPage() {
                       </div>
                     </div>
                     <Link
-                      href={`/admin/users/${preparer.id}`}
+                      href={`/admin/users/${item.id}`}
                       className="text-brand-blue-600 hover:text-blue-800 text-sm"
                     >
                       View Profile →

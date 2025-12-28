@@ -4,7 +4,8 @@ import { withAuth } from '@/lib/with-auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export const GET = withAuth(
-  async (req, context, user) => {
+  async (req, context) => {
+    const user = context.user;
     try {
       const supabase = await createServerSupabaseClient();
 

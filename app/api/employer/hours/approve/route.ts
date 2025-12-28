@@ -79,7 +79,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to approve hours' },
+      { err: toErrorMessage(err) || 'Failed to approve hours' },
       { status: 500 }
     );
   }

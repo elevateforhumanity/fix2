@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
     if (!hour_id) {
       return NextResponse.json(
-        { error: "Hour ID is required" },
+        { error: 'Hour ID is required' },
         { status: 400 }
       );
     }
@@ -19,37 +19,37 @@ export async function POST(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Check if user is admin/sponsor/employer
     const { data: profile } = await supabase
-      .from("user_profiles")
-      .select("role")
-      .eq("user_id", user.id)
+      .from('user_profiles')
+      .select('role')
+      .eq('user_id', user.id)
       .single();
 
-    if (!profile || !["admin", "sponsor", "employer"].includes(profile.role)) {
+    if (!profile || !['admin', 'sponsor', 'employer'].includes(profile.role)) {
       return NextResponse.json(
-        { error: "Forbidden - requires admin/sponsor/employer role" },
+        { error: 'Forbidden - requires admin/sponsor/employer role' },
         { status: 403 }
       );
     }
 
     // Approve the hours
     const { error } = await supabase
-      .from("apprenticeship_hours")
+      .from('apprenticeship_hours')
       .update({
         approved: true,
         approved_by: user.id,
         approved_at: new Date().toISOString(),
       })
-      .eq("id", hour_id);
+      .eq('id', hour_id);
 
     if (error) {
       // Error: $1
       return NextResponse.json(
-        { error: "Failed to approve hours" },
+        { error: 'Failed to approve hours' },
         { status: 500 }
       );
     }
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || "Failed to approve hours" },
+      { err: toErrorMessage(err) || 'Failed to approve hours' },
       { status: 500 }
     );
   }
@@ -71,7 +71,7 @@ export async function PUT(req: Request) {
 
     if (!hour_ids || !Array.isArray(hour_ids)) {
       return NextResponse.json(
-        { error: "Hour IDs array is required" },
+        { error: 'Hour IDs array is required' },
         { status: 400 }
       );
     }
@@ -82,37 +82,37 @@ export async function PUT(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Check if user is admin/sponsor/employer
     const { data: profile } = await supabase
-      .from("user_profiles")
-      .select("role")
-      .eq("user_id", user.id)
+      .from('user_profiles')
+      .select('role')
+      .eq('user_id', user.id)
       .single();
 
-    if (!profile || !["admin", "sponsor", "employer"].includes(profile.role)) {
+    if (!profile || !['admin', 'sponsor', 'employer'].includes(profile.role)) {
       return NextResponse.json(
-        { error: "Forbidden - requires admin/sponsor/employer role" },
+        { error: 'Forbidden - requires admin/sponsor/employer role' },
         { status: 403 }
       );
     }
 
     // Bulk approve
     const { error } = await supabase
-      .from("apprenticeship_hours")
+      .from('apprenticeship_hours')
       .update({
         approved: true,
         approved_by: user.id,
         approved_at: new Date().toISOString(),
       })
-      .in("id", hour_ids);
+      .in('id', hour_ids);
 
     if (error) {
       // Error: $1
       return NextResponse.json(
-        { error: "Failed to approve hours" },
+        { error: 'Failed to approve hours' },
         { status: 500 }
       );
     }
@@ -121,7 +121,7 @@ export async function PUT(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || "Failed to approve hours" },
+      { err: toErrorMessage(err) || 'Failed to approve hours' },
       { status: 500 }
     );
   }

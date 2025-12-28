@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -64,7 +64,10 @@ export default function VideoUploader({
       }
     } catch (err: unknown) {
       // Error: $1
-      setError(err.message || 'Failed to upload video');
+      setError(
+        (err instanceof Error ? err.message : String(err)) ||
+          'Failed to upload video'
+      );
     } finally {
       setUploading(false);
       setEnhancing(false);

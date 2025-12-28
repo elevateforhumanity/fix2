@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
-
 
 export default function TestEnrollmentPage() {
   const [students, setStudents] = useState<any[]>([]);
@@ -38,7 +37,7 @@ export default function TestEnrollmentPage() {
       const data = await response.json();
       setResult(data);
     } catch (err: unknown) {
-      setResult({ error: error.message });
+      setResult({ err: err instanceof Error ? err.message : String(err) });
     } finally {
       setLoading(false);
     }

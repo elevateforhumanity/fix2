@@ -111,7 +111,10 @@ export async function POST(request: NextRequest) {
       });
     }
   } catch (error: unknown) {
-    logger.error('Send welcome email error:', error);
+    logger.error(
+      'Send welcome email error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to send email' },
       { status: 500 }

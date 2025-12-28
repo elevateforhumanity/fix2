@@ -4,7 +4,14 @@ import { createAdminClient } from '@/lib/supabase/admin';
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { employer_id, documents, business_name, contact_name, contact_email, contact_phone } = body;
+    const {
+      employer_id,
+      documents,
+      business_name,
+      contact_name,
+      contact_email,
+      contact_phone,
+    } = body;
 
     const supabase = createAdminClient();
 
@@ -47,12 +54,14 @@ export async function POST(req: Request) {
           `,
         }),
       });
-    } catch (emailError) {
-    }
+    } catch (emailError) {}
 
     return NextResponse.json({ success: true, onboarding: data });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }
 
@@ -71,6 +80,9 @@ export async function GET() {
 
     return NextResponse.json({ onboardings: data });
   } catch (err: unknown) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { err: err instanceof Error ? err.message : String(err) },
+      { status: 500 }
+    );
   }
 }

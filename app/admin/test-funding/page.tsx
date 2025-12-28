@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState } from 'react';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -37,7 +36,7 @@ export default function TestFundingPage() {
         window.open(data.url, '_blank');
       }
     } catch (err: unknown) {
-      setResult({ error: error.message });
+      setResult({ err: err instanceof Error ? err.message : String(err) });
     } finally {
       setLoading(false);
     }

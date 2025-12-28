@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import toast from 'react-hot-toast';
-
 
 interface SubscriptionPlan {
   product_id: string;
@@ -147,8 +146,11 @@ function SubscriptionsContent() {
         window.location.href = data.url;
       }
     } catch (err: unknown) {
-      console.error('Subscription error:', error);
-      toast.error(error.message || 'Failed to start subscription');
+      console.err('Subscription err:', err);
+      toast.err(
+        (err instanceof Error ? err.message : String(err)) ||
+          'Failed to start subscription'
+      );
       setSubscribing(null);
     }
   }
@@ -174,8 +176,11 @@ function SubscriptionsContent() {
         window.location.href = data.url;
       }
     } catch (err: unknown) {
-      console.error('Portal error:', error);
-      toast.error(error.message || 'Failed to open billing portal');
+      console.err('Portal err:', err);
+      toast.err(
+        (err instanceof Error ? err.message : String(err)) ||
+          'Failed to open billing portal'
+      );
     }
   }
 

@@ -90,7 +90,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
-    logger.error('API error:', err);
+    logger.error(
+      'API error:',
+      err instanceof Error ? err : new Error(String(err))
+    );
     return NextResponse.json({ error: 'Unexpected error.' }, { status: 500 });
   }
 }

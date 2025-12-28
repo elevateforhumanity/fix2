@@ -51,7 +51,10 @@ export async function GET(
 
     return NextResponse.json({ course });
   } catch (error: unknown) {
-    logger.error('Course fetch error:', error);
+    logger.error(
+      'Course fetch error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch course' },
       { status: 500 }
@@ -104,7 +107,10 @@ export async function PATCH(
 
     return NextResponse.json({ course });
   } catch (error: unknown) {
-    logger.error('Course update error:', error);
+    logger.error(
+      'Course update error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to update course' },
       { status: 500 }
@@ -156,7 +162,10 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
-    logger.error('Course delete error:', error);
+    logger.error(
+      'Course delete error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to delete course' },
       { status: 500 }

@@ -2,17 +2,19 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { logEmailDelivery } from '@/lib/email/monitor';
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export async function POST(req: Request) {
   const startTime = Date.now();
   let emailTo = '';
   let emailSubject = '';
-  
+
   try {
     const body = await req.json();
     const { to, subject, html, text } = body;
-    
+
     emailTo = Array.isArray(to) ? to[0] : to;
     emailSubject = subject;
 
@@ -25,7 +27,6 @@ export async function POST(req: Request) {
 
     // If no RESEND_API_KEY, log and return success (dev mode)
     if (!resend) {
-      
       // Log as pending in dev mode
       await logEmailDelivery({
         to: emailTo,
@@ -33,10 +34,10 @@ export async function POST(req: Request) {
         status: 'pending',
         provider: 'resend',
       });
-      
-      return NextResponse.json({ 
-        ok: true, 
-        message: 'Email logged (no API key configured)' 
+
+      return NextResponse.json({
+        ok: true,
+        message: 'Email logged (no API key configured)',
       });
     }
 
@@ -49,7 +50,6 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      
       // Log failure
       await logEmailDelivery({
         to: emailTo,
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
         provider: 'resend',
         error_message: error.message || 'Unknown error',
       });
-      
+
       return NextResponse.json(
         { error: 'Failed to send email' },
         { status: 500 }
@@ -78,7 +78,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true, id: data?.id });
   } catch (err: unknown) {
-    
     // Log failure
     if (emailTo && emailSubject) {
       await logEmailDelivery({
@@ -86,10 +85,12 @@ export async function POST(req: Request) {
         subject: emailSubject,
         status: 'failed',
         provider: 'resend',
-        error_message: err.message || 'Unexpected error',
+        error_message:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Unexpected error',
       });
     }
-    
+
     return NextResponse.json(
       { error: 'Unexpected error sending email' },
       { status: 500 }

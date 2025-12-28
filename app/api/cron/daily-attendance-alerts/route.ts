@@ -28,7 +28,6 @@ export async function POST(request: NextRequest) {
     yesterday.setDate(yesterday.getDate() - 1);
     const ymd = yesterday.toISOString().slice(0, 10);
 
-
     // Call the database function
     const { data, error } = await supabase.rpc('run_daily_attendance_alerts', {
       p_date: ymd,
@@ -51,11 +50,10 @@ export async function POST(request: NextRequest) {
       critical_count: 0,
     };
 
-
     // Optional: Send daily digest emails here
     if (result.alert_count > 0) {
       // Trigger daily digest email campaign
-            // await sendDailyDigestEmails(supabase, ymd);
+      // await sendDailyDigestEmails(supabase, ymd);
     }
 
     return NextResponse.json({
@@ -70,7 +68,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         ok: false,
-        error: error.message || 'Internal server error',
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Internal server err',
       },
       { status: 500 }
     );

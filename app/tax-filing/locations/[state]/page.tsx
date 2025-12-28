@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-
 const stateData: Record<string, any> = {
   indiana: {
     name: 'Indiana',
@@ -62,26 +61,28 @@ export async function generateMetadata({
   };
 }
 
-export default function StatePage() {
-  if (!state) {
+export default function StatePage({ params }: { params: { state: string } }) {
+  const stateInfo = stateData[params.state];
+
+  if (!stateInfo) {
     notFound();
   }
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: `Elevate Tax Filing - ${state.name}`,
-    description: `Professional tax preparation services in ${state.name}`,
+    name: `Elevate Tax Filing - ${stateInfo.name}`,
+    description: `Professional tax preparation services in ${stateInfo.name}`,
     areaServed: {
       '@type': 'State',
-      name: state.name,
+      name: stateInfo.name,
     },
     priceRange: '$100',
     telephone: '+1-317-314-3757',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: state.preparers * 12,
+      reviewCount: stateInfo.preparers * 12,
     },
   };
 
@@ -89,7 +90,9 @@ export default function StatePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: sanitizeHtml(JSON.stringify(structuredData)) }}
+        dangerouslySetInnerHTML={{
+          __html: sanitizeHtml(JSON.stringify(structuredData)),
+        }}
       />
 
       <div className="min-h-screen bg-gray-50">
@@ -133,7 +136,11 @@ export default function StatePage() {
         {/* Hero */}
         <section className="   text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav role="navigation" aria-label="Main navigation" className="text-sm mb-4">
+            <nav
+              role="navigation"
+              aria-label="Main navigation"
+              className="text-sm mb-4"
+            >
               <Link
                 href="/tax-filing/locations"
                 className="text-blue-200 hover:text-white"
@@ -141,28 +148,29 @@ export default function StatePage() {
                 All Locations
               </Link>
               <span className="mx-2">/</span>
-              <span>{state.name}</span>
+              <span>{stateInfo.name}</span>
             </nav>
             <h1 className="text-5xl font-bold mb-4 text-3xl md:text-4xl lg:text-5xl">
-              in {state.name}
+              in {stateInfo.name}
             </h1>
             <p className="text-base md:text-lg text-blue-100 mb-6">
               @ts-expect-error TS2304: Cannot find name 'state'.
-              {state.preparers}+ certified tax preparers across {state.name}.
-              Drake Software certified. $100 flat fee for federal + state.
+              {stateInfo.preparers}+ certified tax preparers across{' '}
+              {stateInfo.name}. Drake Software certified. $100 flat fee for
+              federal + stateInfo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="/tax-filing/start"
                 className="inline-block bg-white text-brand-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 font-bold text-center"
               >
-                {state.name} Taxes Now
+                {stateInfo.name} Taxes Now
               </a>
               <a
                 href="/tax-filing/join-team"
                 className="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg hover:bg-yellow-300 font-bold text-center"
               >
-                Tax Preparer in {state.name}
+                Tax Preparer in {stateInfo.name}
               </a>
             </div>
           </div>
@@ -174,13 +182,13 @@ export default function StatePage() {
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-brand-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
-                  {state.preparers}+
+                  {stateInfo.preparers}+
                 </div>
                 <div className="text-gray-600">Tax Preparers</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-brand-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
-                  {state.cities.length}
+                  {stateInfo.cities.length}
                 </div>
                 <div className="text-gray-600">Cities Covered</div>
               </div>
@@ -204,17 +212,17 @@ export default function StatePage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
-              Preparers by City in {state.name}
+              Preparers by City in {stateInfo.name}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {state.cities.map((item) => (
+              {stateInfo.cities.map((item) => (
                 <div
                   key={city.name}
                   className="bg-white rounded-lg shadow-lg p-6 border-2 border-gray-100 hover:border-blue-500 transition-all"
                 >
                   <h3 className="text-lg md:text-lg font-bold text-gray-900 mb-2">
-                    {city.name}, {state.abbreviation}
+                    {city.name}, {stateInfo.abbreviation}
                   </h3>
                   <div className="flex items-center mb-3">
                     <span className="text-yellow-400 mr-1">★★★★★</span>
@@ -247,7 +255,7 @@ export default function StatePage() {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
-              {state.name} Tax Information
+              {stateInfo.name} Tax Information
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -261,25 +269,25 @@ export default function StatePage() {
                       State Income Tax Rate:
                     </span>
                     <span className="text-brand-blue-600 font-bold">
-                      {state.taxInfo.stateTaxRate}
+                      {stateInfo.taxInfo.stateTaxRate}
                     </span>
                   </div>
                   <div className="flex justify-between border-b pb-3">
                     <span className="font-semibold">Filing Deadline:</span>
                     <span className="text-brand-blue-600 font-bold">
-                      {state.taxInfo.filingDeadline}
+                      {stateInfo.taxInfo.filingDeadline}
                     </span>
                   </div>
                   <div className="flex justify-between border-b pb-3">
                     <span className="font-semibold">Standard Deduction:</span>
                     <span className="text-brand-blue-600 font-bold">
-                      {state.taxInfo.standardDeduction}
+                      {stateInfo.taxInfo.standardDeduction}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-semibold">Population:</span>
                     <span className="text-brand-blue-600 font-bold">
-                      {state.population}
+                      {stateInfo.population}
                     </span>
                   </div>
                 </div>
@@ -287,10 +295,10 @@ export default function StatePage() {
 
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <h3 className="text-lg md:text-lg font-bold mb-6">
-                  {state.name} Tax Credits & Deductions
+                  {stateInfo.name} Tax Credits & Deductions
                 </h3>
                 <ul className="space-y-3">
-                  {state.taxInfo.specialCredits.map((credit: string) => (
+                  {stateInfo.taxInfo.specialCredits.map((credit: string) => (
                     <li key={credit} className="flex items-start">
                       <span className="text-green-500 mr-2">✓</span>
                       <span>{credit}</span>
@@ -299,7 +307,7 @@ export default function StatePage() {
                 </ul>
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                   <p className="text-sm text-blue-900">
-                    <strong>Our {state.name} tax experts</strong> know all
+                    <strong>Our {stateInfo.name} tax experts</strong> know all
                     state-specific credits and deductions to maximize your
                     refund.
                   </p>
@@ -313,7 +321,7 @@ export default function StatePage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
-              Us for {state.name} Tax Filing?
+              Us for {stateInfo.name} Tax Filing?
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -322,11 +330,11 @@ export default function StatePage() {
                   <span className="text-3xl">🏆</span>
                 </div>
                 <h3 className="text-lg font-bold mb-3">
-                  {state.name} Experts
+                  {stateInfo.name} Experts
                 </h3>
                 <p className="text-gray-600">
-                  preparers live and work in {state.name}. They know state tax
-                  laws inside and out.
+                  preparers live and work in {stateInfo.name}. They know state
+                  tax laws inside and out.
                 </p>
               </div>
 
@@ -336,7 +344,7 @@ export default function StatePage() {
                 </div>
                 <h3 className="text-lg font-bold mb-3">$100 Flat Fee</h3>
                 <p className="text-gray-600">
-                  + {state.name} state return included. No hidden fees or
+                  + {stateInfo.name} state return included. No hidden fees or
                   surprises.
                 </p>
               </div>
@@ -359,7 +367,7 @@ export default function StatePage() {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
-              {state.name} Residents Say
+              {stateInfo.name} Residents Say
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -372,15 +380,15 @@ export default function StatePage() {
                     <div className="font-bold">John D.</div>
                     <div className="text-sm text-gray-600">
                       @ts-expect-error TS2304: Cannot find name 'state'.
-                      {state.capital}, {state.abbreviation}
+                      {stateInfo.capital}, {stateInfo.abbreviation}
                     </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  tax service in {state.name}! Got my refund in 10 days. //
+                  tax service in {stateInfo.name}! Got my refund in 10 days. //
                   @ts-expect-error TS2304: Cannot find name 'state'. The
-                  preparer knew all the {state.name} tax credits I qualified
+                  preparer knew all the {stateInfo.name} tax credits I qualified
                   for."
                 </p>
               </div>
@@ -394,7 +402,7 @@ export default function StatePage() {
                     <div className="font-bold">Sarah M.</div>
                     <div className="text-sm text-gray-600">
                       @ts-expect-error TS2304: Cannot find name 'state'.
-                      {state.cities[1].name}, {state.abbreviation}
+                      {stateInfo.cities[1].name}, {stateInfo.abbreviation}
                     </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
@@ -414,13 +422,13 @@ export default function StatePage() {
                     <div className="font-bold">Mike T.</div>
                     <div className="text-sm text-gray-600">
                       @ts-expect-error TS2304: Cannot find name 'state'.
-                      {state.cities[2].name}, {state.abbreviation}
+                      {stateInfo.cities[2].name}, {stateInfo.abbreviation}
                     </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  my {state.name} taxes in 20 minutes. Expert reviewed
+                  my {stateInfo.name} taxes in 20 minutes. Expert reviewed
                   everything. Got $500 more back than last year!"
                 </p>
               </div>
@@ -432,18 +440,18 @@ export default function StatePage() {
         <section className="py-20    text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
-              File Your {state.name} Taxes?
+              File Your {stateInfo.name} Taxes?
             </h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              thousands of {state.name} residents who've saved money with our
-              $100 flat-fee tax filing
+              thousands of {stateInfo.name} residents who've saved money with
+              our $100 flat-fee tax filing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/tax-filing/start"
                 className="inline-block bg-white text-brand-blue-600 px-12 py-4 rounded-lg hover:bg-blue-50 font-bold text-xl"
               >
-                {state.name} Tax Return
+                {stateInfo.name} Tax Return
               </a>
               <a
                 href="tel:3173143757"

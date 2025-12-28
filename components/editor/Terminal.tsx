@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -64,7 +64,10 @@ export default function Terminal({ onCommand }: TerminalProps) {
     } catch (error: unknown) {
       setHistory((prev) => [
         ...prev,
-        { type: 'output', text: `Error: ${error.message}` },
+        {
+          type: 'output',
+          text: `Error: ${error instanceof Error ? error.message : String(error)}`,
+        },
       ]);
     } finally {
       setIsProcessing(false);

@@ -48,7 +48,7 @@ export async function GET() {
       {
         ok: false,
         service: 'marketplace',
-        error: toErrorMessage(error),
+        err: toErrorMessage(err),
       },
       { status: 500 }
     );

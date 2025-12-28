@@ -116,7 +116,7 @@ export class HttpClient {
       }
 
       throw new PartnerAPIError(
-        `Network error: ${error.message}`,
+        `Network error: ${error instanceof Error ? error.message : String(error)}`,
         undefined,
         error
       );

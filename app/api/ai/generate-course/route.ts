@@ -84,7 +84,10 @@ export async function POST(req: NextRequest) {
       success: true,
     });
   } catch (error: unknown) {
-    logger.error('AI generation error:', error);
+    logger.error(
+      'AI generation error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
 
     return NextResponse.json(
       {

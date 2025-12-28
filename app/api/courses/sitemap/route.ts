@@ -76,7 +76,10 @@ export async function GET(req: NextRequest) {
       totalFiles: courseFiles.length,
     });
   } catch (error: unknown) {
-    logger.error('Generate sitemap error:', error);
+    logger.error(
+      'Generate sitemap error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: 'Failed to generate sitemap', message: toErrorMessage(error) },
       { status: 500 }

@@ -61,7 +61,10 @@ export async function POST(req: Request) {
       cloneUrl: result.cloneUrl,
     });
   } catch (error: unknown) {
-    logger.error('Clone error:', error);
+    logger.error(
+      'Clone error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return Response.json({ error: toErrorMessage(error) }, { status: 500 });
   }
 }

@@ -11,15 +11,20 @@ export async function POST(req: Request) {
   try {
     // Check if Stripe is configured
     if (!process.env.STRIPE_SECRET_KEY) {
-      return NextResponse.json({ 
-        error: 'Payment system not configured. Please contact support.' 
-      }, { status: 503 });
+      return NextResponse.json(
+        {
+          error: 'Payment system not configured. Please contact support.',
+        },
+        { status: 503 }
+      );
     }
 
     // Get authenticated user and tenant
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     let tenantId: string | null = null;
     if (user) {
       const { data: membership } = await supabase
@@ -35,10 +40,15 @@ export async function POST(req: Request) {
     let customerEmail: string | null = null;
 
     // Support both form POST and JSON
-    if (contentType.includes('application/x-www-form-urlencoded') || contentType.includes('multipart/form-data')) {
+    if (
+      contentType.includes('application/x-www-form-urlencoded') ||
+      contentType.includes('multipart/form-data')
+    ) {
       const form = await req.formData();
       productId = String(form.get('productId') || '');
-      customerEmail = form.get('customerEmail') ? String(form.get('customerEmail')) : null;
+      customerEmail = form.get('customerEmail')
+        ? String(form.get('customerEmail'))
+        : null;
     } else {
       const body = await req.json().catch(() => ({}));
       productId = body?.productId ?? null;
@@ -55,15 +65,21 @@ export async function POST(req: Request) {
     }
 
     if (product.requiresApproval) {
-      return NextResponse.json({ error: 'This license requires approval. Please contact us.' }, { status: 403 });
+      return NextResponse.json(
+        { error: 'This license requires approval. Please contact us.' },
+        { status: 403 }
+      );
     }
 
     // Check if Stripe Price ID is configured
     if (!isPriceConfigured(productId)) {
       // Error logged
-      return NextResponse.json({ 
-        error: 'Product not available for purchase. Please contact support.' 
-      }, { status: 500 });
+      return NextResponse.json(
+        {
+          error: 'Product not available for purchase. Please contact support.',
+        },
+        { status: 500 }
+      );
     }
 
     const priceId = STRIPE_PRICE_IDS[productId];
@@ -71,9 +87,9 @@ export async function POST(req: Request) {
 
     // Map product slug to plan name for license activation
     const planNameMap: Record<string, string> = {
-      'starter': 'starter',
-      'professional': 'professional',
-      'enterprise': 'enterprise',
+      starter: 'starter',
+      professional: 'professional',
+      enterprise: 'enterprise',
     };
     const planName = planNameMap[productId] || 'starter';
 
@@ -107,7 +123,10 @@ export async function POST(req: Request) {
     });
 
     if (!session.url) {
-      return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to create checkout session' },
+        { status: 500 }
+      );
     }
 
     // Redirect to Stripe Checkout
@@ -115,7 +134,7 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Internal server error' },
+      { err: toErrorMessage(err) || 'Internal server err' },
       { status: 500 }
     );
   }

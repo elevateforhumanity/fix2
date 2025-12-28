@@ -1,9 +1,9 @@
 /**
  * Finalize Enrollment Payment
- * 
+ *
  * This endpoint creates a Stripe checkout session ONLY when enrollment is finalized.
  * It should be called when enrollment status transitions to 'approved' or 'ready_to_start'.
- * 
+ *
  * Payment Modes:
  * - sponsored: Elevate pays partner (charge Elevate's saved payment method)
  * - self_pay: Student pays (charge student via checkout)
@@ -167,7 +167,10 @@ export async function POST(req: Request) {
         .single();
 
       if (!enrollment) {
-        return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
+        return NextResponse.json(
+          { error: 'Enrollment not found' },
+          { status: 404 }
+        );
       }
 
       // Create Stripe invoice for employer
@@ -257,8 +260,10 @@ export async function POST(req: Request) {
         course_id: enrollment.course.id,
         payment_mode: paymentMode,
         partner_id: enrollment.course.partner_id || '',
-        wholesale_cost_cents: enrollment.course.wholesale_cost_cents?.toString() || '0',
-        retail_price_cents: enrollment.course.retail_price_cents?.toString() || '0',
+        wholesale_cost_cents:
+          enrollment.course.wholesale_cost_cents?.toString() || '0',
+        retail_price_cents:
+          enrollment.course.retail_price_cents?.toString() || '0',
       },
       // Enable payment methods
       payment_method_types: ['card', 'klarna', 'afterpay_clearpay'],
@@ -308,9 +313,13 @@ export async function POST(req: Request) {
       amountCents: amountCents,
     });
   } catch (err: unknown) {
-    logger.error('Payment finalization error:', error);
+    logger.err('Payment finalization err:', err);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Internal server err',
+      },
       { status: 500 }
     );
   }

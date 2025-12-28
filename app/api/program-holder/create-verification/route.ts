@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import Stripe from 'stripe';
 
-const stripe = process.env.STRIPE_SECRET_KEY 
+const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2025-10-29.clover',
     })
@@ -11,7 +11,10 @@ const stripe = process.env.STRIPE_SECRET_KEY
 export async function POST(request: NextRequest) {
   try {
     if (!stripe) {
-      return NextResponse.json({ error: 'Stripe not configured' }, { status: 503 });
+      return NextResponse.json(
+        { error: 'Stripe not configured' },
+        { status: 503 }
+      );
     }
 
     const { userId } = await request.json();
@@ -78,7 +81,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ url: session.url });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to create verification session' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to create verification session',
+      },
       { status: 500 }
     );
   }

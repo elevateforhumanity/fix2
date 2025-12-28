@@ -86,7 +86,7 @@ export async function GET(req: Request) {
   } catch (err: unknown) {
     // Error: $1
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Failed to generate report' },
+      { err: toErrorMessage(err) || 'Failed to generate report' },
       { status: 500 }
     );
   }

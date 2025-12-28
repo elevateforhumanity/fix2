@@ -96,7 +96,10 @@ export async function GET(req: Request) {
               success: true,
             });
           } catch (error: unknown) {
-            logger.error(`Error posting to ${platform}:`, error);
+            logger.error(
+              `Error posting to ${platform}:`,
+              error instanceof Error ? error : new Error(String(error))
+            );
 
             // Log failure
             await supabase.from('social_media_posts').insert({
@@ -125,7 +128,10 @@ export async function GET(req: Request) {
           .update({ last_post_at: now.toISOString() })
           .eq('id', campaign.id);
       } catch (error: unknown) {
-        logger.error(`Error processing campaign ${campaign.id}:`, error);
+        logger.error(
+          `Error processing campaign ${campaign.id}:`,
+          error instanceof Error ? error : new Error(String(error))
+        );
         results.push({
           campaignId: campaign.id,
           name: campaign.name,
@@ -142,7 +148,10 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: unknown) {
-    logger.error('Scheduler error:', error);
+    logger.error(
+      'Scheduler error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { success: false, error: toErrorMessage(error) },
       { status: 500 }
@@ -165,7 +174,7 @@ async function postToSocialMedia(
       return await postToFacebook(content, campaign);
 
     case 'x':
-      // fallthrough intentional
+    // fallthrough intentional
 
     case 'linkedin':
       return await postToLinkedIn(content, campaign);
@@ -212,7 +221,10 @@ async function postToFacebook(
 
     return { success: true, platform: 'facebook', postId: data.id };
   } catch (error: unknown) {
-    logger.error('Facebook posting error:', error);
+    logger.error(
+      'Facebook posting error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     throw error;
   }
 }
@@ -262,7 +274,10 @@ async function postToLinkedIn(
 
     return { success: true, platform: 'linkedin', postId: data.id };
   } catch (error: unknown) {
-    logger.error('LinkedIn posting error:', error);
+    logger.error(
+      'LinkedIn posting error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     throw error;
   }
 }

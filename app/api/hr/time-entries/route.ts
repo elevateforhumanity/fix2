@@ -38,7 +38,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ timeEntries: data });
   } catch (error: unknown) {
-    logger.error('Error fetching time entries:', error);
+    logger.error(
+      'Error fetching time entries:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch time entries' },
       { status: 500 }
@@ -104,7 +107,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ timeEntry: data }, { status: 201 });
   } catch (error: unknown) {
-    logger.error('Error creating time entry:', error);
+    logger.error(
+      'Error creating time entry:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create time entry' },
       { status: 500 }

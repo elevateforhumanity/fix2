@@ -61,7 +61,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ payrollRuns });
   } catch (error: unknown) {
-    logger.error('Error fetching payroll runs:', error);
+    logger.error(
+      'Error fetching payroll runs:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch payroll runs' },
       { status: 500 }
@@ -285,7 +288,10 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error: unknown) {
-    logger.error('Error creating payroll run:', error);
+    logger.error(
+      'Error creating payroll run:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to create payroll run' },
       { status: 500 }

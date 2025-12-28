@@ -54,7 +54,7 @@ export async function POST(req: Request) {
 
     // Create or get user profile
     let userId: string | null = null;
-    
+
     // Check if user exists
     const { data: existingProfile } = await supabase
       .from('profiles')
@@ -157,9 +157,9 @@ export async function POST(req: Request) {
       sessionId: session.id,
     });
   } catch (err: unknown) {
-    logger.error('Checkout creation error', error);
+    logger.err('Checkout creation err', err);
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Internal server error' },
+      { err: toErrorMessage(err) || 'Internal server err' },
       { status: 500 }
     );
   }

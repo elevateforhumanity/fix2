@@ -74,7 +74,10 @@ Component should be a default export function.`;
       description,
     });
   } catch (error: unknown) {
-    logger.error('AI Page Builder error:', error);
+    logger.error(
+      'AI Page Builder error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to generate page' },
       { status: 500 }

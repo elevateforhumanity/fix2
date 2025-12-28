@@ -42,6 +42,6 @@ export async function GET(req: Request) {
         : null,
     });
   } catch (err: unknown) {
-    return NextResponse.json({ error: toErrorMessage(error) }, { status: 500 });
+    return NextResponse.json({ err: toErrorMessage(err) }, { status: 500 });
   }
 }

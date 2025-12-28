@@ -103,7 +103,10 @@ Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus o
       );
     }
   } catch (error: unknown) {
-    logger.error('AI instructor route error:', error);
+    logger.error(
+      'AI instructor route error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { message: 'Internal server error.' },
       { status: 500 }

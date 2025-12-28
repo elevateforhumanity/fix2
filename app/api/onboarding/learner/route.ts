@@ -55,7 +55,10 @@ export async function POST(request: NextRequest) {
       message: 'Learner onboarding submitted successfully',
     });
   } catch (error: unknown) {
-    logger.error('Learner onboarding error:', error);
+    logger.error(
+      'Learner onboarding error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to submit onboarding' },
       { status: 500 }

@@ -53,9 +53,10 @@ export async function POST(req: NextRequest) {
             currency: 'usd',
             product_data: {
               name: productName,
-              description: type === 'service' 
-                ? 'Professional drug testing service with MRO review'
-                : 'Online training course with certificate',
+              description:
+                type === 'service'
+                  ? 'Professional drug testing service with MRO review'
+                  : 'Online training course with certificate',
               metadata: {
                 type,
                 category,
@@ -67,9 +68,10 @@ export async function POST(req: NextRequest) {
         },
       ],
       success_url: `${origin}/drug-testing/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: type === 'service' 
-        ? `${origin}/drug-testing`
-        : `${origin}/drug-testing-training`,
+      cancel_url:
+        type === 'service'
+          ? `${origin}/drug-testing`
+          : `${origin}/drug-testing-training`,
       customer_email: email,
       metadata: {
         productName,
@@ -81,7 +83,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err: unknown) {
-    logger.error('[Drug Testing] Checkout error:', err);
+    logger.error(
+      '[Drug Testing] Checkout error:',
+      err instanceof Error ? err : new Error(String(err))
+    );
     return NextResponse.json(
       { error: 'Unable to create checkout session' },
       { status: 500 }

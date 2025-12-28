@@ -5,10 +5,13 @@ import { withAuth } from '@/lib/with-auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 async function getHandler(
-  req: Request,
-  context: Record<string, unknown>,
-  user: Record<string, unknown>
+  req: NextRequest,
+  context: {
+    params: Promise<Record<string, string>>;
+    user: Record<string, unknown>;
+  }
 ) {
+  const user = context.user;
   const supabase = await createRouteHandlerClient({ cookies });
   const url = new URL(req.url);
   const learner_id = url.searchParams.get('user_id');

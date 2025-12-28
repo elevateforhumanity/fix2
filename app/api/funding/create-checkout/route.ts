@@ -6,12 +6,9 @@ import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = 'nodejs';
 
-const stripe = new Stripe(
-  process.env.STRIPE_SECRET_KEY || 'sk_test_Content',
-  {
-    apiVersion: '2025-10-29.clover' as any,
-  }
-);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_Content', {
+  apiVersion: '2025-10-29.clover' as any,
+});
 
 export async function POST(req: Request) {
   try {
@@ -131,9 +128,9 @@ export async function POST(req: Request) {
       sessionId: session.id,
     });
   } catch (err: unknown) {
-    logger.error('Funding checkout creation error', error);
+    logger.err('Funding checkout creation err', err);
     return NextResponse.json(
-      { error: toErrorMessage(error) || 'Internal server error' },
+      { err: toErrorMessage(err) || 'Internal server err' },
       { status: 500 }
     );
   }

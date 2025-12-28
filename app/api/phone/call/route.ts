@@ -44,7 +44,10 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
   } catch (error: unknown) {
-    logger.error('Phone API error:', error);
+    logger.error(
+      'Phone API error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json({ error: 'Phone system error' }, { status: 500 });
   }
 }

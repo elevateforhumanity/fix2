@@ -82,7 +82,7 @@ export async function POST(req: NextRequest) {
     // Generate certificate
     try {
       const certificateNumber = `EFH-${Date.now()}-${courseId.substring(0, 8)}`;
-      
+
       const { error: certError } = await supabase
         .from('module_certificates')
         .insert({
@@ -100,13 +100,15 @@ export async function POST(req: NextRequest) {
 
       // Send completion email
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            to: profile?.email || user.email,
-            subject: `Course Completed: ${courseDetails?.title}`,
-            html: `
+        await fetch(
+          `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'}/api/email/send`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              to: profile?.email || user.email,
+              subject: `Course Completed: ${courseDetails?.title}`,
+              html: `
               <h2>Congratulations!</h2>
               <p>You have successfully completed <strong>${courseDetails?.title}</strong>!</p>
               <p><strong>Certificate Number:</strong> ${certificateNumber}</p>
@@ -114,10 +116,10 @@ export async function POST(req: NextRequest) {
               <p><a href="https://www.elevateforhumanity.org/lms/certificates">View Your Certificates</a></p>
               <p>Best regards,<br>Elevate for Humanity Team</p>
             `,
-          }),
-        });
-      } catch (emailError) {
-      }
+            }),
+          }
+        );
+      } catch (emailError) {}
     } catch (certError) {
       // Don't fail the completion if certificate fails
     }
@@ -135,7 +137,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     return NextResponse.json(
-      { error: error.message || 'Failed to complete course' },
+      {
+        err:
+          (err instanceof Error ? err.message : String(err)) ||
+          'Failed to complete course',
+      },
       { status: 500 }
     );
   }

@@ -46,7 +46,10 @@ export async function POST(req: NextRequest) {
           content: Buffer.from(content).toString('base64'),
         });
       } catch (error: unknown) {
-        logger.error(`Failed to save ${path}:`, error);
+        logger.error(
+          `Failed to save ${path}:`,
+          error instanceof Error ? error : new Error(String(error))
+        );
         throw error;
       }
     }
@@ -106,7 +109,10 @@ ${parsed.modules?.map((mod: any, i: number) => `${i + 1}. ${mod.title || mod}`).
       filesCreated: parsed.modules?.length || 0,
     });
   } catch (error: unknown) {
-    logger.error('Build course error:', error);
+    logger.error(
+      'Build course error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       {
         error: 'Failed to build course',

@@ -82,7 +82,10 @@ export async function POST(request: NextRequest) {
       message: 'Course saved successfully',
     });
   } catch (error: unknown) {
-    logger.error('Error saving course:', error);
+    logger.error(
+      'Error saving course:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to save course' },
       { status: 500 }

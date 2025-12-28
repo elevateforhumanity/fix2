@@ -402,10 +402,7 @@ export default async function NotificationsPage() {
               </div>
               <div className="divide-y">
                 {todayNotifications.map((item) => (
-                  <NotificationItem
-                    key={notification.id}
-                    notification={notification}
-                  />
+                  <NotificationItem key={item.id} notification={notification} />
                 ))}
               </div>
             </div>

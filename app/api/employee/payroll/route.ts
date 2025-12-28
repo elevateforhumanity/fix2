@@ -46,7 +46,10 @@ export async function GET() {
 
     return NextResponse.json({ payrolls });
   } catch (error: unknown) {
-    logger.error('Error fetching payroll:', error);
+    logger.error(
+      'Error fetching payroll:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: toErrorMessage(error) || 'Failed to fetch payroll data' },
       { status: 500 }

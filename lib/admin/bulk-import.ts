@@ -289,7 +289,9 @@ export async function importUsers(
         row,
         email: user.email,
         field: 'system',
-        message: error.message || 'Unknown error',
+        message:
+          (error instanceof Error ? error.message : String(error)) ||
+          'Unknown error',
       });
     }
   }

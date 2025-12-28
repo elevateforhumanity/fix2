@@ -73,7 +73,10 @@ export async function POST(req: NextRequest) {
         { status: 201 }
       );
     } catch (err: unknown) {
-      logger.error('Enrollment error', err);
+      logger.error(
+        'Enrollment error',
+        err instanceof Error ? err : new Error(String(err))
+      );
       return NextResponse.json(
         { ok: false, error: 'Failed to complete enrollment' },
         { status: 500 }

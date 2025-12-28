@@ -44,7 +44,10 @@ export async function GET(req: NextRequest) {
       files: metadataFiles.map((f) => f.path),
     });
   } catch (error: unknown) {
-    logger.error('Scan courses error:', error);
+    logger.error(
+      'Scan courses error:',
+      error instanceof Error ? error : new Error(String(error))
+    );
     return NextResponse.json(
       { error: 'Failed to scan courses', message: toErrorMessage(error) },
       { status: 500 }
