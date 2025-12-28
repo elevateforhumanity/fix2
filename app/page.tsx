@@ -53,13 +53,17 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 1. HERO BANNER - Video hero */}
+      {/* 1. HERO BANNER - Static Image */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
         <div className="relative w-full overflow-hidden rounded-3xl">
           <div className="relative h-[520px] w-full md:h-[600px]">
-            <OptimizedVideo
-              src="/videos/hero-home.mp4"
-              className="absolute inset-0 w-full h-full object-cover"
+            <Image
+              src="/images/heroes/hero-homepage.jpg"
+              alt="Elevate for Humanity - Workforce Training"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1400px"
             />
           </div>
         </div>
@@ -298,6 +302,26 @@ export default function HomePage() {
 
       {/* 2.6. PARTNER LOGOS */}
       <PartnerLogos />
+
+      {/* 2.7. VIDEO SECTION - See Our Facility */}
+      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-white">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 mb-3">
+              See Our Training Facility
+            </h2>
+            <p className="text-zinc-600">
+              Take a virtual tour of our modern, professional training environment
+            </p>
+          </div>
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-lg">
+            <OptimizedVideo
+              src="/videos/hero-home.mp4"
+              className="w-full aspect-video"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* 3. CHOOSE YOUR PATH (3 TILES) */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">

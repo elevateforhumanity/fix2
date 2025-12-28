@@ -1,8 +1,6 @@
 "use client";
 
-import React from 'react';
-
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface OptimizedVideoProps {
   src: string;
@@ -13,6 +11,7 @@ interface OptimizedVideoProps {
 export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -31,6 +30,7 @@ export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVid
           video.muted = false;
           await video.play();
         }
+        setIsPlaying(true);
       } catch (error: unknown) {
         // Autoplay blocked by browser, that's fine
         console.log('Autoplay blocked:', error);
@@ -44,15 +44,15 @@ export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVid
   }, [audioTrack]);
 
   return (
-    <>
+    <div className={className}>
       <video
         ref={videoRef}
         src={src}
-        className={className}
+        className="w-full h-full"
         loop
+        muted
         playsInline
-        autoPlay
-        controls
+        controls={isPlaying}
       />
       {audioTrack && (
         <audio
@@ -62,6 +62,6 @@ export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVid
           className="hidden"
         />
       )}
-    </>
+    </div>
   );
 }
