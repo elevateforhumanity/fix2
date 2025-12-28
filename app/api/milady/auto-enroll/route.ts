@@ -76,7 +76,7 @@ export async function POST(request: Request) {
           .from('profiles')
           .update({ external_lms_id: externalStudentId })
           .eq('id', studentId);
-      } catch (error) {
+      } catch (error: unknown) {
         // Error: $1
         return NextResponse.json(
           { error: 'Failed to create Milady account' },
@@ -131,7 +131,7 @@ export async function POST(request: Request) {
           enrollmentId: enrollment.id,
           status: 'enrolled',
         });
-      } catch (error) {
+      } catch (error: unknown) {
         // Error logged
         enrollments.push({
           courseId: course.id,
@@ -146,7 +146,7 @@ export async function POST(request: Request) {
       externalStudentId,
       enrollments,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: 'Internal server error' },

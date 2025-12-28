@@ -36,7 +36,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ students: students || [] });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         err:

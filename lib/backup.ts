@@ -27,7 +27,7 @@ export async function createBackup(tables: string[] = ['profiles', 'courses', 'e
       backup,
       recordCount: Object.values(backup).reduce((sum, records) => sum + records.length, 0),
     };
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return {
       success: false,
@@ -82,7 +82,7 @@ export async function restoreFromBackup(backup: Record<string, any[]>, options: 
           count: count || records.length,
           error: error?.message,
         };
-      } catch (error) {
+      } catch (error: unknown) {
         results[table] = {
           success: false,
           count: 0,
@@ -94,7 +94,7 @@ export async function restoreFromBackup(backup: Record<string, any[]>, options: 
       success: true,
       results,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',

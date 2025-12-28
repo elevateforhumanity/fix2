@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return NextResponse.json({ success: false }, { status: 500 });
   }
@@ -68,7 +68,7 @@ async function sendSecurityAlert(data: unknown) {
         message: `Critical security event detected:\n\nType: ${event.type}\nURL: ${event.url}\nTime: ${event.timestamp}\n\nData: ${JSON.stringify(event.data, null, 2)}`,
       }),
     });
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
   }
 }

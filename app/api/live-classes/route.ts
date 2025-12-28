@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ classes: data });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error fetching live classes:', error);
     return NextResponse.json(
       { error: 'Failed to fetch live classes' },
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ class: data }, { status: 201 });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error creating live class:', error);
     return NextResponse.json(
       { error: 'Failed to create live class' },

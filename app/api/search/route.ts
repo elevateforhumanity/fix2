@@ -80,7 +80,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ results, query });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { results: [], query, error: 'Search failed' },
       { status: 500 }

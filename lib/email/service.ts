@@ -37,7 +37,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
     });
 
     return true;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('❌ Email failed:', error);
     return false;
   }

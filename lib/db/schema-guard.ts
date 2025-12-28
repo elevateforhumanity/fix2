@@ -162,7 +162,7 @@ export async function safeSelect<T>(
     }
 
     return { data: data as T[], error: null };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       data: null,
       error: error instanceof Error ? error : new Error(String(error)),

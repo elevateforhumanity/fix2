@@ -104,7 +104,7 @@ export async function POST(request: Request) {
       document,
       message: 'File uploaded successfully. Virus scan in progress.',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -46,7 +46,7 @@ export async function GET() {
             : null,
         },
       });
-    } catch (err: unknown) {
+    } catch (error: unknown) {
       clientError = err instanceof Error ? err.message : String(err);
       return NextResponse.json({
         status: 'error',
@@ -62,7 +62,7 @@ export async function GET() {
         },
       });
     }
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json({
       status: 'error',
       message: err instanceof Error ? err.message : String(err),

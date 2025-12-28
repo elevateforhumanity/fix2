@@ -149,7 +149,7 @@ export async function GET(req: Request) {
       record_count: exportData.length,
       data: exportData,
     });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: 'Export failed' }, { status: 500 });
   }
 }

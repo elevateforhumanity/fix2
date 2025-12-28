@@ -80,7 +80,7 @@ export default function SiteHeader() {
           document.body.style.overflow = '';
         }
       }
-    } catch (error) {
+    } catch (error: unknown) {
     }
 
     // Cleanup on unmount
@@ -89,7 +89,7 @@ export default function SiteHeader() {
         if (typeof document !== 'undefined') {
           document.body.style.overflow = '';
         }
-      } catch (error) {
+      } catch (error: unknown) {
         // Ignore cleanup errors
       }
     };
@@ -317,7 +317,7 @@ export default function SiteHeader() {
         )}
       </header>
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('SiteHeader render failed:', error);
     // Fallback minimal header
     return (

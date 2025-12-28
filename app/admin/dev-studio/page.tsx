@@ -118,7 +118,7 @@ export default function DevStudioPage() {
       } else {
         addTerminalOutput('❌ Failed to load repositories');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       addTerminalOutput('❌ Error loading repositories');
     } finally {
       setLoading(false);
@@ -146,7 +146,7 @@ export default function DevStudioPage() {
       } else {
         addTerminalOutput('❌ Failed to load file tree');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       addTerminalOutput('❌ Error loading file tree');
     } finally {
       setLoading(false);
@@ -177,7 +177,7 @@ export default function DevStudioPage() {
       } else {
         addTerminalOutput(`❌ Failed to open ${path}`);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       addTerminalOutput(`❌ Error opening ${path}`);
     } finally {
       setLoading(false);
@@ -214,7 +214,7 @@ export default function DevStudioPage() {
         const error = await res.json();
         addTerminalOutput(`❌ Failed to save: ${error.message}`);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       addTerminalOutput('❌ Error saving file');
     } finally {
       setLoading(false);

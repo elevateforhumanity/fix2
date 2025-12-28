@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
       if (error) throw error;
       return NextResponse.json({ badges: data });
     }
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error fetching badges:', error);
     return NextResponse.json(
       { error: 'Failed to fetch badges' },
@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ badge: data }, { status: 201 });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error awarding badge:', error);
     return NextResponse.json(
       { error: 'Failed to award badge' },

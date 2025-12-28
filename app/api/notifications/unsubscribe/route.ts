@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Subscription removed',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('[Notifications] Unsubscribe error:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to remove subscription' },

@@ -48,7 +48,7 @@ export const POST = withAuth(
     await notifySendgrid('EFH Daily Snapshot', text);
 
     return NextResponse.json({ ok: true, report: text });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Daily report error:', error);
     return NextResponse.json({ error: 'Report generation failed' }, { status: 500 });
   }

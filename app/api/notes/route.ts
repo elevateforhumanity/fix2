@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ notes });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error fetching notes:', error);
     return NextResponse.json(
       { error: 'Failed to fetch notes' },
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ note });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error creating note:', error);
     return NextResponse.json(
       { error: 'Failed to create note' },

@@ -47,7 +47,7 @@ export function AchievementsBadges({ userId }: AchievementsBadgesProps) {
         const data = await res.json();
         setBadges(data.badges || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
     } finally {
       setLoading(false);

@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true, data });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true, data });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -137,7 +137,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

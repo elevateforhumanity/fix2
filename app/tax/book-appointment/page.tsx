@@ -62,7 +62,7 @@ export default function BookAppointmentPage() {
         setStatus('error');
         setTimeout(() => setStatus('idle'), 3000);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
     }

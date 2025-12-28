@@ -116,7 +116,7 @@ function getUserFromStorage() {
       const parsed = JSON.parse(stored);
       return parsed.state?.user;
     }
-  } catch (error) {
+  } catch (error: unknown) {
     // Ignore
   }
   return null;

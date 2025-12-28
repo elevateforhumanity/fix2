@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
         platform_url: result.url,
       });
     }
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         err: 'Internal server err',
@@ -194,7 +194,7 @@ async function postToLinkedIn(data: unknown) {
       post_id: result.id,
       url: `https://www.linkedin.com/feed/update/${result.id}`,
     };
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return {
       success: false,
       err: err instanceof Error ? err.message : String(err),
@@ -245,7 +245,7 @@ async function postToFacebook(data: unknown) {
       post_id: result.id,
       url: `https://www.facebook.com/${pageId}/posts/${result.id}`,
     };
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return {
       success: false,
       err: err instanceof Error ? err.message : String(err),
@@ -273,7 +273,7 @@ async function postToYouTube(data: unknown) {
       error:
         'YouTube posting requires OAuth 2.0 setup. Please configure refresh token.',
     };
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return {
       success: false,
       err: err instanceof Error ? err.message : String(err),
@@ -324,7 +324,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ posts });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         err: 'Internal server err',

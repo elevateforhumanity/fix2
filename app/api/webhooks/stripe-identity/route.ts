@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
 
       // Email notification handled by trigger to user
 
-    } catch (error) {
+    } catch (error: unknown) {
       return NextResponse.json(
         { error: 'Database update failed' },
         { status: 500 }
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
 
       // Email notification handled by trigger to user
 
-    } catch (error) {
+    } catch (error: unknown) {
       return NextResponse.json(
         { error: 'Database update failed' },
         { status: 500 }

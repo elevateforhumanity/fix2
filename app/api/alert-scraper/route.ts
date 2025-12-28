@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
       status: 'alert_sent',
       message: 'Scraping attempt logged and alert sent',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error processing scraper alert:', error);
     return NextResponse.json(
       { error: 'Failed to process alert' },
@@ -126,7 +126,7 @@ This is an automated alert from Elevate for Humanity Security System.
         text: emailContent,
         html: emailContent.replace(/\n/g, '<br>')
       });
-    } catch (error) {
+    } catch (error: unknown) {
       logger.error('Failed to send email:', error);
     }
   }
@@ -175,7 +175,7 @@ async function sendSlackAlert(data: Record<string, unknown>) {
         ],
       }),
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Failed to send Slack alert:', error);
   }
 }

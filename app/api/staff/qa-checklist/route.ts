@@ -72,7 +72,7 @@ export async function GET() {
       totalChecklists: checklists?.length || 0,
       completedToday: completions?.length || 0,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -139,7 +139,7 @@ export async function POST(request: Request) {
       success: true,
       completion,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -85,7 +85,7 @@ export async function POST(req: Request) {
       appointment: data,
       message: 'Appointment request received successfully',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

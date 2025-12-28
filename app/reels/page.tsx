@@ -22,7 +22,7 @@ async function getReels() {
       .order('created_at', { ascending: false })
       .limit(20);
     return data || [];
-  } catch (error) {
+  } catch (error: unknown) {
     return [];
   }
 }

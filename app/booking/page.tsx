@@ -59,7 +59,7 @@ export default async function BookingPage() {
         const data = await response.json();
         setInstructors(data.instructors || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Failed to load instructors:', error);
       setInstructors([]);
     }
@@ -120,7 +120,7 @@ export default async function BookingPage() {
         setTopic('');
         setNotes('');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       alert('Failed to create booking. Please try again.');
     } finally {
       setLoading(false);

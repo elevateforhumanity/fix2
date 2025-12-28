@@ -182,7 +182,7 @@ export async function POST(req: Request) {
       success: true,
       message: 'MOU signed successfully',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error signing MOU:', error);
     return Response.json(
       { error: 'Failed to process signature' },

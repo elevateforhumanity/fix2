@@ -190,7 +190,7 @@ function logSecurityEvent(data: unknown) {
         value: 1,
       });
     }
-  } catch (error) {
+  } catch (error: unknown) {
     // Silently fail
   }
 }

@@ -107,7 +107,7 @@ export async function GET(request: Request) {
             email: studentEmail,
             daysSinceLogin,
           });
-        } catch (error) {
+        } catch (error: unknown) {
           logger.error(`Failed to send reminder to ${studentEmail}:`, error);
         }
       }
@@ -118,7 +118,7 @@ export async function GET(request: Request) {
       remindersSent: reminders.length,
       reminders,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error in inactivity reminders cron:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

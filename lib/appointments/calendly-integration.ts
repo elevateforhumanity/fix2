@@ -222,7 +222,7 @@ export async function handleCalendlyWebhook(
     }
     
     return false;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error handling Calendly webhook:', error);
     return false;
   }

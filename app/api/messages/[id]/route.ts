@@ -38,7 +38,7 @@ export async function PATCH(
     }
 
     return NextResponse.json({ message });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error in PATCH /api/messages/[id]:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -77,7 +77,7 @@ export async function DELETE(
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error in DELETE /api/messages/[id]:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

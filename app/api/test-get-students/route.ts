@@ -18,7 +18,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ students: students || [] });
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return NextResponse.json({ students: [] });
   }

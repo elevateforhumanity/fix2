@@ -61,7 +61,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true, funding: data });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { err: err instanceof Error ? err.message : String(err) },
       { status: 500 }
@@ -83,7 +83,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ funding_cases: data });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { err: err instanceof Error ? err.message : String(err) },
       { status: 500 }

@@ -185,7 +185,7 @@ export async function submitDMCATakedown(notice: DMCANotice): Promise<boolean> {
     });
 
     return true;
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return false;
   }

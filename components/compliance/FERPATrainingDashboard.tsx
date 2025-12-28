@@ -84,7 +84,7 @@ export default function FERPATrainingDashboard({
         body: JSON.stringify({ user_id: userId, email })
       });
       alert('Reminder sent successfully');
-    } catch (error) {
+    } catch (error: unknown) {
       alert('Failed to send reminder');
     }
   };

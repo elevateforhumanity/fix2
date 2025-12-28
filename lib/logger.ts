@@ -87,7 +87,7 @@ class Logger {
           body: JSON.stringify(entry),
         });
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Fail silently to avoid infinite loops
     }
   }

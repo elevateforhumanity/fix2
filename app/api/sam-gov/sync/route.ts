@@ -90,7 +90,7 @@ export async function POST(request: Request) {
         deadline: r.response_deadline,
       })),
     });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     logger.err('SAM.gov sync failed:', err);
     return NextResponse.json(
       {

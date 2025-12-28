@@ -46,7 +46,7 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
       email: user.email ?? null,
       role,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return null;
   }

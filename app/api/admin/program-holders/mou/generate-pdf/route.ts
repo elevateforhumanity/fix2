@@ -448,7 +448,7 @@ export const POST = withAuth(
       success: true,
       pdfUrl: pdfPath,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error generating PDF:', error);
     return new Response('Failed to generate PDF', { status: 500 });
   }

@@ -59,7 +59,7 @@ export async function GET(request: Request) {
     }
 
     return NextResponse.json({ messages });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error in GET /api/messages:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ message }, { status: 201 });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error in POST /api/messages:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

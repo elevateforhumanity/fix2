@@ -41,7 +41,7 @@ export async function bulkEnrollStudents(
       enrolled: data?.length || 0,
       data,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -79,7 +79,7 @@ export async function bulkUnenrollStudents(
       success: true,
       unenrolled: studentIds.length,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -152,7 +152,7 @@ export async function bulkIssueCertificates(
       issued: data?.length || 0,
       data,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -200,7 +200,7 @@ export async function bulkUpdateGrades(
       failed,
       results,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -241,7 +241,7 @@ export async function bulkDeleteUsers(userIds: string[], actorId: string) {
       success: true,
       deleted: userIds.length,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -285,7 +285,7 @@ export async function bulkSendNotifications(
       success: true,
       sent: data?.length || 0,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -344,7 +344,7 @@ export async function bulkExportData(
       filename: `${table}_export_${Date.now()}.csv`,
       recordCount: 0,
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',

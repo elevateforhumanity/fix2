@@ -152,7 +152,7 @@ export default function AutomaticCourseBuilder() {
         router.push(`/admin/courses/${savedCourse.id}/edit`);
       }, 2000);
 
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       alert('Failed to generate course. Please try again.');
       setGenerating(false);

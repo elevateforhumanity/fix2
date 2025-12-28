@@ -86,7 +86,7 @@ export default function SurveyModal({
         const data = await response.json();
         alert(data.error || 'Failed to submit survey');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       alert('Failed to submit survey');
     } finally {

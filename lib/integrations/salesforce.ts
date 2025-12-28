@@ -100,7 +100,7 @@ export async function createOrUpdateContact(
       const createData = await createResponse.json();
       return createData.id;
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error with Salesforce contact:', error);
     return null;
   }
@@ -144,7 +144,7 @@ export async function createOpportunity(
 
     const responseData = await response.json();
     return responseData.id;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error creating Salesforce opportunity:', error);
     return null;
   }

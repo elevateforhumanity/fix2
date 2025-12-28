@@ -16,7 +16,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ templates: templates || [] });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         err:

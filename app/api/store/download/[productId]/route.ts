@@ -33,7 +33,7 @@ async function verifyDownloadToken(
     }
 
     return true;
-  } catch (error) {
+  } catch (error: unknown) {
     return false;
   }
 }
@@ -54,7 +54,7 @@ async function logDownload(
         request.headers.get('x-real-ip'),
       user_agent: request.headers.get('user-agent'),
     });
-  } catch (error) {
+  } catch (error: unknown) {
   }
 }
 

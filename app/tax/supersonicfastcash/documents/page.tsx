@@ -77,7 +77,7 @@ export default function DocumentUploadPage() {
               : f
           )
         );
-      } catch (error) {
+      } catch (error: unknown) {
         console.error('Upload error:', error);
         // Update file status to error
         setFiles((prev) =>

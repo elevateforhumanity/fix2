@@ -42,7 +42,7 @@ export class EmailService {
       
       // Mock implementation
       return true;
-    } catch (error) {
+    } catch (error: unknown) {
       logger.error('Email send error', error as Error, { 
         to: notification.to 
       });

@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
       success: true,
       applicationId: application.id,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Application error:', error);
     return NextResponse.json(
       { error: 'An unexpected error occurred. Please try again.' },

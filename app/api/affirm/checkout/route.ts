@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
       checkout_token: data.checkout_token,
       redirect_url: data.redirect_url,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Affirm checkout error:', error);
     return NextResponse.json(
       {

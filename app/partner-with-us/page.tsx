@@ -42,7 +42,7 @@ export default function PartnerWithUsPage() {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       setStatus('error');
     }
   };

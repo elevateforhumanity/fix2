@@ -69,7 +69,7 @@ export function ShopReportForm({ placements }: { placements: Placement[] }) {
           text: error.error || 'Could not submit report',
         });
       }
-    } catch (error) {
+    } catch (error: unknown) {
       setMessage({ type: 'error', text: 'Network error. Please try again.' });
     } finally {
       setSaving(false);

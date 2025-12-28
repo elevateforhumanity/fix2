@@ -36,7 +36,7 @@ export async function sendTenantTemplatedEmail(params: {
       subject,
       html,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error("Failed to send templated email", error as Error, { 
       to: params.to, 
       subject, 

@@ -51,7 +51,7 @@ export async function GET(req: Request) {
         'Content-Disposition': `attachment; filename="audit_export_${new Date().toISOString().split('T')[0]}.csv"`,
       },
     });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { err: err instanceof Error ? err.message : String(err) },
       { status: 500 }

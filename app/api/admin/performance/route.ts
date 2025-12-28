@@ -167,7 +167,7 @@ export async function GET() {
     ]);
 
     return NextResponse.json({ metrics });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

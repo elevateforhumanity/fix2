@@ -26,7 +26,7 @@ async function searchBlogPosts(query: string) {
       .limit(20);
 
     return posts || [];
-  } catch (error) {
+  } catch (error: unknown) {
     return [];
   }
 }

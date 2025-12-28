@@ -89,7 +89,7 @@ export default function AnalyticsPage() {
       if (result.success) {
         setData(result.data);
       }
-    } catch (error) {
+    } catch (error: unknown) {
     // Error handled
   } finally {
       setLoading(false);

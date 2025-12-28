@@ -374,7 +374,7 @@ export default function SiteFooter() {
         </div>
       </footer>
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('SiteFooter render failed:', error);
     // Fallback minimal footer
     return (

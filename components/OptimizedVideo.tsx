@@ -31,7 +31,7 @@ export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVid
           video.muted = false;
           await video.play();
         }
-      } catch (error) {
+      } catch (error: unknown) {
         // Autoplay blocked by browser, that's fine
         console.log('Autoplay blocked:', error);
       }

@@ -77,7 +77,7 @@ export async function withErrorHandling<T>(
   try {
     const data = await fn();
     return { data };
-  } catch (error) {
+  } catch (error: unknown) {
     const { message } = handleError(error);
     return { error: message || errorMessage };
   }

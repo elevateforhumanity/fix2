@@ -29,7 +29,7 @@ export default function FacebookPixel() {
     if (mounted && typeof window !== 'undefined') {
       try {
         setPathname(window.location.pathname);
-      } catch (error) {
+      } catch (error: unknown) {
       }
     }
   }, [mounted]);
@@ -43,7 +43,7 @@ export default function FacebookPixel() {
       if (window.fbq) {
         window.fbq('track', 'PageView');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Silently fail - don't break the app
     }
   }, [mounted, pathname]);
@@ -83,7 +83,7 @@ export default function FacebookPixel() {
         </noscript>
       </>
     );
-  } catch (error) {
+  } catch (error: unknown) {
     return null;
   }
 }

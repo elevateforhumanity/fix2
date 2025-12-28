@@ -48,7 +48,7 @@ export default function AffirmWidget() {
           window.affirm.ui.refresh();
         }
         setLoaded(true);
-      } catch (error) {
+      } catch (error: unknown) {
         // Error handled
       }
     };

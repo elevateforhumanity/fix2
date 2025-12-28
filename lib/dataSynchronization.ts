@@ -161,7 +161,7 @@ class DataSynchronizationManager {
       // 
       this.updateSyncState(table);
       return true;
-    } catch (error) {
+    } catch (error: unknown) {
       // Error logged
       await this.retrySync(table, data, operation);
       return false;

@@ -95,7 +95,7 @@ export default function StoreBuilderPage() {
         const data = await res.json();
         alert(`Product published! View at: ${data.url}`);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       alert('Failed to publish product');
     } finally {
       setPublishing(false);

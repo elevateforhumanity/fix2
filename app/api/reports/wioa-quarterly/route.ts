@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
       },
       data: reportData,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('WIOA report generation error:', error);
     return NextResponse.json(
       { error: 'Failed to generate report' },
@@ -324,7 +324,7 @@ export async function POST(request: NextRequest) {
       message: 'Report saved successfully',
       data,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error saving report:', error);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }

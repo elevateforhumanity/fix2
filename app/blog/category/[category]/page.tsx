@@ -30,7 +30,7 @@ async function getCategoryPosts(category: string) {
       .order('published_at', { ascending: false });
 
     return posts || [];
-  } catch (error) {
+  } catch (error: unknown) {
     return [];
   }
 }
@@ -48,7 +48,7 @@ async function getAllCategories() {
       ...new Set(posts?.map((p) => p.category).filter(Boolean)),
     ];
     return categories;
-  } catch (error) {
+  } catch (error: unknown) {
     return [];
   }
 }

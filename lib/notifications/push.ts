@@ -42,7 +42,7 @@ export class PushService {
         return true;
       }
       return false;
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       return false;
     }

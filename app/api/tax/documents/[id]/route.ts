@@ -56,7 +56,7 @@ export async function DELETE(
       success: true,
       message: 'Document deleted successfully',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ liveSession, meeting });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Zoom meeting creation error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Internal server error' },

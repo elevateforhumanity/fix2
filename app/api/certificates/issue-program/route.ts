@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       success: true,
       certificateNumber
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error issuing program certificate:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to issue certificate' },

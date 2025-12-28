@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       critical_alerts: result.critical_count,
       timestamp: new Date().toISOString(),
     });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         ok: false,

@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json(result);
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error verifying certificate:', error);
     return NextResponse.json(
       { error: 'Failed to verify certificate' },

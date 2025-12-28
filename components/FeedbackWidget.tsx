@@ -73,7 +73,7 @@ export default function FeedbackWidget({ userId }: FeedbackWidgetProps) {
           setCategory('');
         }, 2000);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       alert('Failed to submit feedback');
     } finally {

@@ -50,7 +50,7 @@ export async function GET(req: NextRequest) {
   let u;
   try {
     u = await getUserById(cert.user_id);
-  } catch (error) {
+  } catch (error: unknown) {
     // User lookup failed, will use fallback data
   }
 

@@ -124,7 +124,7 @@ export function SCORMPlayer({
           setScormData(prev => ({ ...prev, ...data.cmi_data }));
         }
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       setError('Failed to load course data');
     }
@@ -145,7 +145,7 @@ export function SCORMPlayer({
           cmiData: scormData,
         }),
       });
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
     }
   }

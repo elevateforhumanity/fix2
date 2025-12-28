@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
       status: 'ok',
       message: 'Tracking recorded',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Tracking error:', error);
     return NextResponse.json({ error: 'Tracking failed' }, { status: 500 });
   }

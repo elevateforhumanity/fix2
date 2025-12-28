@@ -53,7 +53,7 @@ export default function CourseProgressTracker({
 
       setProgress(newProgress);
       setCompleted(newCompleted);
-    } catch (error) {
+    } catch (error: unknown) {
     // Error handled
   } finally {
       setUpdating(false);

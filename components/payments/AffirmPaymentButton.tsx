@@ -78,7 +78,7 @@ export function AffirmPaymentButton({
       } else {
         throw new Error('No checkout token received');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       const errorMessage =
         error instanceof Error

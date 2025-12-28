@@ -98,7 +98,9 @@ export async function POST(request: NextRequest) {
         });
 
         sentCount++;
-      } catch (error) {}
+      } catch (error: unknown) {
+    console.error("Error:", error);
+  }
     }
 
     return NextResponse.json({

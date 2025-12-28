@@ -43,7 +43,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
         setData(result.progress);
         setCourses(result.courses || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
     } finally {
       setLoading(false);

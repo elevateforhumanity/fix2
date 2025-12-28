@@ -209,7 +209,7 @@ export class ContentAutomation {
 
       // Apply content rules
       await this.applyContentRules(feed.id);
-    } catch (error) {
+    } catch (error: unknown) {
       logger.error(`Error updating feed ${feed.name}`, error as Error, { feedId: feed.id, feedName: feed.name });
     }
   }

@@ -97,7 +97,7 @@ export async function logAuditEvent(entry: AuditLogEntry): Promise<boolean> {
     }
 
     return true;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Exception logging audit event:', error);
     return false;
   }

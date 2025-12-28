@@ -57,7 +57,7 @@ export async function POST(req: Request) {
     } catch (emailError) {}
 
     return NextResponse.json({ success: true, onboarding: data });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { err: err instanceof Error ? err.message : String(err) },
       { status: 500 }
@@ -79,7 +79,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ onboardings: data });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { err: err instanceof Error ? err.message : String(err) },
       { status: 500 }

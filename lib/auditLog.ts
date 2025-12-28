@@ -86,7 +86,7 @@ export async function auditLog({
       console.error('Failed to write audit log:', error);
       // Don't throw - audit logging should never break the main flow
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Audit log exception:', error);
     // Silent fail - audit logging is critical but shouldn't break operations
   }

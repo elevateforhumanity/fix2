@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true, enrollment });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('SCORM tracking error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
@@ -112,7 +112,7 @@ export async function GET(request: Request) {
     }
 
     return NextResponse.json(enrollment || {});
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('SCORM tracking GET error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }

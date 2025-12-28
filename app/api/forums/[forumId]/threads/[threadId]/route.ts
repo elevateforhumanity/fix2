@@ -104,7 +104,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error("[thread detail] error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
@@ -177,7 +177,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error("[thread reply] error:", error);
     return NextResponse.json(
       { error: "Internal server error" },

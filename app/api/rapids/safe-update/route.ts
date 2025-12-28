@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, rapids: data });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { err: err instanceof Error ? err.message : String(err) },
       { status: 500 }

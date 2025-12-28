@@ -63,7 +63,7 @@ export default function VoiceoverPlayer({
         audioRef.current.loop = false; // NO LOOP - plays once
         await audioRef.current.play();
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // NO robotic fallback - only professional voiceovers
       useBrowserSpeech();
     }

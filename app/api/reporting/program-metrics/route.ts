@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const metrics = await calculateProgramMetrics();
     return NextResponse.json(metrics);
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error fetching program metrics:', error);
     return NextResponse.json(
       { error: 'Failed to fetch program metrics' },

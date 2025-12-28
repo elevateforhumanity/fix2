@@ -63,7 +63,7 @@ export async function GET(request: Request) {
       total: reviews?.length || 0,
       averageRating: parseFloat(avgRating),
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -139,7 +139,7 @@ export async function POST(request: Request) {
       message:
         'Thank you for your review! It will be published after moderation.',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

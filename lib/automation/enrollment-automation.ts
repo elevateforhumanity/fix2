@@ -124,7 +124,7 @@ export async function sendInactivityReminders() {
         }),
       });
       sent++;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(`Failed to send reminder to ${profile.email}:`, error);
     }
   }
@@ -179,7 +179,7 @@ export async function sendCompletionNudges() {
         }),
       });
       sent++;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(`Failed to send nudge to ${profile.email}:`, error);
     }
   }

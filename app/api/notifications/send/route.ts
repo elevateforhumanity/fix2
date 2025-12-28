@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Notification sent',
     });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('[Notifications] Send error:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to send notification' },

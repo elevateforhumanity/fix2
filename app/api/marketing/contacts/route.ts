@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
         totalPages: Math.ceil((count || 0) / limit),
       },
     });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     logger.error(
       'GET /marketing/contacts error',
       err instanceof Error ? err : new Error(String(err))
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ contact: data }, { status: 201 });
-  } catch (err: unknown) {
+  } catch (error: unknown) {
     logger.error(
       'POST /marketing/contacts error',
       err instanceof Error ? err : new Error(String(err))

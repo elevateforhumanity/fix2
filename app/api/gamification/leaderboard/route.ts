@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ leaderboard: data });
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Error fetching leaderboard:', error);
     return NextResponse.json(
       { error: 'Failed to fetch leaderboard' },

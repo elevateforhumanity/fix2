@@ -10,7 +10,7 @@ export async function validateRequest<T>(
     const body = await req.json();
     const data = schema.parse(body);
     return { data, error: null };
-  } catch (error) {
+  } catch (error: unknown) {
     if (error instanceof z.ZodError) {
       return {
         data: null,

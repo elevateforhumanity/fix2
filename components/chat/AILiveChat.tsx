@@ -133,7 +133,7 @@ export default function AILiveChat({
           setAgentConnected(true);
         }
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
       setMessages((prev) => prev.filter((m) => m.id !== 'typing'));
       setMessages((prev) => [
@@ -180,7 +180,7 @@ export default function AILiveChat({
           },
         ]);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       // Error: $1
     } finally {
       setIsLoading(false);

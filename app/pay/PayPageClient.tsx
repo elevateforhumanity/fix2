@@ -91,7 +91,7 @@ export default function PayPageClient() {
             window.affirm.ui.refresh();
           }
           setAffirmLoaded(true);
-        } catch (error) {
+        } catch (error: unknown) {
           // Error handled
         }
       };

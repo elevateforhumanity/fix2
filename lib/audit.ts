@@ -174,7 +174,7 @@ export async function auditedAction<T>(
     });
 
     return result;
-  } catch (error) {
+  } catch (error: unknown) {
     // Log failed action
     await logAuditEvent({
       tenantId: options?.tenantId,

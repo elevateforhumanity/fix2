@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
       training_record: trainingRecord
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
     return NextResponse.json(
       { error: 'Internal server error' },

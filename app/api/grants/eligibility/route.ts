@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
           { status: 400 }
         );
     }
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Eligibility check error:', error);
     return NextResponse.json(
       { error: (error as Error).message },

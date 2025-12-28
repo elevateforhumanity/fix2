@@ -36,7 +36,7 @@ export async function sendTeamsMessage(
       }),
     });
     // 
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
   }
 }

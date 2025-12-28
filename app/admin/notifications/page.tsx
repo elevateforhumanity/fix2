@@ -56,7 +56,7 @@ export default function NotificationsPage() {
 
       const data = await response.json();
       setResult(data);
-    } catch (error) {
+    } catch (error: unknown) {
       setResult({ success: false, error: 'Failed to send notification' });
     } finally {
       setSending(false);

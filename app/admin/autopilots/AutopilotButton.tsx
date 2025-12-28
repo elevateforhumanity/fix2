@@ -18,7 +18,7 @@ export default function AutopilotButton({
       const res = await fetch(endpoint, { method: 'POST' });
       const data = await res.json();
       alert(data.message || label + ' Complete!');
-    } catch (error) {
+    } catch (error: unknown) {
       alert('Failed to run autopilot');
     } finally {
       setLoading(false);

@@ -113,7 +113,7 @@ export default async function CheckoutPage({
 
     // Redirect to Stripe Checkout
     redirect(session.url!);
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Checkout error:', error);
 
     return (

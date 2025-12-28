@@ -35,7 +35,7 @@ export async function sendSecurityLog(event: {
       },
       body: JSON.stringify(body),
     });
-  } catch (error) {
+  } catch (error: unknown) {
     // Error: $1
   }
 }

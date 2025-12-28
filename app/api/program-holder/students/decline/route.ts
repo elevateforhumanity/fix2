@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Unexpected error in student decline:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

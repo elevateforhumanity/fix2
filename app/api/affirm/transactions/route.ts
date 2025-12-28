@@ -209,7 +209,7 @@ export async function POST(request: NextRequest) {
           { status: 400 }
         );
     }
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Affirm transaction error:', error);
     return NextResponse.json(
       {
@@ -259,7 +259,7 @@ export async function GET(request: NextRequest) {
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error('Affirm get transaction error:', error);
     return NextResponse.json(
       {
