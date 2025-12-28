@@ -46,8 +46,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const body = await request.json();
-  const { title, date, time, duration, description, color } = body;
+  const body = await request.json() as Record<string, unknown>;
+  const { title, date, time, duration, description, color } = body as {
+    title: string;
+    date: string;
+    time?: string;
+    duration?: number;
+    description?: string;
+    color?: string;
+  };
 
   const { data, error } = await supabase
     .from('calendar_events')

@@ -44,12 +44,12 @@ async function getHandler(
   const mapped = (notes || []).map((n: Record<string, unknown>) => ({
     user_id: n.user_id,
     course_id: n.course_id,
-    course_title: n.course?.title || 'Unknown Course',
-    program_holder: n.program_holder?.name || 'Unknown',
+    course_title: (n.course as { title?: string } | null)?.title || 'Unknown Course',
+    program_holder: (n.program_holder as { name?: string } | null)?.name || 'Unknown',
     status: n.status,
     note: n.note,
     created_at: n.created_at,
-    created_by_email: n.creator?.email || 'Unknown',
+    created_by_email: (n.creator as { email?: string } | null)?.email || 'Unknown',
   }));
 
   return Response.json(mapped);

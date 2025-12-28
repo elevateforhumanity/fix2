@@ -59,7 +59,6 @@ export default function HomePage() {
           <div className="relative h-[520px] w-full md:h-[600px]">
             <OptimizedVideo
               src="/videos/hero-home.mp4"
-              poster="/images/heroes/homepage-hero.jpg"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

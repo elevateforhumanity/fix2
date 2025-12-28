@@ -89,8 +89,14 @@ export default function HeroVideo({
       }
     };
 
-    const handlePause = () => a.pause();
-    const handlePlay = () => a.play();
+    const handlePause = () => {
+      a.pause();
+    };
+    const handlePlay = () => {
+      a.play().catch(() => {
+        // Ignore play errors (e.g., if user hasn't interacted yet)
+      });
+    };
 
     v.addEventListener('timeupdate', syncAudio);
     v.addEventListener('pause', handlePause);

@@ -14,7 +14,6 @@ export function CopyrightProtection() {
       if (target.tagName === 'IMG' || target.closest('.protected-content')) {
         e.preventDefault();
         showCopyrightNotice();
-        return false;
       }
     };
     // 2. Detect and prevent text selection copying

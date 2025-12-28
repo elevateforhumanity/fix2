@@ -2,77 +2,66 @@
 
 import React from 'react';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface OptimizedVideoProps {
   src: string;
-  poster?: string;
   className?: string;
+  audioTrack?: string; // Optional voiceover/TTS audio track
 }
 
-export function OptimizedVideo({ src, poster, className = '' }: OptimizedVideoProps) {
+export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
+    const audio = audioRef.current;
     if (!video) return;
 
-    // Check if IntersectionObserver is available (browser only)
-    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
-      setIsVisible(true);
-      return;
-    }
-
-    // Only load video when it's about to be visible
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isVisible) {
-            setIsVisible(true);
-            // Delay play slightly to allow video to load
-            setTimeout(() => {
-              video.play().catch(() => {
-                // Autoplay blocked, that's fine
-              });
-            }, 100);
-          } else if (!entry.isIntersecting) {
-            video.pause();
-          }
-        });
-      },
-      { 
-        threshold: 0.1,
-        rootMargin: '50px' // Start loading 50px before visible
+    // Auto-play video and audio when component mounts
+    const playMedia = async () => {
+      try {
+        if (audioTrack && audio) {
+          // Play video muted with separate audio track
+          video.muted = true;
+          await Promise.all([video.play(), audio.play()]);
+        } else {
+          // Play video with its own audio
+          video.muted = false;
+          await video.play();
+        }
+      } catch (error) {
+        // Autoplay blocked by browser, that's fine
+        console.log('Autoplay blocked:', error);
       }
-    );
-
-    observer.observe(video);
-
-    return () => {
-      observer.disconnect();
     };
-  }, [isVisible]);
+
+    // Small delay to ensure media is loaded
+    const timer = setTimeout(playMedia, 100);
+
+    return () => clearTimeout(timer);
+  }, [audioTrack]);
 
   return (
     <>
-      {!isVisible && poster && (
-        <div 
-          className={`${className} bg-cover bg-center`}
-          style={{ backgroundImage: `url(${poster})` }}
-        />
-      )}
       <video
         ref={videoRef}
-        className={`${className} ${!isVisible ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}
+        src={src}
+        className={className}
         loop
-        muted
         playsInline
-        preload="none"
-        poster={poster}
-      >
-        {isVisible && <source src={src} type="video/mp4" />}
-      </video>
+        autoPlay
+        controls
+      />
+      {audioTrack && (
+        <audio
+          ref={audioRef}
+          src={audioTrack}
+          loop
+          className="hidden"
+        />
+      )}
     </>
   );
 }

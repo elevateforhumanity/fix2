@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 export async function POST(request: Request) {
   try {
@@ -27,7 +28,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    const body = await request.json();
+    const body = await parseBody<{
+      student_id?: string;
+      issue?: string;
+      priority?: string;
+      assigned_to?: string;
+    }>(request);
     const { student_id, issue, priority, assigned_to } = body;
 
     if (!student_id || !issue) {
@@ -65,9 +71,9 @@ export async function POST(request: Request) {
       success: true,
       ticket,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: getErrorMessage(error) },
       { status: 500 }
     );
   }

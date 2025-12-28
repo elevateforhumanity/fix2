@@ -20,7 +20,7 @@ export function getStripeServerConfig() {
   }
 
   return new Stripe(secretKey, {
-    apiVersion: '2024-11-20.acacia',
+    apiVersion: '2024-11-20.acacia' as Stripe.LatestApiVersion,
     typescript: true,
     appInfo: {
       name: 'Elevate for Humanity',
