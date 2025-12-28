@@ -18,6 +18,12 @@ export function OptimizedVideo({ src, poster, className = '' }: OptimizedVideoPr
     const video = videoRef.current;
     if (!video) return;
 
+    // Check if IntersectionObserver is available (browser only)
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return;
+    }
+
     // Only load video when it's about to be visible
     const observer = new IntersectionObserver(
       (entries) => {
