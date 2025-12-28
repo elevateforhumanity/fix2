@@ -1,10 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { OptimizedVideo } from '@/components/OptimizedVideo';
-import HeroVideo from '@/components/home/HeroVideo';
-import PrimaryCtas from '@/components/home/PrimaryCtas';
-import HeroBanner from '@/components/hero/HeroBanner';
 import PartnerLogos from '@/components/marketing/PartnerLogos';
 import SuccessStoryCards from '@/components/marketing/SuccessStoryCards';
 
