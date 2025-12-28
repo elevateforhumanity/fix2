@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 // app/pay/PayPageClient.tsx
@@ -92,8 +92,8 @@ export default function PayPageClient() {
           }
           setAffirmLoaded(true);
         } catch (error) {
-    // Error handled
-  }
+          // Error handled
+        }
       };
       script.onerror = () =>
         setError('Affirm financing script failed to load. Please try again.');
@@ -149,7 +149,7 @@ export default function PayPageClient() {
           data-page-type="product"
           data-amount={TUITION_AMOUNT_CENTS}
           data-affirm-color="blue"
-        ></div>
+        />
 
         {!affirmLoaded && (
           <p className="mt-3 text-sm text-slate-500">
@@ -183,7 +183,7 @@ export default function PayPageClient() {
         <stripe-buy-button
           buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
           publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-        ></stripe-buy-button>
+        />
 
         <p className="mt-4 text-xs text-slate-500">
           By completing your payment you agree to Elevate for Humanity&apos;s

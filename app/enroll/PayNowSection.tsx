@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -6,15 +6,60 @@ import { useState } from 'react';
 import { AffirmPaymentButton } from '@/components/payments/AffirmPaymentButton';
 
 const PROGRAMS = [
-  { id: 'barber', label: 'Barber Apprenticeship', slug: 'barber-apprentice', price: 4890 },
-  { id: 'dsp', label: 'Direct Support Professional (DSP)', slug: 'direct-support-professional', price: 4325 },
-  { id: 'hvac', label: 'HVAC Technician', slug: 'hvac-technician', price: 5000 },
-  { id: 'cpr', label: 'CPR Certification', slug: 'cpr-certification', price: 575 },
-  { id: 'ehst', label: 'Emergency Health & Safety Tech', slug: 'emergency-health-safety', price: 4950 },
-  { id: 'esth', label: 'Professional Esthetician', slug: 'professional-esthetician', price: 4575 },
-  { id: 'prc', label: 'Peer Recovery Coach', slug: 'peer-recovery-coach', price: 4750 },
-  { id: 'tax', label: 'Tax Prep & Financial Services', slug: 'tax-prep-financial', price: 4950 },
-  { id: 'biz', label: 'Business Startup & Marketing', slug: 'business-startup-marketing', price: 4550 },
+  {
+    id: 'barber',
+    label: 'Barber Apprenticeship',
+    slug: 'barber-apprentice',
+    price: 4890,
+  },
+  {
+    id: 'dsp',
+    label: 'Direct Support Professional (DSP)',
+    slug: 'direct-support-professional',
+    price: 4325,
+  },
+  {
+    id: 'hvac',
+    label: 'HVAC Technician',
+    slug: 'hvac-technician',
+    price: 5000,
+  },
+  {
+    id: 'cpr',
+    label: 'CPR Certification',
+    slug: 'cpr-certification',
+    price: 575,
+  },
+  {
+    id: 'ehst',
+    label: 'Emergency Health & Safety Tech',
+    slug: 'emergency-health-safety',
+    price: 4950,
+  },
+  {
+    id: 'esth',
+    label: 'Professional Esthetician',
+    slug: 'professional-esthetician',
+    price: 4575,
+  },
+  {
+    id: 'prc',
+    label: 'Peer Recovery Coach',
+    slug: 'peer-recovery-coach',
+    price: 4750,
+  },
+  {
+    id: 'tax',
+    label: 'Tax Prep & Financial Services',
+    slug: 'tax-prep-financial',
+    price: 4950,
+  },
+  {
+    id: 'biz',
+    label: 'Business Startup & Marketing',
+    slug: 'business-startup-marketing',
+    price: 4550,
+  },
 ];
 
 export function PayNowSection() {
@@ -130,7 +175,7 @@ export function PayNowSection() {
         {/* Divider */}
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-slate-300"></div>
+            <div className="w-full border-t border-slate-300" />
           </div>
           <div className="relative flex justify-center text-sm">
             <span className="px-2 bg-white text-slate-500">or</span>

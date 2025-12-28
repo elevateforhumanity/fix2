@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -139,7 +139,7 @@ export default function SocialMediaPage() {
               <h1 className="text-3xl font-bold text-gray-900">
                 Social Media Automation
               </h1>
-              <p className="text-gray-600 mt-1"></p>
+              <p className="text-gray-600 mt-1" />
             </div>
 
             <button

@@ -420,7 +420,7 @@ export default function VolunteerPage() {
                   rows={3}
                   placeholder="Tell us about your availability (days, times, frequency)..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
+                />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -431,7 +431,7 @@ export default function VolunteerPage() {
                   required
                   placeholder="Share your motivation and what you hope to contribute..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
+                />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -441,7 +441,7 @@ export default function VolunteerPage() {
                   rows={4}
                   placeholder="Share any relevant professional or volunteer experience..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
+                />
               </div>
               <button
                 type="submit"

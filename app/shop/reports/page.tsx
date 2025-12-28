@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FileText, Download, Calendar, Users, Clock } from 'lucide-react';
-
 
 type Report = {
   id: string;
@@ -69,7 +68,7 @@ export default async function ShopReportsPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600" />
       </div>
     );
   }

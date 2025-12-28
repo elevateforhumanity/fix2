@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-
 
 interface Invite {
   id: string;
@@ -167,7 +166,7 @@ export default function OrgInvitesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue-600" />
       </div>
     );
   }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 // app/pay/StripePayButton.tsx
@@ -52,7 +52,7 @@ export default function StripePayButton() {
       <stripe-buy-button
         buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
         publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-      ></stripe-buy-button>
+      />
 
       <p className="text-[11px] text-slate-500">
         By completing your payment you agree to Elevate for Humanity&apos;s

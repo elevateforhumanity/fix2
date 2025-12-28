@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -238,6 +238,7 @@ export default function VerificationReviewForm({
                           href={`/api/admin/documents/${doc.id}/view`}
                           target="_blank"
                           className="p-2 text-blue-600 hover:bg-blue-50 rounded"
+                          rel="noreferrer"
                         >
                           <Eye className="w-5 h-5" />
                         </a>

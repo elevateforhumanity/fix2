@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -31,9 +31,7 @@ function SuccessContent() {
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
             Payment Successful!
           </h1>
-          <p className="text-xl text-slate-600">
-            Thank you for your purchase
-          </p>
+          <p className="text-xl text-slate-600">Thank you for your purchase</p>
         </div>
 
         {/* Order Details */}
@@ -45,18 +43,27 @@ function SuccessContent() {
 
             <div className="space-y-4 mb-6">
               <div className="flex items-start gap-3">
-                <Mail className="text-brand-orange-600 flex-shrink-0 mt-1" size={20} />
+                <Mail
+                  className="text-brand-orange-600 flex-shrink-0 mt-1"
+                  size={20}
+                />
                 <div>
-                  <p className="font-semibold text-slate-900">Check Your Email</p>
+                  <p className="font-semibold text-slate-900">
+                    Check Your Email
+                  </p>
                   <p className="text-sm text-slate-600">
-                    We've sent your purchase confirmation and download link to your email address.
+                    We've sent your purchase confirmation and download link to
+                    your email address.
                   </p>
                 </div>
               </div>
 
               {product.deliveryType === 'download' && product.downloadUrl && (
                 <div className="flex items-start gap-3">
-                  <Download className="text-brand-orange-600 flex-shrink-0 mt-1" size={20} />
+                  <Download
+                    className="text-brand-orange-600 flex-shrink-0 mt-1"
+                    size={20}
+                  />
                   <div>
                     <p className="font-semibold text-slate-900">Download Now</p>
                     <p className="text-sm text-slate-600 mb-2">
@@ -75,11 +82,17 @@ function SuccessContent() {
 
               {product.deliveryType === 'access' && (
                 <div className="flex items-start gap-3">
-                  <ArrowRight className="text-brand-orange-600 flex-shrink-0 mt-1" size={20} />
+                  <ArrowRight
+                    className="text-brand-orange-600 flex-shrink-0 mt-1"
+                    size={20}
+                  />
                   <div>
-                    <p className="font-semibold text-slate-900">Access Your Course</p>
+                    <p className="font-semibold text-slate-900">
+                      Access Your Course
+                    </p>
                     <p className="text-sm text-slate-600 mb-2">
-                      Your course access has been activated. Login to get started.
+                      Your course access has been activated. Login to get
+                      started.
                     </p>
                     <Link
                       href="/login"
@@ -94,11 +107,16 @@ function SuccessContent() {
             </div>
 
             <div className="border-t border-slate-200 pt-6">
-              <h3 className="font-semibold text-slate-900 mb-3">What's Included:</h3>
+              <h3 className="font-semibold text-slate-900 mb-3">
+                What's Included:
+              </h3>
               <ul className="space-y-2">
                 {product.features.map((feature: string, index: number) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                    <CheckCircle
+                      className="text-green-600 flex-shrink-0 mt-0.5"
+                      size={16}
+                    />
                     <span className="text-sm text-slate-700">{feature}</span>
                   </li>
                 ))}
@@ -147,11 +165,17 @@ function SuccessContent() {
           <p>Questions about your purchase?</p>
           <p>
             Email us at{' '}
-            <a href="mailto:support@elevateforhumanity.org" className="text-brand-orange-600 hover:underline">
+            <a
+              href="mailto:support@elevateforhumanity.org"
+              className="text-brand-orange-600 hover:underline"
+            >
               support@elevateforhumanity.org
-            </a>
-            {' '}or call{' '}
-            <a href="tel:3173143757" className="text-brand-orange-600 hover:underline">
+            </a>{' '}
+            or call{' '}
+            <a
+              href="tel:3173143757"
+              className="text-brand-orange-600 hover:underline"
+            >
               (317) 314-3757
             </a>
           </p>
@@ -163,11 +187,13 @@ function SuccessContent() {
 
 export default function SuccessPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange-600"></div>
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange-600" />
+        </div>
+      }
+    >
       <SuccessContent />
     </Suspense>
   );

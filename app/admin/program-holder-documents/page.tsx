@@ -1,9 +1,17 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState, useEffect } from 'react';
-import { FileText, CheckCircle, XCircle, Clock, Download, User, Building2 } from 'lucide-react';
+import {
+  FileText,
+  CheckCircle,
+  XCircle,
+  Clock,
+  Download,
+  User,
+  Building2,
+} from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
 interface Document {
@@ -32,7 +40,9 @@ interface Document {
 export default function AdminProgramHolderDocuments() {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('pending');
+  const [filter, setFilter] = useState<
+    'all' | 'pending' | 'approved' | 'rejected'
+  >('pending');
   const [selectedDoc, setSelectedDoc] = useState<Document | null>(null);
   const [approvalNotes, setApprovalNotes] = useState('');
   const [processing, setProcessing] = useState(false);
@@ -47,11 +57,13 @@ export default function AdminProgramHolderDocuments() {
     try {
       let query = supabase
         .from('program_holder_documents')
-        .select(`
+        .select(
+          `
           *,
           profiles:user_id (full_name, email),
           organizations:organization_id (name)
-        `)
+        `
+        )
         .order('created_at', { ascending: false });
 
       if (filter === 'pending') {
@@ -79,7 +91,9 @@ export default function AdminProgramHolderDocuments() {
   const handleApprove = async (docId: string, approve: boolean) => {
     setProcessing(true);
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       const { error } = await supabase
@@ -143,7 +157,7 @@ export default function AdminProgramHolderDocuments() {
     return (
       <div className="min-h-screen bg-gray-50 py-8 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading documents...</p>
         </div>
       </div>
@@ -167,9 +181,23 @@ export default function AdminProgramHolderDocuments() {
         <div className="bg-white rounded-lg shadow-sm mb-6">
           <div className="flex border-b">
             {[
-              { key: 'pending', label: 'Pending Review', count: documents.filter(d => !d.approved && !d.approved_by).length },
-              { key: 'approved', label: 'Approved', count: documents.filter(d => d.approved).length },
-              { key: 'rejected', label: 'Rejected', count: documents.filter(d => !d.approved && d.approved_by).length },
+              {
+                key: 'pending',
+                label: 'Pending Review',
+                count: documents.filter((d) => !d.approved && !d.approved_by)
+                  .length,
+              },
+              {
+                key: 'approved',
+                label: 'Approved',
+                count: documents.filter((d) => d.approved).length,
+              },
+              {
+                key: 'rejected',
+                label: 'Rejected',
+                count: documents.filter((d) => !d.approved && d.approved_by)
+                  .length,
+              },
               { key: 'all', label: 'All Documents', count: documents.length },
             ].map((tab) => (
               <button
@@ -205,7 +233,10 @@ export default function AdminProgramHolderDocuments() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-4 flex-1">
-                    <FileText className="text-blue-600 flex-shrink-0 mt-1" size={32} />
+                    <FileText
+                      className="text-blue-600 flex-shrink-0 mt-1"
+                      size={32}
+                    />
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg text-gray-900 mb-1">
                         {doc.file_name}
@@ -214,7 +245,9 @@ export default function AdminProgramHolderDocuments() {
                         {doc.document_type.replace(/_/g, ' ')}
                       </p>
                       {doc.description && (
-                        <p className="text-sm text-gray-500 mb-2">{doc.description}</p>
+                        <p className="text-sm text-gray-500 mb-2">
+                          {doc.description}
+                        </p>
                       )}
                       <div className="flex items-center gap-4 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
@@ -228,7 +261,9 @@ export default function AdminProgramHolderDocuments() {
                           </span>
                         )}
                         <span>{formatFileSize(doc.file_size)}</span>
-                        <span>{new Date(doc.created_at).toLocaleDateString()}</span>
+                        <span>
+                          {new Date(doc.created_at).toLocaleDateString()}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -260,7 +295,9 @@ export default function AdminProgramHolderDocuments() {
                           Approval Notes (Optional)
                         </label>
                         <textarea
-                          value={selectedDoc?.id === doc.id ? approvalNotes : ''}
+                          value={
+                            selectedDoc?.id === doc.id ? approvalNotes : ''
+                          }
                           onChange={(e) => {
                             setSelectedDoc(doc);
                             setApprovalNotes(e.target.value);

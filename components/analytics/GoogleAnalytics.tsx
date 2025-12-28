@@ -1,8 +1,6 @@
 'use client';
 
 import React from 'react';
-import { sanitizeHtml } from '@/lib/sanitize';
-
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';

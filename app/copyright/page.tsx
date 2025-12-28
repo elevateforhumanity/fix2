@@ -41,29 +41,29 @@ export default function CopyrightPage() {
 
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Website content and structure
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Platform workflows and dashboards
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">Documentation and reports</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Branding, logos, and design elements
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Proprietary configurations and integrations
               </span>
@@ -111,15 +111,15 @@ export default function CopyrightPage() {
 
           <ul className="space-y-2 mb-6">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">A formal agreement</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">Explicit authorization</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">Defined scope of use</span>
             </li>
           </ul>
@@ -134,19 +134,19 @@ export default function CopyrightPage() {
           </h3>
           <ul className="space-y-2">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Platform access is granted by agreement, not purchase alone
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Licensing does not transfer ownership
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Access may be revoked if terms are violated
               </span>

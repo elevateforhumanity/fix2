@@ -472,7 +472,7 @@ export default function EmployersPage() {
                   required
                   placeholder="Describe the position, responsibilities, and requirements..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
+                />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -482,7 +482,7 @@ export default function EmployersPage() {
                   rows={3}
                   placeholder="e.g., CNA certification, CDL Class A, HVAC EPA 608..."
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
+                />
               </div>
               <div>
                 <label className="flex items-center gap-2">

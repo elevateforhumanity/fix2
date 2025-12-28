@@ -138,7 +138,9 @@ export default function AnnualReportPage() {
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Briefcase className="w-8 h-8 text-brand-orange-600" />
                 </div>
-                <div className="text-4xl font-bold text-brand-orange-600 mb-2">150+</div>
+                <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                  150+
+                </div>
                 <div className="text-slate-600 font-semibold">
                   Employer Partners
                 </div>
@@ -212,7 +214,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-brand-blue-600 h-3 rounded-full"
                         style={{ width: '50%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div>
@@ -224,7 +226,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-brand-green-600 h-3 rounded-full"
                         style={{ width: '31%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div>
@@ -236,7 +238,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-purple-600 h-3 rounded-full"
                         style={{ width: '15%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div>
@@ -248,7 +250,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-brand-orange-600 h-3 rounded-full"
                         style={{ width: '4%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div className="pt-4 border-t border-slate-300">
@@ -277,7 +279,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-brand-blue-600 h-3 rounded-full"
                         style={{ width: '70%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div>
@@ -289,7 +291,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-brand-green-600 h-3 rounded-full"
                         style={{ width: '15%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div>
@@ -301,7 +303,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-purple-600 h-3 rounded-full"
                         style={{ width: '10%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div>
@@ -315,7 +317,7 @@ export default function AnnualReportPage() {
                       <div
                         className="bg-brand-orange-600 h-3 rounded-full"
                         style={{ width: '5%' }}
-                      ></div>
+                      />
                     </div>
                   </div>
                   <div className="pt-4 border-t border-slate-300">

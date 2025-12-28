@@ -23,22 +23,22 @@ function TermsPage() {
 
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>Provide accurate information</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>Participate respectfully in programs and services</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 Understand that placement, funding, and outcomes are not
                 guaranteed
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>Comply with partner and workforce requirements</span>
             </li>
           </ul>
@@ -58,7 +58,7 @@ function TermsPage() {
           </h2>
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>No Guaranteed Outcomes:</strong> While we work to
                 connect participants with opportunities, employment, program
@@ -66,7 +66,7 @@ function TermsPage() {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>Funding Eligibility:</strong> Funding availability
                 depends on external agencies and their requirements. Elevate for
@@ -74,7 +74,7 @@ function TermsPage() {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>Partner Services:</strong> Some training is delivered by
                 partner organizations. Elevate for Humanity coordinates but does

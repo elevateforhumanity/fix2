@@ -132,7 +132,7 @@ export default async function StudentProgressPage() {
                         <div
                           className="bg-white h-3 rounded-full transition-all duration-500"
                           style={{ width: `${progressPercent}%` }}
-                        ></div>
+                        />
                       </div>
                     </div>
                   </div>

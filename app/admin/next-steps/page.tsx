@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useEffect, useMemo, useState } from 'react';
-
 
 type Row = any;
 
@@ -75,7 +74,6 @@ export default function AdminNextStepsPage() {
 
   useEffect(() => {
     load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryString]);
 
   return (

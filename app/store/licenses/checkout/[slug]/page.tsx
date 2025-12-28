@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -73,7 +73,7 @@ function CheckoutForm({
       >
         {processing ? (
           <>
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
             Processing...
           </>
         ) : (
@@ -153,7 +153,7 @@ export default function LicenseCheckoutPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-green-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-green-600" />
       </div>
     );
   }

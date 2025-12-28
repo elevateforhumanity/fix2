@@ -28,7 +28,7 @@ export default function TransparencyPage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
@@ -135,7 +135,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-teal-600 h-4 rounded-full"
                       style={{ width: '82%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     Direct training, certifications, and job placement services
@@ -155,7 +155,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-brand-blue-600 h-4 rounded-full"
                       style={{ width: '12%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     Operations, technology, and compliance
@@ -175,7 +175,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-purple-600 h-4 rounded-full"
                       style={{ width: '6%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     Donor relations and development activities
@@ -217,7 +217,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-brand-blue-600 h-4 rounded-full"
                       style={{ width: '45%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     WIOA, WRG, and federal workforce funding
@@ -237,7 +237,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-teal-600 h-4 rounded-full"
                       style={{ width: '30%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     Generous support from community members
@@ -257,7 +257,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-purple-600 h-4 rounded-full"
                       style={{ width: '20%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     Employer sponsorships and partnerships
@@ -277,7 +277,7 @@ export default function TransparencyPage() {
                     <div
                       className="bg-brand-orange-600 h-4 rounded-full"
                       style={{ width: '5%' }}
-                    ></div>
+                    />
                   </div>
                   <p className="text-sm text-slate-600 mt-2">
                     Private foundation support

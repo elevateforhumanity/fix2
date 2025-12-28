@@ -5,7 +5,9 @@ import { resend } from '@/lib/resend';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -18,12 +20,28 @@ export async function POST(request: NextRequest) {
       .eq('id', user.id)
       .single();
 
-    if (!profile || !['admin', 'super_admin', 'staff', 'program_holder', 'instructor'].includes(profile.role)) {
+    if (
+      !profile ||
+      ![
+        'admin',
+        'super_admin',
+        'staff',
+        'program_holder',
+        'instructor',
+      ].includes(profile.role)
+    ) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
     const body = await request.json();
-    const { name, subject, from_name, from_email, html_content, target_audience } = body;
+    const {
+      name,
+      subject,
+      from_name,
+      from_email,
+      html_content,
+      target_audience,
+    } = body;
 
     // Get recipients based on target audience
     let recipients: unknown[] = [];
@@ -92,11 +110,17 @@ export async function POST(request: NextRequest) {
         break;
 
       default:
-        return NextResponse.json({ error: 'Invalid target audience' }, { status: 400 });
+        return NextResponse.json(
+          { error: 'Invalid target audience' },
+          { status: 400 }
+        );
     }
 
     if (recipients.length === 0) {
-      return NextResponse.json({ error: 'No recipients found' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'No recipients found' },
+        { status: 400 }
+      );
     }
 
     // Create campaign record
@@ -117,7 +141,10 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (campaignError || !campaign) {
-      return NextResponse.json({ error: 'Failed to create campaign' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to create campaign' },
+        { status: 500 }
+      );
     }
 
     // Send emails in batches (Resend allows 100 per request)
@@ -129,11 +156,14 @@ export async function POST(request: NextRequest) {
 
       // Replace variables in HTML for each recipient
       const emailPromises = batch.map(async (recipient) => {
-        let personalizedContent = html_content
+        const personalizedContent = html_content
           .replace(/\{\{student_name\}\}/g, recipient.full_name || 'Student')
           .replace(/\{\{user_name\}\}/g, recipient.full_name || 'User')
           .replace(/\{\{organization_name\}\}/g, 'Elevate for Humanity')
-          .replace(/\{\{dashboard_link\}\}/g, 'https://elevateforhumanity.org/dashboard')
+          .replace(
+            /\{\{dashboard_link\}\}/g,
+            'https://elevateforhumanity.org/dashboard'
+          )
           .replace(/\{\{support_email\}\}/g, 'support@elevateforhumanity.org')
           .replace(/\{\{support_phone\}\}/g, '(555) 123-4567');
 
@@ -155,13 +185,13 @@ export async function POST(request: NextRequest) {
             sent_at: new Date().toISOString(),
           });
         } catch (error) {
-          
           // Log failure
           await supabase.from('email_logs').insert({
             campaign_id: campaign.id,
             recipient_email: recipient.email,
             status: 'failed',
-            error_message: error instanceof Error ? error.message : 'Unknown error',
+            error_message:
+              error instanceof Error ? error.message : 'Unknown error',
           });
         }
       });
@@ -184,7 +214,6 @@ export async function POST(request: NextRequest) {
       sent_count: sentCount,
       total_recipients: recipients.length,
     });
-
   } catch (err: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to send campaign' },

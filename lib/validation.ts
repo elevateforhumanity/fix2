@@ -53,7 +53,7 @@ export async function verifyCertificateEligibility(enrollmentId: string) {
 }
 
 export const validators = {
-  required: (data: unknown) => {
+  required: (value: any) => {
     if (!value || (typeof value === 'string' && !value.trim())) {
       return 'This field is required';
     }

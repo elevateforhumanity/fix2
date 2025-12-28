@@ -219,9 +219,14 @@ class OfflineDB {
   }
 
   // Course Progress (for offline learning)
-  async saveCourseProgress(data: unknown): Promise<void> {
+  async saveCourseProgress(data: {
+    courseId: string;
+    lessonId: string;
+    progress: number;
+  }): Promise<void> {
     if (!this.db) await this.init();
 
+    const { courseId, lessonId, progress } = data;
     const progressData = {
       courseId,
       lessonId,

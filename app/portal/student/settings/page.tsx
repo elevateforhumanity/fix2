@@ -69,8 +69,7 @@ export default async function SettingsPage() {
             <Link
               href="/programs"
               className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-            </Link>
+            />
           </div>
         </div>
       </section>

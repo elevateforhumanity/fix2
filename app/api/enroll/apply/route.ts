@@ -57,7 +57,7 @@ export async function POST(req: Request) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    let studentId = user?.id;
+    const studentId = user?.id;
 
     // If no authenticated user, create a lead record
     if (!studentId) {

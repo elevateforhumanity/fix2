@@ -30,7 +30,7 @@ export default function DonatePage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">

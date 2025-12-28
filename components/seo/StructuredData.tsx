@@ -1,5 +1,4 @@
 import { injectSchema } from '@/lib/schema';
-import { sanitizeHtml } from '@/lib/sanitize';
 
 interface StructuredDataProps {
   data: any;

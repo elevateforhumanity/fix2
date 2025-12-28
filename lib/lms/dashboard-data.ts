@@ -129,7 +129,7 @@ export async function getStudentProgressList(
     return [];
   }
 
-  return data.map((program: any) => ({
+  return data.map((enrollment: any) => ({
     enrollmentId: enrollment.id,
     studentName:
       `${enrollment.profiles?.first_name || ''} ${enrollment.profiles?.last_name || ''}`.trim() ||

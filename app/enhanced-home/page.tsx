@@ -15,7 +15,6 @@ import {
   Zap,
 } from 'lucide-react';
 
-
 export default function EnhancedHomePage() {
   const programs = [
     {
@@ -96,7 +95,7 @@ export default function EnhancedHomePage() {
               backgroundImage:
                 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
             }}
-          ></div>
+          />
         </div>
 
         {/* Hero Image */}
@@ -109,7 +108,7 @@ export default function EnhancedHomePage() {
             priority
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         </div>
 
         {/* Content */}
@@ -240,7 +239,7 @@ export default function EnhancedHomePage() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
                     FREE
                   </div>
@@ -425,7 +424,11 @@ export default function EnhancedHomePage() {
           <p className="mt-8 text-orange-100">
             Questions? Call us at{' '}
             <strong className="text-white">(317) 314-3757</strong> or{' '}
-            <Link href="/contact" aria-label="Link" className="underline hover:text-white">
+            <Link
+              href="/contact"
+              aria-label="Link"
+              className="underline hover:text-white"
+            >
               contact us online
             </Link>
           </p>
@@ -664,11 +667,11 @@ export default function EnhancedHomePage() {
                   />
                 </div>
                 {/* Phone Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl" />
               </div>
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-500 rounded-full opacity-50 blur-2xl animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-blue-500 rounded-full opacity-50 blur-2xl animate-pulse animation-delay-2000"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-500 rounded-full opacity-50 blur-2xl animate-pulse" />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-blue-500 rounded-full opacity-50 blur-2xl animate-pulse animation-delay-2000" />
             </div>
           </div>
         </div>
@@ -781,7 +784,9 @@ export default function EnhancedHomePage() {
               <p className="text-gray-600 text-sm mb-4">
                 Video tutorials & testimonials
               </p>
-              <div className="text-brand-orange-600 font-semibold">Subscribe →</div>
+              <div className="text-brand-orange-600 font-semibold">
+                Subscribe →
+              </div>
             </a>
           </div>
 

@@ -39,7 +39,7 @@ export default function BarberApprenticeshipPage() {
           <a
             href="https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="text-blue-600 underline hover:text-blue-800"
           >
             Program #10002417
@@ -107,16 +107,22 @@ export default function BarberApprenticeshipPage() {
                   Can't Get Funded? No Problem!
                 </h3>
                 <p className="text-slate-700 mb-4">
-                  If you don't qualify for WIOA, WRG, or JRI funding, you can still enroll with flexible payment options:
+                  If you don't qualify for WIOA, WRG, or JRI funding, you can
+                  still enroll with flexible payment options:
                 </p>
                 <ul className="space-y-2 mb-4 text-slate-700">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span><strong>Stripe:</strong> Pay tuition in full securely</span>
+                    <span>
+                      <strong>Stripe:</strong> Pay tuition in full securely
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span><strong>Affirm:</strong> Monthly payment plans with 0% APR options</span>
+                    <span>
+                      <strong>Affirm:</strong> Monthly payment plans with 0% APR
+                      options
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -221,7 +227,7 @@ export default function BarberApprenticeshipPage() {
               <a
                 href="https://www.in.gov/dwd/owbla/registered-apprenticeship-basics/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="text-brand-blue-600 hover:underline"
               >
                 Indiana DWD - Registered Apprenticeship Basics{' '}

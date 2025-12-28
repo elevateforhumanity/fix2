@@ -137,7 +137,7 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
                   Workforce training & apprenticeships
@@ -146,7 +146,7 @@ export default function AboutPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
                   Employer-aligned career pathways
@@ -155,7 +155,7 @@ export default function AboutPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
                   Justice-impacted & underserved populations
@@ -164,7 +164,7 @@ export default function AboutPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
                   Community-based solutions
@@ -173,7 +173,7 @@ export default function AboutPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
                   Long-term economic mobility

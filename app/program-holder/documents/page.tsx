@@ -1,9 +1,16 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState, useEffect } from 'react';
-import { Upload, FileText, CheckCircle, XCircle, Clock, Download } from 'lucide-react';
+import {
+  Upload,
+  FileText,
+  CheckCircle,
+  XCircle,
+  Clock,
+  Download,
+} from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
 interface Document {
@@ -36,7 +43,9 @@ export default function ProgramHolderDocuments() {
 
   const loadDocuments = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) {
         setError('Please login to view documents');
         setLoading(false);
@@ -147,7 +156,7 @@ export default function ProgramHolderDocuments() {
     return (
       <div className="min-h-screen bg-gray-50 py-8 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading documents...</p>
         </div>
       </div>
@@ -170,13 +179,13 @@ export default function ProgramHolderDocuments() {
         {/* Upload Section */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Upload New Document</h2>
-          
+
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
               {error}
             </div>
           )}
-          
+
           {success && (
             <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-4">
               {success}
@@ -199,7 +208,9 @@ export default function ProgramHolderDocuments() {
                 <option value="license">Business License</option>
                 <option value="insurance">Insurance Certificate</option>
                 <option value="accreditation">Accreditation Documents</option>
-                <option value="instructor_credentials">Instructor Credentials</option>
+                <option value="instructor_credentials">
+                  Instructor Credentials
+                </option>
                 <option value="facility_photos">Facility Photos</option>
                 <option value="mou">Signed MOU</option>
                 <option value="other">Other</option>
@@ -219,7 +230,8 @@ export default function ProgramHolderDocuments() {
               />
               {selectedFile && (
                 <p className="text-sm text-gray-600 mt-2">
-                  Selected: {selectedFile.name} ({formatFileSize(selectedFile.size)})
+                  Selected: {selectedFile.name} (
+                  {formatFileSize(selectedFile.size)})
                 </p>
               )}
             </div>
@@ -246,7 +258,7 @@ export default function ProgramHolderDocuments() {
             >
               {uploading ? (
                 <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
                   Uploading...
                 </>
               ) : (
@@ -262,7 +274,7 @@ export default function ProgramHolderDocuments() {
         {/* Documents List */}
         <div className="bg-white rounded-lg shadow-sm p-6">
           <h2 className="text-xl font-semibold mb-4">Your Documents</h2>
-          
+
           {documents.length === 0 ? (
             <div className="text-center py-12 text-gray-500">
               <FileText size={48} className="mx-auto mb-4 text-gray-300" />
@@ -278,25 +290,36 @@ export default function ProgramHolderDocuments() {
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-3 flex-1">
-                      <FileText className="text-blue-600 flex-shrink-0 mt-1" size={24} />
+                      <FileText
+                        className="text-blue-600 flex-shrink-0 mt-1"
+                        size={24}
+                      />
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900">{doc.file_name}</h3>
+                        <h3 className="font-semibold text-gray-900">
+                          {doc.file_name}
+                        </h3>
                         <p className="text-sm text-gray-600 capitalize">
                           {doc.document_type.replace('_', ' ')}
                         </p>
                         {doc.description && (
-                          <p className="text-sm text-gray-500 mt-1">{doc.description}</p>
+                          <p className="text-sm text-gray-500 mt-1">
+                            {doc.description}
+                          </p>
                         )}
                         <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
                           <span>{formatFileSize(doc.file_size)}</span>
-                          <span>{new Date(doc.created_at).toLocaleDateString()}</span>
+                          <span>
+                            {new Date(doc.created_at).toLocaleDateString()}
+                          </span>
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-2">
                         {getStatusIcon(doc)}
-                        <span className="text-sm font-medium">{getStatusText(doc)}</span>
+                        <span className="text-sm font-medium">
+                          {getStatusText(doc)}
+                        </span>
                       </div>
                       <a
                         href={doc.file_url}

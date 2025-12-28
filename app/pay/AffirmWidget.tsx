@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
 import React from 'react';
 // app/pay/AffirmWidget.tsx
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
@@ -33,8 +33,8 @@ export default function AffirmWidget() {
       return;
     }
 
-    const script = document.createElement("script");
-    script.src = "https://cdn1.affirm.com/js/v2/affirm.js";
+    const script = document.createElement('script');
+    script.src = 'https://cdn1.affirm.com/js/v2/affirm.js';
     script.async = true;
     script.onload = () => {
       try {
@@ -49,11 +49,10 @@ export default function AffirmWidget() {
         }
         setLoaded(true);
       } catch (error) {
-    // Error handled
-  }
+        // Error handled
+      }
     };
-    script.onerror = () => {
-    };
+    script.onerror = () => {};
 
     document.body.appendChild(script);
   }, []);
@@ -65,7 +64,7 @@ export default function AffirmWidget() {
         data-page-type="product"
         data-amount={TUITION_AMOUNT_CENTS}
         data-affirm-color="blue"
-      ></div>
+      />
 
       {!loaded && (
         <p className="text-xs text-slate-500">

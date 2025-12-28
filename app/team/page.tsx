@@ -52,23 +52,23 @@ export default function TeamPage() {
 
             <ul className="space-y-4 text-lg text-gray-700">
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
                 <span>Workforce and training coordinators</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
                 <span>Program and compliance specialists</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
                 <span>Employer and partner liaisons</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
                 <span>Advisors and support staff</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
                 <span>Technology and operations professionals</span>
               </li>
             </ul>
@@ -90,7 +90,10 @@ export default function TeamPage() {
           {/* Team Photos Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-              <div key={num} className="relative aspect-square rounded-lg overflow-hidden shadow-md">
+              <div
+                key={num}
+                className="relative aspect-square rounded-lg overflow-hidden shadow-md"
+              >
                 <Image
                   src={`/images/team-new/team-${num}.jpg`}
                   alt={`Team member ${num}`}

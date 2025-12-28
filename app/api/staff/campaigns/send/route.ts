@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     // Send emails
     for (const student of students) {
-      let personalizedContent = html_content
+      const personalizedContent = html_content
         .replace(/\{\{student_name\}\}/g, student.full_name || 'Student')
         .replace(/\{\{user_name\}\}/g, student.full_name || 'Student')
         .replace(/\{\{organization_name\}\}/g, 'Elevate for Humanity')
@@ -70,8 +70,7 @@ export async function POST(request: NextRequest) {
         });
 
         sentCount++;
-      } catch (error) {
-      }
+      } catch (error) {}
     }
 
     return NextResponse.json({

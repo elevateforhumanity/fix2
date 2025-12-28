@@ -66,7 +66,7 @@ export default async function MobileAppPage() {
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center">
-                <span className="text-3xl"></span>
+                <span className="text-3xl" />
               </div>
               <Download className="w-8 h-8 text-brand-blue-600 group-hover:animate-bounce" />
             </div>

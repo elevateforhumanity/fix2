@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CreditCard, CheckCircle, XCircle, DollarSign } from 'lucide-react';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -64,7 +63,7 @@ export default function TestPaymentsPage() {
 
           {loading ? (
             <div className="text-center py-4">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-blue-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-blue-600 mx-auto" />
             </div>
           ) : (
             <div className="space-y-3">

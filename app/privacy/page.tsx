@@ -29,27 +29,27 @@ function PrivacyPage() {
 
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>We do not sell personal information</strong>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 Information is used only for program coordination, advising,
                 reporting, and compliance
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 Data may be shared with partners only as required for
                 enrollment, funding, or reporting
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>Secure systems are used to protect sensitive data</span>
             </li>
           </ul>
@@ -65,21 +65,21 @@ function PrivacyPage() {
           </p>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>Contact information (name, email, phone, address)</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 Eligibility information (for funding and program placement)
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>Program enrollment and progress data</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 Employment and outcome information (for reporting requirements)
               </span>
@@ -93,19 +93,19 @@ function PrivacyPage() {
           </h2>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>To coordinate training and support services</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>To connect you with advisors, partners, and employers</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>To meet funding and compliance reporting requirements</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span>To track outcomes and improve services</span>
             </li>
           </ul>
@@ -120,28 +120,28 @@ function PrivacyPage() {
           </p>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>Training Partners:</strong> To coordinate program
                 delivery
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>Funding Agencies:</strong> To meet reporting
                 requirements (WIOA, WRG, JRI, etc.)
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>Employers:</strong> With your consent, for placement
                 opportunities
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 <strong>Service Providers:</strong> Who help us operate our
                 platform (with data protection agreements)
@@ -154,15 +154,15 @@ function PrivacyPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Rights</h2>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>Request access to your information</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>Request corrections to your information</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span>
                 Withdraw consent (where applicable, subject to legal
                 obligations)

@@ -1,16 +1,23 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import {
+  Elements,
+  PaymentElement,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
 import { getDigitalProduct } from '@/lib/store/digital-products';
 import { ArrowLeft, Lock, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 function CheckoutForm({ product }: { product: any }) {
   const stripe = useStripe();
@@ -45,7 +52,7 @@ function CheckoutForm({ product }: { product: any }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <PaymentElement />
-      
+
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
           {error}
@@ -59,7 +66,7 @@ function CheckoutForm({ product }: { product: any }) {
       >
         {processing ? (
           <>
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
             Processing...
           </>
         ) : (
@@ -71,7 +78,8 @@ function CheckoutForm({ product }: { product: any }) {
       </button>
 
       <p className="text-xs text-center text-slate-600">
-        Secure payment powered by Stripe. Your payment information is encrypted and secure.
+        Secure payment powered by Stripe. Your payment information is encrypted
+        and secure.
       </p>
     </form>
   );
@@ -119,7 +127,7 @@ export default function CheckoutPage() {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange-600 mx-auto mb-4" />
           <p className="text-slate-600">Loading checkout...</p>
         </div>
       </div>
@@ -131,7 +139,11 @@ export default function CheckoutPage() {
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
           <p className="text-slate-600 mb-4">Unable to load checkout</p>
-          <Link href="/store" aria-label="Link" className="text-brand-orange-600 hover:underline">
+          <Link
+            href="/store"
+            aria-label="Link"
+            className="text-brand-orange-600 hover:underline"
+          >
             Return to store
           </Link>
         </div>
@@ -162,22 +174,31 @@ export default function CheckoutPage() {
               <div className="space-y-4">
                 <div className="flex justify-between">
                   <span className="text-slate-700">{product.name}</span>
-                  <span className="font-bold text-slate-900">{product.priceDisplay}</span>
+                  <span className="font-bold text-slate-900">
+                    {product.priceDisplay}
+                  </span>
                 </div>
 
                 <div className="border-t border-slate-200 pt-4">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-brand-orange-600">{product.priceDisplay}</span>
+                    <span className="text-brand-orange-600">
+                      {product.priceDisplay}
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div className="mt-6 space-y-3">
-                <h3 className="font-semibold text-slate-900 text-sm">What's Included:</h3>
+                <h3 className="font-semibold text-slate-900 text-sm">
+                  What's Included:
+                </h3>
                 {product.features.map((feature: string, index: number) => (
                   <div key={index} className="flex items-start gap-2">
-                    <CheckCircle className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
+                    <CheckCircle
+                      className="text-green-600 flex-shrink-0 mt-0.5"
+                      size={16}
+                    />
                     <span className="text-sm text-slate-700">{feature}</span>
                   </div>
                 ))}

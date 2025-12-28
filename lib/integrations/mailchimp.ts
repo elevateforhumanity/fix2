@@ -1,5 +1,5 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 
 if (process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_SERVER_PREFIX) {
   mailchimp.setConfig({
@@ -20,7 +20,7 @@ export async function addToList(
       merge_fields: mergeFields,
     });
     return { success: true, data: response };
-  } catch (data: unknown) {
+  } catch (error: any) {
     return { success: false, error: error.message };
   }
 }
@@ -42,7 +42,7 @@ export async function updateMember(
       updates
     );
     return { success: true, data: response };
-  } catch (data: unknown) {
+  } catch (error: any) {
     return { success: false, error: error.message };
   }
 }

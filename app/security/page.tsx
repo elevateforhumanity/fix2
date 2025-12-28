@@ -148,19 +148,19 @@ export default function SecurityPage() {
 
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 We do not sell personal data
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 We do not allow unrestricted access to sensitive records
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-orange-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 We do not expose internal dashboards publicly
               </span>
@@ -207,19 +207,19 @@ export default function SecurityPage() {
           </h3>
           <ul className="space-y-2 mb-6">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">User role</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">Organizational affiliation</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">Program association</span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">Jurisdictional permissions</span>
             </li>
           </ul>
@@ -229,25 +229,25 @@ export default function SecurityPage() {
           </h3>
           <ul className="space-y-2">
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Users only see what they are authorized to see
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 No cross-organization data visibility
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 No role escalation without approval
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-2 h-2 bg-brand-green-600 rounded-full mt-2 flex-shrink-0" />
               <span className="text-gray-700">
                 Administrative actions are logged
               </span>
