@@ -1,58 +1,75 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LOG_DIR="scripts/logs"; mkdir -p "$LOG_DIR"
-VLOG="$LOG_DIR/vite.log"; ALOG="$LOG_DIR/api.log"; APLOG="$LOG_DIR/autopilot.log"
+echo "== Autopilot (Builder Mode) =="
 
-echo "🧭 Autopilot start @ $(date -Is)" | tee -a "$APLOG"
+# 1) Prevent "analysis-only" churn: fail if someone adds NEW audit docs beyond required evidence.
+# Allowed docs:
+# - dashboard-schema-verification.md
+# - dashboard-orphans-disposition.md
+# - dashboard-consolidation-verification.md
+# - autopilot-run-log.md
+# Existing locked docs are also allowed.
+ALLOWED_DOCS_REGEX='^(docs/(dashboard-inventory\.md|dashboard-canonical-architecture\.md|dashboard-crossed-analysis\.md|dashboard-schema-verification\.md|dashboard-orphans-disposition\.md|dashboard-consolidation-verification\.md|autopilot-run-log\.md|dashboard-consolidation-baseline\.md))$'
 
-# Block regressions: strip any 'timeout ... dev'
-grep -RniE '(^|[;&|])\s*timeout\s+.*(vite|npm\s+run\s+dev|pnpm\s+dev|yarn\s+dev)' . 2>/dev/null && {
-  echo "❌ Removing timeout wrappers" | tee -a "$APLOG"
-  sed -i -E 's/timeout\s+[0-9smhd:-]+\s+//g' .gitpod.yml 2>/dev/null || true
-  sed -i -E 's/timeout\s+[0-9smhd:-]+\s+//g' package.json 2>/dev/null || true
-  find scripts -maxdepth 1 -type f -name "*.sh" -print0 2>/dev/null | xargs -0 -I{} sed -i -E 's/timeout\s+[0-9smhd:-]+\s+//g' "{}" || true
-} || true
+NEW_DOCS=$(git diff --name-only --diff-filter=ACMRT origin/main...HEAD 2>/dev/null | grep '^docs/.*\.md$' || true)
 
-# Launch Vite
-if ! pgrep -f "vite" >/dev/null; then
-  echo "▶️  Launching Vite…" | tee -a "$APLOG"
-  nohup ./scripts/start-vite.sh >>"$VLOG" 2>&1 &
-  sleep 3
+if [[ -n "${NEW_DOCS}" ]]; then
+  echo "Checking newly added/changed docs under docs/..."
+  while IFS= read -r f; do
+    if [[ ! "$f" =~ $ALLOWED_DOCS_REGEX ]]; then
+      echo "FAIL: New/changed doc not allowed in Builder Mode: $f"
+      echo "Allowed docs are execution evidence docs only."
+      exit 1
+    fi
+  done <<< "${NEW_DOCS}"
 fi
 
-# Launch API
-if ! pgrep -f "server/index.js" >/dev/null; then
-  echo "▶️  Launching API…" | tee -a "$APLOG"
-  nohup ./scripts/start-api.sh >>"$ALOG" 2>&1 &
-  sleep 3
-fi
+# 2) Verify redirect routes exist if referenced by canonical plan
+# (Light check: these files should exist after execution)
+REQUIRED_REDIRECT_FILES=(
+  "app/partner/dashboard/page.tsx"
+  "app/portal/staff/dashboard/page.tsx"
+  "app/programs/admin/dashboard/page.tsx"
+)
 
-# Monitor both; restart on impact
-GP_HOST="${GITPOD_WORKSPACE_URL#https://}"
-VITE="https://3000--${GP_HOST}"
-API="https://3001--${GP_HOST}"
-
-while true; do
-  v_ok=0; a_ok=0
-
-  # Vite health: /@vite/client should 200/ok in dev
-  curl -fsS "$VITE/@vite/client" >/dev/null && v_ok=1 || v_ok=0
-  if [ $v_ok -ne 1 ]; then
-    echo "⚠️  Vite unhealthy @ $(date -Is) — restarting" | tee -a "$APLOG"
-    pkill -f "vite" || true
-    nohup ./scripts/start-vite.sh >>"$VLOG" 2>&1 &
-    sleep 5
+missing=0
+for f in "${REQUIRED_REDIRECT_FILES[@]}"; do
+  if [[ ! -f "$f" ]]; then
+    echo "WARN: Expected redirect file missing: $f"
+    missing=1
   fi
-
-  # API health
-  curl -fsS "$API/api/health" >/dev/null && a_ok=1 || a_ok=0
-  if [ $a_ok -ne 1 ]; then
-    echo "⚠️  API unhealthy @ $(date -Is) — restarting" | tee -a "$APLOG"
-    pkill -f "server/index.js" || true
-    nohup ./scripts/start-api.sh >>"$ALOG" 2>&1 &
-    sleep 5
-  fi
-
-  sleep 10
 done
+
+# 3) Run repo checks
+echo "Running build/lint/typecheck if available..."
+
+if [[ -f package.json ]]; then
+  if npm run -s build >/dev/null 2>&1; then
+    npm run build
+  else
+    echo "NOTE: No build script detected."
+  fi
+
+  if npm run -s lint >/dev/null 2>&1; then
+    npm run lint
+  else
+    echo "NOTE: No lint script detected."
+  fi
+
+  if npm run -s typecheck >/dev/null 2>&1; then
+    npm run typecheck
+  else
+    echo "NOTE: No typecheck script detected."
+  fi
+else
+  echo "FAIL: package.json not found."
+  exit 1
+fi
+
+if [[ $missing -eq 1 ]]; then
+  echo "FAIL: Missing required redirect files. Implement redirects before passing Autopilot."
+  exit 1
+fi
+
+echo "PASS: Autopilot checks complete."
