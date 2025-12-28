@@ -68,29 +68,185 @@ export default function HomePage() {
         {/* Headline and CTAs BELOW the banner */}
         <div className="mt-8 text-center max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900">
-            Training, Funding, and Workforce Reporting — All In One Platform
+            Funded Workforce Training for Adults & Working Families
           </h1>
           <p className="mt-4 text-base sm:text-lg text-zinc-700">
-            Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting.
+            No tuition upfront. Apply now for state-aligned training paths in healthcare, trades, business, and technology.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 justify-center">
+          
+          {/* Quick Eligibility Bullets */}
+          <div className="mt-6 flex flex-wrap gap-4 justify-center text-sm text-zinc-600">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>WIOA-Funded Programs</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>Job Placement Assistance</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>Industry Credentials</span>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <a
-              href="/apply"
-              className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 transition-colors"
+              href="/enroll"
+              className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-zinc-800 transition-colors"
             >
-              Apply for Training
+              Apply Now
             </a>
             <a
-              href="/platform"
-              className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+              href="/programs"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-8 py-4 text-base font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
             >
-              License the Platform
+              View Programs
+            </a>
+            <a
+              href="/eligibility"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-8 py-4 text-base font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+            >
+              Check Eligibility
             </a>
           </div>
         </div>
       </section>
 
-      {/* 2. CREDENTIAL BANNER - Subtle, Professional */}
+      {/* 2. PERSONA ROUTING - Clear Audience Lanes */}
+      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-white">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-zinc-900 mb-12">
+            Choose Your Path
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Students */}
+            <div className="border-2 border-zinc-200 rounded-2xl p-8 hover:border-zinc-900 transition-colors">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">For Students</h3>
+              <p className="text-zinc-600 mb-6">
+                Free training programs with job placement assistance. No tuition, no debt.
+              </p>
+              <ul className="space-y-2 mb-6 text-sm text-zinc-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>WIOA-funded programs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Industry credentials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Job placement support</span>
+                </li>
+              </ul>
+              <a
+                href="/enroll"
+                className="block w-full text-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+              >
+                Apply Now
+              </a>
+            </div>
+
+            {/* Employers */}
+            <div className="border-2 border-zinc-200 rounded-2xl p-8 hover:border-zinc-900 transition-colors">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">For Employers</h3>
+              <p className="text-zinc-600 mb-6">
+                Access trained, job-ready candidates. Partner with us to build your workforce.
+              </p>
+              <ul className="space-y-2 mb-6 text-sm text-zinc-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Pre-screened candidates</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Custom training programs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>No hiring fees</span>
+                </li>
+              </ul>
+              <a
+                href="/employers"
+                className="block w-full text-center rounded-xl border-2 border-zinc-900 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+              >
+                Partner With Us
+              </a>
+            </div>
+
+            {/* Agencies/Partners */}
+            <div className="border-2 border-zinc-200 rounded-2xl p-8 hover:border-zinc-900 transition-colors">
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">For Agencies & Partners</h3>
+              <p className="text-zinc-600 mb-6">
+                Compliance-ready reporting and outcomes tracking for workforce boards and funders.
+              </p>
+              <ul className="space-y-2 mb-6 text-sm text-zinc-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>WIOA compliance reporting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Outcome metrics tracking</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Audit-ready documentation</span>
+                </li>
+              </ul>
+              <a
+                href="/partners"
+                className="block w-full text-center rounded-xl border-2 border-zinc-900 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. CREDENTIAL BANNER - Subtle, Professional */}
       <section className="px-4 sm:px-6 lg:px-10 py-8 border-y border-zinc-100 bg-zinc-50/50">
         <div className="mx-auto max-w-6xl">
           <p className="text-center text-sm text-zinc-600 mb-4">
