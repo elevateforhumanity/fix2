@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 // Initialize Stripe (only if key is available)
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2024-11-20.acacia' as any as any, // Type assertion for compatibility
+      apiVersion: '2024-11-20.acacia' as unknown as unknown, // Type assertion for compatibility
     })
   : null;
 // =====================================================
@@ -325,7 +325,7 @@ export async function processRefund(
   const refund = await stripe.refunds.create({
     payment_intent: payment.stripe_payment_intent_id,
     amount: amount ? Math.round(amount * 100) : undefined,
-    reason: reason as any,
+    reason: reason as unknown,
   });
   // Update payment status
   await supabase

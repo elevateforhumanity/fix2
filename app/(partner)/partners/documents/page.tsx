@@ -104,7 +104,7 @@ export default function PartnerDocumentsPage() {
           <select
             className="border rounded-xl p-2"
             value={type}
-            onChange={(e) => setType(e.target.value as any)}
+            onChange={(e) => setType(e.target.value as unknown)}
           >
             {TYPES.map((t) => (
               <option key={t} value={t}>

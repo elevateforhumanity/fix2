@@ -183,7 +183,7 @@ export default function ApprenticeHoursPage() {
             <select
               className="border border-slate-300 rounded px-3 py-2 text-sm"
               value={hour_type}
-              onChange={(e) => setHourType(e.target.value as any)}
+              onChange={(e) => setHourType(e.target.value as unknown)}
             >
               <option value="RTI">RTI (Milady / theory)</option>
               <option value="OJT">OJT (hands-on)</option>
@@ -197,7 +197,7 @@ export default function ApprenticeHoursPage() {
             <select
               className="border border-slate-300 rounded px-3 py-2 text-sm"
               value={funding_phase}
-              onChange={(e) => setFundingPhase(e.target.value as any)}
+              onChange={(e) => setFundingPhase(e.target.value as unknown)}
             >
               <option value="PRE_WIOA">PRE_WIOA</option>
               <option value="WIOA">WIOA</option>

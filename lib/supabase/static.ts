@@ -28,7 +28,7 @@ export function createStaticClient() {
           then: (resolve: any) => resolve({ data: [], error: null }),
         }),
       }),
-    } as any;
+    } as unknown;
   }
 
   return createSupabaseClient(supabaseUrl, supabaseAnonKey);

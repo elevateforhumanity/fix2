@@ -11,7 +11,7 @@ export const runtime = 'nodejs';
 const stripe = new Stripe(
   process.env.STRIPE_SECRET_KEY || 'sk_test_Content',
   {
-    apiVersion: '2025-10-29.clover' as any,
+    apiVersion: '2025-10-29.clover' as unknown,
   }
 );
 

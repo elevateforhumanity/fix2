@@ -13,8 +13,8 @@ export function Analytics() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('config', GA_MEASUREMENT_ID, {
+    if (typeof window !== 'undefined' && (window as unknown).gtag) {
+      (window as unknown).gtag('config', GA_MEASUREMENT_ID, {
         page_path:
           pathname +
           (searchParams?.toString() ? `?${searchParams.toString()}` : ''),
@@ -53,8 +53,8 @@ export function trackEvent(
   eventName: string,
   eventParams?: Record<string, any>
 ) {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', eventName, eventParams);
+  if (typeof window !== 'undefined' && (window as unknown).gtag) {
+    (window as unknown).gtag('event', eventName, eventParams);
   }
 }
 

@@ -40,9 +40,9 @@ export function SecurityMonitor() {
     const detectAutomation = () => {
       // Check for common automation indicators
       const indicators = {
-        webdriver: !!(window as any).navigator.webdriver,
-        phantom: !!(window as any)._phantom || !!(window as any).callPhantom,
-        selenium: !!(window as any).document.$cdc_asdjflasutopfhvcZLmcfl_,
+        webdriver: !!(window as unknown).navigator.webdriver,
+        phantom: !!(window as unknown)._phantom || !!(window as unknown).callPhantom,
+        selenium: !!(window as unknown).document.$cdc_asdjflasutopfhvcZLmcfl_,
         headless: /HeadlessChrome/.test(navigator.userAgent),
       };
 
@@ -104,10 +104,10 @@ export function SecurityMonitor() {
       window.addEventListener(
         'error',
         (e) => {
-          if (e.target && (e.target as any).src) {
+          if (e.target && (e.target as unknown).src) {
             logSecurityEvent('RESOURCE_LOAD_FAILED', {
-              resource: (e.target as any).src,
-              type: (e.target as any).tagName,
+              resource: (e.target as unknown).src,
+              type: (e.target as unknown).tagName,
             });
           }
         },
@@ -183,8 +183,8 @@ function logSecurityEvent(data: unknown) {
     });
 
     // Also send to Google Analytics if available
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'security_event', {
+    if (typeof window !== 'undefined' && (window as unknown).gtag) {
+      (window as unknown).gtag('event', 'security_event', {
         event_category: 'Security',
         event_label: eventType,
         value: 1,

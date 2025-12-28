@@ -33,8 +33,8 @@ export async function sendWelcomeSequence(enrollmentId: string) {
   
   if (!enrollment) return { success: false, error: 'Enrollment not found' };
   
-  const profile = enrollment.profiles as any;
-  const program = enrollment.programs as any;
+  const profile = enrollment.profiles as unknown;
+  const program = enrollment.programs as unknown;
   
   // Day 0: Welcome email (already sent by webhook)
   
@@ -104,8 +104,8 @@ export async function sendInactivityReminders() {
   let sent = 0;
   
   for (const student of inactiveStudents) {
-    const profile = student.profiles as any;
-    const course = student.courses as any;
+    const profile = student.profiles as unknown;
+    const course = student.courses as unknown;
     
     try {
       await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
@@ -159,8 +159,8 @@ export async function sendCompletionNudges() {
   let sent = 0;
   
   for (const student of nearCompletion) {
-    const profile = student.profiles as any;
-    const course = student.courses as any;
+    const profile = student.profiles as unknown;
+    const course = student.courses as unknown;
     
     try {
       await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {

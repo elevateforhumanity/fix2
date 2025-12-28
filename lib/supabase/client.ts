@@ -35,7 +35,7 @@ export function createClient() {
             then: (data: unknown) => resolve({ data: null, error: null }),
           }),
         }),
-      } as any;
+      } as unknown;
     }
     throw new Error(
       '[Supabase Client] Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY'

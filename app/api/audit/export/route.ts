@@ -27,7 +27,7 @@ export async function GET(req: Request) {
     await auditExport(
       'audit_snapshot',
       req.headers.get('x-user-id') || undefined,
-      (req.headers.get('x-user-role') as any) || 'workone',
+      (req.headers.get('x-user-role') as unknown) || 'workone',
       req
     );
 

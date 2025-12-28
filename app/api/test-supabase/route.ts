@@ -38,7 +38,7 @@ export async function GET() {
           querySuccess: !error,
           error: error
             ? {
-                code: error instanceof Error && "code" in error ? (error as any).code : "UNKNOWN",
+                code: error instanceof Error && "code" in error ? (error as unknown).code : "UNKNOWN",
                 message: error instanceof Error ? error.message : String(error),
                 details: error.details,
                 hint: error.hint,

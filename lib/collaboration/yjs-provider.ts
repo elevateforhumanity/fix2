@@ -53,14 +53,14 @@ export class CollaborationProvider {
   /**
    * Get a shared map (key-value store)
    */
-  getMap(fieldName: string): Y.Map<any> {
+  getMap(fieldName: string): Y.Map<unknown> {
     return this.doc.getMap(fieldName);
   }
 
   /**
    * Get a shared array
    */
-  getArray(fieldName: string): Y.Array<any> {
+  getArray(fieldName: string): Y.Array<unknown> {
     return this.doc.getArray(fieldName);
   }
 

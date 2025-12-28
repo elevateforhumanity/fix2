@@ -223,7 +223,7 @@ export const POST = withAuth(
 
         if (error) {
           if (
-            (error as any).code === '23505' ||
+            (error as unknown).code === '23505' ||
             toErrorMessage(error)?.includes('duplicate')
           ) {
             skipped++;

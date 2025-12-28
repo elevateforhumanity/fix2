@@ -17,12 +17,12 @@ export class SCORMAPIWrapper {
     while (currentWindow && attempts < maxAttempts) {
       attempts++;
       // Check for SCORM 1.2 API
-      if ((currentWindow as any).API) {
-        return (currentWindow as any).API;
+      if ((currentWindow as unknown).API) {
+        return (currentWindow as unknown).API;
       }
       // Check for SCORM 2004 API
-      if ((currentWindow as any).API_1484_11) {
-        return (currentWindow as any).API_1484_11;
+      if ((currentWindow as unknown).API_1484_11) {
+        return (currentWindow as unknown).API_1484_11;
       }
       // Move up to parent window
       if (currentWindow.parent && currentWindow.parent !== currentWindow) {

@@ -22,7 +22,7 @@ export function IntercomWidget({
     const appId = process.env.NEXT_PUBLIC_INTERCOM_APP_ID;
 
     (function () {
-      const w = window as any;
+      const w = window as unknown;
       const ic = w.Intercom;
       if (typeof ic === "function") {
         ic("reattach_activator");
@@ -31,7 +31,7 @@ export function IntercomWidget({
         const d = document;
         const i = function (...args: unknown[]) {
           i.c(args);
-        } as any;
+        } as unknown;
         i.q = [];
         i.c = function (data: unknown) {
           i.q.push(args);

@@ -51,7 +51,7 @@ export default function InstructorsPage() {
   function calculateAverageRating(ratings: unknown[]) {
     if (!ratings || ratings.length === 0) return '0';
     const sum: number = ratings.reduce(
-      (acc: number, r) => acc + ((r as any).rating || 0),
+      (acc: number, r) => acc + ((r as unknown).rating || 0),
       0
     ) as number;
     return (sum / ratings.length).toFixed(1);

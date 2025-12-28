@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
             { status: 401 }
           );
         }
-        const status = searchParams.get('status') as any;
+        const status = searchParams.get('status') as unknown;
         const referrals = await getUserReferrals(authResult2.user.id, status);
         return NextResponse.json({ referrals });
 

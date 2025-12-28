@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     // Log the change
     await auditLog({
       actor_user_id: req.headers.get('x-user-id') || undefined,
-      actor_role: (req.headers.get('x-user-role') as any) || 'system',
+      actor_role: (req.headers.get('x-user-role') as unknown) || 'system',
       action: before ? 'UPDATE' : 'CREATE',
       entity: 'funding',
       entity_id: data.id,

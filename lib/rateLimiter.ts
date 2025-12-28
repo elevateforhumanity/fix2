@@ -75,7 +75,7 @@ export async function rateLimit(
 
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    (req as any).ip ||
+    (req as unknown).ip ||
     'unknown';
 
   const key = `rl:${keyPrefix}:${ip}`;

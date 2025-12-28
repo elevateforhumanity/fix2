@@ -124,7 +124,7 @@ export function ProfessionalVideoPlayer({
   };
 
   const enterPiP = async () => {
-    const video = videoRef.current as any;
+    const video = videoRef.current as unknown;
     try {
       if (video && document.pictureInPictureEnabled) {
         if (document.pictureInPictureElement) {

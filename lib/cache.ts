@@ -73,7 +73,7 @@ export async function cacheInvalidatePattern(pattern: string): Promise<void> {
     const keysToDelete: string[] = [];
     
     do {
-      const result = await c.scan(cursor as any, {
+      const result = await c.scan(cursor as unknown, {
         MATCH: pattern,
         COUNT: 100
       });

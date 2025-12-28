@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     if (error) throw error;
 
     // Send rejection email
-    const creatorProfile = creator?.profiles as any;
+    const creatorProfile = creator?.profiles as unknown;
     if (creatorProfile?.email) {
       try {
         await sendCreatorRejectionEmail({

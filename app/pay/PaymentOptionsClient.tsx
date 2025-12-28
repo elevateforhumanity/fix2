@@ -34,7 +34,7 @@ export default function PaymentOptionsClient() {
     // Set config before loading script
     const publicKey = 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI';
 
-    (window as any)._affirm_config = {
+    (window as unknown)._affirm_config = {
       public_api_key: publicKey,
       script: 'https://cdn1.affirm.com/js/v2/affirm.js',
       locale: 'en_US',

@@ -238,7 +238,7 @@ export default function ComprehensiveEnrollmentWizard({
   const updateNestedField = (data: unknown) => {
     setFormData(prev => ({
       ...prev,
-      [parent]: { ...(prev as any)[parent], [field]: value }
+      [parent]: { ...(prev as unknown)[parent], [field]: value }
     }));
   };
 

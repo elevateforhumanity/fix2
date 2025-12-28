@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     });
 
     // Send approval email
-    const profile = creator?.profiles as any;
+    const profile = creator?.profiles as unknown;
     if (profile?.email) {
       try {
         await sendCreatorApprovalEmail({
