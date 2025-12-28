@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 export async function GET() {
   try {
@@ -92,7 +93,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { checklist_id, notes } = body;
 
     if (!checklist_id) {

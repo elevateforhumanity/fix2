@@ -70,7 +70,7 @@ export function AdvancedVideoPlayer({
             if (event.which === 32) {
               event.preventDefault();
               if (this.paused()) {
-                this.play();
+                this.play().catch(() => {});
               } else {
                 this.pause();
               }

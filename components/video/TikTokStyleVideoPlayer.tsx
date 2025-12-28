@@ -167,7 +167,7 @@ export default function TikTokStyleVideoPlayer({
     if (isPlaying) {
       video.pause();
     } else {
-      video.play();
+      video.play().catch(() => {});
     }
     setIsPlaying(!isPlaying);
   }, [isPlaying]);

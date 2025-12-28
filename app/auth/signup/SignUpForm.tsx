@@ -117,7 +117,7 @@ export default function SignUpForm() {
       });
 
       if (error) {
-        setError(error.message);
+        setError(error instanceof Error ? error.message : String(error));
       }
     } catch (error: unknown) {
       setError('OAuth sign-up failed. Please start again.');

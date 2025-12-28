@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { name, phone, email, programInterest, contactMethod, questions } = body;
 
     // Validate required fields

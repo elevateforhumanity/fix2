@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
 
 /**
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { platform, content, title, media_url, scheduled_for } = body;
 
     if (!platform || !content) {
@@ -318,7 +319,7 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       return NextResponse.json(
-        { error: 'Failed to fetch posts', details: error.message },
+        { error: 'Failed to fetch posts', details: error instanceof Error ? error.message : String(error) },
         { status: 500 }
       );
     }

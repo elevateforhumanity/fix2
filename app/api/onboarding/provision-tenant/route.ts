@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
 import { Resend } from 'resend';
 
@@ -17,7 +18,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const {
       organizationName,
       contactName,

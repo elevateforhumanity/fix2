@@ -71,7 +71,7 @@ export default function MobileVideoPlayer({
     if (isPlaying) {
       video.pause();
     } else {
-      video.play();
+      video.play().catch(() => {});
     }
     setIsPlaying(!isPlaying);
   };

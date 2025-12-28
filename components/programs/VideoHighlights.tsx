@@ -46,7 +46,7 @@ function VideoCard({
   const play = async () => {
     if (!videoRef.current || !videoSrc) return;
     videoRef.current.muted = false;
-    await videoRef.current.play();
+    await videoRef.current.play().catch(() => {});
     setStarted(true);
   };
 

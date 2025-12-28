@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { apiRequireAdmin, apiRequireInstructor } from '@/lib/authGuards';
 import {
   exportStudents,
@@ -169,7 +170,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { user } = authResult;
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { tables, format, filters } = body;
 
     if (!tables || !Array.isArray(tables) || tables.length === 0) {

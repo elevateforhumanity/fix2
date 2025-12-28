@@ -1,5 +1,6 @@
 // Public REST API - Courses Endpoint
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import {
   authenticateAPI,
   apiResponse,
@@ -143,7 +144,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const supabase = await createClient();
 
     const { data: course, error: createError } = await supabase

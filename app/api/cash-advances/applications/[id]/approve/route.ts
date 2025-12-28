@@ -1,5 +1,6 @@
 // app/api/cash-advances/applications/[id]/approve/route.ts
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { supabaseServer } from '@/lib/supabase-server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -11,7 +12,7 @@ export async function POST(
   try {
     const supabase = supabaseServer();
     const { id } = await params;
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { approved_amount, notes } = body;
 
     // Update application status

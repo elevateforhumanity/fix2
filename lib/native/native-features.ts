@@ -24,7 +24,7 @@ export async function capturePhoto(
     // Create video element
     const video = document.createElement('video');
     video.srcObject = stream;
-    video.play();
+    video.play().catch(() => {});
 
     // Wait for video to be ready
     await new Promise((resolve) => {
@@ -65,7 +65,7 @@ export async function scanQRCode(): Promise<string | null> {
 
       const video = document.createElement('video');
       video.srcObject = stream;
-      video.play();
+      video.play().catch(() => {});
 
       await new Promise((resolve) => {
         video.onloadedmetadata = resolve;

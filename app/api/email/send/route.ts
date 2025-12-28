@@ -56,7 +56,7 @@ export async function POST(req: Request) {
         subject: emailSubject,
         status: 'failed',
         provider: 'resend',
-        error_message: error.message || 'Unknown error',
+        error_message: error instanceof Error ? error.message : String(error) || 'Unknown error',
       });
 
       return NextResponse.json(

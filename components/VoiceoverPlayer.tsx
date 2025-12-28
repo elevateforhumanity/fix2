@@ -61,7 +61,7 @@ export default function VoiceoverPlayer({
         audioRef.current.src = voiceoverFile;
         audioRef.current.muted = false; // NOT muted - user triggered
         audioRef.current.loop = false; // NO LOOP - plays once
-        await audioRef.current.play();
+        await audioRef.current.play().catch(() => {});
       }
     } catch (error: unknown) {
       // NO robotic fallback - only professional voiceovers

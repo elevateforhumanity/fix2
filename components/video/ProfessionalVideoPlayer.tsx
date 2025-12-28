@@ -103,7 +103,7 @@ export function ProfessionalVideoPlayer({
   const togglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (video.paused) video.play();
+    if (video.paused) video.play().catch(() => {});
     else video.pause();
   };
 

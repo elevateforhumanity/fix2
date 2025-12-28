@@ -51,7 +51,7 @@ export function WelcomeAudio() {
         audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(() => {});
         setIsPlaying(true);
       }
     }

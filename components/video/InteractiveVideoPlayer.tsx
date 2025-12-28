@@ -108,7 +108,7 @@ export default function InteractiveVideoPlayer({
     if (isPlaying) {
       video.pause();
     } else {
-      video.play();
+      video.play().catch(() => {});
     }
     setIsPlaying(!isPlaying);
   };
@@ -162,7 +162,7 @@ export default function InteractiveVideoPlayer({
     if (isCorrect) {
       setActiveQuiz(null);
       setQuizAnswer(null);
-      videoRef.current?.play();
+      videoRef.current?.play().catch(() => {});
       setIsPlaying(true);
     } else {
       alert('Incorrect answer. Please try again.');

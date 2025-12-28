@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
 import { sendStudentDeclineNotification } from '@/lib/email/service';
 
@@ -45,7 +46,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Parse request body
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { enrollment_id, reason } = body;
 
     if (!enrollment_id) {

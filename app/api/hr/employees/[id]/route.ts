@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -74,7 +75,7 @@ export async function PATCH(
   try {
     const supabase = await createClient();
     const { id } = await params;
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     // Don't allow updating certain fields directly
     const {

@@ -212,7 +212,7 @@ export default function DevStudioPage() {
         addTerminalOutput(`   Commit: ${data.commit.substring(0, 7)}`);
       } else {
         const error = await res.json();
-        addTerminalOutput(`❌ Failed to save: ${error.message}`);
+        addTerminalOutput(`❌ Failed to save: ${error instanceof Error ? error.message : String(error)}`);
       }
     } catch (error: unknown) {
       addTerminalOutput('❌ Error saving file');

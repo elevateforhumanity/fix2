@@ -28,7 +28,7 @@ export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVid
         } else {
           // Play video with its own audio
           video.muted = false;
-          await video.play();
+          await video.play().catch(() => {});
         }
         setIsPlaying(true);
       } catch (error: unknown) {

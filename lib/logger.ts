@@ -24,7 +24,7 @@ class Logger {
         output += `\n  Context: ${JSON.stringify(context, null, 2)}`;
       }
       if (error) {
-        output += `\n  Error: ${error.message}\n  Stack: ${error.stack}`;
+        output += `\n  Error: ${error instanceof Error ? error.message : String(error)}\n  Stack: ${error.stack}`;
       }
       return output;
     }
@@ -33,7 +33,7 @@ class Logger {
     return JSON.stringify({
       ...entry,
       error: error ? {
-        message: error.message,
+        message: error instanceof Error ? error.message : String(error),
         stack: error.stack,
         name: error.name,
       } : undefined,

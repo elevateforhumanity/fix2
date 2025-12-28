@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -45,7 +46,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  const body = await parseBody<Record<string, unknown>>(request);
 
   if (!body.userId || !body.courseId || !body.lessonId) {
     return NextResponse.json(

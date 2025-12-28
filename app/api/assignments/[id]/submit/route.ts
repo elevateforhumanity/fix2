@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 import { logger } from '@/lib/logger';
 
@@ -14,7 +15,7 @@ export async function POST(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { submissionText, submissionUrl, filePath } = body;
 
     const supabase = await createServerSupabaseClient();

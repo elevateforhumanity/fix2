@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 400 });
     }
 
     // Log the control update
@@ -61,7 +61,7 @@ export async function GET() {
       .order('control_id');
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 400 });
     }
 
     const implemented = data?.filter((c) => c.implemented).length || 0;

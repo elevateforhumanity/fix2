@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { getSupabaseServerClient } from '@/lib/supabaseServer';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -54,7 +55,7 @@ export async function POST(
   try {
     const supabase = getSupabaseServerClient();
     const { quizId } = await params;
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { userId, enrollmentId, answers, timeTakenSeconds } = body;
 
     // Fetch quiz and questions

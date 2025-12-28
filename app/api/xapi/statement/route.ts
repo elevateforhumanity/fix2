@@ -1,6 +1,7 @@
 // app/api/xapi/statement/route.ts
 // xAPI Learning Record Store (LRS) endpoint
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createSupabaseClient } from "@/lib/supabase-api";
 import { logger } from '@/lib/logger';
 
@@ -14,7 +15,7 @@ export const runtime = 'nodejs';
 export async function POST(request: NextRequest) {
   const supabase = createSupabaseClient();
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     // xAPI statement can be single or array; normalize
     const statements = Array.isArray(body) ? body : [body];

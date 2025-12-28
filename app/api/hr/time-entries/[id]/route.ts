@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -10,7 +11,7 @@ export async function PATCH(
   const { id } = await params;
   try {
     const supabase = await createClient();
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     const { clock_in, clock_out, break_minutes, lunch_minutes, status, notes } =
       body;

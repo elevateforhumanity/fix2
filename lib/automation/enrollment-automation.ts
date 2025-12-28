@@ -224,7 +224,7 @@ export async function autoAssignCourses(enrollmentId: string) {
     .upsert(progressRecords, { onConflict: 'user_id,course_id' });
   
   if (error) {
-    return { success: false, error: error.message };
+    return { success: false, error: error instanceof Error ? error.message : String(error) };
   }
   
   return { success: true, assigned: programCourses.length };

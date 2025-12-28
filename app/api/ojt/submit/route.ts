@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 400 });
     }
 
     return NextResponse.json({ success: true, ojt: data });
@@ -53,7 +53,7 @@ export async function GET() {
       .order('created_at', { ascending: false });
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 400 });
     }
 
     return NextResponse.json({ ojt_reimbursements: data });
@@ -80,7 +80,7 @@ export async function PATCH(req: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 400 });
     }
 
     return NextResponse.json({ success: true, ojt: data });

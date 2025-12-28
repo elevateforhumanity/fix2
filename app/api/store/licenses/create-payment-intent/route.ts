@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
 import { getProductBySlug } from '@/app/data/store-products';
@@ -9,7 +10,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { productId, customerInfo } = body;
 
     if (!productId || !customerInfo) {

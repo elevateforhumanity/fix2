@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 export async function GET(request: Request) {
   try {
@@ -48,7 +49,7 @@ export async function GET(request: Request) {
     const { data: reviews, error } = await query;
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
     }
 
     // Calculate average rating
@@ -74,7 +75,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const supabase = await createClient();
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     const { reviewer_name, reviewer_email, rating, content } = body;
 

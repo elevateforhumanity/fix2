@@ -49,7 +49,7 @@ export default function AIInstructor({
 
           if (audioRef.current) {
             audioRef.current.src = url;
-            audioRef.current.play();
+            audioRef.current.play().catch(() => {});
           }
         }
       } else {

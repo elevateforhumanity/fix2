@@ -64,7 +64,7 @@ export default function SignInForm() {
       });
 
       if (error) {
-        setError(error.message);
+        setError(error instanceof Error ? error.message : String(error));
       }
     } catch (error: unknown) {
       setError('OAuth sign-in failed. Please start again.');

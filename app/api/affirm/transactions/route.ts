@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { apiAuthGuard } from '@/lib/authGuards';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
   try {
     const authResult = await apiAuthGuard({ requireAuth: false });
     const user = authResult.user || { id: 'guest', email: '' };
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { checkout_token, order_id, action = 'authorize' } = body;
 
     if (!checkout_token) {

@@ -42,7 +42,7 @@ export async function GET(request: Request) {
       const { data: donations, error } = await query;
 
       if (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
       }
 
       // Calculate totals
@@ -77,7 +77,7 @@ export async function GET(request: Request) {
       .order('created_at', { ascending: false });
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
     }
 
     const totalAmount =

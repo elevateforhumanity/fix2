@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 import miladyConfig from '@/lms-data/milady-rise-integration.json';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -11,7 +12,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = await createServerSupabaseClient();
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     // Create Milady RISE enrollment record
     const { data, error } = await supabase

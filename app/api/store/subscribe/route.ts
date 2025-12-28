@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import type { NextRequest } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
@@ -25,7 +27,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { priceId, userId, userEmail, userName } = body;
 
     if (!priceId || !userId || !userEmail) {

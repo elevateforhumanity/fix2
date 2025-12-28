@@ -12,7 +12,7 @@ export async function GET() {
       .order('category', { ascending: true });
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
     }
 
     return NextResponse.json({ templates: templates || [] });

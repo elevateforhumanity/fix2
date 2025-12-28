@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createSupabaseClient } from '@/lib/supabase-api';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -10,7 +11,7 @@ export async function POST(
   const supabase = createSupabaseClient();
   try {
     const { id } = await params;
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { approved, approvedAmount, approvedBy, notes, denialReason } = body;
 
     const updateData = {

@@ -111,7 +111,7 @@ export default function OrchestratorAdmin() {
       setTaskResult(data);
     } catch (error: unknown) {
       // Error: $1
-      setTaskResult({ error: error.message });
+      setTaskResult({ error: error instanceof Error ? error.message : String(error) });
     } finally {
       setLoading(false);
     }

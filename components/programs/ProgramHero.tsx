@@ -17,18 +17,18 @@ export function ProgramHero({ program }: { program: Program }) {
         // Try to play video with sound
         if (videoRef.current) {
           videoRef.current.muted = false;
-          await videoRef.current.play();
+          await videoRef.current.play().catch(() => {});
         }
         // Try to play voiceover
         if (audioRef.current) {
-          await audioRef.current.play();
+          await audioRef.current.play().catch(() => {});
         }
       } catch (error: unknown) {
         // If blocked, try muted
         try {
           if (videoRef.current) {
             videoRef.current.muted = true;
-            await videoRef.current.play();
+            await videoRef.current.play().catch(() => {});
           }
         } catch (error: unknown) {
     // Error handled

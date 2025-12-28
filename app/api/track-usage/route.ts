@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
 
 /**
@@ -32,7 +33,7 @@ const getOfficialDomains = () => {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     const { siteId, owner, url, referrer, timestamp, userAgent } = body;
 

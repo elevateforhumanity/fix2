@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 /**
  * VITA Volunteer Application API
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
   try {
     const supabase = await createClient();
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { name, email, phone, availability, experience, certifications } =
       body;
 

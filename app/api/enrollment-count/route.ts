@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 // Simulated database - in production, this would query your actual database
 const enrollmentData = {
@@ -28,7 +29,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     // Increment counters
     enrollmentData.total += 1;

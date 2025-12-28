@@ -133,7 +133,7 @@ export default function AdvancedVideoPlayer({
     if (isPlaying) {
       videoRef.current.pause();
     } else {
-      videoRef.current.play();
+      videoRef.current.play().catch(() => {});
     }
     setIsPlaying(!isPlaying);
   };

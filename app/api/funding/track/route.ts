@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  const body = await parseBody<Record<string, unknown>>(request);
   const supabase = await createServerSupabaseClient();
 
   const { data, error } = await supabase

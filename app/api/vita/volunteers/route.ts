@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 
 export async function GET(request: Request) {
   try {
@@ -47,7 +48,7 @@ export async function GET(request: Request) {
     const { data: applications, error } = await query;
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
     }
 
     // Get counts by status
@@ -112,7 +113,7 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { application_id, approval_status, rejection_reason } = body;
 
     if (!application_id || !approval_status) {
@@ -144,7 +145,7 @@ export async function PATCH(request: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
     }
 
     // Send notification email

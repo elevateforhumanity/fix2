@@ -1,5 +1,6 @@
 // app/api/tax-filing/applications/route.ts
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { supabaseServer } from '@/lib/supabase-server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -57,7 +58,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const supabase = supabaseServer();
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     const { data, error } = await supabase
       .from('tax_filing_applications')

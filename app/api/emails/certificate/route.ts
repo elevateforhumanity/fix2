@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 import { sendEmail, emailTemplates } from '@/lib/email';
@@ -6,7 +7,7 @@ import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { certificateId } = body;
 
     const cookieStore = await cookies();

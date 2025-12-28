@@ -1,5 +1,6 @@
 // app/api/checkout/create/route.ts - Create Stripe checkout for course
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/auth';

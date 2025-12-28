@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           ok: false,
-          error: error.message,
+          error: error instanceof Error ? error.message : String(error),
           period_start: periodStart,
           period_end: periodEnd,
         },

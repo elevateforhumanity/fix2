@@ -1,5 +1,6 @@
 // app/api/support/ticket/route.ts
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { requireAuth } from '@/lib/auth/getSession';
 import { createZendeskTicket } from '@/lib/support/zendesk';
 

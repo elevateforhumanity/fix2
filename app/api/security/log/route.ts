@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const supabase = await createClient();
 
     // Log security event to database

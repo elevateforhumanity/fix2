@@ -4,7 +4,7 @@ import { generateCertificateNumber, generateCertificatePDF } from "@/lib/certifi
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { studentId, programId, studentName, programName, programHours } = body;
 
     // Validate required fields

@@ -148,7 +148,7 @@ export default function AssetGenerator() {
       setContent('');
     } catch (error: unknown) {
       // Error: $1
-      alert('Failed to save asset: ' + error.message);
+      alert('Failed to save asset: ' + error instanceof Error ? error.message : String(error));
     } finally {
       setSaving(false);
     }

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -45,7 +46,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
 
     if (!body.courseId) {
       return NextResponse.json(

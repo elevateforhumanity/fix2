@@ -119,7 +119,7 @@ export default function InteractiveVideoPlayer({
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        videoRef.current.play().catch(() => {});
       }
       setIsPlaying(!isPlaying);
     }
@@ -207,7 +207,7 @@ export default function InteractiveVideoPlayer({
         setCurrentQuiz(null);
         setIsPlaying(true);
         if (videoRef.current) {
-          videoRef.current.play();
+          videoRef.current.play().catch(() => {});
         }
       }, 3000);
     }

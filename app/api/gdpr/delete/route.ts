@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { deleteUserData } from '@/lib/gdpr';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';

@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    const data = await parseBody<Record<string, unknown>>(request);
     
     // Log slow resource loading
     logger.warn('[Slow Resources]', data);

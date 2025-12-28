@@ -13,7 +13,7 @@ export async function GET(req: Request) {
     const { data, error } = await supabase.from('audit_snapshot').select('*');
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+      return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 400 });
     }
 
     if (!data || data.length === 0) {

@@ -94,7 +94,7 @@ export async function POST(req: Request) {
           error:
             'Failed to save application. Please call 317-314-3757 for assistance.',
           details:
-            process.env.NODE_ENV === 'development' ? error.message : undefined,
+            process.env.NODE_ENV === 'development' ? error instanceof Error ? error.message : String(error) : undefined,
         },
         { status: 500 }
       );

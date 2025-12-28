@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
@@ -23,7 +24,7 @@ export async function POST(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const body = await request.json();
+    const body = await parseBody<Record<string, unknown>>(request);
     const { programId, paymentType = 'full' } = body;
 
     if (!programId) {
