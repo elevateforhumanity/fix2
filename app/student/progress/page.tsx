@@ -187,7 +187,7 @@ export default async function StudentProgressPage() {
                                   <div className="flex items-center gap-3 mb-2">
                                     {provider?.logo_url && (
                                       <div className="relative w-8 h-8">
-                                        <Image loading="lazy" loading="lazy"
+                                        <Image loading="lazy"
                                           src={provider.logo_url}
                                           alt={provider.provider_name}
                                           fill

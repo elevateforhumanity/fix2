@@ -52,7 +52,7 @@ export function NewsClient({ newsArticles, categories }: NewsClientProps) {
                     className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition"
                   >
                     <div className="relative h-64">
-                      <Image loading="lazy" loading="lazy"
+                      <Image loading="lazy"
                         src={article.image}
                         alt={article.title}
                         fill
@@ -139,7 +139,7 @@ export function NewsClient({ newsArticles, categories }: NewsClientProps) {
                   className="bg-white rounded-lg overflow-hidden border border-slate-200 hover:shadow-lg transition"
                 >
                   <div className="relative h-48">
-                    <Image loading="lazy" loading="lazy"
+                    <Image loading="lazy"
                       src={article.image}
                       alt={article.title}
                       fill

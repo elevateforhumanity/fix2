@@ -199,7 +199,7 @@ export default async function BookingPage() {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                    <Image loading="lazy" loading="lazy"
+                    <Image loading="lazy"
                       src={instructor.avatar}
                       alt={instructor.name}
                       fill

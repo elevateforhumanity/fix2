@@ -396,7 +396,7 @@ export default async function TaxFilingAdminPage() {
                   </ul>
                 </div>
                 <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                  <Image priority loading="lazy" loading="lazy"
+                  <Image priority
                     src="/images/artlist/hero-training-2.jpg"
                     alt="Students learning"
                     fill

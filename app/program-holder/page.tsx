@@ -122,7 +122,7 @@ export default async function ProgramHolderPage() {
                 </ul>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image priority loading="lazy" loading="lazy"
+                <Image priority
                   src="/images/artlist/hero-training-2.jpg"
                   alt="Program Holder"
                   fill

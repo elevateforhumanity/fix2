@@ -85,7 +85,7 @@ export default async function BlogSearchPage({
               >
                 {post.featured_image && (
                   <div className="relative h-48">
-                    <Image loading="lazy" loading="lazy"
+                    <Image loading="lazy"
                       src={post.featured_image}
                       alt={post.title}
                       fill

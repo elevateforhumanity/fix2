@@ -94,7 +94,7 @@ export default async function StudentCourseDetailPage(props: {
 
           {course.image_url && (
             <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg">
-              <Image loading="lazy" loading="lazy"
+              <Image loading="lazy"
                 src={course.image_url}
                 alt={course.title}
                 fill

@@ -83,7 +83,7 @@ export default async function CommunityMarketplacePage() {
                 >
                   {course.thumbnail_url && (
                     <div className="aspect-video bg-gray-100 overflow-hidden relative">
-                      <Image priority loading="lazy" loading="lazy"
+                      <Image priority
                         src={course.thumbnail_url}
                         alt={course.title}
                         fill
@@ -181,7 +181,7 @@ export default async function CommunityMarketplacePage() {
                 >
                   {product.images && product.images[0] && (
                     <div className="aspect-square bg-gray-100 overflow-hidden relative">
-                      <Image loading="lazy" loading="lazy"
+                      <Image loading="lazy"
                         src={product.images[0]}
                         alt={product.name}
                         fill

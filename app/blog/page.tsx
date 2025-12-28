@@ -138,7 +138,7 @@ export default function BlogPage() {
               >
                 {/* Image */}
                 <div className="relative h-48 bg-slate-200 overflow-hidden">
-                  <Image priority loading="lazy" loading="lazy"
+                  <Image priority
                     src={post.image}
                     alt={post.title}
                     fill
