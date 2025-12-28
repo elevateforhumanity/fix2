@@ -21,6 +21,18 @@
       "source": "/:path+/",
       "destination": "/:path+",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "elevateforhumanity.org"
+        }
+      ],
+      "destination": "https://www.elevateforhumanity.org/:path*",
+      "permanent": true,
+      "statusCode": 308
     }
   ],
   "crons": [
