@@ -50,7 +50,7 @@ export default function ApplyApprenticeshipPage() {
 
   const totalSteps = 4;
 
-  const updateField = (field: string, value: any) => {
+  const updateField = (field: string, value: unknown) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

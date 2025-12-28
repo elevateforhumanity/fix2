@@ -122,7 +122,7 @@ export default async function WorkOneView() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
-                {auditData?.map((record: any, i: number) => (
+                {auditData?.map((record: unknown, i: number) => (
                   <tr key={i} className="hover:bg-slate-50">
                     <td className="px-6 py-4 text-sm text-slate-700">
                       {record.referral_date

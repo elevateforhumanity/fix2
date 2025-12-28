@@ -14,7 +14,7 @@ type AuditLog = {
   action: string;
   resource_type: string;
   resource_id: string | null;
-  metadata: any;
+  metadata: unknown;
   created_at: string;
   user?: {
     full_name: string;

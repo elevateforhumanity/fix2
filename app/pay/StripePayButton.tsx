@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
-    StripeBuyButton?: any;
+    StripeBuyButton?: unknown;
   }
   namespace JSX {
     interface IntrinsicElements {

@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-async function requireAdmin(supabase: any) {
+async function requireAdmin(supabase: unknown) {
   const { data } = await supabase.auth.getUser();
   if (!data?.user) return false;
 
@@ -89,7 +89,7 @@ export default async function AdminInboxPage() {
         </div>
 
         <div className="mt-4 space-y-4">
-          {(partners || []).map((r: any) => (
+          {(partners || []).map((r: unknown) => (
             <div
               key={r.id}
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"
@@ -177,7 +177,7 @@ export default async function AdminInboxPage() {
         </div>
 
         <div className="mt-4 space-y-4">
-          {(licenses || []).map((r: any) => (
+          {(licenses || []).map((r: unknown) => (
             <div
               key={r.id}
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"

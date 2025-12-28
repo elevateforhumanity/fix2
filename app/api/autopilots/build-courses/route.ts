@@ -69,7 +69,7 @@ ${parsed.description || ''}
 ${parsed.objectives?.map((obj: string) => `- ${obj}`).join('\n') || ''}
 
 ## Modules
-${parsed.modules?.map((mod: any, i: number) => `${i + 1}. ${mod.title || mod}`).join('\n') || ''}
+${parsed.modules?.map((mod: unknown, i: number) => `${i + 1}. ${mod.title || mod}`).join('\n') || ''}
 `;
 
     await saveFile(`${basePath}/README.md`, readme);

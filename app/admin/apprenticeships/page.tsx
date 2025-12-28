@@ -12,8 +12,8 @@ export const dynamic = 'force-dynamic';
 
 export default function AdminApprenticeships() {
   const supabase = createClient();
-  const [apprenticeships, setApprenticeships] = useState<any[]>([]);
-  const [pendingApprovals, setPendingApprovals] = useState<any[]>([]);
+  const [apprenticeships, setApprenticeships] = useState<unknown[]>([]);
+  const [pendingApprovals, setPendingApprovals] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
 

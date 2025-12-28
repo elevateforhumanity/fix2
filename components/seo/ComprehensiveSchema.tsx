@@ -6,7 +6,7 @@ import { sanitizeHtml } from '@/lib/sanitize';
 
 interface SchemaProps {
   type?: 'organization' | 'course' | 'program' | 'article';
-  data?: any;
+  data?: unknown;
 }
 
 export default function ComprehensiveSchema({ type = 'organization', data }: SchemaProps) {

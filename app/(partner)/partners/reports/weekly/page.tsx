@@ -17,7 +17,7 @@ export default function PartnerWeeklyReportsPage() {
   const [hoursRelated, setHoursRelated] = useState<number>(0);
   const [notes, setNotes] = useState('');
   const [msg, setMsg] = useState<string | null>(null);
-  const [placements, setPlacements] = useState<any[]>([]);
+  const [placements, setPlacements] = useState<unknown[]>([]);
 
   useEffect(() => {
     (async () => {

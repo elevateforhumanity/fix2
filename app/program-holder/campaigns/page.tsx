@@ -9,8 +9,8 @@ import { Mail, Send, Users, Loader2 } from 'lucide-react';
 export default function ProgramOwnerCampaignsPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [templates, setTemplates] = useState<any[]>([]);
-  const [myStudents, setMyStudents] = useState<any[]>([]);
+  const [templates, setTemplates] = useState<unknown[]>([]);
+  const [myStudents, setMyStudents] = useState<unknown[]>([]);
   const [selectedTemplate, setSelectedTemplate] = useState<any>(null);
   const [selectedStudents, setSelectedStudents] = useState<string[]>([]);
 

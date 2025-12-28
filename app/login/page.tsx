@@ -63,7 +63,7 @@ function LoginForm() {
       } else {
         router.push('/lms/dashboard');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err?.message || 'Invalid email or password');
     } finally {
       setLoading(false);

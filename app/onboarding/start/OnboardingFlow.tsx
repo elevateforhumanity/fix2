@@ -7,9 +7,9 @@ import { useState } from 'react';
 import { CheckCircle2, Circle, Lock, FileText, DollarSign } from 'lucide-react';
 
 interface OnboardingFlowProps {
-  user: any;
-  profile: any;
-  packet: any;
+  user: unknown;
+  profile: unknown;
+  packet: unknown;
   documents: unknown[];
   signedDocumentIds: Set<string>;
   payrollStatus: string | null;
@@ -210,7 +210,7 @@ function DocumentStep({
   userRole,
   userName,
   onComplete,
-}: any) {
+}: unknown) {
   const [signature, setSignature] = useState('');
   const [acknowledged, setAcknowledged] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -379,7 +379,7 @@ function PayrollSetupStep({
   userRole,
   currentStatus,
   onComplete,
-}: any) {
+}: unknown) {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-8">
       <div className="flex items-start gap-4 mb-6">

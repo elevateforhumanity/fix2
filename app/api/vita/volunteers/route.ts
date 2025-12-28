@@ -123,7 +123,7 @@ export async function PATCH(request: Request) {
       );
     }
 
-    const updateData: any = {
+    const updateData: unknown = {
       approval_status,
       updated_at: new Date().toISOString(),
     };

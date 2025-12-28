@@ -40,9 +40,9 @@ interface VerificationHistory {
 }
 
 interface VerificationReviewFormProps {
-  holder: any;
+  holder: unknown;
   documents: Document[];
-  banking: any;
+  banking: unknown;
   verificationHistory: VerificationHistory[];
   adminUserId: string;
 }

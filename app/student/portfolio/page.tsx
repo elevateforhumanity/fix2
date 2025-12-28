@@ -14,8 +14,8 @@ export default function StudentPortfolio() {
   const supabase = createClient();
   const [user, setUser] = useState<any>(null);
   const [apprenticeship, setApprenticeship] = useState<any>(null);
-  const [portfolio, setPortfolio] = useState<any[]>([]);
-  const [skills, setSkills] = useState<any[]>([]);
+  const [portfolio, setPortfolio] = useState<unknown[]>([]);
+  const [skills, setSkills] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   useEffect(() => {

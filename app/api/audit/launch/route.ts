@@ -345,7 +345,7 @@ async function checkFeatures() {
 // ANALYSIS & SCORING
 // ═══════════════════════════════════════════════════════════════════════════
 
-function analyzeChecks(checks: any, blockers: Finding[], warnings: Finding[]) {
+function analyzeChecks(checks: unknown, blockers: Finding[], warnings: Finding[]) {
   // Environment check
   if (checks.env.missing.length > 0) {
     blockers.push({
@@ -459,7 +459,7 @@ function calculateLaunchGate(data: unknown) {
   };
 }
 
-function generateSummary(checks: any, blockers: Finding[], warnings: Finding[]) {
+function generateSummary(checks: unknown, blockers: Finding[], warnings: Finding[]) {
   const highlights: string[] = [];
   const topRisks: string[] = [];
 

@@ -149,7 +149,7 @@ async function postToLinkedIn(data: unknown) {
     }
 
     // LinkedIn API v2
-    const postData: any = {
+    const postData: unknown = {
       author: `urn:li:organization:${organizationId}`,
       lifecycleState: 'PUBLISHED',
       specificContent: {

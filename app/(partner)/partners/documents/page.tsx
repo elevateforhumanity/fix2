@@ -22,7 +22,7 @@ export default function PartnerDocumentsPage() {
   const [type, setType] = useState<(typeof TYPES)[number]>('mou');
   const [file, setFile] = useState<File | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
-  const [docs, setDocs] = useState<any[]>([]);
+  const [docs, setDocs] = useState<unknown[]>([]);
 
   useEffect(() => {
     (async () => {

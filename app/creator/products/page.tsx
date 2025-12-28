@@ -22,7 +22,7 @@ export default async function CreatorProductsPage() {
     .eq('creator_id', creator.id);
 
   const salesByProduct =
-    salesData?.reduce((acc: any, sale) => {
+    salesData?.reduce((acc: unknown, sale) => {
       acc[sale.product_id] = (acc[sale.product_id] || 0) + 1;
       return acc;
     }, {}) || {};

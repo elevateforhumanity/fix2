@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic';
 
 export default function InstructorsPage() {
   const supabase = createClient();
-  const [instructors, setInstructors] = useState<any[]>([]);
+  const [instructors, setInstructors] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
 

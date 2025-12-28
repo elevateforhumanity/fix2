@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 import { useState, useEffect } from 'react';
 
 export default function TestEnrollmentPage() {
-  const [students, setStudents] = useState<any[]>([]);
+  const [students, setStudents] = useState<unknown[]>([]);
   const [selectedStudent, setSelectedStudent] = useState('');
   const [programId] = useState('65310ca8-c7a8-4633-ab9c-d25684090ecc');
   const [loading, setLoading] = useState(false);

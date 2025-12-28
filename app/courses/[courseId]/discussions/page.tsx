@@ -16,7 +16,7 @@ export default function CourseDiscussionsPage() {
   const router = useRouter();
   const courseId = params.courseId as string;
   const [course, setCourse] = useState<any>(null);
-  const [discussions, setDiscussions] = useState<any[]>([]);
+  const [discussions, setDiscussions] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [newTopic, setNewTopic] = useState('');
   const [newMessage, setNewMessage] = useState('');

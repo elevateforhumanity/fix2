@@ -23,7 +23,7 @@ export default async function ForumPage() {
 
       <div className="space-y-4">
         {categories && categories.length > 0 ? (
-          categories.map((category: any) => (
+          categories.map((category: unknown) => (
             <Link
               key={category.id}
               href={`/forum/${category.id}`}

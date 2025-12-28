@@ -8,7 +8,7 @@ import { Briefcase, Loader2 } from 'lucide-react';
 export default function AIJobMatchPage() {
   const [loading, setLoading] = useState(false);
   const [skills, setSkills] = useState('');
-  const [matches, setMatches] = useState<any[]>([]);
+  const [matches, setMatches] = useState<unknown[]>([]);
 
   const handleMatch = async () => {
     setLoading(true);

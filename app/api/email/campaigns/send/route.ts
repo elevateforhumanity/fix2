@@ -131,7 +131,7 @@ export async function POST(req: Request) {
   }
 }
 
-async function getRecipients(supabase: any, listType: string) {
+async function getRecipients(supabase: unknown, listType: string) {
   let query;
 
   switch (listType) {

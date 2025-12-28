@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
-    affirm?: any;
+    affirm?: unknown;
   }
 }
 

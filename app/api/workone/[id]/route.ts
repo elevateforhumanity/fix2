@@ -56,7 +56,7 @@ export async function PATCH(
       // Could add org_admin check here
     }
 
-    const next: any = {};
+    const next: unknown = {};
     if (patch.status) next.status = patch.status;
     if ('notes' in patch) next.notes = patch.notes;
     if ('due_date' in patch) next.due_date = patch.due_date;

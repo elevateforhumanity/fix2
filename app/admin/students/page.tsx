@@ -224,7 +224,7 @@ export default async function StudentsPage() {
                                 </p>
                                 <div className="flex flex-wrap gap-2">
                                   {student.enrollments.map(
-                                    (enrollment: any, idx: number) => (
+                                    (enrollment: unknown, idx: number) => (
                                       <span
                                         key={idx}
                                         className={`text-xs px-2 py-1 rounded ${

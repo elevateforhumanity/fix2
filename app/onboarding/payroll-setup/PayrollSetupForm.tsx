@@ -14,10 +14,10 @@ import {
 } from 'lucide-react';
 
 interface PayrollSetupFormProps {
-  user: any;
-  profile: any;
+  user: unknown;
+  profile: unknown;
   rateConfigs: unknown[];
-  existingProfile: any;
+  existingProfile: unknown;
 }
 
 export default function PayrollSetupForm({

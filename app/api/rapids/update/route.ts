@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
     const supabase = createAdminClient();
 
-    const updateData: any = {
+    const updateData: unknown = {
       apprentice_id,
       rapids_id,
       status,

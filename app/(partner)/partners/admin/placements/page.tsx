@@ -26,7 +26,7 @@ export default async function AdminPlacementsPage() {
             </tr>
           </thead>
           <tbody>
-            {(data ?? []).map((p: any) => (
+            {(data ?? []).map((p: unknown) => (
               <tr key={p.id} className="border-b">
                 <td className="py-2">{p.shop_id}</td>
                 <td className="py-2">{p.student_id}</td>

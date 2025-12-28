@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic';
 
 export default function IntegrationsPage() {
   const supabase = createClient();
-  const [integrations, setIntegrations] = useState<any[]>([]);
+  const [integrations, setIntegrations] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

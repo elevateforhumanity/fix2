@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     }
 
     // Update or insert
-    const updateData: any = {
+    const updateData: unknown = {
       apprentice_id,
       status: safeStatus,
     };

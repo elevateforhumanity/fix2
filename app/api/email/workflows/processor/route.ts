@@ -88,7 +88,7 @@ export async function GET(req: Request) {
 /**
  * Check for new trigger events and enroll users in workflows
  */
-async function processNewTriggers(supabase: any, workflow: any, now: Date) {
+async function processNewTriggers(supabase: unknown, workflow: unknown, now: Date) {
   const trigger = workflow.trigger_event;
   const lookbackMinutes = 5; // Check last 5 minutes
   const lookbackTime = new Date(
@@ -175,7 +175,7 @@ async function processNewTriggers(supabase: any, workflow: any, now: Date) {
 /**
  * Process pending workflow emails
  */
-async function processPendingEmails(supabase: any, workflow: any, now: Date) {
+async function processPendingEmails(supabase: unknown, workflow: unknown, now: Date) {
   // Get enrollments with pending emails
   const { data: enrollments, error } = await supabase
     .from('workflow_enrollments')

@@ -64,7 +64,7 @@ interface SkillLog {
 
 export default function SkillsTrackingPage() {
   const supabase = createClient();
-  const [students, setStudents] = useState<any[]>([]);
+  const [students, setStudents] = useState<unknown[]>([]);
   const [selectedStudent, setSelectedStudent] = useState<string>('');
   const [selectedSkill, setSelectedSkill] = useState<string>('');
   const [qualityRating, setQualityRating] = useState<number>(3);

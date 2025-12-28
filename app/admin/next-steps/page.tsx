@@ -45,7 +45,7 @@ export default function AdminNextStepsPage() {
     setLoading(false);
   }
 
-  async function savePatch(id: string, patch: Record<string, any>) {
+  async function savePatch(id: string, patch: Record<string, unknown>) {
     setSaving(true);
     const res = await fetch('/api/admin/next-steps/update', {
       method: 'POST',
@@ -339,10 +339,10 @@ function QuickEdit({
   onClose,
   onSave,
 }: {
-  row: any;
+  row: unknown;
   saving: boolean;
   onClose: () => void;
-  onSave: (patch: Record<string, any>) => void;
+  onSave: (patch: Record<string, unknown>) => void;
 }) {
   const [workoneDate, setWorkoneDate] = useState(
     row.workone_appointment_date || ''

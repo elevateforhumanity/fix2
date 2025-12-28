@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
 
 // Helper function to create alerts from verdicts
 async function createAlertsFromVerdicts(
-  supabase: any,
+  supabase: unknown,
   periodStart: string,
   periodEnd: string
 ) {

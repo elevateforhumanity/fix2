@@ -137,7 +137,7 @@ export default async function QAChecklistPage() {
 
                       {checklist.tasks && Array.isArray(checklist.tasks) && (
                         <div className="space-y-2 mb-4">
-                          {checklist.tasks.map((task: any, idx: number) => (
+                          {checklist.tasks.map((task: unknown, idx: number) => (
                             <div
                               key={idx}
                               className="flex items-start gap-2 text-sm text-slate-700"

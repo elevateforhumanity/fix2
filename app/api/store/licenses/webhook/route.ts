@@ -158,7 +158,7 @@ function getMaxPrograms(licenseType: string): number {
   }
 }
 
-function getFeatures(licenseType: string): any {
+function getFeatures(licenseType: string): unknown {
   const baseFeatures = ['lms', 'enrollment', 'admin', 'payments', 'mobile-app'];
 
   switch (licenseType) {

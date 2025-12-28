@@ -131,7 +131,7 @@ export async function POST(req: Request) {
   }
 }
 
-async function getTargetUsers(supabase: any, targetAudience: string) {
+async function getTargetUsers(supabase: unknown, targetAudience: string) {
   let query;
 
   switch (targetAudience) {

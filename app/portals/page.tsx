@@ -21,7 +21,7 @@ interface Portal {
   name: string;
   description: string;
   href: string;
-  icon: any;
+  icon: unknown;
   roles: string[];
   color: string;
 }

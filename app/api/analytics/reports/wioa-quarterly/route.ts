@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
  * Generate quarterly performance report
  */
 async function generateQuarterlyReport(
-  supabase: any,
+  supabase: unknown,
   startDate: Date,
   endDate: Date,
   programId: string | null

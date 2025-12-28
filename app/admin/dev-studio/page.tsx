@@ -47,7 +47,7 @@ export default function DevStudioPage() {
 
   // GitHub state
   const [token, setToken] = useState<string>('');
-  const [repos, setRepos] = useState<any[]>([]);
+  const [repos, setRepos] = useState<unknown[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<string>(
     'elevateforhumanity/fix2'
   );

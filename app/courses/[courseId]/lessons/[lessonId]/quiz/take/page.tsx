@@ -16,7 +16,7 @@ export default function TakeQuizPage({
   params: { courseId: string; lessonId: string };
 }) {
   const router = useRouter();
-  const [questions, setQuestions] = useState<any[]>([]);
+  const [questions, setQuestions] = useState<unknown[]>([]);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);

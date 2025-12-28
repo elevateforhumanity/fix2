@@ -23,8 +23,8 @@ function CheckoutForm({
   product,
   customerInfo,
 }: {
-  product: any;
-  customerInfo: any;
+  product: unknown;
+  customerInfo: unknown;
 }) {
   const stripe = useStripe();
   const elements = useElements();

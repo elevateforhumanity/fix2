@@ -40,7 +40,7 @@ interface PendingUser {
 interface FERPATrainingDashboardProps {
   trainingRecords: TrainingRecord[];
   pendingUsers: PendingUser[];
-  currentUser: any;
+  currentUser: unknown;
 }
 
 export default function FERPATrainingDashboard({ 

@@ -21,7 +21,7 @@ interface ReferralDashboardProps {
 export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
   const [stats, setStats] = useState<any>(null);
   const [referralCode, setReferralCode] = useState<string>('');
-  const [referrals, setReferrals] = useState<any[]>([]);
+  const [referrals, setReferrals] = useState<unknown[]>([]);
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(true);
 

@@ -18,8 +18,8 @@ import {
 interface IdentityVerificationFlowProps {
   userId: string;
   email: string;
-  programHolder: any;
-  verification: any;
+  programHolder: unknown;
+  verification: unknown;
   documents: unknown[];
 }
 
