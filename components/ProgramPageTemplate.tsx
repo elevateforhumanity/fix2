@@ -66,6 +66,7 @@ export default function ProgramPageTemplate({
             src={heroImage}
             alt={heroTitle}
             fill
+          sizes="100vw"
             className="object-cover"
             priority
             quality={90}
@@ -269,6 +270,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   src={ctaImage}
                   alt={ctaTitle}
                   fill
+          sizes="100vw"
                   className="object-cover"
                 />
               </div>

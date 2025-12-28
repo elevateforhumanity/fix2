@@ -19,7 +19,7 @@ export default function EnhancedHomePage() {
   const programs = [
     {
       title: 'CNA - Certified Nursing Assistant',
-      image: '/media-backup-20251128-043832/programs/webp/cna.webp',
+      image: '/media/programs/efh-cna-hero.jpg',
       duration: '4-6 weeks',
       salary: '$35,000-$45,000',
       jobs: 'High Demand',
@@ -27,7 +27,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'HVAC Technician',
-      image: '/media-backup-20251128-043832/programs/webp/hvac.webp',
+      image: '/programs/hvac-hero.svg',
       duration: '8-12 weeks',
       salary: '$45,000-$65,000',
       jobs: 'Excellent Growth',
@@ -35,7 +35,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'Barber',
-      image: '/media-backup-20251128-043832/programs/webp/barber.webp',
+      image: '/media/programs/efh-barber-hero.jpg',
       duration: '12 weeks',
       salary: '$35,000-$55,000',
       jobs: 'Self-Employment',
@@ -43,7 +43,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'CDL - Commercial Driver',
-      image: '/media-backup-20251128-043832/programs/webp/cdl.webp',
+      image: '/media/programs/cdl-hero.jpg',
       duration: '4-6 weeks',
       salary: '$50,000-$75,000',
       jobs: 'Critical Need',
@@ -51,7 +51,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'Direct Support Professional (DSP)',
-      image: '/media-backup-20251128-043832/programs/webp/medical.webp',
+      image: '/media/programs/efh-cna-hero.jpg',
       duration: '8-10 weeks',
       salary: '$35,000-$45,000',
       jobs: 'Growing Field',
@@ -59,7 +59,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'Welding',
-      image: '/media-backup-20251128-043832/programs/webp/welding.webp',
+      image: '/media/programs/efh-building-tech-hero.jpg',
       duration: '10-12 weeks',
       salary: '$42,000-$62,000',
       jobs: 'High Demand',
@@ -67,7 +67,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'IT Support Specialist',
-      image: '/media-backup-20251128-043832/programs/webp/it.webp',
+      image: '/media/programs/efh-business-startup-marketing-hero.jpg',
       duration: '8-12 weeks',
       salary: '$45,000-$65,000',
       jobs: 'Tech Sector',
@@ -75,7 +75,7 @@ export default function EnhancedHomePage() {
     },
     {
       title: 'Culinary Arts',
-      image: '/media-backup-20251128-043832/programs/webp/culinary.webp',
+      image: '/images/culinary/culinary-hero.jpg',
       duration: '10-12 weeks',
       salary: '$35,000-$55,000',
       jobs: 'Hospitality',
@@ -101,14 +101,15 @@ export default function EnhancedHomePage() {
         {/* Hero Image */}
         <div className="absolute inset-0">
           <Image
-            src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
+            src="/images/heroes/hero-elevate-learners.jpg"
             alt="Elevate for Humanity Career Training"
             fill
+          sizes="100vw"
             className="object-cover opacity-30"
             priority
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-zinc-900 from-black/70 via-black/20 to-transparent" />
         </div>
 
         {/* Content */}
@@ -237,9 +238,10 @@ export default function EnhancedHomePage() {
                     src={program.image}
                     alt={program.title}
                     fill
+          sizes="100vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-zinc-900 from-black/70 via-black/20 to-transparent" />
                   <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
                     FREE
                   </div>
@@ -391,9 +393,10 @@ export default function EnhancedHomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/media-backup-20251128-043832/hero-slide-healthcare.jpg"
+            src="/images/heroes/hero-students.jpg"
             alt="Start your career"
             fill
+          sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -456,9 +459,10 @@ export default function EnhancedHomePage() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <Image
-                    src="/media-backup-20251128-043832/additional-image-12-hd.jpg"
+                    src="/images/artlist/hero-training-7.jpg"
                     alt="Maria Rodriguez"
                     fill
+          sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -492,9 +496,10 @@ export default function EnhancedHomePage() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <Image
-                    src="/media-backup-20251128-043832/additional-image-14-hd.jpg"
+                    src="/images/artlist/hero-training-8.jpg"
                     alt="James Thompson"
                     fill
+          sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -528,9 +533,10 @@ export default function EnhancedHomePage() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <Image
-                    src="/media-backup-20251128-043832/programs/healthcare-professional-1-hd.jpg"
+                    src="/media/programs/efh-cna-hero.jpg"
                     alt="Sarah Johnson"
                     fill
+          sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -660,9 +666,10 @@ export default function EnhancedHomePage() {
               <div className="relative mx-auto w-64 h-[500px] bg-slate-800 rounded-[3rem] p-3 shadow-2xl">
                 <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden">
                   <Image
-                    src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
+                    src="/images/heroes/hero-elevate-learners.jpg"
                     alt="Mobile App Screenshot"
                     fill
+          sizes="100vw"
                     className="object-cover"
                   />
                 </div>

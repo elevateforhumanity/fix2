@@ -19,8 +19,8 @@ export default function VITAPage() {
       {/* Hero */}
       <section className="relative h-[500px]   ">
         <div className="absolute inset-0">
-          <Image
-            src="/media-backup-20251128-043832/programs/tax-prep-hd.jpg"
+          <Image priority loading="lazy" loading="lazy"
+            src="/media/programs/efh-tax-office-startup-hero.jpg"
             alt="VITA Program - Free Tax Preparation"
             fill
             className="object-cover opacity-20"

@@ -335,7 +335,7 @@ export default function DonatePage() {
             </div>
 
             {/* Submit Button */}
-            <button className="w-full bg-white text-white px-8 py-5 rounded-lg font-bold text-lg hover:from-teal-700 hover:to-blue-700 transition shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+            <button className="w-full bg-white text-white px-8 py-5 rounded-lg font-bold text-lg hover: hover: transition shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
               <Heart className="w-6 h-6" />
               Complete Donation
             </button>

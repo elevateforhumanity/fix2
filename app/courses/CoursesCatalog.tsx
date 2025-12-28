@@ -237,7 +237,7 @@ export default function CoursesCatalog({
                   >
                     {course.thumbnail_url ? (
                       <div className="relative h-48   ">
-                        <Image
+                        <Image loading="lazy" loading="lazy"
                           src={course.thumbnail_url}
                           alt={course.title}
                           fill

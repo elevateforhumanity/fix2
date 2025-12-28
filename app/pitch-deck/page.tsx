@@ -20,7 +20,7 @@ export default function PitchDeckPage() {
   return (
     <main className="bg-slate-50">
       {/* Slide 1: Header */}
-      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32">
+      <section className="bg-zinc-900   text-white py-20 md:py-32">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
@@ -72,7 +72,7 @@ export default function PitchDeckPage() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-3xl p-12 text-center">
+          <div className="bg-zinc-900   text-white rounded-3xl p-12 text-center">
             <p className="text-3xl md:text-4xl font-bold">
               Indiana's answer: Earn-and-Learn Apprenticeships
             </p>
@@ -137,13 +137,13 @@ export default function PitchDeckPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border-2 border-green-200">
+            <div className="bg-zinc-900   rounded-3xl p-8 border-2 border-green-200">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 Barber Apprenticeship
               </h3>
               <p className="text-slate-700">Indiana licensed pathway</p>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200">
+            <div className="bg-zinc-900   rounded-3xl p-8 border-2 border-blue-200">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 Skilled Trades
               </h3>
@@ -171,7 +171,7 @@ export default function PitchDeckPage() {
       </section>
 
       {/* Slide 5: Employer Value */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+      <section className="py-20 bg-zinc-900  ">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-bold mb-4">
@@ -206,7 +206,7 @@ export default function PitchDeckPage() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-2xl p-6 text-center">
+            <div className="bg-zinc-900   text-white rounded-2xl p-6 text-center">
               <p className="text-2xl font-bold">
                 Bottom line: Lower cost. Lower risk. Better retention.
               </p>
@@ -227,7 +227,7 @@ export default function PitchDeckPage() {
             </h2>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 md:p-12 shadow-lg border-2 border-purple-200 mb-8">
+          <div className="bg-zinc-900   rounded-3xl p-8 md:p-12 shadow-lg border-2 border-purple-200 mb-8">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">
               WorkOne benefits from:
             </h3>
@@ -249,7 +249,7 @@ export default function PitchDeckPage() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-6 text-center">
+            <div className="bg-zinc-900   text-white rounded-2xl p-6 text-center">
               <p className="text-2xl font-bold">
                 We reduce staff workload — not add to it.
               </p>
@@ -302,7 +302,7 @@ export default function PitchDeckPage() {
       </section>
 
       {/* Slide 8: Close */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section className="py-20 bg-zinc-900    text-white">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-4">

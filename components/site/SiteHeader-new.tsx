@@ -99,7 +99,7 @@ export default function SiteHeader() {
 
                 {/* Dropdown Menu - Coursera Style */}
                 {openDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 py-2 animate-in fade-in slide-in- duration-200">
                     {item.items.map((subItem) => (
                       <Link
                         key={subItem.href}

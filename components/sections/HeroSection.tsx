@@ -30,12 +30,12 @@ export function HeroSection({
   title,
   description,
   badges = [],
-  gradient = 'from-blue-900 via-purple-900 to-black',
+  gradient = '  to-black',
   primaryCTA = { text: 'Apply Now', href: '/apply' },
   secondaryCTA = { text: 'Talk to an Advisor', href: '/contact' },
 }: HeroSectionProps) {
   return (
-    <section className={`bg-gradient-to-br ${gradient} text-white py-20`}>
+    <section className={`bg-zinc-900 ${gradient} text-white py-20`}>
       <div className="mx-auto max-w-7xl px-6">
         {/* Badges */}
         {badges.length > 0 && (

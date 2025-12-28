@@ -425,8 +425,8 @@ export default async function CashAdvancesAdminPage() {
                 </ul>
               </div>
               <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
+                <Image priority loading="lazy" loading="lazy"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt="Students learning"
                   fill
                   className="object-cover"

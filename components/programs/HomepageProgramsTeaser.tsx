@@ -6,13 +6,13 @@ export function HomepageProgramsTeaser() {
     {
       title: "Healthcare",
       description: "CNA, Medical Assistant, Pharmacy Tech, and more",
-      image: "/images/gallery/image3.jpg",
+      image: "/images/artlist/hero-training-2.jpg",
       href: "/programs/cna",
     },
     {
       title: "Barber & Beauty",
       description: "DOL Registered Apprenticeships",
-      image: "/images/gallery/image8.jpg",
+      image: "/images/artlist/hero-training-1.jpg",
       href: "/programs/barber-apprenticeship",
     },
     {
@@ -57,6 +57,7 @@ export function HomepageProgramsTeaser() {
                   src={program.image}
                   alt={program.title}
                   fill
+          sizes="100vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

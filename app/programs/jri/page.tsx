@@ -139,7 +139,7 @@ export default function JRIProgramsPage() {
       </section>
 
       {/* Earn While You Learn - Apprenticeships */}
-      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-gradient-to-br from-brand-green-600 to-brand-green-700 text-slate-900">
+      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-zinc-900   text-slate-900">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
@@ -303,10 +303,11 @@ export default function JRIProgramsPage() {
                 className="group block bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image
+                  <Image priority
                     src={program.heroImage}
                     alt={program.heroImageAlt}
                     fill
+          sizes="100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />

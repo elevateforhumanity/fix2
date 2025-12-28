@@ -96,6 +96,7 @@ export default function ApplyFormClient() {
           src="/images/heroes/contact-hero.jpg"
           alt="Talk to an advisor"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
           quality={90}

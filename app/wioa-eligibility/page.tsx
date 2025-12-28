@@ -17,7 +17,7 @@ export default function WIOAEligibilityPage() {
       {/* Hero Banner */}
       <section className="relative h-[400px] sm:h-[500px] w-full overflow-hidden">
         <Image
-          src="/media-backup-20251128-043832/state-funding-hero.jpg"
+          src="/images/heroes/hero-state-funding.jpg"
           alt="WIOA Eligibility"
           fill
           className="object-cover"

@@ -70,7 +70,7 @@ export default function FSSAPartnershipRequestPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 py-12 px-4">
+      <div className="min-h-screen bg-zinc-900   py-12 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -139,7 +139,7 @@ export default function FSSAPartnershipRequestPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 py-12 px-4">
+    <div className="min-h-screen bg-zinc-900   py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

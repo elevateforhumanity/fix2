@@ -117,7 +117,7 @@ export default function SocialProof() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+    <section className="py-20 bg-zinc-900  to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats Bar */}
         <div className="grid md:grid-cols-4 gap-6 mb-16">

@@ -86,7 +86,7 @@ export default function TeamPage() {
                 <div className="lg:w-1/3">
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl   ">
                     {member.image ? (
-                      <Image
+                      <Image priority loading="lazy" loading="lazy"
                         src={member.image}
                         alt={member.name}
                         fill

@@ -42,6 +42,7 @@ export default function DemosPage() {
           src="/images/efh/hero/hero-main.jpg"
           alt="Workforce hub in operation"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

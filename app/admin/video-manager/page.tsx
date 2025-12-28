@@ -118,7 +118,7 @@ export default function VideoManagerPage() {
   playsInline
   className="absolute inset-0 w-full h-full object-cover"
 >
-  <source src="/uploads/videos/enhanced-xxxxx.mp4" type="video/mp4" />
+  <source src="/videos/hero-home.mp4" type="video/mp4" />
 </video>`}
               </pre>
               <p className="mt-4">

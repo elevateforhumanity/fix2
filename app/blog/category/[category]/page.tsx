@@ -100,10 +100,11 @@ export default async function CategoryPage({
                 >
                   {post.featured_image && (
                     <div className="relative h-48">
-                      <Image
+                      <Image loading="lazy" loading="lazy"
                         src={post.featured_image}
                         alt={post.title}
                         fill
+          sizes="100vw"
                         className="object-cover"
                       />
                     </div>

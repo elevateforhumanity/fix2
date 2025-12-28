@@ -13,7 +13,7 @@ export default function LicensesPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="px-4 sm:px-6 lg:px-10 py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <section className="px-4 sm:px-6 lg:px-10 py-20 bg-zinc-900  via-white ">
         <div className="mx-auto max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-bold mb-6">
             <Globe className="w-4 h-4" />
@@ -177,7 +177,7 @@ export default function LicensesPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-4 sm:px-6 lg:px-10 py-20 bg-gradient-to-br from-brand-green-600 to-green-700 text-white">
+      <section className="px-4 sm:px-6 lg:px-10 py-20 bg-zinc-900   text-white">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-4xl sm:text-5xl font-black mb-6">
             Ready to Launch Your Platform?

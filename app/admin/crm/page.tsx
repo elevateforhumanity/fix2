@@ -112,7 +112,7 @@ export default async function CRMHubPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <Link
             href="/admin/crm/campaigns/new"
-            className="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl p-6 hover:shadow-lg transition-shadow"
+            className="bg-zinc-900   text-white rounded-xl p-6 hover:shadow-lg transition-shadow"
           >
             <Mail className="w-8 h-8 mb-4" />
             <h3 className="text-xl font-bold mb-2">Send Campaign</h3>
@@ -121,7 +121,7 @@ export default async function CRMHubPage() {
 
           <Link
             href="/admin/crm/deals/new"
-            className="bg-gradient-to-br from-green-600 to-green-700 text-white rounded-xl p-6 hover:shadow-lg transition-shadow"
+            className="bg-zinc-900   text-white rounded-xl p-6 hover:shadow-lg transition-shadow"
           >
             <DollarSign className="w-8 h-8 mb-4" />
             <h3 className="text-xl font-bold mb-2">Create Deal</h3>
@@ -130,7 +130,7 @@ export default async function CRMHubPage() {
 
           <Link
             href="/admin/crm/appointments/new"
-            className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-xl p-6 hover:shadow-lg transition-shadow"
+            className="bg-zinc-900   text-white rounded-xl p-6 hover:shadow-lg transition-shadow"
           >
             <Calendar className="w-8 h-8 mb-4" />
             <h3 className="text-xl font-bold mb-2">Schedule Meeting</h3>

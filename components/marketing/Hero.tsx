@@ -70,7 +70,7 @@ export function Hero() {
           <div className="relative rounded-3xl bg-slate-900/60 p-3 shadow-2xl ring-1 ring-slate-700/80 backdrop-blur">
             <div className="relative aspect-video overflow-hidden rounded-2xl">
               <Image
-                src="/media/hero-elevate-learners.jpg"
+                src="/images/heroes/hero-elevate-learners.jpg"
                 alt="Adult learners in a barbershop, clinic, and HVAC lab"
                 fill
                 priority

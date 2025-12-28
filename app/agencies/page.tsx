@@ -22,11 +22,12 @@ export default function AgenciesPage() {
       {/* HERO */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/agencies-hero.jpg"
+          src="/images/heroes/workforce-partner-1.jpg"
           alt="Workforce agencies and partners"
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
 
         <div className="absolute inset-0 flex items-center">

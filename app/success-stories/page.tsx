@@ -240,10 +240,11 @@ export default function SuccessStoriesPage() {
                 {/* Image/Video */}
                 <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
                   <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl group">
-                    <Image
+                    <Image priority loading="lazy" loading="lazy"
                       src={story.image}
                       alt={`${story.name} - ${story.program} graduate`}
                       fill
+          sizes="100vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {story.videoContent && (

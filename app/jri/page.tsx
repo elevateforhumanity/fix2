@@ -25,7 +25,7 @@ import {
 
 export default function JRIPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-zinc-900  to-white">
       {/* Hero Section with Image */}
       <section className="relative h-[600px] bg-white">
         <div className="absolute inset-0">
@@ -33,6 +33,7 @@ export default function JRIPage() {
             src="/images/funding/funding-jri-program-v2.jpg"
             alt="JRI Program - Transforming Lives Through Education"
             fill
+          sizes="100vw"
             className="object-cover opacity-40"
             priority
           />
@@ -96,6 +97,7 @@ export default function JRIPage() {
                   src="/images/learners/reentry-coaching.jpg"
                   alt="Career coaching and mentorship"
                   fill
+          sizes="100vw"
                   className="object-cover"
                 />
               </div>
@@ -140,6 +142,7 @@ export default function JRIPage() {
                   src="/media/programs/workforce-readiness-hero.jpg"
                   alt="Workforce development training"
                   fill
+          sizes="100vw"
                   className="object-cover"
                 />
               </div>
@@ -359,6 +362,7 @@ export default function JRIPage() {
                     src="/media/programs/efh-public-safety-reentry-hero.jpg"
                     alt="Public Safety & Reentry Specialist"
                     fill
+          sizes="100vw"
                     className="object-cover rounded-t-lg"
                   />
                 </div>
@@ -402,6 +406,7 @@ export default function JRIPage() {
                     src="/images/heroes/workforce-partner-1.jpg"
                     alt="Commercial Driver License CDL"
                     fill
+          sizes="100vw"
                     className="object-cover rounded-t-lg"
                   />
                 </div>
@@ -443,6 +448,7 @@ export default function JRIPage() {
                     src="/images/heroes/workforce-partner-3.jpg"
                     alt="Manufacturing & Skilled Trades"
                     fill
+          sizes="100vw"
                     className="object-cover rounded-t-lg"
                   />
                 </div>

@@ -18,7 +18,7 @@ export default function TeamPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Our Team"
           fill
           className="object-cover brightness-50"

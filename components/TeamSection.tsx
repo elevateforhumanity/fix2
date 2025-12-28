@@ -84,7 +84,7 @@ export default function TeamSection() {
             >
               {/* Image - Professional Headshot Size */}
               <div className="relative h-64 overflow-hidden bg-slate-100">
-                <Image
+                <Image loading="lazy" loading="lazy"
                   src={member.image}
                   alt={`${member.name} - ${member.title}`}
                   fill

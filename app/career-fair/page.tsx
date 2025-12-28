@@ -18,7 +18,7 @@ export default async function CareerFairPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Career Fair"
           fill
           className="object-cover"
@@ -26,7 +26,7 @@ export default async function CareerFairPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-zinc-900 from-black/70 via-black/20 to-transparent" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Career Fair
@@ -119,7 +119,7 @@ export default async function CareerFairPage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/gallery/image3.jpg"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt="Career Fair"
                   fill
                   className="object-cover"

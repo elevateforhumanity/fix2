@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="relative">
           <div className="card p-2">
             <Image
-              src="/hero/efh-hero.jpg"
+              src="/images/heroes/hero-homepage.jpg"
               alt="Students at Elevate for Humanity"
               width={1200}
               height={800}

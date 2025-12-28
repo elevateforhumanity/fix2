@@ -20,7 +20,7 @@ export default function SponsorLicensingPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-20 md:py-32">
+      <section className="bg-zinc-900   text-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
@@ -134,7 +134,7 @@ export default function SponsorLicensingPage() {
             </div>
 
             {/* Professional */}
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl shadow-2xl border-4 border-indigo-400 p-8 relative transform lg:scale-105">
+            <div className="bg-zinc-900   rounded-3xl shadow-2xl border-4 border-indigo-400 p-8 relative transform lg:scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div className="bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold">
                   MOST POPULAR
@@ -364,7 +364,7 @@ export default function SponsorLicensingPage() {
       </section>
 
       {/* Employer Fees */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+      <section className="py-20 bg-zinc-900  ">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold mb-4">
@@ -488,7 +488,7 @@ export default function SponsorLicensingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+      <section className="py-20 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to License?

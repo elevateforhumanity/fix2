@@ -20,7 +20,7 @@ export default function ProgramHolderLicensePage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 via-purple-700 to-indigo-800 text-white py-20">
+      <section className="bg-zinc-900    text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
             🤝 MOU-Based Partnership
@@ -167,7 +167,7 @@ export default function ProgramHolderLicensePage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-xl p-6 shadow-lg text-white">
+            <div className="bg-zinc-900   rounded-xl p-6 shadow-lg text-white">
               <div className="text-4xl mb-4">💰</div>
               <h3 className="text-xl font-bold mb-3">Total Value</h3>
               <div className="text-3xl font-bold mb-2">$300K - $650K</div>
@@ -384,7 +384,7 @@ export default function ProgramHolderLicensePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+      <section className="py-16 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Join Our Network?

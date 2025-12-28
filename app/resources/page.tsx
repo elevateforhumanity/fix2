@@ -29,7 +29,7 @@ export default function ResourcesPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Resources"
           fill
           className="object-cover brightness-50"

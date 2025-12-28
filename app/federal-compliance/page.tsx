@@ -14,7 +14,7 @@ export default function FederalCompliancePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
+      <section className="bg-zinc-900   text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">

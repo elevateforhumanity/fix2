@@ -49,7 +49,7 @@ export function CategoryPageTemplate({ data }: CategoryPageTemplateProps) {
         title={data.title}
         description={data.description}
         badges={data.badges}
-        gradient={data.heroGradient || 'from-blue-900 via-purple-900 to-black'}
+        gradient={data.heroGradient || '  to-black'}
         primaryCTA={data.ctaPrimary || { text: 'Apply Now', href: '/apply' }}
         secondaryCTA={data.ctaSecondary || { text: 'Talk to an Advisor', href: '/contact' }}
       />

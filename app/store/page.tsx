@@ -52,7 +52,7 @@ export default function StorePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Mission Statement Banner */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-12">
+      <section className="bg-zinc-900   text-white py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Heart className="h-4 w-4" />
@@ -78,7 +78,7 @@ export default function StorePage() {
             {/* Platform Licenses */}
             <Link
               href="/store/licenses"
-              className="group bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-brand-green-600 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-gray-200 hover:border-brand-green-600 hover:shadow-xl transition-all"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-16 h-16 bg-brand-green-600 rounded-xl flex items-center justify-center">
@@ -111,7 +111,7 @@ export default function StorePage() {
             {/* Digital Products */}
             <Link
               href="#digital-products"
-              className="group bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-orange-600 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-gray-200 hover:border-orange-600 hover:shadow-xl transition-all"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center">

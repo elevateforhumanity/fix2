@@ -18,7 +18,7 @@ export default function AIHubPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+      <section className="bg-zinc-900  via-white  py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-900 rounded-full text-sm font-bold mb-6">
             <Brain className="w-4 h-4" />
@@ -44,7 +44,7 @@ export default function AIHubPage() {
             {/* AI Tutor */}
             <Link
               href="/ai-tutor"
-              className="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
                 <Brain className="w-8 h-8 text-white" />
@@ -72,7 +72,7 @@ export default function AIHubPage() {
             {/* AI Chat */}
             <Link
               href="/ai-chat"
-              className="group bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6">
                 <MessageSquare className="w-8 h-8 text-white" />
@@ -93,7 +93,7 @@ export default function AIHubPage() {
             {/* AI Course Builder */}
             <Link
               href="/ai/course-builder"
-              className="group bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
                 <BookOpen className="w-8 h-8 text-white" />
@@ -120,7 +120,7 @@ export default function AIHubPage() {
             {/* AI Job Matcher */}
             <Link
               href="/ai/job-match"
-              className="group bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border-2 border-orange-200 hover:border-orange-400 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-orange-200 hover:border-orange-400 hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6">
                 <Briefcase className="w-8 h-8 text-white" />
@@ -141,7 +141,7 @@ export default function AIHubPage() {
             {/* AI Instructor */}
             <Link
               href="/ai/instructor"
-              className="group bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 border-2 border-pink-200 hover:border-pink-400 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-pink-200 hover:border-pink-400 hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center mb-6">
                 <Brain className="w-8 h-8 text-white" />
@@ -162,7 +162,7 @@ export default function AIHubPage() {
             {/* AI Asset Generator */}
             <Link
               href="/ai/generate-asset"
-              className="group bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 border-2 border-teal-200 hover:border-teal-400 hover:shadow-xl transition-all"
+              className="group bg-zinc-900   rounded-2xl p-8 border-2 border-teal-200 hover:border-teal-400 hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-teal-600 rounded-xl flex items-center justify-center mb-6">
                 <Sparkles className="w-8 h-8 text-white" />
@@ -234,7 +234,7 @@ export default function AIHubPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Learn with AI?</h2>
           <p className="text-xl opacity-90 mb-8">

@@ -100,7 +100,7 @@ export default async function StudentProgressPage() {
                   className="bg-white rounded-xl border border-gray-200 overflow-hidden"
                 >
                   {/* Header */}
-                  <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
+                  <div className="bg-zinc-900   text-white p-6">
                     <div className="flex items-start justify-between">
                       <div>
                         <h2 className="text-2xl font-bold mb-2">
@@ -187,10 +187,11 @@ export default async function StudentProgressPage() {
                                   <div className="flex items-center gap-3 mb-2">
                                     {provider?.logo_url && (
                                       <div className="relative w-8 h-8">
-                                        <Image
+                                        <Image loading="lazy" loading="lazy"
                                           src={provider.logo_url}
                                           alt={provider.provider_name}
                                           fill
+          sizes="100vw"
                                           className="object-contain"
                                         />
                                       </div>
@@ -244,7 +245,7 @@ export default async function StudentProgressPage() {
 
                     {/* Certificate Download */}
                     {isComplete && (
-                      <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg">
+                      <div className="mt-6 p-4 bg-zinc-900   border-2 border-green-200 rounded-lg">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <Award className="w-8 h-8 text-green-600" />

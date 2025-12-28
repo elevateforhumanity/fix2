@@ -193,7 +193,7 @@ export default function AILiveChat({
         {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-16 h-16 bg-white text-white rounded-full shadow-2xl hover:from-orange-700 hover:to-orange-800 transition-all hover:scale-110 flex items-center justify-center z-50 animate-bounce"
+          className="fixed bottom-6 right-6 w-16 h-16 bg-white text-white rounded-full shadow-2xl hover: hover: transition-all hover:scale-110 flex items-center justify-center z-50 animate-bounce"
           aria-label="Open chat"
         >
           <MessageCircle className="w-8 h-8" />
@@ -224,7 +224,7 @@ export default function AILiveChat({
                     setIsOpen(true);
                     setShowPopup(false);
                   }}
-                  className="w-full bg-white text-white px-4 py-2 rounded-lg font-semibold hover:from-orange-700 hover:to-orange-800 transition"
+                  className="w-full bg-white text-white px-4 py-2 rounded-lg font-semibold hover: hover: transition"
                 >
                   Start Chat
                 </button>

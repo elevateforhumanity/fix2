@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Elevate for Humanity',
     images: [
       {
-        url: 'https://www.elevateforhumanity.org/images/heroes/homepage-hero.jpg',
+        url: 'https://www.elevateforhumanity.org/images/heroes/hero-homepage.jpg',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - Free Career Training',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Elevate for Humanity | Free Career Training Indiana',
     description: 'Free career training in Indianapolis. WIOA-funded programs in healthcare, trades, business, and more.',
-    images: ['https://www.elevateforhumanity.org/images/heroes/homepage-hero.jpg'],
+    images: ['https://www.elevateforhumanity.org/images/heroes/hero-homepage.jpg'],
   },
   alternates: {
     canonical: 'https://www.elevateforhumanity.org',
@@ -53,17 +53,17 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 1. HERO BANNER - Static Image */}
+      {/* 1. HERO BANNER - Static image hero */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-10">
         <div className="relative w-full overflow-hidden rounded-3xl">
           <div className="relative h-[520px] w-full md:h-[600px]">
             <Image
               src="/images/heroes/hero-homepage.jpg"
-              alt="Elevate for Humanity - Workforce Training"
+              alt="Elevate for Humanity - Free Career Training"
               fill
-              className="object-cover"
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1400px"
+              className="object-cover"
+              sizes="100vw"
             />
           </div>
         </div>
@@ -303,26 +303,6 @@ export default function HomePage() {
       {/* 2.6. PARTNER LOGOS */}
       <PartnerLogos />
 
-      {/* 2.7. VIDEO SECTION - See Our Facility */}
-      <section className="px-4 sm:px-6 lg:px-10 py-16 bg-white">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 mb-3">
-              See Our Training Facility
-            </h2>
-            <p className="text-zinc-600">
-              Take a virtual tour of our modern, professional training environment
-            </p>
-          </div>
-          <div className="relative w-full overflow-hidden rounded-2xl shadow-lg">
-            <OptimizedVideo
-              src="/videos/hero-home.mp4"
-              className="w-full aspect-video"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* 3. CHOOSE YOUR PATH (3 TILES) */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">
         <div className="mx-auto max-w-6xl">
@@ -335,7 +315,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/student-career.jpg"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Get trained"
                   fill
                   className="object-cover"
@@ -360,7 +340,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/training-provider-1.jpg"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt="Partner with us"
                   fill
                   className="object-cover"
@@ -385,7 +365,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/efh/hero/hero-support.jpg"
+                  src="/images/artlist/hero-training-3.jpg"
                   alt="License the platform"
                   fill
                   className="object-cover"
@@ -455,7 +435,7 @@ export default function HomePage() {
           </h2>
           <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/heroes/training-provider-1.jpg"
+              src="/images/artlist/hero-training-4.jpg"
               alt="Training providers and workforce solutions"
               fill
               className="object-cover"
@@ -470,7 +450,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/efh/sections/classroom.jpg"
+              src="/images/artlist/hero-training-5.jpg"
               alt="Student outcomes and support"
               fill
               className="object-cover"
@@ -542,7 +522,7 @@ export default function HomePage() {
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-zinc-200">
             <Image
-              src="/images/efh/sections/coaching.jpg"
+              src="/images/artlist/hero-training-6.jpg"
               alt="Employers and workforce boards"
               fill
               className="object-cover"

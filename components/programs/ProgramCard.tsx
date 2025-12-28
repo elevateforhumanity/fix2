@@ -13,6 +13,7 @@ export default function ProgramCard({ program }: { program: Program }) {
           src={program.cardImage || program.heroImage || "/images/programs/default.jpg"}
           alt={program.title}
           fill
+          sizes="100vw"
           className="object-cover"
         />
       </div>

@@ -152,10 +152,11 @@ export default function ApprenticeshipProgramsPage() {
                 className="group block bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className="relative h-64 w-full overflow-hidden">
-                  <Image
+                  <Image priority
                     src={program.heroImage}
                     alt={program.heroImageAlt}
                     fill
+          sizes="100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />

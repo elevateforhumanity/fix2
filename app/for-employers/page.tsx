@@ -28,9 +28,10 @@ export default function ForEmployersPage() {
       {/* HERO */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/employers-hero.jpg"
+          src="/images/heroes/hero-employers.jpg"
           alt="Employers hiring trained workers"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

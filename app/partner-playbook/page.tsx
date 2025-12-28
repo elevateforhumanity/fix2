@@ -22,7 +22,7 @@ export default function PartnerPlaybookPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-orange-50 to-brand-blue-50 text-white py-16 md:py-24">
+      <section className="bg-zinc-900   text-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
             Preferred Partner Playbook
@@ -148,7 +148,7 @@ export default function PartnerPlaybookPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200">
+            <div className="bg-zinc-900   rounded-2xl p-8 border-2 border-blue-200">
               <h4 className="font-bold text-slate-900 mb-4">
                 Email Template (send to Workforce Board Director / WorkOne Manager)
               </h4>
@@ -228,7 +228,7 @@ export default function PartnerPlaybookPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
+            <div className="bg-zinc-900   rounded-2xl p-8 border-2 border-green-200">
               <div className="text-center mb-8">
                 <h4 className="text-2xl font-bold text-slate-900 mb-2">
                   Host an Apprentice – Lower Your Cost, Grow Your Workforce
@@ -321,7 +321,7 @@ export default function PartnerPlaybookPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-200">
+            <div className="bg-zinc-900   rounded-2xl p-8 border-2 border-purple-200">
               <p className="text-sm text-slate-600 mb-6 italic">
                 Use this language when WorkOne asks "how do we work together?"
               </p>
@@ -409,7 +409,7 @@ export default function PartnerPlaybookPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-200">
+            <div className="bg-zinc-900   rounded-2xl p-8 border-2 border-orange-200">
               <h4 className="font-bold text-slate-900 mb-6 text-xl">
                 Step-by-Step Flow
               </h4>
@@ -473,7 +473,7 @@ export default function PartnerPlaybookPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200">
+            <div className="bg-zinc-900   rounded-2xl p-8 border-2 border-blue-200">
               <h4 className="font-bold text-slate-900 mb-6 text-xl">
                 How You Expand Without Accreditation Fees
               </h4>
@@ -514,7 +514,7 @@ export default function PartnerPlaybookPage() {
       </section>
 
       {/* The One Sentence */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section className="py-20 bg-zinc-900    text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             The One Sentence That Unlocks Rooms
@@ -751,7 +751,7 @@ export default function PartnerPlaybookPage() {
             ].map((asset, i) => (
               <div
                 key={i}
-                className={`bg-gradient-to-br from-${asset.color}-50 to-${asset.color}-100 rounded-2xl p-6 border-2 border-${asset.color}-200`}
+                className={`bg-zinc-900 from-${asset.color}-50 to-${asset.color}-100 rounded-2xl p-6 border-2 border-${asset.color}-200`}
               >
                 <div
                   className={`w-12 h-12 bg-${asset.color}-500 rounded-xl flex items-center justify-center mb-4`}
@@ -766,7 +766,7 @@ export default function PartnerPlaybookPage() {
             ))}
           </div>
 
-          <div className="mt-12 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 text-center">
+          <div className="mt-12 bg-zinc-900   text-white rounded-3xl p-8 text-center">
             <p className="text-xl font-bold mb-4">
               This is exactly what preferred partners use.
             </p>
@@ -778,7 +778,7 @@ export default function PartnerPlaybookPage() {
       </section>
 
       {/* What Happens Next */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+      <section className="py-20 bg-zinc-900  ">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-slate-900 mb-6">
             What Happens Next (Realistic Outcome)

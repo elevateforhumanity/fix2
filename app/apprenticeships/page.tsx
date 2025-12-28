@@ -21,7 +21,7 @@ export default function ApprenticeshipsPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Registered Apprenticeship Programs"
           fill
           className="object-cover"

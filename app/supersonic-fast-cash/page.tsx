@@ -424,7 +424,7 @@ export default function SupersonicFastCashPage() {
         }}
       />
       {/* Hero Section - AGGRESSIVE MARKETING */}
-      <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-blue-900 text-white py-20 overflow-hidden">
+      <section className="relative bg-zinc-900    text-white py-20 overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-yellow-400 rounded-full blur-3xl animate-pulse" />
@@ -559,7 +559,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* SOCIAL PROOF - AGGRESSIVE */}
-      <section className="py-12 bg-gradient-to-r from-green-50 to-blue-50">
+      <section className="py-12 bg-zinc-900  ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-green-600">
@@ -721,7 +721,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* Nationwide Online Service */}
-      <section className="py-16 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-16 bg-zinc-900   text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -924,7 +924,7 @@ export default function SupersonicFastCashPage() {
       </section>
 
       {/* VISUAL ADVANCE AMOUNTS - HIGHLY VISUAL */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+      <section className="py-20 bg-zinc-900   relative overflow-hidden">
         {/* Background Money Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="text-9xl font-black text-green-600 absolute top-10 left-10">
@@ -951,7 +951,7 @@ export default function SupersonicFastCashPage() {
           {/* VISUAL MONEY CARDS */}
           <div className="grid md:grid-cols-5 gap-6 mb-12">
             {/* $250 */}
-            <div className="group relative bg-gradient-to-br from-green-400 to-green-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-green-700">
+            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-green-700">
               <div className="absolute -top-3 -right-3 bg-yellow-400 text-green-900 px-3 py-1 rounded-full text-xs font-black">
                 0% APR
               </div>
@@ -966,7 +966,7 @@ export default function SupersonicFastCashPage() {
             </div>
 
             {/* $500 - POPULAR */}
-            <div className="group relative bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-blue-700">
+            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-blue-700">
               <div className="absolute -top-3 -right-3 bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-xs font-black">
                 POPULAR!
               </div>
@@ -981,7 +981,7 @@ export default function SupersonicFastCashPage() {
             </div>
 
             {/* $1,000 - BEST VALUE */}
-            <div className="group relative bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-purple-700 shadow-2xl">
+            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-purple-700 shadow-2xl">
               <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full text-xs font-black animate-pulse">
                 ⭐ BEST VALUE
               </div>
@@ -996,7 +996,7 @@ export default function SupersonicFastCashPage() {
             </div>
 
             {/* $3,500 */}
-            <div className="group relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-orange-700">
+            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-orange-700">
               <div className="absolute -top-3 -right-3 bg-yellow-400 text-orange-900 px-3 py-1 rounded-full text-xs font-black">
                 BIG MONEY
               </div>
@@ -1011,7 +1011,7 @@ export default function SupersonicFastCashPage() {
             </div>
 
             {/* $7,500 - MAXIMUM */}
-            <div className="group relative bg-gradient-to-br from-red-500 to-red-700 rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-red-800 shadow-2xl">
+            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-red-800 shadow-2xl">
               <div className="absolute -top-3 -right-3 bg-yellow-400 text-red-900 px-3 py-1 rounded-full text-xs font-black animate-pulse">
                 🔥 MAXIMUM!
               </div>

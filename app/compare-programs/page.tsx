@@ -74,7 +74,7 @@ const programs = [
     weeklyHours: 30,
     difficulty: 'Beginner',
     physicalDemand: 'High',
-    image: '/media-backup-20251128-043832/programs/cna-hd.jpg',
+    image: '/media/programs/efh-cna-hero.jpg',
     videoUrl: 'https://www.youtube.com/embed/cna-program-overview',
   },
   {
@@ -105,7 +105,7 @@ const programs = [
     weeklyHours: 35,
     difficulty: 'Intermediate',
     physicalDemand: 'Medium',
-    image: '/media-backup-20251128-043832/programs/medical-hd.jpg',
+    image: '/media/programs/efh-cna-hero.jpg',
     videoUrl: 'https://www.youtube.com/embed/dsp-program-overview',
   },
   {
@@ -143,7 +143,7 @@ const programs = [
     weeklyHours: 40,
     difficulty: 'Intermediate',
     physicalDemand: 'High',
-    image: '/media-backup-20251128-043832/programs/welding-hd.jpg',
+    image: '/media/programs/efh-building-tech-hero.jpg',
     videoUrl: 'https://www.youtube.com/embed/welding-program-overview',
   },
   {
@@ -180,7 +180,7 @@ const programs = [
     weeklyHours: 40,
     difficulty: 'Intermediate',
     physicalDemand: 'High',
-    image: '/media-backup-20251128-043832/programs/hvac-hd.jpg',
+    image: '/programs/hvac-hero.svg',
     videoUrl: 'https://www.youtube.com/embed/hvac-program-overview',
   },
   {
@@ -213,7 +213,7 @@ const programs = [
     weeklyHours: 35,
     difficulty: 'Intermediate',
     physicalDemand: 'Low',
-    image: '/media-backup-20251128-043832/programs/barber-hd.jpg',
+    image: '/media/programs/efh-barber-hero.jpg',
     videoUrl: 'https://www.youtube.com/embed/barber-program-overview',
   },
   {
@@ -242,7 +242,7 @@ const programs = [
     weeklyHours: 50,
     difficulty: 'Beginner',
     physicalDemand: 'Medium',
-    image: '/media-backup-20251128-043832/programs/cdl-hd.jpg',
+    image: '/media/programs/cdl-hero.jpg',
     videoUrl: 'https://www.youtube.com/embed/cdl-program-overview',
   },
 ];
@@ -287,7 +287,7 @@ export default function CompareProgramsPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Compare Programs"
           fill
           className="object-cover"
@@ -295,7 +295,7 @@ export default function CompareProgramsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-zinc-900 from-black/70 via-black/20 to-transparent" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Compare Programs
@@ -433,7 +433,7 @@ export default function CompareProgramsPage() {
               </div>
               {/* Replace with actual video embed */}
               <Image
-                src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
+                src="/images/heroes/hero-elevate-learners.jpg"
                 alt="Program comparison video"
                 fill
                 className="object-cover opacity-50"

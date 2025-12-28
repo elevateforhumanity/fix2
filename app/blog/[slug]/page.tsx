@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt={title}
           fill
           className="object-cover"
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/gallery/image3.jpg"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt={title}
                   fill
                   className="object-cover"

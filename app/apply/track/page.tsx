@@ -132,7 +132,7 @@ export default function TrackApplicationPage() {
   const StatusIcon = status?.icon;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-zinc-900  via-white ">
       <div className="max-w-4xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-12">

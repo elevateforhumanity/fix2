@@ -20,7 +20,7 @@ export function SiteFooter() {
       {/* Watermark Background */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <Image
-          src="/media/elevate-watermark.png"
+          src="/logo.png"
           alt="Elevate For Humanity"
           fill
           className="object-cover"
@@ -97,7 +97,7 @@ export function SiteFooter() {
                   href="https://instagram.com/elevateforhumanity"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-white hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-white hover: hover: hover: text-white transition-all hover:scale-105 shadow-lg"
                   aria-label="Instagram"
                 >
                   <Instagram size={20} strokeWidth={2.5} />

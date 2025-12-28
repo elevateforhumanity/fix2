@@ -12,7 +12,7 @@ export default function ContactClient() {
       image: '/images/heroes/student-career.jpg',
       href: '/apply',
       icon: '🎓',
-      color: 'from-orange-500 to-orange-600',
+      color: ' ',
     },
     {
       title: 'Training Providers',
@@ -21,7 +21,7 @@ export default function ContactClient() {
       image: '/images/heroes/training-provider-1.jpg',
       href: '/platform',
       icon: '🏫',
-      color: 'from-blue-500 to-blue-600',
+      color: ' ',
     },
     {
       title: 'Employers',
@@ -30,7 +30,7 @@ export default function ContactClient() {
       image: '/images/learners/reentry-coaching.jpg',
       href: '/employers',
       icon: '💼',
-      color: 'from-green-500 to-green-600',
+      color: ' ',
     },
     {
       title: 'Workforce Boards',
@@ -39,7 +39,7 @@ export default function ContactClient() {
       image: '/images/facilities-new/facility-8.jpg',
       href: '/platform/workforce-boards',
       icon: '🤝',
-      color: 'from-purple-500 to-purple-600',
+      color: ' ',
     },
     {
       title: 'Platform Licensing',
@@ -48,7 +48,7 @@ export default function ContactClient() {
       image: '/images/platform/platform-screenshot-1.png',
       href: '/platform/licensing',
       icon: '⚙️',
-      color: 'from-teal-500 to-teal-600',
+      color: ' ',
     },
     {
       title: 'General Inquiry',
@@ -57,14 +57,14 @@ export default function ContactClient() {
       image: '/images/facilities-new/facility-1.jpg',
       href: 'mailto:elevate4humanityedu@gmail.com',
       icon: '✉️',
-      color: 'from-slate-500 to-slate-600',
+      color: ' ',
     },
   ];
 
   return (
     <main className="bg-white overflow-hidden">
       {/* Hero Section with Curved Bottom */}
-      <section className="relative bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 py-24 md:py-32 overflow-hidden">
+      <section className="relative bg-zinc-900    py-24 md:py-32 overflow-hidden">
         {/* Decorative circles */}
         <div className="absolute top-10 right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
@@ -100,16 +100,17 @@ export default function ContactClient() {
                 <div className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                   {/* Image */}
                   <div className="relative h-72 overflow-hidden">
-                    <Image
+                    <Image loading="lazy" loading="lazy"
                       src={option.image}
                       alt={option.title}
                       fill
+          sizes="100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       quality={75}
                     />
                     {/* Gradient overlay */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`}
+                      className={`absolute inset-0 bg-zinc-900 ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`}
                     />
 
                     {/* Icon badge */}
@@ -119,7 +120,7 @@ export default function ContactClient() {
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-zinc-900 from-black/90 via-black/70 to-transparent">
                     <h3 className="text-lg md:text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition">
                       {option.title}
                     </h3>
@@ -141,7 +142,7 @@ export default function ContactClient() {
       </section>
 
       {/* Quick Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
+      <section className="py-20 bg-zinc-900   relative overflow-hidden">
         {/* Decorative shapes */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full opacity-20 blur-3xl" />
 
@@ -149,7 +150,7 @@ export default function ContactClient() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Call Now */}
             <div className="bg-white rounded-3xl p-10 shadow-xl">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
+              <div className="w-20 h-20 bg-zinc-900   rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
                 <span className="text-4xl">📞</span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -161,7 +162,7 @@ export default function ContactClient() {
               </p>
               <a
                 href="tel:3173143757"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center bg-zinc-900   text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
               >
                 317-314-3757
               </a>
@@ -169,7 +170,7 @@ export default function ContactClient() {
 
             {/* Right: Email */}
             <div className="bg-white rounded-3xl p-10 shadow-xl">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
+              <div className="w-20 h-20 bg-zinc-900   rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
                 <span className="text-4xl">✉️</span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -181,7 +182,7 @@ export default function ContactClient() {
               </p>
               <a
                 href="mailto:elevate4humanityedu@gmail.com"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center bg-zinc-900   text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all"
               >
                 Email Us
               </a>
@@ -193,7 +194,7 @@ export default function ContactClient() {
       {/* Already Enrolled Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
+          <div className="bg-zinc-900   rounded-3xl p-12 shadow-2xl relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange-600/20 rounded-full blur-3xl" />
 
@@ -217,7 +218,7 @@ export default function ContactClient() {
       </section>
 
       {/* Ready to Join Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 to-orange-100">
+      <section className="py-20 bg-zinc-900  ">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Ready to start your journey?
@@ -227,7 +228,7 @@ export default function ContactClient() {
           </p>
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all"
+            className="inline-flex items-center justify-center bg-zinc-900   text-white px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all"
           >
             Apply Now
           </Link>

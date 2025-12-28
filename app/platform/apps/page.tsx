@@ -22,7 +22,7 @@ export default function PlatformAppsPage() {
       {/* Hero Section */}
       <section className="relative h-[300px] md:h-[400px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image3.jpg"
+          src="/images/artlist/hero-training-2.jpg"
           alt="Platform Apps"
           fill
           className="object-cover"

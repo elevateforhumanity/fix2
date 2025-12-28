@@ -103,6 +103,7 @@ export function ProgramHero({ program }: { program: Program }) {
               src={program.heroImage}
               alt={program.heroImageAlt}
               fill
+          sizes="100vw"
               quality={70}
               className="object-cover"
               priority

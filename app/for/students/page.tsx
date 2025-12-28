@@ -58,9 +58,10 @@ export default function StudentsPage() {
       {/* Hero */}
       <section className="relative h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Students in training"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -203,7 +204,7 @@ export default function StudentsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+      <section className="py-16 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start?</h2>
           <p className="text-xl mb-8">

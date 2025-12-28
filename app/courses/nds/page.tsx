@@ -106,7 +106,7 @@ export default function NdsPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="DOT Compliance Training"
           fill
           className="object-cover"

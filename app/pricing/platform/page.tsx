@@ -33,7 +33,7 @@ export default function PlatformLicensingPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-orange-600 via-blue-600 to-purple-700 text-white py-20 md:py-32">
+      <section className="bg-zinc-900    text-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
@@ -203,7 +203,7 @@ export default function PlatformLicensingPage() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white text-center">
+          <div className="bg-zinc-900   rounded-2xl p-8 text-white text-center">
             <div className="text-5xl font-bold mb-2">$300K - $650K</div>
             <div className="text-xl mb-4">
               Total Credential Value + 4-8 Years Saved
@@ -230,7 +230,7 @@ export default function PlatformLicensingPage() {
 
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {/* License Type 1: Program Holder Network */}
-            <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl shadow-2xl p-8 text-white relative border-4 border-orange-400">
+            <div className="bg-zinc-900   rounded-2xl shadow-2xl p-8 text-white relative border-4 border-orange-400">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div className="bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
                   <Star className="w-4 h-4" />
@@ -582,7 +582,7 @@ export default function PlatformLicensingPage() {
             </div>
 
             {/* Tier 2: Government Approved - MOST POPULAR */}
-            <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl shadow-2xl border-4 border-orange-400 p-6 relative transform lg:scale-105">
+            <div className="bg-zinc-900   rounded-2xl shadow-2xl border-4 border-orange-400 p-6 relative transform lg:scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div className="bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
                   <Star className="w-4 h-4" />
@@ -867,7 +867,7 @@ export default function PlatformLicensingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-blue-600 text-white">
+      <section className="py-16 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to License Our Platform?

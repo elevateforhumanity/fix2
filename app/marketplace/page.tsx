@@ -149,7 +149,7 @@ export default async function MarketplacePage() {
               >
                 <div className="aspect-video bg-white flex items-center justify-center relative">
                   {product.thumbnail_url ? (
-                    <Image
+                    <Image priority loading="lazy" loading="lazy"
                       src={product.thumbnail_url}
                       alt={product.title}
                       fill

@@ -353,7 +353,7 @@ export default async function AlumniPage() {
             </div>
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/gallery/image3.jpg"
+                src="/images/artlist/hero-training-2.jpg"
                 alt="Alumni Giving Back"
                 fill
                 className="object-cover"

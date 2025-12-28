@@ -15,10 +15,11 @@ export function AIInstructorCard(props: {
     <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
       <div className="flex items-start gap-4">
         <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full border-2 border-zinc-200">
-          <Image
+          <Image loading="lazy" loading="lazy"
             src="/images/team/elizabeth-greene.jpg"
             alt="Elizabeth Greene"
             fill
+          sizes="100vw"
             className="object-cover"
           />
         </div>

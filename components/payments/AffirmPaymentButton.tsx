@@ -129,7 +129,7 @@ export function AffirmPaymentButton({
       <button
         onClick={handleAffirmPayment}
         disabled={loading || !affirmLoaded}
-        className="w-full bg-white text-white py-4 px-6 rounded-lg font-bold text-lg hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+        className="w-full bg-white text-white py-4 px-6 rounded-lg font-bold text-lg hover: hover: disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
       >
         {loading ? (
           <span className="flex items-center justify-center gap-2">

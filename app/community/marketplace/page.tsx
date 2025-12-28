@@ -41,7 +41,7 @@ export default async function CommunityMarketplacePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
+      <section className="bg-zinc-900  via-white  py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-black text-gray-900 mb-6">
             Community Marketplace
@@ -83,7 +83,7 @@ export default async function CommunityMarketplacePage() {
                 >
                   {course.thumbnail_url && (
                     <div className="aspect-video bg-gray-100 overflow-hidden relative">
-                      <Image
+                      <Image priority loading="lazy" loading="lazy"
                         src={course.thumbnail_url}
                         alt={course.title}
                         fill
@@ -181,7 +181,7 @@ export default async function CommunityMarketplacePage() {
                 >
                   {product.images && product.images[0] && (
                     <div className="aspect-square bg-gray-100 overflow-hidden relative">
-                      <Image
+                      <Image loading="lazy" loading="lazy"
                         src={product.images[0]}
                         alt={product.name}
                         fill
@@ -231,7 +231,7 @@ export default async function CommunityMarketplacePage() {
       </section>
 
       {/* CTA for Program Owners */}
-      <section className="py-16 bg-gradient-to-br from-brand-green-600 to-green-700 text-white">
+      <section className="py-16 bg-zinc-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Are You a Program Owner?</h2>
           <p className="text-xl opacity-90 mb-8">

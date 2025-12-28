@@ -18,10 +18,10 @@ export function CTASection({
   description = 'Apply now or talk to an advisor to learn more about our programs.',
   primaryCTA = { text: 'Apply Now', href: '/apply' },
   secondaryCTA = { text: 'Contact Us', href: '/contact' },
-  gradient = 'from-blue-900 via-purple-900 to-black',
+  gradient = '  to-black',
 }: CTASectionProps) {
   return (
-    <section className={`bg-gradient-to-br ${gradient} text-white py-16`}>
+    <section className={`bg-zinc-900 ${gradient} text-white py-16`}>
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">{title}</h2>
         <p className="text-xl text-white/90 mb-8">{description}</p>

@@ -19,7 +19,7 @@ export default function ContractsPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 md:py-32">
+      <section className="bg-zinc-900    text-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
@@ -302,7 +302,7 @@ export default function ContractsPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 md:p-12 border-2 border-green-200">
+          <div className="bg-zinc-900   rounded-3xl p-8 md:p-12 border-2 border-green-200">
             <div className="bg-white rounded-2xl p-6 md:p-8 border border-green-200">
               <p className="text-lg text-slate-700 leading-relaxed italic">
                 "All fees charged under this agreement are for software access,
@@ -380,7 +380,7 @@ export default function ContractsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-20 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Need Custom Contracts?</h2>
           <p className="text-xl mb-10 text-white/90">

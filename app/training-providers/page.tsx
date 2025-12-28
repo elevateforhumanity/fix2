@@ -23,7 +23,7 @@ export default async function TrainingProvidersPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/gallery/image8.jpg"
+          poster="/images/artlist/hero-training-1.jpg"
         >
           <source src="/videos/training-providers-video-with-narration.mp4" type="video/mp4" />
         </video>
@@ -117,8 +117,8 @@ export default async function TrainingProvidersPage() {
                 </ul>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
+                <Image priority loading="lazy" loading="lazy"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt="Training Providers"
                   fill
                   className="object-cover"

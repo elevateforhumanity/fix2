@@ -41,10 +41,11 @@ export default async function MobileAppPage() {
         {/* Milady Logo */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8 text-center">
           <div className="w-20 h-20 mx-auto mb-4 relative">
-            <Image
+            <Image loading="lazy" loading="lazy"
               src="/images/milady-logo.jpg"
               alt="Milady"
               fill
+          sizes="100vw"
               className="object-contain"
             />
           </div>

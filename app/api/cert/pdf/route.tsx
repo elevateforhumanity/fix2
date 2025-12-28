@@ -94,7 +94,7 @@ export async function GET(req: NextRequest) {
           <Text style={styles.row}>Serial: {cert.serial}</Text>
         </View>
         <View style={styles.qrRow}>
-          <Image
+          <Image loading="lazy" loading="lazy"
             src={qrDataUrl}
             style={{ width: 88, height: 88 }}
             quality={100}

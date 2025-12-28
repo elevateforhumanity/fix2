@@ -436,13 +436,13 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
   const getHeroImage = () => {
     const cat = normalizeSection(section);
     switch (cat) {
-      case "programs": return "/images/gallery/image2.jpg";
-      case "funding": return "/images/gallery/image3.jpg";
+      case "programs": return "/images/artlist/hero-training-4.jpg";
+      case "funding": return "/images/artlist/hero-training-2.jpg";
       case "students": return "/images/gallery/image4.jpg";
       case "lms": return "/images/gallery/image5.jpg";
-      case "employers": return "/images/gallery/image6.jpg";
+      case "employers": return "/images/artlist/hero-training-5.jpg";
       case "community": return "/images/gallery/image7.jpg";
-      case "admin-staff": return "/images/gallery/image8.jpg";
+      case "admin-staff": return "/images/artlist/hero-training-1.jpg";
       default: return "/images/gallery/image1.jpg";
     }
   };
@@ -477,6 +477,7 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
           src={getHeroImage()}
           alt={label}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
           quality={100}

@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 
 export default function DashboardsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-zinc-900   ">
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
+      <section className="relative bg-zinc-900   text-white py-20">
         <div className="absolute inset-0 bg-grid-white/10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <LayoutDashboard className="w-16 h-16 mx-auto mb-6" />
@@ -304,20 +304,20 @@ function DashboardCard({
   features: string[];
 }) {
   const colorClasses = {
-    blue: 'from-blue-500 to-blue-600',
-    green: 'from-green-500 to-green-600',
-    purple: 'from-purple-500 to-purple-600',
-    orange: 'from-orange-500 to-orange-600',
-    indigo: 'from-indigo-500 to-indigo-600',
-    pink: 'from-pink-500 to-pink-600',
-    teal: 'from-teal-500 to-teal-600',
-    cyan: 'from-cyan-500 to-cyan-600',
-    slate: 'from-slate-500 to-slate-600',
-    amber: 'from-amber-500 to-amber-600',
-    rose: 'from-rose-500 to-rose-600',
-    violet: 'from-violet-500 to-violet-600',
-    emerald: 'from-emerald-500 to-emerald-600',
-    sky: 'from-sky-500 to-sky-600',
+    blue: ' ',
+    green: ' ',
+    purple: ' ',
+    orange: ' ',
+    indigo: ' ',
+    pink: ' ',
+    teal: ' ',
+    cyan: ' ',
+    slate: ' ',
+    amber: ' ',
+    rose: ' ',
+    violet: ' ',
+    emerald: ' ',
+    sky: ' ',
   };
 
   return (
@@ -327,7 +327,7 @@ function DashboardCard({
     >
       {/* Header */}
       <div
-        className={`bg-gradient-to-r ${colorClasses[color as keyof typeof colorClasses]} p-6 text-white`}
+        className={`bg-zinc-900 ${colorClasses[color as keyof typeof colorClasses]} p-6 text-white`}
       >
         <div className="flex items-center justify-between mb-4">
           <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">

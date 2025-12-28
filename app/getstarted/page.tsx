@@ -253,10 +253,11 @@ export default function Page() {
                 </ul>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image
+                <Image priority loading="lazy" loading="lazy"
                   src="/images/facilities-new/facility-1.jpg"
                   alt="Training Facility"
                   fill
+          sizes="100vw"
                   className="object-cover"
                   quality={90}
                 />

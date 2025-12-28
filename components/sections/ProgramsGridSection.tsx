@@ -33,10 +33,11 @@ export function ProgramsGridSection({ title, programs }: ProgramsGridSectionProp
               {/* Image */}
               {program.heroImage && (
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image
+                  <Image loading="lazy" loading="lazy"
                     src={program.heroImage}
                     alt={program.name}
                     fill
+          sizes="100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

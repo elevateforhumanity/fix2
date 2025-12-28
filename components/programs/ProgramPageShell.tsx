@@ -97,6 +97,7 @@ export function ProgramPageShell({
                     src={heroImage}
                     alt={title}
                     fill
+          sizes="100vw"
                     className="object-cover"
                     priority
                   />

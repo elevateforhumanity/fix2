@@ -216,7 +216,7 @@ export function ModernNav() {
               </button>
 
               {activeDropdown === 'programs' && (
-                <div className="absolute top-full left-0 mt-2 w-[800px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-[800px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 animate-in fade-in slide-in- duration-200">
                   <div className="grid grid-cols-2 gap-8">
                     {/* Featured Programs */}
                     <div>
@@ -294,7 +294,7 @@ export function ModernNav() {
               </button>
 
               {activeDropdown === 'resources' && (
-                <div className="absolute top-full left-0 mt-2 w-[700px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-[700px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 animate-in fade-in slide-in- duration-200">
                   <div className="grid grid-cols-3 gap-6">
                     {navigation.resources.sections.map((section) => (
                       <div key={section.title}>
@@ -332,7 +332,7 @@ export function ModernNav() {
               </button>
 
               {activeDropdown === 'partners' && (
-                <div className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 animate-in fade-in slide-in- duration-200">
                   <div className="grid grid-cols-3 gap-6">
                     {navigation.partners.sections.map((section) => (
                       <div key={section.title}>
@@ -370,7 +370,7 @@ export function ModernNav() {
               </button>
 
               {activeDropdown === 'about' && (
-                <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 animate-in fade-in slide-in- duration-200">
                   <div className="space-y-1">
                     {navigation.about.links.map((link) => (
                       <Link

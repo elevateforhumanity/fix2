@@ -42,6 +42,7 @@ export async function ProgramsGrid() {
                   src={program.hero_image_url || program.image_url || '/Content.svg'}
                   alt={program.title || program.name}
                   fill
+          sizes="100vw"
                   className="object-cover"
                 />
               ) : (

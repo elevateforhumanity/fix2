@@ -12,7 +12,7 @@ export default function IndependentLicensePage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 text-white py-20">
+      <section className="bg-zinc-900    text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
             ⚡ Instant Access
@@ -244,7 +244,7 @@ export default function IndependentLicensePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
+      <section className="py-16 bg-zinc-900   text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-white/90 mb-8">
