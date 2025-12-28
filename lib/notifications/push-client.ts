@@ -71,19 +71,16 @@ export class PushNotificationClient {
         throw new Error('Notification permission denied');
       }
     }
-    try {
-      // Subscribe to push notifications
-      const subscription = await this.registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: this.urlBase64ToUint8Array(VAPID_PUBLIC_KEY) as BufferSource,
-      });
-      // Send subscription to server
-      await this.saveSubscription(subscription);
-      return subscription;
-    } catch (error) {
-      // Error: $1
-      throw error;
-    }
+    // Subscribe to push notifications
+    const subscription = await this.registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: this.urlBase64ToUint8Array(
+        VAPID_PUBLIC_KEY
+      ) as BufferSource,
+    });
+    // Send subscription to server
+    await this.saveSubscription(subscription);
+    return subscription;
   }
   /**
    * Unsubscribe from push notifications
@@ -93,7 +90,8 @@ export class PushNotificationClient {
       return false;
     }
     try {
-      const subscription = await this.registration.pushManager.getSubscription();
+      const subscription =
+        await this.registration.pushManager.getSubscription();
       if (!subscription) {
         return true;
       }
@@ -126,41 +124,35 @@ export class PushNotificationClient {
   /**
    * Save subscription to server
    */
-  private async saveSubscription(subscription: PushSubscription): Promise<void> {
-    try {
-      const response = await fetch('/api/notifications/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(subscription.toJSON()),
-      });
-      if (!response.ok) {
-        throw new Error('Failed to save subscription');
-      }
-    } catch (error) {
-      // Error: $1
-      throw error;
+  private async saveSubscription(
+    subscription: PushSubscription
+  ): Promise<void> {
+    const response = await fetch('/api/notifications/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(subscription.toJSON()),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to save subscription');
     }
   }
   /**
    * Remove subscription from server
    */
-  private async removeSubscription(subscription: PushSubscription): Promise<void> {
-    try {
-      const response = await fetch('/api/notifications/unsubscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(subscription.toJSON()),
-      });
-      if (!response.ok) {
-        throw new Error('Failed to remove subscription');
-      }
-    } catch (error) {
-      // Error: $1
-      throw error;
+  private async removeSubscription(
+    subscription: PushSubscription
+  ): Promise<void> {
+    const response = await fetch('/api/notifications/unsubscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(subscription.toJSON()),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to remove subscription');
     }
   }
   /**

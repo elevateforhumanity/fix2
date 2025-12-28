@@ -33,9 +33,9 @@ export interface PaymentResult {
 export async function createPartnerPaymentSession(
   request: PaymentRequest
 ): Promise<PaymentResult> {
-  const supabase = createClient();
-
   try {
+    const supabase = createClient();
+
     // Fetch provider details
     const { data: provider } = await supabase
       .from('partner_lms_providers')
@@ -140,64 +140,59 @@ export async function createPartnerPaymentSession(
 export async function handlePaymentSuccess(sessionId: string): Promise<void> {
   const supabase = createClient();
 
-  try {
-    // Retrieve session from Stripe
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+  // Retrieve session from Stripe
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-    if (session.payment_status !== 'paid') {
-      throw new Error('Payment not completed');
-    }
-
-    const enrollmentId = session.metadata?.enrollment_id;
-    if (!enrollmentId) {
-      throw new Error('Enrollment ID not found in session metadata');
-    }
-
-    // Update enrollment status
-    const { error: updateError } = await supabase
-      .from('partner_lms_enrollments')
-      .update({
-        status: 'active',
-        payment_status: 'paid',
-        payment_completed_at: new Date().toISOString(),
-        payment_amount: (session.amount_total || 0) / 100,
-      })
-      .eq('id', enrollmentId);
-
-    if (updateError) {
-      throw updateError;
-    }
-
-    // Send welcome email
-    const { data: enrollment } = await supabase
-      .from('partner_lms_enrollments')
-      .select('provider_id, student_id')
-      .eq('id', enrollmentId)
-      .single();
-
-    if (enrollment) {
-      await supabase.functions.invoke('send-partner-welcome-email', {
-        body: {
-          enrollment_id: enrollmentId,
-          provider_id: enrollment.provider_id,
-          student_id: enrollment.student_id,
-        },
-      });
-    }
-
-    // Log payment
-    await supabase.from('payment_logs').insert({
-      enrollment_id: enrollmentId,
-      stripe_session_id: sessionId,
-      amount: (session.amount_total || 0) / 100,
-      currency: session.currency || 'usd',
-      status: 'completed',
-      metadata: session.metadata,
-    });
-  } catch (error: unknown) {
-    // Error: $1
-    throw error;
+  if (session.payment_status !== 'paid') {
+    throw new Error('Payment not completed');
   }
+
+  const enrollmentId = session.metadata?.enrollment_id;
+  if (!enrollmentId) {
+    throw new Error('Enrollment ID not found in session metadata');
+  }
+
+  // Update enrollment status
+  const { error: updateError } = await supabase
+    .from('partner_lms_enrollments')
+    .update({
+      status: 'active',
+      payment_status: 'paid',
+      payment_completed_at: new Date().toISOString(),
+      payment_amount: (session.amount_total || 0) / 100,
+    })
+    .eq('id', enrollmentId);
+
+  if (updateError) {
+    throw updateError;
+  }
+
+  // Send welcome email
+  const { data: enrollment } = await supabase
+    .from('partner_lms_enrollments')
+    .select('provider_id, student_id')
+    .eq('id', enrollmentId)
+    .single();
+
+  if (enrollment) {
+    await supabase.functions.invoke('send-partner-welcome-email', {
+      body: {
+        enrollment_id: enrollmentId,
+        provider_id: enrollment.provider_id,
+        student_id: enrollment.student_id,
+      },
+    });
+  }
+
+  // Log payment
+  await supabase.from('payment_logs').insert({
+    enrollment_id: enrollmentId,
+    stripe_session_id: sessionId,
+    amount: (session.amount_total || 0) / 100,
+    currency: session.currency || 'usd',
+    status: 'completed',
+    metadata: session.metadata,
+  });
 }
 
 /**
@@ -206,36 +201,31 @@ export async function handlePaymentSuccess(sessionId: string): Promise<void> {
 export async function handlePaymentFailure(sessionId: string): Promise<void> {
   const supabase = createClient();
 
-  try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-    const enrollmentId = session.metadata?.enrollment_id;
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
+  const enrollmentId = session.metadata?.enrollment_id;
 
-    if (!enrollmentId) {
-      return;
-    }
-
-    // Update enrollment status
-    await supabase
-      .from('partner_lms_enrollments')
-      .update({
-        status: 'payment_failed',
-        payment_status: 'failed',
-      })
-      .eq('id', enrollmentId);
-
-    // Log failed payment
-    await supabase.from('payment_logs').insert({
-      enrollment_id: enrollmentId,
-      stripe_session_id: sessionId,
-      amount: (session.amount_total || 0) / 100,
-      currency: session.currency || 'usd',
-      status: 'failed',
-      metadata: session.metadata,
-    });
-  } catch (error: unknown) {
-    // Error: $1
-    throw error;
+  if (!enrollmentId) {
+    return;
   }
+
+  // Update enrollment status
+  await supabase
+    .from('partner_lms_enrollments')
+    .update({
+      status: 'payment_failed',
+      payment_status: 'failed',
+    })
+    .eq('id', enrollmentId);
+
+  // Log failed payment
+  await supabase.from('payment_logs').insert({
+    enrollment_id: enrollmentId,
+    stripe_session_id: sessionId,
+    amount: (session.amount_total || 0) / 100,
+    currency: session.currency || 'usd',
+    status: 'failed',
+    metadata: session.metadata,
+  });
 }
 
 /**

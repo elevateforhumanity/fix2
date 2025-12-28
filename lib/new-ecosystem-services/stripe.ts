@@ -17,32 +17,27 @@ export interface CheckoutSessionData {
  * Note: This requires a backend API endpoint to create the session
  */
 export async function createCheckoutSession(data: CheckoutSessionData) {
-  try {
-    // Note: Replace with your actual backend API endpoint
-    const response = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        programId: data.programId,
-        programName: data.programName,
-        price: data.price,
-        successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancelUrl: `${window.location.origin}/payment/cancelled`,
-      }),
-    });
+  // Note: Replace with your actual backend API endpoint
+  const response = await fetch('/api/create-checkout-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      programId: data.programId,
+      programName: data.programName,
+      price: data.price,
+      successUrl: `${window.location.origin}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${window.location.origin}/payment/cancelled`,
+    }),
+  });
 
-    if (!response.ok) {
-      throw new Error('Failed to create checkout session');
-    }
-
-    const { sessionId } = await response.json();
-    return sessionId;
-  } catch (error) {
-    // Error: $1
-    throw error;
+  if (!response.ok) {
+    throw new Error('Failed to create checkout session');
   }
+
+  const { sessionId } = await response.json();
+  return sessionId;
 }
 
 /**
@@ -64,26 +59,21 @@ export async function redirectToCheckout(sessionId: string) {
  * Handle free enrollment (no payment required)
  */
 export async function enrollFree(programId: string, userId: string) {
-  try {
-    // Note: Replace with your actual backend API endpoint
-    const response = await fetch('/api/enroll-free', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        programId,
-        userId,
-      }),
-    });
+  // Note: Replace with your actual backend API endpoint
+  const response = await fetch('/api/enroll-free', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      programId,
+      userId,
+    }),
+  });
 
-    if (!response.ok) {
-      throw new Error('Failed to enroll');
-    }
-
-    return await response.json();
-  } catch (error) {
-    // Error: $1
-    throw error;
+  if (!response.ok) {
+    throw new Error('Failed to enroll');
   }
+
+  return await response.json();
 }

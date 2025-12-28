@@ -40,106 +40,77 @@ export class StripeService {
     currency: string = 'usd',
     metadata?: Record<string, string>
   ): Promise<PaymentIntent> {
-    try {
-      // In production, call Stripe API
-      // 
-      // Mock response
-      return {
-        id: `pi_${Date.now()}`,
-        amount,
-        currency,
-        status: 'requires_payment_method',
-        clientSecret: `pi_${Date.now()}_secret_${Math.random()}`,
-      };
-    } catch (error) {
-      // Error: $1
-      throw error;
-    }
+    // In production, call Stripe API
+    //
+    // Mock response
+    return {
+      id: `pi_${Date.now()}`,
+      amount,
+      currency,
+      status: 'requires_payment_method',
+      clientSecret: `pi_${Date.now()}_secret_${Math.random()}`,
+    };
   }
   // Confirm payment
   async confirmPayment(paymentIntentId: string): Promise<PaymentIntent> {
-    try {
-      // 
-      // Mock response
-      return {
-        id: paymentIntentId,
-        amount: 0,
-        currency: 'usd',
-        status: 'succeeded',
-        clientSecret: '',
-      };
-    } catch (error) {
-      // Error: $1
-      throw error;
-    }
+    //
+    // Mock response
+    return {
+      id: paymentIntentId,
+      amount: 0,
+      currency: 'usd',
+      status: 'succeeded',
+      clientSecret: '',
+    };
   }
   // Create customer
   async createCustomer(email: string, name: string): Promise<string> {
-    try {
-      // 
-      // Mock response
-      return `cus_${Date.now()}`;
-    } catch (error) {
-      // Error: $1
-      throw error;
-    }
+    //
+    // Mock response
+    return `cus_${Date.now()}`;
   }
   // Create subscription
   async createSubscription(
     customerId: string,
     priceId: string
   ): Promise<Subscription> {
-    try {
-      // 
-      // Mock response
-      return {
-        id: `sub_${Date.now()}`,
-        customerId,
-        priceId,
-        status: 'active',
-        currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-        cancelAtPeriodEnd: false,
-      };
-    } catch (error) {
-      // Error: $1
-      throw error;
-    }
+    //
+    // Mock response
+    return {
+      id: `sub_${Date.now()}`,
+      customerId,
+      priceId,
+      status: 'active',
+      currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+      cancelAtPeriodEnd: false,
+    };
   }
   // Cancel subscription
   async cancelSubscription(subscriptionId: string): Promise<Subscription> {
-    try {
-      // 
-      // Mock response
-      return {
-        id: subscriptionId,
-        customerId: '',
-        priceId: '',
-        status: 'canceled',
-        currentPeriodEnd: new Date(),
-        cancelAtPeriodEnd: true,
-      };
-    } catch (error) {
-      // Error: $1
-      throw error;
-    }
+    //
+    // Mock response
+    return {
+      id: subscriptionId,
+      customerId: '',
+      priceId: '',
+      status: 'canceled',
+      currentPeriodEnd: new Date(),
+      cancelAtPeriodEnd: true,
+    };
   }
   // Get subscription
   async getSubscription(subscriptionId: string): Promise<Subscription | null> {
-    try {
-      // 
-      // Mock response
-      return {
-        id: subscriptionId,
-        customerId: 'cus_123',
-        priceId: 'price_123',
-        status: 'active',
-        currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-        cancelAtPeriodEnd: false,
-      };
-    } catch (error) {
-      // Error: $1
-      return null;
-    }
+    //
+    // Mock response
+    return {
+      id: subscriptionId,
+      customerId: 'cus_123',
+      priceId: 'price_123',
+      status: 'active',
+      currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+      cancelAtPeriodEnd: false,
+    };
+    return null;
   }
   // List products
   async listProducts(): Promise<Product[]> {
@@ -176,40 +147,31 @@ export class StripeService {
     paymentIntentId: string,
     amount?: number
   ): Promise<boolean> {
-    try {
-      // 
-      return true;
-    } catch (error) {
-      // Error: $1
-      return false;
-    }
+    //
+    return true;
+    return false;
   }
   // Webhook handler
   async handleWebhook(payload: string, signature: string): Promise<void> {
-    try {
-      // Verify webhook signature
-      // 
-      // Process webhook events
-      const event = JSON.parse(payload);
-      switch (event.type) {
-        case 'payment_intent.succeeded':
-          // 
-          break;
-        case 'payment_intent.payment_failed':
-          // 
-          break;
-        case 'customer.subscription.created':
-          // 
-          break;
-        case 'customer.subscription.deleted':
-          // 
-          break;
-        default:
-          // 
-      }
-    } catch (error) {
-      // Error: $1
-      throw error;
+    // Verify webhook signature
+    //
+    // Process webhook events
+    const event = JSON.parse(payload);
+    switch (event.type) {
+      case 'payment_intent.succeeded':
+        //
+        break;
+      case 'payment_intent.payment_failed':
+        //
+        break;
+      case 'customer.subscription.created':
+        //
+        break;
+      case 'customer.subscription.deleted':
+        //
+        break;
+      default:
+      //
     }
   }
 }

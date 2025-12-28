@@ -1,5 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
-import { issueModuleCertificate, issueProgramCertificate } from './certificate-generator';
+import {
+  issueModuleCertificate,
+  issueProgramCertificate,
+} from './certificate-generator';
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -21,7 +24,7 @@ async function sendCertificateEmail(emailData: EmailData) {
     await fetch('/api/email/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(emailData)
+      body: JSON.stringify(emailData),
     });
   } catch (error) {
     // Error: $1
@@ -31,45 +34,49 @@ export async function deliverModuleCertificate(
   enrollmentId: string,
   moduleId: string
 ) {
-  try {
-    const supabase = getSupabaseClient();
-    // Issue the certificate
-    const certificateNumber = await issueModuleCertificate(enrollmentId, moduleId);
-    // Get enrollment details for email
-    const { data: enrollment } = await supabase
-      .from('partner_course_enrollments')
-      .select(`
+  const supabase = getSupabaseClient();
+  // Issue the certificate
+  const certificateNumber = await issueModuleCertificate(
+    enrollmentId,
+    moduleId
+  );
+  // Get enrollment details for email
+  const { data: enrollment } = await supabase
+    .from('partner_course_enrollments')
+    .select(
+      `
         *,
         student:profiles!partner_course_enrollments_student_id_fkey(full_name, email),
         course:partner_courses(name)
-      `)
-      .eq('id', enrollmentId)
-      .single();
-    if (!enrollment) {
-      throw new Error('Enrollment not found');
-    }
-    const { data: module } = await supabase
-      .from('partner_course_modules')
-      .select('name')
-      .eq('id', moduleId)
-      .single();
-    if (!module) {
-      throw new Error('Module not found');
-    }
-    // Get certificate details
-    const { data: certificate } = await supabase
-      .from('student_certificates')
-      .select('*')
-      .eq('certificate_number', certificateNumber)
-      .single();
-    if (!certificate) {
-      throw new Error('Certificate not found');
-    }
-    // Send email notification
-    await sendCertificateEmail({
-      to: enrollment.student.email,
-      subject: `🎉 Your Certificate for ${module.name}`,
-      html: `
+      `
+    )
+    .eq('id', enrollmentId)
+    .single();
+  if (!enrollment) {
+    throw new Error('Enrollment not found');
+  }
+  const { data: module } = await supabase
+    .from('partner_course_modules')
+    .select('name')
+    .eq('id', moduleId)
+    .single();
+  if (!module) {
+    throw new Error('Module not found');
+  }
+  // Get certificate details
+  const { data: certificate } = await supabase
+    .from('student_certificates')
+    .select('*')
+    .eq('certificate_number', certificateNumber)
+    .single();
+  if (!certificate) {
+    throw new Error('Certificate not found');
+  }
+  // Send email notification
+  await sendCertificateEmail({
+    to: enrollment.student.email,
+    subject: `🎉 Your Certificate for ${module.name}`,
+    html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -117,65 +124,61 @@ export async function deliverModuleCertificate(
           </div>
         </body>
         </html>
-      `
-    });
-    // Create notification in app
-    await supabase.from('notifications').insert({
-      user_id: enrollment.student_id,
-      type: 'certificate_earned',
-      title: 'Certificate Earned!',
-      message: `You've earned a certificate for completing ${module.name}`,
-      data: {
-        certificate_id: certificate.id,
-        certificate_number: certificateNumber,
-        pdf_url: certificate.pdf_url
-      }
-    });
-    return certificateNumber;
-  } catch (error) {
-    // Error: $1
-    throw error;
-  }
+      `,
+  });
+  // Create notification in app
+  await supabase.from('notifications').insert({
+    user_id: enrollment.student_id,
+    type: 'certificate_earned',
+    title: 'Certificate Earned!',
+    message: `You've earned a certificate for completing ${module.name}`,
+    data: {
+      certificate_id: certificate.id,
+      certificate_number: certificateNumber,
+      pdf_url: certificate.pdf_url,
+    },
+  });
+  return certificateNumber;
 }
+
 export async function deliverProgramCertificate(
   studentId: string,
   programId: string
 ) {
-  try {
-    const supabase = getSupabaseClient();
-    // Issue the certificate
-    const certificateNumber = await issueProgramCertificate(studentId, programId);
-    // Get student and program details
-    const { data: student } = await supabase
-      .from('profiles')
-      .select('full_name, email')
-      .eq('id', studentId)
-      .single();
-    if (!student) {
-      throw new Error('Student not found');
-    }
-    const { data: program } = await supabase
-      .from('programs')
-      .select('name')
-      .eq('id', programId)
-      .single();
-    if (!program) {
-      throw new Error('Program not found');
-    }
-    // Get certificate details
-    const { data: certificate } = await supabase
-      .from('student_certificates')
-      .select('*')
-      .eq('certificate_number', certificateNumber)
-      .single();
-    if (!certificate) {
-      throw new Error('Certificate not found');
-    }
-    // Send email notification
-    await sendCertificateEmail({
-      to: student.email,
-      subject: `🏆 Program Completion Certificate - ${program.name}`,
-      html: `
+  const supabase = getSupabaseClient();
+  // Issue the certificate
+  const certificateNumber = await issueProgramCertificate(studentId, programId);
+  // Get student and program details
+  const { data: student } = await supabase
+    .from('profiles')
+    .select('full_name, email')
+    .eq('id', studentId)
+    .single();
+  if (!student) {
+    throw new Error('Student not found');
+  }
+  const { data: program } = await supabase
+    .from('programs')
+    .select('name')
+    .eq('id', programId)
+    .single();
+  if (!program) {
+    throw new Error('Program not found');
+  }
+  // Get certificate details
+  const { data: certificate } = await supabase
+    .from('student_certificates')
+    .select('*')
+    .eq('certificate_number', certificateNumber)
+    .single();
+  if (!certificate) {
+    throw new Error('Certificate not found');
+  }
+  // Send email notification
+  await sendCertificateEmail({
+    to: student.email,
+    subject: `🏆 Program Completion Certificate - ${program.name}`,
+    html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -231,102 +234,99 @@ export async function deliverProgramCertificate(
           </div>
         </body>
         </html>
-      `
-    });
-    // Create notification in app
-    await supabase.from('notifications').insert({
-      user_id: studentId,
-      type: 'program_completed',
-      title: 'Program Completed! 🏆',
-      message: `Congratulations! You've completed ${program.name} and earned your program certificate.`,
-      data: {
-        certificate_id: certificate.id,
-        certificate_number: certificateNumber,
-        pdf_url: certificate.pdf_url,
-        program_id: programId
-      }
-    });
-    return certificateNumber;
-  } catch (error) {
-    // Error: $1
-    throw error;
-  }
+      `,
+  });
+  // Create notification in app
+  await supabase.from('notifications').insert({
+    user_id: studentId,
+    type: 'program_completed',
+    title: 'Program Completed! 🏆',
+    message: `Congratulations! You've completed ${program.name} and earned your program certificate.`,
+    data: {
+      certificate_id: certificate.id,
+      certificate_number: certificateNumber,
+      pdf_url: certificate.pdf_url,
+      program_id: programId,
+    },
+  });
+  return certificateNumber;
 }
+
 // Automatic certificate delivery when module is completed
 export async function onModuleComplete(enrollmentId: string, moduleId: string) {
-  try {
-    const supabase = getSupabaseClient();
-    // Update module completion status
-    const { error: updateError } = await supabase
-      .from('partner_course_enrollments')
-      .update({
-        completed_modules: supabase.rpc('array_append', {
-          arr: 'completed_modules',
-          elem: moduleId
-        })
-      })
-      .eq('id', enrollmentId);
-    if (updateError) {
-      // Error: $1
-    }
-    // Deliver certificate
-    await deliverModuleCertificate(enrollmentId, moduleId);
-    // Check if all modules are complete for program certificate
-    const { data: enrollment } = await supabase
-      .from('partner_course_enrollments')
-      .select(`
+  const supabase = getSupabaseClient();
+  // Update module completion status
+  const { error: updateError } = await supabase
+    .from('partner_course_enrollments')
+    .update({
+      completed_modules: supabase.rpc('array_append', {
+        arr: 'completed_modules',
+        elem: moduleId,
+      }),
+    })
+    .eq('id', enrollmentId);
+  if (updateError) {
+    // Error: $1
+  }
+  // Deliver certificate
+  await deliverModuleCertificate(enrollmentId, moduleId);
+  // Check if all modules are complete for program certificate
+  const { data: enrollment } = await supabase
+    .from('partner_course_enrollments')
+    .select(
+      `
         *,
         course:partner_courses(id)
-      `)
-      .eq('id', enrollmentId)
-      .single();
-    if (enrollment) {
-      const { data: modules } = await supabase
-        .from('partner_course_modules')
-        .select('id')
-        .eq('partner_course_id', enrollment.course.id);
-      const allModulesComplete = modules?.every(m => 
-        enrollment.completed_modules?.includes(m.id)
-      );
-      if (allModulesComplete) {
-        // Update enrollment status
-        await supabase
-          .from('partner_course_enrollments')
-          .update({ status: 'completed' })
-          .eq('id', enrollmentId);
-        // Check if this completes a program
-        const { data: programCert } = await supabase
+      `
+    )
+    .eq('id', enrollmentId)
+    .single();
+  if (enrollment) {
+    const { data: modules } = await supabase
+      .from('partner_course_modules')
+      .select('id')
+      .eq('partner_course_id', enrollment.course.id);
+    const allModulesComplete = modules?.every((m) =>
+      enrollment.completed_modules?.includes(m.id)
+    );
+    if (allModulesComplete) {
+      // Update enrollment status
+      await supabase
+        .from('partner_course_enrollments')
+        .update({ status: 'completed' })
+        .eq('id', enrollmentId);
+      // Check if this completes a program
+      const { data: programCert } = await supabase
+        .from('program_required_certifications')
+        .select('program_id')
+        .eq('partner_course_id', enrollment.partner_course_id)
+        .single();
+      if (programCert) {
+        // Check if all required certifications for program are complete
+        const { data: requiredCerts } = await supabase
           .from('program_required_certifications')
-          .select('program_id')
-          .eq('partner_course_id', enrollment.partner_course_id)
-          .single();
-        if (programCert) {
-          // Check if all required certifications for program are complete
-          const { data: requiredCerts } = await supabase
-            .from('program_required_certifications')
-            .select('partner_course_id')
-            .eq('program_id', programCert.program_id);
-          const allCertsComplete = await Promise.all(
-            (requiredCerts || []).map(async (cert) => {
-              const { data } = await supabase
-                .from('partner_course_enrollments')
-                .select('status')
-                .eq('student_id', enrollment.student_id)
-                .eq('partner_course_id', cert.partner_course_id)
-                .eq('status', 'completed')
-                .single();
-              return !!data;
-            })
+          .select('partner_course_id')
+          .eq('program_id', programCert.program_id);
+        const allCertsComplete = await Promise.all(
+          (requiredCerts || []).map(async (cert) => {
+            const { data } = await supabase
+              .from('partner_course_enrollments')
+              .select('status')
+              .eq('student_id', enrollment.student_id)
+              .eq('partner_course_id', cert.partner_course_id)
+              .eq('status', 'completed')
+              .single();
+            return !!data;
+          })
+        );
+        if (allCertsComplete.every(Boolean)) {
+          // Deliver program certificate
+          await deliverProgramCertificate(
+            enrollment.student_id,
+            programCert.program_id
           );
-          if (allCertsComplete.every(Boolean)) {
-            // Deliver program certificate
-            await deliverProgramCertificate(enrollment.student_id, programCert.program_id);
-          }
         }
       }
     }
-  } catch (error) {
-    // Error: $1
-    throw error;
   }
 }
