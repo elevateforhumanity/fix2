@@ -1,0 +1,18 @@
+version = 1
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  plugins = ["react", "next"]
+  environment = ["nodejs", "browser"]
+  style_guide = "airbnb"
+
+[[analyzers]]
+name = "test-coverage"
+enabled = false
+
+[[transformers]]
+name = "prettier"
+enabled = true

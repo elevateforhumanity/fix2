@@ -5,7 +5,7 @@ import PartnerLogos from '@/components/marketing/PartnerLogos';
 import SuccessStoryCards from '@/components/marketing/SuccessStoryCards';
 
 export const metadata: Metadata = {
-  title: 'Elevate for Humanity | Free Career Training & Apprenticeships Indiana',
+  title: 'Elevate for Humanity | Free Career Training &amp; Apprenticeships Indiana',
   description: 'Free career training in Indianapolis. WIOA-funded programs in healthcare, trades, business, and more. Get trained, get hired, get paid. No cost, no debt.',
   keywords: [
     'free career training Indianapolis',
@@ -67,7 +67,7 @@ export default function HomePage() {
         {/* Headline and CTAs BELOW the banner */}
         <div className="mt-8 text-center max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900">
-            Funded Workforce Training for Adults & Working Families
+            Funded Workforce Training for Adults &amp; Working Families
           </h1>
           <p className="mt-4 text-base sm:text-lg text-zinc-700">
             No tuition upfront. Apply now for state-aligned training paths in healthcare, trades, business, and technology.
@@ -96,24 +96,24 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <a
+            <Link
               href="/enroll"
               className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-zinc-800 transition-colors"
             >
               Apply Now
-            </a>
-            <a
+            </Link>
+            <Link
               href="/programs"
               className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-8 py-4 text-base font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
             >
               View Programs
-            </a>
-            <a
+            </Link>
+            <Link
               href="/eligibility"
               className="inline-flex items-center justify-center rounded-xl border-2 border-zinc-300 bg-white px-8 py-4 text-base font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
             >
               Check Eligibility
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -156,12 +156,12 @@ export default function HomePage() {
                   <span>Job placement support</span>
                 </li>
               </ul>
-              <a
+              <Link
                 href="/enroll"
                 className="block w-full text-center rounded-xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
               >
                 Apply Now
-              </a>
+              </Link>
             </div>
 
             {/* Employers */}
@@ -195,12 +195,12 @@ export default function HomePage() {
                   <span>No hiring fees</span>
                 </li>
               </ul>
-              <a
+              <Link
                 href="/employers"
                 className="block w-full text-center rounded-xl border-2 border-zinc-900 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
               >
                 Partner With Us
-              </a>
+              </Link>
             </div>
 
             {/* Agencies/Partners */}
@@ -210,7 +210,7 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-zinc-900 mb-2">For Agencies & Partners</h3>
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">For Agencies &amp; Partners</h3>
               <p className="text-zinc-600 mb-6">
                 Compliance-ready reporting and outcomes tracking for workforce boards and funders.
               </p>
@@ -234,12 +234,12 @@ export default function HomePage() {
                   <span>Audit-ready documentation</span>
                 </li>
               </ul>
-              <a
+              <Link
                 href="/partners"
                 className="block w-full text-center rounded-xl border-2 border-zinc-900 bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 transition-colors"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
