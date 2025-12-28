@@ -64,7 +64,7 @@ export default async function EmployerDashboardOrchestrated() {
 
   // Check apprenticeship program
   const { data: apprenticeshipProgram } = await supabase
-    .from('apprenticeship_programs')
+    .from('apprenticeships')
     .select('*')
     .eq('employer_id', user.id)
     .single();
@@ -360,15 +360,59 @@ export default async function EmployerDashboardOrchestrated() {
 
           {/* Employer Tools */}
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-slate-900 mb-4">Employer Tools</h3>
+            <h3 className="text-lg font-semibold text-slate-900 mb-4">
+              Employer Tools
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <Link href="/employer/jobs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">My Jobs</Link>
-              <Link href="/employer/post-job" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Post Job</Link>
-              <Link href="/employer/candidates" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Candidates</Link>
-              <Link href="/employer/placements" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Placements</Link>
-              <Link href="/employer/opportunities" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Opportunities</Link>
-              <Link href="/employer/analytics" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Analytics</Link>
-              <Link href="/employer/settings" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Settings</Link>
+              <Link
+                href="/employer/jobs"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                My Jobs
+              </Link>
+              <Link
+                href="/employer/post-job"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                Post Job
+              </Link>
+              <Link
+                href="/employer/candidates"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                Candidates
+              </Link>
+              <Link
+                href="/employer/placements"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                Placements
+              </Link>
+              <Link
+                href="/employer/opportunities"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                Opportunities
+              </Link>
+              <Link
+                href="/employer/analytics"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                Analytics
+              </Link>
+              <Link
+                href="/employer/settings"
+                aria-label="Link"
+                className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+              >
+                Settings
+              </Link>
             </div>
           </div>
         </div>
