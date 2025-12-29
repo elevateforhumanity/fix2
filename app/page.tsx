@@ -11,8 +11,38 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  // JSON-LD structured data for organization
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'Elevate for Humanity',
+    url: 'https://www.elevateforhumanity.org',
+    logo: 'https://www.elevateforhumanity.org/images/logo.png',
+    description: 'Free career training and apprenticeships in Indianapolis. WIOA-funded programs in healthcare, trades, business, and more.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Indianapolis',
+      addressRegion: 'IN',
+      addressCountry: 'US',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Admissions',
+      email: 'elevate4humanityedu@gmail.com',
+    },
+    sameAs: [
+      'https://www.facebook.com/elevateforhumanity',
+      'https://www.linkedin.com/company/elevate-for-humanity',
+    ],
+  };
+
   return (
     <main>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       {/* Hero Section - Video Background */}
       <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
         {/* Video Background */}

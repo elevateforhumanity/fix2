@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
 import { headers } from 'next/headers';
+import { sendWelcomeEmail } from '@/lib/email';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2024-11-20.acacia',
@@ -79,7 +80,18 @@ export async function POST(request: NextRequest) {
               })
               .eq('id', purchase.id);
 
-            // Send welcome email (TODO: implement email service)
+            // Send welcome email
+            try {
+              await sendWelcomeEmail({
+                to: purchase.email,
+                tenantId: tenant.id,
+                licenseType: purchase.license_type,
+                validUntil: validUntil.toISOString(),
+              });
+            } catch (emailError) {
+              console.error('Failed to send welcome email:', emailError);
+              // Don't fail the webhook - license is provisioned
+            }
           }
         }
         break;
