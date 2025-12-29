@@ -123,8 +123,8 @@ export default function BarberApprenticeshipPage() {
                 {/* Payment Buttons */}
                 <div className="space-y-3">
                   {/* Stripe Payment */}
-                  <button
-                    onClick={() => window.location.href = '/checkout/barber-apprenticeship?method=stripe'}
+                  <Link
+                    href="/checkout/barber-apprenticeship?method=stripe"
                     className="w-full flex items-center justify-between px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all"
                   >
                     <div className="flex items-center gap-3">
@@ -139,11 +139,11 @@ export default function BarberApprenticeshipPage() {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </button>
+                  </Link>
 
                   {/* Affirm Payment */}
-                  <button
-                    onClick={() => window.location.href = '/checkout/barber-apprenticeship?method=affirm'}
+                  <Link
+                    href="/checkout/barber-apprenticeship?method=affirm"
                     className="w-full flex items-center justify-between px-6 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold rounded-lg transition-all"
                   >
                     <div className="flex items-center gap-3">
@@ -158,7 +158,7 @@ export default function BarberApprenticeshipPage() {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </button>
+                  </Link>
                 </div>
 
                 <p className="text-xs text-slate-600 mt-3 text-center">
