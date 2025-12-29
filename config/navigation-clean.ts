@@ -21,82 +21,38 @@ export type NavSection = {
  */
 export const publicNav: NavSection[] = [
   {
-    label: 'Programs',
+    label: 'Industries',
     href: '/programs',
     items: [
       // Browse All
-      { label: 'Browse All Programs', href: '/programs', isHeader: true },
+      { label: 'View All Industries', href: '/programs', isHeader: true },
 
-      // Healthcare Programs
-      { label: 'Healthcare', href: '/programs#healthcare', isHeader: true },
-      { label: 'CNA (Certified Nursing Assistant)', href: '/programs/cna-certification' },
+      // Healthcare Industry
+      { label: 'Healthcare', href: '/industries/healthcare', isHeader: true },
+      { label: 'CNA Certification', href: '/programs/cna-certification' },
       { label: 'Medical Assistant', href: '/programs/medical-assistant' },
       { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      {
-        label: 'Phlebotomy Technician',
-        href: '/programs/phlebotomy-technician',
-      },
+      { label: 'Phlebotomy Technician', href: '/programs/phlebotomy-technician' },
       { label: 'CPR & First Aid', href: '/programs/cpr-first-aid-hsi' },
-      {
-        label: 'Emergency Health & Safety Tech',
-        href: '/programs/emergency-health-safety-tech',
-      },
-      {
-        label: 'Certified Peer Recovery Coach',
-        href: '/programs/certified-peer-recovery-coach',
-      },
+      { label: 'Emergency Health & Safety', href: '/programs/emergency-health-safety-tech' },
+      { label: 'Peer Recovery Coach', href: '/programs/certified-peer-recovery-coach' },
 
-      // Skilled Trades
-      {
-        label: 'Skilled Trades',
-        href: '/programs/skilled-trades',
-        isHeader: true,
-      },
+      // Industrial / Skilled Trades
+      { label: 'Industrial & Trades', href: '/industries/industrial', isHeader: true },
       { label: 'HVAC Technician', href: '/programs/hvac-technician' },
-      { label: 'Building Maintenance', href: '/programs/building-maintenance' },
-      { label: 'Building Technician', href: '/programs/building-technician' },
-      {
-        label: 'Barber Apprenticeship',
-        href: '/programs/barber-apprenticeship',
-      },
+      { label: 'Building Maintenance Tech', href: '/programs/building-maintenance-tech' },
+      { label: 'CDL Training', href: '/programs/cdl-training' },
 
-      // Transportation
-      {
-        label: 'Transportation',
-        href: '/programs/cdl-transportation',
-        isHeader: true,
-      },
-      { label: 'CDL Training', href: '/programs/cdl' },
+      // Beauty & Wellness Industry
+      { label: 'Beauty & Wellness', href: '/industries/beauty-wellness', isHeader: true },
+      { label: 'Barber Apprenticeship', href: '/programs/barber-apprenticeship' },
+      { label: 'Professional Esthetician', href: '/programs/professional-esthetician' },
+      { label: 'Beauty Career Educator', href: '/programs/beauty-career-educator' },
 
-      // Business & Tax
-      {
-        label: 'Business & Tax',
-        href: '/programs/business-financial',
-        isHeader: true,
-      },
-      {
-        label: 'Business Startup & Marketing',
-        href: '/programs/business-startup-marketing',
-      },
-      {
-        label: 'Tax Prep & Financial Services',
-        href: '/programs/tax-prep-financial-services',
-      },
-
-      // Beauty & Wellness
-      {
-        label: 'Beauty & Wellness',
-        href: '/programs/beauty-wellness',
-        isHeader: true,
-      },
-      {
-        label: 'Professional Esthetician',
-        href: '/programs/professional-esthetician',
-      },
-      {
-        label: 'Esthetician Apprenticeship',
-        href: '/programs/esthetician-apprenticeship',
-      },
+      // Business & Finance Industry
+      { label: 'Business & Finance', href: '/industries/business', isHeader: true },
+      { label: 'Business Startup & Marketing', href: '/programs/business-startup-marketing' },
+      { label: 'Tax Prep & Financial Services', href: '/programs/tax-prep-financial-services' },
       {
         label: 'Nail Technician Apprenticeship',
         href: '/programs/nail-technician-apprenticeship',
