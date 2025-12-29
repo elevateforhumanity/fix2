@@ -97,18 +97,21 @@ export default function SiteHeader() {
 
   try {
     return (
-      <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-4 relative">
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 relative">
+          {/* Logo */}
           <Link
             href="/"
-            className="font-black text-zinc-900 tracking-tight flex-shrink-0 text-sm sm:text-base lg:text-lg"
+            className="flex items-center gap-2 flex-shrink-0"
           >
-            <span className="hidden sm:inline">Elevate for Humanity</span>
-            <span className="sm:hidden">Elevate</span>
+            <div className="font-bold text-blue-900 text-xl sm:text-2xl tracking-tight">
+              <span className="hidden sm:inline">Elevate for Humanity</span>
+              <span className="sm:hidden">Elevate</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center justify-center flex-1 gap-6">
+          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center justify-center flex-1 gap-8">
             {navigation && navigation.length > 0 ? (
               navigation.map((section) => (
                 <div
@@ -121,7 +124,7 @@ export default function SiteHeader() {
                     <>
                       <button
                         type="button"
-                        className="font-bold text-zinc-800 hover:text-zinc-950 transition flex items-center gap-1 py-2"
+                        className="font-semibold text-gray-700 hover:text-blue-600 transition flex items-center gap-1 py-2 text-base"
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -131,17 +134,41 @@ export default function SiteHeader() {
                         <ChevronDown className="w-4 h-4" />
                       </button>
                       {openDropdown === section.label && (
-                        <div className="absolute left-0 top-full mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-2xl py-2 z-[100] max-h-[80vh] overflow-y-auto">
-                          {section.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
+                        <div className="absolute left-0 top-full mt-2 w-72 bg-white border border-gray-200 rounded-md shadow-xl py-3 z-[100] max-h-[80vh] overflow-y-auto">
+                          {section.items.map((item) => {
+                            // Check if this is a section header
+                            const isHeader = 'isHeader' in item && item.isHeader;
+                            
+                            if (isHeader) {
+                              return (
+                                <div
+                                  key={item.href}
+                                  className="px-4 py-2 text-xs font-bold text-gray-900 uppercase tracking-wider mt-3 first:mt-0"
+                                >
+                                  {item.label}
+                                </div>
+                              );
+                            }
+                            
+                            return (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition group"
+                                onClick={() => setOpenDropdown(null)}
+                              >
+                                <span className="font-medium">{item.label}</span>
+                                <svg 
+                                  className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-1" 
+                                  fill="none" 
+                                  stroke="currentColor" 
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </Link>
+                            );
+                          })}
                         </div>
                       )}
                     </>
