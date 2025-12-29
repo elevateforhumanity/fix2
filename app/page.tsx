@@ -13,16 +13,22 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* Hero Section - Exact SkilledUS Style */}
+      {/* Hero Section - Video Background */}
       <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
-        <Image
-          src="/images/heroes/hero-homepage.jpg"
-          alt="Elevate for Humanity - Free Career Training"
-          fill
-          priority
-          className="object-cover opacity-40"
-          sizes="100vw"
-        />
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          poster="/images/heroes/hero-homepage.jpg"
+        >
+          <source
+            src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2082346627&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=RtOuCQ--~DB3QZx3rxnglJZSbXYKinU5B4y3-zGUPT7lp22WkRBJ2K00-Kdn0UUx~WhJvDz73Qy6zFsH-VoCXgzUi76kPpbd2Dbpp7PyaavIJKprRaRxp~YFBaQ055gHpgcRVCzCHU3GRpkWxuKUma2DPSim-ZgJXgtTt8qbzAo-pPdd0JMaysyk-p7kcfvzF9J70Y4eHlBqGbg~9yBgt-hRa5cIHPCP01yM19u-FYFUL-1qzujpZan-c2hPXKp5mWvnCBmbXNzIcaF25fB3XycD5kp~S9c8JNxmZrXP6uSnsMp7CgpAYyKHWwiwgSjzZlZ8kad7lDnMcFfgGfRn3g__"
+            type="video/mp4"
+          />
+        </video>
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
