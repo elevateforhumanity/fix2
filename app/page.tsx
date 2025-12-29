@@ -21,7 +21,7 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover"
           poster="/images/heroes/hero-homepage.jpg"
         >
           <source
