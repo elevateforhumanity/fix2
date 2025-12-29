@@ -25,7 +25,7 @@ export default async function LearnersPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/artlist/hero-training-1.jpg"
+          poster="/images/heroes/hero-students.jpg"
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
