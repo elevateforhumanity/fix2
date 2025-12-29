@@ -14,8 +14,17 @@ export default function ProgramsCatalogPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
-        <div className="absolute inset-0 bg-[url('/images/heroes/hero-homepage.jpg')] bg-cover bg-center opacity-30"></div>
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/artlist/hero-training-6.jpg"
+        >
+          <source src="/videos/programs-overview-video.mp4" type="video/mp4" />
+        </video>
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">

@@ -24,15 +24,17 @@ export default function EmployersPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[450px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
-        <Image
-          src="/images/heroes/hero-homepage.jpg"
-          alt="Hire Qualified Talent"
-          fill
-          priority
-          className="object-cover opacity-40"
-          sizes="100vw"
-        />
+      <section className="relative h-[450px] md:h-[500px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/heroes/hero-employers.jpg"
+        >
+          <source src="/videos/employer-section-video.mp4" type="video/mp4" />
+        </video>
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">

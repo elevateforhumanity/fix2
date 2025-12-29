@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero Section - Video Background */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
         {/* Video Background */}
         <video
           autoPlay
@@ -299,8 +299,18 @@ export default function HomePage() {
       </section>
 
       {/* 6. FINAL CTA - Exact SkilledUS Style */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/artlist/hero-training-7.jpg"
+        >
+          <source src="/videos/elevate-overview.mp4" type="video/mp4" />
+        </video>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">
               Are you ready to change your life?

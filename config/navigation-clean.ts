@@ -21,11 +21,11 @@ export type NavSection = {
  */
 export const publicNav: NavSection[] = [
   {
-    label: 'Industries',
+    label: 'Programs',
     href: '/programs',
     items: [
       // Browse All
-      { label: 'View All Industries', href: '/programs', isHeader: true },
+      { label: 'View All Programs', href: '/programs', isHeader: true },
 
       // Healthcare Industry
       { label: 'Healthcare', href: '/industries/healthcare', isHeader: true },

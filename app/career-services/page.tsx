@@ -16,15 +16,17 @@ export default async function CareerServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-purple-900 to-purple-700">
-        <Image
-          src="/images/artlist/hero-training-1.jpg"
-          alt="Career Services"
-          fill
-          priority
-          className="object-cover opacity-40"
-          sizes="100vw"
-        />
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/artlist/hero-training-4.jpg"
+        >
+          <source src="/videos/getting-started-hero.mp4" type="video/mp4" />
+        </video>
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">

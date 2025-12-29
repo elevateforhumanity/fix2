@@ -15,8 +15,17 @@ export default function FundingPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-green-900 to-green-700">
-        <div className="absolute inset-0 bg-[url('/images/heroes/hero-homepage.jpg')] bg-cover bg-center opacity-30"></div>
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/heroes/hero-federal-funding.jpg"
+        >
+          <source src="/videos/getting-started-hero.mp4" type="video/mp4" />
+        </video>
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
