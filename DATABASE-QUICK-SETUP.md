@@ -2,6 +2,26 @@
 
 **Fast setup for Elevate for Humanity database**
 
+## Step 0: Preflight Check (Recommended)
+
+**Run this FIRST to check database status**
+
+1. Open your Supabase project
+2. Go to **SQL Editor**
+3. Open the file: `00-PREFLIGHT-CHECK.sql`
+4. Copy the ENTIRE contents
+5. Paste into Supabase SQL Editor
+6. Click **Run**
+
+This will tell you:
+- ✅ Fresh database (ready for setup)
+- ⚠️ Partial setup (continue with migrations)
+- ✅ Already set up (skip to verification)
+
+**Expected Output**: Status message telling you what to do next
+
+---
+
 ## Step 1: Run Main Migrations (Required)
 
 1. Open your Supabase project

@@ -4,6 +4,30 @@ Quick reference for all SQL files in the repository.
 
 ## Setup Files (Run in Order)
 
+### 0. 00-PREFLIGHT-CHECK.sql (Optional but Recommended)
+**Purpose**: Check database status before setup
+**Size**: ~80 lines
+**Run**: First, before any other SQL
+**Checks**:
+- Is database fresh or already set up?
+- Are tables present?
+- Is migration tracking created?
+- Supabase auth/storage status
+
+**How to use**:
+1. Open Supabase SQL Editor
+2. Copy entire file
+3. Paste and run
+4. Read the output message
+5. Follow the recommended next step
+
+**Output Examples**:
+- "✅ FRESH DATABASE - Ready for setup"
+- "✅ DATABASE ALREADY SET UP"
+- "⚠️ PARTIAL SETUP DETECTED"
+
+---
+
 ### 1. COPY-PASTE-SQL.sql
 **Purpose**: Complete database setup with all migrations
 **Size**: 1224 lines
@@ -114,6 +138,7 @@ Located in `/supabase/migrations/`
 ### For Supabase Dashboard (Recommended)
 
 ```
+0. Check: 00-PREFLIGHT-CHECK.sql (optional)
 1. Run: COPY-PASTE-SQL.sql
 2. Verify: VERIFY-AFTER-MIGRATION.sql
 3. Run: COPY-PASTE-PROGRAMS.sql
