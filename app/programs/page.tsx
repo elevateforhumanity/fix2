@@ -198,31 +198,32 @@ export default function ProgramsPage() {
       {/* Programs Overview */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
+          {/* How It Works Section */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase">
-              How Elevate Works
+              How Our Programs Work
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-12">
               We provide 100% free career training in high-demand industries. No tuition, no student debt, just real training that leads to real jobs.
             </p>
           </div>
 
-          {/* Overview Steps */}
+          {/* 4-Step Process */}
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Choose Your Industry</h3>
-              <p className="text-gray-600">Pick from Healthcare, Industrial, Beauty, or Business</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Apply</h3>
+              <p className="text-gray-600">Quick online application - takes 10 minutes</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Get Trained</h3>
-              <p className="text-gray-600">Hands-on training with industry certifications</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Get Approved</h3>
+              <p className="text-gray-600">We check funding eligibility (WIOA, WRG, Apprenticeships)</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Get Certified</h3>
-              <p className="text-gray-600">Earn recognized credentials employers trust</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Start Training</h3>
+              <p className="text-gray-600">Hands-on training with industry certifications</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
@@ -231,12 +232,94 @@ export default function ProgramsPage() {
             </div>
           </div>
 
+          {/* Funding Section */}
+          <div className="bg-blue-50 rounded-2xl p-8 md:p-12 mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center uppercase">
+              100% Free - No Student Debt
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8 max-w-3xl mx-auto">
+              All training is funded through federal workforce programs. You pay nothing.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">WIOA Funding</h3>
+                <p className="text-gray-600">Workforce Innovation & Opportunity Act covers tuition and training costs for eligible participants</p>
+              </div>
+              <div className="bg-white rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">WRG Support</h3>
+                <p className="text-gray-600">Workforce Readiness & Growth provides wraparound support to help you complete training</p>
+              </div>
+              <div className="bg-white rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Apprenticeships</h3>
+                <p className="text-gray-600">Earn while you learn through DOL-registered apprenticeship programs</p>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <Link href="/funding" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-blue-700 transition-all">
+                Learn More About Funding
+              </Link>
+            </div>
+          </div>
+
+          {/* What You Get Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center uppercase">
+              What You Get
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Industry Certifications</h3>
+                  <p className="text-gray-600">Earn credentials that employers recognize and trust</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Hands-On Training</h3>
+                  <p className="text-gray-600">Real-world experience, not just classroom learning</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Career Services</h3>
+                  <p className="text-gray-600">Resume help, interview prep, and job placement support</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Employer Connections</h3>
+                  <p className="text-gray-600">Direct access to 500+ hiring partners</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase">
-              Our Industries
+              Choose Your Industry
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Choose the industry that fits your goals. All programs are 100% free.
+              Explore our four main industries and find the right career path for you
             </p>
           </div>
 
