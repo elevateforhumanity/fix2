@@ -139,7 +139,7 @@ export default function SiteFooter() {
                 </li>
                 <li>
                   <Link href="/funding" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
-                    Financial Aid
+                    Funding Options
                   </Link>
                 </li>
                 <li>

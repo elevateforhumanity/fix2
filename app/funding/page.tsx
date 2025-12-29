@@ -1,7 +1,17 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 
 export default function FundingPage() {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
   return (
     <main className="bg-white">
       {/* Hero Section */}
@@ -36,42 +46,119 @@ export default function FundingPage() {
 
       <div className="mx-auto max-w-6xl px-4 py-16">
 
-        {/* FUNDING TYPES */}
+        {/* FUNDING TYPES - Dropdowns */}
         <section className="mt-14">
-          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
-            Common funding pathways
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 uppercase text-center">
+            Federal Funding Options
           </h2>
+          <p className="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
+            We do not offer financial aid. All training is funded through federal workforce programs.
+          </p>
 
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <FundingCard
-              title="WIOA (Workforce Innovation & Opportunity Act)"
-              description="Career training funding for eligible participants seeking in-demand skills and employment pathways."
-              bullets={[
-                'Eligibility-based workforce funding',
-                'Often covers tuition and related costs',
-                'Aligned with approved training programs',
-              ]}
-            />
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {/* WIOA Dropdown */}
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleSection('wioa')}
+                className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition"
+              >
+                <h3 className="text-xl font-bold text-gray-900">WIOA (Workforce Innovation & Opportunity Act)</h3>
+                <ChevronDown className={`w-6 h-6 transition-transform ${openSection === 'wioa' ? 'rotate-180' : ''}`} />
+              </button>
+              {openSection === 'wioa' && (
+                <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
+                  <p className="text-gray-700 mb-4">
+                    Federal workforce funding for eligible participants seeking in-demand skills and employment pathways.
+                  </p>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Eligibility-based workforce funding</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Often covers tuition and related costs</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Aligned with approved training programs</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
 
-            <FundingCard
-              title="WRG (Workforce Readiness & Growth)"
-              description="Support pathways focused on readiness, retention, and successful completion of training programs."
-              bullets={[
-                'Wraparound and readiness support',
-                'Eligibility varies by region and program',
-                'Designed to reduce barriers to completion',
-              ]}
-            />
+            {/* WRG Dropdown */}
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleSection('wrg')}
+                className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition"
+              >
+                <h3 className="text-xl font-bold text-gray-900">WRG (Workforce Readiness & Growth)</h3>
+                <ChevronDown className={`w-6 h-6 transition-transform ${openSection === 'wrg' ? 'rotate-180' : ''}`} />
+              </button>
+              {openSection === 'wrg' && (
+                <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
+                  <p className="text-gray-700 mb-4">
+                    Support pathways focused on readiness, retention, and successful completion of training programs.
+                  </p>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Wraparound and readiness support</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Eligibility varies by region and program</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Designed to reduce barriers to completion</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
 
-            <FundingCard
-              title="JRI / Justice-Involved Pathways"
-              description="Training and support options aligned with reentry, second-chance employment, and community impact."
-              bullets={[
-                'Reentry-aligned training support',
-                'Program-specific eligibility',
-                'Career pathways designed for long-term stability',
-              ]}
-            />
+            {/* Apprenticeships Dropdown */}
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleSection('apprenticeships')}
+                className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition"
+              >
+                <h3 className="text-xl font-bold text-gray-900">Registered Apprenticeships</h3>
+                <ChevronDown className={`w-6 h-6 transition-transform ${openSection === 'apprenticeships' ? 'rotate-180' : ''}`} />
+              </button>
+              {openSection === 'apprenticeships' && (
+                <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
+                  <p className="text-gray-700 mb-4">
+                    Earn while you learn through DOL-registered apprenticeship programs with structured training and employment.
+                  </p>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Get paid while training</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>DOL-registered programs</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-orange-500 font-bold">•</span>
+                      <span>Graduate debt-free with job experience</span>
+                    </li>
+                  </ul>
+                  <div className="mt-4">
+                    <Link
+                      href="/programs/barber-apprenticeship"
+                      className="inline-flex items-center text-orange-500 font-bold hover:text-orange-600"
+                    >
+                      View Barber Apprenticeship Program →
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </section>
 
