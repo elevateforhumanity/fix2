@@ -97,10 +97,9 @@ export default function SiteHeader() {
     };
   }, [mobileMenuOpen]);
 
-  try {
-    return (
-      <>
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  return (
+    <>
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 relative">
           {/* Logo */}
           <Link
@@ -386,28 +385,6 @@ export default function SiteHeader() {
           </>
         )}
       </header>
-    );
-  } catch (error: unknown) {
-    console.error('SiteHeader render failed:', error);
-    // Fallback minimal header
-    return (
-      <>
-      <header className="sticky top-0 z-50 bg-white border-b border-zinc-100 shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
-          <Link href="/" aria-label="Link" className="font-black text-zinc-900">
-            Elevate for Humanity
-          </Link>
-          <div className="flex items-center gap-3">
-            <Link
-              href="/login"
-              className="border border-zinc-300 bg-white px-4 py-2 rounded-xl font-bold"
-            >
-              Login
-            </Link>
-          </div>
-        </div>
-      </header>
-      </>
-    );
-  }
+    </>
+  );
 }
