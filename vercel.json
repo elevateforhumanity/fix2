@@ -31,8 +31,7 @@
         }
       ],
       "destination": "https://www.elevateforhumanity.org/:path*",
-      "permanent": true,
-      "statusCode": 308
+      "permanent": true
     }
   ],
   "crons": [],

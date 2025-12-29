@@ -1,3 +1,5 @@
+
+
 /**
  * Centralized Program Data
  * Single source of truth for all program content, descriptions, and CTAs
@@ -406,9 +408,6 @@ export const programs: Program[] = [
     },
   },
   {
-  {
-  {
-  {
     slug: 'beauty-career-educator',
     name: 'Beauty and Career Educator Training',
     heroTitle: 'Beauty and Career Educator Training Program',
@@ -647,9 +646,6 @@ export const programs: Program[] = [
     },
     price: 4950,
   },
-  {
-  {
-  {
   {
     slug: 'professional-esthetician',
     name: 'Esthetics and Skincare Specialist Certificate',
@@ -923,7 +919,6 @@ export const programs: Program[] = [
     },
     price: 4750,
   },
-  {
   {
     slug: 'phlebotomy-technician',
     name: 'Phlebotomy Technician Certification',
