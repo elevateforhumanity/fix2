@@ -3,34 +3,38 @@ import Link from 'next/link';
 
 export default function FundingPage() {
   return (
-    <main className="px-4 sm:px-6 lg:px-10 py-10">
-      <div className="mx-auto max-w-6xl">
-        {/* HERO */}
-        <section className="max-w-3xl">
-          <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900">
-            Funding options that can reduce or cover tuition
-          </h1>
-          <p className="mt-4 text-lg text-zinc-700">
-            We help you understand eligibility and next steps for workforce and
-            reentry-aligned funding pathways. Funding availability varies by
-            program and individual eligibility.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/apply"
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-bold hover:bg-zinc-800 text-center transition"
-            >
-              Start an Application
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-bold hover:bg-zinc-50 text-center transition"
-            >
-              Talk to an Advisor
-            </Link>
+    <main className="bg-white">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-green-900 to-green-700">
+        <div className="absolute inset-0 bg-[url('/images/heroes/hero-homepage.jpg')] bg-cover bg-center opacity-30"></div>
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl w-full">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white uppercase tracking-wide">
+              FUNDING OPTIONS
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-8">
+              100% Free Training - No Student Debt
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+              <Link
+                href="/apply"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 border-white bg-transparent px-8 py-4 text-lg font-bold text-white hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 uppercase"
+              >
+                Talk to Advisor
+              </Link>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-4 py-16">
 
         {/* FUNDING TYPES */}
         <section className="mt-14">

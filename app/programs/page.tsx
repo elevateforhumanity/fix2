@@ -208,48 +208,60 @@ export default function ProgramsPage() {
             </p>
           </div>
 
-          {/* All Programs - Dynamic Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programs.map((program) => (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="aspect-video relative bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
-                  {program.heroImage && (
-                    <Image
-                      src={program.heroImage}
-                      alt={program.name}
-                      fill
-                      className="object-cover opacity-80 group-hover:scale-110 transition-transform duration-300"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  )}
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {program.name}
-                  </h3>
-                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
-                    {program.heroSubtitle}
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-slate-500">
-                    <span>{program.duration}</span>
-                    {program.format && (
-                      <>
-                        <span>•</span>
-                        <span>{program.format}</span>
-                      </>
+          {/* All Programs - Visual Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {programs.map((program, index) => {
+              const gradients = [
+                'from-blue-500 to-blue-700',
+                'from-orange-500 to-orange-700',
+                'from-green-500 to-green-700',
+                'from-purple-500 to-purple-700',
+                'from-red-500 to-red-700',
+                'from-yellow-500 to-yellow-700',
+              ];
+              const gradient = gradients[index % gradients.length];
+              
+              return (
+                <Link
+                  key={program.slug}
+                  href={`/programs/${program.slug}`}
+                  className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div className={`aspect-video relative bg-gradient-to-br ${gradient} overflow-hidden`}>
+                    {program.heroImage && (
+                      <Image
+                        src={program.heroImage}
+                        alt={program.name}
+                        fill
+                        className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
                     )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-xl font-bold text-white mb-1">
+                        {program.name}
+                      </h3>
+                      <div className="flex items-center gap-2 text-sm text-white/90">
+                        <span>{program.duration}</span>
+                        {program.format && (
+                          <>
+                            <span>•</span>
+                            <span>{program.format}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-4 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
-                    Learn More
-                    <ChevronRight className="w-4 h-4" />
+                  <div className="p-6 bg-white">
+                    <p className="text-orange-500 font-bold text-lg group-hover:text-orange-600 transition-colors flex items-center gap-2">
+                      Learn More
+                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </p>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
 
 

@@ -23,49 +23,41 @@ export const metadata: Metadata = {
 export default function EmployersPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section with Video */}
-      <section className="relative bg-white text-white py-20">
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-          >
-            <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-              <Briefcase className="w-5 h-5" />
-              <span className="text-sm font-semibold">Employer Services</span>
+      {/* Hero Section */}
+      <section className="relative h-[450px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+        <Image
+          src="/images/heroes/hero-homepage.jpg"
+          alt="Hire Qualified Talent"
+          fill
+          priority
+          className="object-cover opacity-40"
+          sizes="100vw"
+        />
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl w-full">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <Briefcase className="w-5 h-5 text-white" />
+              <span className="text-sm font-semibold text-white uppercase tracking-wide">Employer Services</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Find Qualified Talent.
-              <br />
-              Build Your Team.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white uppercase tracking-wide">
+              HIRE QUALIFIED TALENT
             </h1>
-            <p className="text-base md:text-lg text-blue-100 mb-8 leading-relaxed">
-              Access pre-screened, trained candidates ready to work. No
-              recruitment fees. Tax incentives available. Customized training
-              programs.
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-8">
+              Build Your Team with Elevate for Humanity
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
               <Link
                 href="#post-job"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-brand-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
               >
-                Post a Job Opening
+                Post a Job
               </Link>
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 border-white bg-transparent px-8 py-4 text-lg font-bold text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
               >
-                Schedule a Meeting
+                Contact Us
               </Link>
             </div>
           </div>
