@@ -33,16 +33,12 @@
   --brand-info: #3b82f6;
 }
 
-/* Override any orange, purple, green gradients with blue */
+/* No gradients - use solid colors only */
 .bg-gradient-to-r.from-orange-600,
 .bg-gradient-to-r.from-purple-600,
-.bg-gradient-to-r.from-green-600 {
-  background: linear-gradient(to right, var(--brand-primary), var(--brand-primary-darker)) !important;
-}
-
-/* Ensure all hero banners use blue */
+.bg-gradient-to-r.from-green-600,
 section[class*="gradient"] {
-  background: linear-gradient(to right, var(--brand-primary), var(--brand-primary-darker)) !important;
+  background: var(--brand-primary) !important;
 }
 
 /* Primary buttons */
@@ -125,10 +121,10 @@ section[class*="gradient"] {
   background-color: var(--brand-primary-dark) !important;
 }
 
-/* Hero banner specific */
+/* Hero banner specific - solid color only */
 .hero-banner,
 [class*="hero"] {
-  background: linear-gradient(to right, var(--brand-primary), var(--brand-primary-darker)) !important;
+  background: var(--brand-primary) !important;
 }
 
 /* Card accents */

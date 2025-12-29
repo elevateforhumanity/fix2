@@ -209,7 +209,7 @@ export default function AutopilotsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-zinc-900 from-black/70 via-black/20 to-transparent" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">

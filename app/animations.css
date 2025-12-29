@@ -163,23 +163,7 @@ html {
   animation: spin 3s linear infinite;
 }
 
-/* Gradient Animation */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
-}
+/* Gradient animations removed - use solid colors */
 
 /* Bounce In */
 @keyframes bounceIn {
@@ -203,26 +187,7 @@ html {
   animation: bounceIn 0.6s ease-out forwards;
 }
 
-/* Shimmer Effect */
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite;
-}
+/* Shimmer effect removed - no gradients */
 
 /* ============================================
    PREMIUM CARD EFFECTS (Autopilots 07-09)
@@ -240,7 +205,7 @@ html {
   inset: 0;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: var(--brand-primary);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -313,38 +278,15 @@ html {
 }
 
 /* ============================================
-   GRADIENT ANIMATIONS (Autopilots 19-20)
+   GRADIENT ANIMATIONS REMOVED - USE SOLID COLORS
    ============================================ */
 
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .gradient-animated {
-  background: linear-gradient(
-    -45deg,
-    #f97316,
-    #ea580c,
-    #fb923c,
-    #fdba74
-  );
-  background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite;
+  background: var(--brand-primary);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--brand-primary);
 }
 
 /* ============================================
@@ -375,27 +317,11 @@ html {
 }
 
 /* ============================================
-   LOADING SKELETON (Autopilots 17-18)
+   LOADING SKELETON - NO GRADIENTS
    ============================================ */
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    #f0f0f0 0%,
-    #e0e0e0 50%,
-    #f0f0f0 100%
-  );
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite;
+  background: #e0e0e0;
 }
 
 /* ============================================

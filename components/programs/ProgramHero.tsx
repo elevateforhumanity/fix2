@@ -86,7 +86,7 @@ export function ProgramHero({ program }: { program: Program }) {
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source
-                  src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=XYAKfQTQtm1t~crb-eqoYGjNhW6OtDpmLV7aDSdfl-AY7Gmj5UcTwnRjGI8y~MBeFgfANbDXBLzgDgIiy9lIYq~qIafTofg9J5-dLlnPq0h0DC5cwxYMwcY9cOzLoumtClzCcEf6U4opibbDuxE6y7a3wZGl7mFlXMwcd7JHnJLuuq0Uw6mfFG4ROuJgqfnA7A97b2IM5nhw-AD-Nj6TsVbUdFhEaQETHHvWC~GucSzE8sUUQCbBpeFnH3SY8jJWAjXlM-E3cayy-unqJrw4EMP7kkAFLnR6xyD9mwHkXQjPnf2QlM574Fxhj7zNOsT9Q-ZNGN2kKGCII6Vui2lNug__"
+                  src="/videos/hero-home.mp4"
                   type="video/mp4"
                 />
               </video>

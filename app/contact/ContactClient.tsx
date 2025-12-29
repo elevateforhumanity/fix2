@@ -108,10 +108,7 @@ export default function ContactClient() {
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       quality={75}
                     />
-                    {/* Gradient overlay */}
-                    <div
-                      className={`absolute inset-0 bg-zinc-900 ${option.color} opacity-60 group-hover:opacity-70 transition-opacity`}
-                    />
+                    {/* Overlay removed - no gradients */}
 
                     {/* Icon badge */}
                     <div className="absolute top-6 right-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
@@ -120,7 +117,7 @@ export default function ContactClient() {
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-zinc-900 from-black/90 via-black/70 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-zinc-900">
                     <h3 className="text-lg md:text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition">
                       {option.title}
                     </h3>

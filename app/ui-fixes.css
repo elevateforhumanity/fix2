@@ -33,10 +33,10 @@ button:not([class*="bg-"]) {
   color: white;
 }
 
-/* Ensure proper image fallbacks */
+/* Ensure proper image fallbacks - solid color only */
 img[src*="placeholder"],
 img[alt*="placeholder"] {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--brand-gray-200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,11 +165,12 @@ section {
   transition-duration: 150ms;
 }
 
-/* Ensure proper gradient rendering */
+/* Remove gradients - use solid colors */
 .bg-gradient-to-br,
 .bg-gradient-to-r,
 .bg-gradient-to-t {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  background: var(--brand-primary) !important;
+  background-image: none !important;
 }
 
 /* Fix any missing rounded corners */
