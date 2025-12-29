@@ -133,18 +133,23 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
     // Get all active program holders with Indiana credentials
     const programHolders = await getProgramHoldersWithIndianaCredentials();
 
-    console.log(
-      `[Indiana Compliance] Found ${programHolders.length} program holders to check`
-    );
+    // Log to monitoring system instead of console
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        `[Indiana Compliance] Found ${programHolders.length} program holders to check`
+      );
+    }
 
     // Process in batches
     const batches = chunkArray(programHolders, BATCH_CONFIG.batchSize);
 
     for (let i = 0; i < batches.length; i++) {
       const batch = batches[i];
-      console.log(
-        `[Indiana Compliance] Processing batch ${i + 1}/${batches.length} (${batch.length} program holders)`
-      );
+      if (process.env.NODE_ENV === 'development') {
+        console.log(
+          `[Indiana Compliance] Processing batch ${i + 1}/${batches.length} (${batch.length} program holders)`
+        );
+      }
 
       // Process batch concurrently
       const batchResults = await Promise.all(
@@ -682,9 +687,11 @@ async function getProgramHolderETPLData(programHolderId: string): Promise<{
 async function sendAlert(alert: AlertToSend): Promise<void> {
   // Send alert via appropriate channels
   // This would integrate with email service, SMS service, etc.
-  console.log(
-    `[Alert] Sending ${alert.level} alert to ${alert.programHolderId}`
-  );
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      `[Alert] Sending ${alert.level} alert to ${alert.programHolderId}`
+    );
+  }
 
   // Implementation needed:
   // - Send email via Resend/SendGrid
@@ -697,9 +704,11 @@ async function executeEnforcementAction(
   action: EnforcementAction
 ): Promise<void> {
   // Execute enforcement action
-  console.log(
-    `[Enforcement] Executing ${action.action} for ${action.programHolderId}`
-  );
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      `[Enforcement] Executing ${action.action} for ${action.programHolderId}`
+    );
+  }
 
   // Implementation needed:
   // - Update database to reflect enforcement action

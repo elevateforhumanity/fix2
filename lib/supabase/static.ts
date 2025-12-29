@@ -9,9 +9,11 @@ export function createStaticClient() {
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.log(
-      '[Supabase Static] Missing environment variables - returning mock client'
-    );
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        '[Supabase Static] Missing environment variables - returning mock client'
+      );
+    }
     // Return a mock client that returns empty data for build-time
     return {
       from: () => ({

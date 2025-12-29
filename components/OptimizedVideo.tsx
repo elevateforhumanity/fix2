@@ -33,7 +33,7 @@ export function OptimizedVideo({ src, className = '', audioTrack }: OptimizedVid
         setIsPlaying(true);
       } catch (error: unknown) {
         // Autoplay blocked by browser, that's fine
-        console.log('Autoplay blocked:', error);
+        // Silently handle - this is expected behavior
       }
     };
 

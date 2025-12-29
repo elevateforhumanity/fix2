@@ -116,9 +116,10 @@
    LAYOUT & CONTAINERS
    ============================================================================ */
 
+/* Consistent container - matches SkilledUS */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1152px; /* 6xl - consistent with SkilledUS */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -139,11 +140,19 @@
   }
 }
 
+/* Tighter section spacing - matches SkilledUS */
 section {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 3rem 0; /* Reduced from 4rem */
   position: relative;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 4rem 0;
+  }
+}
   z-index: 1;
 }
 
