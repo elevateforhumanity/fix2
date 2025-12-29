@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -161,7 +161,6 @@ export default function HeroBanner({
               ref={videoRef}
               className="absolute inset-0 w-full h-full object-cover"
               src={videoSrc}
-              poster={posterSrc}
               autoPlay
               muted
               playsInline

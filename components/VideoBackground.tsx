@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -36,11 +36,11 @@ export function VideoBackground({
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        poster={poster}
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
       >
         <source src={videoUrl} type="video/mp4" />
       </video>

@@ -10,15 +10,15 @@ interface HeroVideoProps {
 
 /**
  * HeroVideo Component
- * 
+ *
  * Enforces design policy for hero video banners.
- * 
+ *
  * DESIGN POLICY:
  * - Real videos only (no Contents)
  * - Light overlay (30-40% max)
  * - Autoplay, muted, looping
  * - Mobile-friendly (playsInline)
- * 
+ *
  * @param videoSrc - Path to video file in /public/videos/
  * @param posterSrc - Optional poster image for fallback
  * @param overlayOpacity - Overlay darkness (30 or 40, default 40)
@@ -40,8 +40,8 @@ export function HeroVideo({
         loop
         playsInline
         muted
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
-        poster={posterSrc}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
@@ -50,16 +50,14 @@ export function HeroVideo({
       <div className={`absolute inset-0 bg-black/${overlayOpacity}`} />
 
       {/* Content */}
-      <div className="relative">
-        {children}
-      </div>
+      <div className="relative">{children}</div>
     </section>
   );
 }
 
 /**
  * Usage Example:
- * 
+ *
  * <HeroVideo
  *   videoSrc="/videos/hero-home.mp4"
  *   posterSrc="/images/video-poster.jpg"

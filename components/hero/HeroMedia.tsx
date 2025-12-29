@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -75,9 +75,10 @@ export default function HeroMedia({
       const v = videoRef.current;
       if (v) {
         v.muted = true;
-        if (v.paused) await v.play().catch(() => {
-          // Video play blocked
-        });
+        if (v.paused)
+          await v.play().catch(() => {
+            // Video play blocked
+          });
         v.loop = false;
       }
 
@@ -104,8 +105,7 @@ export default function HeroMedia({
           muted
           playsInline
           autoPlay
-          preload="metadata"
-          poster={poster}
+          preload="auto"
         >
           <source src={videoSrc} />
         </video>
