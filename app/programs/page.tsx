@@ -208,187 +208,51 @@ export default function ProgramsPage() {
             </p>
           </div>
 
-          {/* Healthcare Category */}
-          <div className="mb-12">
-            <div className="bg-blue-50 rounded-2xl p-8 md:p-12 border border-blue-100">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-3 h-16 bg-blue-600 rounded-full flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                    Healthcare
-                  </h3>
-                  <p className="text-lg text-slate-700 mb-6">
-                    Start a rewarding career helping people every day.
-                    Healthcare jobs are in high demand, offer stable income, and
-                    provide clear paths for advancement.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        Certified Nursing Assistant (CNA)
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        4-8 weeks • Patient care in hospitals, nursing homes,
-                        and home health
-                      </p>
-                    </div>
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        Medical Assistant
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        8-12 weeks • Clinical and administrative support in
-                        medical offices
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    href="/programs/cna-certification"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-bold transition"
-                  >
-                    Explore Healthcare Programs
-                    <ChevronRight className="w-5 h-5" />
-                  </Link>
+          {/* All Programs - Dynamic Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {programs.map((program) => (
+              <Link
+                key={program.slug}
+                href={`/programs/${program.slug}`}
+                className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="aspect-video relative bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
+                  {program.heroImage && (
+                    <Image
+                      src={program.heroImage}
+                      alt={program.name}
+                      fill
+                      className="object-cover opacity-80 group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  )}
                 </div>
-              </div>
-            </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {program.name}
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                    {program.heroSubtitle}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <span>{program.duration}</span>
+                    {program.format && (
+                      <>
+                        <span>•</span>
+                        <span>{program.format}</span>
+                      </>
+                    )}
+                  </div>
+                  <div className="mt-4 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                    Learn More
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
 
-          {/* Skilled Trades Category */}
-          <div className="mb-12">
-            <div className="bg-orange-50 rounded-2xl p-8 md:p-12 border border-orange-100">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-3 h-16 bg-orange-600 rounded-full flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                    Skilled Trades
-                  </h3>
-                  <p className="text-lg text-slate-700 mb-6">
-                    Build things. Fix things. Make great money. Skilled trades
-                    offer excellent pay, job security, and the satisfaction of
-                    working with your hands.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        HVAC Technician
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        16-24 weeks • Install and repair heating, cooling, and
-                        refrigeration systems
-                      </p>
-                    </div>
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        CDL Truck Driver
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        4-6 weeks • Commercial driving with excellent earning
-                        potential
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    href="/programs/hvac-technician"
-                    className="inline-flex items-center gap-2 bg-orange-600 text-white hover:bg-orange-700 px-6 py-3 rounded-xl font-bold transition"
-                  >
-                    Explore Skilled Trades Programs
-                    <ChevronRight className="w-5 h-5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Beauty & Wellness Category */}
-          <div className="mb-12">
-            <div className="bg-purple-50 rounded-2xl p-8 md:p-12 border border-purple-100">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-3 h-16 bg-purple-600 rounded-full flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                    Beauty & Wellness
-                  </h3>
-                  <p className="text-lg text-slate-700 mb-6">
-                    Creative careers with flexible schedules and unlimited
-                    earning potential. Build your own clientele and be your own
-                    boss.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        Barber Apprenticeship
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        15-17 months • Earn while you learn, graduate debt-free
-                        with clients
-                      </p>
-                    </div>
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        Esthetician
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        12-16 weeks • Skincare, facials, and spa treatments
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    href="/programs/barber-apprenticeship"
-                    className="inline-flex items-center gap-2 bg-purple-600 text-white hover:bg-purple-700 px-6 py-3 rounded-xl font-bold transition"
-                  >
-                    Explore Beauty & Wellness Programs
-                    <ChevronRight className="w-5 h-5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Business & Finance Category */}
-          <div className="mb-12">
-            <div className="bg-green-50 rounded-2xl p-8 md:p-12 border border-green-100">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-3 h-16 bg-green-600 rounded-full flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                    Business & Finance
-                  </h3>
-                  <p className="text-lg text-slate-700 mb-6">
-                    Start your own business or help others succeed. Learn
-                    valuable skills that open doors to entrepreneurship and
-                    financial independence.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        Tax Preparation
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        8-12 weeks • Prepare taxes for individuals and small
-                        businesses
-                      </p>
-                    </div>
-                    <div className="bg-white/60 backdrop-blur rounded-xl p-4">
-                      <h4 className="font-bold text-slate-900 mb-2">
-                        Small Business Management
-                      </h4>
-                      <p className="text-sm text-slate-600">
-                        12-16 weeks • Learn to start and run your own business
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-green-600 text-white hover:bg-green-700 px-6 py-3 rounded-xl font-bold transition"
-                  >
-                    Explore Business Programs
-                    <ChevronRight className="w-5 h-5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

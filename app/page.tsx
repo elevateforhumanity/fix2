@@ -13,53 +13,39 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/heroes/hero-homepage.jpg')] bg-cover bg-center opacity-10"></div>
+      {/* Hero Section - Exact SkilledUS Style */}
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+        <Image
+          src="/images/heroes/hero-homepage.jpg"
+          alt="Elevate for Humanity - Free Career Training"
+          fill
+          priority
+          className="object-cover opacity-40"
+          sizes="100vw"
+        />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="text-center space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Training, Funding, and Workforce Reporting — All In One Platform
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl w-full">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white uppercase tracking-wide">
+              LIMITLESS OPPORTUNITIES
             </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-6 sm:mb-8">
+              WHERE LEARNING LEADS TO EARNING!
+            </h2>
             
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Built for students, employers, and workforce agencies to train, fund, track, and scale real outcomes with compliance-ready reporting.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-lg transition-all duration-200 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
               >
-                Apply for Training
+                Apply Now
               </Link>
               <Link
-                href="/platform"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-600 bg-white hover:bg-gray-50 rounded-lg shadow-lg transition-all duration-200 hover:scale-105"
+                href="/hire-graduates"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 sm:border-3 border-white bg-transparent px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
               >
-                License the Platform
+                Hire A Student
               </Link>
-            </div>
-          </div>
-        </div>
-        
-        {/* Stats Bar */}
-        <div className="relative bg-white/10 backdrop-blur-sm border-t border-white/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">IRS VITA/TCE Certified</div>
-              </div>
-              <div>
-                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">WIOA Aligned</div>
-              </div>
-              <div>
-                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">ACCET Accredited</div>
-              </div>
-              <div>
-                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">Registered Apprenticeships</div>
-              </div>
             </div>
           </div>
         </div>
