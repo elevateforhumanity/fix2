@@ -319,45 +319,15 @@ export const workforceBoardNav: NavSection[] = [
 
 /**
  * Get navigation based on user authentication and role
+ * 
+ * NOTE: Dashboard-specific navigation is now handled INSIDE each dashboard
+ * via sidebar/internal navigation, NOT in the header dropdown.
+ * The header only shows public navigation items.
  */
 export function getNavigation(user?: { role?: string } | null) {
-  let nav = [...publicNav];
-
-  if (user) {
-    // Replace "Login" with role-specific dashboard
-    nav = nav.filter((section) => section.label !== 'Login');
-
-    // Add role-specific navigation
-    switch (user.role) {
-      case 'admin':
-      case 'super_admin':
-        nav.splice(4, 0, ...adminNav);
-        break;
-      case 'program_holder':
-        nav.splice(4, 0, ...programHolderNav);
-        break;
-      case 'partner':
-        nav.splice(4, 0, ...partnerNav);
-        break;
-      case 'employer':
-        nav.splice(4, 0, ...employerNav);
-        break;
-      case 'workforce_board':
-        nav.splice(4, 0, ...workforceBoardNav);
-        break;
-      case 'student':
-      default:
-        nav.splice(4, 0, ...studentNav);
-        break;
-    }
-
-    // Add admin nav for admin users (in addition to their main nav)
-    if (user.role === 'admin' || user.role === 'super_admin') {
-      // Admin nav already added above
-    }
-  }
-
-  return nav;
+  // Always return public navigation only
+  // Dashboard features are accessed via the Dashboard button and internal navigation
+  return [...publicNav];
 }
 
 // Export for backward compatibility
