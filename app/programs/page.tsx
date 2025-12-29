@@ -38,7 +38,7 @@ export default function ProgramsPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/artlist/hero-training-2.jpg"
+          poster="/images/programs/cna-hero.jpg"
         >
           <source
             src="/videos/programs-overview-video-with-narration.mp4"

@@ -23,7 +23,7 @@ export default async function CareerServicesPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/artlist/hero-training-4.jpg"
+          poster="/images/programs/workforce-readiness-hero.jpg"
         >
           <source src="/videos/getting-started-hero.mp4" type="video/mp4" />
         </video>

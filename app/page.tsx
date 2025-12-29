@@ -306,7 +306,7 @@ export default function HomePage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/artlist/hero-training-7.jpg"
+          poster="/images/heroes/hero-homepage.jpg"
         >
           <source src="/videos/elevate-overview.mp4" type="video/mp4" />
         </video>
