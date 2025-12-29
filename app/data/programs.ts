@@ -1333,7 +1333,7 @@ export const programs: Program[] = [
       label: 'Learn More',
       href: '/contact?topic=drug-collector',
     },
-    price: 1500,
+    price: 504,
   },
 ];
 
