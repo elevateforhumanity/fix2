@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { PlaySoundButton } from '@/components/PlaySoundButton';
+import { HomeHeroWithVoiceover } from '@/components/HomeHeroWithVoiceover';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Free Career Training & Apprenticeships Indiana',
@@ -45,64 +45,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       {/* Hero Section - Video Background with Voiceover */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
-        {/* Video Background */}
-        <video
-          id="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="/videos/hero-home.mp4"
-            type="video/mp4"
-          />
-        </video>
-
-        {/* Voiceover Audio */}
-        <audio
-          id="hero-audio"
-          src="/videos/voiceover.mp3"
-          preload="auto"
-        />
-        
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white uppercase tracking-wide">
-              LIMITLESS OPPORTUNITIES
-            </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-6 sm:mb-8">
-              WHERE LEARNING LEADS TO EARNING!
-            </h2>
-            
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
-              <Link
-                href="/apply"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
-              >
-                Apply Now
-              </Link>
-              <Link
-                href="/hire-graduates"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 sm:border-3 border-white bg-transparent px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
-              >
-                Hire A Student
-              </Link>
-            </div>
-
-            {/* Play with Sound Button */}
-            <PlaySoundButton
-              videoId="hero-video"
-              audioId="hero-audio"
-              buttonId="play-sound-btn"
-              className="mt-6 px-6 py-2 bg-white/20 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-full hover:bg-white/30 transition-all"
-            />
-          </div>
-        </div>
-      </section>
+      <HomeHeroWithVoiceover
+        videoSrc="/videos/hero-home.mp4"
+        audioSrc="/videos/voiceover.mp3"
+      />
 
       {/* 2. CAREER OPPORTUNITIES - Exact SkilledUS Style */}
       <section className="py-16 bg-white">

@@ -14,7 +14,7 @@ import {
   FileText,
   Award,
 } from 'lucide-react';
-import { PlaySoundButton } from '@/components/PlaySoundButton';
+import { HeroWithVoiceover } from '@/components/HeroWithVoiceover';
 
 export const metadata: Metadata = {
   title:
@@ -49,32 +49,10 @@ export default function BarberApprenticeshipPage() {
       </div>
 
       {/* Hero */}
-      <section className="relative bg-gray-900 py-20 md:py-32">
-        {/* Video Background */}
-        <video
-          id="barber-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
-        </video>
-
-        {/* Voiceover Audio */}
-        <audio
-          id="barber-audio"
-          src="/videos/barber-voiceover.mp3"
-          preload="auto"
-        />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <HeroWithVoiceover
+        videoSrc="/videos/barber-hero-final.mp4"
+        audioSrc="/videos/barber-voiceover.mp3"
+      >
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
               Free with funding
@@ -109,12 +87,6 @@ export default function BarberApprenticeshipPage() {
             >
               Talk to an Advisor
             </Link>
-            <PlaySoundButton
-              videoId="barber-video"
-              audioId="barber-audio"
-              buttonId="barber-play-sound-btn"
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all text-center"
-            />
           </div>
 
           {/* Payment Options for Self-Pay */}
@@ -186,8 +158,7 @@ export default function BarberApprenticeshipPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </HeroWithVoiceover>
 
       {/* Comprehensive Program Details from programs.ts */}
       {barberProgram && barberProgram.longDescription && (
