@@ -62,20 +62,31 @@ export default function ApplyLandingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <section className="border-b border-slate-200 bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-          <p className="text-xs font-semibold tracking-[0.18em] text-slate-600 uppercase mb-2">
-            Start Here
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Choose Your Path
-          </h1>
-          <p className="text-lg text-slate-700 max-w-3xl">
-            Select the option that best describes your goal. Each path has its
-            own application process designed for your specific needs.
-          </p>
+    <main className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source
+            src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2082346627&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=RtOuCQ--~DB3QZx3rxnglJZSbXYKinU5B4y3-zGUPT7lp22WkRBJ2K00-Kdn0UUx~WhJvDz73Qy6zFsH-VoCXgzUi76kPpbd2Dbpp7PyaavIJKprRaRxp~YFBaQ055gHpgcRVCzCHU3GRpkWxuKUma2DPSim-ZgJXgtTt8qbzAo-pPdd0JMaysyk-p7kcfvzF9J70Y4eHlBqGbg~9yBgt-hRa5cIHPCP01yM19u-FYFUL-1qzujpZan-c2hPXKp5mWvnCBmbXNzIcaF25fB3XycD5kp~S9c8JNxmZrXP6uSnsMp7CgpAYyKHWwiwgSjzZlZ8kad7lDnMcFfgGfRn3g__"
+            type="video/mp4"
+          />
+        </video>
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl w-full">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white uppercase tracking-wide">
+              START YOUR JOURNEY
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-8">
+              Choose Your Path to Success with Elevate for Humanity
+            </p>
+          </div>
         </div>
       </section>
 

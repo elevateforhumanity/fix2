@@ -79,7 +79,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Alignment with Industry Needs</h3>
               <p className="text-gray-600 mb-6">
-                Skilled US collaborates with business leaders to address current and future workforce demands.
+                Elevate for Humanity collaborates with business leaders to address current and future workforce demands.
               </p>
               <Link href="/programs" className="text-orange-500 font-semibold hover:text-orange-600">
                 Learn More &gt;

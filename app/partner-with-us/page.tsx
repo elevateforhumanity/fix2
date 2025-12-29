@@ -75,17 +75,38 @@ export default function PartnerWithUsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-            <Shield className="w-8 h-8 text-brand-blue-600" />
+    <main className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source
+            src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2082346627&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=RtOuCQ--~DB3QZx3rxnglJZSbXYKinU5B4y3-zGUPT7lp22WkRBJ2K00-Kdn0UUx~WhJvDz73Qy6zFsH-VoCXgzUi76kPpbd2Dbpp7PyaavIJKprRaRxp~YFBaQ055gHpgcRVCzCHU3GRpkWxuKUma2DPSim-ZgJXgtTt8qbzAo-pPdd0JMaysyk-p7kcfvzF9J70Y4eHlBqGbg~9yBgt-hRa5cIHPCP01yM19u-FYFUL-1qzujpZan-c2hPXKp5mWvnCBmbXNzIcaF25fB3XycD5kp~S9c8JNxmZrXP6uSnsMp7CgpAYyKHWwiwgSjzZlZ8kad7lDnMcFfgGfRn3g__"
+            type="video/mp4"
+          />
+        </video>
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl w-full">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white uppercase tracking-wide">
+              PARTNER WITH US
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+              Join Elevate for Humanity in Transforming Lives
+            </p>
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">
-            Partner With Elevate for Humanity
-          </h1>
-          <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto mb-6">
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 py-16">
+        {/* Intro Text */}
+        <div className="text-center mb-12">
+          <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-6">
             Elevate for Humanity operates a proprietary workforce training and
             apprenticeship platform. Partnership discussions are structured to
             protect our systems, participants, and institutional relationships.
