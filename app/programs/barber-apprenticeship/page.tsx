@@ -14,6 +14,7 @@ import {
   FileText,
   Award,
 } from 'lucide-react';
+import { PlaySoundButton } from '@/components/PlaySoundButton';
 
 export const metadata: Metadata = {
   title:
@@ -108,24 +109,12 @@ export default function BarberApprenticeshipPage() {
             >
               Talk to an Advisor
             </Link>
-            <button
-              id="barber-play-sound-btn"
-              onClick={() => {
-                const video = document.getElementById('barber-video') as HTMLVideoElement;
-                const audio = document.getElementById('barber-audio') as HTMLAudioElement;
-                const btn = document.getElementById('barber-play-sound-btn');
-                if (video && audio && btn) {
-                  video.muted = true;
-                  audio.currentTime = 0;
-                  audio.play().then(() => {
-                    btn.style.display = 'none';
-                  }).catch(() => {});
-                }
-              }}
+            <PlaySoundButton
+              videoId="barber-video"
+              audioId="barber-audio"
+              buttonId="barber-play-sound-btn"
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all text-center"
-            >
-              🔊 Play with Sound
-            </button>
+            />
           </div>
 
           {/* Payment Options for Self-Pay */}

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { PlaySoundButton } from '@/components/PlaySoundButton';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Free Career Training & Apprenticeships Indiana',
@@ -93,24 +94,12 @@ export default function HomePage() {
             </div>
 
             {/* Play with Sound Button */}
-            <button
-              id="play-sound-btn"
-              onClick={() => {
-                const video = document.getElementById('hero-video') as HTMLVideoElement;
-                const audio = document.getElementById('hero-audio') as HTMLAudioElement;
-                const btn = document.getElementById('play-sound-btn');
-                if (video && audio && btn) {
-                  video.muted = true;
-                  audio.currentTime = 0;
-                  audio.play().then(() => {
-                    btn.style.display = 'none';
-                  }).catch(() => {});
-                }
-              }}
+            <PlaySoundButton
+              videoId="hero-video"
+              audioId="hero-audio"
+              buttonId="play-sound-btn"
               className="mt-6 px-6 py-2 bg-white/20 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-full hover:bg-white/30 transition-all"
-            >
-              🔊 Play with Sound
-            </button>
+            />
           </div>
         </div>
       </section>
