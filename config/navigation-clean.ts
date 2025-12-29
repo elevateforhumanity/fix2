@@ -28,21 +28,22 @@ export const publicNav: NavSection[] = [
       { label: 'Browse All Programs', href: '/programs', isHeader: true },
 
       // Healthcare Programs
-      { label: 'Healthcare', href: '/programs/healthcare', isHeader: true },
-      { label: 'CNA (Certified Nursing Assistant)', href: '/programs/cna' },
+      { label: 'Healthcare', href: '/programs#healthcare', isHeader: true },
+      { label: 'CNA (Certified Nursing Assistant)', href: '/programs/cna-certification' },
+      { label: 'Medical Assistant', href: '/programs/medical-assistant' },
       { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      {
-        label: 'Direct Support Professional',
-        href: '/programs/direct-support-professional',
-      },
       {
         label: 'Phlebotomy Technician',
         href: '/programs/phlebotomy-technician',
       },
-      { label: 'CPR Certification', href: '/programs/cpr-certification' },
+      { label: 'CPR & First Aid', href: '/programs/cpr-first-aid-hsi' },
       {
         label: 'Emergency Health & Safety Tech',
         href: '/programs/emergency-health-safety-tech',
+      },
+      {
+        label: 'Certified Peer Recovery Coach',
+        href: '/programs/certified-peer-recovery-coach',
       },
 
       // Skilled Trades
