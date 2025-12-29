@@ -34,23 +34,33 @@ This will add 30+ training programs to your database.
 
 ## Step 3: Verify Setup
 
-Run this in SQL Editor:
+1. Open the file: `VERIFY-AFTER-MIGRATION.sql`
+2. Copy the ENTIRE contents
+3. Paste into Supabase SQL Editor
+4. Click **Run**
+
+This will check:
+- ✅ Migration tracking created
+- ✅ All tables created (should be 50+)
+- ✅ RLS policies applied
+- ✅ Programs table ready for seeding
+
+**Expected Output**: Summary showing "✅ Database setup looks good!"
+
+### Quick Verification (Alternative)
 
 ```sql
--- Check migrations applied
-SELECT * FROM migration_history ORDER BY applied_at DESC;
--- Should show 5 migrations
+-- Check tables created
+SELECT COUNT(*) as total_tables
+FROM information_schema.tables 
+WHERE table_schema = 'public';
+-- Should return 50+
 
--- Check programs created
-SELECT COUNT(*) FROM programs;
--- Should return 30+
-
--- Check tables exist
+-- Check if ready for programs
 SELECT table_name 
 FROM information_schema.tables 
-WHERE table_schema = 'public' 
-ORDER BY table_name;
--- Should show 50+ tables
+WHERE table_name = 'programs';
+-- Should return 'programs'
 ```
 
 ## Step 4: Configure Environment Variables
@@ -77,22 +87,61 @@ STRIPE_WEBHOOK_SECRET=whsec_xxx
 
 ## Troubleshooting
 
+### "relation 'migration_history' does not exist"
+**Cause**: You're trying to verify before running migrations.
+
+**Fix**: 
+1. First run `COPY-PASTE-SQL.sql` 
+2. Then run `VERIFY-AFTER-MIGRATION.sql`
+
 ### "relation already exists"
-You've already run migrations. Check:
+**Cause**: You've already run migrations.
+
+**Fix**: Check what's been applied:
 ```sql
-SELECT * FROM schema_migrations;
+SELECT * FROM schema_migrations ORDER BY applied_at DESC;
 ```
 
 ### "permission denied"
-Make sure you're using the service role key, not anon key.
+**Cause**: Using wrong credentials.
+
+**Fix**: 
+- Use Supabase SQL Editor (recommended)
+- Or use service role key, not anon key
 
 ### "syntax error"
-Make sure you copied the ENTIRE file, including the first line.
+**Cause**: Incomplete copy/paste.
 
-### Programs not showing
-Check if they were inserted:
+**Fix**: 
+- Copy the ENTIRE file from first line to last
+- Don't copy just a section
+
+### Programs not showing after seeding
+**Cause**: Seeding failed or not run.
+
+**Fix**: Check if programs exist:
 ```sql
-SELECT id, title, slug FROM programs LIMIT 10;
+SELECT COUNT(*) FROM programs;
+-- Should return 30+
+
+-- If 0, re-run COPY-PASTE-PROGRAMS.sql
+```
+
+### Tables missing
+**Cause**: Migration failed partway through.
+
+**Fix**: Check error messages in Supabase logs, then:
+```sql
+-- See what tables exist
+SELECT table_name FROM information_schema.tables 
+WHERE table_schema = 'public' 
+ORDER BY table_name;
+
+-- If very few tables, may need to drop and re-run
+-- DANGER: Only in development!
+-- DROP SCHEMA public CASCADE;
+-- CREATE SCHEMA public;
+-- Then re-run COPY-PASTE-SQL.sql
 ```
 
 ## What's Next?

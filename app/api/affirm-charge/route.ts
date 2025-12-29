@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { sendEnrollmentEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
-    const { checkout_token, program, user_id } = await request.json();
+    const { checkout_token, program, user_id, user_email } = await request.json();
 
     // Call Affirm API to authorize the charge
     const affirmResponse = await fetch('https://api.affirm.com/api/v2/charges', {
@@ -45,6 +46,27 @@ export async function POST(request: NextRequest) {
       console.error('Failed to save enrollment:', enrollmentError);
       // Don't fail the request - payment succeeded
       // Log for manual reconciliation
+    }
+
+    // Send enrollment confirmation email
+    if (enrollment && user_email) {
+      try {
+        // Get program name
+        const { data: programData } = await supabase
+          .from('programs')
+          .select('title')
+          .eq('id', program)
+          .single();
+
+        await sendEnrollmentEmail({
+          to: user_email,
+          programName: programData?.title || 'Your Program',
+          enrollmentId: enrollment.id,
+        });
+      } catch (emailError) {
+        console.error('Failed to send enrollment email:', emailError);
+        // Don't fail the request - enrollment succeeded
+      }
     }
 
     return NextResponse.json({ 

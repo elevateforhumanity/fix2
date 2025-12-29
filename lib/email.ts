@@ -467,3 +467,59 @@ export const emailTemplates = {
     </html>
   `,
 };
+
+// Helper functions for common email scenarios
+
+interface WelcomeEmailParams {
+  to: string;
+  tenantId: string;
+  licenseType: string;
+  validUntil: string;
+}
+
+export async function sendWelcomeEmail(params: WelcomeEmailParams) {
+  const { to, tenantId, licenseType, validUntil } = params;
+  
+  return sendEmail({
+    to,
+    subject: 'Welcome to Elevate for Humanity - License Activated',
+    html: `
+      <h1>Welcome to Elevate for Humanity!</h1>
+      <p>Your ${licenseType} license has been successfully activated.</p>
+      <p><strong>Tenant ID:</strong> ${tenantId}</p>
+      <p><strong>Valid Until:</strong> ${new Date(validUntil).toLocaleDateString()}</p>
+      <p>You can now access your platform at: <a href="https://www.elevateforhumanity.org/platform">https://www.elevateforhumanity.org/platform</a></p>
+      <p>If you have any questions, please contact us at elevate4humanityedu@gmail.com</p>
+      <p>Thank you for choosing Elevate for Humanity!</p>
+    `,
+  });
+}
+
+interface EnrollmentEmailParams {
+  to: string;
+  programName: string;
+  enrollmentId: string;
+}
+
+export async function sendEnrollmentEmail(params: EnrollmentEmailParams) {
+  const { to, programName, enrollmentId } = params;
+  
+  return sendEmail({
+    to,
+    subject: `Enrollment Confirmed - ${programName}`,
+    html: `
+      <h1>Enrollment Confirmed!</h1>
+      <p>You have been successfully enrolled in <strong>${programName}</strong>.</p>
+      <p><strong>Enrollment ID:</strong> ${enrollmentId}</p>
+      <p>Next steps:</p>
+      <ol>
+        <li>Log in to your student dashboard</li>
+        <li>Complete your student profile</li>
+        <li>Review program materials</li>
+        <li>Attend orientation (if required)</li>
+      </ol>
+      <p><a href="https://www.elevateforhumanity.org/lms/dashboard">Access Your Dashboard</a></p>
+      <p>If you have any questions, please contact us at elevate4humanityedu@gmail.com</p>
+    `,
+  });
+}
