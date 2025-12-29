@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Container, Section } from '@/components/layout/Container';
-import { ProgramCard } from '@/components/ui/ProgramCard';
-import { FeatureCard } from '@/components/ui/FeatureCard';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Free Career Training & Apprenticeships Indiana',
@@ -56,7 +53,7 @@ export default function HomePage() {
 
       {/* 2. CAREER OPPORTUNITIES - Exact SkilledUS Style */}
       <section className="py-16 bg-white">
-        <Container>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">
               CAREER OPPORTUNITIES
@@ -115,12 +112,12 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* 3. PROGRAMS & PATHWAYS - Exact SkilledUS Style */}
       <section className="py-16 bg-gray-50">
-        <Container>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">
               We Have A Path For You!
@@ -222,12 +219,12 @@ export default function HomePage() {
               </div>
             </Link>
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* 4. LOCATIONS - Exact SkilledUS Style */}
       <section className="py-16 bg-white">
-        <Container>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">
               Elevate is everywhere!
@@ -260,12 +257,12 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* 5. TESTIMONIALS - Exact SkilledUS Style */}
       <section className="py-16 bg-gray-50">
-        <Container>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -292,12 +289,12 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* 6. FINAL CTA - Exact SkilledUS Style */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-700">
-        <Container>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">
               Are you ready to change your life?
@@ -312,7 +309,7 @@ export default function HomePage() {
               Get Started Today
             </Link>
           </div>
-        </Container>
+        </div>
       </section>
     </main>
   );
