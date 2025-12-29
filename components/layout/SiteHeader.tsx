@@ -4,7 +4,7 @@ import React from 'react';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { getNavigation } from '@/config/navigation-clean';
 
 // Get dashboard URL based on user role
@@ -187,12 +187,43 @@ export default function SiteHeader() {
             )}
           </nav>
 
-          {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          {/* Desktop CTAs & Social */}
+          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+            {/* Social Media Links */}
+            <div className="flex items-center gap-2 mr-2">
+              <a
+                href="https://www.facebook.com/profile.php?id=61571046346179"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/elevateforhumanity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-pink-600 transition"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/elevate-for-humanity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-700 transition"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+            
             {user ? (
               <Link
                 href={getDashboardUrl(user)}
-                className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+                className="inline-flex rounded-md border border-gray-300 bg-white px-4 py-2 font-bold hover:bg-gray-50 transition whitespace-nowrap"
               >
                 Dashboard
               </Link>
@@ -200,13 +231,13 @@ export default function SiteHeader() {
               <>
                 <Link
                   href="/apply"
-                  className="inline-flex rounded-xl bg-brand-orange-600 text-white px-4 py-2 font-extrabold hover:bg-brand-orange-700 transition whitespace-nowrap"
+                  className="inline-flex rounded-md bg-orange-500 text-white px-6 py-2 font-bold hover:bg-orange-600 transition whitespace-nowrap"
                 >
                   Apply Now
                 </Link>
                 <Link
                   href="/login"
-                  className="inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition whitespace-nowrap"
+                  className="inline-flex rounded-md border border-gray-300 bg-white px-4 py-2 font-bold hover:bg-gray-50 transition whitespace-nowrap"
                 >
                   Login
                 </Link>
