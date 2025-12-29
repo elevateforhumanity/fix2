@@ -34,8 +34,8 @@ export default function BarberApprenticeshipPage() {
       {/* Official Badge */}
       <div className="bg-green-50 border-b border-green-200 py-2">
         <div className="max-w-7xl mx-auto px-6 text-center text-sm text-slate-900">
-          <strong>U.S. Department of Labor Registered Apprenticeship</strong> |
-          Approved by Indiana DWD |{' '}
+          <strong>U.S. Department of Labor Registered Apprenticeship</strong> (Federal) |
+          Training Partner: Choice Medical |{' '}
           <a
             href="https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417"
             target="_blank"

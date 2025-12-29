@@ -222,12 +222,14 @@ export const programs: Program[] = [
     credential:
       'CNA certification eligibility (state-approved program partner)',
     approvals: [
-      'Partner-delivered through an approved CNA training provider',
-      'Workforce funding may be available',
+      'Training Partner: Choice Medical (State-Approved CNA Program)',
+      'Federal WIOA funding eligible',
+      'State WRG funding eligible',
     ],
     fundingOptions: [
-      'Partner-delivered through an approved CNA training provider',
-      'Workforce funding may be available',
+      'WIOA (Workforce Innovation & Opportunity Act) - Federal',
+      'WRG (Workforce Readiness & Growth) - State',
+      'Training delivered by Choice Medical',
     ],
     highlights: [
       'Get certified in just 4-8 weeks - fastest path to healthcare',
