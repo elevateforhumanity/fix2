@@ -91,6 +91,33 @@ export function ProgramTemplate({ program }: { program: Program }) {
             <h2 className="text-3xl font-bold mb-6 text-gray-900">
               What You'll Learn
             </h2>
+            
+            {/* Show specializations for programs with multiple tracks */}
+            {program.slug === 'drug-alcohol-specimen-collector' && (
+              <div className="mb-8">
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Program Specializations:</h3>
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
+                    <h4 className="font-bold text-orange-900 mb-2">DOT Urine Drug Testing</h4>
+                    <p className="text-sm text-gray-700">Department of Transportation certified collection procedures</p>
+                  </div>
+                  <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
+                    <h4 className="font-bold text-orange-900 mb-2">DOT Breath Alcohol Testing</h4>
+                    <p className="text-sm text-gray-700">Breath Alcohol Technician (BAT) certification</p>
+                  </div>
+                  <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
+                    <h4 className="font-bold text-orange-900 mb-2">Non-DOT Testing</h4>
+                    <p className="text-sm text-gray-700">Workplace and employer-mandated testing programs</p>
+                  </div>
+                  <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
+                    <h4 className="font-bold text-orange-900 mb-2">Oral Fluid Testing</h4>
+                    <p className="text-sm text-gray-700">Saliva-based drug testing procedures</p>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Training Curriculum:</h3>
             <div className="space-y-4">
               {program.whatYouLearn.map((item, i) => (
                 <div
