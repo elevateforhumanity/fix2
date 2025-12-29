@@ -43,10 +43,11 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      {/* Hero Section - Video Background */}
+      {/* Hero Section - Video Background with Voiceover */}
       <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
         {/* Video Background */}
         <video
+          id="hero-video"
           autoPlay
           loop
           muted
@@ -59,6 +60,13 @@ export default function HomePage() {
             type="video/mp4"
           />
         </video>
+
+        {/* Voiceover Audio */}
+        <audio
+          id="hero-audio"
+          src="/videos/voiceover.mp3"
+          preload="auto"
+        />
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
@@ -83,6 +91,26 @@ export default function HomePage() {
                 Hire A Student
               </Link>
             </div>
+
+            {/* Play with Sound Button */}
+            <button
+              id="play-sound-btn"
+              onClick={() => {
+                const video = document.getElementById('hero-video') as HTMLVideoElement;
+                const audio = document.getElementById('hero-audio') as HTMLAudioElement;
+                const btn = document.getElementById('play-sound-btn');
+                if (video && audio && btn) {
+                  video.muted = true;
+                  audio.currentTime = 0;
+                  audio.play().then(() => {
+                    btn.style.display = 'none';
+                  }).catch(() => {});
+                }
+              }}
+              className="mt-6 px-6 py-2 bg-white/20 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-full hover:bg-white/30 transition-all"
+            >
+              🔊 Play with Sound
+            </button>
           </div>
         </div>
       </section>

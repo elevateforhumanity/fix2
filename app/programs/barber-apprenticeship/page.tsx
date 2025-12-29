@@ -51,6 +51,7 @@ export default function BarberApprenticeshipPage() {
       <section className="relative bg-gray-900 py-20 md:py-32">
         {/* Video Background */}
         <video
+          id="barber-video"
           autoPlay
           loop
           muted
@@ -60,6 +61,13 @@ export default function BarberApprenticeshipPage() {
         >
           <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
         </video>
+
+        {/* Voiceover Audio */}
+        <audio
+          id="barber-audio"
+          src="/videos/barber-voiceover.mp3"
+          preload="auto"
+        />
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
@@ -100,6 +108,24 @@ export default function BarberApprenticeshipPage() {
             >
               Talk to an Advisor
             </Link>
+            <button
+              id="barber-play-sound-btn"
+              onClick={() => {
+                const video = document.getElementById('barber-video') as HTMLVideoElement;
+                const audio = document.getElementById('barber-audio') as HTMLAudioElement;
+                const btn = document.getElementById('barber-play-sound-btn');
+                if (video && audio && btn) {
+                  video.muted = true;
+                  audio.currentTime = 0;
+                  audio.play().then(() => {
+                    btn.style.display = 'none';
+                  }).catch(() => {});
+                }
+              }}
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all text-center"
+            >
+              🔊 Play with Sound
+            </button>
           </div>
 
           {/* Payment Options for Self-Pay */}
