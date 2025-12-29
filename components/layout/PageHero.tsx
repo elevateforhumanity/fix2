@@ -24,7 +24,7 @@ export default function PageHero({
 
   return (
     <section
-      className={`relative ${heightClasses[height]} w-full overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700`}
+      className={`relative ${heightClasses[height]} w-full overflow-hidden bg-blue-900`}
     >
       {/* Background */}
       {backgroundVideo ? (

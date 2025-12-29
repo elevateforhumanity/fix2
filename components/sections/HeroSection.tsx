@@ -14,7 +14,6 @@ interface HeroSectionProps {
   title: string;
   description: string;
   badges?: Badge[];
-  gradient?: string;
   primaryCTA?: CTAButton;
   secondaryCTA?: CTAButton;
 }
@@ -30,12 +29,11 @@ export function HeroSection({
   title,
   description,
   badges = [],
-  gradient = '  to-black',
   primaryCTA = { text: 'Apply Now', href: '/apply' },
   secondaryCTA = { text: 'Talk to an Advisor', href: '/contact' },
 }: HeroSectionProps) {
   return (
-    <section className={`bg-zinc-900 ${gradient} text-white py-20`}>
+    <section className="bg-zinc-900 text-white py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Badges */}
         {badges.length > 0 && (

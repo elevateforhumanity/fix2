@@ -15,10 +15,28 @@ export const metadata: Metadata = {
 export default async function CommunityPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* AI Help Widget - Fixed Position */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all hover:scale-110">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </button>
+      </div>
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/learners/graduates-celebrating.jpg"
           alt="Community"
           fill
           className="object-cover"
@@ -26,7 +44,8 @@ export default async function CommunityPage() {
           priority
           sizes="100vw"
         />
-        
+        <div className="absolute inset-0 bg-black/40"></div>
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Community

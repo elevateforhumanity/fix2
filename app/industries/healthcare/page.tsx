@@ -6,14 +6,22 @@ import { programs } from '@/app/data/programs';
 
 export const metadata: Metadata = {
   title: 'Healthcare Programs | Elevate for Humanity',
-  description: 'Free healthcare training programs - CNA, Medical Assistant, Home Health Aide, and more',
+  description:
+    'Free healthcare training programs - CNA, Medical Assistant, Home Health Aide, and more',
 };
 
 export default function HealthcarePage() {
   // Filter healthcare programs
-  const healthcarePrograms = programs.filter(p => 
-    ['cna-certification', 'medical-assistant', 'home-health-aide', 'phlebotomy-technician', 
-     'cpr-first-aid-hsi', 'emergency-health-safety-tech', 'certified-peer-recovery-coach'].includes(p.slug)
+  const healthcarePrograms = programs.filter((p) =>
+    [
+      'cna-certification',
+      'medical-assistant',
+      'home-health-aide',
+      'phlebotomy-technician',
+      'cpr-first-aid-hsi',
+      'emergency-health-safety-tech',
+      'certified-peer-recovery-coach',
+    ].includes(p.slug)
   );
 
   return (
@@ -26,11 +34,10 @@ export default function HealthcarePage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source src="/videos/cna-hero.mp4" type="video/mp4" />
         </video>
-        
+
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white uppercase tracking-wide">
@@ -70,31 +77,24 @@ export default function HealthcarePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {healthcarePrograms.map((program, index) => {
-              const gradients = [
-                'from-red-500 to-red-700',
-                'from-pink-500 to-pink-700',
-                'from-rose-500 to-rose-700',
-              ];
-              const gradient = gradients[index % gradients.length];
-              
+            {healthcarePrograms.map((program) => {
               return (
                 <Link
                   key={program.slug}
                   href={`/programs/${program.slug}`}
                   className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                 >
-                  <div className={`aspect-video relative bg-gradient-to-br ${gradient} overflow-hidden`}>
+                  <div className="aspect-video relative overflow-hidden bg-gray-900">
                     {program.heroImage && (
                       <Image
                         src={program.heroImage}
                         alt={program.name}
                         fill
-                        className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+                        className="object-cover group-hover:scale-110 transition-all duration-500"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute inset-0 bg-black/40"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-xl font-bold text-white mb-1">
                         {program.name}
@@ -134,46 +134,102 @@ export default function HealthcarePage() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">High Demand</h3>
-                    <p className="text-gray-600">Healthcare jobs are always in demand with excellent job security</p>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      High Demand
+                    </h3>
+                    <p className="text-gray-600">
+                      Healthcare jobs are always in demand with excellent job
+                      security
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">Good Pay</h3>
-                    <p className="text-gray-600">Competitive wages with opportunities for advancement</p>
+                    <p className="text-gray-600">
+                      Competitive wages with opportunities for advancement
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Make a Difference</h3>
-                    <p className="text-gray-600">Help people every day and make a real impact in your community</p>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      Make a Difference
+                    </h3>
+                    <p className="text-gray-600">
+                      Help people every day and make a real impact in your
+                      community
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Fast Training</h3>
-                    <p className="text-gray-600">Get certified and start working in weeks, not years</p>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      Fast Training
+                    </h3>
+                    <p className="text-gray-600">
+                      Get certified and start working in weeks, not years
+                    </p>
                   </div>
                 </li>
               </ul>

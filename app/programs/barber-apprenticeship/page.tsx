@@ -34,8 +34,8 @@ export default function BarberApprenticeshipPage() {
       {/* Official Badge */}
       <div className="bg-green-50 border-b border-green-200 py-2">
         <div className="max-w-7xl mx-auto px-6 text-center text-sm text-slate-900">
-          <strong>U.S. Department of Labor Registered Apprenticeship</strong> (Federal) |
-          Training Partner: Choice Medical |{' '}
+          <strong>U.S. Department of Labor Registered Apprenticeship</strong>{' '}
+          (Federal) | Training Partner: Choice Medical |{' '}
           <a
             href="https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417"
             target="_blank"
@@ -56,7 +56,6 @@ export default function BarberApprenticeshipPage() {
             playsInline
             muted
             className="w-full h-full object-cover"
-            
           >
             <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
           </video>
@@ -110,14 +109,18 @@ export default function BarberApprenticeshipPage() {
                   If you don't qualify for WIOA, WRG, or JRI funding, you can
                   still enroll with flexible payment options:
                 </p>
-                
+
                 {/* Pricing */}
                 <div className="bg-white rounded-lg p-4 mb-4 border-2 border-amber-200">
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl font-bold text-slate-900">$4,950</span>
+                    <span className="text-3xl font-bold text-slate-900">
+                      $4,950
+                    </span>
                     <span className="text-slate-600">total program cost</span>
                   </div>
-                  <p className="text-sm text-slate-600">15-17 month apprenticeship • Earn while you learn</p>
+                  <p className="text-sm text-slate-600">
+                    15-17 month apprenticeship • Earn while you learn
+                  </p>
                 </div>
 
                 {/* Payment Buttons */}
@@ -128,41 +131,77 @@ export default function BarberApprenticeshipPage() {
                     className="w-full flex items-center justify-between px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all"
                   >
                     <div className="flex items-center gap-3">
-                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/>
+                      <svg
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z" />
                       </svg>
                       <div className="text-left">
                         <div className="font-bold">Pay with Stripe</div>
-                        <div className="text-sm text-blue-100">Secure one-time payment</div>
+                        <div className="text-sm text-blue-100">
+                          Secure one-time payment
+                        </div>
                       </div>
                     </div>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
 
                   {/* Affirm Payment */}
                   <Link
                     href="/checkout/barber-apprenticeship?method=affirm"
-                    className="w-full flex items-center justify-between px-6 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold rounded-lg transition-all"
+                    className="w-full flex items-center justify-between px-6 py-4 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition-all"
                   >
                     <div className="flex items-center gap-3">
-                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10.5 17.5h3v-11h-3v11zm-7 0h3v-7h-3v7zm14-11v11h3v-11h-3z"/>
+                      <svg
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M10.5 17.5h3v-11h-3v11zm-7 0h3v-7h-3v7zm14-11v11h3v-11h-3z" />
                       </svg>
                       <div className="text-left">
                         <div className="font-bold">Pay with Affirm</div>
-                        <div className="text-sm text-blue-100">As low as $206/month • 0% APR available</div>
+                        <div className="text-sm text-blue-100">
+                          As low as $206/month • 0% APR available
+                        </div>
                       </div>
                     </div>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
                 </div>
 
                 <p className="text-xs text-slate-600 mt-3 text-center">
-                  💡 Most students qualify for 100% FREE training through WIOA funding. <Link href="/funding" className="text-blue-600 underline">Check eligibility</Link>
+                  💡 Most students qualify for 100% FREE training through WIOA
+                  funding.{' '}
+                  <Link href="/funding" className="text-blue-600 underline">
+                    Check eligibility
+                  </Link>
                 </p>
               </div>
             </div>

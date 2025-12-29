@@ -14,27 +14,27 @@ export interface ProgramDetailData {
   heroSubtitle?: string;
   shortDescription?: string;
   longDescription?: string;
-  
+
   // Hero
   heroImage?: string;
   heroImageAlt?: string;
   badges?: Array<{ text: string; color: string }>;
   heroGradient?: string;
-  
+
   // At-a-Glance
   duration?: string;
   schedule?: string;
   delivery?: string;
   credential?: string;
   price?: string;
-  
+
   // Details
   highlights?: string[];
   whatYouLearn?: string[];
   outcomes?: string[];
   requirements?: string[];
   fundingOptions?: string[];
-  
+
   // CTA
   ctaPrimary?: { text: string; href: string };
   ctaSecondary?: { text: string; href: string };
@@ -52,9 +52,10 @@ export function ProgramDetailTemplate({ data }: ProgramDetailTemplateProps) {
         title={data.heroTitle || data.name}
         description={data.heroSubtitle || data.shortDescription || ''}
         badges={data.badges}
-        gradient={data.heroGradient}
         primaryCTA={data.ctaPrimary || { text: 'Apply Now', href: '/apply' }}
-        secondaryCTA={data.ctaSecondary || { text: 'Talk to an Advisor', href: '/contact' }}
+        secondaryCTA={
+          data.ctaSecondary || { text: 'Talk to an Advisor', href: '/contact' }
+        }
       />
 
       {/* At-a-Glance Section */}
@@ -69,7 +70,9 @@ export function ProgramDetailTemplate({ data }: ProgramDetailTemplateProps) {
       {data.longDescription && (
         <section className="bg-white py-16">
           <div className="mx-auto max-w-4xl px-6">
-            <h2 className="text-3xl font-bold text-black mb-6">About This Program</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">
+              About This Program
+            </h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p>{data.longDescription}</p>
             </div>
@@ -81,7 +84,9 @@ export function ProgramDetailTemplate({ data }: ProgramDetailTemplateProps) {
       {data.highlights && data.highlights.length > 0 && (
         <section className="bg-gray-50 py-16">
           <div className="mx-auto max-w-4xl px-6">
-            <h2 className="text-3xl font-bold text-black mb-6">Program Highlights</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">
+              Program Highlights
+            </h2>
             <div className="bg-white rounded-xl p-8 shadow-sm">
               <ul className="space-y-4">
                 {data.highlights.map((highlight, index) => (
@@ -102,7 +107,9 @@ export function ProgramDetailTemplate({ data }: ProgramDetailTemplateProps) {
           <div className="mx-auto max-w-4xl px-6">
             <div className="flex items-center gap-3 mb-6">
               <Award className="w-8 h-8 text-blue-600" />
-              <h2 className="text-3xl font-bold text-black">What You'll Learn</h2>
+              <h2 className="text-3xl font-bold text-black">
+                What You'll Learn
+              </h2>
             </div>
             <div className="bg-gray-50 rounded-xl p-8">
               <ul className="space-y-4">
@@ -142,17 +149,16 @@ export function ProgramDetailTemplate({ data }: ProgramDetailTemplateProps) {
 
       {/* Requirements */}
       {data.requirements && data.requirements.length > 0 && (
-        <WhoThisIsForSection
-          title="Requirements"
-          items={data.requirements}
-        />
+        <WhoThisIsForSection title="Requirements" items={data.requirements} />
       )}
 
       {/* Funding Options */}
       {data.fundingOptions && data.fundingOptions.length > 0 && (
         <section className="bg-white py-16">
           <div className="mx-auto max-w-4xl px-6">
-            <h2 className="text-3xl font-bold text-black mb-6">Funding Options</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">
+              Funding Options
+            </h2>
             <div className="bg-blue-50 rounded-xl p-8 border border-blue-200">
               <ul className="space-y-4">
                 {data.fundingOptions.map((option, index) => (
@@ -172,7 +178,9 @@ export function ProgramDetailTemplate({ data }: ProgramDetailTemplateProps) {
         title="Ready to Start Your Career?"
         description="Apply now or talk to an advisor to learn more about this program."
         primaryCTA={data.ctaPrimary || { text: 'Apply Now', href: '/apply' }}
-        secondaryCTA={data.ctaSecondary || { text: 'Contact Us', href: '/contact' }}
+        secondaryCTA={
+          data.ctaSecondary || { text: 'Contact Us', href: '/contact' }
+        }
       />
     </main>
   );

@@ -19,8 +19,16 @@ export default function ProgramsPage() {
       {/* Breadcrumbs */}
       <div className="bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <nav role="navigation" aria-label="Main navigation" className="flex items-center gap-2 text-sm text-slate-600">
-            <Link href="/" aria-label="Link" className="hover:text-brand-orange-600 transition">
+          <nav
+            role="navigation"
+            aria-label="Main navigation"
+            className="flex items-center gap-2 text-sm text-slate-600"
+          >
+            <Link
+              href="/"
+              aria-label="Link"
+              className="hover:text-brand-orange-600 transition"
+            >
               Home
             </Link>
             <ChevronRight className="w-4 h-4" />
@@ -38,7 +46,6 @@ export default function ProgramsPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source
             src="/videos/programs-overview-video-with-narration.mp4"
@@ -204,7 +211,9 @@ export default function ProgramsPage() {
               How Our Programs Work
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-12">
-              We provide 100% free career training in high-demand industries. No tuition, no student debt, just real training that leads to real jobs.
+              We provide 100% free career training in high-demand industries. No
+              tuition, no student debt, just real training that leads to real
+              jobs.
             </p>
           </div>
 
@@ -212,31 +221,69 @@ export default function ProgramsPage() {
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             <div className="text-center">
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image src="/images/programs/efh-business-startup-marketing-card.jpg" alt="Apply" width={64} height={64} className="object-cover w-full h-full" />
+                <Image
+                  src="/images/programs/efh-business-startup-marketing-card.jpg"
+                  alt="Apply"
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Apply</h3>
-              <p className="text-gray-600">Quick online application - takes 10 minutes</p>
+              <p className="text-gray-600">
+                Quick online application - takes 10 minutes
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image src="/images/programs/efh-cna-card.jpg" alt="Get Approved" width={64} height={64} className="object-cover w-full h-full" />
+                <Image
+                  src="/images/programs/efh-cna-card.jpg"
+                  alt="Get Approved"
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Get Approved</h3>
-              <p className="text-gray-600">We check funding eligibility (WIOA, WRG, Apprenticeships)</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Get Approved
+              </h3>
+              <p className="text-gray-600">
+                We check funding eligibility (WIOA, WRG, Apprenticeships)
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image src="/images/programs/efh-barber-card.jpg" alt="Start Training" width={64} height={64} className="object-cover w-full h-full" />
+                <Image
+                  src="/images/programs/efh-barber-card.jpg"
+                  alt="Start Training"
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Start Training</h3>
-              <p className="text-gray-600">Hands-on training with industry certifications</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Start Training
+              </h3>
+              <p className="text-gray-600">
+                Hands-on training with industry certifications
+              </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image src="/images/learners/graduates-celebrating.jpg" alt="Get Hired" width={64} height={64} className="object-cover w-full h-full" />
+                <Image
+                  src="/images/learners/graduates-celebrating.jpg"
+                  alt="Get Hired"
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Get Hired</h3>
-              <p className="text-gray-600">We connect you directly with employers</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Get Hired
+              </h3>
+              <p className="text-gray-600">
+                We connect you directly with employers
+              </p>
             </div>
           </div>
 
@@ -246,24 +293,43 @@ export default function ProgramsPage() {
               100% Free - No Student Debt
             </h2>
             <p className="text-lg text-gray-700 text-center mb-8 max-w-3xl mx-auto">
-              All training is funded through federal workforce programs. You pay nothing.
+              All training is funded through federal workforce programs. You pay
+              nothing.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">WIOA Funding</h3>
-                <p className="text-gray-600">Workforce Innovation & Opportunity Act covers tuition and training costs for eligible participants</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  WIOA Funding
+                </h3>
+                <p className="text-gray-600">
+                  Workforce Innovation & Opportunity Act covers tuition and
+                  training costs for eligible participants
+                </p>
               </div>
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">WRG Support</h3>
-                <p className="text-gray-600">Workforce Readiness & Growth provides wraparound support to help you complete training</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  WRG Support
+                </h3>
+                <p className="text-gray-600">
+                  Workforce Readiness & Growth provides wraparound support to
+                  help you complete training
+                </p>
               </div>
               <div className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Apprenticeships</h3>
-                <p className="text-gray-600">Earn while you learn through DOL-registered apprenticeship programs</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Apprenticeships
+                </h3>
+                <p className="text-gray-600">
+                  Earn while you learn through DOL-registered apprenticeship
+                  programs
+                </p>
               </div>
             </div>
             <div className="text-center mt-8">
-              <Link href="/funding" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-blue-700 transition-all">
+              <Link
+                href="/funding"
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-blue-700 transition-all"
+              >
                 Learn More About Funding
               </Link>
             </div>
@@ -277,38 +343,78 @@ export default function ProgramsPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
-                  <Image src="/images/programs/efh-cpr-aed-first-aid-card.jpg" alt="Certifications" width={48} height={48} className="object-cover w-full h-full" />
+                  <Image
+                    src="/images/programs/efh-cpr-aed-first-aid-card.jpg"
+                    alt="Certifications"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Industry Certifications</h3>
-                  <p className="text-gray-600">Earn credentials that employers recognize and trust</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Industry Certifications
+                  </h3>
+                  <p className="text-gray-600">
+                    Earn credentials that employers recognize and trust
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
-                  <Image src="/images/programs/efh-building-tech-card.jpg" alt="Training" width={48} height={48} className="object-cover w-full h-full" />
+                  <Image
+                    src="/images/programs/efh-building-tech-card.jpg"
+                    alt="Training"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Hands-On Training</h3>
-                  <p className="text-gray-600">Real-world experience, not just classroom learning</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Hands-On Training
+                  </h3>
+                  <p className="text-gray-600">
+                    Real-world experience, not just classroom learning
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
-                  <Image src="/images/programs/efh-esthetician-client-services-card.jpg" alt="Career Services" width={48} height={48} className="object-cover w-full h-full" />
+                  <Image
+                    src="/images/programs/efh-esthetician-client-services-card.jpg"
+                    alt="Career Services"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Career Services</h3>
-                  <p className="text-gray-600">Resume help, interview prep, and job placement support</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Career Services
+                  </h3>
+                  <p className="text-gray-600">
+                    Resume help, interview prep, and job placement support
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
-                  <Image src="/images/programs/efh-public-safety-reentry-card.jpg" alt="Employers" width={48} height={48} className="object-cover w-full h-full" />
+                  <Image
+                    src="/images/programs/efh-public-safety-reentry-card.jpg"
+                    alt="Employers"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Employer Connections</h3>
-                  <p className="text-gray-600">Direct access to 500+ hiring partners</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Employer Connections
+                  </h3>
+                  <p className="text-gray-600">
+                    Direct access to 500+ hiring partners
+                  </p>
                 </div>
               </div>
             </div>
@@ -319,7 +425,8 @@ export default function ProgramsPage() {
               Choose Your Industry
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Explore our four main industries and find the right career path for you
+              Explore our four main industries and find the right career path
+              for you
             </p>
           </div>
 
@@ -330,25 +437,37 @@ export default function ProgramsPage() {
               href="/industries/healthcare"
               className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="aspect-video relative bg-gradient-to-br from-red-500 to-red-700 overflow-hidden">
+              <div className="aspect-video relative overflow-hidden bg-gray-900">
                 <Image
                   src="/images/programs/healthcare.jpg"
                   alt="Healthcare Programs"
                   fill
-                  className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+                  className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white mb-1">Healthcare</h3>
+                  <h3 className="text-2xl font-bold text-white mb-1">
+                    Healthcare
+                  </h3>
                   <p className="text-sm text-white/90">7 Programs Available</p>
                 </div>
               </div>
               <div className="p-6 bg-white">
-                <h4 className="font-bold text-gray-900 mb-2">What You'll Do:</h4>
-                <p className="text-gray-700 mb-3">Help people every day in hospitals, nursing homes, and home health settings. Make a real difference in your community.</p>
-                <h4 className="font-bold text-gray-900 mb-2">Programs Include:</h4>
-                <p className="text-gray-600 text-sm mb-4">CNA, Medical Assistant, Home Health Aide, Phlebotomy, CPR & First Aid, Peer Recovery Coach</p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  What You'll Do:
+                </h4>
+                <p className="text-gray-700 mb-3">
+                  Help people every day in hospitals, nursing homes, and home
+                  health settings. Make a real difference in your community.
+                </p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  Programs Include:
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  CNA, Medical Assistant, Home Health Aide, Phlebotomy, CPR &
+                  First Aid, Peer Recovery Coach
+                </p>
                 <p className="text-orange-500 font-bold text-lg group-hover:text-orange-600 transition-colors flex items-center gap-2">
                   View Healthcare Programs
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -361,25 +480,36 @@ export default function ProgramsPage() {
               href="/industries/industrial"
               className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="aspect-video relative bg-gradient-to-br from-orange-500 to-orange-700 overflow-hidden">
+              <div className="aspect-video relative overflow-hidden bg-gray-900">
                 <Image
                   src="/images/programs/construction.jpg"
                   alt="Industrial & Trades Programs"
                   fill
-                  className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+                  className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white mb-1">Industrial & Trades</h3>
+                  <h3 className="text-2xl font-bold text-white mb-1">
+                    Industrial & Trades
+                  </h3>
                   <p className="text-sm text-white/90">3 Programs Available</p>
                 </div>
               </div>
               <div className="p-6 bg-white">
-                <h4 className="font-bold text-gray-900 mb-2">What You'll Do:</h4>
-                <p className="text-gray-700 mb-3">Build, fix, and maintain essential systems. Work with your hands and earn excellent pay with strong job security.</p>
-                <h4 className="font-bold text-gray-900 mb-2">Programs Include:</h4>
-                <p className="text-gray-600 text-sm mb-4">HVAC Technician, Building Maintenance, CDL Training</p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  What You'll Do:
+                </h4>
+                <p className="text-gray-700 mb-3">
+                  Build, fix, and maintain essential systems. Work with your
+                  hands and earn excellent pay with strong job security.
+                </p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  Programs Include:
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  HVAC Technician, Building Maintenance, CDL Training
+                </p>
                 <p className="text-orange-500 font-bold text-lg group-hover:text-orange-600 transition-colors flex items-center gap-2">
                   View Industrial Programs
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -392,25 +522,38 @@ export default function ProgramsPage() {
               href="/industries/beauty-wellness"
               className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="aspect-video relative bg-gradient-to-br from-purple-500 to-purple-700 overflow-hidden">
+              <div className="aspect-video relative overflow-hidden bg-gray-900">
                 <Image
                   src="/images/programs/entrepreneurship.jpg"
                   alt="Beauty & Wellness Programs"
                   fill
-                  className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+                  className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white mb-1">Beauty & Wellness</h3>
+                  <h3 className="text-2xl font-bold text-white mb-1">
+                    Beauty & Wellness
+                  </h3>
                   <p className="text-sm text-white/90">3 Programs Available</p>
                 </div>
               </div>
               <div className="p-6 bg-white">
-                <h4 className="font-bold text-gray-900 mb-2">What You'll Do:</h4>
-                <p className="text-gray-700 mb-3">Creative work with flexible schedules. Build your own clientele and be your own boss with unlimited earning potential.</p>
-                <h4 className="font-bold text-gray-900 mb-2">Programs Include:</h4>
-                <p className="text-gray-600 text-sm mb-4">Barber Apprenticeship, Professional Esthetician, Beauty Career Educator</p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  What You'll Do:
+                </h4>
+                <p className="text-gray-700 mb-3">
+                  Creative work with flexible schedules. Build your own
+                  clientele and be your own boss with unlimited earning
+                  potential.
+                </p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  Programs Include:
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  Barber Apprenticeship, Professional Esthetician, Beauty Career
+                  Educator
+                </p>
                 <p className="text-orange-500 font-bold text-lg group-hover:text-orange-600 transition-colors flex items-center gap-2">
                   View Beauty Programs
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -423,25 +566,38 @@ export default function ProgramsPage() {
               href="/industries/business"
               className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="aspect-video relative bg-gradient-to-br from-green-500 to-green-700 overflow-hidden">
+              <div className="aspect-video relative overflow-hidden bg-gray-900">
                 <Image
                   src="/images/programs/business.jpg"
                   alt="Business & Finance Programs"
                   fill
-                  className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+                  className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white mb-1">Business & Finance</h3>
+                  <h3 className="text-2xl font-bold text-white mb-1">
+                    Business & Finance
+                  </h3>
                   <p className="text-sm text-white/90">2 Programs Available</p>
                 </div>
               </div>
               <div className="p-6 bg-white">
-                <h4 className="font-bold text-gray-900 mb-2">What You'll Do:</h4>
-                <p className="text-gray-700 mb-3">Start your own business or help others succeed. Learn skills that open doors to entrepreneurship and financial independence.</p>
-                <h4 className="font-bold text-gray-900 mb-2">Programs Include:</h4>
-                <p className="text-gray-600 text-sm mb-4">Business Startup & Marketing, Tax Preparation & Financial Services</p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  What You'll Do:
+                </h4>
+                <p className="text-gray-700 mb-3">
+                  Start your own business or help others succeed. Learn skills
+                  that open doors to entrepreneurship and financial
+                  independence.
+                </p>
+                <h4 className="font-bold text-gray-900 mb-2">
+                  Programs Include:
+                </h4>
+                <p className="text-gray-600 text-sm mb-4">
+                  Business Startup & Marketing, Tax Preparation & Financial
+                  Services
+                </p>
                 <p className="text-orange-500 font-bold text-lg group-hover:text-orange-600 transition-colors flex items-center gap-2">
                   View Business Programs
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -449,8 +605,6 @@ export default function ProgramsPage() {
               </div>
             </Link>
           </div>
-
-
         </div>
       </section>
 

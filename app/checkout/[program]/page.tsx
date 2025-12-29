@@ -7,7 +7,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import { CheckCircle, CreditCard, Calendar } from 'lucide-react';
 
 // Initialize Stripe
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
+);
 
 interface ProgramPricing {
   name: string;
@@ -21,7 +23,8 @@ const programPricing: Record<string, ProgramPricing> = {
     name: 'Barber Apprenticeship',
     price: 4950,
     duration: '15-17 months',
-    description: 'DOL-registered apprenticeship with earn-while-you-learn model',
+    description:
+      'DOL-registered apprenticeship with earn-while-you-learn model',
   },
   'hvac-technician': {
     name: 'HVAC Technician',
@@ -42,10 +45,10 @@ export default function CheckoutPage() {
   const searchParams = useSearchParams();
   const program = params.program as string;
   const method = searchParams.get('method') || 'stripe';
-  
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
+
   const programData = programPricing[program];
 
   useEffect(() => {
@@ -55,7 +58,7 @@ export default function CheckoutPage() {
       script.src = 'https://cdn1.affirm.com/js/v2/affirm.js';
       script.async = true;
       document.body.appendChild(script);
-      
+
       script.onload = () => {
         // @ts-ignore
         if (window.affirm) {
@@ -127,14 +130,16 @@ export default function CheckoutPage() {
           user_cancel_url: `${window.location.origin}/checkout/${program}?method=affirm`,
           user_confirmation_url_action: 'POST',
         },
-        items: [{
-          display_name: programData.name,
-          sku: program,
-          unit_price: programData.price * 100, // Affirm uses cents
-          qty: 1,
-          item_image_url: `${window.location.origin}/images/programs/${program}.jpg`,
-          item_url: `${window.location.origin}/programs/${program}`,
-        }],
+        items: [
+          {
+            display_name: programData.name,
+            sku: program,
+            unit_price: programData.price * 100, // Affirm uses cents
+            qty: 1,
+            item_image_url: `${window.location.origin}/images/programs/${program}.jpg`,
+            item_url: `${window.location.origin}/programs/${program}`,
+          },
+        ],
         billing: {
           name: {
             first: '',
@@ -183,9 +188,16 @@ export default function CheckoutPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Program Not Found</h1>
-          <p className="text-gray-600 mb-6">The program you're trying to purchase doesn't exist.</p>
-          <Link href="/programs" className="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            Program Not Found
+          </h1>
+          <p className="text-gray-600 mb-6">
+            The program you're trying to purchase doesn't exist.
+          </p>
+          <Link
+            href="/programs"
+            className="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700"
+          >
             View All Programs
           </Link>
         </div>
@@ -201,28 +213,36 @@ export default function CheckoutPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Complete Your Enrollment
           </h1>
-          <p className="text-lg text-gray-600">
-            {programData.name}
-          </p>
+          <p className="text-lg text-gray-600">{programData.name}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Order Summary */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-4">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Order Summary</h2>
-              
+              <h2 className="text-xl font-bold text-gray-900 mb-4">
+                Order Summary
+              </h2>
+
               <div className="space-y-4 mb-6">
                 <div>
-                  <h3 className="font-bold text-gray-900">{programData.name}</h3>
-                  <p className="text-sm text-gray-600">{programData.duration}</p>
-                  <p className="text-sm text-gray-600 mt-2">{programData.description}</p>
+                  <h3 className="font-bold text-gray-900">
+                    {programData.name}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {programData.duration}
+                  </p>
+                  <p className="text-sm text-gray-600 mt-2">
+                    {programData.description}
+                  </p>
                 </div>
 
                 <div className="border-t pt-4">
                   <div className="flex justify-between mb-2">
                     <span className="text-gray-600">Program Cost</span>
-                    <span className="font-bold">${programData.price.toLocaleString()}</span>
+                    <span className="font-bold">
+                      ${programData.price.toLocaleString()}
+                    </span>
                   </div>
                   <div className="flex justify-between text-lg font-bold text-gray-900 pt-2 border-t">
                     <span>Total</span>
@@ -233,8 +253,14 @@ export default function CheckoutPage() {
 
               <div className="bg-blue-50 rounded-lg p-4 text-sm text-gray-700">
                 <p className="font-bold mb-2">💡 Did you know?</p>
-                <p>Most students qualify for 100% FREE training through WIOA funding.</p>
-                <Link href="/funding" className="text-blue-600 underline mt-2 inline-block">
+                <p>
+                  Most students qualify for 100% FREE training through WIOA
+                  funding.
+                </p>
+                <Link
+                  href="/funding"
+                  className="text-blue-600 underline mt-2 inline-block"
+                >
                   Check your eligibility →
                 </Link>
               </div>
@@ -244,7 +270,9 @@ export default function CheckoutPage() {
           {/* Payment Method */}
           <div className="md:col-span-2">
             <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Payment Method</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Payment Method
+              </h2>
 
               {error && (
                 <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-6">
@@ -256,21 +284,29 @@ export default function CheckoutPage() {
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <CreditCard className="w-6 h-6 text-blue-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Pay with Stripe</h3>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Pay with Stripe
+                    </h3>
                   </div>
-                  
+
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Secure one-time payment</span>
+                      <span className="text-gray-700">
+                        Secure one-time payment
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">All major credit and debit cards accepted</span>
+                      <span className="text-gray-700">
+                        All major credit and debit cards accepted
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Instant enrollment confirmation</span>
+                      <span className="text-gray-700">
+                        Instant enrollment confirmation
+                      </span>
                     </div>
                   </div>
 
@@ -279,52 +315,82 @@ export default function CheckoutPage() {
                     disabled={loading}
                     className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all text-lg"
                   >
-                    {loading ? 'Processing...' : `Pay $${programData.price.toLocaleString()} with Stripe`}
+                    {loading
+                      ? 'Processing...'
+                      : `Pay $${programData.price.toLocaleString()} with Stripe`}
                   </button>
 
                   <p className="text-center text-sm text-gray-600 mt-4">
-                    Or <Link href={`/checkout/${program}?method=affirm`} className="text-blue-600 underline">pay with Affirm</Link> for monthly payments
+                    Or{' '}
+                    <Link
+                      href={`/checkout/${program}?method=affirm`}
+                      className="text-blue-600 underline"
+                    >
+                      pay with Affirm
+                    </Link>{' '}
+                    for monthly payments
                   </p>
                 </div>
               ) : (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <Calendar className="w-6 h-6 text-cyan-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Pay with Affirm</h3>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Pay with Affirm
+                    </h3>
                   </div>
-                  
+
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Monthly payment plans available</span>
+                      <span className="text-gray-700">
+                        Monthly payment plans available
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">0% APR options for qualified buyers</span>
+                      <span className="text-gray-700">
+                        0% APR options for qualified buyers
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">As low as ${Math.ceil(programData.price / 24)}/month</span>
+                      <span className="text-gray-700">
+                        As low as ${Math.ceil(programData.price / 24)}/month
+                      </span>
                     </div>
                   </div>
 
                   <button
                     onClick={handleAffirmCheckout}
                     disabled={loading}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold rounded-lg transition-all text-lg"
+                    className="w-full px-8 py-4 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-bold rounded-lg transition-all text-lg"
                   >
                     {loading ? 'Processing...' : 'Continue with Affirm'}
                   </button>
 
                   <p className="text-center text-sm text-gray-600 mt-4">
-                    Or <Link href={`/checkout/${program}?method=stripe`} className="text-blue-600 underline">pay in full with Stripe</Link>
+                    Or{' '}
+                    <Link
+                      href={`/checkout/${program}?method=stripe`}
+                      className="text-blue-600 underline"
+                    >
+                      pay in full with Stripe
+                    </Link>
                   </p>
                 </div>
               )}
 
               <div className="mt-8 pt-6 border-t">
                 <p className="text-xs text-gray-500 text-center">
-                  By completing this purchase, you agree to our <Link href="/terms" className="underline">Terms of Service</Link> and <Link href="/privacy" className="underline">Privacy Policy</Link>
+                  By completing this purchase, you agree to our{' '}
+                  <Link href="/terms" className="underline">
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="/privacy" className="underline">
+                    Privacy Policy
+                  </Link>
                 </p>
               </div>
             </div>

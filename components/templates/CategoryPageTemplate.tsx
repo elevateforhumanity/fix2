@@ -12,16 +12,16 @@ export interface CategoryPageData {
   description: string;
   badges?: Array<{ text: string; color: string }>;
   heroGradient?: string;
-  
+
   // At-a-Glance
   duration?: string;
   cost?: string;
   format?: string;
   outcome?: string;
-  
+
   // Who This Is For
   targetAudience?: string[];
-  
+
   // Programs in this category
   programs: Array<{
     slug: string;
@@ -31,7 +31,7 @@ export interface CategoryPageData {
     price?: string;
     heroImage?: string;
   }>;
-  
+
   // CTA
   ctaPrimary?: { text: string; href: string };
   ctaSecondary?: { text: string; href: string };
@@ -49,9 +49,10 @@ export function CategoryPageTemplate({ data }: CategoryPageTemplateProps) {
         title={data.title}
         description={data.description}
         badges={data.badges}
-        gradient={data.heroGradient || '  to-black'}
         primaryCTA={data.ctaPrimary || { text: 'Apply Now', href: '/apply' }}
-        secondaryCTA={data.ctaSecondary || { text: 'Talk to an Advisor', href: '/contact' }}
+        secondaryCTA={
+          data.ctaSecondary || { text: 'Talk to an Advisor', href: '/contact' }
+        }
       />
 
       {/* At-a-Glance Section */}
@@ -80,7 +81,9 @@ export function CategoryPageTemplate({ data }: CategoryPageTemplateProps) {
         title="Ready to Get Started?"
         description="Apply now or talk to an advisor to learn more about our programs."
         primaryCTA={data.ctaPrimary || { text: 'Apply Now', href: '/apply' }}
-        secondaryCTA={data.ctaSecondary || { text: 'Contact Us', href: '/contact' }}
+        secondaryCTA={
+          data.ctaSecondary || { text: 'Contact Us', href: '/contact' }
+        }
       />
     </main>
   );

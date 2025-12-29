@@ -7,7 +7,8 @@ import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
   title: 'RISE Foundation VITA | Free Tax Preparation | Elevate For Humanity',
-  description: 'RISE Foundation offers free IRS-certified tax preparation through VITA. Income $64,000 or less qualifies. Volunteer opportunities available.',
+  description:
+    'RISE Foundation offers free IRS-certified tax preparation through VITA. Income $64,000 or less qualifies. Volunteer opportunities available.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/vita',
   },
@@ -17,17 +18,19 @@ export default function VITAPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative h-[500px]   ">
+      <section className="relative h-[500px]">
         <div className="absolute inset-0">
-          <Image priority
-            src="/media/programs/efh-tax-office-startup-hero.jpg"
+          <Image
+            priority
+            src="/images/tax-office-2.jpg"
             alt="VITA Program - Free Tax Preparation"
             fill
-            className="object-cover opacity-20"
+            className="object-cover"
             quality={100}
             sizes="100vw"
           />
         </div>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
           <div className="text-white max-w-3xl">
             <div className="mb-4">
@@ -39,7 +42,8 @@ export default function VITAPage() {
               Free Tax Preparation
             </h1>
             <p className="text-base md:text-lg mb-8 font-light">
-              RISE Foundation provides free IRS-certified tax preparation through VITA for individuals earning $64,000 or less
+              RISE Foundation provides free IRS-certified tax preparation
+              through VITA for individuals earning $64,000 or less
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
