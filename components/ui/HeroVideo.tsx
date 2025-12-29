@@ -40,8 +40,8 @@ export function HeroVideo({
         loop
         playsInline
         muted
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
-        poster={posterSrc}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>

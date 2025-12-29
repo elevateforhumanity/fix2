@@ -114,7 +114,6 @@ export default function HeroVideo({
       <video
         ref={videoRef}
         src={src}
-        poster={poster}
         preload="auto"
         playsInline
         loop

@@ -104,8 +104,7 @@ export default function HeroMedia({
           muted
           playsInline
           autoPlay
-          preload="metadata"
-          poster={poster}
+          preload="auto"
         >
           <source src={videoSrc} />
         </video>

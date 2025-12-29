@@ -104,7 +104,7 @@ export default function HomePage() {
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
-                  src="/images/programs/business.jpg"
+                  src="/images/programs/efh-business-startup-marketing-card.jpg"
                   alt="Industry Alignment"
                   width={80}
                   height={80}
@@ -124,7 +124,7 @@ export default function HomePage() {
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
-                  src="/images/facilities-new/facility-exterior.jpg"
+                  src="/images/facilities-new/facility-1.jpg"
                   alt="Locations"
                   width={80}
                   height={80}
@@ -144,7 +144,7 @@ export default function HomePage() {
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
-                  src="/images/learners/graduates-celebrating.jpg"
+                  src="/images/learners/coaching-session.jpg"
                   alt="Hire Graduates"
                   width={80}
                   height={80}
@@ -180,7 +180,7 @@ export default function HomePage() {
             <Link href="/programs#manufacturing" className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <div className="aspect-video relative bg-gradient-to-br from-blue-500 to-blue-700">
                 <Image
-                  src="/images/programs/manufacturing.jpg"
+                  src="/images/programs/efh-building-tech-card.jpg"
                   alt="Advanced Manufacturing"
                   fill
                   className="object-cover opacity-80"
@@ -195,7 +195,7 @@ export default function HomePage() {
             <Link href="/programs#construction" className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <div className="aspect-video relative bg-gradient-to-br from-orange-500 to-orange-700">
                 <Image
-                  src="/images/programs/construction.jpg"
+                  src="/images/programs/building-maintenance-hero.jpg"
                   alt="Building & Construction"
                   fill
                   className="object-cover opacity-80"
@@ -210,7 +210,7 @@ export default function HomePage() {
             <Link href="/programs#business" className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <div className="aspect-video relative bg-gradient-to-br from-green-500 to-green-700">
                 <Image
-                  src="/images/programs/business.jpg"
+                  src="/images/programs/efh-business-startup-marketing-card.jpg"
                   alt="Business & IT Services"
                   fill
                   className="object-cover opacity-80"
@@ -225,7 +225,7 @@ export default function HomePage() {
             <Link href="/programs#entrepreneurship" className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <div className="aspect-video relative bg-gradient-to-br from-purple-500 to-purple-700">
                 <Image
-                  src="/images/programs/entrepreneurship.jpg"
+                  src="/images/programs/efh-barber-card.jpg"
                   alt="Entrepreneurship"
                   fill
                   className="object-cover opacity-80"
@@ -240,7 +240,7 @@ export default function HomePage() {
             <Link href="/programs#healthcare" className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <div className="aspect-video relative bg-gradient-to-br from-red-500 to-red-700">
                 <Image
-                  src="/images/programs/healthcare.jpg"
+                  src="/images/programs/efh-cna-card.jpg"
                   alt="Healthcare & Life Sciences"
                   fill
                   className="object-cover opacity-80"

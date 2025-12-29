@@ -21,16 +21,23 @@ export default function HealthcarePage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative bg-gray-900 py-20 md:py-32">
+        {/* Video Background */}
         <video
           autoPlay
           loop
-          playsInline
           muted
+          playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/cna-hero.mp4" type="video/mp4" />
         </video>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">

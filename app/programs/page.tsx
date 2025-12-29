@@ -233,7 +233,7 @@ export default function ProgramsPage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image src="/images/learners/graduates-celebrating.jpg" alt="Get Hired" width={64} height={64} className="object-cover w-full h-full" />
+                <Image src="/images/learners/coaching-session.jpg" alt="Get Hired" width={64} height={64} className="object-cover w-full h-full" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Get Hired</h3>
               <p className="text-gray-600">We connect you directly with employers</p>
