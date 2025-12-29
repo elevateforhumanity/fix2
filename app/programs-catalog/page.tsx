@@ -21,7 +21,7 @@ export default function ProgramsCatalogPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/programs/hvac-hero.jpg"
+          
         >
           <source src="/videos/programs-overview-video.mp4" type="video/mp4" />
         </video>

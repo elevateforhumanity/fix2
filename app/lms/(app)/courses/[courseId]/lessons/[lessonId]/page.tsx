@@ -279,7 +279,7 @@ export default function LessonPage() {
             playsInline
             controlsList="nodownload"
             className="w-full h-full"
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
+            
             onEnded={() => {
               if (!isCompleted) {
                 setIsCompleted(true);

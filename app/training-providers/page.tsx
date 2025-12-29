@@ -23,7 +23,7 @@ export default async function TrainingProvidersPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/heroes/hero-employer-partnerships.jpg"
+          
         >
           <source src="/videos/training-providers-video-with-narration.mp4" type="video/mp4" />
         </video>

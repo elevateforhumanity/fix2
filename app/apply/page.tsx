@@ -71,7 +71,7 @@ export default function ApplyLandingPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/heroes/hero-homepage.jpg"
+          
         >
           <source src="/videos/apply-section-video.mp4" type="video/mp4" />
         </video>

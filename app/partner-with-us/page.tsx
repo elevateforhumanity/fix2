@@ -84,7 +84,7 @@ export default function PartnerWithUsPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/heroes/hero-employer-partnerships.jpg"
+          
         >
           <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
         </video>

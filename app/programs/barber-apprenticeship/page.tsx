@@ -56,7 +56,7 @@ export default function BarberApprenticeshipPage() {
             playsInline
             muted
             className="w-full h-full object-cover"
-            poster="/images/barber-hero.jpg"
+            
           >
             <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
           </video>

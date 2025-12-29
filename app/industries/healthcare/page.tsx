@@ -26,7 +26,7 @@ export default function HealthcarePage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/heroes/hero-health.jpg"
+          
         >
           <source src="/videos/cna-hero.mp4" type="video/mp4" />
         </video>

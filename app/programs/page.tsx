@@ -38,7 +38,7 @@ export default function ProgramsPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/programs/cna-hero.jpg"
+          
         >
           <source
             src="/videos/programs-overview-video-with-narration.mp4"
@@ -211,22 +211,30 @@ export default function ProgramsPage() {
           {/* 4-Step Process */}
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
+                <Image src="/images/programs/efh-business-startup-marketing-card.jpg" alt="Apply" width={64} height={64} className="object-cover w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Apply</h3>
               <p className="text-gray-600">Quick online application - takes 10 minutes</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
+                <Image src="/images/programs/efh-cna-card.jpg" alt="Get Approved" width={64} height={64} className="object-cover w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Get Approved</h3>
               <p className="text-gray-600">We check funding eligibility (WIOA, WRG, Apprenticeships)</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
+                <Image src="/images/programs/efh-barber-card.jpg" alt="Start Training" width={64} height={64} className="object-cover w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Start Training</h3>
               <p className="text-gray-600">Hands-on training with industry certifications</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
+                <Image src="/images/learners/graduates-celebrating.jpg" alt="Get Hired" width={64} height={64} className="object-cover w-full h-full" />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Get Hired</h3>
               <p className="text-gray-600">We connect you directly with employers</p>
             </div>
@@ -268,10 +276,8 @@ export default function ProgramsPage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
+                  <Image src="/images/programs/efh-cpr-aed-first-aid-card.jpg" alt="Certifications" width={48} height={48} className="object-cover w-full h-full" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Industry Certifications</h3>
@@ -279,10 +285,8 @@ export default function ProgramsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
+                  <Image src="/images/programs/efh-building-tech-card.jpg" alt="Training" width={48} height={48} className="object-cover w-full h-full" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Hands-On Training</h3>
@@ -290,10 +294,8 @@ export default function ProgramsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
+                  <Image src="/images/programs/efh-esthetician-client-services-card.jpg" alt="Career Services" width={48} height={48} className="object-cover w-full h-full" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Career Services</h3>
@@ -301,10 +303,8 @@ export default function ProgramsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-green-200">
+                  <Image src="/images/programs/efh-public-safety-reentry-card.jpg" alt="Employers" width={48} height={48} className="object-cover w-full h-full" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Employer Connections</h3>

@@ -31,7 +31,7 @@ export default function EmployersPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/heroes/hero-employers.jpg"
+          
         >
           <source src="/videos/employer-section-video.mp4" type="video/mp4" />
         </video>
