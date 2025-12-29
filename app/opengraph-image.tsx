@@ -9,6 +9,8 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
+  // For OG images, we need to use absolute URLs or inline the image
+  // Using a solid color background with text overlay instead
   return new ImageResponse(
     (
       <div
@@ -16,20 +18,35 @@ export default async function Image() {
           width: '100%',
           height: '100%',
           display: 'flex',
-          position: 'relative',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: '#2563eb',
+          color: 'white',
+          fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <img
-          src="/images/heroes/hero-homepage.jpg"
-          alt="Elevate for Humanity"
-          width="1200"
-          height="630"
+        <div
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
+            fontSize: 72,
+            fontWeight: 'bold',
+            marginBottom: 20,
+            textAlign: 'center',
+            padding: '0 40px',
           }}
-        />
+        >
+          Elevate for Humanity
+        </div>
+        <div
+          style={{
+            fontSize: 36,
+            textAlign: 'center',
+            padding: '0 60px',
+            opacity: 0.9,
+          }}
+        >
+          Workforce Training & Career Development
+        </div>
       </div>
     ),
     {
