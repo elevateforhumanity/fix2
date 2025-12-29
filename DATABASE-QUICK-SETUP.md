@@ -24,13 +24,23 @@ This will:
 
 1. Still in **SQL Editor**
 2. Open the file: `COPY-PASTE-PROGRAMS.sql`
-3. Copy the ENTIRE contents
+3. Copy the ENTIRE contents (1169 lines)
 4. Paste into Supabase SQL Editor
 5. Click **Run**
 
 This will add 30+ training programs to your database.
 
 **Expected Result**: Multiple INSERT statements succeed
+
+**Note**: If you see "duplicate key value" errors, programs are already seeded. This is safe to ignore.
+
+### Verify Programs Seeded
+
+1. Open the file: `VERIFY-PROGRAMS-SEEDED.sql`
+2. Copy and paste into SQL Editor
+3. Click **Run**
+
+**Expected Output**: "✅ Programs seeded successfully!" with 30+ programs listed
 
 ## Step 3: Verify Setup
 
