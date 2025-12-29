@@ -209,14 +209,6 @@ export const publicNav: NavSection[] = [
       { label: 'Contact', href: '/contact' },
     ],
   },
-  {
-    label: 'Apply',
-    href: '/apply',
-  },
-  {
-    label: 'Login',
-    href: '/login',
-  },
 ];
 
 /**
