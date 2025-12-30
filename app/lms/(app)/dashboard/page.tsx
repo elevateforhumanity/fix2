@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { requireRole } from '@/lib/auth/require-role';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getStudentState } from '@/lib/orchestration/state-machine';
 import {
   StateAwareDashboard,
@@ -15,6 +16,9 @@ import {
   FileText,
   Users,
   HelpCircle,
+  GraduationCap,
+  TrendingUp,
+  Target,
 } from 'lucide-react';
 import { PointsDisplay } from '@/components/gamification/PointsDisplay';
 import { BadgeShowcase } from '@/components/gamification/BadgeShowcase';
@@ -151,19 +155,60 @@ export default async function StudentDashboardOrchestrated() {
   ];
 
   return (
-    <StateAwareDashboard
-      dominantAction={stateData.dominantAction}
-      availableSections={stateData.availableSections}
-      lockedSections={stateData.lockedSections}
-      progressPercentage={stateData.progressPercentage}
-      alerts={stateData.alerts}
-    >
-      {/* Gamification Stats */}
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <PointsDisplay userId={user.id} />
-        <StreakTracker userId={user.id} />
-        <BadgeShowcase userId={user.id} limit={3} />
+    <>
+      {/* Hero Welcome Banner */}
+      <div className="relative bg-gradient-to-r from-green-600 to-blue-600 text-white mb-8 rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
+            alt="Learning"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative z-10 p-8 md:p-12">
+          <div className="flex items-center gap-3 mb-4">
+            <GraduationCap className="w-10 h-10" />
+            <div>
+              <h1 className="text-3xl md:text-4xl font-black">
+                Welcome back, {profile?.full_name || user.email?.split('@')[0]}!
+              </h1>
+              <p className="text-lg text-green-100">
+                Continue your learning journey
+              </p>
+            </div>
+          </div>
+          
+          {activeEnrollment && (
+            <div className="mt-6 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-semibold">Current Program Progress</span>
+                <span className="font-black">{Math.round(courseProgress)}%</span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-3">
+                <div 
+                  className="bg-white rounded-full h-3 transition-all duration-500"
+                  style={{ width: `${courseProgress}%` }}
+                ></div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
+
+      <StateAwareDashboard
+        dominantAction={stateData.dominantAction}
+        availableSections={stateData.availableSections}
+        lockedSections={stateData.lockedSections}
+        progressPercentage={stateData.progressPercentage}
+        alerts={stateData.alerts}
+      >
+        {/* Gamification Stats */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <PointsDisplay userId={user.id} />
+          <StreakTracker userId={user.id} />
+          <BadgeShowcase userId={user.id} limit={3} />
+        </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main Content - 2/3 width */}
@@ -392,5 +437,6 @@ export default async function StudentDashboardOrchestrated() {
         </div>
       </div>
     </StateAwareDashboard>
+    </>
   );
 }

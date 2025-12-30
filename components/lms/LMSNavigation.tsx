@@ -37,34 +37,34 @@ export function LMSNavigation({ user, profile }: LMSNavigationProps) {
     pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <nav role="navigation" aria-label="Main navigation" className="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <nav role="navigation" aria-label="Main navigation" className="bg-gradient-to-r from-green-600 to-blue-600 border-b-4 border-green-700 sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/lms/dashboard" aria-label="Link" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
+          <Link href="/lms/dashboard" aria-label="Link" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+              <BookOpen className="w-6 h-6 text-green-600" />
             </div>
-            <span className="font-bold text-xl hidden md:block">
+            <span className="font-black text-xl text-white hidden md:block uppercase tracking-tight">
               Learning Portal
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold transition-all ${
                     isActive(item.href)
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      ? 'bg-white text-green-600 shadow-lg'
+                      : 'text-white hover:bg-white/20 hover:backdrop-blur-sm'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-5 h-5" />
                   {item.label}
                 </Link>
               );
@@ -76,7 +76,7 @@ export function LMSNavigation({ user, profile }: LMSNavigationProps) {
             {/* Search */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 hover:bg-slate-100 rounded-lg transition"
+              className="p-2 hover:bg-white/20 rounded-lg transition text-white"
             >
               <Search className="w-5 h-5 text-slate-600" />
             </button>
