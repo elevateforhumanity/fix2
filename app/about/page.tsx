@@ -8,6 +8,7 @@ import {
   Heart,
   Shield,
   TrendingUp,
+  CheckCircle,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
