@@ -6,9 +6,7 @@ import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-import SiteHeader from '@/components/layout/SiteHeader';
-import SiteFooter from '@/components/layout/SiteFooter';
-import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
+import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
 import AILiveChat from '@/components/chat/AILiveChat';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
@@ -171,12 +169,7 @@ export default function RootLayout({
         <SecurityMonitor />
         <CopyrightProtection />
         <ScraperDetection />
-        <SiteHeader />
-        <Breadcrumbs />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <SiteFooter />
+        <ConditionalLayout>{children}</ConditionalLayout>
         <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
