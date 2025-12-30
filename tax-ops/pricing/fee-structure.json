@@ -1,0 +1,78 @@
+{
+  "baseFees": {
+    "simple1040": {
+      "description": "W-2 only, standard deduction",
+      "basePrice": 89,
+      "subOfficeSplit": 45,
+      "mainOfficeSplit": 55
+    },
+    "standard1040": {
+      "description": "W-2 + basic deductions",
+      "basePrice": 149,
+      "subOfficeSplit": 45,
+      "mainOfficeSplit": 55
+    },
+    "complex1040": {
+      "description": "Multiple income sources, itemized",
+      "basePrice": 249,
+      "subOfficeSplit": 45,
+      "mainOfficeSplit": 55
+    }
+  },
+  "addOnFees": {
+    "description": "100% retained by Main Office",
+    "mainOfficeRetention": 100,
+    "fees": {
+      "scheduleC": {
+        "description": "Self-employment income",
+        "price": 150
+      },
+      "scheduleE": {
+        "description": "Rental property income",
+        "price": 100
+      },
+      "additionalW2": {
+        "description": "Each additional W-2 after first",
+        "price": 25
+      },
+      "additional1099": {
+        "description": "Each additional 1099",
+        "price": 30
+      },
+      "stateReturn": {
+        "description": "State tax return",
+        "price": 50
+      },
+      "dependents": {
+        "description": "Per dependent after first",
+        "price": 15
+      },
+      "priorYear": {
+        "description": "Prior year return",
+        "price": 50
+      },
+      "amendment": {
+        "description": "Amended return",
+        "price": 200
+      }
+    }
+  },
+  "exclusions": {
+    "description": "No compensation paid on these items",
+    "items": [
+      "Rejected returns",
+      "Withdrawn returns",
+      "Penalties and interest",
+      "Audit representation",
+      "Notice response",
+      "Refund advances",
+      "Third-party incentives"
+    ]
+  },
+  "notes": [
+    "Sub-Office receives 45% of base preparation fee only",
+    "All add-on fees retained 100% by Main Office",
+    "Compensation paid only on accepted returns",
+    "Pricing subject to change with 30-day notice"
+  ]
+}

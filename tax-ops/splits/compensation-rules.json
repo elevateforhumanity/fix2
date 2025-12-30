@@ -1,0 +1,50 @@
+{
+  "model": "hub_and_satellite",
+  "base_split": {
+    "sub_office_percentage": 45,
+    "main_office_percentage": 55,
+    "applies_to": "base_preparation_fee_only"
+  },
+  "add_on_fees": {
+    "sub_office_percentage": 0,
+    "main_office_percentage": 100,
+    "rationale": "Main Office handles all complexity, compliance, and risk"
+  },
+  "payment_conditions": {
+    "paid_on": "accepted_returns_only",
+    "not_paid_on": [
+      "Rejected returns",
+      "Withdrawn returns",
+      "Penalties and interest",
+      "Audit representation",
+      "Notice response work",
+      "Refund advances",
+      "Third-party incentives"
+    ]
+  },
+  "payment_timing": {
+    "frequency": "bi_weekly",
+    "cutoff": "returns_accepted_by_irs",
+    "processing_time": "7_business_days"
+  },
+  "quality_standards": {
+    "maximum_error_rate": 3,
+    "compliance_violations": "zero_tolerance",
+    "consequences": [
+      "Warning for first offense",
+      "Probation for second offense",
+      "Termination for third offense or major violation"
+    ]
+  },
+  "termination": {
+    "notice_required": "30_days_written",
+    "outstanding_compensation": "paid_for_accepted_returns",
+    "no_compensation_for": "pending_or_rejected_returns"
+  },
+  "legal_protection": [
+    "No partnership or joint venture created",
+    "No ownership interest conveyed",
+    "Independent contractor relationship",
+    "Main Office retains all final authority"
+  ]
+}

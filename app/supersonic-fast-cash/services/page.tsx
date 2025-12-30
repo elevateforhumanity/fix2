@@ -75,16 +75,18 @@ export default function ServicesPage() {
     },
     {
       icon: Shield,
-      name: 'Audit Protection',
+      name: 'IRS Audit Protection',
       price: '$49/year',
-      description: 'Peace of mind with professional audit representation',
+      description: 'Licensed Enrolled Agent representation before the IRS',
       features: [
-        'IRS audit representation',
+        'Licensed EA representation',
+        'IRS audit defense',
         'State audit support',
         'Document preparation',
-        'Communication handling',
+        'Direct IRS communication',
         'Resolution assistance',
         'Unlimited consultations',
+        'Appeals representation',
       ],
     },
     {

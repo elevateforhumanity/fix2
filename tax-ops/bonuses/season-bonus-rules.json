@@ -1,0 +1,25 @@
+{
+  "bonus_type": "end_of_season",
+  "eligibility": {
+    "minimum_returns": 50,
+    "error_rate_max_percent": 3,
+    "compliance_issues": false
+  },
+  "volume_bonuses": [
+    { "returns": "50-74", "bonus": 500 },
+    { "returns": "75-99", "bonus": 1000 },
+    { "returns": "100+", "bonus": 1500 }
+  ],
+  "quality_bonuses": [
+    { "criteria": "error_rate_under_3_percent", "bonus": 500 },
+    { "criteria": "zero_compliance_flags", "bonus": 500 }
+  ],
+  "discretionary": true,
+  "paid_after_season_close": true,
+  "notes": [
+    "Bonuses are discretionary, performance-based, and do not modify base compensation percentages.",
+    "Paid only after tax season closes and all returns are accepted",
+    "Subject to quality review and compliance audit",
+    "Main Office reserves right to adjust or withhold based on performance"
+  ]
+}

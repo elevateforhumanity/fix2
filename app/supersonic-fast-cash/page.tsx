@@ -164,6 +164,37 @@ export default function SupersonicMarketingPage() {
         </div>
       </section>
 
+      {/* Licensed EA Credentials Banner */}
+      <section className="py-8 bg-white border-y-4 border-red-600">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+            <div className="flex items-center gap-4">
+              <Shield className="w-16 h-16 text-red-600" />
+              <div>
+                <div className="text-2xl font-black text-blue-900">
+                  Licensed Enrolled Agent
+                </div>
+                <div className="text-gray-600">
+                  IRS-Authorized Tax Professional
+                </div>
+              </div>
+            </div>
+            <div className="h-12 w-px bg-gray-300 hidden md:block"></div>
+            <div className="text-center">
+              <div className="text-lg font-bold text-blue-900 mb-2">
+                Full IRS Representation Rights
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-700">
+                <span>✅ Audit Defense</span>
+                <span>✅ Appeals</span>
+                <span>✅ Collections</span>
+                <span>✅ Tax Court</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* All Services - Marketing Cards */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
