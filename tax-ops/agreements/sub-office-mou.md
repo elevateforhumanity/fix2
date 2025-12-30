@@ -51,8 +51,25 @@ Excessive errors or violations may result in removal from bonus eligibility or t
 Either party may terminate this agreement with written notice. Accepted returns completed
 prior to termination will be paid according to this agreement.
 
+## 7. Self-Prepared Tax Services (Restriction)
+
+Sub-Offices are **not authorized** to offer, advertise, or provide:
+
+- Tax return review services
+- Tax consultation services
+- Guided self-filing or "help while filing"
+- Advice to clients filing their own returns
+
+All self-prepared tax review and consultation services are offered **exclusively by the Main Office**.
+
+Any violation of this provision may result in:
+
+- Immediate termination of Sub-Office participation
+- Forfeiture of pending compensation
+- Removal from bonus eligibility
+
 ---
 
-**Sub-Office Representative:** **********\_\_**********  
-**Main Office Representative:** ********\_\_\_\_********  
-**Date:** ********\_\_\_\_********
+**Sub-Office Representative:** \***\*\*\*\*\***\_\_\***\*\*\*\*\***  
+**Main Office Representative:** **\*\*\*\***\_\_\_\_**\*\*\*\***  
+**Date:** **\*\*\*\***\_\_\_\_**\*\*\*\***

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tax Intake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+    label { display:block; margin-top:15px; }
+    button { margin-top:20px; padding:10px 16px; }
+  </style>
+</head>
+<body>
+
+<h1>Tax Service Intake</h1>
+
+<form id="intakeForm">
+  <label>
+    How would you like to handle your taxes?
+    <select id="serviceType" required>
+      <option value="">Select one</option>
+      <option value="full">I want full tax preparation</option>
+      <option value="self">I prepared my own return and want a review or help</option>
+    </select>
+  </label>
+
+  <button type="submit">Continue</button>
+</form>
+
+<script>
+  document.getElementById("intakeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const choice = document.getElementById("serviceType").value;
+
+    if (choice === "full") {
+      window.location.href = "/full-tax-prep";
+    } else if (choice === "self") {
+      window.location.href = "/self-prepared-tax-support";
+    }
+  });
+</script>
+
+</body>
+</html>
