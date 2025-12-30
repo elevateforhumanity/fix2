@@ -6,6 +6,18 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { programs } from '@/app/data/programs';
+import {
+  Briefcase,
+  DollarSign,
+  GraduationCap,
+  Award,
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+  Clock,
+  Users,
+  Building2
+} from 'lucide-react';
 
 
 const apprenticeshipPrograms = programs.filter(
@@ -19,37 +31,82 @@ export default function ApprenticeshipsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/artlist/hero-training-1.jpg"
-          alt="Registered Apprenticeship Programs"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center drop-shadow-lg">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-md">
-            Registered Apprenticeship Programs
-          </h1>
-          <p className="text-base md:text-lg mb-8 text-white drop-shadow-md">
-            Earn while you learn. Get paid on-the-job training with industry
-            certifications.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
-            >
-              Apply Now
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg"
-            >
-              View All Programs
-            </Link>
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-green-900 text-white py-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
+            alt="Apprenticeship training"
+            fill
+            className="object-cover"
+          />
+        </div>
+        
+        {/* Animated Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/70 to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 mb-6">
+              <Award className="w-5 h-5 text-orange-400" />
+              <span className="text-orange-100 font-semibold">U.S. Department of Labor Registered</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight">
+              Apprenticeship Programs
+            </h1>
+            <p className="text-2xl md:text-3xl font-bold text-gray-100 mb-8 max-w-4xl mx-auto">
+              Earn While You Learn. Get Paid to Train.
+            </p>
+            <p className="text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
+              Combine on-the-job training with classroom instruction. Graduate with industry certifications and zero debt.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Link
+                href="/apprenticeships/apply"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-5 text-lg font-black text-white shadow-2xl hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-105 uppercase"
+              >
+                Apply Now
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="#programs"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl border-3 border-white bg-white/10 backdrop-blur-sm px-10 py-5 text-lg font-black text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
+              >
+                View Programs
+                <Briefcase className="w-5 h-5" />
+              </Link>
+            </div>
+
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">Get Paid</div>
+                <div className="text-sm text-gray-200">From Day One</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <GraduationCap className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">$0 Debt</div>
+                <div className="text-sm text-gray-200">No Tuition</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <Award className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">Certified</div>
+                <div className="text-sm text-gray-200">Industry Credentials</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <TrendingUp className="w-10 h-10 text-orange-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">Career</div>
+                <div className="text-sm text-gray-200">Job Guaranteed</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
