@@ -11,184 +11,115 @@ import {
 
 export default function SupersonicMarketingPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header - Red/White/Blue */}
-      <header className="bg-blue-900 text-white sticky top-0 z-50 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link
-              href="/supersonic-fast-cash"
-              className="flex items-center gap-3"
-            >
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                <DollarSign className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-2xl font-black uppercase">
-                Supersonic Fast Cash
-              </div>
-            </Link>
-
-            <nav className="hidden md:flex items-center gap-6">
-              <div className="relative group">
-                <button className="flex items-center gap-1 font-bold hover:text-red-500">
-                  Services <ChevronDown className="w-4 h-4" />
-                </button>
-                <div className="absolute top-full left-0 bg-white text-gray-900 shadow-xl rounded-lg p-4 hidden group-hover:block w-64">
-                  <Link
-                    href="/supersonic-fast-cash/apply"
-                    className="block py-2 hover:text-red-600"
-                  >
-                    Tax Refund Advance
-                  </Link>
-                  <Link
-                    href="/supersonic-fast-cash/services"
-                    className="block py-2 hover:text-red-600"
-                  >
-                    Professional Tax Prep
-                  </Link>
-                  <Link
-                    href="/supersonic-fast-cash/diy-taxes"
-                    className="block py-2 hover:text-red-600"
-                  >
-                    DIY Self-Prep
-                  </Link>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <button className="flex items-center gap-1 font-bold hover:text-red-500">
-                  Tools <ChevronDown className="w-4 h-4" />
-                </button>
-                <div className="absolute top-full left-0 bg-white text-gray-900 shadow-xl rounded-lg p-4 hidden group-hover:block w-64">
-                  <Link
-                    href="/supersonic-fast-cash/calculator"
-                    className="block py-2 hover:text-red-600"
-                  >
-                    Refund Calculator
-                  </Link>
-                  <Link
-                    href="/supersonic-fast-cash/tools/refund-tracker"
-                    className="block py-2 hover:text-red-600"
-                  >
-                    Track Refund
-                  </Link>
-                  <Link
-                    href="/supersonic-fast-cash/upload-documents"
-                    className="block py-2 hover:text-red-600"
-                  >
-                    Upload Documents
-                  </Link>
-                </div>
-              </div>
-
-              <Link
-                href="/supersonic-fast-cash/pricing"
-                className="font-bold hover:text-red-500"
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/supersonic-fast-cash/locations"
-                className="font-bold hover:text-red-500"
-              >
-                Locations
-              </Link>
-            </nav>
-
-            <div className="flex items-center gap-3">
-              <a href="tel:+13173143757" className="hidden sm:block font-bold">
-                📞 (317) 314-3757
-              </a>
-              <Link
-                href="/supersonic-fast-cash/apply"
-                className="px-6 py-3 bg-red-600 text-white font-black rounded-lg hover:bg-red-700 uppercase"
-              >
-                Apply Now
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero - Marketing Focus */}
-      <section className="bg-gradient-to-r from-blue-900 via-red-700 to-blue-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase">
+      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-red-900 text-white py-24 overflow-hidden">
+        {/* Animated background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-red-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h1 className="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tight leading-none">
               Get Your Tax Refund
-              <span className="block text-red-500">TODAY!</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600 animate-pulse">
+                TODAY!
+              </span>
             </h1>
-            <p className="text-2xl md:text-3xl mb-8">
-              Up to $7,500 in Just 15 Minutes
+            <p className="text-3xl md:text-4xl mb-12 font-bold text-gray-100">
+              Up to <span className="text-red-400">$7,500</span> in Just{' '}
+              <span className="text-red-400">15 Minutes</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 href="/supersonic-fast-cash/apply"
-                className="px-12 py-6 bg-red-600 text-white text-2xl font-black rounded-lg hover:bg-red-700 shadow-2xl uppercase"
+                className="group px-14 py-7 bg-gradient-to-r from-red-600 to-red-700 text-white text-2xl font-black rounded-2xl hover:from-red-700 hover:to-red-800 shadow-2xl hover:shadow-red-500/50 uppercase transform hover:scale-105 transition-all duration-300"
               >
-                💵 Get Cash Now
+                <span className="flex items-center justify-center gap-3">
+                  💵 Get Cash Now
+                  <span className="group-hover:translate-x-2 transition-transform">
+                    →
+                  </span>
+                </span>
               </Link>
               <Link
                 href="/supersonic-fast-cash/diy-taxes"
-                className="px-12 py-6 bg-white text-blue-900 text-2xl font-black rounded-lg hover:bg-gray-100 shadow-2xl uppercase"
+                className="group px-14 py-7 bg-white text-blue-900 text-2xl font-black rounded-2xl hover:bg-gray-50 shadow-2xl hover:shadow-white/50 uppercase transform hover:scale-105 transition-all duration-300"
               >
-                📝 File Yourself
+                <span className="flex items-center justify-center gap-3">
+                  📝 File Yourself
+                  <span className="group-hover:translate-x-2 transition-transform">
+                    →
+                  </span>
+                </span>
               </Link>
             </div>
           </div>
 
           {/* Key Benefits */}
-          <div className="grid md:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <div className="text-5xl mb-3">💵</div>
-              <div className="font-bold text-xl">Up to $7,500</div>
-              <div className="text-sm">Same-day cash</div>
+          <div className="grid md:grid-cols-4 gap-6 mt-16">
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <div className="text-6xl mb-4">💵</div>
+              <div className="font-black text-2xl mb-2">Up to $7,500</div>
+              <div className="text-gray-200">Same-day cash</div>
             </div>
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <div className="text-5xl mb-3">⚡</div>
-              <div className="font-bold text-xl">15 Minutes</div>
-              <div className="text-sm">Fast approval</div>
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <div className="text-6xl mb-4">⚡</div>
+              <div className="font-black text-2xl mb-2">15 Minutes</div>
+              <div className="text-gray-200">Fast approval</div>
             </div>
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <div className="text-5xl mb-3">✅</div>
-              <div className="font-bold text-xl">No Credit Check</div>
-              <div className="text-sm">Everyone approved</div>
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <div className="text-6xl mb-4">✅</div>
+              <div className="font-black text-2xl mb-2">No Credit Check</div>
+              <div className="text-gray-200">Everyone approved</div>
             </div>
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <div className="text-5xl mb-3">🏦</div>
-              <div className="font-bold text-xl">FDIC Insured</div>
-              <div className="text-sm">Safe & secure</div>
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <div className="text-6xl mb-4">🏦</div>
+              <div className="font-black text-2xl mb-2">FDIC Insured</div>
+              <div className="text-gray-200">Safe & secure</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Licensed EA Credentials Banner */}
-      <section className="py-8 bg-white border-y-4 border-red-600">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
-            <div className="flex items-center gap-4">
-              <Shield className="w-16 h-16 text-red-600" />
+      <section className="py-12 bg-gradient-to-r from-white via-gray-50 to-white border-y-4 border-red-600 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-12 text-center md:text-left">
+            <div className="flex items-center gap-6 group">
+              <div className="p-4 bg-red-50 rounded-2xl group-hover:bg-red-100 transition-colors">
+                <Shield className="w-20 h-20 text-red-600" />
+              </div>
               <div>
-                <div className="text-2xl font-black text-blue-900">
+                <div className="text-3xl font-black text-blue-900 mb-1">
                   Licensed Enrolled Agent
                 </div>
-                <div className="text-gray-600">
+                <div className="text-lg text-gray-600 font-semibold">
                   IRS-Authorized Tax Professional
                 </div>
               </div>
             </div>
-            <div className="h-12 w-px bg-gray-300 hidden md:block"></div>
+            <div className="h-16 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent hidden md:block"></div>
             <div className="text-center">
-              <div className="text-lg font-bold text-blue-900 mb-2">
+              <div className="text-xl font-black text-blue-900 mb-4">
                 Full IRS Representation Rights
               </div>
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-700">
-                <span>✅ Audit Defense</span>
-                <span>✅ Appeals</span>
-                <span>✅ Collections</span>
-                <span>✅ Tax Court</span>
+              <div className="flex flex-wrap justify-center gap-6 text-base">
+                <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
+                  ✅ Audit Defense
+                </span>
+                <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
+                  ✅ Appeals
+                </span>
+                <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
+                  ✅ Collections
+                </span>
+                <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
+                  ✅ Tax Court
+                </span>
               </div>
             </div>
           </div>
@@ -196,113 +127,193 @@ export default function SupersonicMarketingPage() {
       </section>
 
       {/* All Services - Marketing Cards */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-black text-center mb-12 uppercase">
-            Choose Your Service
-          </h2>
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase tracking-tight">
+              Choose Your Service
+            </h2>
+            <p className="text-xl text-gray-600 font-semibold">
+              Professional tax solutions for every need
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Tax Refund Advance */}
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden border-4 border-red-600">
-              <div className="bg-red-600 text-white p-6 text-center">
-                <div className="text-6xl mb-3">💰</div>
-                <h3 className="text-2xl font-black uppercase">
+            <div className="group bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-red-600 hover:border-red-700 transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-br from-red-600 to-red-700 text-white p-8 text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="text-7xl mb-4 relative z-10">💰</div>
+                <h3 className="text-3xl font-black uppercase relative z-10">
                   Tax Refund Advance
                 </h3>
               </div>
-              <div className="p-6">
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>Up to $7,500 cash today</span>
+              <div className="p-8">
+                <ul className="space-y-4 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      Up to $7,500 cash today
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>15-minute approval</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      15-minute approval
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>No credit check needed</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      No credit check needed
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>Free tax preparation included</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      Free tax preparation included
+                    </span>
                   </li>
                 </ul>
-                <Link
-                  href="/supersonic-fast-cash/apply"
-                  className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-lg hover:bg-red-700 uppercase"
-                >
-                  Apply Now →
-                </Link>
+
+                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6">
+                  <div className="font-black text-red-900 mb-2 text-sm uppercase">
+                    Documents Needed:
+                  </div>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• Photo ID (Driver's License)</li>
+                    <li>• Social Security Card</li>
+                    <li>• W-2 or 1099 forms</li>
+                    <li>• Last year's tax return</li>
+                    <li>• Bank account info</li>
+                  </ul>
+                </div>
+
+                <div className="flex gap-3">
+                  <Link
+                    href="/supersonic-fast-cash/apply"
+                    className="flex-1 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white text-center font-black rounded-xl hover:from-red-700 hover:to-red-800 uppercase shadow-lg hover:shadow-red-500/50 transition-all"
+                  >
+                    Apply Now
+                  </Link>
+                  <Link
+                    href="/supersonic-fast-cash/upload-documents"
+                    className="px-4 py-4 bg-white border-2 border-red-600 text-red-600 font-black rounded-xl hover:bg-red-50 transition-all"
+                    title="Upload Documents"
+                  >
+                    📤
+                  </Link>
+                </div>
               </div>
             </div>
 
             {/* Professional Tax Prep */}
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden border-4 border-blue-900">
-              <div className="bg-blue-900 text-white p-6 text-center">
-                <div className="text-6xl mb-3">👨‍💼</div>
-                <h3 className="text-2xl font-black uppercase">
+            <div className="group bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-blue-900 hover:border-blue-950 transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white p-8 text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="text-7xl mb-4 relative z-10">👨‍💼</div>
+                <h3 className="text-3xl font-black uppercase relative z-10">
                   Professional Tax Prep
                 </h3>
               </div>
-              <div className="p-6">
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-900 flex-shrink-0 mt-1" />
-                    <span>IRS-certified preparers</span>
+              <div className="p-8">
+                <ul className="space-y-4 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-blue-900 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      IRS-certified preparers
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-900 flex-shrink-0 mt-1" />
-                    <span>Maximum refund guaranteed</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-blue-900 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      Maximum refund guaranteed
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-900 flex-shrink-0 mt-1" />
-                    <span>Online or in-person</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-blue-900 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      Online or in-person
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-900 flex-shrink-0 mt-1" />
-                    <span>All 50 states</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-blue-900 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      All 50 states
+                    </span>
                   </li>
                 </ul>
-                <Link
-                  href="/supersonic-fast-cash/book-appointment"
-                  className="block w-full py-4 bg-blue-900 text-white text-center font-black rounded-lg hover:bg-blue-800 uppercase"
-                >
-                  Book Appointment →
-                </Link>
+
+                <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 mb-6">
+                  <div className="font-black text-blue-900 mb-2 text-sm uppercase">
+                    Documents Needed:
+                  </div>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• All W-2s and 1099s</li>
+                    <li>• Income statements</li>
+                    <li>• Deduction receipts</li>
+                    <li>• Investment statements</li>
+                    <li>• Prior year return</li>
+                  </ul>
+                </div>
+
+                <div className="flex gap-3">
+                  <Link
+                    href="/supersonic-fast-cash/book-appointment"
+                    className="flex-1 py-4 bg-gradient-to-r from-blue-900 to-blue-950 text-white text-center font-black rounded-xl hover:from-blue-950 hover:to-blue-900 uppercase shadow-lg hover:shadow-blue-500/50 transition-all"
+                  >
+                    Book Now
+                  </Link>
+                  <Link
+                    href="/supersonic-fast-cash/upload-documents"
+                    className="px-4 py-4 bg-white border-2 border-blue-900 text-blue-900 font-black rounded-xl hover:bg-blue-50 transition-all"
+                    title="Upload Documents"
+                  >
+                    📤
+                  </Link>
+                </div>
               </div>
             </div>
 
             {/* DIY Self-Prep */}
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden border-4 border-red-600">
-              <div className="bg-red-600 text-white p-6 text-center">
-                <div className="text-6xl mb-3">💻</div>
-                <h3 className="text-2xl font-black uppercase">DIY Self-Prep</h3>
+            <div className="group bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-green-600 hover:border-green-700 transform hover:scale-105 transition-all duration-300">
+              <div className="bg-gradient-to-br from-green-600 to-green-700 text-white p-8 text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="text-7xl mb-4 relative z-10">💻</div>
+                <h3 className="text-3xl font-black uppercase relative z-10">
+                  DIY Self-Prep
+                </h3>
               </div>
-              <div className="p-6">
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>File your own taxes online</span>
+              <div className="p-8">
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      File your own taxes online
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>Easy step-by-step wizard</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      Easy step-by-step wizard
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>Free for simple returns</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      Free for simple returns
+                    </span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                    <span>E-file directly to IRS</span>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-lg font-semibold text-gray-700">
+                      E-file directly to IRS
+                    </span>
                   </li>
                 </ul>
                 <Link
                   href="/supersonic-fast-cash/diy-taxes"
-                  className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-lg hover:bg-red-700 uppercase"
+                  className="block w-full py-5 bg-gradient-to-r from-green-600 to-green-700 text-white text-center font-black rounded-xl hover:from-green-700 hover:to-green-800 uppercase shadow-lg hover:shadow-green-500/50 transition-all text-lg"
                 >
                   Start Filing →
                 </Link>
