@@ -103,15 +103,15 @@
 
 ---
 
-### Comparison: H&R Block vs Supersonic Fast Cash
+### Comparison: Traditional Tax Services vs Supersonic Fast Cash
 
-| Feature          | H&R Block  | Supersonic Fast Cash |
-| ---------------- | ---------- | -------------------- |
-| Tax Prep Fees    | $200-$400+ | FREE                 |
-| Refund Wait Time | 21+ days   | Same day (15 min)    |
-| Advance Amount   | Limited    | Up to $7,500         |
-| Credit Check     | Required   | NO credit check      |
-| Approval Rate    | Varies     | Everyone approved    |
+| Feature          | Traditional Services | Supersonic Fast Cash |
+| ---------------- | -------------------- | -------------------- |
+| Tax Prep Fees    | $200-$400+           | FREE                 |
+| Refund Wait Time | 21+ days             | Same day (15 min)    |
+| Advance Amount   | Limited              | Up to $7,500         |
+| Credit Check     | Required             | NO credit check      |
+| Approval Rate    | Varies               | Everyone approved    |
 
 ---
 
@@ -143,14 +143,14 @@
 
 ### SEO Keywords (Primary)
 
-| Keyword                         | Priority |
-| ------------------------------- | -------- |
-| tax refund advance Indianapolis | High     |
-| tax preparation Indianapolis    | High     |
-| same day tax refund             | High     |
-| no credit check tax loan        | High     |
-| free tax filing Indianapolis    | Medium   |
-| H&R Block alternative           | Medium   |
+| Keyword                              | Priority |
+| ------------------------------------ | -------- |
+| tax refund advance Indianapolis      | High     |
+| tax preparation Indianapolis         | High     |
+| same day tax refund                  | High     |
+| no credit check tax loan             | High     |
+| free tax filing Indianapolis         | Medium   |
+| tax service alternative Indianapolis | Medium   |
 
 ---
 
@@ -203,7 +203,7 @@
 
 - [x] Brand color alignment (blue/orange/white)
 - [x] Streamlined homepage design
-- [x] H&R Block comparison section
+- [x] Traditional tax services comparison section
 - [x] Features section with icons
 - [x] Services/pages navigation
 - [x] Trust/partners section (EPS, Pathward)

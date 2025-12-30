@@ -32,15 +32,13 @@ export const metadata: Metadata = {
     'tax refund loan Indianapolis',
     'instant tax refund Indianapolis',
 
-    // Competitor Alternative Keywords
-    'H&R Block alternative Indianapolis',
-    'TurboTax alternative Indianapolis',
-    'Jackson Hewitt alternative Indianapolis',
-    'Liberty Tax alternative Indianapolis',
-    'cheaper than H&R Block Indianapolis',
-    'better than TurboTax Indianapolis',
+    // Alternative Keywords
+    'tax service alternative Indianapolis',
+    'online tax filing Indianapolis',
+    'tax preparer alternative Indianapolis',
     'free tax filing Indianapolis',
     'affordable tax preparation Indianapolis',
+    'low cost tax service Indianapolis',
 
     // Speed & Urgency Keywords
     'same day tax refund Indianapolis',
@@ -572,22 +570,26 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-      {/* Comparison Section - H&R Block vs Supersonic */}
+      {/* Comparison Section - Traditional vs Supersonic */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900 uppercase">
             Why Choose Supersonic Fast Cash?
           </h2>
           <p className="text-center text-gray-600 mb-12">
-            Compare us to the competition
+            Compare us to traditional tax services
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* H&R Block */}
+            {/* Traditional Tax Service */}
             <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-700">H&R Block</h3>
-                <p className="text-sm text-gray-500">Traditional Tax Service</p>
+                <h3 className="text-2xl font-bold text-gray-700">
+                  Traditional Tax Services
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Typical Industry Standard
+                </p>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
