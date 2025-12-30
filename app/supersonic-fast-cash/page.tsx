@@ -9,6 +9,9 @@ import {
   Shield,
   Award,
   TrendingUp,
+  Facebook,
+  Instagram,
+  Twitter,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -542,6 +545,45 @@ export default function SupersonicFastCashPage() {
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIAL MEDIA BAR */}
+      <section className="bg-gray-900 text-white py-4 border-b-2 border-green-600">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="font-semibold">Follow Us:</span>
+              <a
+                href="https://www.facebook.com/share/1Be4LrVfJw/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all"
+              >
+                <Facebook className="w-5 h-5" />
+                <span className="font-semibold">Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/supersonicfastcash"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg transition-all"
+              >
+                <Instagram className="w-5 h-5" />
+                <span className="font-semibold">Instagram</span>
+              </a>
+            </div>
+            <div className="flex items-center gap-4 text-sm">
+              <a href="tel:+13173143757" className="flex items-center gap-2 hover:text-green-400 transition-all">
+                <span className="text-xl">📞</span>
+                <span className="font-semibold">(317) 314-3757</span>
+              </a>
+              <a href="mailto:supersonicfastcash@gmail.com" className="flex items-center gap-2 hover:text-green-400 transition-all">
+                <span className="text-xl">✉️</span>
+                <span className="font-semibold">Email Us</span>
+              </a>
             </div>
           </div>
         </div>
