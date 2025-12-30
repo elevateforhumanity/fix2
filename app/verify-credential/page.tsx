@@ -1,230 +1,235 @@
-import { Metadata } from 'next';
+'use client';
 
-import Link from 'next/link';
+import { useState } from 'react';
 import Image from 'next/image';
+import { Search, CheckCircle, XCircle, AlertTriangle, Shield } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/verify-credential',
-  },
-  title: 'Verify Credential | Elevate For Humanity',
-  description:
-    'Explore Verify Credential and discover opportunities for career growth and development.',
-};
+export default function VerifyCredentialPage() {
+  const [code, setCode] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<any>(null);
+  const [error, setError] = useState('');
 
-export default async function VerifyCredentialPage() {
+  const handleVerify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setResult(null);
+
+    try {
+      const response = await fetch('/api/credentials/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: code.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Verification failed');
+        return;
+      }
+
+      setResult(data);
+    } catch (err) {
+      setError('Failed to verify credential. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero */}
+      <section className="relative h-[300px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/facilities-new/facility-exterior.jpg"
           alt="Verify Credential"
           fill
-          className="object-cover"
-          quality={100}
+          className="object-cover brightness-50"
           priority
           sizes="100vw"
         />
-        
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <Shield className="w-16 h-16 mx-auto mb-4" />
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Verify Credential
           </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Verify Credential and discover opportunities for career
-            growth and development.
+          <p className="text-xl">
+            Confirm the authenticity of a credential or certificate
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              View Programs
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Verification Form */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            {/* Feature Grid */}
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <form onSubmit={handleVerify} className="space-y-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                  Verify Credential
-                </h2>
-                <p className="text-gray-700 mb-6">
-                  Explore Verify Credential and discover opportunities for
-                  career growth and development.
+                <label
+                  htmlFor="code"
+                  className="block text-lg font-semibold text-gray-900 mb-2"
+                >
+                  Credential Code
+                </label>
+                <p className="text-sm text-gray-600 mb-4">
+                  Enter the credential code found on the certificate or credential document.
                 </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg
-                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>100% free training programs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg
-                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Industry-standard certifications</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg
-                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Career support and job placement</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/artlist/hero-training-2.jpg"
-                  alt="Verify Credential"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-
-            {/* Feature Cards */}
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-brand-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
-                  </svg>
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="code"
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    placeholder="crd_XXXXXXXXXXXXXXXXXXXX"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg font-mono"
+                    required
+                  />
+                  <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3">Learn</h3>
-                <p className="text-gray-600">
-                  Access quality training programs
-                </p>
               </div>
 
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-brand-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold mb-3">Certify</h3>
-                <p className="text-gray-600">Earn industry certifications</p>
-              </div>
+              <button
+                type="submit"
+                disabled={loading || !code.trim()}
+                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+              >
+                {loading ? 'Verifying...' : 'Verify Credential'}
+              </button>
+            </form>
 
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-purple-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+            {/* Error Message */}
+            {error && (
+              <div className="mt-6 p-4 bg-red-50 border-l-4 border-red-500 rounded">
+                <div className="flex items-start gap-3">
+                  <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-red-900">Verification Failed</h3>
+                    <p className="text-red-700">{error}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-3">Work</h3>
-                <p className="text-gray-600">Get hired in your field</p>
               </div>
+            )}
+
+            {/* Success Result */}
+            {result && result.valid && (
+              <div className="mt-6 p-6 bg-green-50 border-2 border-green-500 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-green-900 mb-4">
+                      ✓ Valid Credential
+                    </h3>
+
+                    <div className="space-y-3">
+                      <div>
+                        <div className="text-sm font-semibold text-gray-600">Credential Type</div>
+                        <div className="text-lg text-gray-900">{result.credential.type}</div>
+                      </div>
+
+                      <div>
+                        <div className="text-sm font-semibold text-gray-600">Issued To</div>
+                        <div className="text-lg text-gray-900">
+                          {result.credential.student.first_name}{' '}
+                          {result.credential.student.last_initial || result.credential.student.last_name}
+                        </div>
+                      </div>
+
+                      {result.credential.program && (
+                        <div>
+                          <div className="text-sm font-semibold text-gray-600">Program</div>
+                          <div className="text-lg text-gray-900">{result.credential.program.title}</div>
+                        </div>
+                      )}
+
+                      <div>
+                        <div className="text-sm font-semibold text-gray-600">Issued Date</div>
+                        <div className="text-lg text-gray-900">
+                          {new Date(result.credential.issued_at).toLocaleDateString()}
+                        </div>
+                      </div>
+
+                      {result.credential.expires_at && (
+                        <div>
+                          <div className="text-sm font-semibold text-gray-600">Expires</div>
+                          <div className="text-lg text-gray-900">
+                            {new Date(result.credential.expires_at).toLocaleDateString()}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="pt-4 border-t border-green-200">
+                        <div className="text-sm text-gray-600">
+                          This credential has been verified as authentic and is currently valid.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Invalid/Revoked/Expired Result */}
+            {result && !result.valid && (
+              <div className="mt-6 p-6 bg-red-50 border-2 border-red-500 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <AlertTriangle className="w-8 h-8 text-red-600 flex-shrink-0" />
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-red-900 mb-4">
+                      ✗ Invalid Credential
+                    </h3>
+
+                    <div className="space-y-3">
+                      <div>
+                        <div className="text-sm font-semibold text-gray-600">Status</div>
+                        <div className="text-lg text-red-900 font-semibold uppercase">
+                          {result.status}
+                        </div>
+                      </div>
+
+                      {result.credential?.revoked_reason && (
+                        <div>
+                          <div className="text-sm font-semibold text-gray-600">Reason</div>
+                          <div className="text-lg text-gray-900">{result.credential.revoked_reason}</div>
+                        </div>
+                      )}
+
+                      <div className="pt-4 border-t border-red-200">
+                        <div className="text-sm text-gray-600">
+                          This credential is not currently valid. Please contact the issuing organization for more information.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Info Section */}
+          <div className="mt-12 bg-blue-50 rounded-lg p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">About Credential Verification</h2>
+            <div className="space-y-3 text-gray-700">
+              <p>
+                This verification system allows employers, partners, and other organizations to confirm the authenticity of credentials issued by Elevate for Humanity.
+              </p>
+              <p>
+                Each credential has a unique code that can be verified at any time. The system will show:
+              </p>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Whether the credential is valid, expired, or revoked</li>
+                <li>The type of credential and program</li>
+                <li>When it was issued and when it expires</li>
+                <li>The name of the credential holder</li>
+              </ul>
+              <p className="text-sm text-gray-600 mt-4">
+                For privacy protection, only minimal information is displayed publicly. Authenticated partners can view additional details.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-brand-blue-700 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Get Started?
-            </h2>
-            <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our
-              programs.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
-              >
-                Apply Now
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg"
-              >
-                Browse Programs
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }
