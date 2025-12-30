@@ -34,7 +34,7 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/apply"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  Tax Refund Advance
+                  💵 Tax Refund Advance
                 </Link>
               </li>
               <li>
@@ -42,7 +42,7 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/services"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  Professional Tax Prep
+                  👨‍💼 Professional Tax Prep
                 </Link>
               </li>
               <li>
@@ -50,7 +50,15 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/diy-taxes"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  DIY Self-Prep
+                  📝 DIY Self-Prep
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/supersonic-fast-cash/book-appointment"
+                  className="text-gray-300 hover:text-red-400 transition-colors"
+                >
+                  📅 Book Appointment
                 </Link>
               </li>
               <li>
@@ -58,7 +66,7 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/pricing"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  Pricing
+                  💲 Pricing
                 </Link>
               </li>
             </ul>

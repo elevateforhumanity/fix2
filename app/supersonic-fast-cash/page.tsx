@@ -13,12 +13,25 @@ export default function SupersonicMarketingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero - Marketing Focus */}
-      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-red-900 text-white py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-red-900 text-white py-32 overflow-hidden">
+        {/* Background Image Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80')",
+            backgroundBlendMode: 'overlay',
+          }}
+        ></div>
+
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-red-500 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
+
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-900/70 to-red-900/80"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">

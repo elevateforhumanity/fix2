@@ -45,6 +45,12 @@ export function SupersonicHeader() {
                 >
                   📝 DIY Self-Prep
                 </Link>
+                <Link
+                  href="/supersonic-fast-cash/book-appointment"
+                  className="block px-4 py-3 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors font-semibold"
+                >
+                  📅 Book Appointment
+                </Link>
               </div>
             </div>
 
