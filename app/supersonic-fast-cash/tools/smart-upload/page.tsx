@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useState, useCallback, useRef } from 'react';
 import {
   Upload,
   FileText,
@@ -14,7 +13,6 @@ import {
   Trash2,
   Download,
 } from 'lucide-react';
-import { drakeIntegration } from '@/lib/integrations/drake-software';
 
 interface ExtractedData {
   documentType: 'w2' | '1099-misc' | '1099-nec' | '1099-int' | '1099-div' | 'receipt' | 'other';
@@ -57,8 +55,20 @@ interface UploadedFile {
 export default function SmartUploadPage() {
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [processing, setProcessing] = useState(false);
+  const [isDragActive, setIsDragActive] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
+  const handleFiles = useCallback(async (fileList: FileList | null) => {
+    if (!fileList) return;
+
+    const acceptedFiles = Array.from(fileList).filter((file) => {
+      const isValidType = 
+        file.type.startsWith('image/') || 
+        file.type === 'application/pdf';
+      const isValidSize = file.size <= 10 * 1024 * 1024; // 10MB
+      return isValidType && isValidSize;
+    });
+
     const newFiles: UploadedFile[] = acceptedFiles.map((file) => ({
       id: Math.random().toString(36).substr(2, 9),
       file,
@@ -74,14 +84,29 @@ export default function SmartUploadPage() {
     }
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: {
-      'image/*': ['.png', '.jpg', '.jpeg', '.heic'],
-      'application/pdf': ['.pdf'],
-    },
-    maxSize: 10 * 1024 * 1024, // 10MB
-  });
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragActive(false);
+    handleFiles(e.dataTransfer.files);
+  }, [handleFiles]);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragActive(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragActive(false);
+  }, []);
+
+  const handleClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleFiles(e.target.files);
+  };
 
   const processFile = async (uploadedFile: UploadedFile) => {
     try {
@@ -92,30 +117,42 @@ export default function SmartUploadPage() {
         )
       );
 
-      // Step 1: Upload to Drake Software for OCR
-      const drakeResult = await drakeIntegration.uploadDocument(
-        'temp-return-id', // In production, this would be the actual return ID
-        uploadedFile.file,
-        detectDocumentType(uploadedFile.file.name)
-      );
+      // Create FormData for API call
+      const formData = new FormData();
+      formData.append('file', uploadedFile.file);
+      formData.append('documentType', detectDocumentType(uploadedFile.file.name));
+      formData.append('email', 'user@example.com'); // Get from auth or form
+      formData.append('phone', '555-0123'); // Get from auth or form
 
-      // Step 2: Extract data using Drake's OCR
-      const extractedData = await extractDataFromOCR(
-        drakeResult.ocrData,
-        uploadedFile.file
-      );
+      // Call OCR extraction API
+      const response = await fetch('/api/supersonic-fast-cash/ocr-extract', {
+        method: 'POST',
+        body: formData,
+      });
 
-      // Step 3: Update file with extracted data
+      if (!response.ok) {
+        throw new Error('OCR extraction failed');
+      }
+
+      const result = await response.json();
+
+      // Update file with extracted data
       setFiles((prev) =>
         prev.map((f) =>
           f.id === uploadedFile.id
-            ? { ...f, status: 'completed', extractedData }
+            ? { 
+                ...f, 
+                status: 'completed', 
+                extractedData: {
+                  documentType: result.extractedData.documentType,
+                  data: result.extractedData,
+                  confidence: result.confidence,
+                  rawText: '',
+                }
+              }
             : f
         )
       );
-
-      // Step 4: Auto-save to database
-      await saveExtractedData(extractedData);
     } catch (error) {
       console.error('Processing error:', error);
       setFiles((prev) =>
@@ -142,99 +179,7 @@ export default function SmartUploadPage() {
     return 'other';
   };
 
-  const extractDataFromOCR = async (
-    ocrData: any,
-    file: File
-  ): Promise<ExtractedData> => {
-    // In production, Drake's OCR would return structured data
-    // For now, simulate the extraction
-    
-    // Use browser's OCR or Tesseract.js as fallback
-    const text = await performOCR(file);
-    
-    // Parse the text to extract tax form data
-    const extractedData = parseTextForTaxData(text);
-    
-    return extractedData;
-  };
 
-  const performOCR = async (file: File): Promise<string> => {
-    // In production, this would use:
-    // 1. Drake Software's built-in OCR (preferred)
-    // 2. Google Vision API (backup)
-    // 3. Tesseract.js (offline fallback)
-    
-    // Simulate OCR processing
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    
-    // Mock extracted text from W-2
-    return `
-      a Employee's social security number: 123-45-6789
-      b Employer identification number (EIN): 12-3456789
-      c Employer's name, address, and ZIP code:
-      ACME Corporation
-      123 Main St
-      Indianapolis, IN 46220
-      
-      1 Wages, tips, other compensation: 50000.00
-      2 Federal income tax withheld: 6000.00
-      3 Social security wages: 50000.00
-      4 Social security tax withheld: 3100.00
-      5 Medicare wages and tips: 50000.00
-      6 Medicare tax withheld: 725.00
-      17 State income tax: 2000.00
-    `;
-  };
-
-  const parseTextForTaxData = (text: string): ExtractedData => {
-    // Smart parsing logic to extract structured data
-    const data: ExtractedData = {
-      documentType: 'w2',
-      data: {},
-      confidence: 0.95,
-      rawText: text,
-    };
-
-    // Extract W-2 data using regex patterns
-    const wagesMatch = text.match(/Wages.*?(\d+\.?\d*)/i);
-    const federalMatch = text.match(/Federal.*?withheld.*?(\d+\.?\d*)/i);
-    const employerMatch = text.match(/Employer.*?name.*?\n(.*?)\n/i);
-    const einMatch = text.match(/EIN.*?(\d{2}-\d{7})/i);
-    const ssWagesMatch = text.match(/Social security wages.*?(\d+\.?\d*)/i);
-    const medicareWagesMatch = text.match(/Medicare wages.*?(\d+\.?\d*)/i);
-    const stateMatch = text.match(/State income tax.*?(\d+\.?\d*)/i);
-
-    if (wagesMatch) data.data.wages = parseFloat(wagesMatch[1]);
-    if (federalMatch) data.data.federalWithholding = parseFloat(federalMatch[1]);
-    if (employerMatch) data.data.employer = employerMatch[1].trim();
-    if (einMatch) data.data.ein = einMatch[1];
-    if (ssWagesMatch) data.data.socialSecurityWages = parseFloat(ssWagesMatch[1]);
-    if (medicareWagesMatch) data.data.medicareWages = parseFloat(medicareWagesMatch[1]);
-    if (stateMatch) data.data.stateWithholding = parseFloat(stateMatch[1]);
-
-    return data;
-  };
-
-  const saveExtractedData = async (extractedData: ExtractedData) => {
-    // Save to database
-    try {
-      const response = await fetch('/api/supersonic-fast-cash/diy/income', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          documentType: extractedData.documentType,
-          data: extractedData.data,
-          confidence: extractedData.confidence,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to save data');
-      }
-    } catch (error) {
-      console.error('Save error:', error);
-    }
-  };
 
   const removeFile = (id: string) => {
     setFiles((prev) => prev.filter((f) => f.id !== id));
@@ -268,14 +213,24 @@ export default function SmartUploadPage() {
 
         {/* Upload Zone */}
         <div
-          {...getRootProps()}
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onClick={handleClick}
           className={`border-3 border-dashed rounded-2xl p-12 text-center cursor-pointer transition ${
             isDragActive
               ? 'border-green-500 bg-green-50'
               : 'border-gray-300 hover:border-green-400 bg-white'
           }`}
         >
-          <input {...getInputProps()} />
+          <input
+            ref={fileInputRef}
+            type="file"
+            multiple
+            accept="image/*,application/pdf"
+            onChange={handleFileInput}
+            className="hidden"
+          />
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
               <Upload className="w-10 h-10 text-green-600" />

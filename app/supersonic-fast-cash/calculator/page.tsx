@@ -58,15 +58,40 @@ export default function TaxCalculatorPage() {
     }).format(amount);
   };
 
-  const saveCalculation = () => {
-    const data = {
-      taxReturn,
-      calculation,
-      refundResult,
-      savedAt: new Date().toISOString(),
-    };
-    localStorage.setItem('supersonic-tax-calc', JSON.stringify(data));
-    alert('Calculation saved! You can return to it anytime.');
+  const saveCalculation = async () => {
+    try {
+      // Save to database
+      const response = await fetch('/api/supersonic-fast-cash/save-calculation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          taxReturn,
+          calculation,
+          refundResult,
+          federalWithholding,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save');
+      }
+
+      // Also save to localStorage as backup
+      const data = {
+        taxReturn,
+        calculation,
+        refundResult,
+        savedAt: new Date().toISOString(),
+      };
+      localStorage.setItem('supersonic-tax-calc', JSON.stringify(data));
+      
+      alert('Calculation saved to your account! You can return to it anytime.');
+    } catch (error) {
+      console.error('Save error:', error);
+      alert('Failed to save calculation. Please try again.');
+    }
   };
 
   const shareCalculation = async () => {

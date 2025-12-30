@@ -64,21 +64,33 @@ export default function RefundTrackerPage() {
     setLoading(true);
 
     try {
-      // In production, this would call IRS "Where's My Refund" API
-      // For now, simulate the API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Call refund tracking API
+      const response = await fetch('/api/supersonic-fast-cash/refund-tracking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ssn: ssn.replace(/\D/g, ''),
+          filingStatus,
+          refundAmount,
+        }),
+      });
 
-      // Simulate response
-      const mockStatus: RefundStatus = {
-        status: 'approved',
-        statusMessage: 'Your refund has been approved and will be sent soon',
-        refundAmount: parseFloat(refundAmount),
-        expectedDate: '2025-02-15',
-        method: 'direct_deposit',
-        lastUpdated: new Date().toISOString(),
-      };
+      if (!response.ok) {
+        throw new Error('Failed to track refund');
+      }
 
-      setRefundStatus(mockStatus);
+      const result = await response.json();
+
+      setRefundStatus({
+        status: result.status,
+        statusMessage: result.statusMessage,
+        refundAmount: result.refundAmount,
+        expectedDate: result.expectedDate,
+        method: result.method,
+        lastUpdated: result.lastUpdated,
+      });
     } catch (err) {
       setError('Unable to retrieve refund status. Please try again later.');
     } finally {
