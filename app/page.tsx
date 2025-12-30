@@ -233,97 +233,108 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. CAREER OPPORTUNITIES - Exact SkilledUS Style */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">
+      {/* 2. CAREER OPPORTUNITIES */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 uppercase">
               CAREER OPPORTUNITIES
             </h2>
-            <p className="text-lg text-gray-700">
-              See our career pathways options and find the best fit for your
-              future!
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See our career pathways options and find the best fit for your future!
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
-              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-6">
-                <Image
-                  src="/images/programs/business.jpg"
-                  alt="Industry Alignment"
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                />
+            <Link href="/programs" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-green-500">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+                    alt="Industry Alignment"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Briefcase className="w-12 h-12 text-white mb-2" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                    Industry Alignment
+                  </h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    We collaborate with business leaders to address current and future workforce demands.
+                  </p>
+                  <div className="flex items-center gap-2 text-green-600 font-bold group-hover:gap-3 transition-all">
+                    <span>Explore Programs</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Alignment with Industry Needs
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Elevate for Humanity collaborates with business leaders to
-                address current and future workforce demands.
-              </p>
-              <Link
-                href="/programs"
-                className="text-orange-500 font-semibold hover:text-orange-600"
-              >
-                Learn More &gt;
-              </Link>
-            </div>
+            </Link>
 
             {/* Card 2 */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
-              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-6">
-                <Image
-                  src="/images/facilities-new/facility-exterior.jpg"
-                  alt="Locations"
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                />
+            <Link href="/locations" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-orange-500">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+                    alt="Locations"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <GraduationCap className="w-12 h-12 text-white mb-2" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
+                    Find a Location
+                  </h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    Programs available in multiple locations across Indiana to serve you better.
+                  </p>
+                  <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
+                    <span>View Locations</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Find a Location Near You
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Elevate for Humanity has programs in multiple locations across
-                Indiana.
-              </p>
-              <Link
-                href="/locations"
-                className="text-orange-500 font-semibold hover:text-orange-600"
-              >
-                Learn More &gt;
-              </Link>
-            </div>
+            </Link>
 
             {/* Card 3 */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
-              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-6">
-                <Image
-                  src="/images/team-new/team-1.jpg"
-                  alt="Hire Graduates"
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                />
+            <Link href="/employers" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-blue-500">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
+                    alt="Hire Graduates"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Users className="w-12 h-12 text-white mb-2" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                    Hire Graduates
+                  </h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    Our candidates are credentialed, trained, and ready to contribute to your team.
+                  </p>
+                  <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all">
+                    <span>Partner With Us</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Hire Our Skilled Graduates
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Our candidates come out of our program credentialed and ready to
-                work.
-              </p>
-              <Link
-                href="/employers"
-                className="text-orange-500 font-semibold hover:text-orange-600"
-              >
-                Learn More &gt;
-              </Link>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
