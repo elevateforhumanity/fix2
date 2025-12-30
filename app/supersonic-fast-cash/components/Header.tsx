@@ -67,6 +67,12 @@ export function SupersonicHeader() {
                   📚 Tax Information
                 </Link>
                 <Link
+                  href="/supersonic-fast-cash/tax-tools"
+                  className="block px-4 py-3 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors font-semibold"
+                >
+                  🛠️ Tax Tools
+                </Link>
+                <Link
                   href="/supersonic-fast-cash/calculator"
                   className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-semibold"
                 >
