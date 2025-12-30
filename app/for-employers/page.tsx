@@ -8,6 +8,12 @@ import {
   Users,
   Phone,
   ArrowRight,
+  Briefcase,
+  Award,
+  TrendingUp,
+  Building2,
+  Target,
+  Zap
 } from 'lucide-react';
 import {
   Container,
@@ -26,28 +32,82 @@ export default function ForEmployersPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/heroes/hero-employers.jpg"
-          alt="Employers hiring trained workers"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-orange-900 text-white py-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
+            alt="Business team"
+            fill
+            className="object-cover"
+          />
+        </div>
+        
+        {/* Animated Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/70 to-transparent"></div>
 
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="max-w-2xl text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Hire Trained Workers.
-                <br />
-                No Recruiting Fees.
-              </h1>
-              <p className="text-xl md:text-2xl mb-8">
-                Access job-ready candidates with industry credentials in
-                healthcare, skilled trades, and technology.
-              </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 mb-6">
+              <Building2 className="w-5 h-5 text-orange-400" />
+              <span className="text-orange-100 font-semibold">For Employers & Hiring Managers</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight leading-tight">
+              Hire Trained Workers.
+              <span className="block text-orange-400">No Recruiting Fees.</span>
+            </h1>
+            <p className="text-2xl md:text-3xl font-bold text-gray-100 mb-8">
+              Access job-ready candidates with industry credentials
+            </p>
+            <p className="text-xl text-gray-200 mb-10 max-w-3xl">
+              We train workers in healthcare, skilled trades, and technology. You get pre-screened, certified candidates at zero cost.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-5 text-lg font-black text-white shadow-2xl hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-105 uppercase"
+              >
+                Partner With Us
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="#benefits"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl border-3 border-white bg-white/10 backdrop-blur-sm px-10 py-5 text-lg font-black text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
+              >
+                Learn More
+                <Briefcase className="w-5 h-5" />
+              </Link>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <DollarSign className="w-10 h-10 text-green-400 mb-2" />
+                <div className="text-3xl font-black mb-1">$0</div>
+                <div className="text-sm text-gray-200">Placement Fees</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <Users className="w-10 h-10 text-blue-400 mb-2" />
+                <div className="text-3xl font-black mb-1">5,000+</div>
+                <div className="text-sm text-gray-200">Trained Workers</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <Award className="w-10 h-10 text-yellow-400 mb-2" />
+                <div className="text-3xl font-black mb-1">100%</div>
+                <div className="text-sm text-gray-200">Certified</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <Zap className="w-10 h-10 text-orange-400 mb-2" />
+                <div className="text-3xl font-black mb-1">Fast</div>
+                <div className="text-sm text-gray-200">Hiring Process</div>
+              </div>
             </div>
           </div>
         </div>
