@@ -108,22 +108,24 @@ export default function HomePage() {
             {/* Trust Indicators */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-black text-white mb-1">
-                  5,000+
-                </div>
-                <div className="text-sm text-gray-200">Students Trained</div>
+                <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
+                <div className="text-xl font-black text-white mb-1">100% Free</div>
+                <div className="text-sm text-gray-200">No Tuition Cost</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-black text-white mb-1">85%</div>
-                <div className="text-sm text-gray-200">Job Placement</div>
+                <Award className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
+                <div className="text-xl font-black text-white mb-1">WIOA Funded</div>
+                <div className="text-sm text-gray-200">State Approved</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-black text-white mb-1">$0</div>
-                <div className="text-sm text-gray-200">Tuition Cost</div>
+                <Briefcase className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                <div className="text-xl font-black text-white mb-1">Job Ready</div>
+                <div className="text-sm text-gray-200">Career Support</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <div className="text-3xl font-black text-white mb-1">50+</div>
-                <div className="text-sm text-gray-200">Programs</div>
+                <GraduationCap className="w-10 h-10 text-orange-400 mx-auto mb-2" />
+                <div className="text-xl font-black text-white mb-1">Certified</div>
+                <div className="text-sm text-gray-200">Industry Credentials</div>
               </div>
             </div>
           </div>

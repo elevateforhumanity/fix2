@@ -99,23 +99,23 @@ export default function ProgramsPage() {
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">$0</div>
-                <div className="text-sm text-gray-200">Tuition Cost</div>
+                <div className="text-2xl font-black mb-1">100% Free</div>
+                <div className="text-sm text-gray-200">No Tuition</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Clock className="w-10 h-10 text-orange-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">2-12</div>
-                <div className="text-sm text-gray-200">Weeks Training</div>
+                <div className="text-2xl font-black mb-1">Flexible</div>
+                <div className="text-sm text-gray-200">Schedule Options</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <TrendingUp className="w-10 h-10 text-blue-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">85%</div>
-                <div className="text-sm text-gray-200">Job Placement</div>
+                <Award className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                <div className="text-2xl font-black mb-1">Certified</div>
+                <div className="text-sm text-gray-200">Industry Credentials</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <Users className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">5,000+</div>
-                <div className="text-sm text-gray-200">Graduates</div>
+                <Briefcase className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
+                <div className="text-2xl font-black mb-1">Job Ready</div>
+                <div className="text-sm text-gray-200">Career Support</div>
               </div>
             </div>
           </div>

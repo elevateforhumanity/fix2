@@ -61,7 +61,7 @@ export default function ApprenticeshipsPage() {
               Apprenticeship Programs
             </h1>
             <p className="text-2xl md:text-3xl font-bold text-gray-100 mb-8 max-w-4xl mx-auto">
-              Earn While You Learn. Get Paid to Train.
+              Earn While You Learn. Earn & Learn to Train.
             </p>
             <p className="text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
               Combine on-the-job training with classroom instruction. Graduate with industry certifications and zero debt.
@@ -88,13 +88,13 @@ export default function ApprenticeshipsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">Get Paid</div>
-                <div className="text-sm text-gray-200">From Day One</div>
+                <div className="text-3xl font-black mb-1">Earn & Learn</div>
+                <div className="text-sm text-gray-200">Paid Training</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <GraduationCap className="w-10 h-10 text-blue-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">$0 Debt</div>
-                <div className="text-sm text-gray-200">No Tuition</div>
+                <div className="text-3xl font-black mb-1">No Debt</div>
+                <div className="text-sm text-gray-200">Zero Cost</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Award className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
@@ -104,7 +104,7 @@ export default function ApprenticeshipsPage() {
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <TrendingUp className="w-10 h-10 text-orange-400 mx-auto mb-2" />
                 <div className="text-3xl font-black mb-1">Career</div>
-                <div className="text-sm text-gray-200">Job Guaranteed</div>
+                <div className="text-sm text-gray-200">Career Path</div>
               </div>
             </div>
           </div>

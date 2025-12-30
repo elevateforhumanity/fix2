@@ -90,23 +90,23 @@ export default function ForEmployersPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <DollarSign className="w-10 h-10 text-green-400 mb-2" />
-                <div className="text-3xl font-black mb-1">$0</div>
-                <div className="text-sm text-gray-200">Placement Fees</div>
+                <div className="text-2xl font-black mb-1">No Fees</div>
+                <div className="text-sm text-gray-200">Zero Cost Hiring</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Users className="w-10 h-10 text-blue-400 mb-2" />
-                <div className="text-3xl font-black mb-1">5,000+</div>
-                <div className="text-sm text-gray-200">Trained Workers</div>
+                <div className="text-2xl font-black mb-1">Pre-Screened</div>
+                <div className="text-sm text-gray-200">Qualified Candidates</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Award className="w-10 h-10 text-yellow-400 mb-2" />
-                <div className="text-3xl font-black mb-1">100%</div>
-                <div className="text-sm text-gray-200">Certified</div>
+                <div className="text-2xl font-black mb-1">Certified</div>
+                <div className="text-sm text-gray-200">Industry Ready</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Zap className="w-10 h-10 text-orange-400 mb-2" />
-                <div className="text-3xl font-black mb-1">Fast</div>
-                <div className="text-sm text-gray-200">Hiring Process</div>
+                <div className="text-2xl font-black mb-1">Fast</div>
+                <div className="text-sm text-gray-200">Quick Placement</div>
               </div>
             </div>
           </div>
