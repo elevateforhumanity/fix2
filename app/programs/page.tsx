@@ -37,45 +37,58 @@ export default function ProgramsPage() {
         </div>
       </div>
 
-      {/* Hero Section - Video Background */}
-      <section className="relative text-white overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          playsInline
-          muted
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="/videos/programs-overview-video-with-narration.mp4"
-            type="video/mp4"
-          />
-        </video>
+      {/* Hero Section - Compact Authority */}
+      <section className="bg-gray-50">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <a
+            href="https://www.in.gov/dwd/career-connect/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 mb-3"
+          >
+            <MapPin className="w-4 h-4" />
+            Funded by Indiana Career Connect
+          </a>
 
-        {/* Content Container */}
+          <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl text-gray-900">
+            Career pathways backed by real funding and partners
+          </h1>
+
+          <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
+            Explore training programs in healthcare, skilled trades, and business. 100% funded options available through WIOA and state grants.
+          </p>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <Link
+              href="#programs"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
+            >
+              Browse Programs
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Get Guidance
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Old video hero removed */}
+      {/* <section className="relative text-white overflow-hidden">
+        <video autoPlay loop playsInline muted className="absolute inset-0 w-full h-full object-cover">
+          <source src="/videos/programs-overview-video-with-narration.mp4" type="video/mp4" />
+        </video>
         <div className="relative py-20 md:py-32">
           <div className="max-w-7xl mx-auto px-4">
             <div className="max-w-4xl">
-              {/* Indiana Career Connect Badge */}
-              <a
-                href="https://www.in.gov/dwd/career-connect/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 px-6 py-3 rounded-full mb-8 transition border border-white/20 group"
-              >
+              <a href="https://www.in.gov/dwd/career-connect/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 px-6 py-3 rounded-full mb-8 transition border border-white/20 group">
                 <MapPin className="w-5 h-5 text-white" />
-                <span className="text-sm font-bold text-white">
-                  Funded by Indiana Career Connect
-                </span>
+                <span className="text-sm font-bold text-white">Funded by Indiana Career Connect</span>
                 <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition" />
               </a>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-                Your Future Starts Here
-              </h1>
-
-              {/* Key Highlights */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">Your Future Starts Here</h1>
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
                   ✓ 100% Free Training

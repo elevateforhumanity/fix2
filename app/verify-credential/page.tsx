@@ -40,22 +40,16 @@ export default function VerifyCredentialPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="relative h-[300px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/facilities-new/facility-exterior.jpg"
-          alt="Verify Credential"
-          fill
-          className="object-cover brightness-50"
-          priority
-          sizes="100vw"
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <Shield className="w-16 h-16 mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Verify Credential
-          </h1>
-          <p className="text-xl">
+      {/* Simple Header - No Hero */}
+      <section className="bg-white border-b border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 py-8">
+          <div className="flex items-center gap-3 mb-2">
+            <Shield className="w-8 h-8 text-blue-600" />
+            <h1 className="text-3xl font-semibold text-gray-900">
+              Verify Credential
+            </h1>
+          </div>
+          <p className="text-base text-gray-600">
             Confirm the authenticity of a credential or certificate
           </p>
         </div>
