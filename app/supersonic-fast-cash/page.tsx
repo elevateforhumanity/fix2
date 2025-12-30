@@ -13,6 +13,7 @@ import {
   Instagram,
   Twitter,
 } from 'lucide-react';
+import { InstallPWAButton } from '@/components/InstallPWAButton';
 
 export const metadata: Metadata = {
   alternates: {
@@ -407,7 +408,7 @@ export default function SupersonicFastCashPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -427,120 +428,93 @@ export default function SupersonicFastCashPage() {
           __html: JSON.stringify(localBusinessSchema),
         }}
       />
-      {/* Hero Section - AGGRESSIVE MARKETING */}
-      <section className="relative text-white py-20 overflow-hidden min-h-[600px] flex items-center">
-        {/* Background Image */}
-        <Image
-          src="/images/tax-office-2.jpg"
-          alt="Supersonic Fast Cash - Tax Refund Advance"
-          fill
-          className="object-cover brightness-40"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-yellow-400 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-400 rounded-full blur-3xl animate-pulse delay-1000" />
-        </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* Hero Section - Brand Colors */}
+      <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              {/* Urgency Badge */}
-              <div className="inline-block bg-red-600 text-white px-6 py-3 rounded-full font-black text-sm mb-4 animate-bounce shadow-2xl">
-                🔥 TAX SEASON 2025 IS HERE! • LIMITED TIME OFFER
+              <div className="inline-block bg-orange-500 text-white px-4 py-2 rounded-full font-bold text-sm mb-4">
+                TAX SEASON 2025 - APPLY NOW
               </div>
 
-              {/* Power Headline */}
-              <h1 className="text-6xl md:text-7xl font-black mb-6 leading-tight">
-                GET YOUR MONEY
-                <span className="block text-yellow-400 text-7xl md:text-8xl">
-                  TODAY!
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight uppercase">
+                Get Your Tax Refund
+                <span className="block text-orange-400 text-5xl md:text-6xl">
+                  Today!
                 </span>
               </h1>
 
-              {/* Money Amount - BIG & BOLD */}
-              <div className="bg-yellow-400 text-green-900 p-6 rounded-2xl mb-6 shadow-2xl border-4 border-yellow-300">
-                <p className="text-2xl font-bold mb-2">UP TO</p>
-                <p className="text-7xl md:text-8xl font-black">$7,500</p>
-                <p className="text-xl font-bold mt-2">IN YOUR HANDS TODAY*</p>
+              <div className="bg-white text-blue-900 p-6 rounded-lg mb-6 shadow-xl">
+                <p className="text-lg font-bold">UP TO</p>
+                <p className="text-5xl md:text-6xl font-black text-orange-500">
+                  $7,500
+                </p>
+                <p className="text-sm font-bold">SAME DAY CASH*</p>
               </div>
 
-              {/* Power Benefits */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-green-900 font-black text-xl">✓</span>
-                  </div>
-                  <span className="text-xl font-bold">
-                    NO CREDIT CHECK - Everyone Approved!
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
+                  <span className="font-semibold">
+                    No Credit Check Required
                   </span>
                 </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-green-900 font-black text-xl">✓</span>
-                  </div>
-                  <span className="text-xl font-bold">
-                    SAME DAY CASH - Walk Out With Money!
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
+                  <span className="font-semibold">
+                    Free Professional Tax Prep
                   </span>
                 </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-green-900 font-black text-xl">✓</span>
-                  </div>
-                  <span className="text-xl font-bold">
-                    FREE TAX PREP - Professional Service Included!
-                  </span>
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-orange-400" />
+                  <span className="font-semibold">IRS-Certified Preparers</span>
                 </div>
               </div>
 
-              {/* CTA Buttons - AGGRESSIVE */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/supersonic-fast-cash/apply"
-                  className="group relative inline-block px-10 py-6 bg-yellow-400 text-green-900 text-2xl font-black rounded-xl hover:bg-yellow-300 transition-all shadow-2xl text-center transform hover:scale-105"
+                  className="px-8 py-4 bg-orange-500 text-white text-lg font-bold rounded-md hover:bg-orange-600 transition-all shadow-lg text-center uppercase"
                 >
-                  <span className="relative z-10">GET MY MONEY NOW! →</span>
-                  <div className="absolute inset-0 bg-yellow-300 rounded-xl blur opacity-50 group-hover:opacity-75 transition" />
+                  Apply Now
                 </Link>
                 <Link
                   href="tel:+13173143757"
-                  className="inline-block px-10 py-6 bg-red-600 text-white text-2xl font-black rounded-xl hover:bg-red-700 transition-all shadow-2xl text-center border-4 border-red-400 transform hover:scale-105"
+                  className="px-8 py-4 bg-white text-blue-900 text-lg font-bold rounded-md hover:bg-gray-100 transition-all shadow-lg text-center uppercase"
                 >
-                  📞 CALL NOW!
+                  📞 Call Now
                 </Link>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/20">
-              <h3 className="text-lg md:text-lg font-bold mb-6">
-                Why Choose Us?
-              </h3>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+              <h3 className="text-xl font-bold mb-4 uppercase">Quick Facts</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                  <Clock className="w-6 h-6 text-orange-400 flex-shrink-0" />
                   <div>
-                    <div className="font-semibold">Fast Approval</div>
-                    <div className="text-green-100">
-                      Get approved in minutes
+                    <div className="font-bold">15-Minute Approval</div>
+                    <div className="text-blue-100">
+                      Fast processing guaranteed
                     </div>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                  <Shield className="w-6 h-6 text-orange-400 flex-shrink-0" />
                   <div>
-                    <div className="font-semibold">No Credit Check</div>
-                    <div className="text-green-100">Bad credit? No problem</div>
+                    <div className="font-bold">Secure & Licensed</div>
+                    <div className="text-blue-100">
+                      FDIC insured through Pathward
+                    </div>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                  <Award className="w-6 h-6 text-orange-400 flex-shrink-0" />
                   <div>
-                    <div className="font-semibold">Professional Service</div>
-                    <div className="text-green-100">
-                      Certified tax preparers
+                    <div className="font-bold">Trusted Service</div>
+                    <div className="text-blue-100">
+                      4.8★ rating from 89 reviews
                     </div>
                   </div>
                 </li>
@@ -550,223 +524,132 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-      {/* SOCIAL MEDIA BAR */}
-      <section className="bg-gray-900 text-white py-4 border-b-2 border-green-600">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-sm">
-              <span className="font-semibold">Follow Us:</span>
-              <a
-                href="https://www.facebook.com/share/1Be4LrVfJw/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all"
-              >
-                <Facebook className="w-5 h-5" />
-                <span className="font-semibold">Facebook</span>
-              </a>
-              <a
-                href="https://www.instagram.com/supersonicfastcash"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg transition-all"
-              >
-                <Instagram className="w-5 h-5" />
-                <span className="font-semibold">Instagram</span>
-              </a>
-            </div>
-            <div className="flex items-center gap-4 text-sm">
-              <a href="tel:+13173143757" className="flex items-center gap-2 hover:text-green-400 transition-all">
-                <span className="text-xl">📞</span>
-                <span className="font-semibold">(317) 314-3757</span>
-              </a>
-              <a href="mailto:supersonicfastcash@gmail.com" className="flex items-center gap-2 hover:text-green-400 transition-all">
-                <span className="text-xl">✉️</span>
-                <span className="font-semibold">Email Us</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* URGENCY BANNER - AGGRESSIVE */}
-      <section className="bg-red-600 text-white py-8 border-y-4 border-yellow-400">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="text-6xl animate-bounce">⚡</div>
-              <div>
-                <p className="text-3xl font-black">DON'T WAIT FOR THE IRS!</p>
-                <p className="text-xl font-bold">
-                  Get your money TODAY - Not in 21 days!
-                </p>
-              </div>
-            </div>
-            <Link
-              href="/supersonic-fast-cash/apply"
-              className="px-8 py-4 bg-yellow-400 text-red-900 text-xl font-black rounded-lg hover:bg-yellow-300 transition-all shadow-2xl whitespace-nowrap transform hover:scale-110"
-            >
-              APPLY NOW - IT'S FREE! →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* SOCIAL PROOF - AGGRESSIVE */}
-      <section className="py-12 bg-zinc-900  ">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-green-600">
-              <div className="text-5xl font-black text-green-600 mb-2">
+      {/* Stats Section */}
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-4">
+              <div className="text-4xl font-black text-blue-600 mb-2">
                 $2.1B+
               </div>
               <div className="text-sm font-bold text-gray-700">
-                ADVANCED TO TAXPAYERS
+                Advanced to Taxpayers
               </div>
-              <div className="text-xs text-gray-500 mt-1">
+              <div className="text-xs text-gray-500">
                 Powered by EPS Financial
               </div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-blue-600">
-              <div className="text-5xl font-black text-blue-600 mb-2">
+            <div className="p-4">
+              <div className="text-4xl font-black text-orange-500 mb-2">
                 44,000+
               </div>
               <div className="text-sm font-bold text-gray-700">
-                TAX OFFICES NATIONWIDE
+                Tax Offices Nationwide
               </div>
-              <div className="text-xs text-gray-500 mt-1">
+              <div className="text-xs text-gray-500">
                 Trusted by professionals
               </div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-yellow-600">
-              <div className="text-5xl font-black text-yellow-600 mb-2">
+            <div className="p-4">
+              <div className="text-4xl font-black text-blue-600 mb-2">
                 15 MIN
               </div>
               <div className="text-sm font-bold text-gray-700">
-                AVERAGE APPROVAL TIME
+                Average Approval
               </div>
-              <div className="text-xs text-gray-500 mt-1">
-                Fast & easy process
-              </div>
+              <div className="text-xs text-gray-500">Fast & easy process</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-red-600">
-              <div className="text-5xl font-black text-red-600 mb-2">0%</div>
+            <div className="p-4">
+              <div className="text-4xl font-black text-orange-500 mb-2">
+                0% APR
+              </div>
               <div className="text-sm font-bold text-gray-700">
-                APR ON SMALL LOANS
+                On Small Loans
               </div>
-              <div className="text-xs text-gray-500 mt-1">
-                $250, $500, $1,000 loans
-              </div>
+              <div className="text-xs text-gray-500">$250, $500, $1,000</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHY WAIT? - AGGRESSIVE COMPARISON */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
-            WHY WAIT 21 DAYS?
+      {/* Comparison Section - H&R Block vs Supersonic */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900 uppercase">
+            Why Choose Supersonic Fast Cash?
           </h2>
-          <p className="text-2xl text-center text-gray-600 mb-12 font-bold">
-            Get Your Money TODAY Instead!
+          <p className="text-center text-gray-600 mb-12">
+            Compare us to the competition
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Waiting for IRS - BAD */}
-            <div className="bg-red-50 border-4 border-red-600 rounded-2xl p-8 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-2 rounded-full font-black text-sm">
-                ❌ WAITING FOR IRS
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* H&R Block */}
+            <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-700">H&R Block</h3>
+                <p className="text-sm text-gray-500">Traditional Tax Service</p>
               </div>
-              <div className="mt-6 space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">😰</span>
-                  <div>
-                    <p className="font-bold text-red-900">Wait 21+ Days</p>
-                    <p className="text-sm text-red-700">
-                      Bills piling up while you wait
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">💸</span>
-                  <div>
-                    <p className="font-bold text-red-900">Miss Opportunities</p>
-                    <p className="text-sm text-red-700">
-                      Can't pay bills on time
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">😟</span>
-                  <div>
-                    <p className="font-bold text-red-900">Stress & Worry</p>
-                    <p className="text-sm text-red-700">
-                      Wondering when money will arrive
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">⏰</span>
-                  <div>
-                    <p className="font-bold text-red-900">Uncertain Timeline</p>
-                    <p className="text-sm text-red-700">
-                      IRS delays are common
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-gray-700">High fees ($200-$400+)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-gray-700">
+                    Wait 21+ days for refund
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-gray-700">Limited advance amounts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✗</span>
+                  <span className="text-gray-700">
+                    Strict credit requirements
+                  </span>
+                </li>
+              </ul>
             </div>
 
-            {/* Supersonic Fast Cash - GOOD */}
-            <div className="bg-green-50 border-4 border-green-600 rounded-2xl p-8 relative shadow-2xl transform md:scale-105">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-2 rounded-full font-black text-sm">
-                ✅ SUPERSONIC FAST CASH
+            {/* Supersonic Fast Cash */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg p-6 border-4 border-orange-500 relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 px-4 py-1 rounded-full text-sm font-bold">
+                BEST CHOICE
               </div>
-              <div className="mt-6 space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">⚡</span>
-                  <div>
-                    <p className="font-bold text-green-900">Money TODAY!</p>
-                    <p className="text-sm text-green-700">
-                      Walk out with cash in hand
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">💰</span>
-                  <div>
-                    <p className="font-bold text-green-900">Pay Bills Now</p>
-                    <p className="text-sm text-green-700">
-                      Handle emergencies immediately
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">😊</span>
-                  <div>
-                    <p className="font-bold text-green-900">Peace of Mind</p>
-                    <p className="text-sm text-green-700">
-                      Money in your account today
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">✓</span>
-                  <div>
-                    <p className="font-bold text-green-900">Guaranteed Fast</p>
-                    <p className="text-sm text-green-700">
-                      15 minutes average approval
-                    </p>
-                  </div>
-                </div>
+              <div className="text-center mb-6 mt-2">
+                <h3 className="text-2xl font-bold">Supersonic Fast Cash</h3>
+                <p className="text-sm text-blue-200">
+                  Powered by EPS Financial
+                </p>
               </div>
-              <div className="mt-6 pt-6 border-t-2 border-green-600">
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                  <span className="font-semibold">FREE tax preparation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                  <span className="font-semibold">Get cash TODAY (15 min)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                  <span className="font-semibold">Up to $7,500 advance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                  <span className="font-semibold">
+                    NO credit check required
+                  </span>
+                </li>
+              </ul>
+              <div className="mt-6">
                 <Link
                   href="/supersonic-fast-cash/apply"
-                  className="block w-full text-center px-6 py-4 bg-green-600 text-white text-xl font-black rounded-lg hover:bg-green-700 transition-all shadow-xl"
+                  className="block w-full px-6 py-3 bg-orange-500 text-white text-center font-bold rounded-md hover:bg-orange-600 transition-all uppercase"
                 >
-                  GET MY MONEY NOW! →
+                  Apply Now
                 </Link>
               </div>
             </div>
@@ -774,1299 +657,301 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-      {/* Nationwide Online Service */}
-      <section className="py-16 bg-zinc-900   text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Serving All 50 States - 100% Online & In-Person
-            </h2>
-            <p className="text-xl text-blue-100">
-              Professional tax preparation from anywhere in the United States
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
-              <div className="text-4xl mb-4">🌎</div>
-              <h3 className="text-xl font-bold mb-3">
-                100% Online - Any State
-              </h3>
-              <p className="text-blue-100 mb-4">
-                File your taxes from anywhere in the USA via secure video call
-              </p>
-              <ul className="space-y-2 text-sm text-blue-100">
-                <li>✓ All 50 states supported</li>
-                <li>✓ Secure video consultation</li>
-                <li>✓ Upload documents online</li>
-                <li>✓ E-signature available</li>
-                <li>✓ Same-day refund advance</li>
-                <li>✓ State & federal returns</li>
-              </ul>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
-              <div className="text-4xl mb-4">🏢</div>
-              <h3 className="text-xl font-bold mb-3">
-                In-Person (Indianapolis)
-              </h3>
-              <p className="text-blue-100 mb-4">
-                Visit our Indianapolis offices by appointment
-              </p>
-              <div className="space-y-2 text-sm">
-                <p>
-                  <strong>Location 1:</strong> 7009 E 56th St, Suite EE1 (46226)
-                </p>
-                <p>
-                  <strong>Location 2:</strong> 3737 N Meridian St (46208)
-                </p>
-                <p>
-                  <strong>Hours:</strong> Mon-Fri 9AM-5PM, Sat 10AM-2PM
-                </p>
-                <p className="text-yellow-300 font-bold mt-3">
-                  ⚠️ Appointment Required - No Walk-Ins
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="text-xl font-bold mb-3">Phone & Chat Support</h3>
-              <p className="text-blue-100 mb-4">
-                Get help via phone, text, or live chat
-              </p>
-              <ul className="space-y-2 text-sm text-blue-100">
-                <li>✓ Phone consultations</li>
-                <li>✓ Text message support</li>
-                <li>✓ Live chat available</li>
-                <li>✓ Email support</li>
-                <li>✓ Document upload portal</li>
-                <li>✓ Real-time status updates</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-white/20">
-            <h3 className="text-2xl font-bold mb-6 text-center">
-              States We Serve (All 50 States)
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-sm">
-              {[
-                'Alabama',
-                'Alaska',
-                'Arizona',
-                'Arkansas',
-                'California',
-                'Colorado',
-                'Connecticut',
-                'Delaware',
-                'Florida',
-                'Georgia',
-                'Hawaii',
-                'Idaho',
-                'Illinois',
-                'Indiana',
-                'Iowa',
-                'Kansas',
-                'Kentucky',
-                'Louisiana',
-                'Maine',
-                'Maryland',
-                'Massachusetts',
-                'Michigan',
-                'Minnesota',
-                'Mississippi',
-                'Missouri',
-                'Montana',
-                'Nebraska',
-                'Nevada',
-                'New Hampshire',
-                'New Jersey',
-                'New Mexico',
-                'New York',
-                'North Carolina',
-                'North Dakota',
-                'Ohio',
-                'Oklahoma',
-                'Oregon',
-                'Pennsylvania',
-                'Rhode Island',
-                'South Carolina',
-                'South Dakota',
-                'Tennessee',
-                'Texas',
-                'Utah',
-                'Vermont',
-                'Virginia',
-                'Washington',
-                'West Virginia',
-                'Wisconsin',
-                'Wyoming',
-              ].map((state) => (
-                <div key={state} className="text-blue-100">
-                  ✓ {state}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-xl mb-6">
-              <strong>Nationwide Tax Preparation</strong> - File from anywhere
-              in the United States. Federal & state returns for all 50 states.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:3173143757"
-                className="inline-block px-8 py-4 bg-yellow-400 text-blue-900 font-bold rounded-lg hover:bg-yellow-300 transition text-lg"
-              >
-                Call 317-314-3757
-              </a>
-              <Link
-                href="/supersonic-fast-cash/book-appointment"
-                className="inline-block px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition text-lg"
-              >
-                Book Online Appointment
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
-              How It Works
-            </h2>
-            <p className="text-base md:text-lg text-gray-600">
-              Get your refund advance in 3 simple steps - In-person or online
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-700">1</span>
-              </div>
-              <h3 className="text-lg font-bold mb-3">File Your Taxes</h3>
-              <p className="text-gray-600">
-                Bring your documents and we'll prepare your taxes professionally
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-700">2</span>
-              </div>
-              <h3 className="text-lg font-bold mb-3">Get Approved</h3>
-              <p className="text-gray-600">
-                Instant approval for your refund advance - no credit check
-                needed
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-700">3</span>
-              </div>
-              <h3 className="text-lg font-bold mb-3">Get Your Cash</h3>
-              <p className="text-gray-600">
-                Walk out with cash in hand - up to $6,000 in minutes
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* VISUAL ADVANCE AMOUNTS - HIGHLY VISUAL */}
-      <section className="py-20 bg-zinc-900   relative overflow-hidden">
-        {/* Background Money Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="text-9xl font-black text-green-600 absolute top-10 left-10">
-            $$$
-          </div>
-          <div className="text-9xl font-black text-green-600 absolute bottom-10 right-10">
-            $$$
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-block bg-green-600 text-white px-6 py-3 rounded-full font-black text-sm mb-4 animate-pulse">
-              💰 CHOOSE YOUR ADVANCE AMOUNT 💰
-            </div>
-            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-4">
-              HOW MUCH DO YOU NEED?
-            </h2>
-            <p className="text-2xl text-gray-700 font-bold">
-              Powered by EPS Financial • No Credit Check • Instant Approval
-            </p>
-          </div>
-
-          {/* VISUAL MONEY CARDS */}
-          <div className="grid md:grid-cols-5 gap-6 mb-12">
-            {/* $250 */}
-            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-green-700">
-              <div className="absolute -top-3 -right-3 bg-yellow-400 text-green-900 px-3 py-1 rounded-full text-xs font-black">
-                0% APR
-              </div>
-              <div className="text-6xl mb-2">💵</div>
-              <div className="text-5xl font-black text-white mb-2">$250</div>
-              <div className="text-sm font-bold text-green-100 mb-3">
-                QUICK CASH
-              </div>
-              <div className="text-xs text-white bg-green-700 rounded-full px-3 py-1">
-                Perfect for bills
-              </div>
-            </div>
-
-            {/* $500 - POPULAR */}
-            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-blue-700">
-              <div className="absolute -top-3 -right-3 bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-xs font-black">
-                POPULAR!
-              </div>
-              <div className="text-6xl mb-2">💵💵</div>
-              <div className="text-5xl font-black text-white mb-2">$500</div>
-              <div className="text-sm font-bold text-blue-100 mb-3">
-                MOST CHOSEN
-              </div>
-              <div className="text-xs text-white bg-blue-700 rounded-full px-3 py-1">
-                0% APR • No interest
-              </div>
-            </div>
-
-            {/* $1,000 - BEST VALUE */}
-            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-purple-700 shadow-2xl">
-              <div className="absolute -top-3 -right-3 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full text-xs font-black animate-pulse">
-                ⭐ BEST VALUE
-              </div>
-              <div className="text-6xl mb-2">💵💵💵</div>
-              <div className="text-5xl font-black text-white mb-2">$1,000</div>
-              <div className="text-sm font-bold text-purple-100 mb-3">
-                TOP CHOICE
-              </div>
-              <div className="text-xs text-white bg-purple-700 rounded-full px-3 py-1">
-                0% APR • Maximum value
-              </div>
-            </div>
-
-            {/* $3,500 */}
-            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-orange-700">
-              <div className="absolute -top-3 -right-3 bg-yellow-400 text-orange-900 px-3 py-1 rounded-full text-xs font-black">
-                BIG MONEY
-              </div>
-              <div className="text-6xl mb-2">💰💰</div>
-              <div className="text-5xl font-black text-white mb-2">$3,500</div>
-              <div className="text-sm font-bold text-orange-100 mb-3">
-                LARGE ADVANCE
-              </div>
-              <div className="text-xs text-white bg-orange-700 rounded-full px-3 py-1">
-                50% of refund
-              </div>
-            </div>
-
-            {/* $7,500 - MAXIMUM */}
-            <div className="group relative bg-zinc-900   rounded-2xl p-8 text-center hover:shadow-2xl transition-all transform hover:scale-110 cursor-pointer border-4 border-red-800 shadow-2xl">
-              <div className="absolute -top-3 -right-3 bg-yellow-400 text-red-900 px-3 py-1 rounded-full text-xs font-black animate-pulse">
-                🔥 MAXIMUM!
-              </div>
-              <div className="text-6xl mb-2">💰💰💰</div>
-              <div className="text-5xl font-black text-white mb-2">$7,500</div>
-              <div className="text-sm font-bold text-red-100 mb-3">
-                BIGGEST ADVANCE
-              </div>
-              <div className="text-xs text-white bg-red-800 rounded-full px-3 py-1">
-                75% of refund
-              </div>
-            </div>
-          </div>
-
-          {/* VISUAL USE CASES */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-green-600">
-              <div className="text-5xl mb-4 text-center">🏠</div>
-              <h3 className="text-2xl font-black text-center mb-3">Pay Rent</h3>
-              <p className="text-gray-700 text-center mb-4">
-                Don't wait 21 days! Pay your rent TODAY with a refund advance.
-              </p>
-              <div className="bg-green-50 border-2 border-green-600 rounded-lg p-4 text-center">
-                <p className="text-sm font-bold text-green-900">
-                  Typical Need:
-                </p>
-                <p className="text-3xl font-black text-green-600">
-                  $500-$1,500
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-blue-600">
-              <div className="text-5xl mb-4 text-center">🚗</div>
-              <h3 className="text-2xl font-black text-center mb-3">
-                Fix Your Car
-              </h3>
-              <p className="text-gray-700 text-center mb-4">
-                Car broke down? Get it fixed TODAY instead of waiting weeks.
-              </p>
-              <div className="bg-blue-50 border-2 border-blue-600 rounded-lg p-4 text-center">
-                <p className="text-sm font-bold text-blue-900">Typical Need:</p>
-                <p className="text-3xl font-black text-blue-600">
-                  $1,000-$3,500
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-600">
-              <div className="text-5xl mb-4 text-center">💳</div>
-              <h3 className="text-2xl font-black text-center mb-3">
-                Pay Off Debt
-              </h3>
-              <p className="text-gray-700 text-center mb-4">
-                Clear your credit cards and bills immediately with cash in hand.
-              </p>
-              <div className="bg-purple-50 border-2 border-purple-600 rounded-lg p-4 text-center">
-                <p className="text-sm font-bold text-purple-900">
-                  Typical Need:
-                </p>
-                <p className="text-3xl font-black text-purple-600">
-                  $3,500-$7,500
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-            <h3 className="font-bold text-gray-900 mb-2">
-              How Loan Amounts Work:
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-700">
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span>
-                  <strong>$250, $500, $1,000:</strong> Fixed amounts with 0% APR
-                  (no interest)
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span>
-                  <strong>25%, 50%, 75% of refund:</strong> Percentage-based
-                  loans up to $7,500 with 36% APR
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span>
-                  <strong>Average loan:</strong> $2,157 for qualified applicants
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span>
-                  <strong>$7,500 maximum:</strong> Requires minimum expected
-                  refund of $10,592
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className="mt-6 text-center">
-            <p className="text-xs text-gray-500 max-w-4xl mx-auto">
-              *The Refund Advance is an optional tax-refund related loan
-              provided by Pathward®, N.A., Member FDIC (it is not the actual tax
-              refund). Loans in amounts of $250, $500, and $1,000 have an APR of
-              0.00%. Loans of 25%, 50% or 75% of expected refund have an APR of
-              36.0% with minimum loan of $1,250. Subject to approval and
-              underwriting standards. See terms and conditions for details.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Tax Software - Drake/EPS Style */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
-              Professional Tax Software
-            </h2>
-            <p className="text-base md:text-lg text-gray-600">
-              We use industry-leading Drake Tax Software with EPS Tax
-              integration
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-lg md:text-lg font-bold mb-4">
-                Drake Tax Software
-              </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>IRS-approved e-file provider</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Handles all tax forms and schedules</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Maximum refund calculations</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Error checking and validation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Fast e-file transmission</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-lg md:text-lg font-bold mb-4">
-                EPS Tax Integration
-              </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>Instant refund advance processing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>Bank product integration</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>Secure payment processing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>Same-day funding available</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>Multiple disbursement options</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing & Services */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-2xl md:text-3xl">
-              Tax Preparation Services
-            </h2>
-            <p className="text-base md:text-lg text-gray-600">
-              Professional tax filing with maximum refund guarantee
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-8">
-              <h3 className="text-lg md:text-lg font-bold mb-4">Basic</h3>
-              <div className="text-4xl font-bold text-green-700 mb-6 text-2xl md:text-3xl lg:text-4xl">
-                $79
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>W-2 income</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Standard deduction</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>E-file included</span>
-                </li>
-              </ul>
-              <Link
-                href="/supersonic-fast-cash/apply"
-                className="block w-full py-3 bg-gray-200 text-gray-900 font-bold rounded-lg hover:bg-gray-300 transition-all text-center"
-              >
-                Get Started
-              </Link>
-            </div>
-
-            <div className="bg-green-700 text-white rounded-xl p-8 relative transform scale-105 shadow-2xl">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-green-900 px-4 py-1 rounded-full text-sm font-bold">
-                MOST POPULAR
-              </div>
-              <h3 className="text-lg md:text-lg font-bold mb-4">Deluxe</h3>
-              <div className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
-                $149
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span>Everything in Basic</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span>Itemized deductions</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span>Self-employment income</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span>Refund advance eligible</span>
-                </li>
-              </ul>
-              <Link
-                href="/supersonic-fast-cash/apply"
-                className="block w-full py-3 bg-yellow-400 text-green-900 font-bold rounded-lg hover:bg-yellow-300 transition-all text-center"
-              >
-                Get Started
-              </Link>
-            </div>
-
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-8">
-              <h3 className="text-lg md:text-lg font-bold mb-4">Premium</h3>
-              <div className="text-4xl font-bold text-green-700 mb-6 text-2xl md:text-3xl lg:text-4xl">
-                $249
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Everything in Deluxe</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Rental property income</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Investment income</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Audit protection</span>
-                </li>
-              </ul>
-              <Link
-                href="/supersonic-fast-cash/apply"
-                className="block w-full py-3 bg-gray-200 text-gray-900 font-bold rounded-lg hover:bg-gray-300 transition-all text-center"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Badges */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <Shield className="w-12 h-12 text-green-700 mx-auto mb-3" />
-              <h3 className="font-bold mb-2">IRS Certified</h3>
-              <p className="text-sm text-gray-600">
-                All preparers are IRS certified
-              </p>
-            </div>
-            <div>
-              <Award className="w-12 h-12 text-green-700 mx-auto mb-3" />
-              <h3 className="font-bold mb-2">Maximum Refund</h3>
-              <p className="text-sm text-gray-600">
-                Guaranteed or your money back
-              </p>
-            </div>
-            <div>
-              <Clock className="w-12 h-12 text-green-700 mx-auto mb-3" />
-              <h3 className="font-bold mb-2">Fast Service</h3>
-              <p className="text-sm text-gray-600">
-                Most returns done same day
-              </p>
-            </div>
-            <div>
-              <DollarSign className="w-12 h-12 text-green-700 mx-auto mb-3" />
-              <h3 className="font-bold mb-2">Best Prices</h3>
-              <p className="text-sm text-gray-600">
-                Competitive rates guaranteed
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* EPS Financial Partnership Section */}
-      <section className="py-16 bg-white text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Powered by EPS Financial & Pathward®
-            </h2>
-            <p className="text-lg text-blue-100">
-              Trusted banking partner for tax refund advances nationwide
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-              <Shield className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">FDIC Insured</h3>
-              <p className="text-sm text-blue-100">
-                Your funds are protected by Pathward®, N.A., Member FDIC
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-              <Award className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">Industry Leader</h3>
-              <p className="text-sm text-blue-100">
-                EPS Financial processes millions of tax refund advances annually
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-              <TrendingUp className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">Fast Processing</h3>
-              <p className="text-sm text-blue-100">
-                Advanced technology for instant approval and same-day funding
-              </p>
-            </div>
-          </div>
-          <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-8">
-            <h3 className="font-bold text-xl mb-4 text-center">
-              Why Choose EPS Financial?
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      Over 20 years in tax refund advance industry
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      Trusted by thousands of tax professionals nationwide
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      Seamless integration with Drake Tax Software
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      Competitive rates and transparent terms
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      No hidden fees or surprise charges
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      Dedicated customer support during tax season
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-white text-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Your Tax Refund Advance?
+      {/* Features Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900 uppercase">
+            Our Services
           </h2>
-          <p className="text-xl mb-8 text-green-100">
-            Visit us today or call to schedule your appointment. Same-day
-            service available!
+          <p className="text-center text-gray-600 mb-12">
+            Everything you need for tax season
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+                <DollarSign className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-center mb-3 group-hover:text-blue-600">
+                Tax Refund Advance
+              </h3>
+              <p className="text-gray-600 text-center mb-4">
+                Get up to $7,500 in as little as 15 minutes. No credit check
+                required.
+              </p>
+              <Link
+                href="/supersonic-fast-cash/apply"
+                className="block text-center text-blue-600 font-semibold hover:underline"
+              >
+                Learn More →
+              </Link>
+            </div>
+
+            <div className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+                <CheckCircle className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-center mb-3 group-hover:text-blue-600">
+                Professional Tax Prep
+              </h3>
+              <p className="text-gray-600 text-center mb-4">
+                IRS-certified preparers handle your taxes. Free with refund
+                advance.
+              </p>
+              <Link
+                href="/supersonic-fast-cash/services"
+                className="block text-center text-blue-600 font-semibold hover:underline"
+              >
+                Learn More →
+              </Link>
+            </div>
+
+            <div className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+                <Clock className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-center mb-3 group-hover:text-blue-600">
+                Same-Day Filing
+              </h3>
+              <p className="text-gray-600 text-center mb-4">
+                E-file your return and get your advance the same day you apply.
+              </p>
+              <Link
+                href="/supersonic-fast-cash/how-it-works"
+                className="block text-center text-blue-600 font-semibold hover:underline"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pages/Services Navigation */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 uppercase">
+            Explore Our Site
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link
               href="/supersonic-fast-cash/apply"
-              className="inline-block px-10 py-5 bg-yellow-400 text-green-900 text-xl font-bold rounded-lg hover:bg-yellow-300 transition-all shadow-xl"
+              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-orange-500"
             >
-              Apply Now
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                Apply Now
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Start your application for a tax refund advance
+              </p>
             </Link>
-            <a
-              href="tel:3173143757"
-              className="inline-block px-10 py-5 bg-white text-green-900 text-xl font-bold rounded-lg hover:bg-gray-100 transition-all shadow-xl"
+
+            <Link
+              href="/supersonic-fast-cash/calculator"
+              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
             >
-              Call 317-314-3757
-            </a>
-          </div>
-          <div className="mt-8 grid md:grid-cols-3 gap-4 text-sm">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <p className="font-bold mb-1">📍 Location</p>
-              <p className="text-green-100">
-                7009 E 56th St, Suite EE1
-                <br />
-                Indianapolis, IN 46226
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                Refund Calculator
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Estimate your tax refund amount
               </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <p className="font-bold mb-1">⏰ Hours</p>
-              <p className="text-green-100">
-                Mon-Fri: 9am-5pm
-                <br />
-                Sat: 10am-2pm
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <p className="font-bold mb-1">✅ Services</p>
-              <p className="text-green-100">
-                Walk-ins Welcome
-                <br />
-                Evening Appointments Available
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+            </Link>
 
-      {/* Sub-Office & Business Opportunity Section */}
-      <section className="py-16 bg-white text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Start Your Own Tax Business
-            </h2>
-            <p className="text-lg text-purple-100">
-              Join the SupersonicFastCash network and become a sub-office owner
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-4">Become a Sub-Office</h3>
-              <p className="text-purple-100 mb-6">
-                Own and operate your own SupersonicFastCash location. We provide
-                training, software, EPS Financial partnership, and ongoing
-                support.
+            <Link
+              href="/supersonic-fast-cash/how-it-works"
+              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                How It Works
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Learn about our simple 3-step process
               </p>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Complete tax preparation training included
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Drake Tax Software license provided
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    EPS Financial refund advance partnership
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Marketing materials and branding support
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Ongoing technical and business support
-                  </span>
-                </li>
-              </ul>
-              <Link
-                href="/contact"
-                className="inline-block px-8 py-4 bg-yellow-400 text-purple-900 font-bold rounded-lg hover:bg-yellow-300 transition"
-              >
-                Inquire About Sub-Office
-              </Link>
-            </div>
+            </Link>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-4">Get Certified</h3>
-              <p className="text-purple-100 mb-6">
-                Take our comprehensive tax preparation course and become an
-                IRS-certified tax preparer. Start your own business or work for
-                an existing office.
+            <Link
+              href="/supersonic-fast-cash/pricing"
+              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Pricing</h3>
+              <p className="text-gray-600 text-sm">
+                View our transparent pricing and fees
               </p>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Self-paced online training</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    IRS certification exam preparation
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Business startup guidance</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Software training included</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Lifetime access to course materials
-                  </span>
-                </li>
-              </ul>
-              <Link
-                href="/programs/tax-prep-financial-services"
-                className="inline-block px-8 py-4 bg-white text-purple-900 font-bold rounded-lg hover:bg-gray-100 transition"
-              >
-                View Tax Prep Course
-              </Link>
-            </div>
-          </div>
+            </Link>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-4">
-              Current Sub-Office Locations
-            </h3>
-            <p className="text-purple-100 mb-6">
-              SupersonicFastCash is expanding across Indiana. Find a location
-              near you or inquire about opening one in your area.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="font-bold mb-2">Indianapolis (Main Office)</div>
-                <div className="text-sm text-purple-100">
-                  7009 E 56th St, Suite EE1
-                  <br />
-                  Indianapolis, IN 46226
-                  <br />
-                  <a
-                    href="tel:3173143757"
-                    className="text-yellow-400 hover:underline"
-                  >
-                    317-314-3757
-                  </a>
-                </div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="font-bold mb-2">Expanding Service</div>
-                <div className="text-sm text-purple-100">
-                  Additional locations opening
-                  <br />
-                  across Marion County
-                  <br />
-                  <Link
-                    href="/contact"
-                    className="text-yellow-400 hover:underline"
-                  >
-                    Contact for details
-                  </Link>
-                </div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="font-bold mb-2">Your Location?</div>
-                <div className="text-sm text-purple-100">
-                  Interested in opening
-                  <br />
-                  a sub-office in your area?
-                  <br />
-                  <Link
-                    href="/contact"
-                    className="text-yellow-400 hover:underline"
-                  >
-                    Let's talk
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <Link
+              href="/supersonic-fast-cash/locations"
+              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                Locations
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Find our Indianapolis offices
+              </p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/book-appointment"
+              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-orange-500"
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                Book Appointment
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Schedule your tax preparation session
+              </p>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Online Booking Section */}
+      {/* Trust/Partners Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Book Your Appointment Online
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900 uppercase">
+            Trusted Partners
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Schedule your tax preparation appointment in just a few clicks.
-            Choose in-person or virtual appointments.
+          <p className="text-center text-gray-600 mb-12">
+            Backed by industry leaders
           </p>
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="rounded-xl border-2 border-blue-200 p-6 text-left">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-brand-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg mb-2">In-Person Appointments</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Visit our office for face-to-face service. Bring your documents
-                and we'll handle everything.
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg border-2 border-blue-200">
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">
+                EPS Financial
+              </h3>
+              <p className="text-gray-700 mb-4">
+                Our tax refund advances are powered by EPS Financial, a leader
+                in tax-related financial products with over $2.1 billion
+                advanced to taxpayers nationwide.
               </p>
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>• Same-day service available</li>
-                <li>• Walk-ins welcome</li>
-                <li>• Free parking</li>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span>Serving 44,000+ tax offices</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span>Industry-leading technology</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span>Trusted since 1989</span>
+                </li>
               </ul>
             </div>
-            <div className="rounded-xl border-2 border-green-200 p-6 text-left">
-              <div className="w-12 h-12 rounded-full bg-brand-green-100 flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-brand-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg mb-2">Virtual Appointments</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Meet with us via Zoom from anywhere. Upload documents securely
-                online.
+
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-lg border-2 border-orange-200">
+              <h3 className="text-2xl font-bold text-orange-900 mb-4">
+                Pathward, N.A.
+              </h3>
+              <p className="text-gray-700 mb-4">
+                All refund advances are issued by Pathward, N.A., Member FDIC,
+                ensuring your funds are secure and protected.
               </p>
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>• No travel required</li>
-                <li>• Secure video call</li>
-                <li>• Same great service</li>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <Shield className="w-5 h-5 text-orange-600 flex-shrink-0" />
+                  <span>FDIC Insured</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Shield className="w-5 h-5 text-orange-600 flex-shrink-0" />
+                  <span>Equal Housing Lender</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Shield className="w-5 h-5 text-orange-600 flex-shrink-0" />
+                  <span>Regulated financial institution</span>
+                </li>
               </ul>
             </div>
           </div>
-          <Link
-            href="/tax/book-appointment"
-            className="inline-block px-10 py-5 bg-white text-white text-xl font-bold rounded-lg hover:shadow-xl transition-all"
-          >
-            Book Appointment Now
-          </Link>
         </div>
       </section>
 
-      {/* Legal Disclaimer - EPS Financial Style */}
+      {/* Contact/Social Section */}
+      <section className="py-12 bg-blue-600 text-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Call Us</h3>
+              <a
+                href="tel:+13173143757"
+                className="text-2xl font-bold hover:text-orange-400 transition-colors"
+              >
+                (317) 314-3757
+              </a>
+              <p className="text-sm text-blue-200 mt-2">Mon-Fri 9AM-5PM EST</p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">Email Us</h3>
+              <a
+                href="mailto:supersonicfastcash@gmail.com"
+                className="text-lg hover:text-orange-400 transition-colors"
+              >
+                supersonicfastcash@gmail.com
+              </a>
+              <p className="text-sm text-blue-200 mt-2">
+                24-hour response time
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
+              <div className="flex justify-center gap-4">
+                <a
+                  href="https://www.facebook.com/share/1Be4LrVfJw/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-orange-400 transition-colors"
+                >
+                  <Facebook className="w-6 h-6 text-blue-600" />
+                </a>
+                <a
+                  href="https://www.instagram.com/supersonicfastcash"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-orange-400 transition-colors"
+                >
+                  <Instagram className="w-6 h-6 text-blue-600" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Disclaimer Section */}
       <section className="py-8 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="text-xs text-gray-600 space-y-2">
-            <p className="font-semibold text-gray-800">
-              Important Disclosures:
+            <p>
+              *Tax Refund Advance: Advances are provided by Pathward, N.A.,
+              Member FDIC. Loan amounts range from $250 to $7,500 based on
+              expected refund. 0% APR on loans $250-$1,000; 36% APR on loans
+              $1,001-$7,500. Terms and conditions apply. Not all applicants will
+              qualify.
             </p>
             <p>
-              <strong>Refund Advance Loan:</strong> The Refund Advance is an
-              optional tax-refund related loan provided by Pathward®, N.A.,
-              Member FDIC (it is not the actual tax refund) at participating
-              locations. Program availability and loan amounts may vary based on
-              state and software provider. The amount of the loan and applicable
-              interest will be deducted from tax refunds and reduce the amount
-              that is paid directly to the taxpayer. Fees for other optional
-              products or product features may apply. Tax returns may be filed
-              electronically without applying for this loan.
+              **Professional Tax Preparation: Free tax preparation is included
+              with approved refund advance applications. Standard tax
+              preparation fees apply for customers who do not qualify for or
+              choose not to receive a refund advance.
             </p>
-            <p>
-              <strong>Loan Amounts:</strong> Loans offered in amounts of $250
-              (where available), $500, $1,000, 25%, 50%, or 75% of your expected
-              tax refund up to $7,500, with interest-based applicants receiving
-              an average of $2,157.45; $7,500 available only to well-qualified
-              applicants with a minimum expected tax refund of $10,592.
-              Underwriting standards subject to change.
+            <p className="font-semibold">
+              Pathward, N.A., Member FDIC | Equal Housing Lender | Visit{' '}
+              <a
+                href="https://www.pathward.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                Pathward.com
+              </a>
             </p>
-            <p>
-              <strong>APR:</strong> Loans in the amounts of $250, $500, and
-              $1,000 have an Annual Percentage Rate (APR) of 0.00%. Loans in the
-              amounts of 25%, 50% or 75% of your expected tax refund have an APR
-              of 36.0% with a minimum loan of $1,250. For example, $2,500 loan
-              representing 50% of expected refund borrowed over 33 day term,
-              total amount payable in a single payment is $2,581.37 including
-              interest.
-            </p>
-            <p>
-              <strong>Eligibility:</strong> Availability is subject to
-              satisfaction of identity verification, eligibility criteria, and
-              underwriting standards. No credit check required for approval.
-            </p>
-            <p className="pt-2 border-t border-gray-300 mt-4">
-              Supersonic Fast Cash is an authorized partner of EPS Financial.
-              Tax preparation services provided by Elevate for Humanity. Refund
-              advances provided by Pathward®, N.A., Member FDIC. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Required Documentation & Resources */}
-      <section className="py-16 bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            Required Documentation & Resources
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* IRS Requirements */}
-            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                IRS Required Documents
-              </h3>
-              <p className="text-gray-700 mb-4">
-                To file your taxes and qualify for a refund advance, you'll
-                need:
-              </p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Photo ID:</strong> Valid government-issued ID
-                    (driver's license, passport, state ID)
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Social Security Card:</strong> For you and all
-                    dependents
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>W-2 Forms:</strong> From all employers
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>1099 Forms:</strong> For self-employment, interest,
-                    dividends, etc.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Prior Year Return:</strong> Last year's tax return
-                    (if available)
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Bank Account Info:</strong> For direct deposit
-                    (routing and account numbers)
-                  </span>
-                </li>
-              </ul>
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                <p className="text-sm text-blue-900">
-                  <strong>IRS Resources:</strong> Visit{' '}
-                  <a
-                    href="https://www.irs.gov/individuals/checklist-for-free-tax-return-preparation"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-blue-700"
-                  >
-                    IRS.gov
-                  </a>{' '}
-                  for complete tax filing requirements and forms.
-                </p>
-              </div>
-            </div>
-
-            {/* EPS Financial Qualifications */}
-            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                Refund Advance Qualifications
-              </h3>
-              <p className="text-gray-700 mb-4">
-                To qualify for an EPS Financial refund advance:
-              </p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Expected Refund:</strong> Minimum refund amount
-                    varies by loan size
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Identity Verification:</strong> Must pass identity
-                    verification process
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>No Credit Check:</strong> Credit score not required
-                    for approval
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>E-File Required:</strong> Must file electronically
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Underwriting:</strong> Subject to Pathward
-                    underwriting standards
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Age Requirement:</strong> Must be 18 years or older
-                  </span>
-                </li>
-              </ul>
-              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-sm text-green-900">
-                  <strong>Learn More:</strong> Visit{' '}
-                  <a
-                    href="https://www.epstax.net/taxpayer-advance-loan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-green-700"
-                  >
-                    EPSTax.net
-                  </a>{' '}
-                  for complete refund advance details and terms.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Resources */}
-          <div className="bg-blue-50 border-2 border-blue-600 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-4 text-blue-900">
-              Additional Resources
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <h4 className="font-bold text-blue-900 mb-2">IRS Resources</h4>
-                <ul className="space-y-2 text-sm text-blue-800">
-                  <li>
-                    <a
-                      href="https://www.irs.gov/refunds"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Check Refund Status
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.irs.gov/forms-instructions"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Tax Forms & Instructions
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.irs.gov/help/tax-law-questions"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Tax Law Questions
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-blue-900 mb-2">EPS Financial</h4>
-                <ul className="space-y-2 text-sm text-blue-800">
-                  <li>
-                    <a
-                      href="https://www.epstax.net/taxpayer-advance-loan/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Advance Loan Details
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.epstax.net/tax-faq/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Frequently Asked Questions
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.epstax.net/contact/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Contact EPS Support
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-blue-900 mb-2">Pathward Bank</h4>
-                <ul className="space-y-2 text-sm text-blue-800">
-                  <li>
-                    <a
-                      href="https://www.pathward.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-600"
-                    >
-                      Pathward.com
-                    </a>
-                  </li>
-                  <li>
-                    <span className="text-blue-800">Member FDIC</span>
-                  </li>
-                  <li>
-                    <span className="text-blue-800">Equal Housing Lender</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </section>
