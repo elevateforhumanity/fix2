@@ -84,6 +84,38 @@ export async function POST(req: Request) {
   }
 
   try {
+    // Handle tax intake DIY service payments
+    if (event.type === 'checkout.session.completed') {
+      const session = event.data.object as Stripe.Checkout.Session;
+      
+      // Check if this is a tax intake payment
+      const intakeId = session.client_reference_id || session.metadata?.intake_id;
+      if (intakeId && session.metadata?.service_type === 'tax_intake') {
+        const { createClient } = await import('@/lib/supabase/server');
+        const supabaseAdmin = createClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          process.env.SUPABASE_SERVICE_ROLE_KEY!
+        );
+
+        const { error } = await supabaseAdmin
+          .from('tax_intake')
+          .update({
+            paid: true,
+            stripe_session_id: session.id,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', intakeId);
+
+        if (error) {
+          logger.error('Failed to mark tax intake as paid', error);
+        } else {
+          logger.info(`✅ Marked tax intake ${intakeId} as paid (session: ${session.id})`);
+        }
+        
+        return NextResponse.json({ received: true });
+      }
+    }
+    
     // Handle funding payment completion - AUTOMATIC ENROLLMENT
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
