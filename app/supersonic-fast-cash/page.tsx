@@ -1,12 +1,30 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   DollarSign,
   Clock,
   Shield,
   CheckCircle,
   ChevronDown,
+  Zap,
+  BadgeCheck,
+  Building2,
+  Calculator,
+  MapPin,
+  Upload,
+  User,
+  CreditCard,
+  HelpCircle,
+  Calendar,
+  Briefcase,
+  Handshake,
+  BarChart3,
+  Trophy,
+  BookOpen,
+  ClipboardCheck,
+  FileText,
 } from 'lucide-react';
 
 export default function SupersonicMarketingPage() {
@@ -75,22 +93,22 @@ export default function SupersonicMarketingPage() {
           {/* Key Benefits */}
           <div className="grid md:grid-cols-4 gap-6 mt-16">
             <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-              <div className="text-6xl mb-4">💵</div>
+              <DollarSign className="w-16 h-16 mx-auto mb-4 text-green-400" />
               <div className="font-black text-2xl mb-2">Up to $7,500</div>
               <div className="text-gray-200">Same-day cash</div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-              <div className="text-6xl mb-4">⚡</div>
+              <Zap className="w-16 h-16 mx-auto mb-4 text-yellow-400" />
               <div className="font-black text-2xl mb-2">15 Minutes</div>
               <div className="text-gray-200">Fast approval</div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-              <div className="text-6xl mb-4">✅</div>
+              <BadgeCheck className="w-16 h-16 mx-auto mb-4 text-blue-400" />
               <div className="font-black text-2xl mb-2">No Credit Check</div>
               <div className="text-gray-200">Everyone approved</div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl text-center border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-              <div className="text-6xl mb-4">🏦</div>
+              <Shield className="w-16 h-16 mx-auto mb-4 text-red-400" />
               <div className="font-black text-2xl mb-2">FDIC Insured</div>
               <div className="text-gray-200">Safe & secure</div>
             </div>
@@ -154,10 +172,15 @@ export default function SupersonicMarketingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Tax Refund Advance */}
             <div className="group bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-red-600 hover:border-red-700 transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-red-600 to-red-700 text-white p-8 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="text-7xl mb-4 relative z-10">💰</div>
-                <h3 className="text-3xl font-black uppercase relative z-10">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80"
+                  alt="Cash money"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-red-600/90 to-transparent"></div>
+                <h3 className="absolute bottom-4 left-4 right-4 text-3xl font-black uppercase text-white z-10">
                   Tax Refund Advance
                 </h3>
               </div>
@@ -222,10 +245,15 @@ export default function SupersonicMarketingPage() {
 
             {/* Professional Tax Prep */}
             <div className="group bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-blue-900 hover:border-blue-950 transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white p-8 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="text-7xl mb-4 relative z-10">👨‍💼</div>
-                <h3 className="text-3xl font-black uppercase relative z-10">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+                  alt="Professional tax preparation"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent"></div>
+                <h3 className="absolute bottom-4 left-4 right-4 text-3xl font-black uppercase text-white z-10">
                   Professional Tax Prep
                 </h3>
               </div>
@@ -290,10 +318,15 @@ export default function SupersonicMarketingPage() {
 
             {/* DIY Self-Prep */}
             <div className="group bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-green-600 hover:border-green-700 transform hover:scale-105 transition-all duration-300">
-              <div className="bg-gradient-to-br from-green-600 to-green-700 text-white p-8 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                <div className="text-7xl mb-4 relative z-10">💻</div>
-                <h3 className="text-3xl font-black uppercase relative z-10">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+                  alt="DIY online tax filing"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-600/90 to-transparent"></div>
+                <h3 className="absolute bottom-4 left-4 right-4 text-3xl font-black uppercase text-white z-10">
                   DIY Self-Prep
                 </h3>
               </div>
@@ -353,7 +386,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/calculator"
               className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">🧮</div>
+              <Calculator className="w-16 h-16 mb-4 text-blue-900 group-hover:text-blue-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
                 Refund Calculator
               </h3>
@@ -364,7 +397,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/tools/refund-tracker"
               className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">📍</div>
+              <MapPin className="w-16 h-16 mb-4 text-red-600 group-hover:text-red-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
                 Track Refund
               </h3>
@@ -375,7 +408,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/upload-documents"
               className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">📤</div>
+              <Upload className="w-16 h-16 mb-4 text-blue-900 group-hover:text-blue-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
                 Upload Documents
               </h3>
@@ -386,7 +419,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/portal"
               className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">👤</div>
+              <User className="w-16 h-16 mb-4 text-red-600 group-hover:text-red-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
                 Customer Portal
               </h3>
@@ -397,7 +430,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/pricing"
               className="group p-8 bg-white border-2 border-green-600 rounded-2xl hover:shadow-2xl hover:border-green-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">💲</div>
+              <CreditCard className="w-16 h-16 mb-4 text-green-600 group-hover:text-green-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-green-600 group-hover:text-green-700">
                 Pricing
               </h3>
@@ -408,7 +441,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/locations"
               className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">🏢</div>
+              <Building2 className="w-16 h-16 mb-4 text-blue-900 group-hover:text-blue-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
                 Locations
               </h3>
@@ -419,7 +452,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/how-it-works"
               className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">❓</div>
+              <HelpCircle className="w-16 h-16 mb-4 text-red-600 group-hover:text-red-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
                 How It Works
               </h3>
@@ -430,7 +463,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/book-appointment"
               className="group p-8 bg-white border-2 border-green-600 rounded-2xl hover:shadow-2xl hover:border-green-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">📅</div>
+              <Calendar className="w-16 h-16 mb-4 text-green-600 group-hover:text-green-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-green-600 group-hover:text-green-700">
                 Book Appointment
               </h3>
@@ -441,7 +474,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/careers"
               className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">💼</div>
+              <Briefcase className="w-16 h-16 mb-4 text-blue-900 group-hover:text-blue-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
                 Careers
               </h3>
@@ -452,7 +485,7 @@ export default function SupersonicMarketingPage() {
               href="/supersonic-fast-cash/sub-office-agreement"
               className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">🤝</div>
+              <Handshake className="w-16 h-16 mb-4 text-red-600 group-hover:text-red-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
                 Sub-Office Program
               </h3>
@@ -463,7 +496,7 @@ export default function SupersonicMarketingPage() {
               href="/dashboard/tax-intake"
               className="group p-8 bg-white border-2 border-purple-600 rounded-2xl hover:shadow-2xl hover:border-purple-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">📊</div>
+              <BarChart3 className="w-16 h-16 mb-4 text-purple-600 group-hover:text-purple-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-purple-600 group-hover:text-purple-700">
                 Staff Dashboard
               </h3>
@@ -474,7 +507,7 @@ export default function SupersonicMarketingPage() {
               href="/dashboard/sub-offices"
               className="group p-8 bg-white border-2 border-orange-600 rounded-2xl hover:shadow-2xl hover:border-orange-700 transition-all transform hover:scale-105"
             >
-              <div className="text-6xl mb-4">🏆</div>
+              <Trophy className="w-16 h-16 mb-4 text-orange-600 group-hover:text-orange-700 transition-colors" />
               <h3 className="font-black text-xl mb-2 text-orange-600 group-hover:text-orange-700">
                 Sub-Office Dashboard
               </h3>
@@ -492,7 +525,7 @@ export default function SupersonicMarketingPage() {
                 href="/supersonic-fast-cash/careers/training"
                 className="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
               >
-                <div className="text-3xl">📚</div>
+                <BookOpen className="w-12 h-12 text-blue-900 group-hover:text-blue-700 transition-colors" />
                 <div>
                   <div className="font-bold text-blue-900 group-hover:text-blue-700">
                     Tax Preparer Training
@@ -506,7 +539,7 @@ export default function SupersonicMarketingPage() {
                 href="/supersonic-fast-cash/careers/competency-test"
                 className="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
               >
-                <div className="text-3xl">✅</div>
+                <ClipboardCheck className="w-12 h-12 text-blue-900 group-hover:text-blue-700 transition-colors" />
                 <div>
                   <div className="font-bold text-blue-900 group-hover:text-blue-700">
                     Competency Test
@@ -520,7 +553,7 @@ export default function SupersonicMarketingPage() {
                 href="/supersonic-fast-cash/admin/client-intake"
                 className="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
               >
-                <div className="text-3xl">📋</div>
+                <FileText className="w-12 h-12 text-blue-900 group-hover:text-blue-700 transition-colors" />
                 <div>
                   <div className="font-bold text-blue-900 group-hover:text-blue-700">
                     Client Intake System
