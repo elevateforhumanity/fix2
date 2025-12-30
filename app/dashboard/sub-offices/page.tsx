@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 type ReportRow = {
   sub_office_id: string;
   season_start: string;
