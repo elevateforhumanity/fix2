@@ -406,7 +406,7 @@ export default function SupersonicFastCashPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -426,6 +426,88 @@ export default function SupersonicFastCashPage() {
           __html: JSON.stringify(localBusinessSchema),
         }}
       />
+
+      {/* Navigation Header */}
+      <header className="bg-white border-b-2 border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link
+              href="/supersonic-fast-cash"
+              className="flex items-center gap-3"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
+                <DollarSign className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <div className="text-xl font-black text-blue-900 uppercase">
+                  Supersonic Fast Cash
+                </div>
+                <div className="text-xs text-gray-600">
+                  Powered by EPS Financial
+                </div>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6">
+              <Link
+                href="/supersonic-fast-cash/apply"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              >
+                Apply
+              </Link>
+              <Link
+                href="/supersonic-fast-cash/calculator"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              >
+                Calculator
+              </Link>
+              <Link
+                href="/supersonic-fast-cash/how-it-works"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              >
+                How It Works
+              </Link>
+              <Link
+                href="/supersonic-fast-cash/pricing"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="/supersonic-fast-cash/locations"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              >
+                Locations
+              </Link>
+              <Link
+                href="/supersonic-fast-cash/services"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              >
+                Services
+              </Link>
+            </nav>
+
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:+13173143757"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 text-blue-600 font-bold hover:text-blue-800 transition-colors"
+              >
+                <span>📞</span>
+                <span>(317) 314-3757</span>
+              </a>
+              <Link
+                href="/supersonic-fast-cash/apply"
+                className="px-6 py-2 bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600 transition-all uppercase"
+              >
+                Apply Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section - Brand Colors */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
@@ -522,8 +604,144 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
+      {/* Main Features - Prominent Section */}
+      <section className="py-16 bg-white border-b-4 border-blue-600">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900 uppercase">
+            Everything You Need for Tax Season
+          </h2>
+          <p className="text-center text-gray-600 mb-12 text-lg">
+            Professional tax services with instant cash advances
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {/* Tax Refund Advance */}
+            <Link
+              href="/supersonic-fast-cash/apply"
+              className="group block bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl p-8 hover:shadow-2xl transition-all transform hover:scale-105"
+            >
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <DollarSign className="w-10 h-10 text-orange-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-center mb-3">
+                Tax Refund Advance
+              </h3>
+              <p className="text-center text-orange-50 mb-4">
+                Get up to $7,500 in 15 minutes. No credit check. Same-day cash.
+              </p>
+              <div className="text-center font-bold text-lg">Apply Now →</div>
+            </Link>
+
+            {/* Calculator */}
+            <Link
+              href="/supersonic-fast-cash/calculator"
+              className="group block bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl p-8 hover:shadow-2xl transition-all transform hover:scale-105"
+            >
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-10 h-10 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-center mb-3">
+                Refund Calculator
+              </h3>
+              <p className="text-center text-blue-50 mb-4">
+                Estimate your tax refund amount and see how much you can get.
+              </p>
+              <div className="text-center font-bold text-lg">
+                Calculate Now →
+              </div>
+            </Link>
+
+            {/* Book Appointment */}
+            <Link
+              href="/supersonic-fast-cash/book-appointment"
+              className="group block bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl p-8 hover:shadow-2xl transition-all transform hover:scale-105"
+            >
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-10 h-10 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-center mb-3">
+                Book Appointment
+              </h3>
+              <p className="text-center text-blue-50 mb-4">
+                Schedule your tax preparation session online or in-person.
+              </p>
+              <div className="text-center font-bold text-lg">
+                Schedule Now →
+              </div>
+            </Link>
+          </div>
+
+          {/* Additional Pages Grid */}
+          <div className="grid md:grid-cols-4 gap-4">
+            <Link
+              href="/supersonic-fast-cash/how-it-works"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">How It Works</h4>
+              <p className="text-sm text-gray-600">Simple 3-step process</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/pricing"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">Pricing</h4>
+              <p className="text-sm text-gray-600">Transparent fees</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/locations"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">Locations</h4>
+              <p className="text-sm text-gray-600">Indianapolis offices</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/services"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">All Services</h4>
+              <p className="text-sm text-gray-600">View complete list</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/diy-taxes"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">DIY Tax Filing</h4>
+              <p className="text-sm text-gray-600">File yourself online</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/upload-documents"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">Upload Documents</h4>
+              <p className="text-sm text-gray-600">Secure document portal</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/portal"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">Customer Portal</h4>
+              <p className="text-sm text-gray-600">Track your status</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/careers"
+              className="block bg-gray-50 border-2 border-gray-200 rounded-lg p-4 hover:border-blue-600 hover:shadow-lg transition-all"
+            >
+              <h4 className="font-bold text-gray-900 mb-2">Careers</h4>
+              <p className="text-sm text-gray-600">Join our team</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-4">
@@ -659,157 +877,6 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-gray-900 uppercase">
-            Our Services
-          </h2>
-          <p className="text-center text-gray-600 mb-12">
-            Everything you need for tax season
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
-                <DollarSign className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-xl font-bold text-center mb-3 group-hover:text-blue-600">
-                Tax Refund Advance
-              </h3>
-              <p className="text-gray-600 text-center mb-4">
-                Get up to $7,500 in as little as 15 minutes. No credit check
-                required.
-              </p>
-              <Link
-                href="/supersonic-fast-cash/apply"
-                className="block text-center text-blue-600 font-semibold hover:underline"
-              >
-                Learn More →
-              </Link>
-            </div>
-
-            <div className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
-                <CheckCircle className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-xl font-bold text-center mb-3 group-hover:text-blue-600">
-                Professional Tax Prep
-              </h3>
-              <p className="text-gray-600 text-center mb-4">
-                IRS-certified preparers handle your taxes. Free with refund
-                advance.
-              </p>
-              <Link
-                href="/supersonic-fast-cash/services"
-                className="block text-center text-blue-600 font-semibold hover:underline"
-              >
-                Learn More →
-              </Link>
-            </div>
-
-            <div className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
-                <Clock className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-xl font-bold text-center mb-3 group-hover:text-blue-600">
-                Same-Day Filing
-              </h3>
-              <p className="text-gray-600 text-center mb-4">
-                E-file your return and get your advance the same day you apply.
-              </p>
-              <Link
-                href="/supersonic-fast-cash/how-it-works"
-                className="block text-center text-blue-600 font-semibold hover:underline"
-              >
-                Learn More →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pages/Services Navigation */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 uppercase">
-            Explore Our Site
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link
-              href="/supersonic-fast-cash/apply"
-              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-orange-500"
-            >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Apply Now
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Start your application for a tax refund advance
-              </p>
-            </Link>
-
-            <Link
-              href="/supersonic-fast-cash/calculator"
-              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
-            >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Refund Calculator
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Estimate your tax refund amount
-              </p>
-            </Link>
-
-            <Link
-              href="/supersonic-fast-cash/how-it-works"
-              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
-            >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                How It Works
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Learn about our simple 3-step process
-              </p>
-            </Link>
-
-            <Link
-              href="/supersonic-fast-cash/pricing"
-              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
-            >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Pricing</h3>
-              <p className="text-gray-600 text-sm">
-                View our transparent pricing and fees
-              </p>
-            </Link>
-
-            <Link
-              href="/supersonic-fast-cash/locations"
-              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-blue-600"
-            >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Locations
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Find our Indianapolis offices
-              </p>
-            </Link>
-
-            <Link
-              href="/supersonic-fast-cash/book-appointment"
-              className="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-orange-500"
-            >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Book Appointment
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Schedule your tax preparation session
-              </p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Trust/Partners Section */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -873,6 +940,36 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">
+            Ready to Get Your Money?
+          </h2>
+          <p className="text-xl md:text-2xl mb-8 text-orange-50">
+            Join thousands of satisfied customers who got their tax refund
+            advance in minutes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/supersonic-fast-cash/apply"
+              className="px-12 py-5 bg-white text-orange-600 text-xl font-black rounded-lg hover:bg-gray-100 transition-all shadow-2xl uppercase transform hover:scale-105"
+            >
+              Start Your Application →
+            </Link>
+            <a
+              href="tel:+13173143757"
+              className="px-12 py-5 bg-blue-900 text-white text-xl font-black rounded-lg hover:bg-blue-800 transition-all shadow-2xl uppercase transform hover:scale-105"
+            >
+              📞 Call (317) 314-3757
+            </a>
+          </div>
+          <p className="mt-8 text-sm text-orange-100">
+            No credit check • 15-minute approval • Same-day cash
+          </p>
+        </div>
+      </section>
+
       {/* Contact/Social Section */}
       <section className="py-12 bg-blue-600 text-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -926,37 +1023,248 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-      {/* Disclaimer Section */}
-      <section className="py-8 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-xs text-gray-600 space-y-2">
+      {/* Comprehensive Footer */}
+      <footer className="bg-gray-900 text-white pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {/* Company Info */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-orange-500 rounded-lg flex items-center justify-center">
+                  <DollarSign className="w-6 h-6 text-white" />
+                </div>
+                <div className="font-black text-lg">Supersonic Fast Cash</div>
+              </div>
+              <p className="text-gray-400 text-sm mb-4">
+                Professional tax preparation with instant refund advances.
+                Powered by EPS Financial and Pathward Bank.
+              </p>
+              <div className="flex gap-3">
+                <a
+                  href="https://www.facebook.com/share/1Be4LrVfJw/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/supersonicfastcash"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="font-bold text-lg mb-4 text-orange-400">
+                Services
+              </h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/apply"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Tax Refund Advance
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/services"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Professional Tax Prep
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/diy-taxes"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    DIY Tax Filing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/calculator"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Refund Calculator
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/upload-documents"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Upload Documents
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="font-bold text-lg mb-4 text-orange-400">
+                Resources
+              </h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/how-it-works"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/pricing"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/locations"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Locations
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/book-appointment"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Book Appointment
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/portal"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Customer Portal
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/supersonic-fast-cash/careers"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Careers
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="font-bold text-lg mb-4 text-orange-400">
+                Contact Us
+              </h4>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a
+                    href="tel:+13173143757"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <span>📞</span>
+                    <span>(317) 314-3757</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:supersonicfastcash@gmail.com"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <span>✉️</span>
+                    <span>supersonicfastcash@gmail.com</span>
+                  </a>
+                </li>
+                <li className="text-gray-400">
+                  <div className="font-semibold text-white mb-1">
+                    Indianapolis Office
+                  </div>
+                  7009 E 56th St, Suite EE1
+                  <br />
+                  Indianapolis, IN 46226
+                </li>
+                <li className="text-gray-400">
+                  <div className="font-semibold text-white mb-1">Hours</div>
+                  Mon-Fri: 9AM-5PM
+                  <br />
+                  Sat: 10AM-2PM
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="border-t border-gray-800 pt-8 mb-8">
+            <div className="text-xs text-gray-500 space-y-2">
+              <p>
+                *Tax Refund Advance: Advances are provided by Pathward, N.A.,
+                Member FDIC. Loan amounts range from $250 to $7,500 based on
+                expected refund. 0% APR on loans $250-$1,000; 36% APR on loans
+                $1,001-$7,500. Terms and conditions apply. Not all applicants
+                will qualify.
+              </p>
+              <p>
+                **Professional Tax Preparation: Free tax preparation is included
+                with approved refund advance applications. Standard tax
+                preparation fees apply for customers who do not qualify for or
+                choose not to receive a refund advance.
+              </p>
+              <p className="font-semibold text-gray-400">
+                Pathward, N.A., Member FDIC | Equal Housing Lender | Visit{' '}
+                <a
+                  href="https://www.pathward.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:underline"
+                >
+                  Pathward.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center text-sm text-gray-500 border-t border-gray-800 pt-8">
             <p>
-              *Tax Refund Advance: Advances are provided by Pathward, N.A.,
-              Member FDIC. Loan amounts range from $250 to $7,500 based on
-              expected refund. 0% APR on loans $250-$1,000; 36% APR on loans
-              $1,001-$7,500. Terms and conditions apply. Not all applicants will
-              qualify.
+              © 2025 Supersonic Fast Cash. All rights reserved. | Powered by EPS
+              Financial
             </p>
-            <p>
-              **Professional Tax Preparation: Free tax preparation is included
-              with approved refund advance applications. Standard tax
-              preparation fees apply for customers who do not qualify for or
-              choose not to receive a refund advance.
-            </p>
-            <p className="font-semibold">
-              Pathward, N.A., Member FDIC | Equal Housing Lender | Visit{' '}
-              <a
-                href="https://www.pathward.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+            <p className="mt-2">
+              <Link href="/" className="hover:text-white transition-colors">
+                Elevate for Humanity
+              </Link>{' '}
+              |{' '}
+              <Link
+                href="/privacy"
+                className="hover:text-white transition-colors"
               >
-                Pathward.com
-              </a>
+                Privacy Policy
+              </Link>{' '}
+              |{' '}
+              <Link
+                href="/terms"
+                className="hover:text-white transition-colors"
+              >
+                Terms of Service
+              </Link>
             </p>
           </div>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }
