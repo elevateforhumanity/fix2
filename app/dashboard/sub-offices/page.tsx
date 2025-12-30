@@ -19,9 +19,16 @@ type ReportRow = {
 };
 
 function readReport(): ReportRow[] {
-  const p = path.join(process.cwd(), 'tax-ops/reports/season-report.json');
-  if (!fs.existsSync(p)) return [];
-  return JSON.parse(fs.readFileSync(p, 'utf8')) as ReportRow[];
+  try {
+    const p = path.join(process.cwd(), 'tax-ops/reports/season-report.json');
+    if (!fs.existsSync(p)) return [];
+    const content = fs.readFileSync(p, 'utf8');
+    if (!content || content.trim() === '') return [];
+    return JSON.parse(content) as ReportRow[];
+  } catch (error) {
+    console.error('Error reading season report:', error);
+    return [];
+  }
 }
 
 export default function SubOfficesDashboard() {
