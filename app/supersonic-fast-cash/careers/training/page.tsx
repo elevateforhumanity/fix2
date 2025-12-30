@@ -385,7 +385,7 @@ export default function TrainingPage() {
 
             {/* Already Applied */}
             <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-3 gap-4">
                 <div className="text-center">
                   <p className="mb-3">Have an employee access key?</p>
                   <button
@@ -393,6 +393,15 @@ export default function TrainingPage() {
                     className="bg-white text-green-600 py-2 px-6 rounded-lg font-bold hover:bg-gray-100"
                   >
                     Enter Access Key
+                  </button>
+                </div>
+                <div className="text-center">
+                  <p className="mb-3">Need tax software?</p>
+                  <button
+                    onClick={() => window.location.href = '/supersonic-fast-cash/tools/drake-download'}
+                    className="bg-white text-green-600 py-2 px-6 rounded-lg font-bold hover:bg-gray-100"
+                  >
+                    Download Software
                   </button>
                 </div>
                 <div className="text-center">

@@ -337,6 +337,23 @@ export default function CompetencyTest() {
           passed: percentage >= 80
         })
       });
+
+      // If passed, automatically generate access key
+      if (percentage >= 80) {
+        try {
+          await fetch('/api/supersonic-fast-cash/generate-access-key', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: applicantEmail,
+              name: applicantName,
+              testScore: percentage
+            })
+          });
+        } catch (error) {
+          console.error('Failed to generate access key:', error);
+        }
+      }
     } catch (error) {
       console.error('Failed to save test results:', error);
     }
