@@ -29,6 +29,13 @@ ports:
     description: Node.js debugging port
 
 tasks:
+  - name: Tax Ops Setup
+    init: |
+      sudo apt-get update
+      sudo apt-get install -y pandoc texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra
+      echo "✅ Tax Ops tools installed"
+    command: |
+      echo "Tax Ops ready. Run: make taxops"
   - name: Environment Setup & Dev Server
     init: |
       # Make setup script executable
