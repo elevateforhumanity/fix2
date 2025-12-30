@@ -1,0 +1,57 @@
+{
+  "slug": "example-program",
+  "name": "Example Program",
+  "heroTitle": "Example Career Training Program",
+  "heroSubtitle": "Learn valuable skills in just weeks",
+  "shortDescription": "This is an example program showing how to structure program data in JSON format.",
+  "longDescription": "Detailed description of the program goes here. This can include multiple paragraphs explaining the program in depth.",
+  "heroImage": "/images/programs/example.jpg",
+  "heroImageAlt": "Example program training",
+  "duration": "8 weeks",
+  "schedule": "Monday-Friday, 9am-5pm",
+  "delivery": "Hybrid (Online + In-person)",
+  "credential": "Industry Certification",
+  "approvals": [
+    "State Board Approved",
+    "DOL Registered"
+  ],
+  "fundingOptions": [
+    "WIOA Funding",
+    "WRG Support",
+    "Payment Plans"
+  ],
+  "highlights": [
+    "100% job placement assistance",
+    "Industry-recognized certification",
+    "Hands-on training"
+  ],
+  "whatYouLearn": [
+    "Core skill 1",
+    "Core skill 2",
+    "Core skill 3",
+    "Advanced techniques"
+  ],
+  "outcomes": [
+    "Earn industry certification",
+    "Gain practical experience",
+    "Connect with employers",
+    "Start your new career"
+  ],
+  "requirements": [
+    "High school diploma or GED",
+    "18 years or older",
+    "Background check"
+  ],
+  "ctaPrimary": {
+    "label": "Apply Now",
+    "href": "/apply"
+  },
+  "ctaSecondary": {
+    "label": "Contact Us",
+    "href": "/contact"
+  },
+  "price": 0,
+  "averageSalary": "$45,000",
+  "salaryRange": "$35,000 - $55,000",
+  "jobGrowth": "15% over next 5 years"
+}
