@@ -157,7 +157,7 @@ export default function HomePage() {
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
-                  src="/images/learners/graduates-celebrating.jpg"
+                  src="/images/team-new/team-1.jpg"
                   alt="Hire Graduates"
                   width={80}
                   height={80}
