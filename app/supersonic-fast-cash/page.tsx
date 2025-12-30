@@ -25,6 +25,8 @@ import {
   BookOpen,
   ClipboardCheck,
   FileText,
+  Users,
+  Target,
 } from 'lucide-react';
 
 export default function SupersonicMarketingPage() {
@@ -633,109 +635,141 @@ export default function SupersonicMarketingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Enterprise Features */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase tracking-tight">
-              What Clients Say
+              Enterprise Tax Solutions
             </h2>
             <p className="text-xl text-gray-600">
-              Real reviews from real people
+              Advanced features for businesses and tax professionals
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-2xl">★</span>
-                ))}
+            {/* Business Tax Services */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-100 hover:border-blue-500 transition-all transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                <Building2 className="w-8 h-8 text-white" />
               </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Fast and professional service! Got my refund advance in less than 20 minutes. The staff was friendly and explained everything clearly."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-black text-xl">
-                  M
-                </div>
-                <div>
-                  <div className="font-bold text-gray-900">Maria G.</div>
-                  <div className="text-sm text-gray-500">Indianapolis, IN</div>
-                </div>
-              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">Business Tax Prep</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Corporate returns (1120, 1120S)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Partnership returns (1065)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Multi-state filing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Quarterly estimates</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-2xl">★</span>
-                ))}
+            {/* Payroll Services */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-green-100 hover:border-green-500 transition-all transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-white" />
               </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Best tax service I've used. They helped me with an IRS issue and got everything resolved. Highly recommend their professional tax prep!"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-black text-xl">
-                  J
-                </div>
-                <div>
-                  <div className="font-bold text-gray-900">James T.</div>
-                  <div className="text-sm text-gray-500">Carmel, IN</div>
-                </div>
-              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">Payroll & Bookkeeping</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Full-service payroll</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Quarterly payroll taxes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">W-2 & 1099 preparation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Monthly bookkeeping</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-2xl">★</span>
-                ))}
+            {/* IRS Representation */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-red-100 hover:border-red-500 transition-all transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-6">
+                <Shield className="w-8 h-8 text-white" />
               </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "The DIY option was perfect for my simple return. Easy to use and way cheaper than other services. Will definitely use again next year!"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-black text-xl">
-                  S
-                </div>
-                <div>
-                  <div className="font-bold text-gray-900">Sarah K.</div>
-                  <div className="text-sm text-gray-500">Fishers, IN</div>
-                </div>
-              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">IRS Representation</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Audit defense & appeals</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Tax debt resolution</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Offer in compromise</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Payment plans</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Newsletter Signup */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-green-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-12 border-2 border-white/20">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 uppercase">
-              Get Tax Tips & Updates
-            </h2>
-            <p className="text-xl text-gray-200 mb-8">
-              Subscribe for tax deadlines, deduction tips, and money-saving strategies
-            </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-xl text-gray-900 font-semibold focus:outline-none focus:ring-4 focus:ring-green-500"
-                required
-              />
-              <button
-                type="submit"
-                className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black rounded-xl hover:from-orange-600 hover:to-red-700 transition-all transform hover:scale-105 uppercase shadow-lg"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-sm text-gray-300 mt-4">
-              No spam. Unsubscribe anytime. We respect your privacy.
-            </p>
+          {/* Additional Enterprise Features */}
+          <div className="mt-12 grid md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 border-2 border-purple-200">
+              <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                <FileText className="w-8 h-8 text-purple-600" />
+                Tax Planning & Consulting
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Year-round tax strategy</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Entity structure optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Retirement planning</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-200">
+              <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                <Target className="w-8 h-8 text-orange-600" />
+                Specialized Services
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Non-profit tax returns (990)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Estate & trust returns</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">International tax compliance</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
