@@ -9,52 +9,29 @@ import {
   Users,
   Briefcase,
 } from 'lucide-react';
+import { CompactHero } from '@/components/heroes/CompactHero';
 
 export const metadata: Metadata = {
-  title: 'Business & Financial Services',
+  title: 'Business & Financial Services Programs | Free Training',
   description:
-    'Business administration, financial services, and professional skills training. Free with funding when eligible.',
+    'Business administration, financial services, and professional skills training. 100% funded through WIOA and state grants. Launch your business career.',
 };
 
 export default function BusinessFinancialPage() {
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="bg-white text-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
-              Free with funding
-            </span>
-            <span className="px-4 py-1 bg-blue-500 text-white text-sm font-bold rounded-full">
-              Online / Hybrid
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Business & Financial Services
-          </h1>
-          <p className="text-xl text-slate-600 mb-8 max-w-3xl">
-            Business administration, financial services, and professional skills
-            training
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/apply"
-              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-600 text-white font-bold rounded-lg transition-all text-center"
-            >
-              Apply Now
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white hover:bg-gray-100 text-blue-900 font-bold rounded-lg transition-all text-center"
-            >
-              Talk to an Advisor
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CompactHero
+        variant="default"
+        badge={{
+          icon: Briefcase,
+          text: 'Business & Finance',
+          href: '/programs',
+        }}
+        headline="Launch your business career with professional training"
+        description="Business administration, financial services, and professional skills programs. 100% funded options available through WIOA and state grants."
+        primaryCTA={{ text: 'View Programs', href: '#programs' }}
+        secondaryCTA={{ text: 'Check Eligibility', href: '/intake' }}
+      />
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">

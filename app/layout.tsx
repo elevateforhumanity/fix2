@@ -9,7 +9,6 @@ import StructuredData from '@/components/StructuredData';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
-import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import AILiveChat from '@/components/chat/AILiveChat';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';

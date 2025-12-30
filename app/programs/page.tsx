@@ -55,7 +55,9 @@ export default function ProgramsPage() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
-            Explore training programs in healthcare, skilled trades, and business. 100% funded options available through WIOA and state grants.
+            Explore training programs in healthcare, skilled trades, and
+            business. 100% funded options available through WIOA and state
+            grants.
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
@@ -71,93 +73,6 @@ export default function ProgramsPage() {
             >
               Get Guidance
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Old video hero removed */}
-      {/* <section className="relative text-white overflow-hidden">
-        <video autoPlay loop playsInline muted className="absolute inset-0 w-full h-full object-cover">
-          <source src="/videos/programs-overview-video-with-narration.mp4" type="video/mp4" />
-        </video>
-        <div className="relative py-20 md:py-32">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="max-w-4xl">
-              <a href="https://www.in.gov/dwd/career-connect/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 px-6 py-3 rounded-full mb-8 transition border border-white/20 group">
-                <MapPin className="w-5 h-5 text-white" />
-                <span className="text-sm font-bold text-white">Funded by Indiana Career Connect</span>
-                <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-1 transition" />
-              </a>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">Your Future Starts Here</h1>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
-                  ✓ 100% Free Training
-                </div>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
-                  ✓ No Student Debt
-                </div>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-bold text-lg">
-                  ✓ Real Jobs Waiting
-                </div>
-              </div>
-
-              <p className="text-2xl md:text-3xl text-white/90 mb-8 leading-relaxed font-medium">
-                Real training. Real jobs. Real support. And it's 100% free.
-              </p>
-
-              {/* Story Box */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-10">
-                <p className="text-lg text-white leading-relaxed mb-4">
-                  <strong className="text-yellow-300">Here's the truth:</strong>{' '}
-                  You don't need a college degree to build a great career. You
-                  need the right training, the right support, and someone who
-                  believes in you.
-                </p>
-                <p className="text-lg text-white/90 leading-relaxed">
-                  Whether you're starting fresh, changing careers, or getting
-                  back on your feet—we're here to help you build the life you
-                  want. Every program is fully funded through{' '}
-                  <strong className="text-yellow-300">
-                    Indiana Career Connect
-                  </strong>{' '}
-                  and WIOA. No tuition. No debt. Just opportunity.
-                </p>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 mb-8">
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-xl font-bold text-lg transition shadow-2xl hover:shadow-3xl hover:scale-105"
-                >
-                  Apply Now - It's Free
-                  <ChevronRight className="w-5 h-5" />
-                </Link>
-                <a
-                  href="tel:3173143757"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
-                >
-                  <Phone className="w-5 h-5" />
-                  (317) 314-3757
-                </a>
-              </div>
-
-              {/* Trust Signals */}
-              <div className="flex flex-wrap items-center gap-6 text-sm text-white/80">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span>500+ Students Enrolled</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span>90% Job Placement Rate</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span>Top Employer Partners</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -215,91 +130,9 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Programs Overview */}
+      {/* Funding Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          {/* How It Works Section */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase">
-              How Our Programs Work
-            </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-12">
-              We provide 100% free career training in high-demand industries. No
-              tuition, no student debt, just real training that leads to real
-              jobs.
-            </p>
-          </div>
-
-          {/* 4-Step Process */}
-          <div className="grid md:grid-cols-4 gap-8 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image
-                  src="/images/programs/efh-business-startup-marketing-card.jpg"
-                  alt="Apply"
-                  width={64}
-                  height={64}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Apply</h3>
-              <p className="text-gray-600">
-                Quick online application - takes 10 minutes
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image
-                  src="/images/programs/efh-cna-card.jpg"
-                  alt="Get Approved"
-                  width={64}
-                  height={64}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Get Approved
-              </h3>
-              <p className="text-gray-600">
-                We check funding eligibility (WIOA, WRG, Apprenticeships)
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image
-                  src="/images/programs/efh-barber-card.jpg"
-                  alt="Start Training"
-                  width={64}
-                  height={64}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Start Training
-              </h3>
-              <p className="text-gray-600">
-                Hands-on training with industry certifications
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-blue-100">
-                <Image
-                  src="/images/learners/graduates-celebrating.jpg"
-                  alt="Get Hired"
-                  width={64}
-                  height={64}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Get Hired
-              </h3>
-              <p className="text-gray-600">
-                We connect you directly with employers
-              </p>
-            </div>
-          </div>
-
           {/* Funding Section */}
           <div className="bg-blue-50 rounded-2xl p-8 md:p-12 mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center uppercase">
@@ -458,7 +291,7 @@ export default function ProgramsPage() {
                   className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-1">
                     Healthcare
@@ -501,7 +334,7 @@ export default function ProgramsPage() {
                   className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-1">
                     Industrial & Trades
@@ -543,7 +376,7 @@ export default function ProgramsPage() {
                   className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-1">
                     Beauty & Wellness
@@ -587,7 +420,7 @@ export default function ProgramsPage() {
                   className="object-cover group-hover:scale-110 transition-all duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-1">
                     Business & Finance

@@ -48,50 +48,40 @@ export default function BarberApprenticeshipPage() {
       </div>
 
       {/* Hero */}
-      <section className="relative bg-white py-8 md:py-12">
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            playsInline
-            muted
-            className="w-full h-full object-cover"
-          >
-            <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
+      <section className="bg-gray-50">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="px-3 py-1 bg-green-500 text-white text-sm font-medium rounded-full">
               Free with funding
             </span>
-            <span className="px-4 py-1 bg-brand-orange-600 text-white text-sm font-bold rounded-full">
+            <span className="px-3 py-1 bg-brand-orange-600 text-white text-sm font-medium rounded-full">
               Earn While You Learn
             </span>
-            <span className="px-4 py-1 bg-brand-blue-600 text-white text-sm font-bold rounded-full">
+            <span className="px-3 py-1 bg-brand-blue-600 text-white text-sm font-medium rounded-full">
               DOL Registered
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
-            Barber Apprenticeship
+          <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl text-gray-900">
+            Barber Apprenticeship: Earn while you learn
           </h1>
-          <p className="text-xl text-slate-600 mb-8 max-w-3xl">
+
+          <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
             Get matched to a licensed barber shop, receive hands-on training,
-            and earn your barber license through our registered apprenticeship
-            program.
+            and earn your Indiana barber license through our DOL-registered
+            apprenticeship program. Earn $12-15/hour while training.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href="/apply"
-              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold rounded-lg transition-all text-center"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
             >
               Apply for Free Training
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 font-bold rounded-lg border-2 border-slate-300 transition-all text-center"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
             >
               Talk to an Advisor
             </Link>

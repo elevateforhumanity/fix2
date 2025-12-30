@@ -66,7 +66,7 @@ export default async function AITutorPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Ai Tutor
@@ -125,9 +125,11 @@ export default async function AITutorPage() {
                       >
                         <div className="flex items-start gap-4 mb-4">
                           {item.instructor_avatar_url ? (
-                            <img
+                            <Image
                               src={item.instructor_avatar_url}
                               alt={item.instructor_name}
+                              width={80}
+                              height={80}
                               className="w-20 h-20 rounded-full object-cover"
                             />
                           ) : (

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { createClient } from '@/utils/supabase/server';
 import ProductCheckoutButton from './ProductCheckoutButton';
 
-
 export default async function ProductPage({
   params,
 }: {
@@ -35,10 +34,11 @@ export default async function ProductPage({
             {/* Product Image */}
             <div className="aspect-square bg-white flex items-center justify-center">
               {product.thumbnail_url ? (
-                <img
+                <Image
                   src={product.thumbnail_url}
                   alt={product.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               ) : (
                 <svg

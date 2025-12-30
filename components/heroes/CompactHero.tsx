@@ -1,9 +1,17 @@
 import { ReactNode } from 'react';
+import { LucideIcon } from 'lucide-react';
+import Link from 'next/link';
 
 interface CompactHeroProps {
   eyebrow?: string;
+  badge?: {
+    icon: LucideIcon;
+    text: string;
+    href: string;
+  };
   headline: string;
-  subheadline: string;
+  subheadline?: string;
+  description?: string;
   primaryCTA?: {
     text: string;
     href: string;
@@ -17,8 +25,10 @@ interface CompactHeroProps {
 
 export function CompactHero({
   eyebrow,
+  badge,
   headline,
   subheadline,
+  description,
   primaryCTA,
   secondaryCTA,
   variant = 'default',
@@ -38,31 +48,41 @@ export function CompactHero({
           </p>
         )}
 
+        {badge && (
+          <Link
+            href={badge.href}
+            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 mb-3"
+          >
+            <badge.icon className="w-4 h-4" />
+            {badge.text}
+          </Link>
+        )}
+
         <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl text-gray-900">
           {headline}
         </h1>
 
         <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
-          {subheadline}
+          {description || subheadline}
         </p>
 
         {(primaryCTA || secondaryCTA) && (
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             {primaryCTA && (
-              <a
+              <Link
                 href={primaryCTA.href}
                 className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
               >
                 {primaryCTA.text}
-              </a>
+              </Link>
             )}
             {secondaryCTA && (
-              <a
+              <Link
                 href={secondaryCTA.href}
                 className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
               >
                 {secondaryCTA.text}
-              </a>
+              </Link>
             )}
           </div>
         )}

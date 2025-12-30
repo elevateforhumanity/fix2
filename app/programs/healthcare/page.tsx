@@ -1,4 +1,3 @@
-import { OptimizedVideo } from '@/components/OptimizedVideo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
@@ -9,69 +8,31 @@ import {
   CheckCircle,
   Users,
   Heart,
+  Stethoscope,
 } from 'lucide-react';
+import { CompactHero } from '@/components/heroes/CompactHero';
 
 export const metadata: Metadata = {
-  title: 'Healthcare Programs',
+  title: 'Healthcare Programs | Free CNA, Medical Assistant Training',
   description:
-    'CNA, Medical Assistant, Phlebotomy, and Home Health Aide training programs. Free with funding when eligible.',
+    'CNA, Medical Assistant, Phlebotomy, and Home Health Aide training programs. 100% funded through WIOA and state grants. Start your healthcare career today.',
 };
 
 export default function HealthcarePage() {
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="relative bg-gray-900 py-20 md:py-32">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/cna-hero.mp4" type="video/mp4" />
-        </video>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
-              Free with funding
-            </span>
-            <span className="px-4 py-1 bg-blue-500 text-white text-sm font-bold rounded-full">
-              Hybrid
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Healthcare Programs
-          </h1>
-          <p className="text-xl mb-8 max-w-3xl">
-            CNA, Medical Assistant, Phlebotomy, and Home Health Aide training
-            programs
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/apply"
-              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold rounded-lg transition-all text-center"
-            >
-              Apply Now
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white hover:bg-gray-100 text-slate-900 font-bold rounded-lg transition-all text-center"
-            >
-              Talk to an Advisor
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CompactHero
+        variant="default"
+        badge={{
+          icon: Stethoscope,
+          text: 'Healthcare Careers',
+          href: '/programs',
+        }}
+        headline="Start your healthcare career in weeks, not years"
+        description="CNA, Medical Assistant, Phlebotomy, and Home Health Aide training. 100% funded options available through WIOA and state grants."
+        primaryCTA={{ text: 'View Programs', href: '#programs' }}
+        secondaryCTA={{ text: 'Check Eligibility', href: '/intake' }}
+      />
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">

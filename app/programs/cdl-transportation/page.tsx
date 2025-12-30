@@ -1,4 +1,3 @@
-import { OptimizedVideo } from '@/components/OptimizedVideo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
@@ -10,60 +9,30 @@ import {
   Users,
   Truck,
 } from 'lucide-react';
+import { CompactHero } from '@/components/heroes/CompactHero';
 
 export const metadata: Metadata = {
-  title: 'CDL & Transportation',
+  title:
+    'CDL & Transportation Training | Free Commercial Driver License Program',
   description:
-    'Commercial Driver License training for truck driving careers. Free with funding when eligible.',
+    'Commercial Driver License training for truck driving careers. 100% funded through WIOA and state grants. Start earning $50K+ annually.',
 };
 
 export default function CdlTransportationPage() {
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="relative text-white py-20 overflow-hidden">
-        <video
-          autoPlay
-          loop
-          playsInline
-          muted
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/cdl-hero.mp4" type="video/mp4" />
-        </video>
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-1 bg-green-500 text-white text-sm font-bold rounded-full">
-              Free with funding
-            </span>
-            <span className="px-4 py-1 bg-blue-500 text-white text-sm font-bold rounded-full">
-              In-person
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            CDL & Transportation
-          </h1>
-          <p className="text-xl mb-8 max-w-3xl">
-            Commercial Driver's License training for truck driving careers
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/apply"
-              className="px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold rounded-lg transition-all text-center"
-            >
-              Apply Now
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white hover:bg-gray-100 text-slate-900 font-bold rounded-lg transition-all text-center"
-            >
-              Talk to an Advisor
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CompactHero
+        variant="default"
+        badge={{
+          icon: Truck,
+          text: 'Transportation Career',
+          href: '/programs',
+        }}
+        headline="Get your CDL and start a high-paying trucking career"
+        description="Commercial Driver's License training. 100% funded options available through WIOA and state grants. Start earning $50K+ annually with benefits."
+        primaryCTA={{ text: 'Apply Now', href: '/apply' }}
+        secondaryCTA={{ text: 'Talk to an Advisor', href: '/contact' }}
+      />
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">
