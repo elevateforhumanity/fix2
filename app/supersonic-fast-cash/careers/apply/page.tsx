@@ -43,11 +43,34 @@ export default function TaxPreparerApplication() {
     resumeFile: null as File | null,
   });
 
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
   const handleSubmit = async () => {
-    // Submit application
-    alert(
-      'Application submitted! You will receive an email with next steps including the competency test.'
-    );
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/supersonic-fast-cash/careers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      const result = await response.json();
+      alert(result.message || 'Application submitted! You will receive an email with next steps including the competency test.');
+    } catch (err) {
+      setError('Failed to submit application. Please try again.');
+      console.error('Submit error:', err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -370,11 +393,18 @@ export default function TaxPreparerApplication() {
               </ol>
             </div>
 
+            {error && (
+              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {error}
+              </div>
+            )}
+
             <button
               onClick={handleSubmit}
-              className="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-green-700"
+              disabled={submitting}
+              className="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
-              Submit Application
+              {submitting ? 'Submitting...' : 'Submit Application'}
             </button>
           </div>
         )}

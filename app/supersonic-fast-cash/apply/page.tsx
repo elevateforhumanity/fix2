@@ -20,9 +20,37 @@ export default function ApplyPage() {
     income: '',
     employmentStatus: '',
   });
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/supersonic-fast-cash/apply', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      const result = await response.json();
+      setSubmitted(true);
+      alert(result.message || 'Application submitted successfully!');
+    } catch (err) {
+      setError('Failed to submit application. Please try again.');
+      console.error('Submit error:', err);
+    } finally {
+      setSubmitting(false);
+    }
   };
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
