@@ -84,106 +84,113 @@ export default function SubOfficesDashboard() {
               </tr>
             </thead>
             <tbody>
-              {rows.map((r) => (
-                <tr key={r.sub_office_id}>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    {r.sub_office_id}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    {r.season_start} → {r.season_end}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    {r.accepted_returns}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    ${r.total_base_fees.toFixed(2)}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    ${r.total_addons_fees.toFixed(2)}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    ${r.sub_office_payout_base_only.toFixed(2)}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    ${r.main_office_gross.toFixed(2)}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    ${r.main_office_net_after_software.toFixed(2)}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    {r.error_rate_percent.toFixed(2)}%
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    {r.compliance_flags_present ? 'Yes' : 'No'}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    {r.bonus_eligible ? 'Yes' : 'No'}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px 12px',
-                      borderBottom: '1px solid #eee',
-                    }}
-                  >
-                    ${r.recommended_bonus.toFixed(2)}
-                  </td>
-                </tr>
-              ))}
+              {rows.map((r) => {
+                const formatCurrency = (val: number) =>
+                  isNaN(val) || val === null ? 'N/A' : `$${val.toFixed(2)}`;
+                const formatPercent = (val: number) =>
+                  isNaN(val) || val === null ? 'N/A' : `${val.toFixed(2)}%`;
+
+                return (
+                  <tr key={r.sub_office_id}>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {r.sub_office_id}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {r.season_start} → {r.season_end}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {r.accepted_returns}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatCurrency(r.total_base_fees)}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatCurrency(r.total_addons_fees)}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatCurrency(r.sub_office_payout_base_only)}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatCurrency(r.main_office_gross)}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatCurrency(r.main_office_net_after_software)}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatPercent(r.error_rate_percent)}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {r.compliance_flags_present ? 'Yes' : 'No'}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {r.bonus_eligible ? 'Yes' : 'No'}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                      }}
+                    >
+                      {formatCurrency(r.recommended_bonus)}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 
