@@ -568,6 +568,178 @@ export default function SupersonicMarketingPage() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase tracking-tight">
+              Meet Your Tax Expert
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Licensed Enrolled Agent with full IRS representation rights
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 md:p-12 border-2 border-blue-200 shadow-xl">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-shrink-0">
+                  <div className="w-48 h-48 rounded-2xl overflow-hidden border-4 border-white shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+                      alt="Tax Professional"
+                      width={192}
+                      height={192}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <div className="inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full mb-4">
+                    <Shield className="w-5 h-5" />
+                    <span className="font-bold">Licensed Enrolled Agent (EA)</span>
+                  </div>
+                  <h3 className="text-3xl font-black text-gray-900 mb-2">
+                    Your Tax Professional
+                  </h3>
+                  <p className="text-lg text-blue-600 font-bold mb-4">
+                    IRS-Authorized Tax Expert
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    With years of experience in tax preparation and IRS representation, our licensed Enrolled Agent provides expert guidance for individuals and businesses. Authorized to represent clients before the IRS in audits, appeals, and collections.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm font-semibold">IRS Licensed</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm font-semibold">Audit Defense</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm font-semibold">Tax Court Rep</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm font-semibold">All 50 States</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase tracking-tight">
+              What Clients Say
+            </h2>
+            <p className="text-xl text-gray-600">
+              Real reviews from real people
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-2xl">★</span>
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "Fast and professional service! Got my refund advance in less than 20 minutes. The staff was friendly and explained everything clearly."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-black text-xl">
+                  M
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">Maria G.</div>
+                  <div className="text-sm text-gray-500">Indianapolis, IN</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-2xl">★</span>
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "Best tax service I've used. They helped me with an IRS issue and got everything resolved. Highly recommend their professional tax prep!"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-black text-xl">
+                  J
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">James T.</div>
+                  <div className="text-sm text-gray-500">Carmel, IN</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-green-500 transition-all">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-2xl">★</span>
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "The DIY option was perfect for my simple return. Easy to use and way cheaper than other services. Will definitely use again next year!"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-black text-xl">
+                  S
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">Sarah K.</div>
+                  <div className="text-sm text-gray-500">Fishers, IN</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="py-20 bg-gradient-to-br from-blue-900 to-green-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-12 border-2 border-white/20">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 uppercase">
+              Get Tax Tips & Updates
+            </h2>
+            <p className="text-xl text-gray-200 mb-8">
+              Subscribe for tax deadlines, deduction tips, and money-saving strategies
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-4 rounded-xl text-gray-900 font-semibold focus:outline-none focus:ring-4 focus:ring-green-500"
+                required
+              />
+              <button
+                type="submit"
+                className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-black rounded-xl hover:from-orange-600 hover:to-red-700 transition-all transform hover:scale-105 uppercase shadow-lg"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p className="text-sm text-gray-300 mt-4">
+              No spam. Unsubscribe anytime. We respect your privacy.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-red-600 to-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -575,7 +747,7 @@ export default function SupersonicMarketingPage() {
             Ready to Get Your Money?
           </h2>
           <p className="text-2xl mb-8">
-            Join thousands who got their refund in minutes!
+            Fast, professional tax service you can trust
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
