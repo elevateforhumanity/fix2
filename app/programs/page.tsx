@@ -2,7 +2,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 import { Metadata } from 'next';
-import { ChevronRight, Phone, Mail, MapPin } from 'lucide-react';
+import { 
+  ChevronRight, 
+  Phone, 
+  Mail, 
+  MapPin,
+  GraduationCap,
+  Briefcase,
+  DollarSign,
+  Clock,
+  CheckCircle,
+  ArrowRight,
+  Award,
+  Users,
+  TrendingUp
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Free Career Training Programs in Indiana | Indiana Career Connect',
@@ -37,42 +51,73 @@ export default function ProgramsPage() {
         </div>
       </div>
 
-      {/* Hero Section - Compact Authority */}
-      <section className="bg-gray-50">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <a
-            href="https://www.in.gov/dwd/career-connect/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 mb-3"
-          >
-            <MapPin className="w-4 h-4" />
-            Funded by Indiana Career Connect
-          </a>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-blue-900 text-white py-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-green-950/50 to-transparent"></div>
 
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl text-gray-900">
-            Career pathways backed by real funding and partners
-          </h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-green-500/30 mb-6">
+              <Award className="w-5 h-5 text-green-400" />
+              <span className="text-green-100 font-semibold">WIOA & Indiana Career Connect Funded</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight">
+              Free Career Training
+            </h1>
+            <p className="text-2xl md:text-3xl font-bold text-gray-100 mb-8 max-w-4xl mx-auto">
+              50+ Programs in Healthcare, Skilled Trades & Business
+            </p>
+            <p className="text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
+              100% funded training. No tuition, no debt. Get trained, get certified, get hired.
+            </p>
 
-          <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
-            Explore training programs in healthcare, skilled trades, and
-            business. 100% funded options available through WIOA and state
-            grants.
-          </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="#programs"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-5 text-lg font-black text-white shadow-2xl hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-105 uppercase"
+              >
+                Browse Programs
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/apply"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl border-3 border-white bg-white/10 backdrop-blur-sm px-10 py-5 text-lg font-black text-white hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 uppercase"
+              >
+                Apply Now
+                <GraduationCap className="w-5 h-5" />
+              </Link>
+            </div>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="#programs"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
-            >
-              Browse Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
-            >
-              Get Guidance
-            </Link>
+            {/* Quick Stats */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">$0</div>
+                <div className="text-sm text-gray-200">Tuition Cost</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <Clock className="w-10 h-10 text-orange-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">2-12</div>
+                <div className="text-sm text-gray-200">Weeks Training</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <TrendingUp className="w-10 h-10 text-blue-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">85%</div>
+                <div className="text-sm text-gray-200">Job Placement</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                <Users className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
+                <div className="text-3xl font-black mb-1">5,000+</div>
+                <div className="text-sm text-gray-200">Graduates</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
