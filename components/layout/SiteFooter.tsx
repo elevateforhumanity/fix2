@@ -8,16 +8,16 @@ export default function SiteFooter() {
           {/* Our Story Section */}
           <div className="mb-16 max-w-4xl">
             <Link href="/" aria-label="Link" className="inline-block mb-8">
-              <div className="font-black text-black text-3xl tracking-tight">
+              <div className="font-black text-white text-3xl tracking-tight">
                 Elevate
               </div>
-              <div className="text-orange-500 text-sm font-semibold -mt-1">
+              <div className="text-orange-400 text-sm font-semibold -mt-1">
                 For Humanity
               </div>
             </Link>
 
-            <div className="space-y-6 text-gray-900 leading-relaxed text-base md:text-lg">
-              <p className="text-lg md:text-xl font-medium">
+            <div className="space-y-6 text-gray-100 leading-relaxed text-base md:text-lg">
+              <p className="text-lg md:text-xl font-medium text-white">
                 We believe everyone deserves a path to a better life. That's why
                 we provide 100% free career training in high-demand fields like
                 healthcare, skilled trades, and technology.
@@ -34,7 +34,7 @@ export default function SiteFooter() {
                 you graduate, we connect you directly with employers who are
                 ready to hire.
               </p>
-              <p className="text-black font-bold text-lg">
+              <p className="text-white font-bold text-lg">
                 This isn't just training—it's a complete transformation. Your
                 new career starts here.
               </p>
