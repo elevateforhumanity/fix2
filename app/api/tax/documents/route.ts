@@ -17,8 +17,8 @@ export async function GET() {
     const { data: documents, error } = await supabase
       .from('tax_documents')
       .select('*')
-      .eq('user_id', user.id)
-      .order('upload_date', { ascending: false });
+      .eq('email', user.email)
+      .order('created_at', { ascending: false });
 
     if (error) {
       return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
@@ -28,7 +28,7 @@ export async function GET() {
     const documentsWithUrls = await Promise.all(
       (documents || []).map(async (doc) => {
         const { data: urlData } = await supabase.storage
-          .from('tax-documents')
+          .from('documents')
           .createSignedUrl(doc.file_path, 3600); // 1 hour expiry
 
         return {

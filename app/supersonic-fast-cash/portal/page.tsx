@@ -16,18 +16,26 @@ export default async function ClientPortalPage() {
   }
 
   // Fetch user's documents
-  const { data: documents } = await supabase
+  const { data: documents, error: documentsError } = await supabase
     .from('tax_documents')
     .select('*')
     .eq('email', user.email)
     .order('created_at', { ascending: false });
 
+  if (documentsError) {
+    console.error('Error fetching documents:', documentsError);
+  }
+
   // Fetch user's appointments
-  const { data: appointments } = await supabase
+  const { data: appointments, error: appointmentsError } = await supabase
     .from('appointments')
     .select('*')
     .eq('email', user.email)
     .order('appointment_date', { ascending: false });
+
+  if (appointmentsError) {
+    console.error('Error fetching appointments:', appointmentsError);
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">

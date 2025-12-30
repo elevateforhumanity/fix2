@@ -51,11 +51,11 @@ export async function POST(request: Request) {
     // Generate unique file path
     const timestamp = Date.now();
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const filePath = `tax-documents/${user.id}/${timestamp}_${sanitizedFileName}`;
+    const filePath = `tax-documents/${user.email}/${timestamp}_${sanitizedFileName}`;
 
     // Upload to Supabase Storage
     const { data: uploadData, error: uploadError } = await supabase.storage
-      .from('tax-documents')
+      .from('documents')
       .upload(filePath, file, {
         cacheControl: '3600',
         upsert: false,
@@ -72,37 +72,27 @@ export async function POST(request: Request) {
     const { data: document, error: dbError } = await supabase
       .from('tax_documents')
       .insert({
-        user_id: user.id,
+        email: user.email!,
+        phone: '', // Will be updated by user
         file_path: filePath,
         file_name: file.name,
         file_type: file.type,
         file_size: file.size,
-        document_category: documentCategory || 'other',
-        tax_year: taxYear ? parseInt(taxYear) : new Date().getFullYear(),
-        virus_scan_status: 'pending',
-        encrypted: true,
+        status: 'pending_review',
       })
       .select()
       .single();
 
     if (dbError) {
       // Cleanup uploaded file if database insert fails
-      await supabase.storage.from('tax-documents').remove([filePath]);
+      await supabase.storage.from('documents').remove([filePath]);
       return NextResponse.json({ error: dbError.message }, { status: 500 });
     }
-
-    // For now, mark as clean after a delay
-    setTimeout(async () => {
-      await supabase
-        .from('tax_documents')
-        .update({ virus_scan_status: 'clean' })
-        .eq('id', document.id);
-    }, 2000);
 
     return NextResponse.json({
       success: true,
       document,
-      message: 'File uploaded successfully. Virus scan in progress.',
+      message: 'File uploaded successfully.',
     });
   } catch (error: unknown) {
     return NextResponse.json(

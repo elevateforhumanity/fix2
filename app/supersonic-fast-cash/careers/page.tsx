@@ -678,174 +678,19 @@ export default function TaxCareersPage() {
             </p>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-xl p-8">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-semibold mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border rounded-lg"
-                    placeholder="John"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block font-semibold mb-2">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border rounded-lg"
-                    placeholder="Doe"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">Email *</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">Phone *</label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="(317) 314-3757"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Position Applying For *
-                </label>
-                <select className="w-full px-4 py-3 border rounded-lg" required>
-                  <option value="">Select position...</option>
-                  {positions.map((pos) => (
-                    <option key={pos.title} value={pos.title}>
-                      {pos.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Do you have an IRS PTIN? *
-                </label>
-                <select className="w-full px-4 py-3 border rounded-lg" required>
-                  <option value="">Select...</option>
-                  <option value="yes">Yes, I have a current PTIN</option>
-                  <option value="expired">Yes, but it's expired</option>
-                  <option value="no">No, I don't have a PTIN</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Tax Preparation Experience
-                </label>
-                <select className="w-full px-4 py-3 border rounded-lg">
-                  <option value="">Select...</option>
-                  <option value="none">No experience</option>
-                  <option value="1-2">1-2 years</option>
-                  <option value="3-5">3-5 years</option>
-                  <option value="5+">5+ years</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Credentials (check all that apply)
-                </label>
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="w-5 h-5" />
-                    <span>Enrolled Agent (EA)</span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="w-5 h-5" />
-                    <span>Certified Public Accountant (CPA)</span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="w-5 h-5" />
-                    <span>IRS Annual Filing Season Program</span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="w-5 h-5" />
-                    <span>Tax Law Degree</span>
-                  </label>
-                </div>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Availability *
-                </label>
-                <select className="w-full px-4 py-3 border rounded-lg" required>
-                  <option value="">Select...</option>
-                  <option value="seasonal">Seasonal (Jan-April only)</option>
-                  <option value="year-round">Year-round</option>
-                  <option value="part-time">Part-time</option>
-                  <option value="full-time">Full-time</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Preferred Work Location *
-                </label>
-                <select className="w-full px-4 py-3 border rounded-lg" required>
-                  <option value="">Select...</option>
-                  <option value="remote">100% Remote (Work from home)</option>
-                  <option value="hybrid">
-                    Hybrid (Some remote, some in-office)
-                  </option>
-                  <option value="in-office">In-office (Indianapolis)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">Resume/CV *</label>
-                <input
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  className="w-full px-4 py-3 border rounded-lg"
-                  required
-                />
-                <p className="text-sm text-gray-600 mt-1">
-                  PDF, DOC, or DOCX (Max 5MB)
-                </p>
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">
-                  Why do you want to work with us?
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-3 border rounded-lg"
-                  placeholder="Tell us about yourself and why you'd be a great fit..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition"
-              >
-                Submit Application
-              </button>
-            </form>
+          <div className="bg-white border-2 border-gray-200 rounded-xl p-12 text-center">
+            <p className="text-xl text-gray-700 mb-8">
+              Ready to join our team? Complete our online application to get started.
+            </p>
+            <Link
+              href="/supersonic-fast-cash/careers/apply"
+              className="inline-block bg-green-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition"
+            >
+              Complete Application Form
+            </Link>
+            <p className="text-sm text-gray-600 mt-6">
+              Application takes approximately 5-10 minutes to complete
+            </p>
           </div>
 
           <div className="mt-8 text-center">
