@@ -1,6 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import {
+  GraduationCap,
+  Briefcase,
+  DollarSign,
+  Users,
+  Award,
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title:
@@ -48,7 +58,7 @@ export default function HomePage() {
       />
 
       {/* Hero Section - Video Banner */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
+      <section className="relative h-[500px] md:h-[600px] w-full overflow-hidden">
         <video
           autoPlay
           loop
@@ -59,28 +69,165 @@ export default function HomePage() {
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white uppercase tracking-wide">
+          <div className="max-w-5xl w-full">
+            <div className="mb-6 inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-green-500/30">
+              <Award className="w-5 h-5 text-green-400" />
+              <span className="text-green-100 font-semibold">
+                WIOA-Funded Training Programs
+              </span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-white uppercase tracking-tight leading-tight">
               LIMITLESS OPPORTUNITIES
             </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
               WHERE LEARNING LEADS TO EARNING!
             </h2>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+            <p className="text-lg sm:text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
+              Free career training in Indianapolis. Get trained, get hired, get
+              paid. No cost, no debt.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/apply"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-5 text-lg font-black text-white shadow-2xl hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-105 uppercase"
               >
                 Apply Now
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/hire-graduates"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 sm:border-3 border-white bg-transparent px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl border-3 border-white bg-white/10 backdrop-blur-sm px-10 py-5 text-lg font-black text-white hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 uppercase"
               >
                 Hire A Student
+                <Users className="w-5 h-5" />
               </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-black text-white mb-1">
+                  5,000+
+                </div>
+                <div className="text-sm text-gray-200">Students Trained</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-black text-white mb-1">85%</div>
+                <div className="text-sm text-gray-200">Job Placement</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-black text-white mb-1">$0</div>
+                <div className="text-sm text-gray-200">Tuition Cost</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <div className="text-3xl font-black text-white mb-1">50+</div>
+                <div className="text-sm text-gray-200">Programs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us - Features */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 uppercase">
+              Why Choose Elevate?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We remove barriers and create pathways to meaningful careers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-green-100 hover:border-green-500">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <DollarSign className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                100% Free Training
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                WIOA-funded programs mean zero tuition, zero debt. We cover
+                everything so you can focus on learning.
+              </p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">No upfront costs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">
+                    Books & materials included
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">
+                    Certification fees covered
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-orange-100 hover:border-orange-500">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Briefcase className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                Job Placement Support
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                We don't just train you—we help you land the job. 85% of our
+                graduates are employed within 6 months.
+              </p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Resume & interview prep</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Employer connections</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Career counseling</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-blue-100 hover:border-blue-500">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                High-Demand Skills
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Train for careers that are hiring now. Our programs align with
+                Indianapolis's fastest-growing industries.
+              </p>
+              <ul className="mt-6 space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Healthcare & medical</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">
+                    Skilled trades (HVAC, electrical)
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Technology & business</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
