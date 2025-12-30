@@ -46,43 +46,20 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      {/* Hero Section - Compact Authority */}
-      <section className="bg-gradient-to-b from-blue-50 to-white">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <p className="mb-3 text-sm font-medium text-gray-600 uppercase tracking-wide">
-            Workforce Training & Coordination
-          </p>
 
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl text-gray-900">
-            Funded career training, coordinated end-to-end
-          </h1>
-
-          <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
-            We help individuals access training, funding, and employer-aligned pathways — with real human support.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/programs"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
-            >
-              Explore Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
-            >
-              Talk to an Advisor
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Old video hero removed - keeping for reference if needed */}
-      {/* <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
-        <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
+      {/* Hero Section - Video Banner */}
+      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white uppercase tracking-wide">
@@ -92,10 +69,14 @@ export default function HomePage() {
               WHERE LEARNING LEADS TO EARNING!
             </h2>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
-              <Link href="/apply" className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase">
+              <Link
+                href="/apply"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
+              >
                 Apply Now
               </Link>
-              <Link href="/hire-graduates"
+              <Link
+                href="/hire-graduates"
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 sm:border-3 border-white bg-transparent px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
               >
                 Hire A Student
