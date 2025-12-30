@@ -103,13 +103,13 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Card 1 */}
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
                   src="/images/programs/business.jpg"
                   alt="Industry Alignment"
-                  width={80}
-                  height={80}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
+                  sizes="96px"
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -129,13 +129,13 @@ export default function HomePage() {
 
             {/* Card 2 */}
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
                   src="/images/facilities-new/facility-exterior.jpg"
                   alt="Locations"
-                  width={80}
-                  height={80}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
+                  sizes="96px"
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -155,13 +155,13 @@ export default function HomePage() {
 
             {/* Card 3 */}
             <div className="bg-white border-2 border-gray-200 rounded-lg p-8 text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-6">
                 <Image
                   src="/images/team-new/team-1.jpg"
                   alt="Hire Graduates"
-                  width={80}
-                  height={80}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
+                  sizes="96px"
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">

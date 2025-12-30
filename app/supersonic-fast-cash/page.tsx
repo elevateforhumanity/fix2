@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { sanitizeHtml } from '@/lib/sanitize';
 import Link from 'next/link';
 import {
@@ -424,7 +425,18 @@ export default function SupersonicFastCashPage() {
         }}
       />
       {/* Hero Section - AGGRESSIVE MARKETING */}
-      <section className="relative bg-zinc-900    text-white py-20 overflow-hidden">
+      <section className="relative text-white py-20 overflow-hidden min-h-[600px] flex items-center">
+        {/* Background Image */}
+        <Image
+          src="/images/tax-office-2.jpg"
+          alt="Supersonic Fast Cash - Tax Refund Advance"
+          fill
+          className="object-cover brightness-40"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-yellow-400 rounded-full blur-3xl animate-pulse" />
