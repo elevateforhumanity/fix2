@@ -94,11 +94,11 @@ export default function TaxPreparerApplication() {
 
       const result = await response.json();
       
-      // Redirect to competency test
-      if (window.confirm('Application submitted successfully! Would you like to take the competency test now?')) {
-        window.location.href = '/supersonic-fast-cash/careers/competency-test';
+      // Redirect to FREE training
+      if (window.confirm('Application submitted successfully! Would you like to start your FREE training now?')) {
+        window.location.href = '/supersonic-fast-cash/careers/training';
       } else {
-        alert('You will receive an email with a link to the competency test within 24 hours.');
+        alert('You will receive an email with access to your FREE training courses within 24 hours.');
       }
     } catch (err) {
       setError('Failed to submit application. Please try again.');
@@ -806,17 +806,42 @@ export default function TaxPreparerApplication() {
               </h3>
               <ol className="list-decimal pl-6 space-y-2 text-sm">
                 <li>
-                  You'll receive an email with a link to our{' '}
-                  <strong>Competency Test</strong>
+                  <strong>FREE Training Access</strong> - Get immediate access to our Tax Preparation Basics course
                 </li>
                 <li>
-                  The test covers basic tax knowledge (30 questions, 45 minutes)
+                  <strong>Study at Your Own Pace</strong> - Take 1-2 weeks to complete the training
                 </li>
-                <li>Passing score: 80% or higher</li>
-                <li>After passing, we'll schedule your interview</li>
-                <li>Background check and reference verification</li>
-                <li>Onboarding and training begins!</li>
+                <li>
+                  <strong>Take the Competency Test</strong> - 30 questions, 45 minutes, 80% to pass
+                </li>
+                <li>
+                  <strong>Interview</strong> - If you pass, we'll schedule your interview
+                </li>
+                <li>
+                  <strong>Background Check</strong> - Reference and criminal history verification
+                </li>
+                <li>
+                  <strong>Advanced Training</strong> - Drake Software training (paid by company)
+                </li>
+                <li>
+                  <strong>Start Work!</strong> - Begin preparing tax returns and earning money
+                </li>
               </ol>
+            </div>
+
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+              <h3 className="font-bold text-lg mb-3">
+                🎓 New to Tax Preparation? No Problem!
+              </h3>
+              <p className="text-sm mb-3">
+                We provide <strong>FREE training</strong> for all applicants. You don't need prior experience!
+              </p>
+              <ul className="space-y-2 text-sm">
+                <li>✓ <strong>Tax Preparation Basics</strong> - Free 12-hour course ($199 value)</li>
+                <li>✓ <strong>IRS Regulations & Ethics</strong> - Free 6-hour course ($149 value)</li>
+                <li>✓ <strong>Study materials and practice questions</strong></li>
+                <li>✓ <strong>Take the test when YOU'RE ready</strong></li>
+              </ul>
             </div>
 
             {error && (
