@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function SiteFooter() {
   try {
     return (
-      <footer className="bg-white text-black border-t border-gray-200">
+      <footer className="bg-gradient-to-br from-green-900 via-green-800 to-blue-900 text-white border-t-4 border-green-700">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
           {/* Our Story Section */}
           <div className="mb-16 max-w-4xl">
