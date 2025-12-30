@@ -278,6 +278,223 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Our Story Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Our Story
+              </h2>
+              <p className="text-lg text-gray-700 mb-4">
+                Elevate for Humanity was founded with a simple but powerful mission: to remove barriers and create pathways to economic opportunity for everyone.
+              </p>
+              <p className="text-lg text-gray-700 mb-4">
+                We saw too many talented individuals held back by lack of access to training, funding, or support. Traditional systems often felt overwhelming, disconnected, or simply out of reach.
+              </p>
+              <p className="text-lg text-gray-700 mb-4">
+                So we built something different—a comprehensive ecosystem that brings together training programs, funding sources, career services, and community support all in one place.
+              </p>
+              <p className="text-lg text-gray-700">
+                Today, we serve thousands of students across Indiana and beyond, partnering with employers, training providers, and workforce boards to create real opportunities for real people.
+              </p>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/images/team-new/team-1.jpg"
+                alt="Our Team"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact by Numbers Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Impact
+            </h2>
+            <p className="text-xl text-gray-700">
+              Real results for real people
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl font-black text-blue-600 mb-2">5,000+</div>
+              <div className="text-lg font-semibold text-gray-900">Students Served</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl font-black text-green-600 mb-2">351</div>
+              <div className="text-lg font-semibold text-gray-900">Training Programs</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl font-black text-orange-600 mb-2">85%</div>
+              <div className="text-lg font-semibold text-gray-900">Job Placement Rate</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+              <div className="text-5xl font-black text-purple-600 mb-2">$45K</div>
+              <div className="text-lg font-semibold text-gray-900">Average Starting Salary</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Leadership Team
+            </h2>
+            <p className="text-xl text-gray-700">
+              Experienced leaders committed to your success
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-64">
+                <Image
+                  src="/images/team-new/team-7.jpg"
+                  alt="Leadership Team"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Executive Leadership</h3>
+                <p className="text-gray-700">
+                  Decades of experience in workforce development, education, and social impact
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-64">
+                <Image
+                  src="/images/team-new/team-13.jpg"
+                  alt="Program Directors"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Program Directors</h3>
+                <p className="text-gray-700">
+                  Industry experts who design and oversee our training programs
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-64">
+                <Image
+                  src="/images/team-new/team-3.jpg"
+                  alt="Support Staff"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Support Staff</h3>
+                <p className="text-gray-700">
+                  Dedicated team providing career counseling, advising, and student support
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/team"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors"
+            >
+              Meet the Full Team
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners & Accreditation Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Trusted & Accredited
+            </h2>
+            <p className="text-xl text-gray-700">
+              Recognized by leading organizations and agencies
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Accreditations</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Indiana Department of Workforce Development (DWD) Approved</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <span>WIOA Eligible Training Provider</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <span>IRS Certified VITA Site</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Registered Apprenticeship Sponsor</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Key Partners</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <Users className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>EmployIndy Workforce Board</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Users className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Indiana Family and Social Services Administration (FSSA)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Users className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Local Employers & Industry Partners</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Users className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Community Colleges & Training Providers</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/accreditation"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors"
+            >
+              View Full Accreditation Details
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

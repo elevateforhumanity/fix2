@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Accessibility, Mail, Phone } from 'lucide-react';
 
@@ -13,14 +14,30 @@ export const metadata: Metadata = {
 
 export default function AccessibilityPage() {
   return (
-    <main className="min-h-screen bg-gray-50 py-16">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="flex items-center gap-3 mb-8">
-          <Accessibility className="w-10 h-10 text-brand-blue-600" />
-          <h1 className="text-4xl font-bold text-gray-900">
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/facilities-new/facility-exterior.jpg"
+          alt="Accessibility Commitment"
+          fill
+          className="object-cover brightness-50"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <Accessibility className="w-16 h-16 mx-auto mb-4" />
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
             Accessibility Commitment
           </h1>
+          <p className="text-xl md:text-2xl">
+            Ensuring Equal Access for All
+          </p>
         </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 py-16">
 
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
           <p className="text-xl text-gray-700 leading-relaxed mb-6">

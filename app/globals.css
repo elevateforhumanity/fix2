@@ -1,5 +1,4 @@
 @import '../styles/design-tokens.css';
-@import './elevate-optimized.css';
 
 @tailwind base;
 @tailwind components;

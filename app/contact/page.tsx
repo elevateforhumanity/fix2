@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
@@ -39,11 +40,20 @@ export const dynamic = 'force-dynamic';
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <section className="bg-slate-900 text-white py-16">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl text-slate-300">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/facilities-new/facility-exterior.jpg"
+          alt="Contact Elevate For Humanity"
+          fill
+          className="object-cover brightness-50"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Get In Touch</h1>
+          <p className="text-xl md:text-2xl text-white">
             We're here to help you take the next step in your career journey
           </p>
         </div>
@@ -220,6 +230,175 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Map Section */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Visit Our Office
+            </h2>
+            <p className="text-xl text-gray-700">
+              7009 East 56th Street, Suite EE1, Indianapolis, IN 46226
+            </p>
+          </div>
+
+          <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg h-[400px] flex items-center justify-center">
+            <div className="text-center p-8">
+              <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <p className="text-gray-600 mb-4">
+                Interactive map coming soon
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=7009+East+56th+Street+Indianapolis+IN+46226"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black mb-2">Easy to Find</h3>
+              <p className="text-gray-700">
+                Located on East 56th Street with ample parking available
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black mb-2">Flexible Hours</h3>
+              <p className="text-gray-700">
+                Open Monday-Friday with Saturday appointments available
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-black mb-2">Quick Response</h3>
+              <p className="text-gray-700">
+                We respond to all inquiries within 24 hours
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-700">
+              Quick answers to common questions
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-3">
+                What are your office hours?
+              </h3>
+              <p className="text-gray-700">
+                We're open Monday through Friday from 9:00 AM to 5:00 PM. Saturday appointments are available by request. We're closed on Sundays and major holidays.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-3">
+                Do I need an appointment?
+              </h3>
+              <p className="text-gray-700">
+                Walk-ins are welcome during office hours, but we recommend scheduling an appointment to ensure we can give you our full attention and minimize wait times.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-3">
+                How quickly will I get a response?
+              </h3>
+              <p className="text-gray-700">
+                We typically respond to emails and voicemails within 24 hours during business days. For urgent matters, please call us directly at (317) 314-3757.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-3">
+                Is parking available?
+              </h3>
+              <p className="text-gray-700">
+                Yes! We have ample free parking available on-site. Look for visitor parking signs when you arrive.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-3">
+                Can I visit without an appointment?
+              </h3>
+              <p className="text-gray-700">
+                Absolutely! Walk-ins are welcome during our regular office hours. However, scheduling an appointment ensures you'll have dedicated time with our team.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-bold text-black mb-3">
+                Do you offer virtual consultations?
+              </h3>
+              <p className="text-gray-700">
+                Yes! We offer phone and video consultations for your convenience. Let us know your preference when you schedule your appointment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Take the Next Step?
+          </h2>
+          <p className="text-xl mb-8">
+            Contact us today to learn more about our programs and how we can help you achieve your career goals.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+13173143757"
+              className="inline-block px-10 py-4 bg-white text-blue-600 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors shadow-xl"
+            >
+              📞 Call (317) 314-3757
+            </a>
+            <a
+              href="mailto:elevate4humanityedu@gmail.com"
+              className="inline-block px-10 py-4 bg-blue-700 text-white rounded-lg text-lg font-bold hover:bg-blue-800 transition-colors shadow-xl border-2 border-white"
+            >
+              ✉️ Send Email
+            </a>
           </div>
         </div>
       </section>

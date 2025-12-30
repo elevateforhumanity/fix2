@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Shield,
@@ -12,25 +13,35 @@ import {
 export const metadata: Metadata = {
   title: 'Academic Integrity Policy | Elevate for Humanity',
   description: 'Academic honesty, plagiarism policy, and code of conduct',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/academic-integrity',
+  },
 };
 
 export default function AcademicIntegrityPage() {
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <div className="bg-white text-white">
-        <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="flex items-center gap-4 mb-4">
-            <Shield className="w-12 h-12" />
-            <h1 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
-              Academic Integrity Policy
-            </h1>
-          </div>
-          <p className="text-base md:text-lg text-blue-100">
-            Upholding honesty, ethics, and professional standards in education
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/facilities-new/facility-exterior.jpg"
+          alt="Academic Integrity"
+          fill
+          className="object-cover brightness-50"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <Shield className="w-16 h-16 mx-auto mb-4" />
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+            Academic Integrity Policy
+          </h1>
+          <p className="text-xl md:text-2xl">
+            Upholding Honesty, Ethics, and Professional Standards
           </p>
         </div>
-      </div>
+      </section>
 
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Introduction */}

@@ -189,7 +189,7 @@ export default function RevenueShareCalculator() {
             </div>
 
             {/* Monthly & Annual Projections */}
-            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-md p-8 text-white">
+            <div className="bg-green-600 rounded-lg shadow-md p-8 text-white">
               <h2 className="text-2xl font-bold mb-6">
                 Your Potential Earnings
               </h2>
