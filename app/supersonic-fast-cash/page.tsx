@@ -324,107 +324,198 @@ export default function SupersonicMarketingPage() {
       </section>
 
       {/* All Tools & Pages */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-black text-center mb-12 uppercase">
-            All Features & Tools
-          </h2>
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black mb-4 uppercase tracking-tight">
+              All Features & Tools
+            </h2>
+            <p className="text-xl text-gray-600 font-semibold">
+              Everything you need for a smooth tax experience
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
             <Link
               href="/supersonic-fast-cash/calculator"
-              className="p-6 bg-blue-50 border-2 border-blue-900 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">🧮</div>
-              <h3 className="font-bold text-lg mb-2">Refund Calculator</h3>
-              <p className="text-sm text-gray-600">Estimate your refund</p>
+              <div className="text-6xl mb-4">🧮</div>
+              <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
+                Refund Calculator
+              </h3>
+              <p className="text-gray-600">Estimate your refund amount</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/tools/refund-tracker"
-              className="p-6 bg-red-50 border-2 border-red-600 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">📍</div>
-              <h3 className="font-bold text-lg mb-2">Track Refund</h3>
-              <p className="text-sm text-gray-600">Check IRS status</p>
+              <div className="text-6xl mb-4">📍</div>
+              <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
+                Track Refund
+              </h3>
+              <p className="text-gray-600">Check IRS status live</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/upload-documents"
-              className="p-6 bg-blue-50 border-2 border-blue-900 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">📄</div>
-              <h3 className="font-bold text-lg mb-2">Upload Documents</h3>
-              <p className="text-sm text-gray-600">Secure document portal</p>
+              <div className="text-6xl mb-4">📤</div>
+              <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
+                Upload Documents
+              </h3>
+              <p className="text-gray-600">Secure document portal</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/portal"
-              className="p-6 bg-red-50 border-2 border-red-600 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">👤</div>
-              <h3 className="font-bold text-lg mb-2">Customer Portal</h3>
-              <p className="text-sm text-gray-600">Track your status</p>
+              <div className="text-6xl mb-4">👤</div>
+              <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
+                Customer Portal
+              </h3>
+              <p className="text-gray-600">Track your application</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/pricing"
-              className="p-6 bg-blue-50 border-2 border-blue-900 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-green-600 rounded-2xl hover:shadow-2xl hover:border-green-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">💲</div>
-              <h3 className="font-bold text-lg mb-2">Pricing</h3>
-              <p className="text-sm text-gray-600">Transparent fees</p>
+              <div className="text-6xl mb-4">💲</div>
+              <h3 className="font-black text-xl mb-2 text-green-600 group-hover:text-green-700">
+                Pricing
+              </h3>
+              <p className="text-gray-600">Transparent, upfront fees</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/locations"
-              className="p-6 bg-red-50 border-2 border-red-600 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">📍</div>
-              <h3 className="font-bold text-lg mb-2">Locations</h3>
-              <p className="text-sm text-gray-600">Indianapolis offices</p>
+              <div className="text-6xl mb-4">🏢</div>
+              <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
+                Locations
+              </h3>
+              <p className="text-gray-600">Indianapolis offices</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/how-it-works"
-              className="p-6 bg-blue-50 border-2 border-blue-900 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">❓</div>
-              <h3 className="font-bold text-lg mb-2">How It Works</h3>
-              <p className="text-sm text-gray-600">Simple 3-step process</p>
+              <div className="text-6xl mb-4">❓</div>
+              <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
+                How It Works
+              </h3>
+              <p className="text-gray-600">Simple 3-step process</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/book-appointment"
+              className="group p-8 bg-white border-2 border-green-600 rounded-2xl hover:shadow-2xl hover:border-green-700 transition-all transform hover:scale-105"
+            >
+              <div className="text-6xl mb-4">📅</div>
+              <h3 className="font-black text-xl mb-2 text-green-600 group-hover:text-green-700">
+                Book Appointment
+              </h3>
+              <p className="text-gray-600">Schedule your visit</p>
             </Link>
 
             <Link
               href="/supersonic-fast-cash/careers"
-              className="p-6 bg-red-50 border-2 border-red-600 rounded-lg hover:shadow-xl transition-all"
+              className="group p-8 bg-white border-2 border-blue-900 rounded-2xl hover:shadow-2xl hover:border-blue-700 transition-all transform hover:scale-105"
             >
-              <div className="text-4xl mb-3">💼</div>
-              <h3 className="font-bold text-lg mb-2">Careers</h3>
-              <p className="text-sm text-gray-600">Join our team</p>
+              <div className="text-6xl mb-4">💼</div>
+              <h3 className="font-black text-xl mb-2 text-blue-900 group-hover:text-blue-700">
+                Careers
+              </h3>
+              <p className="text-gray-600">Join our team</p>
+            </Link>
+
+            <Link
+              href="/supersonic-fast-cash/sub-office-agreement"
+              className="group p-8 bg-white border-2 border-red-600 rounded-2xl hover:shadow-2xl hover:border-red-700 transition-all transform hover:scale-105"
+            >
+              <div className="text-6xl mb-4">🤝</div>
+              <h3 className="font-black text-xl mb-2 text-red-600 group-hover:text-red-700">
+                Sub-Office Program
+              </h3>
+              <p className="text-gray-600">Partner with us</p>
+            </Link>
+
+            <Link
+              href="/dashboard/tax-intake"
+              className="group p-8 bg-white border-2 border-purple-600 rounded-2xl hover:shadow-2xl hover:border-purple-700 transition-all transform hover:scale-105"
+            >
+              <div className="text-6xl mb-4">📊</div>
+              <h3 className="font-black text-xl mb-2 text-purple-600 group-hover:text-purple-700">
+                Staff Dashboard
+              </h3>
+              <p className="text-gray-600">DIY intake management</p>
+            </Link>
+
+            <Link
+              href="/dashboard/sub-offices"
+              className="group p-8 bg-white border-2 border-orange-600 rounded-2xl hover:shadow-2xl hover:border-orange-700 transition-all transform hover:scale-105"
+            >
+              <div className="text-6xl mb-4">🏆</div>
+              <h3 className="font-black text-xl mb-2 text-orange-600 group-hover:text-orange-700">
+                Sub-Office Dashboard
+              </h3>
+              <p className="text-gray-600">Performance tracking</p>
             </Link>
           </div>
 
-          {/* Training Links (for staff) */}
-          <div className="mt-12 p-6 bg-gray-100 rounded-lg">
-            <h3 className="font-bold text-lg mb-4">Staff Training & Tools</h3>
-            <div className="grid md:grid-cols-3 gap-4">
+          {/* Staff Resources */}
+          <div className="mt-16 p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-900 rounded-2xl">
+            <h3 className="font-black text-2xl mb-6 text-blue-900 uppercase">
+              Staff Training & Resources
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
               <Link
                 href="/supersonic-fast-cash/careers/training"
-                className="text-blue-900 hover:underline"
+                className="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
               >
-                Tax Preparer Training
+                <div className="text-3xl">📚</div>
+                <div>
+                  <div className="font-bold text-blue-900 group-hover:text-blue-700">
+                    Tax Preparer Training
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Complete certification course
+                  </div>
+                </div>
               </Link>
               <Link
                 href="/supersonic-fast-cash/careers/competency-test"
-                className="text-blue-900 hover:underline"
+                className="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
               >
-                Competency Test
+                <div className="text-3xl">✅</div>
+                <div>
+                  <div className="font-bold text-blue-900 group-hover:text-blue-700">
+                    Competency Test
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Verify your skills
+                  </div>
+                </div>
               </Link>
               <Link
                 href="/supersonic-fast-cash/admin/client-intake"
-                className="text-blue-900 hover:underline"
+                className="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
               >
-                Client Intake System
+                <div className="text-3xl">📋</div>
+                <div>
+                  <div className="font-bold text-blue-900 group-hover:text-blue-700">
+                    Client Intake System
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Process new clients
+                  </div>
+                </div>
               </Link>
             </div>
           </div>
