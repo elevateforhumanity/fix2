@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+import { requireAuth } from '@/lib/auth-guard';
+import { requireRole } from '@/lib/rbac-guard';
 
 export const metadata: Metadata = {
   alternates: {
@@ -12,21 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default async function StaffPortalPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  // Require authentication
-  if (!user) {
-    redirect('/login?next=/staff-portal');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
+  // Enforce authentication and role
+  const session = await requireAuth();
+  requireRole(session, ['admin', 'super_admin', 'advisor']);
 
   // Check if user has staff/admin access
   const allowedRoles = ['staff', 'admin', 'super_admin', 'instructor'];
