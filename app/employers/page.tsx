@@ -161,16 +161,90 @@ export default function EmployersPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* Internal Navigation - Wix Style */}
-      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <>
+      {/* Video Hero Banner - Full Bleed */}
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/employers-hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        
+        <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
+          <div className="mx-auto w-full max-w-6xl px-6 text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-purple-600/90 px-4 py-2 rounded-full mb-6">
+              <Award className="w-5 h-5" />
+              <span className="text-sm font-bold uppercase tracking-wide text-white">Employer Services</span>
+            </div>
+            
+            {/* Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight">
+              Hire Job-Ready Graduates
+            </h1>
+            
+            {/* Subheadline */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
+              No Recruiting Fees. Tax Incentives Available.
+            </h2>
+            
+            {/* Body */}
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+              Access trained, certified, and motivated candidates. 85% placement rate. We handle the hard work.
+            </p>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <div className="text-3xl md:text-4xl font-black text-white mb-1">85%</div>
+                <div className="text-xs md:text-sm text-white/80">Placement Rate</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <div className="text-3xl md:text-4xl font-black text-white mb-1">$0</div>
+                <div className="text-xs md:text-sm text-white/80">Recruiting Fees</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <div className="text-3xl md:text-4xl font-black text-white mb-1">500+</div>
+                <div className="text-xs md:text-sm text-white/80">Employers</div>
+              </div>
+            </div>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/hire-graduates"
+                className="rounded-xl bg-white px-8 py-4 font-bold text-black hover:bg-gray-100 transition text-center text-lg shadow-xl"
+              >
+                Browse Graduates
+              </Link>
+              <Link
+                href="#contact"
+                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-white hover:bg-white hover:text-black transition text-center text-lg"
+              >
+                Schedule Call
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal Navigation */}
+      <nav className="bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition whitespace-nowrap"
+                className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -178,91 +252,6 @@ export default function EmployersPage() {
           </div>
         </div>
       </nav>
-
-      {/* Video Hero Banner - Wix Style */}
-      <section className="relative h-[600px] w-full overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/employers-hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-6xl w-full rich-animate">
-            {/* Logo */}
-            <div className="mb-8">
-              <Image
-                src="/logo.png"
-                alt="Elevate for Humanity"
-                width={200}
-                height={80}
-                className="mx-auto brightness-0 invert"
-              />
-            </div>
-            
-            {/* Badge */}
-            <div className="rich-badge mb-8 bg-purple-500/20 border-purple-500/30 text-purple-100">
-              <Award className="w-5 h-5" />
-              <span>Employer Services</span>
-            </div>
-            
-            {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
-              HIRE JOB-READY GRADUATES
-            </h1>
-            
-            {/* Subheadline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
-              No Recruiting Fees. Tax Incentives Available.
-            </h2>
-            
-            {/* Body */}
-            <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Access trained, certified, and motivated candidates. 85% placement rate. We handle the hard work.
-            </p>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="text-4xl font-black text-white mb-1">85%</div>
-                <div className="text-sm text-white/80">Placement Rate</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="text-4xl font-black text-white mb-1">$0</div>
-                <div className="text-sm text-white/80">Recruiting Fees</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <div className="text-4xl font-black text-white mb-1">500+</div>
-                <div className="text-sm text-white/80">Employers</div>
-              </div>
-            </div>
-            
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link
-                href="/hire-graduates"
-                className="rich-button-primary uppercase inline-flex items-center gap-3"
-              >
-                <span>Browse Graduates</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#contact"
-                className="rich-button-secondary text-white border-white hover:bg-white hover:text-purple-600 uppercase inline-flex items-center gap-3"
-              >
-                <Calendar className="w-5 h-5" />
-                <span>Schedule Call</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Benefits Section - Wix Style */}
       <section className="rich-section-alt">
@@ -428,6 +417,6 @@ export default function EmployersPage() {
           © 2025 Elevate for Humanity. All rights reserved.
         </p>
       </footer>
-    </main>
+    </>
   );
 }
