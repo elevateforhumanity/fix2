@@ -42,12 +42,10 @@ export default function AILiveChat({
   const [showPopup, setShowPopup] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-popup after 3 seconds
+  // Auto-popup disabled
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 3000);
-    return () => clearTimeout(timer);
+    // Popup disabled to avoid duplicate chat bubbles
+    return;
   }, []);
 
   useEffect(() => {
