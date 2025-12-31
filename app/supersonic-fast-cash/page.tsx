@@ -13,15 +13,17 @@ import {
 export default function SupersonicDesign15() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Large Image with Text Overlay */}
+      {/* Hero Section - Video Banner */}
       <section className="relative h-[500px] md:h-[600px] flex items-center">
-        <Image
-          src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Tax preparation"
-          fill
-          className="object-cover"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero-home.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-900/70"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
