@@ -12,3 +12,8 @@ export function supabaseServer() {
     auth: { persistSession: false }
   });
 }
+
+// Alias for compatibility with existing API routes
+export function getSupabaseServerClient() {
+  return supabaseServer();
+}
