@@ -16,7 +16,7 @@ export default function SupersonicDesign15() {
       {/* Hero Section - Large Image with Text Overlay */}
       <section className="relative h-[500px] md:h-[600px] flex items-center">
         <Image
-          src="https://burst.shopifycdn.com/photos/business-woman-smiling-in-office.jpg?width=1850&format=pjpg&exif=1&iptc=1"
+          src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Tax preparation"
           fill
           className="object-cover"
@@ -127,7 +127,7 @@ export default function SupersonicDesign15() {
             </div>
             <div className="relative h-96">
               <Image
-                src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80"
+                src="https://images.pexels.com/photos/6863515/pexels-photo-6863515.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Tax preparation services"
                 fill
                 className="object-cover rounded-lg shadow-lg"
@@ -182,7 +182,7 @@ export default function SupersonicDesign15() {
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+                  src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Tax Professional"
                   width={128}
                   height={128}
@@ -198,7 +198,7 @@ export default function SupersonicDesign15() {
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
+                  src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Tax Preparer"
                   width={128}
                   height={128}
@@ -214,7 +214,7 @@ export default function SupersonicDesign15() {
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
+                  src="https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Client Services"
                   width={128}
                   height={128}
