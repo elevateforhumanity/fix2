@@ -97,36 +97,12 @@ export default function HomePage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/hire-graduates"
+                href="/programs"
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl border-3 border-white bg-white/10 backdrop-blur-sm px-10 py-5 text-lg font-black text-white hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 uppercase"
               >
-                Hire A Student
-                <Users className="w-5 h-5" />
+                View Programs
+                <GraduationCap className="w-5 h-5" />
               </Link>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
-                <div className="text-xl font-black text-white mb-1">100% Free</div>
-                <div className="text-sm text-gray-200">No Tuition Cost</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <Award className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
-                <div className="text-xl font-black text-white mb-1">WIOA Funded</div>
-                <div className="text-sm text-gray-200">State Approved</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <Briefcase className="w-10 h-10 text-blue-400 mx-auto mb-2" />
-                <div className="text-xl font-black text-white mb-1">Job Ready</div>
-                <div className="text-sm text-gray-200">Career Support</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <GraduationCap className="w-10 h-10 text-orange-400 mx-auto mb-2" />
-                <div className="text-xl font-black text-white mb-1">Certified</div>
-                <div className="text-sm text-gray-200">Industry Credentials</div>
-              </div>
             </div>
           </div>
         </div>
@@ -279,12 +255,12 @@ export default function HomePage() {
             </Link>
 
             {/* Card 2 */}
-            <Link href="/locations" className="group">
+            <Link href="/about" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-orange-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-                    alt="Locations"
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                    alt="Hybrid Learning"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -295,13 +271,13 @@ export default function HomePage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
-                    Find a Location
+                    We Are Hybrid
                   </h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    Programs available in multiple locations across Indiana to serve you better.
+                    Learn online, in-person, or both. Flexible training that fits your schedule and learning style.
                   </p>
                   <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
-                    <span>View Locations</span>
+                    <span>Learn More</span>
                     <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -325,10 +301,10 @@ export default function HomePage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    Hire Graduates
+                    Hire A Student
                   </h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    Our candidates are credentialed, trained, and ready to contribute to your team.
+                    Our students are credentialed, trained, and ready to contribute to your team.
                   </p>
                   <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all">
                     <span>Partner With Us</span>
@@ -336,6 +312,75 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* EARN WHILE YOU LEARN */}
+      <section className="py-20 bg-gradient-to-br from-green-600 to-emerald-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">
+              Earn While You Learn
+            </h2>
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto">
+              Get paid while gaining skills through our funded programs and apprenticeships
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* WIOA */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <GraduationCap className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">WIOA</h3>
+              <p className="text-green-50 leading-relaxed">
+                Workforce Innovation & Opportunity Act funding covers training costs for eligible adults
+              </p>
+            </div>
+
+            {/* WRG */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <DollarSign className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">WRG</h3>
+              <p className="text-green-50 leading-relaxed">
+                Workforce Ready Grant provides free training for high-demand careers in Indiana
+              </p>
+            </div>
+
+            {/* JRI */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">JRI</h3>
+              <p className="text-green-50 leading-relaxed">
+                Justice Reinvestment Initiative supports justice-impacted individuals with training & employment
+              </p>
+            </div>
+
+            {/* Apprenticeships */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <Briefcase className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Apprenticeships</h3>
+              <p className="text-green-50 leading-relaxed">
+                Earn a paycheck while learning on the job with registered apprenticeship programs
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/apply"
+              className="inline-block px-10 py-4 bg-white text-green-600 font-bold text-lg rounded-lg hover:bg-green-50 transition-colors shadow-xl"
+            >
+              Check Your Eligibility
             </Link>
           </div>
         </div>
@@ -368,10 +413,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Advanced Manufacturing
                 </h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                  CNC machining, welding, quality control. Train for high-tech manufacturing careers with hands-on experience.
+                </p>
                 <p className="text-orange-500 font-semibold group-hover:text-orange-600">
                   Learn More &gt;
                 </p>
@@ -390,10 +438,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Building & Construction
                 </h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                  Carpentry, electrical, plumbing, HVAC. Build a career in the skilled trades with apprenticeship opportunities.
+                </p>
                 <p className="text-orange-500 font-semibold group-hover:text-orange-600">
                   Learn More &gt;
                 </p>
@@ -412,10 +463,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Business & IT Services
                 </h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                  Accounting, customer service, IT support. Start your professional career with in-demand business skills.
+                </p>
                 <p className="text-orange-500 font-semibold group-hover:text-orange-600">
                   Learn More &gt;
                 </p>
@@ -500,7 +554,7 @@ export default function HomePage() {
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Elevate is a 100% Tuition-Free Program that offers a wide array of
-              career training options for individuals over the age of 17.
+              career training options across Indiana.
             </p>
           </div>
 
