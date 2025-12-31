@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Stethoscope } from 'lucide-react';
-import { CompactHero } from '@/components/heroes/CompactHero';
+import { VideoHero } from '@/components/heroes/VideoHero';
 
 export const metadata: Metadata = {
   title:
@@ -15,27 +15,17 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="min-h-screen bg-white">
-      <CompactHero
-        variant="default"
+      <VideoHero
+        videoSrc="/videos/hero-healthcare.mp4"
         badge={{
           icon: Stethoscope,
           text: 'Healthcare Career',
-          href: '/programs/healthcare',
         }}
-        headline="Become a Certified Nursing Assistant in 6-8 weeks"
-        description=""
+        headline="Become a Certified Nursing Assistant"
+        description="100% free CNA training through WRG, WIOA, or JRI funding. State approved, DOL approved. Job placement included. Start earning $16-$20/hour."
         primaryCTA={{ text: 'Apply Now', href: '/apply' }}
         secondaryCTA={{ text: 'Talk to an Advisor', href: '/contact' }}
       />
-
-      {/* Appointment Banner */}
-      <section className="bg-blue-600 py-8">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-white text-lg md:text-xl leading-relaxed">
-            100% free CNA training through WRG, WIOA, or JRI funding. State approved, DOL approved. Job placement included. Start earning $16-$20/hour.
-          </p>
-        </div>
-      </section>
 
       {/* Program Details */}
       <section className="max-w-7xl mx-auto px-4 py-16">
