@@ -35,7 +35,7 @@ export default function ApprenticeshipsPage() {
         {/* Background Image */}
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/artlist/hero-training-9.jpg"
+            src="https://burst.shopifycdn.com/photos/students-working-together.jpg?width=1920&format=pjpg&exif=1&iptc=1"
             alt="Apprenticeship training"
             fill
             className="object-cover"

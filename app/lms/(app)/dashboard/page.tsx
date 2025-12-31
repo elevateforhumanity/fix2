@@ -160,7 +160,7 @@ export default async function StudentDashboardOrchestrated() {
       <div className="relative bg-gradient-to-r from-green-600 to-blue-600 text-white mb-8 rounded-2xl overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="/images/artlist/hero-training-10.jpg"
+            src="https://burst.shopifycdn.com/photos/students-in-class.jpg?width=1920&format=pjpg&exif=1&iptc=1"
             alt="Learning"
             fill
             className="object-cover"
