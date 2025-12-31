@@ -45,10 +45,6 @@ export const publicNav: NavSection[] = [
     href: '/about',
   },
   {
-    label: 'Success Stories',
-    href: '/success-stories',
-  },
-  {
     label: 'Blog',
     href: '/blog',
   },
