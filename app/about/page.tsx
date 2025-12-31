@@ -61,11 +61,18 @@ export default function AboutPage() {
       color: 'green'
     },
     {
-      title: 'Our Team',
-      description: 'Meet the people behind Elevate for Humanity.',
-      href: '#team',
+      title: 'Our Founder',
+      description: 'Meet Elizabeth Greene, founder and CEO of Elevate for Humanity.',
+      href: '/founder',
       icon: Users,
       color: 'purple'
+    },
+    {
+      title: 'Our Team',
+      description: 'Meet the people behind Elevate for Humanity.',
+      href: '/team',
+      icon: Users,
+      color: 'violet'
     },
     {
       title: 'Impact',
