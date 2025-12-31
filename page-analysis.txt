@@ -1,0 +1,310 @@
+📊 Detailed Page Analysis
+=========================
+
+Pages NOT using Supabase (517 pages):
+--------------------------------------
+app/calendar/page.tsx
+app/staff-portal/campaigns/page.tsx
+app/sheets/page.tsx
+app/app/page.tsx
+app/onboarding/staff/page.tsx
+app/onboarding/staff/orientation/page.tsx
+app/onboarding/partner/page.tsx
+app/onboarding/handbook/page.tsx
+app/onboarding/learner/page.tsx
+app/onboarding/mou/page.tsx
+app/onboarding/employer/page.tsx
+app/onboarding/school/page.tsx
+app/onboarding/school/orientation/page.tsx
+app/calculator/revenue-share/page.tsx
+app/downloads/page.tsx
+app/partner/page.tsx
+app/partner/dashboard/page.tsx
+app/partner/attendance/page.tsx
+app/student-handbook/page.tsx
+app/booking/page.tsx
+app/usermanagement/page.tsx
+app/offline/page.tsx
+app/transparency/page.tsx
+app/career-services/page.tsx
+app/philanthropy/page.tsx
+app/shop/apply/page.tsx
+app/shop/reports/page.tsx
+app/schedule/page.tsx
+app/enroll/page.tsx
+app/enroll/success/page.tsx
+app/pathways/page.tsx
+app/compare/page.tsx
+app/rise-foundation/get-involved/page.tsx
+app/rise-foundation/programs/page.tsx
+app/rise-foundation/page.tsx
+app/rise-foundation/about/page.tsx
+app/curriculumupload/page.tsx
+app/elevatelearn2earn/page.tsx
+app/career-fair/page.tsx
+app/pwa-test/page.tsx
+app/how-it-works/page.tsx
+app/learners/page.tsx
+app/wioa-eligibility/page.tsx
+app/jri/page.tsx
+app/thankyou/page.tsx
+app/next-steps/page.tsx
+app/cookies/page.tsx
+app/nonprofit/donations/page.tsx
+app/nonprofit/page.tsx
+app/nonprofit/workshops/page.tsx
+
+... (showing first 50 of 517)
+
+Pages with hardcoded arrays (153 pages):
+----------------------------------------
+app/staff-portal/campaigns/page.tsx
+app/staff-portal/customer-service/page.tsx
+app/staff-portal/page.tsx
+app/staff-portal/qa-checklist/page.tsx
+app/staff-portal/dashboard/page.tsx
+app/staff-portal/processes/page.tsx
+app/staff-portal/training/page.tsx
+app/booking/page.tsx
+app/shop/onboarding/documents/page.tsx
+app/shop/onboarding/page.tsx
+app/shop/reports/new/page.tsx
+app/shop/reports/page.tsx
+app/pathways/page.tsx
+app/nonprofit/workshops/page.tsx
+app/student/portfolio/page.tsx
+app/student/courses/page.tsx
+app/student/progress/page.tsx
+app/student/milady-lms/page.tsx
+app/student/ai-tutor/page.tsx
+app/apprentice/hours/page.tsx
+app/enhanced-home/page.tsx
+app/vita/upload/page.tsx
+app/diagnostic/page.tsx
+app/apply/track/page.tsx
+app/apply/page.tsx
+app/success-stories/page.tsx
+app/program-holder/compliance/page.tsx
+app/program-holder/campaigns/page.tsx
+app/program-holder/documents/page.tsx
+app/program-holder/verification/page.tsx
+
+... (showing first 30 of 153)
+
+Pages importing mock data (4 pages):
+------------------------------------
+app/events/page.tsx
+app/admin/editor/page.tsx
+app/drug-testing-training/page.tsx
+app/volunteer/page.tsx
+
+Pages by category:
+------------------
+about: 1 pages
+academic-integrity: 1 pages
+accessibility: 1 pages
+accreditation: 1 pages
+admin-login: 1 pages
+admin: 1 pages
+advising: 1 pages
+agencies: 1 pages
+ai-chat: 1 pages
+ai-tutor: 1 pages
+ai: 1 pages
+all-pages: 1 pages
+alumni: 1 pages
+app-hub: 1 pages
+app: 1 pages
+application-success: 1 pages
+apply: 1 pages
+apprenticeships: 1 pages
+approvals: 1 pages
+banking: 1 pages
+blog: 1 pages
+booking: 1 pages
+calendar: 1 pages
+call-now: 1 pages
+card: 1 pages
+career-center: 1 pages
+career-fair: 1 pages
+career-services: 1 pages
+careers: 1 pages
+chat: 1 pages
+checkout: 1 pages
+cm: 1 pages
+community: 1 pages
+compare-programs: 1 pages
+compare: 1 pages
+consumer-education: 1 pages
+contact: 1 pages
+contracts: 1 pages
+cookies: 1 pages
+copyright: 1 pages
+courses: 1 pages
+create-course: 1 pages
+credentials: 1 pages
+curriculumupload: 1 pages
+dashboard: 1 pages
+dashboards: 1 pages
+demo: 1 pages
+demos: 1 pages
+dev-admin: 1 pages
+diagnostic: 1 pages
+directory: 1 pages
+dmca: 1 pages
+docs: 1 pages
+donate: 1 pages
+downloads: 1 pages
+drug-testing-training: 1 pages
+drug-testing: 1 pages
+ecosystem: 1 pages
+educatorhub: 1 pages
+elevatelearn2earn: 1 pages
+email: 1 pages
+employee: 1 pages
+employer: 1 pages
+employers: 1 pages
+enhanced-home: 1 pages
+enroll: 1 pages
+equal-opportunity: 1 pages
+events: 1 pages
+faq: 1 pages
+features: 1 pages
+federal-compliance: 1 pages
+ferpa: 1 pages
+file-manager: 1 pages
+financial-aid: 1 pages
+for-employers: 1 pages
+for-students: 1 pages
+forgotpassword: 1 pages
+forms: 1 pages
+forum: 1 pages
+forums: 1 pages
+founder: 1 pages
+franchise: 1 pages
+fssa-partnership-request: 1 pages
+funding: 1 pages
+fundingimpact: 1 pages
+getstarted: 1 pages
+government: 1 pages
+grants: 1 pages
+grievance: 1 pages
+groups: 1 pages
+help: 1 pages
+hire-graduates: 1 pages
+how-it-works: 1 pages
+jri: 1 pages
+leaderboard: 1 pages
+learners: 1 pages
+license: 1 pages
+licensing: 1 pages
+lms: 1 pages
+login: 1 pages
+marketplace: 1 pages
+media-showcase: 1 pages
+mentorship: 1 pages
+messages: 1 pages
+metrics: 1 pages
+micro-classes: 1 pages
+mobile-app: 1 pages
+mobile: 1 pages
+news: 1 pages
+next-steps: 1 pages
+nonprofit: 1 pages
+notebooklm: 1 pages
+notfound: 1 pages
+offline: 1 pages
+ojt-and-funding: 1 pages
+onboarding: 1 pages
+orientation: 1 pages
+parent-portal: 1 pages
+partner-application: 1 pages
+partner-courses: 1 pages
+partner-playbook: 1 pages
+partner-with-us: 1 pages
+partner: 1 pages
+partners: 1 pages
+pathways: 1 pages
+pay: 1 pages
+philanthropy: 1 pages
+pitch-deck: 1 pages
+platform: 1 pages
+portal: 1 pages
+portals: 1 pages
+pricing: 1 pages
+privacy-policy: 1 pages
+privacy: 1 pages
+program-finder: 1 pages
+program-holder: 1 pages
+programs-catalog: 1 pages
+programs: 1 pages
+pwa-test: 1 pages
+receptionist: 1 pages
+reels: 1 pages
+refund-policy: 1 pages
+reports: 1 pages
+resetpassword: 1 pages
+resources: 1 pages
+rise-foundation: 1 pages
+rise: 1 pages
+schedule: 1 pages
+search: 1 pages
+security: 1 pages
+selfish-inc: 1 pages
+services: 1 pages
+share: 1 pages
+sheets: 1 pages
+signup: 1 pages
+sitemap-page: 1 pages
+sites: 1 pages
+slides: 1 pages
+snap-et-partner: 1 pages
+solutions: 1 pages
+staff-portal: 1 pages
+status: 1 pages
+store: 1 pages
+student-handbook: 1 pages
+student-portal: 1 pages
+student: 1 pages
+students: 1 pages
+study-groups: 1 pages
+suboffice-onboarding: 1 pages
+success-stories: 1 pages
+supersonic-fast-cash: 1 pages
+support: 1 pages
+syllabi: 1 pages
+tax-filing: 1 pages
+tax-self-prep: 1 pages
+tax-services: 1 pages
+tax-software: 1 pages
+tax: 1 pages
+team: 1 pages
+terms-of-service: 1 pages
+terms: 1 pages
+test-enrollment: 1 pages
+test-simple: 1 pages
+test-stripe-iframe: 1 pages
+thankyou: 1 pages
+training-providers: 1 pages
+transparency: 1 pages
+unauthorized: 1 pages
+usermanagement: 1 pages
+verify-credential: 1 pages
+verify-email: 1 pages
+verifycertificate: 1 pages
+verifyemail: 1 pages
+video: 1 pages
+videos: 1 pages
+vita: 1 pages
+volunteer: 1 pages
+webinars: 1 pages
+what-we-do: 1 pages
+what-we-offer: 1 pages
+white-label: 1 pages
+wioa-eligibility: 1 pages
+workbooks: 1 pages
+workforce-board: 1 pages
+workforce-partners: 1 pages
+workone-partner-packet: 1 pages
+
+Analysis complete!
