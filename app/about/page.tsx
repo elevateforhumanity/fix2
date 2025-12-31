@@ -41,8 +41,31 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Internal Navigation */}
+      <section className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <nav className="flex overflow-x-auto gap-1 py-2">
+            <a href="#mission" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Our Mission
+            </a>
+            <a href="#what-we-do" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              What We Do
+            </a>
+            <a href="#team" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Our Team
+            </a>
+            <a href="#impact" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Impact
+            </a>
+            <a href="#contact" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Contact
+            </a>
+          </nav>
+        </div>
+      </section>
+
       {/* Main Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" id="mission">
         <div className="max-w-4xl mx-auto px-4">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">

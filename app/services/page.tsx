@@ -22,8 +22,28 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Internal Navigation */}
+      <section className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <nav className="flex overflow-x-auto gap-1 py-2">
+            <a href="#tax-services" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Tax Services
+            </a>
+            <a href="#career-counseling" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Career Counseling
+            </a>
+            <a href="#job-placement" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Job Placement
+            </a>
+            <a href="#vita" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              VITA Tax Prep
+            </a>
+          </nav>
+        </div>
+      </section>
+
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-20" id="tax-services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Tax Services */}

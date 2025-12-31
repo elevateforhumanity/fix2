@@ -66,8 +66,31 @@ export default function EmployersPage() {
         </div>
       </section>
 
+      {/* Internal Navigation */}
+      <section className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <nav className="flex overflow-x-auto gap-1 py-2">
+            <a href="#benefits" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Benefits
+            </a>
+            <a href="#how-it-works" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              How It Works
+            </a>
+            <a href="#post-job" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Post a Job
+            </a>
+            <a href="#tax-incentives" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Tax Incentives
+            </a>
+            <a href="#contact" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Contact
+            </a>
+          </nav>
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" id="benefits">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">

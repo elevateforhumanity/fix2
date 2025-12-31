@@ -53,6 +53,32 @@ export default function FundingPage() {
         </div>
       </section>
 
+      {/* Internal Navigation */}
+      <section className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <nav className="flex overflow-x-auto gap-1 py-2">
+            <a href="#wioa" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              WIOA
+            </a>
+            <a href="#wrg" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              WRG
+            </a>
+            <a href="#jri" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              JRI
+            </a>
+            <a href="#snap" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              SNAP E&T
+            </a>
+            <a href="#tanf" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              TANF
+            </a>
+            <a href="#faq" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              FAQ
+            </a>
+          </nav>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-6xl px-4 py-16">
 
         {/* FUNDING TYPES - Dropdowns */}
