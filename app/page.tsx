@@ -302,7 +302,9 @@ export default function HomePage() {
                     <Users className="w-12 h-12 text-white mb-2" />
                   </div>
                 </div>
-                <div className="p-6">
+              </div>
+            </Link>
+
             {/* Section 3 */}
             <Link href="/for-employers" className="group text-center">
               <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
