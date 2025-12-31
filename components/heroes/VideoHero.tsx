@@ -62,7 +62,7 @@ export function VideoHero({
             </p>
           )}
           {(primaryCTA || secondaryCTA) && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               {primaryCTA && (
                 <Link
                   href={primaryCTA.href}
@@ -81,6 +81,19 @@ export function VideoHero({
               )}
             </div>
           )}
+          
+          {/* Funding Badges */}
+          <div className="flex flex-wrap gap-3 justify-center">
+            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+              <span className="text-white font-bold text-sm">WIOA Funded</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+              <span className="text-white font-bold text-sm">WRG Approved</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30">
+              <span className="text-white font-bold text-sm">JRI Eligible</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
