@@ -127,29 +127,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section - Wix Style */}
-      <section className="rich-section bg-white">
-        <div className="rich-container">
-          <div className="grid md:grid-cols-4 gap-12 text-center">
-            <div className="rich-animate">
-              <div className="rich-stat-number">100%</div>
-              <div className="rich-stat-label">Free Training</div>
-            </div>
-            <div className="rich-animate">
-              <div className="rich-stat-number">85%</div>
-              <div className="rich-stat-label">Job Placement</div>
-            </div>
-            <div className="rich-animate">
-              <div className="rich-stat-number">50+</div>
-              <div className="rich-stat-label">Programs</div>
-            </div>
-            <div className="rich-animate">
-              <div className="rich-stat-number">5,000+</div>
-              <div className="rich-stat-label">Students Trained</div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Featured Programs - Wix Style with Large Images */}
       <section className="rich-section-alt">
