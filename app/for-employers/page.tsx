@@ -32,24 +32,18 @@ export default function ForEmployersPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-orange-900 text-white py-24 overflow-hidden">
+      <section className="relative text-white py-24 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0">
           <Image
-            src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=1920&format=pjpg&exif=1&iptc=1"
+            src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Business team"
             fill
             className="object-cover"
+            quality={100}
+            priority
           />
         </div>
-        
-        {/* Animated Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/70 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
