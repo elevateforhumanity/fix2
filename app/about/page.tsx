@@ -26,7 +26,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="https://burst.shopifycdn.com/photos/students-in-class.jpg?width=1850&format=pjpg&exif=1&iptc=1"
           alt="About Elevate For Humanity"
           fill
           className="object-cover brightness-50"
