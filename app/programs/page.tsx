@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import { 
   GraduationCap,
@@ -151,16 +152,16 @@ export default function ProgramsBioSitePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <main className="min-h-screen bg-white">
       {/* Internal Navigation */}
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap"
+                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -169,8 +170,77 @@ export default function ProgramsBioSitePage() {
         </div>
       </nav>
 
+      {/* Video Hero Banner - Wix Style */}
+      <section className="relative h-[600px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/programs-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-6xl w-full rich-animate">
+            {/* Logo */}
+            <div className="mb-8">
+              <Image
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                width={200}
+                height={80}
+                className="mx-auto brightness-0 invert"
+              />
+            </div>
+            
+            {/* Badge */}
+            <div className="rich-badge mb-8 bg-teal-500/20 border-teal-500/30 text-teal-100">
+              <GraduationCap className="w-5 h-5" />
+              <span>50+ Career Training Programs</span>
+            </div>
+            
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+              FREE CAREER TRAINING PROGRAMS
+            </h1>
+            
+            {/* Subheadline */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+              100% Free • No Tuition • No Debt
+            </h2>
+            
+            {/* Body */}
+            <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Browse our complete catalog of 50+ training programs across all industries
+            </p>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link
+                href="/apply"
+                className="rich-button-primary uppercase inline-flex items-center gap-3"
+              >
+                <span>Apply Now</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#programs"
+                className="rich-button-secondary text-white border-white hover:bg-white hover:text-teal-600 uppercase inline-flex items-center gap-3"
+              >
+                <span>Browse Programs</span>
+                <Search className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Profile Section */}
-      <section className="pt-16 pb-8 px-4">
+      <section id="programs" className="pt-16 pb-8 px-4">
         <div className="max-w-2xl mx-auto text-center">
           {/* Logo/Icon */}
           <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">

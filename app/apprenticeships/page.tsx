@@ -29,77 +29,107 @@ const apprenticeshipPrograms = programs.filter(
 
 export default function ApprenticeshipsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative text-white py-24 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Apprenticeship training"
-            fill
-            className="object-cover"
-            quality={100}
-            priority
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 mb-6">
-              <Award className="w-5 h-5 text-orange-400" />
-              <span className="text-orange-100 font-semibold">U.S. Department of Labor Registered</span>
+    <div className="min-h-screen bg-white">
+      {/* Video Hero Banner - Wix Style */}
+      <section className="relative h-[600px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/apprenticeships-hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-6xl w-full rich-animate">
+            {/* Logo */}
+            <div className="mb-8">
+              <Image
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                width={200}
+                height={80}
+                className="mx-auto brightness-0 invert"
+              />
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight">
-              Apprenticeship Programs
+            {/* Badge */}
+            <div className="rich-badge mb-8 bg-orange-500/20 border-orange-500/30 text-orange-100">
+              <Award className="w-5 h-5" />
+              <span>U.S. Department of Labor Registered</span>
+            </div>
+            
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+              APPRENTICESHIP PROGRAMS
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-gray-100 mb-8 max-w-4xl mx-auto">
+            
+            {/* Subheadline */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
               Earn While You Learn. Earn & Learn to Train.
-            </p>
-            <p className="text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
+            </h2>
+            
+            {/* Body */}
+            <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Combine on-the-job training with classroom instruction. Graduate with industry certifications and zero debt.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
                 href="/apprenticeships/apply"
-                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-5 text-lg font-black text-white shadow-2xl hover:from-orange-600 hover:to-orange-700 transition-all transform hover:scale-105 uppercase"
+                className="rich-button-primary uppercase inline-flex items-center gap-3"
               >
-                Apply Now
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span>Apply Now</span>
+                <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="#programs"
-                className="group inline-flex items-center justify-center gap-3 rounded-xl border-3 border-white bg-white/10 backdrop-blur-sm px-10 py-5 text-lg font-black text-white hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 uppercase"
+                className="rich-button-secondary text-white border-white hover:bg-white hover:text-orange-600 uppercase inline-flex items-center gap-3"
               >
-                View Programs
+                <span>View Programs</span>
                 <Briefcase className="w-5 h-5" />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">Earn & Learn</div>
-                <div className="text-sm text-gray-200">Paid Training</div>
+      {/* Benefits Section - Wix Style */}
+      <section className="rich-section bg-white">
+        <div className="rich-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="rich-animate">
+              <div className="rich-icon-container mx-auto bg-gradient-to-br from-green-500 to-green-600">
+                <DollarSign className="w-8 h-8 text-white" />
               </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <GraduationCap className="w-10 h-10 text-blue-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">No Debt</div>
-                <div className="text-sm text-gray-200">Zero Cost</div>
+              <div className="rich-stat-number text-4xl">Earn & Learn</div>
+              <div className="rich-stat-label">Paid Training</div>
+            </div>
+            <div className="rich-animate">
+              <div className="rich-icon-container mx-auto bg-gradient-to-br from-blue-500 to-blue-600">
+                <GraduationCap className="w-8 h-8 text-white" />
               </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <Award className="w-10 h-10 text-yellow-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">Certified</div>
-                <div className="text-sm text-gray-200">Industry Credentials</div>
+              <div className="rich-stat-number text-4xl">No Debt</div>
+              <div className="rich-stat-label">Zero Cost</div>
+            </div>
+            <div className="rich-animate">
+              <div className="rich-icon-container mx-auto bg-gradient-to-br from-yellow-500 to-yellow-600">
+                <Award className="w-8 h-8 text-white" />
               </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <TrendingUp className="w-10 h-10 text-orange-400 mx-auto mb-2" />
-                <div className="text-3xl font-black mb-1">Career</div>
-                <div className="text-sm text-gray-200">Career Path</div>
+              <div className="rich-stat-number text-4xl">Certified</div>
+              <div className="rich-stat-label">Industry Credentials</div>
+            </div>
+            <div className="rich-animate">
+              <div className="rich-icon-container mx-auto bg-gradient-to-br from-orange-500 to-orange-600">
+                <TrendingUp className="w-8 h-8 text-white" />
               </div>
+              <div className="rich-stat-number text-4xl">Career</div>
+              <div className="rich-stat-label">Career Path</div>
             </div>
           </div>
         </div>
