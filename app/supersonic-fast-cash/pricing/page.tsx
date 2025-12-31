@@ -11,12 +11,12 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="bg-blue-900 text-white py-16">
+      <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Simple, Transparent Pricing
           </h1>
-          <p className="text-xl text-blue-100">
+          <p className="text-xl text-gray-600">
             No hidden fees. No surprises. Just honest pricing.
           </p>
         </div>
@@ -213,24 +213,24 @@ export default function PricingPage() {
           </div>
 
           {/* Refund Advance */}
-          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-12 text-white text-center">
-            <h2 className="text-4xl font-bold mb-4">Tax Refund Advance</h2>
-            <div className="text-6xl font-bold mb-4">Up to $7,500</div>
-            <p className="text-xl text-green-100 mb-8">
+          <div className="bg-green-600 rounded-lg p-12 text-white text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Tax Refund Advance</h2>
+            <div className="text-5xl md:text-6xl font-bold mb-4">Up to $7,500</div>
+            <p className="text-lg md:text-xl mb-8">
               Same-day funding • No credit check • Tax prep included
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <div className="bg-white/20 rounded-lg p-6">
                 <div className="text-3xl font-bold mb-2">$500-$1,500</div>
-                <div className="text-green-100">$0 fee</div>
+                <div>$0 fee</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <div className="bg-white/20 rounded-lg p-6">
                 <div className="text-3xl font-bold mb-2">$1,501-$4,000</div>
-                <div className="text-green-100">$50 fee</div>
+                <div>$50 fee</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <div className="bg-white/20 rounded-lg p-6">
                 <div className="text-3xl font-bold mb-2">$4,001-$7,500</div>
-                <div className="text-green-100">$100 fee</div>
+                <div>$100 fee</div>
               </div>
             </div>
             <Link

@@ -11,10 +11,10 @@ export default function LocationsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-blue-900 text-white py-16">
+      <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4">Visit Us or Meet Online</h1>
-          <p className="text-xl text-blue-100">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Visit Us or Meet Online</h1>
+          <p className="text-xl text-gray-600">
             In-person service in Indianapolis or virtual appointments nationwide
           </p>
         </div>

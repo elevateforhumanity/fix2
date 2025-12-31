@@ -108,26 +108,26 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
+      <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Professional Tax Services
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               From simple returns to complex business taxes, we provide expert
               service at competitive prices
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/supersonic-fast-cash/book-appointment"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
               >
                 Schedule Consultation
               </Link>
               <Link
                 href="tel:+13173143757"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors border-2 border-blue-500"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
               >
                 Call (317) 314-3757
               </Link>
@@ -232,22 +232,22 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-blue-900 text-white">
+      <section className="py-16 bg-orange-500">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to Get Started?</h2>
+          <p className="text-lg text-white mb-8">
             Schedule your appointment today or call us for immediate assistance
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/supersonic-fast-cash/book-appointment"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-500 font-bold rounded hover:bg-gray-100 transition-colors"
             >
               Book Appointment
             </Link>
             <Link
               href="tel:+13173143757"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors border-2 border-white"
+              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold rounded hover:bg-orange-600 transition-colors border-2 border-white"
             >
               Call (317) 314-3757
             </Link>
