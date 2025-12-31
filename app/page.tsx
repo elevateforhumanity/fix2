@@ -229,12 +229,12 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-green-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=800&format=pjpg&exif=1&iptc=1"
+                    src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=1920&format=pjpg&exif=1&iptc=1"
                     alt="Industry Alignment"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    quality={100}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <Briefcase className="w-12 h-12 text-white mb-2" />
                   </div>
@@ -259,12 +259,12 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-orange-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://burst.shopifycdn.com/photos/students-studying-together.jpg?width=800&format=pjpg&exif=1&iptc=1"
+                    src="https://burst.shopifycdn.com/photos/students-studying-together.jpg?width=1920&format=pjpg&exif=1&iptc=1"
                     alt="Hybrid Learning"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    quality={100}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <GraduationCap className="w-12 h-12 text-white mb-2" />
                   </div>
@@ -289,12 +289,12 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-blue-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://burst.shopifycdn.com/photos/business-people-shaking-hands.jpg?width=800&format=pjpg&exif=1&iptc=1"
+                    src="https://burst.shopifycdn.com/photos/business-people-shaking-hands.jpg?width=1920&format=pjpg&exif=1&iptc=1"
                     alt="Hire A Student"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    quality={100}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <Users className="w-12 h-12 text-white mb-2" />
                   </div>
