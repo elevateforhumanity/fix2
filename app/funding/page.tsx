@@ -1,327 +1,271 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-
+import { 
+  DollarSign,
+  Users,
+  FileText,
+  Building2,
+  Handshake,
+  TrendingUp,
+  Shield,
+  CheckCircle,
+  ArrowRight,
+  Briefcase
+} from 'lucide-react';
 
 export default function FundingPage() {
-  const [openSection, setOpenSection] = useState<string | null>(null);
-
-  const toggleSection = (section: string) => {
-    setOpenSection(openSection === section ? null : section);
-  };
+  const fundingResources = [
+    {
+      title: 'WIOA Eligibility',
+      description: 'Check if you qualify for Workforce Innovation and Opportunity Act funding. Most adults qualify for free training.',
+      href: '/wioa-eligibility',
+      icon: CheckCircle,
+      color: 'green',
+      category: 'Eligibility'
+    },
+    {
+      title: 'Financial Aid Info',
+      description: 'Learn about federal workforce funding programs. We do not offer traditional financial aid or student loans.',
+      href: '/financial-aid',
+      icon: FileText,
+      color: 'blue',
+      category: 'Information'
+    },
+    {
+      title: 'Grants',
+      description: 'Federal and state grant programs that cover 100% of training costs with no repayment required.',
+      href: '/grants',
+      icon: DollarSign,
+      color: 'emerald',
+      category: 'Funding'
+    },
+    {
+      title: 'JRI Funding',
+      description: 'Justice Reinvestment Initiative funding for individuals with criminal justice involvement.',
+      href: '/jri',
+      icon: Shield,
+      color: 'purple',
+      category: 'Funding'
+    },
+    {
+      title: 'SNAP E&T',
+      description: 'Supplemental Nutrition Assistance Program Employment & Training funding for SNAP recipients.',
+      href: '/snap-et-partner',
+      icon: Users,
+      color: 'orange',
+      category: 'Funding'
+    },
+    {
+      title: 'FSSA Partnership',
+      description: 'Family and Social Services Administration partnership programs and funding opportunities.',
+      href: '/fssa-partnership-request',
+      icon: Handshake,
+      color: 'pink',
+      category: 'Partnerships'
+    },
+    {
+      title: 'OJT & Funding',
+      description: 'On-the-Job Training programs with employer wage reimbursement and participant support.',
+      href: '/ojt-and-funding',
+      icon: Briefcase,
+      color: 'indigo',
+      category: 'Programs'
+    },
+    {
+      title: 'Funding Impact',
+      description: 'See how federal funding transforms lives and communities through workforce development.',
+      href: '/fundingimpact',
+      icon: TrendingUp,
+      color: 'cyan',
+      category: 'Impact'
+    },
+    {
+      title: 'Workforce Partners',
+      description: 'Our network of workforce development boards, agencies, and community partners.',
+      href: '/workforce-partners',
+      icon: Users,
+      color: 'violet',
+      category: 'Partnerships'
+    },
+    {
+      title: 'WorkOne Partner Packet',
+      description: 'Information for WorkOne centers and workforce board partners.',
+      href: '/workone-partner-packet',
+      icon: FileText,
+      color: 'rose',
+      category: 'Resources'
+    },
+    {
+      title: 'Partner Agencies',
+      description: 'Government agencies and community organizations we work with to serve students.',
+      href: '/agencies',
+      icon: Building2,
+      color: 'amber',
+      category: 'Partnerships'
+    },
+    {
+      title: 'Government Programs',
+      description: 'Federal and state workforce programs that fund training at no cost to students.',
+      href: '/government',
+      icon: Shield,
+      color: 'lime',
+      category: 'Programs'
+    },
+    {
+      title: 'Federal Compliance',
+      description: 'Our compliance with federal workforce development regulations and reporting requirements.',
+      href: '/federal-compliance',
+      icon: CheckCircle,
+      color: 'teal',
+      category: 'Compliance'
+    },
+    {
+      title: 'Equal Opportunity',
+      description: 'Our commitment to equal opportunity and non-discrimination in all programs and services.',
+      href: '/equal-opportunity',
+      icon: Users,
+      color: 'sky',
+      category: 'Compliance'
+    },
+  ];
 
   return (
-    <main className="bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+    <main className="min-h-screen bg-white">
+      {/* Hero Confirmation Section */}
+      <section className="bg-gradient-to-br from-green-600 to-green-800 text-white py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Success Icon */}
+          <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+            <CheckCircle className="w-12 h-12 text-green-600" />
+          </div>
           
-        >
-          <source src="/videos/getting-started-hero.mp4" type="video/mp4" />
-        </video>
-        
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white uppercase tracking-wide">
-              FUNDING OPTIONS
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-8">
-              100% Free Training - No Student Debt
+          {/* Headline */}
+          <h1 className="text-4xl md:text-6xl font-black mb-6 uppercase">
+            100% Free Training
+          </h1>
+          
+          {/* Subheadline */}
+          <p className="text-2xl md:text-3xl font-bold mb-8">
+            No Tuition. No Student Debt. Ever.
+          </p>
+          
+          {/* Description */}
+          <p className="text-xl text-green-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            All training is funded through federal workforce programs like WIOA, SNAP E&T, and JRI. 
+            You pay nothing. We handle all the paperwork.
+          </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-4xl font-black mb-2">$0</div>
+              <div className="text-sm text-green-100">Tuition Cost</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-4xl font-black mb-2">100%</div>
+              <div className="text-sm text-green-100">Funded</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-4xl font-black mb-2">5,000+</div>
+              <div className="text-sm text-green-100">Students Served</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recommended Resources Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Explore Funding Resources
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Learn about federal funding programs, eligibility requirements, and partnership opportunities
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
-              <Link
-                href="/apply"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-orange-500 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 uppercase"
-              >
-                Apply Now
-              </Link>
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 border-white bg-transparent px-8 py-4 text-lg font-bold text-white hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 uppercase"
-              >
-                Talk to Advisor
-              </Link>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Internal Navigation */}
-      <section className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          <nav className="flex overflow-x-auto gap-1 py-2">
-            <a href="#wioa" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              WIOA
-            </a>
-            <a href="#wrg" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              WRG
-            </a>
-            <a href="#jri" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              JRI
-            </a>
-            <a href="#snap" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              SNAP E&T
-            </a>
-            <a href="#tanf" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              TANF
-            </a>
-            <a href="#faq" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              FAQ
-            </a>
-          </nav>
-        </div>
-      </section>
-
-      {/* All Funding Resources */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">All Funding Resources</h2>
-          <div className="grid md:grid-cols-4 gap-4">
-            <Link href="/wioa-eligibility" className="text-blue-600 hover:underline">WIOA Eligibility</Link>
-            <Link href="/financial-aid" className="text-blue-600 hover:underline">Financial Aid Info</Link>
-            <Link href="/grants" className="text-blue-600 hover:underline">Grants</Link>
-            <Link href="/jri" className="text-blue-600 hover:underline">JRI Funding</Link>
-            <Link href="/snap-et-partner" className="text-blue-600 hover:underline">SNAP E&T</Link>
-            <Link href="/fssa-partnership-request" className="text-blue-600 hover:underline">FSSA Partnership</Link>
-            <Link href="/ojt-and-funding" className="text-blue-600 hover:underline">OJT & Funding</Link>
-            <Link href="/fundingimpact" className="text-blue-600 hover:underline">Funding Impact</Link>
-            <Link href="/workforce-partners" className="text-blue-600 hover:underline">Workforce Partners</Link>
-            <Link href="/workone-partner-packet" className="text-blue-600 hover:underline">WorkOne Partner Packet</Link>
-            <Link href="/agencies" className="text-blue-600 hover:underline">Partner Agencies</Link>
-            <Link href="/government" className="text-blue-600 hover:underline">Government Programs</Link>
-            <Link href="/federal-compliance" className="text-blue-600 hover:underline">Federal Compliance</Link>
-            <Link href="/equal-opportunity" className="text-blue-600 hover:underline">Equal Opportunity</Link>
-            <Link href="/apply" className="text-blue-600 hover:underline">Apply for Funding</Link>
-          </div>
-        </div>
-      </section>
-
-      <div className="mx-auto max-w-6xl px-4 py-16">
-
-        {/* FUNDING TYPES - Dropdowns */}
-        <section className="mt-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 uppercase text-center">
-            Federal Funding Options
-          </h2>
-          <p className="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
-            We do not offer financial aid. All training is funded through federal workforce programs.
-          </p>
-
-          <div className="space-y-4 max-w-4xl mx-auto">
-            {/* WIOA Dropdown */}
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <button
-                onClick={() => toggleSection('wioa')}
-                className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition"
-              >
-                <h3 className="text-xl font-bold text-gray-900">WIOA (Workforce Innovation & Opportunity Act)</h3>
-                <ChevronDown className={`w-6 h-6 transition-transform ${openSection === 'wioa' ? 'rotate-180' : ''}`} />
-              </button>
-              {openSection === 'wioa' && (
-                <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
-                  <p className="text-gray-700 mb-4">
-                    Federal workforce funding for eligible participants seeking in-demand skills and employment pathways.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Eligibility-based workforce funding</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Often covers tuition and related costs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Aligned with approved training programs</span>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {/* WRG Dropdown */}
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <button
-                onClick={() => toggleSection('wrg')}
-                className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition"
-              >
-                <h3 className="text-xl font-bold text-gray-900">WRG (Workforce Readiness & Growth)</h3>
-                <ChevronDown className={`w-6 h-6 transition-transform ${openSection === 'wrg' ? 'rotate-180' : ''}`} />
-              </button>
-              {openSection === 'wrg' && (
-                <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
-                  <p className="text-gray-700 mb-4">
-                    Support pathways focused on readiness, retention, and successful completion of training programs.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Wraparound and readiness support</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Eligibility varies by region and program</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Designed to reduce barriers to completion</span>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {/* Apprenticeships Dropdown */}
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-              <button
-                onClick={() => toggleSection('apprenticeships')}
-                className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition"
-              >
-                <h3 className="text-xl font-bold text-gray-900">Registered Apprenticeships</h3>
-                <ChevronDown className={`w-6 h-6 transition-transform ${openSection === 'apprenticeships' ? 'rotate-180' : ''}`} />
-              </button>
-              {openSection === 'apprenticeships' && (
-                <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
-                  <p className="text-gray-700 mb-4">
-                    Earn while you learn through DOL-registered apprenticeship programs with structured training and employment.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Get paid while training</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>DOL-registered programs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-500 font-bold">•</span>
-                      <span>Graduate debt-free with job experience</span>
-                    </li>
-                  </ul>
-                  <div className="mt-4">
-                    <Link
-                      href="/programs/barber-apprenticeship"
-                      className="inline-flex items-center text-orange-500 font-bold hover:text-orange-600"
-                    >
-                      View Barber Apprenticeship Program →
-                    </Link>
+          {/* Resource Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {fundingResources.map((resource) => {
+              const Icon = resource.icon;
+              return (
+                <Link
+                  key={resource.href}
+                  href={resource.href}
+                  className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500 hover:-translate-y-1 transform"
+                >
+                  {/* Category Badge */}
+                  <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-3 border-b border-gray-200">
+                    <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">
+                      {resource.category}
+                    </span>
                   </div>
-                </div>
-              )}
-            </div>
+
+                  {/* Card Content */}
+                  <div className="p-6">
+                    {/* Icon */}
+                    <div className={`w-14 h-14 bg-${resource.color}-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon className={`w-7 h-7 text-${resource.color}-600`} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                      {resource.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {resource.description}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-green-600 font-semibold group-hover:gap-3 transition-all">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
-        </section>
 
-        {/* APPRENTICESHIP */}
-        <section className="mt-14 rounded-3xl border border-zinc-200 bg-zinc-50 p-8 sm:p-10">
-          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
-            Apprenticeship & earn-while-you-learn options
-          </h2>
-          <p className="mt-4 text-zinc-700 max-w-3xl">
-            Some programs offer apprenticeship-aligned pathways where you gain
-            hands-on experience while progressing toward completion. These
-            options may include structured milestones, supervised training, and
-            employment-aligned outcomes.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/programs"
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-bold hover:bg-zinc-50 text-center transition"
-            >
-              View Apprenticeship Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-bold hover:bg-zinc-800 text-center transition"
-            >
-              Ask About Eligibility
-            </Link>
-          </div>
-        </section>
-
-        {/* HOW IT WORKS */}
-        <section className="mt-14">
-          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
-            How funding works
-          </h2>
-
-          <ol className="mt-6 space-y-4 list-decimal pl-5 text-zinc-700 max-w-3xl">
-            <li>Submit a short application.</li>
-            <li>We review your goals, background, and program fit.</li>
-            <li>Eligibility is checked for available funding pathways.</li>
-            <li>You choose a program and confirm next steps.</li>
-            <li>Begin training with clarity and support.</li>
-          </ol>
-        </section>
-
-        {/* IMPORTANT NOTE */}
-        <section className="mt-12 max-w-3xl">
-          <p className="text-sm text-zinc-600">
-            Important: Funding availability is not guaranteed and depends on
-            eligibility, documentation, partner requirements, and current
-            program capacity. Our team helps you understand options and next
-            steps.
-          </p>
-        </section>
-
-        {/* FINAL CTA */}
-        <section className="mt-16 rounded-3xl border border-zinc-200 bg-white p-8 sm:p-10 shadow-sm">
-          <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-zinc-900">
-            Ready to explore your options?
-          </h2>
-          <p className="mt-3 text-zinc-700">
-            Apply today and we'll help you determine program fit, timelines, and
-            potential funding pathways.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+          {/* Apply CTA */}
+          <div className="mt-16 text-center">
             <Link
               href="/apply"
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-bold hover:bg-zinc-800 text-center transition"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-5 rounded-xl text-lg font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all uppercase"
             >
-              Start an Application
+              <span>Apply for Free Training</span>
+              <ArrowRight className="w-6 h-6" />
             </Link>
-            <Link
-              href="/programs"
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-bold hover:bg-zinc-50 text-center transition"
-            >
-              Browse Programs
-            </Link>
+            <p className="text-gray-600 mt-4">
+              Takes 5 minutes • No commitment required
+            </p>
           </div>
-        </section>
-      </div>
-    </main>
-  );
-}
+        </div>
+      </section>
 
-function FundingCard({
-  title,
-  description,
-  bullets,
-}: {
-  title: string;
-  description: string;
-  bullets: string[];
-}) {
-  return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-      <h3 className="text-lg font-bold text-zinc-900">{title}</h3>
-      <p className="mt-2 text-zinc-700">{description}</p>
-      <ul className="mt-4 space-y-2 text-sm text-zinc-700 list-disc pl-5">
-        {bullets.map((b) => (
-          <li key={b}>{b}</li>
-        ))}
-      </ul>
-    </div>
+      {/* Footer */}
+      <section className="py-12 px-4 bg-white border-t border-gray-200">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-gray-600 mb-2">
+            Questions about funding eligibility?
+          </p>
+          <p className="text-sm text-gray-500">
+            Contact us at{' '}
+            <a href="mailto:elevate4humanityedu@gmail.com" className="text-green-600 hover:underline font-semibold">
+              elevate4humanityedu@gmail.com
+            </a>
+            {' '}or call{' '}
+            <a href="tel:+13178001234" className="text-green-600 hover:underline font-semibold">
+              (317) 800-1234
+            </a>
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }
