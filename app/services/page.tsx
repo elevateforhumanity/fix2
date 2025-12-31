@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { DollarSign, Briefcase, FileText, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -11,14 +12,24 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-black mb-6 uppercase">
-            Our Services
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Supporting your success with tax services, career counseling, and job placement
-          </p>
+      <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
+        <Image
+          src="/images/artlist/hero-training-3.jpg"
+          alt="Our Services"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-900/60"></div>
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl w-full">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 text-white uppercase tracking-tight">
+              Our Services
+            </h1>
+            <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
+              Supporting your success with tax services, career counseling, and job placement
+            </p>
+          </div>
         </div>
       </section>
 
@@ -49,15 +60,17 @@ export default function ServicesPage() {
             {/* Tax Services */}
             <Link href="/supersonic-fast-cash" className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
-                <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <DollarSign className="w-8 h-8 text-orange-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Tax Services</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Professional tax preparation, refund advances, and IRS representation through Supersonic Fast Cash. Licensed Enrolled Agent services.
-                </p>
-                <div className="text-orange-600 font-bold group-hover:gap-3 transition-all">
-                  Learn More →
+                <div className="p-8">
+                  <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <DollarSign className="w-8 h-8 text-orange-600" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Tax Services</h2>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Professional tax preparation, refund advances, and IRS representation through Supersonic Fast Cash. Licensed Enrolled Agent services.
+                  </p>
+                  <div className="text-orange-600 font-bold group-hover:gap-3 transition-all">
+                    Learn More →
+                  </div>
                 </div>
               </div>
             </Link>
@@ -65,15 +78,17 @@ export default function ServicesPage() {
             {/* Career Services */}
             <Link href="/career-services" className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
-                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Briefcase className="w-8 h-8 text-green-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Career Counseling</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  One-on-one career counseling, resume building, interview preparation, and ongoing support to help you succeed.
-                </p>
-                <div className="text-green-600 font-bold group-hover:gap-3 transition-all">
-                  Learn More →
+                <div className="p-8">
+                  <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Briefcase className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Career Counseling</h2>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    One-on-one career counseling, resume building, interview preparation, and ongoing support to help you succeed.
+                  </p>
+                  <div className="text-green-600 font-bold group-hover:gap-3 transition-all">
+                    Learn More →
+                  </div>
                 </div>
               </div>
             </Link>

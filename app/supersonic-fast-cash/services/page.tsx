@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   FileText,
   DollarSign,
@@ -108,29 +109,39 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Professional Tax Services
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              From simple returns to complex business taxes, we provide expert
-              service at competitive prices
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/supersonic-fast-cash/book-appointment"
-                className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
-              >
-                Schedule Consultation
-              </Link>
-              <Link
-                href="tel:+13173143757"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                Call (317) 314-3757
-              </Link>
+      <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
+        <Image
+          src="/images/artlist/hero-training-1.jpg"
+          alt="Tax Services"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-blue-900/65"></div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="max-w-3xl">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                Professional Tax Services
+              </h1>
+              <p className="text-xl text-white mb-8">
+                From simple returns to complex business taxes, we provide expert
+                service at competitive prices
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/supersonic-fast-cash/book-appointment"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
+                >
+                  Schedule Consultation
+                </Link>
+                <Link
+                  href="tel:+13173143757"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-900 transition-colors"
+                >
+                  Call (317) 314-3757
+                </Link>
+              </div>
             </div>
           </div>
         </div>

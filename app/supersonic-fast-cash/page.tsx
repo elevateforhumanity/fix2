@@ -16,7 +16,7 @@ export default function SupersonicDesign15() {
       {/* Hero Section - Large Image with Text Overlay */}
       <section className="relative h-[500px] md:h-[600px] flex items-center">
         <Image
-          src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80"
+          src="/images/artlist/hero-training-2.jpg"
           alt="Tax preparation"
           fill
           className="object-cover"
