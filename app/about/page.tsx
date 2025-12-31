@@ -22,6 +22,22 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  // Internal navigation for About subpages
+  const navLinks = [
+    { label: 'Our Founder', href: '/founder' },
+    { label: 'Our Team', href: '/team' },
+    { label: 'Transparency', href: '/transparency' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Alumni', href: '/alumni' },
+    { label: 'Press', href: '/press' },
+    { label: 'Success Stories', href: '/success-stories' },
+    { label: 'Philanthropy', href: '/philanthropy' },
+    { label: 'RISE Foundation', href: '/rise-foundation' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Credentials', href: '/credentials' },
+    { label: 'Certificates', href: '/certificates' },
+  ];
+
   const values = [
     {
       icon: Heart,
@@ -125,11 +141,44 @@ export default function AboutPage() {
       icon: Newspaper,
       color: 'teal',
       featured: false
+    },
+    {
+      title: 'Credentials',
+      description: 'Industry-recognized certifications and licenses our graduates earn.',
+      href: '/credentials',
+      icon: Award,
+      color: 'emerald',
+      featured: false
+    },
+    {
+      title: 'Certificates',
+      description: 'Completion certificates and digital badges for achievements.',
+      href: '/certificates',
+      icon: FileText,
+      color: 'violet',
+      featured: false
     }
   ];
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      {/* Internal Navigation */}
+      <nav className="bg-gray-900 border-b border-gray-700 sticky top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-orange-400 hover:bg-gray-800 rounded-lg transition whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section - Dark & Elegant */}
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Background Pattern */}

@@ -28,6 +28,20 @@ export const metadata: Metadata = {
 };
 
 export default function ProgramsBioSitePage() {
+  // Internal navigation for Programs subpages
+  const navLinks = [
+    { label: 'Programs Catalog', href: '/programs-catalog' },
+    { label: 'Program Finder', href: '/program-finder' },
+    { label: 'Compare Programs', href: '/compare-programs' },
+    { label: 'Apprenticeships', href: '/apprenticeships' },
+    { label: 'Courses', href: '/courses' },
+    { label: 'Pathways', href: '/pathways' },
+    { label: 'Credentials', href: '/credentials' },
+    { label: 'Certificates', href: '/certificates' },
+    { label: 'Accreditation', href: '/accreditation' },
+    { label: 'Features', href: '/features' },
+  ];
+
   const links = [
     {
       title: 'Programs Catalog',
@@ -138,6 +152,23 @@ export default function ProgramsBioSitePage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Internal Navigation */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
+
       {/* Profile Section */}
       <section className="pt-16 pb-8 px-4">
         <div className="max-w-2xl mx-auto text-center">
