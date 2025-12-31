@@ -45,76 +45,86 @@ export default function AboutPage() {
     }
   ];
 
-  const resources = [
-    {
-      title: 'Our Mission',
-      description: 'Learn about our mission to transform lives through workforce development.',
-      href: '#mission',
-      icon: Target,
-      color: 'blue'
-    },
-    {
-      title: 'What We Do',
-      description: 'Discover how we connect people to training, funding, and employment.',
-      href: '#what-we-do',
-      icon: Users,
-      color: 'green'
-    },
+  const aboutPages = [
     {
       title: 'Our Founder',
       description: 'Meet Elizabeth Greene, founder and CEO of Elevate for Humanity.',
       href: '/founder',
       icon: Users,
-      color: 'purple'
+      color: 'purple',
+      featured: true
     },
     {
       title: 'Our Team',
-      description: 'Meet the people behind Elevate for Humanity.',
+      description: 'Meet the dedicated people behind Elevate for Humanity.',
       href: '/team',
       icon: Users,
-      color: 'violet'
-    },
-    {
-      title: 'Impact',
-      description: 'See the difference we\'re making in our community.',
-      href: '#impact',
-      icon: TrendingUp,
-      color: 'orange'
+      color: 'blue',
+      featured: true
     },
     {
       title: 'Transparency',
-      description: 'View our financial reports, outcomes data, and accountability measures.',
+      description: 'Financial reports, outcomes data, and accountability measures.',
       href: '/transparency',
       icon: Shield,
-      color: 'cyan'
+      color: 'green',
+      featured: true
     },
     {
-      title: 'Blog',
-      description: 'Read stories, updates, and insights from our team.',
-      href: '/blog',
+      title: 'Careers',
+      description: 'Join our team and help transform lives through workforce development.',
+      href: '/careers',
+      icon: Award,
+      color: 'orange',
+      featured: true
+    },
+    {
+      title: 'Alumni Network',
+      description: 'Connect with graduates and stay engaged with our community.',
+      href: '/alumni',
+      icon: Users,
+      color: 'cyan',
+      featured: false
+    },
+    {
+      title: 'Press & Media',
+      description: 'Media coverage, press releases, and news about our work.',
+      href: '/press',
       icon: Newspaper,
-      color: 'pink'
+      color: 'pink',
+      featured: false
     },
     {
       title: 'Success Stories',
       description: 'Real stories from graduates who transformed their lives.',
       href: '/success-stories',
       icon: Star,
-      color: 'yellow'
+      color: 'yellow',
+      featured: false
     },
     {
-      title: 'Press',
-      description: 'Media coverage and press releases.',
-      href: '/press',
-      icon: FileText,
-      color: 'indigo'
+      title: 'Philanthropy',
+      description: 'Our charitable giving and community impact initiatives.',
+      href: '/philanthropy',
+      icon: Heart,
+      color: 'red',
+      featured: false
     },
     {
-      title: 'Careers',
-      description: 'Join our team and help transform lives.',
-      href: '/careers',
-      icon: Award,
-      color: 'teal'
+      title: 'RISE Foundation',
+      description: 'Our nonprofit foundation supporting workforce development.',
+      href: '/rise-foundation',
+      icon: TrendingUp,
+      color: 'indigo',
+      featured: false
+    },
+    {
+      title: 'Blog',
+      description: 'Stories, updates, and insights from our team.',
+      href: '/blog',
+      icon: Newspaper,
+      color: 'teal',
+      featured: false
     }
   ];
 
@@ -370,38 +380,67 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* All Resources */}
+      {/* Featured About Pages */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              Learn More About Us
+              Get to Know Us
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our story, team, impact, and commitment to transparency
+              Explore our leadership, team, transparency, and opportunities
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {resources.map((resource) => {
-              const Icon = resource.icon;
+          {/* Featured Pages - Larger Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {aboutPages.filter(page => page.featured).map((page) => {
+              const Icon = page.icon;
               return (
                 <Link
-                  key={resource.href}
-                  href={resource.href}
+                  key={page.href}
+                  href={page.href}
+                  className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-2 transform"
+                >
+                  <div className={`w-16 h-16 bg-${page.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    <Icon className={`w-8 h-8 text-${page.color}-600`} />
+                  </div>
+                  <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
+                    {page.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                    {page.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Additional Pages - Smaller Cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {aboutPages.filter(page => !page.featured).map((page) => {
+              const Icon = page.icon;
+              return (
+                <Link
+                  key={page.href}
+                  href={page.href}
                   className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-1 transform"
                 >
-                  <div className={`w-12 h-12 bg-${resource.color}-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`w-6 h-6 text-${resource.color}-600`} />
+                  <div className={`w-12 h-12 bg-${page.color}-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className={`w-6 h-6 text-${page.color}-600`} />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
-                    {resource.title}
+                    {page.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-3">
-                    {resource.description}
+                    {page.description}
                   </p>
                   <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
-                    <span>Learn More</span>
+                    <span>Explore</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </Link>
