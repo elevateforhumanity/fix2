@@ -63,6 +63,17 @@ export async function proxy(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   // ============================================================================
+  // DOMAIN 0: www.selfishincsupport.org - Nonprofit Landing Page
+  // ============================================================================
+  if (hostname.includes('selfishincsupport.org')) {
+    // Always redirect to /nonprofit page
+    if (pathname !== '/nonprofit') {
+      return NextResponse.rewrite(new URL('/nonprofit', request.url));
+    }
+    return response;
+  }
+
+  // ============================================================================
   // DOMAIN 1: www.elevateeducationedu.com - LMS/Student Portal
   // ============================================================================
   if (hostname.includes('elevateeducationedu.com')) {
