@@ -167,11 +167,7 @@ export default function RootLayout({
         </a>
         <GoogleAnalytics />
         <FacebookPixel />
-        <SecurityMonitor />
-        <CopyrightProtection />
-        <ScraperDetection />
         <ConditionalLayout>{children}</ConditionalLayout>
-        <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
         <Toaster
