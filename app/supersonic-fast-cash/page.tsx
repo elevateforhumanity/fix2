@@ -178,55 +178,23 @@ export default function SupersonicDesign15() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            OUR STAFF
+            MEET THE FOUNDER
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/team-new/team-1.jpg"
-                  alt="Tax Professional"
-                  width={128}
-                  height={128}
+                  src="/images/elizabeth-greene-founder.jpg"
+                  alt="Elizabeth Greene - Founder"
+                  width={192}
+                  height={192}
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Licensed EA</h3>
-              <p className="text-blue-600 font-semibold mb-3">Enrolled Agent</p>
-              <p className="text-gray-600 text-sm">
-                IRS-authorized tax professional with full representation rights.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image
-                  src="/images/team-new/team-2.jpg"
-                  alt="Tax Preparer"
-                  width={128}
-                  height={128}
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Tax Preparer</h3>
-              <p className="text-blue-600 font-semibold mb-3">Senior Preparer</p>
-              <p className="text-gray-600 text-sm">
-                Experienced in individual and business tax preparation.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image
-                  src="/images/team-new/team-3.jpg"
-                  alt="Client Services"
-                  width={128}
-                  height={128}
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Client Services</h3>
-              <p className="text-blue-600 font-semibold mb-3">Customer Support</p>
-              <p className="text-gray-600 text-sm">
-                Dedicated to providing excellent customer service.
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Elizabeth Greene</h3>
+              <p className="text-blue-600 font-semibold mb-4">Founder & CEO</p>
+              <p className="text-gray-600 leading-relaxed">
+                Elizabeth Greene founded Supersonic Fast Cash with a mission to provide accessible, professional tax services to individuals and businesses. With years of experience in tax preparation and financial services, she leads a team dedicated to maximizing refunds and ensuring compliance.
               </p>
             </div>
           </div>
