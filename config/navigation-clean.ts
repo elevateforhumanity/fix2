@@ -49,6 +49,10 @@ export const publicNav: NavSection[] = [
     href: '/employers',
   },
   {
+    label: 'Careers',
+    href: '/careers',
+  },
+  {
     label: 'About',
     href: '/about',
   },

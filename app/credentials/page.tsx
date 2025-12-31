@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-
 import Link from 'next/link';
 import Image from 'next/image';
+import { ChevronRight, Award, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -9,42 +9,66 @@ export const metadata: Metadata = {
   },
   title: 'Credentials | Elevate For Humanity',
   description:
-    'Explore Credentials and discover opportunities for career growth and development.',
+    'Industry-recognized certifications and licenses. Earn credentials that employers value and trust.',
 };
 
 export default async function CredentialsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
+      {/* Breadcrumb Navigation */}
+      <nav className="bg-white border-b border-gray-200 py-3">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center gap-2 text-sm">
+            <Link href="/" className="text-gray-600 hover:text-teal-600 transition">
+              Home
+            </Link>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <Link href="/programs" className="text-gray-600 hover:text-teal-600 transition">
+              Programs
+            </Link>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-teal-600 font-semibold">Credentials</span>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/artlist/hero-training-1.jpg"
-          alt="Credentials"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
+      <section className="relative h-[400px] flex items-center justify-center text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-teal-800" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Credentials
+          {/* Logo */}
+          <div className="mb-6">
+            <Image
+              src="/logo.png"
+              alt="Elevate for Humanity"
+              width={150}
+              height={60}
+              className="mx-auto brightness-0 invert"
+            />
+          </div>
+          
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
+            <Award className="w-5 h-5" />
+            <span className="text-sm font-semibold">Industry Certifications</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase">
+            Credentials That Matter
           </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Credentials and discover opportunities for career growth and
-            development.
+          <p className="text-xl mb-8 text-teal-100 max-w-2xl mx-auto">
+            Earn industry-recognized certifications and licenses that employers value and trust
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
-              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              href="/apply"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 shadow-xl"
             >
-              Get Started
+              Apply Now
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-teal-600 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all"
             >
               View Programs
             </Link>
@@ -59,61 +83,40 @@ export default async function CredentialsPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                  Credentials
+                <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">
+                  Industry-Recognized Credentials
                 </h2>
-                <p className="text-gray-700 mb-6">
-                  Explore Credentials and discover opportunities for career
-                  growth and development.
+                <p className="text-xl text-gray-600 mb-8">
+                  Our programs prepare you to earn certifications and licenses that employers actively seek. Graduate with credentials that open doors.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <svg
-                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>100% free training programs</span>
+                    <CheckCircle className="w-6 h-6 text-teal-600 mr-3 flex-shrink-0 mt-1" />
+                    <div>
+                      <strong className="text-gray-900">National Certifications</strong>
+                      <p className="text-gray-600">Recognized across all 50 states</p>
+                    </div>
                   </li>
                   <li className="flex items-start">
-                    <svg
-                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Industry-standard certifications</span>
+                    <CheckCircle className="w-6 h-6 text-teal-600 mr-3 flex-shrink-0 mt-1" />
+                    <div>
+                      <strong className="text-gray-900">State Licenses</strong>
+                      <p className="text-gray-600">Required credentials for regulated professions</p>
+                    </div>
                   </li>
                   <li className="flex items-start">
-                    <svg
-                      className="w-6 h-6 text-brand-green-600 mr-2 flex-shrink-0 mt-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Career support and job placement</span>
+                    <CheckCircle className="w-6 h-6 text-teal-600 mr-3 flex-shrink-0 mt-1" />
+                    <div>
+                      <strong className="text-gray-900">Exam Preparation</strong>
+                      <p className="text-gray-600">We prepare you to pass certification exams</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-teal-600 mr-3 flex-shrink-0 mt-1" />
+                    <div>
+                      <strong className="text-gray-900">100% Free</strong>
+                      <p className="text-gray-600">Training and exam costs covered</p>
+                    </div>
                   </li>
                 </ul>
               </div>

@@ -26,8 +26,6 @@ export default function AboutPage() {
   const navLinks = [
     { label: 'Our Founder', href: '/founder' },
     { label: 'Our Team', href: '/team' },
-    { label: 'Transparency', href: '/transparency' },
-    { label: 'Careers', href: '/careers' },
     { label: 'Alumni', href: '/alumni' },
     { label: 'Press', href: '/press' },
     { label: 'Success Stories', href: '/success-stories' },
@@ -76,22 +74,6 @@ export default function AboutPage() {
       href: '/team',
       icon: Users,
       color: 'blue',
-      featured: true
-    },
-    {
-      title: 'Transparency',
-      description: 'Financial reports, outcomes data, and accountability measures.',
-      href: '/transparency',
-      icon: Shield,
-      color: 'green',
-      featured: true
-    },
-    {
-      title: 'Careers',
-      description: 'Join our team and help transform lives through workforce development.',
-      href: '/careers',
-      icon: Award,
-      color: 'orange',
       featured: true
     },
     {
