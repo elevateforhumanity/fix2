@@ -14,13 +14,13 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <Image
-          src="https://burst.shopifycdn.com/photos/person-holds-a-book-over-a-stack-and-turns-the-page.jpg?width=1850&format=pjpg&exif=1&iptc=1"
+          src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Our Services"
           fill
           className="object-cover"
+          quality={100}
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-900/60"></div>
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 text-white uppercase tracking-tight">
