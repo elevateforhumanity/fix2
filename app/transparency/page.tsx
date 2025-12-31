@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Shield,
   DollarSign,
@@ -27,8 +28,17 @@ export default function TransparencyPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-white text-white py-20">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10" />
+      <section className="relative text-white py-20">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Transparency"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+          />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
