@@ -26,9 +26,6 @@ export default function AboutPage() {
   const navLinks = [
     { label: 'Our Founder', href: '/founder' },
     { label: 'Our Team', href: '/team' },
-    { label: 'Alumni', href: '/alumni' },
-    { label: 'Press', href: '/press' },
-    { label: 'Success Stories', href: '/success-stories' },
     { label: 'Philanthropy', href: '/philanthropy' },
     { label: 'Blog', href: '/blog' },
     { label: 'Credentials', href: '/credentials' },
@@ -74,30 +71,6 @@ export default function AboutPage() {
       icon: Users,
       color: 'blue',
       featured: true
-    },
-    {
-      title: 'Alumni Network',
-      description: 'Connect with graduates and stay engaged with our community.',
-      href: '/alumni',
-      icon: Users,
-      color: 'cyan',
-      featured: false
-    },
-    {
-      title: 'Press & Media',
-      description: 'Media coverage, press releases, and news about our work.',
-      href: '/press',
-      icon: Newspaper,
-      color: 'pink',
-      featured: false
-    },
-    {
-      title: 'Success Stories',
-      description: 'Real stories from graduates who transformed their lives.',
-      href: '/success-stories',
-      icon: Star,
-      color: 'yellow',
-      featured: false
     },
     {
       title: 'Philanthropy',
