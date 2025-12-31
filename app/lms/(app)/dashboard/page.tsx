@@ -157,13 +157,14 @@ export default async function StudentDashboardOrchestrated() {
   return (
     <>
       {/* Hero Welcome Banner */}
-      <div className="relative bg-gradient-to-r from-green-600 to-blue-600 text-white mb-8 rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <div className="relative text-white mb-8 rounded-2xl overflow-hidden">
+        <div className="absolute inset-0">
           <Image
-            src="https://burst.shopifycdn.com/photos/students-in-class.jpg?width=1920&format=pjpg&exif=1&iptc=1"
+            src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Learning"
             fill
             className="object-cover"
+            quality={100}
           />
         </div>
         <div className="relative z-10 p-8 md:p-12">
