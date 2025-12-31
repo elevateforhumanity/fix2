@@ -103,7 +103,7 @@ export default function HomePage() {
 
             {/* Skilled Trades */}
             <Link href="/programs" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <div className="rich-card overflow-hidden">
                 <div className="relative h-64 md:h-80">
                   <Image
                     src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1920"
@@ -135,7 +135,7 @@ export default function HomePage() {
 
             {/* Business */}
             <Link href="/programs" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <div className="rich-card overflow-hidden">
                 <div className="relative h-64 md:h-80">
                   <Image
                     src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920"

@@ -12,7 +12,8 @@ export function Hero() {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/images/heroes/hero-homepage.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
