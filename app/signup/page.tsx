@@ -19,8 +19,8 @@ export default async function SignupPage() {
           Create your Elevate account
         </h1>
         <p className="mt-2 text-gray-600">
-          Use one account to apply, track training, and manage documents. We are
-          appointment-based—after you apply, a real advisor follows up.
+          Use one account to apply, track training, and manage documents. After you apply, 
+          a real advisor follows up.
         </p>
 
         <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">

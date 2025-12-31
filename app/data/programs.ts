@@ -28,6 +28,7 @@ export type Program = {
   ctaSecondary?: { label: string; href: string };
   price?: number;
   etplProgramId?: string;
+  partnerUrl?: string;
   partners?: string[];
   vendorCost?: number;
   averageSalary?: string;

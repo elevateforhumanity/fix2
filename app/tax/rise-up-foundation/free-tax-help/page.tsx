@@ -140,8 +140,8 @@ export default function FreeTaxHelpPage() {
       <section className="mt-8 rounded-2xl border bg-white p-8">
         <h2 className="text-2xl font-bold mb-4">How to Schedule</h2>
         <p className="text-gray-600 mb-6">
-          VITA services are appointment-based to ensure we can give you the time
-          and attention you deserve.
+          Schedule your VITA tax preparation appointment to ensure we can give you 
+          the time and attention you deserve.
         </p>
 
         <div className="space-y-4">

@@ -99,17 +99,17 @@ export default function SiteHeader() {
 
   return (
     <>
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-green-600 via-green-700 to-blue-600 border-b-4 border-green-800 shadow-2xl">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 relative">
+    <div className="w-full h-full bg-white border-b border-gray-200 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4 relative">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-3 flex-shrink-0 group"
           >
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-              <span className="text-2xl font-black text-green-600">E</span>
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+              <span className="text-2xl font-black text-white">E</span>
             </div>
-            <div className="font-black text-white text-xl sm:text-2xl tracking-tight uppercase">
+            <div className="font-black text-gray-900 text-xl sm:text-2xl tracking-tight uppercase">
               <span className="hidden sm:inline">Elevate for Humanity</span>
               <span className="sm:hidden">Elevate</span>
             </div>
@@ -129,7 +129,7 @@ export default function SiteHeader() {
                     <>
                       <button
                         type="button"
-                        className="font-bold text-white hover:text-green-200 transition flex items-center gap-1 py-2 text-base uppercase tracking-wide"
+                        className="font-bold text-gray-700 hover:text-purple-600 transition flex items-center gap-1 py-2 text-base uppercase tracking-wide"
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -148,7 +148,7 @@ export default function SiteHeader() {
                               return (
                                 <div
                                   key={item.href}
-                                  className="px-4 py-2 text-xs font-black text-green-600 uppercase tracking-wider mt-3 first:mt-0"
+                                  className="px-4 py-2 text-xs font-black text-purple-600 uppercase tracking-wider mt-3 first:mt-0"
                                 >
                                   {item.label}
                                 </div>
@@ -387,7 +387,7 @@ export default function SiteHeader() {
             </div>
           </>
         )}
-      </header>
+      </div>
     </>
   );
 }

@@ -141,6 +141,7 @@ export function ProgramTemplate({ program }: { program: Program }) {
                 programName={program.name}
                 price={program.price}
                 etplProgramId={program.etplProgramId}
+                partnerUrl={program.partnerUrl}
               />
             </div>
           )}

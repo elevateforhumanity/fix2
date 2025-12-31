@@ -12,13 +12,19 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const isSupersonicSection = pathname?.startsWith('/supersonic-fast-cash');
 
   return (
-    <>
-      {!isSupersonicSection && <SiteHeader />}
-      {!isSupersonicSection && <Breadcrumbs />}
-      <main id="main-content" className="min-h-screen">
+    <div className="min-h-screen [--header-h:72px]">
+      {!isSupersonicSection && (
+        <header className="fixed inset-x-0 top-0 z-50 h-[var(--header-h)]">
+          <SiteHeader />
+        </header>
+      )}
+      
+      <main id="main-content" className={!isSupersonicSection ? "pt-[var(--header-h)]" : ""}>
+        {!isSupersonicSection && <Breadcrumbs />}
         {children}
       </main>
+      
       {!isSupersonicSection && <SiteFooter />}
-    </>
+    </div>
   );
 }

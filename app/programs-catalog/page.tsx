@@ -13,18 +13,15 @@ export default function ProgramsCatalogPage() {
 
   return (
     <main className="bg-white">
-      {/* Hero */}
+      {/* Hero Banner with Image */}
       <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          
-        >
-          <source src="/videos/programs-overview-video.mp4" type="video/mp4" />
-        </video>
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920)'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">

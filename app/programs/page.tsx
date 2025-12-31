@@ -153,23 +153,6 @@ export default function ProgramsBioSitePage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Internal Navigation */}
-      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-
       {/* Video Hero Banner - Wix Style */}
       <section className="relative h-[600px] w-full overflow-hidden">
         <video
@@ -238,6 +221,23 @@ export default function ProgramsBioSitePage() {
           </div>
         </div>
       </section>
+
+      {/* Internal Navigation */}
+      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
 
       {/* Profile Section */}
       <section id="programs" className="pt-16 pb-8 px-4">

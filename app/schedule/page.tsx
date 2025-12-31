@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   title: 'Schedule an Appointment | Elevate for Humanity',
   description:
-    'Book an appointment with Elevate for Humanity. We are appointment-based for information and advising.',
+    'Book an appointment with Elevate for Humanity for information and advising.',
 };
 
 export default function SchedulePage() {
@@ -19,10 +19,8 @@ export default function SchedulePage() {
         </h1>
 
         <p className="mt-3 text-sm md:text-base text-gray-700 leading-relaxed">
-          We are <span className="font-semibold">appointment-based</span> for
-          information and advising. Start by completing the Inquiry Form, then
-          book your WorkOne appointment, and schedule your Elevate for Humanity
-          appointment below.
+          Start by completing the Inquiry Form, then book your WorkOne appointment, 
+          and schedule your Elevate for Humanity appointment below.
         </p>
 
         <div className="mt-5 grid gap-3 md:grid-cols-3">

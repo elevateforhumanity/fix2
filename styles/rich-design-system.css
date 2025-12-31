@@ -127,8 +127,14 @@
 /* Grid Layouts - Professional */
 .rich-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
   margin: 3rem 0;
 }
 
@@ -238,12 +244,16 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .rich-container-narrow {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Form Elements - Polished */

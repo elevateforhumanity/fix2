@@ -3,44 +3,21 @@ import Link from 'next/link';
 export default function SiteFooter() {
   try {
     return (
-      <footer className="bg-gradient-to-br from-green-900 via-green-800 to-blue-900 text-white border-t-4 border-green-700">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
-          {/* Our Story Section */}
-          <div className="mb-16 max-w-4xl">
-            <Link href="/" aria-label="Link" className="inline-block mb-8">
-              <div className="font-black text-white text-3xl tracking-tight drop-shadow-lg">
-                Elevate
-              </div>
-              <div className="text-orange-400 text-sm font-bold -mt-1 drop-shadow">
-                For Humanity
+      <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10">
+          {/* Logo and Tagline */}
+          <div className="mb-8">
+            <Link href="/" className="inline-block mb-4">
+              <div className="font-black text-white text-2xl tracking-tight">
+                Elevate for Humanity
               </div>
             </Link>
+            <p className="text-gray-400 text-sm max-w-md">
+              100% free career training in healthcare, skilled trades, and technology. Get trained, get hired, get paid.
+            </p>
+          </div>
 
-            <div className="space-y-6 text-white leading-relaxed text-base md:text-lg font-medium">
-              <p className="text-lg md:text-xl font-bold drop-shadow-md">
-                We believe everyone deserves a path to a better life. That's why
-                we provide 100% free career training in high-demand fields like
-                healthcare, skilled trades, and technology.
-              </p>
-              <p className="font-medium drop-shadow">
-                Our students don't pay tuition. Instead, we work with workforce
-                boards, government programs, and employer partners to remove
-                every barrier between you and a career that pays well and
-                provides stability.
-              </p>
-              <p className="font-medium drop-shadow">
-                From day one, you get hands-on training, industry
-                certifications, and dedicated support to help you succeed. When
-                you graduate, we connect you directly with employers who are
-                ready to hire.
-              </p>
-              <p className="text-white font-black text-lg drop-shadow-lg">
-                This isn't just training—it's a complete transformation. Your
-                new career starts here.
-              </p>
-            </div>
-
-            <div className="flex gap-3 mt-8">
+            <div className="flex gap-3 mt-6">
               <a
                 href="https://x.com/elevate4humanity"
                 target="_blank"
@@ -60,7 +37,7 @@ export default function SiteFooter() {
                 href="https://www.linkedin.com/company/elevate-for-humanity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition touch-manipulation"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition touch-manipulation"
                 aria-label="Follow us on LinkedIn"
               >
                 <svg
@@ -75,7 +52,7 @@ export default function SiteFooter() {
                 href="https://www.facebook.com/profile.php?id=61571046346179"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition touch-manipulation"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition touch-manipulation"
                 aria-label="Follow us on Facebook"
               >
                 <svg
@@ -90,7 +67,7 @@ export default function SiteFooter() {
                 href="https://www.instagram.com/elevateforhumanity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition touch-manipulation"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition touch-manipulation"
                 aria-label="Follow us on Instagram"
               >
                 <svg
@@ -105,7 +82,7 @@ export default function SiteFooter() {
                 href="https://www.youtube.com/@elevateforhumanity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-black transition touch-manipulation"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 text-gray-300 transition touch-manipulation"
                 aria-label="Subscribe on YouTube"
               >
                 <svg
@@ -120,40 +97,40 @@ export default function SiteFooter() {
           </div>
 
           {/* Main Footer Links */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-8">
             {/* For Students */}
             <div>
-              <h3 className="font-semibold text-black text-sm mb-4">
+              <h3 className="font-semibold text-white text-sm font-bold mb-4">
                 For Students
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/apply" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/apply" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Apply Now
                   </Link>
                 </li>
                 <li>
-                  <Link href="/programs" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/programs" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Browse Programs
                   </Link>
                 </li>
                 <li>
-                  <Link href="/funding" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/funding" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Funding Options
                   </Link>
                 </li>
                 <li>
-                  <Link href="/career-services" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/career-services" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Career Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/mentorship" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/mentorship" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Mentorship
                   </Link>
                 </li>
                 <li>
-                  <Link href="/community" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/community" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Community
                   </Link>
                 </li>
@@ -162,32 +139,32 @@ export default function SiteFooter() {
 
             {/* Services */}
             <div>
-              <h3 className="font-semibold text-black text-sm mb-4">
+              <h3 className="font-semibold text-white text-sm font-bold mb-4">
                 Services
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/supersonic-fast-cash" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/supersonic-fast-cash" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Supersonic Fast Cash
                   </Link>
                 </li>
                 <li>
-                  <Link href="/vita" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/vita" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     VITA Tax Prep
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tax-filing" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/tax-filing" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Tax Filing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/advising" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/advising" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Advising
                   </Link>
                 </li>
                 <li>
-                  <Link href="/career-fair" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/career-fair" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Career Fair
                   </Link>
                 </li>
@@ -196,37 +173,37 @@ export default function SiteFooter() {
 
             {/* Resources */}
             <div>
-              <h3 className="font-semibold text-black text-sm mb-4">
+              <h3 className="font-semibold text-white text-sm font-bold mb-4">
                 Resources
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/blog" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/blog" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/videos" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/videos" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Videos
                   </Link>
                 </li>
                 <li>
-                  <Link href="/webinars" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/webinars" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Webinars
                   </Link>
                 </li>
                 <li>
-                  <Link href="/downloads" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/downloads" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Downloads
                   </Link>
                 </li>
                 <li>
-                  <Link href="/help" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/help" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Help Center
                   </Link>
                 </li>
                 <li>
-                  <Link href="/events" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/events" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Events
                   </Link>
                 </li>
@@ -235,32 +212,32 @@ export default function SiteFooter() {
 
             {/* For Partners */}
             <div>
-              <h3 className="font-semibold text-black text-sm mb-4">
+              <h3 className="font-semibold text-white text-sm font-bold mb-4">
                 For Partners
               </h3>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/hire-graduates" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/hire-graduates" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Hire Graduates
                   </Link>
                 </li>
                 <li>
-                  <Link href="/training-providers" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/training-providers" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Training Providers
                   </Link>
                 </li>
                 <li>
-                  <Link href="/workforce-partners" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/workforce-partners" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Workforce Boards
                   </Link>
                 </li>
                 <li>
-                  <Link href="/white-label" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/white-label" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     White Label
                   </Link>
                 </li>
                 <li>
-                  <Link href="/franchise" aria-label="Link" className="text-sm text-gray-700 hover:text-black transition">
+                  <Link href="/franchise" aria-label="Link" className="text-sm text-gray-400 hover:text-white transition">
                     Franchise
                   </Link>
                 </li>
@@ -269,12 +246,12 @@ export default function SiteFooter() {
 
             {/* Company */}
             <div>
-              <h3 className="font-semibold text-black text-sm mb-4">Company</h3>
+              <h3 className="font-semibold text-white text-sm font-bold mb-4">Company</h3>
               <ul className="space-y-2.5">
                 <li>
                   <Link
                     href="/about"
-                    className="text-sm text-gray-700 hover:text-black transition"
+                    className="text-sm text-gray-400 hover:text-white transition"
                   >
                     About Elevate
                   </Link>
@@ -282,7 +259,7 @@ export default function SiteFooter() {
                 <li>
                   <Link
                     href="/about/team"
-                    className="text-sm text-gray-700 hover:text-black transition"
+                    className="text-sm text-gray-400 hover:text-white transition"
                   >
                     Our Story
                   </Link>
@@ -290,7 +267,7 @@ export default function SiteFooter() {
                 <li>
                   <Link
                     href="/philanthropy"
-                    className="text-sm text-gray-700 hover:text-black transition"
+                    className="text-sm text-gray-400 hover:text-white transition"
                   >
                     Corporate Responsibility
                   </Link>
@@ -298,7 +275,7 @@ export default function SiteFooter() {
                 <li>
                   <Link
                     href="/contact"
-                    className="text-sm text-gray-700 hover:text-black transition"
+                    className="text-sm text-gray-400 hover:text-white transition"
                   >
                     Contact Us
                   </Link>
@@ -308,51 +285,51 @@ export default function SiteFooter() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="pt-8 border-t border-gray-200">
+          <div className="pt-6 border-t border-gray-800">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-600">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
                 <Link
                   href="/privacy-policy"
-                  className="hover:text-black transition"
+                  className="hover:text-gray-300 transition"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/terms-of-service"
-                  className="hover:text-black transition"
+                  className="hover:text-gray-300 transition"
                 >
                   Terms of Service
                 </Link>
                 <Link
                   href="/refund-policy"
-                  className="hover:text-black transition"
+                  className="hover:text-gray-300 transition"
                 >
                   Refund Policy
                 </Link>
                 <Link
                   href="/accessibility"
-                  className="hover:text-black transition"
+                  className="hover:text-gray-300 transition"
                 >
                   Accessibility
                 </Link>
-                <Link href="/cookies" aria-label="Link" className="hover:text-black transition">
+                <Link href="/cookies" aria-label="Link" className="hover:text-gray-300 transition">
                   Cookie Policy
                 </Link>
-                <Link href="/security" aria-label="Link" className="hover:text-black transition">
+                <Link href="/security" aria-label="Link" className="hover:text-gray-300 transition">
                   Security
                 </Link>
                 <Link
                   href="/federal-compliance"
-                  className="hover:text-black transition"
+                  className="hover:text-gray-300 transition"
                 >
                   Federal Compliance
                 </Link>
-                <Link href="/contact" aria-label="Link" className="hover:text-black transition">
+                <Link href="/contact" aria-label="Link" className="hover:text-gray-300 transition">
                   Contact
                 </Link>
                 <Link
                   href="/sitemap.xml"
-                  className="hover:text-black transition"
+                  className="hover:text-gray-300 transition"
                 >
                   Sitemap
                 </Link>

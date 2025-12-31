@@ -1,7 +1,21 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { DollarSign, Briefcase, FileText, Users } from 'lucide-react';
+import { Metadata } from 'next';
+import { 
+  DollarSign,
+  Briefcase,
+  Users,
+  FileText,
+  Heart,
+  TrendingUp,
+  Calendar,
+  GraduationCap,
+  Lightbulb,
+  Shield,
+  Phone,
+  ArrowRight,
+  CheckCircle,
+  Star
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Services | Elevate for Humanity',
@@ -9,225 +23,285 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+  const services = [
+    {
+      title: 'Supersonic Fast Cash',
+      description: 'Professional tax preparation, refund advances, and IRS representation by licensed Enrolled Agents.',
+      href: '/supersonic-fast-cash',
+      icon: DollarSign,
+      color: 'orange',
+      features: ['Tax Preparation', 'Refund Advances', 'IRS Representation', 'Year-Round Support']
+    },
+    {
+      title: 'Tax Services',
+      description: 'Full-service tax preparation with expert guidance and maximum refund guarantee.',
+      href: '/tax-services',
+      icon: FileText,
+      color: 'blue',
+      features: ['Expert Tax Prep', 'E-Filing', 'Audit Support', 'Tax Planning']
+    },
+    {
+      title: 'VITA Tax Prep',
+      description: 'Free IRS-certified tax preparation for qualifying individuals and families.',
+      href: '/vita',
+      icon: Heart,
+      color: 'red',
+      features: ['100% Free', 'IRS Certified', 'No Income Limit', 'Same-Day Filing']
+    },
+    {
+      title: 'Career Services',
+      description: 'Resume building, interview preparation, and job search support from career experts.',
+      href: '/career-services',
+      icon: Briefcase,
+      color: 'green',
+      features: ['Resume Writing', 'Interview Prep', 'Job Search', 'Career Coaching']
+    },
+    {
+      title: 'Career Center',
+      description: 'Job boards, employer connections, and placement assistance for graduates.',
+      href: '/career-center',
+      icon: TrendingUp,
+      color: 'purple',
+      features: ['Job Board', 'Employer Network', 'Placement Help', 'Career Resources']
+    },
+    {
+      title: 'Career Fairs',
+      description: 'Meet employers hiring our graduates at regular career fair events.',
+      href: '/career-fair',
+      icon: Users,
+      color: 'pink',
+      features: ['Employer Meetings', 'On-Site Interviews', 'Networking', 'Job Offers']
+    },
+    {
+      title: 'Academic Advising',
+      description: 'One-on-one guidance to help you succeed in your training program.',
+      href: '/advising',
+      icon: GraduationCap,
+      color: 'indigo',
+      features: ['Program Planning', 'Academic Support', 'Progress Tracking', 'Goal Setting']
+    },
+    {
+      title: 'Mentorship Program',
+      description: 'Connect with industry professionals for guidance and career support.',
+      href: '/mentorship',
+      icon: Lightbulb,
+      color: 'yellow',
+      features: ['Industry Mentors', 'Career Guidance', 'Networking', 'Skill Development']
+    },
+    {
+      title: 'Support Services',
+      description: 'Transportation, childcare, and other barrier removal services.',
+      href: '/support',
+      icon: Shield,
+      color: 'cyan',
+      features: ['Transportation', 'Childcare', 'Emergency Aid', 'Resource Referrals']
+    },
+    {
+      title: 'Consumer Education',
+      description: 'Financial literacy, budgeting, and money management classes.',
+      href: '/consumer-education',
+      icon: DollarSign,
+      color: 'emerald',
+      features: ['Financial Literacy', 'Budgeting', 'Credit Building', 'Money Management']
+    },
+    {
+      title: 'Banking Services',
+      description: 'Help opening bank accounts and building credit history.',
+      href: '/banking',
+      icon: DollarSign,
+      color: 'teal',
+      features: ['Account Opening', 'Credit Building', 'Financial Planning', 'Banking Education']
+    },
+    {
+      title: 'Help Center',
+      description: 'FAQs, guides, and support resources for all your questions.',
+      href: '/help',
+      icon: Phone,
+      color: 'gray',
+      features: ['FAQs', 'How-To Guides', 'Video Tutorials', 'Live Support']
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
-        <Image
-          src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Our Services"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-        />
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl w-full">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 text-white uppercase tracking-tight">
-              Our Services
+      {/* Video Hero Section */}
+      <section className="relative h-[600px] bg-gradient-to-br from-blue-900 to-blue-700 overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src="/videos/services-hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay Content */}
+        <div className="relative z-10 h-full flex items-center justify-center px-4">
+          <div className="max-w-4xl text-center text-white">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase">
+              Support Services
             </h1>
-            <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
-              Supporting your success with tax services, career counseling, and job placement
+            <p className="text-2xl md:text-3xl font-bold mb-8">
+              We Don't Just Train You—We Support Your Entire Journey
             </p>
+            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+              From tax preparation to career counseling, job placement to financial literacy—
+              we provide the support you need to succeed in training and beyond.
+            </p>
+            <Link
+              href="#services"
+              className="inline-flex items-center gap-3 bg-orange-500 text-white px-10 py-5 rounded-xl text-lg font-black shadow-2xl hover:bg-orange-600 hover:scale-105 transition-all uppercase"
+            >
+              <span>Explore Services</span>
+              <ArrowRight className="w-6 h-6" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Internal Navigation */}
-      <section className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          <nav className="flex overflow-x-auto gap-1 py-2">
-            <a href="#tax-services" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              Tax Services
-            </a>
-            <a href="#career-counseling" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              Career Counseling
-            </a>
-            <a href="#job-placement" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              Job Placement
-            </a>
-            <a href="#vita" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              VITA Tax Prep
-            </a>
-            <Link href="/supersonic-fast-cash" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              Supersonic Fast Cash
-            </Link>
-            <Link href="/career-services" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
-              Career Services
-            </Link>
-          </nav>
-        </div>
-      </section>
-
-      {/* All Services & Resources - Marketing Cards */}
+      {/* Why Our Services Matter */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">All Services & Support</h2>
-          <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">Comprehensive support services to help you succeed in training and beyond</p>
-          
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Why We Offer These Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Training alone isn't enough. We remove barriers and provide support so you can focus on learning and building your career.
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/supersonic-fast-cash" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Supersonic Fast Cash</h3>
-              <p className="text-gray-600 mb-4">Professional tax preparation, refund advances, and IRS representation services</p>
-              <span className="text-orange-600 font-semibold">Learn More →</span>
-            </Link>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                <CheckCircle className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Remove Barriers</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Transportation, childcare, financial challenges—we help you overcome obstacles that prevent success.
+              </p>
+            </div>
 
-            <Link href="/tax-services" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Tax Services</h3>
-              <p className="text-gray-600 mb-4">Full-service tax preparation by licensed Enrolled Agents</p>
-              <span className="text-orange-600 font-semibold">Get Started →</span>
-            </Link>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <TrendingUp className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Accelerate Success</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Career counseling, job placement, and mentorship help you land a job faster and earn more.
+              </p>
+            </div>
 
-            <Link href="/vita" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">VITA Tax Prep</h3>
-              <p className="text-gray-600 mb-4">Free IRS-certified tax preparation for qualifying individuals</p>
-              <span className="text-orange-600 font-semibold">Check Eligibility →</span>
-            </Link>
-
-            <Link href="/career-services" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600">Career Services</h3>
-              <p className="text-gray-600 mb-4">Resume building, interview prep, and job search support</p>
-              <span className="text-green-600 font-semibold">Get Help →</span>
-            </Link>
-
-            <Link href="/career-center" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600">Career Center</h3>
-              <p className="text-gray-600 mb-4">Job boards, employer connections, and placement assistance</p>
-              <span className="text-green-600 font-semibold">Visit Center →</span>
-            </Link>
-
-            <Link href="/career-fair" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600">Career Fairs</h3>
-              <p className="text-gray-600 mb-4">Meet employers hiring our graduates at regular career fairs</p>
-              <span className="text-green-600 font-semibold">View Events →</span>
-            </Link>
-
-            <Link href="/advising" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600">Academic Advising</h3>
-              <p className="text-gray-600 mb-4">One-on-one guidance to help you succeed in your program</p>
-              <span className="text-blue-600 font-semibold">Schedule Appointment →</span>
-            </Link>
-
-            <Link href="/mentorship" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600">Mentorship Program</h3>
-              <p className="text-gray-600 mb-4">Connect with industry professionals for guidance and support</p>
-              <span className="text-blue-600 font-semibold">Find a Mentor →</span>
-            </Link>
-
-            <Link href="/support" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600">Support Services</h3>
-              <p className="text-gray-600 mb-4">Transportation, childcare, and other barrier removal services</p>
-              <span className="text-purple-600 font-semibold">Learn More →</span>
-            </Link>
-
-            <Link href="/consumer-education" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600">Consumer Education</h3>
-              <p className="text-gray-600 mb-4">Financial literacy, budgeting, and money management classes</p>
-              <span className="text-purple-600 font-semibold">Take Classes →</span>
-            </Link>
-
-            <Link href="/banking" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600">Banking Services</h3>
-              <p className="text-gray-600 mb-4">Help opening bank accounts and building credit</p>
-              <span className="text-purple-600 font-semibold">Get Started →</span>
-            </Link>
-
-            <Link href="/help" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-gray-500">
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-600">Help Center</h3>
-              <p className="text-gray-600 mb-4">FAQs, guides, and support resources</p>
-              <span className="text-gray-600 font-semibold">Get Help →</span>
-            </Link>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                <Heart className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Lifelong Support</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our support doesn't end at graduation. We're here for you throughout your career journey.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20" id="tax-services">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Tax Services */}
-            <Link href="/supersonic-fast-cash" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
-                <div className="p-8">
-                  <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <DollarSign className="w-8 h-8 text-orange-600" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Tax Services</h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Professional tax preparation, refund advances, and IRS representation through Supersonic Fast Cash. Licensed Enrolled Agent services.
-                  </p>
-                  <div className="text-orange-600 font-bold group-hover:gap-3 transition-all">
-                    Learn More →
-                  </div>
-                </div>
-              </div>
-            </Link>
+      {/* All Services Grid */}
+      <section id="services" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              All Services & Support
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Click any service to learn more and get started
+            </p>
+          </div>
 
-            {/* Career Services */}
-            <Link href="/career-services" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
-                <div className="p-8">
-                  <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Briefcase className="w-8 h-8 text-green-600" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <Link
+                  key={service.href}
+                  href={service.href}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500 hover:-translate-y-2 transform"
+                >
+                  {/* Icon Header */}
+                  <div className={`bg-gradient-to-br from-${service.color}-500 to-${service.color}-600 p-6`}>
+                    <Icon className="w-12 h-12 text-white" />
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Career Counseling</h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    One-on-one career counseling, resume building, interview preparation, and ongoing support to help you succeed.
-                  </p>
-                  <div className="text-green-600 font-bold group-hover:gap-3 transition-all">
-                    Learn More →
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    {/* Features List */}
+                    <ul className="space-y-2 mb-4">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Job Placement */}
-            <Link href="/employers" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500">
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Users className="w-8 h-8 text-blue-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Job Placement</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Direct connections with employers hiring our graduates. 85% of students are employed within 6 months of graduation.
-                </p>
-                <div className="text-blue-600 font-bold group-hover:gap-3 transition-all">
-                  Learn More →
-                </div>
-              </div>
-            </Link>
-
-            {/* VITA Tax Prep */}
-            <Link href="/vita" className="group">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
-                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <FileText className="w-8 h-8 text-purple-600" />
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">VITA Tax Preparation</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Free IRS-certified tax preparation for qualifying individuals. Volunteer Income Tax Assistance program.
-                </p>
-                <div className="text-purple-600 font-bold group-hover:gap-3 transition-all">
-                  Learn More →
-                </div>
-              </div>
-            </Link>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+      {/* Testimonial Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Need Help? We're Here For You
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
+            ))}
+          </div>
+          <blockquote className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
+            "The career services team helped me land a job before I even graduated. 
+            The resume help and interview prep made all the difference."
+          </blockquote>
+          <p className="text-xl text-blue-100">
+            — Marcus J., HVAC Technician Graduate
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            Ready to Get Started?
           </h2>
+          <p className="text-xl text-gray-600 mb-10">
+            Apply now and get access to all our support services
+          </p>
           <Link
-            href="/contact"
-            className="inline-block px-10 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
+            href="/apply"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-12 py-6 rounded-xl text-xl font-black shadow-2xl hover:shadow-3xl hover:scale-105 transition-all uppercase"
           >
-            Contact Us
+            <span>Apply Now</span>
+            <ArrowRight className="w-6 h-6" />
           </Link>
+          <p className="text-gray-500 mt-6">
+            Takes 5 minutes • No commitment required
+          </p>
         </div>
       </section>
     </main>

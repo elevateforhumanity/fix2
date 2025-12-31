@@ -89,43 +89,43 @@ const questions: Question[] = [
 const programs: Program[] = [
   {
     id: 'healthcare-assistant',
-    name: 'Healthcare Assistant',
-    description: 'Provide essential care and support to patients in hospitals, clinics, and care facilities.',
-    duration: '8-12 weeks',
-    salary: '$38K-$45K',
+    name: 'Certified Nursing Assistant (CNA)',
+    description: 'Provide essential care and support to patients in hospitals, nursing homes, and care facilities. Learn vital signs monitoring, patient hygiene, mobility assistance, and basic medical procedures. This fast-track program prepares you for immediate employment in the growing healthcare field.',
+    duration: '4-8 weeks',
+    salary: '$32K-$45K',
     demand: 'Very High',
     icon: Stethoscope,
     matchScore: 0,
-    path: '/programs/healthcare-assistant'
+    path: '/programs/certified-nursing-assistant'
   },
   {
     id: 'medical-coding',
     name: 'Medical Coding & Billing',
-    description: 'Work from home processing medical records and insurance claims.',
+    description: 'Work from home processing medical records, insurance claims, and healthcare documentation. Learn ICD-10, CPT coding, medical terminology, and billing software. High demand for remote positions with flexible schedules and excellent job security.',
     duration: '12-16 weeks',
     salary: '$42K-$52K',
     demand: 'High',
     icon: Code,
     matchScore: 0,
-    path: '/programs/medical-coding'
+    path: '/programs/medical-coding-billing'
   },
   {
     id: 'hvac',
     name: 'HVAC Technician',
-    description: 'Install, maintain, and repair heating and cooling systems.',
+    description: 'Install, maintain, and repair heating, ventilation, and air conditioning systems. Learn electrical systems, refrigeration, troubleshooting, and EPA certification. High-paying skilled trade with year-round demand and opportunities for self-employment.',
     duration: '16-20 weeks',
     salary: '$48K-$65K',
     demand: 'Very High',
     icon: Wrench,
     matchScore: 0,
-    path: '/programs/hvac'
+    path: '/programs/hvac-technician'
   },
   {
     id: 'cosmetology',
     name: 'Cosmetology',
-    description: 'Cut, style, and color hair. Build your own clientele or work in a salon.',
+    description: 'Master hair cutting, styling, coloring, chemical treatments, and salon management. Build your own clientele, work in high-end salons, or open your own business. Creative career with flexible hours and unlimited earning potential through tips and commissions.',
     duration: '12-18 months',
-    salary: '$35K-$60K',
+    salary: '$35K-$60K+',
     demand: 'High',
     icon: Scissors,
     matchScore: 0,
@@ -133,25 +133,25 @@ const programs: Program[] = [
   },
   {
     id: 'cdl',
-    name: 'CDL Training',
-    description: 'Get your commercial driver\'s license and start earning immediately.',
+    name: 'CDL Class A Training',
+    description: 'Get your commercial driver\'s license and start earning immediately. Learn to operate tractor-trailers, pass DOT requirements, and secure high-paying trucking jobs. Many companies offer sign-on bonuses and benefits. Start earning $55K+ in just 4-6 weeks.',
     duration: '4-6 weeks',
     salary: '$55K-$75K',
     demand: 'Very High',
     icon: Truck,
     matchScore: 0,
-    path: '/programs/cdl'
+    path: '/programs/cdl-class-a'
   },
   {
     id: 'phlebotomy',
     name: 'Phlebotomy Technician',
-    description: 'Draw blood and collect samples for medical testing.',
+    description: 'Draw blood and collect samples for medical testing in hospitals, labs, and clinics. Quick entry into healthcare with minimal training time. Learn venipuncture techniques, patient care, lab safety, and specimen handling. High demand with flexible shift options.',
     duration: '6-8 weeks',
     salary: '$32K-$42K',
     demand: 'High',
     icon: Stethoscope,
     matchScore: 0,
-    path: '/programs/phlebotomy'
+    path: '/programs/phlebotomy-technician'
   }
 ];
 

@@ -1,10 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import { 
   DollarSign,
   Briefcase,
   Users,
-  FileText,
   Heart,
   TrendingUp,
   Calendar,
@@ -14,248 +14,235 @@ import {
   Phone,
   ArrowRight,
   CheckCircle,
-  Star
+  Star,
+  Zap
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Services | Elevate for Humanity',
-  description: 'Tax services, career counseling, job placement, and more. Supporting your success every step of the way.',
+  title: 'Support Services | Elevate for Humanity',
+  description: 'Tax services, career counseling, job placement, and comprehensive support. We help you succeed every step of the way.',
 };
 
 export default function ServicesPage() {
+  // Internal navigation for Services subpages
+  const navLinks = [
+    { label: 'Supersonic Fast Cash', href: '/supersonic-fast-cash' },
+    { label: 'Tax Services', href: '/tax-services' },
+    { label: 'VITA Tax Prep', href: '/vita' },
+    { label: 'Career Services', href: '/career-services' },
+    { label: 'Career Center', href: '/career-center' },
+    { label: 'Career Fairs', href: '/career-fair' },
+    { label: 'Advising', href: '/advising' },
+    { label: 'Mentorship', href: '/mentorship' },
+    { label: 'Support Services', href: '/support' },
+    { label: 'Help Center', href: '/help' },
+  ];
+
   const services = [
     {
       title: 'Supersonic Fast Cash',
-      description: 'Professional tax preparation, refund advances, and IRS representation by licensed Enrolled Agents.',
+      description: 'Professional tax preparation, refund advances, and IRS representation',
       href: '/supersonic-fast-cash',
       icon: DollarSign,
-      color: 'orange',
-      features: ['Tax Preparation', 'Refund Advances', 'IRS Representation', 'Year-Round Support']
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Tax Services',
-      description: 'Full-service tax preparation with expert guidance and maximum refund guarantee.',
+      description: 'Full-service tax preparation with maximum refund guarantee',
       href: '/tax-services',
-      icon: FileText,
-      color: 'blue',
-      features: ['Expert Tax Prep', 'E-Filing', 'Audit Support', 'Tax Planning']
+      icon: DollarSign,
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'VITA Tax Prep',
-      description: 'Free IRS-certified tax preparation for qualifying individuals and families.',
+      description: 'Free IRS-certified tax preparation for qualifying individuals',
       href: '/vita',
       icon: Heart,
-      color: 'red',
-      features: ['100% Free', 'IRS Certified', 'No Income Limit', 'Same-Day Filing']
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Career Services',
-      description: 'Resume building, interview preparation, and job search support from career experts.',
+      description: 'Resume building, interview prep, and job search support',
       href: '/career-services',
       icon: Briefcase,
-      color: 'green',
-      features: ['Resume Writing', 'Interview Prep', 'Job Search', 'Career Coaching']
+      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Career Center',
-      description: 'Job boards, employer connections, and placement assistance for graduates.',
+      description: 'Job boards, employer connections, and placement assistance',
       href: '/career-center',
       icon: TrendingUp,
-      color: 'purple',
-      features: ['Job Board', 'Employer Network', 'Placement Help', 'Career Resources']
+      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Career Fairs',
-      description: 'Meet employers hiring our graduates at regular career fair events.',
+      description: 'Meet employers hiring our graduates at regular events',
       href: '/career-fair',
       icon: Users,
-      color: 'pink',
-      features: ['Employer Meetings', 'On-Site Interviews', 'Networking', 'Job Offers']
+      image: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Academic Advising',
-      description: 'One-on-one guidance to help you succeed in your training program.',
+      description: 'One-on-one guidance to help you succeed in your program',
       href: '/advising',
       icon: GraduationCap,
-      color: 'indigo',
-      features: ['Program Planning', 'Academic Support', 'Progress Tracking', 'Goal Setting']
+      image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Mentorship Program',
-      description: 'Connect with industry professionals for guidance and career support.',
+      description: 'Connect with industry professionals for guidance',
       href: '/mentorship',
       icon: Lightbulb,
-      color: 'yellow',
-      features: ['Industry Mentors', 'Career Guidance', 'Networking', 'Skill Development']
+      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Support Services',
-      description: 'Transportation, childcare, and other barrier removal services.',
+      description: 'Transportation, childcare, and barrier removal services',
       href: '/support',
       icon: Shield,
-      color: 'cyan',
-      features: ['Transportation', 'Childcare', 'Emergency Aid', 'Resource Referrals']
-    },
-    {
-      title: 'Consumer Education',
-      description: 'Financial literacy, budgeting, and money management classes.',
-      href: '/consumer-education',
-      icon: DollarSign,
-      color: 'emerald',
-      features: ['Financial Literacy', 'Budgeting', 'Credit Building', 'Money Management']
-    },
-    {
-      title: 'Banking Services',
-      description: 'Help opening bank accounts and building credit history.',
-      href: '/banking',
-      icon: DollarSign,
-      color: 'teal',
-      features: ['Account Opening', 'Credit Building', 'Financial Planning', 'Banking Education']
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       title: 'Help Center',
-      description: 'FAQs, guides, and support resources for all your questions.',
+      description: 'FAQs, guides, and support resources',
       href: '/help',
       icon: Phone,
-      color: 'gray',
-      features: ['FAQs', 'How-To Guides', 'Video Tutorials', 'Live Support']
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
   ];
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Video Hero Section */}
-      <section className="relative h-[600px] bg-gradient-to-br from-blue-900 to-blue-700 overflow-hidden">
-        {/* Video Background */}
+      {/* Internal Navigation - Wix Style */}
+      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Video Hero Banner - Wix Style */}
+      <section className="relative h-[600px] w-full overflow-hidden">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/services-hero.mp4" type="video/mp4" />
         </video>
-
-        {/* Overlay Content */}
-        <div className="relative z-10 h-full flex items-center justify-center px-4">
-          <div className="max-w-4xl text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase">
-              Support Services
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="max-w-6xl w-full rich-animate">
+            {/* Logo */}
+            <div className="mb-8">
+              <Image
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                width={200}
+                height={80}
+                className="mx-auto brightness-0 invert"
+              />
+            </div>
+            
+            {/* Badge */}
+            <div className="rich-badge mb-8 bg-teal-500/20 border-teal-500/30 text-teal-100">
+              <Heart className="w-5 h-5" />
+              <span>Comprehensive Support Services</span>
+            </div>
+            
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+              WE SUPPORT YOUR SUCCESS
             </h1>
-            <p className="text-2xl md:text-3xl font-bold mb-8">
-              We Don't Just Train You—We Support Your Entire Journey
-            </p>
-            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-              From tax preparation to career counseling, job placement to financial literacy—
-              we provide the support you need to succeed in training and beyond.
-            </p>
-            <Link
-              href="#services"
-              className="inline-flex items-center gap-3 bg-orange-500 text-white px-10 py-5 rounded-xl text-lg font-black shadow-2xl hover:bg-orange-600 hover:scale-105 transition-all uppercase"
-            >
-              <span>Explore Services</span>
-              <ArrowRight className="w-6 h-6" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Our Services Matter */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              Why We Offer These Services
+            
+            {/* Subheadline */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+              More Than Just Training
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Training alone isn't enough. We remove barriers and provide support so you can focus on learning and building your career.
+            
+            {/* Body */}
+            <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Tax services, career counseling, job placement, and comprehensive support to help you succeed
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                <CheckCircle className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Remove Barriers</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Transportation, childcare, financial challenges—we help you overcome obstacles that prevent success.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
-              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Accelerate Success</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Career counseling, job placement, and mentorship help you land a job faster and earn more.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
-              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                <Heart className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Lifelong Support</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our support doesn't end at graduation. We're here for you throughout your career journey.
-              </p>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link
+                href="/apply"
+                className="rich-button-primary uppercase inline-flex items-center gap-3"
+              >
+                <span>Get Started</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#services"
+                className="rich-button-secondary text-white border-white hover:bg-white hover:text-teal-600 uppercase inline-flex items-center gap-3"
+              >
+                <span>View Services</span>
+                <Zap className="w-5 h-5" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* All Services Grid */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* All Services Grid - Wix Style with Large Images */}
+      <section id="services" className="rich-section bg-white">
+        <div className="rich-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            <h2 className="rich-headline text-gray-900 mb-6">
               All Services & Support
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="rich-body max-w-3xl mx-auto">
               Click any service to learn more and get started
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="rich-grid">
             {services.map((service) => {
               const Icon = service.icon;
               return (
                 <Link
                   key={service.href}
                   href={service.href}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500 hover:-translate-y-2 transform"
+                  className="group"
                 >
-                  {/* Icon Header */}
-                  <div className={`bg-gradient-to-br from-${service.color}-500 to-${service.color}-600 p-6`}>
-                    <Icon className="w-12 h-12 text-white" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <div className="rich-card">
+                    <div className="rich-image-container h-64 mb-6">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="rich-image object-cover"
+                      />
+                      <div className="rich-overlay">
+                        <div className="rich-icon-container">
+                          <Icon className="w-8 h-8 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="rich-subheadline text-gray-900 group-hover:text-teal-600 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="rich-body mb-4">
                       {service.description}
                     </p>
-
-                    {/* Features List */}
-                    <ul className="space-y-2 mb-4">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA */}
-                    <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-teal-600 font-bold">
                       <span>Learn More</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -265,45 +252,66 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="flex justify-center gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
-            ))}
+      {/* Testimonial - Wix Style */}
+      <section className="rich-section-alt">
+        <div className="rich-container-narrow">
+          <div className="rich-testimonial">
+            <div className="flex justify-center gap-1 mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <blockquote className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-relaxed text-center">
+              "The career services team helped me land a job before I even graduated. The resume help and interview prep made all the difference."
+            </blockquote>
+            <p className="text-xl text-gray-600 text-center">
+              — Marcus Thompson, HVAC Graduate
+            </p>
           </div>
-          <blockquote className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
-            "The career services team helped me land a job before I even graduated. 
-            The resume help and interview prep made all the difference."
-          </blockquote>
-          <p className="text-xl text-blue-100">
-            — Marcus J., HVAC Technician Graduate
-          </p>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-gray-600 mb-10">
-            Apply now and get access to all our support services
-          </p>
-          <Link
-            href="/apply"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-12 py-6 rounded-xl text-xl font-black shadow-2xl hover:shadow-3xl hover:scale-105 transition-all uppercase"
-          >
-            <span>Apply Now</span>
-            <ArrowRight className="w-6 h-6" />
-          </Link>
-          <p className="text-gray-500 mt-6">
-            Takes 5 minutes • No commitment required
-          </p>
+      {/* Final CTA - Wix Style */}
+      <section className="rich-hero relative h-[500px] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-teal-800" />
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="rich-container-narrow">
+            <div className="mb-8">
+              <Image
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                width={200}
+                height={80}
+                className="mx-auto brightness-0 invert"
+              />
+            </div>
+            
+            <h2 className="rich-headline text-white mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="rich-body text-white/90 mb-10">
+              Apply now and get access to all our support services
+            </p>
+            <Link
+              href="/apply"
+              className="rich-button-primary bg-orange-500 hover:bg-orange-600 inline-flex items-center gap-3 text-xl"
+            >
+              <span>Apply Now - 100% Free</span>
+              <ArrowRight className="w-6 h-6" />
+            </Link>
+            <p className="text-white/80 mt-6">
+              Takes 5 minutes • No commitment required
+            </p>
+          </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 bg-gray-100 text-center border-t border-gray-200">
+        <p className="text-sm text-gray-600">
+          © 2025 Elevate for Humanity. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }

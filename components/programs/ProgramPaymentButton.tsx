@@ -8,49 +8,31 @@ interface ProgramPaymentButtonProps {
   programName: string;
   price: number;
   etplProgramId?: string;
+  partnerUrl?: string;
 }
 
 export function ProgramPaymentButton({ 
   programSlug, 
   programName, 
   price,
-  etplProgramId 
+  etplProgramId,
+  partnerUrl 
 }: ProgramPaymentButtonProps) {
   const [loading, setLoading] = useState(false);
 
-  const handlePayment = async (paymentType: 'full' | 'plan' | 'funding') => {
-    setLoading(true);
-    
-    try {
-      if (paymentType === 'funding') {
-        // Redirect to funding application
-        window.location.href = `/apply?program=${programSlug}`;
-        return;
-      }
+  const handlePayment = (paymentType: 'full' | 'plan' | 'funding') => {
+    if (paymentType === 'funding') {
+      // Go directly to funding application
+      window.location.href = `/apply?program=${programSlug}`;
+      return;
+    }
 
-      // Create Stripe checkout session
-      const response = await fetch('/api/programs/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          programSlug,
-          programName,
-          price,
-          paymentType,
-          etplProgramId
-        })
-      });
-
-      const data = await response.json();
-      
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    } catch (error) {
-      console.error('Payment error:', error);
-      alert('Payment failed. Please try again or contact support.');
-    } finally {
-      setLoading(false);
+    // For paid programs, go directly to partner page or checkout
+    if (partnerUrl) {
+      window.location.href = partnerUrl;
+    } else {
+      // Go to payment page
+      window.location.href = `/pay?program=${programSlug}&type=${paymentType}&amount=${price}`;
     }
   };
 
@@ -118,6 +100,12 @@ export function ProgramPaymentButton({
             <span className="text-green-600">✓</span>
             <span>Instant access after payment</span>
           </div>
+          {partnerUrl && (
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-200">
+              <span className="text-blue-600">→</span>
+              <span className="font-medium">Redirects to partner platform to start program</span>
+            </div>
+          )}
         </div>
       </div>
 
