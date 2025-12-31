@@ -223,65 +223,45 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <Link href="/programs" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-green-500">
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=1920&format=pjpg&exif=1&iptc=1"
-                    alt="Industry Alignment"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    quality={100}
-                  />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <Briefcase className="w-12 h-12 text-white mb-2" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
-                    Industry Alignment
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    We collaborate with business leaders to address current and future workforce demands.
-                  </p>
-                  <div className="flex items-center gap-2 text-green-600 font-bold group-hover:gap-3 transition-all">
-                    <span>Explore Programs</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Section 1 */}
+            <Link href="/programs" className="group text-center">
+              <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=1920&format=pjpg&exif=1&iptc=1"
+                  alt="Industry Alignment"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                  unoptimized
+                />
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Industry Alignment
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                We collaborate with business leaders to address current and future workforce demands.
+              </p>
             </Link>
 
-            {/* Card 2 */}
-            <Link href="/about" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-orange-500">
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src="https://burst.shopifycdn.com/photos/students-studying-together.jpg?width=1920&format=pjpg&exif=1&iptc=1"
-                    alt="Hybrid Learning"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    quality={100}
-                  />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <GraduationCap className="w-12 h-12 text-white mb-2" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
-                    We Are Hybrid
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    Learn online, in-person, or both. Flexible training that fits your schedule and learning style.
-                  </p>
-                  <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
-                    <span>Learn More</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </div>
+            {/* Section 2 */}
+            <Link href="/about" className="group text-center">
+              <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="https://burst.shopifycdn.com/photos/students-studying-together.jpg?width=1920&format=pjpg&exif=1&iptc=1"
+                  alt="Hybrid Learning"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                  unoptimized
+                />
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                We Are Hybrid
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Learn online, in-person, or both. Flexible training that fits your schedule and learning style.
+              </p>
             </Link>
 
             {/* Card 3 */}
@@ -300,18 +280,24 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    Hire A Student
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    Our students are credentialed, trained, and ready to contribute to your team.
-                  </p>
-                  <div className="flex items-center gap-2 text-blue-600 font-bold group-hover:gap-3 transition-all">
-                    <span>Partner With Us</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </div>
+            {/* Section 3 */}
+            <Link href="/for-employers" className="group text-center">
+              <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
+                <Image
+                  src="https://burst.shopifycdn.com/photos/business-people-shaking-hands.jpg?width=1920&format=pjpg&exif=1&iptc=1"
+                  alt="Hire A Student"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                  unoptimized
+                />
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Hire A Student
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our students are credentialed, trained, and ready to contribute to your team.
+              </p>
             </Link>
           </div>
         </div>
