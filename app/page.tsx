@@ -211,6 +211,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* How It Works - 3 Steps */}
+      <section className="py-12 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 text-white text-center">
+            <div>
+              <div className="text-5xl font-black mb-2">1</div>
+              <h3 className="text-xl font-bold mb-2">Apply</h3>
+              <p className="text-blue-100">Takes 3 minutes. Confirm eligibility for free training.</p>
+            </div>
+            <div>
+              <div className="text-5xl font-black mb-2">2</div>
+              <h3 className="text-xl font-bold mb-2">Train</h3>
+              <p className="text-blue-100">Learn online, in-person, or hybrid. Get certified.</p>
+            </div>
+            <div>
+              <div className="text-5xl font-black mb-2">3</div>
+              <h3 className="text-xl font-bold mb-2">Get Hired</h3>
+              <p className="text-blue-100">Connect with employers. Start your career.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. CAREER OPPORTUNITIES */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
