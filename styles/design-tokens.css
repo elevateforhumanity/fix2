@@ -1,11 +1,17 @@
 /* styles/design-tokens.css */
 
 :root {
-  /* Brand colors */
-  --efh-primary: #f97316;
-  --efh-primary-dark: #ea580c;
-  --efh-primary-soft: #ffedd5;
-  --efh-navy: #0f172a;
+  /* Brand colors - Navy Blue, Red, White, Orange */
+  --efh-navy: #1e3a8a;
+  --efh-navy-dark: #1e40af;
+  --efh-navy-light: #3b82f6;
+  --efh-red: #dc2626;
+  --efh-red-dark: #b91c1c;
+  --efh-red-light: #fecaca;
+  --efh-orange: #f97316;
+  --efh-orange-dark: #ea580c;
+  --efh-orange-light: #fed7aa;
+  --efh-white: #ffffff;
 
   /* Semantic colors */
   --color-success: #22c55e;
