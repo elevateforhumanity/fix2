@@ -89,6 +89,28 @@ export default function EmployersPage() {
         </div>
       </section>
 
+      {/* All Employer Resources */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">All Employer Resources</h2>
+          <div className="grid md:grid-cols-4 gap-4">
+            <Link href="/hire-graduates" className="text-blue-600 hover:underline">Hire Graduates</Link>
+            <Link href="/for-employers" className="text-blue-600 hover:underline">For Employers</Link>
+            <Link href="/partner-with-us" className="text-blue-600 hover:underline">Partner With Us</Link>
+            <Link href="/ojt-and-funding" className="text-blue-600 hover:underline">OJT & Funding</Link>
+            <Link href="/workforce-partners" className="text-blue-600 hover:underline">Workforce Partners</Link>
+            <Link href="/training-providers" className="text-blue-600 hover:underline">Training Providers</Link>
+            <Link href="/partner-application" className="text-blue-600 hover:underline">Partner Application</Link>
+            <Link href="/partner-playbook" className="text-blue-600 hover:underline">Partner Playbook</Link>
+            <Link href="/partner-courses" className="text-blue-600 hover:underline">Partner Courses</Link>
+            <Link href="/workone-partner-packet" className="text-blue-600 hover:underline">WorkOne Partner Packet</Link>
+            <Link href="/industries" className="text-blue-600 hover:underline">Industries</Link>
+            <Link href="/careers" className="text-blue-600 hover:underline">Careers</Link>
+            <Link href="/contact" className="text-blue-600 hover:underline">Contact Us</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-16 bg-white" id="benefits">
         <div className="container mx-auto px-4">

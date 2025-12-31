@@ -157,8 +157,114 @@ export default function ProgramsPage() {
         </div>
       </section>
 
+      {/* All Programs & Resources - Marketing Cards */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Explore All Programs & Resources</h2>
+          <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">Everything you need to find, compare, and enroll in the perfect training program</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/programs-catalog" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Programs Catalog</h3>
+              <p className="text-gray-600 mb-4">Browse our complete catalog of 50+ training programs across all industries</p>
+              <span className="text-orange-600 font-semibold">View Catalog →</span>
+            </Link>
+
+            <Link href="/program-finder" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Program Finder</h3>
+              <p className="text-gray-600 mb-4">Take our quiz to find the perfect program match for your goals and interests</p>
+              <span className="text-orange-600 font-semibold">Find Your Program →</span>
+            </Link>
+
+            <Link href="/compare-programs" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Compare Programs</h3>
+              <p className="text-gray-600 mb-4">Side-by-side comparison of program length, cost, outcomes, and requirements</p>
+              <span className="text-orange-600 font-semibold">Compare Now →</span>
+            </Link>
+
+            <Link href="/apprenticeships" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Apprenticeships</h3>
+              <p className="text-gray-600 mb-4">Earn while you learn with paid apprenticeships in skilled trades and healthcare</p>
+              <span className="text-orange-600 font-semibold">Learn More →</span>
+            </Link>
+
+            <Link href="/courses" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Individual Courses</h3>
+              <p className="text-gray-600 mb-4">Take single courses to build specific skills or earn certifications</p>
+              <span className="text-orange-600 font-semibold">Browse Courses →</span>
+            </Link>
+
+            <Link href="/micro-classes" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Micro Classes</h3>
+              <p className="text-gray-600 mb-4">Short 1-4 hour classes to learn specific skills quickly</p>
+              <span className="text-orange-600 font-semibold">View Classes →</span>
+            </Link>
+
+            <Link href="/pathways" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Career Pathways</h3>
+              <p className="text-gray-600 mb-4">See clear paths from training to employment in high-demand careers</p>
+              <span className="text-orange-600 font-semibold">Explore Pathways →</span>
+            </Link>
+
+            <Link href="/industries" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Industries</h3>
+              <p className="text-gray-600 mb-4">Explore programs by industry: Healthcare, Trades, Business, Technology</p>
+              <span className="text-orange-600 font-semibold">View Industries →</span>
+            </Link>
+
+            <Link href="/credentials" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Credentials</h3>
+              <p className="text-gray-600 mb-4">Industry-recognized certifications and licenses you'll earn</p>
+              <span className="text-orange-600 font-semibold">View Credentials →</span>
+            </Link>
+
+            <Link href="/certificates" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Certificates</h3>
+              <p className="text-gray-600 mb-4">Completion certificates and digital badges for your achievements</p>
+              <span className="text-orange-600 font-semibold">Learn More →</span>
+            </Link>
+
+            <Link href="/accreditation" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Accreditation</h3>
+              <p className="text-gray-600 mb-4">Our accreditations, partnerships, and quality standards</p>
+              <span className="text-orange-600 font-semibold">View Details →</span>
+            </Link>
+
+            <Link href="/features" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Platform Features</h3>
+              <p className="text-gray-600 mb-4">LMS, mobile app, AI tutoring, and all the tools you need to succeed</p>
+              <span className="text-orange-600 font-semibold">See Features →</span>
+            </Link>
+
+            <Link href="/locations" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Locations</h3>
+              <p className="text-gray-600 mb-4">Find training locations near you across Indiana</p>
+              <span className="text-orange-600 font-semibold">Find Locations →</span>
+            </Link>
+
+            <Link href="/schedule" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Class Schedule</h3>
+              <p className="text-gray-600 mb-4">View upcoming class start dates and session times</p>
+              <span className="text-orange-600 font-semibold">View Schedule →</span>
+            </Link>
+
+            <Link href="/calendar" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Academic Calendar</h3>
+              <p className="text-gray-600 mb-4">Important dates, holidays, and enrollment deadlines</p>
+              <span className="text-orange-600 font-semibold">View Calendar →</span>
+            </Link>
+
+            <Link href="/apply" className="group bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-orange-600">
+              <h3 className="text-xl font-bold text-white mb-3">Apply Now</h3>
+              <p className="text-white/90 mb-4">Start your application today - takes just 5 minutes</p>
+              <span className="text-white font-semibold">Get Started →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works - Simple & Clear */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">

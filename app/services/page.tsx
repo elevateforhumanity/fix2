@@ -59,6 +59,88 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* All Services & Resources - Marketing Cards */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">All Services & Support</h2>
+          <p className="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">Comprehensive support services to help you succeed in training and beyond</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link href="/supersonic-fast-cash" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Supersonic Fast Cash</h3>
+              <p className="text-gray-600 mb-4">Professional tax preparation, refund advances, and IRS representation services</p>
+              <span className="text-orange-600 font-semibold">Learn More →</span>
+            </Link>
+
+            <Link href="/tax-services" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">Tax Services</h3>
+              <p className="text-gray-600 mb-4">Full-service tax preparation by licensed Enrolled Agents</p>
+              <span className="text-orange-600 font-semibold">Get Started →</span>
+            </Link>
+
+            <Link href="/vita" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600">VITA Tax Prep</h3>
+              <p className="text-gray-600 mb-4">Free IRS-certified tax preparation for qualifying individuals</p>
+              <span className="text-orange-600 font-semibold">Check Eligibility →</span>
+            </Link>
+
+            <Link href="/career-services" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600">Career Services</h3>
+              <p className="text-gray-600 mb-4">Resume building, interview prep, and job search support</p>
+              <span className="text-green-600 font-semibold">Get Help →</span>
+            </Link>
+
+            <Link href="/career-center" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600">Career Center</h3>
+              <p className="text-gray-600 mb-4">Job boards, employer connections, and placement assistance</p>
+              <span className="text-green-600 font-semibold">Visit Center →</span>
+            </Link>
+
+            <Link href="/career-fair" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600">Career Fairs</h3>
+              <p className="text-gray-600 mb-4">Meet employers hiring our graduates at regular career fairs</p>
+              <span className="text-green-600 font-semibold">View Events →</span>
+            </Link>
+
+            <Link href="/advising" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600">Academic Advising</h3>
+              <p className="text-gray-600 mb-4">One-on-one guidance to help you succeed in your program</p>
+              <span className="text-blue-600 font-semibold">Schedule Appointment →</span>
+            </Link>
+
+            <Link href="/mentorship" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-blue-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600">Mentorship Program</h3>
+              <p className="text-gray-600 mb-4">Connect with industry professionals for guidance and support</p>
+              <span className="text-blue-600 font-semibold">Find a Mentor →</span>
+            </Link>
+
+            <Link href="/support" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600">Support Services</h3>
+              <p className="text-gray-600 mb-4">Transportation, childcare, and other barrier removal services</p>
+              <span className="text-purple-600 font-semibold">Learn More →</span>
+            </Link>
+
+            <Link href="/consumer-education" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600">Consumer Education</h3>
+              <p className="text-gray-600 mb-4">Financial literacy, budgeting, and money management classes</p>
+              <span className="text-purple-600 font-semibold">Take Classes →</span>
+            </Link>
+
+            <Link href="/banking" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-purple-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600">Banking Services</h3>
+              <p className="text-gray-600 mb-4">Help opening bank accounts and building credit</p>
+              <span className="text-purple-600 font-semibold">Get Started →</span>
+            </Link>
+
+            <Link href="/help" className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-gray-500">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-600">Help Center</h3>
+              <p className="text-gray-600 mb-4">FAQs, guides, and support resources</p>
+              <span className="text-gray-600 font-semibold">Get Help →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-20" id="tax-services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

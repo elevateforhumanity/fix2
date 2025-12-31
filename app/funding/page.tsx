@@ -79,6 +79,30 @@ export default function FundingPage() {
         </div>
       </section>
 
+      {/* All Funding Resources */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">All Funding Resources</h2>
+          <div className="grid md:grid-cols-4 gap-4">
+            <Link href="/wioa-eligibility" className="text-blue-600 hover:underline">WIOA Eligibility</Link>
+            <Link href="/financial-aid" className="text-blue-600 hover:underline">Financial Aid Info</Link>
+            <Link href="/grants" className="text-blue-600 hover:underline">Grants</Link>
+            <Link href="/jri" className="text-blue-600 hover:underline">JRI Funding</Link>
+            <Link href="/snap-et-partner" className="text-blue-600 hover:underline">SNAP E&T</Link>
+            <Link href="/fssa-partnership-request" className="text-blue-600 hover:underline">FSSA Partnership</Link>
+            <Link href="/ojt-and-funding" className="text-blue-600 hover:underline">OJT & Funding</Link>
+            <Link href="/fundingimpact" className="text-blue-600 hover:underline">Funding Impact</Link>
+            <Link href="/workforce-partners" className="text-blue-600 hover:underline">Workforce Partners</Link>
+            <Link href="/workone-partner-packet" className="text-blue-600 hover:underline">WorkOne Partner Packet</Link>
+            <Link href="/agencies" className="text-blue-600 hover:underline">Partner Agencies</Link>
+            <Link href="/government" className="text-blue-600 hover:underline">Government Programs</Link>
+            <Link href="/federal-compliance" className="text-blue-600 hover:underline">Federal Compliance</Link>
+            <Link href="/equal-opportunity" className="text-blue-600 hover:underline">Equal Opportunity</Link>
+            <Link href="/apply" className="text-blue-600 hover:underline">Apply for Funding</Link>
+          </div>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-6xl px-4 py-16">
 
         {/* FUNDING TYPES - Dropdowns */}
