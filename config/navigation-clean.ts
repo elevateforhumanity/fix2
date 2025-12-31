@@ -29,12 +29,12 @@ export const publicNav: NavSection[] = [
     href: '/apprenticeships',
   },
   {
-    label: 'Funding',
-    href: '/funding',
-  },
-  {
     label: 'Services',
     href: '/services',
+  },
+  {
+    label: 'Dashboard',
+    href: '/dashboard',
   },
   {
     label: 'LMS',
