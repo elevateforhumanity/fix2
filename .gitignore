@@ -109,7 +109,3 @@ core
 .env.certiport
 .env-branches/
 
-# Prevent auto-generated devcontainer files (use .gitpod.yml instead)
-.devcontainer/devcontainer.json
-.devcontainer/Dockerfile
-!.devcontainer/devcontainer.json.codespaces-only
