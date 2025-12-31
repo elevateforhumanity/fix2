@@ -47,6 +47,8 @@ const nextConfig = {
       { protocol: 'https', hostname: 'i.imgur.com' },
       { protocol: 'https', hostname: 'imgur.com' },
       { protocol: 'https', hostname: 'cms-artifacts.artlist.io' },
+      { protocol: 'https', hostname: 'burst.shopifycdn.com' },
+      { protocol: 'https', hostname: 'images.pexels.com' },
     ],
   },
   typescript: {
