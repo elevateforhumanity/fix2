@@ -10,6 +10,8 @@ import Split from 'react-split';
 import FileTree from '@/components/editor/FileTree';
 import CodeEditor from '@/components/editor/CodeEditor';
 import Terminal from '@/components/editor/Terminal';
+import { createClient } from '@/lib/supabase/server';
+
 
 export const dynamic = 'force-dynamic';
 
@@ -54,7 +56,9 @@ const mockFiles = [
 ];
 // Mock file contents
 const mockFileContents: Record<string, string> = {
-  '/app/page.tsx': `export default function HomePage() {
+  '/app/page.tsx': `export default async function HomePage() {
+  const supabase: any = createClient();
+
   const router = useRouter();
   useEffect(() => {
     // Check admin auth

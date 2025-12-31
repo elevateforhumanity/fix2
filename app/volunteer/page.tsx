@@ -15,6 +15,8 @@ import {
   CheckCircle,
   Award,
 } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
+
 
 export const metadata: Metadata = {
   title: 'Volunteer Opportunities | Elevate for Humanity',
@@ -117,7 +119,9 @@ const volunteerOpportunities = [
   },
 ];
 
-export default function VolunteerPage() {
+export default async function VolunteerPage() {
+  const supabase: any = createClient();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}

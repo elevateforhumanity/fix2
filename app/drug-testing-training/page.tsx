@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Phone, GraduationCap, Award, Users, CheckCircle } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
+
 
 export const metadata: Metadata = {
   title: 'Drug Testing Training Courses | Elevate for Humanity',
@@ -126,7 +128,9 @@ const trainingCourses = {
   ],
 };
 
-export default function DrugTestingTrainingPage() {
+export default async function DrugTestingTrainingPage() {
+  const supabase: any = createClient();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}

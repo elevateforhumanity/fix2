@@ -8,6 +8,8 @@ import {
   ExternalLink,
   Video,
 } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
+
 
 export const metadata: Metadata = {
   title: 'Events & Workshops | Elevate for Humanity',
@@ -15,148 +17,7 @@ export const metadata: Metadata = {
     'Join us for information sessions, hiring events, workshops, and open houses. Free career training events in Indianapolis.',
 };
 
-const upcomingEvents = [
-  {
-    id: 1,
-    title: 'Monthly Information Session',
-    date: '2025-01-14',
-    time: '6:00 PM - 7:30 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Info Session',
-    description:
-      'Learn about our free training programs, funding options, and how to get started. Meet our staff, tour the facility, and get your questions answered.',
-    capacity: '50 seats',
-    registration: '/contact',
-    virtual: false,
-  },
-  {
-    id: 2,
-    title: 'Quarterly Hiring Event',
-    date: '2025-01-16',
-    time: '10:00 AM - 2:00 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Hiring Event',
-    description:
-      'Meet with 20+ local employers hiring for healthcare, transportation, skilled trades, and more. Bring your resume and dress professionally. On-site interviews available.',
-    capacity: '100+ attendees',
-    registration: '/employers#contact',
-    virtual: false,
-  },
-  {
-    id: 3,
-    title: 'CNA Program Orientation',
-    date: '2025-01-21',
-    time: '5:30 PM - 6:30 PM',
-    location: 'Virtual (Zoom)',
-    address: 'Online',
-    type: 'Program Orientation',
-    description:
-      'Interested in becoming a Certified Nursing Assistant? Join us for a virtual orientation to learn about the 6-week CNA program, certification requirements, and job opportunities.',
-    capacity: 'Unlimited',
-    registration: '/programs/cna',
-    virtual: true,
-  },
-  {
-    id: 4,
-    title: 'Resume Writing Workshop',
-    date: '2025-01-23',
-    time: '2:00 PM - 4:00 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Workshop',
-    description:
-      'Free workshop on creating a professional resume that gets results. Bring your laptop and leave with a polished resume ready to send to employers.',
-    capacity: '25 seats',
-    registration: '/contact',
-    virtual: false,
-  },
-  {
-    id: 5,
-    title: 'CDL Information Session',
-    date: '2025-01-28',
-    time: '6:00 PM - 7:00 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Info Session',
-    description:
-      'Learn about our CDL training program. Meet instructors, see the trucks, and learn how to get your Class A license in just 6 weeks with 100% funding available.',
-    capacity: '30 seats',
-    registration: '/programs/cdl',
-    virtual: false,
-  },
-  {
-    id: 6,
-    title: 'Interview Skills Workshop',
-    date: '2025-02-06',
-    time: '3:00 PM - 5:00 PM',
-    location: 'Virtual (Zoom)',
-    address: 'Online',
-    type: 'Workshop',
-    description:
-      'Master the art of interviewing. Learn how to answer common questions, present yourself professionally, and follow up effectively. Includes mock interviews.',
-    capacity: 'Unlimited',
-    registration: '/contact',
-    virtual: true,
-  },
-  {
-    id: 7,
-    title: 'Open House - All Programs',
-    date: '2025-02-11',
-    time: '4:00 PM - 7:00 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Open House',
-    description:
-      'Tour our facility, meet instructors from all programs, and learn about free training opportunities. Refreshments provided. Bring the family!',
-    capacity: '100+ attendees',
-    registration: '/contact',
-    virtual: false,
-  },
-  {
-    id: 8,
-    title: 'Financial Literacy Workshop',
-    date: '2025-02-13',
-    time: '6:00 PM - 7:30 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Workshop',
-    description:
-      'Learn budgeting basics, how to build credit, and financial planning for your new career. Free workshop for students and community members.',
-    capacity: '40 seats',
-    registration: '/contact',
-    virtual: false,
-  },
-  {
-    id: 9,
-    title: 'Employer Partnership Breakfast',
-    date: '2025-02-18',
-    time: '8:00 AM - 10:00 AM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Employer Event',
-    description:
-      'For employers only. Learn how to partner with us for hiring, tax incentives (WOTC), and customized training programs. Breakfast provided.',
-    capacity: '50 seats',
-    registration: '/employers#contact',
-    virtual: false,
-  },
-  {
-    id: 10,
-    title: 'Graduation Ceremony - Winter 2025',
-    date: '2025-02-27',
-    time: '6:00 PM - 8:00 PM',
-    location: 'Elevate for Humanity Training Center',
-    address: '8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240',
-    type: 'Graduation',
-    description:
-      'Celebrate our winter graduates! Family and friends welcome. Light refreshments. RSVP required for graduates and guests.',
-    capacity: '200 attendees',
-    registration: '/contact',
-    virtual: false,
-  },
-];
+const { data: upcomingEvents }: any = await supabase.from('events').select('*').gte('date', new Date().toISOString()).order('date');
 
 const eventTypeColors = {
   'Info Session': 'bg-blue-100 text-blue-700',
@@ -168,7 +29,9 @@ const eventTypeColors = {
   Graduation: 'bg-red-100 text-red-700',
 };
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const supabase: any = createClient();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
