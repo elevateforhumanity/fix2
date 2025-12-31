@@ -80,12 +80,13 @@ export async function GET() {
       );
       checks.checks.stripe = {
         ok: response.ok,
-        status: response.ok ? 'pass' : 'fail',
+        status: response.ok ? 'pass' : 'warn',
+        statusCode: response.status,
       };
     } catch (error) {
       checks.checks.stripe = {
         ok: false,
-        status: 'fail',
+        status: 'warn',
         error: toErrorMessage(error),
       };
     }
@@ -101,12 +102,12 @@ export async function GET() {
       });
       checks.checks.resend = {
         ok: response.ok || response.status === 401,
-        status: response.ok || response.status === 401 ? 'pass' : 'fail',
+        status: response.ok || response.status === 401 ? 'pass' : 'warn',
       };
     } catch (error) {
       checks.checks.resend = {
         ok: false,
-        status: 'fail',
+        status: 'warn',
         error: toErrorMessage(error),
       };
     }
@@ -118,11 +119,15 @@ export async function GET() {
   const allPassed = Object.values(checks.checks).every(
     (check: any) => check.status === 'pass'
   );
-  checks.status = allPassed ? 'healthy' : 'degraded';
-  checks.overall = allPassed ? 'pass' : 'fail';
+  const hasCriticalFailure = Object.values(checks.checks).some(
+    (check: any) => check.status === 'fail'
+  );
+  
+  checks.status = allPassed ? 'healthy' : hasCriticalFailure ? 'degraded' : 'healthy';
+  checks.overall = hasCriticalFailure ? 'fail' : 'pass';
 
   return NextResponse.json(checks, {
-    status: allPassed ? 200 : 503,
+    status: hasCriticalFailure ? 503 : 200,
     headers: {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
       Pragma: 'no-cache',
