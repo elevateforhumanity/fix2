@@ -36,7 +36,7 @@ export default function ForEmployersPage() {
         {/* Background Image */}
         <div className="absolute inset-0 opacity-20">
           <Image
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
+            src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=1920&format=pjpg&exif=1&iptc=1"
             alt="Business team"
             fill
             className="object-cover"
