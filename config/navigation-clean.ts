@@ -25,6 +25,10 @@ export const publicNav: NavSection[] = [
     href: '/programs',
   },
   {
+    label: 'Apprenticeships',
+    href: '/apprenticeships',
+  },
+  {
     label: 'Funding',
     href: '/funding',
   },
@@ -37,8 +41,20 @@ export const publicNav: NavSection[] = [
     href: '/employers',
   },
   {
+    label: 'Locations',
+    href: '/locations',
+  },
+  {
     label: 'About',
     href: '/about',
+  },
+  {
+    label: 'Success Stories',
+    href: '/success-stories',
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
   },
   {
     label: 'Contact',
