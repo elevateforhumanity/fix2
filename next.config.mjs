@@ -30,14 +30,14 @@ const nextConfig = {
     webpackBuildWorker: true,
   },
   images: {
-    unoptimized: true, // Temporarily bypass optimizer to test if images show
+    unoptimized: false, // Re-enable optimizer with fixed CSP
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentDispositionType: 'inline',
+    contentSecurityPolicy: "default-src 'self' https://burst.shopifycdn.com https://images.pexels.com; script-src 'none'; sandbox;",
     remotePatterns: [
       { protocol: 'https', hostname: '**.supabase.co' },
       { protocol: 'https', hostname: '**.netlify.app' },
