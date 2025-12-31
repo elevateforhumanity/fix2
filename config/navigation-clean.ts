@@ -17,199 +17,32 @@ export type NavSection = {
 
 /**
  * PUBLIC NAVIGATION - Visible to all users
- * Max 6 top-level items for mobile
+ * Simple navigation - each item goes to its own landing page
  */
 export const publicNav: NavSection[] = [
   {
     label: 'Programs',
     href: '/programs',
-    items: [
-      // Browse All
-      { label: 'View All Programs', href: '/programs', isHeader: true },
-
-      // Healthcare Industry
-      { label: 'Healthcare', href: '/industries/healthcare', isHeader: true },
-      { label: 'CNA Certification', href: '/programs/cna-certification' },
-      { label: 'Medical Assistant', href: '/programs/medical-assistant' },
-      { label: 'Home Health Aide', href: '/programs/home-health-aide' },
-      {
-        label: 'Phlebotomy Technician',
-        href: '/programs/phlebotomy-technician',
-      },
-      { label: 'CPR & First Aid', href: '/programs/cpr-first-aid-hsi' },
-      {
-        label: 'Emergency Health & Safety',
-        href: '/programs/emergency-health-safety-tech',
-      },
-      {
-        label: 'Peer Recovery Coach',
-        href: '/programs/certified-peer-recovery-coach',
-      },
-
-      // Industrial / Skilled Trades
-      {
-        label: 'Industrial & Trades',
-        href: '/industries/industrial',
-        isHeader: true,
-      },
-      { label: 'HVAC Technician', href: '/programs/hvac-technician' },
-      {
-        label: 'Building Maintenance Tech',
-        href: '/programs/building-maintenance-tech',
-      },
-      { label: 'CDL Training', href: '/programs/cdl-training' },
-
-      // Beauty & Wellness Industry
-      {
-        label: 'Beauty & Wellness',
-        href: '/industries/beauty-wellness',
-        isHeader: true,
-      },
-      {
-        label: 'Barber Apprenticeship',
-        href: '/programs/barber-apprenticeship',
-      },
-      {
-        label: 'Professional Esthetician',
-        href: '/programs/professional-esthetician',
-      },
-      {
-        label: 'Beauty Career Educator',
-        href: '/programs/beauty-career-educator',
-      },
-
-      // Business & Finance Industry
-      {
-        label: 'Business & Finance',
-        href: '/industries/business',
-        isHeader: true,
-      },
-      {
-        label: 'Business Startup & Marketing',
-        href: '/programs/business-startup-marketing',
-      },
-      {
-        label: 'Tax Prep & Financial Services',
-        href: '/programs/tax-prep-financial-services',
-      },
-      {
-        label: 'Nail Technician Apprenticeship',
-        href: '/programs/nail-technician-apprenticeship',
-      },
-      {
-        label: 'Beauty Career Educator',
-        href: '/programs/beauty-career-educator',
-      },
-
-      // Specialized Programs
-      { label: 'Specialized Programs', href: '#', isHeader: true },
-      { label: 'Drug Collector', href: '/programs/drug-collector' },
-      { label: 'Peer Recovery Coach', href: '/programs/peer-recovery-coach' },
-      { label: 'Workforce Readiness', href: '/programs/workforce-readiness' },
-
-      // Apprenticeships
-      {
-        label: 'Apprenticeships',
-        href: '/programs/apprenticeships',
-        isHeader: true,
-      },
-      { label: 'View All Apprenticeships', href: '/apprenticeships' },
-    ],
   },
   {
     label: 'Funding',
     href: '/funding',
-    items: [
-      { label: 'All Funding Options', href: '/funding' },
-      { label: 'WIOA Funding', href: '/funding/wioa' },
-      { label: 'Workforce Ready Grant (WRG)', href: '/funding/wrg' },
-      { label: 'JRI Funding', href: '/funding/jri' },
-      { label: 'Financial Aid', href: '/financial-aid' },
-      { label: 'FAQ', href: '/faq' },
-    ],
   },
   {
     label: 'Services',
-    items: [
-      { label: 'Tax Services', href: '#', isHeader: true },
-      { label: 'Supersonic Fast Cash', href: '/supersonic-fast-cash' },
-      { label: 'VITA Tax Preparation', href: '/vita' },
-      { label: 'Tax Filing Services', href: '/tax-filing' },
-
-      { label: 'Career Services', href: '#', isHeader: true },
-      { label: 'Career Counseling', href: '/career-services' },
-      { label: 'Job Placement', href: '/career-services' },
-      { label: 'Resume Help', href: '/features/resume-builder' },
-    ],
+    href: '/services',
   },
   {
-    label: 'Learn',
-    items: [
-      { label: 'For Students', href: '#', isHeader: true },
-      { label: 'Student Portal', href: '/student/dashboard' },
-      { label: 'My Courses', href: '/student/courses' },
-      { label: 'LMS Platform', href: '/lms' },
-      { label: 'My Progress', href: '/student/progress' },
-
-      { label: 'Learning', href: '#', isHeader: true },
-      { label: 'Browse Courses', href: '/courses' },
-      { label: 'Community', href: '/community' },
-      { label: 'Forums', href: '/forums' },
-      { label: 'Study Groups', href: '/study-groups' },
-      { label: 'Events', href: '/events' },
-
-      { label: 'Resources', href: '#', isHeader: true },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Videos', href: '/videos' },
-      { label: 'Webinars', href: '/webinars' },
-      { label: 'Downloads', href: '/downloads' },
-      { label: 'Help Center', href: '/help' },
-
-      { label: 'Alumni', href: '#', isHeader: true },
-      { label: 'Alumni Network', href: '/alumni' },
-      { label: 'Success Stories', href: '/success-stories' },
-    ],
-  },
-  {
-    label: 'Platform',
-    items: [
-      { label: 'For Schools', href: '#', isHeader: true },
-      { label: 'Platform Overview', href: '/platform' },
-      { label: 'For Training Providers', href: '/training-providers' },
-      { label: 'White Label', href: '/white-label' },
-      { label: 'Franchise Opportunities', href: '/franchise' },
-
-      { label: 'For Employers', href: '#', isHeader: true },
-      { label: 'Hire Graduates', href: '/hire-graduates' },
-      { label: 'Workforce Solutions', href: '/workforce-partners' },
-
-      { label: 'Store', href: '#', isHeader: true },
-      { label: 'Platform Licenses', href: '/store/licenses' },
-      { label: 'Digital Products', href: '/store' },
-    ],
+    label: 'Employers',
+    href: '/employers',
   },
   {
     label: 'About',
-    items: [
-      { label: 'Company', href: '#', isHeader: true },
-      { label: 'Our Story', href: '/about' },
-      { label: 'Team', href: '/about/team' },
-      { label: 'Founder', href: '/founder' },
-      { label: 'What We Do', href: '/what-we-do' },
-      { label: 'Success Stories', href: '/success-stories' },
-      { label: 'Annual Report', href: '/annual-report' },
-
-      { label: 'Trust & Compliance', href: '#', isHeader: true },
-      { label: 'Accreditation', href: '/accreditation' },
-      { label: 'Accessibility', href: '/accessibility' },
-      { label: 'Federal Compliance', href: '/federal-compliance' },
-      { label: 'Academic Integrity', href: '/academic-integrity' },
-
-      { label: 'Media', href: '#', isHeader: true },
-      { label: 'News', href: '/news' },
-      { label: 'Media Showcase', href: '/media-showcase' },
-      { label: 'Contact', href: '/contact' },
-    ],
+    href: '/about',
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
   },
 ];
 
