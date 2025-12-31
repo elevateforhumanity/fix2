@@ -41,7 +41,7 @@ export const publicNav: NavSection[] = [
     href: '/lms',
   },
   {
-    label: 'Store',
+    label: 'Resources',
     href: '/store',
   },
   {
