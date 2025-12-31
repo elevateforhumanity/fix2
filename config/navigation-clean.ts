@@ -53,6 +53,10 @@ export const publicNav: NavSection[] = [
     href: '/careers',
   },
   {
+    label: 'RISE Foundation',
+    href: '/rise-foundation',
+  },
+  {
     label: 'About',
     href: '/about',
   },

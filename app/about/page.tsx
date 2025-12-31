@@ -30,7 +30,6 @@ export default function AboutPage() {
     { label: 'Press', href: '/press' },
     { label: 'Success Stories', href: '/success-stories' },
     { label: 'Philanthropy', href: '/philanthropy' },
-    { label: 'RISE Foundation', href: '/rise-foundation' },
     { label: 'Blog', href: '/blog' },
     { label: 'Credentials', href: '/credentials' },
     { label: 'Certificates', href: '/certificates' },
@@ -106,14 +105,6 @@ export default function AboutPage() {
       href: '/philanthropy',
       icon: Heart,
       color: 'red',
-      featured: false
-    },
-    {
-      title: 'RISE Foundation',
-      description: 'Our nonprofit foundation supporting workforce development.',
-      href: '/rise-foundation',
-      icon: TrendingUp,
-      color: 'indigo',
       featured: false
     },
     {
