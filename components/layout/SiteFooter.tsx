@@ -15,7 +15,6 @@ export default function SiteFooter() {
             <p className="text-gray-400 text-sm max-w-md">
               100% free career training in healthcare, skilled trades, and technology. Get trained, get hired, get paid.
             </p>
-          </div>
 
             <div className="flex gap-3 mt-6">
               <a
