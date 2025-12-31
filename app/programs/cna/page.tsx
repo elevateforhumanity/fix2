@@ -23,10 +23,19 @@ export default function Page() {
           href: '/programs/healthcare',
         }}
         headline="Become a Certified Nursing Assistant in 6-8 weeks"
-        description="100% free CNA training through WRG, WIOA, or JRI funding. State approved, DOL approved. Job placement included. Start earning $16-$20/hour."
+        description=""
         primaryCTA={{ text: 'Apply Now', href: '/apply' }}
         secondaryCTA={{ text: 'Talk to an Advisor', href: '/contact' }}
       />
+
+      {/* Appointment Banner */}
+      <section className="bg-blue-600 py-8">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-white text-lg md:text-xl leading-relaxed">
+            100% free CNA training through WRG, WIOA, or JRI funding. State approved, DOL approved. Job placement included. Start earning $16-$20/hour.
+          </p>
+        </div>
+      </section>
 
       {/* Program Details */}
       <section className="max-w-7xl mx-auto px-4 py-16">
