@@ -1,61 +1,85 @@
 import { Metadata } from 'next';
-
 import Link from 'next/link';
 import Image from 'next/image';
+import { Heart, Bus, Baby, Home, DollarSign, Users, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/support',
   },
-  title: 'Support | Elevate For Humanity',
+  title: 'Support Bundle - Barrier Removal Services | Elevate For Humanity',
   description:
-    'Explore Support and discover opportunities for career growth and development.',
+    'Transportation, childcare, housing assistance, and more. We remove barriers so you can focus on training and career success.',
 };
 
 export default async function SupportPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/artlist/hero-training-1.jpg"
-          alt="Support"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
+    <>
+      {/* Hero Section - Full Bleed */}
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <Image
+            src="/images/artlist/hero-training-1.jpg"
+            alt="Support Services"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Support
-          </h1>
-          <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Support and discover opportunities for career growth and
-            development.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              View Programs
-            </Link>
+        <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
+          <div className="mx-auto w-full max-w-6xl px-6 text-center">
+            <div className="inline-flex items-center gap-2 bg-purple-600/90 px-4 py-2 rounded-full mb-6">
+              <Heart className="w-5 h-5" />
+              <span className="text-sm font-bold uppercase tracking-wide text-white">Barrier Removal Services</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight">
+              Support Bundle
+            </h1>
+            
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
+              We Remove Barriers So You Can Succeed
+            </h2>
+            
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+              Transportation, childcare, housing assistance, and more. Focus on your training while we handle the rest.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="rounded-xl bg-white px-8 py-4 font-bold text-black hover:bg-gray-100 transition text-center text-lg shadow-xl"
+              >
+                Apply for Support
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-white hover:bg-white hover:text-black transition text-center text-lg"
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+      {/* Services Section */}
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 md:mb-6">
+              Support Services We Provide
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+              We remove barriers so you can focus on your training and career success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>

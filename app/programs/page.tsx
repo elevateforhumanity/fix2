@@ -152,70 +152,59 @@ export default function ProgramsBioSitePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* Video Hero Banner - Wix Style */}
-      <section className="relative h-[600px] w-full overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/programs-hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+    <>
+      {/* Video Hero Banner - Full Bleed */}
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/programs-hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
         
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-6xl w-full rich-animate">
-            {/* Logo */}
-            <div className="mb-8">
-              <Image
-                src="/logo.png"
-                alt="Elevate for Humanity"
-                width={200}
-                height={80}
-                className="mx-auto brightness-0 invert"
-              />
-            </div>
-            
+        <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
+          <div className="mx-auto w-full max-w-6xl px-6 text-center">
             {/* Badge */}
-            <div className="rich-badge mb-8 bg-teal-500/20 border-teal-500/30 text-teal-100">
+            <div className="inline-flex items-center gap-2 bg-purple-600/90 px-4 py-2 rounded-full mb-6">
               <GraduationCap className="w-5 h-5" />
-              <span>50+ Career Training Programs</span>
+              <span className="text-sm font-bold uppercase tracking-wide">50+ Career Training Programs</span>
             </div>
             
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
-              FREE CAREER TRAINING PROGRAMS
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight">
+              Free Career Training Programs
             </h1>
             
             {/* Subheadline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               100% Free • No Tuition • No Debt
             </h2>
             
             {/* Body */}
-            <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
               Browse our complete catalog of 50+ training programs across all industries
             </p>
             
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/apply"
-                className="rich-button-primary uppercase inline-flex items-center gap-3"
+                className="rounded-xl bg-white px-8 py-4 font-bold text-black hover:bg-gray-100 transition text-center text-lg shadow-xl"
               >
-                <span>Apply Now</span>
-                <ArrowRight className="w-5 h-5" />
+                Apply Now
               </Link>
               <Link
                 href="#programs"
-                className="rich-button-secondary text-white border-white hover:bg-white hover:text-teal-600 uppercase inline-flex items-center gap-3"
+                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-white hover:bg-white hover:text-black transition text-center text-lg"
               >
-                <span>Browse Programs</span>
-                <Search className="w-5 h-5" />
+                Browse Programs
               </Link>
             </div>
           </div>
@@ -337,6 +326,6 @@ export default function ProgramsBioSitePage() {
           </p>
         </div>
       </section>
-    </main>
+    </>
   );
 }
