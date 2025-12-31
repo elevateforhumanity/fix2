@@ -144,9 +144,15 @@ export default function ProgramsPage() {
             <a href="#transportation" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
               Transportation
             </a>
-            <a href="#apprenticeships" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+            <Link href="/apprenticeships" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
               Apprenticeships
-            </a>
+            </Link>
+            <Link href="/features" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Features
+            </Link>
+            <Link href="/locations" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Locations
+            </Link>
           </nav>
         </div>
       </section>

@@ -49,6 +49,12 @@ export default function ServicesPage() {
             <a href="#vita" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
               VITA Tax Prep
             </a>
+            <Link href="/supersonic-fast-cash" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Supersonic Fast Cash
+            </Link>
+            <Link href="/career-services" className="px-6 py-3 text-sm font-semibold text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition whitespace-nowrap">
+              Career Services
+            </Link>
           </nav>
         </div>
       </section>
