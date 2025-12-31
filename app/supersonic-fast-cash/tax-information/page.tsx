@@ -8,14 +8,14 @@ export const metadata = {
 
 export default function TaxInformationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-green-900 text-white py-20">
+      <section className="relative bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-black mb-6 uppercase">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Tax Information
           </h1>
-          <p className="text-2xl text-gray-200 max-w-3xl">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Everything you need to know about filing your taxes
           </p>
         </div>
@@ -30,8 +30,8 @@ export default function TaxInformationPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border-2 border-blue-200">
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Maximize Your Deductions</h3>
+            <div className="bg-blue-50 rounded-lg p-8 border border-blue-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Maximize Your Deductions</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -52,8 +52,8 @@ export default function TaxInformationPage() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border-2 border-green-200">
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Avoid Common Mistakes</h3>
+            <div className="bg-green-50 rounded-lg p-8 border border-green-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Avoid Common Mistakes</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -74,8 +74,8 @@ export default function TaxInformationPage() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 border-2 border-orange-200">
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Tax Credits to Claim</h3>
+            <div className="bg-orange-50 rounded-lg p-8 border border-orange-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Tax Credits to Claim</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
@@ -96,8 +96,8 @@ export default function TaxInformationPage() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border-2 border-purple-200">
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Year-Round Planning</h3>
+            <div className="bg-purple-50 rounded-lg p-8 border border-purple-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Year-Round Planning</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -264,7 +264,7 @@ export default function TaxInformationPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/supersonic-fast-cash/apply"
+              href="/supersonic-fast-cash/book-appointment"
               className="px-10 py-5 bg-white text-blue-600 font-black rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 uppercase shadow-lg"
             >
               Get Started

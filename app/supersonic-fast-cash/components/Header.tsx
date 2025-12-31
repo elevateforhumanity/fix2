@@ -22,7 +22,7 @@ export function SupersonicHeader() {
             </div>
             <div className="flex items-center gap-4">
               <a href="#" className="hover:text-blue-200">Facebook</a>
-              <a href="#" className="hover:text-blue-200">Twitter</a>
+              <a href="#" className="hover:text-blue-200">YouTube</a>
               <a href="#" className="hover:text-blue-200">LinkedIn</a>
             </div>
           </div>

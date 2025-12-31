@@ -14,7 +14,7 @@ export function SupersonicFooter() {
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
-              <a href="#" className="text-gray-400 hover:text-white">Twitter</a>
+              <a href="#" className="text-gray-400 hover:text-white">YouTube</a>
               <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
             </div>
           </div>

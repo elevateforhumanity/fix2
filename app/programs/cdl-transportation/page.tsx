@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function CdlTransportationPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-white">
       <CompactHero
         variant="default"
         badge={{
@@ -29,10 +29,19 @@ export default function CdlTransportationPage() {
           href: '/programs',
         }}
         headline="Get your CDL and start a high-paying trucking career"
-        description="Commercial Driver's License training. 100% funded options available through WIOA and state grants. Start earning $50K+ annually with benefits."
+        description=""
         primaryCTA={{ text: 'Apply Now', href: '/apply' }}
         secondaryCTA={{ text: 'Talk to an Advisor', href: '/contact' }}
       />
+
+      {/* Info Banner */}
+      <section className="bg-blue-600 py-8">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-white text-lg md:text-xl leading-relaxed">
+            Commercial Driver's License training. 100% funded options available through WIOA and state grants. Start earning $50K+ annually with benefits.
+          </p>
+        </div>
+      </section>
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">
