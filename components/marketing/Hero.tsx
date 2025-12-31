@@ -3,9 +3,9 @@ import { Award } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative w-full">
-      {/* Full-bleed background */}
-      <div className="relative h-[520px] w-full overflow-hidden">
+    <section className="relative w-full -mt-[72px]">
+      {/* Full-bleed background - owns above the fold */}
+      <div className="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
         {/* Video background */}
         <video
           autoPlay
@@ -19,39 +19,39 @@ export function Hero() {
         </video>
         
         {/* Dark overlay */}
-        <div className="pointer-events-none absolute inset-0 bg-black/40" />
+        <div className="pointer-events-none absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content overlay (constrained) */}
-      <div className="absolute inset-0 z-10 flex items-end">
-        <div className="mx-auto w-full max-w-6xl px-6 pb-10">
+      <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
+        <div className="mx-auto w-full max-w-6xl px-6">
           <div className="max-w-3xl text-white">
-            <div className="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-500/30 px-4 py-2 rounded-full mb-4">
-              <Award className="w-4 h-4" />
-              <span className="text-sm font-semibold">WIOA-Funded Training Programs</span>
+            <div className="inline-flex items-center gap-2 bg-purple-600/90 px-4 py-2 rounded-full mb-6">
+              <Award className="w-5 h-5" />
+              <span className="text-sm font-bold uppercase tracking-wide">WIOA-Funded Training</span>
             </div>
             
-            <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4">
               Limitless Opportunities
             </h1>
             
-            <h2 className="mt-2 text-2xl md:text-3xl font-bold">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
               Where Learning Leads to Earning!
             </h2>
             
-            <p className="mt-3 text-lg">
+            <p className="text-lg md:text-xl mb-8 leading-relaxed">
               Free career training in Indianapolis. Get trained, get hired, get paid. No cost, no debt.
             </p>
             
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                className="rounded-xl bg-white px-6 py-3 font-bold text-black hover:bg-gray-100 transition text-center" 
+                className="rounded-xl bg-white px-8 py-4 font-bold text-black hover:bg-gray-100 transition text-center text-lg shadow-xl" 
                 href="/programs"
               >
                 Explore Programs
               </Link>
               <Link 
-                className="rounded-xl border-2 border-white px-6 py-3 font-bold text-white hover:bg-white hover:text-black transition text-center" 
+                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-white hover:bg-white hover:text-black transition text-center text-lg" 
                 href="/apply"
               >
                 Apply Now
