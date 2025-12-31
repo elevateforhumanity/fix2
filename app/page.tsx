@@ -57,13 +57,13 @@ export default function HomePage() {
       <Hero />
 
       {/* Featured Programs */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+      <section className="rich-section bg-gradient-to-b from-gray-50 to-white">
         <div className="mx-auto w-full max-w-7xl px-6">
-          <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 md:mb-6">
+          <div className="text-center mb-16">
+            <h2 className="rich-headline text-gray-900">
               Explore Our Programs
             </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="rich-body max-w-3xl mx-auto">
               Choose from 50+ career training programs in high-demand industries
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Healthcare */}
             <Link href="/programs" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <div className="rich-card">
                 <div className="relative h-64 md:h-80">
                   <Image
                     src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
