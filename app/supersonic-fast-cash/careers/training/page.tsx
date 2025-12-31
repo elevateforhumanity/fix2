@@ -627,7 +627,7 @@ export default function TrainingPage() {
                 <strong>Don't have an access key?</strong>
                 <p className="mt-1">
                   Access keys are sent to new employees after they pass the competency test.
-                  If you haven't received yours, contact HR at supersonicfastcash@gmail.com
+                  If you haven't received yours, contact HR at Supersonicfadtcashllc@gmail.com
                 </p>
               </div>
 

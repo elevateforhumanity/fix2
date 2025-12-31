@@ -15,9 +15,9 @@ export function SupersonicHeader() {
                 <Phone className="w-4 h-4" />
                 (317) 314-3757
               </a>
-              <a href="mailto:info@supersonicfastcash.com" className="flex items-center gap-2 hover:text-blue-200">
+              <a href="mailto:Supersonicfadtcashllc@gmail.com" className="flex items-center gap-2 hover:text-blue-200">
                 <Mail className="w-4 h-4" />
-                info@supersonicfastcash.com
+                Supersonicfadtcashllc@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-4">

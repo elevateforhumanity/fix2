@@ -67,10 +67,10 @@ export default function LocationsPage() {
                       Email
                     </div>
                     <a
-                      href="mailto:supersonicfastcash@gmail.com"
+                      href="mailto:Supersonicfadtcashllc@gmail.com"
                       className="text-blue-600 hover:text-blue-700"
                     >
-                      supersonicfastcash@gmail.com
+                      Supersonicfadtcashllc@gmail.com
                     </a>
                   </div>
                 </div>

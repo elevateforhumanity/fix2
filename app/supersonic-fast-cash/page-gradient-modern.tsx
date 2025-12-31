@@ -862,7 +862,7 @@ export default function SupersonicMarketingPage() {
               <h4 className="font-bold text-lg mb-4">Contact</h4>
               <ul className="space-y-2 text-sm">
                 <li>📞 (317) 314-3757</li>
-                <li>✉️ supersonicfastcash@gmail.com</li>
+                <li>✉️ Supersonicfadtcashllc@gmail.com</li>
                 <li>📍 Indianapolis, IN</li>
               </ul>
             </div>

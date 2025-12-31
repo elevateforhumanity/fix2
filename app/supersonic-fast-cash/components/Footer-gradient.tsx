@@ -134,10 +134,10 @@ export function SupersonicFooter() {
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                 <a
-                  href="mailto:info@supersonicfastcash.com"
+                  href="mailto:Supersonicfadtcashllc@gmail.com"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  info@supersonicfastcash.com
+                  Supersonicfadtcashllc@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
