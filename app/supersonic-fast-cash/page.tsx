@@ -129,7 +129,7 @@ export default function SupersonicDesign15() {
             </div>
             <div className="relative h-96">
               <Image
-                src="https://images.pexels.com/photos/6863515/pexels-photo-6863515.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/images/artlist/hero-training-1.jpg"
                 alt="Tax preparation services"
                 fill
                 className="object-cover rounded-lg shadow-lg"
@@ -184,7 +184,7 @@ export default function SupersonicDesign15() {
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=400"
+                  src="/images/team-new/team-1.jpg"
                   alt="Tax Professional"
                   width={128}
                   height={128}
@@ -200,7 +200,7 @@ export default function SupersonicDesign15() {
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=400"
+                  src="/images/team-new/team-2.jpg"
                   alt="Tax Preparer"
                   width={128}
                   height={128}
@@ -216,7 +216,7 @@ export default function SupersonicDesign15() {
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=400"
+                  src="/images/team-new/team-3.jpg"
                   alt="Client Services"
                   width={128}
                   height={128}

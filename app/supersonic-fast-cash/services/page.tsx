@@ -111,7 +111,7 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="/images/artlist/hero-training-2.jpg"
           alt="Tax Services"
           fill
           className="object-cover"

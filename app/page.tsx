@@ -229,7 +229,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-green-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://burst.shopifycdn.com/photos/business-team-meeting.jpg?width=800&format=pjpg&exif=1&iptc=1"
+                    src="/images/artlist/hero-training-3.jpg"
                     alt="Industry Alignment"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -259,7 +259,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-orange-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://burst.shopifycdn.com/photos/students-studying-together.jpg?width=800&format=pjpg&exif=1&iptc=1"
+                    src="/images/artlist/hero-training-4.jpg"
                     alt="Hybrid Learning"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -289,7 +289,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 border-2 border-gray-100 hover:border-blue-500">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://burst.shopifycdn.com/photos/business-people-shaking-hands.jpg?width=800&format=pjpg&exif=1&iptc=1"
+                    src="/images/artlist/hero-training-5.jpg"
                     alt="Hire A Student"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"

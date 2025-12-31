@@ -14,7 +14,7 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <Image
-          src="https://burst.shopifycdn.com/photos/person-holds-a-book-over-a-stack-and-turns-the-page.jpg?width=1850&format=pjpg&exif=1&iptc=1"
+          src="/images/artlist/hero-training-6.jpg"
           alt="Our Services"
           fill
           className="object-cover"
