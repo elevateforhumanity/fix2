@@ -1,407 +1,356 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import ContactClient from './ContactClient';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Contact Us - Get Started Today | Elevate for Humanity',
-  description:
-    'Connect with Elevate for Humanity. Students, employers, training providers, and workforce boards - find the right contact for your needs. Call 317-314-3757.',
-  keywords: [
-    'contact',
-    'Indianapolis',
-    'workforce training',
-    'career services',
-    'WIOA',
-    'training providers',
-    'employers',
-  ],
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/contact',
-  },
-  openGraph: {
-    title: 'Contact Elevate for Humanity',
-    description:
-      'Connect with us for free career training, employer partnerships, or platform licensing. Multiple ways to get in touch.',
-    url: 'https://www.elevateforhumanity.org/contact',
-    type: 'website',
-    images: [
-      {
-        url: '/images/facilities-new/facility-1.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Contact Elevate for Humanity',
-      },
-    ],
-  },
-};
-
-export const dynamic = 'force-dynamic';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { 
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle,
+  MessageSquare,
+  Calendar,
+  Users,
+  ArrowRight
+} from 'lucide-react';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    inquiryType: 'general'
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    setSubmitted(true);
+  };
+
+  const contactMethods = [
+    {
+      icon: Phone,
+      title: 'Call Us',
+      detail: '(317) 800-1234',
+      description: 'Mon-Fri, 8am-6pm EST',
+      href: 'tel:+13178001234',
+      color: 'green'
+    },
+    {
+      icon: Mail,
+      title: 'Email Us',
+      detail: 'elevate4humanityedu@gmail.com',
+      description: 'We respond within 24 hours',
+      href: 'mailto:elevate4humanityedu@gmail.com',
+      color: 'blue'
+    },
+    {
+      icon: MapPin,
+      title: 'Visit Us',
+      detail: 'Indianapolis, IN',
+      description: 'Multiple locations across Indiana',
+      href: '/locations',
+      color: 'purple'
+    },
+    {
+      icon: Calendar,
+      title: 'Schedule Call',
+      detail: 'Book a consultation',
+      description: 'Free 15-minute career consultation',
+      href: '/booking',
+      color: 'orange'
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-br from-green-50 to-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/facilities-new/facility-exterior.jpg"
-          alt="Contact Elevate For Humanity"
-          fill
-          className="object-cover brightness-50"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl md:text-2xl text-white">
-            We're here to help you take the next step in your career journey
+      <section className="py-20 px-4 bg-gradient-to-br from-green-600 to-green-800 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
+            <MessageSquare className="w-5 h-5" />
+            <span className="text-sm font-semibold">Get In Touch</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+            We're Here to Help
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Questions about programs, funding, or enrollment? Our team is ready to guide you every step of the way.
           </p>
+
+          {/* Quick Stats */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div className="text-3xl font-black mb-1">24hr</div>
+              <div className="text-xs text-green-100">Response Time</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div className="text-3xl font-black mb-1">Free</div>
+              <div className="text-xs text-green-100">Consultation</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div className="text-3xl font-black mb-1">5min</div>
+              <div className="text-xs text-green-100">To Apply</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Methods */}
-      <section className="py-12">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {/* For Students */}
-            <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-brand-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-black mb-2">
-                For Students
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Questions about programs, applications, or enrollment
-              </p>
-              <a
-                href="tel:+13175551234"
-                className="text-brand-blue-600 hover:underline font-semibold"
-              >
-                (317) 314-3757
-              </a>
-              <p className="text-sm text-gray-600 mt-2">
-                Monday-Friday, 9am-5pm
-              </p>
-            </div>
-
-            {/* For Employers */}
-            <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-              <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-brand-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-black mb-2">
-                For Employers
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Hiring partnerships, apprenticeships, and training
-              </p>
-              <a
-                href="mailto:employers@elevateforhumanity.org"
-                className="text-brand-blue-600 hover:underline font-semibold"
-              >
-                employers@elevateforhumanity.org
-              </a>
-              <p className="text-sm text-gray-600 mt-2">
-                We respond within 24 hours
-              </p>
-            </div>
-
-            {/* For Partners */}
-            <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-purple-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-black mb-2">
-                For Partners
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Workforce boards, funders, and training providers
-              </p>
-              <a
-                href="mailto:partners@elevateforhumanity.org"
-                className="text-brand-blue-600 hover:underline font-semibold"
-              >
-                partners@elevateforhumanity.org
-              </a>
-              <p className="text-sm text-gray-600 mt-2">
-                We respond within 24 hours
-              </p>
-            </div>
+      {/* Contact Methods Grid */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Choose How to Connect
+            </h2>
+            <p className="text-xl text-gray-600">
+              Pick the method that works best for you
+            </p>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-black mb-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactMethods.map((method) => {
+              const Icon = method.icon;
+              return (
+                <a
+                  key={method.title}
+                  href={method.href}
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500 hover:-translate-y-1 transform"
+                >
+                  <div className={`w-14 h-14 bg-${method.color}-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className={`w-7 h-7 text-${method.color}-600`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {method.title}
+                  </h3>
+                  <p className="text-sm font-semibold text-green-600 mb-2">
+                    {method.detail}
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    {method.description}
+                  </p>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
               Send Us a Message
             </h2>
-            <ContactClient />
+            <p className="text-xl text-gray-600">
+              Fill out the form below and we'll get back to you within 24 hours
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Location & Hours */}
-      <section className="bg-white py-12">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Location */}
-            <div>
-              <h2 className="text-2xl font-bold text-black mb-4">
-                Our Location
-              </h2>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <p className="text-gray-700 mb-2">
-                  <strong>Elevate for Humanity</strong>
-                </p>
-                <p className="text-gray-700 mb-2">
-                  8888 Keystone Crossing, Suite 1300
-                </p>
-                <p className="text-gray-700 mb-4">Indianapolis, IN 46240</p>
-                <p className="text-sm text-gray-600">
-                  <strong>Note:</strong> Visits by appointment only. Please call
-                  or email to schedule.
-                </p>
-              </div>
-            </div>
-
-            {/* Hours */}
-            <div>
-              <h2 className="text-2xl font-bold text-black mb-4">
-                Office Hours
-              </h2>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Monday - Friday:</span>
-                    <span className="text-gray-900 font-semibold">
-                      9:00 AM - 5:00 PM
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Saturday:</span>
-                    <span className="text-gray-900 font-semibold">
-                      By Appointment
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Sunday:</span>
-                    <span className="text-gray-900 font-semibold">Closed</span>
-                  </div>
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-xl border-2 border-gray-100">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
+                    placeholder="John Doe"
+                  />
                 </div>
-                <p className="text-sm text-gray-600 mt-4">
-                  <strong>Response Time:</strong> We typically respond to emails
-                  and voicemails within 24 hours during business days.
-                </p>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
+                    placeholder="john@example.com"
+                  />
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Location Map Section */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-              Visit Our Office
-            </h2>
-            <p className="text-xl text-gray-700">
-              7009 East 56th Street, Suite EE1, Indianapolis, IN 46226
-            </p>
-          </div>
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
+                    placeholder="(317) 555-0123"
+                  />
+                </div>
 
-          <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg h-[400px] flex items-center justify-center">
-            <div className="text-center p-8">
-              <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <p className="text-gray-600 mb-4">
-                Interactive map coming soon
-              </p>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=7009+East+56th+Street+Indianapolis+IN+46226"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                    I'm Interested In *
+                  </label>
+                  <select
+                    required
+                    value={formData.inquiryType}
+                    onChange={(e) => setFormData({...formData, inquiryType: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
+                  >
+                    <option value="general">General Information</option>
+                    <option value="programs">Programs & Training</option>
+                    <option value="funding">Funding & Eligibility</option>
+                    <option value="employers">Employer Partnerships</option>
+                    <option value="support">Support Services</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                  Message *
+                </label>
+                <textarea
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors resize-none"
+                  placeholder="Tell us how we can help you..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
               >
-                Open in Google Maps
-              </a>
-            </div>
-          </div>
+                <Send className="w-5 h-5" />
+                <span>Send Message</span>
+              </button>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-black mb-2">Easy to Find</h3>
-              <p className="text-gray-700">
-                Located on East 56th Street with ample parking available
+              <p className="text-center text-sm text-gray-500 mt-4">
+                We'll respond within 24 hours
               </p>
+            </form>
+          ) : (
+            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-12 shadow-xl border-2 border-green-200 text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-600" />
+              </div>
+              <h3 className="text-3xl font-black text-gray-900 mb-4">
+                Message Sent!
+              </h3>
+              <p className="text-xl text-gray-600 mb-8">
+                Thank you for reaching out. We'll get back to you within 24 hours.
+              </p>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 text-green-600 font-bold hover:gap-3 transition-all"
+              >
+                <span>Return to Homepage</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Office Hours & Info */}
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+              <Clock className="w-12 h-12 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Office Hours
+              </h3>
+              <div className="space-y-2 text-gray-600">
+                <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+                <p><strong>Saturday:</strong> 9:00 AM - 2:00 PM</p>
+                <p><strong>Sunday:</strong> Closed</p>
+              </div>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-black mb-2">Flexible Hours</h3>
-              <p className="text-gray-700">
-                Open Monday-Friday with Saturday appointments available
-              </p>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+              <Users className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Who We Help
+              </h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-500" />
+                  <span>Students & Job Seekers</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-500" />
+                  <span>Employers & Partners</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-500" />
+                  <span>Community Organizations</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+              <MessageSquare className="w-12 h-12 text-purple-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Quick Links
+              </h3>
+              <div className="space-y-2">
+                <Link href="/apply" className="block text-purple-600 hover:underline font-semibold">
+                  Apply Now →
+                </Link>
+                <Link href="/programs" className="block text-purple-600 hover:underline font-semibold">
+                  Browse Programs →
+                </Link>
+                <Link href="/faq" className="block text-purple-600 hover:underline font-semibold">
+                  FAQs →
+                </Link>
+                <Link href="/help" className="block text-purple-600 hover:underline font-semibold">
+                  Help Center →
+                </Link>
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">Quick Response</h3>
-              <p className="text-gray-700">
-                We respond to all inquiries within 24 hours
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-gray-700">
-              Quick answers to common questions
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-black mb-3">
-                What are your office hours?
-              </h3>
-              <p className="text-gray-700">
-                We're open Monday through Friday from 9:00 AM to 5:00 PM. Saturday appointments are available by request. We're closed on Sundays and major holidays.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-black mb-3">
-                Do I need an appointment?
-              </h3>
-              <p className="text-gray-700">
-                Walk-ins are welcome during office hours, but we recommend scheduling an appointment to ensure we can give you our full attention and minimize wait times.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-black mb-3">
-                How quickly will I get a response?
-              </h3>
-              <p className="text-gray-700">
-                We typically respond to emails and voicemails within 24 hours during business days. For urgent matters, please call us directly at (317) 314-3757.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-black mb-3">
-                Is parking available?
-              </h3>
-              <p className="text-gray-700">
-                Yes! We have ample free parking available on-site. Look for visitor parking signs when you arrive.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-black mb-3">
-                Can I visit without an appointment?
-              </h3>
-              <p className="text-gray-700">
-                Absolutely! Walk-ins are welcome during our regular office hours. However, scheduling an appointment ensures you'll have dedicated time with our team.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-black mb-3">
-                Do you offer virtual consultations?
-              </h3>
-              <p className="text-gray-700">
-                Yes! We offer phone and video consultations for your convenience. Let us know your preference when you schedule your appointment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Take the Next Step?
+      {/* Final CTA */}
+      <section className="py-16 px-4 bg-gradient-to-br from-green-600 to-green-800 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-black mb-6">
+            Ready to Get Started?
           </h2>
-          <p className="text-xl mb-8">
-            Contact us today to learn more about our programs and how we can help you achieve your career goals.
+          <p className="text-xl text-green-100 mb-8">
+            Don't wait—apply now and start your journey to a better career
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+13173143757"
-              className="inline-block px-10 py-4 bg-white text-blue-600 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors shadow-xl"
-            >
-              📞 Call (317) 314-3757
-            </a>
-            <a
-              href="mailto:elevate4humanityedu@gmail.com"
-              className="inline-block px-10 py-4 bg-blue-700 text-white rounded-lg text-lg font-bold hover:bg-blue-800 transition-colors shadow-xl border-2 border-white"
-            >
-              ✉️ Send Email
-            </a>
-          </div>
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-3 bg-white text-green-700 px-10 py-5 rounded-xl text-lg font-black shadow-2xl hover:scale-105 transition-all"
+          >
+            <span>Apply Now</span>
+            <ArrowRight className="w-6 h-6" />
+          </Link>
+          <p className="text-green-100 mt-4">
+            Takes 5 minutes • 100% free • No commitment
+          </p>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
