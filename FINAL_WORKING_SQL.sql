@@ -48,16 +48,16 @@ SELECT * FROM (VALUES
 ) AS v(title, slug, content)
 WHERE NOT EXISTS (SELECT 1 FROM blog_posts WHERE slug = v.slug);
 
--- Step 4: Add apprenticeships (with title column)
+-- Step 4: Add apprenticeships (with title AND category)
 -- ============================================================================
 
-INSERT INTO programs (slug, name, title, description, is_active)
+INSERT INTO programs (slug, name, title, description, category, is_active)
 SELECT * FROM (VALUES
-  ('esthetician-apprenticeship', 'Esthetician Apprenticeship', 'Esthetician Apprenticeship', 'Skincare and spa training.', true),
-  ('ems-apprenticeship', 'EMS Apprenticeship', 'EMS Apprenticeship', 'Emergency medical training.', true),
-  ('culinary-apprenticeship', 'Culinary Apprenticeship', 'Culinary Apprenticeship', 'Professional cooking.', true),
-  ('nail-tech-apprenticeship', 'Nail Tech Apprenticeship', 'Nail Tech Apprenticeship', 'Nail services training.', true)
-) AS v(slug, name, title, description, is_active)
+  ('esthetician-apprenticeship', 'Esthetician Apprenticeship', 'Esthetician Apprenticeship', 'Skincare and spa training.', 'Beauty & Wellness', true),
+  ('ems-apprenticeship', 'EMS Apprenticeship', 'EMS Apprenticeship', 'Emergency medical training.', 'Healthcare', true),
+  ('culinary-apprenticeship', 'Culinary Apprenticeship', 'Culinary Apprenticeship', 'Professional cooking.', 'Hospitality', true),
+  ('nail-tech-apprenticeship', 'Nail Tech Apprenticeship', 'Nail Tech Apprenticeship', 'Nail services training.', 'Beauty & Wellness', true)
+) AS v(slug, name, title, description, category, is_active)
 WHERE NOT EXISTS (SELECT 1 FROM programs WHERE slug = v.slug);
 
 -- ✅ DONE
