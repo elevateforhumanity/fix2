@@ -152,27 +152,13 @@ export default function ProgramsBioSitePage() {
   ];
 
   return (
-    <>
-      {/* Video Hero Banner - Full Bleed */}
-      <section className="relative w-full -mt-[72px]">
-        <div className="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/programs-hero.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-
-        <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
-          <div className="mx-auto w-full max-w-6xl px-6 text-center">
+    <div className="pb-20 md:pb-0">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="polish-solid pt-20 pb-8 md:pt-28 md:pb-12 bg-gradient-to-br from-brand-blue-600 to-brand-purple-600">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="max-w-2xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-brand-purple-600 px-4 py-2 rounded-full mb-6 text-white">
+            <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full mb-4 text-white">
               <GraduationCap className="w-5 h-5" />
               <span className="text-sm font-bold uppercase tracking-wide">
                 WIOA-Funded Career Training
@@ -180,32 +166,31 @@ export default function ProgramsBioSitePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 break-words">
               Free Career Training Programs
             </h1>
 
             {/* Subheadline */}
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
+            <p className="text-lg md:text-xl text-white/90 mb-6">
               100% Free • No Tuition • No Debt
-            </h2>
+            </p>
 
             {/* Body */}
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Browse our complete catalog of training programs in healthcare,
-              skilled trades, and business
+            <p className="text-base md:text-lg text-white/80 mb-6">
+              Browse our complete catalog of training programs in healthcare, skilled trades, and business
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row justify-center">
               <Link
                 href="/apply"
-                className="rounded-xl bg-white px-8 py-4 font-bold text-black hover:bg-gray-100 transition text-center text-lg shadow-xl"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold bg-white text-brand-blue-600 hover:bg-gray-100 transition"
               >
                 Apply Now
               </Link>
               <Link
                 href="#programs"
-                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-gray-900 hover:bg-white hover:text-black transition text-center text-lg"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold border-2 border-white text-white hover:bg-white/10 transition"
               >
                 Browse Programs
               </Link>
@@ -215,9 +200,9 @@ export default function ProgramsBioSitePage() {
       </section>
 
       {/* Internal Navigation */}
-      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
+      <nav className="bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-3 md:px-4">
+          <div className="flex overflow-x-auto gap-1 py-2 md:py-3 scrollbar-hide">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -338,6 +323,6 @@ export default function ProgramsBioSitePage() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
