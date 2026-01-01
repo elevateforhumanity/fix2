@@ -68,7 +68,7 @@ export default function HomePage() {
               <div className="rich-card">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src="/images/heroes/healthcare.jpg"
+                    src="/images/programs/cna-hero.jpg"
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -101,7 +101,7 @@ export default function HomePage() {
               <div className="rich-card overflow-hidden">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src="/images/heroes/skilled-trades.jpg"
+                    src="/images/programs/hvac-hero.jpg"
                     alt="Skilled Trades Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -133,7 +133,7 @@ export default function HomePage() {
               <div className="rich-card overflow-hidden">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src="/images/heroes/business.jpg"
+                    src="/images/pathways/business-hero.jpg"
                     alt="Business Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
