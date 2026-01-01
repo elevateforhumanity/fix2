@@ -113,13 +113,11 @@ export default function SiteHeader() {
             href="/"
             className="flex items-center gap-3 flex-shrink-0 group"
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-              <span className="text-2xl font-black text-white">E</span>
-            </div>
-            <div className="font-black text-gray-900 text-xl sm:text-2xl tracking-tight uppercase">
-              <span className="hidden sm:inline">Elevate for Humanity</span>
-              <span className="sm:hidden">Elevate</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="Elevate for Humanity"
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}

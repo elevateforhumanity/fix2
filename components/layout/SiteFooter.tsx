@@ -98,6 +98,9 @@ export default function SiteFooter() {
               >
                 Accessibility
               </Link>
+              <Link href="/careers" className="hover:text-gray-300 transition">
+                Careers
+              </Link>
               <Link href="/contact" className="hover:text-gray-300 transition">
                 Contact
               </Link>
