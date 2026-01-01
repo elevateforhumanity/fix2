@@ -26,31 +26,37 @@ export default function LMSLandingPage() {
       icon: Video,
       title: 'Video Lessons',
       description: 'High-quality video content with expert instructors',
+      href: '/lms/features/video-lessons',
     },
     {
       icon: BookOpen,
       title: 'Interactive Courses',
       description: 'Engaging lessons with quizzes and hands-on activities',
+      href: '/lms/features/interactive-courses',
     },
     {
       icon: Users,
       title: 'Discussion Forums',
       description: 'Connect with classmates and instructors',
+      href: '/lms/features/discussion-forums',
     },
     {
       icon: Award,
       title: 'Earn Certificates',
       description: 'Get recognized for completing courses',
+      href: '/lms/features/certificates',
     },
     {
       icon: MessageSquare,
       title: 'Live Chat Support',
       description: '24/7 help when you need it',
+      href: '/lms/features/support',
     },
     {
       icon: TrendingUp,
       title: 'Track Progress',
       description: 'Monitor your learning journey in real-time',
+      href: '/lms/features/progress-tracking',
     },
   ];
 
@@ -198,20 +204,24 @@ export default function LMSLandingPage() {
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div
+                <Link
                   key={idx}
-                  className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all"
+                  href={feature.href}
+                  className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all group"
                 >
-                  <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-teal-600" />
+                  <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-600 transition-colors">
+                    <Icon className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {feature.title}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-teal-600 transition-colors">
+                    {feature.title} →
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed mb-4">
                     {feature.description}
                   </p>
-                </div>
+                  <span className="text-teal-600 font-semibold text-sm">
+                    Learn More →
+                  </span>
+                </Link>
               );
             })}
           </div>
