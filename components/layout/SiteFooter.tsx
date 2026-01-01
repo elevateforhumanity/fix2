@@ -12,7 +12,8 @@ export default function SiteFooter() {
             </div>
           </Link>
           <p className="text-gray-400 text-sm max-w-md mb-6">
-            100% free career training in healthcare, skilled trades, and technology. Get trained, get hired, get paid.
+            100% free career training in healthcare, skilled trades, and
+            technology. Get trained, get hired, get paid.
           </p>
 
           {/* Social Icons */}
@@ -79,21 +80,34 @@ export default function SiteFooter() {
         <div className="pt-6 border-t border-gray-800">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
-              <Link href="/privacy-policy" className="hover:text-gray-300 transition">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-gray-300 transition"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-gray-300 transition">
+              <Link
+                href="/terms-of-service"
+                className="hover:text-gray-300 transition"
+              >
                 Terms of Service
               </Link>
-              <Link href="/accessibility" className="hover:text-gray-300 transition">
+              <Link
+                href="/accessibility"
+                className="hover:text-gray-300 transition"
+              >
                 Accessibility
               </Link>
               <Link href="/contact" className="hover:text-gray-300 transition">
                 Contact
               </Link>
+              <Link href="/admin" className="hover:text-gray-300 transition">
+                Admin
+              </Link>
             </div>
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} Elevate For Humanity. All Rights Reserved.
+              © {new Date().getFullYear()} Elevate For Humanity. All Rights
+              Reserved.
             </p>
           </div>
         </div>

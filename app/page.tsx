@@ -162,58 +162,226 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
-        <div className="mx-auto w-full max-w-5xl px-6">
-          <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 md:mb-6">
-              How It Works
+      {/* 100% Free Training - How We Fund It */}
+      <section className="w-full py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              100% Free Training
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
-              Getting started is simple. Here's what happens when you apply:
+            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+              No tuition. No fees. No student debt. Your training is fully
+              funded through federal and state workforce programs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <div className="text-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <span className="text-3xl md:text-4xl font-black text-white">
-                  1
-                </span>
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                Apply
-              </h3>
-              <p className="text-sm md:text-base text-gray-600">
-                Fill out our simple application in 5 minutes
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 className="text-2xl font-bold mb-3">WIOA</h3>
+              <p className="text-blue-100 text-sm leading-relaxed">
+                Workforce Innovation and Opportunity Act - Federal funding for
+                career training and job placement services
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <span className="text-3xl md:text-4xl font-black text-white">
-                  2
-                </span>
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                Get Approved
-              </h3>
-              <p className="text-sm md:text-base text-gray-600">
-                We handle all funding paperwork with WIOA
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 className="text-2xl font-bold mb-3">WRG</h3>
+              <p className="text-blue-100 text-sm leading-relaxed">
+                Workforce Ready Grant - Indiana state funding for short-term
+                credential programs in high-demand fields
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <span className="text-3xl md:text-4xl font-black text-white">
-                  3
-                </span>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 className="text-2xl font-bold mb-3">DOL Apprenticeships</h3>
+              <p className="text-blue-100 text-sm leading-relaxed">
+                U.S. Department of Labor Registered Apprenticeships - Earn while
+                you learn with paid on-the-job training
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 className="text-2xl font-bold mb-3">JRI</h3>
+              <p className="text-blue-100 text-sm leading-relaxed">
+                Justice Reinvestment Initiative - Specialized programs for
+                justice-involved individuals reentering the workforce
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training Models */}
+      <section className="w-full py-20 bg-white">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+              Flexible Training Options
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose the learning format that fits your life and career goals
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border-2 border-purple-100">
+              <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                Start Training
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Hybrid Training
               </h3>
-              <p className="text-sm md:text-base text-gray-600">
-                Begin your program and start your new career
+              <p className="text-gray-600 mb-4">
+                Combine online learning with hands-on labs and in-person
+                instruction. Study at your own pace while getting real-world
+                practice.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-1">✓</span>
+                  <span>Online coursework you can do anytime</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-1">✓</span>
+                  <span>Scheduled hands-on labs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-1">✓</span>
+                  <span>In-person skills assessments</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 border-2 border-orange-100">
+              <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6">
+                <Briefcase className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                DOL Apprenticeships
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Earn while you learn. Work in a real business from day one, get
+                paid, and graduate with both certification and work experience.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-600 mt-1">✓</span>
+                  <span>Get paid while training</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-600 mt-1">✓</span>
+                  <span>Work in real businesses</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-600 mt-1">✓</span>
+                  <span>Graduate with experience + certification</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border-2 border-green-100">
+              <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Accelerated Programs
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Fast-track programs get you certified and job-ready in weeks,
+                not years. Perfect for those who need to start earning quickly.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>4-12 week programs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Industry-recognized credentials</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Job placement assistance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Indianapolis Location */}
+      <section className="w-full py-20 bg-gray-50">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+                Training Center in Indianapolis
+              </h2>
+              <p className="text-xl text-gray-600 mb-6">
+                Our state-of-the-art training facility is located in
+                Indianapolis, Indiana, serving Marion County and surrounding
+                areas.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      Hands-On Labs
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      Fully equipped training labs for healthcare, HVAC, and
+                      skilled trades
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      Career Services
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      Resume help, interview prep, and job placement support
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-1">
+                      Wraparound Support
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      Case management, transportation assistance, and barrier
+                      removal services
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Ready to Get Started?
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Apply today and we'll help you navigate the funding process.
+                Most students qualify for 100% free training.
+              </p>
+              <Link
+                href="/apply"
+                className="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-8 py-4 rounded-xl text-lg font-bold transition-colors"
+              >
+                Apply Now - It's Free
+              </Link>
+              <p className="text-sm text-gray-500 text-center mt-4">
+                Questions? Call us at (317) 800-1234
               </p>
             </div>
           </div>
@@ -256,45 +424,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {/* Supersonic Fast Cash */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                Supersonic Fast Cash
-              </h3>
-              <p className="text-sm md:text-base text-gray-600 mb-6">
-                Professional tax prep and instant refund advances
-              </p>
-              <Link
-                href="/supersonic-fast-cash"
-                className="text-orange-600 font-bold hover:underline inline-flex items-center gap-2"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* VITA Tax Prep */}
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                VITA Tax Prep
-              </h3>
-              <p className="text-sm md:text-base text-gray-600 mb-6">
-                Free IRS-certified tax preparation
-              </p>
-              <Link
-                href="/vita"
-                className="text-green-600 font-bold hover:underline inline-flex items-center gap-2"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Career Services */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
@@ -304,8 +434,8 @@ export default function HomePage() {
                 Career Services
               </h3>
               <p className="text-sm md:text-base text-gray-600 mb-6">
-                Resume + LinkedIn optimization, interview coaching, employer
-                referrals, and placement support through our partner network
+                Resume building, interview coaching, job placement assistance,
+                and ongoing career support
               </p>
               <Link
                 href="/career-services"
