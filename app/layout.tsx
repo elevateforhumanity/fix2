@@ -137,7 +137,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className={`light ${inter.variable}`}>
       <head>
         {/* Preload critical assets to prevent FOUC */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -157,7 +157,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className="min-h-dvh bg-white text-slate-900 antialiased"
+        className={`${inter.className} min-h-dvh bg-white text-slate-900 antialiased`}
         style={{ fontSize: '16px' }}
       >
         <a
