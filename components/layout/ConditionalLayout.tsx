@@ -14,7 +14,7 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col [--header-h:72px]">
       {!isSupersonicSection && (
-        <header className="fixed inset-x-0 top-0 z-50 h-[var(--header-h)]">
+        <header className="fixed inset-x-0 top-0 z-[9999] h-[var(--header-h)]">
           <SiteHeader />
         </header>
       )}

@@ -8,7 +8,7 @@ export function HeroVideo() {
       loop
       playsInline
       preload="auto"
-      className="absolute inset-0 w-full h-full object-cover"
+      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       style={{
         objectFit: 'cover',
         width: '100%',
