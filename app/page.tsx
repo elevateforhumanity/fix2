@@ -2,14 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Hero } from '@/components/marketing/Hero';
-import {
-  Briefcase,
-  Users,
-  ArrowRight,
-  Star,
-  Heart,
-  Zap,
-} from 'lucide-react';
+import { Briefcase, Users, ArrowRight, Star, Heart, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
   title:
@@ -64,7 +57,8 @@ export default function HomePage() {
               Explore Our Programs
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Choose from 50+ career training programs in high-demand industries
+              ETPL-approved career training programs in healthcare, skilled
+              trades, business, and beauty services
             </p>
           </div>
 
@@ -183,9 +177,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <div className="text-center">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <span className="text-3xl md:text-4xl font-black text-white">1</span>
+                <span className="text-3xl md:text-4xl font-black text-white">
+                  1
+                </span>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Apply</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                Apply
+              </h3>
               <p className="text-sm md:text-base text-gray-600">
                 Fill out our simple application in 5 minutes
               </p>
@@ -193,9 +191,13 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <span className="text-3xl md:text-4xl font-black text-white">2</span>
+                <span className="text-3xl md:text-4xl font-black text-white">
+                  2
+                </span>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Get Approved</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                Get Approved
+              </h3>
               <p className="text-sm md:text-base text-gray-600">
                 We handle all funding paperwork with WIOA
               </p>
@@ -203,9 +205,13 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <span className="text-3xl md:text-4xl font-black text-white">3</span>
+                <span className="text-3xl md:text-4xl font-black text-white">
+                  3
+                </span>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Start Training</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                Start Training
+              </h3>
               <p className="text-sm md:text-base text-gray-600">
                 Begin your program and start your new career
               </p>
@@ -220,11 +226,16 @@ export default function HomePage() {
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
             <div className="flex justify-center gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 md:w-8 md:h-8 fill-yellow-400 text-yellow-400" />
+                <Star
+                  key={i}
+                  className="w-6 h-6 md:w-8 md:h-8 fill-yellow-400 text-yellow-400"
+                />
               ))}
             </div>
             <blockquote className="text-lg md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 leading-relaxed text-center">
-              "This program changed my life. I went from unemployed to earning $45,000 a year as a CNA in just 6 weeks. The training was free and the support was incredible."
+              "This program changed my life. I went from unemployed to earning
+              $45,000 a year as a CNA in just 6 weeks. The training was free and
+              the support was incredible."
             </blockquote>
             <p className="text-base md:text-lg text-gray-600 text-center font-semibold">
               — Sarah Johnson, CNA Graduate
@@ -251,11 +262,16 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Supersonic Fast Cash</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                Supersonic Fast Cash
+              </h3>
               <p className="text-sm md:text-base text-gray-600 mb-6">
                 Professional tax prep and instant refund advances
               </p>
-              <Link href="/supersonic-fast-cash" className="text-orange-600 font-bold hover:underline inline-flex items-center gap-2">
+              <Link
+                href="/supersonic-fast-cash"
+                className="text-orange-600 font-bold hover:underline inline-flex items-center gap-2"
+              >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -265,11 +281,16 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">VITA Tax Prep</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                VITA Tax Prep
+              </h3>
               <p className="text-sm md:text-base text-gray-600 mb-6">
                 Free IRS-certified tax preparation
               </p>
-              <Link href="/vita" className="text-green-600 font-bold hover:underline inline-flex items-center gap-2">
+              <Link
+                href="/vita"
+                className="text-green-600 font-bold hover:underline inline-flex items-center gap-2"
+              >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -279,11 +300,17 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Career Services</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                Career Services
+              </h3>
               <p className="text-sm md:text-base text-gray-600 mb-6">
-                Resume + LinkedIn optimization, interview coaching, employer referrals, and placement support through our partner network
+                Resume + LinkedIn optimization, interview coaching, employer
+                referrals, and placement support through our partner network
               </p>
-              <Link href="/career-services" className="text-blue-600 font-bold hover:underline inline-flex items-center gap-2">
+              <Link
+                href="/career-services"
+                className="text-blue-600 font-bold hover:underline inline-flex items-center gap-2"
+              >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -293,11 +320,16 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Support Bundle</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+                Support Bundle
+              </h3>
               <p className="text-sm md:text-base text-gray-600 mb-6">
                 Transportation, childcare, and barrier removal
               </p>
-              <Link href="/support" className="text-purple-600 font-bold hover:underline inline-flex items-center gap-2">
+              <Link
+                href="/support"
+                className="text-purple-600 font-bold hover:underline inline-flex items-center gap-2"
+              >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -312,7 +344,8 @@ export default function HomePage() {
             Ready to Transform Your Life?
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
-            Join 5,000+ students who chose free career training with Elevate for Humanity
+            Join 5,000+ students who chose free career training with Elevate for
+            Humanity
           </p>
           <Link
             href="/apply"

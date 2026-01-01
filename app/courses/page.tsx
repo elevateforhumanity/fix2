@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
   title: 'Courses | Elevate For Humanity',
   description:
-    'Explore Courses and discover opportunities for career growth and development.',
+    'Browse our catalog of career training courses. Industry certifications, hands-on skills, and job-ready training in healthcare, IT, business, and skilled trades.',
 };
 
 export default async function CoursesPage() {
@@ -26,14 +26,15 @@ export default async function CoursesPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Courses
+            Career Training Courses
           </h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Courses and discover opportunities for career growth and
-            development.
+            Industry certifications, hands-on skills, and job-ready training.
+            Start your career journey with courses designed for real-world
+            success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -59,10 +60,13 @@ export default async function CoursesPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">Courses</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Professional Training Courses
+                </h2>
                 <p className="text-gray-700 mb-6">
-                  Explore Courses and discover opportunities for career growth
-                  and development.
+                  Access industry-recognized certifications and hands-on
+                  training in high-demand fields. Our courses are designed with
+                  employer input to ensure you learn the skills that matter.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">

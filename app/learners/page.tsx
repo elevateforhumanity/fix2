@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: 'Learners | Elevate For Humanity',
   description:
-    'Explore Learners and discover opportunities for career growth and development.',
+    'Access WIOA-funded career training programs in healthcare, skilled trades, business, and beauty services. Learn, certify, and get hired with wraparound support services.',
 };
 
 export default async function LearnersPage() {
@@ -25,7 +25,6 @@ export default async function LearnersPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
@@ -119,7 +118,8 @@ export default async function LearnersPage() {
                 </ul>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image priority
+                <Image
+                  priority
                   src="/images/artlist/hero-training-2.jpg"
                   alt="Learners"
                   fill

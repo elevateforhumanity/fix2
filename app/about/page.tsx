@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { 
+import {
   Heart,
   Target,
   Users,
@@ -13,12 +13,13 @@ import {
   Shield,
   CheckCircle,
   ArrowRight,
-  Star
+  Star,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Us | Elevate for Humanity',
-  description: 'A workforce development ecosystem helping individuals access training, funding, and employment pathways.',
+  description:
+    'A workforce development ecosystem helping individuals access training, funding, and employment pathways.',
 };
 
 export default function AboutPage() {
@@ -36,33 +37,38 @@ export default function AboutPage() {
     {
       icon: Heart,
       title: 'People First',
-      description: 'Every decision we make starts with how it impacts the people we serve.'
+      description:
+        'Every decision we make starts with how it impacts the people we serve.',
     },
     {
       icon: Target,
       title: 'Results Driven',
-      description: '85% job placement rate. We measure success by student outcomes.'
+      description:
+        '85% job placement rate. We measure success by student outcomes.',
     },
     {
       icon: Shield,
       title: 'Barrier Removal',
-      description: 'We eliminate obstacles that prevent people from succeeding in training.'
+      description:
+        'We eliminate obstacles that prevent people from succeeding in training.',
     },
     {
       icon: Globe,
       title: 'Community Impact',
-      description: 'Transforming lives strengthens families, neighborhoods, and our entire community.'
-    }
+      description:
+        'Transforming lives strengthens families, neighborhoods, and our entire community.',
+    },
   ];
 
   const aboutPages = [
     {
       title: 'Our Founder',
-      description: 'Meet Elizabeth Greene, founder and CEO of Elevate for Humanity.',
+      description:
+        'Meet Elizabeth Greene, founder and CEO of Elevate for Humanity.',
       href: '/founder',
       icon: Users,
       color: 'purple',
-      featured: true
+      featured: true,
     },
     {
       title: 'Our Team',
@@ -70,7 +76,7 @@ export default function AboutPage() {
       href: '/team',
       icon: Users,
       color: 'blue',
-      featured: true
+      featured: true,
     },
     {
       title: 'Philanthropy',
@@ -78,7 +84,7 @@ export default function AboutPage() {
       href: '/philanthropy',
       icon: Heart,
       color: 'red',
-      featured: false
+      featured: false,
     },
     {
       title: 'Blog',
@@ -86,24 +92,26 @@ export default function AboutPage() {
       href: '/blog',
       icon: Newspaper,
       color: 'teal',
-      featured: false
+      featured: false,
     },
     {
       title: 'Credentials',
-      description: 'Industry-recognized certifications and licenses our graduates earn.',
+      description:
+        'Industry-recognized certifications and licenses our graduates earn.',
       href: '/credentials',
       icon: Award,
       color: 'emerald',
-      featured: false
+      featured: false,
     },
     {
       title: 'Certificates',
-      description: 'Completion certificates and digital badges for achievements.',
+      description:
+        'Completion certificates and digital badges for achievements.',
       href: '/certificates',
       icon: FileText,
       color: 'violet',
-      featured: false
-    }
+      featured: false,
+    },
   ];
 
   return (
@@ -129,10 +137,14 @@ export default function AboutPage() {
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
@@ -143,28 +155,36 @@ export default function AboutPage() {
                 <Heart className="w-5 h-5 text-orange-400" />
                 <span className="text-sm font-semibold">About Us</span>
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
                 Transforming Lives Through Workforce Development
               </h1>
-              
+
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                We're a workforce development ecosystem designed to help individuals access training, 
-                funding, employment pathways, and support services—especially when traditional systems feel impossible to navigate.
+                We're a workforce development ecosystem designed to help
+                individuals access training, funding, employment pathways, and
+                support services—especially when traditional systems feel
+                impossible to navigate.
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 mb-8">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="text-3xl font-black text-orange-400 mb-1">5,000+</div>
+                  <div className="text-3xl font-black text-orange-400 mb-1">
+                    5,000+
+                  </div>
                   <div className="text-xs text-gray-400">Students Served</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="text-3xl font-black text-green-400 mb-1">85%</div>
+                  <div className="text-3xl font-black text-green-400 mb-1">
+                    85%
+                  </div>
                   <div className="text-xs text-gray-400">Job Placement</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="text-3xl font-black text-blue-400 mb-1">50+</div>
+                  <div className="text-3xl font-black text-blue-400 mb-1">
+                    50+
+                  </div>
                   <div className="text-xs text-gray-400">Programs</div>
                 </div>
               </div>
@@ -207,7 +227,10 @@ export default function AboutPage() {
             {values.map((value, idx) => {
               const Icon = value.icon;
               return (
-                <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-orange-500 hover:shadow-xl transition-all">
+                <div
+                  key={idx}
+                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-orange-500 hover:shadow-xl transition-all"
+                >
                   <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-orange-600" />
                   </div>
@@ -225,21 +248,27 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <section
+        id="mission"
+        className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white"
+      >
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               Our Mission
             </h2>
             <p className="text-2xl text-gray-300 leading-relaxed">
-              To create pathways to meaningful careers by removing barriers, providing training, 
-              and connecting people to opportunities that transform lives.
+              To create pathways to meaningful careers by removing barriers,
+              providing training, and connecting people to opportunities that
+              transform lives.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-5xl font-black text-orange-400 mb-3">100%</div>
+              <div className="text-5xl font-black text-orange-400 mb-3">
+                100%
+              </div>
               <div className="text-gray-300">Free Training</div>
             </div>
             <div className="text-center">
@@ -262,7 +291,8 @@ export default function AboutPage() {
               What We Do
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're more than a training provider—we're a complete support system
+              We're more than a training provider—we're a complete support
+              system
             </p>
           </div>
 
@@ -271,9 +301,13 @@ export default function AboutPage() {
               <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
                 <Award className="w-7 h-7 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Training</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Training
+              </h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                50+ programs in healthcare, skilled trades, and business. All 100% free through federal funding.
+                ETPL-approved programs in healthcare, skilled trades, business,
+                and beauty services. All 100% free through WIOA and Workforce
+                Ready Grant funding.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
@@ -297,7 +331,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Support</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We remove barriers that prevent success—transportation, childcare, financial challenges.
+                We remove barriers that prevent success—transportation,
+                childcare, financial challenges.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
@@ -319,9 +354,12 @@ export default function AboutPage() {
               <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                 <TrendingUp className="w-7 h-7 text-purple-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Placement</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Placement
+              </h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Direct connections to employers. 85% of graduates are employed within 6 months.
+                Direct connections to employers. 85% of graduates are employed
+                within 6 months.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
@@ -343,33 +381,34 @@ export default function AboutPage() {
       </section>
 
       {/* Impact Stats */}
-      <section id="impact" className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+      <section
+        id="impact"
+        className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white"
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Our Impact
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6">Our Impact</h2>
             <p className="text-xl text-orange-100 max-w-3xl mx-auto">
               Real results. Real lives transformed.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-6xl font-black mb-3">5,000+</div>
-              <div className="text-lg text-orange-100">Students Trained</div>
+              <div className="text-6xl font-black mb-3">11</div>
+              <div className="text-lg text-orange-100">
+                ETPL-Approved Programs
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-black mb-3">85%</div>
-              <div className="text-lg text-orange-100">Job Placement Rate</div>
+              <div className="text-6xl font-black mb-3">100%</div>
+              <div className="text-lg text-orange-100">
+                Free Training (WIOA/WRG Funded)
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-black mb-3">$45K</div>
-              <div className="text-lg text-orange-100">Average Starting Salary</div>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl font-black mb-3">500+</div>
-              <div className="text-lg text-orange-100">Employer Partners</div>
+              <div className="text-6xl font-black mb-3">$0</div>
+              <div className="text-lg text-orange-100">Student Debt</div>
             </div>
           </div>
         </div>
@@ -389,58 +428,66 @@ export default function AboutPage() {
 
           {/* Featured Pages - Larger Cards */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {aboutPages.filter(page => page.featured).map((page) => {
-              const Icon = page.icon;
-              return (
-                <Link
-                  key={page.href}
-                  href={page.href}
-                  className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-2 transform"
-                >
-                  <div className={`w-16 h-16 bg-${page.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`w-8 h-8 text-${page.color}-600`} />
-                  </div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
-                    {page.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                    {page.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
-                    <span>Learn More</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </Link>
-              );
-            })}
+            {aboutPages
+              .filter((page) => page.featured)
+              .map((page) => {
+                const Icon = page.icon;
+                return (
+                  <Link
+                    key={page.href}
+                    href={page.href}
+                    className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-2 transform"
+                  >
+                    <div
+                      className={`w-16 h-16 bg-${page.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon className={`w-8 h-8 text-${page.color}-600`} />
+                    </div>
+                    <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
+                      {page.title}
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                      {page.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
+                  </Link>
+                );
+              })}
           </div>
 
           {/* Additional Pages - Smaller Cards */}
           <div className="grid md:grid-cols-3 gap-6">
-            {aboutPages.filter(page => !page.featured).map((page) => {
-              const Icon = page.icon;
-              return (
-                <Link
-                  key={page.href}
-                  href={page.href}
-                  className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-1 transform"
-                >
-                  <div className={`w-12 h-12 bg-${page.color}-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`w-6 h-6 text-${page.color}-600`} />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
-                    {page.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">
-                    {page.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
-                    <span>Explore</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </Link>
-              );
-            })}
+            {aboutPages
+              .filter((page) => !page.featured)
+              .map((page) => {
+                const Icon = page.icon;
+                return (
+                  <Link
+                    key={page.href}
+                    href={page.href}
+                    className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-1 transform"
+                  >
+                    <div
+                      className={`w-12 h-12 bg-${page.color}-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon className={`w-6 h-6 text-${page.color}-600`} />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                      {page.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      {page.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                      <span>Explore</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+                );
+              })}
           </div>
         </div>
       </section>
