@@ -99,7 +99,7 @@
   }
 
   /* NUCLEAR: Block any overlay divs */
-  div.absolute.inset-0:not([role]):not([aria-label]):empty {
+  div[class*='absolute'][class*='inset-0']:empty {
     display: none !important;
   }
 
