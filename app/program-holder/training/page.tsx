@@ -29,105 +29,180 @@ export default async function TrainingPage() {
     .eq('id', user.id)
     .single();
 
-  // Fetch relevant data
-  const { data: items, count } = await supabase
-    .from('programs')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(20);
+  if (!profile || profile.role !== 'program_holder') {
+    redirect('/');
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/hero/portal-hero.jpg"
-          alt="Training"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Training
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Program Holder Training & Resources
           </h1>
-          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100">
-            Explore Training and discover opportunities for career growth and
-            development.
+          <p className="text-xl text-blue-100">
+            Watch our orientation video and access training materials to get
+            started
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/program-holder/dashboard"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Back to Dashboard
-            </Link>
+        </div>
+      </section>
+
+      {/* Orientation Video */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="p-8">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Program Holder Orientation Video
+              </h2>
+              <p className="text-lg text-slate-600 mb-6">
+                Watch this comprehensive orientation to understand your role,
+                responsibilities, and how to use the platform effectively.
+              </p>
+
+              {/* Video Player */}
+              <div className="relative aspect-video bg-slate-900 rounded-lg overflow-hidden">
+                <video
+                  controls
+                  className="w-full h-full"
+                  poster="/images/hero/portal-hero.jpg"
+                >
+                  <source
+                    src="/videos/training-providers-video-with-narration.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm text-blue-900">
+                  <strong>Duration:</strong> ~5 minutes |
+                  <strong className="ml-4">Topics Covered:</strong> Platform
+                  navigation, student enrollment, progress tracking, compliance
+                  reporting, and support resources
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Training Modules */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  Total Items
-                </h3>
-                <p className="text-3xl font-bold text-brand-blue-600">
-                  {count || 0}
-                </p>
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">
+            Training Modules
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Module 1 */}
+            <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-blue-700">1</span>
               </div>
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  Active
-                </h3>
-                <p className="text-3xl font-bold text-brand-green-600">
-                  {items?.filter((i) => i.status === 'active').length || 0}
-                </p>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  Recent
-                </h3>
-                <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter((i) => {
-                    const created = new Date(i.created_at);
-                    const weekAgo = new Date();
-                    weekAgo.setDate(weekAgo.getDate() - 7);
-                    return created > weekAgo;
-                  }).length || 0}
-                </p>
-              </div>
+              <h3 className="text-xl font-bold mb-3">Getting Started</h3>
+              <p className="text-slate-600 mb-4">
+                Learn how to set up your account, complete verification, and
+                navigate the dashboard.
+              </p>
+              <Link
+                href="/program-holder/onboarding"
+                className="text-blue-700 font-semibold hover:underline"
+              >
+                View Guide →
+              </Link>
             </div>
 
-            {/* Data Display */}
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {items && items.length > 0 ? (
-                <div className="space-y-4">
-                  {items.map((item) => (
-                    <div
-                      key={item.id}
-                      className="p-4 border rounded-lg hover:bg-gray-50"
-                    >
-                      <p className="font-semibold">
-                        {item.title || item.name || item.id}
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        {new Date(item.created_at).toLocaleDateString()}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-500 text-center py-8">No items found</p>
-              )}
+            {/* Module 2 */}
+            <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-green-700">2</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Student Management</h3>
+              <p className="text-slate-600 mb-4">
+                Enroll students, track progress, and manage your student roster
+                effectively.
+              </p>
+              <Link
+                href="/program-holder/students"
+                className="text-blue-700 font-semibold hover:underline"
+              >
+                Manage Students →
+              </Link>
+            </div>
+
+            {/* Module 3 */}
+            <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-purple-700">3</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Compliance & Reporting</h3>
+              <p className="text-slate-600 mb-4">
+                Understand reporting requirements and maintain compliance with
+                program standards.
+              </p>
+              <Link
+                href="/program-holder/compliance"
+                className="text-blue-700 font-semibold hover:underline"
+              >
+                View Compliance →
+              </Link>
+            </div>
+
+            {/* Module 4 */}
+            <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-orange-700">4</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Document Management</h3>
+              <p className="text-slate-600 mb-4">
+                Upload and manage required documents, licenses, and
+                certifications.
+              </p>
+              <Link
+                href="/program-holder/documents"
+                className="text-blue-700 font-semibold hover:underline"
+              >
+                Manage Documents →
+              </Link>
+            </div>
+
+            {/* Module 5 */}
+            <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-red-700">5</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Support & Resources</h3>
+              <p className="text-slate-600 mb-4">
+                Access help documentation, contact support, and find answers to
+                common questions.
+              </p>
+              <Link
+                href="/program-holder/support"
+                className="text-blue-700 font-semibold hover:underline"
+              >
+                Get Support →
+              </Link>
+            </div>
+
+            {/* Module 6 */}
+            <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-2xl font-bold text-teal-700">6</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Best Practices</h3>
+              <p className="text-slate-600 mb-4">
+                Learn proven strategies for student success and program
+                excellence.
+              </p>
+              <Link
+                href="/program-holder/handbook"
+                className="text-blue-700 font-semibold hover:underline"
+              >
+                Read Handbook →
+              </Link>
             </div>
           </div>
         </div>
