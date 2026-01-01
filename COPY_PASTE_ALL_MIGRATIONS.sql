@@ -132,7 +132,21 @@ INSERT INTO blog_posts (
 )
 ON CONFLICT (slug) DO NOTHING;
 
--- Step 4: Add missing apprenticeships
+-- Step 4: Check what columns exist in programs table
+-- ============================================================================
+
+-- First, let's see the structure
+DO $$ 
+BEGIN
+    -- Check if programs table exists
+    IF EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'programs') THEN
+        RAISE NOTICE 'Programs table exists';
+    ELSE
+        RAISE EXCEPTION 'Programs table does not exist!';
+    END IF;
+END $$;
+
+-- Step 5: Add missing apprenticeships
 -- ============================================================================
 
 INSERT INTO programs (
@@ -143,9 +157,7 @@ INSERT INTO programs (
     category,
     duration,
     cost,
-    funding_available,
-    outcomes,
-    highlights
+    funding_available
 ) VALUES
 (
     'esthetician-apprenticeship',
@@ -155,9 +167,7 @@ INSERT INTO programs (
     'Beauty & Wellness',
     '600 hours (3-6 months)',
     'Employer-sponsored',
-    true,
-    ARRAY['State esthetician license', 'Spa employment', 'Client skills'],
-    ARRAY['Earn while learning', 'State licensure', 'Build portfolio']
+    true
 ),
 (
     'ems-apprenticeship',
@@ -167,9 +177,7 @@ INSERT INTO programs (
     'Healthcare',
     '1-2 years',
     'Employer-sponsored',
-    true,
-    ARRAY['EMT/Paramedic certification', 'Emergency response', 'Patient assessment'],
-    ARRAY['Paid training', 'Real emergencies', 'National certification']
+    true
 ),
 (
     'culinary-apprenticeship',
@@ -179,9 +187,7 @@ INSERT INTO programs (
     'Hospitality',
     '2-3 years',
     'Employer-sponsored',
-    true,
-    ARRAY['Professional cooking', 'Food safety', 'Menu development'],
-    ARRAY['Train in restaurants', 'Learn from chefs', 'ServSafe cert']
+    true
 ),
 (
     'nail-technician-apprenticeship',
@@ -191,18 +197,21 @@ INSERT INTO programs (
     'Beauty & Wellness',
     '600 hours (3-6 months)',
     'Employer-sponsored',
-    true,
-    ARRAY['State nail tech license', 'Manicure/pedicure', 'Nail art'],
-    ARRAY['Earn while learning', 'State licensure', 'Build clients']
+    true
 )
 ON CONFLICT (slug) DO NOTHING;
 
--- Step 5: Fix slug mismatches
+-- Step 6: Fix slug mismatches
 -- ============================================================================
 
 UPDATE programs 
 SET slug = 'building-maintenance-apprenticeship'
 WHERE slug = 'building-technician';
+
+-- Update apprenticeships page links to match
+UPDATE programs
+SET slug = LOWER(REPLACE(name, ' ', '-'))
+WHERE slug IS NULL OR slug = '';
 
 -- ============================================================================
 -- DONE! Your database is now ready for deployment

@@ -1,7 +1,65 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+// Check if this is a white-label deployment (not main site)
+function isWhiteLabelDeployment(request: NextRequest): boolean {
+  const hostname = request.headers.get('host') || '';
+  const mainDomains = [
+    'elevateforhumanity.org',
+    'www.elevateforhumanity.org',
+    'localhost',
+    '127.0.0.1',
+  ];
+
+  return !mainDomains.some((domain) => hostname.includes(domain));
+}
+
+// Anti-scraping detection
+function detectScraping(request: NextRequest): boolean {
+  const userAgent = request.headers.get('user-agent') || '';
+  const scraperPatterns = [
+    /bot/i,
+    /crawler/i,
+    /spider/i,
+    /scraper/i,
+    /wget/i,
+    /curl/i,
+    /python/i,
+    /java(?!script)/i,
+    /httrack/i,
+    /download/i,
+  ];
+  return scraperPatterns.some((pattern) => pattern.test(userAgent));
+}
+
 export async function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Skip license check for public routes
+  const publicRoutes = [
+    '/api/health',
+    '/api/store/license',
+    '/_next',
+    '/favicon.ico',
+    '/images',
+    '/fonts',
+  ];
+
+  const isPublicRoute = publicRoutes.some((route) =>
+    pathname.startsWith(route)
+  );
+
+  // Anti-scraping check (for all deployments)
+  if (!isPublicRoute && detectScraping(request)) {
+    return new NextResponse(
+      JSON.stringify({
+        error: 'Access Denied',
+        message: 'Automated access not permitted',
+      }),
+      { status: 403, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
   let response = NextResponse.next({
     request: {
       headers: request.headers,
