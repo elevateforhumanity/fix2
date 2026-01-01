@@ -64,6 +64,31 @@
     -webkit-backdrop-filter: none !important;
   }
 
+  /* NUCLEAR: Block ALL gradient overlays */
+  .absolute.inset-0[class*='bg-gradient'],
+  .absolute.inset-0[class*='from-'],
+  .absolute.inset-0[class*='to-'],
+  .fixed.inset-0[class*='bg-gradient'],
+  .fixed.inset-0[class*='from-'],
+  .fixed.inset-0[class*='to-'] {
+    display: none !important;
+  }
+
+  /* NUCLEAR: Block gradient overlays with black/white */
+  .absolute.inset-0[class*='from-black'],
+  .absolute.inset-0[class*='to-black'],
+  .absolute.inset-0[class*='from-white'],
+  .absolute.inset-0[class*='to-white'],
+  .absolute.inset-0[class*='via-black'],
+  .absolute.inset-0[class*='via-white'] {
+    display: none !important;
+  }
+
+  /* NUCLEAR: Block any overlay divs */
+  div.absolute.inset-0:not([role]):not([aria-label]):empty {
+    display: none !important;
+  }
+
   h1,
   h2,
   h3,
