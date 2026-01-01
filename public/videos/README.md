@@ -1,82 +1,70 @@
-# Video Assets
+# Video Hero Banner
 
-This directory contains all video assets for the Elevate for Humanity website.
+## Required Video Files
+
+Place your hero banner video files in this directory:
+
+- `hero-banner.mp4` - MP4 format (recommended for broad compatibility)
+- `hero-banner.webm` - WebM format (optional, for better compression)
+
+## Video Specifications
+
+### Recommended Settings:
+
+- **Resolution:** 1920x1080 (Full HD) or 3840x2160 (4K)
+- **Aspect Ratio:** 16:9
+- **Duration:** 10-30 seconds (loops automatically)
+- **File Size:** Under 10MB for optimal loading
+- **Frame Rate:** 30fps or 60fps
+- **Codec:** H.264 for MP4, VP9 for WebM
+
+### Optimization Tips:
+
+1. **Compress your video** using tools like HandBrake or FFmpeg
+2. **Remove audio track** if not needed (reduces file size)
+3. **Use lower bitrate** for web delivery (3-5 Mbps is usually sufficient)
+4. **Consider using a CDN** for faster delivery
+
+## FFmpeg Compression Example
+
+```bash
+# Compress MP4 for web
+ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset slow -vf scale=1920:1080 -an hero-banner.mp4
+
+# Create WebM version
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 30 -b:v 0 -vf scale=1920:1080 -an hero-banner.webm
+```
+
+## Fallback Image
+
+The component uses `/images/heroes/hero-homepage.jpg` as a poster image.
+This displays while the video loads or if video playback fails.
 
 ## Current Status
 
-✅ **66 videos uploaded and active**
+⚠️ **Video files not yet added**
 
-All videos are stored locally. No external CDN dependencies.
+To activate the video hero:
 
-## Directory Structure
+1. Add `hero-banner.mp4` to this directory
+2. Optionally add `hero-banner.webm` for better compression
+3. Video will auto-play on page load (muted by default)
 
-```
-/public/videos/
-├── hero-*.mp4              # Hero section videos
-├── *-section-video.mp4     # Section-specific videos
-├── *-spotlight.mp4         # Spotlight/feature videos
-└── courses/                # Course-specific videos
-    └── *.mp4
-```
+## Features
 
-## Video Inventory
+The VideoHeroBanner component includes:
 
-### Hero Videos (Main)
-- `hero-home.mp4` - Homepage hero background video
+- ✅ Auto-play (muted)
+- ✅ Loop playback
+- ✅ Play/Pause control
+- ✅ Mute/Unmute control
+- ✅ Fullscreen control
+- ✅ Responsive sizing
+- ✅ Fallback poster image
+- ✅ Smooth overlay gradient
+- ✅ Content overlay with CTAs
 
-### Program Hero Videos
-- `barber-hero.mp4`, `barber-hero-final.mp4`, `barber-hero-new.mp4`
-- `business-hero.mp4`, `business-hero-final.mp4`
-- `cna-hero.mp4`, `cdl-hero.mp4`
-- `building-technician-hero.mp4`
+## Alternative: YouTube/Vimeo Embed
 
-### Section Videos
-- `about-section-video.mp4`
-- `apply-section-video.mp4`
-- `employer-section-video.mp4`
-- `programs-overview-video.mp4`
-- `success-stories-video.mp4`
-
-### Narrated Versions (Accessibility)
-Many videos have `-with-narration` variants for improved accessibility.
-
-### Course Videos
-Located in `/public/videos/courses/` - program-specific training videos.
-
-## Usage in Components
-
-```tsx
-<video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover"
-  poster="/images/heroes/hero-homepage.jpg"
->
-  <source src="/videos/hero-home.mp4" type="video/mp4" />
-</video>
-```
-
-## Best Practices
-
-1. Always include `poster` attribute with fallback image
-2. Use `muted` for autoplay compatibility
-3. Include `playsInline` for mobile devices
-4. Keep file sizes reasonable (< 5MB for hero videos)
-5. Provide narrated versions for accessibility
-
-## Git LFS
-
-Large video files are tracked with Git LFS:
-
-```bash
-git lfs install
-git lfs pull
-```
-
-See `.gitattributes` for configuration.
-
-## Documentation
-
-For complete media inventory, see `/MEDIA-INVENTORY.md`
+If you prefer to use YouTube or Vimeo instead of self-hosted video,
+update the VideoHeroBanner component to use an iframe embed.

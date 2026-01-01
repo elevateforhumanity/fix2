@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Hero } from '@/components/marketing/Hero';
+import VideoHeroBanner from '@/components/home/VideoHeroBanner';
 import { Briefcase, Users, ArrowRight, Star, Heart, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
-      <Hero />
+      <VideoHeroBanner />
 
       {/* Featured Programs */}
       <section className="w-full py-20 md:py-28 bg-white">
@@ -331,9 +331,7 @@ export default function HomePage() {
                     <Users className="w-6 h-6 text-brand-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-black mb-1">
-                      Hands-On Labs
-                    </h3>
+                    <h3 className="font-bold text-black mb-1">Hands-On Labs</h3>
                     <p className="text-black text-sm">
                       Fully equipped training labs for healthcare, HVAC, and
                       skilled trades
