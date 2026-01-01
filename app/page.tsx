@@ -160,46 +160,48 @@ export default function HomePage() {
       </section>
 
       {/* 100% Free Training - How We Fund It */}
-      <section className="w-full py-20 bg-white">
+      <section className="w-full py-20 bg-slate-50">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
               100% Free Training
             </h2>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
               No tuition. No fees. No student debt. Your training is fully
               funded through federal and state workforce programs.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <h3 className="text-2xl font-bold mb-3">WIOA</h3>
-              <p className="text-blue-100 text-sm leading-relaxed">
+            <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">WIOA</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
                 Workforce Innovation and Opportunity Act - Federal funding for
                 career training and job placement services
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <h3 className="text-2xl font-bold mb-3">WRG</h3>
-              <p className="text-blue-100 text-sm leading-relaxed">
+            <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">WRG</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
                 Workforce Ready Grant - Indiana state funding for short-term
                 credential programs in high-demand fields
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <h3 className="text-2xl font-bold mb-3">DOL Apprenticeships</h3>
-              <p className="text-blue-100 text-sm leading-relaxed">
+            <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                DOL Apprenticeships
+              </h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
                 U.S. Department of Labor Registered Apprenticeships - Earn while
                 you learn with paid on-the-job training
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <h3 className="text-2xl font-bold mb-3">JRI</h3>
-              <p className="text-blue-100 text-sm leading-relaxed">
+            <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">JRI</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
                 Justice Reinvestment Initiative - Specialized programs for
                 justice-involved individuals reentering the workforce
               </p>
@@ -470,7 +472,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
             Ready to Transform Your Life?
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-white mb-8 md:mb-10 max-w-2xl mx-auto">
             Join 5,000+ students who chose free career training with Elevate for
             Humanity
           </p>
@@ -481,7 +483,7 @@ export default function HomePage() {
             <span>Apply Now - 100% Free</span>
             <ArrowRight className="w-6 h-6" />
           </Link>
-          <p className="text-white/80 mt-6 text-sm md:text-base">
+          <p className="text-white mt-6 text-sm md:text-base">
             Takes 5 minutes • No commitment required
           </p>
         </div>
