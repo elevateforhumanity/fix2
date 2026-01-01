@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import './globals-mobile-fixes.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import '@/styles/rich-design-system.css';

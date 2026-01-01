@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { 
+import {
   BookOpen,
   Video,
   Users,
@@ -11,12 +11,13 @@ import {
   CheckCircle,
   ArrowRight,
   Play,
-  Star
+  Star,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Learning Management System | Elevate for Humanity',
-  description: 'Access interactive courses, video lessons, quizzes, and collaboration tools. Learn at your own pace with our modern LMS platform.',
+  description:
+    'Access interactive courses, video lessons, quizzes, and collaboration tools. Learn at your own pace with our modern LMS platform.',
 };
 
 export default function LMSLandingPage() {
@@ -24,33 +25,33 @@ export default function LMSLandingPage() {
     {
       icon: Video,
       title: 'Video Lessons',
-      description: 'High-quality video content with expert instructors'
+      description: 'High-quality video content with expert instructors',
     },
     {
       icon: BookOpen,
       title: 'Interactive Courses',
-      description: 'Engaging lessons with quizzes and hands-on activities'
+      description: 'Engaging lessons with quizzes and hands-on activities',
     },
     {
       icon: Users,
       title: 'Discussion Forums',
-      description: 'Connect with classmates and instructors'
+      description: 'Connect with classmates and instructors',
     },
     {
       icon: Award,
       title: 'Earn Certificates',
-      description: 'Get recognized for completing courses'
+      description: 'Get recognized for completing courses',
     },
     {
       icon: MessageSquare,
       title: 'Live Chat Support',
-      description: '24/7 help when you need it'
+      description: '24/7 help when you need it',
     },
     {
       icon: TrendingUp,
       title: 'Track Progress',
-      description: 'Monitor your learning journey in real-time'
-    }
+      description: 'Monitor your learning journey in real-time',
+    },
   ];
 
   const courses = [
@@ -59,22 +60,22 @@ export default function LMSLandingPage() {
       instructor: 'Dr. Sarah Johnson',
       students: '1,200+',
       rating: 4.9,
-      image: '/images/course-healthcare.jpg'
+      image: '/images/course-healthcare.jpg',
     },
     {
       title: 'HVAC Technician Training',
       instructor: 'Mike Rodriguez',
       students: '850+',
       rating: 4.8,
-      image: '/images/course-hvac.jpg'
+      image: '/images/course-hvac.jpg',
     },
     {
       title: 'Business Management',
       instructor: 'Jennifer Lee',
       students: '2,100+',
       rating: 4.9,
-      image: '/images/course-business.jpg'
-    }
+      image: '/images/course-business.jpg',
+    },
   ];
 
   return (
@@ -83,10 +84,14 @@ export default function LMSLandingPage() {
       <section className="relative py-20 px-4 bg-gradient-to-br from-teal-600 to-teal-800 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+              backgroundSize: '40px 40px',
+            }}
+          ></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto">
@@ -106,16 +111,19 @@ export default function LMSLandingPage() {
 
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
                 <BookOpen className="w-5 h-5" />
-                <span className="text-sm font-semibold">Learning Management System</span>
+                <span className="text-sm font-semibold">
+                  Learning Management System
+                </span>
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight uppercase">
                 Learn Anywhere, Anytime
               </h1>
-              
+
               <p className="text-xl text-teal-100 mb-8 leading-relaxed">
-                Access interactive courses, video lessons, quizzes, and collaboration tools. 
-                Learn at your own pace with our modern LMS platform.
+                Access interactive courses, video lessons, quizzes, and
+                collaboration tools. Learn at your own pace with our modern LMS
+                platform.
               </p>
 
               {/* Stats */}
@@ -137,7 +145,7 @@ export default function LMSLandingPage() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/lms/dashboard"
+                  href="/dashboards"
                   className="inline-flex items-center justify-center gap-3 bg-orange-500 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl hover:bg-orange-600 hover:scale-105 transition-all"
                 >
                   <span>Access LMS</span>
@@ -148,7 +156,7 @@ export default function LMSLandingPage() {
                   className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white hover:text-teal-600 transition-all"
                 >
                   <Play className="w-5 h-5" />
-                  <span>Watch Demo</span>
+                  <span>Browse Courses</span>
                 </Link>
               </div>
             </div>
@@ -181,7 +189,8 @@ export default function LMSLandingPage() {
               Everything You Need to Succeed
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our LMS platform provides all the tools and resources for effective online learning
+              Our LMS platform provides all the tools and resources for
+              effective online learning
             </p>
           </div>
 
@@ -189,7 +198,10 @@ export default function LMSLandingPage() {
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all">
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all"
+                >
                   <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-teal-600" />
                   </div>
@@ -220,7 +232,10 @@ export default function LMSLandingPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {courses.map((course, idx) => (
-              <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-2xl transition-all hover:-translate-y-2 transform">
+              <div
+                key={idx}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-2xl transition-all hover:-translate-y-2 transform"
+              >
                 <div className="relative h-48 bg-gradient-to-br from-teal-500 to-teal-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <BookOpen className="w-16 h-16 text-white opacity-50" />
@@ -236,7 +251,9 @@ export default function LMSLandingPage() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-1">
                       <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      <span className="font-bold text-gray-900">{course.rating}</span>
+                      <span className="font-bold text-gray-900">
+                        {course.rating}
+                      </span>
                     </div>
                     <div className="text-sm text-gray-600">
                       {course.students} students
@@ -260,11 +277,15 @@ export default function LMSLandingPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center gap-1 mb-6">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
+              <Star
+                key={i}
+                className="w-8 h-8 fill-yellow-400 text-yellow-400"
+              />
             ))}
           </div>
           <blockquote className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-relaxed">
-            "The LMS platform made learning so easy. I could study at my own pace and the instructors were always available to help."
+            "The LMS platform made learning so easy. I could study at my own
+            pace and the instructors were always available to help."
           </blockquote>
           <p className="text-xl text-gray-600">
             — Marcus Thompson, CNA Graduate

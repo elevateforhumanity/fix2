@@ -64,11 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // About pages
-  const aboutPages = [
-    '/about/team',
-    '/about/founder',
-    '/what-we-do',
-  ];
+  const aboutPages = ['/what-we-do'];
 
   // Legal pages
   const legalPages = [
@@ -80,13 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Community pages
-  const communityPages = [
-    '/forums',
-    '/study-groups',
-    '/community',
-    '/blog',
-    '/grants',
-  ];
+  const communityPages = ['/forums', '/study-groups', '/community'];
 
   const allPages = [
     ...mainPages,

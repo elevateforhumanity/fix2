@@ -1,0 +1,155 @@
+/**
+ * Mobile UI Contrast and Layout Fixes
+ * Ensures WCAG AA compliance on mobile devices
+ */
+
+/* Force minimum contrast on mobile */
+@media (max-width: 768px) {
+  /* Text contrast fixes */
+  .text-gray-300,
+  .text-gray-400 {
+    @apply text-gray-700 !important;
+  }
+
+  .text-white\/90,
+  .text-white\/80,
+  .text-white\/70 {
+    @apply text-white !important;
+  }
+
+  .text-blue-100,
+  .text-blue-200 {
+    @apply text-gray-900 !important;
+  }
+
+  /* Remove opacity stacking on mobile */
+  .opacity-50,
+  .opacity-60,
+  .opacity-70 {
+    @apply opacity-100 !important;
+  }
+
+  /* Ensure solid backgrounds on mobile */
+  .bg-white\/10,
+  .bg-white\/20,
+  .bg-white\/30 {
+    @apply bg-white !important;
+  }
+
+  .bg-black\/10,
+  .bg-black\/20,
+  .bg-black\/30 {
+    @apply bg-gray-100 !important;
+  }
+
+  /* Fix navigation overlaps */
+  nav {
+    z-index: 50;
+  }
+
+  /* Ensure buttons are tappable (min 44x44px) */
+  button,
+  a[role='button'],
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Fix card text visibility */
+  .card,
+  .rich-card {
+    @apply bg-white !important;
+  }
+
+  .card p,
+  .rich-card p {
+    @apply text-gray-700 !important;
+  }
+
+  /* Fix hero text on mobile */
+  .hero-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Ensure form inputs are visible */
+  input,
+  textarea,
+  select {
+    @apply border-2 border-gray-300 !important;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply border-blue-600 !important;
+  }
+
+  /* Fix modal/dialog contrast */
+  .modal,
+  .dialog {
+    @apply bg-white text-gray-900 !important;
+  }
+
+  /* Ensure links are distinguishable */
+  a:not(.btn):not(.button) {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 2px;
+  }
+
+  /* Fix dropdown menus */
+  .dropdown-menu {
+    @apply bg-white border-2 border-gray-200 shadow-xl !important;
+  }
+
+  .dropdown-item {
+    @apply text-gray-900 hover:bg-gray-100 !important;
+  }
+}
+
+/* Tablet fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Ensure readable text on tablets */
+  .text-sm {
+    @apply text-base !important;
+  }
+
+  .text-xs {
+    @apply text-sm !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-width: 2px !important;
+  }
+
+  .text-gray-300,
+  .text-gray-400,
+  .text-gray-500 {
+    @apply text-gray-900 !important;
+  }
+
+  button,
+  .btn {
+    @apply border-2 border-current !important;
+  }
+}
+
+/* Dark mode mobile fixes */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  body {
+    @apply bg-gray-900 text-white !important;
+  }
+
+  .card,
+  .rich-card {
+    @apply bg-gray-800 !important;
+  }
+
+  .text-gray-700,
+  .text-gray-900 {
+    @apply text-gray-100 !important;
+  }
+}
