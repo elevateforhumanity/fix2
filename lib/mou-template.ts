@@ -92,28 +92,55 @@ MINUS direct, required program costs including:
 
 Net Program Revenue is calculated at the participant/program level or in reasonable grouped batches, using documentation maintained by Elevate.
 
-4.2 Program Holder Share (${payoutPercent}% Model)
+4.2 Program Holder Share (Universal 1/3 Model)
 
 For each eligible participant who is officially enrolled, funded, and started training under this MOU, the Program Holder will receive:
 
-${payoutPercent}% of the Net Program Revenue associated with that participant's training track,
+ONE-THIRD (1/3 or 33.33%) of the Net Program Revenue associated with that participant's training track.
 
-paid to Program Holder after:
-• the participant's enrollment has been verified,
-• agreed-upon credentialing and toolkit costs are accounted for,
-• and funds have been received and cleared by Elevate.
+This universal rate applies to all Program Holders and all programs to ensure fairness and consistency across the network.
 
-Elevate retains the remaining Net Program Revenue to cover administrative, platform, staffing, compliance, and coordination costs.
+PAYMENT STRUCTURE - TWO INCREMENTS:
+
+Payment 1 (50% of Program Holder Share):
+• Paid at mid-enrollment milestone
+• When participant reaches 50% completion of training hours
+• After enrollment verified and mid-point progress documented
+• Approximately 16.67% of Net Program Revenue
+
+Payment 2 (50% of Program Holder Share):
+• Paid upon successful completion
+• When participant completes training and earns credential
+• After completion verified and credential issued
+• Approximately 16.67% of Net Program Revenue
+
+Total Program Holder Share: 33.33% of Net Program Revenue (1/3)
+Elevate Retains: 66.67% of Net Program Revenue (2/3)
+
+Elevate retains the remaining Net Program Revenue to cover administrative, platform, staffing, compliance, coordination costs, and to support wraparound services for participants including:
+• Case management and support services
+• Career counseling and job placement
+• Transportation and childcare assistance
+• Emergency financial assistance
+• Mental health and substance abuse support
+• Technology and equipment loans
+• Tutoring and academic support
 
 4.3 Timing of Payments
 
-a. Payments to Program Holder will generally be issued on a monthly or quarterly cycle, once funds have been received and reconciled by Elevate.
+a. Payments to Program Holder will generally be issued on a monthly cycle, once funds have been received and reconciled by Elevate.
 
-b. A summary statement can be provided showing:
+b. Mid-enrollment payments (Payment 1) will be processed within 30 days of participant reaching 50% completion milestone.
+
+c. Completion payments (Payment 2) will be processed within 30 days of credential issuance and final verification.
+
+d. A summary statement will be provided showing:
    • Number of participants
    • Funding source(s)
    • Gross revenue, direct program expenses, and Net Program Revenue
-   • Amount payable to Program Holder (${payoutPercent}% share)
+   • Amount payable to Program Holder (1/3 share split into two payments)
+   • Payment 1 status (mid-enrollment)
+   • Payment 2 status (completion)
 
 4.4 Non-Funded / Free Participants
 
@@ -129,13 +156,23 @@ c. Elevate will maintain training records, certificates, and participation repor
 
 6. TERM AND TERMINATION
 
-a. This MOU becomes effective on the date of the last signature below and remains in effect until terminated by either party.
+a. MONTH-TO-MONTH AGREEMENT: This MOU becomes effective on the date of the last signature below and operates on a month-to-month basis. There is no long-term commitment required from either party.
 
-b. Either party may terminate this MOU with 30 days' written notice.
+b. TERMINATION WITH NOTICE: Either party may terminate this MOU at any time with 30 days' written notice. Notice may be provided via email to the contact addresses listed in this agreement.
 
-c. Elevate may suspend or terminate this agreement immediately in cases of serious non-compliance, safety concerns, fraud, or other material breach.
+c. IMMEDIATE TERMINATION: Elevate may suspend or terminate this agreement immediately, without the 30-day notice period, in cases of:
+   • Serious non-compliance with WIOA, FERPA, or other regulatory requirements
+   • Safety concerns or violations
+   • Fraud, misrepresentation, or falsification of records
+   • Material breach of confidentiality or non-compete provisions
+   • Misuse of funds or participant information
 
-d. Upon termination, Elevate will pay any amounts already earned and due to Program Holder for participants who were properly enrolled and funded prior to the termination date, following the normal reconciliation process.
+d. PAYMENT UPON TERMINATION: Upon termination, Elevate will pay any amounts already earned and due to Program Holder for participants who were properly enrolled and funded prior to the termination date, following the normal reconciliation process. This includes:
+   • Payment 1 (mid-enrollment) for participants who reached 50% completion before termination
+   • Payment 2 (completion) for participants who completed training before termination
+   • No payment will be made for participants who did not reach payment milestones
+
+e. TRANSITION PERIOD: Upon termination, Program Holder agrees to cooperate with Elevate to ensure smooth transition of any active participants to alternative training arrangements, if applicable.
 
 7. INDEPENDENT CONTRACTOR RELATIONSHIP
 

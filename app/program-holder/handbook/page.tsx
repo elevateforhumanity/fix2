@@ -68,8 +68,20 @@ export default async function ProgramHolderHandbookPage() {
               approved training programs
             </li>
             <li>
+              <strong>WorkOne Registration (REQUIRED):</strong> Send all
+              students to WorkOne to register and track their progress through
+              the state system. This is mandatory for WIOA compliance and
+              funding eligibility.
+            </li>
+            <li>
               <strong>Progress Tracking:</strong> Monitor and report student
-              progress through the platform
+              progress through the platform AND through WorkOne
+            </li>
+            <li>
+              <strong>Student Recruitment (REQUIRED):</strong> Actively recruit
+              eligible students for your training programs. Program Holders are
+              responsible for maintaining enrollment levels through marketing,
+              outreach, and community partnerships.
             </li>
             <li>
               <strong>Attendance Verification:</strong> Verify student
@@ -89,7 +101,62 @@ export default async function ProgramHolderHandbookPage() {
             </li>
           </ul>
 
-          <h3>2. Student Management</h3>
+          <h3>2. Required Documentation for Program Holders</h3>
+          <p>
+            <strong>BEFORE YOU CAN ENROLL STUDENTS, YOU MUST SUBMIT:</strong>
+          </p>
+          <ul>
+            <li>
+              <strong>State Business License:</strong> Current and valid
+              business license from your state
+            </li>
+            <li>
+              <strong>Training Provider License:</strong> State-issued license
+              to operate as a training provider (if applicable to your industry)
+            </li>
+            <li>
+              <strong>Facility Inspection Certificate:</strong> Proof that your
+              training facility meets state safety and accessibility standards
+            </li>
+            <li>
+              <strong>Instructor Credentials:</strong> Copies of all instructor
+              licenses, certifications, and qualifications
+            </li>
+            <li>
+              <strong>Liability Insurance:</strong> Certificate of insurance
+              with minimum $1 million coverage
+            </li>
+            <li>
+              <strong>Workers' Compensation Insurance:</strong> Proof of
+              coverage for all employees
+            </li>
+            <li>
+              <strong>Background Checks:</strong> Criminal background checks for
+              all staff who will interact with students
+            </li>
+            <li>
+              <strong>Tax ID / EIN:</strong> Federal Employer Identification
+              Number
+            </li>
+            <li>
+              <strong>W-9 Form:</strong> For payment processing
+            </li>
+            <li>
+              <strong>Curriculum Approval:</strong> State-approved curriculum
+              for each program you will deliver
+            </li>
+            <li>
+              <strong>Equipment List:</strong> Inventory of training equipment
+              and tools available to students
+            </li>
+          </ul>
+          <p className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+            <strong>⚠️ IMPORTANT:</strong> You cannot enroll students or receive
+            payments until ALL required documents are submitted and approved by
+            Elevate for Humanity and the state workforce agency.
+          </p>
+
+          <h3>3. Student Management</h3>
           <p>
             You are responsible for managing all aspects of student enrollment,
             progress, and completion. This includes:
@@ -102,7 +169,7 @@ export default async function ProgramHolderHandbookPage() {
             <li>Ensuring students receive proper support services</li>
           </ul>
 
-          <h3>3. Compliance Requirements</h3>
+          <h3>4. Compliance Requirements</h3>
           <p>
             As a WIOA-funded program partner, you must comply with all federal,
             state, and local regulations:
@@ -129,7 +196,7 @@ export default async function ProgramHolderHandbookPage() {
             </li>
           </ul>
 
-          <h3>4. Financial Responsibilities</h3>
+          <h3>5. Financial Responsibilities</h3>
           <p>Program Holders receive payment based on student outcomes:</p>
           <ul>
             <li>
@@ -141,7 +208,7 @@ export default async function ProgramHolderHandbookPage() {
             <li>Financial records must be maintained for audit purposes</li>
           </ul>
 
-          <h3>5. Quality Assurance</h3>
+          <h3>6. Quality Assurance</h3>
           <p>
             Elevate for Humanity maintains high standards for all training
             programs:
@@ -154,7 +221,7 @@ export default async function ProgramHolderHandbookPage() {
             <li>Student satisfaction must be monitored and addressed</li>
           </ul>
 
-          <h3>6. Support Services</h3>
+          <h3>7. Support Services</h3>
           <p>Elevate for Humanity provides support to Program Holders:</p>
           <ul>
             <li>Technical assistance with platform usage</li>
@@ -164,7 +231,7 @@ export default async function ProgramHolderHandbookPage() {
             <li>Regular check-ins and performance reviews</li>
           </ul>
 
-          <h3>7. Termination and Suspension</h3>
+          <h3>8. Termination and Suspension</h3>
           <p>Program Holder agreements may be terminated or suspended for:</p>
           <ul>
             <li>Non-compliance with WIOA regulations</li>
@@ -175,7 +242,7 @@ export default async function ProgramHolderHandbookPage() {
             <li>Breach of MOU terms</li>
           </ul>
 
-          <h3>8. Contact Information</h3>
+          <h3>9. Contact Information</h3>
           <p>For questions or support:</p>
           <ul>
             <li>
@@ -189,7 +256,7 @@ export default async function ProgramHolderHandbookPage() {
             </li>
           </ul>
 
-          <h3>9. Acknowledgement</h3>
+          <h3>10. Acknowledgement</h3>
           <p>
             By acknowledging this handbook, you confirm that you have read,
             understood, and agree to comply with all policies and procedures
