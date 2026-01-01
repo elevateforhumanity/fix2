@@ -15,28 +15,90 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Student Portal | Elevate for Humanity',
+  title: 'Dashboards & Portals | Elevate for Humanity',
   description:
-    'Access your student portal - courses, assignments, grades, and career services.',
+    'Access your dashboard - Student Portal, LMS, Admin, Partner Portal, Employer Portal, and more.',
 };
 
 export default function DashboardLandingPage() {
-  // Redirect to student portal - this is the only public dashboard
-  const studentPortal = {
-    title: 'Student Portal',
-    description:
-      'Access your courses, assignments, grades, career services, and more',
-    href: '/student/dashboard',
-    icon: GraduationCap,
-  };
-
-  const Icon = studentPortal.icon;
+  const dashboards = [
+    {
+      title: 'Student Portal',
+      description: 'Access courses, assignments, grades, and career services',
+      href: '/student/dashboard',
+      icon: GraduationCap,
+      audience: 'For Students',
+    },
+    {
+      title: 'LMS',
+      description: 'Full learning platform with interactive courses and forums',
+      href: '/lms/dashboard',
+      icon: BookOpen,
+      audience: 'For Students',
+    },
+    {
+      title: 'Admin Dashboard',
+      description: 'Manage students, programs, and system operations',
+      href: '/admin',
+      icon: UserCog,
+      audience: 'For Administrators',
+    },
+    {
+      title: 'Staff Portal',
+      description: 'Staff tools for student and course management',
+      href: '/staff-portal',
+      icon: Users,
+      audience: 'For Staff',
+    },
+    {
+      title: 'Program Holder',
+      description: 'Manage training programs and compliance',
+      href: '/program-holder/dashboard',
+      icon: Award,
+      audience: 'For Program Holders',
+    },
+    {
+      title: 'Partner Portal',
+      description: 'Training partner tools and reporting',
+      href: '/partner',
+      icon: Briefcase,
+      audience: 'For Partners',
+    },
+    {
+      title: 'Employer Portal',
+      description: 'Post jobs and review candidates',
+      href: '/employer',
+      icon: Building2,
+      audience: 'For Employers',
+    },
+    {
+      title: 'Workforce Board',
+      description: 'Oversight and performance metrics',
+      href: '/workforce-board',
+      icon: BarChart3,
+      audience: 'For Boards',
+    },
+    {
+      title: 'Parent Portal',
+      description: 'Monitor student progress and attendance',
+      href: '/parent-portal',
+      icon: Users,
+      audience: 'For Parents',
+    },
+    {
+      title: 'Resources Store',
+      description: 'Course materials and supplies',
+      href: '/store',
+      icon: ShoppingBag,
+      audience: 'For Everyone',
+    },
+  ];
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Hero Section - Green/Teal Theme */}
+      <section className="py-16 px-4 bg-gradient-to-br from-teal-50 to-green-50">
+        <div className="max-w-6xl mx-auto text-center">
           {/* Logo */}
           <div className="mb-8">
             <Image
@@ -44,90 +106,67 @@ export default function DashboardLandingPage() {
               alt="Elevate for Humanity"
               width={200}
               height={80}
-              className="mx-auto brightness-0 invert"
+              className="mx-auto"
             />
           </div>
 
-          <GraduationCap className="h-20 w-20 text-white mx-auto mb-6" />
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Student Portal
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+            Choose Your Dashboard
           </h1>
 
-          <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">
-            Access your courses, assignments, grades, career services, and more
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Select the portal that matches your role to access courses, manage
+            programs, or track progress
           </p>
 
-          <Link
-            href="/student/dashboard"
-            className="inline-flex items-center gap-3 bg-white text-blue-600 px-10 py-5 rounded-xl text-lg font-black shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all"
-          >
-            <span>Access Student Portal</span>
-            <ArrowRight className="w-6 h-6" />
-          </Link>
+          <div className="inline-flex items-center gap-2 bg-teal-100 px-6 py-3 rounded-full border-2 border-teal-200">
+            <span className="text-teal-800 font-bold">
+              10 Portals Available • 24/7 Access • Mobile Friendly
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 px-4">
+      {/* Dashboard Grid - Holiday Gift Round-up Style */}
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-black text-black mb-12 text-center">
-            What's in Your Portal
-          </h2>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white border-2 border-blue-600 rounded-xl p-8">
-              <BookOpen className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="text-2xl font-bold text-black mb-3">Courses</h3>
-              <p className="text-black">
-                Access all your training courses, lessons, and learning
-                materials
-              </p>
-            </div>
+            {dashboards.map((dashboard) => {
+              const Icon = dashboard.icon;
+              return (
+                <Link
+                  key={dashboard.href}
+                  href={dashboard.href}
+                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-teal-500 hover:-translate-y-1 transform"
+                >
+                  {/* Icon */}
+                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:scale-110 transition-all">
+                    <Icon className="w-8 h-8 text-teal-600 group-hover:text-white transition-colors" />
+                  </div>
 
-            <div className="bg-white border-2 border-green-600 rounded-xl p-8">
-              <Award className="h-12 w-12 text-green-600 mb-4" />
-              <h3 className="text-2xl font-bold text-black mb-3">Grades</h3>
-              <p className="text-black">
-                Track your progress, view grades, and monitor completion status
-              </p>
-            </div>
+                  {/* Audience Badge */}
+                  <div className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+                    {dashboard.audience}
+                  </div>
 
-            <div className="bg-white border-2 border-purple-600 rounded-xl p-8">
-              <Briefcase className="h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="text-2xl font-bold text-black mb-3">
-                Career Services
-              </h3>
-              <p className="text-black">
-                Access job boards, resume help, and career counseling
-              </p>
-            </div>
+                  {/* Title */}
+                  <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-teal-600 transition-colors">
+                    {dashboard.title}
+                  </h3>
 
-            <div className="bg-white border-2 border-orange-600 rounded-xl p-8">
-              <Users className="h-12 w-12 text-orange-600 mb-4" />
-              <h3 className="text-2xl font-bold text-black mb-3">Support</h3>
-              <p className="text-black">
-                Get help from instructors, advisors, and support staff
-              </p>
-            </div>
+                  {/* Description */}
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {dashboard.description}
+                  </p>
 
-            <div className="bg-white border-2 border-teal-600 rounded-xl p-8">
-              <BarChart3 className="h-12 w-12 text-teal-600 mb-4" />
-              <h3 className="text-2xl font-bold text-black mb-3">
-                Progress Tracking
-              </h3>
-              <p className="text-black">
-                Monitor your attendance, completion rates, and milestones
-              </p>
-            </div>
-
-            <div className="bg-white border-2 border-pink-600 rounded-xl p-8">
-              <Building2 className="h-12 w-12 text-pink-600 mb-4" />
-              <h3 className="text-2xl font-bold text-black mb-3">Resources</h3>
-              <p className="text-black">
-                Download forms, access tools, and view important documents
-              </p>
-            </div>
+                  {/* CTA */}
+                  <div className="flex items-center gap-2 text-teal-600 font-bold group-hover:gap-3 transition-all">
+                    <span>Access Portal</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
