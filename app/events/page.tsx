@@ -10,14 +10,11 @@ import {
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 
-
 export const metadata: Metadata = {
   title: 'Events & Workshops | Elevate for Humanity',
   description:
     'Join us for information sessions, hiring events, workshops, and open houses. Free career training events in Indianapolis.',
 };
-
-const { data: upcomingEvents }: any = await supabase.from('events').select('*').gte('date', new Date().toISOString()).order('date');
 
 const eventTypeColors = {
   'Info Session': 'bg-blue-100 text-blue-700',
@@ -30,7 +27,13 @@ const eventTypeColors = {
 };
 
 export default async function EventsPage() {
-  const supabase: any = createClient();
+  const supabase = await createClient();
+  const { data: upcomingEvents } = await supabase
+    .from('events')
+    .select('*')
+    .gte('date', new Date().toISOString())
+    .order('date');
+  const events = upcomingEvents || [];
 
   return (
     <main className="min-h-screen bg-white">
@@ -68,7 +71,7 @@ export default async function EventsPage() {
             </div>
 
             <div className="space-y-6">
-              {upcomingEvents.map((event) => (
+              {events.map((event) => (
                 <div
                   key={event.id}
                   className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition"

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -7,11 +7,10 @@ import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 export const dynamic = 'force-dynamic';
 
 export default function AdminApprenticeships() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [apprenticeships, setApprenticeships] = useState<unknown[]>([]);
   const [pendingApprovals, setPendingApprovals] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,7 +90,7 @@ export default function AdminApprenticeships() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Apprenticeships

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -7,7 +7,6 @@ import { createClient } from '@/lib/supabase/client';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -26,7 +25,7 @@ function LoginForm() {
     setError('');
 
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,

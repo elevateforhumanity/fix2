@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +15,7 @@ export default function AdminLoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -164,7 +163,11 @@ export default function AdminLoginPage() {
 
         {/* Back to Site */}
         <div className="mt-6 text-center">
-          <Link href="/" aria-label="Link" className="text-sm text-slate-400 hover:text-white">
+          <Link
+            href="/"
+            aria-label="Link"
+            className="text-sm text-slate-400 hover:text-white"
+          >
             ← Back to site
           </Link>
         </div>

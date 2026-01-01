@@ -36,7 +36,7 @@ export default function UploadDocumentsPage() {
       setFiles((prev) => [...prev, newFile]);
 
       try {
-        const supabase = createClient();
+        const supabase = await createClient();
 
         // Upload to Supabase Storage
         const fileExt = file.name.split('.').pop();

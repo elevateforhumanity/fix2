@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -8,11 +8,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Users, Award, BookOpen, TrendingUp, Star } from 'lucide-react';
 
-
 export const dynamic = 'force-dynamic';
 
 export default function InstructorsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [instructors, setInstructors] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
@@ -74,7 +73,7 @@ export default function InstructorsPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Instructors Management

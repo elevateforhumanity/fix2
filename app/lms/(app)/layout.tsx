@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -6,19 +6,15 @@ import type { ReactNode } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { LMSNavigation } from '@/components/lms/LMSNavigation';
 
-export default function LmsAppLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function LmsAppLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const supabase = createClient();
-    
+    const supabase = await createClient();
+
     supabase.auth.getUser().then(({ data, error }) => {
       if (error || !data?.user) {
         router.push('/login?next=/lms/dashboard');

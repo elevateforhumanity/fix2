@@ -1,13 +1,12 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
-
 export default function PartnerWeeklyReportsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [shopId, setShopId] = useState('');
   const [placementId, setPlacementId] = useState('');
   const [weekStart, setWeekStart] = useState('');

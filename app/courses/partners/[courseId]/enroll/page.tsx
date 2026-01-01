@@ -35,7 +35,7 @@ export default function EnrollPage({
 
   useEffect(() => {
     async function loadCourse() {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       // Check authentication
       const {

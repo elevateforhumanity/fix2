@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
 import React from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-
 
 function startOfWeek(d: Date) {
   const date = new Date(d);
@@ -15,7 +14,7 @@ function startOfWeek(d: Date) {
 }
 
 export default function PartnerAttendancePage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [shopId, setShopId] = useState<string>('');
   const [weekStart, setWeekStart] = useState<string>(startOfWeek(new Date()));
   const [rows, setRows] = useState<unknown[]>([]);

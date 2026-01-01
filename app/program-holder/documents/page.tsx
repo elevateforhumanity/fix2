@@ -35,7 +35,7 @@ export default function ProgramHolderDocuments() {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const supabase = createClient();
+  const supabase = await createClient();
 
   useEffect(() => {
     loadDocuments();

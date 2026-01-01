@@ -14,7 +14,6 @@ import Link from 'next/link';
 import ScormPlayer from '@/components/student/ScormPlayer';
 import ExternalModuleLauncher from '@/components/student/ExternalModuleLauncher';
 
-
 interface PageProps {
   params: {
     slug: string;
@@ -23,7 +22,7 @@ interface PageProps {
 }
 
 export default async function ModulePlayerPage({ params }: PageProps) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get current user
   const {

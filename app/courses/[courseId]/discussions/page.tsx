@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -9,7 +9,6 @@ import { createClient } from '@/lib/supabase/client';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
 
 export default function CourseDiscussionsPage() {
   const params = useParams();
@@ -27,7 +26,7 @@ export default function CourseDiscussionsPage() {
   }, [courseId]);
 
   async function loadData() {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Load course
     const { data: courseData } = await supabase
@@ -63,7 +62,7 @@ export default function CourseDiscussionsPage() {
   async function createTopic() {
     if (!newTopic.trim() || !newMessage.trim()) return;
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -102,7 +101,7 @@ export default function CourseDiscussionsPage() {
             priority
             sizes="100vw"
           />
-          
+
           <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
               Discussions

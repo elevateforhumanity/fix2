@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -20,7 +20,6 @@ import {
 import { DiscussionForum } from '@/components/lms/DiscussionForum';
 import { QuizSystem } from '@/components/lms/QuizSystem';
 
-
 export default function LessonPage() {
   const params = useParams();
   const router = useRouter();
@@ -40,7 +39,7 @@ export default function LessonPage() {
 
   const fetchLessonData = async () => {
     const { createClient } = await import('@/lib/supabase/client');
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Fetch current lesson
     const { data: lessonData } = await supabase
@@ -104,7 +103,7 @@ export default function LessonPage() {
 
   const markComplete = async () => {
     const { createClient } = await import('@/lib/supabase/client');
-    const supabase = createClient();
+    const supabase = await createClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -279,7 +278,6 @@ export default function LessonPage() {
             playsInline
             controlsList="nodownload"
             className="w-full h-full"
-            
             onEnded={() => {
               if (!isCompleted) {
                 setIsCompleted(true);

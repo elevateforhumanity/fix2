@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -21,7 +21,7 @@ export default function SignInForm() {
     setLoading(true);
 
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
       const { data, error: signInError } =
         await supabase.auth.signInWithPassword({
           email,
@@ -55,7 +55,7 @@ export default function SignInForm() {
 
   const handleOAuthSignIn = async (provider: 'google' | 'azure') => {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -8,11 +8,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Plug, CheckCircle, XCircle, RefreshCw, Settings } from 'lucide-react';
 
-
 export const dynamic = 'force-dynamic';
 
 export default function IntegrationsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [integrations, setIntegrations] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -58,7 +57,7 @@ export default function IntegrationsPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Integrations Management

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 
 export default function PartnerLoginPage() {
   const router = useRouter();
-  const supabase = createClient();
+  const supabase = await createClient();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msg, setMsg] = useState<string | null>(null);

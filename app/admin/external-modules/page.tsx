@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -9,7 +9,6 @@ import Image from 'next/image';
 export const dynamic = 'force-dynamic';
 
 import {
-
   ExternalLink,
   CheckCircle,
   Clock,
@@ -18,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export default function ExternalModulesPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [modules, setModules] = useState<unknown[]>([]);
   const [pendingApprovals, setPendingApprovals] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
@@ -111,7 +110,7 @@ export default function ExternalModulesPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             External Modules Management

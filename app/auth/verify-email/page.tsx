@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -7,13 +7,17 @@ import { createClient } from '@/lib/supabase/client';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function VerifyEmailPage() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
-  const supabase = createClient();
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(
+    'idle'
+  );
+  const supabase = await createClient();
 
   const resendVerification = async () => {
     setStatus('sending');
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user?.email) {
         setStatus('error');
         return;
@@ -41,7 +45,8 @@ export default function VerifyEmailPage() {
             Verify Your Email
           </h1>
           <p className="text-gray-600">
-            Please check your email and click the verification link to access your account.
+            Please check your email and click the verification link to access
+            your account.
           </p>
         </div>
 
@@ -49,8 +54,12 @@ export default function VerifyEmailPage() {
           <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
             <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-green-900">Verification email sent!</p>
-              <p className="text-sm text-green-700">Check your inbox and spam folder.</p>
+              <p className="text-sm font-medium text-green-900">
+                Verification email sent!
+              </p>
+              <p className="text-sm text-green-700">
+                Check your inbox and spam folder.
+              </p>
             </div>
           </div>
         )}
@@ -59,8 +68,12 @@ export default function VerifyEmailPage() {
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-red-900">Error sending email</p>
-              <p className="text-sm text-red-700">Please try again or contact support.</p>
+              <p className="text-sm font-medium text-red-900">
+                Error sending email
+              </p>
+              <p className="text-sm text-red-700">
+                Please try again or contact support.
+              </p>
             </div>
           </div>
         )}
@@ -70,13 +83,20 @@ export default function VerifyEmailPage() {
           disabled={status === 'sending' || status === 'sent'}
           className="w-full py-3 px-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
-          {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Email Sent' : 'Resend Verification Email'}
+          {status === 'sending'
+            ? 'Sending...'
+            : status === 'sent'
+              ? 'Email Sent'
+              : 'Resend Verification Email'}
         </button>
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
             Need help?{' '}
-            <a href="/contact" className="text-orange-600 hover:text-orange-700 font-medium">
+            <a
+              href="/contact"
+              className="text-orange-600 hover:text-orange-700 font-medium"
+            >
               Contact Support
             </a>
           </p>

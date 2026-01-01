@@ -10,7 +10,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Programs Catalog | Elevate for Humanity',
-  description: 'Complete catalog of workforce training programs - State, Federal & Partner Programs',
+  description:
+    'Complete catalog of workforce training programs - State, Federal & Partner Programs',
 };
 
 interface Program {
@@ -31,8 +32,8 @@ interface Program {
 }
 
 export default async function ProgramsCatalogPage() {
-  const supabase = createClient();
-  
+  const supabase = await createClient();
+
   // Fetch all active programs
   const { data: programs, error } = await supabase
     .from('programs')
@@ -53,7 +54,7 @@ export default async function ProgramsCatalogPage() {
 
   programs?.forEach((program) => {
     const funding = program.metadata?.funding || [];
-    
+
     if (funding.includes('WRG') || funding.includes('DWD')) {
       groupedPrograms.state.push(program);
     }
@@ -69,14 +70,15 @@ export default async function ProgramsCatalogPage() {
     <main className="bg-white">
       {/* Hero Banner */}
       <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920)'
+            backgroundImage:
+              'url(https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        
+
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white uppercase tracking-wide">
@@ -92,11 +94,10 @@ export default async function ProgramsCatalogPage() {
       {/* Programs Catalog */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {error && (
             <div className="mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
               <p className="text-yellow-800">
-                <strong>Note:</strong> Unable to load programs from database. 
+                <strong>Note:</strong> Unable to load programs from database.
                 Please ensure Supabase credentials are configured in .env.local
               </p>
             </div>
@@ -108,7 +109,7 @@ export default async function ProgramsCatalogPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
                 State Programs ({groupedPrograms.state.length})
               </h2>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {groupedPrograms.state.map((program) => (
                   <Link
@@ -146,7 +147,7 @@ export default async function ProgramsCatalogPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
                 Federal Programs ({groupedPrograms.federal.length})
               </h2>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {groupedPrograms.federal.map((program) => (
                   <Link
@@ -182,7 +183,7 @@ export default async function ProgramsCatalogPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
                 Partner Programs ({groupedPrograms.partner.length})
               </h2>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {groupedPrograms.partner.map((program) => (
                   <Link

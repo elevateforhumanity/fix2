@@ -31,7 +31,7 @@ export default function OrgInvitesPage() {
 
   async function loadInvites() {
     try {
-      const supabase = createClient();
+      const supabase = await createClient();
 
       // Get current user's organization
       const {

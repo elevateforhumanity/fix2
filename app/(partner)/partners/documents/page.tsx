@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-
 
 const TYPES = [
   'mou',
@@ -17,7 +16,7 @@ const TYPES = [
 ] as const;
 
 export default function PartnerDocumentsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [shopId, setShopId] = useState('');
   const [type, setType] = useState<(typeof TYPES)[number]>('mou');
   const [file, setFile] = useState<File | null>(null);
@@ -128,7 +127,11 @@ export default function PartnerDocumentsPage() {
         >
           Upload
         </button>
-        <button className="border rounded-xl px-4 py-2" aria-label="Button" onClick={refresh}>
+        <button
+          className="border rounded-xl px-4 py-2"
+          aria-label="Button"
+          onClick={refresh}
+        >
           Refresh
         </button>
       </div>

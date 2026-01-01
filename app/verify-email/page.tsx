@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -12,7 +12,7 @@ export default function VerifyEmailPage() {
   const [resending, setResending] = useState(false);
   const [resent, setResent] = useState(false);
   const [error, setError] = useState('');
-  const supabase = createClient();
+  const supabase = await createClient();
 
   useEffect(() => {
     // Get email from URL params or current user

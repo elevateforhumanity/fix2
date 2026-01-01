@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -63,7 +62,7 @@ interface SkillLog {
 }
 
 export default function SkillsTrackingPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const [students, setStudents] = useState<unknown[]>([]);
   const [selectedStudent, setSelectedStudent] = useState<string>('');
   const [selectedSkill, setSelectedSkill] = useState<string>('');
@@ -164,7 +163,7 @@ export default function SkillsTrackingPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Skills Tracking
