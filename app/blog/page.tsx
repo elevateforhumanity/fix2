@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Calendar, User, ArrowRight } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
   title: 'Blog | Success Stories & Updates | Elevate for Humanity',
@@ -9,8 +10,27 @@ export const metadata: Metadata = {
     'Read success stories, program updates, and career insights from Elevate for Humanity students and partners.',
 };
 
-// Mock blog data - replace with real data from CMS or database
-const blogPosts = [
+// Fetch blog posts from database
+async function getBlogPosts() {
+  const supabase = await createClient();
+
+  const { data: posts, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
+    .limit(20);
+
+  if (error) {
+    console.error('Error fetching blog posts:', error);
+    return mockBlogPosts; // Fallback to mock data
+  }
+
+  return posts || mockBlogPosts;
+}
+
+// Mock blog data - fallback if database is empty
+const mockBlogPosts = [
   {
     id: 1,
     title: "From Unemployed to HVAC Technician: Marcus's Journey",
@@ -77,7 +97,9 @@ const categories = [
   'Employer Stories',
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts();
+
   return (
     <main className="bg-white">
       {/* Hero Section */}
@@ -138,7 +160,8 @@ export default function BlogPage() {
               >
                 {/* Image */}
                 <div className="relative h-48 bg-slate-200 overflow-hidden">
-                  <Image priority
+                  <Image
+                    priority
                     src={post.image}
                     alt={post.title}
                     fill

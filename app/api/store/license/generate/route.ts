@@ -1,43 +1,112 @@
-import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
-import { toError, toErrorMessage } from '@/lib/safe';
+import { toErrorMessage } from '@/lib/safe';
+import crypto from 'crypto';
+
+// Generate license key
+function generateLicenseKey(): string {
+  return `EFH-${crypto.randomBytes(8).toString('hex').toUpperCase()}-${crypto.randomBytes(8).toString('hex').toUpperCase()}`;
+}
+
+// Determine tier and features from product
+function getProductTier(productSlug: string): {
+  tier: 'starter' | 'business' | 'enterprise';
+  features: string[];
+  maxDeployments: number;
+  maxUsers: number;
+  duration: number; // days
+} {
+  const tiers = {
+    'starter-license': {
+      tier: 'starter' as const,
+      features: ['basic_lms', 'single_deployment', 'email_support'],
+      maxDeployments: 1,
+      maxUsers: 50,
+      duration: 365,
+    },
+    'school-license': {
+      tier: 'business' as const,
+      features: [
+        'complete_lms',
+        'payment_integration',
+        'white_label',
+        'priority_support',
+      ],
+      maxDeployments: 3,
+      maxUsers: 500,
+      duration: 365,
+    },
+    'agency-license': {
+      tier: 'business' as const,
+      features: [
+        'complete_lms',
+        'payment_integration',
+        'white_label',
+        'api_access',
+      ],
+      maxDeployments: 5,
+      maxUsers: 1000,
+      duration: 365,
+    },
+    'enterprise-license': {
+      tier: 'enterprise' as const,
+      features: [
+        'complete_lms',
+        'payment_integration',
+        'white_label',
+        'api_access',
+        'custom_development',
+        'dedicated_support',
+      ],
+      maxDeployments: 999,
+      maxUsers: 999999,
+      duration: 365,
+    },
+  };
+
+  return tiers[productSlug as keyof typeof tiers] || tiers['starter-license'];
+}
 
 export async function POST(req: Request) {
   try {
-    const { email, productId } = await req.json();
+    const { email, productSlug, domain } = await req.json();
 
-    if (!email || !productId) {
+    if (!email || !productSlug) {
       return Response.json(
-        { error: 'Email and productId required' },
+        { error: 'Email and productSlug required' },
         { status: 400 }
       );
     }
 
     const supabase = await createClient();
 
-    // Verify product exists
-    const { data: product, error: productError } = await supabase
-      .from('products')
-      .select('*')
-      .eq('id', productId)
-      .single();
-
-    if (productError || !product) {
-      return Response.json({ error: 'Product not found' }, { status: 404 });
-    }
+    // Get product configuration
+    const config = getProductTier(productSlug);
 
     // Generate license key
     const licenseKey = generateLicenseKey();
-    const licenseHash = hashLicenseKey(licenseKey);
+
+    // Calculate expiration
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + config.duration);
 
     // Store license
     const { data: license, error: licenseError } = await supabase
       .from('licenses')
       .insert({
-        email,
-        product_id: productId,
-        license_key: licenseHash,
+        license_key: licenseKey,
+        domain: domain || 'pending-setup',
+        customer_email: email,
+        tier: config.tier,
+        status: 'active',
+        features: config.features,
+        max_deployments: config.maxDeployments,
+        max_users: config.maxUsers,
+        expires_at: expiresAt.toISOString(),
+        metadata: {
+          product_slug: productSlug,
+          purchased_at: new Date().toISOString(),
+        },
       })
       .select()
       .single();
@@ -50,10 +119,16 @@ export async function POST(req: Request) {
       );
     }
 
+    // TODO: Send license key via email
+    // await sendLicenseEmail(email, licenseKey, config);
+
     return Response.json({
       success: true,
       licenseKey, // Only return once, should be emailed to customer
       licenseId: license.id,
+      tier: config.tier,
+      expiresAt: expiresAt.toISOString(),
+      features: config.features,
     });
   } catch (error: unknown) {
     logger.error(

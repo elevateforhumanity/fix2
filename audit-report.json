@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-01T15:53:50.068Z",
+  "timestamp": "2026-01-01T16:31:06.911Z",
   "services": {
     "Environment Variables": {
       "status": "success",
@@ -9,55 +9,55 @@
         "optional_set": 6,
         "optional_missing": []
       },
-      "tested_at": "2026-01-01T15:53:50.070Z"
+      "tested_at": "2026-01-01T16:31:06.913Z"
     },
     "Supabase (Anon)": {
-      "status": "failed",
-      "message": "permission denied for table programs",
+      "status": "success",
+      "message": "Connected successfully",
       "details": null,
-      "tested_at": "2026-01-01T15:53:50.539Z"
+      "tested_at": "2026-01-01T16:31:07.418Z"
     },
     "Supabase (Service Role)": {
       "status": "success",
       "message": "Connected successfully",
       "details": null,
-      "tested_at": "2026-01-01T15:53:50.696Z"
+      "tested_at": "2026-01-01T16:31:07.536Z"
     },
     "PostgreSQL": {
       "status": "success",
       "message": "Connected. Programs in database: 51",
       "details": null,
-      "tested_at": "2026-01-01T15:53:50.778Z"
+      "tested_at": "2026-01-01T16:31:07.647Z"
     },
     "Stripe": {
       "status": "failed",
       "message": "Invalid API Key provided: sk_live_***********************************************************************************************EVq1",
       "details": null,
-      "tested_at": "2026-01-01T15:53:50.803Z"
+      "tested_at": "2026-01-01T16:31:07.675Z"
     },
     "Resend": {
       "status": "success",
       "message": "Connected successfully. Domains: 1",
       "details": null,
-      "tested_at": "2026-01-01T15:53:50.873Z"
+      "tested_at": "2026-01-01T16:31:07.737Z"
     },
     "OpenAI": {
       "status": "success",
       "message": "Connected successfully. Models available: 111",
       "details": null,
-      "tested_at": "2026-01-01T15:53:51.896Z"
+      "tested_at": "2026-01-01T16:31:08.212Z"
     },
     "Upstash Redis": {
       "status": "success",
       "message": "Connected and tested read/write",
       "details": null,
-      "tested_at": "2026-01-01T15:53:51.995Z"
+      "tested_at": "2026-01-01T16:31:08.314Z"
     }
   },
   "summary": {
     "total": 8,
-    "working": 6,
-    "failed": 2,
+    "working": 7,
+    "failed": 1,
     "skipped": 0
   }
 }
