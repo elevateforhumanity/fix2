@@ -1,295 +1,376 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { requireAuth } from '@/lib/auth-guard';
-import { requireRole } from '@/lib/rbac-guard';
+import Image from 'next/image';
+import {
+  Users,
+  BookOpen,
+  BarChart3,
+  MessageSquare,
+  Calendar,
+  FileText,
+  CheckCircle,
+  ArrowRight,
+  Clock,
+  Shield,
+  Zap,
+  TrendingUp,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/staff-portal',
-  },
-  title: 'Staff Portal | Elevate For Humanity',
-  description: 'Staff portal for managing students, courses, and operations.',
+  title:
+    'Staff Portal - Streamline Student & Course Management | Elevate For Humanity',
+  description:
+    'Powerful staff portal for managing students, courses, attendance, and operations. Save time with automated workflows and real-time reporting.',
 };
 
-export default async function StaffPortalPage() {
-  // Enforce authentication and role
-  const session = await requireAuth();
-  requireRole(session, ['admin', 'super_admin', 'advisor']);
+export default function StaffPortalLandingPage() {
+  const features = [
+    {
+      icon: Users,
+      title: 'Student Management',
+      description:
+        'Track student progress, attendance, and engagement in one place',
+    },
+    {
+      icon: BookOpen,
+      title: 'Course Administration',
+      description: 'Manage courses, schedules, and curriculum with ease',
+    },
+    {
+      icon: BarChart3,
+      title: 'Real-Time Reporting',
+      description: 'Generate reports on enrollment, completion, and outcomes',
+    },
+    {
+      icon: MessageSquare,
+      title: 'Communication Tools',
+      description: 'Message students, send announcements, and track responses',
+    },
+    {
+      icon: Calendar,
+      title: 'Attendance Tracking',
+      description: 'Monitor attendance and identify at-risk students early',
+    },
+    {
+      icon: FileText,
+      title: 'Document Management',
+      description:
+        'Store and access student records, forms, and compliance docs',
+    },
+  ];
 
-  // Check if user has staff/admin access
-  const allowedRoles = ['staff', 'admin', 'super_admin', 'instructor'];
-  if (!profile || !allowedRoles.includes(profile.role)) {
-    redirect('/unauthorized');
-  }
-
-  // Fetch dashboard data
-  const { data: students, count: totalStudents } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .eq('role', 'student')
-    .order('created_at', { ascending: false })
-    .limit(10);
-
-  const { count: activeEnrollments } = await supabase
-    .from('enrollments')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
-
-  const { count: totalCourses } = await supabase
-    .from('courses')
-    .select('*', { count: 'exact', head: true });
-
-  const { data: recentEnrollments } = await supabase
-    .from('enrollments')
-    .select(
-      `
-      id,
-      created_at,
-      status,
-      profiles (full_name, email),
-      courses (title)
-    `
-    )
-    .order('created_at', { ascending: false })
-    .limit(5);
+  const benefits = [
+    {
+      icon: Clock,
+      title: 'Save Time',
+      description:
+        'Automated workflows eliminate repetitive administrative tasks',
+    },
+    {
+      icon: Shield,
+      title: 'Stay Compliant',
+      description:
+        'Built-in compliance tracking for WIOA, DOL, and state requirements',
+    },
+    {
+      icon: Zap,
+      title: 'Work Faster',
+      description: 'Quick actions, bulk operations, and keyboard shortcuts',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Better Outcomes',
+      description: 'Data-driven insights help improve student success rates',
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-slate-900">
-                Staff Portal
-              </h1>
-              <p className="text-slate-600 mt-1">
-                Welcome back, {profile?.full_name || profile?.email}
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/10" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            {/* Logo */}
+            <div className="mb-8">
+              <Image
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                width={200}
+                height={80}
+                className="brightness-0 invert"
+              />
+            </div>
+
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6">
+              <Users className="w-5 h-5" />
+              <span className="text-sm font-bold">For Staff & Advisors</span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              Manage Students & Courses
+              <br />
+              <span className="text-yellow-300">More Efficiently</span>
+            </h1>
+
+            <p className="text-2xl md:text-3xl text-white/90 mb-8 leading-relaxed font-medium">
+              The all-in-one staff portal that saves you time with automated
+              workflows and real-time insights.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/staff-portal/dashboard"
+                className="inline-flex items-center justify-center gap-2 bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition shadow-2xl hover:scale-105"
+              >
+                Access Staff Portal
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
+              >
+                Request Demo
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Features */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+              Everything You Need in One Portal
+            </h2>
+            <p className="text-xl text-black max-w-3xl mx-auto">
+              Streamline your workflow with tools designed specifically for
+              workforce development staff
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-indigo-600 hover:shadow-xl transition-all"
+                >
+                  <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6">
+                    <Icon className="w-8 h-8 text-indigo-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-black leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+              Why Staff Love Our Portal
+            </h2>
+            <p className="text-xl text-black max-w-3xl mx-auto">
+              Built by workforce professionals, for workforce professionals
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, idx) => {
+              const Icon = benefit.icon;
+              return (
+                <div key={idx} className="text-center">
+                  <div className="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-black mb-3">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-black">{benefit.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* What You Can Do */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+              What You Can Do
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            <div className="flex items-start gap-4 bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  Enroll & Track Students
+                </h3>
+                <p className="text-black">
+                  Process applications, enroll students, track progress, and
+                  monitor completion rates in real-time
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  Manage Courses & Schedules
+                </h3>
+                <p className="text-black">
+                  Create courses, set schedules, assign instructors, and manage
+                  capacity with drag-and-drop simplicity
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  Generate Reports Instantly
+                </h3>
+                <p className="text-black">
+                  Create WIOA reports, outcome reports, and custom analytics
+                  with one click - no spreadsheets needed
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  Communicate Effectively
+                </h3>
+                <p className="text-black">
+                  Send targeted messages, announcements, and reminders to
+                  students, instructors, and partners
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  Stay Compliant
+                </h3>
+                <p className="text-black">
+                  Automated compliance tracking for WIOA, DOL, and state
+                  requirements with audit-ready documentation
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-black mb-2">
+                  Identify At-Risk Students
+                </h3>
+                <p className="text-black">
+                  Early warning system alerts you to attendance issues, low
+                  engagement, and students who need support
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who It's For */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
+              Who Should Use the Staff Portal?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 text-center border-2 border-gray-200">
+              <Users className="w-16 h-16 text-indigo-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-black mb-3">
+                Program Coordinators
+              </h3>
+              <p className="text-black">
+                Manage day-to-day operations, student enrollment, and program
+                delivery
               </p>
             </div>
-            <div className="flex gap-3">
-              <Link
-                href="/admin"
-                className="px-4 py-2 bg-brand-blue-600 text-white rounded-lg hover:bg-brand-blue-700 transition"
-              >
-                Admin Dashboard
-              </Link>
-              <form action="/api/auth/signout" method="post">
-                <button
-                  type="submit"
-                  className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition"
-                >
-                  Sign Out
-                </button>
-              </form>
+
+            <div className="bg-white rounded-2xl p-8 text-center border-2 border-gray-200">
+              <MessageSquare className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-black mb-3">
+                Career Advisors
+              </h3>
+              <p className="text-black">
+                Track student progress, provide support, and monitor career
+                outcomes
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 text-center border-2 border-gray-200">
+              <FileText className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-black mb-3">
+                Administrative Staff
+              </h3>
+              <p className="text-black">
+                Handle enrollment, documentation, reporting, and compliance
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-slate-600 mb-1">Total Students</p>
-                <p className="text-3xl font-bold text-slate-900">
-                  {totalStudents || 0}
-                </p>
-              </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">👥</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-slate-600 mb-1">
-                  Active Enrollments
-                </p>
-                <p className="text-3xl font-bold text-brand-green-600">
-                  {activeEnrollments || 0}
-                </p>
-              </div>
-              <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">📚</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-slate-600 mb-1">Total Courses</p>
-                <p className="text-3xl font-bold text-brand-orange-600">
-                  {totalCourses || 0}
-                </p>
-              </div>
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">📊</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">
-            Quick Actions
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            Ready to Streamline Your Workflow?
           </h2>
-          <div className="grid md:grid-cols-4 gap-4">
-            <Link
-              href="/staff-portal/students"
-              className="p-4 border-2 border-slate-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-center"
-            >
-              <div className="text-3xl mb-2">👥</div>
-              <div className="font-semibold text-slate-900">
-                Manage Students
-              </div>
-              <div className="text-sm text-slate-600 mt-1">
-                {totalStudents || 0} students
-              </div>
-            </Link>
-            <Link
-              href="/staff-portal/courses"
-              className="p-4 border-2 border-slate-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-center"
-            >
-              <div className="text-3xl mb-2">📚</div>
-              <div className="font-semibold text-slate-900">View Courses</div>
-              <div className="text-sm text-slate-600 mt-1">
-                {totalCourses || 0} courses
-              </div>
-            </Link>
+          <p className="text-xl md:text-2xl text-white/90 mb-8">
+            Join staff members who streamline their workflow with our portal
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/staff-portal/dashboard"
-              className="p-4 border-2 border-slate-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition text-center"
+              className="inline-flex items-center justify-center gap-2 bg-white text-indigo-600 hover:bg-gray-100 px-10 py-5 rounded-xl text-lg font-black shadow-2xl hover:scale-105 transition-all"
             >
-              <div className="text-3xl mb-2">📊</div>
-              <div className="font-semibold text-slate-900">Reports</div>
-              <div className="text-sm text-slate-600 mt-1">View analytics</div>
+              Access Staff Portal
+              <ArrowRight className="w-6 h-6" />
             </Link>
             <Link
               href="/contact"
-              className="p-4 border-2 border-slate-200 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition text-center"
+              className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white/10 px-10 py-5 rounded-xl text-lg font-black transition-all"
             >
-              <div className="text-3xl mb-2">💬</div>
-              <div className="font-semibold text-slate-900">Support</div>
-              <div className="text-sm text-slate-600 mt-1">Get help</div>
+              Contact Support
             </Link>
           </div>
+          <p className="text-white/80 mt-6">
+            Need help? Contact us at (317) 314-3757
+          </p>
         </div>
-
-        {/* Recent Students */}
-        <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-slate-900">
-              Recent Students
-            </h2>
-            <Link
-              href="/staff-portal/students"
-              className="text-brand-blue-600 hover:text-brand-blue-700 font-semibold text-sm"
-            >
-              View All →
-            </Link>
-          </div>
-          {students && students.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-slate-200">
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
-                      Name
-                    </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
-                      Email
-                    </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
-                      Phone
-                    </th>
-                    <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">
-                      Joined
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {students.map((student) => (
-                    <tr
-                      key={student.id}
-                      className="border-b border-slate-100 hover:bg-slate-50"
-                    >
-                      <td className="py-3 px-4 text-sm text-slate-900">
-                        {student.full_name || 'N/A'}
-                      </td>
-                      <td className="py-3 px-4 text-sm text-slate-600">
-                        {student.email}
-                      </td>
-                      <td className="py-3 px-4 text-sm text-slate-600">
-                        {student.phone || 'N/A'}
-                      </td>
-                      <td className="py-3 px-4 text-sm text-slate-600">
-                        {new Date(student.created_at).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <p className="text-slate-600 text-center py-8">No students found</p>
-          )}
-        </div>
-
-        {/* Recent Enrollments */}
-        <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">
-            Recent Enrollments
-          </h2>
-          {recentEnrollments && recentEnrollments.length > 0 ? (
-            <div className="space-y-4">
-              {recentEnrollments.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex items-center justify-between p-4 bg-slate-50 rounded-lg"
-                >
-                  <div>
-                    <p className="font-semibold text-slate-900">
-                      {item.profiles?.full_name ||
-                        item.profiles?.email ||
-                        'Unknown'}
-                    </p>
-                    <p className="text-sm text-slate-600">
-                      {item.courses?.title || 'Unknown Course'}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                        item.status === 'active'
-                          ? 'bg-brand-green-100 text-green-800'
-                          : item.status === 'completed'
-                            ? 'bg-blue-100 text-blue-800'
-                            : 'bg-slate-100 text-slate-800'
-                      }`}
-                    >
-                      {item.status}
-                    </span>
-                    <p className="text-xs text-slate-500 mt-1">
-                      {new Date(item.created_at).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-slate-600 text-center py-8">
-              No recent enrollments
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
