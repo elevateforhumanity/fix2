@@ -283,6 +283,60 @@ export default function BarberApprenticeshipPage() {
               <strong>nationally-recognized credential</strong> that qualifies
               you to sit for the Indiana Barber Licensing Exam.
             </p>
+
+            {/* Transfer Hours Explanation */}
+            <div className="mt-6 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
+              <h4 className="text-lg font-bold text-black mb-3 flex items-center gap-2">
+                <Award className="w-5 h-5 text-blue-600" />
+                How Transfer Hours Work
+              </h4>
+              <p className="text-black mb-3">
+                Already have barber school hours?{' '}
+                <strong>You can transfer them!</strong> Here's how it works:
+              </p>
+              <ul className="space-y-2 text-black">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Previous barber school hours count</strong> toward
+                    your 1,500-hour requirement
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Bring your transcript</strong> from your previous
+                    barber school or program
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>
+                    <strong>We verify with the Indiana State Board</strong> to
+                    confirm your hours
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Complete remaining hours</strong> through our
+                    apprenticeship program
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Earn while you finish</strong> - get paid
+                    $12-15/hour for your remaining hours
+                  </span>
+                </li>
+              </ul>
+              <p className="text-black mt-4 text-sm">
+                <strong>Example:</strong> If you completed 800 hours at another
+                school, you only need 700 more hours in our apprenticeship
+                program to reach the 1,500-hour requirement.
+              </p>
+            </div>
             <p className="text-sm text-gray-600">
               Source:{' '}
               <a
