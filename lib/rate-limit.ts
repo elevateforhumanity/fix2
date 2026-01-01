@@ -1,12 +1,13 @@
 // lib/rate-limit.ts
 import { Redis } from '@upstash/redis';
 
-const redis = process.env.REDIS_URL && process.env.REDIS_TOKEN
-  ? new Redis({
-      url: process.env.REDIS_URL,
-      token: process.env.REDIS_TOKEN,
-    })
-  : null;
+const redis =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Redis({
+        url: process.env.UPSTASH_REDIS_REST_URL,
+        token: process.env.UPSTASH_REDIS_REST_TOKEN,
+      })
+    : null;
 
 interface RateLimitConfig {
   key: string;

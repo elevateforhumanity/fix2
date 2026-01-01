@@ -141,8 +141,40 @@ export async function POST(request: NextRequest) {
  */
 async function postToLinkedIn(data: unknown) {
   try {
-    const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
-    const organizationId = process.env.LINKEDIN_ORGANIZATION_ID;
+    // Get LinkedIn credentials from database
+    const { createClient } = await import('@/lib/supabase/server');
+    const supabase = await createClient();
+
+    const { data: settings, error: settingsError } = await supabase
+      .from('social_media_settings')
+      .select('*')
+      .eq('platform', 'linkedin')
+      .single();
+
+    if (settingsError || !settings) {
+      return {
+        success: false,
+        error:
+          'LinkedIn not connected. Please connect in Settings → Social Media',
+      };
+    }
+
+    // Check if token is expired
+    const expiresAt = new Date(settings.expires_at);
+    if (expiresAt < new Date()) {
+      return {
+        success: false,
+        error:
+          'LinkedIn token expired. Please reconnect in Settings → Social Media',
+      };
+    }
+
+    const accessToken = settings.access_token;
+    const organizations = settings.organizations || [];
+
+    // Use first organization or get from settings
+    const organizationId =
+      organizations[0]?.organization?.id || settings.organization_id;
 
     if (!accessToken || !organizationId) {
       return { success: false, error: 'LinkedIn credentials not configured' };
@@ -319,7 +351,10 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       return NextResponse.json(
-        { error: 'Failed to fetch posts', details: error instanceof Error ? error.message : String(error) },
+        {
+          error: 'Failed to fetch posts',
+          details: error instanceof Error ? error.message : String(error),
+        },
         { status: 500 }
       );
     }
