@@ -1,10 +1,18 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Facebook, Instagram, Linkedin, Search } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Search,
+} from 'lucide-react';
 import { getNavigation } from '@/config/navigation-clean';
 
 // Get dashboard URL based on user role
@@ -82,8 +90,7 @@ export default function SiteHeader() {
           document.body.style.overflow = '';
         }
       }
-    } catch (error: unknown) {
-    }
+    } catch (error: unknown) {}
 
     // Cleanup on unmount
     return () => {
@@ -99,7 +106,7 @@ export default function SiteHeader() {
 
   return (
     <>
-    <div className="w-full h-full bg-white border-b border-gray-200 shadow-sm">
+      <div className="w-full h-full bg-white border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4 relative">
           {/* Logo */}
           <Link
@@ -116,7 +123,11 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center justify-center flex-1 gap-8">
+          <nav
+            role="navigation"
+            aria-label="Main navigation"
+            className="hidden lg:flex items-center justify-center flex-1 gap-8"
+          >
             {navigation && navigation.length > 0 ? (
               navigation.map((section) => (
                 <div
@@ -142,8 +153,9 @@ export default function SiteHeader() {
                         <div className="absolute left-0 top-full mt-2 w-72 bg-white border-2 border-gray-100 rounded-xl shadow-2xl py-2 z-[100] max-h-[80vh] overflow-y-auto">
                           {section.items.map((item) => {
                             // Check if this is a section header
-                            const isHeader = 'isHeader' in item && item.isHeader;
-                            
+                            const isHeader =
+                              'isHeader' in item && item.isHeader;
+
                             if (isHeader) {
                               return (
                                 <div
@@ -154,7 +166,7 @@ export default function SiteHeader() {
                                 </div>
                               );
                             }
-                            
+
                             return (
                               <Link
                                 key={item.href}
@@ -162,14 +174,21 @@ export default function SiteHeader() {
                                 className="flex items-center justify-between px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition group"
                                 onClick={() => setOpenDropdown(null)}
                               >
-                                <span className="font-medium">{item.label}</span>
-                                <svg 
-                                  className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-1" 
-                                  fill="none" 
-                                  stroke="currentColor" 
+                                <span className="font-medium">
+                                  {item.label}
+                                </span>
+                                <svg
+                                  className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-1"
+                                  fill="none"
+                                  stroke="currentColor"
                                   viewBox="0 0 24 24"
                                 >
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M9 5l7 7-7 7"
+                                  />
                                 </svg>
                               </Link>
                             );
@@ -202,7 +221,7 @@ export default function SiteHeader() {
             >
               <Search className="w-5 h-5" />
             </button>
-            
+
             {/* Social Media Links */}
             <div className="flex items-center gap-2 mr-2">
               <a
@@ -233,7 +252,7 @@ export default function SiteHeader() {
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
-            
+
             {user ? (
               <Link
                 href={getDashboardUrl(user)}
@@ -276,13 +295,15 @@ export default function SiteHeader() {
         {mobileMenuOpen && (
           <>
             <div
-              className="lg:hidden fixed inset-0 bg-black/50 z-40 top-16"
+              className="lg:hidden fixed inset-0 bg-black/50 z-40"
+              style={{ top: 'var(--header-h)' }}
               onClick={() => setMobileMenuOpen(false)}
               aria-hidden="true"
             />
             <div
               id="mobile-menu"
-              className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe shadow-2xl"
+              className="lg:hidden fixed left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe shadow-2xl"
+              style={{ top: 'var(--header-h)' }}
             >
               <nav
                 className="px-4 py-6 space-y-2 min-h-full"

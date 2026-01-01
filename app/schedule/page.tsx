@@ -19,8 +19,8 @@ export default function SchedulePage() {
         </h1>
 
         <p className="mt-3 text-sm md:text-base text-gray-700 leading-relaxed">
-          Start by completing the Inquiry Form, then book your WorkOne appointment, 
-          and schedule your Elevate for Humanity appointment below.
+          Start by completing the Inquiry Form, then book your WorkOne
+          appointment, and schedule your Elevate for Humanity appointment below.
         </p>
 
         <div className="mt-5 grid gap-3 md:grid-cols-3">
@@ -115,6 +115,7 @@ function CalendlyEmbed() {
       frameBorder="0"
       scrolling="no"
       allow="camera; microphone; fullscreen"
+      loading="lazy"
     />
   );
 }
