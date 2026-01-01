@@ -54,7 +54,7 @@ export default async function StudentProgressPage() {
     .order('created_at', { ascending: false });
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-5xl mx-auto px-4">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -187,11 +187,12 @@ export default async function StudentProgressPage() {
                                   <div className="flex items-center gap-3 mb-2">
                                     {provider?.logo_url && (
                                       <div className="relative w-8 h-8">
-                                        <Image loading="lazy"
+                                        <Image
+                                          loading="lazy"
                                           src={provider.logo_url}
                                           alt={provider.provider_name}
                                           fill
-          sizes="100vw"
+                                          sizes="100vw"
                                           className="object-contain"
                                         />
                                       </div>
@@ -275,6 +276,6 @@ export default async function StudentProgressPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 // app/advising/page.tsx
@@ -6,7 +6,6 @@ import React from 'react';
 export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
-
 
 export default function AdvisingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,7 +50,7 @@ export default function AdvisingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
+    <div className="min-h-screen bg-slate-50 py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <header className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
@@ -275,6 +274,6 @@ export default function AdvisingPage() {
           </section>
         )}
       </div>
-    </main>
+    </div>
   );
 }

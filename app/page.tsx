@@ -8,6 +8,8 @@ import {
   Heart,
   ArrowRight,
 } from 'lucide-react';
+import VideoHeroBanner from '@/components/home/VideoHeroBanner';
+import { currentHomeHero, enableAudioNarration } from '@/config/hero-videos';
 
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Free, Funded Workforce Training',
@@ -41,36 +43,14 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
-      {/* HERO */}
-      <section className="w-full min-h-[600px] bg-gradient-to-br from-brand-blue-700 via-brand-purple-700 to-brand-purple-800 text-white flex items-center">
-        <div className="mx-auto w-full max-w-6xl px-6 py-20">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight">
-              Free, Funded Workforce Training — Built to Scale
-            </h1>
-            <p className="text-xl md:text-2xl mb-10 text-white/90 leading-relaxed">
-              Career training programs aligned with WIOA, WRG, DOL, and
-              employer-led apprenticeships, delivered through a compliant,
-              scalable platform.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center gap-2 bg-white text-brand-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg"
-              >
-                Apply for Free Training
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/licensing"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
-              >
-                Licensing & Partnerships
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <VideoHeroBanner
+        videoSrc={currentHomeHero}
+        withAudio={enableAudioNarration}
+        headline="Free, Funded Workforce Training — Built to Scale"
+        subheadline="Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform."
+        primaryCTA={{ text: 'Apply for Free Training', href: '/apply' }}
+        secondaryCTA={{ text: 'Licensing & Partnerships', href: '/licensing' }}
+      />
 
       {/* WHO THIS IS FOR */}
       <section className="w-full py-20 bg-white">
@@ -253,7 +233,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/licensing"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
+              className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg transition"
             >
               Licensing & Partnerships
             </Link>

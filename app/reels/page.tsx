@@ -31,8 +31,8 @@ export default async function ReelsPage() {
   const reels = await getReels();
 
   return (
-    <main className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen">
       <ReelsFeed reels={reels} />
-    </main>
+    </div>
   );
 }

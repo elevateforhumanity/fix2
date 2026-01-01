@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function CdlTransportationPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <section className="relative w-full -mt-[72px]">
         <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
           <video
@@ -265,6 +265,6 @@ export default function CdlTransportationPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic';
 import { useState } from 'react';
 import Link from 'next/link';
 import { Shield, CheckCircle, AlertCircle } from 'lucide-react';
-
 
 export default function PartnerWithUsPage() {
   const [acknowledged, setAcknowledged] = useState(false);
@@ -49,7 +48,7 @@ export default function PartnerWithUsPage() {
 
   if (status === 'success') {
     return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
         <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg p-8 text-center">
           <div className="w-16 h-16 bg-brand-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-brand-green-600" />
@@ -70,12 +69,12 @@ export default function PartnerWithUsPage() {
             Return to Home
           </Link>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Banner */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <video
@@ -84,11 +83,10 @@ export default function PartnerWithUsPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
         </video>
-        
+
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white uppercase tracking-wide">
@@ -370,6 +368,6 @@ export default function PartnerWithUsPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ForStudentsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* 1. Hero - Problem + Anxiety Reduction */}
       <Section
         variant="blue"
@@ -283,6 +283,6 @@ export default function ForStudentsPage() {
           </p>
         </div>
       </Section>
-    </main>
+    </div>
   );
 }

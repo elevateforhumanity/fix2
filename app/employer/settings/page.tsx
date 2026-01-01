@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">
           Employer Settings
@@ -23,6 +23,6 @@ export default function Page() {
           Back to Home
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

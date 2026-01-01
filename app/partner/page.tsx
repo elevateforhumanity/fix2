@@ -19,7 +19,7 @@ export const metadata = {
 
 export default function PartnerPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="relative bg-orange-600 text-white py-20 md:py-32 overflow-hidden">
         {/* Background Pattern */}
@@ -246,7 +246,7 @@ export default function PartnerPage() {
                 icon: Award,
                 title: 'Proven Results',
                 description:
-                  '90% job placement rate. 500+ students trained and placed.',
+                  'WIOA-compliant programs with measurable outcomes and transparent reporting.',
               },
               {
                 icon: TrendingUp,
@@ -284,20 +284,27 @@ export default function PartnerPage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { number: '500+', label: 'Students Trained' },
-              { number: '90%', label: 'Job Placement Rate' },
-              { number: '50+', label: 'Employer Partners' },
-              { number: '14+', label: 'Training Programs' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold text-blue-600 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-lg text-slate-700">{stat.label}</div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-blue-600 mb-2">
+                WIOA
               </div>
-            ))}
+              <div className="text-lg text-slate-700">Funded Programs</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-blue-600 mb-2">
+                DOL
+              </div>
+              <div className="text-lg text-slate-700">
+                Registered Apprenticeships
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl font-bold text-blue-600 mb-2">
+                ETPL
+              </div>
+              <div className="text-lg text-slate-700">Approved Provider</div>
+            </div>
           </div>
         </div>
       </section>
@@ -328,6 +335,6 @@ export default function PartnerPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

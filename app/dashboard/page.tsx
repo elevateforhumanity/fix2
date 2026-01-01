@@ -95,7 +95,7 @@ export default function DashboardLandingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section - Green/Teal Theme */}
       <section className="py-16 px-4 bg-gradient-to-br from-teal-50 to-green-50">
         <div className="max-w-6xl mx-auto text-center">
@@ -242,6 +242,6 @@ export default function DashboardLandingPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -54,7 +54,7 @@ export default function ProgramHolderSetup() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-6">
         {/* Progress Steps */}
         <div className="mb-8">
@@ -556,6 +556,6 @@ export default function ProgramHolderSetup() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

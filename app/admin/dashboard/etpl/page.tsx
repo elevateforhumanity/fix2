@@ -29,7 +29,7 @@ export default async function EtplDashboard() {
   const wotc = await getWotcMetrics();
 
   return (
-    <main className="min-h-screen bg-slate-50 py-8 px-4">
+    <div className="min-h-screen bg-slate-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
@@ -65,7 +65,9 @@ export default async function EtplDashboard() {
                   <div className="text-3xl font-bold text-slate-900">
                     {etpl.total}
                   </div>
-                  <div className="text-sm text-slate-600">Total Enrollments</div>
+                  <div className="text-sm text-slate-600">
+                    Total Enrollments
+                  </div>
                 </div>
               </div>
             </div>
@@ -159,7 +161,9 @@ export default async function EtplDashboard() {
             <div className="grid md:grid-cols-4 gap-4">
               {Object.entries(funding.bySource).map(([source, count]) => (
                 <div key={source} className="bg-slate-50 rounded-lg p-4">
-                  <div className="text-xl font-bold text-slate-900">{count as number}</div>
+                  <div className="text-xl font-bold text-slate-900">
+                    {count as number}
+                  </div>
                   <div className="text-sm text-slate-600">{source}</div>
                 </div>
               ))}
@@ -179,7 +183,9 @@ export default async function EtplDashboard() {
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-slate-600">Total Submissions</span>
-                <span className="font-bold text-slate-900">{employers.total}</span>
+                <span className="font-bold text-slate-900">
+                  {employers.total}
+                </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-600">Approved</span>
@@ -216,7 +222,9 @@ export default async function EtplDashboard() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-600">Active</span>
-                <span className="font-bold text-green-600">{rapids.active}</span>
+                <span className="font-bold text-green-600">
+                  {rapids.active}
+                </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-600">Completed</span>
@@ -288,6 +296,6 @@ export default async function EtplDashboard() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

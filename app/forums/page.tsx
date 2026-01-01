@@ -3,7 +3,8 @@ import Image from 'next/image';
 import DiscussionForums from '@/components/forums/DiscussionForums';
 
 export const metadata: Metadata = {
-  title: 'Community Forums | Connect with Students & Alumni | Elevate for Humanity',
+  title:
+    'Community Forums | Connect with Students & Alumni | Elevate for Humanity',
   description:
     'Join our community forums to connect with students, alumni, and instructors. Ask questions, share experiences, and get support on your career journey.',
   alternates: {
@@ -15,7 +16,7 @@ export const dynamic = 'force-dynamic';
 
 export default function ForumsPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -39,6 +40,6 @@ export default function ForumsPage() {
 
       {/* Forums Component */}
       <DiscussionForums />
-    </main>
+    </div>
   );
 }

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PayPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="max-w-4xl mx-auto px-4 py-10">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
           Payment Options
@@ -21,6 +21,6 @@ export default function PayPage() {
         </p>
         <PaymentOptionsClient />
       </section>
-    </main>
+    </div>
   );
 }

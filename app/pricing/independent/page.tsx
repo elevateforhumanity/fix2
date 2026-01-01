@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function IndependentLicensePage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-zinc-900    text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -262,6 +262,6 @@ export default function IndependentLicensePage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -31,7 +31,7 @@ export default async function WorkOneView() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-8 px-4">
+    <div className="min-h-screen bg-slate-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -198,6 +198,6 @@ export default async function WorkOneView() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

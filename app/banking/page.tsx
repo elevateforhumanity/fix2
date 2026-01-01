@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function BankingPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -376,6 +376,6 @@ export default function BankingPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

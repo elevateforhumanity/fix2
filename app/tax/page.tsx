@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function TaxServicesPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -272,6 +272,6 @@ export default function TaxServicesPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

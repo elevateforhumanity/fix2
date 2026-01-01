@@ -124,7 +124,7 @@ export default function LMSLandingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section - Course Teaser Style */}
       <section className="relative py-20 px-4 bg-gradient-to-br from-teal-600 to-teal-800 text-white overflow-hidden">
         {/* Background Pattern */}
@@ -483,6 +483,6 @@ export default function LMSLandingPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

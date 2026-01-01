@@ -2,107 +2,44 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.elevateforhumanity.org';
-  const currentDate = new Date().toISOString();
+  const currentDate = new Date();
 
-  // Main pages
-  const mainPages = [
+  // Static pages
+  const staticPages = [
     '',
     '/about',
     '/programs',
-    '/funding',
     '/apply',
     '/contact',
-    '/employers',
-    '/partners',
-    '/resources',
-    '/faq',
-    '/how-it-works',
-    '/success-stories',
-    '/founder',
-    '/team',
-    '/learners',
-    '/training-providers',
-    '/for-employers',
-    '/for-students',
-    '/demos',
     '/blog',
-    '/careers',
-    '/calendar',
+    '/privacy',
+    '/terms',
     '/apprenticeships',
-  ];
-
-  // Program pages (ETPL-approved only)
-  const programPages = [
-    '/programs/barber-apprenticeship',
-    '/programs/hvac-technician',
-    '/programs/cna-certification',
-    '/programs/cdl-training',
-    '/programs/direct-support-professional',
-    '/programs/building-maintenance-tech',
-    '/programs/business-startup-marketing',
-    '/programs/emergency-health-safety-tech',
-    '/programs/certified-peer-recovery-coach',
-    '/programs/tax-prep-financial-services',
-    '/programs/beauty-career-educator',
-    '/programs/professional-esthetician',
-    '/programs/phlebotomy-technician',
-    '/programs/skilled-trades',
-    '/programs/apprenticeships',
-    '/programs/federal-funded',
-    '/programs/jri',
-    '/programs/micro-programs',
-  ];
-
-  // Funding pages
-  const fundingPages = [
-    '/funding/wioa',
-    '/funding/wrg',
-    '/funding/jri',
-    '/wioa-eligibility',
-    '/financial-aid',
-    '/grants',
-  ];
-
-  // About pages
-  const aboutPages = ['/what-we-do'];
-
-  // Legal pages
-  const legalPages = [
-    '/privacy-policy',
-    '/terms-of-service',
-    '/accessibility',
-    '/ferpa',
-    '/equal-opportunity',
-  ];
-
-  // Community pages
-  const communityPages = ['/forums', '/study-groups', '/community'];
-
-  const allPages = [
-    ...mainPages,
-    ...programPages,
-    ...fundingPages,
-    ...aboutPages,
-    ...legalPages,
-    ...communityPages,
-  ];
-
-  return allPages.map((page) => ({
-    url: `${baseUrl}${page}`,
+    '/employer',
+    '/volunteer',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
     lastModified: currentDate,
-    changeFrequency:
-      page === ''
-        ? 'daily'
-        : page.includes('/programs/')
-          ? 'weekly'
-          : 'monthly',
-    priority:
-      page === ''
-        ? 1.0
-        : page.includes('/programs/')
-          ? 0.9
-          : page.includes('/apply')
-            ? 0.95
-            : 0.7,
+    changeFrequency: 'weekly' as const,
+    priority: route === '' ? 1 : 0.8,
   }));
+
+  // Program pages
+  const programs = [
+    'medical-assistant',
+    'hvac',
+    'cdl-transportation',
+    'barber-apprenticeship',
+    'building-maintenance',
+    'cna',
+    'business-financial',
+    'tax-preparation',
+  ].map((program) => ({
+    url: `${baseUrl}/programs/${program}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...programs];
 }

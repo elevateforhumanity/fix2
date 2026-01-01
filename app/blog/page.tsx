@@ -101,7 +101,7 @@ export default async function BlogPage() {
   const blogPosts = await getBlogPosts();
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="bg-white text-white py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
@@ -237,6 +237,6 @@ export default async function BlogPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

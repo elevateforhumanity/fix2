@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function VITAPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="relative h-[500px]">
         <div className="absolute inset-0">
@@ -405,6 +405,6 @@ export default function VITAPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

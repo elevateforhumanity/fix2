@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function PartnerCoursesPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-6xl px-4 text-center">
@@ -479,7 +479,7 @@ export default function PartnerCoursesPage() {
           </a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

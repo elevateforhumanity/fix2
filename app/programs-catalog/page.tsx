@@ -51,13 +51,14 @@ export default async function ProgramsCatalogPage() {
       id: '1',
       slug: 'healthcare',
       name: 'Certified Nursing Assistant (CNA)',
-      description: 'Train to become a Certified Nursing Assistant in healthcare facilities',
+      description:
+        'Train to become a Certified Nursing Assistant in healthcare facilities',
       duration: '4-6 weeks',
       delivery: 'In-person',
       credential: 'State CNA Certification',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA', 'WRG'], cip_code: '51.3902' }
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '51.3902' },
     },
     {
       id: '2',
@@ -69,7 +70,7 @@ export default async function ProgramsCatalogPage() {
       credential: 'EPA 608 Certification',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA', 'WRG'], cip_code: '47.0201' }
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '47.0201' },
     },
     {
       id: '3',
@@ -81,19 +82,20 @@ export default async function ProgramsCatalogPage() {
       credential: 'CDL Class A',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA', 'WRG'], cip_code: '49.0205' }
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '49.0205' },
     },
     {
       id: '4',
       slug: 'barber-apprenticeship',
       name: 'Barber Apprenticeship',
-      description: 'Earn while you learn in a registered apprenticeship program',
+      description:
+        'Earn while you learn in a registered apprenticeship program',
       duration: '12-18 months',
       delivery: 'Apprenticeship',
       credential: 'State Barber License',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['DOL', 'WRG'], cip_code: '12.0402' }
+      metadata: { funding: ['DOL', 'WRG'], cip_code: '12.0402' },
     },
     {
       id: '5',
@@ -105,7 +107,7 @@ export default async function ProgramsCatalogPage() {
       credential: 'Certified Medical Assistant',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA'], cip_code: '51.0801' }
+      metadata: { funding: ['WIOA'], cip_code: '51.0801' },
     },
     {
       id: '6',
@@ -117,7 +119,7 @@ export default async function ProgramsCatalogPage() {
       credential: 'AWS Certification',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA', 'WRG'], cip_code: '48.0508' }
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '48.0508' },
     },
     {
       id: '7',
@@ -129,7 +131,7 @@ export default async function ProgramsCatalogPage() {
       credential: 'CompTIA A+',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA'], cip_code: '11.0901' }
+      metadata: { funding: ['WIOA'], cip_code: '11.0901' },
     },
     {
       id: '8',
@@ -141,11 +143,12 @@ export default async function ProgramsCatalogPage() {
       credential: 'Certified Phlebotomy Technician',
       etpl_approved: true,
       active: true,
-      metadata: { funding: ['WIOA', 'WRG'], cip_code: '51.1009' }
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '51.1009' },
     },
   ];
 
-  const programs = dbPrograms && dbPrograms.length > 0 ? dbPrograms : fallbackPrograms;
+  const programs =
+    dbPrograms && dbPrograms.length > 0 ? dbPrograms : fallbackPrograms;
 
   // Group programs by funding source
   const groupedPrograms = {
@@ -169,7 +172,7 @@ export default async function ProgramsCatalogPage() {
   });
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Banner */}
       <section className="relative h-[400px] md:h-[450px] w-full overflow-hidden">
         <div
@@ -325,6 +328,6 @@ export default async function ProgramsCatalogPage() {
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

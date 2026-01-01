@@ -1,14 +1,13 @@
-"use client";
+'use client';
 
 export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { XCircle } from 'lucide-react';
 
-
 export default function AffirmCancelPage() {
   return (
-    <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
         <XCircle className="w-16 h-16 text-brand-orange-600 mx-auto mb-4" />
 
@@ -64,6 +63,6 @@ export default function AffirmCancelPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

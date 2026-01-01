@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function PitchDeckPage() {
   return (
-    <main className="bg-slate-50">
+    <div className="bg-slate-50">
       {/* Slide 1: Header */}
       <section className="bg-zinc-900   text-white py-20 md:py-32">
         <div className="max-w-5xl mx-auto px-4 text-center">
@@ -356,6 +356,6 @@ export default function PitchDeckPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

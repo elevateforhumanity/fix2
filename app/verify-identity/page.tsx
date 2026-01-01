@@ -26,7 +26,7 @@ export default async function VerifyIdentityPage() {
 
   if (verification && verification.status === 'approved') {
     return (
-      <main className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50">
         <section className="bg-white border-b py-8">
           <div className="max-w-4xl mx-auto px-6">
             <h1 className="text-4xl font-bold text-slate-900 mb-2">
@@ -59,13 +59,13 @@ export default async function VerifyIdentityPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   if (verification && verification.status === 'pending') {
     return (
-      <main className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50">
         <section className="bg-white border-b py-8">
           <div className="max-w-4xl mx-auto px-6">
             <h1 className="text-4xl font-bold text-slate-900 mb-2">
@@ -103,13 +103,13 @@ export default async function VerifyIdentityPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   if (verification && verification.status === 'rejected') {
     return (
-      <main className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50">
         <section className="bg-white border-b py-8">
           <div className="max-w-4xl mx-auto px-6">
             <h1 className="text-4xl font-bold text-slate-900 mb-2">
@@ -147,12 +147,12 @@ export default async function VerifyIdentityPage() {
             <IDVerificationForm />
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-4">
@@ -202,6 +202,6 @@ export default async function VerifyIdentityPage() {
           <IDVerificationForm />
         </div>
       </div>
-    </main>
+    </div>
   );
 }

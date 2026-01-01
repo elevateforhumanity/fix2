@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function PartnerPlaybookPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-zinc-900   text-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +31,8 @@ export default function PartnerPlaybookPage() {
             Activate WorkOne Regions, Employers, and Funding
           </h1>
           <p className="text-2xl text-white/90 mb-8 max-w-3xl">
-            Everything you need to execute immediately. Copy-paste and use today.
+            Everything you need to execute immediately. Copy-paste and use
+            today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
@@ -78,7 +79,9 @@ export default function PartnerPlaybookPage() {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-green-200">
-              <div className="text-sm font-bold text-green-600 mb-2">Week 2</div>
+              <div className="text-sm font-bold text-green-600 mb-2">
+                Week 2
+              </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 Employer Activation
               </h3>
@@ -150,7 +153,8 @@ export default function PartnerPlaybookPage() {
 
             <div className="bg-zinc-900   rounded-2xl p-8 border-2 border-blue-200">
               <h4 className="font-bold text-slate-900 mb-4">
-                Email Template (send to Workforce Board Director / WorkOne Manager)
+                Email Template (send to Workforce Board Director / WorkOne
+                Manager)
               </h4>
               <div className="bg-white rounded-xl p-6 border border-blue-200 mb-6">
                 <p className="text-sm text-slate-700 mb-4">
@@ -169,10 +173,10 @@ export default function PartnerPlaybookPage() {
                   <p>
                     We work with employers to implement compliant earn-and-learn
                     apprenticeship programs, currently beginning with barber
-                    apprenticeships and expanding into skilled trades. Our role is
-                    to handle apprenticeship registration, RTI coordination,
-                    compliance, and reporting so employers and case managers have
-                    a clean, low-risk process.
+                    apprenticeships and expanding into skilled trades. Our role
+                    is to handle apprenticeship registration, RTI coordination,
+                    compliance, and reporting so employers and case managers
+                    have a clean, low-risk process.
                   </p>
                   <p>
                     We would welcome a brief meeting to align our programs with
@@ -204,8 +208,8 @@ export default function PartnerPlaybookPage() {
                   "Hi, this is Elizabeth Greene with Elevate for Humanity. We're
                   an ETPL-approved apprenticeship sponsor working with WorkOne
                   participants. I'm calling to see who would be the best person
-                  to connect with about aligning our apprenticeship programs with
-                  your regional referrals."
+                  to connect with about aligning our apprenticeship programs
+                  with your regional referrals."
                 </p>
                 <p className="text-sm text-slate-600 mt-4 font-bold">
                   Do not pitch funding. Just alignment.
@@ -237,7 +241,9 @@ export default function PartnerPlaybookPage() {
 
               <div className="space-y-6">
                 <div className="bg-white rounded-xl p-6 border border-green-200">
-                  <h5 className="font-bold text-slate-900 mb-3">What This Is</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    What This Is
+                  </h5>
                   <p className="text-slate-700">
                     An apprenticeship lets you hire someone, train them on the
                     job, and grow your business while reducing training costs.
@@ -253,7 +259,9 @@ export default function PartnerPlaybookPage() {
                 </div>
 
                 <div className="bg-white rounded-xl p-6 border border-green-200">
-                  <h5 className="font-bold text-slate-900 mb-3">What You Get</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    What You Get
+                  </h5>
                   <ul className="space-y-2 text-slate-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -293,14 +301,17 @@ export default function PartnerPlaybookPage() {
                   <ul className="space-y-2 text-slate-700">
                     <li>• You don't become a school</li>
                     <li>• You don't manage state reporting</li>
-                    <li>• You don't front training costs if funding is approved</li>
+                    <li>
+                      • You don't front training costs if funding is approved
+                    </li>
                   </ul>
                 </div>
 
                 <div className="bg-slate-900 text-white rounded-xl p-6">
                   <h5 className="font-bold mb-3 text-lg">Bottom Line</h5>
                   <p className="text-xl italic">
-                    "You train. We handle the rest. Funding may reduce your cost."
+                    "You train. We handle the rest. Funding may reduce your
+                    cost."
                   </p>
                 </div>
               </div>
@@ -344,8 +355,8 @@ export default function PartnerPlaybookPage() {
                 <div className="bg-white rounded-xl p-6 border border-purple-200">
                   <h5 className="font-bold text-slate-900 mb-3">Purpose</h5>
                   <p className="text-sm text-slate-700">
-                    To collaborate on the referral, enrollment, and completion of
-                    WIOA- and WRG-eligible apprenticeship programs.
+                    To collaborate on the referral, enrollment, and completion
+                    of WIOA- and WRG-eligible apprenticeship programs.
                   </p>
                 </div>
 
@@ -357,8 +368,8 @@ export default function PartnerPlaybookPage() {
                       coordination, compliance, progress tracking
                     </div>
                     <div>
-                      <strong>WorkOne:</strong> Eligibility determination, funding
-                      authorization, supportive services coordination
+                      <strong>WorkOne:</strong> Eligibility determination,
+                      funding authorization, supportive services coordination
                     </div>
                   </div>
                 </div>
@@ -376,8 +387,8 @@ export default function PartnerPlaybookPage() {
                       request.
                     </li>
                     <li>
-                      <strong>Funding:</strong> All funding decisions remain with
-                      WorkOne. Sponsor does not guarantee funding.
+                      <strong>Funding:</strong> All funding decisions remain
+                      with WorkOne. Sponsor does not guarantee funding.
                     </li>
                     <li>
                       <strong>Term:</strong> 12 months, renewable.
@@ -484,15 +495,20 @@ export default function PartnerPlaybookPage() {
                   <ul className="space-y-2 text-slate-700">
                     <li>• Remain the apprenticeship sponsor</li>
                     <li>
-                      • Approve RTI providers (community college, private, online)
+                      • Approve RTI providers (community college, private,
+                      online)
                     </li>
                     <li>• Use state licensing + competency models</li>
-                    <li>• Partner for optional credentials only when helpful</li>
+                    <li>
+                      • Partner for optional credentials only when helpful
+                    </li>
                   </ul>
                 </div>
 
                 <div className="bg-white rounded-xl p-6 border border-blue-200">
-                  <h5 className="font-bold text-slate-900 mb-3">What Changes</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    What Changes
+                  </h5>
                   <ul className="space-y-2 text-slate-700">
                     <li>• New work process schedule</li>
                     <li>• New RTI outline</li>
@@ -652,28 +668,28 @@ export default function PartnerPlaybookPage() {
                 <div className="text-xs text-slate-700 space-y-3 leading-relaxed">
                   <p>Hello,</p>
                   <p>
-                    My name is Elizabeth Greene with Elevate for Humanity. We are
-                    a registered apprenticeship sponsor and ETPL-approved provider
-                    in Indiana, making our programs eligible for WIOA and
-                    Workforce Ready Grant funding through WorkOne regions.
+                    My name is Elizabeth Greene with Elevate for Humanity. We
+                    are a registered apprenticeship sponsor and ETPL-approved
+                    provider in Indiana, making our programs eligible for WIOA
+                    and Workforce Ready Grant funding through WorkOne regions.
                   </p>
                   <p>
                     We currently support employer-driven earn-and-learn
-                    apprenticeship programs, beginning with barber apprenticeships
-                    and expanding into skilled trades. Our organization provides
-                    apprenticeship registration, RTI coordination, compliance, and
-                    reporting so employers and WorkOne staff have a clean,
-                    low-risk process.
+                    apprenticeship programs, beginning with barber
+                    apprenticeships and expanding into skilled trades. Our
+                    organization provides apprenticeship registration, RTI
+                    coordination, compliance, and reporting so employers and
+                    WorkOne staff have a clean, low-risk process.
                   </p>
                   <p>
                     We are seeking alignment with additional regions to support
-                    employer demand and participant referrals using existing WIOA
-                    and WRG pathways. We would welcome the opportunity to share
-                    our partner packet and discuss regional needs.
+                    employer demand and participant referrals using existing
+                    WIOA and WRG pathways. We would welcome the opportunity to
+                    share our partner packet and discuss regional needs.
                   </p>
                   <p>
-                    Thank you for your continued leadership in Indiana's workforce
-                    system.
+                    Thank you for your continued leadership in Indiana's
+                    workforce system.
                   </p>
                   <p>
                     <strong>Elizabeth Greene</strong>
@@ -832,6 +848,6 @@ export default function PartnerPlaybookPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

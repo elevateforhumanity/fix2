@@ -9,10 +9,9 @@ import {
   FileCheck,
 } from 'lucide-react';
 
-
 export default function ApprovalsPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
@@ -432,6 +431,6 @@ export default function ApprovalsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

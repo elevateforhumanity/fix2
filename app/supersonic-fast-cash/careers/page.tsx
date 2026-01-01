@@ -131,7 +131,7 @@ export default function TaxCareersPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="bg-white text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -680,7 +680,8 @@ export default function TaxCareersPage() {
 
           <div className="bg-white border-2 border-gray-200 rounded-xl p-12 text-center">
             <p className="text-xl text-gray-700 mb-8">
-              Ready to join our team? Complete our online application to get started.
+              Ready to join our team? Complete our online application to get
+              started.
             </p>
             <Link
               href="/supersonic-fast-cash/careers/apply"
@@ -713,6 +714,6 @@ export default function TaxCareersPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

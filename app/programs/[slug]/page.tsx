@@ -98,7 +98,7 @@ export default async function ProgramDetailPage({
   // If program has minimal data (from simple JSON), render simple template
   if (!program.heroTitle || !program.whatYouLearn) {
     return (
-      <main className="py-16 px-6 bg-white text-gray-900">
+      <div className="py-16 px-6 bg-white text-gray-900">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold mb-6">{program.name}</h1>
           <p className="mb-6 text-lg">
@@ -131,7 +131,7 @@ export default async function ProgramDetailPage({
             </Link>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 

@@ -107,7 +107,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Internal Navigation - Mobile Optimized */}
       <nav className="rich-nav bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
@@ -304,6 +304,6 @@ export default function ServicesPage() {
           © 2025 Elevate for Humanity. All rights reserved.
         </p>
       </footer>
-    </main>
+    </div>
   );
 }

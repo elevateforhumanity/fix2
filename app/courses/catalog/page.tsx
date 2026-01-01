@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -8,7 +8,6 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 
 import {
-
   Search,
   Filter,
   ShoppingCart,
@@ -398,7 +397,7 @@ export default function CoursesCatalogPage() {
   }, [search, selectedProvider, selectedCategory, priceRange]);
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero */}
       <section className="bg-white text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
@@ -672,6 +671,6 @@ export default function CoursesCatalogPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

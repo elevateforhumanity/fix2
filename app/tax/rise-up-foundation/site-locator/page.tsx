@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function SiteLocatorPage() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
+    <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="mb-6">
         <Link
           href="/tax/rise-up-foundation"
@@ -231,6 +231,6 @@ export default function SiteLocatorPage() {
           </a>
         </p>
       </section>
-    </main>
+    </div>
   );
 }

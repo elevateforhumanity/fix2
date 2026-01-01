@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function HSIPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] w-full overflow-hidden   ">
         <div className="relative z-10 h-full flex items-center">
@@ -252,6 +252,6 @@ export default function HSIPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

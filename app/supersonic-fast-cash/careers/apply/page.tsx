@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState } from 'react';
 import { CheckCircle, FileText, Award, Clock } from 'lucide-react';
-
 
 export default function TaxPreparerApplication() {
   const [step, setStep] = useState(1);
@@ -93,12 +92,18 @@ export default function TaxPreparerApplication() {
       }
 
       const result = await response.json();
-      
+
       // Redirect to FREE training
-      if (window.confirm('Application submitted successfully! Would you like to start your FREE training now?')) {
+      if (
+        window.confirm(
+          'Application submitted successfully! Would you like to start your FREE training now?'
+        )
+      ) {
         window.location.href = '/supersonic-fast-cash/careers/training';
       } else {
-        alert('You will receive an email with access to your FREE training courses within 24 hours.');
+        alert(
+          'You will receive an email with access to your FREE training courses within 24 hours.'
+        );
       }
     } catch (err) {
       setError('Failed to submit application. Please try again.');
@@ -109,7 +114,7 @@ export default function TaxPreparerApplication() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-6">
         {/* Progress */}
         <div className="mb-8">
@@ -425,7 +430,9 @@ export default function TaxPreparerApplication() {
                   }
                   className="w-full px-4 py-3 border rounded-lg"
                 >
-                  <option value="direct_deposit">Direct Deposit (Recommended)</option>
+                  <option value="direct_deposit">
+                    Direct Deposit (Recommended)
+                  </option>
                   <option value="check">Paper Check</option>
                 </select>
               </div>
@@ -454,7 +461,10 @@ export default function TaxPreparerApplication() {
                     <select
                       value={formData.accountType}
                       onChange={(e) =>
-                        setFormData({ ...formData, accountType: e.target.value })
+                        setFormData({
+                          ...formData,
+                          accountType: e.target.value,
+                        })
                       }
                       className="w-full px-4 py-3 border rounded-lg"
                     >
@@ -473,7 +483,10 @@ export default function TaxPreparerApplication() {
                         type="text"
                         value={formData.routingNumber}
                         onChange={(e) =>
-                          setFormData({ ...formData, routingNumber: e.target.value })
+                          setFormData({
+                            ...formData,
+                            routingNumber: e.target.value,
+                          })
                         }
                         className="w-full px-4 py-3 border rounded-lg"
                         placeholder="9 digits"
@@ -488,7 +501,10 @@ export default function TaxPreparerApplication() {
                         type="text"
                         value={formData.accountNumber}
                         onChange={(e) =>
-                          setFormData({ ...formData, accountNumber: e.target.value })
+                          setFormData({
+                            ...formData,
+                            accountNumber: e.target.value,
+                          })
                         }
                         className="w-full px-4 py-3 border rounded-lg"
                         placeholder="Account number"
@@ -503,7 +519,7 @@ export default function TaxPreparerApplication() {
                 <h3 className="font-bold text-lg mb-4">
                   Federal Tax Withholding (W-4)
                 </h3>
-                
+
                 <div>
                   <label className="block font-semibold mb-2">
                     Filing Status *
@@ -516,7 +532,9 @@ export default function TaxPreparerApplication() {
                     className="w-full px-4 py-3 border rounded-lg"
                   >
                     <option value="">Select...</option>
-                    <option value="single">Single or Married filing separately</option>
+                    <option value="single">
+                      Single or Married filing separately
+                    </option>
                     <option value="married">Married filing jointly</option>
                     <option value="head_of_household">Head of household</option>
                   </select>
@@ -546,7 +564,10 @@ export default function TaxPreparerApplication() {
                     type="number"
                     value={formData.extraWithholding}
                     onChange={(e) =>
-                      setFormData({ ...formData, extraWithholding: e.target.value })
+                      setFormData({
+                        ...formData,
+                        extraWithholding: e.target.value,
+                      })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
                     placeholder="$0"
@@ -561,12 +582,16 @@ export default function TaxPreparerApplication() {
                     type="checkbox"
                     checked={formData.claimExempt}
                     onChange={(e) =>
-                      setFormData({ ...formData, claimExempt: e.target.checked })
+                      setFormData({
+                        ...formData,
+                        claimExempt: e.target.checked,
+                      })
                     }
                     className="w-5 h-5"
                   />
                   <span className="text-sm">
-                    I claim exemption from withholding (must meet IRS requirements)
+                    I claim exemption from withholding (must meet IRS
+                    requirements)
                   </span>
                 </label>
               </div>
@@ -574,7 +599,7 @@ export default function TaxPreparerApplication() {
               {/* Emergency Contact */}
               <div className="border-t pt-6">
                 <h3 className="font-bold text-lg mb-4">Emergency Contact</h3>
-                
+
                 <div>
                   <label className="block font-semibold mb-2">
                     Emergency Contact Name *
@@ -583,7 +608,10 @@ export default function TaxPreparerApplication() {
                     type="text"
                     value={formData.emergencyName}
                     onChange={(e) =>
-                      setFormData({ ...formData, emergencyName: e.target.value })
+                      setFormData({
+                        ...formData,
+                        emergencyName: e.target.value,
+                      })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
                   />
@@ -597,7 +625,10 @@ export default function TaxPreparerApplication() {
                     type="tel"
                     value={formData.emergencyPhone}
                     onChange={(e) =>
-                      setFormData({ ...formData, emergencyPhone: e.target.value })
+                      setFormData({
+                        ...formData,
+                        emergencyPhone: e.target.value,
+                      })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
                   />
@@ -611,7 +642,10 @@ export default function TaxPreparerApplication() {
                     type="text"
                     value={formData.emergencyRelationship}
                     onChange={(e) =>
-                      setFormData({ ...formData, emergencyRelationship: e.target.value })
+                      setFormData({
+                        ...formData,
+                        emergencyRelationship: e.target.value,
+                      })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
                     placeholder="Spouse, Parent, Sibling, etc."
@@ -642,11 +676,12 @@ export default function TaxPreparerApplication() {
             <h2 className="text-2xl font-bold mb-6">
               Required Employment Documents
             </h2>
-            
+
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
               <p className="text-sm">
-                <strong>Note:</strong> All documents must be uploaded before your application can be processed.
-                Accepted formats: PDF, JPG, PNG
+                <strong>Note:</strong> All documents must be uploaded before
+                your application can be processed. Accepted formats: PDF, JPG,
+                PNG
               </p>
             </div>
 
@@ -660,7 +695,10 @@ export default function TaxPreparerApplication() {
                   type="file"
                   accept=".pdf,.jpg,.jpeg,.png"
                   onChange={(e) =>
-                    setFormData({ ...formData, idFrontFile: e.target.files?.[0] || null })
+                    setFormData({
+                      ...formData,
+                      idFrontFile: e.target.files?.[0] || null,
+                    })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
                 />
@@ -677,7 +715,10 @@ export default function TaxPreparerApplication() {
                   type="file"
                   accept=".pdf,.jpg,.jpeg,.png"
                   onChange={(e) =>
-                    setFormData({ ...formData, idBackFile: e.target.files?.[0] || null })
+                    setFormData({
+                      ...formData,
+                      idBackFile: e.target.files?.[0] || null,
+                    })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
                 />
@@ -692,7 +733,10 @@ export default function TaxPreparerApplication() {
                   type="file"
                   accept=".pdf,.jpg,.jpeg,.png"
                   onChange={(e) =>
-                    setFormData({ ...formData, ssnCardFile: e.target.files?.[0] || null })
+                    setFormData({
+                      ...formData,
+                      ssnCardFile: e.target.files?.[0] || null,
+                    })
                   }
                   className="w-full px-4 py-3 border rounded-lg"
                 />
@@ -711,7 +755,10 @@ export default function TaxPreparerApplication() {
                     type="file"
                     accept=".pdf,.jpg,.jpeg,.png"
                     onChange={(e) =>
-                      setFormData({ ...formData, certificationFile: e.target.files?.[0] || null })
+                      setFormData({
+                        ...formData,
+                        certificationFile: e.target.files?.[0] || null,
+                      })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
                   />
@@ -731,12 +778,16 @@ export default function TaxPreparerApplication() {
                     type="file"
                     accept=".pdf,.jpg,.jpeg,.png"
                     onChange={(e) =>
-                      setFormData({ ...formData, directDepositForm: e.target.files?.[0] || null })
+                      setFormData({
+                        ...formData,
+                        directDepositForm: e.target.files?.[0] || null,
+                      })
                     }
                     className="w-full px-4 py-3 border rounded-lg"
                   />
                   <p className="text-xs text-gray-500 mt-1">
-                    Voided check or letter from bank with routing/account numbers
+                    Voided check or letter from bank with routing/account
+                    numbers
                   </p>
                 </div>
               )}
@@ -748,15 +799,20 @@ export default function TaxPreparerApplication() {
                     type="checkbox"
                     checked={formData.backgroundCheckConsent}
                     onChange={(e) =>
-                      setFormData({ ...formData, backgroundCheckConsent: e.target.checked })
+                      setFormData({
+                        ...formData,
+                        backgroundCheckConsent: e.target.checked,
+                      })
                     }
                     className="w-5 h-5 mt-1"
                   />
                   <span className="text-sm">
-                    <strong>Background Check Consent *</strong><br />
-                    I authorize SupersonicFastCash to conduct a background check, including criminal history,
-                    employment verification, and reference checks. I understand this is required for employment
-                    as a tax preparer handling sensitive financial information.
+                    <strong>Background Check Consent *</strong>
+                    <br />I authorize SupersonicFastCash to conduct a background
+                    check, including criminal history, employment verification,
+                    and reference checks. I understand this is required for
+                    employment as a tax preparer handling sensitive financial
+                    information.
                   </span>
                 </label>
               </div>
@@ -764,15 +820,14 @@ export default function TaxPreparerApplication() {
               {/* Confidentiality Agreement */}
               <div>
                 <label className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    className="w-5 h-5 mt-1"
-                  />
+                  <input type="checkbox" className="w-5 h-5 mt-1" />
                   <span className="text-sm">
-                    <strong>Confidentiality Agreement *</strong><br />
-                    I agree to maintain strict confidentiality of all client information in accordance with
-                    IRS regulations (IRC Section 7216) and company policies. I understand that unauthorized
-                    disclosure may result in termination and legal penalties.
+                    <strong>Confidentiality Agreement *</strong>
+                    <br />I agree to maintain strict confidentiality of all
+                    client information in accordance with IRS regulations (IRC
+                    Section 7216) and company policies. I understand that
+                    unauthorized disclosure may result in termination and legal
+                    penalties.
                   </span>
                 </label>
               </div>
@@ -806,25 +861,32 @@ export default function TaxPreparerApplication() {
               </h3>
               <ol className="list-decimal pl-6 space-y-2 text-sm">
                 <li>
-                  <strong>FREE Training Access</strong> - Get immediate access to our Tax Preparation Basics course
+                  <strong>FREE Training Access</strong> - Get immediate access
+                  to our Tax Preparation Basics course
                 </li>
                 <li>
-                  <strong>Study at Your Own Pace</strong> - Take 1-2 weeks to complete the training
+                  <strong>Study at Your Own Pace</strong> - Take 1-2 weeks to
+                  complete the training
                 </li>
                 <li>
-                  <strong>Take the Competency Test</strong> - 30 questions, 45 minutes, 80% to pass
+                  <strong>Take the Competency Test</strong> - 30 questions, 45
+                  minutes, 80% to pass
                 </li>
                 <li>
-                  <strong>Interview</strong> - If you pass, we'll schedule your interview
+                  <strong>Interview</strong> - If you pass, we'll schedule your
+                  interview
                 </li>
                 <li>
-                  <strong>Background Check</strong> - Reference and criminal history verification
+                  <strong>Background Check</strong> - Reference and criminal
+                  history verification
                 </li>
                 <li>
-                  <strong>Advanced Training</strong> - Drake Software training (paid by company)
+                  <strong>Advanced Training</strong> - Drake Software training
+                  (paid by company)
                 </li>
                 <li>
-                  <strong>Start Work!</strong> - Begin preparing tax returns and earning money
+                  <strong>Start Work!</strong> - Begin preparing tax returns and
+                  earning money
                 </li>
               </ol>
             </div>
@@ -834,13 +896,24 @@ export default function TaxPreparerApplication() {
                 🎓 New to Tax Preparation? No Problem!
               </h3>
               <p className="text-sm mb-3">
-                We provide <strong>FREE training</strong> for all applicants. You don't need prior experience!
+                We provide <strong>FREE training</strong> for all applicants.
+                You don't need prior experience!
               </p>
               <ul className="space-y-2 text-sm">
-                <li>✓ <strong>Tax Preparation Basics</strong> - Free 12-hour course ($199 value)</li>
-                <li>✓ <strong>IRS Regulations & Ethics</strong> - Free 6-hour course ($149 value)</li>
-                <li>✓ <strong>Study materials and practice questions</strong></li>
-                <li>✓ <strong>Take the test when YOU'RE ready</strong></li>
+                <li>
+                  ✓ <strong>Tax Preparation Basics</strong> - Free 12-hour
+                  course ($199 value)
+                </li>
+                <li>
+                  ✓ <strong>IRS Regulations & Ethics</strong> - Free 6-hour
+                  course ($149 value)
+                </li>
+                <li>
+                  ✓ <strong>Study materials and practice questions</strong>
+                </li>
+                <li>
+                  ✓ <strong>Take the test when YOU'RE ready</strong>
+                </li>
               </ul>
             </div>
 
@@ -868,6 +941,6 @@ export default function TaxPreparerApplication() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

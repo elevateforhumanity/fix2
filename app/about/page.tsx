@@ -115,7 +115,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Internal Navigation */}
       <nav className="bg-gray-900 border-b border-gray-700 sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
@@ -507,6 +507,6 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

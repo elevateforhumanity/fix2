@@ -4,11 +4,12 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Elevate for Humanity',
     short_name: 'Elevate',
-    description: 'Free workforce training and apprenticeships in Indianapolis. WIOA, WRG, and JRI funded programs.',
+    description:
+      'Free career training in healthcare, skilled trades, and business',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#ea580c',
+    theme_color: '#f97316',
     icons: [
       {
         src: '/icon-192.png',

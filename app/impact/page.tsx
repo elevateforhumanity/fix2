@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ImpactPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="w-full py-20 bg-gradient-to-br from-brand-blue-700 to-brand-purple-700 text-white">
         <div className="mx-auto w-full max-w-6xl px-6">
@@ -27,36 +27,9 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      {/* Key Metrics */}
+      {/* Why Funders Choose Elevate */}
       <section className="w-full py-20 bg-white">
         <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-16">
-            <div className="text-center">
-              <div className="text-5xl font-black text-brand-blue-600 mb-2">
-                500+
-              </div>
-              <div className="text-gray-700">Learners Trained</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-black text-brand-purple-600 mb-2">
-                85%
-              </div>
-              <div className="text-gray-700">Completion Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-black text-brand-orange-600 mb-2">
-                75%
-              </div>
-              <div className="text-gray-700">Job Placement</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-black text-brand-green-600 mb-2">
-                50+
-              </div>
-              <div className="text-gray-700">Employer Partners</div>
-            </div>
-          </div>
-
           <h2 className="text-4xl font-black text-black mb-12 text-center">
             Why Funders Choose Elevate
           </h2>
@@ -195,6 +168,6 @@ export default function ImpactPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ export default function CartPage() {
   const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <main className="min-h-screen bg-white py-20">
+    <div className="min-h-screen bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-8">
           <ShoppingCart className="w-8 h-8 text-orange-600" />
@@ -93,6 +93,6 @@ export default function CartPage() {
           </>
         )}
       </div>
-    </main>
+    </div>
   );
 }

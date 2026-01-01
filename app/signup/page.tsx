@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 export default async function SignupPage() {
   return (
     <div className="min-h-screen bg-slate-50">
-      <main className="mx-auto max-w-3xl px-4 py-10">
+      <div className="mx-auto max-w-3xl px-4 py-10">
         <h1 className="text-3xl font-bold text-black">
           Create your Elevate account
         </h1>
         <p className="mt-2 text-gray-600">
-          Use one account to apply, track training, and manage documents. After you apply, 
-          a real advisor follows up.
+          Use one account to apply, track training, and manage documents. After
+          you apply, a real advisor follows up.
         </p>
 
         <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -37,17 +37,29 @@ export default async function SignupPage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-600">
-          <Link href="/login" aria-label="Link" className="underline hover:text-brand-blue-600">
+          <Link
+            href="/login"
+            aria-label="Link"
+            className="underline hover:text-brand-blue-600"
+          >
             Already have an account? Log in
           </Link>
-          <Link href="/apply" aria-label="Link" className="underline hover:text-brand-blue-600">
+          <Link
+            href="/apply"
+            aria-label="Link"
+            className="underline hover:text-brand-blue-600"
+          >
             Not ready to create an account? Apply first
           </Link>
-          <Link href="/privacy" aria-label="Link" className="underline hover:text-brand-blue-600">
+          <Link
+            href="/privacy"
+            aria-label="Link"
+            className="underline hover:text-brand-blue-600"
+          >
             Privacy Policy
           </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

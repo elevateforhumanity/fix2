@@ -84,7 +84,7 @@ export default function EnhancedHomePage() {
   ];
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* ENHANCED HERO BANNER */}
       <section className="relative h-[700px]     overflow-hidden">
         {/* Animated Background Pattern */}
@@ -104,12 +104,11 @@ export default function EnhancedHomePage() {
             src="/images/heroes/hero-elevate-learners.jpg"
             alt="Elevate for Humanity Career Training"
             fill
-          sizes="100vw"
+            sizes="100vw"
             className="object-cover opacity-30"
             priority
             quality={90}
           />
-          
         </div>
 
         {/* Content */}
@@ -238,10 +237,10 @@ export default function EnhancedHomePage() {
                     src={program.image}
                     alt={program.title}
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  
+
                   <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
                     FREE
                   </div>
@@ -396,7 +395,7 @@ export default function EnhancedHomePage() {
             src="/images/heroes/hero-students.jpg"
             alt="Start your career"
             fill
-          sizes="100vw"
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -462,7 +461,7 @@ export default function EnhancedHomePage() {
                     src="/images/artlist/hero-training-7.jpg"
                     alt="Maria Rodriguez"
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -499,7 +498,7 @@ export default function EnhancedHomePage() {
                     src="/images/artlist/hero-training-8.jpg"
                     alt="James Thompson"
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -536,7 +535,7 @@ export default function EnhancedHomePage() {
                     src="/media/programs/efh-cna-hero.jpg"
                     alt="Sarah Johnson"
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -669,7 +668,7 @@ export default function EnhancedHomePage() {
                     src="/images/heroes/hero-elevate-learners.jpg"
                     alt="Mobile App Screenshot"
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover"
                   />
                 </div>
@@ -858,6 +857,6 @@ export default function EnhancedHomePage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

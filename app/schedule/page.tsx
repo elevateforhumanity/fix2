@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function SchedulePage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10 md:py-14">
+    <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
       <div className="rounded-2xl border bg-white p-6 md:p-8 shadow-sm">
         <h1 className="text-2xl md:text-3xl font-bold text-black">
           Schedule an Appointment
@@ -85,7 +85,7 @@ export default function SchedulePage() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

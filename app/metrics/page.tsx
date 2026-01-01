@@ -4,7 +4,7 @@ export const revalidate = 3600; // 1 hour ISR cache
 
 export default function MetricsPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       <ComplianceBar />
 
       <div className="max-w-4xl mx-auto px-6 py-16">
@@ -119,6 +119,6 @@ export default function MetricsPage() {
           for workforce agencies and funding partners.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

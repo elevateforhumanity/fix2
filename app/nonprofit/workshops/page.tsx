@@ -5,11 +5,12 @@ export default function WorkshopsPage() {
   const workshops = [
     {
       title: 'Mindfulness & Meditation',
-      description: 'Learn techniques to reduce stress and increase present-moment awareness',
+      description:
+        'Learn techniques to reduce stress and increase present-moment awareness',
       date: 'Every Tuesday',
       time: '6:00 PM - 7:30 PM',
       location: 'Virtual',
-      spots: '15 spots available'
+      spots: '15 spots available',
     },
     {
       title: 'Trauma Recovery Support Group',
@@ -17,7 +18,7 @@ export default function WorkshopsPage() {
       date: 'Every Thursday',
       time: '7:00 PM - 8:30 PM',
       location: 'Virtual',
-      spots: '12 spots available'
+      spots: '12 spots available',
     },
     {
       title: 'Holistic Wellness Workshop',
@@ -25,12 +26,12 @@ export default function WorkshopsPage() {
       date: 'First Saturday of Month',
       time: '10:00 AM - 2:00 PM',
       location: 'In-Person & Virtual',
-      spots: '20 spots available'
-    }
+      spots: '20 spots available',
+    },
   ];
 
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero */}
       <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-white text-center">
         <div className="max-w-4xl mx-auto">
@@ -48,13 +49,14 @@ export default function WorkshopsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {workshops.map((workshop, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+              >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   {workshop.title}
                 </h3>
-                <p className="text-gray-600 mb-6">
-                  {workshop.description}
-                </p>
+                <p className="text-gray-600 mb-6">{workshop.description}</p>
                 <div className="space-y-3 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-purple-600" />
@@ -102,6 +104,6 @@ export default function WorkshopsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -20,7 +20,7 @@ export default function RevenueShareCalculator() {
   const annualRevenue = monthlyRevenue * 4; // 4 month tax season
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="relative h-[300px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -375,6 +375,6 @@ export default function RevenueShareCalculator() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

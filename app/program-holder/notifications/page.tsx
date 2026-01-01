@@ -30,7 +30,7 @@ export default async function ProgramHolderNotificationsPage() {
   const unreadCount = notifications?.filter((n) => !n.read).length || 0;
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-8 flex items-center justify-between">
           <div>
@@ -130,6 +130,6 @@ export default async function ProgramHolderNotificationsPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

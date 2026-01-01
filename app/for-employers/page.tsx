@@ -13,7 +13,7 @@ import {
   TrendingUp,
   Building2,
   Target,
-  Zap
+  Zap,
 } from 'lucide-react';
 import {
   Container,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function ForEmployersPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* HERO */}
       <section className="relative text-white py-24 overflow-hidden">
         {/* Background Image */}
@@ -49,9 +49,11 @@ export default function ForEmployersPage() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 bg-orange-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 mb-6">
               <Building2 className="w-5 h-5 text-orange-400" />
-              <span className="text-orange-100 font-semibold">For Employers & Hiring Managers</span>
+              <span className="text-orange-100 font-semibold">
+                For Employers & Hiring Managers
+              </span>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight leading-tight">
               Hire Trained Workers.
               <span className="block text-orange-400">No Recruiting Fees.</span>
@@ -60,7 +62,8 @@ export default function ForEmployersPage() {
               Access job-ready candidates with industry credentials
             </p>
             <p className="text-xl text-gray-200 mb-10 max-w-3xl">
-              We train workers in healthcare, skilled trades, and technology. You get pre-screened, certified candidates at zero cost.
+              We train workers in healthcare, skilled trades, and technology.
+              You get pre-screened, certified candidates at zero cost.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
@@ -90,7 +93,9 @@ export default function ForEmployersPage() {
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Users className="w-10 h-10 text-blue-400 mb-2" />
                 <div className="text-2xl font-black mb-1">Pre-Screened</div>
-                <div className="text-sm text-gray-200">Qualified Candidates</div>
+                <div className="text-sm text-gray-200">
+                  Qualified Candidates
+                </div>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
                 <Award className="w-10 h-10 text-yellow-400 mb-2" />
@@ -418,6 +423,6 @@ export default function ForEmployersPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

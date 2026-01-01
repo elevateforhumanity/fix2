@@ -171,7 +171,7 @@ const successStories = [
 
 export default function SuccessStoriesPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
         <div className="container mx-auto px-4 relative z-10">
@@ -240,11 +240,12 @@ export default function SuccessStoriesPage() {
                 {/* Image/Video */}
                 <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
                   <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl group">
-                    <Image priority
+                    <Image
+                      priority
                       src={story.image}
                       alt={`${story.name} - ${story.program} graduate`}
                       fill
-          sizes="100vw"
+                      sizes="100vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {story.videoContent && (
@@ -393,6 +394,6 @@ export default function SuccessStoriesPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

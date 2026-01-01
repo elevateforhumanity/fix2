@@ -66,7 +66,7 @@ export default async function StudentDocumentsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <section className="bg-white border-b py-8">
         <div className="max-w-7xl mx-auto px-6">
@@ -213,6 +213,6 @@ export default async function StudentDocumentsPage() {
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

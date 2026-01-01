@@ -144,7 +144,7 @@ const drugTestingServices = {
 
 export default function DrugTestingPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-6xl px-4">
@@ -451,6 +451,6 @@ export default function DrugTestingPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

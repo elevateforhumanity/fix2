@@ -39,7 +39,7 @@ export default async function CommunityMarketplacePage() {
     .limit(8);
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="bg-zinc-900  via-white  py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -83,7 +83,8 @@ export default async function CommunityMarketplacePage() {
                 >
                   {course.thumbnail_url && (
                     <div className="aspect-video bg-gray-100 overflow-hidden relative">
-                      <Image priority
+                      <Image
+                        priority
                         src={course.thumbnail_url}
                         alt={course.title}
                         fill
@@ -181,7 +182,8 @@ export default async function CommunityMarketplacePage() {
                 >
                   {product.images && product.images[0] && (
                     <div className="aspect-square bg-gray-100 overflow-hidden relative">
-                      <Image loading="lazy"
+                      <Image
+                        loading="lazy"
                         src={product.images[0]}
                         alt={product.name}
                         fill
@@ -254,6 +256,6 @@ export default async function CommunityMarketplacePage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

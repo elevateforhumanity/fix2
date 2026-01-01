@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState } from 'react';
 import { Calendar, CreditCard, CheckCircle, Award } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
-
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
@@ -69,7 +68,7 @@ export default function IPLAExamSignup() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <div className="bg-white text-white rounded-xl p-8 mb-8">
@@ -298,6 +297,6 @@ export default function IPLAExamSignup() {
           </button>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

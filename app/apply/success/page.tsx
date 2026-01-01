@@ -73,7 +73,7 @@ export default function ApplicationSuccessPage({
     roleMessages[role as keyof typeof roleMessages] || roleMessages.student;
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div className="bg-white border border-slate-200 rounded-lg p-8 sm:p-12 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-6">
@@ -143,6 +143,6 @@ export default function ApplicationSuccessPage({
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

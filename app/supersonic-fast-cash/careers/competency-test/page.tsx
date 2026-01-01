@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
@@ -15,269 +15,310 @@ const COMPETENCY_QUESTIONS: Question[] = [
   // Filing Status Questions
   {
     id: 1,
-    question: "What is the standard deduction for a single filer in 2024?",
-    options: ["$12,950", "$13,850", "$14,600", "$27,700"],
+    question: 'What is the standard deduction for a single filer in 2024?',
+    options: ['$12,950', '$13,850', '$14,600', '$27,700'],
     correctAnswer: 2,
-    category: "Tax Basics"
+    category: 'Tax Basics',
   },
   {
     id: 2,
-    question: "Which filing status typically results in the lowest tax liability for a married couple?",
-    options: ["Single", "Married Filing Jointly", "Married Filing Separately", "Head of Household"],
+    question:
+      'Which filing status typically results in the lowest tax liability for a married couple?',
+    options: [
+      'Single',
+      'Married Filing Jointly',
+      'Married Filing Separately',
+      'Head of Household',
+    ],
     correctAnswer: 1,
-    category: "Filing Status"
+    category: 'Filing Status',
   },
   {
     id: 3,
-    question: "To qualify for Head of Household status, you must:",
+    question: 'To qualify for Head of Household status, you must:',
     options: [
-      "Be married",
-      "Pay more than half the cost of keeping up a home",
-      "Have no dependents",
-      "File jointly with spouse"
+      'Be married',
+      'Pay more than half the cost of keeping up a home',
+      'Have no dependents',
+      'File jointly with spouse',
     ],
     correctAnswer: 1,
-    category: "Filing Status"
+    category: 'Filing Status',
   },
 
   // Income Questions
   {
     id: 4,
-    question: "Which form reports wages and salary income?",
-    options: ["Form 1099-MISC", "Form W-2", "Form 1040", "Schedule C"],
+    question: 'Which form reports wages and salary income?',
+    options: ['Form 1099-MISC', 'Form W-2', 'Form 1040', 'Schedule C'],
     correctAnswer: 1,
-    category: "Income"
+    category: 'Income',
   },
   {
     id: 5,
-    question: "Self-employment income is reported on which schedule?",
-    options: ["Schedule A", "Schedule B", "Schedule C", "Schedule D"],
+    question: 'Self-employment income is reported on which schedule?',
+    options: ['Schedule A', 'Schedule B', 'Schedule C', 'Schedule D'],
     correctAnswer: 2,
-    category: "Income"
+    category: 'Income',
   },
   {
     id: 6,
-    question: "What is the self-employment tax rate for 2024?",
-    options: ["12.4%", "15.3%", "22%", "24%"],
+    question: 'What is the self-employment tax rate for 2024?',
+    options: ['12.4%', '15.3%', '22%', '24%'],
     correctAnswer: 1,
-    category: "Self-Employment"
+    category: 'Self-Employment',
   },
 
   // Deductions Questions
   {
     id: 7,
-    question: "Itemized deductions are reported on which schedule?",
-    options: ["Schedule A", "Schedule B", "Schedule C", "Schedule D"],
+    question: 'Itemized deductions are reported on which schedule?',
+    options: ['Schedule A', 'Schedule B', 'Schedule C', 'Schedule D'],
     correctAnswer: 0,
-    category: "Deductions"
+    category: 'Deductions',
   },
   {
     id: 8,
-    question: "Which of the following is NOT deductible as a business expense?",
-    options: ["Office supplies", "Business meals (50%)", "Personal groceries", "Professional fees"],
+    question: 'Which of the following is NOT deductible as a business expense?',
+    options: [
+      'Office supplies',
+      'Business meals (50%)',
+      'Personal groceries',
+      'Professional fees',
+    ],
     correctAnswer: 2,
-    category: "Deductions"
+    category: 'Deductions',
   },
   {
     id: 9,
-    question: "The home office deduction requires:",
+    question: 'The home office deduction requires:',
     options: [
-      "Any space used occasionally for work",
-      "Regular and exclusive use for business",
-      "A separate building only",
-      "No other workplace"
+      'Any space used occasionally for work',
+      'Regular and exclusive use for business',
+      'A separate building only',
+      'No other workplace',
     ],
     correctAnswer: 1,
-    category: "Deductions"
+    category: 'Deductions',
   },
 
   // Credits Questions
   {
     id: 10,
-    question: "What is the maximum Child Tax Credit per qualifying child in 2024?",
-    options: ["$1,000", "$2,000", "$3,000", "$3,600"],
+    question:
+      'What is the maximum Child Tax Credit per qualifying child in 2024?',
+    options: ['$1,000', '$2,000', '$3,000', '$3,600'],
     correctAnswer: 1,
-    category: "Credits"
+    category: 'Credits',
   },
   {
     id: 11,
-    question: "The Earned Income Tax Credit (EITC) is:",
+    question: 'The Earned Income Tax Credit (EITC) is:',
     options: [
-      "A non-refundable credit",
-      "A refundable credit",
-      "Only for high-income earners",
-      "Not available to self-employed"
+      'A non-refundable credit',
+      'A refundable credit',
+      'Only for high-income earners',
+      'Not available to self-employed',
     ],
     correctAnswer: 1,
-    category: "Credits"
+    category: 'Credits',
   },
   {
     id: 12,
-    question: "Which education credit has a maximum of $2,500 per student?",
-    options: ["Lifetime Learning Credit", "American Opportunity Credit", "Hope Credit", "Pell Grant"],
+    question: 'Which education credit has a maximum of $2,500 per student?',
+    options: [
+      'Lifetime Learning Credit',
+      'American Opportunity Credit',
+      'Hope Credit',
+      'Pell Grant',
+    ],
     correctAnswer: 1,
-    category: "Credits"
+    category: 'Credits',
   },
 
   // E-Filing Questions
   {
     id: 13,
-    question: "What does EFIN stand for?",
+    question: 'What does EFIN stand for?',
     options: [
-      "Electronic Filing Identification Number",
-      "E-File Information Network",
-      "Electronic Federal Income Number",
-      "E-File Integration Number"
+      'Electronic Filing Identification Number',
+      'E-File Information Network',
+      'Electronic Federal Income Number',
+      'E-File Integration Number',
     ],
     correctAnswer: 0,
-    category: "E-Filing"
+    category: 'E-Filing',
   },
   {
     id: 14,
-    question: "A PTIN is required for:",
+    question: 'A PTIN is required for:',
     options: [
-      "All taxpayers",
-      "Only CPAs",
-      "Anyone who prepares tax returns for compensation",
-      "Only enrolled agents"
+      'All taxpayers',
+      'Only CPAs',
+      'Anyone who prepares tax returns for compensation',
+      'Only enrolled agents',
     ],
     correctAnswer: 2,
-    category: "Professional Requirements"
+    category: 'Professional Requirements',
   },
   {
     id: 15,
-    question: "What is the deadline for most individual tax returns?",
-    options: ["March 15", "April 15", "June 15", "October 15"],
+    question: 'What is the deadline for most individual tax returns?',
+    options: ['March 15', 'April 15', 'June 15', 'October 15'],
     correctAnswer: 1,
-    category: "Deadlines"
+    category: 'Deadlines',
   },
 
   // Drake Software Questions
   {
     id: 16,
-    question: "In Drake Software, which key opens the forms view?",
-    options: ["F1", "F5", "F9", "F12"],
+    question: 'In Drake Software, which key opens the forms view?',
+    options: ['F1', 'F5', 'F9', 'F12'],
     correctAnswer: 1,
-    category: "Drake Software"
+    category: 'Drake Software',
   },
   {
     id: 17,
     question: "Drake's e-file transmission is accessed through:",
-    options: ["File menu", "Tools menu", "Transmit menu", "E-File menu"],
+    options: ['File menu', 'Tools menu', 'Transmit menu', 'E-File menu'],
     correctAnswer: 2,
-    category: "Drake Software"
+    category: 'Drake Software',
   },
   {
     id: 18,
     question: "What does Drake's 'Calculate' function do?",
     options: [
-      "Only checks for errors",
-      "Computes tax liability and generates forms",
-      "Transmits the return",
-      "Prints the return"
+      'Only checks for errors',
+      'Computes tax liability and generates forms',
+      'Transmits the return',
+      'Prints the return',
     ],
     correctAnswer: 1,
-    category: "Drake Software"
+    category: 'Drake Software',
   },
 
   // Ethics & Compliance
   {
     id: 19,
-    question: "Due diligence requirements apply to which credits?",
+    question: 'Due diligence requirements apply to which credits?',
     options: [
-      "All credits",
-      "EITC, CTC, AOTC, and HOH",
-      "Only EITC",
-      "No credits require due diligence"
+      'All credits',
+      'EITC, CTC, AOTC, and HOH',
+      'Only EITC',
+      'No credits require due diligence',
     ],
     correctAnswer: 1,
-    category: "Ethics"
+    category: 'Ethics',
   },
   {
     id: 20,
-    question: "Taxpayer information must be kept confidential under:",
-    options: ["IRS Circular 230", "IRC Section 7216", "PTIN requirements", "State law only"],
+    question: 'Taxpayer information must be kept confidential under:',
+    options: [
+      'IRS Circular 230',
+      'IRC Section 7216',
+      'PTIN requirements',
+      'State law only',
+    ],
     correctAnswer: 1,
-    category: "Ethics"
+    category: 'Ethics',
   },
 
   // Additional Questions
   {
     id: 21,
-    question: "Capital gains from assets held more than one year are taxed at:",
-    options: ["Ordinary income rates", "Preferential long-term rates", "50% of ordinary rates", "Not taxed"],
+    question: 'Capital gains from assets held more than one year are taxed at:',
+    options: [
+      'Ordinary income rates',
+      'Preferential long-term rates',
+      '50% of ordinary rates',
+      'Not taxed',
+    ],
     correctAnswer: 1,
-    category: "Capital Gains"
+    category: 'Capital Gains',
   },
   {
     id: 22,
-    question: "Which retirement contribution is NOT tax-deductible?",
-    options: ["Traditional IRA", "401(k)", "Roth IRA", "SEP IRA"],
+    question: 'Which retirement contribution is NOT tax-deductible?',
+    options: ['Traditional IRA', '401(k)', 'Roth IRA', 'SEP IRA'],
     correctAnswer: 2,
-    category: "Retirement"
+    category: 'Retirement',
   },
   {
     id: 23,
-    question: "The Additional Child Tax Credit is:",
-    options: ["Non-refundable", "Refundable", "Only for high earners", "Eliminated in 2024"],
+    question: 'The Additional Child Tax Credit is:',
+    options: [
+      'Non-refundable',
+      'Refundable',
+      'Only for high earners',
+      'Eliminated in 2024',
+    ],
     correctAnswer: 1,
-    category: "Credits"
+    category: 'Credits',
   },
   {
     id: 24,
-    question: "Estimated tax payments are required when tax liability exceeds:",
-    options: ["$500", "$1,000", "$2,000", "$5,000"],
+    question: 'Estimated tax payments are required when tax liability exceeds:',
+    options: ['$500', '$1,000', '$2,000', '$5,000'],
     correctAnswer: 1,
-    category: "Estimated Taxes"
+    category: 'Estimated Taxes',
   },
   {
     id: 25,
-    question: "Which form is used to report cryptocurrency transactions?",
-    options: ["Form 8949", "Schedule D", "Form 1099-B", "All of the above"],
+    question: 'Which form is used to report cryptocurrency transactions?',
+    options: ['Form 8949', 'Schedule D', 'Form 1099-B', 'All of the above'],
     correctAnswer: 3,
-    category: "Cryptocurrency"
+    category: 'Cryptocurrency',
   },
   {
     id: 26,
-    question: "The standard mileage rate for business use in 2024 is approximately:",
-    options: ["$0.45/mile", "$0.56/mile", "$0.67/mile", "$0.75/mile"],
+    question:
+      'The standard mileage rate for business use in 2024 is approximately:',
+    options: ['$0.45/mile', '$0.56/mile', '$0.67/mile', '$0.75/mile'],
     correctAnswer: 2,
-    category: "Deductions"
+    category: 'Deductions',
   },
   {
     id: 27,
-    question: "A taxpayer can amend a return using:",
-    options: ["Form 1040", "Form 1040-X", "Form 1099", "Schedule A"],
+    question: 'A taxpayer can amend a return using:',
+    options: ['Form 1040', 'Form 1040-X', 'Form 1099', 'Schedule A'],
     correctAnswer: 1,
-    category: "Amendments"
+    category: 'Amendments',
   },
   {
     id: 28,
-    question: "Health Savings Account (HSA) contributions are:",
-    options: ["Not deductible", "Deductible above-the-line", "Itemized deductions", "Credits"],
+    question: 'Health Savings Account (HSA) contributions are:',
+    options: [
+      'Not deductible',
+      'Deductible above-the-line',
+      'Itemized deductions',
+      'Credits',
+    ],
     correctAnswer: 1,
-    category: "Deductions"
+    category: 'Deductions',
   },
   {
     id: 29,
-    question: "The penalty for early withdrawal from a traditional IRA is:",
-    options: ["5%", "10%", "15%", "20%"],
+    question: 'The penalty for early withdrawal from a traditional IRA is:',
+    options: ['5%', '10%', '15%', '20%'],
     correctAnswer: 1,
-    category: "Retirement"
+    category: 'Retirement',
   },
   {
     id: 30,
-    question: "Which document authorizes a preparer to represent a taxpayer before the IRS?",
-    options: ["Form W-2", "Form 8879", "Form 2848", "Form 1040"],
+    question:
+      'Which document authorizes a preparer to represent a taxpayer before the IRS?',
+    options: ['Form W-2', 'Form 8879', 'Form 2848', 'Form 1040'],
     correctAnswer: 2,
-    category: "Professional Requirements"
-  }
+    category: 'Professional Requirements',
+  },
 ];
 
 export default function CompetencyTest() {
   const [started, setStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<number[]>(new Array(COMPETENCY_QUESTIONS.length).fill(-1));
+  const [answers, setAnswers] = useState<number[]>(
+    new Array(COMPETENCY_QUESTIONS.length).fill(-1)
+  );
   const [timeRemaining, setTimeRemaining] = useState(45 * 60); // 45 minutes in seconds
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
@@ -319,7 +360,9 @@ export default function CompetencyTest() {
         correct++;
       }
     });
-    const percentage = Math.round((correct / COMPETENCY_QUESTIONS.length) * 100);
+    const percentage = Math.round(
+      (correct / COMPETENCY_QUESTIONS.length) * 100
+    );
     setScore(percentage);
     setSubmitted(true);
 
@@ -333,9 +376,9 @@ export default function CompetencyTest() {
           name: applicantName,
           score: percentage,
           answers,
-          timeSpent: (45 * 60) - timeRemaining,
-          passed: percentage >= 80
-        })
+          timeSpent: 45 * 60 - timeRemaining,
+          passed: percentage >= 80,
+        }),
       });
 
       // If passed, automatically generate access key
@@ -347,8 +390,8 @@ export default function CompetencyTest() {
             body: JSON.stringify({
               email: applicantEmail,
               name: applicantName,
-              testScore: percentage
-            })
+              testScore: percentage,
+            }),
           });
         } catch (error) {
           console.error('Failed to generate access key:', error);
@@ -361,18 +404,30 @@ export default function CompetencyTest() {
 
   if (!started) {
     return (
-      <main className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-3xl mx-auto px-6">
           <div className="bg-white rounded-xl shadow-lg p-8">
-            <h1 className="text-3xl font-bold mb-6">Tax Preparer Competency Test</h1>
-            
+            <h1 className="text-3xl font-bold mb-6">
+              Tax Preparer Competency Test
+            </h1>
+
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-lg mb-3">Test Information:</h2>
               <ul className="space-y-2 text-sm">
-                <li>✓ <strong>30 questions</strong> covering tax preparation knowledge</li>
-                <li>✓ <strong>45 minutes</strong> time limit</li>
-                <li>✓ <strong>80% passing score</strong> required (24/30 correct)</li>
-                <li>✓ Topics: Filing status, income, deductions, credits, Drake Software, ethics</li>
+                <li>
+                  ✓ <strong>30 questions</strong> covering tax preparation
+                  knowledge
+                </li>
+                <li>
+                  ✓ <strong>45 minutes</strong> time limit
+                </li>
+                <li>
+                  ✓ <strong>80% passing score</strong> required (24/30 correct)
+                </li>
+                <li>
+                  ✓ Topics: Filing status, income, deductions, credits, Drake
+                  Software, ethics
+                </li>
                 <li>✓ Multiple choice format</li>
                 <li>✓ Results available immediately</li>
               </ul>
@@ -390,7 +445,9 @@ export default function CompetencyTest() {
                 />
               </div>
               <div>
-                <label className="block font-semibold mb-2">Email Address *</label>
+                <label className="block font-semibold mb-2">
+                  Email Address *
+                </label>
                 <input
                   type="email"
                   value={applicantEmail}
@@ -415,14 +472,14 @@ export default function CompetencyTest() {
             </button>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   if (submitted) {
     const passed = score >= 80;
     return (
-      <main className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-3xl mx-auto px-6">
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="text-center mb-8">
@@ -435,10 +492,14 @@ export default function CompetencyTest() {
                 {passed ? 'Congratulations!' : 'Test Not Passed'}
               </h1>
               <p className="text-xl text-gray-600">
-                Your Score: <strong className={passed ? 'text-green-600' : 'text-red-600'}>{score}%</strong>
+                Your Score:{' '}
+                <strong className={passed ? 'text-green-600' : 'text-red-600'}>
+                  {score}%
+                </strong>
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                ({Math.round((score / 100) * COMPETENCY_QUESTIONS.length)}/{COMPETENCY_QUESTIONS.length} correct)
+                ({Math.round((score / 100) * COMPETENCY_QUESTIONS.length)}/
+                {COMPETENCY_QUESTIONS.length} correct)
               </p>
             </div>
 
@@ -446,10 +507,14 @@ export default function CompetencyTest() {
               <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
                 <h2 className="font-bold text-lg mb-3">Next Steps:</h2>
                 <ol className="list-decimal pl-6 space-y-2 text-sm">
-                  <li>You will receive an email confirmation within 24 hours</li>
+                  <li>
+                    You will receive an email confirmation within 24 hours
+                  </li>
                   <li>Our HR team will schedule your interview</li>
                   <li>Background check and reference verification</li>
-                  <li>Complete onboarding paperwork (W-4, I-9, direct deposit)</li>
+                  <li>
+                    Complete onboarding paperwork (W-4, I-9, direct deposit)
+                  </li>
                   <li>Begin Drake Software training</li>
                   <li>Start preparing tax returns!</li>
                 </ol>
@@ -458,10 +523,12 @@ export default function CompetencyTest() {
               <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
                 <h2 className="font-bold text-lg mb-3">What's Next:</h2>
                 <p className="text-sm mb-3">
-                  You need a score of 80% or higher to pass. You may retake the test after 7 days.
+                  You need a score of 80% or higher to pass. You may retake the
+                  test after 7 days.
                 </p>
                 <p className="text-sm">
-                  We recommend reviewing tax preparation materials and Drake Software documentation before retaking.
+                  We recommend reviewing tax preparation materials and Drake
+                  Software documentation before retaking.
                 </p>
               </div>
             )}
@@ -469,19 +536,37 @@ export default function CompetencyTest() {
             <div className="border-t pt-6">
               <h3 className="font-bold mb-3">Score Breakdown by Category:</h3>
               <div className="space-y-2 text-sm">
-                {Array.from(new Set(COMPETENCY_QUESTIONS.map(q => q.category))).map(category => {
-                  const categoryQuestions = COMPETENCY_QUESTIONS.filter(q => q.category === category);
+                {Array.from(
+                  new Set(COMPETENCY_QUESTIONS.map((q) => q.category))
+                ).map((category) => {
+                  const categoryQuestions = COMPETENCY_QUESTIONS.filter(
+                    (q) => q.category === category
+                  );
                   const categoryCorrect = categoryQuestions.filter((q, idx) => {
-                    const questionIndex = COMPETENCY_QUESTIONS.findIndex(question => question.id === q.id);
+                    const questionIndex = COMPETENCY_QUESTIONS.findIndex(
+                      (question) => question.id === q.id
+                    );
                     return answers[questionIndex] === q.correctAnswer;
                   }).length;
-                  const categoryScore = Math.round((categoryCorrect / categoryQuestions.length) * 100);
-                  
+                  const categoryScore = Math.round(
+                    (categoryCorrect / categoryQuestions.length) * 100
+                  );
+
                   return (
-                    <div key={category} className="flex justify-between items-center">
+                    <div
+                      key={category}
+                      className="flex justify-between items-center"
+                    >
                       <span>{category}</span>
-                      <span className={categoryScore >= 80 ? 'text-green-600 font-semibold' : 'text-red-600'}>
-                        {categoryCorrect}/{categoryQuestions.length} ({categoryScore}%)
+                      <span
+                        className={
+                          categoryScore >= 80
+                            ? 'text-green-600 font-semibold'
+                            : 'text-red-600'
+                        }
+                      >
+                        {categoryCorrect}/{categoryQuestions.length} (
+                        {categoryScore}%)
                       </span>
                     </div>
                   );
@@ -490,14 +575,16 @@ export default function CompetencyTest() {
             </div>
 
             <button
-              onClick={() => window.location.href = '/supersonic-fast-cash/careers'}
+              onClick={() =>
+                (window.location.href = '/supersonic-fast-cash/careers')
+              }
               className="w-full mt-6 bg-gray-600 text-white py-3 rounded-lg font-bold hover:bg-gray-700"
             >
               Return to Careers
             </button>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
@@ -505,14 +592,16 @@ export default function CompetencyTest() {
   const progress = ((currentQuestion + 1) / COMPETENCY_QUESTIONS.length) * 100;
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-3xl mx-auto px-6">
         {/* Timer */}
         <div className="bg-white rounded-lg shadow p-4 mb-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5 text-gray-600" />
             <span className="font-semibold">Time Remaining:</span>
-            <span className={`font-bold ${timeRemaining < 300 ? 'text-red-600' : 'text-green-600'}`}>
+            <span
+              className={`font-bold ${timeRemaining < 300 ? 'text-red-600' : 'text-green-600'}`}
+            >
               {formatTime(timeRemaining)}
             </span>
           </div>
@@ -546,11 +635,13 @@ export default function CompetencyTest() {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                    answers[currentQuestion] === index
-                      ? 'border-green-600 bg-green-600'
-                      : 'border-gray-400'
-                  }`}>
+                  <div
+                    className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+                      answers[currentQuestion] === index
+                        ? 'border-green-600 bg-green-600'
+                        : 'border-gray-400'
+                    }`}
+                  >
                     {answers[currentQuestion] === index && (
                       <CheckCircle className="w-4 h-4 text-white" />
                     )}
@@ -564,13 +655,15 @@ export default function CompetencyTest() {
           {/* Navigation */}
           <div className="flex gap-4">
             <button
-              onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
+              onClick={() =>
+                setCurrentQuestion(Math.max(0, currentQuestion - 1))
+              }
               disabled={currentQuestion === 0}
               className="flex-1 bg-gray-300 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
-            
+
             {currentQuestion < COMPETENCY_QUESTIONS.length - 1 ? (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion + 1)}
@@ -590,7 +683,9 @@ export default function CompetencyTest() {
 
           {/* Question Navigator */}
           <div className="mt-6 pt-6 border-t">
-            <div className="text-sm font-semibold mb-3">Question Navigator:</div>
+            <div className="text-sm font-semibold mb-3">
+              Question Navigator:
+            </div>
             <div className="grid grid-cols-10 gap-2">
               {COMPETENCY_QUESTIONS.map((_, index) => (
                 <button
@@ -600,8 +695,8 @@ export default function CompetencyTest() {
                     index === currentQuestion
                       ? 'bg-green-600 text-white'
                       : answers[index] !== -1
-                      ? 'bg-green-100 text-green-700 border border-green-300'
-                      : 'bg-gray-100 text-gray-600 border border-gray-300'
+                        ? 'bg-green-100 text-green-700 border border-green-300'
+                        : 'bg-gray-100 text-gray-600 border border-gray-300'
                   }`}
                 >
                   {index + 1}
@@ -609,11 +704,12 @@ export default function CompetencyTest() {
               ))}
             </div>
             <div className="mt-3 text-xs text-gray-500">
-              Answered: {answers.filter(a => a !== -1).length}/{COMPETENCY_QUESTIONS.length}
+              Answered: {answers.filter((a) => a !== -1).length}/
+              {COMPETENCY_QUESTIONS.length}
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -5,8 +5,10 @@ import { programs } from '@/app/data/programs';
 import { Zap, Clock, Target, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Micro-Credentials & Short Programs | Quick Certifications | Elevate for Humanity',
-  description: 'Fast-track certifications in 2-8 weeks. CPR, Workforce Readiness, Peer Recovery Coach, and more. Get certified, get hired.',
+  title:
+    'Micro-Credentials & Short Programs | Quick Certifications | Elevate for Humanity',
+  description:
+    'Fast-track certifications in 2-8 weeks. CPR, Workforce Readiness, Peer Recovery Coach, and more. Get certified, get hired.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs/micro-programs',
   },
@@ -26,7 +28,7 @@ export default function MicroProgramsPage() {
   );
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-white text-white px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
         <div className="mx-auto max-w-5xl text-center">
@@ -241,6 +243,6 @@ export default function MicroProgramsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -46,7 +46,7 @@ export default function ProgramsBioSitePage() {
   const links = [
     {
       title: 'Programs Catalog',
-      description: 'Browse our complete catalog of 50+ training programs',
+      description: 'Browse our complete catalog of training programs',
       href: '/programs-catalog',
       icon: BookOpen,
       color: 'orange',
@@ -172,10 +172,10 @@ export default function ProgramsBioSitePage() {
         <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
           <div className="mx-auto w-full max-w-6xl px-6 text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-brand-purple-600/90 px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-brand-purple-600 px-4 py-2 rounded-full mb-6 text-white">
               <GraduationCap className="w-5 h-5" />
               <span className="text-sm font-bold uppercase tracking-wide">
-                50+ Career Training Programs
+                WIOA-Funded Career Training
               </span>
             </div>
 
@@ -191,8 +191,8 @@ export default function ProgramsBioSitePage() {
 
             {/* Body */}
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Browse our complete catalog of 50+ training programs across all
-              industries
+              Browse our complete catalog of training programs in healthcare,
+              skilled trades, and business
             </p>
 
             {/* Buttons */}
@@ -246,7 +246,7 @@ export default function ProgramsBioSitePage() {
 
           {/* Tagline */}
           <p className="text-xl text-gray-600 mb-8">
-            50+ Programs in Healthcare, Skilled Trades & Business
+            Programs in Healthcare, Skilled Trades & Business
           </p>
 
           {/* Stats */}
@@ -259,13 +259,15 @@ export default function ProgramsBioSitePage() {
             </div>
             <div>
               <div className="text-3xl font-black text-brand-green-600">
-                85%
+                WIOA
               </div>
-              <div className="text-sm text-gray-600">Job Placement</div>
+              <div className="text-sm text-gray-600">Funded</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-brand-blue-600">50+</div>
-              <div className="text-sm text-gray-600">Programs</div>
+              <div className="text-3xl font-black text-brand-blue-600">
+                ETPL
+              </div>
+              <div className="text-sm text-gray-600">Approved</div>
             </div>
           </div>
         </div>
@@ -303,9 +305,9 @@ export default function ProgramsBioSitePage() {
           {/* Apply CTA */}
           <Link
             href="/apply"
-            className="block bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 transform text-center"
+            className="block bg-gradient-to-br from-brand-blue-600 to-brand-purple-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 transform text-center"
           >
-            <h3 className="text-2xl font-black text-gray-900 mb-2">
+            <h3 className="text-2xl font-black text-white mb-2">
               Ready to Get Started?
             </h3>
             <p className="text-white/90 mb-4">

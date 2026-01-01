@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -6,7 +6,6 @@ export const dynamic = 'force-dynamic';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-
 
 interface Instructor {
   id: string;
@@ -139,7 +138,7 @@ export default async function BookingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
+    <div className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-8">
@@ -199,7 +198,8 @@ export default async function BookingPage() {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                    <Image loading="lazy"
+                    <Image
+                      loading="lazy"
                       src={instructor.avatar}
                       alt={instructor.name}
                       fill
@@ -498,6 +498,6 @@ export default async function BookingPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

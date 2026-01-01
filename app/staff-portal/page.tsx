@@ -85,7 +85,7 @@ export default function StaffPortalLandingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10" />
@@ -371,6 +371,6 @@ export default function StaffPortalLandingPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

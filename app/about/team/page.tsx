@@ -53,7 +53,7 @@ const teamMembers = [
 
 export default function TeamPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] bg-brand-blue-700">
         <div className="relative h-full flex items-center">
@@ -86,7 +86,8 @@ export default function TeamPage() {
                 <div className="lg:w-1/3">
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl   ">
                     {member.image ? (
-                      <Image priority
+                      <Image
+                        priority
                         src={member.image}
                         alt={member.name}
                         fill
@@ -167,6 +168,6 @@ export default function TeamPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

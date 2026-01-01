@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function HowItWorksPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
@@ -454,6 +454,6 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

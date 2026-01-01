@@ -1,7 +1,15 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft, Save, Calculator, FileText, DollarSign, CheckCircle } from 'lucide-react';
+import {
+  ChevronRight,
+  ChevronLeft,
+  Save,
+  Calculator,
+  FileText,
+  DollarSign,
+  CheckCircle,
+} from 'lucide-react';
 
 interface TaxReturn {
   // Personal Info
@@ -15,16 +23,22 @@ interface TaxReturn {
   zip: string;
   email: string;
   phone: string;
-  
+
   // Filing Status
-  filingStatus: 'single' | 'married_joint' | 'married_separate' | 'head_of_household' | 'qualifying_widow' | '';
-  
+  filingStatus:
+    | 'single'
+    | 'married_joint'
+    | 'married_separate'
+    | 'head_of_household'
+    | 'qualifying_widow'
+    | '';
+
   // Spouse (if married)
   spouseFirstName: string;
   spouseLastName: string;
   spouseSSN: string;
   spouseDateOfBirth: string;
-  
+
   // Dependents
   dependents: Array<{
     firstName: string;
@@ -33,7 +47,7 @@ interface TaxReturn {
     dateOfBirth: string;
     relationship: string;
   }>;
-  
+
   // Income
   w2Income: Array<{
     employer: string;
@@ -42,21 +56,21 @@ interface TaxReturn {
     federalWithholding: number;
     stateWithholding: number;
   }>;
-  
+
   form1099Income: Array<{
     type: string;
     payer: string;
     amount: number;
     federalWithholding: number;
   }>;
-  
+
   selfEmploymentIncome: {
     hasIncome: boolean;
     businessName: string;
     grossReceipts: number;
     expenses: number;
   };
-  
+
   // Deductions
   deductionType: 'standard' | 'itemized' | '';
   itemizedDeductions: {
@@ -66,12 +80,12 @@ interface TaxReturn {
     medicalExpenses: number;
     stateLocalTaxes: number;
   };
-  
+
   // Credits
   hasChildTaxCredit: boolean;
   hasEITC: boolean;
   hasEducationCredits: boolean;
-  
+
   // Bank Info
   bankName: string;
   accountType: 'checking' | 'savings' | '';
@@ -217,7 +231,7 @@ export default function DIYTaxesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-8">
@@ -263,11 +277,9 @@ export default function DIYTaxesPage() {
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
             <div className="text-sm text-gray-600 mb-1">Estimated Refund</div>
             <div className="text-3xl font-bold text-green-600">
-              {calculating ? (
-                'Calculating...'
-              ) : (
-                `$${estimatedRefund.toLocaleString()}`
-              )}
+              {calculating
+                ? 'Calculating...'
+                : `$${estimatedRefund.toLocaleString()}`}
             </div>
           </div>
         </div>
@@ -281,18 +293,25 @@ export default function DIYTaxesPage() {
               <div className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-semibold mb-2">First Name *</label>
+                    <label className="block font-semibold mb-2">
+                      First Name *
+                    </label>
                     <input
                       type="text"
                       value={taxReturn.firstName}
                       onChange={(e) =>
-                        setTaxReturn({ ...taxReturn, firstName: e.target.value })
+                        setTaxReturn({
+                          ...taxReturn,
+                          firstName: e.target.value,
+                        })
                       }
                       className="w-full px-4 py-3 border rounded-lg"
                     />
                   </div>
                   <div>
-                    <label className="block font-semibold mb-2">Last Name *</label>
+                    <label className="block font-semibold mb-2">
+                      Last Name *
+                    </label>
                     <input
                       type="text"
                       value={taxReturn.lastName}
@@ -306,7 +325,9 @@ export default function DIYTaxesPage() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-semibold mb-2">Social Security Number *</label>
+                    <label className="block font-semibold mb-2">
+                      Social Security Number *
+                    </label>
                     <input
                       type="text"
                       value={taxReturn.ssn}
@@ -319,12 +340,17 @@ export default function DIYTaxesPage() {
                     />
                   </div>
                   <div>
-                    <label className="block font-semibold mb-2">Date of Birth *</label>
+                    <label className="block font-semibold mb-2">
+                      Date of Birth *
+                    </label>
                     <input
                       type="date"
                       value={taxReturn.dateOfBirth}
                       onChange={(e) =>
-                        setTaxReturn({ ...taxReturn, dateOfBirth: e.target.value })
+                        setTaxReturn({
+                          ...taxReturn,
+                          dateOfBirth: e.target.value,
+                        })
                       }
                       className="w-full px-4 py-3 border rounded-lg"
                     />
@@ -332,7 +358,9 @@ export default function DIYTaxesPage() {
                 </div>
 
                 <div>
-                  <label className="block font-semibold mb-2">Street Address *</label>
+                  <label className="block font-semibold mb-2">
+                    Street Address *
+                  </label>
                   <input
                     type="text"
                     value={taxReturn.address}
@@ -368,7 +396,9 @@ export default function DIYTaxesPage() {
                     />
                   </div>
                   <div>
-                    <label className="block font-semibold mb-2">ZIP Code *</label>
+                    <label className="block font-semibold mb-2">
+                      ZIP Code *
+                    </label>
                     <input
                       type="text"
                       value={taxReturn.zip}
@@ -414,21 +444,47 @@ export default function DIYTaxesPage() {
             <div>
               <h2 className="text-2xl font-bold mb-6">Filing Status</h2>
               <p className="text-gray-600 mb-6">
-                Your filing status determines your tax rates and standard deduction amount.
+                Your filing status determines your tax rates and standard
+                deduction amount.
               </p>
 
               <div className="space-y-4">
                 {[
-                  { value: 'single', label: 'Single', description: 'Unmarried, divorced, or legally separated' },
-                  { value: 'married_joint', label: 'Married Filing Jointly', description: 'Married and filing together' },
-                  { value: 'married_separate', label: 'Married Filing Separately', description: 'Married but filing separate returns' },
-                  { value: 'head_of_household', label: 'Head of Household', description: 'Unmarried and pay more than half the cost of keeping up a home' },
-                  { value: 'qualifying_widow', label: 'Qualifying Widow(er)', description: 'Spouse died in previous 2 years and you have a dependent child' },
+                  {
+                    value: 'single',
+                    label: 'Single',
+                    description: 'Unmarried, divorced, or legally separated',
+                  },
+                  {
+                    value: 'married_joint',
+                    label: 'Married Filing Jointly',
+                    description: 'Married and filing together',
+                  },
+                  {
+                    value: 'married_separate',
+                    label: 'Married Filing Separately',
+                    description: 'Married but filing separate returns',
+                  },
+                  {
+                    value: 'head_of_household',
+                    label: 'Head of Household',
+                    description:
+                      'Unmarried and pay more than half the cost of keeping up a home',
+                  },
+                  {
+                    value: 'qualifying_widow',
+                    label: 'Qualifying Widow(er)',
+                    description:
+                      'Spouse died in previous 2 years and you have a dependent child',
+                  },
                 ].map((status) => (
                   <button
                     key={status.value}
                     onClick={() =>
-                      setTaxReturn({ ...taxReturn, filingStatus: status.value as any })
+                      setTaxReturn({
+                        ...taxReturn,
+                        filingStatus: status.value as any,
+                      })
                     }
                     className={`w-full text-left p-6 rounded-lg border-2 transition-all ${
                       taxReturn.filingStatus === status.value
@@ -450,7 +506,9 @@ export default function DIYTaxesPage() {
                       </div>
                       <div>
                         <div className="font-bold text-lg">{status.label}</div>
-                        <div className="text-sm text-gray-600">{status.description}</div>
+                        <div className="text-sm text-gray-600">
+                          {status.description}
+                        </div>
                       </div>
                     </div>
                   </button>
@@ -458,29 +516,40 @@ export default function DIYTaxesPage() {
               </div>
 
               {/* Spouse Info if Married */}
-              {(taxReturn.filingStatus === 'married_joint' || taxReturn.filingStatus === 'married_separate') && (
+              {(taxReturn.filingStatus === 'married_joint' ||
+                taxReturn.filingStatus === 'married_separate') && (
                 <div className="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
                   <h3 className="font-bold text-lg mb-4">Spouse Information</h3>
                   <div className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block font-semibold mb-2">Spouse First Name *</label>
+                        <label className="block font-semibold mb-2">
+                          Spouse First Name *
+                        </label>
                         <input
                           type="text"
                           value={taxReturn.spouseFirstName}
                           onChange={(e) =>
-                            setTaxReturn({ ...taxReturn, spouseFirstName: e.target.value })
+                            setTaxReturn({
+                              ...taxReturn,
+                              spouseFirstName: e.target.value,
+                            })
                           }
                           className="w-full px-4 py-3 border rounded-lg"
                         />
                       </div>
                       <div>
-                        <label className="block font-semibold mb-2">Spouse Last Name *</label>
+                        <label className="block font-semibold mb-2">
+                          Spouse Last Name *
+                        </label>
                         <input
                           type="text"
                           value={taxReturn.spouseLastName}
                           onChange={(e) =>
-                            setTaxReturn({ ...taxReturn, spouseLastName: e.target.value })
+                            setTaxReturn({
+                              ...taxReturn,
+                              spouseLastName: e.target.value,
+                            })
                           }
                           className="w-full px-4 py-3 border rounded-lg"
                         />
@@ -488,12 +557,17 @@ export default function DIYTaxesPage() {
                     </div>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block font-semibold mb-2">Spouse SSN *</label>
+                        <label className="block font-semibold mb-2">
+                          Spouse SSN *
+                        </label>
                         <input
                           type="text"
                           value={taxReturn.spouseSSN}
                           onChange={(e) =>
-                            setTaxReturn({ ...taxReturn, spouseSSN: e.target.value })
+                            setTaxReturn({
+                              ...taxReturn,
+                              spouseSSN: e.target.value,
+                            })
                           }
                           className="w-full px-4 py-3 border rounded-lg"
                           placeholder="XXX-XX-XXXX"
@@ -501,12 +575,17 @@ export default function DIYTaxesPage() {
                         />
                       </div>
                       <div>
-                        <label className="block font-semibold mb-2">Spouse Date of Birth *</label>
+                        <label className="block font-semibold mb-2">
+                          Spouse Date of Birth *
+                        </label>
                         <input
                           type="date"
                           value={taxReturn.spouseDateOfBirth}
                           onChange={(e) =>
-                            setTaxReturn({ ...taxReturn, spouseDateOfBirth: e.target.value })
+                            setTaxReturn({
+                              ...taxReturn,
+                              spouseDateOfBirth: e.target.value,
+                            })
                           }
                           className="w-full px-4 py-3 border rounded-lg"
                         />
@@ -544,7 +623,10 @@ export default function DIYTaxesPage() {
                             onChange={(e) => {
                               const newDependents = [...taxReturn.dependents];
                               newDependents[index].firstName = e.target.value;
-                              setTaxReturn({ ...taxReturn, dependents: newDependents });
+                              setTaxReturn({
+                                ...taxReturn,
+                                dependents: newDependents,
+                              });
                             }}
                             className="px-4 py-2 border rounded-lg"
                           />
@@ -555,7 +637,10 @@ export default function DIYTaxesPage() {
                             onChange={(e) => {
                               const newDependents = [...taxReturn.dependents];
                               newDependents[index].lastName = e.target.value;
-                              setTaxReturn({ ...taxReturn, dependents: newDependents });
+                              setTaxReturn({
+                                ...taxReturn,
+                                dependents: newDependents,
+                              });
                             }}
                             className="px-4 py-2 border rounded-lg"
                           />
@@ -566,7 +651,10 @@ export default function DIYTaxesPage() {
                             onChange={(e) => {
                               const newDependents = [...taxReturn.dependents];
                               newDependents[index].ssn = e.target.value;
-                              setTaxReturn({ ...taxReturn, dependents: newDependents });
+                              setTaxReturn({
+                                ...taxReturn,
+                                dependents: newDependents,
+                              });
                             }}
                             className="px-4 py-2 border rounded-lg"
                           />
@@ -577,7 +665,10 @@ export default function DIYTaxesPage() {
                             onChange={(e) => {
                               const newDependents = [...taxReturn.dependents];
                               newDependents[index].dateOfBirth = e.target.value;
-                              setTaxReturn({ ...taxReturn, dependents: newDependents });
+                              setTaxReturn({
+                                ...taxReturn,
+                                dependents: newDependents,
+                              });
                             }}
                             className="px-4 py-2 border rounded-lg"
                           />
@@ -587,8 +678,12 @@ export default function DIYTaxesPage() {
                             value={dependent.relationship}
                             onChange={(e) => {
                               const newDependents = [...taxReturn.dependents];
-                              newDependents[index].relationship = e.target.value;
-                              setTaxReturn({ ...taxReturn, dependents: newDependents });
+                              newDependents[index].relationship =
+                                e.target.value;
+                              setTaxReturn({
+                                ...taxReturn,
+                                dependents: newDependents,
+                              });
                             }}
                             className="px-4 py-2 border rounded-lg"
                           />
@@ -623,7 +718,8 @@ export default function DIYTaxesPage() {
 
                 {taxReturn.w2Income.length === 0 ? (
                   <div className="text-center py-8 bg-gray-50 rounded-lg text-gray-500">
-                    No W-2s added yet. Click "Add W-2" or upload your W-2 to auto-fill.
+                    No W-2s added yet. Click "Add W-2" or upload your W-2 to
+                    auto-fill.
                   </div>
                 ) : (
                   <div className="space-y-4">
@@ -648,8 +744,12 @@ export default function DIYTaxesPage() {
                               value={w2.wages || ''}
                               onChange={(e) => {
                                 const newW2s = [...taxReturn.w2Income];
-                                newW2s[index].wages = parseFloat(e.target.value) || 0;
-                                setTaxReturn({ ...taxReturn, w2Income: newW2s });
+                                newW2s[index].wages =
+                                  parseFloat(e.target.value) || 0;
+                                setTaxReturn({
+                                  ...taxReturn,
+                                  w2Income: newW2s,
+                                });
                               }}
                               className="px-4 py-2 border rounded-lg"
                             />
@@ -659,8 +759,12 @@ export default function DIYTaxesPage() {
                               value={w2.federalWithholding || ''}
                               onChange={(e) => {
                                 const newW2s = [...taxReturn.w2Income];
-                                newW2s[index].federalWithholding = parseFloat(e.target.value) || 0;
-                                setTaxReturn({ ...taxReturn, w2Income: newW2s });
+                                newW2s[index].federalWithholding =
+                                  parseFloat(e.target.value) || 0;
+                                setTaxReturn({
+                                  ...taxReturn,
+                                  w2Income: newW2s,
+                                });
                               }}
                               className="px-4 py-2 border rounded-lg"
                             />
@@ -670,8 +774,12 @@ export default function DIYTaxesPage() {
                               value={w2.stateWithholding || ''}
                               onChange={(e) => {
                                 const newW2s = [...taxReturn.w2Income];
-                                newW2s[index].stateWithholding = parseFloat(e.target.value) || 0;
-                                setTaxReturn({ ...taxReturn, w2Income: newW2s });
+                                newW2s[index].stateWithholding =
+                                  parseFloat(e.target.value) || 0;
+                                setTaxReturn({
+                                  ...taxReturn,
+                                  w2Income: newW2s,
+                                });
                               }}
                               className="px-4 py-2 border rounded-lg"
                             />
@@ -685,9 +793,15 @@ export default function DIYTaxesPage() {
 
               {/* Upload W-2 Button */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-                <p className="mb-4">Have a W-2? Upload it and we'll extract the data automatically!</p>
+                <p className="mb-4">
+                  Have a W-2? Upload it and we'll extract the data
+                  automatically!
+                </p>
                 <button
-                  onClick={() => window.location.href = '/supersonic-fast-cash/tools/smart-upload'}
+                  onClick={() =>
+                    (window.location.href =
+                      '/supersonic-fast-cash/tools/smart-upload')
+                  }
                   className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700"
                 >
                   Upload W-2 with OCR
@@ -728,9 +842,12 @@ export default function DIYTaxesPage() {
                       )}
                     </div>
                     <div>
-                      <div className="font-bold text-lg">Standard Deduction</div>
+                      <div className="font-bold text-lg">
+                        Standard Deduction
+                      </div>
                       <div className="text-sm text-gray-600">
-                        Recommended for most people. Amount: $14,600 (Single), $29,200 (Married)
+                        Recommended for most people. Amount: $14,600 (Single),
+                        $29,200 (Married)
                       </div>
                     </div>
                   </div>
@@ -759,9 +876,12 @@ export default function DIYTaxesPage() {
                       )}
                     </div>
                     <div>
-                      <div className="font-bold text-lg">Itemized Deductions</div>
+                      <div className="font-bold text-lg">
+                        Itemized Deductions
+                      </div>
                       <div className="text-sm text-gray-600">
-                        Choose this if you have mortgage interest, large charitable donations, or high medical expenses
+                        Choose this if you have mortgage interest, large
+                        charitable donations, or high medical expenses
                       </div>
                     </div>
                   </div>
@@ -771,7 +891,9 @@ export default function DIYTaxesPage() {
               {/* Itemized Deductions Form */}
               {taxReturn.deductionType === 'itemized' && (
                 <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
-                  <h3 className="font-bold text-lg mb-4">Itemized Deductions</h3>
+                  <h3 className="font-bold text-lg mb-4">
+                    Itemized Deductions
+                  </h3>
                   <div className="space-y-4">
                     <div>
                       <label className="block font-semibold mb-2">
@@ -779,7 +901,9 @@ export default function DIYTaxesPage() {
                       </label>
                       <input
                         type="number"
-                        value={taxReturn.itemizedDeductions.mortgageInterest || ''}
+                        value={
+                          taxReturn.itemizedDeductions.mortgageInterest || ''
+                        }
                         onChange={(e) =>
                           setTaxReturn({
                             ...taxReturn,
@@ -821,13 +945,17 @@ export default function DIYTaxesPage() {
                       </label>
                       <input
                         type="number"
-                        value={taxReturn.itemizedDeductions.charitableContributions || ''}
+                        value={
+                          taxReturn.itemizedDeductions
+                            .charitableContributions || ''
+                        }
                         onChange={(e) =>
                           setTaxReturn({
                             ...taxReturn,
                             itemizedDeductions: {
                               ...taxReturn.itemizedDeductions,
-                              charitableContributions: parseFloat(e.target.value) || 0,
+                              charitableContributions:
+                                parseFloat(e.target.value) || 0,
                             },
                           })
                         }
@@ -842,7 +970,9 @@ export default function DIYTaxesPage() {
                       </label>
                       <input
                         type="number"
-                        value={taxReturn.itemizedDeductions.medicalExpenses || ''}
+                        value={
+                          taxReturn.itemizedDeductions.medicalExpenses || ''
+                        }
                         onChange={(e) =>
                           setTaxReturn({
                             ...taxReturn,
@@ -863,7 +993,9 @@ export default function DIYTaxesPage() {
                       </label>
                       <input
                         type="number"
-                        value={taxReturn.itemizedDeductions.stateLocalTaxes || ''}
+                        value={
+                          taxReturn.itemizedDeductions.stateLocalTaxes || ''
+                        }
                         onChange={(e) =>
                           setTaxReturn({
                             ...taxReturn,
@@ -881,14 +1013,21 @@ export default function DIYTaxesPage() {
 
                     <div className="bg-white p-4 rounded-lg">
                       <div className="flex justify-between items-center">
-                        <span className="font-semibold">Total Itemized Deductions:</span>
+                        <span className="font-semibold">
+                          Total Itemized Deductions:
+                        </span>
                         <span className="text-2xl font-bold text-green-600">
-                          ${(
+                          $
+                          {(
                             taxReturn.itemizedDeductions.mortgageInterest +
                             taxReturn.itemizedDeductions.propertyTax +
-                            taxReturn.itemizedDeductions.charitableContributions +
+                            taxReturn.itemizedDeductions
+                              .charitableContributions +
                             taxReturn.itemizedDeductions.medicalExpenses +
-                            Math.min(taxReturn.itemizedDeductions.stateLocalTaxes, 10000)
+                            Math.min(
+                              taxReturn.itemizedDeductions.stateLocalTaxes,
+                              10000
+                            )
                           ).toLocaleString()}
                         </span>
                       </div>
@@ -904,7 +1043,8 @@ export default function DIYTaxesPage() {
             <div>
               <h2 className="text-2xl font-bold mb-6">Tax Credits</h2>
               <p className="text-gray-600 mb-6">
-                Tax credits reduce your tax bill dollar-for-dollar. Let's see which ones you qualify for.
+                Tax credits reduce your tax bill dollar-for-dollar. Let's see
+                which ones you qualify for.
               </p>
 
               <div className="space-y-4">
@@ -925,11 +1065,16 @@ export default function DIYTaxesPage() {
                     <div>
                       <div className="font-bold text-lg">Child Tax Credit</div>
                       <div className="text-sm text-gray-600 mt-1">
-                        Up to $2,000 per qualifying child under age 17. Based on your {taxReturn.dependents.length} dependent(s).
+                        Up to $2,000 per qualifying child under age 17. Based on
+                        your {taxReturn.dependents.length} dependent(s).
                       </div>
                       {taxReturn.hasChildTaxCredit && (
                         <div className="mt-3 text-green-600 font-semibold">
-                          Estimated Credit: ${Math.min(taxReturn.dependents.length * 2000, taxReturn.dependents.length * 2000).toLocaleString()}
+                          Estimated Credit: $
+                          {Math.min(
+                            taxReturn.dependents.length * 2000,
+                            taxReturn.dependents.length * 2000
+                          ).toLocaleString()}
                         </div>
                       )}
                     </div>
@@ -951,13 +1096,17 @@ export default function DIYTaxesPage() {
                       className="w-6 h-6 mt-1"
                     />
                     <div>
-                      <div className="font-bold text-lg">Earned Income Tax Credit (EITC)</div>
+                      <div className="font-bold text-lg">
+                        Earned Income Tax Credit (EITC)
+                      </div>
                       <div className="text-sm text-gray-600 mt-1">
-                        For low to moderate income workers. Amount varies based on income and number of children.
+                        For low to moderate income workers. Amount varies based
+                        on income and number of children.
                       </div>
                       {taxReturn.hasEITC && (
                         <div className="mt-3 text-green-600 font-semibold">
-                          We'll calculate your exact EITC amount based on your income.
+                          We'll calculate your exact EITC amount based on your
+                          income.
                         </div>
                       )}
                     </div>
@@ -981,7 +1130,8 @@ export default function DIYTaxesPage() {
                     <div>
                       <div className="font-bold text-lg">Education Credits</div>
                       <div className="text-sm text-gray-600 mt-1">
-                        American Opportunity Credit (up to $2,500) or Lifetime Learning Credit (up to $2,000) for college expenses.
+                        American Opportunity Credit (up to $2,500) or Lifetime
+                        Learning Credit (up to $2,000) for college expenses.
                       </div>
                       {taxReturn.hasEducationCredits && (
                         <div className="mt-3 text-green-600 font-semibold">
@@ -994,16 +1144,22 @@ export default function DIYTaxesPage() {
               </div>
 
               <div className="mt-8 bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="font-bold text-lg mb-2">Estimated Total Credits</h3>
+                <h3 className="font-bold text-lg mb-2">
+                  Estimated Total Credits
+                </h3>
                 <div className="text-3xl font-bold text-green-600">
-                  ${(
-                    (taxReturn.hasChildTaxCredit ? taxReturn.dependents.length * 2000 : 0) +
+                  $
+                  {(
+                    (taxReturn.hasChildTaxCredit
+                      ? taxReturn.dependents.length * 2000
+                      : 0) +
                     (taxReturn.hasEITC ? 3000 : 0) +
                     (taxReturn.hasEducationCredits ? 2500 : 0)
                   ).toLocaleString()}
                 </div>
                 <p className="text-sm text-gray-600 mt-2">
-                  This is an estimate. Final amount will be calculated based on your complete tax return.
+                  This is an estimate. Final amount will be calculated based on
+                  your complete tax return.
                 </p>
               </div>
             </div>
@@ -1012,18 +1168,32 @@ export default function DIYTaxesPage() {
           {/* Step 6: Review & File */}
           {currentStep === 6 && (
             <div>
-              <h2 className="text-2xl font-bold mb-6">Review & File Your Return</h2>
-              
+              <h2 className="text-2xl font-bold mb-6">
+                Review & File Your Return
+              </h2>
+
               {/* Summary */}
               <div className="space-y-6">
                 {/* Personal Info Summary */}
                 <div className="p-6 bg-gray-50 rounded-lg">
-                  <h3 className="font-bold text-lg mb-3">Personal Information</h3>
+                  <h3 className="font-bold text-lg mb-3">
+                    Personal Information
+                  </h3>
                   <div className="grid md:grid-cols-2 gap-3 text-sm">
-                    <div><strong>Name:</strong> {taxReturn.firstName} {taxReturn.lastName}</div>
-                    <div><strong>SSN:</strong> ***-**-{taxReturn.ssn.slice(-4)}</div>
-                    <div><strong>Filing Status:</strong> {taxReturn.filingStatus?.replace('_', ' ')}</div>
-                    <div><strong>Dependents:</strong> {taxReturn.dependents.length}</div>
+                    <div>
+                      <strong>Name:</strong> {taxReturn.firstName}{' '}
+                      {taxReturn.lastName}
+                    </div>
+                    <div>
+                      <strong>SSN:</strong> ***-**-{taxReturn.ssn.slice(-4)}
+                    </div>
+                    <div>
+                      <strong>Filing Status:</strong>{' '}
+                      {taxReturn.filingStatus?.replace('_', ' ')}
+                    </div>
+                    <div>
+                      <strong>Dependents:</strong> {taxReturn.dependents.length}
+                    </div>
                   </div>
                 </div>
 
@@ -1034,13 +1204,19 @@ export default function DIYTaxesPage() {
                     <div className="flex justify-between">
                       <span>W-2 Wages:</span>
                       <span className="font-semibold">
-                        ${taxReturn.w2Income.reduce((sum, w2) => sum + w2.wages, 0).toLocaleString()}
+                        $
+                        {taxReturn.w2Income
+                          .reduce((sum, w2) => sum + w2.wages, 0)
+                          .toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Federal Withholding:</span>
                       <span className="font-semibold">
-                        ${taxReturn.w2Income.reduce((sum, w2) => sum + w2.federalWithholding, 0).toLocaleString()}
+                        $
+                        {taxReturn.w2Income
+                          .reduce((sum, w2) => sum + w2.federalWithholding, 0)
+                          .toLocaleString()}
                       </span>
                     </div>
                   </div>
@@ -1052,7 +1228,11 @@ export default function DIYTaxesPage() {
                   <div className="text-sm">
                     <div className="flex justify-between">
                       <span>Type:</span>
-                      <span className="font-semibold">{taxReturn.deductionType === 'standard' ? 'Standard Deduction' : 'Itemized Deductions'}</span>
+                      <span className="font-semibold">
+                        {taxReturn.deductionType === 'standard'
+                          ? 'Standard Deduction'
+                          : 'Itemized Deductions'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -1064,34 +1244,47 @@ export default function DIYTaxesPage() {
                     ${estimatedRefund.toLocaleString()}
                   </div>
                   <p className="text-sm opacity-90">
-                    This is an estimate. Final amount will be confirmed after filing.
+                    This is an estimate. Final amount will be confirmed after
+                    filing.
                   </p>
                 </div>
 
                 {/* Bank Info for Direct Deposit */}
                 <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
-                  <h3 className="font-bold text-lg mb-4">Direct Deposit Information</h3>
+                  <h3 className="font-bold text-lg mb-4">
+                    Direct Deposit Information
+                  </h3>
                   <p className="text-sm text-gray-600 mb-4">
                     Get your refund faster with direct deposit!
                   </p>
                   <div className="space-y-4">
                     <div>
-                      <label className="block font-semibold mb-2">Bank Name</label>
+                      <label className="block font-semibold mb-2">
+                        Bank Name
+                      </label>
                       <input
                         type="text"
                         value={taxReturn.bankName}
                         onChange={(e) =>
-                          setTaxReturn({ ...taxReturn, bankName: e.target.value })
+                          setTaxReturn({
+                            ...taxReturn,
+                            bankName: e.target.value,
+                          })
                         }
                         className="w-full px-4 py-3 border rounded-lg"
                       />
                     </div>
                     <div>
-                      <label className="block font-semibold mb-2">Account Type</label>
+                      <label className="block font-semibold mb-2">
+                        Account Type
+                      </label>
                       <select
                         value={taxReturn.accountType}
                         onChange={(e) =>
-                          setTaxReturn({ ...taxReturn, accountType: e.target.value as any })
+                          setTaxReturn({
+                            ...taxReturn,
+                            accountType: e.target.value as any,
+                          })
                         }
                         className="w-full px-4 py-3 border rounded-lg"
                       >
@@ -1102,24 +1295,34 @@ export default function DIYTaxesPage() {
                     </div>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block font-semibold mb-2">Routing Number</label>
+                        <label className="block font-semibold mb-2">
+                          Routing Number
+                        </label>
                         <input
                           type="text"
                           value={taxReturn.routingNumber}
                           onChange={(e) =>
-                            setTaxReturn({ ...taxReturn, routingNumber: e.target.value })
+                            setTaxReturn({
+                              ...taxReturn,
+                              routingNumber: e.target.value,
+                            })
                           }
                           className="w-full px-4 py-3 border rounded-lg"
                           maxLength={9}
                         />
                       </div>
                       <div>
-                        <label className="block font-semibold mb-2">Account Number</label>
+                        <label className="block font-semibold mb-2">
+                          Account Number
+                        </label>
                         <input
                           type="text"
                           value={taxReturn.accountNumber}
                           onChange={(e) =>
-                            setTaxReturn({ ...taxReturn, accountNumber: e.target.value })
+                            setTaxReturn({
+                              ...taxReturn,
+                              accountNumber: e.target.value,
+                            })
                           }
                           className="w-full px-4 py-3 border rounded-lg"
                         />
@@ -1131,20 +1334,31 @@ export default function DIYTaxesPage() {
                 {/* File Button */}
                 <button
                   onClick={async () => {
-                    if (window.confirm('Ready to file your tax return? This will submit your return to the IRS via Drake Software.')) {
+                    if (
+                      window.confirm(
+                        'Ready to file your tax return? This will submit your return to the IRS via Drake Software.'
+                      )
+                    ) {
                       try {
-                        const response = await fetch('/api/supersonic-fast-cash/file-return', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify(taxReturn),
-                        });
+                        const response = await fetch(
+                          '/api/supersonic-fast-cash/file-return',
+                          {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(taxReturn),
+                          }
+                        );
                         const result = await response.json();
                         if (result.success) {
-                          alert('Tax return filed successfully! You will receive a confirmation email.');
+                          alert(
+                            'Tax return filed successfully! You will receive a confirmation email.'
+                          );
                           window.location.href = '/supersonic-fast-cash/portal';
                         }
                       } catch (error) {
-                        alert('Error filing return. Please try again or contact support.');
+                        alert(
+                          'Error filing return. Please try again or contact support.'
+                        );
                       }
                     }
                   }}
@@ -1154,7 +1368,8 @@ export default function DIYTaxesPage() {
                 </button>
 
                 <p className="text-center text-sm text-gray-500">
-                  By filing, you agree to our terms and authorize e-filing with the IRS.
+                  By filing, you agree to our terms and authorize e-filing with
+                  the IRS.
                 </p>
               </div>
             </div>
@@ -1192,6 +1407,6 @@ export default function DIYTaxesPage() {
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

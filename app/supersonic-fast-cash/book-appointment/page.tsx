@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -12,7 +12,6 @@ import {
   CreditCard,
 } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
-
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''
@@ -163,7 +162,7 @@ export default function BookAppointment() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
@@ -694,6 +693,6 @@ export default function BookAppointment() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

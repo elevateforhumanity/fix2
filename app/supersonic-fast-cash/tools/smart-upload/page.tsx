@@ -15,7 +15,14 @@ import {
 } from 'lucide-react';
 
 interface ExtractedData {
-  documentType: 'w2' | '1099-misc' | '1099-nec' | '1099-int' | '1099-div' | 'receipt' | 'other';
+  documentType:
+    | 'w2'
+    | '1099-misc'
+    | '1099-nec'
+    | '1099-int'
+    | '1099-div'
+    | 'receipt'
+    | 'other';
   data: {
     // W-2 Fields
     employer?: string;
@@ -25,14 +32,14 @@ interface ExtractedData {
     stateWithholding?: number;
     socialSecurityWages?: number;
     medicareWages?: number;
-    
+
     // 1099 Fields
     payer?: string;
     payerEIN?: string;
     amount?: number;
     interestIncome?: number;
     dividendIncome?: number;
-    
+
     // Receipt Fields
     vendor?: string;
     date?: string;
@@ -62,9 +69,8 @@ export default function SmartUploadPage() {
     if (!fileList) return;
 
     const acceptedFiles = Array.from(fileList).filter((file) => {
-      const isValidType = 
-        file.type.startsWith('image/') || 
-        file.type === 'application/pdf';
+      const isValidType =
+        file.type.startsWith('image/') || file.type === 'application/pdf';
       const isValidSize = file.size <= 10 * 1024 * 1024; // 10MB
       return isValidType && isValidSize;
     });
@@ -84,11 +90,14 @@ export default function SmartUploadPage() {
     }
   }, []);
 
-  const handleDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragActive(false);
-    handleFiles(e.dataTransfer.files);
-  }, [handleFiles]);
+  const handleDrop = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      setIsDragActive(false);
+      handleFiles(e.dataTransfer.files);
+    },
+    [handleFiles]
+  );
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -120,7 +129,10 @@ export default function SmartUploadPage() {
       // Create FormData for API call
       const formData = new FormData();
       formData.append('file', uploadedFile.file);
-      formData.append('documentType', detectDocumentType(uploadedFile.file.name));
+      formData.append(
+        'documentType',
+        detectDocumentType(uploadedFile.file.name)
+      );
       formData.append('email', 'user@example.com'); // Get from auth or form
       formData.append('phone', '555-0123'); // Get from auth or form
 
@@ -140,15 +152,15 @@ export default function SmartUploadPage() {
       setFiles((prev) =>
         prev.map((f) =>
           f.id === uploadedFile.id
-            ? { 
-                ...f, 
-                status: 'completed', 
+            ? {
+                ...f,
+                status: 'completed',
                 extractedData: {
                   documentType: result.extractedData.documentType,
                   data: result.extractedData,
                   confidence: result.confidence,
                   rawText: '',
-                }
+                },
               }
             : f
         )
@@ -161,7 +173,8 @@ export default function SmartUploadPage() {
             ? {
                 ...f,
                 status: 'error',
-                error: error instanceof Error ? error.message : 'Processing failed',
+                error:
+                  error instanceof Error ? error.message : 'Processing failed',
               }
             : f
         )
@@ -179,8 +192,6 @@ export default function SmartUploadPage() {
     return 'other';
   };
 
-
-
   const removeFile = (id: string) => {
     setFiles((prev) => prev.filter((f) => f.id !== id));
   };
@@ -194,7 +205,7 @@ export default function SmartUploadPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -206,8 +217,8 @@ export default function SmartUploadPage() {
             Smart Document Upload
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Upload your W-2s, 1099s, and receipts. We'll automatically extract all the
-            data for you using Drake Software OCR.
+            Upload your W-2s, 1099s, and receipts. We'll automatically extract
+            all the data for you using Drake Software OCR.
           </p>
         </div>
 
@@ -239,8 +250,8 @@ export default function SmartUploadPage() {
               {isDragActive ? 'Drop files here' : 'Upload Tax Documents'}
             </h3>
             <p className="text-gray-600 mb-6">
-              Drag & drop or click to browse. We support W-2s, 1099s, receipts, and
-              more.
+              Drag & drop or click to browse. We support W-2s, 1099s, receipts,
+              and more.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-500">
               <div className="flex items-center gap-1">
@@ -265,8 +276,8 @@ export default function SmartUploadPage() {
             <Sparkles className="w-10 h-10 text-purple-600 mb-4" />
             <h3 className="font-bold text-lg mb-2">Auto Data Extraction</h3>
             <p className="text-sm text-gray-600">
-              Drake Software OCR automatically reads and extracts all data from your
-              documents
+              Drake Software OCR automatically reads and extracts all data from
+              your documents
             </p>
           </div>
 
@@ -317,7 +328,9 @@ export default function SmartUploadPage() {
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="font-bold text-lg mb-1">{file.file.name}</h3>
+                        <h3 className="font-bold text-lg mb-1">
+                          {file.file.name}
+                        </h3>
                         <p className="text-sm text-gray-500">
                           {(file.file.size / 1024 / 1024).toFixed(2)} MB
                         </p>
@@ -363,10 +376,12 @@ export default function SmartUploadPage() {
                       <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
                         <div className="flex items-center justify-between mb-4">
                           <h4 className="font-bold text-lg">
-                            Extracted Data ({file.extractedData.documentType.toUpperCase()})
+                            Extracted Data (
+                            {file.extractedData.documentType.toUpperCase()})
                           </h4>
                           <span className="text-sm text-green-700 font-semibold">
-                            {(file.extractedData.confidence * 100).toFixed(0)}% Confidence
+                            {(file.extractedData.confidence * 100).toFixed(0)}%
+                            Confidence
                           </span>
                         </div>
 
@@ -431,7 +446,9 @@ export default function SmartUploadPage() {
                                 Medicare Wages (Box 5)
                               </label>
                               <p className="font-semibold">
-                                {formatCurrency(file.extractedData.data.medicareWages)}
+                                {formatCurrency(
+                                  file.extractedData.data.medicareWages
+                                )}
                               </p>
                             </div>
                           )}
@@ -480,8 +497,8 @@ export default function SmartUploadPage() {
               Ready to File Your Return?
             </h3>
             <p className="text-green-100 mb-6">
-              All your data has been extracted and saved. Continue to complete your tax
-              return.
+              All your data has been extracted and saved. Continue to complete
+              your tax return.
             </p>
             <a
               href="/supersonic-fast-cash/diy/interview"
@@ -492,6 +509,6 @@ export default function SmartUploadPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

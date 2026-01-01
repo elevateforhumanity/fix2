@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function WhiteLabelPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="px-4 sm:px-6 lg:px-10 py-20 bg-zinc-900  via-white ">
         <div className="mx-auto max-w-5xl text-center">
@@ -402,6 +402,6 @@ export default function WhiteLabelPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -55,7 +55,7 @@ export default async function ReviewVerificationPage({
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="bg-white border-b py-8">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
@@ -70,6 +70,6 @@ export default async function ReviewVerificationPage({
       <div className="max-w-4xl mx-auto px-6 py-12">
         <VerificationReviewForm verification={verification} adminId={user.id} />
       </div>
-    </main>
+    </div>
   );
 }

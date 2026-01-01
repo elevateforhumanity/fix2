@@ -22,10 +22,10 @@ export default async function PartnerInquiriesAdminPage() {
 
   if (!isAdmin) {
     return (
-      <main className="mx-auto max-w-3xl px-4 py-12">
+      <div className="mx-auto max-w-3xl px-4 py-12">
         <h1 className="text-2xl font-bold">Access denied</h1>
         <p className="mt-2 text-zinc-700">Admin only.</p>
-      </main>
+      </div>
     );
   }
 
@@ -50,7 +50,7 @@ export default async function PartnerInquiriesAdminPage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12">
+    <div className="mx-auto max-w-6xl px-4 py-12">
       <h1 className="text-3xl font-bold text-zinc-900">Partner Inquiries</h1>
       <p className="mt-2 text-zinc-700">
         Review and change status in one click.
@@ -144,6 +144,6 @@ export default async function PartnerInquiriesAdminPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

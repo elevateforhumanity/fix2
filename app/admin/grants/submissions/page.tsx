@@ -111,7 +111,7 @@ export default async function GrantSubmissionsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
@@ -124,7 +124,7 @@ export default async function GrantSubmissionsPage() {
             priority
             sizes="100vw"
           />
-          
+
           <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
             <p className="text-base md:text-lg mb-8 text-gray-100">
@@ -326,6 +326,6 @@ export default async function GrantSubmissionsPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

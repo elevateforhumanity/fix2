@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <CompactHero
         variant="default"
         badge={{
@@ -204,6 +204,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function RiseFoundationPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section - Exact replica */}
       <section className="relative py-20 px-4 text-center">
         <div className="max-w-6xl mx-auto">
@@ -189,6 +189,6 @@ export default function RiseFoundationPage() {
           Do Not Sell My Personal Information
         </p>
       </footer>
-    </main>
+    </div>
   );
 }

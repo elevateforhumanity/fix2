@@ -62,7 +62,7 @@ export default function ApplyLandingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Banner */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <video
@@ -71,11 +71,10 @@ export default function ApplyLandingPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source src="/videos/apply-section-video.mp4" type="video/mp4" />
         </video>
-        
+
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl w-full">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white uppercase tracking-wide">
@@ -143,6 +142,6 @@ export default function ApplyLandingPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

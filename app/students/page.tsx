@@ -309,9 +309,8 @@ export default async function Page() {
                 <h3 className="text-lg md:text-lg font-bold mb-3">Get Hired</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   We connect you directly with employers who are actively
-                  hiring. Our 95% placement rate means you're not just
-                  trained—you're employed. Average starting salary:
-                  $35,000-$65,000.
+                  hiring. You're not just trained—you're connected to real job
+                  opportunities.
                 </p>
               </div>
             </div>

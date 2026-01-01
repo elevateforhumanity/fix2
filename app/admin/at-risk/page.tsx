@@ -131,7 +131,7 @@ export default async function AtRiskStudentsPage() {
     .sort((a, b) => a.completionRate - b.completionRate);
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8">
       <div className="mx-auto max-w-7xl px-4">
         {/* Header */}
         <div className="mb-8">
@@ -407,6 +407,6 @@ export default async function AtRiskStudentsPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

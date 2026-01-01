@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Phone, GraduationCap, Award, Users, CheckCircle } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 
-
 export const metadata: Metadata = {
   title: 'Drug Testing Training Courses | Elevate for Humanity',
   description:
@@ -132,7 +131,7 @@ export default async function DrugTestingTrainingPage() {
   const supabase: any = createClient();
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-6xl px-4">
@@ -510,6 +509,6 @@ export default async function DrugTestingTrainingPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

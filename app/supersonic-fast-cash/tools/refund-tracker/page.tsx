@@ -34,7 +34,8 @@ export default function RefundTrackerPage() {
   const formatSSN = (value: string) => {
     const numbers = value.replace(/\D/g, '');
     if (numbers.length <= 3) return numbers;
-    if (numbers.length <= 5) return `${numbers.slice(0, 3)}-${numbers.slice(3)}`;
+    if (numbers.length <= 5)
+      return `${numbers.slice(0, 3)}-${numbers.slice(3)}`;
     return `${numbers.slice(0, 3)}-${numbers.slice(3, 5)}-${numbers.slice(5, 9)}`;
   };
 
@@ -65,17 +66,20 @@ export default function RefundTrackerPage() {
 
     try {
       // Call refund tracking API
-      const response = await fetch('/api/supersonic-fast-cash/refund-tracking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ssn: ssn.replace(/\D/g, ''),
-          filingStatus,
-          refundAmount,
-        }),
-      });
+      const response = await fetch(
+        '/api/supersonic-fast-cash/refund-tracking',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ssn: ssn.replace(/\D/g, ''),
+            filingStatus,
+            refundAmount,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error('Failed to track refund');
@@ -125,7 +129,7 @@ export default function RefundTrackerPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -137,14 +141,17 @@ export default function RefundTrackerPage() {
             Where's My Refund?
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Track your federal tax refund status in real-time. Connected to IRS systems.
+            Track your federal tax refund status in real-time. Connected to IRS
+            systems.
           </p>
         </div>
 
         {!refundStatus ? (
           /* Input Form */
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold mb-6">Check Your Refund Status</h2>
+            <h2 className="text-2xl font-bold mb-6">
+              Check Your Refund Status
+            </h2>
 
             <div className="space-y-6">
               <div>
@@ -176,7 +183,9 @@ export default function RefundTrackerPage() {
                   <option value="">Select filing status...</option>
                   <option value="single">Single</option>
                   <option value="married_joint">Married Filing Jointly</option>
-                  <option value="married_separate">Married Filing Separately</option>
+                  <option value="married_separate">
+                    Married Filing Separately
+                  </option>
                   <option value="head_of_household">Head of Household</option>
                   <option value="qualifying_widow">Qualifying Widow(er)</option>
                 </select>
@@ -238,7 +247,8 @@ export default function RefundTrackerPage() {
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>E-filed:</strong> 24 hours after IRS accepts your return
+                    <strong>E-filed:</strong> 24 hours after IRS accepts your
+                    return
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -268,7 +278,9 @@ export default function RefundTrackerPage() {
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <h2 className="text-3xl font-bold mb-2">Refund Status</h2>
-                  <p className="text-lg opacity-90">{refundStatus.statusMessage}</p>
+                  <p className="text-lg opacity-90">
+                    {refundStatus.statusMessage}
+                  </p>
                 </div>
                 {getStatusIcon(refundStatus.status)}
               </div>
@@ -293,11 +305,14 @@ export default function RefundTrackerPage() {
                   <span>
                     Expected deposit date:{' '}
                     <strong>
-                      {new Date(refundStatus.expectedDate).toLocaleDateString('en-US', {
-                        month: 'long',
-                        day: 'numeric',
-                        year: 'numeric',
-                      })}
+                      {new Date(refundStatus.expectedDate).toLocaleDateString(
+                        'en-US',
+                        {
+                          month: 'long',
+                          day: 'numeric',
+                          year: 'numeric',
+                        }
+                      )}
                     </strong>
                   </span>
                 </div>
@@ -458,8 +473,8 @@ export default function RefundTrackerPage() {
                 How long does it take to get my refund?
               </summary>
               <p className="text-sm text-gray-600 mt-2">
-                Most refunds are issued within 21 days of e-filing. Direct deposit is
-                faster than paper checks.
+                Most refunds are issued within 21 days of e-filing. Direct
+                deposit is faster than paper checks.
               </p>
             </details>
 
@@ -468,8 +483,9 @@ export default function RefundTrackerPage() {
                 Why is my refund delayed?
               </summary>
               <p className="text-sm text-gray-600 mt-2">
-                Common reasons include errors on your return, identity verification,
-                claiming certain credits (EITC, ACTC), or amended returns.
+                Common reasons include errors on your return, identity
+                verification, claiming certain credits (EITC, ACTC), or amended
+                returns.
               </p>
             </details>
 
@@ -478,8 +494,8 @@ export default function RefundTrackerPage() {
                 Can I change my direct deposit information?
               </summary>
               <p className="text-sm text-gray-600 mt-2">
-                Once your return is submitted, you cannot change your direct deposit
-                information. Contact the IRS if you need to update it.
+                Once your return is submitted, you cannot change your direct
+                deposit information. Contact the IRS if you need to update it.
               </p>
             </details>
 
@@ -488,13 +504,13 @@ export default function RefundTrackerPage() {
                 What if my refund is less than expected?
               </summary>
               <p className="text-sm text-gray-600 mt-2">
-                The IRS may have adjusted your refund due to errors, offsets for debts,
-                or other issues. Check your IRS notice for details.
+                The IRS may have adjusted your refund due to errors, offsets for
+                debts, or other issues. Check your IRS notice for details.
               </p>
             </details>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

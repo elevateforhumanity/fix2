@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function TaxSelfPrepPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero - TurboTax Style */}
       <section className="relative    text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
@@ -31,7 +31,7 @@ export default function TaxSelfPrepPage() {
               priority
               sizes="100vw"
             />
-            
+
             <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
               <p className="text-base md:text-lg mb-8 text-gray-100">
@@ -528,6 +528,6 @@ export default function TaxSelfPrepPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

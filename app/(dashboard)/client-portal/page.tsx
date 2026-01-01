@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function ClientPortalPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="bg-blue-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
@@ -86,8 +86,8 @@ export default function ClientPortalPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Easy Document Upload</h3>
               <p className="text-gray-600">
-                Clients can upload W-2s, 1099s, and other tax documents from
-                any device with drag-and-drop.
+                Clients can upload W-2s, 1099s, and other tax documents from any
+                device with drag-and-drop.
               </p>
             </div>
 
@@ -170,7 +170,8 @@ export default function ClientPortalPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Custom Branding</h3>
               <p className="text-gray-600">
-                Showcase your firm's logo and personalized web address. White-label solution.
+                Showcase your firm's logo and personalized web address.
+                White-label solution.
               </p>
             </div>
           </div>
@@ -452,6 +453,6 @@ export default function ClientPortalPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

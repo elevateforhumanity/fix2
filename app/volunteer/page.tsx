@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 
-
 export const metadata: Metadata = {
   title: 'Volunteer Opportunities | Elevate for Humanity',
   description:
@@ -123,7 +122,7 @@ export default async function VolunteerPage() {
   const supabase: any = createClient();
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
         <div className="container mx-auto px-4 relative z-10">
@@ -486,6 +485,6 @@ export default async function VolunteerPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

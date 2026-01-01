@@ -2,10 +2,9 @@ import Link from 'next/link';
 import ProgramHowItWorks from '@/components/program/ProgramHowItWorks';
 import ProgramFAQ from '@/components/program/ProgramFAQ';
 
-
 export default function EnrollPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Video Hero - Preload video before page starts */}
       <section className="relative h-[300px] w-full overflow-hidden bg-slate-900">
         <video
@@ -83,6 +82,6 @@ export default function EnrollPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

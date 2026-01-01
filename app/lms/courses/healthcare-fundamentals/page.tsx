@@ -84,7 +84,7 @@ export default function HealthcareFundamentalsCoursePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 to-teal-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -387,6 +387,6 @@ export default function HealthcareFundamentalsCoursePage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

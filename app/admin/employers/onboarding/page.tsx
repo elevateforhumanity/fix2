@@ -29,7 +29,7 @@ export default async function EmployerOnboardingReview() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-8 px-4">
+    <div className="min-h-screen bg-slate-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
@@ -116,11 +116,13 @@ export default async function EmployerOnboardingReview() {
 
           {!onboardings || onboardings.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-slate-600">No employer onboarding submissions yet</p>
+              <p className="text-slate-600">
+                No employer onboarding submissions yet
+              </p>
             </div>
           ) : null}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

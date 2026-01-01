@@ -3,7 +3,7 @@ import { Heart, DollarSign, Users, TrendingUp } from 'lucide-react';
 
 export default function DonationsPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-white text-center">
         <div className="max-w-4xl mx-auto">
           <Heart className="w-16 h-16 text-purple-600 mx-auto mb-6" />
@@ -11,7 +11,8 @@ export default function DonationsPage() {
             Support Our Mission
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Your donation helps us provide mental wellness and holistic healing services to those in need
+            Your donation helps us provide mental wellness and holistic healing
+            services to those in need
           </p>
           <Link
             href="https://donate.stripe.com/5kA5kn7EsfrD08w4gg"
@@ -48,11 +49,13 @@ export default function DonationsPage() {
                 <TrendingUp className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">$500</h3>
-              <p className="text-gray-600">Funds a full program for one person</p>
+              <p className="text-gray-600">
+                Funds a full program for one person
+              </p>
             </div>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

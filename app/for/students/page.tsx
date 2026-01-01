@@ -54,7 +54,7 @@ export default function StudentsPage() {
   ];
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="relative h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -219,6 +219,6 @@ export default function StudentsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

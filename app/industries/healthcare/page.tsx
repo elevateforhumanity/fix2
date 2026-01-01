@@ -25,7 +25,7 @@ export default function HealthcarePage() {
   );
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="relative h-[450px] md:h-[500px] w-full overflow-hidden">
         <video
@@ -246,6 +246,6 @@ export default function HealthcarePage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

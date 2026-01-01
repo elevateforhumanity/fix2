@@ -4,12 +4,13 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Nonprofit | Mental Wellness & Holistic Healing',
-  description: 'Welcome to Selfish Inc. Your Partner in Mental Wellness and Holistic Healing',
+  description:
+    'Welcome to Selfish Inc. Your Partner in Mental Wellness and Holistic Healing',
 };
 
 export default function NonprofitPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section - Exact replica */}
       <section className="relative py-20 px-4 text-center">
         <div className="max-w-6xl mx-auto">
@@ -26,7 +27,8 @@ export default function NonprofitPage() {
 
           {/* Animated Headline - Exact from Wix */}
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
-            "Welcome to Selfish Inc. Your Partner in Mental Wellness and Holistic Healing"
+            "Welcome to Selfish Inc. Your Partner in Mental Wellness and
+            Holistic Healing"
           </h1>
 
           {/* Donate Button */}
@@ -72,7 +74,8 @@ export default function NonprofitPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Shop our healing Products-browse items designed to uplift your mood and body.
+            Shop our healing Products-browse items designed to uplift your mood
+            and body.
           </h2>
           <Link
             href="https://curvaturebodysculpting.store/"
@@ -90,8 +93,12 @@ export default function NonprofitPage() {
           <div className="relative h-[400px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
             <div className="text-center">
               <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <svg className="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
+                <svg
+                  className="w-10 h-10 text-purple-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
               <p className="text-gray-600">Video: 00:00 / 01:26</p>
@@ -105,7 +112,7 @@ export default function NonprofitPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Trauma Recovery */}
-            <Link 
+            <Link
               href="/rise-foundation/trauma-recovery"
               className="group block"
             >
@@ -124,7 +131,7 @@ export default function NonprofitPage() {
             </Link>
 
             {/* Addiction Rehabilitation */}
-            <Link 
+            <Link
               href="/rise-foundation/addiction-rehabilitation"
               className="group block"
             >
@@ -143,7 +150,7 @@ export default function NonprofitPage() {
             </Link>
 
             {/* Divorce Support */}
-            <Link 
+            <Link
               href="/rise-foundation/divorce-support"
               className="group block"
             >
@@ -168,7 +175,8 @@ export default function NonprofitPage() {
               href="/rise-foundation/our-programs"
               className="text-lg text-purple-600 hover:text-purple-700 font-semibold underline"
             >
-              Mindfulness Workshops, Mental Wellness Programs Holistic, Mental Health
+              Mindfulness Workshops, Mental Wellness Programs Holistic, Mental
+              Health
             </Link>
           </div>
         </div>
@@ -180,6 +188,6 @@ export default function NonprofitPage() {
           Do Not Sell My Personal Information
         </p>
       </footer>
-    </main>
+    </div>
   );
 }

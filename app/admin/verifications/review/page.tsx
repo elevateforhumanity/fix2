@@ -79,7 +79,7 @@ export default async function AdminVerificationReviewPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="bg-white border-b py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
@@ -252,6 +252,6 @@ export default async function AdminVerificationReviewPage() {
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

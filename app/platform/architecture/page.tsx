@@ -4,7 +4,7 @@ export const revalidate = 3600; // 1 hour ISR cache
 
 export default function ArchitecturePage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       <ComplianceBar />
 
       <div className="max-w-6xl mx-auto px-6 py-16">
@@ -256,6 +256,6 @@ export default function ArchitecturePage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

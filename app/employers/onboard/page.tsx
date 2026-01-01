@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -49,7 +49,7 @@ export default function EmployerOnboardPage() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
         <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg p-8 text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-green-600" />
@@ -58,8 +58,8 @@ export default function EmployerOnboardPage() {
             Submission Received
           </h1>
           <p className="text-lg text-slate-600 mb-6">
-            Thank you for your interest in hosting apprentices. We'll review your
-            submission and contact you within 1-2 business days.
+            Thank you for your interest in hosting apprentices. We'll review
+            your submission and contact you within 1-2 business days.
           </p>
           <Link
             href="/"
@@ -68,12 +68,12 @@ export default function EmployerOnboardPage() {
             Return to Home
           </Link>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 py-16 px-4">
+    <div className="min-h-screen bg-slate-50 py-16 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
@@ -152,7 +152,8 @@ export default function EmployerOnboardPage() {
                 Required Documents
               </h2>
               <p className="text-sm text-slate-600 mb-4">
-                Please provide URLs to your documents (Google Drive, Dropbox, etc.)
+                Please provide URLs to your documents (Google Drive, Dropbox,
+                etc.)
               </p>
               <div className="space-y-4">
                 <div>
@@ -212,6 +213,6 @@ export default function EmployerOnboardPage() {
           </form>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

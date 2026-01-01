@@ -170,7 +170,7 @@ export default async function PortalsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
+    <div className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -323,6 +323,6 @@ export default async function PortalsPage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

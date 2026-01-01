@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function BusinessFinancialPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <CompactHero
         variant="default"
         badge={{
@@ -264,6 +264,6 @@ export default function BusinessFinancialPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -118,7 +118,7 @@ export default function SiteMapPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white py-20">
+    <div className="min-h-screen bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-black text-black mb-6">
@@ -170,6 +170,6 @@ export default function SiteMapPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function EmployerPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* HERO - Video Background */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <video
@@ -30,7 +30,6 @@ export default function EmployerPage() {
           playsInline
           muted
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source src="/videos/employer-partner-hero.mp4" type="video/mp4" />
         </video>
@@ -363,6 +362,6 @@ export default function EmployerPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

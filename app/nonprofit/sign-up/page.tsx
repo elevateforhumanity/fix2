@@ -12,24 +12,35 @@ export default function SignUpPage() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen flex items-center justify-center px-4">
+      <div className="min-h-screen flex items-center justify-center px-4">
         <div className="max-w-md text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <svg
+              className="w-10 h-10 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-lg text-gray-600">
-            We've received your registration. You'll receive a confirmation email shortly.
+            We've received your registration. You'll receive a confirmation
+            email shortly.
           </p>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen py-20 px-4">
+    <div className="min-h-screen py-20 px-4">
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 text-center">
           Sign Up for Workshops
@@ -38,7 +49,10 @@ export default function SignUpPage() {
           Join our healing community and start your wellness journey
         </p>
 
-        <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-lg p-8 space-y-6">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white border border-gray-200 rounded-lg p-8 space-y-6"
+        >
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Full Name *
@@ -105,6 +119,6 @@ export default function SignUpPage() {
           </button>
         </form>
       </div>
-    </main>
+    </div>
   );
 }

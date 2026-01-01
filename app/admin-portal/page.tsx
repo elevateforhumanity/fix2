@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function AdminPortalPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <section className="bg-gradient-to-br from-gray-900 to-gray-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
@@ -133,6 +133,6 @@ export default function AdminPortalPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

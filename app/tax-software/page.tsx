@@ -25,7 +25,7 @@ export default function TaxSoftwarePage() {
   const [currentStep, setCurrentStep] = useState(1);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="relative h-[300px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -530,6 +530,6 @@ export default function TaxSoftwarePage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

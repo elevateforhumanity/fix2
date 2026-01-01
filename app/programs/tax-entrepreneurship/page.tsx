@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function TaxEntrepreneurshipPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="bg-white text-white py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -284,6 +284,6 @@ export default function TaxEntrepreneurshipPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

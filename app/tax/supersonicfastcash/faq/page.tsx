@@ -129,9 +129,13 @@ export default function FAQPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
+    <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="mb-6">
-        <Link href="/tax" aria-label="Link" className="text-sm text-gray-600 hover:text-gray-900">
+        <Link
+          href="/tax"
+          aria-label="Link"
+          className="text-sm text-gray-600 hover:text-gray-900"
+        >
           ← Back to Tax Services
         </Link>
       </div>
@@ -206,6 +210,6 @@ export default function FAQPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

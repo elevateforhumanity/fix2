@@ -127,7 +127,7 @@ export default async function AdminDashboardOrchestrated() {
     .lt('score', 70);
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <section className="bg-white border-b border-slate-200 py-6">
         <div className="max-w-7xl mx-auto px-4">
@@ -186,7 +186,9 @@ export default async function AdminDashboardOrchestrated() {
                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                       <span className="text-red-900 font-semibold">
                         {lowComplianceHolders?.length} program holder
-                        {(lowComplianceHolders?.length || 0) > 1 ? 's' : ''}{' '}
+                        {(lowComplianceHolders?.length || 0) > 1
+                          ? 's'
+                          : ''}{' '}
                         below 70% compliance
                       </span>
                       <Link
@@ -431,234 +433,912 @@ export default async function AdminDashboardOrchestrated() {
 
       {/* ALL ADMIN FEATURES - Gitpod-style Control Panel */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 className="text-2xl font-bold text-slate-900 mb-6">Platform Management</h2>
-        
+        <h2 className="text-2xl font-bold text-slate-900 mb-6">
+          Platform Management
+        </h2>
+
         {/* Content & Courses */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Content & Courses</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Content & Courses
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/course-builder" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Course Builder</Link>
-            <Link href="/admin/courses" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Courses</Link>
-            <Link href="/admin/programs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Programs</Link>
-            <Link href="/admin/curriculum" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Curriculum</Link>
-            <Link href="/admin/modules" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Modules</Link>
-            <Link href="/admin/quiz-builder" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Quiz Builder</Link>
-            <Link href="/admin/syllabus-generator" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Syllabus Generator</Link>
-            <Link href="/admin/course-templates" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Templates</Link>
-            <Link href="/admin/course-import" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Import Courses</Link>
+            <Link
+              href="/admin/course-builder"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Course Builder
+            </Link>
+            <Link
+              href="/admin/courses"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Courses
+            </Link>
+            <Link
+              href="/admin/programs"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Programs
+            </Link>
+            <Link
+              href="/admin/curriculum"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Curriculum
+            </Link>
+            <Link
+              href="/admin/modules"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Modules
+            </Link>
+            <Link
+              href="/admin/quiz-builder"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Quiz Builder
+            </Link>
+            <Link
+              href="/admin/syllabus-generator"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Syllabus Generator
+            </Link>
+            <Link
+              href="/admin/course-templates"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Templates
+            </Link>
+            <Link
+              href="/admin/course-import"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Import Courses
+            </Link>
           </div>
         </div>
 
         {/* Users & Access */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Users & Access</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Users & Access
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/students" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Students</Link>
-            <Link href="/admin/instructors" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Instructors</Link>
-            <Link href="/admin/program-holders" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Program Holders</Link>
-            <Link href="/admin/employers" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Employers</Link>
-            <Link href="/admin/users" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">All Users</Link>
-            <Link href="/admin/delegates" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Delegates</Link>
-            <Link href="/admin/hr" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">HR</Link>
+            <Link
+              href="/admin/students"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Students
+            </Link>
+            <Link
+              href="/admin/instructors"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Instructors
+            </Link>
+            <Link
+              href="/admin/program-holders"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Program Holders
+            </Link>
+            <Link
+              href="/admin/employers"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Employers
+            </Link>
+            <Link
+              href="/admin/users"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              All Users
+            </Link>
+            <Link
+              href="/admin/delegates"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Delegates
+            </Link>
+            <Link
+              href="/admin/hr"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              HR
+            </Link>
           </div>
         </div>
 
         {/* Analytics & Monitoring */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Analytics & Monitoring</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Analytics & Monitoring
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/analytics" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Analytics</Link>
-            <Link href="/admin/analytics-dashboard" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Analytics Dashboard</Link>
-            <Link href="/admin/performance-dashboard" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Performance</Link>
-            <Link href="/admin/compliance-dashboard" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Compliance</Link>
-            <Link href="/admin/system-health" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">System Health</Link>
-            <Link href="/admin/site-health" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Site Health</Link>
-            <Link href="/admin/audit-logs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Audit Logs</Link>
-            <Link href="/admin/audits" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Audits</Link>
+            <Link
+              href="/admin/analytics"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Analytics
+            </Link>
+            <Link
+              href="/admin/analytics-dashboard"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Analytics Dashboard
+            </Link>
+            <Link
+              href="/admin/performance-dashboard"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Performance
+            </Link>
+            <Link
+              href="/admin/compliance-dashboard"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Compliance
+            </Link>
+            <Link
+              href="/admin/system-health"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              System Health
+            </Link>
+            <Link
+              href="/admin/site-health"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Site Health
+            </Link>
+            <Link
+              href="/admin/audit-logs"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Audit Logs
+            </Link>
+            <Link
+              href="/admin/audits"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Audits
+            </Link>
           </div>
         </div>
 
         {/* Operations & Automation */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Operations & Automation</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Operations & Automation
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/workflows" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Workflows</Link>
-            <Link href="/admin/autopilot" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Autopilot</Link>
-            <Link href="/admin/autopilots" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Autopilots</Link>
-            <Link href="/admin/copilot" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Copilot</Link>
-            <Link href="/admin/operations" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Operations</Link>
-            <Link href="/admin/enrollment-jobs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Enrollment Jobs</Link>
-            <Link href="/admin/data-processor" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Data Processor</Link>
+            <Link
+              href="/admin/workflows"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Workflows
+            </Link>
+            <Link
+              href="/admin/autopilot"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Autopilot
+            </Link>
+            <Link
+              href="/admin/autopilots"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Autopilots
+            </Link>
+            <Link
+              href="/admin/copilot"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Copilot
+            </Link>
+            <Link
+              href="/admin/operations"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Operations
+            </Link>
+            <Link
+              href="/admin/enrollment-jobs"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Enrollment Jobs
+            </Link>
+            <Link
+              href="/admin/data-processor"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Data Processor
+            </Link>
           </div>
         </div>
 
         {/* Development & Integration */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Development & Integration</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Development & Integration
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/dev-studio" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Dev Studio</Link>
-            <Link href="/admin/editor" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Editor</Link>
-            <Link href="/admin/integrations" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Integrations</Link>
-            <Link href="/admin/migrations" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Migrations</Link>
-            <Link href="/admin/external-modules" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">External Modules</Link>
+            <Link
+              href="/admin/dev-studio"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Dev Studio
+            </Link>
+            <Link
+              href="/admin/editor"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Editor
+            </Link>
+            <Link
+              href="/admin/integrations"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Integrations
+            </Link>
+            <Link
+              href="/admin/migrations"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Migrations
+            </Link>
+            <Link
+              href="/admin/external-modules"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              External Modules
+            </Link>
           </div>
         </div>
 
         {/* Media & Content */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Media & Content</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Media & Content
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/video-manager" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Video Manager</Link>
-            <Link href="/admin/videos" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Videos</Link>
-            <Link href="/admin/media-studio" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Media Studio</Link>
-            <Link href="/admin/document-center" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Document Center</Link>
-            <Link href="/admin/documents" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Documents</Link>
-            <Link href="/admin/files" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Files</Link>
-            <Link href="/admin/blog" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Blog</Link>
+            <Link
+              href="/admin/video-manager"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Video Manager
+            </Link>
+            <Link
+              href="/admin/videos"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Videos
+            </Link>
+            <Link
+              href="/admin/media-studio"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Media Studio
+            </Link>
+            <Link
+              href="/admin/document-center"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Document Center
+            </Link>
+            <Link
+              href="/admin/documents"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Documents
+            </Link>
+            <Link
+              href="/admin/files"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Files
+            </Link>
+            <Link
+              href="/admin/blog"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Blog
+            </Link>
           </div>
         </div>
 
         {/* Communication */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Communication</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Communication
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/email-marketing" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Email Marketing</Link>
-            <Link href="/admin/crm" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">CRM</Link>
-            <Link href="/admin/inbox" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Inbox</Link>
-            <Link href="/admin/live-chat" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Live Chat</Link>
-            <Link href="/admin/notifications" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Notifications</Link>
-            <Link href="/admin/social-media" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Social Media</Link>
-            <Link href="/admin/contacts" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Contacts</Link>
+            <Link
+              href="/admin/email-marketing"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Email Marketing
+            </Link>
+            <Link
+              href="/admin/crm"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              CRM
+            </Link>
+            <Link
+              href="/admin/inbox"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Inbox
+            </Link>
+            <Link
+              href="/admin/live-chat"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Live Chat
+            </Link>
+            <Link
+              href="/admin/notifications"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Notifications
+            </Link>
+            <Link
+              href="/admin/social-media"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Social Media
+            </Link>
+            <Link
+              href="/admin/contacts"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Contacts
+            </Link>
           </div>
         </div>
 
         {/* Compliance & Reporting */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Compliance & Reporting</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Compliance & Reporting
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/compliance" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Compliance</Link>
-            <Link href="/admin/reports" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Reports</Link>
-            <Link href="/admin/reporting" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Reporting</Link>
-            <Link href="/admin/accreditation" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Accreditation</Link>
-            <Link href="/admin/ferpa" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">FERPA</Link>
-            <Link href="/admin/etpl-alignment" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">ETPL Alignment</Link>
-            <Link href="/admin/sap" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">SAP</Link>
+            <Link
+              href="/admin/compliance"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Compliance
+            </Link>
+            <Link
+              href="/admin/reports"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Reports
+            </Link>
+            <Link
+              href="/admin/reporting"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Reporting
+            </Link>
+            <Link
+              href="/admin/accreditation"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Accreditation
+            </Link>
+            <Link
+              href="/admin/ferpa"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              FERPA
+            </Link>
+            <Link
+              href="/admin/etpl-alignment"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              ETPL Alignment
+            </Link>
+            <Link
+              href="/admin/sap"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              SAP
+            </Link>
           </div>
         </div>
 
         {/* Funding & Finance */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Funding & Finance</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Funding & Finance
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/funding" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Funding</Link>
-            <Link href="/admin/grants" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Grants</Link>
-            <Link href="/admin/payroll" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Payroll</Link>
-            <Link href="/admin/payroll-cards" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Payroll Cards</Link>
-            <Link href="/admin/cash-advances" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Cash Advances</Link>
-            <Link href="/admin/incentives" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Incentives</Link>
-            <Link href="/admin/tax-filing" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Tax Filing</Link>
+            <Link
+              href="/admin/funding"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Funding
+            </Link>
+            <Link
+              href="/admin/grants"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Grants
+            </Link>
+            <Link
+              href="/admin/payroll"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Payroll
+            </Link>
+            <Link
+              href="/admin/payroll-cards"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Payroll Cards
+            </Link>
+            <Link
+              href="/admin/cash-advances"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Cash Advances
+            </Link>
+            <Link
+              href="/admin/incentives"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Incentives
+            </Link>
+            <Link
+              href="/admin/tax-filing"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Tax Filing
+            </Link>
           </div>
         </div>
 
         {/* Marketplace & Shop */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Marketplace & Shop</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Marketplace & Shop
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/marketplace" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Marketplace</Link>
-            <Link href="/admin/shops" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Shops</Link>
-            <Link href="/admin/store" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Store</Link>
-            <Link href="/admin/moderation" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Moderation</Link>
+            <Link
+              href="/admin/marketplace"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Marketplace
+            </Link>
+            <Link
+              href="/admin/shops"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Shops
+            </Link>
+            <Link
+              href="/admin/store"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Store
+            </Link>
+            <Link
+              href="/admin/moderation"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Moderation
+            </Link>
           </div>
         </div>
 
         {/* Student Support */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Student Support</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Student Support
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/at-risk" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">At-Risk Students</Link>
-            <Link href="/admin/barriers" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Barriers</Link>
-            <Link href="/admin/retention" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Retention</Link>
-            <Link href="/admin/progress" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Progress</Link>
-            <Link href="/admin/external-progress" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">External Progress</Link>
-            <Link href="/admin/transfer-hours" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Transfer Hours</Link>
-            <Link href="/admin/hours-export" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Hours Export</Link>
+            <Link
+              href="/admin/at-risk"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              At-Risk Students
+            </Link>
+            <Link
+              href="/admin/barriers"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Barriers
+            </Link>
+            <Link
+              href="/admin/retention"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Retention
+            </Link>
+            <Link
+              href="/admin/progress"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Progress
+            </Link>
+            <Link
+              href="/admin/external-progress"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              External Progress
+            </Link>
+            <Link
+              href="/admin/transfer-hours"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Transfer Hours
+            </Link>
+            <Link
+              href="/admin/hours-export"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Hours Export
+            </Link>
           </div>
         </div>
 
         {/* Credentials & Certificates */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Credentials & Certificates</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Credentials & Certificates
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/certificates" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Certificates</Link>
-            <Link href="/admin/certifications" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Certifications</Link>
-            <Link href="/admin/completions" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Completions</Link>
-            <Link href="/admin/signatures" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Signatures</Link>
-            <Link href="/admin/license" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">License</Link>
-            <Link href="/admin/license-requests" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">License Requests</Link>
+            <Link
+              href="/admin/certificates"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Certificates
+            </Link>
+            <Link
+              href="/admin/certifications"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Certifications
+            </Link>
+            <Link
+              href="/admin/completions"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Completions
+            </Link>
+            <Link
+              href="/admin/signatures"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Signatures
+            </Link>
+            <Link
+              href="/admin/license"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              License
+            </Link>
+            <Link
+              href="/admin/license-requests"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              License Requests
+            </Link>
           </div>
         </div>
 
         {/* Programs & Partnerships */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Programs & Partnerships</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Programs & Partnerships
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/jri" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">JRI</Link>
-            <Link href="/admin/apprenticeships" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Apprenticeships</Link>
-            <Link href="/admin/partners" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Partners</Link>
-            <Link href="/admin/partner-inquiries" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Partner Inquiries</Link>
-            <Link href="/admin/mou" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">MOU</Link>
-            <Link href="/admin/program-generator" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Program Generator</Link>
+            <Link
+              href="/admin/jri"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              JRI
+            </Link>
+            <Link
+              href="/admin/apprenticeships"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Apprenticeships
+            </Link>
+            <Link
+              href="/admin/partners"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Partners
+            </Link>
+            <Link
+              href="/admin/partner-inquiries"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Partner Inquiries
+            </Link>
+            <Link
+              href="/admin/mou"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              MOU
+            </Link>
+            <Link
+              href="/admin/program-generator"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Program Generator
+            </Link>
           </div>
         </div>
 
         {/* System & Settings */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">System & Settings</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            System & Settings
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/settings" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Settings</Link>
-            <Link href="/admin/security" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Security</Link>
-            <Link href="/admin/tenants" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Tenants</Link>
-            <Link href="/admin/portal-map" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Portal Map</Link>
-            <Link href="/admin/mobile-sync" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Mobile Sync</Link>
+            <Link
+              href="/admin/settings"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Settings
+            </Link>
+            <Link
+              href="/admin/security"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Security
+            </Link>
+            <Link
+              href="/admin/tenants"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Tenants
+            </Link>
+            <Link
+              href="/admin/portal-map"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Portal Map
+            </Link>
+            <Link
+              href="/admin/mobile-sync"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Mobile Sync
+            </Link>
           </div>
         </div>
 
         {/* Documentation & Help */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Documentation & Help</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Documentation & Help
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/docs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Docs</Link>
-            <Link href="/admin/internal-docs" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Internal Docs</Link>
-            <Link href="/admin/funding-playbook" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Funding Playbook</Link>
-            <Link href="/admin/employers-playbook" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Employers Playbook</Link>
-            <Link href="/admin/program-holder-documents" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">PH Documents</Link>
-            <Link href="/admin/program-holder-acknowledgements" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">PH Acknowledgements</Link>
+            <Link
+              href="/admin/docs"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Docs
+            </Link>
+            <Link
+              href="/admin/internal-docs"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Internal Docs
+            </Link>
+            <Link
+              href="/admin/funding-playbook"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Funding Playbook
+            </Link>
+            <Link
+              href="/admin/employers-playbook"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Employers Playbook
+            </Link>
+            <Link
+              href="/admin/program-holder-documents"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              PH Documents
+            </Link>
+            <Link
+              href="/admin/program-holder-acknowledgements"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              PH Acknowledgements
+            </Link>
           </div>
         </div>
 
         {/* Testing & Development */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Testing & Development</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Testing & Development
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/test-payments" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Test Payments</Link>
-            <Link href="/admin/test-emails" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Test Emails</Link>
-            <Link href="/admin/test-webhook" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Test Webhook</Link>
-            <Link href="/admin/test-funding" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Test Funding</Link>
+            <Link
+              href="/admin/test-payments"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Test Payments
+            </Link>
+            <Link
+              href="/admin/test-emails"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Test Emails
+            </Link>
+            <Link
+              href="/admin/test-webhook"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Test Webhook
+            </Link>
+            <Link
+              href="/admin/test-funding"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Test Funding
+            </Link>
           </div>
         </div>
 
         {/* Outcomes & Impact */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-slate-900 mb-4">Outcomes & Impact</h3>
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Outcomes & Impact
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <Link href="/admin/outcomes" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Outcomes</Link>
-            <Link href="/admin/impact" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Impact</Link>
-            <Link href="/admin/success" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Success</Link>
-            <Link href="/admin/next-steps" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Next Steps</Link>
-            <Link href="/admin/learner" aria-label="Link" className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm">Learner</Link>
+            <Link
+              href="/admin/outcomes"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Outcomes
+            </Link>
+            <Link
+              href="/admin/impact"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Impact
+            </Link>
+            <Link
+              href="/admin/success"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Success
+            </Link>
+            <Link
+              href="/admin/next-steps"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Next Steps
+            </Link>
+            <Link
+              href="/admin/learner"
+              aria-label="Link"
+              className="p-3 bg-white border rounded-lg hover:border-blue-500 hover:shadow text-sm"
+            >
+              Learner
+            </Link>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

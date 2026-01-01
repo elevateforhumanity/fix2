@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function AgenciesPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* HERO */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -354,6 +354,6 @@ export default function AgenciesPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

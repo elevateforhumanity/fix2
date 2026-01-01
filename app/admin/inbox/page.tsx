@@ -22,10 +22,10 @@ export default async function AdminInboxPage() {
 
   if (!isAdmin) {
     return (
-      <main className="mx-auto max-w-3xl px-4 py-12">
+      <div className="mx-auto max-w-3xl px-4 py-12">
         <h1 className="text-2xl font-bold">Access denied</h1>
         <p className="mt-2 text-zinc-700">Admin only.</p>
-      </main>
+      </div>
     );
   }
 
@@ -73,7 +73,7 @@ export default async function AdminInboxPage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12">
+    <div className="mx-auto max-w-6xl px-4 py-12">
       <h1 className="text-3xl font-bold text-zinc-900">Admin Inbox</h1>
       <p className="mt-2 text-zinc-700">One place to review everything.</p>
 
@@ -253,6 +253,6 @@ export default async function AdminInboxPage() {
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

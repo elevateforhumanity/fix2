@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function FreeTaxHelpPage() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
+    <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="mb-6">
         <Link
           href="/tax/rise-up-foundation"
@@ -140,8 +140,8 @@ export default function FreeTaxHelpPage() {
       <section className="mt-8 rounded-2xl border bg-white p-8">
         <h2 className="text-2xl font-bold mb-4">How to Schedule</h2>
         <p className="text-gray-600 mb-6">
-          Schedule your VITA tax preparation appointment to ensure we can give you 
-          the time and attention you deserve.
+          Schedule your VITA tax preparation appointment to ensure we can give
+          you the time and attention you deserve.
         </p>
 
         <div className="space-y-4">
@@ -222,6 +222,6 @@ export default function FreeTaxHelpPage() {
           .
         </p>
       </section>
-    </main>
+    </div>
   );
 }

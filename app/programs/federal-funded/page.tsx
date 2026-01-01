@@ -6,7 +6,8 @@ import { Shield, CheckCircle, Users, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Federal Funded Programs | WIOA & WRG | Elevate for Humanity',
-  description: '100% free training programs funded by WIOA, WRG, and federal grants. CNA, CDL, Healthcare, and more. No cost to you.',
+  description:
+    '100% free training programs funded by WIOA, WRG, and federal grants. CNA, CDL, Healthcare, and more. No cost to you.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs/federal-funded',
   },
@@ -26,7 +27,7 @@ export default function FederalFundedProgramsPage() {
   );
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-white text-white px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
         <div className="mx-auto max-w-5xl text-center">
@@ -203,11 +204,12 @@ export default function FederalFundedProgramsPage() {
                 className="group block bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image priority
+                  <Image
+                    priority
                     src={program.heroImage}
                     alt={program.heroImageAlt}
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -259,6 +261,6 @@ export default function FederalFundedProgramsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

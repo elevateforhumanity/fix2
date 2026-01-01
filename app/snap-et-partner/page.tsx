@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function SNAPETPartnerPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="bg-white text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -459,6 +459,6 @@ export default function SNAPETPartnerPage() {
           <p className="mt-6 text-blue-100">Elizabeth Greene, Founder & CEO</p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

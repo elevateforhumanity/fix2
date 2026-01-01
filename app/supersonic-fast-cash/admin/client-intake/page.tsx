@@ -85,7 +85,7 @@ export default function ClientIntakeDashboard() {
   });
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -266,8 +266,8 @@ export default function ClientIntakeDashboard() {
                           client.status === 'completed'
                             ? 'bg-green-100 text-green-700'
                             : client.status === 'review'
-                            ? 'bg-yellow-100 text-yellow-700'
-                            : 'bg-blue-100 text-blue-700'
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-blue-100 text-blue-700'
                         }`}
                       >
                         {client.status === 'completed' && (
@@ -329,7 +329,9 @@ export default function ClientIntakeDashboard() {
 
           <div className="space-y-4 text-sm">
             <div>
-              <h4 className="font-semibold mb-2">1. Configure JotForm Webhook</h4>
+              <h4 className="font-semibold mb-2">
+                1. Configure JotForm Webhook
+              </h4>
               <p className="text-gray-700 mb-2">
                 Add this webhook URL to your JotForm:
               </p>
@@ -339,7 +341,9 @@ export default function ClientIntakeDashboard() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2">2. Set Environment Variables</h4>
+              <h4 className="font-semibold mb-2">
+                2. Set Environment Variables
+              </h4>
               <pre className="bg-white px-4 py-2 rounded border text-xs">
                 JOTFORM_API_KEY=your_api_key_here
               </pre>
@@ -348,13 +352,13 @@ export default function ClientIntakeDashboard() {
             <div>
               <h4 className="font-semibold mb-2">3. Test Integration</h4>
               <p className="text-gray-700">
-                Submit a test form and verify it appears here and creates a Drake
-                return.
+                Submit a test form and verify it appears here and creates a
+                Drake return.
               </p>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

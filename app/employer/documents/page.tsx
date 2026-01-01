@@ -64,7 +64,7 @@ export default async function EmployerDocumentsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="bg-white border-b py-8">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
@@ -207,6 +207,6 @@ export default async function EmployerDocumentsPage() {
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

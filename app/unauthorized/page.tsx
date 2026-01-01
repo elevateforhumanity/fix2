@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function UnauthorizedPage() {
   return (
-    <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
       <div className="max-w-2xl w-full bg-white border border-slate-200 rounded-lg p-8 sm:p-12 text-center">
         <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
           <ShieldAlert className="w-10 h-10 text-red-600" />
@@ -39,6 +39,6 @@ export default function UnauthorizedPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

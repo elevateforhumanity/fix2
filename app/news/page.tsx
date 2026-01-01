@@ -156,7 +156,7 @@ const categories = [
 
 export default function NewsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-white text-white py-20">
         <div className="container mx-auto px-4 relative z-10">
@@ -195,6 +195,6 @@ export default function NewsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

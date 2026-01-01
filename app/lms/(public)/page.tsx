@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
-
 export default async function LmsPublicPage() {
   // Check if user is logged in and redirect to dashboard
   const supabase = await createClient();
@@ -13,7 +12,7 @@ export default async function LmsPublicPage() {
   }
 
   return (
-    <main className="px-4 sm:px-6 lg:px-10 py-10">
+    <div className="px-4 sm:px-6 lg:px-10 py-10">
       <div className="mx-auto max-w-6xl">
         <section className="max-w-3xl">
           <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900">
@@ -104,7 +103,7 @@ export default async function LmsPublicPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }
 

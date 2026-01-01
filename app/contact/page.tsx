@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { 
+import {
   Phone,
   Mail,
   MapPin,
@@ -13,7 +13,7 @@ import {
   MessageSquare,
   Calendar,
   Users,
-  ArrowRight
+  ArrowRight,
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -22,7 +22,7 @@ export default function ContactPage() {
     email: '',
     phone: '',
     message: '',
-    inquiryType: 'general'
+    inquiryType: 'general',
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -39,7 +39,7 @@ export default function ContactPage() {
       detail: '(317) 314-3757',
       description: 'Mon-Fri, 8am-6pm EST',
       href: 'tel:+13173143757',
-      color: 'green'
+      color: 'green',
     },
     {
       icon: Mail,
@@ -47,7 +47,7 @@ export default function ContactPage() {
       detail: 'elevate4humanityedu@gmail.com',
       description: 'We respond within 24 hours',
       href: 'mailto:elevate4humanityedu@gmail.com',
-      color: 'blue'
+      color: 'blue',
     },
     {
       icon: MapPin,
@@ -55,7 +55,7 @@ export default function ContactPage() {
       detail: 'Indianapolis, IN',
       description: 'Multiple locations across Indiana',
       href: '/locations',
-      color: 'purple'
+      color: 'purple',
     },
     {
       icon: Calendar,
@@ -63,12 +63,12 @@ export default function ContactPage() {
       detail: 'Book a consultation',
       description: 'Free 15-minute career consultation',
       href: '/booking',
-      color: 'orange'
-    }
+      color: 'orange',
+    },
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-green-600 to-green-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -76,13 +76,14 @@ export default function ContactPage() {
             <MessageSquare className="w-5 h-5" />
             <span className="text-sm font-semibold">Get In Touch</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
             We're Here to Help
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Questions about programs, funding, or enrollment? Our team is ready to guide you every step of the way.
+            Questions about programs, funding, or enrollment? Our team is ready
+            to guide you every step of the way.
           </p>
 
           {/* Quick Stats */}
@@ -124,7 +125,9 @@ export default function ContactPage() {
                   href={method.href}
                   className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-green-500 hover:-translate-y-1 transform"
                 >
-                  <div className={`w-14 h-14 bg-${method.color}-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <div
+                    className={`w-14 h-14 bg-${method.color}-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  >
                     <Icon className={`w-7 h-7 text-${method.color}-600`} />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -133,9 +136,7 @@ export default function ContactPage() {
                   <p className="text-sm font-semibold text-green-600 mb-2">
                     {method.detail}
                   </p>
-                  <p className="text-xs text-gray-600">
-                    {method.description}
-                  </p>
+                  <p className="text-xs text-gray-600">{method.description}</p>
                 </a>
               );
             })}
@@ -156,7 +157,10 @@ export default function ContactPage() {
           </div>
 
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-xl border-2 border-gray-100">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-xl border-2 border-gray-100"
+            >
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">
@@ -166,7 +170,9 @@ export default function ContactPage() {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
                     placeholder="John Doe"
                   />
@@ -180,7 +186,9 @@ export default function ContactPage() {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
                     placeholder="john@example.com"
                   />
@@ -195,7 +203,9 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
                     placeholder="(317) 555-0123"
                   />
@@ -208,7 +218,9 @@ export default function ContactPage() {
                   <select
                     required
                     value={formData.inquiryType}
-                    onChange={(e) => setFormData({...formData, inquiryType: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, inquiryType: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors"
                   >
                     <option value="general">General Information</option>
@@ -227,7 +239,9 @@ export default function ContactPage() {
                 <textarea
                   required
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   rows={6}
                   className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-colors resize-none"
                   placeholder="Tell us how we can help you..."
@@ -255,7 +269,8 @@ export default function ContactPage() {
                 Message Sent!
               </h3>
               <p className="text-xl text-gray-600 mb-8">
-                Thank you for reaching out. We'll get back to you within 24 hours.
+                Thank you for reaching out. We'll get back to you within 24
+                hours.
               </p>
               <Link
                 href="/"
@@ -279,9 +294,15 @@ export default function ContactPage() {
                 Office Hours
               </h3>
               <div className="space-y-2 text-gray-600">
-                <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
-                <p><strong>Saturday:</strong> 9:00 AM - 2:00 PM</p>
-                <p><strong>Sunday:</strong> Closed</p>
+                <p>
+                  <strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM
+                </p>
+                <p>
+                  <strong>Saturday:</strong> 9:00 AM - 2:00 PM
+                </p>
+                <p>
+                  <strong>Sunday:</strong> Closed
+                </p>
               </div>
             </div>
 
@@ -312,16 +333,28 @@ export default function ContactPage() {
                 Quick Links
               </h3>
               <div className="space-y-2">
-                <Link href="/apply" className="block text-purple-600 hover:underline font-semibold">
+                <Link
+                  href="/apply"
+                  className="block text-purple-600 hover:underline font-semibold"
+                >
                   Apply Now →
                 </Link>
-                <Link href="/programs" className="block text-purple-600 hover:underline font-semibold">
+                <Link
+                  href="/programs"
+                  className="block text-purple-600 hover:underline font-semibold"
+                >
                   Browse Programs →
                 </Link>
-                <Link href="/faq" className="block text-purple-600 hover:underline font-semibold">
+                <Link
+                  href="/faq"
+                  className="block text-purple-600 hover:underline font-semibold"
+                >
                   FAQs →
                 </Link>
-                <Link href="/help" className="block text-purple-600 hover:underline font-semibold">
+                <Link
+                  href="/help"
+                  className="block text-purple-600 hover:underline font-semibold"
+                >
                   Help Center →
                 </Link>
               </div>
@@ -351,6 +384,6 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

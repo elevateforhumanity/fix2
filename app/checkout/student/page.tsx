@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState } from 'react';
 import Link from 'next/link';
-
 
 export default function StudentCheckout() {
   const [loading, setLoading] = useState(false);
@@ -32,7 +31,7 @@ export default function StudentCheckout() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-16 px-4">
+    <div className="min-h-screen bg-slate-50 py-16 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-2xl shadow-lg p-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-4">
@@ -76,6 +75,6 @@ export default function StudentCheckout() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

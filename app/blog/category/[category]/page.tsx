@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 
-
 export async function generateMetadata({
   params,
 }: {
@@ -67,12 +66,20 @@ export default async function CategoryPage({
   }
 
   return (
-    <main className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
         <div className="mb-8">
-          <nav role="navigation" aria-label="Main navigation" className="text-sm text-slate-600 mb-4">
-            <Link href="/blog" aria-label="Link" className="hover:text-brand-blue-600">
+          <nav
+            role="navigation"
+            aria-label="Main navigation"
+            className="text-sm text-slate-600 mb-4"
+          >
+            <Link
+              href="/blog"
+              aria-label="Link"
+              className="hover:text-brand-blue-600"
+            >
               Blog
             </Link>
             <span className="mx-2">/</span>
@@ -100,11 +107,12 @@ export default async function CategoryPage({
                 >
                   {post.featured_image && (
                     <div className="relative h-48">
-                      <Image loading="lazy"
+                      <Image
+                        loading="lazy"
                         src={post.featured_image}
                         alt={post.title}
                         fill
-          sizes="100vw"
+                        sizes="100vw"
                         className="object-cover"
                       />
                     </div>
@@ -159,6 +167,6 @@ export default async function CategoryPage({
           </aside>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

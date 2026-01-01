@@ -1,7 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { calculateTax, calculateRefund, type TaxReturn } from '@/lib/tax-calculator';
+import {
+  calculateTax,
+  calculateRefund,
+  type TaxReturn,
+} from '@/lib/tax-calculator';
 import {
   Calculator,
   DollarSign,
@@ -61,18 +65,21 @@ export default function TaxCalculatorPage() {
   const saveCalculation = async () => {
     try {
       // Save to database
-      const response = await fetch('/api/supersonic-fast-cash/save-calculation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          taxReturn,
-          calculation,
-          refundResult,
-          federalWithholding,
-        }),
-      });
+      const response = await fetch(
+        '/api/supersonic-fast-cash/save-calculation',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            taxReturn,
+            calculation,
+            refundResult,
+            federalWithholding,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error('Failed to save');
@@ -86,7 +93,7 @@ export default function TaxCalculatorPage() {
         savedAt: new Date().toISOString(),
       };
       localStorage.setItem('supersonic-tax-calc', JSON.stringify(data));
-      
+
       alert('Calculation saved to your account! You can return to it anytime.');
     } catch (error) {
       console.error('Save error:', error);
@@ -109,7 +116,7 @@ export default function TaxCalculatorPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -144,7 +151,10 @@ export default function TaxCalculatorPage() {
                 {[
                   { value: 'single', label: 'Single' },
                   { value: 'married_joint', label: 'Married Filing Jointly' },
-                  { value: 'married_separate', label: 'Married Filing Separately' },
+                  {
+                    value: 'married_separate',
+                    label: 'Married Filing Separately',
+                  },
                   { value: 'head_of_household', label: 'Head of Household' },
                 ].map((status) => (
                   <button
@@ -170,7 +180,10 @@ export default function TaxCalculatorPage() {
                   min="0"
                   value={taxReturn.dependents_count}
                   onChange={(e) =>
-                    updateField('dependents_count', parseInt(e.target.value) || 0)
+                    updateField(
+                      'dependents_count',
+                      parseInt(e.target.value) || 0
+                    )
                   }
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none"
                 />
@@ -200,7 +213,10 @@ export default function TaxCalculatorPage() {
                       min="0"
                       value={taxReturn.w2_income || ''}
                       onChange={(e) =>
-                        updateField('w2_income', parseFloat(e.target.value) || 0)
+                        updateField(
+                          'w2_income',
+                          parseFloat(e.target.value) || 0
+                        )
                       }
                       placeholder="50,000"
                       className="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none"
@@ -245,7 +261,10 @@ export default function TaxCalculatorPage() {
                       min="0"
                       value={taxReturn.interest_income || ''}
                       onChange={(e) =>
-                        updateField('interest_income', parseFloat(e.target.value) || 0)
+                        updateField(
+                          'interest_income',
+                          parseFloat(e.target.value) || 0
+                        )
                       }
                       placeholder="0"
                       className="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none"
@@ -266,7 +285,10 @@ export default function TaxCalculatorPage() {
                       min="0"
                       value={taxReturn.dividend_income || ''}
                       onChange={(e) =>
-                        updateField('dividend_income', parseFloat(e.target.value) || 0)
+                        updateField(
+                          'dividend_income',
+                          parseFloat(e.target.value) || 0
+                        )
                       }
                       placeholder="0"
                       className="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none"
@@ -287,7 +309,10 @@ export default function TaxCalculatorPage() {
                       min="0"
                       value={taxReturn.other_income || ''}
                       onChange={(e) =>
-                        updateField('other_income', parseFloat(e.target.value) || 0)
+                        updateField(
+                          'other_income',
+                          parseFloat(e.target.value) || 0
+                        )
                       }
                       placeholder="0"
                       className="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none"
@@ -379,7 +404,9 @@ export default function TaxCalculatorPage() {
                       className="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none"
                     />
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">Max deduction: $2,500</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Max deduction: $2,500
+                  </p>
                 </div>
               </div>
             </div>
@@ -452,7 +479,9 @@ export default function TaxCalculatorPage() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-medium opacity-90">
-                    {refundResult?.is_refund ? 'Estimated Refund' : 'Amount Owed'}
+                    {refundResult?.is_refund
+                      ? 'Estimated Refund'
+                      : 'Amount Owed'}
                   </span>
                   {refundResult?.is_refund ? (
                     <TrendingUp className="w-6 h-6" />
@@ -469,18 +498,19 @@ export default function TaxCalculatorPage() {
                   Based on 2024 federal tax tables
                 </p>
 
-                {refundResult?.is_refund && refundResult.refund_or_owed > 250 && (
-                  <div className="mt-6 pt-6 border-t border-white/20">
-                    <p className="text-sm font-semibold mb-2">
-                      💰 Refund Advance Available
-                    </p>
-                    <p className="text-xs opacity-90">
-                      Get ${Math.min(refundResult.refund_or_owed, 7500)} today
-                      <br />
-                      Fee: 3.5% + $35
-                    </p>
-                  </div>
-                )}
+                {refundResult?.is_refund &&
+                  refundResult.refund_or_owed > 250 && (
+                    <div className="mt-6 pt-6 border-t border-white/20">
+                      <p className="text-sm font-semibold mb-2">
+                        💰 Refund Advance Available
+                      </p>
+                      <p className="text-xs opacity-90">
+                        Get ${Math.min(refundResult.refund_or_owed, 7500)} today
+                        <br />
+                        Fee: 3.5% + $35
+                      </p>
+                    </div>
+                  )}
               </div>
 
               {/* Breakdown */}
@@ -497,7 +527,9 @@ export default function TaxCalculatorPage() {
                     </div>
 
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Adjusted Gross Income</span>
+                      <span className="text-gray-600">
+                        Adjusted Gross Income
+                      </span>
                       <span className="font-semibold">
                         {formatCurrency(calculation.adjusted_gross_income)}
                       </span>
@@ -526,7 +558,9 @@ export default function TaxCalculatorPage() {
 
                     {calculation.self_employment_tax > 0 && (
                       <div className="flex justify-between">
-                        <span className="text-gray-600">Self-Employment Tax</span>
+                        <span className="text-gray-600">
+                          Self-Employment Tax
+                        </span>
                         <span className="font-semibold text-red-600">
                           {formatCurrency(calculation.self_employment_tax)}
                         </span>
@@ -587,8 +621,8 @@ export default function TaxCalculatorPage() {
                   <Info className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <p>
                     This is an estimate only. Actual refund may vary based on
-                    additional factors. For accurate filing, use our DIY service or
-                    book a tax pro.
+                    additional factors. For accurate filing, use our DIY service
+                    or book a tax pro.
                   </p>
                 </div>
               </div>
@@ -596,6 +630,6 @@ export default function TaxCalculatorPage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

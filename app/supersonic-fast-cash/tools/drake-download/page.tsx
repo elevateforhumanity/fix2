@@ -1,7 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Download, FileText, CheckCircle, AlertCircle, ExternalLink, Key } from 'lucide-react';
+import {
+  Download,
+  FileText,
+  CheckCircle,
+  AlertCircle,
+  ExternalLink,
+  Key,
+} from 'lucide-react';
 import Link from 'next/link';
 
 export default function DrakeDownloadPage() {
@@ -20,7 +27,8 @@ export default function DrakeDownloadPage() {
       version: '2024',
       description: 'Professional tax preparation software',
       size: '2.5 GB',
-      downloadUrl: 'https://www.drakesoftware.com/downloads/tax/2024/DrakeSetup.exe',
+      downloadUrl:
+        'https://www.drakesoftware.com/downloads/tax/2024/DrakeSetup.exe',
       requirements: 'Windows 10/11, 8GB RAM, 10GB disk space',
       features: [
         'All IRS forms and schedules',
@@ -51,7 +59,8 @@ export default function DrakeDownloadPage() {
       version: '2024',
       description: 'Document scanning and OCR',
       size: '150 MB',
-      downloadUrl: 'https://www.drakesoftware.com/downloads/gruntworks/GruntworksSetup.exe',
+      downloadUrl:
+        'https://www.drakesoftware.com/downloads/gruntworks/GruntworksSetup.exe',
       requirements: 'Windows 10/11, Scanner compatible',
       features: [
         'W-2 scanning and OCR',
@@ -69,19 +78,22 @@ export default function DrakeDownloadPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
             <Download className="w-4 h-4" />
-            <span className="text-sm font-semibold">Drake Software Downloads</span>
+            <span className="text-sm font-semibold">
+              Drake Software Downloads
+            </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Drake Tax Software
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Download professional tax preparation software. Your account is already configured.
+            Download professional tax preparation software. Your account is
+            already configured.
           </p>
         </div>
 
@@ -113,7 +125,9 @@ export default function DrakeDownloadPage() {
                     {drakeCredentials.accountNumber}
                   </code>
                   <button
-                    onClick={() => copyToClipboard(drakeCredentials.accountNumber)}
+                    onClick={() =>
+                      copyToClipboard(drakeCredentials.accountNumber)
+                    }
                     className="px-4 py-3 bg-white/20 hover:bg-white/30 rounded-lg transition"
                   >
                     Copy
@@ -130,7 +144,9 @@ export default function DrakeDownloadPage() {
                     {drakeCredentials.serialNumber}
                   </code>
                   <button
-                    onClick={() => copyToClipboard(drakeCredentials.serialNumber)}
+                    onClick={() =>
+                      copyToClipboard(drakeCredentials.serialNumber)
+                    }
                     className="px-4 py-3 bg-white/20 hover:bg-white/30 rounded-lg transition"
                   >
                     Copy
@@ -147,7 +163,9 @@ export default function DrakeDownloadPage() {
                     {drakeCredentials.efilePassword}
                   </code>
                   <button
-                    onClick={() => copyToClipboard(drakeCredentials.efilePassword)}
+                    onClick={() =>
+                      copyToClipboard(drakeCredentials.efilePassword)
+                    }
                     className="px-4 py-3 bg-white/20 hover:bg-white/30 rounded-lg transition"
                   >
                     Copy
@@ -159,7 +177,8 @@ export default function DrakeDownloadPage() {
                 <div className="flex gap-2">
                   <AlertCircle className="w-5 h-5 text-yellow-300 flex-shrink-0" />
                   <p className="text-sm text-yellow-100">
-                    Keep these credentials secure. Do not share with unauthorized users.
+                    Keep these credentials secure. Do not share with
+                    unauthorized users.
                   </p>
                 </div>
               </div>
@@ -210,7 +229,9 @@ export default function DrakeDownloadPage() {
 
                 <div>
                   <h4 className="font-semibold mb-3">System Requirements:</h4>
-                  <p className="text-sm text-gray-600">{product.requirements}</p>
+                  <p className="text-sm text-gray-600">
+                    {product.requirements}
+                  </p>
                 </div>
               </div>
             </div>
@@ -229,7 +250,8 @@ export default function DrakeDownloadPage() {
               <div>
                 <h3 className="font-semibold mb-1">Download Drake Tax</h3>
                 <p className="text-sm text-gray-600">
-                  Click the download button above to get the latest version of Drake Tax software.
+                  Click the download button above to get the latest version of
+                  Drake Tax software.
                 </p>
               </div>
             </div>
@@ -241,7 +263,8 @@ export default function DrakeDownloadPage() {
               <div>
                 <h3 className="font-semibold mb-1">Run the Installer</h3>
                 <p className="text-sm text-gray-600">
-                  Double-click DrakeSetup.exe and follow the installation wizard.
+                  Double-click DrakeSetup.exe and follow the installation
+                  wizard.
                 </p>
               </div>
             </div>
@@ -253,7 +276,8 @@ export default function DrakeDownloadPage() {
               <div>
                 <h3 className="font-semibold mb-1">Enter Your Credentials</h3>
                 <p className="text-sm text-gray-600">
-                  When prompted, enter your Account Number and Serial Number from above.
+                  When prompted, enter your Account Number and Serial Number
+                  from above.
                 </p>
               </div>
             </div>
@@ -333,6 +357,6 @@ export default function DrakeDownloadPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

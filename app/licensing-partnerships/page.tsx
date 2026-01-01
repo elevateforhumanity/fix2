@@ -92,7 +92,7 @@ export default function LicensingPartnershipsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-purple-600 to-blue-600 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10" />
@@ -327,6 +327,6 @@ export default function LicensingPartnershipsPage() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

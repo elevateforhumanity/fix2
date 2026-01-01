@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CopyrightPage() {
   return (
-    <main className="min-h-screen bg-gray-50 py-16">
+    <div className="min-h-screen bg-gray-50 py-16">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
           <CopyrightIcon className="w-10 h-10 text-brand-blue-600" />
@@ -214,6 +214,6 @@ export default function CopyrightPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

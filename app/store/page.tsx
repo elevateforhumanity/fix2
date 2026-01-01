@@ -50,7 +50,7 @@ export default function StorePage() {
   const featuredProducts = DIGITAL_PRODUCTS.filter((p) => p.featured);
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Mission Statement Banner */}
       <section className="bg-zinc-900   text-white py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -451,6 +451,6 @@ export default function StorePage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -5,8 +5,10 @@ import { programs } from '@/app/data/programs';
 import { Heart, Shield, TrendingUp, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'JRI Programs | Justice Reinvestment Initiative | Elevate for Humanity',
-  description: 'Second chance career training for justice-involved individuals. Free programs in healthcare, trades, and workforce readiness. Fresh start, real career.',
+  title:
+    'JRI Programs | Justice Reinvestment Initiative | Elevate for Humanity',
+  description:
+    'Second chance career training for justice-involved individuals. Free programs in healthcare, trades, and workforce readiness. Fresh start, real career.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs/jri',
   },
@@ -26,7 +28,7 @@ export default function JRIProgramsPage() {
   const jriPrograms = programs.filter((p) => jriProgramSlugs.includes(p.slug));
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-white text-white px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
         <div className="mx-auto max-w-5xl text-center">
@@ -303,11 +305,12 @@ export default function JRIProgramsPage() {
                 className="group block bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image priority
+                  <Image
+                    priority
                     src={program.heroImage}
                     alt={program.heroImageAlt}
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -853,6 +856,6 @@ export default function JRIProgramsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

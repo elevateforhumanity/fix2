@@ -78,7 +78,7 @@ export default async function GrantWorkflowPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">
@@ -87,7 +87,7 @@ export default async function GrantWorkflowPage() {
         </div>
       </section>
 
-      <main className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-slate-900 mb-2">
@@ -193,7 +193,7 @@ export default async function GrantWorkflowPage() {
             </section>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function DemosPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
         <Image
@@ -563,6 +563,6 @@ export default function DemosPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

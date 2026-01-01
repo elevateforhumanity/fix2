@@ -4,7 +4,7 @@ export const revalidate = 3600; // 1 hour ISR cache
 
 export default function LicensingPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="px-4 sm:px-6 lg:px-10 py-16 bg-slate-50">
         <div className="mx-auto max-w-4xl text-center">
@@ -207,6 +207,6 @@ export default function LicensingPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function ContractsPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-zinc-900    text-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -403,6 +403,6 @@ export default function ContractsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

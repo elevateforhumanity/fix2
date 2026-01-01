@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function EmployerApplicationSuccess() {
   return (
-    <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
       <div className="max-w-2xl w-full bg-white border border-slate-200 rounded-lg p-8 text-center">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-700 mb-4">
           <CheckCircle className="w-10 h-10" />
@@ -37,6 +37,6 @@ export default function EmployerApplicationSuccess() {
           Return Home
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

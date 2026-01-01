@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function DocumentsPage() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
+    <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="mb-6">
         <Link
           href="/tax/rise-up-foundation"
@@ -368,6 +368,6 @@ export default function DocumentsPage() {
           </a>
         </p>
       </section>
-    </main>
+    </div>
   );
 }

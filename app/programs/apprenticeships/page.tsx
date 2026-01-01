@@ -5,8 +5,10 @@ import { programs } from '@/app/data/programs';
 import { Briefcase, Clock, DollarSign, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Apprenticeship Programs | Earn While You Learn | Elevate for Humanity',
-  description: 'DOL-registered apprenticeship programs in Indiana. Get paid while you learn. Barber, HVAC, Building Maintenance, and more. No debt, real wages.',
+  title:
+    'Apprenticeship Programs | Earn While You Learn | Elevate for Humanity',
+  description:
+    'DOL-registered apprenticeship programs in Indiana. Get paid while you learn. Barber, HVAC, Building Maintenance, and more. No debt, real wages.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs/apprenticeships',
   },
@@ -25,7 +27,7 @@ export default function ApprenticeshipProgramsPage() {
   );
 
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <section className="bg-white text-white px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
         <div className="mx-auto max-w-5xl text-center">
@@ -152,11 +154,12 @@ export default function ApprenticeshipProgramsPage() {
                 className="group block bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className="relative h-64 w-full overflow-hidden">
-                  <Image priority
+                  <Image
+                    priority
                     src={program.heroImage}
                     alt={program.heroImageAlt}
                     fill
-          sizes="100vw"
+                    sizes="100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -203,6 +206,6 @@ export default function ApprenticeshipProgramsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

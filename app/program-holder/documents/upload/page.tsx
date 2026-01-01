@@ -31,7 +31,7 @@ export default async function UploadDocumentPage() {
     .eq('role', 'program_holder');
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50">
       <section className="bg-white border-b py-8">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
@@ -46,6 +46,6 @@ export default async function UploadDocumentPage() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <DocumentUploadForm requirements={requirements || []} />
       </div>
-    </main>
+    </div>
   );
 }

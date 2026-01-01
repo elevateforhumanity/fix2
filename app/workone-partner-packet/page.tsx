@@ -19,7 +19,7 @@ export const metadata = {
 
 export default function WorkOnePartnerPacketPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Header */}
       <section className="bg-zinc-900   text-white py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,7 +133,9 @@ export default function WorkOnePartnerPacketPage() {
             </div>
             <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-4">
               <p className="text-sm text-slate-700">
-                <strong className="text-slate-900">All listed programs are:</strong>
+                <strong className="text-slate-900">
+                  All listed programs are:
+                </strong>
               </p>
               <ul className="mt-2 space-y-1 text-sm text-slate-700">
                 <li className="flex items-center gap-2">
@@ -195,7 +197,8 @@ export default function WorkOnePartnerPacketPage() {
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                     <span>
-                      Small and mid-sized employers seeking earn-and-learn models
+                      Small and mid-sized employers seeking earn-and-learn
+                      models
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -275,7 +278,8 @@ export default function WorkOnePartnerPacketPage() {
                 </li>
               </ul>
               <p className="text-sm text-slate-600 italic">
-                Funding decisions remain with the WorkOne region and case manager.
+                Funding decisions remain with the WorkOne region and case
+                manager.
               </p>
             </div>
           </div>
@@ -306,7 +310,8 @@ export default function WorkOnePartnerPacketPage() {
                 ))}
               </div>
               <p className="text-sm text-slate-600 mt-6 italic">
-                This reduces employer hesitation and increases placement success.
+                This reduces employer hesitation and increases placement
+                success.
               </p>
             </div>
           </div>
@@ -492,6 +497,6 @@ export default function WorkOnePartnerPacketPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
