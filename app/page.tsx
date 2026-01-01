@@ -66,12 +66,14 @@ export default function HomePage() {
             {/* Healthcare */}
             <Link href="/programs" className="group">
               <div className="rich-card">
-                <div className="relative h-64 md:h-80">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src="/images/heroes/healthcare.jpg"
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="w-14 h-14 bg-brand-purple-600 rounded-xl flex items-center justify-center mb-4">
@@ -97,12 +99,13 @@ export default function HomePage() {
             {/* Skilled Trades */}
             <Link href="/programs" className="group">
               <div className="rich-card overflow-hidden">
-                <div className="relative h-64 md:h-80">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src="/images/heroes/skilled-trades.jpg"
                     alt="Skilled Trades Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="w-14 h-14 bg-brand-orange-600 rounded-xl flex items-center justify-center mb-4">
@@ -128,12 +131,13 @@ export default function HomePage() {
             {/* Business */}
             <Link href="/programs" className="group">
               <div className="rich-card overflow-hidden">
-                <div className="relative h-64 md:h-80">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src="/images/heroes/business.jpg"
                     alt="Business Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="w-14 h-14 bg-brand-blue-600 rounded-xl flex items-center justify-center mb-4">

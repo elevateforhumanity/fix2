@@ -41,16 +41,7 @@ const nextConfig = {
     contentDispositionType: 'inline',
     contentSecurityPolicy: "default-src 'self' https://burst.shopifycdn.com https://images.pexels.com; script-src 'none'; sandbox;",
     remotePatterns: [
-      { protocol: 'https', hostname: '**.supabase.co' },
-      { protocol: 'https', hostname: '**.netlify.app' },
-      { protocol: 'https', hostname: '**.cloudflareusercontent.com' },
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'unsplash.com' },
-      { protocol: 'https', hostname: 'i.imgur.com' },
-      { protocol: 'https', hostname: 'imgur.com' },
-      { protocol: 'https', hostname: 'cms-artifacts.artlist.io' },
-      { protocol: 'https', hostname: 'burst.shopifycdn.com' },
-      { protocol: 'https', hostname: 'images.pexels.com' },
+      { protocol: 'https', hostname: '**' }, // Allow all HTTPS images for mobile compatibility
     ],
   },
   typescript: {
