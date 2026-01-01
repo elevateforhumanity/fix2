@@ -1,59 +1,44 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
-import { ShieldAlert } from 'lucide-react';
+import { ShieldAlert, Home } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: 'Unauthorized Access | Elevate for Humanity',
+};
 
 export default function UnauthorizedPage() {
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
-      <div className="max-w-md w-full text-center">
-        <div className="mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-red-100 rounded-full mb-6">
-            <ShieldAlert className="w-10 h-10 text-brand-orange-600" />
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Access Denied
-          </h1>
-          <p className="text-lg text-gray-600 mb-2">
-            You don't have permission to access this page.
-          </p>
-          <p className="text-sm text-gray-500">
-            This dashboard is restricted to specific user roles. If you believe
-            this is an error, please contact support.
-          </p>
+    <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+      <div className="max-w-2xl w-full bg-white border border-slate-200 rounded-lg p-8 sm:p-12 text-center">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
+          <ShieldAlert className="w-10 h-10 text-red-600" />
         </div>
 
-        <div className="space-y-3">
-          <Link
-            href="/dashboard"
-            className="block w-full px-6 py-3 bg-brand-blue-600 text-white font-semibold rounded-lg hover:bg-brand-blue-700 transition"
-          >
-            Go to Your Dashboard
-          </Link>
+        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          Access Denied
+        </h1>
+
+        <p className="text-lg text-slate-700 mb-8">
+          You don't have permission to access this page. This area is restricted
+          to specific user roles.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="block w-full px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition"
+            className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors"
           >
-            Return to Homepage
+            <Home className="w-5 h-5 mr-2" />
+            Return Home
           </Link>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <p className="text-sm text-gray-600 mb-2">Need help?</p>
-          <a
-            href="tel:3173143757"
-            className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
-          >
-            Call 317-314-3757
-          </a>
-          <span className="text-gray-400 mx-2">or</span>
           <Link
-            href="/contact"
-            className="text-brand-blue-600 font-semibold hover:text-brand-blue-700"
+            href="/dashboard"
+            className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 bg-white border-2 border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-slate-400 transition-colors"
           >
-            Contact Support
+            Go to Dashboard
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
