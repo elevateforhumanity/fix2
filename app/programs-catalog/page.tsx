@@ -35,7 +35,7 @@ export default async function ProgramsCatalogPage() {
   const supabase = await createClient();
 
   // Fetch all active programs
-  const { data: programs, error } = await supabase
+  const { data: dbPrograms, error } = await supabase
     .from('programs')
     .select('*')
     .eq('active', true)
@@ -44,6 +44,108 @@ export default async function ProgramsCatalogPage() {
   if (error) {
     console.error('Error fetching programs:', error);
   }
+
+  // Fallback hardcoded programs if database is empty
+  const fallbackPrograms: Program[] = [
+    {
+      id: '1',
+      slug: 'healthcare',
+      name: 'Certified Nursing Assistant (CNA)',
+      description: 'Train to become a Certified Nursing Assistant in healthcare facilities',
+      duration: '4-6 weeks',
+      delivery: 'In-person',
+      credential: 'State CNA Certification',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '51.3902' }
+    },
+    {
+      id: '2',
+      slug: 'skilled-trades',
+      name: 'HVAC Technician',
+      description: 'Learn heating, ventilation, and air conditioning systems',
+      duration: '6-12 months',
+      delivery: 'In-person',
+      credential: 'EPA 608 Certification',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '47.0201' }
+    },
+    {
+      id: '3',
+      slug: 'cdl-transportation',
+      name: 'Commercial Driver License (CDL)',
+      description: 'Get your CDL Class A license for truck driving',
+      duration: '3-4 weeks',
+      delivery: 'In-person',
+      credential: 'CDL Class A',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '49.0205' }
+    },
+    {
+      id: '4',
+      slug: 'barber-apprenticeship',
+      name: 'Barber Apprenticeship',
+      description: 'Earn while you learn in a registered apprenticeship program',
+      duration: '12-18 months',
+      delivery: 'Apprenticeship',
+      credential: 'State Barber License',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['DOL', 'WRG'], cip_code: '12.0402' }
+    },
+    {
+      id: '5',
+      slug: 'medical-assistant',
+      name: 'Medical Assistant',
+      description: 'Train for administrative and clinical duties in healthcare',
+      duration: '8-12 weeks',
+      delivery: 'Hybrid',
+      credential: 'Certified Medical Assistant',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA'], cip_code: '51.0801' }
+    },
+    {
+      id: '6',
+      slug: 'welding',
+      name: 'Welding Technology',
+      description: 'Learn various welding techniques and safety procedures',
+      duration: '12-16 weeks',
+      delivery: 'In-person',
+      credential: 'AWS Certification',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '48.0508' }
+    },
+    {
+      id: '7',
+      slug: 'it-support',
+      name: 'IT Support Specialist',
+      description: 'CompTIA A+ certification and IT fundamentals',
+      duration: '8-10 weeks',
+      delivery: 'Online',
+      credential: 'CompTIA A+',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA'], cip_code: '11.0901' }
+    },
+    {
+      id: '8',
+      slug: 'phlebotomy',
+      name: 'Phlebotomy Technician',
+      description: 'Train to draw blood and collect specimens',
+      duration: '4-6 weeks',
+      delivery: 'In-person',
+      credential: 'Certified Phlebotomy Technician',
+      etpl_approved: true,
+      active: true,
+      metadata: { funding: ['WIOA', 'WRG'], cip_code: '51.1009' }
+    },
+  ];
+
+  const programs = dbPrograms && dbPrograms.length > 0 ? dbPrograms : fallbackPrograms;
 
   // Group programs by funding source
   const groupedPrograms = {

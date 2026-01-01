@@ -206,7 +206,7 @@ export default async function CoursesPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-base md:text-lg text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-white mb-8">
               Join thousands who have launched successful careers through our
               programs.
             </p>

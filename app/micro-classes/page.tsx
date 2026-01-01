@@ -12,9 +12,76 @@ export const metadata: Metadata = {
     'Explore Micro Classes and discover opportunities for career growth and development.',
 };
 
+const microClasses = [
+  {
+    id: 1,
+    title: 'CPR & First Aid',
+    duration: '4 hours',
+    description: 'Learn life-saving CPR and first aid techniques',
+    price: 'Free',
+    category: 'Healthcare',
+  },
+  {
+    id: 2,
+    title: 'OSHA 10-Hour Safety',
+    duration: '10 hours',
+    description: 'Workplace safety training for construction and general industry',
+    price: 'Free',
+    category: 'Safety',
+  },
+  {
+    id: 3,
+    title: 'Forklift Certification',
+    duration: '8 hours',
+    description: 'Get certified to operate forklifts and material handling equipment',
+    price: 'Free',
+    category: 'Skilled Trades',
+  },
+  {
+    id: 4,
+    title: 'Food Handler Certification',
+    duration: '3 hours',
+    description: 'Required certification for food service workers',
+    price: 'Free',
+    category: 'Hospitality',
+  },
+  {
+    id: 5,
+    title: 'Microsoft Office Basics',
+    duration: '6 hours',
+    description: 'Master Word, Excel, and PowerPoint fundamentals',
+    price: 'Free',
+    category: 'Technology',
+  },
+  {
+    id: 6,
+    title: 'Customer Service Excellence',
+    duration: '4 hours',
+    description: 'Professional customer service skills and techniques',
+    price: 'Free',
+    category: 'Business',
+  },
+  {
+    id: 7,
+    title: 'Basic Welding Safety',
+    duration: '4 hours',
+    description: 'Introduction to welding safety and equipment',
+    price: 'Free',
+    category: 'Skilled Trades',
+  },
+  {
+    id: 8,
+    title: 'Phlebotomy Basics',
+    duration: '6 hours',
+    description: 'Introduction to blood draw techniques',
+    price: 'Free',
+    category: 'Healthcare',
+  },
+];
+
 export default async function MicroClassesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
