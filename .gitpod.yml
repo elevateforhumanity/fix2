@@ -39,26 +39,10 @@ tasks:
       # Make scripts executable
       chmod +x setup-env.sh 2>/dev/null || true
       
-      # Setup environment variables
-      if [ ! -f .env.local ]; then
-        echo ""
-        echo "🔧 Setting up environment variables..."
-        if [ -n "$VERCEL_TOKEN" ]; then
-          echo "✅ VERCEL_TOKEN found - pulling from Vercel..."
-          ./setup-env.sh || echo "⚠️  Setup failed, continuing anyway..."
-        else
-          echo "⚠️  .env.local not found and VERCEL_TOKEN not set"
-          echo ""
-          echo "To set up automatically:"
-          echo "  1. Get Vercel token: https://vercel.com/account/tokens"
-          echo "  2. Set it: gp env VERCEL_TOKEN='your-token'"
-          echo "  3. Restart workspace or run: ./setup-env.sh"
-          echo ""
-          echo "Or manually: cp .env.example .env.local"
-        fi
-      else
-        echo "✅ .env.local already exists"
-      fi
+      # Setup environment variables automatically
+      echo ""
+      echo "🔧 Setting up environment variables..."
+      bash .gitpod/setup-env.sh || echo "⚠️  Setup failed, continuing anyway..."
       
       echo ""
       echo "✅ Setup complete!"
@@ -67,18 +51,8 @@ tasks:
       # Wait a moment for init to complete
       sleep 2
       
-      # Check if .env.local exists
-      if [ ! -f .env.local ]; then
-        echo "⚠️  .env.local not found - creating from example..."
-        cp .env.example .env.local
-        echo ""
-        echo "📝 Please edit .env.local with your credentials"
-        echo "   Then run: pnpm dev"
-        echo ""
-      else
-        echo "🚀 Starting development server..."
-        pnpm dev
-      fi
+      echo "🚀 Starting development server..."
+      pnpm dev
 
 vscode:
   extensions:

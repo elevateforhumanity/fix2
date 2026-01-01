@@ -41,68 +41,93 @@ export default function TeamPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="prose prose-lg max-w-none mb-12">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              Elevate for Humanity is powered by professionals across workforce
-              development, education, compliance, technology, and community
-              advocacy.
+              Elevate for Humanity is led by Elizabeth Greene, who manages all
+              aspects of workforce development, compliance, partnerships, and
+              operations.
             </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Our team includes:
-            </h2>
-
-            <ul className="space-y-4 text-lg text-gray-700">
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
-                <span>Workforce and training coordinators</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
-                <span>Program and compliance specialists</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
-                <span>Employer and partner liaisons</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
-                <span>Advisors and support staff</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
-                <span>Technology and operations professionals</span>
-              </li>
-            </ul>
 
             <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-8">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Together, we ensure programs are delivered responsibly, funding
-                requirements are met, and individuals receive consistent support
-                throughout their journey.
+                As a solo founder, Elizabeth handles program delivery,
+                regulatory compliance, partner coordination, and student
+                support—ensuring every individual receives the guidance they
+                need to succeed.
               </p>
             </div>
 
             <blockquote className="text-xl font-semibold text-gray-900 italic border-l-4 border-brand-blue-600 pl-6 my-8">
-              We believe systems should work for people — and our team exists to
-              make that real.
+              Systems should work for people. That's what drives this work every
+              day.
             </blockquote>
           </div>
 
-          {/* Team Photos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-              <div
-                key={num}
-                className="relative aspect-square rounded-lg overflow-hidden shadow-md"
-              >
-                <Image
-                  src={`/images/team-new/team-${num}.jpg`}
-                  alt={`Team member ${num}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
+          {/* Founder */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="relative h-96 md:h-auto">
+                  <Image
+                    src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
+                    alt="Elizabeth Greene - Founder & CEO"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="p-8 flex flex-col justify-center">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                    Elizabeth Greene
+                  </h2>
+                  <p className="text-brand-orange-600 font-semibold text-xl mb-6">
+                    Founder & CEO
+                  </p>
+                  <div className="space-y-4 text-gray-700">
+                    <p className="leading-relaxed">
+                      Elizabeth founded and operates Elevate for Humanity
+                      (2EXCLUSIVE LLC-S), managing all aspects of workforce
+                      development, compliance, partnerships, and operations.
+                    </p>
+                    <p className="leading-relaxed">
+                      She handles program delivery, regulatory compliance,
+                      partner coordination, employer relationships, and student
+                      support—ensuring every individual receives the guidance
+                      they need to succeed.
+                    </p>
+                    <div className="pt-4 border-t border-gray-200">
+                      <h3 className="font-bold text-gray-900 mb-3">
+                        Areas of Focus:
+                      </h3>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                          <span className="text-sm">
+                            Workforce development program design
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                          <span className="text-sm">
+                            Government contracting & compliance
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                          <span className="text-sm">
+                            Strategic partnerships
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                          <span className="text-sm">
+                            Community-centered systems design
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

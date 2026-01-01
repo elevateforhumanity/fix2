@@ -51,29 +51,77 @@ export default function FounderPage() {
             {/* Founder Statement */}
             <div className="prose prose-lg max-w-none">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Founder Statement
+                Elizabeth Greene
               </h2>
-
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Elevate for Humanity was founded to address a simple but
-                persistent problem: too many people are motivated to improve their
-                lives, yet are blocked by disconnected systems, unclear
-                requirements, and lack of coordinated support.
+              <p className="text-xl text-brand-orange-600 font-semibold mb-6">
+                Founder & CEO
               </p>
 
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Our work is grounded in real-world experience navigating workforce
-                programs, education systems, and community services. That
-                experience shaped a model focused on connection, accountability,
-                and human-centered design.
+                Elizabeth Greene is the founder of{' '}
+                <strong>2EXCLUSIVE LLC-S</strong>, operating as{' '}
+                <strong>Elevate for Humanity</strong>. She established the
+                organization to address disconnected workforce systems that
+                prevent motivated individuals from accessing training, funding,
+                and employment pathways.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Under her leadership, Elevate for Humanity has grown into a
+                comprehensive workforce development ecosystem serving thousands
+                of individuals across Indiana. The organization operates with
+                active SAM.gov registration (UEI: VX2GK5S8SZH8, CAGE Code:
+                0QH19), positioning it for federal contracts and grants.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Elizabeth also founded <strong>SELFISH INC</strong> (operating
+                as <strong>RISE Foundation</strong>), a 501(c)(3) tax-exempt
+                nonprofit organization (EIN: 99-3483511) that provides
+                philanthropic support for workforce development initiatives. The
+                foundation received its IRS determination letter in July 2024.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Additionally, she leads{' '}
+                <strong>Curvature Body Sculpting LLC</strong>, which operates as
+                a Certiport Authorized Testing Center (CATC), offering
+                industry-recognized certification exams including Microsoft
+                Office Specialist, IC3 Digital Literacy, and Adobe Certified
+                Professional credentials.
               </p>
 
               <div className="bg-blue-50 border-l-4 border-brand-blue-600 p-6 my-8">
                 <p className="text-lg font-semibold text-gray-900">
-                  Elevate for Humanity exists to ensure opportunity is not
-                  theoretical — it's accessible, supported, and measurable.
+                  "Elevate for Humanity exists to ensure opportunity is not
+                  theoretical — it's accessible, supported, and measurable."
                 </p>
+                <p className="text-sm text-gray-600 mt-2">— Elizabeth Greene</p>
               </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 mt-8">
+                Leadership Focus
+              </h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                  <span>Workforce development program design and delivery</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                  <span>Government contracting and compliance management</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                  <span>
+                    Strategic partnerships with employers and training providers
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-brand-blue-600 rounded-full mt-2 flex-shrink-0" />
+                  <span>Community-centered systems design</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

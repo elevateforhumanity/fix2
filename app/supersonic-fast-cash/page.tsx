@@ -15,11 +15,16 @@ import {
   Users,
   Shield,
   Award,
+  Zap,
+  CreditCard,
+  HeadphonesIcon,
+  Star,
+  BadgeCheck,
 } from 'lucide-react';
 
 export default function SupersonicFastCashPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Top Bar */}
       <div className="bg-slate-900 text-white py-3">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center text-sm">
