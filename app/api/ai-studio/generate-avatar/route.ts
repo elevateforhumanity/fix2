@@ -144,87 +144,194 @@ function getAvatarImage(style: string): string {
 }
 
 /**
- * Premium Integration Examples (commented out - add API keys to use)
+ * Premium Integration - D-ID (Talking Head Cloning)
  */
+async function generateWithDID(
+  text: string,
+  voice: string,
+  avatarImageUrl: string
+): Promise<string> {
+  const DID_API_KEY = process.env.DID_API_KEY;
 
-// async function generateWithDID(text: string, voice: string): Promise<string> {
-//   const DID_API_KEY = process.env.DID_API_KEY;
-//
-//   if (!DID_API_KEY) {
-//     throw new Error('D-ID API key not configured');
-//   }
-//
-//   // Create talk
-//   const createResponse = await fetch('https://api.d-id.com/talks', {
-//     method: 'POST',
-//     headers: {
-//       'Authorization': `Basic ${DID_API_KEY}`,
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       script: {
-//         type: 'text',
-//         input: text,
-//         provider: {
-//           type: 'microsoft',
-//           voice_id: voice,
-//         },
-//       },
-//       source_url: 'https://your-avatar-image.jpg',
-//     }),
-//   });
-//
-//   const { id } = await createResponse.json();
-//
-//   // Poll for completion
-//   let videoUrl = '';
-//   for (let i = 0; i < 60; i++) {
-//     await new Promise(resolve => setTimeout(resolve, 2000));
-//
-//     const statusResponse = await fetch(`https://api.d-id.com/talks/${id}`, {
-//       headers: {
-//         'Authorization': `Basic ${DID_API_KEY}`,
-//       },
-//     });
-//
-//     const status = await statusResponse.json();
-//
-//     if (status.status === 'done') {
-//       videoUrl = status.result_url;
-//       break;
-//     }
-//   }
-//
-//   return videoUrl;
-// }
+  if (!DID_API_KEY) {
+    throw new Error('D-ID API key not configured');
+  }
 
-// async function generateWithHeyGen(text: string): Promise<string> {
-//   const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
-//
-//   if (!HEYGEN_API_KEY) {
-//     throw new Error('HeyGen API key not configured');
-//   }
-//
-//   const response = await fetch('https://api.heygen.com/v1/video.generate', {
-//     method: 'POST',
-//     headers: {
-//       'X-Api-Key': HEYGEN_API_KEY,
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       video_inputs: [{
-//         character: {
-//           type: 'avatar',
-//           avatar_id: 'default',
-//         },
-//         voice: {
-//           type: 'text',
-//           input_text: text,
-//         },
-//       }],
-//     }),
-//   });
-//
-//   const data = await response.json();
-//   return data.video_url;
-// }
+  // Create talk
+  const createResponse = await fetch('https://api.d-id.com/talks', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${DID_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      script: {
+        type: 'text',
+        input: text,
+        provider: {
+          type: 'microsoft',
+          voice_id: voice,
+        },
+      },
+      source_url: avatarImageUrl,
+    }),
+  });
+
+  if (!createResponse.ok) {
+    throw new Error('D-ID API error');
+  }
+
+  const { id } = await createResponse.json();
+
+  // Poll for completion
+  let videoUrl = '';
+  for (let i = 0; i < 60; i++) {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const statusResponse = await fetch(`https://api.d-id.com/talks/${id}`, {
+      headers: {
+        Authorization: `Basic ${DID_API_KEY}`,
+      },
+    });
+
+    const status = await statusResponse.json();
+
+    if (status.status === 'done') {
+      videoUrl = status.result_url;
+      break;
+    } else if (status.status === 'error') {
+      throw new Error(`D-ID generation failed: ${status.error}`);
+    }
+  }
+
+  if (!videoUrl) {
+    throw new Error('D-ID generation timeout');
+  }
+
+  return videoUrl;
+}
+
+/**
+ * Premium Integration - HeyGen (Avatar Cloning)
+ */
+async function generateWithHeyGen(
+  text: string,
+  avatarId: string = 'default'
+): Promise<string> {
+  const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
+
+  if (!HEYGEN_API_KEY) {
+    throw new Error('HeyGen API key not configured');
+  }
+
+  const response = await fetch('https://api.heygen.com/v1/video.generate', {
+    method: 'POST',
+    headers: {
+      'X-Api-Key': HEYGEN_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      video_inputs: [
+        {
+          character: {
+            type: 'avatar',
+            avatar_id: avatarId,
+          },
+          voice: {
+            type: 'text',
+            input_text: text,
+          },
+        },
+      ],
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('HeyGen API error');
+  }
+
+  const data = await response.json();
+
+  // Poll for completion
+  const videoId = data.video_id;
+  for (let i = 0; i < 60; i++) {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    const statusResponse = await fetch(
+      `https://api.heygen.com/v1/video_status.get?video_id=${videoId}`,
+      {
+        headers: {
+          'X-Api-Key': HEYGEN_API_KEY,
+        },
+      }
+    );
+
+    const status = await statusResponse.json();
+
+    if (status.data.status === 'completed') {
+      return status.data.video_url;
+    } else if (status.data.status === 'failed') {
+      throw new Error('HeyGen generation failed');
+    }
+  }
+
+  throw new Error('HeyGen generation timeout');
+}
+
+/**
+ * Premium Integration - Synthesia (AI Avatar)
+ */
+async function generateWithSynthesia(
+  text: string,
+  avatarId: string = 'anna_costume1_cameraA'
+): Promise<string> {
+  const SYNTHESIA_API_KEY = process.env.SYNTHESIA_API_KEY;
+
+  if (!SYNTHESIA_API_KEY) {
+    throw new Error('Synthesia API key not configured');
+  }
+
+  const response = await fetch('https://api.synthesia.io/v2/videos', {
+    method: 'POST',
+    headers: {
+      Authorization: SYNTHESIA_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      input: [{ scriptText: text }],
+      avatar: avatarId,
+      background: 'green_screen',
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Synthesia API error');
+  }
+
+  const data = await response.json();
+  const videoId = data.id;
+
+  // Poll for completion
+  for (let i = 0; i < 120; i++) {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
+    const statusResponse = await fetch(
+      `https://api.synthesia.io/v2/videos/${videoId}`,
+      {
+        headers: {
+          Authorization: SYNTHESIA_API_KEY,
+        },
+      }
+    );
+
+    const status = await statusResponse.json();
+
+    if (status.status === 'complete') {
+      return status.download;
+    } else if (status.status === 'failed') {
+      throw new Error('Synthesia generation failed');
+    }
+  }
+
+  throw new Error('Synthesia generation timeout');
+}
