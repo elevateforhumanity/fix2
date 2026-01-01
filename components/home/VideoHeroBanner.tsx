@@ -58,7 +58,7 @@ export default function VideoHeroBanner({
 
   return (
     <section
-      className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden"
+      className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -80,32 +80,28 @@ export default function VideoHeroBanner({
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Elevate For Humanity
+      <div className="relative z-10 h-full flex items-center pt-16 md:pt-0">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+          <div className="max-w-2xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight break-words">
+              Free, Funded Workforce Training — Built to Scale
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 sm:mb-8">
-              Empowering Futures Through Innovation & Opportunity
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-2xl">
-              Free career training in healthcare, skilled trades, and business.
-              Get trained, get hired, get paid. No cost, no debt.
+            <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl">
+              Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-bold rounded-lg hover:bg-orange-700 transition-colors shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-brand-blue-600 text-base font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
               >
                 Apply Now
               </Link>
               <Link
-                href="/programs"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-lg font-bold rounded-lg hover:bg-white/20 transition-colors border-2 border-white/30"
+                href="/licensing"
+                className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white text-base font-bold rounded-xl hover:bg-white/10 transition-colors border-2 border-white"
               >
-                View Programs
+                Licensing & Partnerships
               </Link>
             </div>
           </div>
