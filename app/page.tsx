@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import VideoHeroBanner from '@/components/home/VideoHeroBanner';
+import { currentHomeHero, enableAudioNarration } from '@/config/hero-videos';
 import { Briefcase, Users, ArrowRight, Star, Heart, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -47,7 +48,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
-      <VideoHeroBanner />
+      <VideoHeroBanner
+        videoSrc={currentHomeHero}
+        withAudio={enableAudioNarration}
+      />
 
       {/* Featured Programs */}
       <section className="w-full py-20 md:py-28 bg-white">

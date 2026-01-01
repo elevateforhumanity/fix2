@@ -4,9 +4,17 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 
-export default function VideoHeroBanner() {
+interface VideoHeroBannerProps {
+  videoSrc?: string;
+  withAudio?: boolean;
+}
+
+export default function VideoHeroBanner({
+  videoSrc = '/videos/hero-home.mp4',
+  withAudio = false,
+}: VideoHeroBannerProps) {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(!withAudio);
   const [showControls, setShowControls] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -63,8 +71,7 @@ export default function VideoHeroBanner() {
         playsInline
         poster="/images/heroes/hero-homepage.jpg"
       >
-        <source src="/videos/hero-banner.mp4" type="video/mp4" />
-        <source src="/videos/hero-banner.webm" type="video/webm" />
+        <source src={videoSrc} type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
         Your browser does not support the video tag.
       </video>
