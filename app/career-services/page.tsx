@@ -57,10 +57,10 @@ export default async function CareerServicesPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 uppercase">
               Our Career Services
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg text-black max-w-3xl mx-auto">
               From training to employment, we support you every step of the way
             </p>
           </div>
@@ -83,10 +83,10 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3 className="text-xl font-bold text-black mb-3 text-center">
                 Resume Building
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-black text-center">
                 Professional resume writing and review services to showcase your
                 skills
               </p>
@@ -109,10 +109,10 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3 className="text-xl font-bold text-black mb-3 text-center">
                 Interview Preparation
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-black text-center">
                 Mock interviews and coaching to help you ace your job interviews
               </p>
             </div>
@@ -134,10 +134,10 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3 className="text-xl font-bold text-black mb-3 text-center">
                 Job Placement
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-black text-center">
                 Direct connections to employers actively hiring our graduates
               </p>
             </div>
@@ -159,10 +159,10 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3 className="text-xl font-bold text-black mb-3 text-center">
                 Career Counseling
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-black text-center">
                 One-on-one guidance to plan your career path and set goals
               </p>
             </div>
@@ -184,10 +184,10 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3 className="text-xl font-bold text-black mb-3 text-center">
                 Networking Events
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-black text-center">
                 Connect with employers, alumni, and industry professionals
               </p>
             </div>
@@ -209,10 +209,10 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3 className="text-xl font-bold text-black mb-3 text-center">
                 Ongoing Support
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-black text-center">
                 Continued career support even after you're employed
               </p>
             </div>
@@ -258,27 +258,81 @@ export default async function CareerServicesPage() {
         </div>
       </section>
 
+      {/* Additional Resources */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 uppercase">
+              Explore More Resources
+            </h2>
+            <p className="text-lg text-black max-w-3xl mx-auto">
+              Discover all the features and services available to support your
+              career journey
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link
+              href="/features"
+              className="bg-white border-2 border-blue-600 rounded-xl p-6 hover:bg-blue-50 transition-all group"
+            >
+              <h3 className="text-xl font-bold text-black mb-3 group-hover:text-blue-600">
+                Platform Features →
+              </h3>
+              <p className="text-black">
+                Explore all the tools and resources available on our platform
+              </p>
+            </Link>
+
+            <Link
+              href="/programs"
+              className="bg-white border-2 border-purple-600 rounded-xl p-6 hover:bg-purple-50 transition-all group"
+            >
+              <h3 className="text-xl font-bold text-black mb-3 group-hover:text-purple-600">
+                Training Programs →
+              </h3>
+              <p className="text-black">
+                Browse 50+ free training programs in healthcare, trades, and
+                more
+              </p>
+            </Link>
+
+            <Link
+              href="/schedule"
+              className="bg-white border-2 border-orange-600 rounded-xl p-6 hover:bg-orange-50 transition-all group"
+            >
+              <h3 className="text-xl font-bold text-black mb-3 group-hover:text-orange-600">
+                Schedule Meeting →
+              </h3>
+              <p className="text-black">
+                Book a consultation with our career services team
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 bg-brand-blue-700 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-base md:text-lg text-blue-100 mb-8">
+            <p className="text-base md:text-lg text-white mb-8">
               Join thousands who have launched successful careers through our
               programs.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/apply"
                 className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
               >
-                Apply Now
+                Apply Now - It's Free
               </Link>
               <Link
                 href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 text-lg"
               >
                 Browse Programs
               </Link>

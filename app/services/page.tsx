@@ -27,7 +27,6 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   // Internal navigation for Services subpages
   const navLinks = [
-    { label: 'Supersonic Fast Cash', href: '/supersonic-fast-cash' },
     { label: 'Tax Services', href: '/tax-services' },
     { label: 'VITA Tax Prep', href: '/vita' },
     { label: 'Career Services', href: '/career-services' },
@@ -41,16 +40,9 @@ export default function ServicesPage() {
 
   const services = [
     {
-      title: 'Supersonic Fast Cash',
+      title: 'Tax Services & Supersonic Fast Cash',
       description:
-        'Professional tax preparation, refund advances, and IRS representation',
-      href: '/supersonic-fast-cash',
-      icon: DollarSign,
-      image: '/images/heroes/hero-homepage.jpg',
-    },
-    {
-      title: 'Tax Services',
-      description: 'Full-service tax preparation with maximum refund guarantee',
+        'Professional tax preparation, refund advances, IRS representation, and maximum refund guarantee',
       href: '/tax-services',
       icon: DollarSign,
       image: '/images/heroes/hero-homepage.jpg',
