@@ -1,15 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import OpenAI from 'openai';
 
 /**
  * AI Blog Post Generator
  * Generates blog posts from site content (programs, success stories, etc.)
  */
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy load OpenAI to avoid build errors
+let openai: any = null;
+async function getOpenAI() {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('OpenAI API key not configured');
+  }
+  if (!openai) {
+    const OpenAI = (await import('openai')).default;
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  return openai;
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -54,7 +64,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate blog post using OpenAI
-    const completion = await openai.chat.completions.create({
+    const openaiClient = await getOpenAI();
+    const completion = await openaiClient.chat.completions.create({
       model: 'gpt-4',
       messages: [
         {
@@ -73,7 +84,7 @@ export async function POST(request: NextRequest) {
     const content = completion.choices[0].message.content;
 
     // Generate title and excerpt
-    const metaCompletion = await openai.chat.completions.create({
+    const metaCompletion = await openaiClient.chat.completions.create({
       model: 'gpt-4',
       messages: [
         {
