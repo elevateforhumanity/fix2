@@ -134,7 +134,7 @@ export default function StudentPortfolio() {
         </section>
 
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">No Active Apprenticeship</h1>
+          <h2 className="text-2xl font-bold mb-4">No Active Apprenticeship</h2>
           <p className="text-gray-600">
             Enroll in an apprenticeship to access your portfolio.
           </p>
@@ -253,7 +253,7 @@ export default function StudentPortfolio() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <div className="   text-white p-6">
-        <h1 className="text-2xl font-bold mb-2">My Portfolio</h1>
+        <h2 className="text-2xl font-bold mb-2">My Portfolio</h2>
         <p className="text-blue-100">Digital binder of your work and skills</p>
       </div>
 
