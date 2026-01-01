@@ -67,10 +67,13 @@ export default async function CareerServicesPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Resume Building */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <Link
+              href="/career-services/resume-building"
+              className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl hover:border-blue-600 transition-all group"
+            >
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-blue-600 transition-colors">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -83,20 +86,23 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 text-center">
-                Resume Building
+              <h3 className="text-xl font-bold text-black mb-3 text-center group-hover:text-blue-600 transition-colors">
+                Resume Building →
               </h3>
               <p className="text-black text-center">
                 Professional resume writing and review services to showcase your
                 skills
               </p>
-            </div>
+            </Link>
 
             {/* Interview Prep */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <Link
+              href="/career-services/interview-prep"
+              className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl hover:border-green-600 transition-all group"
+            >
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-green-600 transition-colors">
                 <svg
-                  className="w-8 h-8 text-green-600"
+                  className="w-8 h-8 text-green-600 group-hover:text-white transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -109,19 +115,22 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 text-center">
-                Interview Preparation
+              <h3 className="text-xl font-bold text-black mb-3 text-center group-hover:text-green-600 transition-colors">
+                Interview Preparation →
               </h3>
               <p className="text-black text-center">
                 Mock interviews and coaching to help you ace your job interviews
               </p>
-            </div>
+            </Link>
 
             {/* Job Placement */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <Link
+              href="/career-services/job-placement"
+              className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl hover:border-orange-600 transition-all group"
+            >
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-orange-600 transition-colors">
                 <svg
-                  className="w-8 h-8 text-orange-600"
+                  className="w-8 h-8 text-orange-600 group-hover:text-white transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -134,19 +143,22 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 text-center">
-                Job Placement
+              <h3 className="text-xl font-bold text-black mb-3 text-center group-hover:text-orange-600 transition-colors">
+                Job Placement →
               </h3>
               <p className="text-black text-center">
                 Direct connections to employers actively hiring our graduates
               </p>
-            </div>
+            </Link>
 
             {/* Career Counseling */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <Link
+              href="/career-services/career-counseling"
+              className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl hover:border-purple-600 transition-all group"
+            >
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-purple-600 transition-colors">
                 <svg
-                  className="w-8 h-8 text-purple-600"
+                  className="w-8 h-8 text-purple-600 group-hover:text-white transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -159,19 +171,22 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 text-center">
-                Career Counseling
+              <h3 className="text-xl font-bold text-black mb-3 text-center group-hover:text-purple-600 transition-colors">
+                Career Counseling →
               </h3>
               <p className="text-black text-center">
                 One-on-one guidance to plan your career path and set goals
               </p>
-            </div>
+            </Link>
 
             {/* Networking Events */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <Link
+              href="/career-services/networking-events"
+              className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl hover:border-indigo-600 transition-all group"
+            >
+              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-indigo-600 transition-colors">
                 <svg
-                  className="w-8 h-8 text-indigo-600"
+                  className="w-8 h-8 text-indigo-600 group-hover:text-white transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -184,19 +199,22 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 text-center">
-                Networking Events
+              <h3 className="text-xl font-bold text-black mb-3 text-center group-hover:text-indigo-600 transition-colors">
+                Networking Events →
               </h3>
               <p className="text-black text-center">
                 Connect with employers, alumni, and industry professionals
               </p>
-            </div>
+            </Link>
 
             {/* Ongoing Support */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <Link
+              href="/career-services/ongoing-support"
+              className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:shadow-xl hover:border-pink-600 transition-all group"
+            >
+              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-pink-600 transition-colors">
                 <svg
-                  className="w-8 h-8 text-pink-600"
+                  className="w-8 h-8 text-pink-600 group-hover:text-white transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -209,13 +227,13 @@ export default async function CareerServicesPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 text-center">
-                Ongoing Support
+              <h3 className="text-xl font-bold text-black mb-3 text-center group-hover:text-pink-600 transition-colors">
+                Ongoing Support →
               </h3>
               <p className="text-black text-center">
                 Continued career support even after you're employed
               </p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
-import { Calendar, Clock, User, MapPin } from 'lucide-react';
+import { Calendar, Clock, User, MapPin, ArrowLeft, Home } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -27,7 +27,32 @@ export default async function VITAAppointmentsPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <section className="bg-zinc-900   text-white py-16">
+      {/* Breadcrumb Navigation */}
+      <nav className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex items-center gap-2 text-sm">
+            <Link
+              href="/"
+              className="text-blue-600 hover:text-blue-700 flex items-center gap-1"
+            >
+              <Home className="h-4 w-4" />
+              Home
+            </Link>
+            <span className="text-gray-400">/</span>
+            <Link
+              href="/vita"
+              className="text-blue-600 hover:text-blue-700 flex items-center gap-1"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              VITA Program
+            </Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-black font-semibold">Book Appointment</span>
+          </div>
+        </div>
+      </nav>
+
+      <section className="bg-zinc-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">
             Book Your Free Tax Appointment
