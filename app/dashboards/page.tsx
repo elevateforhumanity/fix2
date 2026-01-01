@@ -26,16 +26,15 @@ export const metadata: Metadata = {
 
 export default function DashboardsPage() {
   return (
-    <div className="min-h-screen bg-zinc-900   ">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero */}
-      <section className="relative bg-zinc-900   text-white py-20">
-        <div className="absolute inset-0 bg-grid-white/10" />
+      <section className="relative bg-gradient-to-br from-brand-blue-700 to-brand-purple-700 text-white py-20">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <LayoutDashboard className="w-16 h-16 mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Platform Dashboards
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
             Access your personalized dashboard based on your role
           </p>
         </div>
@@ -304,20 +303,20 @@ function DashboardCard({
   features: string[];
 }) {
   const colorClasses = {
-    blue: ' ',
-    green: ' ',
-    purple: ' ',
-    orange: ' ',
-    indigo: ' ',
-    pink: ' ',
-    teal: ' ',
-    cyan: ' ',
-    slate: ' ',
-    amber: ' ',
-    rose: ' ',
-    violet: ' ',
-    emerald: ' ',
-    sky: ' ',
+    blue: 'bg-blue-600',
+    green: 'bg-green-600',
+    purple: 'bg-purple-600',
+    orange: 'bg-orange-600',
+    indigo: 'bg-indigo-600',
+    pink: 'bg-pink-600',
+    teal: 'bg-teal-600',
+    cyan: 'bg-cyan-600',
+    slate: 'bg-slate-600',
+    amber: 'bg-amber-600',
+    rose: 'bg-rose-600',
+    violet: 'bg-violet-600',
+    emerald: 'bg-emerald-600',
+    sky: 'bg-sky-600',
   };
 
   return (
@@ -327,16 +326,14 @@ function DashboardCard({
     >
       {/* Header */}
       <div
-        className={`bg-zinc-900 ${colorClasses[color as keyof typeof colorClasses]} p-6 text-white`}
+        className={`${colorClasses[color as keyof typeof colorClasses]} p-6 text-white`}
       >
         <div className="flex items-center justify-between mb-4">
-          <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
-            {icon}
-          </div>
+          <div className="p-3 bg-white/20 rounded-xl">{icon}</div>
           <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition" />
         </div>
         <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-white/90">{description}</p>
+        <p className="text-white">{description}</p>
       </div>
 
       {/* Features */}
