@@ -7,7 +7,6 @@
 import fs from 'fs/promises';
 import FormData from 'form-data';
 import { createReadStream } from 'fs';
-import fetch from 'node-fetch';
 
 export interface CloudflareStreamConfig {
   accountId: string;
@@ -101,7 +100,6 @@ export class CloudflareStreamService {
     }
   ): Promise<StreamVideo> {
     try {
-
       const form = new FormData();
       form.append('file', createReadStream(videoPath));
 
@@ -167,7 +165,6 @@ export class CloudflareStreamService {
     }
   ): Promise<StreamVideo> {
     try {
-
       const meta: Record<string, string> = {
         name: metadata.name,
       };
