@@ -29,7 +29,7 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-white text-slate-900 antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
@@ -41,6 +41,11 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    background: #fff !important;
+  }
+
+  section {
+    background: #fff !important;
   }
 
   h1,
@@ -1212,4 +1217,22 @@ body {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+/* ============================================================================
+   MOBILE-SAFE CARD - Nuclear option for readability
+   ============================================================================ */
+
+.mobile-safe-card {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  opacity: 1 !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-safe-card * {
+  color: inherit !important;
+  opacity: 1 !important;
 }
