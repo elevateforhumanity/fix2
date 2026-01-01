@@ -10,7 +10,7 @@ import Image from 'next/image';
 export const dynamic = 'force-dynamic';
 
 export default function StudentPortfolio() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [user, setUser] = useState<any>(null);
   const [apprenticeship, setApprenticeship] = useState<any>(null);
   const [portfolio, setPortfolio] = useState<unknown[]>([]);

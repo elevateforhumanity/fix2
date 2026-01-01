@@ -16,7 +16,7 @@ const TYPES = [
 ] as const;
 
 export default function PartnerDocumentsPage() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [shopId, setShopId] = useState('');
   const [type, setType] = useState<(typeof TYPES)[number]>('mou');
   const [file, setFile] = useState<File | null>(null);

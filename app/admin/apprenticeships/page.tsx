@@ -10,7 +10,7 @@ import Image from 'next/image';
 export const dynamic = 'force-dynamic';
 
 export default function AdminApprenticeships() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [apprenticeships, setApprenticeships] = useState<unknown[]>([]);
   const [pendingApprovals, setPendingApprovals] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);

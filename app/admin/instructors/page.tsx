@@ -11,7 +11,7 @@ import { Users, Award, BookOpen, TrendingUp, Star } from 'lucide-react';
 export const dynamic = 'force-dynamic';
 
 export default function InstructorsPage() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [instructors, setInstructors] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');

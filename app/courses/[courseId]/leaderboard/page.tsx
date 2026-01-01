@@ -23,7 +23,7 @@ export default function CourseLeaderboardPage() {
   }, [courseId, timeframe]);
 
   async function loadData() {
-    const supabase = await createClient();
+    const supabase = createClient();
 
     // Load course
     const { data: courseData } = await supabase

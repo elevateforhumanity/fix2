@@ -39,7 +39,7 @@ export default function LessonPage() {
 
   const fetchLessonData = async () => {
     const { createClient } = await import('@/lib/supabase/client');
-    const supabase = await createClient();
+    const supabase = createClient();
 
     // Fetch current lesson
     const { data: lessonData } = await supabase
@@ -103,7 +103,7 @@ export default function LessonPage() {
 
   const markComplete = async () => {
     const { createClient } = await import('@/lib/supabase/client');
-    const supabase = await createClient();
+    const supabase = createClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();

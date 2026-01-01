@@ -11,7 +11,7 @@ import { Plug, CheckCircle, XCircle, RefreshCw, Settings } from 'lucide-react';
 export const dynamic = 'force-dynamic';
 
 export default function IntegrationsPage() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [integrations, setIntegrations] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
 

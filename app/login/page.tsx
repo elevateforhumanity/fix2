@@ -25,7 +25,7 @@ function LoginForm() {
     setError('');
 
     try {
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,

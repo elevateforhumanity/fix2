@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
 export default function PartnerWeeklyReportsPage() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [shopId, setShopId] = useState('');
   const [placementId, setPlacementId] = useState('');
   const [weekStart, setWeekStart] = useState('');

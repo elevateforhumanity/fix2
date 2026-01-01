@@ -47,7 +47,7 @@ export default function AdminProgramHolderDocuments() {
   const [approvalNotes, setApprovalNotes] = useState('');
   const [processing, setProcessing] = useState(false);
 
-  const supabase = await createClient();
+  const supabase = createClient();
 
   useEffect(() => {
     loadDocuments();

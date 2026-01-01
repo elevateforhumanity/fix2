@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export default function ExternalModulesPage() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [modules, setModules] = useState<unknown[]>([]);
   const [pendingApprovals, setPendingApprovals] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);

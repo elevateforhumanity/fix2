@@ -14,7 +14,7 @@ function startOfWeek(d: Date) {
 }
 
 export default function PartnerAttendancePage() {
-  const supabase = await createClient();
+  const supabase = createClient();
   const [shopId, setShopId] = useState<string>('');
   const [weekStart, setWeekStart] = useState<string>(startOfWeek(new Date()));
   const [rows, setRows] = useState<unknown[]>([]);

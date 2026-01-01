@@ -10,7 +10,7 @@ export default function VerifyEmailPage() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(
     'idle'
   );
-  const supabase = await createClient();
+  const supabase = createClient();
 
   const resendVerification = async () => {
     setStatus('sending');

@@ -13,7 +13,7 @@ export default function LmsAppLayout({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const supabase = await createClient();
+    const supabase = createClient();
 
     supabase.auth.getUser().then(({ data, error }) => {
       if (error || !data?.user) {

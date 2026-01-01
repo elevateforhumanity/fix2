@@ -12,7 +12,7 @@ export default function VerifyEmailPage() {
   const [resending, setResending] = useState(false);
   const [resent, setResent] = useState(false);
   const [error, setError] = useState('');
-  const supabase = await createClient();
+  const supabase = createClient();
 
   useEffect(() => {
     // Get email from URL params or current user

@@ -26,7 +26,7 @@ export default function CourseDiscussionsPage() {
   }, [courseId]);
 
   async function loadData() {
-    const supabase = await createClient();
+    const supabase = createClient();
 
     // Load course
     const { data: courseData } = await supabase
@@ -62,7 +62,7 @@ export default function CourseDiscussionsPage() {
   async function createTopic() {
     if (!newTopic.trim() || !newMessage.trim()) return;
 
-    const supabase = await createClient();
+    const supabase = createClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
