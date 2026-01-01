@@ -1386,3 +1386,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Emergency guard: prevent header logo from taking over mobile viewport */
+header img,
+header svg {
+  max-height: 48px !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
+}

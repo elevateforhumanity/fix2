@@ -111,14 +111,16 @@ export default function SiteHeader() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 flex-shrink-0 group cursor-pointer"
+            className="flex items-center gap-3 shrink-0 group cursor-pointer"
             aria-label="Go to homepage"
           >
-            <img
-              src="/logo.png"
-              alt="Elevate for Humanity"
-              className="h-12 w-auto transition-opacity hover:opacity-80"
-            />
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 shrink-0 overflow-hidden">
+              <img
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                className="h-full w-full object-contain transition-opacity hover:opacity-80"
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}
