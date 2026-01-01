@@ -64,23 +64,62 @@ export default function LMSLandingPage() {
     {
       title: 'Healthcare Fundamentals',
       instructor: 'Dr. Sarah Johnson',
-      students: '1,200+',
+      students: 'Multiple cohorts',
       rating: 4.9,
       image: '/images/course-healthcare.jpg',
+      href: '/lms/courses/healthcare-fundamentals',
+      duration: '4-6 weeks',
+      level: 'Beginner',
     },
     {
       title: 'HVAC Technician Training',
       instructor: 'Mike Rodriguez',
-      students: '850+',
+      students: 'Multiple cohorts',
       rating: 4.8,
       image: '/images/course-hvac.jpg',
+      href: '/lms/courses/hvac-training',
+      duration: '6-12 months',
+      level: 'Beginner to Advanced',
     },
     {
       title: 'Business Management',
       instructor: 'Jennifer Lee',
-      students: '2,100+',
+      students: 'Multiple cohorts',
       rating: 4.9,
       image: '/images/course-business.jpg',
+      href: '/lms/courses/business-management',
+      duration: '8-10 weeks',
+      level: 'Intermediate',
+    },
+    {
+      title: 'CDL Training',
+      instructor: 'James Wilson',
+      students: 'Multiple cohorts',
+      rating: 4.9,
+      image: '/images/course-cdl.jpg',
+      href: '/lms/courses/cdl-training',
+      duration: '3-4 weeks',
+      level: 'Beginner',
+    },
+    {
+      title: 'Welding Certification',
+      instructor: 'Robert Martinez',
+      students: 'Multiple cohorts',
+      rating: 4.8,
+      image: '/images/course-welding.jpg',
+      href: '/lms/courses/welding-certification',
+      duration: '12-16 weeks',
+      level: 'Beginner to Advanced',
+    },
+    {
+      title: 'Medical Assistant',
+      instructor: 'Dr. Emily Chen',
+      students: 'Multiple cohorts',
+      rating: 4.9,
+      image: '/images/course-medical-assistant.jpg',
+      href: '/lms/courses/medical-assistant',
+      duration: '8-12 weeks',
+      level: 'Beginner',
     },
   ];
 
@@ -228,56 +267,156 @@ export default function LMSLandingPage() {
         </div>
       </section>
 
-      {/* Featured Courses Section */}
-      <section id="courses" className="py-20 px-4 bg-white">
+      {/* Why Choose Our LMS */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              Featured Courses
+              Why Choose Our LMS?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our most popular training programs
+              Modern learning platform designed for workforce development
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Learn at Your Own Pace
+                </h3>
+                <p className="text-gray-600">
+                  Access courses anytime, anywhere. Study when it fits your
+                  schedule.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Expert Instructors
+                </h3>
+                <p className="text-gray-600">
+                  Learn from industry professionals with real-world experience.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Interactive Learning
+                </h3>
+                <p className="text-gray-600">
+                  Engage with videos, quizzes, discussions, and hands-on
+                  projects.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Mobile Friendly
+                </h3>
+                <p className="text-gray-600">
+                  Learn on any device - desktop, tablet, or smartphone.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Track Your Progress
+                </h3>
+                <p className="text-gray-600">
+                  Monitor completion, grades, and achievements in real-time.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Earn Certificates
+                </h3>
+                <p className="text-gray-600">
+                  Receive industry-recognized certificates upon completion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Available Courses Section */}
+      <section id="courses" className="py-20 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Available Courses
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our training programs - each course has its own dedicated
+              page with full details
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course, idx) => (
-              <div
+              <Link
                 key={idx}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-2xl transition-all hover:-translate-y-2 transform"
+                href={course.href}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-2xl transition-all hover:-translate-y-2 transform group"
               >
                 <div className="relative h-48 bg-gradient-to-br from-teal-500 to-teal-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <BookOpen className="w-16 h-16 text-white opacity-50" />
                   </div>
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-bold text-teal-600">
+                    {course.level}
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {course.title}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
+                    {course.title} →
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-3 text-sm">
                     Instructor: {course.instructor}
                   </p>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-4 text-sm">
                     <div className="flex items-center gap-1">
-                      <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       <span className="font-bold text-gray-900">
                         {course.rating}
                       </span>
                     </div>
-                    <div className="text-sm text-gray-600">
-                      {course.students} students
-                    </div>
+                    <div className="text-gray-600">{course.duration}</div>
                   </div>
-                  <Link
-                    href="/lms/dashboard"
-                    className="block text-center bg-teal-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
-                  >
-                    Enroll Now
-                  </Link>
+                  <div className="text-teal-600 font-semibold text-sm">
+                    View Course Details →
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/programs"
+              className="inline-flex items-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-teal-700 transition-colors"
+            >
+              View All Programs
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
