@@ -13,7 +13,10 @@ export function Hero() {
           preload="metadata"
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/hero-home.mp4" type="video/mp4" />
+          <source
+            src="/videos/hero-video-segment-with-narration.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
     </section>
