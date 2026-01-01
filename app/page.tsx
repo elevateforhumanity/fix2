@@ -53,10 +53,10 @@ export default function HomePage() {
       <section className="w-full py-20 md:py-28 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight">
               Explore Our Programs
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-black max-w-2xl mx-auto leading-relaxed">
               ETPL-approved career training programs in healthcare, skilled
               trades, business, and beauty services
             </p>
@@ -82,10 +82,10 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-purple-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-black group-hover:text-brand-purple-600 transition-colors mb-3">
                     Healthcare
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-black mb-4">
                     CNA, Medical Assistant, Phlebotomy, and more
                   </p>
                   <div className="flex items-center gap-2 text-brand-purple-600 font-bold">
@@ -114,10 +114,10 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-purple-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-black group-hover:text-brand-purple-600 transition-colors mb-3">
                     Skilled Trades
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-black mb-4">
                     HVAC, Electrical, Plumbing, Welding, and more
                   </p>
                   <div className="flex items-center gap-2 text-brand-purple-600 font-bold">
@@ -146,10 +146,10 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-purple-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-black group-hover:text-brand-purple-600 transition-colors mb-3">
                     Business & Finance
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-black mb-4">
                     Accounting, Office Administration, Customer Service
                   </p>
                   <div className="flex items-center gap-2 text-brand-purple-600 font-bold">
@@ -164,13 +164,13 @@ export default function HomePage() {
       </section>
 
       {/* 100% Free Training - How We Fund It */}
-      <section className="w-full py-20 bg-slate-50">
+      <section className="w-full py-20 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6">
               100% Free Training
             </h2>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-black max-w-3xl mx-auto">
               No tuition. No fees. No student debt. Your training is fully
               funded through federal and state workforce programs.
             </p>
@@ -178,34 +178,34 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">WIOA</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="text-2xl font-bold text-black mb-3">WIOA</h3>
+              <p className="text-black text-base leading-relaxed">
                 Workforce Innovation and Opportunity Act - Federal funding for
                 career training and job placement services
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">WRG</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="text-2xl font-bold text-black mb-3">WRG</h3>
+              <p className="text-black text-sm leading-relaxed">
                 Workforce Ready Grant - Indiana state funding for short-term
                 credential programs in high-demand fields
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-2xl font-bold text-black mb-3">
                 DOL Apprenticeships
               </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-black text-sm leading-relaxed">
                 U.S. Department of Labor Registered Apprenticeships - Earn while
                 you learn with paid on-the-job training
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">JRI</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="text-2xl font-bold text-black mb-3">JRI</h3>
+              <p className="text-black text-sm leading-relaxed">
                 Justice Reinvestment Initiative - Specialized programs for
                 justice-involved individuals reentering the workforce
               </p>
@@ -218,10 +218,10 @@ export default function HomePage() {
       <section className="w-full py-20 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6">
               Flexible Training Options
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               Choose the learning format that fits your life and career goals
             </p>
           </div>
@@ -231,15 +231,15 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-brand-purple-600 rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-black mb-4">
                 Hybrid Training
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-black mb-4">
                 Combine online learning with hands-on labs and in-person
                 instruction. Study at your own pace while getting real-world
                 practice.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-black">
                 <li className="flex items-start gap-2">
                   <span className="text-brand-purple-600 mt-1">✓</span>
                   <span>Online coursework you can do anytime</span>
@@ -259,14 +259,14 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-brand-orange-600 rounded-xl flex items-center justify-center mb-6">
                 <Briefcase className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-black mb-4">
                 DOL Apprenticeships
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-black mb-4">
                 Earn while you learn. Work in a real business from day one, get
                 paid, and graduate with both certification and work experience.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-black">
                 <li className="flex items-start gap-2">
                   <span className="text-brand-orange-600 mt-1">✓</span>
                   <span>Get paid while training</span>
@@ -286,14 +286,14 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-brand-green-600 rounded-xl flex items-center justify-center mb-6">
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-black mb-4">
                 Accelerated Programs
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-black mb-4">
                 Fast-track programs get you certified and job-ready in weeks,
                 not years. Perfect for those who need to start earning quickly.
               </p>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-black">
                 <li className="flex items-start gap-2">
                   <span className="text-brand-green-600 mt-1">✓</span>
                   <span>4-12 week programs</span>
@@ -313,14 +313,14 @@ export default function HomePage() {
       </section>
 
       {/* Indianapolis Location */}
-      <section className="w-full py-20 bg-gray-50">
+      <section className="w-full py-20 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-6">
                 Training Center in Indianapolis
               </h2>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-xl text-black mb-6">
                 Our state-of-the-art training facility is located in
                 Indianapolis, Indiana, serving Marion County and surrounding
                 areas.
@@ -331,10 +331,10 @@ export default function HomePage() {
                     <Users className="w-6 h-6 text-brand-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="font-bold text-black mb-1">
                       Hands-On Labs
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-black text-sm">
                       Fully equipped training labs for healthcare, HVAC, and
                       skilled trades
                     </p>
@@ -345,10 +345,10 @@ export default function HomePage() {
                     <Briefcase className="w-6 h-6 text-brand-purple-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="font-bold text-black mb-1">
                       Career Services
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-black text-sm">
                       Resume help, interview prep, and job placement support
                     </p>
                   </div>
@@ -358,10 +358,10 @@ export default function HomePage() {
                     <Heart className="w-6 h-6 text-brand-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="font-bold text-black mb-1">
                       Wraparound Support
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-black text-sm">
                       Case management, transportation assistance, and barrier
                       removal services
                     </p>
@@ -370,10 +370,10 @@ export default function HomePage() {
               </div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-100">
-              <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6">
+              <h3 className="text-2xl md:text-3xl font-black text-black mb-6">
                 Ready to Get Started?
               </h3>
-              <p className="text-base md:text-lg text-gray-900 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-black mb-8 leading-relaxed">
                 Apply today and we'll help you navigate the funding process.
                 Most students qualify for 100% free training.
               </p>
@@ -383,7 +383,7 @@ export default function HomePage() {
               >
                 Apply Now - It's Free
               </Link>
-              <p className="text-sm md:text-base text-gray-700 text-center mt-6 font-medium">
+              <p className="text-sm md:text-base text-black text-center mt-6 font-medium">
                 Questions? Call us at (317) 800-1234
               </p>
             </div>
@@ -403,12 +403,12 @@ export default function HomePage() {
                 />
               ))}
             </div>
-            <blockquote className="text-lg md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 leading-relaxed text-center">
+            <blockquote className="text-lg md:text-2xl lg:text-3xl font-bold text-black mb-6 leading-relaxed text-center">
               "This program changed my life. I went from unemployed to earning
               $45,000 a year as a CNA in just 6 weeks. The training was free and
               the support was incredible."
             </blockquote>
-            <p className="text-base md:text-lg text-gray-600 text-center font-semibold">
+            <p className="text-base md:text-lg text-black text-center font-semibold">
               — Sarah Johnson, CNA Graduate
             </p>
           </div>
@@ -419,10 +419,10 @@ export default function HomePage() {
       <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-black mb-4 md:mb-6">
               More Than Just Training
             </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-black max-w-3xl mx-auto">
               We provide comprehensive support services to ensure your success
             </p>
           </div>
@@ -433,10 +433,10 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-brand-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
                 Career Services
               </h3>
-              <p className="text-sm md:text-base text-gray-600 mb-6">
+              <p className="text-sm md:text-base text-black mb-6">
                 Resume building, interview coaching, job placement assistance,
                 and ongoing career support
               </p>
@@ -453,10 +453,10 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-brand-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
                 Support Bundle
               </h3>
-              <p className="text-sm md:text-base text-gray-600 mb-6">
+              <p className="text-sm md:text-base text-black mb-6">
                 Transportation, childcare, and barrier removal
               </p>
               <Link

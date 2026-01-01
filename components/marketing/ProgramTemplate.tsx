@@ -130,7 +130,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* GOVERNMENT PARTNERS BAR */}
-      <section className="bg-slate-50 border-y border-slate-200 py-6">
+      <section className="bg-white border-y border-slate-200 py-6">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
             Approved Workforce Development Partner
