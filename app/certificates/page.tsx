@@ -1,11 +1,19 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Award, CheckCircle, Shield, Search } from 'lucide-react';
+import {
+  Award,
+  CheckCircle,
+  Shield,
+  Search,
+  Building2,
+  FileCheck,
+  GraduationCap,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Certificates & Credentials | Elevate for Humanity',
   description:
-    'Earn industry-recognized certificates and credentials. Verify certificates and view our accredited programs.',
+    'Earn industry-recognized certificates and credentials. Verify certificates through government partners including SSA, IRS, DOL, and state licensing boards.',
 };
 
 export default function CertificatesPage() {
@@ -36,19 +44,61 @@ export default function CertificatesPage() {
               Verify a Certificate
             </h2>
             <p className="text-lg text-black mb-8">
-              Enter a certificate ID to verify its authenticity and view
-              details.
+              Enter a certificate ID to verify its authenticity through our
+              government-verified system.
             </p>
-            <div className="flex gap-4 max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
               <input
                 type="text"
                 placeholder="Enter Certificate ID (e.g., EFH-2024-12345)"
                 className="flex-1 px-6 py-4 border-2 border-gray-300 rounded-xl text-black focus:border-blue-600 focus:outline-none"
               />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-colors flex items-center gap-2">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-2">
                 <Search className="h-5 w-5" />
                 Verify
               </button>
+            </div>
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <p className="text-sm text-black mb-4">
+                <strong>Official Verification Portals:</strong>
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm">
+                <a
+                  href="https://www.ssa.gov"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                >
+                  SSA.gov
+                </a>
+                <span className="text-black">•</span>
+                <a
+                  href="https://www.irs.gov/tax-professionals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                >
+                  IRS.gov
+                </a>
+                <span className="text-black">•</span>
+                <a
+                  href="https://www.dol.gov"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                >
+                  DOL.gov
+                </a>
+                <span className="text-black">•</span>
+                <a
+                  href="https://www.in.gov/pla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                >
+                  Indiana PLA
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -145,8 +195,155 @@ export default function CertificatesPage() {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Government Partners */}
       <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black text-black mb-6">
+              Government Credential Partners
+            </h2>
+            <p className="text-xl text-black max-w-3xl mx-auto">
+              Our credentials are verified through official government agencies
+              and recognized nationwide.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <Building2 className="h-12 w-12 text-blue-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">SSA</h3>
+              <p className="text-sm text-black mb-3">
+                Social Security Administration
+              </p>
+              <a
+                href="https://www.ssa.gov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                ssa.gov →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <FileCheck className="h-12 w-12 text-green-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">IRS</h3>
+              <p className="text-sm text-black mb-3">
+                Internal Revenue Service - Tax Preparer Credentials
+              </p>
+              <a
+                href="https://www.irs.gov/tax-professionals/enrolled-agents"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                irs.gov →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <GraduationCap className="h-12 w-12 text-purple-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">DOL</h3>
+              <p className="text-sm text-black mb-3">
+                Department of Labor - Apprenticeship Programs
+              </p>
+              <a
+                href="https://www.dol.gov/apprenticeship"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                dol.gov →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <Shield className="h-12 w-12 text-orange-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">DOT</h3>
+              <p className="text-sm text-black mb-3">
+                Department of Transportation - CDL Verification
+              </p>
+              <a
+                href="https://www.fmcsa.dot.gov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                fmcsa.dot.gov →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <Award className="h-12 w-12 text-red-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">HHS</h3>
+              <p className="text-sm text-black mb-3">
+                Health & Human Services - Healthcare Credentials
+              </p>
+              <a
+                href="https://www.hhs.gov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                hhs.gov →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <CheckCircle className="h-12 w-12 text-teal-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">WIOA</h3>
+              <p className="text-sm text-black mb-3">
+                Workforce Innovation & Opportunity Act
+              </p>
+              <a
+                href="https://www.dol.gov/agencies/eta/wioa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                WIOA Programs →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <Building2 className="h-12 w-12 text-indigo-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">NCCA</h3>
+              <p className="text-sm text-black mb-3">
+                National Commission for Certifying Agencies
+              </p>
+              <a
+                href="https://www.credentialingexcellence.org/ncca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                Accreditation →
+              </a>
+            </div>
+
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+              <FileCheck className="h-12 w-12 text-pink-600 mb-4" />
+              <h3 className="text-lg font-bold text-black mb-2">
+                State Boards
+              </h3>
+              <p className="text-sm text-black mb-3">
+                Professional Licensing & Verification
+              </p>
+              <a
+                href="https://www.in.gov/pla"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+              >
+                Indiana PLA →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-black mb-6">

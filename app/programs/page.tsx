@@ -143,8 +143,8 @@ export default function ProgramsBioSitePage() {
       color: 'amber',
     },
     {
-      title: 'Academic Calendar',
-      description: 'Important dates and deadlines',
+      title: 'Calendar',
+      description: 'Book a virtual team meeting',
       href: '/calendar',
       icon: CalendarDays,
       color: 'lime',
