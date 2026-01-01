@@ -46,33 +46,22 @@ export default function SupersonicFastCashPage() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 text-white py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-              Professional Tax & Financial Services
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Expert tax preparation, bookkeeping, and business consulting
-              services to help you maximize returns and minimize stress.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/supersonic-fast-cash/apply"
-                className="inline-flex items-center justify-center gap-3 bg-brand-orange-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-brand-orange-700 transition shadow-2xl"
-              >
-                Get Started Today
-                <ArrowRight className="w-6 h-6" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-3 bg-white text-brand-blue-700 px-10 py-5 rounded-xl text-lg font-bold hover:bg-slate-50 transition"
-              >
-                Schedule Consultation
-              </Link>
-            </div>
-          </div>
+      {/* Hero Video */}
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source
+              src="/videos/hero-video-segment-with-narration.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
       </section>
 
