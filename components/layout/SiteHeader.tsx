@@ -111,12 +111,13 @@ export default function SiteHeader() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 flex-shrink-0 group"
+            className="flex items-center gap-3 flex-shrink-0 group cursor-pointer"
+            aria-label="Go to homepage"
           >
             <img
               src="/logo.png"
               alt="Elevate for Humanity"
-              className="h-12 w-auto"
+              className="h-12 w-auto transition-opacity hover:opacity-80"
             />
           </Link>
 
