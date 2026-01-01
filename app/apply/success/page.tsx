@@ -131,12 +131,12 @@ export default function ApplicationSuccessPage({
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6 text-center">
             <Calendar className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
-            <h3 className="font-bold text-slate-900 mb-2">Schedule a Call</h3>
-            <p className="text-sm text-slate-600 mb-3">
-              Don't want to wait? Schedule a call now.
+            <h3 className="font-bold text-black mb-2">Book a Live Consultation</h3>
+            <p className="text-sm text-black mb-3">
+              Don't want to wait? Book a live consultation now.
             </p>
             <Link
-              href="/contact"
+              href="/live-consultation"
               className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
             >
               Book Appointment →

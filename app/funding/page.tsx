@@ -260,8 +260,8 @@ export default function FundingPage() {
               elevate4humanityedu@gmail.com
             </a>
             {' '}or call{' '}
-            <a href="tel:+13178001234" className="text-green-600 hover:underline font-semibold">
-              (317) 800-1234
+            <a href="tel:+13173143757" className="text-green-600 hover:underline font-semibold">
+              (317) 314-3757
             </a>
           </p>
         </div>

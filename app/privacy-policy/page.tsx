@@ -278,7 +278,7 @@ export default async function PrivacyPolicyPage() {
                   </p>
                   <p className="mb-2">Indianapolis, IN</p>
                   <p className="mb-2">Email: elevate4humanityedu@gmail.com</p>
-                  <p className="mb-2">Phone: (317) 800-1234</p>
+                  <p className="mb-2">Phone: (317) 314-3757</p>
                 </div>
 
                 <div className="mt-12 pt-8 border-t border-gray-200">

@@ -384,7 +384,7 @@ export default function HomePage() {
                 Apply Now - It's Free
               </Link>
               <p className="text-sm md:text-base text-black text-center mt-6 font-medium">
-                Questions? Call us at (317) 800-1234
+                Questions? Call us at (317) 314-3757
               </p>
             </div>
           </div>

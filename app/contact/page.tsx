@@ -36,9 +36,9 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Call Us',
-      detail: '(317) 800-1234',
+      detail: '(317) 314-3757',
       description: 'Mon-Fri, 8am-6pm EST',
-      href: 'tel:+13178001234',
+      href: 'tel:+13173143757',
       color: 'green'
     },
     {
