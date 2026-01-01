@@ -197,8 +197,25 @@ export default async function ProgramHolderHandbookPage() {
           </ul>
 
           <h3>5. Financial Responsibilities</h3>
+          <p className="font-bold text-lg mb-4">
+            ⚠️ PAYMENT IS PER STUDENT - Each student generates separate payments
+          </p>
           <p>Program Holders receive payment based on student outcomes:</p>
           <ul>
+            <li>
+              <strong>Payment Structure:</strong> You receive 1/3 (33.33%) of
+              Net Program Revenue FOR EACH INDIVIDUAL STUDENT
+            </li>
+            <li>
+              <strong>Two Payments Per Student:</strong> 50% at mid-enrollment
+              (when student reaches 50% completion) and 50% at completion (when
+              student earns credential)
+            </li>
+            <li>
+              <strong>More Students = More Revenue:</strong> Each enrolled
+              student generates their own separate payments. 10 students = 10
+              sets of payments, 50 students = 50 sets of payments.
+            </li>
             <li>
               Payment is contingent on student completion and credential
               attainment
@@ -207,6 +224,27 @@ export default async function ProgramHolderHandbookPage() {
             <li>All expenditures must be allowable under WIOA guidelines</li>
             <li>Financial records must be maintained for audit purposes</li>
           </ul>
+          <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400">
+            <p className="font-semibold">Payment Example (Per Student):</p>
+            <p className="text-sm mt-2">
+              Student in Barber Program with $6,000 WIOA funding:
+              <br />
+              • Direct costs: $550 (exam, kit, background check)
+              <br />
+              • Net Revenue: $5,450
+              <br />
+              • Your Share (1/3): $1,816.50
+              <br />
+              • Payment 1 (mid-enrollment): $908.25
+              <br />
+              • Payment 2 (completion): $908.25
+              <br />
+              <br />
+              <strong>If you have 10 students:</strong> $18,165 total revenue
+              <br />
+              <strong>If you have 50 students:</strong> $90,825 total revenue
+            </p>
+          </div>
 
           <h3>6. Quality Assurance</h3>
           <p>
@@ -256,13 +294,32 @@ export default async function ProgramHolderHandbookPage() {
             </li>
           </ul>
 
-          <h3>10. Acknowledgement</h3>
+          <h3>10. Acknowledgement and Approval</h3>
           <p>
             By acknowledging this handbook, you confirm that you have read,
             understood, and agree to comply with all policies and procedures
             outlined above. You understand that failure to comply may result in
             termination of your Program Holder agreement.
           </p>
+          <div className="mt-4 p-4 bg-green-50 border-l-4 border-green-400">
+            <p className="font-semibold text-green-900">✅ Approval Process:</p>
+            <p className="text-sm mt-2 text-green-800">
+              Once you acknowledge this handbook AND sign the MOU (Memorandum of
+              Understanding), you are OFFICIALLY APPROVED as a Program Holder.
+              This means:
+            </p>
+            <ul className="text-sm mt-2 text-green-800 list-disc list-inside">
+              <li>You can immediately begin enrolling students</li>
+              <li>You are authorized to operate training programs</li>
+              <li>You are eligible to receive payments per the MOU terms</li>
+              <li>
+                Your organization is in good standing with Elevate for Humanity
+              </li>
+            </ul>
+            <p className="text-sm mt-2 text-green-800 font-semibold">
+              Signing the MOU = Approved Status
+            </p>
+          </div>
         </div>
 
         {/* Acknowledgement Form */}

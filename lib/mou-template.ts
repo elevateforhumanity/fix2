@@ -92,30 +92,37 @@ MINUS direct, required program costs including:
 
 Net Program Revenue is calculated at the participant/program level or in reasonable grouped batches, using documentation maintained by Elevate.
 
-4.2 Program Holder Share (Universal 1/3 Model)
+4.2 Program Holder Share (Universal 1/3 Model - PER STUDENT)
 
-For each eligible participant who is officially enrolled, funded, and started training under this MOU, the Program Holder will receive:
+For EACH INDIVIDUAL STUDENT who is officially enrolled, funded, and started training under this MOU, the Program Holder will receive:
 
-ONE-THIRD (1/3 or 33.33%) of the Net Program Revenue associated with that participant's training track.
+ONE-THIRD (1/3 or 33.33%) of the Net Program Revenue associated with THAT SPECIFIC STUDENT's training track.
+
+IMPORTANT: This is calculated and paid PER STUDENT, not as a lump sum. Each student generates their own separate payment to the Program Holder.
 
 This universal rate applies to all Program Holders and all programs to ensure fairness and consistency across the network.
 
-PAYMENT STRUCTURE - TWO INCREMENTS:
+PAYMENT STRUCTURE - TWO INCREMENTS PER STUDENT:
 
-Payment 1 (50% of Program Holder Share):
-• Paid at mid-enrollment milestone
-• When participant reaches 50% completion of training hours
+Payment 1 (50% of Program Holder Share PER STUDENT):
+• Paid at mid-enrollment milestone FOR EACH STUDENT
+• When that specific student reaches 50% completion of training hours
 • After enrollment verified and mid-point progress documented
-• Approximately 16.67% of Net Program Revenue
+• Approximately 16.67% of Net Program Revenue FOR THAT STUDENT
 
-Payment 2 (50% of Program Holder Share):
-• Paid upon successful completion
-• When participant completes training and earns credential
+Payment 2 (50% of Program Holder Share PER STUDENT):
+• Paid upon successful completion FOR EACH STUDENT
+• When that specific student completes training and earns credential
 • After completion verified and credential issued
-• Approximately 16.67% of Net Program Revenue
+• Approximately 16.67% of Net Program Revenue FOR THAT STUDENT
 
-Total Program Holder Share: 33.33% of Net Program Revenue (1/3)
-Elevate Retains: 66.67% of Net Program Revenue (2/3)
+Total Program Holder Share PER STUDENT: 33.33% of Net Program Revenue (1/3)
+Elevate Retains PER STUDENT: 66.67% of Net Program Revenue (2/3)
+
+EXAMPLE: If you have 10 students enrolled:
+• You receive payments for each of the 10 students individually
+• Each student's funding generates separate Payment 1 and Payment 2
+• More students = more total revenue for Program Holder
 
 Elevate retains the remaining Net Program Revenue to cover administrative, platform, staffing, compliance, coordination costs, and to support wraparound services for participants including:
 • Case management and support services
@@ -157,6 +164,14 @@ c. Elevate will maintain training records, certificates, and participation repor
 6. TERM AND TERMINATION
 
 a. MONTH-TO-MONTH AGREEMENT: This MOU becomes effective on the date of the last signature below and operates on a month-to-month basis. There is no long-term commitment required from either party.
+
+IMPORTANT: By signing this MOU, the Program Holder is APPROVED to enroll students and begin training operations immediately. The signature of this agreement confirms that:
+• All required documents have been submitted and approved
+• Background checks have been completed
+• Facility inspections have passed
+• Instructor credentials have been verified
+• Insurance coverage is in place
+• The Program Holder is authorized to operate under this partnership
 
 b. TERMINATION WITH NOTICE: Either party may terminate this MOU at any time with 30 days' written notice. Notice may be provided via email to the contact addresses listed in this agreement.
 
