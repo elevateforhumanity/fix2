@@ -1,10 +1,10 @@
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { BookOpen, Clock, Award, CheckCircle, Lock, Play } from 'lucide-react';
 
 export default async function StudentTrainingDashboard() {
-  const supabase = await createServerClient();
+  const supabase = await createClient();
 
   const {
     data: { user },
