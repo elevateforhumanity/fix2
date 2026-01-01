@@ -304,12 +304,10 @@ export default function StorePage() {
                   </div>
 
                   <Link
-                    href={`/store/checkout/${product.slug}`}
+                    href={`/store/cart?add=${product.slug}`}
                     className="block w-full text-center bg-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition"
                   >
-                    {product.category === 'donation'
-                      ? 'Support Mission'
-                      : 'Purchase & Support'}
+                    {product.category === 'donation' ? 'Donate Now' : 'Buy Now'}
                   </Link>
 
                   <div className="mt-4 text-center text-sm text-slate-600">

@@ -28,7 +28,7 @@ function getDashboardUrl(user: { role?: string } | null) {
     case 'partner':
       return '/partner';
     case 'employer':
-      return '/employer';
+      return '/employer/dashboard';
     case 'workforce_board':
       return '/workforce-board';
     case 'student':
