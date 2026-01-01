@@ -1,222 +1,148 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle, Calendar, Phone, Mail } from 'lucide-react';
+import { CheckCircle, ArrowRight, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Application Received - Elevate for Humanity',
-  description:
-    'Your application has been received. An advisor will contact you within 1-2 business days.',
-  robots: 'noindex, nofollow',
+  title: 'Application Submitted | Elevate for Humanity',
+  description: 'Your application has been successfully submitted.',
 };
 
 export default function ApplicationSuccessPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { role?: string };
 }) {
-  const applicationId = searchParams.id as string | undefined;
-  const email = searchParams.email as string | undefined;
-  const program = searchParams.program as string | undefined;
+  const role = searchParams.role || 'student';
+
+  const roleMessages = {
+    student: {
+      title: 'Student Application Submitted!',
+      message:
+        "We've received your application and will review it within 1-2 business days.",
+      nextSteps: [
+        'Check your email for a confirmation message',
+        'A team member will contact you to discuss program options',
+        "We'll help you explore funding options like WIOA, WRG, and apprenticeships",
+        "Once approved, you'll receive access to your student dashboard",
+      ],
+      dashboardLink: '/lms/dashboard',
+      dashboardText: 'Student Dashboard',
+    },
+    'program-holder': {
+      title: 'Partnership Application Submitted!',
+      message:
+        "Thank you for your interest in partnering with us. We'll review your application and contact you soon.",
+      nextSteps: [
+        'Our team will review your organization details',
+        "We'll schedule a call to discuss partnership opportunities",
+        "You'll receive a partnership agreement for review",
+        "Once verified, you'll get access to your program holder dashboard",
+      ],
+      dashboardLink: '/program-holder/dashboard',
+      dashboardText: 'Program Holder Dashboard',
+    },
+    employer: {
+      title: 'Employer Application Submitted!',
+      message:
+        "We're excited to partner with you! Our team will verify your company information and contact you shortly.",
+      nextSteps: [
+        "We'll verify your company information",
+        'A team member will contact you within 1-2 business days',
+        "We'll discuss your hiring needs and available candidates",
+        "Once verified, you'll receive access to your employer dashboard",
+      ],
+      dashboardLink: '/employer/dashboard',
+      dashboardText: 'Employer Dashboard',
+    },
+    staff: {
+      title: 'Application Submitted!',
+      message:
+        "Thank you for your interest in joining our team. We'll review your application and contact you if there's a match.",
+      nextSteps: [
+        'Our HR team will review your application',
+        "If your qualifications match our needs, we'll contact you for an interview",
+        'The hiring process typically takes 1-2 weeks',
+        "Once approved, you'll receive access to your staff portal",
+      ],
+      dashboardLink: '/staff-portal/dashboard',
+      dashboardText: 'Staff Portal',
+    },
+  };
+
+  const content =
+    roleMessages[role as keyof typeof roleMessages] || roleMessages.student;
 
   return (
-    <div className="min-h-screen bg-zinc-900  via-white ">
-      <div className="max-w-3xl mx-auto px-4 py-16">
-        {/* Success Icon */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-brand-green-100 rounded-full mb-6">
-            <CheckCircle className="w-12 h-12 text-brand-green-600" />
+    <main className="min-h-screen bg-slate-50">
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+        <div className="bg-white border border-slate-200 rounded-lg p-8 sm:p-12 text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-6">
+            <CheckCircle className="w-10 h-10 text-emerald-600" />
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">
-            Application Received!
+
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            {content.title}
           </h1>
-          <p className="text-xl text-slate-600">
-            Thank you for taking the first step toward your future.
-          </p>
-        </div>
 
-        {/* Application Details */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
-            What Happens Next?
-          </h2>
+          <p className="text-lg text-slate-700 mb-8">{content.message}</p>
 
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-brand-orange-600 font-bold">1</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-900 mb-1">
-                  Confirmation Email Sent
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  We've sent a confirmation to{' '}
-                  {email ? (
-                    <span className="font-semibold">{email}</span>
-                  ) : (
-                    'your email'
-                  )}
-                  . Check your inbox (and spam folder) for details.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-brand-orange-600 font-bold">2</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-900 mb-1">
-                  Advisor Review
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  An advisor will review your application within 24 hours.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-brand-orange-600 font-bold">3</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-900 mb-1">
-                  Personal Contact
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  We'll call or email you within 1-2 business days to discuss
-                  your goals, funding options (WIOA, WRG, JRI), and next steps.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <span className="text-brand-orange-600 font-bold">4</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-900 mb-1">Get Started</h3>
-                <p className="text-slate-600 text-sm">
-                  We'll match you to the right program and help with enrollment.
-                </p>
-              </div>
-            </div>
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8 text-left">
+            <h2 className="text-lg font-bold text-slate-900 mb-4">
+              What Happens Next?
+            </h2>
+            <ol className="space-y-3">
+              {content.nextSteps.map((step, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="inline-flex items-center justify-center w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold mr-3 flex-shrink-0">
+                    {index + 1}
+                  </span>
+                  <span className="text-slate-700">{step}</span>
+                </li>
+              ))}
+            </ol>
           </div>
 
-          {applicationId && (
-            <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <p className="text-sm text-slate-700">
-                <span className="font-semibold">Application ID:</span>{' '}
-                <span className="font-mono text-brand-blue-600">
-                  {applicationId}
-                </span>
-              </p>
-              <p className="text-xs text-slate-600 mt-1">
-                Save this ID to track your application status.
-              </p>
-            </div>
-          )}
-
-          {program && (
-            <div className="mt-4 p-4 bg-purple-50 border border-purple-200 rounded-lg">
-              <p className="text-sm text-slate-700">
-                <span className="font-semibold">Program Interest:</span>{' '}
-                <span className="text-purple-600">{program}</span>
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Quick Actions */}
-        <div className="grid md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6 text-center">
-            <Calendar className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
-            <h3 className="font-bold text-black mb-2">Book a Live Consultation</h3>
-            <p className="text-sm text-black mb-3">
-              Don't want to wait? Book a live consultation now.
-            </p>
-            <Link
-              href="/live-consultation"
-              className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
-            >
-              Book Appointment →
-            </Link>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-sm p-6 text-center">
-            <Phone className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
-            <h3 className="font-bold text-slate-900 mb-2">Call Us</h3>
-            <p className="text-sm text-slate-600 mb-3">
-              Monday-Friday, 9am-5pm
-            </p>
-            <a
-              href="tel:3173143757"
-              className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
-            >
-              (317) 314-3757
-            </a>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-sm p-6 text-center">
-            <Mail className="w-8 h-8 text-brand-orange-600 mx-auto mb-3" />
-            <h3 className="font-bold text-slate-900 mb-2">Email Us</h3>
-            <p className="text-sm text-slate-600 mb-3">
-              We respond within 24 hours
-            </p>
-            <a
-              href="mailto:elevate4humanityedu@gmail.com"
-              className="inline-block text-brand-orange-600 hover:text-brand-orange-700 font-semibold text-sm"
-            >
-              Send Email →
-            </a>
-          </div>
-        </div>
-
-        {/* Track Application */}
-        {applicationId && (
-          <div className="bg-white rounded-xl shadow-sm p-6 text-center mb-8">
-            <h3 className="font-bold text-slate-900 mb-2">
-              Track Your Application
-            </h3>
-            <p className="text-sm text-slate-600 mb-4">
-              Check the status of your application anytime.
-            </p>
-            <Link
-              href={`/apply/track?id=${applicationId}`}
-              className="inline-block px-6 py-3 bg-brand-orange-600 text-white font-bold rounded-lg hover:bg-brand-orange-700 transition"
-            >
-              Track Application Status
-            </Link>
-          </div>
-        )}
-
-        {/* Additional Resources */}
-        <div className="text-center">
-          <p className="text-slate-600 mb-4">
-            While you wait, explore our programs:
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link
-              href="/programs"
-              className="px-4 py-2 bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition text-sm font-semibold"
-            >
-              View All Programs
-            </Link>
-            <Link
-              href="/financial-aid"
-              className="px-4 py-2 bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition text-sm font-semibold"
-            >
-              Funding Options
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
               href="/"
-              className="px-4 py-2 bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition text-sm font-semibold"
+              className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition-colors"
             >
-              Back to Home
+              Return Home
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+            <Link
+              href={content.dashboardLink}
+              className="inline-flex items-center justify-center min-h-[48px] px-6 py-3 bg-white border-2 border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-slate-400 transition-colors"
+            >
+              {content.dashboardText}
             </Link>
           </div>
+
+          <div className="border-t border-slate-200 pt-8">
+            <h3 className="text-lg font-bold text-slate-900 mb-4">
+              Need Help?
+            </h3>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:3173143757"
+                className="inline-flex items-center justify-center text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                <span className="font-semibold">317-314-3757</span>
+              </a>
+              <a
+                href="mailto:info@elevateforhumanity.org"
+                className="inline-flex items-center justify-center text-slate-700 hover:text-emerald-600 transition-colors"
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                <span className="font-semibold">
+                  info@elevateforhumanity.org
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
