@@ -24,6 +24,20 @@
       'Segoe UI',
       system-ui,
       sans-serif !important;
+    color: #000000 !important;
+  }
+
+  /* FORCE PURE BLACK TEXT EVERYWHERE - MAXIMUM SPECIFICITY */
+  body h1, body h2, body h3, body h4, body h5, body h6,
+  body p, body span, body div, body a, body li, body td, body th,
+  body label, body input, body textarea, body select,
+  main *, section *, article *, header *, footer * {
+    color: #000000 !important;
+  }
+
+  /* Override ALL Tailwind text color utilities */
+  [class*="text-"] {
+    color: #000000 !important;
   }
 
   html {

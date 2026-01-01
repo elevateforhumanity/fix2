@@ -5,6 +5,7 @@ import './globals-mobile-fixes.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import '@/styles/rich-design-system.css';
+import './force-black-text.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
@@ -157,8 +158,8 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${inter.className} min-h-dvh bg-white text-slate-900 antialiased`}
-        style={{ fontSize: '16px' }}
+        className={`${inter.className} min-h-dvh bg-white antialiased`}
+        style={{ fontSize: '16px', color: '#000000', backgroundColor: '#ffffff' }}
       >
         <a
           href="#main-content"
