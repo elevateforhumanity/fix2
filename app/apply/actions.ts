@@ -3,6 +3,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
+import { sendWelcomeEmail } from '@/lib/email/send';
 
 /**
  * UNIFIED APPLICATION ACTIONS
@@ -137,6 +138,9 @@ export async function submitStudentApplication(data: StudentApplicationData) {
       });
 
     if (appError) throw appError;
+
+    // Send welcome email
+    await sendWelcomeEmail(data.email, data.firstName, 'student');
 
     revalidatePath('/admin/applications');
 
