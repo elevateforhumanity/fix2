@@ -465,7 +465,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-br from-brand-blue-700 to-brand-purple-700">
         <div className="mx-auto w-full max-w-4xl text-center px-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
             Ready to Transform Your Life?

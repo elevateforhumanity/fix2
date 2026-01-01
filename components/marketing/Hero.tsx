@@ -4,16 +4,13 @@ import { Award } from 'lucide-react';
 export function Hero() {
   return (
     <section className="relative w-full -mt-[72px]">
-      {/* Clean hero banner - no text overlay */}
       <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
-        {/* Video background */}
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="metadata"
-          poster="/images/heroes/hero-homepage.jpg"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />

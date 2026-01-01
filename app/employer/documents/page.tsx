@@ -6,11 +6,11 @@ import { FileText, Upload, CheckCircle, Clock, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
-  title: 'My Documents | Program Holder Portal',
+  title: 'My Documents | Employer Portal',
   description: 'View and manage your documents',
 };
 
-export default async function ProgramHolderDocumentsPage() {
+export default async function EmployerDocumentsPage() {
   const supabase = await createClient();
   const {
     data: { user },
@@ -24,7 +24,7 @@ export default async function ProgramHolderDocumentsPage() {
     .eq('id', user.id)
     .single();
 
-  if (!profile || profile.role !== 'program_holder') redirect('/');
+  if (!profile || profile.role !== 'employer') redirect('/');
 
   const { data: documents } = await supabase
     .from('documents')
@@ -35,7 +35,7 @@ export default async function ProgramHolderDocumentsPage() {
   const { data: requirements } = await supabase
     .from('document_requirements')
     .select('*')
-    .eq('role', 'program_holder')
+    .eq('role', 'employer')
     .order('is_required', { ascending: false });
 
   const getStatusIcon = (status: string) => {
@@ -83,7 +83,7 @@ export default async function ProgramHolderDocumentsPage() {
               Upload New Document
             </h2>
             <Link
-              href="/program-holder/documents/upload"
+              href="/employer/documents/upload"
               className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition flex items-center gap-2"
             >
               <Upload className="w-5 h-5" />
@@ -198,7 +198,7 @@ export default async function ProgramHolderDocumentsPage() {
               <FileText className="w-16 h-16 text-slate-300 mx-auto mb-4" />
               <p className="text-slate-600 mb-4">No documents uploaded yet</p>
               <Link
-                href="/program-holder/documents/upload"
+                href="/employer/documents/upload"
                 className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
               >
                 Upload Your First Document
