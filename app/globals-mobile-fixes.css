@@ -1,45 +1,69 @@
 /**
  * Mobile UI Contrast and Layout Fixes
  * Ensures WCAG AA compliance on mobile devices
+ * NUCLEAR OPTION: Forces readability across entire site
  */
+
+/* GLOBAL FIXES - Apply to all devices */
+* {
+  /* Kill all backdrop blur */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
 
 /* Force minimum contrast on mobile */
 @media (max-width: 768px) {
   /* Text contrast fixes */
   .text-gray-300,
-  .text-gray-400 {
+  .text-gray-400,
+  .text-gray-500 {
     @apply text-gray-700 !important;
   }
 
   .text-white\/90,
   .text-white\/80,
-  .text-white\/70 {
+  .text-white\/70,
+  .text-white\/60,
+  .text-white\/50 {
     @apply text-white !important;
   }
 
   .text-blue-100,
-  .text-blue-200 {
+  .text-blue-200,
+  .text-blue-300 {
     @apply text-gray-900 !important;
   }
 
-  /* Remove opacity stacking on mobile */
+  .text-slate-100,
+  .text-slate-200,
+  .text-slate-300 {
+    @apply text-slate-900 !important;
+  }
+
+  /* Remove ALL opacity on mobile */
+  .opacity-10,
+  .opacity-20,
+  .opacity-30,
+  .opacity-40,
   .opacity-50,
   .opacity-60,
-  .opacity-70 {
+  .opacity-70,
+  .opacity-80,
+  .opacity-90 {
     @apply opacity-100 !important;
   }
 
-  /* Ensure solid backgrounds on mobile */
-  .bg-white\/10,
-  .bg-white\/20,
-  .bg-white\/30 {
-    @apply bg-white !important;
+  /* Force solid backgrounds - ALL translucent whites */
+  [class*='bg-white/'] {
+    background-color: #ffffff !important;
   }
 
-  .bg-black\/10,
-  .bg-black\/20,
-  .bg-black\/30 {
-    @apply bg-gray-100 !important;
+  [class*='bg-black/'] {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  [class*='bg-gray/'] {
+    background-color: #f3f4f6 !important;
   }
 
   /* Fix navigation overlaps */

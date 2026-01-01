@@ -51,6 +51,19 @@
     background: #fff !important;
   }
 
+  /* NUCLEAR: Force white backgrounds everywhere */
+  div[class*='bg-white/'],
+  section[class*='bg-white/'],
+  article[class*='bg-white/'] {
+    background-color: #ffffff !important;
+  }
+
+  /* NUCLEAR: Kill all backdrop blur */
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
   h1,
   h2,
   h3,
