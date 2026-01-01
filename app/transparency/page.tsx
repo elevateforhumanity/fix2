@@ -31,7 +31,7 @@ export default function TransparencyPage() {
       <section className="relative text-white py-20">
         <div className="absolute inset-0">
           <Image
-            src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/images/heroes/hero-homepage.jpg"
             alt="Transparency"
             fill
             className="object-cover"

@@ -160,7 +160,7 @@ export default async function StudentDashboardOrchestrated() {
       <div className="relative text-white mb-8 rounded-2xl overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/images/heroes/hero-homepage.jpg"
             alt="Learning"
             fill
             className="object-cover"

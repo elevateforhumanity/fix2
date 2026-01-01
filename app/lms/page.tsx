@@ -157,7 +157,7 @@ export default function LMSLandingPage() {
             <div className="relative">
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
                 <Image
-                  src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                  src="/images/heroes/hero-homepage.jpg"
                   alt="LMS Platform"
                   fill
                   className="object-cover"

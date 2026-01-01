@@ -46,16 +46,14 @@ export default function ServicesPage() {
         'Professional tax preparation, refund advances, and IRS representation',
       href: '/supersonic-fast-cash',
       icon: DollarSign,
-      image:
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Tax Services',
       description: 'Full-service tax preparation with maximum refund guarantee',
       href: '/tax-services',
       icon: DollarSign,
-      image:
-        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'VITA Tax Prep',
@@ -63,64 +61,56 @@ export default function ServicesPage() {
         'Free IRS-certified tax preparation for qualifying individuals',
       href: '/vita',
       icon: Heart,
-      image:
-        'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Career Services',
       description: 'Resume building, interview prep, and job search support',
       href: '/career-services',
       icon: Briefcase,
-      image:
-        'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Career Center',
       description: 'Job boards, employer connections, and placement assistance',
       href: '/career-center',
       icon: TrendingUp,
-      image:
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Career Fairs',
       description: 'Meet employers hiring our graduates at regular events',
       href: '/career-fair',
       icon: Users,
-      image:
-        'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Academic Advising',
       description: 'One-on-one guidance to help you succeed in your program',
       href: '/advising',
       icon: GraduationCap,
-      image:
-        'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Mentorship Program',
       description: 'Connect with industry professionals for guidance',
       href: '/mentorship',
       icon: Lightbulb,
-      image:
-        'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Support Services',
       description: 'Transportation, childcare, and barrier removal services',
       href: '/support',
       icon: Shield,
-      image:
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
     {
       title: 'Help Center',
       description: 'FAQs, guides, and support resources',
       href: '/help',
       icon: Phone,
-      image:
-        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/heroes/hero-homepage.jpg',
     },
   ];
 

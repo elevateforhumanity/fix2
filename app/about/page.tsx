@@ -201,7 +201,7 @@ export default function AboutPage() {
             {/* Right Column - Image */}
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
               <Image
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                src="/images/heroes/hero-homepage.jpg"
                 alt="Team collaboration"
                 fill
                 className="object-cover"
