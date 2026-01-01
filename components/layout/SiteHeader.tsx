@@ -100,6 +100,7 @@ export default function SiteHeader() {
         if (typeof document !== 'undefined') {
           document.body.style.overflow = '';
           document.body.classList.remove('mobile-menu-open');
+        }
       } catch (error: unknown) {
         // Ignore cleanup errors
       }
