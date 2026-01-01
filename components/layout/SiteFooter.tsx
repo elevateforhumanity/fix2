@@ -101,6 +101,12 @@ export default function SiteFooter() {
               <Link href="/careers" className="hover:text-gray-300 transition">
                 Careers
               </Link>
+              <Link
+                href="/sitemap-page"
+                className="hover:text-gray-300 transition"
+              >
+                Site Map
+              </Link>
               <Link href="/contact" className="hover:text-gray-300 transition">
                 Contact
               </Link>
