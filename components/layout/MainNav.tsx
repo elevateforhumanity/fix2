@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 // components/layout/MainNav.tsx
@@ -459,7 +459,7 @@ export function MainNav() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/60 z-50 md:hidden backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 z-50 md:hidden"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />

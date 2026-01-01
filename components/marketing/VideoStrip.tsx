@@ -1,27 +1,27 @@
 // components/marketing/VideoStrip.tsx
-import Link from "next/link";
+import Link from 'next/link';
 
 const videos = [
   {
-    tag: "For everyone · ~1:00",
-    title: "Elevate overview in 60 seconds",
-    body: "Who we serve, how funding works, and what Elevate actually does for real people.",
-    href: "/videos/overview",
-    duration: "1:00",
+    tag: 'For everyone · ~1:00',
+    title: 'Elevate overview in 60 seconds',
+    body: 'Who we serve, how funding works, and what Elevate actually does for real people.',
+    href: '/videos/overview',
+    duration: '1:00',
   },
   {
-    tag: "Barber & Re-entry · ~2:30",
-    title: "From incarceration to the barbershop",
-    body: "How re-entry coaching plus barber apprenticeship becomes a real second-chance pathway.",
-    href: "/videos/barber-reentry",
-    duration: "2:30",
+    tag: 'Barber & Re-entry · ~2:30',
+    title: 'From incarceration to the barbershop',
+    body: 'How re-entry coaching plus barber apprenticeship becomes a real second-chance pathway.',
+    href: '/videos/barber-reentry',
+    duration: '2:30',
   },
   {
-    tag: "Employers & partners · ~2:00",
-    title: "Build funded talent pipelines with Elevate",
-    body: "What HR, hiring managers, and workforce boards need to know in one short video.",
-    href: "/videos/employers",
-    duration: "2:00",
+    tag: 'Employers & partners · ~2:00',
+    title: 'Build funded talent pipelines with Elevate',
+    body: 'What HR, hiring managers, and workforce boards need to know in one short video.',
+    href: '/videos/employers',
+    duration: '2:00',
   },
 ];
 
@@ -53,7 +53,7 @@ export function VideoStrip() {
               <div className="relative mb-4 overflow-hidden rounded-2xl bg-slate-900">
                 <div className="aspect-video" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-950 group-hover:bg-white">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-950">
                     <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-[9px] text-white">
                       ▶
                     </span>

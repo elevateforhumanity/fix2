@@ -1,7 +1,16 @@
 // components/marketing/ProgramTemplate.tsx
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, CheckCircle, Clock, DollarSign, Users, Award, Briefcase, GraduationCap } from "lucide-react";
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  DollarSign,
+  Users,
+  Award,
+  Briefcase,
+  GraduationCap,
+} from 'lucide-react';
 
 interface ProgramData {
   name: string;
@@ -35,7 +44,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
+              <span className="inline-flex items-center rounded-full bg-orange-500 px-3 py-1 text-xs font-bold text-white animate-pulse">
                 🔥 NOW ENROLLING
               </span>
               <p className="text-white font-semibold text-sm sm:text-base">
@@ -62,7 +71,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
           priority
           quality={100}
         />
-        
+
         <div className="relative h-full flex items-center">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
             <div className="max-w-3xl">
@@ -70,28 +79,32 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                 <Award size={16} />
                 <span>100% FREE Training</span>
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
                 {program.name}
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
                 {program.description}
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8 max-w-lg">
-                <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="flex items-center gap-3 p-4 bg-black/40 rounded-xl border border-white/40">
                   <Clock size={24} className="text-white" />
                   <div>
-                    <div className="text-sm text-slate-200">Duration</div>
-                    <div className="font-bold text-white">{program.duration}</div>
+                    <div className="text-sm text-white">Duration</div>
+                    <div className="font-bold text-white">
+                      {program.duration}
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="flex items-center gap-3 p-4 bg-black/40 rounded-xl border border-white/40">
                   <DollarSign size={24} className="text-white" />
                   <div>
-                    <div className="text-sm text-slate-200">Salary Range</div>
-                    <div className="font-bold text-white">{program.salaryRange}</div>
+                    <div className="text-sm text-white">Salary Range</div>
+                    <div className="font-bold text-white">
+                      {program.salaryRange}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -147,18 +160,24 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               What You'll Learn
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Our comprehensive curriculum covers all the skills you need to excel as a {program.name}.
+              Our comprehensive curriculum covers all the skills you need to
+              excel as a {program.name}.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {program.skills.map((skill, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200">
+              <div
+                key={index}
+                className="flex items-start gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200"
+              >
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
                   <CheckCircle size={20} className="text-brand-orange-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">{skill.title}</h3>
+                  <h3 className="font-bold text-slate-900 mb-1">
+                    {skill.title}
+                  </h3>
                   <p className="text-sm text-slate-600">{skill.description}</p>
                 </div>
               </div>
@@ -176,16 +195,27 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                 Career Opportunities
               </h2>
               <p className="text-lg text-slate-600 mb-8">
-                {program.name}s are in high demand across healthcare settings. Upon completion, you'll be qualified for positions including:
+                {program.name}s are in high demand across healthcare settings.
+                Upon completion, you'll be qualified for positions including:
               </p>
 
               <div className="space-y-4">
                 {program.jobTitles.map((job, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                    <Briefcase size={20} className="text-brand-orange-600 flex-shrink-0" />
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200"
+                  >
+                    <Briefcase
+                      size={20}
+                      className="text-brand-orange-600 flex-shrink-0"
+                    />
                     <div>
-                      <div className="font-bold text-slate-900">{job.title}</div>
-                      <div className="text-sm text-slate-600">{job.setting}</div>
+                      <div className="font-bold text-slate-900">
+                        {job.title}
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        {job.setting}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -193,33 +223,54 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
             </div>
 
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Program Outcomes</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                Program Outcomes
+              </h3>
               <div className="space-y-6">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-slate-700">Job Placement Rate</span>
-                    <span className="text-2xl font-bold text-brand-orange-600">{program.outcomes.jobPlacement}%</span>
+                    <span className="text-2xl font-bold text-brand-orange-600">
+                      {program.outcomes.jobPlacement}%
+                    </span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-brand-orange-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }} />
+                    <div
+                      className="bg-brand-orange-600 h-3 rounded-full"
+                      style={{ width: `${program.outcomes.jobPlacement}%` }}
+                    />
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-slate-700">Certification Pass Rate</span>
-                    <span className="text-2xl font-bold text-blue-600">{program.outcomes.certificationPass}%</span>
+                    <span className="text-slate-700">
+                      Certification Pass Rate
+                    </span>
+                    <span className="text-2xl font-bold text-blue-600">
+                      {program.outcomes.certificationPass}%
+                    </span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-blue-600 h-3 rounded-full" style={{ width: `${program.outcomes.certificationPass}%` }} />
+                    <div
+                      className="bg-blue-600 h-3 rounded-full"
+                      style={{
+                        width: `${program.outcomes.certificationPass}%`,
+                      }}
+                    />
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-slate-700">Student Satisfaction</span>
-                    <span className="text-2xl font-bold text-purple-600">{program.outcomes.satisfaction}%</span>
+                    <span className="text-2xl font-bold text-purple-600">
+                      {program.outcomes.satisfaction}%
+                    </span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-purple-600 h-3 rounded-full" style={{ width: `${program.outcomes.satisfaction}%` }} />
+                    <div
+                      className="bg-purple-600 h-3 rounded-full"
+                      style={{ width: `${program.outcomes.satisfaction}%` }}
+                    />
                   </div>
                 </div>
               </div>
@@ -227,7 +278,9 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="mt-8 p-4 bg-red-50 rounded-xl border border-red-200">
                 <div className="flex items-center gap-3 mb-2">
                   <Award size={20} className="text-brand-orange-600" />
-                  <span className="font-bold text-slate-900">Certification Included</span>
+                  <span className="font-bold text-slate-900">
+                    Certification Included
+                  </span>
                 </div>
                 <p className="text-sm text-slate-600">
                   {program.certification}
@@ -252,7 +305,9 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
                 <Clock size={24} className="text-brand-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Schedule</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                Schedule
+              </h3>
               <p className="text-slate-600 mb-4">
                 Flexible options to fit your life:
               </p>
@@ -270,10 +325,10 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
                 <GraduationCap size={24} className="text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Requirements</h3>
-              <p className="text-slate-600 mb-4">
-                Minimal prerequisites:
-              </p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                Requirements
+              </h3>
+              <p className="text-slate-600 mb-4">Minimal prerequisites:</p>
               <ul className="space-y-2 text-sm text-slate-600">
                 {program.requirements.map((item, index) => (
                   <li key={index} className="flex items-center gap-2">
@@ -288,7 +343,9 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
                 <Users size={24} className="text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Support Services</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                Support Services
+              </h3>
               <p className="text-slate-600 mb-4">
                 We're here to help you succeed:
               </p>
@@ -324,7 +381,8 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                 Ready to Start Your {program.name} Career?
               </h2>
               <p className="text-xl mb-8 text-orange-50">
-                Join our next cohort and begin your journey. 100% funded training with no cost to you.
+                Join our next cohort and begin your journey. 100% funded
+                training with no cost to you.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
