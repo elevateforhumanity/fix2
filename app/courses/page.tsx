@@ -178,7 +178,7 @@ export default async function CoursesPage() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-purple-600"
+                    className="w-6 h-6 text-brand-purple-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -219,7 +219,7 @@ export default async function CoursesPage() {
               </Link>
               <Link
                 href="/apply"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-blue-600 border-2 border-white text-lg"
               >
                 Apply Now
               </Link>

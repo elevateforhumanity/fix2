@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { 
+import {
   GraduationCap,
   Search,
   GitCompare,
@@ -16,7 +16,7 @@ import {
   MapPin,
   Calendar,
   CalendarDays,
-  ArrowRight
+  ArrowRight,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -49,105 +49,105 @@ export default function ProgramsBioSitePage() {
       description: 'Browse our complete catalog of 50+ training programs',
       href: '/programs-catalog',
       icon: BookOpen,
-      color: 'orange'
+      color: 'orange',
     },
     {
       title: 'Program Finder',
       description: 'Take our quiz to find your perfect program match',
       href: '/program-finder',
       icon: Search,
-      color: 'blue'
+      color: 'blue',
     },
     {
       title: 'Compare Programs',
       description: 'Side-by-side comparison of programs',
       href: '/compare-programs',
       icon: GitCompare,
-      color: 'green'
+      color: 'green',
     },
     {
       title: 'Apprenticeships',
       description: 'Earn while you learn with paid apprenticeships',
       href: '/apprenticeships',
       icon: Briefcase,
-      color: 'purple'
+      color: 'purple',
     },
     {
       title: 'Individual Courses',
       description: 'Take single courses to build specific skills',
       href: '/courses',
       icon: BookOpen,
-      color: 'pink'
+      color: 'pink',
     },
     {
       title: 'Micro Classes',
       description: 'Short 1-4 hour classes for quick skills',
       href: '/micro-classes',
       icon: Zap,
-      color: 'yellow'
+      color: 'yellow',
     },
     {
       title: 'Career Pathways',
       description: 'Clear paths from training to employment',
       href: '/pathways',
       icon: TrendingUp,
-      color: 'indigo'
+      color: 'indigo',
     },
     {
       title: 'Industries',
       description: 'Explore programs by industry sector',
       href: '/industries',
       icon: Building2,
-      color: 'cyan'
+      color: 'cyan',
     },
     {
       title: 'Credentials',
-      description: 'Industry-recognized certifications you\'ll earn',
+      description: "Industry-recognized certifications you'll earn",
       href: '/credentials',
       icon: Award,
-      color: 'red'
+      color: 'red',
     },
     {
       title: 'Certificates',
       description: 'Completion certificates and digital badges',
       href: '/certificates',
       icon: FileCheck,
-      color: 'teal'
+      color: 'teal',
     },
     {
       title: 'Accreditation',
       description: 'Our accreditations and quality standards',
       href: '/accreditation',
       icon: CheckCircle,
-      color: 'emerald'
+      color: 'emerald',
     },
     {
       title: 'Platform Features',
       description: 'LMS, mobile app, AI tutoring, and more',
       href: '/features',
       icon: Zap,
-      color: 'violet'
+      color: 'violet',
     },
     {
       title: 'Locations',
       description: 'Find training locations near you',
       href: '/locations',
       icon: MapPin,
-      color: 'rose'
+      color: 'rose',
     },
     {
       title: 'Class Schedule',
       description: 'View upcoming class start dates',
       href: '/schedule',
       icon: Calendar,
-      color: 'amber'
+      color: 'amber',
     },
     {
       title: 'Academic Calendar',
       description: 'Important dates and deadlines',
       href: '/calendar',
       icon: CalendarDays,
-      color: 'lime'
+      color: 'lime',
     },
   ];
 
@@ -168,30 +168,33 @@ export default function ProgramsBioSitePage() {
           </video>
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        
+
         <div className="absolute inset-0 z-10 flex items-center pt-[72px]">
           <div className="mx-auto w-full max-w-6xl px-6 text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-purple-600/90 px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-brand-purple-600/90 px-4 py-2 rounded-full mb-6">
               <GraduationCap className="w-5 h-5" />
-              <span className="text-sm font-bold uppercase tracking-wide">50+ Career Training Programs</span>
+              <span className="text-sm font-bold uppercase tracking-wide">
+                50+ Career Training Programs
+              </span>
             </div>
-            
+
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight">
               Free Career Training Programs
             </h1>
-            
+
             {/* Subheadline */}
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               100% Free • No Tuition • No Debt
             </h2>
-            
+
             {/* Body */}
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Browse our complete catalog of 50+ training programs across all industries
+              Browse our complete catalog of 50+ training programs across all
+              industries
             </p>
-            
+
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -202,7 +205,7 @@ export default function ProgramsBioSitePage() {
               </Link>
               <Link
                 href="#programs"
-                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-white hover:bg-white hover:text-black transition text-center text-lg"
+                className="rounded-xl border-2 border-white px-8 py-4 font-bold text-gray-900 hover:bg-white hover:text-black transition text-center text-lg"
               >
                 Browse Programs
               </Link>
@@ -232,32 +235,36 @@ export default function ProgramsBioSitePage() {
       <section id="programs" className="pt-16 pb-8 px-4">
         <div className="max-w-2xl mx-auto text-center">
           {/* Logo/Icon */}
-          <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-            <GraduationCap className="w-12 h-12 text-white" />
+          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+            <GraduationCap className="w-12 h-12 text-gray-900" />
           </div>
-          
+
           {/* Title */}
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             Free Career Training Programs
           </h1>
-          
+
           {/* Tagline */}
           <p className="text-xl text-gray-600 mb-8">
             50+ Programs in Healthcare, Skilled Trades & Business
           </p>
-          
+
           {/* Stats */}
           <div className="flex justify-center gap-8 mb-8">
             <div>
-              <div className="text-3xl font-black text-orange-600">100%</div>
+              <div className="text-3xl font-black text-brand-orange-600">
+                100%
+              </div>
               <div className="text-sm text-gray-600">Free</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-green-600">85%</div>
+              <div className="text-3xl font-black text-brand-green-600">
+                85%
+              </div>
               <div className="text-sm text-gray-600">Job Placement</div>
             </div>
             <div>
-              <div className="text-3xl font-black text-blue-600">50+</div>
+              <div className="text-3xl font-black text-brand-blue-600">50+</div>
               <div className="text-sm text-gray-600">Programs</div>
             </div>
           </div>
@@ -273,21 +280,21 @@ export default function ProgramsBioSitePage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:scale-105 transform"
+                className="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:scale-105 transform"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 bg-${link.color}-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                  <div
+                    className={`w-12 h-12 bg-${link.color}-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}
+                  >
                     <Icon className={`w-6 h-6 text-${link.color}-600`} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-brand-orange-600 transition-colors">
                       {link.title}
                     </h3>
-                    <p className="text-sm text-gray-600">
-                      {link.description}
-                    </p>
+                    <p className="text-sm text-gray-600">{link.description}</p>
                   </div>
-                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-brand-orange-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
                 </div>
               </Link>
             );
@@ -296,9 +303,9 @@ export default function ProgramsBioSitePage() {
           {/* Apply CTA */}
           <Link
             href="/apply"
-            className="block bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 transform text-center"
+            className="block bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 transform text-center"
           >
-            <h3 className="text-2xl font-black text-white mb-2">
+            <h3 className="text-2xl font-black text-gray-900 mb-2">
               Ready to Get Started?
             </h3>
             <p className="text-white/90 mb-4">
@@ -317,7 +324,10 @@ export default function ProgramsBioSitePage() {
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-sm text-gray-500 mb-4">
             Questions? Contact us at{' '}
-            <a href="mailto:elevate4humanityedu@gmail.com" className="text-orange-600 hover:underline">
+            <a
+              href="mailto:elevate4humanityedu@gmail.com"
+              className="text-brand-orange-600 hover:underline"
+            >
               elevate4humanityedu@gmail.com
             </a>
           </p>

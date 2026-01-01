@@ -115,7 +115,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <main className="min-h-screen bg-white">
       {/* Internal Navigation */}
       <nav className="bg-gray-900 border-b border-gray-700 sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
@@ -150,7 +150,7 @@ export default function AboutPage() {
         <div className="relative max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
-            <div className="text-white">
+            <div className="text-gray-900">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
                 <Heart className="w-5 h-5 text-orange-400" />
                 <span className="text-sm font-semibold">About Us</span>
@@ -191,7 +191,7 @@ export default function AboutPage() {
 
               <Link
                 href="/apply"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+                className="inline-flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-xl text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
               >
                 <span>Join Us</span>
                 <ArrowRight className="w-5 h-5" />
@@ -229,10 +229,10 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-orange-500 hover:shadow-xl transition-all"
+                  className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-brand-orange-500 hover:shadow-xl transition-all"
                 >
                   <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-orange-600" />
+                    <Icon className="w-7 h-7 text-brand-orange-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {value.title}
@@ -248,10 +248,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section
-        id="mission"
-        className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white"
-      >
+      <section id="mission" className="py-20 bg-white text-gray-900">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
@@ -297,9 +294,9 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg border-2 border-blue-100">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-blue-100">
               <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <Award className="w-7 h-7 text-blue-600" />
+                <Award className="w-7 h-7 text-brand-blue-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Training
@@ -325,9 +322,9 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-lg border-2 border-green-100">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-green-100">
               <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-7 h-7 text-green-600" />
+                <Shield className="w-7 h-7 text-brand-green-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Support</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -350,9 +347,9 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-purple-100">
               <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-purple-600" />
+                <TrendingUp className="w-7 h-7 text-brand-purple-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Placement
@@ -381,10 +378,7 @@ export default function AboutPage() {
       </section>
 
       {/* Impact Stats */}
-      <section
-        id="impact"
-        className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white"
-      >
+      <section id="impact" className="py-20 bg-white text-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-6">Our Impact</h2>
@@ -436,20 +430,20 @@ export default function AboutPage() {
                   <Link
                     key={page.href}
                     href={page.href}
-                    className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-2 transform"
+                    className="group bg-white rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:-translate-y-2 transform"
                   >
                     <div
                       className={`w-16 h-16 bg-${page.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
                     >
                       <Icon className={`w-8 h-8 text-${page.color}-600`} />
                     </div>
-                    <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-orange-600 transition-colors">
+                    <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-brand-orange-600 transition-colors">
                       {page.title}
                     </h3>
                     <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                       {page.description}
                     </p>
-                    <div className="flex items-center gap-2 text-orange-600 font-bold group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-brand-orange-600 font-bold group-hover:gap-3 transition-all">
                       <span>Learn More</span>
                       <ArrowRight className="w-5 h-5" />
                     </div>
@@ -468,20 +462,20 @@ export default function AboutPage() {
                   <Link
                     key={page.href}
                     href={page.href}
-                    className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-orange-500 hover:-translate-y-1 transform"
+                    className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:-translate-y-1 transform"
                   >
                     <div
                       className={`w-12 h-12 bg-${page.color}-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
                     >
                       <Icon className={`w-6 h-6 text-${page.color}-600`} />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-orange-600 transition-colors">
                       {page.title}
                     </h3>
                     <p className="text-sm text-gray-600 mb-3">
                       {page.description}
                     </p>
-                    <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                    <div className="flex items-center gap-2 text-brand-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
                       <span>Explore</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>
@@ -493,7 +487,7 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <section className="py-20 bg-white text-gray-900">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             Ready to Transform Your Life?
@@ -503,7 +497,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/apply"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-12 py-6 rounded-xl text-xl font-black shadow-2xl hover:shadow-3xl hover:scale-105 transition-all"
+            className="inline-flex items-center gap-3 bg-white text-white px-12 py-6 rounded-xl text-xl font-black shadow-2xl hover:shadow-3xl hover:scale-105 transition-all"
           >
             <span>Apply Now</span>
             <ArrowRight className="w-6 h-6" />

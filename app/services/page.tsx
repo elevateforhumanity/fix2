@@ -145,8 +145,6 @@ export default function ServicesPage() {
         >
           <source src="/videos/services-hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-6xl w-full rich-animate">
             {/* Logo */}
@@ -167,7 +165,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-tight">
               WE SUPPORT YOUR SUCCESS
             </h1>
 
@@ -230,7 +228,7 @@ export default function ServicesPage() {
                       />
                       <div className="rich-overlay">
                         <div className="rich-icon-container">
-                          <Icon className="w-8 h-8 text-white" />
+                          <Icon className="w-8 h-8 text-gray-900" />
                         </div>
                       </div>
                     </div>
@@ -276,7 +274,6 @@ export default function ServicesPage() {
 
       {/* Final CTA - Wix Style */}
       <section className="rich-hero relative h-[500px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-teal-800" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="rich-container-narrow">
             <div className="mb-8">
@@ -297,7 +294,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/apply"
-              className="rich-button-primary bg-orange-500 hover:bg-orange-600 inline-flex items-center gap-3 text-xl"
+              className="rich-button-primary bg-orange-500 hover:bg-brand-orange-600 inline-flex items-center gap-3 text-xl"
             >
               <span>Apply Now - 100% Free</span>
               <ArrowRight className="w-6 h-6" />

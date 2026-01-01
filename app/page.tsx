@@ -73,21 +73,20 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                    <div className="w-14 h-14 bg-brand-purple-600 rounded-xl flex items-center justify-center mb-4">
                       <Heart className="w-7 h-7 text-white" />
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-purple-600 transition-colors mb-3">
                     Healthcare
                   </h3>
                   <p className="text-gray-600 mb-4">
                     CNA, Medical Assistant, Phlebotomy, and more
                   </p>
-                  <div className="flex items-center gap-2 text-purple-600 font-bold">
+                  <div className="flex items-center gap-2 text-brand-purple-600 font-bold">
                     <span>Explore Programs</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </div>
@@ -105,21 +104,20 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                    <div className="w-14 h-14 bg-brand-orange-600 rounded-xl flex items-center justify-center mb-4">
                       <Zap className="w-7 h-7 text-white" />
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-purple-600 transition-colors mb-3">
                     Skilled Trades
                   </h3>
                   <p className="text-gray-600 mb-4">
                     HVAC, Electrical, Plumbing, Welding, and more
                   </p>
-                  <div className="flex items-center gap-2 text-purple-600 font-bold">
+                  <div className="flex items-center gap-2 text-brand-purple-600 font-bold">
                     <span>Explore Programs</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </div>
@@ -137,21 +135,20 @@ export default function HomePage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+                    <div className="w-14 h-14 bg-brand-blue-600 rounded-xl flex items-center justify-center mb-4">
                       <Briefcase className="w-7 h-7 text-white" />
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-brand-purple-600 transition-colors mb-3">
                     Business & Finance
                   </h3>
                   <p className="text-gray-600 mb-4">
                     Accounting, Office Administration, Customer Service
                   </p>
-                  <div className="flex items-center gap-2 text-purple-600 font-bold">
+                  <div className="flex items-center gap-2 text-brand-purple-600 font-bold">
                     <span>Explore Programs</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </div>
@@ -163,7 +160,7 @@ export default function HomePage() {
       </section>
 
       {/* 100% Free Training - How We Fund It */}
-      <section className="w-full py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+      <section className="w-full py-20 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
@@ -224,8 +221,8 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border-2 border-purple-100">
-              <div className="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 border-2 border-brand-purple-100">
+              <div className="w-16 h-16 bg-brand-purple-600 rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -238,22 +235,22 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-600 mt-1">✓</span>
+                  <span className="text-brand-purple-600 mt-1">✓</span>
                   <span>Online coursework you can do anytime</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-600 mt-1">✓</span>
+                  <span className="text-brand-purple-600 mt-1">✓</span>
                   <span>Scheduled hands-on labs</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-purple-600 mt-1">✓</span>
+                  <span className="text-brand-purple-600 mt-1">✓</span>
                   <span>In-person skills assessments</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 border-2 border-orange-100">
-              <div className="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 border-2 border-brand-orange-100">
+              <div className="w-16 h-16 bg-brand-orange-600 rounded-xl flex items-center justify-center mb-6">
                 <Briefcase className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -265,22 +262,22 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-600 mt-1">✓</span>
+                  <span className="text-brand-orange-600 mt-1">✓</span>
                   <span>Get paid while training</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-600 mt-1">✓</span>
+                  <span className="text-brand-orange-600 mt-1">✓</span>
                   <span>Work in real businesses</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-600 mt-1">✓</span>
+                  <span className="text-brand-orange-600 mt-1">✓</span>
                   <span>Graduate with experience + certification</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border-2 border-green-100">
-              <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 border-2 border-green-100">
+              <div className="w-16 h-16 bg-brand-green-600 rounded-xl flex items-center justify-center mb-6">
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -292,15 +289,15 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">✓</span>
+                  <span className="text-brand-green-600 mt-1">✓</span>
                   <span>4-12 week programs</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">✓</span>
+                  <span className="text-brand-green-600 mt-1">✓</span>
                   <span>Industry-recognized credentials</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">✓</span>
+                  <span className="text-brand-green-600 mt-1">✓</span>
                   <span>Job placement assistance</span>
                 </li>
               </ul>
@@ -325,7 +322,7 @@ export default function HomePage() {
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-blue-600" />
+                    <Users className="w-6 h-6 text-brand-blue-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">
@@ -339,7 +336,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-6 h-6 text-purple-600" />
+                    <Briefcase className="w-6 h-6 text-brand-purple-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">
@@ -352,7 +349,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Heart className="w-6 h-6 text-green-600" />
+                    <Heart className="w-6 h-6 text-brand-green-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">
@@ -376,7 +373,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/apply"
-                className="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-8 py-4 rounded-xl text-lg font-bold transition-colors"
+                className="block w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white text-center px-8 py-4 rounded-xl text-lg font-bold transition-colors"
               >
                 Apply Now - It's Free
               </Link>
@@ -389,7 +386,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonial */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
         <div className="mx-auto w-full max-w-4xl px-6">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
             <div className="flex justify-center gap-1 mb-6">
@@ -426,8 +423,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Career Services */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
+            <div className="bg-white rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-brand-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
@@ -439,15 +436,15 @@ export default function HomePage() {
               </p>
               <Link
                 href="/career-services"
-                className="text-blue-600 font-bold hover:underline inline-flex items-center gap-2"
+                className="text-brand-blue-600 font-bold hover:underline inline-flex items-center gap-2"
               >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Support Bundle */}
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
+            <div className="bg-white rounded-2xl p-6 md:p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-brand-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
@@ -458,7 +455,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/support"
-                className="text-purple-600 font-bold hover:underline inline-flex items-center gap-2"
+                className="text-brand-purple-600 font-bold hover:underline inline-flex items-center gap-2"
               >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
@@ -468,7 +465,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-br from-purple-600 to-purple-800">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
         <div className="mx-auto w-full max-w-4xl text-center px-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">
             Ready to Transform Your Life?
@@ -479,7 +476,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/apply"
-            className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl text-lg md:text-xl font-black shadow-2xl hover:scale-105 transition-all"
+            className="inline-flex items-center gap-3 bg-orange-500 hover:bg-brand-orange-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-xl text-lg md:text-xl font-black shadow-2xl hover:scale-105 transition-all"
           >
             <span>Apply Now - 100% Free</span>
             <ArrowRight className="w-6 h-6" />
