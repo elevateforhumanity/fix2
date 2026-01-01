@@ -104,11 +104,11 @@ export default function ApplyLandingPage() {
                 >
                   <Icon className="w-7 h-7" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-slate-700">
+                <h2 className="text-2xl font-bold text-black mb-2 group-hover:text-black">
                   {path.title}
                 </h2>
-                <p className="text-slate-600 mb-4">{path.description}</p>
-                <div className="flex items-center text-sm font-semibold text-slate-900 group-hover:text-slate-700">
+                <p className="text-black mb-4">{path.description}</p>
+                <div className="flex items-center text-sm font-semibold text-black group-hover:text-black">
                   Get Started
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -121,10 +121,10 @@ export default function ApplyLandingPage() {
       {/* Help Section */}
       <section className="max-w-6xl mx-auto px-4 py-8 mb-12">
         <div className="bg-slate-100 border border-slate-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-slate-900 mb-2">
+          <h3 className="text-lg font-semibold text-black mb-2">
             Need Help Choosing?
           </h3>
-          <p className="text-slate-700 mb-4">
+          <p className="text-black mb-4">
             Not sure which path is right for you? Our team is here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -136,7 +136,7 @@ export default function ApplyLandingPage() {
             </a>
             <a
               href="mailto:info@elevateforhumanity.org"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-slate-300 text-slate-900 font-semibold rounded-lg hover:border-slate-400 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-slate-300 text-black font-semibold rounded-lg hover:border-slate-400 transition-colors"
             >
               Email Us
             </a>
