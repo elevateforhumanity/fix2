@@ -48,13 +48,22 @@
   main *,
   section *,
   article *,
-  header *,
-  footer * {
+  header * {
     color: #000000 !important;
   }
 
-  /* Override ALL Tailwind text color utilities */
-  [class*='text-'] {
+  /* Footer needs light text on dark background */
+  footer,
+  footer * {
+    color: #d1d5db !important; /* gray-300 */
+  }
+
+  footer a:hover {
+    color: #ffffff !important;
+  }
+
+  /* Override ALL Tailwind text color utilities (except footer) */
+  [class*='text-']:not(footer *):not(footer) {
     color: #000000 !important;
   }
 
