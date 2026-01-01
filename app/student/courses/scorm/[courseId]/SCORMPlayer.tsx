@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -96,6 +96,7 @@ export function SCORMPlayer({
           className="w-full h-full border-0"
           allow="fullscreen; camera; microphone"
           title={courseName}
+          loading="lazy"
         />
       </div>
 

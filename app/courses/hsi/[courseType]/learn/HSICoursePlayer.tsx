@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -91,6 +91,7 @@ export function HSICoursePlayer({
               allow="fullscreen; camera; microphone"
               title={courseName}
               sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+              loading="lazy"
             />
 
             {/* Overlay Instructions */}

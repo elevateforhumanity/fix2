@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { 
+import {
   DollarSign,
   Briefcase,
   Users,
@@ -15,12 +15,13 @@ import {
   ArrowRight,
   CheckCircle,
   Star,
-  Zap
+  Zap,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Support Services | Elevate for Humanity',
-  description: 'Tax services, career counseling, job placement, and comprehensive support. We help you succeed every step of the way.',
+  description:
+    'Tax services, career counseling, job placement, and comprehensive support. We help you succeed every step of the way.',
 };
 
 export default function ServicesPage() {
@@ -41,87 +42,99 @@ export default function ServicesPage() {
   const services = [
     {
       title: 'Supersonic Fast Cash',
-      description: 'Professional tax preparation, refund advances, and IRS representation',
+      description:
+        'Professional tax preparation, refund advances, and IRS representation',
       href: '/supersonic-fast-cash',
       icon: DollarSign,
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Tax Services',
       description: 'Full-service tax preparation with maximum refund guarantee',
       href: '/tax-services',
       icon: DollarSign,
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'VITA Tax Prep',
-      description: 'Free IRS-certified tax preparation for qualifying individuals',
+      description:
+        'Free IRS-certified tax preparation for qualifying individuals',
       href: '/vita',
       icon: Heart,
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Career Services',
       description: 'Resume building, interview prep, and job search support',
       href: '/career-services',
       icon: Briefcase,
-      image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Career Center',
       description: 'Job boards, employer connections, and placement assistance',
       href: '/career-center',
       icon: TrendingUp,
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Career Fairs',
       description: 'Meet employers hiring our graduates at regular events',
       href: '/career-fair',
       icon: Users,
-      image: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Academic Advising',
       description: 'One-on-one guidance to help you succeed in your program',
       href: '/advising',
       icon: GraduationCap,
-      image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Mentorship Program',
       description: 'Connect with industry professionals for guidance',
       href: '/mentorship',
       icon: Lightbulb,
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Support Services',
       description: 'Transportation, childcare, and barrier removal services',
       href: '/support',
       icon: Shield,
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       title: 'Help Center',
       description: 'FAQs, guides, and support resources',
       href: '/help',
       icon: Phone,
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image:
+        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   ];
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Internal Navigation - Wix Style */}
-      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      {/* Internal Navigation - Mobile Optimized */}
+      <nav className="rich-nav bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex overflow-x-auto gap-1 py-3 scrollbar-hide">
+          <div className="flex overflow-x-auto gap-1 py-3 -mx-4 px-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition whitespace-nowrap"
+                className="rich-nav-link px-4 py-2 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition whitespace-nowrap flex-shrink-0 snap-start"
               >
                 {link.label}
               </Link>
@@ -143,7 +156,7 @@ export default function ServicesPage() {
           <source src="/videos/services-hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        
+
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-6xl w-full rich-animate">
             {/* Logo */}
@@ -156,28 +169,29 @@ export default function ServicesPage() {
                 className="mx-auto brightness-0 invert"
               />
             </div>
-            
+
             {/* Badge */}
             <div className="rich-badge mb-8 bg-teal-500/20 border-teal-500/30 text-teal-100">
               <Heart className="w-5 h-5" />
               <span>Comprehensive Support Services</span>
             </div>
-            
+
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
               WE SUPPORT YOUR SUCCESS
             </h1>
-            
+
             {/* Subheadline */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
               More Than Just Training
             </h2>
-            
+
             {/* Body */}
             <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Tax services, career counseling, job placement, and comprehensive support to help you succeed
+              Tax services, career counseling, job placement, and comprehensive
+              support to help you succeed
             </p>
-            
+
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
@@ -215,11 +229,7 @@ export default function ServicesPage() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <Link
-                  key={service.href}
-                  href={service.href}
-                  className="group"
-                >
+                <Link key={service.href} href={service.href} className="group">
                   <div className="rich-card">
                     <div className="rich-image-container h-64 mb-6">
                       <Image
@@ -237,9 +247,7 @@ export default function ServicesPage() {
                     <h3 className="rich-subheadline text-gray-900 group-hover:text-teal-600 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="rich-body mb-4">
-                      {service.description}
-                    </p>
+                    <p className="rich-body mb-4">{service.description}</p>
                     <div className="flex items-center gap-2 text-teal-600 font-bold">
                       <span>Learn More</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -258,11 +266,16 @@ export default function ServicesPage() {
           <div className="rich-testimonial">
             <div className="flex justify-center gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
+                <Star
+                  key={i}
+                  className="w-8 h-8 fill-yellow-400 text-yellow-400"
+                />
               ))}
             </div>
             <blockquote className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-relaxed text-center">
-              "The career services team helped me land a job before I even graduated. The resume help and interview prep made all the difference."
+              "The career services team helped me land a job before I even
+              graduated. The resume help and interview prep made all the
+              difference."
             </blockquote>
             <p className="text-xl text-gray-600 text-center">
               — Marcus Thompson, HVAC Graduate
@@ -285,7 +298,7 @@ export default function ServicesPage() {
                 className="mx-auto brightness-0 invert"
               />
             </div>
-            
+
             <h2 className="rich-headline text-white mb-6">
               Ready to Get Started?
             </h2>
