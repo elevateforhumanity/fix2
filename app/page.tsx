@@ -369,21 +369,21 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-gray-100">
+              <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6">
                 Ready to Get Started?
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-base md:text-lg text-gray-900 mb-8 leading-relaxed">
                 Apply today and we'll help you navigate the funding process.
                 Most students qualify for 100% free training.
               </p>
               <Link
                 href="/apply"
-                className="block w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white text-center px-8 py-4 rounded-xl text-lg font-bold transition-colors"
+                className="block w-full bg-brand-orange-600 hover:bg-brand-orange-700 text-white text-center px-8 py-5 rounded-xl text-lg md:text-xl font-bold transition-colors shadow-lg hover:shadow-xl"
               >
                 Apply Now - It's Free
               </Link>
-              <p className="text-sm text-gray-500 text-center mt-4">
+              <p className="text-sm md:text-base text-gray-700 text-center mt-6 font-medium">
                 Questions? Call us at (317) 800-1234
               </p>
             </div>
