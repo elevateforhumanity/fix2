@@ -1,0 +1,75 @@
+-- ============================================================================
+-- WORKING SQL - Uses existing table structures
+-- ============================================================================
+
+-- Step 1: Update existing licenses table (don't recreate it)
+-- ============================================================================
+
+-- Add missing columns to existing licenses table
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS domain TEXT;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS customer_email TEXT;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS tier TEXT;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'active';
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS features JSONB DEFAULT '[]'::jsonb;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS max_deployments INTEGER DEFAULT 1;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS max_users INTEGER DEFAULT 50;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS expires_at TIMESTAMPTZ;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS last_validated_at TIMESTAMPTZ;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS validation_count INTEGER DEFAULT 0;
+ALTER TABLE licenses ADD COLUMN IF NOT EXISTS metadata JSONB DEFAULT '{}'::jsonb;
+
+-- Create license_validations table if it doesn't exist
+CREATE TABLE IF NOT EXISTS license_validations (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  license_id UUID REFERENCES licenses(id) ON DELETE CASCADE,
+  validated_at TIMESTAMPTZ DEFAULT NOW(),
+  ip_address TEXT,
+  user_agent TEXT,
+  result TEXT CHECK (result IN ('valid', 'expired', 'invalid', 'suspended')),
+  metadata JSONB DEFAULT '{}'::jsonb
+);
+
+-- Add indexes
+CREATE INDEX IF NOT EXISTS idx_licenses_domain ON licenses(domain);
+CREATE INDEX IF NOT EXISTS idx_licenses_status ON licenses(status);
+
+-- Enable RLS
+ALTER TABLE licenses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE license_validations ENABLE ROW LEVEL SECURITY;
+
+-- Policies
+DROP POLICY IF EXISTS "Service role can manage licenses" ON licenses;
+CREATE POLICY "Service role can manage licenses" ON licenses FOR ALL USING (auth.role() = 'service_role');
+
+DROP POLICY IF EXISTS "Service role can manage validations" ON license_validations;
+CREATE POLICY "Service role can manage validations" ON license_validations FOR ALL USING (auth.role() = 'service_role');
+
+-- Step 2: Blog posts
+-- ============================================================================
+
+ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS author_name TEXT DEFAULT 'Elevate for Humanity';
+ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS tags TEXT[];
+ALTER TABLE blog_posts ADD COLUMN IF NOT EXISTS reading_time INTEGER;
+
+INSERT INTO blog_posts (title, slug, excerpt, content, category, status, published_at, author_name, tags, reading_time)
+SELECT * FROM (VALUES
+  ('Understanding WIOA Funding', 'wioa-funding-guide', 'Free career training through WIOA.', 'WIOA provides free training. Contact WorkOne.', 'Resource', 'published', NOW(), 'Elevate for Humanity', ARRAY['WIOA'], 3),
+  ('HVAC Careers in Indiana', 'hvac-careers', 'High demand, good pay.', 'HVAC techs earn $35k-$70k+.', 'Career', 'published', NOW(), 'Elevate for Humanity', ARRAY['HVAC'], 4),
+  ('Apprenticeships', 'apprenticeships-guide', 'Earn while you learn.', 'DOL-registered apprenticeships available.', 'Programs', 'published', NOW(), 'Elevate for Humanity', ARRAY['Apprenticeship'], 5)
+) AS v(title, slug, excerpt, content, category, status, published_at, author_name, tags, reading_time)
+WHERE NOT EXISTS (SELECT 1 FROM blog_posts WHERE slug = v.slug);
+
+-- Step 3: Apprenticeships
+-- ============================================================================
+
+INSERT INTO programs (slug, name, title, description, category, is_active)
+SELECT * FROM (VALUES
+  ('esthetician-apprenticeship', 'Esthetician Apprenticeship', 'Esthetician Apprenticeship', 'Skincare and spa training.', 'Beauty & Wellness', true),
+  ('ems-apprenticeship', 'EMS Apprenticeship', 'EMS Apprenticeship', 'Emergency medical training.', 'Healthcare', true),
+  ('culinary-apprenticeship', 'Culinary Apprenticeship', 'Culinary Apprenticeship', 'Professional cooking.', 'Hospitality', true),
+  ('nail-tech-apprenticeship', 'Nail Tech Apprenticeship', 'Nail Tech Apprenticeship', 'Nail services training.', 'Beauty & Wellness', true)
+) AS v(slug, name, title, description, category, is_active)
+WHERE NOT EXISTS (SELECT 1 FROM programs WHERE slug = v.slug);
+
+-- ✅ DONE
+SELECT 'Setup complete!' as status;
