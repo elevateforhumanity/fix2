@@ -159,7 +159,11 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.className} min-h-dvh bg-white antialiased`}
-        style={{ fontSize: '16px', color: '#000000', backgroundColor: '#ffffff' }}
+        style={{
+          fontSize: '16px',
+          color: '#000000',
+          backgroundColor: '#ffffff',
+        }}
       >
         <a
           href="#main-content"
@@ -170,6 +174,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <FacebookPixel />
         <ConditionalLayout>{children}</ConditionalLayout>
+        <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
         <Toaster
