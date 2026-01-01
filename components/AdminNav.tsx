@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  LayoutDashboard, 
-  Users, 
-  GraduationCap, 
-  FileText, 
+import {
+  LayoutDashboard,
+  Users,
+  GraduationCap,
+  FileText,
   DollarSign,
   UserCheck,
   BookOpen,
@@ -19,11 +19,13 @@ import {
   Share2,
   Sparkles,
   Bell,
-  MessageCircle
+  MessageCircle,
+  Video,
 } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { name: 'AI Studio', href: '/ai-studio', icon: Video },
   {
     name: 'Marketing',
     icon: Sparkles,
@@ -31,7 +33,7 @@ const navigation = [
       { name: 'Email Marketing', href: '/admin/email-marketing' },
       { name: 'Social Media', href: '/admin/social-media' },
       { name: 'Automation', href: '/admin/email-marketing/automation' },
-    ]
+    ],
   },
   {
     name: 'Communications',
@@ -39,15 +41,15 @@ const navigation = [
     children: [
       { name: 'Push Notifications', href: '/admin/notifications' },
       { name: 'Live Chat', href: '/admin/live-chat' },
-    ]
+    ],
   },
-  { 
+  {
     name: 'HR & Payroll',
     icon: DollarSign,
     children: [
       { name: 'Employees', href: '/admin/hr/employees' },
       { name: 'Payroll', href: '/admin/hr/payroll' },
-    ]
+    ],
   },
   {
     name: 'Programs',
@@ -55,7 +57,7 @@ const navigation = [
     children: [
       { name: 'All Programs', href: '/admin/programs' },
       { name: 'Courses', href: '/admin/courses' },
-    ]
+    ],
   },
   {
     name: 'Students',
@@ -65,7 +67,7 @@ const navigation = [
       { name: 'Onboarding', href: '/onboarding' },
       { name: 'Attendance', href: '/lms/(app)/attendance' },
       { name: 'Progress Tracking', href: '/admin/analytics/learning' },
-    ]
+    ],
   },
   {
     name: 'Staff Management',
@@ -74,7 +76,7 @@ const navigation = [
       { name: 'Staff Directory', href: '/admin/hr/employees' },
       { name: 'Staff Onboarding', href: '/onboarding/staff' },
       { name: 'Performance', href: '/admin/instructors/performance' },
-    ]
+    ],
   },
   {
     name: 'Program Holders',
@@ -83,7 +85,7 @@ const navigation = [
       { name: 'All Partners', href: '/admin/program-holders' },
       { name: 'MOUs', href: '/admin/docs/mou' },
       { name: 'Partner Portal', href: '/partners/portal' },
-    ]
+    ],
   },
   {
     name: 'Documents',
@@ -93,7 +95,7 @@ const navigation = [
       { name: 'Handbooks', href: '/onboarding/handbook' },
       { name: 'Privacy Policy', href: '/privacy-policy' },
       { name: 'Employee Handbook', href: '/onboarding/handbook' },
-    ]
+    ],
   },
   {
     name: 'Analytics',
@@ -103,7 +105,7 @@ const navigation = [
       { name: 'Student Engagement', href: '/admin/analytics/engagement' },
       { name: 'Retention', href: '/admin/retention' },
       { name: 'Outcomes', href: '/admin/outcomes' },
-    ]
+    ],
   },
   {
     name: 'Compliance',
@@ -111,7 +113,7 @@ const navigation = [
     children: [
       { name: 'WIOA Dashboard', href: '/admin/compliance-dashboard' },
       { name: 'Reports', href: '/admin/reports' },
-    ]
+    ],
   },
 ];
 
@@ -119,14 +121,26 @@ export default function AdminNav() {
   const pathname = usePathname();
 
   return (
-    <nav role="navigation" aria-label="Main navigation" className="w-64 bg-gray-900 text-white min-h-screen p-4 overflow-y-auto">
+    <nav
+      role="navigation"
+      aria-label="Main navigation"
+      className="w-64 bg-gray-900 text-white min-h-screen p-4 overflow-y-auto"
+    >
       <div className="mb-8">
         <Link href="/" aria-label="Link" className="flex items-center gap-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg   ">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5}
-d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
             </svg>
           </div>
           <div className="flex flex-col">

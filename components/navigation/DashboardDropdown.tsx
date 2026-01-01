@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -15,6 +15,7 @@ import {
   Shield,
   ShoppingBag,
   ChevronDown,
+  Sparkles,
 } from 'lucide-react';
 
 const DASHBOARDS = [
@@ -68,6 +69,13 @@ const DASHBOARDS = [
     color: 'text-pink-600',
   },
   {
+    name: 'AI Studio',
+    href: '/ai-studio',
+    icon: Sparkles,
+    description: 'AI video & media',
+    color: 'text-purple-600',
+  },
+  {
     name: 'Delegate',
     href: '/delegate/dashboard',
     icon: Shield,
@@ -94,7 +102,9 @@ export function DashboardDropdown() {
       >
         <LayoutDashboard className="w-4 h-4" />
         <span>Dashboards</span>
-        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+        />
       </button>
 
       {isOpen && (
@@ -121,7 +131,9 @@ export function DashboardDropdown() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-start gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 transition group"
                     >
-                      <Icon className={`w-5 h-5 mt-0.5 ${dashboard.color} group-hover:scale-110 transition`} />
+                      <Icon
+                        className={`w-5 h-5 mt-0.5 ${dashboard.color} group-hover:scale-110 transition`}
+                      />
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-slate-900 group-hover:text-blue-600">
                           {dashboard.name}
