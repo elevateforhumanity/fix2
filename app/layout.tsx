@@ -197,6 +197,6 @@ export default function RootLayout({
     </html>
   );
 }
-// Cache bust: 2025-12-09T14:30:00Z
-// Force rebuild: VIDEO BANNER DEPLOYMENT
-// Force deployment: 2025-12-09T14:30:00Z
+// Cache bust: 2026-01-01T05:30:00Z
+// Force rebuild: MOBILE TEXT FIX + CLEAN VIDEO HERO
+// Force deployment: 2026-01-01T05:30:00Z
