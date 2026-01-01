@@ -34,7 +34,12 @@
       "permanent": true
     }
   ],
-  "crons": [],
+  "crons": [
+    {
+      "path": "/api/social-media/scheduler",
+      "schedule": "0 9,13,17 * * *"
+    }
+  ],
 
   "headers": [
     {
