@@ -1,218 +1,482 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  CheckCircle,
+  FileText,
+  DollarSign,
+  Calculator,
+  TrendingUp,
   Phone,
   Mail,
   MapPin,
+  Clock,
+  CheckCircle,
   ArrowRight,
+  Users,
+  Shield,
+  Award,
 } from 'lucide-react';
 
-export default function SupersonicDesign15() {
+export default function SupersonicFastCashPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Video Banner */}
-      <section className="relative h-[500px] md:h-[600px] flex items-center">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-home.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-900/70"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Tax Experts At Your Service
-            </h1>
-            <p className="text-xl md:text-2xl text-white mb-8">
-              Tax Preparation and Financial Services
-            </p>
-            <Link
-              href="/supersonic-fast-cash/apply"
-              className="inline-block px-10 py-4 bg-orange-500 text-white text-lg font-bold rounded hover:bg-orange-600 transition-colors"
+      {/* Top Bar */}
+      <div className="bg-slate-900 text-white py-3">
+        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center text-sm">
+          <div className="flex items-center gap-6">
+            <a
+              href="tel:317-555-0100"
+              className="flex items-center gap-2 hover:text-brand-orange-500 transition"
             >
-              Contact Us
-            </Link>
+              <Phone className="w-4 h-4" />
+              (317) 555-0100
+            </a>
+            <a
+              href="mailto:info@supersonicfastcash.com"
+              className="flex items-center gap-2 hover:text-brand-orange-500 transition"
+            >
+              <Mail className="w-4 h-4" />
+              info@supersonicfastcash.com
+            </a>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4" />
+            Indianapolis, IN
+          </div>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-brand-blue-700 to-brand-blue-900 text-white py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+              Professional Tax & Financial Services
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              Expert tax preparation, bookkeeping, and business consulting
+              services to help you maximize returns and minimize stress.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/supersonic-fast-cash/apply"
+                className="inline-flex items-center justify-center gap-3 bg-brand-orange-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-brand-orange-700 transition shadow-2xl"
+              >
+                Get Started Today
+                <ArrowRight className="w-6 h-6" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-white text-brand-blue-700 px-10 py-5 rounded-xl text-lg font-bold hover:bg-slate-50 transition"
+              >
+                Schedule Consultation
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4 Service Cards */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Tax Returns */}
-            <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Tax Returns</h3>
-              <p className="text-gray-600 mb-4">
-                Assistance with your personal and business tax matters, in a responsive and accurate manner.
-              </p>
-            </div>
+      {/* Services Grid */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+              Our Services
+            </h2>
+            <p className="text-xl text-slate-600">
+              Comprehensive financial solutions for individuals and businesses
+            </p>
+          </div>
 
-            {/* Payroll */}
-            <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Tax Preparation */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition text-center">
+              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <FileText className="w-10 h-10 text-brand-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Payroll</h3>
-              <p className="text-gray-600 mb-4">
-                Pay your employees quickly and easily with our Payroll Services. Our plans are designed to swiftly create paychecks and calculate payroll taxes.
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Tax Preparation
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Personal and business tax returns prepared accurately and filed
+                on time. Maximize your refund with expert guidance.
               </p>
+              <Link
+                href="/supersonic-fast-cash/services/tax-preparation"
+                className="text-brand-blue-600 font-semibold hover:underline"
+              >
+                Learn More →
+              </Link>
             </div>
 
             {/* Bookkeeping */}
-            <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 mx-auto mb-6 bg-orange-100 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Calculator className="w-10 h-10 text-brand-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Bookkeeping</h3>
-              <p className="text-gray-600 mb-4">
-                Comprehensive bookkeeping and accounting services to guarantee your business operates at maximum potential.
-              </p>
-            </div>
-
-            {/* Business Planning */}
-            <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
-              <div className="w-20 h-20 mx-auto mb-6 bg-purple-100 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Business Planning</h3>
-              <p className="text-gray-600 mb-4">
-                Business planning and management services, including start-up and entity selection services.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                About Supersonic Fast Cash
-              </h2>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                We believe in the value of relationships. We view every client relationship like a partnership and truly believe that our success is a result of your success. We are committed to providing close, personal attention to our clients.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                We provide a variety of services including Income Tax Preparation for all types of businesses and individuals, IRS and State Audit Representation, Payroll Reporting, QuickBooks® setup, support and training, Business startup services, Monthly bookkeeping, Financial statements – making sure your financial records are timely and accurate.
-              </p>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                Our continual investment of time and resources in professional continuing education, state-of-the-art computer technology, and extensive business relationships is indicative of our commitment to excellence.
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Bookkeeping
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Professional bookkeeping services to keep your finances
+                organized and your business running smoothly.
               </p>
               <Link
-                href="/supersonic-fast-cash/services"
-                className="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-colors"
+                href="/supersonic-fast-cash/services/bookkeeping"
+                className="text-brand-blue-600 font-semibold hover:underline"
               >
-                Read More
+                Learn More →
               </Link>
             </div>
-            <div className="relative h-96">
-              <Image
-                src="/images/artlist/hero-training-1.jpg"
-                alt="Tax preparation services"
-                fill
-                className="object-cover rounded-lg shadow-lg"
-              />
+
+            {/* Payroll Services */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition text-center">
+              <div className="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <DollarSign className="w-10 h-10 text-brand-orange-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Payroll Services
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Efficient payroll processing with accurate tax calculations and
+                timely payments to your employees.
+              </p>
+              <Link
+                href="/supersonic-fast-cash/services/payroll"
+                className="text-brand-blue-600 font-semibold hover:underline"
+              >
+                Learn More →
+              </Link>
+            </div>
+
+            {/* Business Consulting */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition text-center">
+              <div className="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <TrendingUp className="w-10 h-10 text-purple-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Business Consulting
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Strategic planning, entity selection, and financial advice to
+                help your business grow and succeed.
+              </p>
+              <Link
+                href="/supersonic-fast-cash/services/consulting"
+                className="text-brand-blue-600 font-semibold hover:underline"
+              >
+                Learn More →
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3 Feature Boxes */}
-      <section className="py-16 bg-blue-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
+                Why Choose Supersonic Fast Cash?
+              </h2>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-brand-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-6 h-6 text-brand-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Trusted Expertise
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Years of experience helping individuals and businesses
+                      navigate complex tax laws and financial regulations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-brand-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6 text-brand-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Personalized Service
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      We take time to understand your unique situation and
+                      provide tailored solutions that meet your specific needs.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-brand-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-brand-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Fast Turnaround
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Quick, efficient service without sacrificing accuracy. Get
+                      your returns filed and refunds processed faster.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Maximum Refunds
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      We find every deduction and credit you're entitled to,
+                      ensuring you get the maximum refund possible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-900 rounded-3xl p-12 text-white">
+              <h3 className="text-3xl font-bold mb-8">Quick Facts</h3>
+
+              <div className="space-y-6">
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-slate-400 text-sm mb-2">
+                    Years in Business
+                  </div>
+                  <div className="text-4xl font-bold">15+</div>
+                </div>
+
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-slate-400 text-sm mb-2">
+                    Clients Served
+                  </div>
+                  <div className="text-4xl font-bold">5,000+</div>
+                </div>
+
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-slate-400 text-sm mb-2">
+                    Average Refund
+                  </div>
+                  <div className="text-4xl font-bold text-brand-orange-500">
+                    $3,200
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-slate-400 text-sm mb-2">
+                    Client Satisfaction
+                  </div>
+                  <div className="text-4xl font-bold text-brand-green-500">
+                    98%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-slate-600">
+              Simple, straightforward process to get your taxes done right
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                Schedule
+              </h3>
+              <p className="text-slate-600">
+                Book your appointment online or call us to schedule a
+                consultation.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                Gather Documents
+              </h3>
+              <p className="text-slate-600">
+                Collect your W-2s, 1099s, receipts, and other tax documents.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                We Prepare
+              </h3>
+              <p className="text-slate-600">
+                Our experts prepare your return, finding every deduction you
+                deserve.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-brand-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">
+                4
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                File & Refund
+              </h3>
+              <p className="text-slate-600">
+                We file electronically and you get your refund fast and secure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+              What Our Clients Say
+            </h2>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-8 h-8" />
+            <div className="bg-slate-50 rounded-2xl p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle
+                    key={i}
+                    className="w-5 h-5 text-brand-green-600"
+                  />
+                ))}
               </div>
-              <h3 className="text-xl font-bold mb-3">Professional Service</h3>
-              <p className="text-blue-100">
-                A full range of accounting services while giving you the individual attention that you need.
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                "Best tax service I've ever used. They found deductions I didn't
+                even know existed and got me a much bigger refund than I
+                expected!"
               </p>
+              <div className="font-bold text-slate-900">Jennifer M.</div>
+              <div className="text-sm text-slate-600">Small Business Owner</div>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Years of Experience</h3>
-              <p className="text-blue-100">
-                Volumes of experience working through IRS audit strategies and financial issues. We guarantee that your business is in good hands at all times.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Serving Your Business</h3>
-              <p className="text-blue-100">
-                Support in all areas of business consulting. Let our team guide you with a financial strategy that leads to business growth and success.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Our Staff */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-            MEET THE FOUNDER
-          </h2>
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image
-                  src="/images/elizabeth-greene-founder.jpg"
-                  alt="Elizabeth Greene - Founder"
-                  width={192}
-                  height={192}
-                  className="object-cover"
-                />
+            <div className="bg-slate-50 rounded-2xl p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle
+                    key={i}
+                    className="w-5 h-5 text-brand-green-600"
+                  />
+                ))}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Elizabeth Greene</h3>
-              <p className="text-blue-600 font-semibold mb-4">Founder & CEO</p>
-              <p className="text-gray-600 leading-relaxed">
-                Elizabeth Greene founded Supersonic Fast Cash with a mission to provide accessible, professional tax services to individuals and businesses. With years of experience in tax preparation and financial services, she leads a team dedicated to maximizing refunds and ensuring compliance.
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                "Professional, fast, and affordable. They made tax season
+                stress-free. I'll definitely be using them again next year."
               </p>
+              <div className="font-bold text-slate-900">Robert T.</div>
+              <div className="text-sm text-slate-600">Individual Filer</div>
+            </div>
+
+            <div className="bg-slate-50 rounded-2xl p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle
+                    key={i}
+                    className="w-5 h-5 text-brand-green-600"
+                  />
+                ))}
+              </div>
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                "Their bookkeeping services have been a game-changer for my
+                business. Everything is organized and I always know where I
+                stand financially."
+              </p>
+              <div className="font-bold text-slate-900">Maria S.</div>
+              <div className="text-sm text-slate-600">Restaurant Owner</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-orange-500 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            HAVE A QUESTION? WE'RE HERE TO HELP
+      <section className="py-20 bg-gradient-to-br from-brand-orange-600 to-brand-orange-700 text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            Ready to Get Started?
           </h2>
-          <Link
-            href="/supersonic-fast-cash/contact"
-            className="inline-block px-10 py-4 bg-white text-orange-500 font-bold rounded hover:bg-gray-100 transition-colors"
-          >
-            Contact Us
-          </Link>
+          <p className="text-xl mb-10 text-white/90">
+            Schedule your consultation today and discover how much you could
+            save.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link
+              href="/supersonic-fast-cash/apply"
+              className="inline-flex items-center justify-center gap-3 bg-white text-brand-orange-600 px-12 py-6 rounded-xl text-xl font-bold hover:bg-slate-100 transition shadow-2xl"
+            >
+              Book Appointment
+              <ArrowRight className="w-6 h-6" />
+            </Link>
+            <a
+              href="tel:317-555-0100"
+              className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm text-white px-12 py-6 rounded-xl text-xl font-bold hover:bg-white/20 transition border-2 border-white/30"
+            >
+              <Phone className="w-6 h-6" />
+              Call Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Info Footer */}
+      <section className="py-12 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+              <h3 className="font-bold text-lg mb-3">Location</h3>
+              <p className="text-slate-300">
+                123 Main Street
+                <br />
+                Indianapolis, IN 46204
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg mb-3">Contact</h3>
+              <p className="text-slate-300">
+                Phone: (317) 555-0100
+                <br />
+                Email: info@supersonicfastcash.com
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold text-lg mb-3">Hours</h3>
+              <p className="text-slate-300">
+                Mon-Fri: 9am - 6pm
+                <br />
+                Sat: 10am - 4pm
+                <br />
+                Sun: Closed
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
