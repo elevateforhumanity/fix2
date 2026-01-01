@@ -18,7 +18,7 @@ export function generateMOUText(data: MOUData): string {
 PROGRAM HOLDER / TRAINING PROVIDER
 MEMORANDUM OF UNDERSTANDING (MOU)
 
-This Memorandum of Understanding ("MOU") outlines the partnership between:
+This Memorandum of Understanding ("MOU") outlines the collaborative partnership between:
 
 Elevate for Humanity Career & Technical Institute
 ("Elevate", "EFH", or "Training Sponsor")
@@ -29,6 +29,17 @@ ${data.programHolderName}
 ("Program Holder" or "Training Provider")
 
 together referred to as the "Parties."
+
+NATURE OF RELATIONSHIP:
+
+This MOU establishes a collaborative partnership where both parties work together to deliver high-quality workforce training. This is NOT an employer-employee relationship, franchise, or subordinate arrangement. Instead, this is a partnership of equals working toward shared goals:
+
+• Elevate provides the infrastructure, compliance framework, funding coordination, and wraparound services
+• Program Holder provides the hands-on training, facility, instruction, and day-to-day student support
+• Both parties collaborate to ensure student success and program quality
+• Both parties share in the revenue generated from successful student outcomes
+
+This collaborative model allows Program Holders to focus on what they do best (training) while Elevate handles the administrative complexity of workforce development programs.
 
 1. PURPOSE OF THIS MOU
 
@@ -189,9 +200,25 @@ d. PAYMENT UPON TERMINATION: Upon termination, Elevate will pay any amounts alre
 
 e. TRANSITION PERIOD: Upon termination, Program Holder agrees to cooperate with Elevate to ensure smooth transition of any active participants to alternative training arrangements, if applicable.
 
-7. INDEPENDENT CONTRACTOR RELATIONSHIP
+7. COLLABORATIVE PARTNERSHIP - INDEPENDENT CONTRACTOR RELATIONSHIP
 
-The Parties agree that Program Holder is an independent contractor. This MOU does not create an employment relationship, partnership, or joint venture. Program Holder is responsible for its own employees, taxes, insurance, and business operations.
+The Parties agree that this is a COLLABORATIVE PARTNERSHIP where both parties work together as equals toward shared goals. Program Holder is an independent contractor and business partner, NOT an employee or subordinate of Elevate.
+
+KEY POINTS:
+• This MOU does not create an employment relationship
+• This is NOT a franchise or licensing arrangement
+• This is NOT a subordinate or hierarchical relationship
+• This IS a partnership of equals with complementary roles
+• Program Holder maintains full independence in business operations
+• Program Holder is responsible for its own employees, taxes, insurance, and business operations
+• Both parties collaborate and support each other's success
+
+COLLABORATIVE NATURE:
+• Elevate and Program Holder work together as partners
+• Decisions are made collaboratively when possible
+• Both parties respect each other's expertise and autonomy
+• Communication is open, transparent, and respectful
+• Success is shared, challenges are addressed together
 
 8. NON-EXCLUSIVITY
 
