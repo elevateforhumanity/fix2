@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-
 type Params = Promise<{ slug: string }>;
 
 export async function generateMetadata({
@@ -35,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/artlist/hero-training-1.jpg"
           alt={title}
@@ -45,24 +44,24 @@ export default async function BlogPostPage({ params }: { params: Params }) {
           priority
           sizes="100vw"
         />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             {title}
           </h1>
-          <p className="text-base md:text-lg md:text-xl mb-8 text-gray-100">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-100">
             Explore {title.toLowerCase()} and discover opportunities for career
             growth and development.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-brand-orange-600 hover:bg-brand-orange-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-colors min-h-[44px] inline-flex items-center justify-center"
             >
               Get Started
             </Link>
             <Link
               href="/programs"
-              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="bg-white hover:bg-gray-100 text-brand-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-colors min-h-[44px] inline-flex items-center justify-center"
             >
               View Programs
             </Link>
@@ -71,11 +70,11 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       </section>
 
       {/* Content Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             {/* Feature Grid */}
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center mb-12 sm:mb-16">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">{title}</h2>
                 <p className="text-gray-700 mb-6">
@@ -133,20 +132,20 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                   </li>
                 </ul>
               </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/artlist/hero-training-2.jpg"
                   alt={title}
                   fill
                   className="object-cover"
                   quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, 50vw"
                 />
               </div>
             </div>
 
             {/* Feature Cards */}
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <svg

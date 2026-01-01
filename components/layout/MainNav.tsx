@@ -111,35 +111,73 @@ export function MainNav() {
   const [fundingTimeoutRef, setFundingTimeoutRef] =
     useState<NodeJS.Timeout | null>(null);
 
-  // Helper functions for delayed dropdown closing
+  // Detect if device is touch-enabled
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  // Helper functions for delayed dropdown closing (desktop hover)
   const handleProgramsEnter = () => {
+    if (isTouchDevice) return;
     if (programsTimeoutRef) clearTimeout(programsTimeoutRef);
     setProgramsOpen(true);
   };
 
   const handleProgramsLeave = () => {
+    if (isTouchDevice) return;
     const timeout = setTimeout(() => setProgramsOpen(false), 500);
     setProgramsTimeoutRef(timeout);
   };
 
   const handleMicroClassesEnter = () => {
+    if (isTouchDevice) return;
     if (microClassesTimeoutRef) clearTimeout(microClassesTimeoutRef);
     setMicroClassesOpen(true);
   };
 
   const handleMicroClassesLeave = () => {
+    if (isTouchDevice) return;
     const timeout = setTimeout(() => setMicroClassesOpen(false), 500);
     setMicroClassesTimeoutRef(timeout);
   };
 
   const handleFundingEnter = () => {
+    if (isTouchDevice) return;
     if (fundingTimeoutRef) clearTimeout(fundingTimeoutRef);
     setFundingOpen(true);
   };
 
   const handleFundingLeave = () => {
+    if (isTouchDevice) return;
     const timeout = setTimeout(() => setFundingOpen(false), 500);
     setFundingTimeoutRef(timeout);
+  };
+
+  // Click handlers for touch devices
+  const handleProgramsClick = () => {
+    if (isTouchDevice) {
+      setProgramsOpen(!programsOpen);
+      setMicroClassesOpen(false);
+      setFundingOpen(false);
+    }
+  };
+
+  const handleMicroClassesClick = () => {
+    if (isTouchDevice) {
+      setMicroClassesOpen(!microClassesOpen);
+      setProgramsOpen(false);
+      setFundingOpen(false);
+    }
+  };
+
+  const handleFundingClick = () => {
+    if (isTouchDevice) {
+      setFundingOpen(!fundingOpen);
+      setProgramsOpen(false);
+      setMicroClassesOpen(false);
+    }
   };
 
   // Prevent body scroll when mobile menu is open
@@ -185,7 +223,7 @@ export function MainNav() {
               <span className="text-sm font-semibold text-slate-900">
                 Elevate For Humanity
               </span>
-              <span className="text-[11px] text-slate-600">
+              <span className="hidden sm:block text-[11px] text-slate-600">
                 Career &amp; Technical Institute
               </span>
             </div>
@@ -205,11 +243,12 @@ export function MainNav() {
             >
               <button
                 className={clsx(
-                  'flex items-center gap-1 transition hover:text-brand-orange-600',
+                  'flex items-center gap-1 min-h-[44px] py-3 px-2 transition hover:text-brand-orange-600',
                   pathname?.startsWith('/programs')
                     ? 'text-brand-orange-600 font-semibold'
                     : 'text-slate-700'
                 )}
+                onClick={handleProgramsClick}
                 aria-expanded={programsOpen}
                 aria-haspopup="true"
               >
@@ -253,11 +292,12 @@ export function MainNav() {
             >
               <button
                 className={clsx(
-                  'flex items-center gap-1 transition hover:text-brand-orange-600',
+                  'flex items-center gap-1 min-h-[44px] py-3 px-2 transition hover:text-brand-orange-600',
                   pathname?.startsWith('/micro-classes')
                     ? 'text-brand-orange-600 font-semibold'
                     : 'text-slate-700'
                 )}
+                onClick={handleMicroClassesClick}
                 aria-expanded={microClassesOpen}
                 aria-haspopup="true"
               >
@@ -296,16 +336,17 @@ export function MainNav() {
             {/* Funding Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setFundingOpen(true)}
-              onMouseLeave={() => setFundingOpen(false)}
+              onMouseEnter={handleFundingEnter}
+              onMouseLeave={handleFundingLeave}
             >
               <button
                 className={clsx(
-                  'flex items-center gap-1 transition hover:text-brand-orange-600',
+                  'flex items-center gap-1 min-h-[44px] py-3 px-2 transition hover:text-brand-orange-600',
                   pathname?.startsWith('/funding')
                     ? 'text-brand-orange-600 font-semibold'
                     : 'text-slate-700'
                 )}
+                onClick={handleFundingClick}
                 aria-expanded={fundingOpen}
                 aria-haspopup="true"
               >

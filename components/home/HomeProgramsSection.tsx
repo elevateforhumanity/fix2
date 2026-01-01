@@ -1,50 +1,50 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { programs } from "@/app/data/programs";
+import Link from 'next/link';
+import Image from 'next/image';
+import { programs } from '@/app/data/programs';
 
 export default function HomeProgramsSection() {
   const featured = programs;
 
   return (
-    <section className="bg-white py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-8 md:px-12">
-        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="mb-6 sm:mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
               Elevate For Humanity
             </p>
-            <h2 className="mt-1 text-4xl font-bold text-slate-900 md:text-5xl">
+            <h2 className="mt-1 text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
               Training programs for real careers
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-600">
+            <p className="mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-600">
               Skilled trades, healthcare, and transportation
             </p>
           </div>
           <Link
             href="/programs"
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-100"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-100 whitespace-nowrap"
           >
             View all programs
           </Link>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((program) => (
             <article
               key={program.slug}
               className="group flex h-full flex-col overflow-hidden rounded-lg bg-white border border-slate-200 transition hover:shadow-lg"
             >
               {/* Image */}
-              <div className="relative h-56 w-full bg-slate-50">
+              <div className="relative h-48 sm:h-52 md:h-56 w-full bg-slate-50">
                 {program.heroImage ? (
                   <Image
                     src={program.heroImage}
                     alt={program.heroImageAlt || program.name}
                     fill
                     className="object-cover brightness-105 transition-transform duration-300 group-hover:scale-105"
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center text-xs text-slate-400">
@@ -69,16 +69,16 @@ export default function HomeProgramsSection() {
                   </span>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-col sm:flex-row flex-wrap gap-2">
                   <Link
                     href={`/programs/${program.slug}`}
-                    className="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-orange-600"
+                    className="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-orange-600 min-h-[44px]"
                   >
                     View program
                   </Link>
                   <Link
                     href={`/apply?program=${encodeURIComponent(program.slug)}`}
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-1.5 text-xs font-semibold text-slate-800 hover:bg-slate-100"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-100 min-h-[44px]"
                   >
                     Start application
                   </Link>

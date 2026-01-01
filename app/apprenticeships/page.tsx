@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -18,9 +19,24 @@ import {
   FileText,
   Calendar,
   Building2,
+  Menu,
+  X,
 } from 'lucide-react';
 
 export default function ApprenticeshipsPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
   const apprenticeships = [
     {
       title: 'Barber Apprenticeship',
@@ -127,7 +143,9 @@ export default function ApprenticeshipsPage() {
                 className="hidden sm:flex items-center gap-1.5 hover:text-blue-300 transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />
-                elevate4humanityedu@gmail.com
+                <span className="truncate max-w-[200px] md:max-w-none">
+                  elevate4humanityedu@gmail.com
+                </span>
               </a>
             </div>
             <div className="flex items-center gap-1.5 text-blue-100">
@@ -177,23 +195,63 @@ export default function ApprenticeshipsPage() {
               </Link>
             </div>
             {/* Mobile menu button */}
-            <button className="md:hidden p-2">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="flex flex-col">
+              <Link
+                href="/programs"
+                className="px-6 py-4 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-900 transition-colors border-b border-gray-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Programs
+              </Link>
+              <Link
+                href="/apprenticeships"
+                className="px-6 py-4 text-base font-bold text-blue-900 bg-blue-50 border-b border-gray-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Apprenticeships
+              </Link>
+              <Link
+                href="/about"
+                className="px-6 py-4 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-900 transition-colors border-b border-gray-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-4 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-900 transition-colors border-b border-gray-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Link
+                href="/apply"
+                className="mx-6 my-4 px-6 py-3 bg-orange-600 text-white text-center rounded-lg font-bold hover:bg-orange-700 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Apply Now
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
