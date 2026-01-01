@@ -20,14 +20,20 @@ export const metadata: Metadata = {
 export default function SkilledTradesPage() {
   return (
     <main className="min-h-screen bg-gray-50">
-      <CompactHero
-        variant="default"
-        badge={{ icon: Wrench, text: 'Skilled Trades', href: '/programs' }}
-        headline="Build a career in the trades with hands-on training"
-        description="HVAC, Building Maintenance, and Building Technician programs. 100% funded options available through WIOA and state grants."
-        primaryCTA={{ text: 'View Programs', href: '#programs' }}
-        secondaryCTA={{ text: 'Check Eligibility', href: '/intake' }}
-      />
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/videos/hvac-hero-final.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">

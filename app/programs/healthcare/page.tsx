@@ -21,18 +21,20 @@ export const metadata: Metadata = {
 export default function HealthcarePage() {
   return (
     <main className="min-h-screen bg-gray-50">
-      <CompactHero
-        variant="default"
-        badge={{
-          icon: Stethoscope,
-          text: 'Healthcare Careers',
-          href: '/programs',
-        }}
-        headline="Start your healthcare career in weeks, not years"
-        description="CNA, Medical Assistant, Phlebotomy, and Home Health Aide training. 100% funded options available through WIOA and state grants."
-        primaryCTA={{ text: 'View Programs', href: '#programs' }}
-        secondaryCTA={{ text: 'Check Eligibility', href: '/intake' }}
-      />
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/videos/cna-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">

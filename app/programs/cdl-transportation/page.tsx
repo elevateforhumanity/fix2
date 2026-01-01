@@ -21,17 +21,20 @@ export const metadata: Metadata = {
 export default function CdlTransportationPage() {
   return (
     <main className="min-h-screen bg-white">
-      <VideoHero
-        videoSrc="/videos/hero-transportation.mp4"
-        badge={{
-          icon: Truck,
-          text: 'Transportation Career',
-        }}
-        headline="Get Your CDL License"
-        description="Commercial Driver's License training. 100% funded options available through WIOA and state grants. Start earning $50K+ annually with benefits."
-        primaryCTA={{ text: 'Apply Now', href: '/apply' }}
-        secondaryCTA={{ text: 'Talk to an Advisor', href: '/contact' }}
-      />
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/videos/cdl-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
 
       {/* At-a-Glance */}
       <section className="bg-white py-16">

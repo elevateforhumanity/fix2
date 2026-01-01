@@ -31,6 +31,21 @@ export default function BarberApprenticeshipPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
+      <section className="relative w-full -mt-[72px]">
+        <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
       {/* Official Badge */}
       <div className="bg-green-50 border-b border-green-200 py-2">
         <div className="max-w-7xl mx-auto px-6 text-center text-sm text-slate-900">
@@ -47,7 +62,7 @@ export default function BarberApprenticeshipPage() {
         </div>
       </div>
 
-      {/* Hero */}
+      {/* Hero Content */}
       <section className="bg-gray-50">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <div className="flex flex-wrap items-center gap-2 mb-3">
