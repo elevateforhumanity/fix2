@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import { Play, CheckCircle, Lock, Clock, Award, BookOpen } from 'lucide-react';
@@ -20,7 +20,8 @@ const TRAINING_MODULES: TrainingModule[] = [
   {
     id: 'tax-basics',
     title: 'Tax Preparation Fundamentals',
-    description: 'Complete beginner course covering everything you need to start preparing tax returns. No prior experience required!',
+    description:
+      'Complete beginner course covering everything you need to start preparing tax returns. Learn the Elevate method - no prior experience required!',
     duration: '12 hours',
     lessons: 24,
     price: 199, // FREE for employees, $199 for public
@@ -49,14 +50,15 @@ const TRAINING_MODULES: TrainingModule[] = [
       'PTIN requirements and how to get one',
       'Practice returns: Simple W-2 only',
       'Practice returns: W-2 with dependents and credits',
-      'Practice returns: Self-employment income'
+      'Practice returns: Self-employment income',
     ],
-    certification: 'SupersonicFastCash Tax Preparation Certificate'
+    certification: 'Elevate for Humanity Tax Preparation Certificate',
   },
   {
     id: 'irs-regulations',
     title: 'IRS Ethics & Professional Standards',
-    description: 'Learn IRS regulations, preparer responsibilities, and ethical standards required for all tax preparers.',
+    description:
+      'Learn IRS regulations, preparer responsibilities, and ethical standards. Elevate-certified training ensures compliance.',
     duration: '6 hours',
     lessons: 12,
     price: 149, // FREE for employees, $149 for public
@@ -73,14 +75,15 @@ const TRAINING_MODULES: TrainingModule[] = [
       'Preparer signature requirements',
       'Electronic filing requirements',
       'Continuing education requirements',
-      'Professional conduct and best practices'
+      'Professional conduct and best practices',
     ],
-    certification: 'SupersonicFastCash Ethics Certificate'
+    certification: 'Elevate for Humanity Ethics Certificate',
   },
   {
     id: 'advanced-returns',
-    title: 'Advanced Tax Returns',
-    description: 'Master complex tax situations including rental property, investments, and multi-state returns.',
+    title: 'Advanced Tax Strategies',
+    description:
+      'Master complex tax situations including rental property, investments, and multi-state returns using Elevate-proven techniques.',
     duration: '16 hours',
     lessons: 20,
     price: 199,
@@ -106,14 +109,15 @@ const TRAINING_MODULES: TrainingModule[] = [
       'Net Investment Income Tax',
       'Self-employment tax calculations',
       'Estimated tax payments',
-      'Practice: Complex return with rental and investments'
+      'Practice: Complex return with rental and investments',
     ],
-    certification: 'SupersonicFastCash Advanced Tax Certificate'
+    certification: 'Elevate for Humanity Advanced Tax Certificate',
   },
   {
     id: 'business-returns',
-    title: 'Small Business Tax Returns',
-    description: 'Learn to prepare business returns for sole proprietors, partnerships, S-corps, and C-corps.',
+    title: 'Business Tax Mastery',
+    description:
+      'Learn to prepare business returns for sole proprietors, partnerships, S-corps, and C-corps with Elevate best practices.',
     duration: '20 hours',
     lessons: 25,
     price: 299,
@@ -144,14 +148,15 @@ const TRAINING_MODULES: TrainingModule[] = [
       'Inventory valuation',
       'Depreciation methods',
       'Practice: Schedule C return',
-      'Practice: Partnership return'
+      'Practice: Partnership return',
     ],
-    certification: 'SupersonicFastCash Business Tax Certificate'
+    certification: 'Elevate for Humanity Business Tax Certificate',
   },
   {
     id: 'tax-software-mastery',
-    title: 'Tax Software Mastery',
-    description: 'Master professional tax software, data entry shortcuts, and e-filing procedures.',
+    title: 'Professional Tax Software Excellence',
+    description:
+      'Master professional tax software with Elevate-exclusive training methods, data entry shortcuts, and e-filing procedures.',
     duration: '10 hours',
     lessons: 15,
     price: 149,
@@ -172,14 +177,15 @@ const TRAINING_MODULES: TrainingModule[] = [
       'State e-file procedures',
       'Bank products and refund transfers',
       'Printing and PDF generation',
-      'Practice: Complete return start to e-file'
+      'Practice: Complete return start to e-file',
     ],
-    certification: 'SupersonicFastCash Software Specialist Certificate'
+    certification: 'Elevate for Humanity Tax Software Certificate',
   },
   {
     id: 'refund-advances',
     title: 'Refund Advance Products',
-    description: 'Learn to offer and process refund advances, maximizing revenue while helping clients.',
+    description:
+      'Learn to offer and process refund advances using Elevate-approved methods, maximizing revenue while helping clients.',
     duration: '4 hours',
     lessons: 8,
     price: 99,
@@ -193,14 +199,15 @@ const TRAINING_MODULES: TrainingModule[] = [
       'Eligibility requirements',
       'Fee structures and disclosure requirements',
       'Compliance and regulations',
-      'Customer service and objection handling'
+      'Customer service and objection handling',
     ],
-    certification: 'SupersonicFastCash Refund Advance Specialist Certificate'
+    certification: 'Elevate for Humanity Refund Advance Specialist Certificate',
   },
   {
     id: 'client-service',
     title: 'Client Service Excellence',
-    description: 'Build a successful tax practice with excellent client service, marketing, and retention strategies.',
+    description:
+      'Build a successful tax practice with Elevate-proven client service, marketing, and retention strategies.',
     duration: '6 hours',
     lessons: 10,
     price: 79,
@@ -215,10 +222,10 @@ const TRAINING_MODULES: TrainingModule[] = [
       'Referral programs',
       'Client retention strategies',
       'Pricing your services',
-      'Building a year-round practice'
+      'Building a year-round practice',
     ],
-    certification: 'SupersonicFastCash Client Service Certificate'
-  }
+    certification: 'Elevate for Humanity Client Service Certificate',
+  },
 ];
 
 export default function TrainingPage() {
@@ -231,7 +238,7 @@ export default function TrainingPage() {
   const [employeeEmail, setEmployeeEmail] = useState('');
 
   const handleEnroll = async (moduleId: string, isFree: boolean = false) => {
-    const module = TRAINING_MODULES.find(m => m.id === moduleId);
+    const module = TRAINING_MODULES.find((m) => m.id === moduleId);
     if (!module) return;
 
     // If employee with valid key, enroll for free
@@ -244,17 +251,20 @@ export default function TrainingPage() {
     // If trying to enroll in paid course, redirect to Stripe checkout
     if (module.price > 0 && module.stripePriceId) {
       try {
-        const response = await fetch('/api/supersonic-fast-cash/create-checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            priceId: module.stripePriceId,
-            courseId: module.id,
-            courseName: module.title,
-            successUrl: `${window.location.origin}/supersonic-fast-cash/careers/training?success=true&course=${module.id}`,
-            cancelUrl: `${window.location.origin}/supersonic-fast-cash/careers/training?canceled=true`
-          })
-        });
+        const response = await fetch(
+          '/api/supersonic-fast-cash/create-checkout',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              priceId: module.stripePriceId,
+              courseId: module.id,
+              courseName: module.title,
+              successUrl: `${window.location.origin}/supersonic-fast-cash/careers/training?success=true&course=${module.id}`,
+              cancelUrl: `${window.location.origin}/supersonic-fast-cash/careers/training?canceled=true`,
+            }),
+          }
+        );
 
         const { url } = await response.json();
         if (url) {
@@ -275,22 +285,29 @@ export default function TrainingPage() {
   const handleAccessKeySubmit = async () => {
     // Validate access key
     try {
-      const response = await fetch('/api/supersonic-fast-cash/validate-access-key', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ accessKey, email: employeeEmail })
-      });
+      const response = await fetch(
+        '/api/supersonic-fast-cash/validate-access-key',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accessKey, email: employeeEmail }),
+        }
+      );
 
       const result = await response.json();
-      
+
       if (result.valid) {
         setIsEmployee(true);
         setShowAccessKeyModal(false);
         // Enroll in all courses automatically
-        setEnrolledModules(TRAINING_MODULES.map(m => m.id));
-        alert('Access key validated! You now have FREE access to ALL courses as an employee.');
+        setEnrolledModules(TRAINING_MODULES.map((m) => m.id));
+        alert(
+          'Access key validated! You now have FREE access to ALL courses as an employee.'
+        );
       } else {
-        alert('Invalid access key. Please check your email for the correct key or contact HR.');
+        alert(
+          'Invalid access key. Please check your email for the correct key or contact HR.'
+        );
       }
     } catch (error) {
       alert('Error validating access key. Please try again.');
@@ -302,8 +319,8 @@ export default function TrainingPage() {
     return completedModules.includes(module.prerequisite);
   };
 
-  const selectedModuleData = selectedModule 
-    ? TRAINING_MODULES.find(m => m.id === selectedModule)
+  const selectedModuleData = selectedModule
+    ? TRAINING_MODULES.find((m) => m.id === selectedModule)
     : null;
 
   return (
@@ -312,13 +329,19 @@ export default function TrainingPage() {
         {/* New Applicant Banner */}
         <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl shadow-lg p-8 mb-8 text-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">🎓 Two Ways to Access Training</h2>
-            
+            <h2 className="text-3xl font-bold mb-4">
+              🎓 Two Ways to Access Training
+            </h2>
+
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {/* Option 1: Apply for Job */}
               <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                <div className="text-2xl font-bold mb-3">Option 1: Work With Us</div>
-                <div className="text-lg mb-4">Get <strong>ALL courses FREE</strong> when you join our team!</div>
+                <div className="text-2xl font-bold mb-3">
+                  Option 1: Work With Us
+                </div>
+                <div className="text-lg mb-4">
+                  Get <strong>ALL courses FREE</strong> when you join our team!
+                </div>
                 <ul className="space-y-2 text-sm mb-4">
                   <li>✓ FREE training (worth $1,000+)</li>
                   <li>✓ Earn money preparing taxes</li>
@@ -340,7 +363,10 @@ export default function TrainingPage() {
                   </div>
                 </div>
                 <button
-                  onClick={() => window.location.href = '/supersonic-fast-cash/careers/apply'}
+                  onClick={() =>
+                    (window.location.href =
+                      '/supersonic-fast-cash/careers/apply')
+                  }
                   className="w-full mt-4 bg-white text-green-600 py-3 px-6 rounded-lg font-bold hover:bg-gray-100"
                 >
                   Apply Now (Get FREE Training)
@@ -349,8 +375,12 @@ export default function TrainingPage() {
 
               {/* Option 2: Buy Training */}
               <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                <div className="text-2xl font-bold mb-3">Option 2: Buy Training Only</div>
-                <div className="text-lg mb-4">Purchase courses individually or as bundles</div>
+                <div className="text-2xl font-bold mb-3">
+                  Option 2: Buy Training Only
+                </div>
+                <div className="text-lg mb-4">
+                  Purchase courses individually or as bundles
+                </div>
                 <ul className="space-y-2 text-sm mb-4">
                   <li>✓ Learn at your own pace</li>
                   <li>✓ Get certified</li>
@@ -398,16 +428,21 @@ export default function TrainingPage() {
                 <div className="text-center">
                   <p className="mb-3">Need tax software?</p>
                   <button
-                    onClick={() => window.location.href = '/supersonic-fast-cash/tools/drake-download'}
+                    onClick={() =>
+                      (window.location.href = '/supersonic-fast-cash/tools')
+                    }
                     className="bg-white text-green-600 py-2 px-6 rounded-lg font-bold hover:bg-gray-100"
                   >
-                    Download Software
+                    View Software Options
                   </button>
                 </div>
                 <div className="text-center">
                   <p className="mb-3">Already completed training?</p>
                   <button
-                    onClick={() => window.location.href = '/supersonic-fast-cash/careers/competency-test'}
+                    onClick={() =>
+                      (window.location.href =
+                        '/supersonic-fast-cash/careers/competency-test')
+                    }
                     className="bg-white text-green-600 py-2 px-6 rounded-lg font-bold hover:bg-gray-100"
                   >
                     Take Competency Test →
@@ -422,27 +457,36 @@ export default function TrainingPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Tax Preparer Training</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional training courses. Get certified and start preparing tax returns.
+            Professional training courses. Get certified and start preparing tax
+            returns.
           </p>
         </div>
 
         {/* Training Bundles */}
         <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl shadow-lg p-8 mb-12 text-white">
-          <h2 className="text-2xl font-bold mb-4">Training Bundles - Save Big!</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Training Bundles - Save Big!
+          </h2>
           <div className="bg-yellow-400 text-gray-900 rounded-lg p-4 mb-6 font-bold text-center">
             🎉 Employees get ALL courses FREE! Apply now to save $1,000+
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-              <h3 className="font-bold text-lg mb-2">Complete Professional Bundle</h3>
+              <h3 className="font-bold text-lg mb-2">
+                Complete Professional Bundle
+              </h3>
               <p className="text-sm mb-3 opacity-90">
                 All 7 courses - Everything you need to start a tax business
               </p>
               <div className="text-3xl font-bold mb-2">$799</div>
-              <div className="text-sm opacity-75 line-through">Regular: $1,074</div>
+              <div className="text-sm opacity-75 line-through">
+                Regular: $1,074
+              </div>
               <div className="text-sm font-semibold">Save $275</div>
               <div className="mt-4 text-xs opacity-75">
-                Includes: Tax Prep Fundamentals, IRS Ethics, Advanced Returns, Business Returns, Software Mastery, Refund Advances, Client Service
+                Includes: Tax Prep Fundamentals, IRS Ethics, Advanced Returns,
+                Business Returns, Software Mastery, Refund Advances, Client
+                Service
               </div>
             </div>
 
@@ -452,7 +496,9 @@ export default function TrainingPage() {
                 Perfect for beginners - Get started preparing taxes
               </p>
               <div className="text-3xl font-bold mb-2">$299</div>
-              <div className="text-sm opacity-75 line-through">Regular: $497</div>
+              <div className="text-sm opacity-75 line-through">
+                Regular: $497
+              </div>
               <div className="text-sm font-semibold">Save $198</div>
               <div className="mt-4 text-xs opacity-75">
                 Includes: Tax Prep Fundamentals, IRS Ethics, Software Mastery
@@ -465,10 +511,13 @@ export default function TrainingPage() {
                 For experienced preparers wanting to level up
               </p>
               <div className="text-3xl font-bold mb-2">$499</div>
-              <div className="text-sm opacity-75 line-through">Regular: $697</div>
+              <div className="text-sm opacity-75 line-through">
+                Regular: $697
+              </div>
               <div className="text-sm font-semibold">Save $198</div>
               <div className="mt-4 text-xs opacity-75">
-                Includes: Advanced Returns, Business Returns, Refund Advances, Client Service
+                Includes: Advanced Returns, Business Returns, Refund Advances,
+                Client Service
               </div>
             </div>
           </div>
@@ -513,21 +562,32 @@ export default function TrainingPage() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-gray-600 text-sm mb-4">{module.description}</p>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {module.description}
+                  </p>
 
                   {module.prerequisite && !prerequisiteMet && (
                     <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 text-sm">
                       <strong>Prerequisite:</strong> Complete{' '}
-                      {TRAINING_MODULES.find(m => m.id === module.prerequisite)?.title} first
+                      {
+                        TRAINING_MODULES.find(
+                          (m) => m.id === module.prerequisite
+                        )?.title
+                      }{' '}
+                      first
                     </div>
                   )}
 
                   <div className="mb-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Award className="w-5 h-5 text-green-600" />
-                      <span className="font-semibold text-sm">Certification:</span>
+                      <span className="font-semibold text-sm">
+                        Certification:
+                      </span>
                     </div>
-                    <p className="text-sm text-gray-600">{module.certification}</p>
+                    <p className="text-sm text-gray-600">
+                      {module.certification}
+                    </p>
                   </div>
 
                   <div className="border-t pt-4 mb-4">
@@ -535,12 +595,18 @@ export default function TrainingPage() {
                       <div>
                         {isEmployee ? (
                           <div>
-                            <span className="text-3xl font-bold text-green-600">FREE</span>
-                            <div className="text-sm text-green-600 font-semibold">Employee Access</div>
+                            <span className="text-3xl font-bold text-green-600">
+                              FREE
+                            </span>
+                            <div className="text-sm text-green-600 font-semibold">
+                              Employee Access
+                            </div>
                           </div>
                         ) : (
                           <>
-                            <span className="text-3xl font-bold text-green-600">${module.price}</span>
+                            <span className="text-3xl font-bold text-green-600">
+                              ${module.price}
+                            </span>
                             <div className="text-sm text-gray-500">
                               FREE for employees
                             </div>
@@ -566,11 +632,17 @@ export default function TrainingPage() {
                     </button>
                   ) : (
                     <button
-                      onClick={() => prerequisiteMet && handleEnroll(module.id, isEmployee)}
+                      onClick={() =>
+                        prerequisiteMet && handleEnroll(module.id, isEmployee)
+                      }
                       disabled={!prerequisiteMet}
                       className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
                     >
-                      {prerequisiteMet ? (isEmployee ? 'Start Course (FREE)' : `Enroll for $${module.price}`) : 'Locked'}
+                      {prerequisiteMet
+                        ? isEmployee
+                          ? 'Start Course (FREE)'
+                          : `Enroll for $${module.price}`
+                        : 'Locked'}
                     </button>
                   )}
 
@@ -592,12 +664,15 @@ export default function TrainingPage() {
             <div className="bg-white rounded-xl max-w-md w-full p-8">
               <h2 className="text-2xl font-bold mb-4">Employee Access Key</h2>
               <p className="text-gray-600 mb-6">
-                Enter the access key from your welcome email to get FREE access to all training courses.
+                Enter the access key from your welcome email to get FREE access
+                to all training courses.
               </p>
 
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="block font-semibold mb-2">Email Address *</label>
+                  <label className="block font-semibold mb-2">
+                    Email Address *
+                  </label>
                   <input
                     type="email"
                     value={employeeEmail}
@@ -608,7 +683,9 @@ export default function TrainingPage() {
                 </div>
 
                 <div>
-                  <label className="block font-semibold mb-2">Access Key *</label>
+                  <label className="block font-semibold mb-2">
+                    Access Key *
+                  </label>
                   <input
                     type="text"
                     value={accessKey}
@@ -626,8 +703,9 @@ export default function TrainingPage() {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-sm">
                 <strong>Don't have an access key?</strong>
                 <p className="mt-1">
-                  Access keys are sent to new employees after they pass the competency test.
-                  If you haven't received yours, contact HR at Supersonicfadtcashllc@gmail.com
+                  Access keys are sent to new employees after they pass the
+                  competency test. If you haven't received yours, contact HR at
+                  Supersonicfadtcashllc@gmail.com
                 </p>
               </div>
 
@@ -659,20 +737,28 @@ export default function TrainingPage() {
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-6 z-50">
             <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-gradient-to-r from-green-600 to-blue-600 p-8 text-white">
-                <h2 className="text-3xl font-bold mb-2">{selectedModuleData.title}</h2>
-                <p className="text-lg opacity-90">{selectedModuleData.description}</p>
+                <h2 className="text-3xl font-bold mb-2">
+                  {selectedModuleData.title}
+                </h2>
+                <p className="text-lg opacity-90">
+                  {selectedModuleData.description}
+                </p>
               </div>
 
               <div className="p-8">
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
                     <Clock className="w-8 h-8 mx-auto mb-2 text-green-600" />
-                    <div className="font-bold">{selectedModuleData.duration}</div>
+                    <div className="font-bold">
+                      {selectedModuleData.duration}
+                    </div>
                     <div className="text-sm text-gray-600">Duration</div>
                   </div>
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
                     <BookOpen className="w-8 h-8 mx-auto mb-2 text-blue-600" />
-                    <div className="font-bold">{selectedModuleData.lessons} Lessons</div>
+                    <div className="font-bold">
+                      {selectedModuleData.lessons} Lessons
+                    </div>
                     <div className="text-sm text-gray-600">Content</div>
                   </div>
                   <div className="text-center p-4 bg-gray-50 rounded-lg">
@@ -727,23 +813,27 @@ export default function TrainingPage() {
         {/* Additional Info */}
         <div className="bg-white rounded-xl shadow-lg p-8">
           <h2 className="text-2xl font-bold mb-6">Training Information</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="font-bold text-lg mb-3">What's Included:</h3>
               <ul className="space-y-2 text-sm">
-                <li>✓ Live instruction from certified Drake trainers</li>
+                <li>
+                  ✓ Live instruction from Elevate-certified tax professionals
+                </li>
                 <li>✓ Digital course materials and workbook</li>
-                <li>✓ Practice tax returns and scenarios</li>
-                <li>✓ Drake software access (training version)</li>
-                <li>✓ Certificate of completion</li>
+                <li>✓ Practice tax returns and real-world scenarios</li>
+                <li>✓ Professional tax software access (training version)</li>
+                <li>✓ Elevate for Humanity certificate of completion</li>
                 <li>✓ 30 days post-training email support</li>
                 <li>✓ Access to recorded sessions</li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-bold text-lg mb-3">Certification Requirements:</h3>
+              <h3 className="font-bold text-lg mb-3">
+                Certification Requirements:
+              </h3>
               <ul className="space-y-2 text-sm">
                 <li>1. Complete all required lessons</li>
                 <li>2. Pass final exam (80% or higher)</li>

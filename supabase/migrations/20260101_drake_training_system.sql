@@ -165,11 +165,11 @@ CREATE TRIGGER update_training_progress_updated_at
   EXECUTE FUNCTION update_updated_at_column();
 
 INSERT INTO training_courses (course_id, title, description, duration, lessons_count, price, stripe_price_id, certification_name) VALUES
-  ('tax-basics', 'Tax Preparation Fundamentals', 'Complete beginner course covering everything you need to start preparing tax returns. No prior experience required!', '12 hours', 24, 199, 'price_tax_prep_fundamentals', 'SupersonicFastCash Tax Preparation Certificate'),
-  ('irs-regulations', 'IRS Ethics & Professional Standards', 'Learn IRS regulations, preparer responsibilities, and ethical standards required for all tax preparers.', '6 hours', 12, 149, 'price_irs_ethics', 'SupersonicFastCash Ethics Certificate'),
-  ('advanced-returns', 'Advanced Tax Returns', 'Master complex tax situations including rental property, investments, and multi-state returns.', '16 hours', 20, 199, 'price_advanced_returns', 'SupersonicFastCash Advanced Tax Certificate'),
-  ('business-returns', 'Small Business Tax Returns', 'Learn to prepare business returns for sole proprietors, partnerships, S-corps, and C-corps.', '20 hours', 25, 299, 'price_business_returns', 'SupersonicFastCash Business Tax Certificate'),
-  ('drake-mastery', 'Drake Software Mastery', 'Complete training on Drake Tax Software - the industry-leading professional tax preparation software.', '18 hours', 22, 249, 'price_drake_mastery', 'SupersonicFastCash Drake Software Certificate')
+  ('tax-basics', 'Tax Preparation Fundamentals', 'Complete beginner course covering everything you need to start preparing tax returns. No prior experience required! Learn the Elevate method for accurate, efficient tax preparation.', '12 hours', 24, 199, 'price_tax_prep_fundamentals', 'Elevate for Humanity Tax Preparation Certificate'),
+  ('irs-regulations', 'IRS Ethics & Professional Standards', 'Learn IRS regulations, preparer responsibilities, and ethical standards. Elevate-certified training ensures you meet all compliance requirements.', '6 hours', 12, 149, 'price_irs_ethics', 'Elevate for Humanity Ethics Certificate'),
+  ('advanced-returns', 'Advanced Tax Strategies', 'Master complex tax situations including rental property, investments, and multi-state returns using Elevate-proven techniques.', '16 hours', 20, 199, 'price_advanced_returns', 'Elevate for Humanity Advanced Tax Certificate'),
+  ('business-returns', 'Business Tax Mastery', 'Learn to prepare business returns for sole proprietors, partnerships, S-corps, and C-corps with Elevate best practices.', '20 hours', 25, 299, 'price_business_returns', 'Elevate for Humanity Business Tax Certificate'),
+  ('software-mastery', 'Professional Tax Software Excellence', 'Master professional tax preparation software with Elevate-exclusive training methods and real-world scenarios.', '18 hours', 22, 249, 'price_software_mastery', 'Elevate for Humanity Tax Software Certificate')
 ON CONFLICT (course_id) DO NOTHING;
 
 UPDATE training_courses SET prerequisite_course_id = 'tax-basics' WHERE course_id = 'advanced-returns';

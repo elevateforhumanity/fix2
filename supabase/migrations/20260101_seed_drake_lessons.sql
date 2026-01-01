@@ -77,5 +77,5 @@ INSERT INTO training_lessons (course_id, lesson_number, title, content, duration
 
 ('irs-regulations', 12, 'Professional Conduct and Best Practices', '<h2>Learning Objectives</h2><ul><li>Apply professional standards</li><li>Maintain ethical conduct</li><li>Build client trust</li></ul>', 30, ARRAY['professional conduct', 'best practices'], '[]'::jsonb);
 
--- Note: Additional courses (advanced-returns, business-returns, drake-mastery) can be seeded similarly
+-- Note: Additional courses (advanced-returns, business-returns, software-mastery) can be seeded similarly
 -- For now, this provides the foundation for the two core courses
