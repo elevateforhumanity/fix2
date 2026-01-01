@@ -46,22 +46,6 @@ export default function BarberApprenticeshipPage() {
         </div>
       </section>
 
-      {/* Official Badge */}
-      <div className="bg-green-50 border-b border-green-200 py-2">
-        <div className="max-w-7xl mx-auto px-6 text-center text-sm text-slate-900">
-          <strong>U.S. Department of Labor Registered Apprenticeship</strong>{' '}
-          (Federal) | Training Partner: Choice Medical |{' '}
-          <a
-            href="https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 underline hover:text-blue-800"
-          >
-            Program #10002417
-          </a>
-        </div>
-      </div>
-
       {/* Hero Content */}
       <section className="bg-gray-50">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
