@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import OpenAI from 'openai';
+import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
 
 /**
  * AI Blog Post Generator
  * Generates blog posts from site content (programs, success stories, etc.)
  */
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || 'dummy-key-for-build',
-});
 
 export async function POST(request: NextRequest) {
   try {
@@ -53,13 +49,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Check if real API key is configured
-    if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'dummy-key-for-build') {
+    // Check if OpenAI is configured
+    if (!isOpenAIConfigured()) {
       return NextResponse.json(
-        { error: 'OpenAI API key not configured in Vercel environment variables' },
+        { error: 'OpenAI API key not configured in environment variables' },
         { status: 500 }
       );
     }
+
+    // Get OpenAI client
+    const openai = getOpenAIClient();
 
     // Generate blog post using OpenAI
     const completion = await openai.chat.completions.create({

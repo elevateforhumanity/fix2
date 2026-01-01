@@ -2,14 +2,16 @@ import OpenAI from 'openai';
 
 let client: OpenAI | null = null;
 
-export function getOpenAIClient(): OpenAI | null {
-  if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'sk-Content-key') {
-    return null;
+export function getOpenAIClient(): OpenAI {
+  const apiKey = process.env.OPENAI_API_KEY;
+  
+  if (!apiKey || apiKey === 'sk-Content-key' || apiKey === 'dummy-key-for-build') {
+    throw new Error('OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.');
   }
   
   if (!client) {
     client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: apiKey,
     });
   }
   
@@ -17,5 +19,15 @@ export function getOpenAIClient(): OpenAI | null {
 }
 
 export function isOpenAIConfigured(): boolean {
-  return !!(process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'sk-Content-key');
+  const apiKey = process.env.OPENAI_API_KEY;
+  return !!(apiKey && apiKey !== 'sk-Content-key' && apiKey !== 'dummy-key-for-build');
+}
+
+// Safe client that won't throw during build
+export function getSafeOpenAIClient(): OpenAI | null {
+  try {
+    return isOpenAIConfigured() ? getOpenAIClient() : null;
+  } catch {
+    return null;
+  }
 }
