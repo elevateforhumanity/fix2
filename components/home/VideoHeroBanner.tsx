@@ -109,23 +109,11 @@ export default function VideoHeroBanner({
     >
       {/* Video Container - Mobile First */}
       <div className="relative w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
-        {/* Fallback Content - Always Visible */}
-        <div className="absolute inset-0 flex items-center justify-center text-white p-6 text-center">
-          <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Elevate for Humanity
-            </h1>
-            <p className="text-lg md:text-xl lg:text-2xl">
-              Free, Funded Workforce Training
-            </p>
-          </div>
-        </div>
-
-        {/* Video Overlay - Shows when loaded */}
+        {/* Video Background - Shows when loaded */}
         {isLoaded && (
           <video
             ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover z-0"
             loop
             muted={isMuted}
             playsInline
@@ -136,9 +124,21 @@ export default function VideoHeroBanner({
           </video>
         )}
 
+        {/* Text Content - Always Visible on Top */}
+        <div className="absolute inset-0 flex items-center justify-center text-white p-6 text-center z-10">
+          <div className="max-w-4xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
+              Elevate for Humanity
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl drop-shadow-lg">
+              Free, Funded Workforce Training
+            </p>
+          </div>
+        </div>
+
         {/* Loading indicator */}
         {!isLoaded && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
             <div className="w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin" />
           </div>
         )}
