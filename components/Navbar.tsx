@@ -46,11 +46,14 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           <Link
             href="/"
-            className={`text-xl sm:text-2xl font-bold transition-colors ${
-              scrolled ? 'text-slate-900' : 'text-white'
-            }`}
+            className="flex items-center cursor-pointer"
+            aria-label="Go to homepage"
           >
-            Elevate
+            <img
+              src="/logo.png"
+              alt="Elevate for Humanity"
+              className="h-10 sm:h-12 w-auto transition-opacity hover:opacity-80"
+            />
           </Link>
 
           {/* Desktop Navigation */}

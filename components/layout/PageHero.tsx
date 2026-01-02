@@ -33,7 +33,7 @@ export default function PageHero({
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
@@ -43,13 +43,13 @@ export default function PageHero({
           alt={title}
           fill
           priority
-          className="object-cover opacity-40"
+          className="object-cover opacity-40 pointer-events-none"
           sizes="100vw"
         />
       )}
 
       {/* Content */}
-      <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+      <div className="absolute inset-0 flex items-center justify-center text-center px-4 pointer-events-none">
         <div className="max-w-4xl w-full">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white uppercase tracking-wide">
             {title}

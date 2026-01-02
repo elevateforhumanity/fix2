@@ -48,13 +48,22 @@
   main *,
   section *,
   article *,
-  header *,
-  footer * {
+  header * {
     color: #000000 !important;
   }
 
-  /* Override ALL Tailwind text color utilities */
-  [class*='text-'] {
+  /* Footer needs light text on dark background */
+  footer,
+  footer * {
+    color: #d1d5db !important; /* gray-300 */
+  }
+
+  footer a:hover {
+    color: #ffffff !important;
+  }
+
+  /* Override ALL Tailwind text color utilities (except footer) */
+  [class*='text-']:not(footer *):not(footer) {
     color: #000000 !important;
   }
 
@@ -1385,4 +1394,35 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Emergency guard: prevent header logo from taking over mobile viewport */
+header img,
+header svg {
+  max-height: 48px !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
+}
+
+/* EMERGENCY: ensure header stays clickable above any overlay */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
+/* EMERGENCY: prevent big decorative images from blocking taps */
+main img:not(header img),
+main svg:not(header svg) {
+  pointer-events: none !important;
+}
+
+/* Ensure header buttons/links are always clickable */
+header button,
+header a,
+header nav {
+  pointer-events: auto !important;
+  z-index: 10000 !important;
+  position: relative !important;
 }

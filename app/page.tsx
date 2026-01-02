@@ -53,28 +53,29 @@ export default function HomePage() {
       />
 
       {/* WHO THIS IS FOR */}
-      <section className="w-full py-12 md:py-20 bg-white">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-black mb-4 break-words">
+      <section className="w-full py-20 bg-white">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
               Built for the entire workforce ecosystem. Choose your path.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Students */}
             <Link href="/apply" className="group">
-              <div className="bg-white border-2 border-gray-200 hover:border-brand-blue-600 rounded-2xl p-6 md:p-8 transition-all hover:shadow-xl">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-brand-blue-600 rounded-xl flex items-center justify-center mb-4 md:mb-6">
-                  <GraduationCap className="w-7 h-7 md:w-8 md:h-8 text-white" />
+              <div className="bg-white border-2 border-gray-200 hover:border-brand-blue-600 rounded-2xl p-8 transition-all hover:shadow-xl">
+                <div className="w-16 h-16 bg-brand-blue-600 rounded-xl flex items-center justify-center mb-6">
+                  <GraduationCap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-2 md:mb-3">Students</h3>
-                <p className="text-sm md:text-base text-gray-700 mb-4">
-                  Access free or funded training programs that lead to real credentials and jobs.
+                <h3 className="text-2xl font-bold text-black mb-3">Students</h3>
+                <p className="text-gray-700 mb-4">
+                  Access free or funded training programs that lead to real
+                  credentials and jobs.
                 </p>
-                <div className="flex items-center gap-2 text-brand-blue-600 font-bold text-sm md:text-base">
+                <div className="flex items-center gap-2 text-brand-blue-600 font-bold">
                   <span>Apply for Free Training</span>
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </div>
               </div>
             </Link>

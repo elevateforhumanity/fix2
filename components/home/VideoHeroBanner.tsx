@@ -65,7 +65,7 @@ export default function VideoHeroBanner({
       {/* Video Background */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         loop
         muted={isMuted}
         playsInline
@@ -77,7 +77,7 @@ export default function VideoHeroBanner({
       </video>
 
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent pointer-events-none" />
 
       {/* Content Overlay */}
       <div className="relative z-10 h-full flex items-center pt-16 md:pt-0">

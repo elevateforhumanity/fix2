@@ -86,8 +86,10 @@ export default function SiteHeader() {
       if (typeof document !== 'undefined') {
         if (mobileMenuOpen) {
           document.body.style.overflow = 'hidden';
+          document.body.classList.add('mobile-menu-open');
         } else {
           document.body.style.overflow = '';
+          document.body.classList.remove('mobile-menu-open');
         }
       }
     } catch (error: unknown) {}
@@ -97,6 +99,7 @@ export default function SiteHeader() {
       try {
         if (typeof document !== 'undefined') {
           document.body.style.overflow = '';
+          document.body.classList.remove('mobile-menu-open');
         }
       } catch (error: unknown) {
         // Ignore cleanup errors
@@ -111,13 +114,16 @@ export default function SiteHeader() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 flex-shrink-0 group"
+            className="flex items-center gap-3 shrink-0 group cursor-pointer"
+            aria-label="Go to homepage"
           >
-            <img
-              src="/logo.png"
-              alt="Elevate for Humanity"
-              className="h-12 w-auto"
-            />
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 shrink-0 overflow-hidden">
+              <img
+                src="/logo.png"
+                alt="Elevate for Humanity"
+                className="h-full w-full object-contain transition-opacity hover:opacity-80"
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -280,7 +286,7 @@ export default function SiteHeader() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition touch-manipulation"
+            className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition touch-manipulation relative z-[10001]"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
@@ -293,15 +299,15 @@ export default function SiteHeader() {
         {mobileMenuOpen && (
           <>
             <div
-              className="lg:hidden fixed inset-0 bg-black/50 z-40"
+              className="lg:hidden fixed inset-0 bg-black/50 z-[9998]"
               style={{ top: 'var(--header-h)' }}
               onClick={() => setMobileMenuOpen(false)}
               aria-hidden="true"
             />
             <div
               id="mobile-menu"
-              className="lg:hidden fixed left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto pb-safe shadow-2xl"
-              style={{ top: 'var(--header-h)' }}
+              className="lg:hidden fixed left-0 right-0 bottom-0 bg-white z-[10000] overflow-y-auto pb-safe shadow-2xl"
+              style={{ top: 'var(--header-h)', maxHeight: 'calc(100vh - var(--header-h))' }}
             >
               <nav
                 className="px-4 py-6 space-y-2 min-h-full"

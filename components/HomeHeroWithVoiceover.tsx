@@ -41,7 +41,7 @@ export function HomeHeroWithVoiceover({
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
@@ -49,7 +49,7 @@ export function HomeHeroWithVoiceover({
       {/* Voiceover Audio */}
       <audio ref={audioRef} src={audioSrc} preload="auto" />
 
-      <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+      <div className="absolute inset-0 flex items-center justify-center text-center px-4 pointer-events-none">
         <div className="max-w-4xl w-full">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white uppercase tracking-wide">
             LIMITLESS OPPORTUNITIES

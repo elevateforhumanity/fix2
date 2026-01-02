@@ -17,7 +17,7 @@ export type NavSection = {
 
 /**
  * PUBLIC NAVIGATION - Visible to all users
- * Streamlined navigation matching new home page structure
+ * Simple navigation - each item goes to its own landing page
  */
 export const publicNav: NavSection[] = [
   {
@@ -25,12 +25,32 @@ export const publicNav: NavSection[] = [
     href: '/programs',
   },
   {
-    label: 'Employers',
-    href: '/employers',
+    label: 'Apprenticeships',
+    href: '/apprenticeships',
   },
   {
-    label: 'Licensing',
-    href: '/licensing',
+    label: 'Services',
+    href: '/services',
+  },
+  {
+    label: 'Dashboard',
+    href: '/dashboard',
+  },
+  {
+    label: 'LMS',
+    href: '/lms',
+  },
+  {
+    label: 'Resources',
+    href: '/store',
+  },
+  {
+    label: 'Employers',
+    href: '/employer',
+  },
+  {
+    label: 'RISE Foundation',
+    href: '/rise-foundation',
   },
   {
     label: 'About',
