@@ -49,6 +49,8 @@ export default function ProgramsBioSitePage() {
       description: 'Browse our complete catalog of training programs',
       href: '/programs-catalog',
       icon: BookOpen,
+      image: null,
+      image: '/images/programs-catalog-hero.jpg',
       color: 'orange',
     },
     {
@@ -56,6 +58,8 @@ export default function ProgramsBioSitePage() {
       description: 'Take our quiz to find your perfect program match',
       href: '/program-finder',
       icon: Search,
+      image: null,
+      image: null,
       color: 'blue',
     },
     {
@@ -63,6 +67,8 @@ export default function ProgramsBioSitePage() {
       description: 'Side-by-side comparison of programs',
       href: '/compare-programs',
       icon: GitCompare,
+      image: null,
+      image: '/images/compare-programs-hero.jpg',
       color: 'green',
     },
     {
@@ -70,6 +76,8 @@ export default function ProgramsBioSitePage() {
       description: 'Earn while you learn with paid apprenticeships',
       href: '/apprenticeships',
       icon: Briefcase,
+      image: null,
+      image: null,
       color: 'purple',
     },
     {
@@ -77,6 +85,8 @@ export default function ProgramsBioSitePage() {
       description: 'Take single courses to build specific skills',
       href: '/courses',
       icon: BookOpen,
+      image: null,
+      image: null,
       color: 'pink',
     },
     {
@@ -84,6 +94,8 @@ export default function ProgramsBioSitePage() {
       description: 'Short 1-4 hour classes for quick skills',
       href: '/micro-classes',
       icon: Zap,
+      image: null,
+      image: '/images/micro-classes-hero.jpg',
       color: 'yellow',
     },
     {
@@ -91,6 +103,7 @@ export default function ProgramsBioSitePage() {
       description: 'Clear paths from training to employment',
       href: '/pathways',
       icon: TrendingUp,
+      image: null,
       color: 'indigo',
     },
     {
@@ -98,6 +111,7 @@ export default function ProgramsBioSitePage() {
       description: 'Explore programs by industry sector',
       href: '/industries',
       icon: Building2,
+      image: null,
       color: 'cyan',
     },
     {
@@ -105,6 +119,7 @@ export default function ProgramsBioSitePage() {
       description: "Industry-recognized certifications you'll earn",
       href: '/credentials',
       icon: Award,
+      image: null,
       color: 'red',
     },
     {
@@ -112,6 +127,8 @@ export default function ProgramsBioSitePage() {
       description: 'Completion certificates and digital badges',
       href: '/certificates',
       icon: FileCheck,
+      image: null,
+      image: '/images/certificates-hero.jpg',
       color: 'teal',
     },
     {
@@ -119,6 +136,7 @@ export default function ProgramsBioSitePage() {
       description: 'Our accreditations and quality standards',
       href: '/accreditation',
       icon: CheckCircle,
+      image: null,
       color: 'emerald',
     },
     {
@@ -126,6 +144,7 @@ export default function ProgramsBioSitePage() {
       description: 'LMS, mobile app, AI tutoring, and more',
       href: '/features',
       icon: Zap,
+      image: null,
       color: 'violet',
     },
     {
@@ -133,6 +152,7 @@ export default function ProgramsBioSitePage() {
       description: 'Find training locations near you',
       href: '/locations',
       icon: MapPin,
+      image: null,
       color: 'rose',
     },
     {
@@ -140,6 +160,7 @@ export default function ProgramsBioSitePage() {
       description: 'View upcoming class start dates',
       href: '/schedule',
       icon: Calendar,
+      image: null,
       color: 'amber',
     },
     {
@@ -147,6 +168,7 @@ export default function ProgramsBioSitePage() {
       description: 'Book a virtual team meeting',
       href: '/calendar',
       icon: CalendarDays,
+      image: null,
       color: 'lime',
     },
   ];
@@ -177,7 +199,8 @@ export default function ProgramsBioSitePage() {
 
             {/* Body */}
             <p className="text-base md:text-lg text-white/80 mb-6">
-              Browse our complete catalog of training programs in healthcare, skilled trades, and business
+              Browse our complete catalog of training programs in healthcare,
+              skilled trades, and business
             </p>
 
             {/* Buttons */}
@@ -270,11 +293,22 @@ export default function ProgramsBioSitePage() {
                 className="group block bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:scale-105 transform"
               >
                 <div className="flex items-center gap-4">
-                  <div
-                    className={`w-12 h-12 bg-${link.color}-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}
-                  >
-                    <Icon className={`w-6 h-6 text-${link.color}-600`} />
-                  </div>
+                  {link.image ? (
+                    <div className="w-16 h-16 relative rounded-xl overflow-hidden flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Image
+                        src={link.image}
+                        alt={link.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className={`w-12 h-12 bg-${link.color}-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon className={`w-6 h-6 text-${link.color}-600`} />
+                    </div>
+                  )}
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-brand-orange-600 transition-colors">
                       {link.title}
