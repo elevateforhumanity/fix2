@@ -12,21 +12,43 @@ export const metadata: Metadata = {
 export default function RiseFoundationPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - Exact replica */}
+      {/* Navigation */}
+      <nav className="bg-purple-600 text-white py-4 px-4 sticky top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+            <Link href="/rise-foundation" className="font-bold hover:text-purple-200 transition-colors">
+              Home
+            </Link>
+            <Link href="/rise-foundation/programs" className="hover:text-purple-200 transition-colors">
+              Programs
+            </Link>
+            <Link href="/rise-foundation/trauma-recovery" className="hover:text-purple-200 transition-colors">
+              Trauma Recovery
+            </Link>
+            <Link href="/rise-foundation/addiction-rehabilitation" className="hover:text-purple-200 transition-colors">
+              Addiction
+            </Link>
+            <Link href="/rise-foundation/divorce-support" className="hover:text-purple-200 transition-colors">
+              Divorce Support
+            </Link>
+            <Link href="/rise-foundation/get-involved" className="hover:text-purple-200 transition-colors">
+              Get Involved
+            </Link>
+            <Link 
+              href="https://donate.stripe.com/5kA5kn7EsfrD08w4gg"
+              target="_blank"
+              className="bg-white text-purple-600 px-6 py-2 rounded-lg font-bold hover:bg-purple-50 transition-colors"
+            >
+              Donate
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
       <section className="relative py-20 px-4 text-center">
         <div className="max-w-6xl mx-auto">
-          {/* Logo */}
-          <div className="mb-8">
-            <Image
-              src="/logo.png"
-              alt="Selfish Inc"
-              width={200}
-              height={80}
-              className="mx-auto"
-            />
-          </div>
-
-          {/* Animated Headline - Exact from Wix */}
+          {/* Headline */}
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
             "Welcome to Selfish Inc. Your Partner in Mental Wellness and
             Holistic Healing"
@@ -88,22 +110,11 @@ export default function RiseFoundationPage() {
         </div>
       </section>
 
-      {/* Video Section - Placeholder */}
+      {/* Video Section - Will be added */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <div className="relative h-[400px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <svg
-                  className="w-10 h-10 text-purple-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <p className="text-gray-600">Video: 00:00 / 01:26</p>
-            </div>
+          <div className="text-center text-gray-500">
+            <p>Video section - to be added</p>
           </div>
         </div>
       </section>
