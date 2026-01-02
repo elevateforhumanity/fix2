@@ -18,27 +18,36 @@ export default function VideoHeroBanner({
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(!withAudio);
   const [showControls, setShowControls] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    // Auto-play video when component mounts
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Auto-play failed, user interaction required
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Set loaded state when video can play
+    const handleCanPlay = () => {
+      setIsLoaded(true);
+      video.play().catch(() => {
         setIsPlaying(false);
       });
-    }
+    };
+
+    video.addEventListener('canplay', handleCanPlay);
 
     // Auto-play voiceover if provided (unmuted)
     if (audioRef.current && voiceoverSrc) {
       audioRef.current.muted = false;
       audioRef.current.volume = 1.0;
       audioRef.current.play().catch(() => {
-        // Auto-play failed, will try again on user interaction
         console.log('Voiceover autoplay blocked, waiting for user interaction');
       });
     }
+
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay);
+    };
   }, [voiceoverSrc]);
 
   // Ensure audio plays on any user interaction
@@ -94,15 +103,23 @@ export default function VideoHeroBanner({
         <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
           {/* Video */}
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-            {' '}
+            {/* Loading indicator */}
+            {!isLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
+              </div>
+            )}
+            
             {/* 16:9 aspect ratio */}
             <video
               ref={videoRef}
-              className="absolute inset-0 w-full h-full object-cover"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                isLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
               loop
               muted={isMuted}
               playsInline
-              poster="/images/homepage/og-image.png"
+              preload="auto"
             >
               <source src={videoSrc} type="video/mp4" />
               Your browser does not support the video tag.
