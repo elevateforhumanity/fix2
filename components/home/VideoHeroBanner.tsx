@@ -102,6 +102,7 @@ export default function VideoHeroBanner({
               loop
               muted={isMuted}
               playsInline
+              poster="/images/homepage/og-image.png"
             >
               <source src={videoSrc} type="video/mp4" />
               Your browser does not support the video tag.

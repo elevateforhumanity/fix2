@@ -2,6 +2,24 @@ import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
 export default async function proxy(request: NextRequest) {
+  // Handle domain redirects first
+  const hostname = request.headers.get('host') || '';
+
+  // Redirect Vercel preview domains to production
+  if (hostname.includes('.vercel.app')) {
+    const url = new URL(request.url);
+    url.hostname = 'www.elevateforhumanity.org';
+    url.protocol = 'https:';
+    return NextResponse.redirect(url, { status: 308 });
+  }
+
+  // Redirect apex domain to www
+  if (hostname === 'elevateforhumanity.org') {
+    const url = new URL(request.url);
+    url.hostname = 'www.elevateforhumanity.org';
+    return NextResponse.redirect(url, { status: 308 });
+  }
+
   let response = NextResponse.next({
     request: {
       headers: request.headers,

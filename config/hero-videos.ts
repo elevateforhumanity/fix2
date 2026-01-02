@@ -45,7 +45,7 @@ export const heroVideos = {
 };
 
 // Current homepage hero video
-export const currentHomeHero = heroVideos.home;
+export const currentHomeHero = heroVideos.elevateOverview;
 
 // Enable audio narration (set to true to unmute by default)
 export const enableAudioNarration = false;
