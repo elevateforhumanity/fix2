@@ -155,7 +155,7 @@ export default function ProgramsBioSitePage() {
       description: 'View upcoming class start dates',
       href: '/schedule',
       icon: Calendar,
-      image: null,
+      image: '/images/schedule-card.jpg',
       color: 'amber',
     },
     {
