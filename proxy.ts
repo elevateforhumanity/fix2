@@ -63,6 +63,7 @@ export default async function proxy(request: NextRequest) {
     '/pathways',
     '/credentials',
     '/certificates',
+    '/services',
     '/blog',
     '/login',
     '/signup',
@@ -77,19 +78,18 @@ export default async function proxy(request: NextRequest) {
 
   // Public route patterns
   const publicPatterns = [
-    /^\/programs\/[^/]+$/,  // Individual program pages
-    /^\/rise-foundation\/.+$/,  // All rise-foundation subpages
-    /^\/nonprofit\/.+$/,  // All nonprofit subpages
-    /^\/api\/(?!admin|protected).+$/,  // Public API routes
+    /^\/programs\/[^/]+$/, // Individual program pages
+    /^\/rise-foundation\/.+$/, // All rise-foundation subpages
+    /^\/nonprofit\/.+$/, // All nonprofit subpages
+    /^\/api\/(?!admin|protected).+$/, // Public API routes
   ];
 
   const pathname = request.nextUrl.pathname;
 
-  const isPublicRoute = publicRoutes.some(
-    (route) =>
-      pathname === route ||
-      pathname.startsWith(`${route}/`)
-  ) || publicPatterns.some(pattern => pattern.test(pathname));
+  const isPublicRoute =
+    publicRoutes.some(
+      (route) => pathname === route || pathname.startsWith(`${route}/`)
+    ) || publicPatterns.some((pattern) => pattern.test(pathname));
 
   // Allow public files
   if (
