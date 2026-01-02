@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-
 import Link from 'next/link';
 import Image from 'next/image';
+import UniversalNav from '@/components/UniversalNav';
 
 export const metadata: Metadata = {
   alternates: {
@@ -12,9 +12,29 @@ export const metadata: Metadata = {
     'Explore About and discover opportunities for career growth and development.',
 };
 
+const navLinks = [
+  { label: 'Home', href: '/rise-foundation' },
+  { label: 'About', href: '/rise-foundation/about' },
+  { label: 'Programs', href: '/rise-foundation/programs' },
+  { label: 'Trauma Recovery', href: '/rise-foundation/trauma-recovery' },
+  { label: 'Addiction', href: '/rise-foundation/addiction-rehabilitation' },
+  { label: 'Divorce Support', href: '/rise-foundation/divorce-support' },
+  { label: 'Events', href: '/rise-foundation/events' },
+  { label: 'Get Involved', href: '/rise-foundation/get-involved' },
+];
+
 export default async function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <UniversalNav
+        links={navLinks}
+        ctaText="Donate"
+        ctaHref="https://donate.stripe.com/5kA5kn7EsfrD08w4gg"
+        bgColor="bg-purple-600"
+        textColor="text-white"
+        logo="Selfish Inc."
+        logoHref="/rise-foundation"
+      />
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
