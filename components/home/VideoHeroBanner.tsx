@@ -7,16 +7,19 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 interface VideoHeroBannerProps {
   videoSrc?: string;
   withAudio?: boolean;
+  voiceoverSrc?: string;
 }
 
 export default function VideoHeroBanner({
   videoSrc = '/videos/hero-home.mp4',
   withAudio = false,
+  voiceoverSrc,
 }: VideoHeroBannerProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(!withAudio);
   const [showControls, setShowControls] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     // Auto-play video when component mounts
@@ -26,14 +29,28 @@ export default function VideoHeroBanner({
         setIsPlaying(false);
       });
     }
-  }, []);
+
+    // Auto-play voiceover if provided
+    if (audioRef.current && voiceoverSrc) {
+      audioRef.current.play().catch(() => {
+        // Auto-play failed, will try again on user interaction
+        console.log('Voiceover autoplay blocked, waiting for user interaction');
+      });
+    }
+  }, [voiceoverSrc]);
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
+        if (audioRef.current) {
+          audioRef.current.pause();
+        }
       } else {
         videoRef.current.play();
+        if (audioRef.current) {
+          audioRef.current.play();
+        }
       }
       setIsPlaying(!isPlaying);
     }
@@ -80,6 +97,13 @@ export default function VideoHeroBanner({
               Your browser does not support the video tag.
             </video>
           </div>
+
+          {/* Voiceover Audio (plays independently of video mute) */}
+          {voiceoverSrc && (
+            <audio ref={audioRef} loop>
+              <source src={voiceoverSrc} type="audio/mpeg" />
+            </audio>
+          )}
 
           {/* Video Controls */}
           <div

@@ -46,10 +46,7 @@ export default function HomePage() {
       <VideoHeroBanner
         videoSrc={currentHomeHero}
         withAudio={enableAudioNarration}
-        headline="Free, Funded Workforce Training — Built to Scale"
-        subheadline="Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform."
-        primaryCTA={{ text: 'Apply for Free Training', href: '/apply' }}
-        secondaryCTA={{ text: 'Licensing & Partnerships', href: '/licensing' }}
+        voiceoverSrc="/videos/voiceover.mp3"
       />
 
       {/* WHO THIS IS FOR */}

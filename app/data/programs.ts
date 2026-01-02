@@ -1,5 +1,3 @@
-
-
 /**
  * Centralized Program Data
  * Single source of truth for all program content, descriptions, and CTAs
@@ -15,6 +13,7 @@ export type Program = {
   heroImage: string;
   heroImageAlt: string;
   heroVideo?: string; // Optional video URL for hero section
+  voiceoverSrc?: string; // Optional voiceover audio that plays independently
   duration: string;
   schedule: string;
   delivery: string;
@@ -137,6 +136,8 @@ export const programs: Program[] = [
     heroImage: '/images/programs/barber-hero.jpg',
     heroImageAlt:
       'Barber apprentice working with real clients in professional barbershop',
+    heroVideo: '/videos/barber-hero-final.mp4',
+    voiceoverSrc: '/videos/barber-voiceover.mp3',
     duration: '15-17 months (2,000 hours)',
     schedule: 'Full-time, based on barbershop placement',
     delivery:
@@ -205,9 +206,9 @@ export const programs: Program[] = [
   },
   {
     slug: 'cna-certification',
-    averageSalary: "$35,000/year",
-    salaryRange: "$28,000 - $42,000",
-    jobGrowth: "+8% (Faster than average)",
+    averageSalary: '$35,000/year',
+    salaryRange: '$28,000 - $42,000',
+    jobGrowth: '+8% (Faster than average)',
     name: 'Certified Nursing Assistant (CNA)',
     heroTitle: 'CNA — Certified Nursing Assistant',
     heroSubtitle:
@@ -1140,11 +1141,7 @@ export const programs: Program[] = [
     delivery: 'Hybrid: Online theory + clinical practicum',
     credential:
       'Certified Community Healthcare Worker (CCHW), CPR, Rise Up Certificate',
-    approvals: [
-      'ETPL Program ID: #10004639',
-      'WIOA Eligible',
-      'WRG Eligible',
-    ],
+    approvals: ['ETPL Program ID: #10004639', 'WIOA Eligible', 'WRG Eligible'],
     fundingOptions: [
       'WIOA',
       'Workforce Ready Grant',
