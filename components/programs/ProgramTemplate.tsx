@@ -7,48 +7,58 @@ import VideoHeroBanner from '@/components/home/VideoHeroBanner';
 export function ProgramTemplate({ program }: { program: Program }) {
   return (
     <main className="bg-white">
-      {/* HERO SECTION */}
-      <section className="bg-zinc-900   text-white py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {program.heroTitle}
-            </h1>
-            <p className="text-xl text-white/90 mb-6">{program.heroSubtitle}</p>
+      {/* HERO SECTION - Video or Text */}
+      {program.heroVideo ? (
+        <VideoHeroBanner
+          videoSrc={program.heroVideo}
+          voiceoverSrc={program.voiceoverSrc}
+          withAudio={!!program.voiceoverSrc}
+        />
+      ) : (
+        <section className="bg-zinc-900 text-white py-16">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="max-w-4xl">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                {program.heroTitle}
+              </h1>
+              <p className="text-xl text-white/90 mb-6">
+                {program.heroSubtitle}
+              </p>
 
-            {/* Format chips */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              <span className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium">
-                {program.duration}
-              </span>
-              <span className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium">
-                {program.delivery}
-              </span>
-              <span className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium">
-                {program.price ? `$${program.price}` : '$0 with funding'}
-              </span>
-            </div>
+              {/* Format chips */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium">
+                  {program.duration}
+                </span>
+                <span className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium">
+                  {program.delivery}
+                </span>
+                <span className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium">
+                  {program.price ? `$${program.price}` : '$0 with funding'}
+                </span>
+              </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href={program.ctaPrimary.href}
-                className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg"
-              >
-                {program.ctaPrimary.label}
-              </Link>
-              {program.ctaSecondary && (
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-4">
                 <Link
-                  href={program.ctaSecondary.href}
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
+                  href={program.ctaPrimary.href}
+                  className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg"
                 >
-                  {program.ctaSecondary.label}
+                  {program.ctaPrimary.label}
                 </Link>
-              )}
+                {program.ctaSecondary && (
+                  <Link
+                    href={program.ctaSecondary.href}
+                    className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition"
+                  >
+                    {program.ctaSecondary.label}
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* AT-A-GLANCE CARDS */}
       <section className="max-w-6xl mx-auto px-4 py-12">
@@ -92,33 +102,54 @@ export function ProgramTemplate({ program }: { program: Program }) {
             <h2 className="text-3xl font-bold mb-6 text-gray-900">
               What You'll Learn
             </h2>
-            
+
             {/* Show specializations for programs with multiple tracks */}
             {program.slug === 'drug-alcohol-specimen-collector' && (
               <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Program Specializations:</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">
+                  Program Specializations:
+                </h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                   <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
-                    <h4 className="font-bold text-orange-900 mb-2">DOT Urine Drug Testing</h4>
-                    <p className="text-sm text-gray-700">Department of Transportation certified collection procedures</p>
+                    <h4 className="font-bold text-orange-900 mb-2">
+                      DOT Urine Drug Testing
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Department of Transportation certified collection
+                      procedures
+                    </p>
                   </div>
                   <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
-                    <h4 className="font-bold text-orange-900 mb-2">DOT Breath Alcohol Testing</h4>
-                    <p className="text-sm text-gray-700">Breath Alcohol Technician (BAT) certification</p>
+                    <h4 className="font-bold text-orange-900 mb-2">
+                      DOT Breath Alcohol Testing
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Breath Alcohol Technician (BAT) certification
+                    </p>
                   </div>
                   <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
-                    <h4 className="font-bold text-orange-900 mb-2">Non-DOT Testing</h4>
-                    <p className="text-sm text-gray-700">Workplace and employer-mandated testing programs</p>
+                    <h4 className="font-bold text-orange-900 mb-2">
+                      Non-DOT Testing
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Workplace and employer-mandated testing programs
+                    </p>
                   </div>
                   <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-4">
-                    <h4 className="font-bold text-orange-900 mb-2">Oral Fluid Testing</h4>
-                    <p className="text-sm text-gray-700">Saliva-based drug testing procedures</p>
+                    <h4 className="font-bold text-orange-900 mb-2">
+                      Oral Fluid Testing
+                    </h4>
+                    <p className="text-sm text-gray-700">
+                      Saliva-based drug testing procedures
+                    </p>
                   </div>
                 </div>
               </div>
             )}
-            
-            <h3 className="text-xl font-bold mb-4 text-gray-900">Training Curriculum:</h3>
+
+            <h3 className="text-xl font-bold mb-4 text-gray-900">
+              Training Curriculum:
+            </h3>
             <div className="space-y-4">
               {program.whatYouLearn.map((item, i) => (
                 <div
