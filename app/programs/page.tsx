@@ -81,7 +81,7 @@ export default function ProgramsBioSitePage() {
       description: 'Take single courses to build specific skills',
       href: '/courses',
       icon: BookOpen,
-      image: null,
+      image: '/images/homepage/funded-programs.png',
       color: 'pink',
     },
     {
@@ -89,7 +89,6 @@ export default function ProgramsBioSitePage() {
       description: 'Short 1-4 hour classes for quick skills',
       href: '/micro-classes',
       icon: Zap,
-      image: null,
       image: '/images/micro-classes-hero.jpg',
       color: 'yellow',
     },
@@ -114,7 +113,7 @@ export default function ProgramsBioSitePage() {
       description: "Industry-recognized certifications you'll earn",
       href: '/credentials',
       icon: Award,
-      image: null,
+      image: '/images/certificates-hero.jpg',
       color: 'red',
     },
     {
@@ -122,7 +121,6 @@ export default function ProgramsBioSitePage() {
       description: 'Completion certificates and digital badges',
       href: '/certificates',
       icon: FileCheck,
-      image: null,
       image: '/images/certificates-hero.jpg',
       color: 'teal',
     },
