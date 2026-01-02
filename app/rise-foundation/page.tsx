@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import UniversalNav from '@/components/UniversalNav';
 
 export const metadata: Metadata = {
   title:
@@ -10,46 +11,28 @@ export const metadata: Metadata = {
 };
 
 export default function RiseFoundationPage() {
+  const navLinks = [
+    { label: 'Home', href: '/rise-foundation' },
+    { label: 'About', href: '/rise-foundation/about' },
+    { label: 'Programs', href: '/rise-foundation/programs' },
+    { label: 'Trauma Recovery', href: '/rise-foundation/trauma-recovery' },
+    { label: 'Addiction', href: '/rise-foundation/addiction-rehabilitation' },
+    { label: 'Divorce Support', href: '/rise-foundation/divorce-support' },
+    { label: 'Events', href: '/rise-foundation/events' },
+    { label: 'Get Involved', href: '/rise-foundation/get-involved' },
+  ];
+
   return (
     <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-purple-600 text-white py-4 px-4 sticky top-0 z-50 shadow-lg">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 text-sm md:text-base">
-            <Link href="/rise-foundation" className="font-bold hover:text-purple-200 transition-colors">
-              Home
-            </Link>
-            <Link href="/rise-foundation/about" className="hover:text-purple-200 transition-colors">
-              About
-            </Link>
-            <Link href="/rise-foundation/programs" className="hover:text-purple-200 transition-colors">
-              Programs
-            </Link>
-            <Link href="/rise-foundation/trauma-recovery" className="hover:text-purple-200 transition-colors">
-              Trauma Recovery
-            </Link>
-            <Link href="/rise-foundation/addiction-rehabilitation" className="hover:text-purple-200 transition-colors">
-              Addiction
-            </Link>
-            <Link href="/rise-foundation/divorce-support" className="hover:text-purple-200 transition-colors">
-              Divorce Support
-            </Link>
-            <Link href="/rise-foundation/events" className="hover:text-purple-200 transition-colors">
-              Events
-            </Link>
-            <Link href="/rise-foundation/get-involved" className="hover:text-purple-200 transition-colors">
-              Get Involved
-            </Link>
-            <Link 
-              href="https://donate.stripe.com/5kA5kn7EsfrD08w4gg"
-              target="_blank"
-              className="bg-white text-purple-600 px-4 md:px-6 py-2 rounded-lg font-bold hover:bg-purple-50 transition-colors"
-            >
-              Donate
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <UniversalNav
+        links={navLinks}
+        ctaText="Donate"
+        ctaHref="https://donate.stripe.com/5kA5kn7EsfrD08w4gg"
+        bgColor="bg-purple-600"
+        textColor="text-white"
+        logo="Selfish Inc."
+        logoHref="/rise-foundation"
+      />
 
       {/* Hero Section with Background Image */}
       <section className="relative py-32 px-4 text-center">

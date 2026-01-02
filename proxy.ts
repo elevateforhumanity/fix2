@@ -98,6 +98,9 @@ export default async function proxy(request: NextRequest) {
     '/help',
     '/advising',
     '/support-services',
+    '/for-employers',
+    '/lms',
+    '/resources',
   ];
 
   // Public route patterns
