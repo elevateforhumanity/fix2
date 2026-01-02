@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Phone, Mail } from 'lucide-react';
 import type { Program } from '@/app/data/programs';
 import { ProgramPaymentButton } from './ProgramPaymentButton';
+import VideoHeroBanner from '@/components/home/VideoHeroBanner';
 
 export function ProgramTemplate({ program }: { program: Program }) {
   return (

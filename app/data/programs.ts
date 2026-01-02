@@ -14,6 +14,7 @@ export type Program = {
   longDescription: string;
   heroImage: string;
   heroImageAlt: string;
+  heroVideo?: string; // Optional video URL for hero section
   duration: string;
   schedule: string;
   delivery: string;

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function RiseFoundationPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       {/* Hero Section - Exact replica */}
       <section className="relative py-20 px-4 text-center">
         <div className="max-w-6xl mx-auto">
@@ -113,58 +113,67 @@ export default function RiseFoundationPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Trauma Recovery */}
-            <div className="group block">
+            <Link
+              href="/rise-foundation/trauma-recovery"
+              className="group block"
+            >
               <div className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <Image
                   src="https://static.wixstatic.com/media/a9980c_49b5dda3ab744437846dedd6063e8f04~mv2.jpg/v1/fill/w_239,h_259,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a9980c_49b5dda3ab744437846dedd6063e8f04~mv2.jpg"
                   alt="Freckled face reflecting silent trauma"
                   fill
-                  className="object-cover transition-transform duration-300"
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                   unoptimized
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
                 Trauma Recovery
               </h3>
-            </div>
+            </Link>
 
             {/* Addiction Rehabilitation */}
-            <div className="group block">
+            <Link
+              href="/rise-foundation/addiction-rehabilitation"
+              className="group block"
+            >
               <div className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <Image
                   src="https://static.wixstatic.com/media/11062b_d43c4524d004480cac5e896e52182b75~mv2.jpg/v1/fill/w_223,h_163,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Doctor%20Talking%20To%20Patient.jpg"
                   alt="Doctor's touch: support and understanding"
                   fill
-                  className="object-cover transition-transform duration-300"
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                   unoptimized
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
                 Addiction Rehabilitation
               </h3>
-            </div>
+            </Link>
 
             {/* Divorce Support */}
-            <div className="group block">
+            <Link
+              href="/rise-foundation/divorce-support"
+              className="group block"
+            >
               <div className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <Image
                   src="https://static.wixstatic.com/media/8e2a95a81bd67d6d59f9fc086239d1be.jpg/v1/fill/w_198,h_203,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Family%20Dispute.jpg"
                   alt="This scene powerfully captures the emotional complexity of divorce"
                   fill
-                  className="object-cover transition-transform duration-300"
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                   unoptimized
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
                 Divorce Support
               </h3>
-            </div>
+            </Link>
           </div>
 
           {/* Programs Link */}
           <div className="text-center mt-12">
             <Link
-              href="/rise-foundation/programs"
+              href="/rise-foundation/our-programs"
               className="text-lg text-purple-600 hover:text-purple-700 font-semibold underline"
             >
               Mindfulness Workshops, Mental Wellness Programs Holistic, Mental
@@ -180,6 +189,6 @@ export default function RiseFoundationPage() {
           Do Not Sell My Personal Information
         </p>
       </footer>
-    </div>
+    </main>
   );
 }
