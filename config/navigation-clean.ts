@@ -42,7 +42,7 @@ export const publicNav: NavSection[] = [
   },
   {
     label: 'Resources',
-    href: '/store',
+    href: '/blog',
   },
   {
     label: 'Employers',
