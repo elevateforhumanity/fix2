@@ -83,7 +83,7 @@ export default function HomePage() {
               <div className="bg-white border-2 border-gray-200 hover:border-brand-blue-600 rounded-2xl p-8 transition-all hover:shadow-xl">
                 <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/homepage/students.jpg?v=1767387018"
+                    src="/images/homepage/students.jpg"
                     alt="Students in training"
                     fill
                     className="object-cover"
@@ -108,7 +108,7 @@ export default function HomePage() {
               <div className="bg-white border-2 border-gray-200 hover:border-brand-orange-600 rounded-2xl p-8 transition-all hover:shadow-xl">
                 <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/homepage/employers.jpg?v=1767387018"
+                    src="/images/homepage/employers.jpg"
                     alt="Employers and workforce partners"
                     fill
                     className="object-cover"
@@ -135,7 +135,7 @@ export default function HomePage() {
               <div className="bg-white border-2 border-gray-200 hover:border-brand-purple-600 rounded-2xl p-8 transition-all hover:shadow-xl">
                 <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/homepage/schools-nonprofits.jpg?v=1767387018"
+                    src="/images/homepage/schools-nonprofits.jpg"
                     alt="Schools and nonprofit organizations"
                     fill
                     className="object-cover"
@@ -162,7 +162,7 @@ export default function HomePage() {
               <div className="bg-white border-2 border-gray-200 hover:border-brand-green-600 rounded-2xl p-8 transition-all hover:shadow-xl">
                 <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/homepage/government-agencies.jpg?v=1767387018"
+                    src="/images/homepage/government-agencies.jpg"
                     alt="Government agencies and workforce boards"
                     fill
                     className="object-cover"
@@ -187,7 +187,7 @@ export default function HomePage() {
               <div className="bg-white border-2 border-gray-200 hover:border-pink-600 rounded-2xl p-8 transition-all hover:shadow-xl">
                 <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/homepage/funders-philanthropy.jpg?v=1767387018"
+                    src="/images/homepage/funders-philanthropy.jpg"
                     alt="Funders and philanthropic organizations"
                     fill
                     className="object-cover"
@@ -227,7 +227,7 @@ export default function HomePage() {
             <div className="text-center">
               <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/homepage/funded-programs-optimized.jpg?v=1767387018"
+                  src="/images/homepage/funded-programs-optimized.jpg"
                   alt="Funded workforce training programs"
                   fill
                   className="object-cover"
@@ -246,7 +246,7 @@ export default function HomePage() {
             <div className="text-center">
               <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/homepage/licensable-platform.jpg?v=1767387018"
+                  src="/images/homepage/licensable-platform.jpg"
                   alt="Licensable workforce platform"
                   fill
                   className="object-cover"
@@ -265,7 +265,7 @@ export default function HomePage() {
             <div className="text-center">
               <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/homepage/wraparound-support-optimized.jpg?v=1767387018"
+                  src="/images/homepage/wraparound-support-optimized.jpg"
                   alt="Wraparound student support services"
                   fill
                   className="object-cover"
