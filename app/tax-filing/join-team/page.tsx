@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Become a Tax Preparer - Earn $50K-$100K+ Per Season',
     description:
       'Free training. Drake Software certification. Start your own tax business.',
-    url: 'https://elevateforhumanity.org/tax-filing/join-team',
+    url: 'https://www.elevateforhumanity.org/tax-filing/join-team',
     type: 'website',
   },
   robots: {

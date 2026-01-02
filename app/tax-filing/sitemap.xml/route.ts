@@ -12,7 +12,7 @@ const states = [
 ];
 
 export async function GET() {
-  const baseUrl = 'https://elevateforhumanity.org';
+  const baseUrl = 'https://www.elevateforhumanity.org';
   
   const urls = [
     // Main pages

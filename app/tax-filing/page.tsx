@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'File Your Taxes for $100 - Drake Tax Software',
     description:
       'Professional tax filing for just $100. Maximum refund guaranteed.',
-    url: 'https://elevateforhumanity.org/tax-filing',
+    url: 'https://www.elevateforhumanity.org/tax-filing',
     siteName: 'Elevate for Humanity',
     type: 'website',
   },

@@ -52,11 +52,11 @@ export async function generateMetadata({
     openGraph: {
       title: `Tax Filing in ${stateInfo.name} - $100 Flat Fee`,
       description: `${stateInfo.preparers}+ certified tax preparers across ${stateInfo.name}`,
-      url: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
+      url: `https://www.elevateforhumanity.org/tax-filing/locations/${params.state}`,
       type: 'website',
     },
     alternates: {
-      canonical: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
+      canonical: `https://www.elevateforhumanity.org/tax-filing/locations/${params.state}`,
     },
   };
 }

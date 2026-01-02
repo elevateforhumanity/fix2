@@ -131,7 +131,7 @@ const nextConfig = {
           },
           {
             key: 'X-Robots-Tag',
-            value: 'noai, noimageai, nosnippet, noarchive',
+            value: 'noai, noimageai',
           },
           {
             key: 'Permissions-Policy',
