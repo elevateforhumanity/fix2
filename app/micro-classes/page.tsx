@@ -25,7 +25,8 @@ const microClasses = [
     id: 2,
     title: 'OSHA 10-Hour Safety',
     duration: '10 hours',
-    description: 'Workplace safety training for construction and general industry',
+    description:
+      'Workplace safety training for construction and general industry',
     price: 'Free',
     category: 'Safety',
   },
@@ -33,7 +34,8 @@ const microClasses = [
     id: 3,
     title: 'Forklift Certification',
     duration: '8 hours',
-    description: 'Get certified to operate forklifts and material handling equipment',
+    description:
+      'Get certified to operate forklifts and material handling equipment',
     price: 'Free',
     category: 'Skilled Trades',
   },
@@ -85,7 +87,7 @@ export default async function MicroClassesPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/micro-classes-hero.jpg"
           alt="Micro Classes"
           fill
           className="object-cover"
@@ -93,7 +95,7 @@ export default async function MicroClassesPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Micro Classes

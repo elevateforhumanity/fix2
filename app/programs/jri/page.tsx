@@ -382,33 +382,6 @@ export default function JRIProgramsPage() {
         </div>
       </section>
 
-      {/* Indiana Career Connect Scheduling */}
-      <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-indigo-600 text-slate-900">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Schedule Your Appointment
-          </h2>
-          <p className="text-xl text-indigo-100 mb-8">
-            Book your free consultation through Indiana Career Connect - the
-            official state workforce development portal
-          </p>
-          <a
-            href="https://www.indianacareerconnect.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex px-10 py-5 bg-white text-indigo-600 font-bold rounded-lg hover:bg-indigo-50 transition text-lg shadow-xl"
-          >
-            Schedule at IndianaCareerConnect.com →
-          </a>
-          <p className="mt-6 text-indigo-100">
-            Or call us directly at{' '}
-            <a href="tel:3173143757" className="font-bold underline">
-              317-314-3757
-            </a>
-          </p>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="px-6 sm:px-10 lg:px-12 py-16 lg:py-20 bg-white">
         <div className="mx-auto max-w-4xl">

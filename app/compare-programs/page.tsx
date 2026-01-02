@@ -287,7 +287,7 @@ export default function CompareProgramsPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/compare-programs-hero.jpg"
           alt="Compare Programs"
           fill
           className="object-cover"
@@ -295,7 +295,7 @@ export default function CompareProgramsPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Compare Programs

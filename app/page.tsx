@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { ArrowRight, Building2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import VideoHeroBanner from '@/components/home/VideoHeroBanner';
 import { currentHomeHero, enableAudioNarration } from '@/config/hero-videos';
 
@@ -234,8 +234,13 @@ export default function HomePage() {
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 bg-brand-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Building2 className="w-10 h-10 text-brand-purple-600" />
+              <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/homepage/licensable-platform.jpg"
+                  alt="Licensable workforce platform"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">
                 Licensable Workforce Platform

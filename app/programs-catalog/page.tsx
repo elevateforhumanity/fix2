@@ -183,8 +183,7 @@ export default function ProgramsCatalogPage() {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage:
-              'url(https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+            backgroundImage: 'url(/images/programs-catalog-hero.jpg)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
@@ -204,7 +203,6 @@ export default function ProgramsCatalogPage() {
       {/* Programs Catalog */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           {/* STATE PROGRAMS */}
           {groupedPrograms.state.length > 0 && (
             <div className="mb-12">
