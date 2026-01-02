@@ -110,8 +110,13 @@ export default function VideoHeroBanner({
       {/* Full-width Video Container */}
       <div className="relative w-full">
         <div className="relative overflow-hidden">
-          {/* Video */}
-          <div className="relative w-full" style={{ paddingBottom: '75%' }}>
+          {/* Video - Responsive aspect ratio */}
+          <div 
+            className="relative w-full" 
+            style={{ 
+              paddingBottom: 'clamp(56.25%, 15vw + 40%, 75%)'
+            }}
+          >
             {/* Loading indicator */}
             {!isLoaded && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
@@ -128,7 +133,8 @@ export default function VideoHeroBanner({
               loop
               muted={isMuted}
               playsInline
-              preload="metadata"
+              preload="auto"
+              autoPlay
             >
               <source src={videoSrc} type="video/mp4" />
               Your browser does not support the video tag.
