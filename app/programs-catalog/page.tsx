@@ -195,7 +195,7 @@ export default function ProgramsCatalogPage() {
               COMPLETE PROGRAMS CATALOG
             </h1>
             <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
-              {programs?.length || 0} Training Programs Available
+              {allPrograms?.length || 0} Training Programs Available
             </p>
           </div>
         </div>
@@ -313,13 +313,13 @@ export default function ProgramsCatalogPage() {
           )}
 
           {/* No programs found */}
-          {!error && programs && programs.length === 0 && (
+          {allPrograms && allPrograms.length === 0 && (
             <div className="text-center py-12">
               <p className="text-xl text-gray-600 mb-4">
-                No programs found in the database.
+                No programs available at this time.
               </p>
               <p className="text-gray-500">
-                Run database migrations to populate the programs table.
+                Please check back later for updated program listings.
               </p>
             </div>
           )}
