@@ -102,53 +102,56 @@ export default function VideoHeroBanner({
 
   return (
     <section
-      className="relative w-full bg-gray-900"
+      className="relative w-full bg-gradient-to-br from-blue-900 to-purple-900"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
       onClick={handleUserInteraction}
     >
-      {/* Full-width Video Container */}
-      <div className="relative w-full">
-        <div className="relative overflow-hidden">
-          {/* Video - Responsive aspect ratio */}
-          <div 
-            className="relative w-full" 
-            style={{ 
-              paddingBottom: 'clamp(56.25%, 15vw + 40%, 75%)'
-            }}
-          >
-            {/* Loading indicator */}
-            {!isLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
-              </div>
-            )}
-            
-            {/* Video - optimized MP4 */}
-            <video
-              ref={videoRef}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                isLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              loop
-              muted={isMuted}
-              playsInline
-              preload="auto"
-              autoPlay
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+      {/* Video Container - Mobile First */}
+      <div className="relative w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+        {/* Fallback Content - Always Visible */}
+        <div className="absolute inset-0 flex items-center justify-center text-white p-6 text-center">
+          <div className="max-w-4xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
+              Elevate for Humanity
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl">
+              Free, Funded Workforce Training
+            </p>
           </div>
+        </div>
 
-          {/* Voiceover Audio (plays independently of video mute) */}
-          {voiceoverSrc && (
-            <audio ref={audioRef} loop muted={false}>
-              <source src={voiceoverSrc} type="audio/mpeg" />
-            </audio>
-          )}
+        {/* Video Overlay - Shows when loaded */}
+        {isLoaded && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            loop
+            muted={isMuted}
+            playsInline
+            preload="auto"
+            autoPlay
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        )}
 
-          {/* Video Controls */}
+        {/* Loading indicator */}
+        {!isLoaded && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+            <div className="w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin" />
+          </div>
+        )}
+
+        {/* Voiceover Audio (plays independently of video mute) */}
+        {voiceoverSrc && (
+          <audio ref={audioRef} loop muted={false}>
+            <source src={voiceoverSrc} type="audio/mpeg" />
+          </audio>
+        )}
+
+        {/* Video Controls - Only show when video loaded */}
+        {isLoaded && (
           <div
             className={`absolute bottom-4 right-4 flex items-center gap-2 transition-opacity duration-300 ${
               showControls ? 'opacity-100' : 'opacity-0'
@@ -186,7 +189,7 @@ export default function VideoHeroBanner({
               <Maximize className="w-4 h-4" />
             </button>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
