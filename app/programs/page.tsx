@@ -147,7 +147,7 @@ export default function ProgramsBioSitePage() {
       description: 'Find training locations near you',
       href: '/locations',
       icon: MapPin,
-      image: null,
+      image: '/images/locations-card.jpg',
       color: 'rose',
     },
     {
