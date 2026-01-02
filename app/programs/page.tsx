@@ -163,6 +163,7 @@ export default function ProgramsBioSitePage() {
       description: 'Book a virtual team meeting',
       href: '/calendar',
       icon: CalendarDays,
+      image: '/images/calendar-card.jpg',
       image: null,
       color: 'lime',
     },
