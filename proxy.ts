@@ -41,23 +41,66 @@ export default async function proxy(request: NextRequest) {
   // Public routes that don't require authentication
   const publicRoutes = [
     '/',
-    '/apply',
-    '/programs',
     '/about',
+    '/programs',
     '/contact',
+    '/apply',
+    '/pricing',
+    '/apprenticeships',
+    '/career-services',
+    '/tax-filing',
+    '/vita',
+    '/rise-foundation',
+    '/nonprofit',
+    '/privacy-policy',
+    '/terms-of-service',
+    '/accessibility',
+    '/refund-policy',
+    '/programs-catalog',
+    '/program-finder',
+    '/compare-programs',
+    '/courses',
+    '/pathways',
+    '/credentials',
+    '/certificates',
     '/blog',
     '/login',
     '/signup',
     '/auth',
     '/privacy',
     '/terms',
+    '/supersonic-fast-cash',
+    '/kingdom-konnect',
+    '/serene-comfort-care',
+    '/urban-build-crew',
   ];
+
+  // Public route patterns
+  const publicPatterns = [
+    /^\/programs\/[^/]+$/,  // Individual program pages
+    /^\/rise-foundation\/.+$/,  // All rise-foundation subpages
+    /^\/nonprofit\/.+$/,  // All nonprofit subpages
+    /^\/api\/(?!admin|protected).+$/,  // Public API routes
+  ];
+
+  const pathname = request.nextUrl.pathname;
 
   const isPublicRoute = publicRoutes.some(
     (route) =>
-      request.nextUrl.pathname === route ||
-      request.nextUrl.pathname.startsWith(`${route}/`)
-  );
+      pathname === route ||
+      pathname.startsWith(`${route}/`)
+  ) || publicPatterns.some(pattern => pattern.test(pathname));
+
+  // Allow public files
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api/health') ||
+    pathname === '/sitemap.xml' ||
+    pathname === '/robots.txt' ||
+    pathname.includes('.')
+  ) {
+    return response;
+  }
 
   // Allow public routes
   if (isPublicRoute) {
@@ -83,7 +126,6 @@ export default async function proxy(request: NextRequest) {
   }
 
   const role = profile.role;
-  const pathname = request.nextUrl.pathname;
 
   // Role-based dashboard routing
   const dashboardRoutes: Record<string, string> = {
