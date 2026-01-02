@@ -32,16 +32,16 @@ const nextConfig = {
     webpackBuildWorker: true,
   },
   images: {
-    unoptimized: true, // Bypass optimizer - direct image loading
+    unoptimized: false, // Enable Next.js image optimization
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000,
+    minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'inline',
     contentSecurityPolicy: "default-src 'self' https://burst.shopifycdn.com https://images.pexels.com; script-src 'none'; sandbox;",
     remotePatterns: [
-      { protocol: 'https', hostname: '**' }, // Allow all HTTPS images for mobile compatibility
+      { protocol: 'https', hostname: '**' },
     ],
   },
   typescript: {

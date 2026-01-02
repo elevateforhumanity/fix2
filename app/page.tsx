@@ -86,6 +86,8 @@ export default function HomePage() {
                     alt="Students in training"
                     fill
                     className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">Students</h3>
@@ -109,6 +111,8 @@ export default function HomePage() {
                     alt="Employers and workforce partners"
                     fill
                     className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">
@@ -134,6 +138,8 @@ export default function HomePage() {
                     alt="Schools and nonprofit organizations"
                     fill
                     className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">
