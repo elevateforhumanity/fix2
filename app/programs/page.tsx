@@ -106,7 +106,7 @@ export default function ProgramsBioSitePage() {
       description: 'Explore programs by industry sector',
       href: '/industries',
       icon: Building2,
-      image: null,
+      image: '/images/industries-card.jpg',
       color: 'cyan',
     },
     {
