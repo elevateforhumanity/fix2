@@ -92,6 +92,12 @@ export default async function proxy(request: NextRequest) {
     '/kingdom-konnect',
     '/serene-comfort-care',
     '/urban-build-crew',
+    '/career-center',
+    '/career-services',
+    '/mentorship',
+    '/help',
+    '/advising',
+    '/support-services',
   ];
 
   // Public route patterns
@@ -99,6 +105,9 @@ export default async function proxy(request: NextRequest) {
     /^\/programs\/[^/]+$/, // Individual program pages
     /^\/rise-foundation\/.+$/, // All rise-foundation subpages
     /^\/nonprofit\/.+$/, // All nonprofit subpages
+    /^\/supersonic-fast-cash\/.+$/, // All supersonic-fast-cash subpages
+    /^\/career-center\/.+$/, // All career-center subpages
+    /^\/career-services\/.+$/, // All career-services subpages
     /^\/api\/(?!admin|protected).+$/, // Public API routes
   ];
 
