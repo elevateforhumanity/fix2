@@ -224,10 +224,11 @@ export default function HomePage() {
             <div className="text-center">
               <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/homepage/funded-programs.png"
+                  src="/images/homepage/funded-programs-optimized.jpg"
                   alt="Funded workforce training programs"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">
@@ -260,10 +261,11 @@ export default function HomePage() {
             <div className="text-center">
               <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/homepage/wraparound-support.png"
+                  src="/images/homepage/wraparound-support-optimized.jpg"
                   alt="Wraparound student support services"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">
