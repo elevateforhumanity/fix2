@@ -1,13 +1,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import {
-  GraduationCap,
-  Briefcase,
-  Building2,
-  Landmark,
-  Heart,
-  ArrowRight,
-} from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Building2 } from 'lucide-react';
 import VideoHeroBanner from '@/components/home/VideoHeroBanner';
 import { currentHomeHero, enableAudioNarration } from '@/config/hero-videos';
 
@@ -17,6 +11,30 @@ export const metadata: Metadata = {
     'Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org',
+  },
+  openGraph: {
+    title: 'Elevate for Humanity | Free, Funded Workforce Training',
+    description:
+      'Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform.',
+    url: 'https://www.elevateforhumanity.org',
+    siteName: 'Elevate for Humanity',
+    images: [
+      {
+        url: '/images/homepage/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Elevate for Humanity - Free Funded Workforce Training',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elevate for Humanity | Free, Funded Workforce Training',
+    description:
+      'Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform.',
+    images: ['/images/homepage/og-image.png'],
   },
 };
 
@@ -62,8 +80,13 @@ export default function HomePage() {
             {/* Students */}
             <Link href="/apply" className="group">
               <div className="bg-white border-2 border-gray-200 hover:border-brand-blue-600 rounded-2xl p-8 transition-all hover:shadow-xl">
-                <div className="w-16 h-16 bg-brand-blue-600 rounded-xl flex items-center justify-center mb-6">
-                  <GraduationCap className="w-8 h-8 text-white" />
+                <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/homepage/students.jpg"
+                    alt="Students in training"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">Students</h3>
                 <p className="text-gray-700 mb-4">
@@ -80,8 +103,13 @@ export default function HomePage() {
             {/* Employers */}
             <Link href="/employers" className="group">
               <div className="bg-white border-2 border-gray-200 hover:border-brand-orange-600 rounded-2xl p-8 transition-all hover:shadow-xl">
-                <div className="w-16 h-16 bg-brand-orange-600 rounded-xl flex items-center justify-center mb-6">
-                  <Briefcase className="w-8 h-8 text-white" />
+                <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/homepage/employers.jpg"
+                    alt="Employers and workforce partners"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">
                   Employers
@@ -100,8 +128,13 @@ export default function HomePage() {
             {/* Schools & Nonprofits */}
             <Link href="/licensing" className="group">
               <div className="bg-white border-2 border-gray-200 hover:border-brand-purple-600 rounded-2xl p-8 transition-all hover:shadow-xl">
-                <div className="w-16 h-16 bg-brand-purple-600 rounded-xl flex items-center justify-center mb-6">
-                  <Building2 className="w-8 h-8 text-white" />
+                <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/homepage/schools-nonprofits.jpg"
+                    alt="Schools and nonprofit organizations"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">
                   Schools & Nonprofits
@@ -120,8 +153,13 @@ export default function HomePage() {
             {/* Government Agencies */}
             <Link href="/about" className="group">
               <div className="bg-white border-2 border-gray-200 hover:border-brand-green-600 rounded-2xl p-8 transition-all hover:shadow-xl">
-                <div className="w-16 h-16 bg-brand-green-600 rounded-xl flex items-center justify-center mb-6">
-                  <Landmark className="w-8 h-8 text-white" />
+                <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/homepage/government-agencies.jpg"
+                    alt="Government agencies and workforce boards"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">
                   Government Agencies
@@ -139,8 +177,13 @@ export default function HomePage() {
             {/* Funders & Philanthropy */}
             <Link href="/impact" className="group">
               <div className="bg-white border-2 border-gray-200 hover:border-pink-600 rounded-2xl p-8 transition-all hover:shadow-xl">
-                <div className="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center mb-6">
-                  <Heart className="w-8 h-8 text-white" />
+                <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/homepage/funders-philanthropy.jpg"
+                    alt="Funders and philanthropic organizations"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-3">
                   Funders & Philanthropy
@@ -173,8 +216,13 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="grid md:grid-cols-3 gap-10">
             <div className="text-center">
-              <div className="w-20 h-20 bg-brand-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <GraduationCap className="w-10 h-10 text-brand-blue-600" />
+              <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/homepage/funded-programs.png"
+                  alt="Funded workforce training programs"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">
                 Funded Workforce Training Programs
@@ -199,8 +247,13 @@ export default function HomePage() {
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 bg-brand-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-10 h-10 text-brand-orange-600" />
+              <div className="w-full h-48 relative mx-auto mb-6 rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/homepage/wraparound-support.png"
+                  alt="Wraparound student support services"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">
                 Wraparound Student Support

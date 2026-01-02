@@ -30,14 +30,23 @@ export default function VideoHeroBanner({
       });
     }
 
-    // Auto-play voiceover if provided
+    // Auto-play voiceover if provided (unmuted)
     if (audioRef.current && voiceoverSrc) {
+      audioRef.current.muted = false;
+      audioRef.current.volume = 1.0;
       audioRef.current.play().catch(() => {
         // Auto-play failed, will try again on user interaction
         console.log('Voiceover autoplay blocked, waiting for user interaction');
       });
     }
   }, [voiceoverSrc]);
+
+  // Ensure audio plays on any user interaction
+  const handleUserInteraction = () => {
+    if (audioRef.current && voiceoverSrc && audioRef.current.paused) {
+      audioRef.current.play().catch(console.error);
+    }
+  };
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -78,6 +87,7 @@ export default function VideoHeroBanner({
       className="relative w-full bg-gray-900 py-8 md:py-12"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
+      onClick={handleUserInteraction}
     >
       {/* Framed Video Container */}
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -100,7 +110,7 @@ export default function VideoHeroBanner({
 
           {/* Voiceover Audio (plays independently of video mute) */}
           {voiceoverSrc && (
-            <audio ref={audioRef} loop>
+            <audio ref={audioRef} loop muted={false}>
               <source src={voiceoverSrc} type="audio/mpeg" />
             </audio>
           )}
