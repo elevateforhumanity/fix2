@@ -19,6 +19,7 @@ export default function VideoHeroBanner({
   const [isMuted, setIsMuted] = useState(!withAudio);
   const [showControls, setShowControls] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -34,7 +35,14 @@ export default function VideoHeroBanner({
       });
     };
 
+    const handleError = () => {
+      console.error('Video failed to load:', videoSrc);
+      setHasError(true);
+      setIsLoaded(true); // Show fallback
+    };
+
     video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('error', handleError);
 
     // Auto-play voiceover if provided (unmuted)
     if (audioRef.current && voiceoverSrc) {
@@ -47,6 +55,7 @@ export default function VideoHeroBanner({
 
     return () => {
       video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('error', handleError);
     };
   }, [voiceoverSrc]);
 
@@ -104,26 +113,45 @@ export default function VideoHeroBanner({
           {/* Video */}
           <div className="relative w-full" style={{ paddingBottom: '75%' }}>
             {/* Loading indicator */}
-            {!isLoaded && (
+            {!isLoaded && !hasError && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
                 <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
               </div>
             )}
+
+            {/* Fallback image if video fails */}
+            {hasError && (
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-purple-900">
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <div className="text-center px-4">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                      Elevate for Humanity
+                    </h1>
+                    <p className="text-xl md:text-2xl">
+                      Free, Funded Workforce Training
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
             
-            {/* 16:9 aspect ratio */}
-            <video
-              ref={videoRef}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                isLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              loop
-              muted={isMuted}
-              playsInline
-              preload="auto"
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {/* Video */}
+            {!hasError && (
+              <video
+                ref={videoRef}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  isLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                loop
+                muted={isMuted}
+                playsInline
+                preload="auto"
+                poster="/images/homepage/og-image.png"
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
 
           {/* Voiceover Audio (plays independently of video mute) */}
