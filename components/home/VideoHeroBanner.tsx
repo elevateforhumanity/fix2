@@ -93,16 +93,16 @@ export default function VideoHeroBanner({
 
   return (
     <section
-      className="relative w-full bg-gray-900 py-8 md:py-12"
+      className="relative w-full bg-gray-900"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
       onClick={handleUserInteraction}
     >
-      {/* Framed Video Container */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+      {/* Full-width Video Container */}
+      <div className="relative w-full">
+        <div className="relative overflow-hidden">
           {/* Video */}
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <div className="relative w-full" style={{ paddingBottom: '75%' }}>
             {/* Loading indicator */}
             {!isLoaded && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
