@@ -15,9 +15,12 @@ export default function RiseFoundationPage() {
       {/* Navigation */}
       <nav className="bg-purple-600 text-white py-4 px-4 sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 text-sm md:text-base">
             <Link href="/rise-foundation" className="font-bold hover:text-purple-200 transition-colors">
               Home
+            </Link>
+            <Link href="/rise-foundation/about" className="hover:text-purple-200 transition-colors">
+              About
             </Link>
             <Link href="/rise-foundation/programs" className="hover:text-purple-200 transition-colors">
               Programs
@@ -31,13 +34,16 @@ export default function RiseFoundationPage() {
             <Link href="/rise-foundation/divorce-support" className="hover:text-purple-200 transition-colors">
               Divorce Support
             </Link>
+            <Link href="/rise-foundation/events" className="hover:text-purple-200 transition-colors">
+              Events
+            </Link>
             <Link href="/rise-foundation/get-involved" className="hover:text-purple-200 transition-colors">
               Get Involved
             </Link>
             <Link 
               href="https://donate.stripe.com/5kA5kn7EsfrD08w4gg"
               target="_blank"
-              className="bg-white text-purple-600 px-6 py-2 rounded-lg font-bold hover:bg-purple-50 transition-colors"
+              className="bg-white text-purple-600 px-4 md:px-6 py-2 rounded-lg font-bold hover:bg-purple-50 transition-colors"
             >
               Donate
             </Link>
@@ -45,9 +51,21 @@ export default function RiseFoundationPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 text-center">
-        <div className="max-w-6xl mx-auto">
+      {/* Hero Section with Background Image */}
+      <section className="relative py-32 px-4 text-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://static.wixstatic.com/media/a9980c_542c794668484ecc911de7f139dad437~mv2.jpg"
+            alt="Mental wellness background"
+            fill
+            className="object-cover opacity-20"
+            unoptimized
+            priority
+          />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
             "Welcome to Selfish Inc. Your Partner in Mental Wellness and
