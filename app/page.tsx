@@ -61,6 +61,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
+      {/* Hero Banner - Video */}
       <VideoHeroBanner
         videoSrc={currentHomeHero}
         withAudio={enableAudioNarration}
