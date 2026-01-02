@@ -1,0 +1,72 @@
+🧪 Post-Deployment Test Suite
+==============================
+URL: https://www.elevateforhumanity.org
+Time: Fri Jan  2 05:56:30 UTC 2026
+
+Test 1: Critical Pages
+─────────────────────
+Testing Homepage... ✅ PASS (HTTP 200)
+Testing Apply Page... ✅ PASS (HTTP 200)
+Testing Programs Page... ✅ PASS (HTTP 200)
+Testing Contact Page... ✅ PASS (HTTP 200)
+Testing About Page... ✅ PASS (HTTP 200)
+
+Test 2: LMS Pages
+─────────────────
+Testing LMS Landing... ❌ FAIL (HTTP 307, expected 200)
+Testing LMS Dashboard... ❌ FAIL (HTTP 307, expected 302)
+
+Test 3: Legal Pages
+───────────────────
+Testing Privacy Policy... ❌ FAIL (HTTP 307, expected 200)
+Testing Terms of Service... ❌ FAIL (HTTP 307, expected 200)
+Testing Accessibility... ❌ FAIL (HTTP 307, expected 200)
+
+Test 4: API Endpoints
+────────────────────
+Testing Health Check... ❌ FAIL (HTTP 307, expected 200)
+
+Test 5: SEO Files
+────────────────
+Testing Sitemap... ❌ FAIL (HTTP 307, expected 200)
+Testing Robots.txt... ❌ FAIL (HTTP 307, expected 200)
+
+Test 6: New Pages
+────────────────
+Testing Trauma Recovery... ❌ FAIL (HTTP 307, expected 200)
+Testing Addiction Rehab... ❌ FAIL (HTTP 307, expected 200)
+Testing Divorce Support... ❌ FAIL (HTTP 307, expected 200)
+Testing Mental Wellness... ❌ FAIL (HTTP 307, expected 200)
+Testing Healing Products... ❌ FAIL (HTTP 307, expected 200)
+
+Test 7: Performance
+──────────────────
+Homepage load time... 0.098418s
+⚠️  WARNING (> 3s)
+
+Test 8: SSL Certificate
+──────────────────────
+SSL certificate... ✅ PASS (Valid)
+notBefore=Nov 19 21:00:53 2025 GMT
+notAfter=Feb 17 21:00:52 2026 GMT
+
+Test 9: Security Headers
+───────────────────────
+Checking X-Frame-Options... ✅ PASS
+Checking X-Content-Type-Options... ✅ PASS
+Checking Strict-Transport-Security... ✅ PASS
+
+Test 10: Mobile Check
+────────────────────
+Mobile viewport meta tag... ✅ PASS
+
+═══════════════════════════════════
+TEST SUMMARY
+═══════════════════════════════════
+Passed: 10
+Failed: 13
+Total: 23
+
+❌ SOME TESTS FAILED
+
+Review the failures above and fix them.

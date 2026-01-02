@@ -1,0 +1,149 @@
+Audit Time: Fri Jan  2 06:28:17 UTC 2026
+Production URL: https://www.elevateforhumanity.org
+
+═══════════════════════════════════════
+TESTING PUBLIC PAGES (Should be accessible)
+═══════════════════════════════════════
+
+✅ / (PUBLIC)
+✅ /about (PUBLIC)
+✅ /programs (PUBLIC)
+✅ /contact (PUBLIC)
+✅ /apply (PUBLIC)
+❌ /pricing (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /apprenticeships (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /career-services (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /tax-filing (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /vita (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /rise-foundation (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /nonprofit (REQUIRES LOGIN - SHOULD BE PUBLIC)
+
+═══════════════════════════════════════
+TESTING LEGAL PAGES (Should be public)
+═══════════════════════════════════════
+
+❌ /privacy-policy (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /terms-of-service (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /accessibility (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /refund-policy (REQUIRES LOGIN - SHOULD BE PUBLIC)
+
+═══════════════════════════════════════
+TESTING PROGRAM PAGES (Should be public)
+═══════════════════════════════════════
+
+✅ /programs/cna (PUBLIC)
+✅ /programs/barber-apprenticeship (PUBLIC)
+✅ /programs/hvac-technician (PUBLIC)
+❌ /programs-catalog (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /program-finder (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /compare-programs (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /courses (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /pathways (REQUIRES LOGIN - SHOULD BE PUBLIC)
+
+═══════════════════════════════════════
+TESTING NEW PAGES (Should be public)
+═══════════════════════════════════════
+
+❌ /rise-foundation/trauma-recovery (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /rise-foundation/addiction-rehabilitation (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /rise-foundation/divorce-support (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /nonprofit/mental-wellness (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /nonprofit/healing-products (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /nonprofit/divorce-counseling (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /nonprofit/young-adult-wellness (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /nonprofit/meet-the-founder (REQUIRES LOGIN - SHOULD BE PUBLIC)
+
+═══════════════════════════════════════
+TESTING PROTECTED PAGES (Should require login)
+═══════════════════════════════════════
+
+✅ /lms (Protected - requires login)
+✅ /lms/dashboard (Protected - requires login)
+✅ /admin (Protected - requires login)
+✅ /program-holder (Protected - requires login)
+✅ /staff-portal (Protected - requires login)
+
+═══════════════════════════════════════
+TESTING API/SEO (Should be public)
+═══════════════════════════════════════
+
+❌ /api/health (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /sitemap.xml (REQUIRES LOGIN - SHOULD BE PUBLIC)
+❌ /robots.txt (REQUIRES LOGIN - SHOULD BE PUBLIC)
+
+
+═══════════════════════════════════════
+AUDIT SUMMARY
+═══════════════════════════════════════
+
+✅ PUBLIC PAGES (8):
+  /
+  /about
+  /programs
+  /contact
+  /apply
+  /programs/cna
+  /programs/barber-apprenticeship
+  /programs/hvac-technician
+
+❌ REQUIRING LOGIN (32):
+  /pricing → https://www.elevateforhumanity.org/login?next=%2Fpricing
+  /apprenticeships → https://www.elevateforhumanity.org/login?next=%2Fapprenticeships
+  /career-services → https://www.elevateforhumanity.org/login?next=%2Fcareer-services
+  /tax-filing → https://www.elevateforhumanity.org/login?next=%2Ftax-filing
+  /vita → https://www.elevateforhumanity.org/login?next=%2Fvita
+  /rise-foundation → https://www.elevateforhumanity.org/login?next=%2Frise-foundation
+  /nonprofit → https://www.elevateforhumanity.org/login?next=%2Fnonprofit
+  /privacy-policy → https://www.elevateforhumanity.org/login?next=%2Fprivacy-policy
+  /terms-of-service → https://www.elevateforhumanity.org/login?next=%2Fterms-of-service
+  /accessibility → https://www.elevateforhumanity.org/login?next=%2Faccessibility
+  /refund-policy → https://www.elevateforhumanity.org/login?next=%2Frefund-policy
+  /programs-catalog → https://www.elevateforhumanity.org/login?next=%2Fprograms-catalog
+  /program-finder → https://www.elevateforhumanity.org/login?next=%2Fprogram-finder
+  /compare-programs → https://www.elevateforhumanity.org/login?next=%2Fcompare-programs
+  /courses → https://www.elevateforhumanity.org/login?next=%2Fcourses
+  /pathways → https://www.elevateforhumanity.org/login?next=%2Fpathways
+  /rise-foundation/trauma-recovery → https://www.elevateforhumanity.org/login?next=%2Frise-foundation%2Ftrauma-recovery
+  /rise-foundation/addiction-rehabilitation → https://www.elevateforhumanity.org/login?next=%2Frise-foundation%2Faddiction-rehabilitation
+  /rise-foundation/divorce-support → https://www.elevateforhumanity.org/login?next=%2Frise-foundation%2Fdivorce-support
+  /nonprofit/mental-wellness → https://www.elevateforhumanity.org/login?next=%2Fnonprofit%2Fmental-wellness
+  /nonprofit/healing-products → https://www.elevateforhumanity.org/login?next=%2Fnonprofit%2Fhealing-products
+  /nonprofit/divorce-counseling → https://www.elevateforhumanity.org/login?next=%2Fnonprofit%2Fdivorce-counseling
+  /nonprofit/young-adult-wellness → https://www.elevateforhumanity.org/login?next=%2Fnonprofit%2Fyoung-adult-wellness
+  /nonprofit/meet-the-founder → https://www.elevateforhumanity.org/login?next=%2Fnonprofit%2Fmeet-the-founder
+  /lms → https://www.elevateforhumanity.org/login?next=%2Flms
+  /lms/dashboard → https://www.elevateforhumanity.org/login?next=%2Flms%2Fdashboard
+  /admin → https://www.elevateforhumanity.org/login?next=%2Fadmin
+  /program-holder → https://www.elevateforhumanity.org/login?next=%2Fprogram-holder
+  /staff-portal → https://www.elevateforhumanity.org/login?next=%2Fstaff-portal
+  /api/health → https://www.elevateforhumanity.org/login?next=%2Fapi%2Fhealth
+  /sitemap.xml → https://www.elevateforhumanity.org/login?next=%2Fsitemap.xml
+  /robots.txt → https://www.elevateforhumanity.org/login?next=%2Frobots.txt
+
+⚠️  HTTPS REDIRECTS (0):
+  None
+
+❌ NOT FOUND (0):
+  None
+
+🔥 SERVER ERRORS (0):
+  None
+
+TOTALS:
+  Public: 8
+  Login Required: 32
+  HTTPS Redirects: 0
+  Not Found: 0
+  Server Errors: 0
+
+🚨 CRITICAL ISSUE: 27 public pages require login!
+
+This indicates:
+  • Middleware forcing authentication
+  • RLS policies blocking public access
+  • Vercel password protection enabled
+  • Server-side auth check in pages
+
+ACTION REQUIRED: Fix authentication configuration
+
+Results saved to: site-audit-20260102-062817.txt

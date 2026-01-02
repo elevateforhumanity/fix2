@@ -1,9 +1,9 @@
 /**
- * Programs Catalog Page - Database Version
- * Fetches programs from Supabase instead of hardcoded data
+ * Programs Catalog Page - Public Version
+ * Uses static program data for public access
  */
 
-import { createClient } from '@/lib/supabase/server';
+import { programs } from '@/app/data/programs';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { Metadata } from 'next';
@@ -31,22 +31,27 @@ interface Program {
   };
 }
 
-export default async function ProgramsCatalogPage() {
-  const supabase = await createClient();
+export default function ProgramsCatalogPage() {
+  // Use static programs data - convert to catalog format
+  const catalogPrograms: Program[] = programs.map((program, index) => ({
+    id: (index + 1).toString(),
+    slug: program.slug,
+    name: program.name,
+    description: program.shortDescription,
+    duration: program.duration,
+    delivery: program.delivery,
+    credential: program.credential,
+    etpl_approved: program.approvals?.includes('ETPL') || false,
+    active: true,
+    metadata: {
+      funding: program.fundingOptions,
+      cip_code: program.etplProgramId,
+      provider: 'Elevate for Humanity',
+    },
+  }));
 
-  // Fetch all active programs
-  const { data: dbPrograms, error } = await supabase
-    .from('programs')
-    .select('*')
-    .eq('active', true)
-    .order('name');
-
-  if (error) {
-    console.error('Error fetching programs:', error);
-  }
-
-  // Fallback hardcoded programs if database is empty
-  const fallbackPrograms: Program[] = [
+  // Additional fallback programs if needed
+  const additionalPrograms: Program[] = [
     {
       id: '1',
       slug: 'healthcare',
@@ -147,17 +152,17 @@ export default async function ProgramsCatalogPage() {
     },
   ];
 
-  const programs =
-    dbPrograms && dbPrograms.length > 0 ? dbPrograms : fallbackPrograms;
+  // Combine catalog programs with additional programs
+  const allPrograms = [...catalogPrograms, ...additionalPrograms];
 
-  // Group programs by funding source
+  // Group all programs by funding source
   const groupedPrograms = {
     state: [] as Program[],
     federal: [] as Program[],
     partner: [] as Program[],
   };
 
-  programs?.forEach((program) => {
+  allPrograms?.forEach((program) => {
     const funding = program.metadata?.funding || [];
 
     if (funding.includes('WRG') || funding.includes('DWD')) {
