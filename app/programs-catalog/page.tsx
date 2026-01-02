@@ -204,14 +204,6 @@ export default function ProgramsCatalogPage() {
       {/* Programs Catalog */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {error && (
-            <div className="mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <p className="text-yellow-800">
-                <strong>Note:</strong> Unable to load programs from database.
-                Please ensure Supabase credentials are configured in .env.local
-              </p>
-            </div>
-          )}
 
           {/* STATE PROGRAMS */}
           {groupedPrograms.state.length > 0 && (
