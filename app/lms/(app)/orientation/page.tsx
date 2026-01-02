@@ -7,11 +7,16 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Program Orientation | Student Dashboard',
-  description: 'Complete your program orientation to get started with your training.',
+  description:
+    'Complete your program orientation to get started with your training.',
 };
 
 export default async function OrientationPage() {
-  const { user, profile } = await requireRole(['student', 'admin', 'super_admin']);
+  const { user, profile } = await requireRole([
+    'student',
+    'admin',
+    'super_admin',
+  ]);
 
   // If already completed, show completion message
   const isCompleted = profile.orientation_completed;
@@ -41,7 +46,8 @@ export default async function OrientationPage() {
                   Orientation Completed
                 </h3>
                 <p className="text-sm text-green-700">
-                  You've completed your orientation. You can now proceed to verify your eligibility and enroll in programs.
+                  You've completed your orientation. You can now proceed to
+                  verify your eligibility and enroll in programs.
                 </p>
               </div>
             </div>
@@ -81,7 +87,8 @@ export default async function OrientationPage() {
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">
-                    Available programs in healthcare, skilled trades, and business
+                    Available programs in healthcare, skilled trades, and
+                    business
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -125,8 +132,12 @@ export default async function OrientationPage() {
                     <span className="text-sm font-bold text-blue-600">1</span>
                   </div>
                   <div>
-                    <p className="font-medium text-slate-900">Watch Orientation</p>
-                    <p className="text-sm text-slate-600">Complete the video above</p>
+                    <p className="font-medium text-slate-900">
+                      Watch Orientation
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Complete the video above
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -134,8 +145,12 @@ export default async function OrientationPage() {
                     <span className="text-sm font-bold text-slate-600">2</span>
                   </div>
                   <div>
-                    <p className="font-medium text-slate-900">Verify Eligibility</p>
-                    <p className="text-sm text-slate-600">Check if you qualify for free training</p>
+                    <p className="font-medium text-slate-900">
+                      Verify Eligibility
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Check if you qualify for free training
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -144,7 +159,9 @@ export default async function OrientationPage() {
                   </div>
                   <div>
                     <p className="font-medium text-slate-900">Choose Program</p>
-                    <p className="text-sm text-slate-600">Browse 20+ training programs</p>
+                    <p className="text-sm text-slate-600">
+                      Browse 20+ training programs
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -153,7 +170,9 @@ export default async function OrientationPage() {
                   </div>
                   <div>
                     <p className="font-medium text-slate-900">Start Training</p>
-                    <p className="text-sm text-slate-600">Begin your career journey</p>
+                    <p className="text-sm text-slate-600">
+                      Begin your career journey
+                    </p>
                   </div>
                 </div>
               </div>
@@ -235,7 +254,7 @@ export default async function OrientationPage() {
                 </p>
               </div>
               <Link
-                href="/lms/eligibility"
+                href="/apply"
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium whitespace-nowrap"
               >
                 Verify Eligibility →

@@ -50,7 +50,7 @@ export default function TaxSelfPrepPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link
-                href="/tax-self-prep/start"
+                href="/supersonic-fast-cash"
                 className="px-12 py-5 bg-brand-orange-600 text-white font-bold text-xl rounded-full hover:bg-brand-orange-700 transition text-center shadow-2xl"
               >
                 Start For Free →
@@ -518,7 +518,7 @@ export default function TaxSelfPrepPage() {
             Start for free. Pay only when you file. Maximum refund guaranteed.
           </p>
           <Link
-            href="/tax-self-prep/start"
+            href="/supersonic-fast-cash"
             className="inline-block px-12 py-5 bg-brand-orange-600 text-white font-bold text-xl rounded-full hover:bg-brand-orange-700 transition shadow-2xl"
           >
             Start For Free →
