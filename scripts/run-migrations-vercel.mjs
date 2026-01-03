@@ -17,16 +17,29 @@ const rootDir = join(__dirname, '..');
 
 console.log('🚀 Running Supabase Migrations\n');
 
+// Detect environment
+const isProduction = process.env.VERCEL_ENV === 'production';
+const gitBranch = process.env.VERCEL_GIT_COMMIT_REF || 'unknown';
+
+console.log(`📍 Environment: ${process.env.VERCEL_ENV || 'local'}`);
+console.log(`🌿 Branch: ${gitBranch}\n`);
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const dbUrl = process.env.DATABASE_URL;
 
 // Check credentials - exit early to avoid confusing error messages
 if (!supabaseUrl || !supabaseKey || !dbUrl) {
-  console.log('⚠️  Skipping: Missing Supabase credentials');
-  console.log('   This is normal for preview deployments');
-  console.log('   Migrations will run on production with full credentials\\n');
-  process.exit(0);
+  if (isProduction) {
+    console.error('❌ ERROR: Missing Supabase credentials in PRODUCTION deployment!');
+    console.error('   This should NOT happen. Check Vercel environment variables.');
+    process.exit(1); // Fail the build for production
+  } else {
+    console.log('⚠️  Skipping: Missing Supabase credentials');
+    console.log('   This is normal for preview deployments');
+    console.log('   Migrations will run on production with full credentials\n');
+    process.exit(0);
+  }
 }
 
 // Build connection string from Supabase URL
