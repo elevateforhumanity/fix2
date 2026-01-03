@@ -34,28 +34,6 @@
       ],
       "destination": "https://www.elevateforhumanity.org/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "fix2-lizzy6262.vercel.app"
-        }
-      ],
-      "destination": "https://www.elevateforhumanity.org/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "fix2-git-main-lizzy6262.vercel.app"
-        }
-      ],
-      "destination": "https://www.elevateforhumanity.org/:path*",
-      "permanent": true
     }
   ],
 
