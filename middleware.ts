@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-export default async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   // Handle domain redirects first
   const hostname = request.headers.get('host') || '';
 
@@ -25,6 +25,9 @@ export default async function middleware(request: NextRequest) {
       headers: request.headers,
     },
   });
+
+  // Proof middleware is executing
+  response.headers.set('x-efh-middleware', 'hit');
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
