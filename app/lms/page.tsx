@@ -1,18 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import {
-  BookOpen,
-  Video,
-  Users,
-  Award,
-  MessageSquare,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
-  Play,
-  Star,
-} from 'lucide-react';
+import { CheckCircle, ArrowRight, Play, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Learning Management System | Elevate for Humanity',
@@ -23,37 +12,37 @@ export const metadata: Metadata = {
 export default function LMSLandingPage() {
   const features = [
     {
-      icon: Video,
+      image: '/media/programs/cpr-group-training-hd.jpg',
       title: 'Video Lessons',
       description: 'High-quality video content with expert instructors',
       href: '/lms/features/video-lessons',
     },
     {
-      icon: BookOpen,
+      image: '/media/programs/cna-hd.jpg',
       title: 'Interactive Courses',
       description: 'Engaging lessons with quizzes and hands-on activities',
       href: '/lms/features/interactive-courses',
     },
     {
-      icon: Users,
+      image: '/media/programs/cpr-certification-group-hd.jpg',
       title: 'Discussion Forums',
       description: 'Connect with classmates and instructors',
       href: '/lms/features/discussion-forums',
     },
     {
-      icon: Award,
+      image: '/media/programs/workforce-readiness-hero.jpg',
       title: 'Earn Certificates',
       description: 'Get recognized for completing courses',
       href: '/lms/features/certificates',
     },
     {
-      icon: MessageSquare,
+      image: '/media/programs/cpr-individual-practice-hd.jpg',
       title: 'Live Chat Support',
       description: '24/7 help when you need it',
       href: '/lms/features/support',
     },
     {
-      icon: TrendingUp,
+      image: '/media/programs/hvac-highlight-3.jpg',
       title: 'Track Progress',
       description: 'Monitor your learning journey in real-time',
       href: '/lms/features/progress-tracking',
@@ -241,25 +230,32 @@ export default function LMSLandingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, idx) => {
-              const Icon = feature.icon;
               return (
                 <Link
                   key={idx}
                   href={feature.href}
-                  className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all group"
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all group"
                 >
-                  <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-600 transition-colors">
-                    <Icon className="w-7 h-7 text-teal-600 group-hover:text-white transition-colors" />
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-teal-600 transition-colors">
-                    {feature.title} →
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {feature.description}
-                  </p>
-                  <span className="text-teal-600 font-semibold text-sm">
-                    Learn More →
-                  </span>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-teal-600 transition-colors">
+                      {feature.title} →
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-4">
+                      {feature.description}
+                    </p>
+                    <span className="text-teal-600 font-semibold text-sm">
+                      Learn More →
+                    </span>
+                  </div>
                 </Link>
               );
             })}

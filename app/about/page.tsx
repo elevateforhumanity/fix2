@@ -1,20 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import {
-  Heart,
-  Target,
-  Users,
-  TrendingUp,
-  Award,
-  Globe,
-  FileText,
-  Newspaper,
-  Shield,
-  CheckCircle,
-  ArrowRight,
-  Star,
-} from 'lucide-react';
+import { CheckCircle, ArrowRight, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Us | Elevate for Humanity',
@@ -35,25 +22,25 @@ export default function AboutPage() {
 
   const values = [
     {
-      icon: Heart,
+      image: '/media/programs/cpr-group-training-hd.jpg',
       title: 'People First',
       description:
         'Every decision we make starts with how it impacts the people we serve.',
     },
     {
-      icon: Target,
+      image: '/media/programs/workforce-readiness-hero.jpg',
       title: 'Results Driven',
       description:
         '85% job placement rate. We measure success by student outcomes.',
     },
     {
-      icon: Shield,
+      image: '/media/programs/cna-hd.jpg',
       title: 'Barrier Removal',
       description:
         'We eliminate obstacles that prevent people from succeeding in training.',
     },
     {
-      icon: Globe,
+      image: '/media/programs/cpr-certification-group-hd.jpg',
       title: 'Community Impact',
       description:
         'Transforming lives strengthens families, neighborhoods, and our entire community.',
@@ -66,7 +53,7 @@ export default function AboutPage() {
       description:
         'Meet Elizabeth Greene, founder and CEO of Elevate for Humanity.',
       href: '/founder',
-      icon: Users,
+      image: '/media/programs/medical-esthetics-training-hd.jpg',
       color: 'purple',
       featured: true,
     },
@@ -74,7 +61,7 @@ export default function AboutPage() {
       title: 'Our Team',
       description: 'Meet the dedicated people behind Elevate for Humanity.',
       href: '/team',
-      icon: Users,
+      image: '/media/programs/cpr-certification-group-hd.jpg',
       color: 'blue',
       featured: true,
     },
@@ -82,7 +69,7 @@ export default function AboutPage() {
       title: 'Philanthropy',
       description: 'Our charitable giving and community impact initiatives.',
       href: '/philanthropy',
-      icon: Heart,
+      image: '/media/programs/cpr-group-training-hd.jpg',
       color: 'red',
       featured: false,
     },
@@ -90,7 +77,7 @@ export default function AboutPage() {
       title: 'Blog',
       description: 'Stories, updates, and insights from our team.',
       href: '/blog',
-      icon: Newspaper,
+      image: '/media/programs/beauty.jpg',
       color: 'teal',
       featured: false,
     },
@@ -99,7 +86,7 @@ export default function AboutPage() {
       description:
         'Industry-recognized certifications and licenses our graduates earn.',
       href: '/credentials',
-      icon: Award,
+      image: '/media/programs/workforce-readiness-hero.jpg',
       color: 'emerald',
       featured: false,
     },
@@ -108,7 +95,7 @@ export default function AboutPage() {
       description:
         'Completion certificates and digital badges for achievements.',
       href: '/certificates',
-      icon: FileText,
+      image: '/media/programs/cpr-individual-practice-hd.jpg',
       color: 'violet',
       featured: false,
     },
@@ -225,21 +212,28 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, idx) => {
-              const Icon = value.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 hover:border-brand-orange-500 hover:shadow-xl transition-all"
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 hover:border-brand-orange-500 hover:shadow-xl transition-all group"
                 >
-                  <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-brand-orange-600" />
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={value.image}
+                      alt={value.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -294,84 +288,110 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-blue-100">
-              <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <Award className="w-7 h-7 text-brand-blue-600" />
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-brand-blue-100 group hover:border-brand-blue-500 transition-all">
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src="/media/programs/workforce-readiness-hero.jpg"
+                  alt="Training"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Training
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                ETPL-approved programs in healthcare, skilled trades, business,
-                and beauty services. All 100% free through WIOA and Workforce
-                Ready Grant funding.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-blue-500" />
-                  <span className="text-sm">Industry certifications</span>
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-blue-500" />
-                  <span className="text-sm">Hands-on learning</span>
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-blue-500" />
-                  <span className="text-sm">Flexible schedules</span>
-                </li>
-              </ul>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Training
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  ETPL-approved programs in healthcare, skilled trades,
+                  business, and beauty services. All 100% free through WIOA and
+                  Workforce Ready Grant funding.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-blue-500" />
+                    <span className="text-sm">Industry certifications</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-blue-500" />
+                    <span className="text-sm">Hands-on learning</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-blue-500" />
+                    <span className="text-sm">Flexible schedules</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-green-100">
-              <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-7 h-7 text-brand-green-600" />
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-green-100 group hover:border-green-500 transition-all">
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src="/media/programs/cpr-individual-practice-hd.jpg"
+                  alt="Support"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Support</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                We remove barriers that prevent success—transportation,
-                childcare, financial challenges.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span className="text-sm">Career counseling</span>
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span className="text-sm">Financial literacy</span>
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span className="text-sm">Emergency assistance</span>
-                </li>
-              </ul>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Support
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  We remove barriers that prevent success—transportation,
+                  childcare, financial challenges.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-sm">Career counseling</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-sm">Financial literacy</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-sm">Emergency assistance</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-purple-100">
-              <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-brand-purple-600" />
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-brand-purple-100 group hover:border-brand-purple-500 transition-all">
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src="/media/programs/hvac-highlight-3.jpg"
+                  alt="Placement"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Placement
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Direct connections to employers. 85% of graduates are employed
-                within 6 months.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-purple-500" />
-                  <span className="text-sm">Job matching</span>
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-purple-500" />
-                  <span className="text-sm">Interview prep</span>
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-purple-500" />
-                  <span className="text-sm">Ongoing support</span>
-                </li>
-              </ul>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Placement
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Direct connections to employers. 85% of graduates are employed
+                  within 6 months.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-purple-500" />
+                    <span className="text-sm">Job matching</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-purple-500" />
+                    <span className="text-sm">Interview prep</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-purple-500" />
+                    <span className="text-sm">Ongoing support</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -425,27 +445,32 @@ export default function AboutPage() {
             {aboutPages
               .filter((page) => page.featured)
               .map((page) => {
-                const Icon = page.icon;
                 return (
                   <Link
                     key={page.href}
                     href={page.href}
-                    className="group bg-white rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:-translate-y-2 transform"
+                    className="group bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:-translate-y-2 transform"
                   >
-                    <div
-                      className={`w-16 h-16 bg-${page.color}-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                    >
-                      <Icon className={`w-8 h-8 text-${page.color}-600`} />
+                    <div className="relative h-64 w-full overflow-hidden">
+                      <Image
+                        src={page.image}
+                        alt={page.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     </div>
-                    <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-brand-orange-600 transition-colors">
-                      {page.title}
-                    </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                      {page.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-brand-orange-600 font-bold group-hover:gap-3 transition-all">
-                      <span>Learn More</span>
-                      <ArrowRight className="w-5 h-5" />
+                    <div className="p-10">
+                      <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-brand-orange-600 transition-colors">
+                        {page.title}
+                      </h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                        {page.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-brand-orange-600 font-bold group-hover:gap-3 transition-all">
+                        <span>Learn More</span>
+                        <ArrowRight className="w-5 h-5" />
+                      </div>
                     </div>
                   </Link>
                 );
@@ -457,27 +482,32 @@ export default function AboutPage() {
             {aboutPages
               .filter((page) => !page.featured)
               .map((page) => {
-                const Icon = page.icon;
                 return (
                   <Link
                     key={page.href}
                     href={page.href}
-                    className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:-translate-y-1 transform"
+                    className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-brand-orange-500 hover:-translate-y-1 transform"
                   >
-                    <div
-                      className={`w-12 h-12 bg-${page.color}-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                    >
-                      <Icon className={`w-6 h-6 text-${page.color}-600`} />
+                    <div className="relative h-40 w-full overflow-hidden">
+                      <Image
+                        src={page.image}
+                        alt={page.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-orange-600 transition-colors">
-                      {page.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3">
-                      {page.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-brand-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
-                      <span>Explore</span>
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-orange-600 transition-colors">
+                        {page.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-3">
+                        {page.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-brand-orange-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                        <span>Explore</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </Link>
                 );

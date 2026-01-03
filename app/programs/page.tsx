@@ -57,7 +57,7 @@ export default function ProgramsBioSitePage() {
       description: 'Take our quiz to find your perfect program match',
       href: '/program-finder',
       icon: Search,
-      image: null,
+      image: '/media/programs/cpr-group-training-hd.jpg',
       color: 'blue',
     },
     {
@@ -97,7 +97,7 @@ export default function ProgramsBioSitePage() {
       description: 'Clear paths from training to employment',
       href: '/pathways',
       icon: TrendingUp,
-      image: null,
+      image: '/media/programs/workforce-readiness-hero.jpg',
       color: 'indigo',
     },
     {
@@ -129,7 +129,7 @@ export default function ProgramsBioSitePage() {
       description: 'Our accreditations and quality standards',
       href: '/accreditation',
       icon: CheckCircle,
-      image: null,
+      image: '/media/programs/cpr-certification-group-hd.jpg',
       color: 'emerald',
     },
     {
@@ -137,7 +137,7 @@ export default function ProgramsBioSitePage() {
       description: 'LMS, mobile app, AI tutoring, and more',
       href: '/features',
       icon: Zap,
-      image: null,
+      image: '/media/programs/hvac-highlight-3.jpg',
       color: 'violet',
     },
     {
