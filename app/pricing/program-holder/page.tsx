@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {
   Check,
+  CheckCircle,
   Users,
   Shield,
   Clock,
