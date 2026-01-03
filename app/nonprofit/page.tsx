@@ -50,20 +50,22 @@ export default function NonprofitPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="https://static.wixstatic.com/media/a9980c_542c794668484ecc911de7f139dad437~mv2.jpg/v1/fill/w_431,h_377,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mind%2C%20Body%20and%20spirit%20words%20engraved%20on%20zen%20stones_%20Zen%20concept.jpg"
+                src="https://static.wixstatic.com/media/a9980c_542c794668484ecc911de7f139dad437~mv2.jpg"
                 alt="Mind, Body and spirit words engraved on zen stones"
                 fill
                 className="object-cover"
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="https://static.wixstatic.com/media/a9980c_50880ae14adb46c09fb5244b2fa65c84~mv2.webp/v1/fill/w_310,h_317,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a9980c_50880ae14adb46c09fb5244b2fa65c84~mv2.webp"
+                src="https://static.wixstatic.com/media/a9980c_50880ae14adb46c09fb5244b2fa65c84~mv2.webp"
                 alt="Rocks of strength and resilience"
                 fill
                 className="object-cover"
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
           </div>
@@ -115,11 +117,12 @@ export default function NonprofitPage() {
             <div className="group block">
               <div className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <Image
-                  src="https://static.wixstatic.com/media/a9980c_49b5dda3ab744437846dedd6063e8f04~mv2.jpg/v1/fill/w_239,h_259,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a9980c_49b5dda3ab744437846dedd6063e8f04~mv2.jpg"
+                  src="https://static.wixstatic.com/media/a9980c_49b5dda3ab744437846dedd6063e8f04~mv2.jpg"
                   alt="Freckled face reflecting silent trauma"
                   fill
                   className="object-cover transition-transform duration-300"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">
@@ -131,11 +134,12 @@ export default function NonprofitPage() {
             <div className="group block">
               <div className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <Image
-                  src="https://static.wixstatic.com/media/11062b_d43c4524d004480cac5e896e52182b75~mv2.jpg/v1/fill/w_223,h_163,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Doctor%20Talking%20To%20Patient.jpg"
+                  src="https://static.wixstatic.com/media/11062b_d43c4524d004480cac5e896e52182b75~mv2.jpg"
                   alt="Doctor's touch: support and understanding"
                   fill
                   className="object-cover transition-transform duration-300"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">
@@ -147,11 +151,12 @@ export default function NonprofitPage() {
             <div className="group block">
               <div className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <Image
-                  src="https://static.wixstatic.com/media/8e2a95a81bd67d6d59f9fc086239d1be.jpg/v1/fill/w_198,h_203,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Family%20Dispute.jpg"
+                  src="https://static.wixstatic.com/media/8e2a95a81bd67d6d59f9fc086239d1be.jpg"
                   alt="This scene powerfully captures the emotional complexity of divorce"
                   fill
                   className="object-cover transition-transform duration-300"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
                 />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">

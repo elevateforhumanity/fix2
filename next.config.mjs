@@ -84,10 +84,17 @@ const nextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'inline',
-    contentSecurityPolicy: "default-src 'self' https://burst.shopifycdn.com https://images.pexels.com; script-src 'none'; sandbox;",
+    // Allow all external images - no restrictions
     remotePatterns: [
       { protocol: 'https', hostname: '**' },
+      { protocol: 'http', hostname: '**' },
+      // Explicitly allow Wix CDN
+      { protocol: 'https', hostname: 'static.wixstatic.com' },
+      { protocol: 'https', hostname: '*.wixstatic.com' },
     ],
+    // Increase timeout for large images
+    loader: 'default',
+    loaderFile: undefined,
   },
   typescript: {
     ignoreBuildErrors: true,
@@ -262,11 +269,11 @@ const nextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://js.stripe.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: https: blob:",
+              "img-src * data: blob: 'unsafe-inline'",
               "font-src 'self' data: https://fonts.gstatic.com",
               "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://api.stripe.com wss://*.supabase.co",
               "frame-src 'self' https://www.youtube.com https://player.vimeo.com https://js.stripe.com",
-              "media-src 'self' https: blob:",
+              "media-src * data: blob:",
               "worker-src 'self' blob:",
             ].join('; '),
           },
