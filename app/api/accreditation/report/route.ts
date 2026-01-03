@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-import { createClient } from "@/lib/supabase/server";
-import PDFDocument from "pdfkit";
 
 export async function GET(request: Request) {
+  return NextResponse.json({ 
+    error: "Report generation temporarily disabled - function too large for Vercel",
+    status: 501 
+  }, { status: 501 });
   const supabase = await createClient();
   const {
     data: { user },
