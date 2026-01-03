@@ -11,7 +11,7 @@ interface VideoHeroBannerProps {
 }
 
 export default function VideoHeroBanner({
-  videoSrc = 'https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2082667268&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=SgaKIZgPcRuDhT0UyP-QqK5LBBEybeAAgC9mLwNU5hh81dPz55Koufjp723VwPXjc9r1vPDEmPS9Q6RHGHR7iqUcHAjGB55fkxWlB39EHcIbkfAaWrnq4p3BalAdAUwDkiFTEOIWfTjp3zYl-K3-bsH1FpdjbNZSNdJXMPVEn01BXyXjrRbbWIh70bEwCWaVVcrFu2T3dzn4XMdJtviDk6yOUUn3dexJscKNsCcebc87AfYwKvPqrm6dbeKAv-5ZmVzEnb~irCGt4e1jq2rLorD3M23DegbE4VLVsnXTMVNQTCszXArFMyiIaKx7IoRey3k5umlahzdCadDbqM-aSA__',
+  videoSrc = '/videos/hero-home.mp4',
   withAudio = false,
   voiceoverSrc,
 }: VideoHeroBannerProps) {
