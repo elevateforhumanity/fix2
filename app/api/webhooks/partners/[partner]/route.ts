@@ -12,7 +12,6 @@ import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
 
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

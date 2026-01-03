@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { logger } from '@/lib/logger';
 import { toErrorMessage } from '@/lib/safe';
@@ -11,7 +11,6 @@ import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 
-export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 

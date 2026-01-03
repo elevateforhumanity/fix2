@@ -14,7 +14,6 @@ import {
 } from '@/lib/email-mou-notifications';
 
 // Use Node.js runtime for PDF generation
-export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   const supabase = await createRouteHandlerClient({ cookies });

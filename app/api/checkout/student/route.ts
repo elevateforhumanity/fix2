@@ -6,7 +6,6 @@ import { stripe } from '@/lib/stripe/client';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = 'nodejs';
 
 export async function POST() {
   if (!process.env.STRIPE_SECRET_KEY) {

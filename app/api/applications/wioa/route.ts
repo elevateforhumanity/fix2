@@ -5,7 +5,6 @@ export const maxDuration = 60;
 import { createAdminClient } from '@/lib/supabase/admin';
 import { checkRateLimit } from '@/lib/rate-limit';
 
-export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {

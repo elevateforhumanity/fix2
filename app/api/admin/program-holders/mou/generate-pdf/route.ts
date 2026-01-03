@@ -12,7 +12,6 @@ import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
 // Use Node.js runtime for PDF generation
-export const runtime = 'nodejs';
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;

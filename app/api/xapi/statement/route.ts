@@ -10,7 +10,6 @@ import { createSupabaseClient } from "@/lib/supabase-api";
 import { logger } from '@/lib/logger';
 
 
-export const runtime = 'nodejs';
 
 /**
  * POST /api/xapi/statement

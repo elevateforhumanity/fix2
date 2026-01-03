@@ -9,7 +9,6 @@ import { logger } from '@/lib/logger';
 export const dynamic = 'force-dynamic';
 
 // Using nodejs runtime for better compatibility with Supabase
-export const runtime = 'nodejs';
 
 export async function GET(request: NextRequest) {
   try {

@@ -4,7 +4,6 @@ export const runtime = 'edge';
 export const maxDuration = 60;
 import { createClient } from "@/lib/supabase/server";
 
-export const runtime = "nodejs";
 
 export async function GET() {
   // Dynamic import for CommonJS module

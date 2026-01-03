@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 // @ts-nocheck
@@ -14,7 +14,6 @@ import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import fs from 'fs';
 import path from 'path';
 
-export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 

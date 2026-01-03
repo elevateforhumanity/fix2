@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
 
-export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 

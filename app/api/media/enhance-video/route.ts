@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 // @ts-nocheck
@@ -11,7 +11,6 @@ import { promisify } from 'util';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 

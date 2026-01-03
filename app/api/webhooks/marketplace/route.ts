@@ -10,7 +10,6 @@ import { randomBytes } from 'crypto';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = 'nodejs';
 
 const stripe = new Stripe(
   process.env.STRIPE_SECRET_KEY || 'sk_test_Content',

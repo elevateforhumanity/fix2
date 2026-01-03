@@ -7,7 +7,6 @@ import { getSupabaseServerClient } from '../../../../lib/supabaseServer';
 import { programSeeds } from '../../../../lms-data/courseSeed';
 import { logger } from '@/lib/logger';
 
-export const runtime = 'nodejs';
 
 // WARNING: This is a dev/ops endpoint. In production, restrict or remove it.
 export async function POST() {

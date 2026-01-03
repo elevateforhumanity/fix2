@@ -8,7 +8,6 @@ import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = 'nodejs';
 
 interface CheckoutRequest {
   firstName: string;

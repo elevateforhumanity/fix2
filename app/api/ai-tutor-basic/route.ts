@@ -6,7 +6,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { aiInstructors } from '@/lms-data/aiInstructors';
 import { logger } from '@/lib/logger';
 
-export const runtime = 'nodejs';
 
 export async function POST(req: NextRequest) {
   try {

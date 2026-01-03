@@ -8,7 +8,6 @@ import { STRIPE_PRICE_IDS, isPriceConfigured } from '@/lib/stripe/price-map';
 import { toError, toErrorMessage } from '@/lib/safe';
 import { createClient } from '@/lib/supabase/server';
 
-export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {

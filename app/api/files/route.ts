@@ -6,7 +6,6 @@ import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 // Use Node.js runtime for file uploads
-export const runtime = 'nodejs';
 
 export async function GET(request: NextRequest) {
   const supabase = await createClient();

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { createServerSupabaseClient } from '@/lib/auth';
 import fs from 'fs';
@@ -8,7 +8,6 @@ import path from 'path';
 import { withAuth } from '@/lib/with-auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 

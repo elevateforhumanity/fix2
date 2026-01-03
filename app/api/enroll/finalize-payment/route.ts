@@ -20,7 +20,6 @@ import { stripe } from '@/lib/stripe/client';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 
-export const runtime = 'nodejs';
 
 interface FinalizePaymentRequest {
   enrollmentId: string;
