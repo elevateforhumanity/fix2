@@ -93,8 +93,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   staticPageGenerationTimeout: 180,
-  outputFileTracingIncludes: {
-    '/api/**/*': ['./node_modules/**/*.wasm', './node_modules/**/*.node'],
+  outputFileTracingExcludes: {
+    '/api/accreditation/report': ['**/*'],
   },
   
   // Redirects for consolidated routes

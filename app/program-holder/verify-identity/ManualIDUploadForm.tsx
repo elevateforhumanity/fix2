@@ -7,6 +7,7 @@ import {
   AlertCircle,
   Loader2,
   Camera,
+  File,
 } from 'lucide-react';
 
 interface ManualIDUploadFormProps {
