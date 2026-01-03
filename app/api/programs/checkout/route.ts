@@ -5,10 +5,6 @@ import { stripe } from '@/lib/stripe/client';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-    })
-  : null;
 
 export async function POST(request: NextRequest) {
   if (!stripe) {

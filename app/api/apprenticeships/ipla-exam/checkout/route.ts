@@ -3,10 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { stripe } from '@/lib/stripe/client';
 
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-    })
-  : null;
 
 export async function POST(request: NextRequest) {
   try {
