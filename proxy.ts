@@ -87,7 +87,6 @@ export default async function proxy(request: NextRequest) {
     '/signup',
     '/auth',
     '/unauthorized',
-    '/complete-profile',
     '/privacy',
     '/terms',
     '/supersonic-fast-cash',
@@ -152,6 +151,14 @@ export default async function proxy(request: NextRequest) {
     return NextResponse.redirect(redirectUrl);
   }
 
+  // /complete-profile: auth required, no role check
+  if (
+    pathname === '/complete-profile' ||
+    pathname.startsWith('/complete-profile/')
+  ) {
+    return response;
+  }
+
   // Get user role from profile
   const { data: profile } = await supabase
     .from('profiles')
@@ -161,8 +168,8 @@ export default async function proxy(request: NextRequest) {
 
   // If no profile or no role, send to complete profile (not unauthorized)
   if (!profile || !profile.role) {
-    // Don't redirect if already on unauthorized or complete-profile
-    if (pathname !== '/unauthorized' && pathname !== '/complete-profile') {
+    // Don't redirect if already on unauthorized (prevents loop)
+    if (pathname !== '/unauthorized') {
       return NextResponse.redirect(new URL('/complete-profile', request.url));
     }
     return response;
