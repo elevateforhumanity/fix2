@@ -1,6 +1,6 @@
 import { cloneRepoForCustomer } from '@/lib/store/github-clone';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';

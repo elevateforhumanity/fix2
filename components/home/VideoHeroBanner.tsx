@@ -8,12 +8,20 @@ interface VideoHeroBannerProps {
   videoSrc?: string;
   withAudio?: boolean;
   voiceoverSrc?: string;
+  headline?: string;
+  subheadline?: string;
+  primaryCTA?: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
 }
 
 export default function VideoHeroBanner({
   videoSrc = '/videos/hero-home.mp4',
   withAudio = false,
   voiceoverSrc,
+  headline = 'Elevate for Humanity',
+  subheadline = 'Free, Funded Workforce Training',
+  primaryCTA = { text: 'Apply Now', href: '/apply' },
+  secondaryCTA = { text: 'Learn More', href: '/programs' },
 }: VideoHeroBannerProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(!withAudio);
@@ -107,8 +115,8 @@ export default function VideoHeroBanner({
       onMouseLeave={() => setShowControls(false)}
       onClick={handleUserInteraction}
     >
-      {/* Video Container - Mobile First */}
-      <div className="relative w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+      {/* Video Container - Mobile Optimized */}
+      <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
         {/* Video Background - Shows when loaded */}
         {isLoaded && (
           <video
@@ -124,15 +132,36 @@ export default function VideoHeroBanner({
           </video>
         )}
 
-        {/* Text Content - Always Visible on Top */}
-        <div className="absolute inset-0 flex items-center justify-center text-white p-6 text-center z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
-              Elevate for Humanity
-            </h1>
-            <p className="text-lg md:text-xl lg:text-2xl drop-shadow-lg">
-              Free, Funded Workforce Training
-            </p>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-5" />
+
+        {/* Text Content - Mobile First */}
+        <div className="absolute inset-0 flex items-center z-10 pt-16 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+            <div className="max-w-2xl">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight break-words drop-shadow-2xl">
+                {headline}
+              </h1>
+              <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl drop-shadow-lg">
+                {subheadline}
+              </p>
+              
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  href={primaryCTA.href}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-brand-blue-600 text-base font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+                >
+                  {primaryCTA.text}
+                </Link>
+                <Link
+                  href={secondaryCTA.href}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white text-base font-bold rounded-xl hover:bg-white/10 transition-colors border-2 border-white"
+                >
+                  {secondaryCTA.text}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 // app/api/checkout/create/route.ts - Create Stripe checkout for course
