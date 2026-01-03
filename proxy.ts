@@ -99,6 +99,7 @@ export default async function proxy(request: NextRequest) {
     '/advising',
     '/support-services',
     '/for-employers',
+    '/employer', // Public employer landing page
     '/lms',
     '/resources',
   ];
@@ -192,7 +193,7 @@ export default async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/unauthorized', request.url));
   }
 
-  if (pathname.startsWith('/employer') && role !== 'employer') {
+  if (pathname.startsWith('/employer/dashboard') && role !== 'employer') {
     return NextResponse.redirect(new URL('/unauthorized', request.url));
   }
 
