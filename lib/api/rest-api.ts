@@ -1,7 +1,7 @@
 // REST API Core - Public API for Enterprise Integrations
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest } from 'next/server';
-import crypto from 'crypto';
+import * as crypto from 'node:crypto';
 
 export interface APIKey {
   id: string;

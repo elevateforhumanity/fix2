@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { randomUUID } from 'crypto';
+import { randomUUID } from 'node:crypto';
 
 export function jsonOk<T>(data: T, status: number = 200) {
   return NextResponse.json(data, { status });

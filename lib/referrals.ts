@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import crypto from 'crypto';
+import * as crypto from 'node:crypto';
 
 // =====================================================
 // REFERRAL TYPES
