@@ -107,7 +107,7 @@ const nextConfig = {
       { source: '/learners/:path*', destination: '/lms/:path*', permanent: true },
       { source: '/program-holder-portal/:path*', destination: '/program-holder/:path*', permanent: true },
       { source: '/admin-portal/:path*', destination: '/admin/:path*', permanent: true },
-      { source: '/dashboard', destination: '/lms/dashboard', permanent: false },
+      // /dashboard redirect removed - handled by middleware with auth check
       
       // Tax consolidation
       { source: '/tax-filing/:path*', destination: '/tax/:path*', permanent: true },
