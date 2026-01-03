@@ -168,8 +168,12 @@ export default async function proxy(request: NextRequest) {
 
   // If no profile or no role, send to complete profile (not unauthorized)
   if (!profile || !profile.role) {
-    // Don't redirect if already on unauthorized (prevents loop)
-    if (pathname !== '/unauthorized') {
+    // Don't redirect if already on complete-profile or unauthorized (prevents loop)
+    if (
+      pathname !== '/unauthorized' &&
+      pathname !== '/complete-profile' &&
+      !pathname.startsWith('/complete-profile/')
+    ) {
       return NextResponse.redirect(new URL('/complete-profile', request.url));
     }
     return response;
