@@ -28,12 +28,18 @@ export default function VideoHeroBanner({
   const [showControls, setShowControls] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  // Detect mobile on mount
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || isMobile) return; // Skip video on mobile
 
     // Set loaded state when video can play
     const handleCanPlay = () => {
@@ -65,7 +71,7 @@ export default function VideoHeroBanner({
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('error', handleError);
     };
-  }, [voiceoverSrc]);
+  }, [voiceoverSrc, isMobile]);
 
   // Ensure audio plays on any user interaction
   const handleUserInteraction = () => {
@@ -125,8 +131,8 @@ export default function VideoHeroBanner({
           }}
         />
 
-        {/* Video Background - Shows when loaded, overlays image */}
-        {isLoaded && !hasError && (
+        {/* Video Background - Desktop only, overlays image */}
+        {!isMobile && isLoaded && !hasError && (
           <video
             ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover z-1"
