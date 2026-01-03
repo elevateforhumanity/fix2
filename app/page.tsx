@@ -33,13 +33,6 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Elevate for Humanity | Free, Funded Workforce Training',
-    description:
-      'Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform.',
-    images: ['/images/homepage/og-image.png'],
-  },
 };
 
 export default function HomePage() {
