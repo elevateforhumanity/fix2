@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { CheckCircle, ArrowRight, Star } from 'lucide-react';
+import { CheckCircle, ArrowRight, Star, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About Us | Elevate for Humanity',
