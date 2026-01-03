@@ -26,7 +26,7 @@ console.log(`🌿 Branch: ${gitBranch}\n`);
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const dbUrl = process.env.DATABASE_URL;
+const dbUrl = process.env.DATABASE_URL || process.env.SUPABASE_DB_URL;
 
 // Check credentials - exit early to avoid confusing error messages
 if (!supabaseUrl || !supabaseKey || !dbUrl) {
