@@ -1,16 +1,1 @@
-{
-  "projectId": "prj_mqHr6z23gRSqM5In6bLXtEo9cMGI",
-  "orgId": "team_wnZ7iyQz1kUNni7yIDVUnhZf",
-  "projectName": "fix2",
-  "settings": {
-    "createdAt": 1766059664987,
-    "framework": "nextjs",
-    "devCommand": null,
-    "installCommand": null,
-    "buildCommand": null,
-    "outputDirectory": null,
-    "rootDirectory": null,
-    "directoryListing": false,
-    "nodeVersion": "24.x"
-  }
-}
+{"projectId":"prj_N5nAqHdZzK2s7FWGrZwvVPzkp1Ng","orgId":"team_MrVTNV6aoxL54Bw6ZP6MFviT","projectName":"fix2"}
