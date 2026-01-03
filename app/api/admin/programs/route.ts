@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/admin/programs/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseClients';

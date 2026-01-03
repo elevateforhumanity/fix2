@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/xapi/route.ts
 import { NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';

@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { fillTemplate } from "@/lib/docs/templateEngine";
 import { LETTER_OF_SUPPORT_TEMPLATE } from "@/lib/docs/templates/letterOfSupport";
 import { MOU_TEMPLATE } from "@/lib/docs/templates/mou";

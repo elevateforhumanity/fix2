@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 /**
  * Test SupersonicFastCash Tax Service
  * GET /api/test-supersonic-fast-cash

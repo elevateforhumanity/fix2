@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import Stripe from 'stripe';
 import { billingConfigs } from '../../../lms-data/billingConfig';
 import { logger } from '@/lib/logger';

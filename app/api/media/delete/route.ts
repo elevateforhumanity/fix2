@@ -1,4 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function POST(req: Request) {

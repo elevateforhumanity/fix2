@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { supabaseServer } from '@/lib/supabase-server';
 import { withAuth } from '@/lib/with-auth';

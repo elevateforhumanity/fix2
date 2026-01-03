@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // app/api/verify/certificate/[certificateId]/route.ts
 import { NextRequest, NextResponse } from "next/server";

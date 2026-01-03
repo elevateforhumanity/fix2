@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createSupabaseClient } from '@/lib/supabase-api';
 import { toError, toErrorMessage } from '@/lib/safe';
 import { getAppVersion } from '@/lib/version/getAppVersion';

@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
 import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';
 import { logger } from '@/lib/logger';

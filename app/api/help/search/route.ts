@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/help/search/route.ts
 import { NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";

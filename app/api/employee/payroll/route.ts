@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/employee/payroll/route.ts
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';

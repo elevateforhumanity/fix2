@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/programs/featured/route.ts
 // Cached featured programs endpoint
 import { NextRequest, NextResponse } from 'next/server';

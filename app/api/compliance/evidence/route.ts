@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createClient } from "@/lib/supabase/server";
 import { uploadComplianceEvidenceFile } from "@/lib/storage/complianceEvidence";
 import { toError, toErrorMessage } from '@/lib/safe';

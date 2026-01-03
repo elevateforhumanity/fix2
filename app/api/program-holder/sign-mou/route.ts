@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';

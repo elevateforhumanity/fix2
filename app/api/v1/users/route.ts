@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // Public REST API - Users Endpoint
 import { NextRequest, NextResponse } from 'next/server';

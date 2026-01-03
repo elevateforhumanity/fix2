@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/privacy/delete/route.ts
 // GDPR/CCPA: Right to be forgotten
 import { NextRequest, NextResponse } from 'next/server';

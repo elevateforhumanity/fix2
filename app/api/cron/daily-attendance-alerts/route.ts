@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createClient } from '@supabase/supabase-js';
 
 // This route is called by Vercel Cron daily at 6 AM

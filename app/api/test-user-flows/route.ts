@@ -1,4 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { NextResponse } from 'next/server';
 
 /**

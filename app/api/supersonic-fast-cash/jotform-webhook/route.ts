@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { jotFormIntegration } from '@/lib/integrations/jotform';
 import { drakeIntegration } from '@/lib/integrations/drake-software';
 import { createClient } from '@supabase/supabase-js';

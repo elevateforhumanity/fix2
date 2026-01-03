@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/privacy/export/route.ts
 // GDPR/CCPA: Data export endpoint
 import { NextRequest, NextResponse } from 'next/server';

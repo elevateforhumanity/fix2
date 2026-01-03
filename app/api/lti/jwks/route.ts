@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/lti/jwks/route.ts
 import { NextResponse } from 'next/server';
 

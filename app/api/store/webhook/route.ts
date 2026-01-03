@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 import { verifyWebhookSignature } from '@/lib/store/stripe';
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';

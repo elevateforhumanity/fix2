@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { sendMarketplaceApplicationEmail } from '@/lib/email/resend';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';

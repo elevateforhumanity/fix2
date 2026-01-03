@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createStoreProduct } from '@/lib/store/stripe-products';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';

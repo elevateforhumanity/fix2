@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import type { NextRequest } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import Stripe from 'stripe';

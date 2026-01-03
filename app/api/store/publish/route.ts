@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 import { stripe } from '@/lib/stripe/client';
 import Stripe from 'stripe';

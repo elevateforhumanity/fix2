@@ -1,5 +1,8 @@
 import Stripe from 'stripe';
 
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 export async function POST(req: Request) {
   const stripe = new Stripe(
     process.env.STRIPE_SECRET_KEY || 'sk_test_Content',

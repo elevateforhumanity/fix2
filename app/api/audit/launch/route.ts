@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 import React from 'react';
 import { NextRequest, NextResponse } from 'next/server';

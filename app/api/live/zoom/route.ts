@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // app/api/live/zoom/route.ts
 // API endpoint for instructors to schedule Zoom live sessions

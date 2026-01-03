@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // app/api/grants/match/route.ts
 import { NextResponse } from 'next/server';

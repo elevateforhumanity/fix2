@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // app/api/courses/[courseId]/check-completion/route.ts
 import { NextRequest, NextResponse } from 'next/server';

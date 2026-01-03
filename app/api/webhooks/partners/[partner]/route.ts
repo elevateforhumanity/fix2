@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // app/api/webhooks/partners/[partner]/route.ts
 // Webhook endpoint for partner progress updates

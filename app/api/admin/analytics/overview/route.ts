@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/admin/analytics/overview/route.ts
 // Real-time analytics overview
 import { NextRequest, NextResponse } from 'next/server';

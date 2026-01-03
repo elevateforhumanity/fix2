@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { stripe } from '@/lib/stripe/client';
 import { getProductBySlug } from '@/app/data/store-products';
 import { STRIPE_PRICE_IDS, isPriceConfigured } from '@/lib/stripe/price-map';

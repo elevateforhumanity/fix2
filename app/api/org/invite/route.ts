@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
 import { getOrgContext } from '@/lib/org/getOrgContext';
 import { sendOrgInviteEmail } from '@/lib/email/sendOrgInviteEmail';

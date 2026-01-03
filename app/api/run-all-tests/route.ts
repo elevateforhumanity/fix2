@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 /**
  * Run All Production Tests
  * GET /api/run-all-tests

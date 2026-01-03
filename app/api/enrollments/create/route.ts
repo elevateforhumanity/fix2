@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // @ts-nocheck
 // app/api/enrollments/create/route.ts - Create enrollment
 import { NextRequest, NextResponse } from 'next/server';

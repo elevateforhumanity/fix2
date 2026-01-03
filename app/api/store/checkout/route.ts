@@ -1,4 +1,7 @@
 import { createCheckoutSession } from '@/lib/store/stripe';
+
+export const runtime = 'edge';
+export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';

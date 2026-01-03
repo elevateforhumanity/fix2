@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 /**
  * LinkedIn OAuth Authorization Initiator
  * Redirects user to LinkedIn for authorization

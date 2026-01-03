@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const maxDuration = 60;
+
 // app/api/admin/applications-secure/[id]/route.ts
 // SECURE VERSION with authentication
 import { NextRequest, NextResponse } from 'next/server';
