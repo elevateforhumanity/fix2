@@ -30,7 +30,7 @@ const nextConfig = {
       'recharts',
     ],
     webpackBuildWorker: true,
-    optimizeCss: true,
+    // optimizeCss: true, // Disabled - requires critters package
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
