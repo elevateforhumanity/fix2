@@ -1,6 +1,6 @@
 // Service Worker for PWA functionality
 
-const CACHE_NAME = 'elevate-v1';
+const CACHE_NAME = 'elevate-v2-2026-01-03';
 const urlsToCache = ['/', '/apply', '/programs', '/about', '/contact'];
 
 // Install service worker

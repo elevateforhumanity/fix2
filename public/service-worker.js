@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elevateedu-v1';
+const CACHE_NAME = 'elevateedu-v2-2026-01-03';
 const urlsToCache = [
   '/',
   '/index.html',
