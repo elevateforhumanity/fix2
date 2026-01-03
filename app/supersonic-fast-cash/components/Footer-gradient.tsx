@@ -42,7 +42,9 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/services"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  👨‍💼 Professional Tax Prep
+                  👨‍
+                  <Briefcase className="w-5 h-5 inline-block" /> Professional
+                  Tax Prep
                 </Link>
               </li>
               <li>
@@ -50,7 +52,7 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/diy-taxes"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  📝 DIY Self-Prep
+                  <FileText className="w-5 h-5 inline-block" /> DIY Self-Prep
                 </Link>
               </li>
               <li>
@@ -58,7 +60,7 @@ export function SupersonicFooter() {
                   href="/supersonic-fast-cash/book-appointment"
                   className="text-gray-300 hover:text-red-400 transition-colors"
                 >
-                  📅 Book Appointment
+                  <Calendar className="w-5 h-5 inline-block" /> Book Appointment
                 </Link>
               </li>
               <li>

@@ -15,7 +15,7 @@ export default function IndependentLicensePage() {
       <section className="bg-zinc-900    text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
-            ⚡ Instant Access
+            <Zap className="w-5 h-5 inline-block" /> Instant Access
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Independent Platform License
@@ -210,7 +210,7 @@ export default function IndependentLicensePage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
               <h3 className="text-lg font-bold text-green-900 mb-4">
-                ✅ Choose This If:
+                <CheckCircle className="w-5 h-5 inline-block" /> Choose This If:
               </h3>
               <ul className="space-y-2 text-sm text-green-800">
                 <li>• You already have ETPL/WIOA/RAPIDS credentials</li>
@@ -223,7 +223,8 @@ export default function IndependentLicensePage() {
 
             <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
               <h3 className="text-lg font-bold text-blue-900 mb-4">
-                💡 Consider Program Holder Network If:
+                <Lightbulb className="w-5 h-5 inline-block" /> Consider Program
+                Holder Network If:
               </h3>
               <ul className="space-y-2 text-sm text-blue-800">
                 <li>• You DON'T have credentials yet</li>

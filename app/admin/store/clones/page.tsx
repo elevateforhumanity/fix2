@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -115,7 +114,7 @@ export default function StoreBuilderPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Clones
@@ -420,7 +419,9 @@ export default function StoreBuilderPage() {
                   <div>
                     <div className="text-xs text-gray-500 mb-1">Demo</div>
                     <div className="text-xs text-gray-600">
-                      {product.demo.enabled ? '✅ Enabled' : '❌ Disabled'}
+                      {product.demo.enabled
+                        ? '<CheckCircle className="w-5 h-5 inline-block" /> Enabled'
+                        : '<XCircle className="w-5 h-5 inline-block" /> Disabled'}
                     </div>
                   </div>
                 </div>

@@ -28,10 +28,22 @@ export default function PaymentSuccessPage() {
           <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
             <h2 className="font-bold text-green-900 mb-2">What's Next?</h2>
             <ul className="text-left text-green-800 space-y-2">
-              <li>✅ Check your email for enrollment confirmation</li>
-              <li>✅ You'll receive your welcome packet within 24 hours</li>
-              <li>✅ Access your student portal to get started</li>
-              <li>✅ Our team will contact you to schedule orientation</li>
+              <li>
+                <CheckCircle className="w-5 h-5 inline-block" /> Check your
+                email for enrollment confirmation
+              </li>
+              <li>
+                <CheckCircle className="w-5 h-5 inline-block" /> You'll receive
+                your welcome packet within 24 hours
+              </li>
+              <li>
+                <CheckCircle className="w-5 h-5 inline-block" /> Access your
+                student portal to get started
+              </li>
+              <li>
+                <CheckCircle className="w-5 h-5 inline-block" /> Our team will
+                contact you to schedule orientation
+              </li>
             </ul>
           </div>
 

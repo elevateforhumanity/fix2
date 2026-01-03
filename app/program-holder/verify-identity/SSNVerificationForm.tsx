@@ -89,11 +89,20 @@ export default function SSNVerificationForm({
         </p>
         <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400">
           <p className="text-sm text-blue-900">
-            <strong>✅ FREE Service</strong> - No cost to verify your SSN
+            <strong>
+              <CheckCircle className="w-5 h-5 inline-block" /> FREE Service
+            </strong>{' '}
+            - No cost to verify your SSN
             <br />
-            <strong>🔒 Secure</strong> - We only store the last 4 digits
+            <strong>
+              <Lock className="w-5 h-5 inline-block" /> Secure
+            </strong>{' '}
+            - We only store the last 4 digits
             <br />
-            <strong>⚡ Instant</strong> - Results in seconds
+            <strong>
+              <Zap className="w-5 h-5 inline-block" /> Instant
+            </strong>{' '}
+            - Results in seconds
           </p>
         </div>
       </div>
@@ -119,8 +128,8 @@ export default function SSNVerificationForm({
                 }`}
               >
                 {result.verified
-                  ? '✅ SSN Verified Successfully'
-                  : '❌ Verification Failed'}
+                  ? '<CheckCircle className="w-5 h-5 inline-block" /> SSN Verified Successfully'
+                  : '<XCircle className="w-5 h-5 inline-block" /> Verification Failed'}
               </p>
               <p
                 className={`text-sm mt-1 ${
@@ -154,7 +163,8 @@ export default function SSNVerificationForm({
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           <p className="text-xs text-gray-500 mt-1">
-            🔒 We only store the last 4 digits for security
+            <Lock className="w-5 h-5 inline-block" /> We only store the last 4
+            digits for security
           </p>
         </div>
 

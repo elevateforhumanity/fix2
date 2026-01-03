@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CheckCircle, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -11,18 +12,30 @@ export const metadata: Metadata = {
 
 export default async function StatusPage() {
   const productionReady = {
-    marketing_website: '✅ 9 public pages accessible',
-    lms_integration: '✅ Marketing → LMS flow working',
-    no_broken_links: '✅ 1,094 routes compiled',
-    database_migrations: '✅ 349 migrations applied',
-    seo_sitemap: '✅ Sitemap & robots.txt present',
-    cron_automation: '✅ WIOA reporting automated',
-    images_media: '✅ Optimized & responsive',
-    performance: '✅ 19.3s build, 3.8s static gen',
-    rls_security: '✅ Public accessible, private protected',
-    brand_consistency: '✅ Colors, typography, no gradients',
-    content_quality: '✅ No placeholders, humanized',
-    discoverability: '✅ Nav, footer, search, breadcrumbs',
+    marketing_website:
+      '<CheckCircle className="w-5 h-5 inline-block" /> 9 public pages accessible',
+    lms_integration:
+      '<CheckCircle className="w-5 h-5 inline-block" /> Marketing → LMS flow working',
+    no_broken_links:
+      '<CheckCircle className="w-5 h-5 inline-block" /> 1,094 routes compiled',
+    database_migrations:
+      '<CheckCircle className="w-5 h-5 inline-block" /> 349 migrations applied',
+    seo_sitemap:
+      '<CheckCircle className="w-5 h-5 inline-block" /> Sitemap & robots.txt present',
+    cron_automation:
+      '<CheckCircle className="w-5 h-5 inline-block" /> WIOA reporting automated',
+    images_media:
+      '<CheckCircle className="w-5 h-5 inline-block" /> Optimized & responsive',
+    performance:
+      '<CheckCircle className="w-5 h-5 inline-block" /> 19.3s build, 3.8s static gen',
+    rls_security:
+      '<CheckCircle className="w-5 h-5 inline-block" /> Public accessible, private protected',
+    brand_consistency:
+      '<CheckCircle className="w-5 h-5 inline-block" /> Colors, typography, no gradients',
+    content_quality:
+      '<CheckCircle className="w-5 h-5 inline-block" /> No placeholders, humanized',
+    discoverability:
+      '<CheckCircle className="w-5 h-5 inline-block" /> Nav, footer, search, breadcrumbs',
   };
 
   const buildInfo = {
@@ -55,7 +68,8 @@ export default async function StatusPage() {
             Production Status
           </h1>
           <p className="text-xl text-green-600 font-semibold mb-8">
-            10/10 - PRODUCTION READY FOR LAUNCH ✅
+            10/10 - PRODUCTION READY FOR LAUNCH{' '}
+            <CheckCircle className="w-5 h-5 inline-block" />
           </p>
 
           {/* Production Readiness */}
@@ -69,7 +83,9 @@ export default async function StatusPage() {
                   key={key}
                   className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
                 >
-                  <span className="text-2xl">✅</span>
+                  <span className="text-2xl">
+                    <CheckCircle className="w-5 h-5 inline-block" />
+                  </span>
                   <div>
                     <div className="font-semibold text-gray-700 capitalize">
                       {key.replace(/_/g, ' ')}
@@ -111,7 +127,11 @@ export default async function StatusPage() {
                   key={key}
                   className="flex items-center gap-3 p-2 bg-green-50 rounded"
                 >
-                  <span className="text-xl">{value ? '✅' : '❌'}</span>
+                  <span className="text-xl">
+                    {value
+                      ? '<CheckCircle className="w-5 h-5 inline-block" />'
+                      : '<XCircle className="w-5 h-5 inline-block" />'}
+                  </span>
                   <span className="text-gray-700 capitalize">
                     {key.replace(/_/g, ' ')}
                   </span>

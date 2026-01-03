@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useState } from 'react';
 import VideoUploader from '@/components/admin/VideoUploader';
 import { Video, Copy, Check } from 'lucide-react';
-
 
 export const dynamic = 'force-dynamic';
 
@@ -95,7 +94,8 @@ export default function VideoManagerPage() {
           {/* Instructions */}
           <div className="mt-12    rounded-lg p-6 border border-blue-200">
             <h3 className="text-lg font-bold text-slate-900 mb-4">
-              📝 How to Use Your Enhanced Video
+              <FileText className="w-5 h-5 inline-block" /> How to Use Your
+              Enhanced Video
             </h3>
             <div className="space-y-3 text-slate-700">
               <p>
@@ -132,7 +132,8 @@ export default function VideoManagerPage() {
           <div className="mt-8 grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg shadow p-6">
               <h4 className="font-bold text-slate-900 mb-3">
-                ✨ What Gets Enhanced:
+                <Sparkles className="w-5 h-5 inline-block" /> What Gets
+                Enhanced:
               </h4>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li>✓ Resolution upscaled to 1080p</li>

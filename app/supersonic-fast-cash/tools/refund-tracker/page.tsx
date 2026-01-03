@@ -429,7 +429,8 @@ export default function RefundTrackerPage() {
               refundStatus.refundAmount >= 250 && (
                 <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl shadow-xl p-8 text-gray-900">
                   <h3 className="text-2xl font-bold mb-3">
-                    💰 Get Your Money Today!
+                    <DollarSign className="w-5 h-5 inline-block" /> Get Your
+                    Money Today!
                   </h3>
                   <p className="text-lg mb-6">
                     Don't wait for your refund. Get up to $

@@ -126,7 +126,9 @@ export default function SolutionsPage() {
             </div>
             <div className="relative h-96 bg-white/10 rounded-2xl backdrop-blur-sm p-8">
               <div className="text-center">
-                <div className="text-6xl mb-4">🎓</div>
+                <div className="text-6xl mb-4">
+                  <GraduationCap className="w-5 h-5 inline-block" />
+                </div>
                 <div className="text-2xl font-bold mb-2">30+ Programs</div>
                 <div className="text-blue-100 mb-6">
                   Healthcare • Trades • Technology

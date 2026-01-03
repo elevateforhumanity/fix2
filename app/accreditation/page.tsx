@@ -3,6 +3,13 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 import Image from 'next/image';
+import {
+  BarChart,
+  Briefcase,
+  CheckCircle,
+  Target,
+  TrendingUp,
+} from 'lucide-react';
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // 24 hours
@@ -505,7 +512,9 @@ export default function AccreditationPage() {
               <h3 className="text-2xl font-bold mb-6">Why Partner With Us</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📊</span>
+                  <span className="text-2xl">
+                    <BarChart className="w-5 h-5 inline-block" />
+                  </span>
                   <div>
                     <p className="font-bold">Measurable Outcomes</p>
                     <p className="text-sm text-purple-100">
@@ -514,7 +523,9 @@ export default function AccreditationPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🎯</span>
+                  <span className="text-2xl">
+                    <Target className="w-5 h-5 inline-block" />
+                  </span>
                   <div>
                     <p className="font-bold">Targeted Impact</p>
                     <p className="text-sm text-purple-100">
@@ -524,7 +535,9 @@ export default function AccreditationPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">✅</span>
+                  <span className="text-2xl">
+                    <CheckCircle className="w-5 h-5 inline-block" />
+                  </span>
                   <div>
                     <p className="font-bold">Full Compliance</p>
                     <p className="text-sm text-purple-100">
@@ -542,7 +555,9 @@ export default function AccreditationPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">💼</span>
+                  <span className="text-2xl">
+                    <Briefcase className="w-5 h-5 inline-block" />
+                  </span>
                   <div>
                     <p className="font-bold">Employer Connections</p>
                     <p className="text-sm text-purple-100">
@@ -551,7 +566,9 @@ export default function AccreditationPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📈</span>
+                  <span className="text-2xl">
+                    <TrendingUp className="w-5 h-5 inline-block" />
+                  </span>
                   <div>
                     <p className="font-bold">Transparent Reporting</p>
                     <p className="text-sm text-purple-100">

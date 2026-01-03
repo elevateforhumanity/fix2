@@ -269,7 +269,9 @@ export default function WIOAApplicationForm() {
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="bg-red-50 border-2 border-red-200 rounded-xl p-8 text-center">
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-3xl">⚠️</span>
+            <span className="text-3xl">
+              <AlertTriangle className="w-5 h-5 inline-block" />
+            </span>
           </div>
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
             Thank you for your interest
@@ -502,7 +504,11 @@ function Step1Eligibility({ formData, updateField }: unknown) {
   );
 }
 
-function Step2PersonalInfo({ formData, updateField, toggleArrayField }: unknown) {
+function Step2PersonalInfo({
+  formData,
+  updateField,
+  toggleArrayField,
+}: unknown) {
   const raceOptions = [
     'American Indian/Alaska Native',
     'Asian',
@@ -801,7 +807,11 @@ function Step3IncomeWIOA({ formData, updateField, toggleArrayField }: unknown) {
   );
 }
 
-function Step4Authorization({ formData, updateField, toggleArrayField }: unknown) {
+function Step4Authorization({
+  formData,
+  updateField,
+  toggleArrayField,
+}: unknown) {
   const workAuthDocs = [
     'U.S. Passport',
     'Birth Certificate',

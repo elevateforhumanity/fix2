@@ -134,9 +134,15 @@ export default function ManualIDUploadForm({
         </p>
         <div className="mt-4 p-4 bg-green-50 border-l-4 border-green-400">
           <p className="text-sm text-green-900">
-            <strong>✅ FREE</strong> - No cost for manual verification
+            <strong>
+              <CheckCircle className="w-5 h-5 inline-block" /> FREE
+            </strong>{' '}
+            - No cost for manual verification
             <br />
-            <strong>📱 Easy</strong> - Take photos with your phone
+            <strong>
+              <Smartphone className="w-5 h-5 inline-block" /> Easy
+            </strong>{' '}
+            - Take photos with your phone
             <br />
             <strong>⏱️ Fast</strong> - Review within 1-2 business days
           </p>

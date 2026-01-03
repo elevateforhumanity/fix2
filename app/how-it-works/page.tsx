@@ -109,7 +109,7 @@ export default function HowItWorksPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-red-50 p-6 rounded-lg border-2 border-red-200">
               <h3 className="text-xl font-bold mb-3 text-red-900">
-                ❌ Not a School
+                <XCircle className="w-5 h-5 inline-block" /> Not a School
               </h3>
               <p className="text-gray-700">
                 We don't deliver training. We coordinate access to accredited
@@ -119,7 +119,7 @@ export default function HowItWorksPage() {
 
             <div className="bg-red-50 p-6 rounded-lg border-2 border-red-200">
               <h3 className="text-xl font-bold mb-3 text-red-900">
-                ❌ Not a Certifier
+                <XCircle className="w-5 h-5 inline-block" /> Not a Certifier
               </h3>
               <p className="text-gray-700">
                 We don't issue credentials. Certifications come from state
@@ -129,7 +129,8 @@ export default function HowItWorksPage() {
 
             <div className="bg-red-50 p-6 rounded-lg border-2 border-red-200">
               <h3 className="text-xl font-bold mb-3 text-red-900">
-                ❌ Not Instant Enrollment
+                <XCircle className="w-5 h-5 inline-block" /> Not Instant
+                Enrollment
               </h3>
               <p className="text-gray-700">
                 We don't sell courses online. Every enrollment requires advisor

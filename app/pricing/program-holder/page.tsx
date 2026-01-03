@@ -168,7 +168,9 @@ export default function ProgramHolderLicensePage() {
             </div>
 
             <div className="bg-zinc-900   rounded-xl p-6 shadow-lg text-white">
-              <div className="text-4xl mb-4">💰</div>
+              <div className="text-4xl mb-4">
+                <DollarSign className="w-5 h-5 inline-block" />
+              </div>
               <h3 className="text-xl font-bold mb-3">Total Value</h3>
               <div className="text-3xl font-bold mb-2">$300K - $650K</div>
               <div className="text-white/90 text-sm mb-4">
@@ -356,12 +358,30 @@ export default function ProgramHolderLicensePage() {
                 Must Have
               </h3>
               <ul className="space-y-2 text-sm text-green-800">
-                <li>✅ Located in Indiana (for now - expanding soon)</li>
-                <li>✅ Clean compliance history</li>
-                <li>✅ Quality training programs</li>
-                <li>✅ Professional references</li>
-                <li>✅ Financial stability</li>
-                <li>✅ Programs align with our approvals</li>
+                <li>
+                  <CheckCircle className="w-5 h-5 inline-block" /> Located in
+                  Indiana (for now - expanding soon)
+                </li>
+                <li>
+                  <CheckCircle className="w-5 h-5 inline-block" /> Clean
+                  compliance history
+                </li>
+                <li>
+                  <CheckCircle className="w-5 h-5 inline-block" /> Quality
+                  training programs
+                </li>
+                <li>
+                  <CheckCircle className="w-5 h-5 inline-block" /> Professional
+                  references
+                </li>
+                <li>
+                  <CheckCircle className="w-5 h-5 inline-block" /> Financial
+                  stability
+                </li>
+                <li>
+                  <CheckCircle className="w-5 h-5 inline-block" /> Programs
+                  align with our approvals
+                </li>
               </ul>
             </div>
 
@@ -371,12 +391,29 @@ export default function ProgramHolderLicensePage() {
                 Auto-Reject
               </h3>
               <ul className="space-y-2 text-sm text-red-800">
-                <li>❌ Previous compliance violations</li>
-                <li>❌ Bad references</li>
-                <li>❌ Programs don't fit our approvals</li>
-                <li>❌ Financial instability</li>
-                <li>❌ Located outside Indiana (until we expand)</li>
-                <li>❌ Incomplete application</li>
+                <li>
+                  <XCircle className="w-5 h-5 inline-block" /> Previous
+                  compliance violations
+                </li>
+                <li>
+                  <XCircle className="w-5 h-5 inline-block" /> Bad references
+                </li>
+                <li>
+                  <XCircle className="w-5 h-5 inline-block" /> Programs don't
+                  fit our approvals
+                </li>
+                <li>
+                  <XCircle className="w-5 h-5 inline-block" /> Financial
+                  instability
+                </li>
+                <li>
+                  <XCircle className="w-5 h-5 inline-block" /> Located outside
+                  Indiana (until we expand)
+                </li>
+                <li>
+                  <XCircle className="w-5 h-5 inline-block" /> Incomplete
+                  application
+                </li>
               </ul>
             </div>
           </div>

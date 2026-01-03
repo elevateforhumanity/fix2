@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
 import React from 'react';
 
 import { useEffect, useMemo, useState } from 'react';
-
+import { AlertTriangle } from 'lucide-react';
 
 type Checklist = any;
 
@@ -142,9 +142,7 @@ export default function NextStepsPage() {
               <input
                 className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
                 value={data.program_name_other ?? ''}
-                onChange={(e) =>
-                  patch({ program_name_other: e.target.value })
-                }
+                onChange={(e) => patch({ program_name_other: e.target.value })}
                 placeholder="Enter program name"
               />
             </div>
@@ -194,7 +192,8 @@ export default function NextStepsPage() {
           </p>
           <div className="mt-2 rounded-lg bg-yellow-50 border border-yellow-200 p-3">
             <p className="text-xs font-semibold text-yellow-900">
-              ⚠️ IMPORTANT: Report back after EVERY appointment
+              <AlertTriangle className="w-5 h-5 inline-block" /> IMPORTANT:
+              Report back after EVERY appointment
             </p>
             <p className="mt-1 text-xs text-yellow-800 leading-relaxed">
               Don't wait until all appointments are done. Update this checklist

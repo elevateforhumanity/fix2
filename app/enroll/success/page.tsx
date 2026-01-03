@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { CheckCircle, Mail, Smartphone, ExternalLink } from 'lucide-react';
-
 
 export default function EnrollSuccessPage() {
   return (
@@ -16,7 +15,8 @@ export default function EnrollSuccessPage() {
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
-            🎉 Enrollment Successful!
+            <PartyPopper className="w-5 h-5 inline-block" /> Enrollment
+            Successful!
           </h1>
           <p className="text-base md:text-lg text-slate-700">
             Welcome to the Barber Apprenticeship Program
@@ -92,7 +92,8 @@ export default function EnrollSuccessPage() {
                     </code>
                   </p>
                   <p className="text-xs text-orange-700 mt-1">
-                    ⚠️ No spaces before or after the code
+                    <AlertTriangle className="w-5 h-5 inline-block" /> No spaces
+                    before or after the code
                   </p>
                 </div>
               </div>
@@ -118,7 +119,8 @@ export default function EnrollSuccessPage() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 font-semibold text-center text-sm"
                   >
-                    📱 Download for iPhone
+                    <Smartphone className="w-5 h-5 inline-block" /> Download for
+                    iPhone
                   </a>
                   <a
                     href="https://play.google.com/store/apps/details?id=com.thinkific.mobile"
@@ -126,7 +128,8 @@ export default function EnrollSuccessPage() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 bg-brand-green-600 text-white rounded-lg hover:bg-green-700 font-semibold text-center text-sm"
                   >
-                    📱 Download for Android
+                    <Smartphone className="w-5 h-5 inline-block" /> Download for
+                    Android
                   </a>
                 </div>
               </div>
@@ -141,17 +144,25 @@ export default function EnrollSuccessPage() {
           </h3>
           <ul className="space-y-2 text-blue-800 text-sm">
             <li>
-              ✅ Your enrollment is <strong>100% FREE</strong>
+              <CheckCircle className="w-5 h-5 inline-block" /> Your enrollment
+              is <strong>100% FREE</strong>
             </li>
             <li>
-              ✅ Milady RISE certification is <strong>FREE</strong> with promo
-              code
+              <CheckCircle className="w-5 h-5 inline-block" /> Milady RISE
+              certification is <strong>FREE</strong> with promo code
             </li>
-            <li>✅ Elevate pays the $295 Milady fee on your behalf</li>
             <li>
-              ✅ You'll receive login instructions via email within 5 minutes
+              <CheckCircle className="w-5 h-5 inline-block" /> Elevate pays the
+              $295 Milady fee on your behalf
             </li>
-            <li>✅ Check spam folder if you don't see the email</li>
+            <li>
+              <CheckCircle className="w-5 h-5 inline-block" /> You'll receive
+              login instructions via email within 5 minutes
+            </li>
+            <li>
+              <CheckCircle className="w-5 h-5 inline-block" /> Check spam folder
+              if you don't see the email
+            </li>
           </ul>
         </div>
 
@@ -175,7 +186,7 @@ export default function EnrollSuccessPage() {
         <div className="text-center mt-8 text-slate-600">
           <p className="mb-2">Need help? We're here for you!</p>
           <p className="font-semibold">
-            📞{' '}
+            <Phone className="w-5 h-5 inline-block" />{' '}
             <a
               href="tel:317-314-3757"
               className="text-brand-blue-600 hover:underline"
@@ -183,7 +194,7 @@ export default function EnrollSuccessPage() {
               317-314-3757
             </a>
             {' | '}
-            📧{' '}
+            <Mail className="w-5 h-5 inline-block" />{' '}
             <a
               href="mailto:elevate4humanityedu@gmail.com"
               className="text-brand-blue-600 hover:underline"

@@ -200,7 +200,7 @@ export default function SNAPETPartnerPage() {
                     Aide, Peer Recovery Coach, Direct Support Professional, CDL
                   </td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅
+                    <CheckCircle className="w-5 h-5 inline-block" />
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
@@ -210,7 +210,7 @@ export default function SNAPETPartnerPage() {
                     Maintenance), On-the-Job Training, Work-Based Learning
                   </td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅
+                    <CheckCircle className="w-5 h-5 inline-block" />
                   </td>
                 </tr>
                 <tr>
@@ -220,7 +220,7 @@ export default function SNAPETPartnerPage() {
                     Resume Writing, Interview Prep
                   </td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅
+                    <CheckCircle className="w-5 h-5 inline-block" />
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
@@ -232,7 +232,7 @@ export default function SNAPETPartnerPage() {
                     Employer Connections
                   </td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅
+                    <CheckCircle className="w-5 h-5 inline-block" />
                   </td>
                 </tr>
                 <tr>
@@ -242,7 +242,7 @@ export default function SNAPETPartnerPage() {
                     Emergency Support Services
                   </td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅
+                    <CheckCircle className="w-5 h-5 inline-block" />
                   </td>
                 </tr>
               </tbody>

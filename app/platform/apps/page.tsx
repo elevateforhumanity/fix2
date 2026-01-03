@@ -84,7 +84,9 @@ export default function PlatformAppsPage() {
             </div>
 
             <div className="text-center p-6">
-              <div className="text-5xl mb-4">⚡</div>
+              <div className="text-5xl mb-4">
+                <Zap className="w-5 h-5 inline-block" />
+              </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">
                 Enable Instantly
               </h3>

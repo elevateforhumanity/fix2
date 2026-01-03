@@ -127,7 +127,9 @@ export default function EnrollPage({
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="max-w-md w-full bg-white rounded-lg shadow-sm border border-red-200 p-8 text-center">
-          <div className="text-red-600 text-5xl mb-4">⚠️</div>
+          <div className="text-red-600 text-5xl mb-4">
+            <AlertTriangle className="w-5 h-5 inline-block" />
+          </div>
           <h1 className="text-2xl font-bold text-slate-900 mb-2">
             Course Not Found
           </h1>

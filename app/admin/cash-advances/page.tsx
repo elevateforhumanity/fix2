@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
+import { BarChart, DollarSign, Gift } from 'lucide-react';
+
 export const metadata: Metadata = {
   title: 'Admin | Elevate For Humanity',
   description: 'Admin dashboard',
@@ -271,20 +273,26 @@ export default async function CashAdvancesAdminPage() {
 
         <div className="grid md:grid-cols-3 gap-4 mt-6">
           <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-            <h4 className="font-semibold mb-2">💰 E-Advance</h4>
+            <h4 className="font-semibold mb-2">
+              <DollarSign className="w-5 h-5 inline-block" /> E-Advance
+            </h4>
             <p className="text-sm text-blue-100">
               No cost taxpayer advance loan program with no in-season marketing
               fees
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-            <h4 className="font-semibold mb-2">📊 E-Collect</h4>
+            <h4 className="font-semibold mb-2">
+              <BarChart className="w-5 h-5 inline-block" /> E-Collect
+            </h4>
             <p className="text-sm text-blue-100">
               Simple, low-cost ($20) refund transfer program
             </p>
           </div>
           <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-            <h4 className="font-semibold mb-2">🎁 E-Bonus</h4>
+            <h4 className="font-semibold mb-2">
+              <Gift className="w-5 h-5 inline-block" /> E-Bonus
+            </h4>
             <p className="text-sm text-blue-100">
               High incentive refund transfer - earn up to $20 more per return
             </p>
@@ -425,7 +433,8 @@ export default async function CashAdvancesAdminPage() {
                 </ul>
               </div>
               <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image priority
+                <Image
+                  priority
                   src="/images/artlist/hero-training-2.jpg"
                   alt="Students learning"
                   fill

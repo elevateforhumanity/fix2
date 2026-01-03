@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { BookOpen, Briefcase, Home, Target } from 'lucide-react';
 import {
   getActivePositions,
   formatSalaryRange,
@@ -28,7 +29,7 @@ export default async function CareersPage() {
 
   const benefits = [
     {
-      icon: '💼',
+      icon: '<Briefcase className="w-5 h-5 inline-block" />',
       title: 'Competitive Salary',
       description: 'Fair compensation with performance bonuses',
     },
@@ -43,17 +44,17 @@ export default async function CareersPage() {
       description: 'Generous PTO and holiday schedule',
     },
     {
-      icon: '📚',
+      icon: '<BookOpen className="w-5 h-5 inline-block" />',
       title: 'Professional Development',
       description: 'Continuous learning and growth opportunities',
     },
     {
-      icon: '🏠',
+      icon: '<Home className="w-5 h-5 inline-block" />',
       title: 'Remote Work',
       description: 'Flexible work arrangements',
     },
     {
-      icon: '🎯',
+      icon: '<Target className="w-5 h-5 inline-block" />',
       title: 'Mission-Driven',
       description: "Make a real impact on people's lives",
     },

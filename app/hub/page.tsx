@@ -1,13 +1,27 @@
 import Link from 'next/link';
-import { 
-  Building2, GraduationCap, Users, Briefcase, Heart, 
-  Wrench, Church, Home, Hammer, TrendingUp, Award,
-  BookOpen, Target, Handshake, MessageSquare, Calendar
+import {
+  Building2,
+  GraduationCap,
+  Users,
+  Briefcase,
+  Heart,
+  Wrench,
+  Church,
+  Home,
+  Hammer,
+  TrendingUp,
+  Award,
+  BookOpen,
+  Target,
+  Handshake,
+  MessageSquare,
+  Calendar,
 } from 'lucide-react';
 
 export const metadata = {
   title: 'Hub - All Services | Elevate for Humanity',
-  description: 'Explore all businesses, training programs, and services in the Elevate Hub',
+  description:
+    'Explore all businesses, training programs, and services in the Elevate Hub',
 };
 
 export default function HubPage() {
@@ -18,7 +32,8 @@ export default function HubPage() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Elevate Hub</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Your complete ecosystem for workforce training, business services, and community support
+            Your complete ecosystem for workforce training, business services,
+            and community support
           </p>
         </div>
       </section>
@@ -197,7 +212,7 @@ export default function HubPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">
-            📚 Learning Resources
+            <BookOpen className="w-5 h-5 inline-block" /> Learning Resources
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             <HubCard
@@ -238,7 +253,7 @@ export default function HubPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">
-            💼 For Employers
+            <Briefcase className="w-5 h-5 inline-block" /> For Employers
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <HubCard
@@ -444,14 +459,14 @@ export default function HubPage() {
   );
 }
 
-function HubCard({ 
-  icon, 
-  title, 
-  description, 
-  href, 
+function HubCard({
+  icon,
+  title,
+  description,
+  href,
   color = 'blue',
-  size = 'normal'
-}: { 
+  size = 'normal',
+}: {
   icon?: React.ReactNode;
   title: string;
   description: string;
@@ -476,11 +491,15 @@ function HubCard({
       }`}
     >
       {icon && (
-        <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${colorClasses[color as keyof typeof colorClasses] || colorClasses.blue} text-white mb-4`}>
+        <div
+          className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${colorClasses[color as keyof typeof colorClasses] || colorClasses.blue} text-white mb-4`}
+        >
           {icon}
         </div>
       )}
-      <h3 className={`font-bold text-gray-900 mb-2 ${size === 'small' ? 'text-lg' : 'text-xl'}`}>
+      <h3
+        className={`font-bold text-gray-900 mb-2 ${size === 'small' ? 'text-lg' : 'text-xl'}`}
+      >
         {title}
       </h3>
       <p className="text-gray-600 text-sm">{description}</p>

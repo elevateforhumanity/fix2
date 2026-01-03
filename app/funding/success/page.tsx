@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
-
 
 export default function FundingSuccessPage() {
   return (
@@ -15,7 +14,8 @@ export default function FundingSuccessPage() {
         </div>
 
         <h1 className="text-4xl font-bold text-slate-900 mb-4">
-          ✅ Funding Approved & Processed!
+          <CheckCircle className="w-5 h-5 inline-block" /> Funding Approved &
+          Processed!
         </h1>
 
         <p className="text-base md:text-lg text-slate-700 mb-8">

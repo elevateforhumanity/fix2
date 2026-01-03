@@ -1,9 +1,10 @@
 // @ts-nocheck
-"use client";
+'use client';
 
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Trophy } from 'lucide-react';
 
 export default function FeatureTour() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -28,7 +29,7 @@ export default function FeatureTour() {
       cta: 'Try AI Tutor',
     },
     {
-      emoji: '🏆',
+      emoji: '<Trophy className="w-5 h-5 inline-block" />',
       title: 'Earn Achievements',
       description: 'Collect badges and climb leaderboards as you learn',
       link: '/student/badges',

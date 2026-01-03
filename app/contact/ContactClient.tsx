@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { Briefcase, GraduationCap, Phone, Settings } from 'lucide-react';
 
 export default function ContactClient() {
   const contactOptions = [
@@ -11,7 +12,7 @@ export default function ContactClient() {
         'Ready to start your career journey? Learn about programs, funding, and enrollment.',
       image: '/images/heroes/student-career.jpg',
       href: '/apply',
-      icon: '🎓',
+      icon: '<GraduationCap className="w-5 h-5 inline-block" />',
       color: ' ',
     },
     {
@@ -29,7 +30,7 @@ export default function ContactClient() {
         'Build your talent pipeline and connect with skilled workers ready for employment.',
       image: '/images/learners/reentry-coaching.jpg',
       href: '/employers',
-      icon: '💼',
+      icon: '<Briefcase className="w-5 h-5 inline-block" />',
       color: ' ',
     },
     {
@@ -47,7 +48,7 @@ export default function ContactClient() {
         'License our platform for your organization and deliver training at scale.',
       image: '/images/platform/platform-screenshot-1.png',
       href: '/platform/licensing',
-      icon: '⚙️',
+      icon: '<Settings className="w-5 h-5 inline-block" />',
       color: ' ',
     },
     {
@@ -100,11 +101,12 @@ export default function ContactClient() {
                 <div className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                   {/* Image */}
                   <div className="relative h-72 overflow-hidden">
-                    <Image loading="lazy"
+                    <Image
+                      loading="lazy"
                       src={option.image}
                       alt={option.title}
                       fill
-          sizes="100vw"
+                      sizes="100vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       quality={75}
                     />
@@ -148,7 +150,9 @@ export default function ContactClient() {
             {/* Left: Call Now */}
             <div className="bg-white rounded-3xl p-10 shadow-xl">
               <div className="w-20 h-20 bg-zinc-900   rounded-3xl flex items-center justify-center mb-6 transform hover:scale-110 transition-transform">
-                <span className="text-4xl">📞</span>
+                <span className="text-4xl">
+                  <Phone className="w-5 h-5 inline-block" />
+                </span>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Prefer to call now?

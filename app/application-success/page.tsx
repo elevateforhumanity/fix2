@@ -1,11 +1,13 @@
 import Link from 'next/link';
-
+import { PartyPopper } from 'lucide-react';
 
 export default function ApplicationSuccessPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
       <div className="rounded-2xl border bg-white p-8 shadow-sm text-center">
-        <div className="text-5xl mb-4">🎉</div>
+        <div className="text-5xl mb-4">
+          <PartyPopper className="w-5 h-5 inline-block" />
+        </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Application Received
         </h1>

@@ -153,7 +153,9 @@ export default async function MobileAppPage() {
           {/* iOS Instructions */}
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
             <h3 className="text-lg md:text-lg font-bold mb-6 text-gray-900 flex items-center">
-              <span className="text-3xl mr-3">📱</span>
+              <span className="text-3xl mr-3">
+                <Smartphone className="w-5 h-5 inline-block" />
+              </span>
               iPhone & iPad (Safari)
             </h3>
             <ol className="space-y-4 text-gray-700">

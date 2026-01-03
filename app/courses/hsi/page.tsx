@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Settings } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -34,7 +35,7 @@ export default function HsiPage() {
     {
       name: 'Industrial Safety',
       count: 200,
-      icon: '⚙️',
+      icon: '<Settings className="w-5 h-5 inline-block" />',
       description: 'Manufacturing, warehouse, and industrial safety',
     },
     {
@@ -64,7 +65,7 @@ export default function HsiPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Hsi

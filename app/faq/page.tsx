@@ -12,7 +12,7 @@ const faqCategories = [
   {
     id: 'getting-started',
     name: 'Getting Started',
-    icon: '🚀',
+    icon: '<Rocket className="w-5 h-5 inline-block" />',
     questions: [
       {
         q: 'How do I apply for a program?',
@@ -39,7 +39,7 @@ const faqCategories = [
   {
     id: 'programs',
     name: 'Programs & Training',
-    icon: '📚',
+    icon: '<BookOpen className="w-5 h-5 inline-block" />',
     questions: [
       {
         q: 'What programs do you offer?',
@@ -66,7 +66,7 @@ const faqCategories = [
   {
     id: 'funding',
     name: 'Funding & Costs',
-    icon: '💰',
+    icon: '<DollarSign className="w-5 h-5 inline-block" />',
     questions: [
       {
         q: 'What is WIOA funding?',
@@ -120,7 +120,7 @@ const faqCategories = [
   {
     id: 'special-populations',
     name: 'Special Populations',
-    icon: '🌟',
+    icon: '<Star className="w-5 h-5 inline-block" />',
     questions: [
       {
         q: 'I have a criminal record. Can I still enroll?',
@@ -147,7 +147,7 @@ const faqCategories = [
   {
     id: 'technical',
     name: 'Technical Questions',
-    icon: '💻',
+    icon: '<Laptop className="w-5 h-5 inline-block" />',
     questions: [
       {
         q: 'Do I need a computer for online classes?',
@@ -372,7 +372,9 @@ export default function FAQPage() {
                 href="/programs"
                 className="bg-blue-50 hover:bg-blue-100 rounded-lg p-6 text-center transition"
               >
-                <div className="text-3xl mb-2">📚</div>
+                <div className="text-3xl mb-2">
+                  <BookOpen className="w-5 h-5 inline-block" />
+                </div>
                 <div className="font-semibold text-slate-900">
                   View Programs
                 </div>
@@ -388,7 +390,9 @@ export default function FAQPage() {
                 href="/getstarted"
                 className="bg-purple-50 hover:bg-purple-100 rounded-lg p-6 text-center transition"
               >
-                <div className="text-3xl mb-2">🚀</div>
+                <div className="text-3xl mb-2">
+                  <Rocket className="w-5 h-5 inline-block" />
+                </div>
                 <div className="font-semibold text-slate-900">Get Started</div>
               </Link>
             </div>

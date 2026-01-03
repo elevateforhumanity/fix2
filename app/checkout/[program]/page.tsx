@@ -253,7 +253,9 @@ export default function CheckoutPage() {
               </div>
 
               <div className="bg-blue-50 rounded-lg p-4 text-sm text-gray-700">
-                <p className="font-bold mb-2">💡 Did you know?</p>
+                <p className="font-bold mb-2">
+                  <Lightbulb className="w-5 h-5 inline-block" /> Did you know?
+                </p>
                 <p>
                   Most students qualify for 100% FREE training through WIOA
                   funding.

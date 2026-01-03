@@ -167,7 +167,8 @@ export default function TaxCareersPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <div className="inline-block bg-yellow-400 text-green-900 px-6 py-3 rounded-full font-bold text-lg mb-4">
-              💰 REFERRAL BONUS PROGRAM
+              <DollarSign className="w-5 h-5 inline-block" /> REFERRAL BONUS
+              PROGRAM
             </div>
             <h2 className="text-4xl font-bold mb-4">
               Earn $50 Per Completed Return!
@@ -370,7 +371,9 @@ export default function TaxCareersPage() {
                 </div>
 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <p className="font-bold text-green-900 mb-2">✅ Good News!</p>
+                  <p className="font-bold text-green-900 mb-2">
+                    <CheckCircle className="w-5 h-5 inline-block" /> Good News!
+                  </p>
                   <p className="text-green-800">
                     You DON'T need your own EFIN to work with us. We provide
                     EFIN access to all our tax preparers. You can file under our
@@ -470,7 +473,10 @@ export default function TaxCareersPage() {
             </div>
 
             <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-              <p className="font-bold mb-2">💡 We Provide Free Training!</p>
+              <p className="font-bold mb-2">
+                <Lightbulb className="w-5 h-5 inline-block" /> We Provide Free
+                Training!
+              </p>
               <p className="text-gray-700">
                 Even if you don't have formal credentials, we offer free tax
                 preparation training for new hires. You'll learn:
@@ -618,49 +624,79 @@ export default function TaxCareersPage() {
                 <tr className="bg-gray-50">
                   <td className="px-6 py-4 font-semibold">Work From Home</td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅ Yes
+                    <CheckCircle className="w-5 h-5 inline-block" /> Yes
                   </td>
-                  <td className="px-6 py-4 text-center">⚠️ Limited</td>
-                  <td className="px-6 py-4 text-center">⚠️ Limited</td>
-                  <td className="px-6 py-4 text-center">❌ No</td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Limited
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Limited
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <XCircle className="w-5 h-5 inline-block" /> No
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 font-semibold">Flexible Schedule</td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅ Yes
+                    <CheckCircle className="w-5 h-5 inline-block" /> Yes
                   </td>
-                  <td className="px-6 py-4 text-center">⚠️ Limited</td>
-                  <td className="px-6 py-4 text-center">⚠️ Limited</td>
-                  <td className="px-6 py-4 text-center">❌ No</td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Limited
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Limited
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <XCircle className="w-5 h-5 inline-block" /> No
+                  </td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-6 py-4 font-semibold">
                     Performance Bonuses
                   </td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅ Yes
+                    <CheckCircle className="w-5 h-5 inline-block" /> Yes
                   </td>
-                  <td className="px-6 py-4 text-center">⚠️ Sometimes</td>
-                  <td className="px-6 py-4 text-center">⚠️ Sometimes</td>
-                  <td className="px-6 py-4 text-center">❌ Rare</td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Sometimes
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Sometimes
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <XCircle className="w-5 h-5 inline-block" /> Rare
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 font-semibold">Year-Round Work</td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅ Available
+                    <CheckCircle className="w-5 h-5 inline-block" /> Available
                   </td>
-                  <td className="px-6 py-4 text-center">⚠️ Limited</td>
-                  <td className="px-6 py-4 text-center">❌ Seasonal Only</td>
-                  <td className="px-6 py-4 text-center">❌ Seasonal Only</td>
+                  <td className="px-6 py-4 text-center">
+                    <AlertTriangle className="w-5 h-5 inline-block" /> Limited
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <XCircle className="w-5 h-5 inline-block" /> Seasonal Only
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <XCircle className="w-5 h-5 inline-block" /> Seasonal Only
+                  </td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-6 py-4 font-semibold">Training Provided</td>
                   <td className="px-6 py-4 text-center text-green-600 font-bold">
-                    ✅ Free
+                    <CheckCircle className="w-5 h-5 inline-block" /> Free
                   </td>
-                  <td className="px-6 py-4 text-center">✅ Yes</td>
-                  <td className="px-6 py-4 text-center">✅ Yes</td>
-                  <td className="px-6 py-4 text-center">✅ Yes</td>
+                  <td className="px-6 py-4 text-center">
+                    <CheckCircle className="w-5 h-5 inline-block" /> Yes
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <CheckCircle className="w-5 h-5 inline-block" /> Yes
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <CheckCircle className="w-5 h-5 inline-block" /> Yes
+                  </td>
                 </tr>
               </tbody>
             </table>

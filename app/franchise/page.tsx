@@ -389,7 +389,10 @@ export default function FranchisePage() {
                 </p>
               </div>
               <div>
-                <p className="font-bold mb-2">✅ Affirm Financing</p>
+                <p className="font-bold mb-2">
+                  <CheckCircle className="w-5 h-5 inline-block" /> Affirm
+                  Financing
+                </p>
                 <p className="text-sm text-gray-700">
                   Get approved instantly. Pay over time with fixed monthly
                   payments

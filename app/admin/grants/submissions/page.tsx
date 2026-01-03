@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
+import { BarChart, Globe, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
@@ -62,8 +63,11 @@ function getStatusBadge(status: string) {
 
 function getMethodBadge(method: string) {
   const badges: Record<string, { icon: string; text: string }> = {
-    email: { icon: '📧', text: 'Email' },
-    portal: { icon: '🌐', text: 'Portal' },
+    email: { icon: '<Mail className="w-5 h-5 inline-block" />', text: 'Email' },
+    portal: {
+      icon: '<Globe className="w-5 h-5 inline-block" />',
+      text: 'Portal',
+    },
     mail: { icon: '📮', text: 'Mail' },
     other: { icon: '📄', text: 'Other' },
   };
@@ -314,13 +318,13 @@ export default async function GrantSubmissionsPage() {
             </h2>
             <div className="flex gap-4">
               <button className="bg-brand-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 font-semibold">
-                📊 Export to Excel
+                <BarChart className="w-5 h-5 inline-block" /> Export to Excel
               </button>
               <button className="bg-brand-orange-600 text-white px-6 py-3 rounded-lg hover:bg-brand-orange-700 font-semibold">
                 📄 Export to PDF
               </button>
               <button className="bg-brand-blue-600 text-white px-6 py-3 rounded-lg hover:bg-brand-blue-700 font-semibold">
-                📧 Email Report
+                <Mail className="w-5 h-5 inline-block" /> Email Report
               </button>
             </div>
           </div>

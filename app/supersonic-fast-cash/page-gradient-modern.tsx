@@ -83,7 +83,7 @@ export default function SupersonicMarketingPage() {
                 className="group px-14 py-7 bg-white text-blue-900 text-2xl font-black rounded-2xl hover:bg-gray-50 shadow-2xl hover:shadow-white/50 uppercase transform hover:scale-105 transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-3">
-                  📝 File Yourself
+                  <FileText className="w-5 h-5 inline-block" /> File Yourself
                   <span className="group-hover:translate-x-2 transition-transform">
                     →
                   </span>
@@ -142,16 +142,16 @@ export default function SupersonicMarketingPage() {
               </div>
               <div className="flex flex-wrap justify-center gap-6 text-base">
                 <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
-                  ✅ Audit Defense
+                  <CheckCircle className="w-5 h-5 inline-block" /> Audit Defense
                 </span>
                 <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
-                  ✅ Appeals
+                  <CheckCircle className="w-5 h-5 inline-block" /> Appeals
                 </span>
                 <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
-                  ✅ Collections
+                  <CheckCircle className="w-5 h-5 inline-block" /> Collections
                 </span>
                 <span className="px-4 py-2 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
-                  ✅ Tax Court
+                  <CheckCircle className="w-5 h-5 inline-block" /> Tax Court
                 </span>
               </div>
             </div>
@@ -599,7 +599,9 @@ export default function SupersonicMarketingPage() {
                 <div className="flex-1 text-center md:text-left">
                   <div className="inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full mb-4">
                     <Shield className="w-5 h-5" />
-                    <span className="font-bold">Licensed Enrolled Agent (EA)</span>
+                    <span className="font-bold">
+                      Licensed Enrolled Agent (EA)
+                    </span>
                   </div>
                   <h3 className="text-3xl font-black text-gray-900 mb-2">
                     Your Tax Professional
@@ -608,24 +610,36 @@ export default function SupersonicMarketingPage() {
                     IRS-Authorized Tax Expert
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    With years of experience in tax preparation and IRS representation, our licensed Enrolled Agent provides expert guidance for individuals and businesses. Authorized to represent clients before the IRS in audits, appeals, and collections.
+                    With years of experience in tax preparation and IRS
+                    representation, our licensed Enrolled Agent provides expert
+                    guidance for individuals and businesses. Authorized to
+                    represent clients before the IRS in audits, appeals, and
+                    collections.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm font-semibold">IRS Licensed</span>
+                      <span className="text-sm font-semibold">
+                        IRS Licensed
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm font-semibold">Audit Defense</span>
+                      <span className="text-sm font-semibold">
+                        Audit Defense
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm font-semibold">Tax Court Rep</span>
+                      <span className="text-sm font-semibold">
+                        Tax Court Rep
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-sm font-semibold">All 50 States</span>
+                      <span className="text-sm font-semibold">
+                        All 50 States
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -653,15 +667,21 @@ export default function SupersonicMarketingPage() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
                 <Building2 className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Business Tax Prep</h3>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                Business Tax Prep
+              </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Corporate returns (1120, 1120S)</span>
+                  <span className="text-gray-700">
+                    Corporate returns (1120, 1120S)
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Partnership returns (1065)</span>
+                  <span className="text-gray-700">
+                    Partnership returns (1065)
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
@@ -679,7 +699,9 @@ export default function SupersonicMarketingPage() {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Payroll & Bookkeeping</h3>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                Payroll & Bookkeeping
+              </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -705,7 +727,9 @@ export default function SupersonicMarketingPage() {
               <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-6">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">IRS Representation</h3>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">
+                IRS Representation
+              </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
@@ -741,7 +765,9 @@ export default function SupersonicMarketingPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Entity structure optimization</span>
+                  <span className="text-gray-700">
+                    Entity structure optimization
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -758,7 +784,9 @@ export default function SupersonicMarketingPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Non-profit tax returns (990)</span>
+                  <span className="text-gray-700">
+                    Non-profit tax returns (990)
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
@@ -766,7 +794,9 @@ export default function SupersonicMarketingPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">International tax compliance</span>
+                  <span className="text-gray-700">
+                    International tax compliance
+                  </span>
                 </li>
               </ul>
             </div>
@@ -794,7 +824,7 @@ export default function SupersonicMarketingPage() {
               href="tel:+13173143757"
               className="px-12 py-6 bg-blue-900 text-white text-2xl font-black rounded-lg hover:bg-blue-800 uppercase"
             >
-              📞 Call Us
+              <Phone className="w-5 h-5 inline-block" /> Call Us
             </a>
           </div>
         </div>
@@ -861,7 +891,9 @@ export default function SupersonicMarketingPage() {
             <div>
               <h4 className="font-bold text-lg mb-4">Contact</h4>
               <ul className="space-y-2 text-sm">
-                <li>📞 (317) 314-3757</li>
+                <li>
+                  <Phone className="w-5 h-5 inline-block" /> (317) 314-3757
+                </li>
                 <li>✉️ Supersonicfadtcashllc@gmail.com</li>
                 <li>📍 Indianapolis, IN</li>
               </ul>

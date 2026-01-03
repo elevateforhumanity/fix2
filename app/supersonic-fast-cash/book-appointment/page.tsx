@@ -294,7 +294,10 @@ export default function BookAppointment() {
 
             {appointmentData.appointmentType === 'in-person' && (
               <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                <h4 className="font-bold mb-2">⚠️ In-Person Appointments:</h4>
+                <h4 className="font-bold mb-2">
+                  <AlertTriangle className="w-5 h-5 inline-block" /> In-Person
+                  Appointments:
+                </h4>
                 <p className="text-sm text-gray-700 mb-3">
                   Walk-ins are NOT available. You must book an appointment
                   online first.

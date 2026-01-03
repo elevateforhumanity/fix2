@@ -186,8 +186,8 @@ export default function BarberApprenticeshipPage() {
                 </div>
 
                 <p className="text-xs text-slate-600 mt-3 text-center">
-                  💡 Most students qualify for 100% FREE training through WIOA
-                  funding.{' '}
+                  <Lightbulb className="w-5 h-5 inline-block" /> Most students
+                  qualify for 100% FREE training through WIOA funding.{' '}
                   <Link href="/funding" className="text-blue-600 underline">
                     Check eligibility
                   </Link>

@@ -151,9 +151,12 @@ export default async function ProgramHolderHandbookPage() {
             </li>
           </ul>
           <p className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400">
-            <strong>⚠️ IMPORTANT:</strong> You cannot enroll students or receive
-            payments until ALL required documents are submitted and approved by
-            Elevate for Humanity and the state workforce agency.
+            <strong>
+              <AlertTriangle className="w-5 h-5 inline-block" /> IMPORTANT:
+            </strong>{' '}
+            You cannot enroll students or receive payments until ALL required
+            documents are submitted and approved by Elevate for Humanity and the
+            state workforce agency.
           </p>
 
           <h3>3. Student Management</h3>
@@ -198,7 +201,8 @@ export default async function ProgramHolderHandbookPage() {
 
           <h3>5. Financial Responsibilities</h3>
           <p className="font-bold text-lg mb-4">
-            ⚠️ PAYMENT IS PER STUDENT - Each student generates separate payments
+            <AlertTriangle className="w-5 h-5 inline-block" /> PAYMENT IS PER
+            STUDENT - Each student generates separate payments
           </p>
           <p>Program Holders receive payment based on student outcomes:</p>
           <ul>
@@ -302,7 +306,9 @@ export default async function ProgramHolderHandbookPage() {
             termination of your Program Holder agreement.
           </p>
           <div className="mt-4 p-4 bg-green-50 border-l-4 border-green-400">
-            <p className="font-semibold text-green-900">✅ Approval Process:</p>
+            <p className="font-semibold text-green-900">
+              <CheckCircle className="w-5 h-5 inline-block" /> Approval Process:
+            </p>
             <p className="text-sm mt-2 text-green-800">
               Once you acknowledge this handbook AND sign the MOU (Memorandum of
               Understanding), you are OFFICIALLY APPROVED as a Program Holder.

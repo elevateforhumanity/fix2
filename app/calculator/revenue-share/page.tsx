@@ -95,11 +95,26 @@ export default function RevenueShareCalculator() {
                   What's Included (No Extra Cost)
                 </h3>
                 <ul className="text-sm text-blue-800 space-y-1">
-                  <li>✅ Drake Software (unlimited)</li>
-                  <li>✅ All training and support</li>
-                  <li>✅ Marketing materials</li>
-                  <li>✅ No per-return fees</li>
-                  <li>✅ No monthly software costs</li>
+                  <li>
+                    <CheckCircle className="w-5 h-5 inline-block" /> Drake
+                    Software (unlimited)
+                  </li>
+                  <li>
+                    <CheckCircle className="w-5 h-5 inline-block" /> All
+                    training and support
+                  </li>
+                  <li>
+                    <CheckCircle className="w-5 h-5 inline-block" /> Marketing
+                    materials
+                  </li>
+                  <li>
+                    <CheckCircle className="w-5 h-5 inline-block" /> No
+                    per-return fees
+                  </li>
+                  <li>
+                    <CheckCircle className="w-5 h-5 inline-block" /> No monthly
+                    software costs
+                  </li>
                 </ul>
               </div>
 

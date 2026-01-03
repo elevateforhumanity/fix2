@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { requireAuth } from '@/lib/auth-guard';
 import { requireRole } from '@/lib/rbac-guard';
+import { BarChart, BookOpen, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -100,7 +101,9 @@ export default async function StaffPortalPage() {
                 </p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">👥</span>
+                <span className="text-2xl">
+                  <Users className="w-5 h-5 inline-block" />
+                </span>
               </div>
             </div>
           </div>
@@ -116,7 +119,9 @@ export default async function StaffPortalPage() {
                 </p>
               </div>
               <div className="w-12 h-12 bg-brand-green-100 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">📚</span>
+                <span className="text-2xl">
+                  <BookOpen className="w-5 h-5 inline-block" />
+                </span>
               </div>
             </div>
           </div>
@@ -130,7 +135,9 @@ export default async function StaffPortalPage() {
                 </p>
               </div>
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">📊</span>
+                <span className="text-2xl">
+                  <BarChart className="w-5 h-5 inline-block" />
+                </span>
               </div>
             </div>
           </div>
@@ -146,7 +153,9 @@ export default async function StaffPortalPage() {
               href="/staff-portal/students"
               className="p-4 border-2 border-slate-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition text-center"
             >
-              <div className="text-3xl mb-2">👥</div>
+              <div className="text-3xl mb-2">
+                <Users className="w-5 h-5 inline-block" />
+              </div>
               <div className="font-semibold text-slate-900">
                 Manage Students
               </div>
@@ -158,7 +167,9 @@ export default async function StaffPortalPage() {
               href="/staff-portal/courses"
               className="p-4 border-2 border-slate-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition text-center"
             >
-              <div className="text-3xl mb-2">📚</div>
+              <div className="text-3xl mb-2">
+                <BookOpen className="w-5 h-5 inline-block" />
+              </div>
               <div className="font-semibold text-slate-900">View Courses</div>
               <div className="text-sm text-slate-600 mt-1">
                 {totalCourses || 0} courses
@@ -168,7 +179,9 @@ export default async function StaffPortalPage() {
               href="/staff-portal/dashboard"
               className="p-4 border-2 border-slate-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition text-center"
             >
-              <div className="text-3xl mb-2">📊</div>
+              <div className="text-3xl mb-2">
+                <BarChart className="w-5 h-5 inline-block" />
+              </div>
               <div className="font-semibold text-slate-900">Reports</div>
               <div className="text-sm text-slate-600 mt-1">View analytics</div>
             </Link>

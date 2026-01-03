@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { DollarSign, GraduationCap, Home } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -150,20 +151,26 @@ export default function WIOAEligibilityPage() {
                 </span>
               </li>
               <li className="flex items-start">
-                <span className="text-2xl mr-3">🏠</span>
+                <span className="text-2xl mr-3">
+                  <Home className="w-5 h-5 inline-block" />
+                </span>
                 <span>
                   <strong>Proof of Residency</strong> (utility bill, lease,
                   mortgage statement)
                 </span>
               </li>
               <li className="flex items-start">
-                <span className="text-2xl mr-3">🎓</span>
+                <span className="text-2xl mr-3">
+                  <GraduationCap className="w-5 h-5 inline-block" />
+                </span>
                 <span>
                   <strong>High School Diploma or GED</strong> (if applicable)
                 </span>
               </li>
               <li className="flex items-start">
-                <span className="text-2xl mr-3">💰</span>
+                <span className="text-2xl mr-3">
+                  <DollarSign className="w-5 h-5 inline-block" />
+                </span>
                 <span>
                   <strong>Income Documentation</strong> (pay stubs, tax returns,
                   or proof of public assistance)

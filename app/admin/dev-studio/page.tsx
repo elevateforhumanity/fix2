@@ -1,5 +1,5 @@
 // @ts-nocheck
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -14,7 +14,6 @@ import FileTree from '@/components/dev-studio/FileTree';
 import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
 import { Save, Play, GitBranch, Settings } from 'lucide-react';
-
 
 export const dynamicParams = true;
 
@@ -77,7 +76,7 @@ export default function DevStudioPage() {
       loadRepos(storedToken);
     } else {
       addTerminalOutput(
-        '⚠️  No GitHub token found. Please connect GitHub first.'
+        '<AlertTriangle className="w-5 h-5 inline-block" />  No GitHub token found. Please connect GitHub first.'
       );
     }
   }, []);
@@ -100,7 +99,9 @@ export default function DevStudioPage() {
     if (newToken) {
       localStorage.setItem('gh_token', newToken);
       setToken(newToken);
-      addTerminalOutput('✅ GitHub connected successfully');
+      addTerminalOutput(
+        '<CheckCircle className="w-5 h-5 inline-block" /> GitHub connected successfully'
+      );
       loadRepos(newToken);
     }
   };
@@ -115,12 +116,18 @@ export default function DevStudioPage() {
       if (res.ok) {
         const data = await res.json();
         setRepos(data);
-        addTerminalOutput(`✅ Loaded ${data.length} repositories`);
+        addTerminalOutput(
+          `<CheckCircle className="w-5 h-5 inline-block" /> Loaded ${data.length} repositories`
+        );
       } else {
-        addTerminalOutput('❌ Failed to load repositories');
+        addTerminalOutput(
+          '<XCircle className="w-5 h-5 inline-block" /> Failed to load repositories'
+        );
       }
     } catch (error: unknown) {
-      addTerminalOutput('❌ Error loading repositories');
+      addTerminalOutput(
+        '<XCircle className="w-5 h-5 inline-block" /> Error loading repositories'
+      );
     } finally {
       setLoading(false);
     }
@@ -143,12 +150,18 @@ export default function DevStudioPage() {
       if (res.ok) {
         const filePaths = data.files.map((f: Record<string, any>) => f.path);
         setFiles(filePaths);
-        addTerminalOutput(`✅ Loaded ${filePaths.length} files`);
+        addTerminalOutput(
+          `<CheckCircle className="w-5 h-5 inline-block" /> Loaded ${filePaths.length} files`
+        );
       } else {
-        addTerminalOutput('❌ Failed to load file tree');
+        addTerminalOutput(
+          '<XCircle className="w-5 h-5 inline-block" /> Failed to load file tree'
+        );
       }
     } catch (error: unknown) {
-      addTerminalOutput('❌ Error loading file tree');
+      addTerminalOutput(
+        '<XCircle className="w-5 h-5 inline-block" /> Error loading file tree'
+      );
     } finally {
       setLoading(false);
     }
@@ -174,12 +187,18 @@ export default function DevStudioPage() {
         setFileContent(data.content);
         setFileSha(data.sha);
         setHasChanges(false);
-        addTerminalOutput(`✅ Opened ${path}`);
+        addTerminalOutput(
+          `<CheckCircle className="w-5 h-5 inline-block" /> Opened ${path}`
+        );
       } else {
-        addTerminalOutput(`❌ Failed to open ${path}`);
+        addTerminalOutput(
+          `<XCircle className="w-5 h-5 inline-block" /> Failed to open ${path}`
+        );
       }
     } catch (error: unknown) {
-      addTerminalOutput(`❌ Error opening ${path}`);
+      addTerminalOutput(
+        `<XCircle className="w-5 h-5 inline-block" /> Error opening ${path}`
+      );
     } finally {
       setLoading(false);
     }
@@ -209,14 +228,20 @@ export default function DevStudioPage() {
       if (res.ok) {
         setFileSha(data.content.sha);
         setHasChanges(false);
-        addTerminalOutput(`✅ Saved ${selectedFile}`);
+        addTerminalOutput(
+          `<CheckCircle className="w-5 h-5 inline-block" /> Saved ${selectedFile}`
+        );
         addTerminalOutput(`   Commit: ${data.commit.substring(0, 7)}`);
       } else {
         const error = await res.json();
-        addTerminalOutput(`❌ Failed to save: ${error instanceof Error ? error.message : String(error)}`);
+        addTerminalOutput(
+          `<XCircle className="w-5 h-5 inline-block" /> Failed to save: ${error instanceof Error ? error.message : String(error)}`
+        );
       }
     } catch (error: unknown) {
-      addTerminalOutput('❌ Error saving file');
+      addTerminalOutput(
+        '<XCircle className="w-5 h-5 inline-block" /> Error saving file'
+      );
     } finally {
       setLoading(false);
     }
@@ -240,7 +265,7 @@ export default function DevStudioPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">
@@ -252,7 +277,9 @@ export default function DevStudioPage() {
       {/* Header */}
       <div className="bg-slate-800 text-white px-4 py-3 flex items-center justify-between border-b border-slate-700">
         <div className="flex items-center gap-4">
-          <h1 className="text-xl font-bold">🚀 Elevate Dev Studio</h1>
+          <h1 className="text-xl font-bold">
+            <Rocket className="w-5 h-5 inline-block" /> Elevate Dev Studio
+          </h1>
 
           {token ? (
             <div className="flex items-center gap-2">

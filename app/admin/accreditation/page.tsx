@@ -254,9 +254,9 @@ export default async function AccreditationPage() {
               </div>
               <div className="text-blue-100 mt-2">
                 {readinessScore >= 95
-                  ? '✅ Ready'
+                  ? '<CheckCircle className="w-5 h-5 inline-block" /> Ready'
                   : readinessScore >= 85
-                    ? '⚠️ Nearly Ready'
+                    ? '<AlertTriangle className="w-5 h-5 inline-block" /> Nearly Ready'
                     : '🔄 In Progress'}
               </div>
             </div>

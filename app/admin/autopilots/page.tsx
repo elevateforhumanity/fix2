@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 
 import {
-
   Zap,
   Image as ImageIcon,
   Database,
@@ -161,17 +160,26 @@ export default function AutopilotsPage() {
           data.logs.forEach((log: string) => addLog(task.id, log));
         }
 
-        addLog(task.id, `✅ ${task.name} completed successfully`);
+        addLog(
+          task.id,
+          `<CheckCircle className="w-5 h-5 inline-block" /> ${task.name} completed successfully`
+        );
         setCompletedTasks((prev) => new Set(prev).add(task.id));
       } else {
         const error = await res.json();
-        addLog(task.id, `❌ Failed: ${error.message || 'Unknown error'}`);
+        addLog(
+          task.id,
+          `<XCircle className="w-5 h-5 inline-block" /> Failed: ${error.message || 'Unknown error'}`
+        );
         setFailedTasks((prev) => new Set(prev).add(task.id));
       }
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error ? error.message : 'Unknown error';
-      addLog(task.id, `❌ Error: ${errorMessage}`);
+      addLog(
+        task.id,
+        `<XCircle className="w-5 h-5 inline-block" /> Error: ${errorMessage}`
+      );
       setFailedTasks((prev) => new Set(prev).add(task.id));
     } finally {
       setRunningTasks((prev) => {
@@ -209,7 +217,7 @@ export default function AutopilotsPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">

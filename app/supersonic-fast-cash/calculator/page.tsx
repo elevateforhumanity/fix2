@@ -502,7 +502,8 @@ export default function TaxCalculatorPage() {
                   refundResult.refund_or_owed > 250 && (
                     <div className="mt-6 pt-6 border-t border-white/20">
                       <p className="text-sm font-semibold mb-2">
-                        💰 Refund Advance Available
+                        <DollarSign className="w-5 h-5 inline-block" /> Refund
+                        Advance Available
                       </p>
                       <p className="text-xs opacity-90">
                         Get ${Math.min(refundResult.refund_or_owed, 7500)} today

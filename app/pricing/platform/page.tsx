@@ -260,10 +260,22 @@ export default function PlatformLicensingPage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6">
                 <div className="font-bold mb-2">Use OUR Credentials:</div>
                 <div className="space-y-1 text-sm">
-                  <div>✅ ETPL Provider: 10000949</div>
-                  <div>✅ DOL RAPIDS: 2025-IN-132301</div>
-                  <div>✅ INTraining: 10004621</div>
-                  <div>✅ WIOA, WRG, JRI, WorkOne, SNAP E&T</div>
+                  <div>
+                    <CheckCircle className="w-5 h-5 inline-block" /> ETPL
+                    Provider: 10000949
+                  </div>
+                  <div>
+                    <CheckCircle className="w-5 h-5 inline-block" /> DOL RAPIDS:
+                    2025-IN-132301
+                  </div>
+                  <div>
+                    <CheckCircle className="w-5 h-5 inline-block" /> INTraining:
+                    10004621
+                  </div>
+                  <div>
+                    <CheckCircle className="w-5 h-5 inline-block" /> WIOA, WRG,
+                    JRI, WorkOne, SNAP E&T
+                  </div>
                 </div>
               </div>
 
@@ -287,7 +299,10 @@ export default function PlatformLicensingPage() {
               </div>
 
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 mb-6 text-sm">
-                <div className="font-bold mb-1">⚠️ Requirements:</div>
+                <div className="font-bold mb-1">
+                  <AlertTriangle className="w-5 h-5 inline-block" />{' '}
+                  Requirements:
+                </div>
                 <div className="text-white/90">
                   Application required. MOU agreement. Our approval needed.
                   Indiana only (expanding soon).
@@ -357,7 +372,7 @@ export default function PlatformLicensingPage() {
 
               <div className="bg-green-50 rounded-lg p-4 mb-6 text-sm">
                 <div className="font-bold text-green-900 mb-1">
-                  ✅ Best For:
+                  <CheckCircle className="w-5 h-5 inline-block" /> Best For:
                 </div>
                 <div className="text-green-800">
                   Organizations with existing credentials or willing to get
@@ -426,7 +441,9 @@ export default function PlatformLicensingPage() {
               </div>
 
               <div className="bg-blue-50 rounded-lg p-4 mb-6 text-sm">
-                <div className="font-bold text-blue-900 mb-1">✅ Best For:</div>
+                <div className="font-bold text-blue-900 mb-1">
+                  <CheckCircle className="w-5 h-5 inline-block" /> Best For:
+                </div>
                 <div className="text-blue-800">
                   Organizations focused only on apprenticeships.
                 </div>
@@ -495,7 +512,7 @@ export default function PlatformLicensingPage() {
 
               <div className="bg-slate-50 rounded-lg p-4 mb-6 text-sm">
                 <div className="font-bold text-slate-900 mb-1">
-                  ✅ Best For:
+                  <CheckCircle className="w-5 h-5 inline-block" /> Best For:
                 </div>
                 <div className="text-slate-700">
                   Organizations with specific needs or smaller budgets.

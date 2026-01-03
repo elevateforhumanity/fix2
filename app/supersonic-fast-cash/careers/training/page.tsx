@@ -330,7 +330,8 @@ export default function TrainingPage() {
         <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl shadow-lg p-8 mb-8 text-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">
-              🎓 Two Ways to Access Training
+              <GraduationCap className="w-5 h-5 inline-block" /> Two Ways to
+              Access Training
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -468,7 +469,8 @@ export default function TrainingPage() {
             Training Bundles - Save Big!
           </h2>
           <div className="bg-yellow-400 text-gray-900 rounded-lg p-4 mb-6 font-bold text-center">
-            🎉 Employees get ALL courses FREE! Apply now to save $1,000+
+            <PartyPopper className="w-5 h-5 inline-block" /> Employees get ALL
+            courses FREE! Apply now to save $1,000+
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white/10 backdrop-blur rounded-lg p-6">

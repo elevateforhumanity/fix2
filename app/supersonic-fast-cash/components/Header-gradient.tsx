@@ -37,19 +37,21 @@ export function SupersonicHeader() {
                   href="/supersonic-fast-cash/services"
                   className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-semibold"
                 >
-                  👨‍💼 Professional Tax Prep
+                  👨‍
+                  <Briefcase className="w-5 h-5 inline-block" /> Professional
+                  Tax Prep
                 </Link>
                 <Link
                   href="/supersonic-fast-cash/diy-taxes"
                   className="block px-4 py-3 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors font-semibold"
                 >
-                  📝 DIY Self-Prep
+                  <FileText className="w-5 h-5 inline-block" /> DIY Self-Prep
                 </Link>
                 <Link
                   href="/supersonic-fast-cash/book-appointment"
                   className="block px-4 py-3 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors font-semibold"
                 >
-                  📅 Book Appointment
+                  <Calendar className="w-5 h-5 inline-block" /> Book Appointment
                 </Link>
               </div>
             </div>
@@ -64,7 +66,7 @@ export function SupersonicHeader() {
                   href="/supersonic-fast-cash/tax-information"
                   className="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-semibold"
                 >
-                  📚 Tax Information
+                  <BookOpen className="w-5 h-5 inline-block" /> Tax Information
                 </Link>
                 <Link
                   href="/supersonic-fast-cash/tax-tools"
@@ -112,7 +114,7 @@ export function SupersonicHeader() {
               href="tel:+13173143757"
               className="hidden sm:block font-bold text-lg hover:text-red-400 transition-colors"
             >
-              📞 (317) 314-3757
+              <Phone className="w-5 h-5 inline-block" /> (317) 314-3757
             </a>
             <Link
               href="/supersonic-fast-cash/apply"

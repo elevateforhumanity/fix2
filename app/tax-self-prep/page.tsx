@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
+import { BarChart, Lock, Smartphone, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
@@ -449,7 +450,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
-                  🔒
+                  <Lock className="w-5 h-5 inline-block" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">100% Secure</h3>
                 <p className="text-slate-600">
@@ -473,7 +474,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
-                  📱
+                  <Smartphone className="w-5 h-5 inline-block" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Mobile App</h3>
                 <p className="text-slate-600">
@@ -484,7 +485,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
-                  ⚡
+                  <Zap className="w-5 h-5 inline-block" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Fast & Easy</h3>
                 <p className="text-slate-600">
@@ -495,7 +496,7 @@ export default function TaxSelfPrepPage() {
 
               <div className="bg-white p-8 rounded-lg">
                 <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">
-                  📊
+                  <BarChart className="w-5 h-5 inline-block" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Import Last Year</h3>
                 <p className="text-slate-600">

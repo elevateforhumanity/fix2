@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 
@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 
 import {
-
   MessageCircle,
   Users,
   Clock,
@@ -47,7 +46,7 @@ export default function LiveChatPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Live Chat
@@ -267,7 +266,7 @@ export default function LiveChatPage() {
             </div>
             <div>
               • <strong>Tawk.to</strong>: FREE - Recommended for most use cases
-              ✅
+              <CheckCircle className="w-5 h-5 inline-block" />
             </div>
           </div>
         </div>

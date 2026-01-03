@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { useState } from 'react';
+import { CheckCircle, XCircle } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -91,7 +92,9 @@ export default function TestWebhookPage() {
               }`}
             >
               <h3 className="font-bold mb-2">
-                {result.success ? '✅ Success!' : '❌ Error'}
+                {result.success
+                  ? '<CheckCircle className="w-5 h-5 inline-block" /> Success!'
+                  : '<XCircle className="w-5 h-5 inline-block" /> Error'}
               </h3>
               <pre className="text-xs overflow-auto">
                 {JSON.stringify(result, null, 2)}
