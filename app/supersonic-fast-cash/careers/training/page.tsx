@@ -1,7 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Play, CheckCircle, Lock, Clock, Award, BookOpen } from 'lucide-react';
+import {
+  Award,
+  BookOpen,
+  CheckCircle,
+  Clock,
+  GraduationCap,
+  Lock,
+  PartyPopper,
+  Play,
+} from 'lucide-react';
 
 interface TrainingModule {
   id: string;

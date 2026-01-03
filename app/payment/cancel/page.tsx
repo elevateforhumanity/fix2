@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { XCircle } from 'lucide-react';
+import { DollarSign, Phone, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Payment Cancelled | Elevate for Humanity',

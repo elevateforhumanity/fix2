@@ -13,7 +13,16 @@ export const revalidate = 0;
 import FileTree from '@/components/dev-studio/FileTree';
 import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
-import { Save, Play, GitBranch, Settings } from 'lucide-react';
+import {
+  AlertTriangle,
+  CheckCircle,
+  GitBranch,
+  Play,
+  Rocket,
+  Save,
+  Settings,
+  XCircle,
+} from 'lucide-react';
 
 export const dynamicParams = true;
 

@@ -5,12 +5,13 @@ import React from 'react';
 
 import { useState } from 'react';
 import {
+  AlertTriangle,
   Calendar,
   Clock,
-  Video,
-  Phone,
-  MapPin,
   CreditCard,
+  MapPin,
+  Phone,
+  Video,
 } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
 

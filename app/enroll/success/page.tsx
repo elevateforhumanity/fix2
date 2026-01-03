@@ -3,7 +3,15 @@
 export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
-import { CheckCircle, Mail, Smartphone, ExternalLink } from 'lucide-react';
+import {
+  AlertTriangle,
+  CheckCircle,
+  ExternalLink,
+  Mail,
+  PartyPopper,
+  Phone,
+  Smartphone,
+} from 'lucide-react';
 
 export default function EnrollSuccessPage() {
   return (

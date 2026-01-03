@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { DollarSign, Phone, Mail, MapPin } from 'lucide-react';
+import {
+  Briefcase,
+  Calendar,
+  DollarSign,
+  FileText,
+  Mail,
+  MapPin,
+  Phone,
+} from 'lucide-react';
 
 export function SupersonicFooter() {
   return (

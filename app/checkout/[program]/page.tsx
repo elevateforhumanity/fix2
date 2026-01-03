@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { loadStripe } from '@stripe/stripe-js';
-import { CheckCircle, CreditCard, Calendar } from 'lucide-react';
+import { Calendar, CheckCircle, CreditCard, Lightbulb } from 'lucide-react';
 
 // Initialize Stripe
 const stripePromise = loadStripe(

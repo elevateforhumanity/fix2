@@ -13,6 +13,11 @@ import {
   ExternalLink,
   FileText,
   Award,
+  Lightbulb,
+  Sparkles,
+  Rocket,
+  Target,
+  TrendingUp,
 } from 'lucide-react';
 
 export const metadata: Metadata = {

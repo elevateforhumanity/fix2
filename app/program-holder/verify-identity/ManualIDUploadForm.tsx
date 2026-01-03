@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import {
-  Upload,
-  CheckCircle,
   AlertCircle,
-  Loader2,
   Camera,
+  CheckCircle,
   File,
+  Loader2,
+  Smartphone,
+  Upload,
 } from 'lucide-react';
 
 interface ManualIDUploadFormProps {

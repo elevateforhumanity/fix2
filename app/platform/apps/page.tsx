@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PLATFORM_APPS } from '@/app/data/store-products';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, Check, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {

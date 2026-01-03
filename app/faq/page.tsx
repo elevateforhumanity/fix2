@@ -6,7 +6,18 @@ export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Search, HelpCircle, Phone, Mail } from 'lucide-react';
+import {
+  BookOpen,
+  ChevronDown,
+  DollarSign,
+  HelpCircle,
+  Laptop,
+  Mail,
+  Phone,
+  Rocket,
+  Search,
+  Star,
+} from 'lucide-react';
 
 const faqCategories = [
   {

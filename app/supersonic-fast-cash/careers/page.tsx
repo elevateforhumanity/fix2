@@ -1,13 +1,16 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  DollarSign,
-  Clock,
-  Home,
-  TrendingUp,
-  Users,
+  AlertTriangle,
   Award,
   CheckCircle,
+  Clock,
+  DollarSign,
+  Home,
+  Lightbulb,
+  TrendingUp,
+  Users,
+  XCircle,
 } from 'lucide-react';
 
 export const metadata: Metadata = {

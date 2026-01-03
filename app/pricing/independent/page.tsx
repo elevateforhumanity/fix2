@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Check, CheckCircle, Building2, Zap, Shield } from 'lucide-react';
+import {
+  Building2,
+  Check,
+  CheckCircle,
+  Lightbulb,
+  Shield,
+  Zap,
+} from 'lucide-react';
 
 export const metadata = {
   title:

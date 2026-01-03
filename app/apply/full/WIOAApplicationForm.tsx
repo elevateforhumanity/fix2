@@ -2,7 +2,13 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronRight, ChevronLeft, Check, Loader2 } from 'lucide-react';
+import {
+  AlertTriangle,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Loader2,
+} from 'lucide-react';
 
 // Form state type
 interface ApplicationFormState {

@@ -4,7 +4,13 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
-import { CheckCircle, Clock, ExternalLink, BookOpen } from 'lucide-react';
+import {
+  AlertTriangle,
+  BookOpen,
+  CheckCircle,
+  Clock,
+  ExternalLink,
+} from 'lucide-react';
 
 interface PartnerCourse {
   id: string;

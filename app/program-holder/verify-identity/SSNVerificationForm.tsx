@@ -1,7 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import {
+  AlertCircle,
+  CheckCircle,
+  Loader2,
+  Lock,
+  XCircle,
+  Zap,
+} from 'lucide-react';
 
 interface SSNVerificationFormProps {
   userId: string;

@@ -1,7 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { DollarSign, ChevronDown } from 'lucide-react';
+import {
+  BookOpen,
+  Briefcase,
+  Calendar,
+  ChevronDown,
+  DollarSign,
+  FileText,
+  Phone,
+} from 'lucide-react';
 
 export function SupersonicHeader() {
   return (

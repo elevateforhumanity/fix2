@@ -5,7 +5,15 @@ import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
+import {
+  CheckCircle,
+  DollarSign,
+  Eye,
+  Package,
+  Save,
+  Sparkles,
+  XCircle,
+} from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';

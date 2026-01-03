@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useState } from 'react';
 import VideoUploader from '@/components/admin/VideoUploader';
-import { Video, Copy, Check } from 'lucide-react';
+import { Check, Copy, FileText, Sparkles, Video } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 

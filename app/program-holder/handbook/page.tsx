@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { AcknowledgeHandbookForm } from './AcknowledgeHandbookForm';
-import { BookOpen, CheckCircle } from 'lucide-react';
+import { AlertTriangle, BookOpen, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Employee Handbook | Elevate For Humanity',
