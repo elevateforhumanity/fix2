@@ -150,7 +150,7 @@ export default function IndustriesPage() {
                       Programs Available:
                     </h3>
                     <ul className="space-y-1">
-                      {industry.programs.map((program) => (
+                      {industry.programs.map((program: any) => (
                         <li
                           key={program}
                           className="text-sm text-black flex items-center gap-2"

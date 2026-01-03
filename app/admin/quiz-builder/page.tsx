@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/admin/quiz-builder',
+    canonical: 'https://elevateforhumanity.org/admin/quiz-builder',
   },
   title: 'Quiz Builder | Elevate For Humanity',
   description:
@@ -123,7 +123,7 @@ export default async function QuizBuilderPage() {
               <h2 className="text-2xl font-bold mb-4">Items</h2>
               {items && items.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {items.map((item: any) => (
                     <div
                       key={item.id}
                       className="p-4 border rounded-lg hover:bg-gray-50"

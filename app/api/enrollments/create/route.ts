@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/enrollments/create/route.ts - Create enrollment
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';

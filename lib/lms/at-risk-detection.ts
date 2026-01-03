@@ -22,7 +22,7 @@ export interface AtRiskStudent {
 export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
   const supabase = await createClient();
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('student_risk_status')
     .select(
       `
@@ -84,7 +84,7 @@ export async function getAtRiskStudents(): Promise<AtRiskStudent[]> {
 export async function getNeedsActionStudents(): Promise<AtRiskStudent[]> {
   const supabase = await createClient();
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('student_risk_status')
     .select(
       `
@@ -148,7 +148,7 @@ export async function getInactiveStudents(
 ): Promise<AtRiskStudent[]> {
   const supabase = await createClient();
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('student_risk_status')
     .select(
       `
@@ -326,7 +326,7 @@ export async function getStudentsWithMissingCriticalRequirements(): Promise<
 > {
   const supabase = await createClient();
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('student_requirements')
     .select(
       `

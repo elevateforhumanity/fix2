@@ -122,7 +122,7 @@ export default function StudentsPage() {
             Popular Programs
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {programs.map((program) => (
+            {programs.map((program: any) => (
               <Link
                 key={program.href}
                 href={program.href}
@@ -188,7 +188,7 @@ export default function StudentsPage() {
                 title: 'Get Hired',
                 desc: 'Job placement assistance',
               },
-            ].map((item) => (
+            ].map((item: any) => (
               <div key={item.step} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full mb-4">
                   {item.step}

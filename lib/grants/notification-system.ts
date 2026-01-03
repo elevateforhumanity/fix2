@@ -47,7 +47,7 @@ export interface NotificationRecipient {
 export async function createNotification(
   notification: Omit<GrantNotification, 'id' | 'createdAt' | 'read'>
 ): Promise<GrantNotification> {
-  const { data, error } = await supabaseAdmin
+  const { data, error }: any = await supabaseAdmin
     .from('grant_notifications')
     .insert({
       type: notification.type,

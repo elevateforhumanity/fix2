@@ -17,7 +17,7 @@ export async function GET(_req: NextRequest) {
   }
 
   // Fetch from database
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('programs')
     .select('*')
     .eq('is_featured', true)

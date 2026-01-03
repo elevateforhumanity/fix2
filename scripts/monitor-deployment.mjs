@@ -113,7 +113,7 @@ async function monitor() {
 
   // Check production domain
   const prodOk = await checkSite(
-    'https://www.elevateforhumanity.org/',
+    'https://elevateforhumanity.org/',
     'Production (www.elevateforhumanity.org)'
   );
 
@@ -134,7 +134,7 @@ async function monitor() {
   if (previewOk && prodOk && rootOk) {
     console.log('\n🎉 SUCCESS! All deployments are live!');
     console.log('\n✅ Your website is now accessible at:');
-    console.log('   - https://www.elevateforhumanity.org');
+    console.log('   - https://elevateforhumanity.org');
     console.log('   - https://elevateforhumanity.org (redirects to www)');
     console.log('   - https://fix2-gpql-git-main-elevate-48e460c9.vercel.app/');
     console.log('\n🎨 All changes are live:');

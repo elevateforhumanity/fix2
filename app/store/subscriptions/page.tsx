@@ -85,7 +85,7 @@ function SubscriptionsContent() {
   }
 
   async function loadPlans() {
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('store_subscription_pricing')
       .select('*')
       .order('amount_cents', { ascending: true });
@@ -102,7 +102,7 @@ function SubscriptionsContent() {
   async function loadActiveSubscription() {
     if (!user) return;
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('store_subscriptions')
       .select('*, store_products(*), store_prices(*)')
       .eq('user_id', user.id)

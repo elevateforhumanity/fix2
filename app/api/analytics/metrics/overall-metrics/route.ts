@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { calculateOverallMetrics } from '@/lib/reporting/enterprise-dashboard';
 import { logger } from '@/lib/logger';

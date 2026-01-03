@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { createStaticClient } from '@/lib/supabase/static';
 

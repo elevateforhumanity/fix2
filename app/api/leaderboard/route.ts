@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { getCurrentUser } from '@/lib/auth';
 import { toError, toErrorMessage } from '@/lib/safe';

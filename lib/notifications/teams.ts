@@ -17,7 +17,7 @@ export async function sendTeamsMessage(
   ];
   if (context) {
     sections.push({
-      facts: Object.entries(context).map(([key, value]) => ({
+      facts: Object.entries(context).map(([key, value]: any) => ({
         name: key,
         value: String(value),
       })),

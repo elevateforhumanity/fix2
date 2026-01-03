@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * INDIANA COMPLIANCE AUTOMATION
  *

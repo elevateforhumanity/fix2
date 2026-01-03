@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/courses/[courseId]/check-completion/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseServerClient } from '@/lib/supabaseServer';

@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const format = searchParams.get('format');
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('reporting_completions')
       .select('*')
       .eq('organization_id', ctx.organization_id)

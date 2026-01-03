@@ -143,7 +143,7 @@ async function main() {
   console.log('');
   console.log('✅ Configuration complete!');
   console.log('');
-  console.log('🌐 Check your site at: https://www.elevateforhumanity.org');
+  console.log('🌐 Check your site at: https://elevateforhumanity.org');
   console.log('   (Wait 2-3 minutes for deployment to complete)');
 }
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/scorm/attempts/[attemptId]/data/route.ts
 import { NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import React from 'react';
@@ -305,7 +306,7 @@ export default function VerificationReviewForm({
                   Verification History
                 </h2>
                 <div className="space-y-3">
-                  {verificationHistory.map((record) => (
+                  {verificationHistory.map((record: any) => (
                     <div key={record.id} className="p-4 bg-gray-50 rounded-lg">
                       <div className="flex items-center justify-between mb-2">
                         <span

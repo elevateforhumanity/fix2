@@ -229,7 +229,7 @@ export default function CoursesCatalog({
           <div className="max-w-7xl mx-auto">
             {sortedCourses.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sortedCourses.map((course) => (
+                {sortedCourses.map((course: any) => (
                   <Link
                     key={course.id}
                     href={`/courses/${course.id}/enroll`}

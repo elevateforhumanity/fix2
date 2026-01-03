@@ -7,7 +7,7 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-const PRODUCTION_URL = 'https://www.elevateforhumanity.org';
+const PRODUCTION_URL = 'https://elevateforhumanity.org';
 
 console.log('🔍 Testing Database Connection...\n');
 

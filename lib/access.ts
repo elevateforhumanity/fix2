@@ -21,7 +21,7 @@ export async function getAccessTier(): Promise<UserAccess> {
     return { tier: 'free', status: null, current_period_end: null };
   }
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('user_access')
     .select('tier, status, current_period_end')
     .eq('user_id', user.id)

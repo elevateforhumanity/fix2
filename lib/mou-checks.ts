@@ -13,7 +13,7 @@ export async function hasMOUFullyExecuted(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('program_holders')
     .select('mou_status')
     .eq('id', programHolderId)
@@ -37,7 +37,7 @@ export async function getMOUStatus(programHolderId: string) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('program_holders')
     .select(
       `
@@ -76,7 +76,7 @@ export async function checkMOUStatusServer(
   supabase: { from: (table: string) => any },
   programHolderId: string
 ) {
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('program_holders')
     .select('mou_status')
     .eq('id', programHolderId)

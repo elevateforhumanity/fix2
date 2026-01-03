@@ -1,6 +1,6 @@
 // Usage:
 //   node scripts/sitemap-partitioner.mjs \
-//     --base=https://www.elevateforhumanity.org \
+//     --base=https://elevateforhumanity.org \
 //     --in=all-urls.txt \
 //     --out=sites/marketing/sitemaps \
 //     --chunk=5000
@@ -18,7 +18,7 @@ const arg = (k, d = null) => {
   return v ?? d;
 };
 
-const BASE = (arg('base') || 'https://www.elevateforhumanity.org').replace(
+const BASE = (arg('base') || 'https://elevateforhumanity.org').replace(
   /\/$/,
   ''
 );

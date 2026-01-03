@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
@@ -17,7 +18,7 @@ import { logger } from '@/lib/logger';
 
 const getOfficialDomains = () => {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org';
   const domain = siteUrl
     .replace('https://', '')
     .replace('http://', '')

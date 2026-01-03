@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     const supabase = createAdminClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('employer_onboarding')
       .insert([
         {
@@ -69,7 +69,7 @@ export async function GET() {
   try {
     const supabase = createAdminClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('employer_onboarding')
       .select('*')
       .order('created_at', { ascending: false });

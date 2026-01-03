@@ -11,7 +11,7 @@ export async function GET(req: Request) {
   }
 
   const supabase = await createClient();
-  const { data, error } = await supabase.storage
+  const { data, error }: any = await supabase.storage
     .from('media')
     .createSignedUrl(path, 3600);
 

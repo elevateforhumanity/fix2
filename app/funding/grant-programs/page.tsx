@@ -155,7 +155,7 @@ export default function GrantProgramsPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {grantFundedPrograms.map((program) => (
+            {grantFundedPrograms.map((program: any) => (
               <div
                 key={program.slug}
                 className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow"

@@ -196,7 +196,7 @@ async function main() {
   if (verified) {
     console.log('\n🎉 SUCCESS! All courses activated!');
     console.log('\n📋 Next: Check website');
-    console.log('   https://www.elevateforhumanity.org/courses');
+    console.log('   https://elevateforhumanity.org/courses');
   } else {
     console.log('\n⚠️  Verification failed. Check errors above.');
   }

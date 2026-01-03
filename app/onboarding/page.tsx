@@ -16,7 +16,7 @@ import {
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/onboarding',
+    canonical: 'https://elevateforhumanity.org/onboarding',
   },
   title: 'Welcome & Onboarding | Elevate For Humanity',
   description: 'Get started with your training journey.',
@@ -30,7 +30,7 @@ export default async function OnboardingPage() {
 
   let profile = null;
   if (user) {
-    const { data } = await supabase
+    const { data }: any = await supabase
       .from('profiles')
       .select('role, full_name')
       .eq('id', user.id)

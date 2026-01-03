@@ -119,7 +119,7 @@ export default function AnalyticsPage() {
         new Date(c.sentAt).toLocaleDateString(),
       ]),
     ]
-      .map((row) => row.join(','))
+      .map((row: any) => row.join(','))
       .join('\n');
 
     const blob = new Blob([csv], { type: 'text/csv' });

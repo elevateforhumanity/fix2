@@ -36,7 +36,7 @@ export async function addPoints(
 export async function getCourseLeaderboard(courseId: string, limit = 10) {
   const supabase = await createClient();
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from("leaderboard_scores")
     .select(
       `

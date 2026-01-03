@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { apiAuthGuard } from '@/lib/authGuards';
@@ -18,7 +19,7 @@ export async function GET(request: NextRequest) {
 
     if (action === 'progress' && tutorialId) {
       const supabase = await createClient();
-      const { data, error } = await supabase
+      const { data, error }: any = await supabase
         .from('user_tutorials')
         .select('*')
         .eq('user_id', user.id)

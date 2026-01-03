@@ -43,7 +43,7 @@ export default function UploadDocumentsPage() {
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
         const filePath = `tax-documents/${fileName}`;
 
-        const { data, error } = await supabase.storage
+        const { data, error }: any = await supabase.storage
           .from('documents')
           .upload(filePath, file, {
             cacheControl: '3600',

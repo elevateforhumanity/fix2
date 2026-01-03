@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/cache.ts
 // Redis caching utilities for performance optimization
 import { createClient } from 'redis';

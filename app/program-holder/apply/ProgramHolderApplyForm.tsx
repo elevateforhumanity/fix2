@@ -339,7 +339,7 @@ export default function ProgramHolderApplyForm() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-3">
-          {programOptions.map((program) => (
+          {programOptions.map((program: any) => (
             <label
               key={program}
               className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"

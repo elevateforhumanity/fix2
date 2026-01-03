@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('marketing_campaigns')
       .insert({
         name,

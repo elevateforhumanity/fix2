@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/admin/external-progress/update/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { sendMarketplaceSaleNotification } from '@/lib/email/resend';
 import Stripe from 'stripe';

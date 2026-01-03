@@ -17,7 +17,7 @@ export async function getTenantLicense(
 ): Promise<TenantLicense | null> {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('tenant_licenses')
     .select('*')
     .eq('tenant_id', tenantId)
@@ -178,7 +178,7 @@ export async function updateTenantLicense(
   const supabase = createAdminClient();
   const limits = PLAN_LIMITS[plan];
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('tenant_licenses')
     .upsert({
       tenant_id: tenantId,

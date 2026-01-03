@@ -10,7 +10,7 @@ export async function GET(_req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("global_leaderboard")
     .select("user_id, avg_progress")
     .order("avg_progress", { ascending: false })

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';

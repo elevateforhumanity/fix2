@@ -127,7 +127,7 @@ export function PayNowSection() {
           value={selectedProgramId}
           onChange={(e) => setSelectedProgramId(e.target.value)}
         >
-          {PROGRAMS.map((program) => (
+          {PROGRAMS.map((program: any) => (
             <option key={program.id} value={program.id}>
               {program.label} -{' '}
               {new Intl.NumberFormat('en-US', {

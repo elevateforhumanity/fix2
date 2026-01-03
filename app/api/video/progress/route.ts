@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "lessonId required" }, { status: 400 });
   }
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("video_progress")
     .select("*")
     .eq("user_id", user.id)
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       ? lastPositionSeconds >= durationSeconds - 5
       : false;
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("video_progress")
     .upsert(
       {

@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       notes,
     };
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('participant_eligibility')
       .insert(eligibilityData)
       .select()

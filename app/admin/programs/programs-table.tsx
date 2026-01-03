@@ -104,7 +104,7 @@ export function ProgramsTable({ programs }: { programs: Program[] }) {
                 </td>
               </tr>
             ) : (
-              filteredPrograms.map((program) => (
+              filteredPrograms.map((program: any) => (
                 <tr key={program.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div>

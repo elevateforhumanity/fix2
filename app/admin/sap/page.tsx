@@ -394,7 +394,7 @@ export default async function SAPMonitoringPage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-slate-200">
-                {studentsWithSAP.map((student) => (
+                {studentsWithSAP.map((student: any) => (
                   <tr key={student.enrollmentId} className="hover:bg-slate-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div>

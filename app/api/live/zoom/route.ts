@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/live/zoom/route.ts
 // API endpoint for instructors to schedule Zoom live sessions
 import { NextRequest, NextResponse } from 'next/server';

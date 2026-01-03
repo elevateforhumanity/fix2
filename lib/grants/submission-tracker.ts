@@ -60,7 +60,7 @@ export async function recordSubmission(
     },
   ];
 
-  const { data, error } = await supabaseAdmin
+  const { data, error }: any = await supabaseAdmin
     .from('grant_submissions')
     .insert({
       application_id: submission.applicationId,
@@ -246,7 +246,7 @@ export async function recordPortalSubmission(
 export async function getSubmissionHistory(
   applicationId: string
 ): Promise<SubmissionRecord | null> {
-  const { data, error } = await supabaseAdmin
+  const { data, error }: any = await supabaseAdmin
     .from('grant_submissions')
     .select('*')
     .eq('application_id', applicationId)
@@ -278,7 +278,7 @@ export async function getSubmissionHistory(
  * Get all submissions
  */
 export async function getAllSubmissions(): Promise<SubmissionRecord[]> {
-  const { data, error } = await supabaseAdmin
+  const { data, error }: any = await supabaseAdmin
     .from('grant_submissions')
     .select('*')
     .order('submitted_at', { ascending: false });

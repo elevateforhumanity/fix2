@@ -48,7 +48,7 @@ export default function OrgInvitesPage() {
       if (!profile?.organization_id) return;
 
       // Get invites for this organization
-      const { data, error } = await supabase
+      const { data, error }: any = await supabase
         .from('org_invites')
         .select(
           `

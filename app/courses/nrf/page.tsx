@@ -11,7 +11,7 @@ import {
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/courses/nrf',
+    canonical: 'https://elevateforhumanity.org/courses/nrf',
   },
   title: 'NRF RISE Up Credentials | Elevate For Humanity',
   description:
@@ -194,7 +194,7 @@ export default function NrfPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {courses.map((course) => (
+            {courses.map((course: any) => (
               <div
                 key={course.id}
                 className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"

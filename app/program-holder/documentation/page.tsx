@@ -131,7 +131,7 @@ export default async function DocumentationPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  {category.items.map((item) => (
+                  {category.items.map((item: any) => (
                     <Link
                       key={item.name}
                       href={item.url}

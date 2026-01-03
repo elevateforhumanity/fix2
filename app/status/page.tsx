@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/status',
+    canonical: 'https://elevateforhumanity.org/status',
   },
   title: 'Production Status | Elevate For Humanity',
   description:
@@ -64,7 +64,7 @@ export default async function StatusPage() {
               Production Readiness
             </h2>
             <div className="grid gap-3">
-              {Object.entries(productionReady).map(([key, value]) => (
+              {Object.entries(productionReady).map(([key, value]: any) => (
                 <div
                   key={key}
                   className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg"
@@ -87,7 +87,7 @@ export default async function StatusPage() {
               Build Information
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {Object.entries(buildInfo).map(([key, value]) => (
+              {Object.entries(buildInfo).map(([key, value]: any) => (
                 <div key={key} className="p-4 bg-blue-50 rounded-lg">
                   <div className="text-sm text-gray-600 capitalize">
                     {key.replace(/_/g, ' ')}
@@ -106,7 +106,7 @@ export default async function StatusPage() {
               Verification Checklist
             </h2>
             <div className="grid gap-2">
-              {Object.entries(verification).map(([key, value]) => (
+              {Object.entries(verification).map(([key, value]: any) => (
                 <div
                   key={key}
                   className="flex items-center gap-3 p-2 bg-green-50 rounded"

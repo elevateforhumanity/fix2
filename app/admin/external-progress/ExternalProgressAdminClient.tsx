@@ -138,7 +138,7 @@ export default function ExternalProgressAdminClient({ initialRows }: Props) {
                 </tr>
               </thead>
               <tbody>
-                {submitted.map((row) => (
+                {submitted.map((row: any) => (
                   <tr key={row.id} className="border-t hover:bg-slate-50">
                     <td className="px-4 py-3 align-top">
                       <div className="font-semibold">
@@ -241,7 +241,7 @@ export default function ExternalProgressAdminClient({ initialRows }: Props) {
           </div>
         ) : (
           <div className="space-y-2">
-            {approved.slice(0, 10).map((row) => (
+            {approved.slice(0, 10).map((row: any) => (
               <div
                 key={row.id}
                 className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 flex items-center justify-between"
@@ -275,7 +275,7 @@ export default function ExternalProgressAdminClient({ initialRows }: Props) {
             In Progress ({inProgress.length})
           </h2>
           <div className="space-y-2">
-            {inProgress.slice(0, 5).map((row) => (
+            {inProgress.slice(0, 5).map((row: any) => (
               <div
                 key={row.id}
                 className="rounded-lg border bg-white p-3 flex items-center justify-between"

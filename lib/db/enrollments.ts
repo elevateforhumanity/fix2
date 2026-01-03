@@ -15,7 +15,7 @@ export async function createProgramEnrollment(
     throw new Error("Supabase not configured");
   }
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("program_enrollments")
     .insert({
       student_id: partial.studentId,
@@ -69,7 +69,7 @@ export async function listEnrollments(): Promise<ProgramEnrollment[]> {
     return [];
   }
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("program_enrollments")
     .select("*")
     .order("created_at", { ascending: false });

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     'Understand how Elevate for Humanity coordinates access to training, funding, and career opportunities without replacing local authority or ownership.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/how-it-works',
+    canonical: 'https://elevateforhumanity.org/how-it-works',
   },
 };
 
@@ -445,7 +445,7 @@ export default function HowItWorksPage() {
               <div>
                 <div className="font-bold mb-1">Address</div>
                 <div className="text-blue-100">
-                  8888 Keystone Crossing Suite 1300
+                  8888 Keystone Xing, Suite 1300
                   <br />
                   Indianapolis, IN 46240
                 </div>

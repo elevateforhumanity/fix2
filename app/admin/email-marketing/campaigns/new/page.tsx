@@ -371,7 +371,7 @@ export default function NewCampaignPage() {
                       Choose Template
                     </label>
                     <div className="grid grid-cols-2 gap-3">
-                      {Object.entries(emailTemplates).map(([key, template]) => (
+                      {Object.entries(emailTemplates).map(([key, template]: any) => (
                         <button
                           key={key}
                           onClick={() =>

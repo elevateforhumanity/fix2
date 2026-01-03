@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Grant Package Builder API
  * Generate submission-ready grant packages

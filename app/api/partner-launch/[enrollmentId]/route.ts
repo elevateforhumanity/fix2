@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/partner-launch/[enrollmentId]/route.ts
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';

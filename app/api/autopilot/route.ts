@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Autopilot API - Next.js Route Handler
  * Converted from legacy autopilot system

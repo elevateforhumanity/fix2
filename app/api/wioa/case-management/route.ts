@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
       referrals: [],
     };
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('case_management')
       .insert(caseData)
       .select()

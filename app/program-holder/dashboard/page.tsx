@@ -330,7 +330,7 @@ export default async function ProgramHolderDashboardOrchestrated() {
                 Recent Student Activity
               </h3>
               <div className="space-y-3">
-                {activeStudents.slice(0, 5).map((student) => (
+                {activeStudents.slice(0, 5).map((student: any) => (
                   <div
                     key={student.id}
                     className="flex items-center justify-between p-3 bg-slate-50 rounded-lg"

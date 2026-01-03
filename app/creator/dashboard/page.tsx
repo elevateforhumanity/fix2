@@ -185,7 +185,7 @@ export default async function CreatorDashboard() {
           <div className="p-6">
             {courses && courses.length > 0 ? (
               <div className="space-y-4">
-                {courses.map((course) => (
+                {courses.map((course: any) => (
                   <div
                     key={course.id}
                     className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-500 transition-colors"

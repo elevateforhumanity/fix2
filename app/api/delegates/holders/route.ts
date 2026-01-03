@@ -17,7 +17,7 @@ export async function GET() {
 
   if (prof?.role !== 'admin') return new Response('Forbidden', { status: 403 });
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('program_holders')
     .select('id,name')
     .order('name');

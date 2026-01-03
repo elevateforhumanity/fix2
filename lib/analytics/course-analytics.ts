@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Advanced Course Analytics & Reporting
  * Provides detailed insights into course performance

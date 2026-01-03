@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   try {
     const supabase = await createClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('courses')
       .select('*')
       .order('created_at', { ascending: false });

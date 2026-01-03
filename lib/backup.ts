@@ -6,7 +6,7 @@ export async function createBackup(tables: string[] = ['profiles', 'courses', 'e
   const timestamp = new Date().toISOString();
   try {
     for (const table of tables) {
-      const { data, error } = await supabase.from(table).select('*');
+      const { data, error }: any = await supabase.from(table).select('*');
       if (error) {
         // Error logged
         continue;
@@ -103,7 +103,7 @@ export async function restoreFromBackup(backup: Record<string, any[]>, options: 
 }
 export async function listBackups() {
   const supabase = await createClient();
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('backups')
     .select('*')
     .order('timestamp', { ascending: false })

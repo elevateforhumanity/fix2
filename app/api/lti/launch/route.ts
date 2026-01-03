@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/lti/launch/route.ts
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';

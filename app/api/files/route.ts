@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
   } = supabase.storage.from('files').getPublicUrl(fileName);
 
   // Save file metadata
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('files')
     .insert({
       user_id: user.id,

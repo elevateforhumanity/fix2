@@ -194,7 +194,7 @@ export default function CertificatesPage() {
                   {category.title}
                 </h3>
                 <ul className="space-y-3">
-                  {category.items.map((item) => (
+                  {category.items.map((item: any) => (
                     <li key={item} className="flex items-start gap-3">
                       <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
                       <span className="text-black">{item}</span>

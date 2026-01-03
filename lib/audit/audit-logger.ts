@@ -216,7 +216,7 @@ export async function getUserAuditLogs(
 ): Promise<any[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('audit_logs')
     .select('*')
     .eq('user_id', userId)
@@ -241,7 +241,7 @@ export async function getResourceAuditLogs(
 ): Promise<any[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('audit_logs')
     .select('*')
     .eq('resource_type', resourceType)
@@ -414,7 +414,7 @@ export async function cleanupOldAuditLogs(retentionDays: number = 365): Promise<
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('audit_logs')
     .delete()
     .lt('created_at', cutoffDate.toISOString())

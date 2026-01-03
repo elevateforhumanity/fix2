@@ -7,7 +7,7 @@ import { toError, toErrorMessage } from '@/lib/safe';
 export async function GET(_request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('benefits_plans')
       .select('*')
       .eq('is_active', true)
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('benefits_plans')
       .insert({
         plan_name,

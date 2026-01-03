@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'DOL-registered apprenticeship programs in Indiana. Get paid while you learn. Barber, HVAC, Building Maintenance, and more. No debt, real wages.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/apprenticeships',
+    canonical: 'https://elevateforhumanity.org/programs/apprenticeships',
   },
 };
 
@@ -147,7 +147,7 @@ export default function ApprenticeshipProgramsPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {apprenticeships.map((program) => (
+            {apprenticeships.map((program: any) => (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}

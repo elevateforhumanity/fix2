@@ -70,7 +70,7 @@ export async function POST(req: Request) {
     }
 
     // Create creator application
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('marketplace_creators')
       .insert({
         user_id: user.id,

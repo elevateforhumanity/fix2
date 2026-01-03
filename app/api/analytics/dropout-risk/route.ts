@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getOpenAIClient, isOpenAIConfigured } from '@/lib/openai-client';

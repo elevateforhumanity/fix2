@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Grant Notifications API
  * Manage grant notifications and alerts

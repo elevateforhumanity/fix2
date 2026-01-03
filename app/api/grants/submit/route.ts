@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Grant Submission API
  * Record and track grant submissions

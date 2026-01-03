@@ -220,7 +220,7 @@ export default async function DrugTestingTrainingPage() {
             anyone performing drug test collections.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
-            {trainingCourses.collector.map((course) => (
+            {trainingCourses.collector.map((course: any) => (
               <div
                 key={course.name}
                 className={`bg-white border-2 rounded-lg p-6 ${course.popular ? 'border-purple-500' : course.new ? 'border-blue-500' : 'border-gray-200'}`}
@@ -269,7 +269,7 @@ export default async function DrugTestingTrainingPage() {
             determinations. DOT requires 60 minutes of training.
           </p>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
-            {trainingCourses.supervisor.map((course) => (
+            {trainingCourses.supervisor.map((course: any) => (
               <div
                 key={course.name}
                 className={`bg-white border-2 rounded-lg p-6 ${course.popular ? 'border-purple-500' : 'border-gray-200'}`}
@@ -313,7 +313,7 @@ export default async function DrugTestingTrainingPage() {
             Learn DOT regulations, procedures, and compliance requirements.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
-            {trainingCourses.der.map((course) => (
+            {trainingCourses.der.map((course: any) => (
               <div
                 key={course.name}
                 className="bg-white border-2 border-gray-200 rounded-lg p-6"
@@ -350,7 +350,7 @@ export default async function DrugTestingTrainingPage() {
             procedures, and their rights and responsibilities.
           </p>
           <div className="bg-white border-2 border-purple-200 rounded-lg p-6 max-w-2xl">
-            {trainingCourses.employee.map((course) => (
+            {trainingCourses.employee.map((course: any) => (
               <div key={course.name}>
                 <h3 className="text-xl font-bold mb-2">{course.name}</h3>
                 <p className="text-gray-600 mb-3">{course.description}</p>
@@ -382,7 +382,7 @@ export default async function DrugTestingTrainingPage() {
             testing professionals.
           </p>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
-            {trainingCourses.advanced.map((course) => (
+            {trainingCourses.advanced.map((course: any) => (
               <div
                 key={course.name}
                 className="bg-white border-2 border-gray-200 rounded-lg p-6"
@@ -504,7 +504,7 @@ export default async function DrugTestingTrainingPage() {
             </Link>
           </div>
           <p className="mt-8 text-purple-100">
-            <strong>Address:</strong> 8888 Keystone Crossing Suite 1300,
+            <strong>Address:</strong> 8888 Keystone Xing, Suite 1300,
             Indianapolis, IN 46240
           </p>
         </div>

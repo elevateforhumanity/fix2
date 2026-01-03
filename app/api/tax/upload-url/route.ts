@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     const path = `supersonicfastcash/${contactInfo.email}/${timestamp}-${sanitizedFilename}`;
 
     // Generate signed upload URL (valid for 1 hour)
-    const { data, error } = await supabase.storage
+    const { data, error }: any = await supabase.storage
       .from('tax-documents')
       .createSignedUploadUrl(path);
 

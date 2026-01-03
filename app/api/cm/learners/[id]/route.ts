@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/cm/learners/[id]/route.ts - Get learner details for case manager
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseClients';

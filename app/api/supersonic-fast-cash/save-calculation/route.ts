@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const { data: { user } } = await supabase.auth.getUser();
 
     // Save calculation
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('tax_calculations')
       .insert({
         user_id: user?.id || null,
@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('tax_calculations')
       .select('*')
       .eq('user_id', user.id)

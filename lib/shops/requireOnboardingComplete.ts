@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 export async function requireShopOnboardingComplete(shopId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('shop_required_docs_status')
     .select('document_type, display_name, required, approved')
     .eq('shop_id', shopId);
@@ -35,7 +35,7 @@ export async function requireShopOnboardingComplete(shopId: string) {
 export async function getShopOnboardingStatus(shopId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('shop_required_docs_status')
     .select('*')
     .eq('shop_id', shopId);

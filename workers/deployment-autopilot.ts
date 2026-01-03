@@ -271,7 +271,7 @@ async function fixDomains(env: Env): Promise<Response> {
 
 async function checkProductionSite(): Promise<any> {
   try {
-    const response = await fetch('https://www.elevateforhumanity.org', {
+    const response = await fetch('https://elevateforhumanity.org', {
       method: 'HEAD',
       redirect: 'follow'
     });
@@ -382,7 +382,7 @@ async function promoteToProduction(env: Env): Promise<Response> {
     },
     message: 'Latest deployment promoted to production',
     production_urls: [
-      'https://www.elevateforhumanity.org',
+      'https://elevateforhumanity.org',
       'https://elevateforhumanity.org'
     ]
   }, null, 2), {

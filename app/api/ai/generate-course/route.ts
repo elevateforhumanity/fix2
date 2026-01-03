@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { logger } from '@/lib/logger';

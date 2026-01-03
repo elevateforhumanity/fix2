@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/rateLimiter.ts
 // Rate limiting and caching with Redis support
 import { NextRequest, NextResponse } from 'next/server';

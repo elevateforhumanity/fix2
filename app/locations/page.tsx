@@ -44,7 +44,7 @@ export default function LocationsPage() {
                     <div>
                       <h3 className="font-bold text-black mb-1">Address</h3>
                       <p className="text-black">
-                        8888 Keystone Crossing
+                        8888 Keystone Xing
                         <br />
                         Suite 1300
                         <br />
@@ -94,7 +94,7 @@ export default function LocationsPage() {
 
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=8888+Keystone+Crossing+Suite+1300+Indianapolis+IN+46240"
+                    href="https://www.google.com/maps/search/?api=1&query=8888+Keystone+Xing+Suite+1300+Indianapolis+IN+46240"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-colors"

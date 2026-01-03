@@ -132,7 +132,7 @@ export async function getAuditLogsByActor(
 ) {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('audit_logs')
     .select('*')
     .eq('actor_user_id', actor_user_id)
@@ -156,7 +156,7 @@ export async function getAuditStats(days = 30) {
   const since = new Date();
   since.setDate(since.getDate() - days);
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('audit_logs')
     .select('action, entity, actor_role')
     .gte('created_at', since.toISOString());

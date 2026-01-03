@@ -12,7 +12,7 @@ export async function GET(
   try {
     const { id } = await params;
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('case_management')
       .select('*')
       .eq('id', id)
@@ -42,7 +42,7 @@ export async function PUT(
     const { id } = await params;
     const body = await parseBody<Record<string, unknown>>(request);
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('case_management')
       .update(body)
       .eq('id', id)

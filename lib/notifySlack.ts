@@ -105,7 +105,7 @@ export async function notifyTeams(
         activityTitle: 'Elevate for Humanity',
         activitySubtitle: new Date().toISOString(),
         facts: opts?.context
-          ? Object.entries(opts.context).map(([key, value]) => ({
+          ? Object.entries(opts.context).map(([key, value]: any) => ({
               name: key,
               value: String(value),
             }))

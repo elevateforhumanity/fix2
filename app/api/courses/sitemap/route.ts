@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
         ?.filter(
           (item) => item.path?.startsWith('courses/') && item.type === 'blob'
         )
-        .map((item) => ({
+        .map((item: any) => ({
           path: item.path,
           type: item.path?.split('.').pop(),
           size: item.size,

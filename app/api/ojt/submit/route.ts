@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     const supabase = createAdminClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('ojt_reimbursements')
       .insert([
         {
@@ -47,7 +47,7 @@ export async function GET() {
   try {
     const supabase = createAdminClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('ojt_reimbursements')
       .select('*')
       .order('created_at', { ascending: false });
@@ -72,7 +72,7 @@ export async function PATCH(req: Request) {
 
     const supabase = createAdminClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('ojt_reimbursements')
       .update({ status })
       .eq('id', id)

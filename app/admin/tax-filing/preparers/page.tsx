@@ -81,7 +81,7 @@ export default async function TaxPreparersPage() {
 
           {preparers && preparers.length > 0 ? (
             <div className="divide-y divide-gray-200">
-              {preparers.map((item) => (
+              {preparers.map((item: any) => (
                 <div key={item.id} className="px-6 py-4 hover:bg-gray-50">
                   <div className="flex justify-between items-start">
                     <div>

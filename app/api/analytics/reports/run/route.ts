@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   }
 
   if (type === "completions_by_month") {
-    const { data, error } = await supabase.rpc("get_completions_by_month", {
+    const { data, error }: any = await supabase.rpc("get_completions_by_month", {
       p_tenant_id: tenantId || null,
     });
 
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
   }
 
   if (type === "user_activity") {
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from("profiles")
       .select(
         `

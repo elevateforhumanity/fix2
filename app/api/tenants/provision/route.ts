@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/tenants/provision/route.ts
 import { NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';

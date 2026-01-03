@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/admin/certificates',
+    canonical: 'https://elevateforhumanity.org/admin/certificates',
   },
   title: 'Certificates | Elevate For Humanity',
   description: 'Manage certificates, credentials, and certifications',
@@ -141,7 +141,7 @@ export default async function CertificatesPage() {
               <h2 className="text-2xl font-bold mb-4">Items</h2>
               {certificates && certificates.length > 0 ? (
                 <div className="space-y-4">
-                  {certificates.map((item) => (
+                  {certificates.map((item: any) => (
                     <div
                       key={item.id}
                       className="p-4 border rounded-lg hover:bg-gray-50"

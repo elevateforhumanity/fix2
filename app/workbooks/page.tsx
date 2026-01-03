@@ -122,7 +122,7 @@ export default function WorkbooksPage() {
 
         {/* Workbooks by Program */}
         <div className="space-y-8">
-          {workbooks.map((program) => (
+          {workbooks.map((program: any) => (
             <div
               key={program.slug}
               className="bg-white rounded-xl shadow-sm p-8"

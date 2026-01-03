@@ -338,7 +338,7 @@ const PARTNER_COURSES = {
 // Flatten all courses with provider info
 const ALL_COURSES = Object.entries(PARTNER_COURSES).flatMap(
   ([providerId, provider]) =>
-    provider.courses.map((course) => ({
+    provider.courses.map((course: any) => ({
       ...course,
       providerId,
       providerName: provider.name,
@@ -450,7 +450,7 @@ export default function CoursesCatalogPage() {
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="all">All Providers</option>
-                {Object.entries(PARTNER_COURSES).map(([id, provider]) => (
+                {Object.entries(PARTNER_COURSES).map(([id, provider]: any) => (
                   <option key={id} value={id}>
                     {provider.name}
                   </option>
@@ -543,7 +543,7 @@ export default function CoursesCatalogPage() {
 
         {/* Course Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.map((course) => (
+          {filteredCourses.map((course: any) => (
             <div
               key={`${course.providerId}-${course.id}`}
               className="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg transition"

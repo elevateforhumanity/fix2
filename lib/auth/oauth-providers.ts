@@ -14,7 +14,7 @@ export interface OAuthConfig {
 export async function signInWithOAuth(config: OAuthConfig) {
   const supabase = createClient();
   
-  const { data, error } = await supabase.auth.signInWithOAuth({
+  const { data, error }: any = await supabase.auth.signInWithOAuth({
     provider: config.provider,
     options: {
       redirectTo: config.redirectTo || `${window.location.origin}/auth/callback`,

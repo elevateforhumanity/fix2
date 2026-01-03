@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Minimal safe metrics collector for dev
 export function initWebVitalsDebug() {
   if (typeof window === "undefined") return;

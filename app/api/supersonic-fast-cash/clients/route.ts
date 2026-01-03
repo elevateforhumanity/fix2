@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('clients')
       .insert({
         first_name: body.firstName,

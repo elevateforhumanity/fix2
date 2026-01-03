@@ -41,10 +41,10 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-// Cache bust: 2025-12-18T08:15:00Z
+// Cache bust: 2026-01-02T23:30:00Z - Non-www canonical migration
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org'
   ),
   title: {
     default: 'Elevate for Humanity | Workforce Training + Apprenticeships',
@@ -88,11 +88,11 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org',
+    canonical: 'https://elevateforhumanity.org',
   },
   openGraph: {
     type: 'website',
-    url: 'https://www.elevateforhumanity.org',
+    url: 'https://elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
     images: [

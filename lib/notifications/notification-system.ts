@@ -73,7 +73,7 @@ export async function createNotification(data: {
 export async function getUnreadNotifications(userId: string): Promise<Notification[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('notifications')
     .select('*')
     .eq('user_id', userId)
@@ -97,7 +97,7 @@ export async function getUserNotifications(
 ): Promise<Notification[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('notifications')
     .select('*')
     .eq('user_id', userId)
@@ -460,7 +460,7 @@ export async function cleanupOldNotifications(retentionDays: number = 90): Promi
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('notifications')
     .delete()
     .eq('read', true)

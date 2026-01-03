@@ -53,7 +53,7 @@ export async function getUserByEmail(email: string) {
 
 // Helper function to get user by ID
 export async function getUserById(userId: string) {
-  const { data, error } = await supabaseAdmin.auth.admin.getUserById(userId);
+  const { data, error }: any = await supabaseAdmin.auth.admin.getUserById(userId);
 
   if (error) {
     throw error;

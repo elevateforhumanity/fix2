@@ -83,7 +83,7 @@ export async function createReferralCode(
 
   const code = options?.customCode || generateReferralCode(userId);
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('referral_codes')
     .insert({
       code,
@@ -110,7 +110,7 @@ export async function createReferralCode(
 export async function getReferralCodeByCode(code: string): Promise<ReferralCode | null> {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('referral_codes')
     .select('*')
     .eq('code', code.toUpperCase())
@@ -138,7 +138,7 @@ export async function getReferralCodeByCode(code: string): Promise<ReferralCode 
 export async function getUserReferralCodes(userId: string): Promise<ReferralCode[]> {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('referral_codes')
     .select('*')
     .eq('user_id', userId)
@@ -204,7 +204,7 @@ export async function trackReferral(
   }
 
   // Create referral record
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('referrals')
     .insert({
       referrer_id: code.user_id,
@@ -534,7 +534,7 @@ export async function getAffiliateLeaderboard(limit: number = 10): Promise<Array
 }>> {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('referrals')
     .select(`
       referrer_id,

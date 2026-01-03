@@ -30,6 +30,51 @@ const nextConfig = {
       'recharts',
     ],
     webpackBuildWorker: true,
+    optimizeCss: true,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          framework: {
+            name: 'framework',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)?.[1];
+              return `npm.${packageName?.replace('@', '')}`;
+            },
+            priority: 30,
+            minChunks: 1,
+            reuseExistingChunk: true,
+          },
+          commons: {
+            name: 'commons',
+            minChunks: 2,
+            priority: 20,
+          },
+        },
+      },
+    };
+    return config;
   },
   images: {
     unoptimized: false, // Enable Next.js image optimization
@@ -46,6 +91,80 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  staticPageGenerationTimeout: 180,
+  outputFileTracingIncludes: {
+    '/api/**/*': ['./node_modules/**/*.wasm', './node_modules/**/*.node'],
+  },
+  
+  // Redirects for consolidated routes
+  async redirects() {
+    return [
+      // Dashboard consolidation
+      { source: '/portal/:path*', destination: '/lms/:path*', permanent: true },
+      { source: '/student/:path*', destination: '/lms/:path*', permanent: true },
+      { source: '/students/:path*', destination: '/lms/:path*', permanent: true },
+      { source: '/learners/:path*', destination: '/lms/:path*', permanent: true },
+      { source: '/program-holder-portal/:path*', destination: '/program-holder/:path*', permanent: true },
+      { source: '/admin-portal/:path*', destination: '/admin/:path*', permanent: true },
+      { source: '/dashboard', destination: '/lms/dashboard', permanent: false },
+      
+      // Tax consolidation
+      { source: '/tax-filing/:path*', destination: '/tax/:path*', permanent: true },
+      { source: '/tax-services/:path*', destination: '/tax/:path*', permanent: true },
+      { source: '/tax-software/:path*', destination: '/tax/:path*', permanent: true },
+      { source: '/vita/:path*', destination: '/tax/:path*', permanent: true },
+      
+      // Program consolidation
+      { source: '/programs-catalog/:path*', destination: '/programs/:path*', permanent: true },
+      { source: '/program-finder/:path*', destination: '/programs/:path*', permanent: true },
+      { source: '/compare-programs/:path*', destination: '/programs/:path*', permanent: true },
+      
+      // Career consolidation
+      { source: '/career-center/:path*', destination: '/career-services/:path*', permanent: true },
+      { source: '/career-fair/:path*', destination: '/career-services/:path*', permanent: true },
+      
+      // Partner consolidation
+      { source: '/partner-with-us/:path*', destination: '/partners/:path*', permanent: true },
+      { source: '/partner-application/:path*', destination: '/partners/:path*', permanent: true },
+      { source: '/partner-courses/:path*', destination: '/partners/:path*', permanent: true },
+      { source: '/partner-playbook/:path*', destination: '/partners/:path*', permanent: true },
+      
+      // Auth consolidation
+      { source: '/forgotpassword', destination: '/auth/forgot-password', permanent: true },
+      { source: '/resetpassword', destination: '/auth/reset-password', permanent: true },
+      { source: '/verifyemail', destination: '/auth/verify-email', permanent: true },
+      
+      // Legal consolidation
+      { source: '/privacy', destination: '/privacy-policy', permanent: true },
+      { source: '/terms', destination: '/terms-of-service', permanent: true },
+      
+      // Verify consolidation
+      { source: '/verifycertificate/:path*', destination: '/verify/:path*', permanent: true },
+      
+      // Misc redirects
+      { source: '/for-students', destination: '/lms', permanent: true },
+      { source: '/dashboards/:path*', destination: '/lms/:path*', permanent: true },
+      { source: '/portals/:path*', destination: '/lms/:path*', permanent: true },
+      
+      // Removed businesses
+      { source: '/serene-comfort-care/:path*', destination: '/programs', permanent: true },
+      { source: '/kingdom-konnect/:path*', destination: '/programs', permanent: true },
+      { source: '/urban-build-crew/:path*', destination: '/programs', permanent: true },
+      { source: '/selfish-inc/:path*', destination: '/rise-foundation/:path*', permanent: true },
+      
+      // Removed routes
+      { source: '/financial-aid/:path*', destination: '/funding/:path*', permanent: true },
+      { source: '/forums/:path*', destination: '/community/:path*', permanent: true },
+      { source: '/alumni/:path*', destination: '/community/:path*', permanent: true },
+      { source: '/board/:path*', destination: '/admin/:path*', permanent: true },
+      { source: '/receptionist/:path*', destination: '/staff-portal/:path*', permanent: true },
+      { source: '/delegate/:path*', destination: '/admin/:path*', permanent: true },
+      { source: '/study-groups/:path*', destination: '/community/:path*', permanent: true },
+      { source: '/forum/:path*', destination: '/community/:path*', permanent: true },
+      { source: '/volunteer/:path*', destination: '/community/:path*', permanent: true },
+      { source: '/news/:path*', destination: '/blog/:path*', permanent: true },
+    ];
   },
   async headers() {
     return [
@@ -166,7 +285,7 @@ const nextConfig = {
             value: 'elevateforhumanity.org',
           },
         ],
-        destination: 'https://www.elevateforhumanity.org/:path*',
+        destination: 'https://elevateforhumanity.org/:path*',
         permanent: true,
       },
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/wioa-eligibility',
+    canonical: 'https://elevateforhumanity.org/wioa-eligibility',
   },
   title: 'WIOA Eligibility Requirements | Elevate For Humanity',
   description:

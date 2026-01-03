@@ -12,7 +12,7 @@ export async function GET(
   try {
     const { id } = await params;
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('individual_employment_plans')
       .select('*')
       .eq('id', id)
@@ -47,7 +47,7 @@ export async function PUT(
       updated_at: new Date().toISOString(),
     };
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('individual_employment_plans')
       .update(updateData)
       .eq('id', id)
@@ -79,7 +79,7 @@ export async function POST(
     const body = await parseBody<Record<string, unknown>>(request);
     const { approvedBy, approvalNotes } = body;
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('individual_employment_plans')
       .update({
         status: 'approved',

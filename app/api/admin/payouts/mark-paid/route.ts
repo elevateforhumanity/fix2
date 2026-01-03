@@ -44,7 +44,7 @@ export async function POST(req: Request) {
       0;
 
     // Mark all unpaid sales for this creator as paid
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('marketplace_sales')
       .update({
         paid_out: true,

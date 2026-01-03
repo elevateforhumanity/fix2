@@ -18,7 +18,7 @@ export interface StateRules {
 export async function getStateRules(state: string): Promise<StateRules | null> {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('state_rules')
     .select('*')
     .eq('state', state.toUpperCase())
@@ -80,7 +80,7 @@ export async function isRapidsRequired(state: string): Promise<boolean> {
 export async function getAllStateRules(): Promise<StateRules[]> {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('state_rules')
     .select('*')
     .order('state');
@@ -102,7 +102,7 @@ export async function updateStateRules(
 ): Promise<StateRules | null> {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('state_rules')
     .upsert({ state: state.toUpperCase(), ...rules })
     .select()

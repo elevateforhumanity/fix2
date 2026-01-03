@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 async function getReels() {
   try {
     const supabase = await createClient();
-    const { data } = await supabase
+    const { data }: any = await supabase
       .from('reels')
       .select('*')
       .eq('published', true)

@@ -153,7 +153,7 @@ export async function safeSelect<T>(
 
     // Execute query
     const supabase = await createClient();
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from(tableName)
       .select(columns.join(', '));
 

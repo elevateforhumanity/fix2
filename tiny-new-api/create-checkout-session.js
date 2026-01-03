@@ -108,8 +108,8 @@ export default async function handler(req, res) {
         license_type: product.license_type,
         customer_email: email,
       },
-      success_url: `${req.headers.origin || 'https://www.elevateforhumanity.org'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin || 'https://www.elevateforhumanity.org'}/cancel`,
+      success_url: `${req.headers.origin || 'https://elevateforhumanity.org'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin || 'https://elevateforhumanity.org'}/cancel`,
       billing_address_collection: 'required',
       payment_intent_data: {
         description: `Elevate Platform License: ${product.name}`,

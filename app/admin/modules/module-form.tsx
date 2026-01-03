@@ -84,7 +84,7 @@ export function ModuleForm({ programs, module }: ModuleFormProps) {
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">-- Select a program --</option>
-            {programs.map((program) => (
+            {programs.map((program: any) => (
               <option key={program.id} value={program.id}>
                 {program.name}
               </option>

@@ -197,12 +197,12 @@ export default async function AccreditationPage() {
   );
   const completeItems = complianceItems.reduce(
     (sum, cat) =>
-      sum + cat.items.filter((item) => item.status === 'complete').length,
+      sum + cat.items.filter((item: any) => item.status === 'complete').length,
     0
   );
   const warningItems = complianceItems.reduce(
     (sum, cat) =>
-      sum + cat.items.filter((item) => item.status === 'warning').length,
+      sum + cat.items.filter((item: any) => item.status === 'warning').length,
     0
   );
 

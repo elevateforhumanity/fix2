@@ -47,7 +47,7 @@ export async function trackScormProgress(data: {
 
   // Track individual SCORM elements
   if (data.cmiData) {
-    const trackingPromises = Object.entries(data.cmiData).map(([element, value]) =>
+    const trackingPromises = Object.entries(data.cmiData).map(([element, value]: any) =>
       supabase.from('scorm_tracking').insert({
         scorm_enrollment_id: enrollment.id,
         element,

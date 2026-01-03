@@ -24,7 +24,7 @@ export const getOrgSubscription = cache(
     supabase: SupabaseClient,
     organizationId: string
   ): Promise<OrgSubscription | null> => {
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('organization_subscriptions')
       .select('*')
       .eq('organization_id', organizationId)

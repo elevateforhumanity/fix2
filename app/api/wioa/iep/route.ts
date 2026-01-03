@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       updated_at: new Date().toISOString(),
     };
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('individual_employment_plans')
       .insert(iepData)
       .select()

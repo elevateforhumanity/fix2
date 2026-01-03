@@ -17,7 +17,7 @@ export const GET = withAuth(
       );
     }
 
-    const { data, error } = await supabaseAdmin
+    const { data, error }: any = await supabaseAdmin
       .from('programs')
       .select('*')
       .order('created_at', { ascending: false });

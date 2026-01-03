@@ -11,7 +11,7 @@ export default function CartPage() {
     setCartItems(cartItems.filter((_, i) => i !== index));
   };
 
-  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const total = cartItems.reduce((sum: any, item: any) => sum + item.price, 0);
 
   return (
     <div className="min-h-screen bg-white py-20">

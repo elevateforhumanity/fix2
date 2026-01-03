@@ -232,7 +232,7 @@ export async function batchOptimizeImages(
         const supabase = await createClient();
         
         // Download original
-        const { data, error } = await supabase.storage
+        const { data, error }: any = await supabase.storage
           .from('images')
           .download(path);
 

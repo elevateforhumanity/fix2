@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Fast-track certifications in 2-8 weeks. CPR, Workforce Readiness, Peer Recovery Coach, and more. Get certified, get hired.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/micro-programs',
+    canonical: 'https://elevateforhumanity.org/programs/micro-programs',
   },
 };
 
@@ -142,7 +142,7 @@ export default function MicroProgramsPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {microPrograms.map((program) => (
+            {microPrograms.map((program: any) => (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}

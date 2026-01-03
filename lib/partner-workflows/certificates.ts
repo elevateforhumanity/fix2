@@ -183,7 +183,7 @@ export async function generateCertificatePDF(
     }
 
     // Generate PDF using edge function
-    const { data, error } = await supabase.functions.invoke(
+    const { data, error }: any = await supabase.functions.invoke(
       'generate-certificate-pdf',
       {
         body: {

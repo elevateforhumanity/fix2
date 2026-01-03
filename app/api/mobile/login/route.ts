@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/mobile/login/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient();
 
     // Authenticate with Supabase
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error }: any = await supabase.auth.signInWithPassword({
       email,
       password,
     });

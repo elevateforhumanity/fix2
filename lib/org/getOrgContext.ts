@@ -26,7 +26,7 @@ export const getOrgContext = cache(
     }
 
     // Then get their membership and role for that organization
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('organization_users')
       .select(
         `

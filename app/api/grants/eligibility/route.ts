@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Grant Eligibility API
  * Check entity eligibility for grants

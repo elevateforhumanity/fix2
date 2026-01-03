@@ -14,7 +14,7 @@ export async function getSignedMOUUrl(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const { data, error } = await supabase.storage
+  const { data, error }: any = await supabase.storage
     .from('mous')
     .createSignedUrl(filename, 3600); // 1 hour expiry
 
@@ -39,7 +39,7 @@ export async function downloadSignedMOU(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const { data, error } = await supabase.storage
+  const { data, error }: any = await supabase.storage
     .from('mous')
     .download(filename);
 
@@ -62,7 +62,7 @@ export async function signedMOUExists(filename: string): Promise<boolean> {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  const { data, error } = await supabase.storage.from('mous').list('', {
+  const { data, error }: any = await supabase.storage.from('mous').list('', {
     search: filename,
   });
 

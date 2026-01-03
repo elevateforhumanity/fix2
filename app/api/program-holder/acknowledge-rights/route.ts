@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       .single();
 
     // Insert acknowledgement
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('program_holder_acknowledgements')
       .insert({
         user_id: user.id,

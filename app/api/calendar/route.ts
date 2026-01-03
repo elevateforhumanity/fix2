@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     color?: string;
   };
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('calendar_events')
     .insert({
       user_id: user.id,
@@ -90,7 +90,7 @@ export async function PUT(request: NextRequest) {
   const body = await request.json();
   const { id, ...updates } = body;
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('calendar_events')
     .update(updates)
     .eq('id', id)

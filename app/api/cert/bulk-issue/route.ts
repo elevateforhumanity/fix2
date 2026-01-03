@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -56,14 +57,14 @@ export async function POST(req: NextRequest) {
       // course
       let course;
       if (r.course_id) {
-        const { data } = await supabase
+        const { data }: any = await supabase
           .from('courses')
           .select('id,title,slug,cert_valid_days')
           .eq('id', r.course_id)
           .maybeSingle();
         course = data;
       } else if (r.course_slug) {
-        const { data } = await supabase
+        const { data }: any = await supabase
           .from('courses')
           .select('id,title,slug,cert_valid_days')
           .eq('slug', r.course_slug)

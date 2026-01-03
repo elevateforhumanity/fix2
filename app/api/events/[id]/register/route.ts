@@ -58,7 +58,7 @@ export async function POST(
       data: { user },
     } = await supabase.auth.getUser();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('event_registrations')
       .insert({
         event_id: id,

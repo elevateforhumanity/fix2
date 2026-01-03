@@ -502,7 +502,7 @@ export async function calculateEquityMetrics(): Promise<EquityMetrics> {
 
   // By gender
   const genderGroups = groupBy(participants, 'gender');
-  const byGender = Object.entries(genderGroups).map(([gender, group]) => ({
+  const byGender = Object.entries(genderGroups).map(([gender, group]: any) => ({
     gender,
     count: group.length,
     completionRate: calculateCompletionRate(group),
@@ -510,7 +510,7 @@ export async function calculateEquityMetrics(): Promise<EquityMetrics> {
 
   // By race
   const raceGroups = groupBy(participants, 'race');
-  const byRace = Object.entries(raceGroups).map(([race, group]) => ({
+  const byRace = Object.entries(raceGroups).map(([race, group]: any) => ({
     race,
     count: group.length,
     completionRate: calculateCompletionRate(group),
@@ -537,7 +537,7 @@ export async function calculateEquityMetrics(): Promise<EquityMetrics> {
     });
   });
 
-  const byBarrier = Object.entries(barrierCounts).map(([barrier, group]) => ({
+  const byBarrier = Object.entries(barrierCounts).map(([barrier, group]: any) => ({
     barrier,
     count: group.length,
     completionRate: calculateCompletionRate(group),

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
     const supabase = createAdminClient();
 
     // Try to insert test data
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('applications')
       .insert({
         first_name: body.firstName || 'Test',

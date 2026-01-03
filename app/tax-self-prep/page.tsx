@@ -7,7 +7,7 @@ import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/tax-self-prep',
+    canonical: 'https://elevateforhumanity.org/tax-self-prep',
   },
   title: 'Tax Self-Prep | Do Your Own Taxes Online',
   description:

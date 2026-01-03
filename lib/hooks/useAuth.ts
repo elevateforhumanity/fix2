@@ -37,7 +37,7 @@ export function useAuth() {
   }, [supabase.auth]);
 
   const signIn = async (email: string, password: string) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error }: any = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -51,7 +51,7 @@ export function useAuth() {
     password: string,
     metadata?: { role?: UserRole; name?: string }
   ) => {
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error }: any = await supabase.auth.signUp({
       email,
       password,
       options: {

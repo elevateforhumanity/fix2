@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
-import Stripe from 'stripe';
-
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-10-29.clover',
-    })
-  : null;
+import { stripe } from '@/lib/stripe/client';
 
 export async function POST(request: NextRequest) {
   try {
@@ -37,7 +31,7 @@ export async function POST(request: NextRequest) {
               name: 'Donation to Elevate for Humanity',
               description:
                 'Support free career training for underserved communities',
-              images: ['https://www.elevateforhumanity.org/images/logo.png'],
+              images: ['https://elevateforhumanity.org/images/logo.png'],
             },
             unit_amount: Math.round(amount * 100), // Convert to cents
           },
@@ -53,9 +47,9 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    return NextResponse.json({ sessionId: session.id });
+    return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (err: unknown) {
-    // Error: $1
+    console.error('Donation checkout error:', err);
     return NextResponse.json(
       { error: (err as Error).message || 'Failed to create checkout session' },
       { status: 500 }

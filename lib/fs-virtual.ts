@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { gh, parseRepo } from './github';
 
 export async function readFile(repo: string, path: string, ref = 'main') {

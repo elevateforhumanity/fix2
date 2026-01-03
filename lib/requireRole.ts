@@ -5,7 +5,7 @@ export type UserRole = 'sponsor' | 'employer' | 'workone' | 'admin';
 export async function requireRole(userId: string, role: UserRole) {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('user_roles')
     .select('*')
     .eq('user_id', userId)
@@ -31,7 +31,7 @@ export async function hasRole(userId: string, role: UserRole): Promise<boolean> 
 export async function getUserRoles(userId: string): Promise<UserRole[]> {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('user_roles')
     .select('role')
     .eq('user_id', userId);
@@ -50,7 +50,7 @@ export async function assignRole(
 ) {
   const supabase = createAdminClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('user_roles')
     .insert([{ user_id: userId, role, tenant }])
     .select()

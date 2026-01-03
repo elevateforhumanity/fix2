@@ -225,7 +225,7 @@ async function main() {
     log('2. Add custom domain: www.elevateforhumanity.org', 'yellow');
     log('3. Verify DNS settings', 'yellow');
     log('4. Wait for SSL certificate (5-10 minutes)', 'yellow');
-    log('5. Test: https://www.elevateforhumanity.org', 'yellow');
+    log('5. Test: https://elevateforhumanity.org', 'yellow');
 
     log('\n⏱️  DNS propagation may take 5-15 minutes', 'blue');
     log('Check status: https://dnschecker.org/#CNAME/www.elevateforhumanity.org', 'blue');

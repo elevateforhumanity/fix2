@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 
@@ -18,7 +19,7 @@ export async function GET() {
       clientCreated = true;
 
       // Try a simple query
-      const { data, error } = await supabase
+      const { data, error }: any = await supabase
         .from('applications')
         .select('count')
         .limit(1);

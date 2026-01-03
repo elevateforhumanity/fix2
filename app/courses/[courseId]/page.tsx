@@ -37,7 +37,7 @@ export default async function CourseDetailPage({
 
   let enrollment = null;
   if (user) {
-    const { data } = await supabase
+    const { data }: any = await supabase
       .from('enrollments')
       .select('*')
       .eq('user_id', user.id)

@@ -16,7 +16,7 @@ export async function GET() {
   if (!['admin', 'partner'].includes(prof?.role))
     return new Response('Forbidden', { status: 403 });
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('cert_revocation_log')
     .select('*');
   if (error) return new Response(toErrorMessage(error), { status: 500 });

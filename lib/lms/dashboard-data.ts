@@ -99,7 +99,7 @@ export async function getStudentProgressList(
 ): Promise<StudentProgress[]> {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('enrollments')
     .select(
       `
@@ -152,7 +152,7 @@ export async function getProgramMetrics(
 ): Promise<ProgramMetrics[]> {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('programs')
     .select(
       `
@@ -215,7 +215,7 @@ export async function getProgramMetrics(
 export async function getUserNotifications(userId: string, limit: number = 10) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('notifications')
     .select('*')
     .eq('user_id', userId)
@@ -237,7 +237,7 @@ export async function getUserNotifications(userId: string, limit: number = 10) {
 export async function getUpcomingAppointments(studentId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('appointments')
     .select('*')
     .eq('student_id', studentId)
@@ -262,7 +262,7 @@ export async function getStudentActivity(
 ) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_activity_log')
     .select('*')
     .eq('enrollment_id', enrollmentId)
@@ -283,7 +283,7 @@ export async function getStudentActivity(
 export async function getStudentFunding(enrollmentId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_funding_assignments')
     .select(
       `
@@ -311,7 +311,7 @@ export async function getStudentFunding(enrollmentId: string) {
 export async function getProgramCompletionStats(programId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('enrollments')
     .select(
       `

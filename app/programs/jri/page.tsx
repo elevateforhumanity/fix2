@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Second chance career training for justice-involved individuals. Free programs in healthcare, trades, and workforce readiness. Fresh start, real career.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/jri',
+    canonical: 'https://elevateforhumanity.org/programs/jri',
   },
 };
 
@@ -298,7 +298,7 @@ export default function JRIProgramsPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {jriPrograms.map((program) => (
+            {jriPrograms.map((program: any) => (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}
@@ -529,7 +529,7 @@ export default function JRIProgramsPage() {
                   >
                     317-314-3757
                   </a>{' '}
-                  or visit our office at 8888 Keystone Crossing, Suite 1300,
+                  or visit our office at 8888 Keystone Xing, Suite 1300,
                   Indianapolis, IN 46240.
                 </p>
               </div>

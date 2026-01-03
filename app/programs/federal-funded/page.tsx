@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     '100% free training programs funded by WIOA, WRG, and federal grants. CNA, CDL, Healthcare, and more. No cost to you.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/federal-funded',
+    canonical: 'https://elevateforhumanity.org/programs/federal-funded',
   },
 };
 
@@ -197,7 +197,7 @@ export default function FederalFundedProgramsPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {federalPrograms.map((program) => (
+            {federalPrograms.map((program: any) => (
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}

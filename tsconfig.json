@@ -67,6 +67,19 @@
     "**/*-old*",
     "**/*-new*",
     "**/*-redesign*",
-    "app-backup-*"
+    "app-backup-*",
+    "tests",
+    "__tests__",
+    "e2e",
+    "scripts",
+    "tools",
+    "*.test.ts",
+    "*.test.tsx",
+    "*.spec.ts",
+    "*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
   ]
 }

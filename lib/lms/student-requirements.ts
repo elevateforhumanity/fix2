@@ -37,7 +37,7 @@ export interface RiskStatus {
 export async function getStudentRequirements(enrollmentId: string): Promise<StudentRequirement[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_requirements')
     .select('*')
     .eq('enrollment_id', enrollmentId)
@@ -58,7 +58,7 @@ export async function getStudentRequirements(enrollmentId: string): Promise<Stud
 export async function getStudentRiskStatus(enrollmentId: string): Promise<RiskStatus | null> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_risk_status')
     .select('*')
     .eq('enrollment_id', enrollmentId)
@@ -162,7 +162,7 @@ export async function createRequirement(
 ): Promise<string | null> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_requirements')
     .insert({
       enrollment_id: enrollmentId,
@@ -190,7 +190,7 @@ export async function createRequirement(
 export async function getOverdueRequirements(enrollmentId: string): Promise<StudentRequirement[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_requirements')
     .select('*')
     .eq('enrollment_id', enrollmentId)
@@ -212,7 +212,7 @@ export async function getOverdueRequirements(enrollmentId: string): Promise<Stud
 export async function getPendingVerifications(programIds: string[]): Promise<StudentRequirement[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_requirements')
     .select(`
       *,

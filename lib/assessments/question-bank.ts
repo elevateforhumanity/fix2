@@ -245,7 +245,7 @@ export async function createQuestionBank(
   
   const { data: user } = await supabase.auth.getUser();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('question_banks')
     .insert({
       name,
@@ -272,7 +272,7 @@ export async function addQuestionToBank(
   
   const { data: user } = await supabase.auth.getUser();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('questions')
     .insert({
       bank_id: bankId,
@@ -339,7 +339,7 @@ export async function createAssessmentFromBank(
   
   const { data: user } = await supabase.auth.getUser();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('assessments')
     .insert({
       course_id: courseId,

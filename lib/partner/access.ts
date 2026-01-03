@@ -11,7 +11,7 @@ export type PartnerRole =
 
 export async function getSessionUser() {
   const supabase = await createClient();
-  const { data, error } = await supabase.auth.getUser();
+  const { data, error }: any = await supabase.auth.getUser();
   if (error) return null;
   return data.user ?? null;
 }

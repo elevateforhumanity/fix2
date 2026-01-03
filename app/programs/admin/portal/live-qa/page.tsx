@@ -7,7 +7,7 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   alternates: {
     canonical:
-      'https://www.elevateforhumanity.org/programs/admin/portal/live-qa',
+      'https://elevateforhumanity.org/programs/admin/portal/live-qa',
   },
   title: 'Live Qa | Elevate For Humanity',
   description:
@@ -122,7 +122,7 @@ export default async function LiveQaPage() {
               <h2 className="text-2xl font-bold mb-4">Items</h2>
               {items && items.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {items.map((item: any) => (
                     <div
                       key={item.id}
                       className="p-4 border rounded-lg hover:bg-gray-50"

@@ -105,7 +105,7 @@ export async function POST(req: Request) {
 
   if (action === 'trigger_orchestrator') {
     // Trigger orchestrator edge function
-    const { data, error } = await supabase.functions.invoke(
+    const { data, error }: any = await supabase.functions.invoke(
       'enrollment-orchestrator'
     );
 

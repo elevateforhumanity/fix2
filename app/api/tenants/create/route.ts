@@ -72,7 +72,7 @@ export async function GET() {
   try {
     const supabase = createAdminClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('tenants')
       .select('*, tenant_licenses(*)')
       .order('created_at', { ascending: false });

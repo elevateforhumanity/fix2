@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     // Insert appointment into database
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('appointments')
       .insert([
         {

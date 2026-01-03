@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
@@ -5,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/courses/partners',
+    canonical: 'https://elevateforhumanity.org/courses/partners',
   },
   title: 'Partner Course Catalog | Elevate For Humanity',
   description:

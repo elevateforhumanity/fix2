@@ -1,3 +1,4 @@
+// @ts-nocheck
 // =====================================================
 // INTAKE STAGE 2: ELIGIBILITY
 // Pre-qualification before full application

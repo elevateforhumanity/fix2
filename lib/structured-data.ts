@@ -6,8 +6,8 @@ export function generateOrganizationSchema() {
     '@type': 'EducationalOrganization',
     name: 'Elevate for Humanity',
     description: 'WIOA, WRG, and JRI-funded workforce training programs in Marion County and Indianapolis, Indiana',
-    url: 'https://www.elevateforhumanity.org',
-    logo: 'https://www.elevateforhumanity.org/logo.png',
+    url: 'https://elevateforhumanity.org',
+    logo: 'https://elevateforhumanity.org/logo.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '8888 Keystone Crossing Suite 1300',

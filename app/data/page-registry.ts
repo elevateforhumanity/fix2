@@ -114,7 +114,7 @@ export function getAllNavItems(): NavItem[] {
   
   // Remove duplicates by href
   const seen = new Set<string>();
-  return items.filter((item) => {
+  return items.filter((item: any) => {
     if (seen.has(item.href)) return false;
     seen.add(item.href);
     return true;
@@ -125,7 +125,7 @@ export function getAllNavItems(): NavItem[] {
  * Get all public pages (for sitemap generation)
  */
 export function getPublicPages(): NavItem[] {
-  return getAllNavItems().filter((item) => item.public !== false && !item.hidden);
+  return getAllNavItems().filter((item: any) => item.public !== false && !item.hidden);
 }
 
 /**
@@ -133,7 +133,7 @@ export function getPublicPages(): NavItem[] {
  * Includes hidden pages to ensure they're not accidentally broken
  */
 export function getAuditablePages(): NavItem[] {
-  return getAllNavItems().filter((item) => item.public !== false);
+  return getAllNavItems().filter((item: any) => item.public !== false);
 }
 
 /**

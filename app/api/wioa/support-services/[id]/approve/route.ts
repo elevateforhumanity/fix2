@@ -24,7 +24,7 @@ export async function POST(
       updated_at: new Date().toISOString(),
     };
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('support_services')
       .update(updateData)
       .eq('id', id)

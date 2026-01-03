@@ -1,13 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
-import Stripe from 'stripe';
+import { stripe } from '@/lib/stripe/client';
 import { toError, toErrorMessage } from '@/lib/safe';
-
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-10-29.clover',
-    })
-  : null;
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,7 +16,10 @@ export async function POST(request: NextRequest) {
 
     // Validate request
     if (!items || !Array.isArray(items) || items.length === 0) {
-      return NextResponse.json({ error: 'Invalid items' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Invalid items' },
+        { status: 400 }
+      );
     }
 
     // Create payment intent
@@ -34,7 +31,7 @@ export async function POST(request: NextRequest) {
       },
       metadata: {
         items: JSON.stringify(
-          items.map((item) => ({
+          items.map((item: any) => ({
             id: item.id,
             quantity: item.quantity,
           }))
@@ -47,8 +44,9 @@ export async function POST(request: NextRequest) {
       paymentIntentId: paymentIntent.id,
     });
   } catch (err: unknown) {
+    console.error('Payment intent creation error:', err);
     return NextResponse.json(
-      { err: toErrorMessage(err) || 'Failed to create payment intent' },
+      { error: toErrorMessage(err) || 'Failed to create payment intent' },
       { status: 500 }
     );
   }

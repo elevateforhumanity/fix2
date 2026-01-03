@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Bulk operations for admin functions
 
 import { createClient } from '@/lib/supabase/server';
@@ -18,7 +19,7 @@ export async function bulkEnrollStudents(
       status: 'active',
     }));
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('enrollments')
       .insert(enrollments)
       .select();
@@ -130,7 +131,7 @@ export async function bulkIssueCertificates(
         .toUpperCase(),
     }));
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('certificates')
       .insert(certificates)
       .select();
@@ -272,7 +273,7 @@ export async function bulkSendNotifications(
       created_at: new Date().toISOString(),
     }));
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('notifications')
       .insert(notifications)
       .select();

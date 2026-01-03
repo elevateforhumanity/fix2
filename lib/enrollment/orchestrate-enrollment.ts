@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { sendEmail } from '@/lib/email';

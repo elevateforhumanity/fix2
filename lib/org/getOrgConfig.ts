@@ -45,7 +45,7 @@ export const getOrgConfig = cache(
     supabase: SupabaseClient,
     organizationId: string
   ): Promise<OrgConfig> => {
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('organization_settings')
       .select('config')
       .eq('organization_id', organizationId)

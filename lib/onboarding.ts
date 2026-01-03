@@ -244,7 +244,7 @@ export async function hasCompletedOnboarding(
 ): Promise<boolean> {
   const supabase = createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('user_onboarding')
     .select('completed')
     .eq('user_id', userId)
@@ -266,7 +266,7 @@ export async function getOnboardingProgress(
 } | null> {
   const supabase = createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('user_onboarding')
     .select('*')
     .eq('user_id', userId)
@@ -626,7 +626,7 @@ export async function getTutorialProgress(
 } | null> {
   const supabase = createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('user_tutorials')
     .select('*')
     .eq('user_id', userId)

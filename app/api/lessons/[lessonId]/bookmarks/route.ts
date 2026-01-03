@@ -16,7 +16,7 @@ export async function GET(
 
   const { lessonId } = await params;
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("video_bookmarks")
     .select("id, label, position_seconds, created_at")
     .eq("lesson_id", lessonId)

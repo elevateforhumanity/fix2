@@ -16,7 +16,7 @@ export async function POST(
     const { approved_amount, notes } = body;
 
     // Update application status
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('cash_advance_applications')
       .update({
         status: 'approved',

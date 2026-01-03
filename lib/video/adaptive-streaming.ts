@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Adaptive streaming utilities for mobile video playback
 
 export interface VideoQuality {

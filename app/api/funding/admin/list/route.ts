@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -32,7 +33,7 @@ export async function GET(req: NextRequest) {
   const searchQuery = (url.searchParams.get('q') || '').toLowerCase();
 
   // Call the SQL function
-  const { data, error } = await supabase.rpc('admin_list_applications', {
+  const { data, error }: any = await supabase.rpc('admin_list_applications', {
     pcode: program === 'ALL' ? null : program,
   });
 

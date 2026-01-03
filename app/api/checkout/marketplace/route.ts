@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { stripe } from '@/lib/stripe/client';
 import {
   rateLimit,
   getClientIdentifier,
@@ -31,10 +31,6 @@ export async function POST(req: Request) {
       { status: 503 }
     );
   }
-
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-10-29.clover',
-  });
 
   try {
     const { productId, creatorId, priceCents, productTitle } = await req.json();
@@ -69,9 +65,13 @@ export async function POST(req: Request) {
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/marketplace/product/${productId}`,
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ sessionId: session.id });
   } catch (err: unknown) {
-    // Error: $1
-    return NextResponse.json({ err: toErrorMessage(err) }, { status: 500 });
+    const error = toError(err);
+    console.error('Marketplace checkout error:', error);
+    return NextResponse.json(
+      { error: toErrorMessage(err) },
+      { status: 500 }
+    );
   }
 }

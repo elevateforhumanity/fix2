@@ -210,7 +210,7 @@ export async function updateConsentPreferences(userId: string, preferences: {
 export async function getConsentPreferences(userId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('consent_preferences')
     .select('*')
     .eq('user_id', userId)

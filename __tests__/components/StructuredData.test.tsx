@@ -43,7 +43,7 @@ describe('Schema Helpers', () => {
       expect(schema['@context']).toBe('https://schema.org');
       expect(schema['@type']).toBe('EducationalOrganization');
       expect(schema.name).toBe('Elevate for Humanity');
-      expect(schema.url).toBe('https://www.elevateforhumanity.org');
+      expect(schema.url).toBe('https://elevateforhumanity.org');
       expect(schema.address).toBeDefined();
       expect(schema.contactPoint).toBeDefined();
     });
@@ -54,7 +54,7 @@ describe('Schema Helpers', () => {
       const course = {
         name: 'Barber Apprenticeship',
         description: 'Learn barbering skills',
-        url: 'https://www.elevateforhumanity.org/programs/barber',
+        url: 'https://elevateforhumanity.org/programs/barber',
         duration: 'P12W',
         price: 0,
       };

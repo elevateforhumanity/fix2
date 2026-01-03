@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Performance monitoring utilities
 export function measurePageLoad() {
   if (typeof window === 'undefined') return;

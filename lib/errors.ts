@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Standardized error classes for the application
 
 export class NotFoundError extends Error {

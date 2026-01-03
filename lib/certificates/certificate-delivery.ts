@@ -309,7 +309,7 @@ export async function onModuleComplete(enrollmentId: string, moduleId: string) {
           .eq('program_id', programCert.program_id);
         const allCertsComplete = await Promise.all(
           (requiredCerts || []).map(async (cert) => {
-            const { data } = await supabase
+            const { data }: any = await supabase
               .from('partner_course_enrollments')
               .select('status')
               .eq('student_id', enrollment.student_id)

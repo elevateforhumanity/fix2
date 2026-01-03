@@ -7,7 +7,7 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/admin/applicants',
+    canonical: 'https://elevateforhumanity.org/admin/applicants',
   },
   title: 'Applicants | Elevate For Humanity',
   description: 'Manage student applications and review submissions',
@@ -153,7 +153,7 @@ export default async function ApplicantsPage() {
               <h2 className="text-2xl font-bold mb-4">Items</h2>
               {applications && applications.length > 0 ? (
                 <div className="space-y-4">
-                  {applications.map((item) => (
+                  {applications.map((item: any) => (
                     <div
                       key={item.id}
                       className="p-4 border rounded-lg hover:bg-gray-50"

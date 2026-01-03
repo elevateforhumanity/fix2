@@ -1,5 +1,5 @@
 // src/lib/api.ts
-const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? "https://www.elevateforhumanity.org";
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? "https://elevateforhumanity.org";
 
 async function request<T>(path: string, opts: RequestInit = {}): Promise<T> {
   const res = await fetch(`${API_BASE_URL}${path}`, {

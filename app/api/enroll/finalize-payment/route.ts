@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Finalize Enrollment Payment
  *

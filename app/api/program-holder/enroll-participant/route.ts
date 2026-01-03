@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
 
   // Your enrollment logic here...
   // For example:
-  // const { data, error } = await supabase
+  // const { data, error }: any = await supabase
   //   .from('cases')
   //   .insert({
   //     program_holder_id: prof.program_holder_id,

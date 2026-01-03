@@ -94,7 +94,7 @@ export default async function ProgramHolderLayout({
                 </Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                {navItems.map((item) => {
+                {navItems.map((item: any) => {
                   const Icon = item.icon;
                   return (
                     <Link
@@ -125,7 +125,7 @@ export default async function ProgramHolderLayout({
         {/* Mobile menu */}
         <div className="sm:hidden">
           <div className="pt-2 pb-3 space-y-1">
-            {navItems.map((item) => {
+            {navItems.map((item: any) => {
               const Icon = item.icon;
               return (
                 <Link

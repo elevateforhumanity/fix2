@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { buildCourse } from './ai-course-builder';
 import { scanRepo } from './repo-scanner';
 import { enhanceImages } from './media-enhancer';

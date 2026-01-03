@@ -5,12 +5,16 @@ import { ArrowRight } from 'lucide-react';
 import VideoHeroBanner from '@/components/home/VideoHeroBanner';
 import { currentHomeHero, enableAudioNarration } from '@/config/hero-videos';
 
+// Force dynamic rendering to prevent stale cache
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Free, Funded Workforce Training',
   description:
     'Career training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships, delivered through a compliant, scalable platform.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org',
+    canonical: 'https://elevateforhumanity.org',
   },
   openGraph: {
     title: 'Elevate for Humanity | Free, Funded Workforce Training',
@@ -43,7 +47,7 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'Elevate for Humanity',
-    url: 'https://www.elevateforhumanity.org',
+    url: 'https://elevateforhumanity.org',
     description:
       'Free, funded workforce training programs aligned with WIOA, WRG, DOL, and employer-led apprenticeships.',
     address: {

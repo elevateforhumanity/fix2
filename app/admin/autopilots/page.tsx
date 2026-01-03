@@ -233,7 +233,7 @@ export default function AutopilotsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Autopilot Cards */}
           <div className="lg:col-span-2 space-y-6">
-            {Object.entries(categories).map(([category, tasks]) => (
+            {Object.entries(categories).map(([category, tasks]: any) => (
               <div key={category}>
                 <h2 className="text-lg font-semibold text-gray-900 mb-3 capitalize">
                   {category}

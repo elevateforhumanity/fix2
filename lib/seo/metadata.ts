@@ -4,7 +4,7 @@
 import { Metadata } from 'next';
 
 const SITE_NAME = 'Elevate For Humanity';
-const SITE_URL = 'https://www.elevateforhumanity.org';
+const SITE_URL = 'https://elevateforhumanity.org';
 const DEFAULT_IMAGE = '/media/hero-elevate-learners.jpg';
 
 interface PageMetadata {

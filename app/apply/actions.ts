@@ -430,7 +430,7 @@ export async function getApplicationStatus(userId: string) {
 
   const tableName = `${profile.role}_applications`;
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from(tableName)
     .select('*')
     .eq('user_id', userId)

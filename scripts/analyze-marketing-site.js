@@ -13,7 +13,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs').promises;
 const path = require('path');
 
-const MARKETING_SITE = 'https://www.elevateforhumanity.org';
+const MARKETING_SITE = 'https://elevateforhumanity.org';
 const OUTPUT_DIR = './analysis';
 
 async function analyzeSite() {

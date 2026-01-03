@@ -93,7 +93,7 @@ async function main() {
   );
   
   const production = await checkDeployment(
-    'https://www.elevateforhumanity.org',
+    'https://elevateforhumanity.org',
     'PRODUCTION URL'
   );
   

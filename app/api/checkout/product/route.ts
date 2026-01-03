@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { stripe } from '@/lib/stripe/client';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export const runtime = 'nodejs';
@@ -12,15 +12,14 @@ export async function POST(req: Request) {
     );
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-10-29.clover',
-  });
-
   try {
     const { priceId, productName } = await req.json();
 
     if (!priceId) {
-      return NextResponse.json({ error: 'Price ID required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Price ID is required' },
+        { status: 400 }
+      );
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -33,8 +32,13 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ sessionId: session.id });
   } catch (err: unknown) {
-    return NextResponse.json({ err: toErrorMessage(err) }, { status: 500 });
+    const error = toError(err);
+    console.error('Product checkout error:', error);
+    return NextResponse.json(
+      { error: toErrorMessage(err) },
+      { status: 500 }
+    );
   }
 }

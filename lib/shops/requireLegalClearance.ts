@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 export async function requireLegalClearance(shopId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('shop_required_docs_status')
     .select('document_type, approved')
     .eq('shop_id', shopId);
@@ -52,7 +52,7 @@ export async function requireLegalClearance(shopId: string) {
 export async function getLegalClearanceStatus(shopId: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('shop_required_docs_status')
     .select('document_type, display_name, approved, uploaded_at')
     .eq('shop_id', shopId)

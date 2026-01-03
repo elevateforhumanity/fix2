@@ -226,7 +226,7 @@ export async function getPendingVerifications() {
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('credential_verification')
     .select('*')
     .eq('verification_status', 'pending')

@@ -53,7 +53,7 @@ export function ProgramSearch() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        {filtered.map((program) => (
+        {filtered.map((program: any) => (
           <Link
             key={program.id}
             href={`/programs/${program.slug}`}

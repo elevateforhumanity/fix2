@@ -245,7 +245,7 @@ export default function StoreBuilderPage() {
               <h2 className="text-lg font-semibold mb-4">Pricing Tiers</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {Object.entries(product.pricing).map(([key, tier]) => (
+                {Object.entries(product.pricing).map(([key, tier]: any) => (
                   <div key={key} className="border rounded-lg p-4">
                     <input
                       type="text"

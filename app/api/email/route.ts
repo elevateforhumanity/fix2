@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
 
   if (action === 'send') {
     // Send email
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('emails')
       .insert({
         user_id: user.id,

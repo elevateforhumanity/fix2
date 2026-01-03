@@ -15,7 +15,7 @@ export const GET = withAuth(
       //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       // }
 
-      const { data, error } = await supabase
+      const { data, error }: any = await supabase
         .from('program_holder_acknowledgements')
         .select('*')
         .order('created_at', { ascending: false });

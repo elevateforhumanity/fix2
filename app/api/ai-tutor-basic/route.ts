@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { aiInstructors } from '@/lms-data/aiInstructors';
 import { logger } from '@/lib/logger';

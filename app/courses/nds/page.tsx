@@ -5,7 +5,7 @@ import { ExternalLink, CheckCircle, Clock, Award, Truck } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/courses/nds',
+    canonical: 'https://elevateforhumanity.org/courses/nds',
   },
   title: 'DOT Compliance Training | Elevate For Humanity',
   description:
@@ -196,7 +196,7 @@ export default function NdsPage() {
                 {category.name}
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
-                {category.courses.map((course) => (
+                {category.courses.map((course: any) => (
                   <div
                     key={course.id}
                     className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"

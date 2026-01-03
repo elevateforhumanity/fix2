@@ -305,7 +305,7 @@ export const utilityNavigation = {
  */
 export const socialLinks = {
   facebook: 'https://facebook.com/elevateforhumanity',
-  twitter: 'https://twitter.com/elevate4humanity',
+  // twitter: 'https://twitter.com/elevate4humanity', // Removed per user request
   linkedin: 'https://linkedin.com/company/elevate-for-humanity',
   instagram: 'https://instagram.com/elevateforhumanity',
   youtube: 'https://youtube.com/@elevateforhumanity',

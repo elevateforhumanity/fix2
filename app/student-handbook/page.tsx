@@ -853,7 +853,7 @@ export default function StudentHandbook() {
                     <p className="font-semibold">
                       Indiana Commission for Higher Education
                     </p>
-                    <p>101 W. Ohio Street, Suite 300, Indianapolis, IN 46240</p>
+                    <p>8888 Keystone Xing, Suite 1300, Indianapolis, IN 46240</p>
                     <p>Phone: (317) 314-3757</p>
                     <p>Website: www.in.gov/che</p>
                   </div>

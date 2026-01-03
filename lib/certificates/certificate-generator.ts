@@ -285,7 +285,7 @@ export async function issueProgramCertificate(
 export async function verifyCertificate(certificateNumber: string) {
   const supabase = getSupabaseClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('student_certificates')
     .select(`
       *,

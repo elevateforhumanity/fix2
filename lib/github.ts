@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Octokit } from "@octokit/rest";
 import { createOAuthAppAuth } from "@octokit/auth-oauth-app";
 

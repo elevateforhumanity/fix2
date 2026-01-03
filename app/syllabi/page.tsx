@@ -483,7 +483,7 @@ export default function SyllabiPage() {
 
         {/* Programs */}
         <div className="space-y-12">
-          {syllabi.map((program) => (
+          {syllabi.map((program: any) => (
             <div
               key={program.slug}
               className="bg-white rounded-xl shadow-sm overflow-hidden"
@@ -507,7 +507,7 @@ export default function SyllabiPage() {
 
               {/* Courses */}
               <div className="p-8 space-y-8">
-                {program.courses.map((course) => (
+                {program.courses.map((course: any) => (
                   <div
                     key={course.code}
                     className="border border-slate-200 rounded-lg p-6"

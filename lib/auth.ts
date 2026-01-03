@@ -194,7 +194,7 @@ export async function canAccessStudent(studentId: string): Promise<boolean> {
   // Delegates can access their assigned students
   if (role === 'delegate') {
     const supabase = await createServerSupabaseClient();
-    const { data } = await supabase
+    const { data }: any = await supabase
       .from('enrollments')
       .select('id')
       .eq('student_id', studentId)
@@ -207,7 +207,7 @@ export async function canAccessStudent(studentId: string): Promise<boolean> {
   // Program holders can access their enrolled students
   if (role === 'program_holder') {
     const supabase = await createServerSupabaseClient();
-    const { data } = await supabase
+    const { data }: any = await supabase
       .from('enrollments')
       .select('id')
       .eq('student_id', studentId)

@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const path = `${folder}/${filename}`;
 
     // Upload to Supabase Storage
-    const { data, error } = await supabase.storage
+    const { data, error }: any = await supabase.storage
       .from(bucket)
       .upload(path, buffer, {
         contentType: file.type,

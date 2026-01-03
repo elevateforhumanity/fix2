@@ -231,7 +231,7 @@ async function getUserIdByEmail(
   supabase: any,
   email: string
 ): Promise<string | null> {
-  const { data } = await supabase
+  const { data }: any = await supabase
     .from('profiles')
     .select('id')
     .eq('email', email)

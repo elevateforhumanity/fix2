@@ -35,7 +35,7 @@ export async function GET() {
   }
 
   // Download from storage
-  const { data, error } = await supabase.storage
+  const { data, error }: any = await supabase.storage
     .from('agreements')
     .download(ph.mou_final_pdf_url);
 

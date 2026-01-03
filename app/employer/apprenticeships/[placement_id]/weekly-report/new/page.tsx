@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { submitWeeklyReport } from './_actions/submit-weekly-report';

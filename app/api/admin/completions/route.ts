@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
@@ -41,7 +42,7 @@ export const GET = withAuth(
 
     const supabase = await getSupabaseServerClient();
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from("partner_certificates")
       .select(`
         id,

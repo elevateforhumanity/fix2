@@ -18,7 +18,7 @@ export async function hasEntitlement(
   userId: string,
   entitlementKey: string
 ): Promise<boolean> {
-  const { data, error } = await supabaseAdmin.rpc('has_entitlement', {
+  const { data, error }: any = await supabaseAdmin.rpc('has_entitlement', {
     p_user_id: userId,
     p_entitlement_key: entitlementKey,
   });
@@ -35,7 +35,7 @@ export async function hasEntitlement(
  * Get all active entitlements for a user
  */
 export async function getUserEntitlements(userId: string): Promise<string[]> {
-  const { data, error } = await supabaseAdmin
+  const { data, error }: any = await supabaseAdmin
     .from('store_entitlements')
     .select('entitlement_key')
     .eq('user_id', userId)
@@ -54,7 +54,7 @@ export async function getUserEntitlements(userId: string): Promise<string[]> {
  * Get user's active subscription
  */
 export async function getActiveSubscription(userId: string) {
-  const { data, error } = await supabaseAdmin
+  const { data, error }: any = await supabaseAdmin
     .from('store_subscriptions')
     .select('*, store_products(*), store_prices(*)')
     .eq('user_id', userId)

@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save upload record
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('uploads')
       .insert({
         user_id: user.id,

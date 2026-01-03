@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/instructor/analytics',
+    canonical: 'https://elevateforhumanity.org/instructor/analytics',
   },
   title: 'Analytics | Elevate For Humanity',
   description:
@@ -111,7 +111,7 @@ export default async function AnalyticsPage() {
               <h2 className="text-2xl font-bold mb-4">Items</h2>
               {profile && profile.length > 0 ? (
                 <div className="space-y-4">
-                  {profile.map((item) => (
+                  {profile.map((item: any) => (
                     <div
                       key={item.id}
                       className="p-4 border rounded-lg hover:bg-gray-50"

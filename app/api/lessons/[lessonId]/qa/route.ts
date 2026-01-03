@@ -68,7 +68,7 @@ export async function POST(
       );
     }
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from("lesson_questions")
       .insert({
         lesson_id: lessonId,
@@ -95,7 +95,7 @@ export async function POST(
     );
   }
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from("lesson_answers")
     .insert({
       question_id: questionId,

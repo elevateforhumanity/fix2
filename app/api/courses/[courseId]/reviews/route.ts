@@ -10,7 +10,7 @@ export async function GET(
   const supabase = await createClient();
   const { courseId } = await params;
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('course_reviews')
     .select(
       `
@@ -86,7 +86,7 @@ export async function POST(
     );
   }
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('course_reviews')
     .upsert(
       {

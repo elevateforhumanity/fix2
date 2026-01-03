@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical:
-      'https://www.elevateforhumanity.org/tax/rise-up-foundation/free-tax-help',
+      'https://elevateforhumanity.org/tax/rise-up-foundation/free-tax-help',
   },
   openGraph: {
     title: 'Free Tax Help - VITA Services',
     description:
       'Free tax preparation for qualifying individuals. No cost, no hidden fees.',
-    url: 'https://www.elevateforhumanity.org/tax/rise-up-foundation/free-tax-help',
+    url: 'https://elevateforhumanity.org/tax/rise-up-foundation/free-tax-help',
     type: 'website',
   },
 };

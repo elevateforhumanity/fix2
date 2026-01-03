@@ -15,7 +15,7 @@ export const GET = withAuth(
     }
 
     // Download from storage
-    const { data, error } = await supabase.storage
+    const { data, error }: any = await supabase.storage
       .from('mous')
       .download(filename);
 

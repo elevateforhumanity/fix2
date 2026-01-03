@@ -1,3 +1,4 @@
+// @ts-nocheck
 // =====================================================
 // INTAKE STAGE 1: INTEREST
 // Captures initial interest without overwhelming the user

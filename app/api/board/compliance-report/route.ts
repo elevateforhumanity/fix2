@@ -91,7 +91,7 @@ export async function GET() {
     doc.fontSize(14).fillColor("#000000").text(category, { underline: true });
     doc.moveDown(0.5);
 
-    categoryItems.forEach((item) => {
+    categoryItems.forEach((item: any) => {
       doc.fontSize(11).fillColor("#000000").text(`• ${item.title}`);
       doc.fontSize(9).fillColor("#555555").text(`  Status: ${item.status}`);
       doc.text(`  Description: ${item.description}`);

@@ -145,7 +145,7 @@ async function runLoadTests() {
   console.log('=' .repeat(60));
   
   const config: LoadTestConfig = {
-    baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org',
+    baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org',
     concurrentUsers: 50,
     requestsPerUser: 2,
     rampUpTime: 10, // 10 seconds to ramp up all users
@@ -185,7 +185,7 @@ async function runLoadTests() {
 
 // Health check endpoint test
 async function testHealthEndpoint() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org';
   
   try {
     const response = await fetch(`${baseUrl}/api/health`);

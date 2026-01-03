@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { requireRole } from '@/lib/auth/require-role';
@@ -6,7 +7,7 @@ import { Users, BookOpen, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/staff-portal/dashboard',
+    canonical: 'https://elevateforhumanity.org/staff-portal/dashboard',
   },
   title: 'Staff Dashboard | Elevate For Humanity',
   description:

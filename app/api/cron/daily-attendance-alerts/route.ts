@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     const ymd = yesterday.toISOString().slice(0, 10);
 
     // Call the database function
-    const { data, error } = await supabase.rpc('run_daily_attendance_alerts', {
+    const { data, error }: any = await supabase.rpc('run_daily_attendance_alerts', {
       p_date: ymd,
     });
 

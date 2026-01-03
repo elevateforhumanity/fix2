@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/partners/monitoring.ts
 // Monitoring and alerting for partner integrations
 

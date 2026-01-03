@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { stripe } from '@/lib/stripe/client';
 import { createClient } from '@/lib/supabase/server';
 import { toError, toErrorMessage } from '@/lib/safe';
 
@@ -13,15 +13,15 @@ export async function POST() {
     );
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-10-29.clover',
-  });
   const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
+  const { data }: any = await supabase.auth.getUser();
   const user = data?.user;
 
   if (!user) {
-    return NextResponse.json({ error: 'Not logged in' }, { status: 401 });
+    return NextResponse.json(
+      { error: 'Unauthorized' },
+      { status: 401 }
+    );
   }
 
   if (!process.env.STRIPE_PRICE_CAREER) {
@@ -43,8 +43,13 @@ export async function POST() {
       customer_email: user.email ?? undefined,
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ sessionId: session.id });
   } catch (err: unknown) {
-    return NextResponse.json({ err: toErrorMessage(err) }, { status: 500 });
+    const error = toError(err);
+    console.error('Stripe checkout error:', error);
+    return NextResponse.json(
+      { error: toErrorMessage(err) },
+      { status: 500 }
+    );
   }
 }

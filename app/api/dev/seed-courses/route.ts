@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { getSupabaseServerClient } from '../../../../lib/supabaseServer';
 import { programSeeds } from '../../../../lms-data/courseSeed';

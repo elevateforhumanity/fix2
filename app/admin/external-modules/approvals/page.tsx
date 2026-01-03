@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
   alternates: {
     canonical:
-      'https://www.elevateforhumanity.org/admin/external-modules/approvals',
+      'https://elevateforhumanity.org/admin/external-modules/approvals',
   },
   title: 'Approvals | Elevate For Humanity',
   description:
@@ -122,7 +122,7 @@ export default async function ApprovalsPage() {
               <h2 className="text-2xl font-bold mb-4">Items</h2>
               {items && items.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {items.map((item: any) => (
                     <div
                       key={item.id}
                       className="p-4 border rounded-lg hover:bg-gray-50"

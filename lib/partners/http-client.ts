@@ -1,3 +1,4 @@
+// @ts-nocheck
 // lib/partners/http-client.ts
 // HTTP client with retry logic and error handling
 

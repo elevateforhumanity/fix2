@@ -159,7 +159,7 @@ export default async function EtplDashboard() {
           <div className="mt-4 bg-white rounded-2xl p-6 shadow-lg">
             <h3 className="font-bold text-slate-900 mb-3">By Funding Source</h3>
             <div className="grid md:grid-cols-4 gap-4">
-              {Object.entries(funding.bySource).map(([source, count]) => (
+              {Object.entries(funding.bySource).map(([source, count]: any) => (
                 <div key={source} className="bg-slate-50 rounded-lg p-4">
                   <div className="text-xl font-bold text-slate-900">
                     {count as number}

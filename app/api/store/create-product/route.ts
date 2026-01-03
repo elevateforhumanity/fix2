@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
 
     // Store in Supabase
     const supabase = await createClient();
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('products')
       .insert({
         title,

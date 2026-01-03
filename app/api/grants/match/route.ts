@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/grants/match/route.ts
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';

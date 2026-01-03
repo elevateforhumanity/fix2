@@ -24,7 +24,7 @@ export async function createDrugTest(order: DrugTestOrder): Promise<string | nul
   
   if (!enrollment) return null;
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('drug_tests')
     .insert({
       student_id: order.student_id,
@@ -58,7 +58,7 @@ export async function createDrugTest(order: DrugTestOrder): Promise<string | nul
 export async function getStudentDrugTests(studentId: string): Promise<DrugTest[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('drug_tests')
     .select('*')
     .eq('student_id', studentId)
@@ -78,7 +78,7 @@ export async function getStudentDrugTests(studentId: string): Promise<DrugTest[]
 export async function getEnrollmentDrugTests(enrollmentId: string): Promise<DrugTest[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('drug_tests')
     .select('*')
     .eq('enrollment_id', enrollmentId)
@@ -98,7 +98,7 @@ export async function getEnrollmentDrugTests(enrollmentId: string): Promise<Drug
 export async function getPendingDrugTests(studentId: string): Promise<DrugTest[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('drug_tests')
     .select('*')
     .eq('student_id', studentId)
@@ -177,7 +177,7 @@ export async function recordDrugTestResult(result: DrugTestResult): Promise<bool
 export async function getCollectionSites(state: string): Promise<CollectionSite[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('collection_sites')
     .select('*')
     .eq('state', state)
@@ -201,7 +201,7 @@ export async function getCollectionSitesByCity(
 ): Promise<CollectionSite[]> {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('collection_sites')
     .select('*')
     .eq('state', state)
@@ -228,7 +228,7 @@ export async function getNearestCollectionSites(
   
   // Use PostGIS distance calculation if available
   // For now, return all active sites (can be enhanced with distance calculation)
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('collection_sites')
     .select('*')
     .eq('active', true)
@@ -295,7 +295,7 @@ export async function markDrugTestNoShow(testId: string): Promise<boolean> {
 export async function getDrugTestHistory(testId: string) {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('drug_test_history')
     .select(`
       *,
@@ -318,7 +318,7 @@ export async function getDrugTestHistory(testId: string) {
 export async function getProgramDrugTestingPolicy(programId: string) {
   const supabase = await createClient();
   
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('drug_testing_policies')
     .select('*')
     .eq('program_id', programId)

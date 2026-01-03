@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     const supabase = supabaseServer();
     const body = await parseBody<Record<string, unknown>>(request);
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('tax_filing_applications')
       .insert(body)
       .select()

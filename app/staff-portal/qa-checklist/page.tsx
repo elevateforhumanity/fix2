@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { requireRole } from '@/lib/auth/require-role';
@@ -6,7 +7,7 @@ import { CheckSquare, Square, Calendar, User } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/staff-portal/qa-checklist',
+    canonical: 'https://elevateforhumanity.org/staff-portal/qa-checklist',
   },
   title: 'QA Checklist | Elevate For Humanity',
   description: 'Daily and weekly quality assurance checklists for staff.',

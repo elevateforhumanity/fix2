@@ -68,7 +68,7 @@ async function handleClickToCall(phoneNumber: string) {
 async function handleScheduleCallback(phoneNumber: string, message: string) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data, error }: any = await supabase
     .from('callback_requests')
     .insert({
       phone_number: phoneNumber,

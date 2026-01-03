@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('leave_requests')
       .insert({
         employee_id,

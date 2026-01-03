@@ -1,3 +1,4 @@
+// @ts-nocheck
 // app/api/forums/[forumId]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";

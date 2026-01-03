@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration for canonical domain
-const CANONICAL_DOMAIN = 'https://www.elevateforhumanity.org';
+const CANONICAL_DOMAIN = 'https://elevateforhumanity.org';
 
 // Page priority and frequency configuration
 const pageConfig = {

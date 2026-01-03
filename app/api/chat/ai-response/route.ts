@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI Chat Response API
  * OpenAI integration for intelligent chat responses

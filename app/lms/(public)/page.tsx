@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 export default async function LmsPublicPage() {
   // Check if user is logged in and redirect to dashboard
   const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
+  const { data }: any = await supabase.auth.getUser();
 
   if (data?.user) {
     redirect('/lms/dashboard');

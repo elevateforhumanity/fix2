@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     // Save progress to database
-    const { data, error } = await supabase
+    const { data, error }: any = await supabase
       .from('tax_return_drafts')
       .upsert({
         email: taxReturn.email,
