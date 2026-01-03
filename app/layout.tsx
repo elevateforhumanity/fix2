@@ -156,6 +156,12 @@ export default function RootLayout({
           sizes="180x180"
         />
         <meta name="theme-color" content="#10b981" />
+        <meta
+          httpEquiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"
+        />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         <StructuredData />
       </head>
       <body

@@ -26,7 +26,7 @@ export default function VideoHeroBanner({
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(!withAudio);
   const [showControls, setShowControls] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true); // Start true - hero visible by default
   const [hasError, setHasError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -115,8 +115,15 @@ export default function VideoHeroBanner({
       onMouseLeave={() => setShowControls(false)}
       onClick={handleUserInteraction}
     >
-      {/* Video Container - Mobile Optimized */}
-      <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
+      {/* Video Container - Mobile Optimized with viewport units */}
+      <div
+        className="relative w-full min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
+        style={{
+          height: '100vh',
+          height: '100svh',
+          maxHeight: '900px',
+        }}
+      >
         {/* Fallback Background Image - Always visible */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center z-0"
@@ -125,8 +132,8 @@ export default function VideoHeroBanner({
           }}
         />
 
-        {/* Video Background - Works on all devices */}
-        {isLoaded && !hasError && (
+        {/* Video Background - Always rendered, enhanced progressively */}
+        {!hasError && (
           <video
             ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover z-1"

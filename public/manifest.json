@@ -3,7 +3,7 @@
   "short_name": "Elevate",
   "description": "An all-in-one platform for training, workforce programs, business tools, and digital services. Free to download.",
   "start_url": "/?source=pwa",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#ffffff",
   "theme_color": "#f97316",
   "orientation": "portrait-primary",
