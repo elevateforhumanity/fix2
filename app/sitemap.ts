@@ -4,8 +4,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://elevateforhumanity.org';
   const currentDate = new Date();
 
-  // Static pages
-  const staticPages = [
+  // Static pages - deduplicated
+  const routes = [
     '',
     '/about',
     '/hub',
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/apprenticeships',
     '/employer',
     '/volunteer',
-    
+
     // Businesses
     '/supersonic-fast-cash',
     '/kingdom-konnect',
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/urban-build-crew',
     '/selfish-inc',
     '/rise-foundation',
-    
+
     // Services
     '/career-services',
     '/advising',
@@ -36,20 +36,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/support',
     '/marketplace',
     '/booking',
-    
+
     // Employers
     '/hire-graduates',
     '/ojt-and-funding',
     '/industries',
     '/workforce-partners',
-    
+
     // Resources
     '/docs',
     '/downloads',
     '/forms',
     '/grants',
     '/search',
-    
+
     // Partnerships
     '/partners',
     '/snap-et-partner',
@@ -58,40 +58,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/jri',
     '/franchise',
     '/white-label',
-    
+
     // Community
     '/forums',
     '/events',
     '/webinars',
     '/reels',
     '/success-stories',
-    
+
     // Features
     '/courses',
     '/certificates',
     '/credentials',
     '/pathways',
-    
+
     // AI Features
     '/ai',
     '/ai-chat',
     '/ai-studio',
     '/ai-tutor',
-    
-    // Marketplace
-    '/marketplace',
+
+    // Marketplace - removed duplicates
     '/shop',
     '/store',
     '/checkout',
     '/banking',
-    
+
     // Learning
     '/lessons',
     '/syllabi',
     '/workbooks',
     '/orientation',
     '/student-handbook',
-  ].map((route) => ({
+  ];
+
+  // Deduplicate routes
+  const uniqueRoutes = [...new Set(routes)];
+
+  const staticPages = uniqueRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
