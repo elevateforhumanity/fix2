@@ -6,42 +6,27 @@
  */
 
 export const heroVideos = {
-  // Main homepage hero (recommended)
+  // Main homepage hero (recommended) - AVAILABLE
   home: '/videos/hero-home.mp4',
 
-  // Alternative homepage options
-  homeNew: '/videos/homepage-hero-new.mp4',
-  elevateOverview: '/videos/elevate-overview-web.mp4',
-
-  // With audio narration
-  heroWithAudio: '/videos/hero-video-with-audio.mp4',
-  elevateOverviewNarration: '/videos/elevate-overview-with-narration.mp4',
-
-  // Program-specific heroes
+  // Program-specific heroes - AVAILABLE
   barber: '/videos/barber-hero-final.mp4',
-  business: '/videos/business-hero-final.mp4',
+  barberAlt: '/videos/barber-hero.mp4',
   cdl: '/videos/cdl-hero.mp4',
   cna: '/videos/cna-hero.mp4',
-  cpr: '/videos/cpr-hero.mp4',
   hvac: '/videos/hvac-hero-final.mp4',
-  medicalAssistant: '/videos/medical-assistant-hero.mp4',
-  buildingTech: '/videos/building-technician-hero.mp4',
 
-  // Section-specific videos
-  about: '/videos/about-section-video.mp4',
-  aboutNarration: '/videos/about-section-video-with-narration.mp4',
+  // Section-specific videos - AVAILABLE
   apply: '/videos/apply-section-video.mp4',
-  applyNarration: '/videos/apply-section-video-with-narration.mp4',
-  employer: '/videos/employer-section-video.mp4',
-  employerNarration: '/videos/employer-section-video-with-narration.mp4',
-
-  // Other pages
-  directory: '/videos/directory-hero-video.mp4',
   gettingStarted: '/videos/getting-started-hero.mp4',
-  ourImpact: '/videos/our-impact-hero.mp4',
-  volunteer: '/videos/volunteer-hero.mp4',
-  employerPartner: '/videos/employer-partner-hero.mp4',
-  studentNewsletter: '/videos/student-newsletter-hero.mp4',
+  programsOverview: '/videos/programs-overview-video-with-narration.mp4',
+  trainingProviders: '/videos/training-providers-video-with-narration.mp4',
+
+  // Fallback for missing videos - use homepage hero
+  business: '/videos/hero-home.mp4', // TODO: Add business-hero-final.mp4
+  cpr: '/videos/hero-home.mp4', // TODO: Add cpr-hero.mp4
+  medicalAssistant: '/videos/hero-home.mp4', // TODO: Add medical-assistant-hero.mp4
+  buildingTech: '/videos/hero-home.mp4', // TODO: Add building-technician-hero.mp4
 };
 
 // Current homepage hero video
