@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { CheckCircle, ArrowRight, Play, Star, BookOpen } from 'lucide-react';
+import { CheckCircle, ArrowRight, Play, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Learning Management System | Elevate for Humanity',
