@@ -3,7 +3,13 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calculator, DollarSign, TrendingUp, FileText } from 'lucide-react';
+import {
+  Calculator,
+  DollarSign,
+  TrendingUp,
+  FileText,
+  CheckCircle,
+} from 'lucide-react';
 
 export default function RevenueShareCalculator() {
   const [clientPayment, setClientPayment] = useState(300);
