@@ -42,17 +42,25 @@ export default async function AdminDashboardOrchestrated() {
   if (!user) redirect('/login');
 
   // Get admin profile
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
     .single();
 
-  if (
-    !profile ||
-    (profile.role !== 'admin' && profile.role !== 'super_admin')
-  ) {
-    redirect('/');
+  // Debug: log what we got
+  console.log('Admin dashboard - User ID:', user.id);
+  console.log('Admin dashboard - Profile:', profile);
+  console.log('Admin dashboard - Profile Error:', profileError);
+
+  if (!profile) {
+    console.error('Admin dashboard - No profile found for user:', user.id);
+    redirect('/complete-profile');
+  }
+
+  if (profile.role !== 'admin' && profile.role !== 'super_admin' && profile.role !== 'org_admin') {
+    console.error('Admin dashboard - Unauthorized role:', profile.role);
+    redirect('/unauthorized');
   }
 
   // SNAPSHOT METRICS
