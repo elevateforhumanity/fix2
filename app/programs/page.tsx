@@ -81,7 +81,7 @@ export default function ProgramsBioSitePage() {
       description: 'Take single courses to build specific skills',
       href: '/courses',
       icon: BookOpen,
-      image: '/images/homepage/funded-programs.png',
+      image: '/images/homepage/funded-programs.jpg',
       color: 'pink',
     },
     {
