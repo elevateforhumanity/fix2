@@ -9,3 +9,17 @@ node_modules/.cache/
 !.env.production.example
 !.env.partners.example
 !.env.local.template
+
+# Large files
+core
+*.core
+eng.traineddata
+tsconfig.tsbuildinfo
+
+# Documentation
+docs/
+docs-archive/
+
+# Development
+.git/
+.pnpm-store/
