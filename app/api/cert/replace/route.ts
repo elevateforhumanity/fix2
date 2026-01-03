@@ -4,7 +4,7 @@ export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
-import { randomBytes } from 'crypto';
+import { randomBytes } from 'node:crypto';
 
 function newSerial() {
   return `EFH-${randomBytes(4).toString('hex').toUpperCase()}`;

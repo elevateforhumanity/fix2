@@ -5,7 +5,7 @@ export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
 import { getOrgContext } from '@/lib/org/getOrgContext';
 import { sendOrgInviteEmail } from '@/lib/email/sendOrgInviteEmail';
-import crypto from 'crypto';
+import * as crypto from 'node:crypto';
 
 export async function POST(req: NextRequest) {
   try {

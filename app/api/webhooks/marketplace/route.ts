@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server';
 import { sendMarketplaceSaleNotification } from '@/lib/email/resend';
 import Stripe from 'stripe';
 import { createAdminClient } from '@/lib/supabase/admin';
-import { randomBytes } from 'crypto';
+import { randomBytes } from 'node:crypto';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
 import { toError, toErrorMessage } from '@/lib/safe';
 

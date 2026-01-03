@@ -5,7 +5,7 @@ export const maxDuration = 60;
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
-import { randomBytes } from 'crypto';
+import { randomBytes } from 'node:crypto';
 import { getUserById } from '@/lib/supabase-admin';
 import { logger } from '@/lib/logger';
 

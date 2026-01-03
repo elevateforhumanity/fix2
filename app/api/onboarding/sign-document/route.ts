@@ -5,7 +5,7 @@ export const maxDuration = 60;
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/utils/supabase/server';
-import crypto from 'crypto';
+import * as crypto from 'node:crypto';
 
 export async function POST(request: NextRequest) {
   try {

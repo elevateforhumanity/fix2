@@ -4,7 +4,7 @@ export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { logger } from '@/lib/logger';
 import { toErrorMessage } from '@/lib/safe';
-import crypto from 'crypto';
+import * as crypto from 'node:crypto';
 
 // Generate license key
 function generateLicenseKey(): string {
