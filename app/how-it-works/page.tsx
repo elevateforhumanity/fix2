@@ -11,6 +11,8 @@ import {
   DollarSign,
   FileCheck,
   ArrowRight,
+  CheckCircle,
+  XCircle,
 } from 'lucide-react';
 
 export const metadata: Metadata = {

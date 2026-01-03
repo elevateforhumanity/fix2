@@ -2,7 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { programs } from '@/app/data/programs';
-import { Heart, Shield, TrendingUp, Users } from 'lucide-react';
+import {
+  Heart,
+  Shield,
+  TrendingUp,
+  Users,
+  DollarSign,
+  CheckCircle,
+  Clock,
+  GraduationCap,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title:
