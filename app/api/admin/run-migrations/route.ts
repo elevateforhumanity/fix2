@@ -8,6 +8,10 @@ import path from 'path';
 import { withAuth } from '@/lib/with-auth';
 import { toError, toErrorMessage } from '@/lib/safe';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+
 export const POST = withAuth(
   async (request: Request, user) => {
     try {

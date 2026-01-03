@@ -11,6 +11,10 @@ import { promisify } from 'util';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+
 const execAsync = promisify(exec);
 
 export async function POST(request: Request) {

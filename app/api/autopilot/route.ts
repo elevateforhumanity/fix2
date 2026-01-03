@@ -14,6 +14,10 @@ import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import fs from 'fs';
 import path from 'path';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+
 const DATA_PATH = path.join(process.cwd(), '.data', 'autopilot.json');
 
 interface AutopilotState {

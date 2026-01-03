@@ -11,6 +11,10 @@ import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+
 const execAsync = promisify(exec);
 
 /**
