@@ -86,6 +86,8 @@ export default async function proxy(request: NextRequest) {
     '/login',
     '/signup',
     '/auth',
+    '/unauthorized',
+    '/complete-profile',
     '/privacy',
     '/terms',
     '/supersonic-fast-cash',
@@ -117,10 +119,10 @@ export default async function proxy(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
-  const isPublicRoute =
-    publicRoutes.some(
-      (route) => pathname === route || pathname.startsWith(`${route}/`)
-    ) || publicPatterns.some((pattern) => pattern.test(pathname));
+  // CRITICAL: Never redirect from /login to prevent loops
+  if (pathname === '/login' || pathname.startsWith('/login/')) {
+    return response;
+  }
 
   // Allow public files
   if (
@@ -132,6 +134,11 @@ export default async function proxy(request: NextRequest) {
   ) {
     return response;
   }
+
+  const isPublicRoute =
+    publicRoutes.some(
+      (route) => pathname === route || pathname.startsWith(`${route}/`)
+    ) || publicPatterns.some((pattern) => pattern.test(pathname));
 
   // Allow public routes
   if (isPublicRoute) {
@@ -152,8 +159,13 @@ export default async function proxy(request: NextRequest) {
     .eq('id', user.id)
     .single();
 
-  if (!profile) {
-    return NextResponse.redirect(new URL('/unauthorized', request.url));
+  // If no profile or no role, send to complete profile (not unauthorized)
+  if (!profile || !profile.role) {
+    // Don't redirect if already on unauthorized or complete-profile
+    if (pathname !== '/unauthorized' && pathname !== '/complete-profile') {
+      return NextResponse.redirect(new URL('/complete-profile', request.url));
+    }
+    return response;
   }
 
   const role = profile.role;
@@ -173,7 +185,10 @@ export default async function proxy(request: NextRequest) {
 
   // Redirect /dashboard to role-specific dashboard
   if (pathname === '/dashboard') {
-    const targetDashboard = dashboardRoutes[role] || '/unauthorized';
+    const targetDashboard = dashboardRoutes[role];
+    if (!targetDashboard) {
+      return NextResponse.redirect(new URL('/unauthorized', request.url));
+    }
     return NextResponse.redirect(new URL(targetDashboard, request.url));
   }
 
