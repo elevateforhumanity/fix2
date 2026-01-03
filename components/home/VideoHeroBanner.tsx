@@ -117,16 +117,25 @@ export default function VideoHeroBanner({
     >
       {/* Video Container - Mobile Optimized */}
       <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
-        {/* Video Background - Shows when loaded */}
-        {isLoaded && (
+        {/* Fallback Background Image - Always visible */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+          style={{
+            backgroundImage: "url('/images/homepage/students.jpg')",
+          }}
+        />
+
+        {/* Video Background - Shows when loaded, overlays image */}
+        {isLoaded && !hasError && (
           <video
             ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            className="absolute inset-0 w-full h-full object-cover z-1"
             loop
             muted={isMuted}
             playsInline
-            preload="auto"
+            preload="metadata"
             autoPlay
+            poster="/images/homepage/students.jpg"
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
@@ -145,7 +154,7 @@ export default function VideoHeroBanner({
               <p className="text-base md:text-lg text-white/90 mb-6 max-w-xl drop-shadow-lg">
                 {subheadline}
               </p>
-              
+
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
