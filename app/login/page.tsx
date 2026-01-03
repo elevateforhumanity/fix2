@@ -55,7 +55,7 @@ function LoginForm() {
       } else if (profile?.role === 'partner') {
         router.push('/partner');
       } else if (profile?.role === 'employer') {
-        router.push('/employer');
+        router.push('/employer/dashboard');
       } else if (profile?.role === 'workforce_board') {
         router.push('/workforce-board');
       } else if (profile?.role === 'student') {
