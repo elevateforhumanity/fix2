@@ -1,162 +1,288 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { createClient } from '@/lib/supabase/client';
+import { BookOpen, Upload, CheckCircle, AlertCircle } from 'lucide-react';
+
+interface License {
+  license_key: string;
+  license_type: string;
+  lms_model: string;
+  can_create_courses: boolean;
+  can_upload_scorm: boolean;
+  max_enrollments: number;
+  current_enrollments: number;
+  status: string;
+  expires_at: string | null;
+}
 
 export default function CreateCoursePage() {
-  const [formData, setFormData] = useState({
-    course_name: '',
-    course_code: '',
-    description: '',
-    duration_hours: '',
-    capacity: '',
-  });
+  const [licenses, setLicenses] = useState<License[]>([]);
+  const [selectedLicense, setSelectedLicense] = useState('');
+  const [courseName, setCourseName] = useState('');
+  const [courseDescription, setCourseDescription] = useState('');
+  const [duration, setDuration] = useState('');
+  const [scormFile, setScormFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const router = useRouter();
+  const [message, setMessage] = useState('');
+  const supabase = createClient();
+
+  useEffect(() => {
+    loadLicenses();
+  }, []);
+
+  const loadLicenses = async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('Not authenticated');
+
+      const { data, error } = await supabase.rpc('get_partner_license_info', {
+        p_partner_id: user.id
+      });
+
+      if (error) throw error;
+      setLicenses(data || []);
+    } catch (error: any) {
+      setMessage(`Error loading licenses: ${error.message}`);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
     setLoading(true);
+    setMessage('');
 
     try {
-      const response = await fetch('/api/partner/courses', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          duration_hours: parseInt(formData.duration_hours) || null,
-          capacity: parseInt(formData.capacity) || null,
-        }),
-      });
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('Not authenticated');
 
-      const data = await response.json();
+      const license = licenses.find(l => l.license_key === selectedLicense);
+      if (!license) throw new Error('Invalid license selected');
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to create course');
+      if (!license.can_create_courses) {
+        throw new Error('Your license does not allow course creation');
       }
 
-      setSuccess('Course created successfully!');
-      setTimeout(() => router.push('/partner/courses'), 2000);
-    } catch (err: any) {
-      setError(err.message);
+      let scormUrl = null;
+      if (scormFile && license.can_upload_scorm) {
+        const fileExt = scormFile.name.split('.').pop();
+        const fileName = `${user.id}/scorm_${Date.now()}.${fileExt}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('scorm-packages')
+          .upload(fileName, scormFile);
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('scorm-packages')
+          .getPublicUrl(fileName);
+
+        scormUrl = publicUrl;
+      }
+
+      const { error: insertError } = await supabase
+        .from('partner_lms_courses')
+        .insert({
+          partner_id: user.id,
+          license_id: selectedLicense,
+          course_name: courseName,
+          course_description: courseDescription,
+          duration_hours: parseInt(duration),
+          scorm_package_url: scormUrl,
+          lms_model: license.lms_model,
+          status: 'active'
+        });
+
+      if (insertError) throw insertError;
+
+      setMessage('Course created successfully!');
+      setCourseName('');
+      setCourseDescription('');
+      setDuration('');
+      setScormFile(null);
+      setSelectedLicense('');
+    } catch (error: any) {
+      setMessage(`Error: ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
+  const selectedLicenseData = licenses.find(l => l.license_key === selectedLicense);
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-2xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-3xl font-bold mb-6">Create New Course</h1>
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white shadow rounded-lg p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <BookOpen className="w-8 h-8 text-blue-600" />
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Create Partner Course</h1>
+              <p className="mt-1 text-gray-600">Add a new course to your LMS platform</p>
+            </div>
+          </div>
 
-          {error && (
-            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
-              <p className="text-red-800">{error}</p>
+          {message && (
+            <div className={`mb-6 p-4 rounded-lg flex items-start gap-3 ${
+              message.includes('Error')
+                ? 'bg-red-50 text-red-800'
+                : 'bg-green-50 text-green-800'
+            }`}>
+              {message.includes('Error') ? (
+                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+              ) : (
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+              )}
+              <span>{message}</span>
             </div>
           )}
 
-          {success && (
-            <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-md">
-              <p className="text-green-800">{success}</p>
+          {licenses.length === 0 ? (
+            <div className="text-center py-12">
+              <AlertCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No Active Licenses</h3>
+              <p className="text-gray-600">You need an active license to create courses.</p>
             </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Course Name *
-              </label>
-              <input
-                type="text"
-                value={formData.course_name}
-                onChange={(e) =>
-                  setFormData({ ...formData, course_name: e.target.value })
-                }
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Course Code
-              </label>
-              <input
-                type="text"
-                value={formData.course_code}
-                onChange={(e) =>
-                  setFormData({ ...formData, course_code: e.target.value })
-                }
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Description
-              </label>
-              <textarea
-                value={formData.description}
-                onChange={(e) =>
-                  setFormData({ ...formData, description: e.target.value })
-                }
-                rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Duration (hours)
+                  Select License *
+                </label>
+                <select
+                  value={selectedLicense}
+                  onChange={(e) => setSelectedLicense(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                >
+                  <option value="">Choose a license...</option>
+                  {licenses.map((license) => (
+                    <option key={license.license_key} value={license.license_key}>
+                      {license.license_type.toUpperCase()} - {license.lms_model} 
+                      ({license.current_enrollments}/{license.max_enrollments} used)
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {selectedLicenseData && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h4 className="font-medium text-blue-900 mb-2">License Details</h4>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div>
+                      <span className="text-blue-700">Model:</span>
+                      <span className="ml-2 font-medium text-blue-900">
+                        {selectedLicenseData.lms_model}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-blue-700">Create Courses:</span>
+                      <span className="ml-2 font-medium text-blue-900">
+                        {selectedLicenseData.can_create_courses ? 'Yes' : 'No'}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-blue-700">Upload SCORM:</span>
+                      <span className="ml-2 font-medium text-blue-900">
+                        {selectedLicenseData.can_upload_scorm ? 'Yes' : 'No'}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-blue-700">Enrollments:</span>
+                      <span className="ml-2 font-medium text-blue-900">
+                        {selectedLicenseData.current_enrollments}/{selectedLicenseData.max_enrollments}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Course Name *
                 </label>
                 <input
-                  type="number"
-                  value={formData.duration_hours}
-                  onChange={(e) =>
-                    setFormData({ ...formData, duration_hours: e.target.value })
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                  type="text"
+                  value={courseName}
+                  onChange={(e) => setCourseName(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Introduction to HVAC Systems"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Capacity
+                  Course Description *
+                </label>
+                <textarea
+                  value={courseDescription}
+                  onChange={(e) => setCourseDescription(e.target.value)}
+                  rows={4}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Describe what students will learn in this course..."
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Duration (hours) *
                 </label>
                 <input
                   type="number"
-                  value={formData.capacity}
-                  onChange={(e) =>
-                    setFormData({ ...formData, capacity: e.target.value })
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                  value={duration}
+                  onChange={(e) => setDuration(e.target.value)}
+                  min="1"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="40"
+                  required
                 />
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <button
-                type="submit"
-                disabled={loading}
-                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 disabled:bg-gray-400"
-              >
-                {loading ? 'Creating...' : 'Create Course'}
-              </button>
-              <button
-                type="button"
-                onClick={() => router.push('/partner/courses')}
-                className="px-6 py-3 border border-gray-300 rounded-md font-semibold hover:bg-gray-50"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+              {selectedLicenseData?.can_upload_scorm && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    SCORM Package (Optional)
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <label className="flex-1 cursor-pointer">
+                      <input
+                        type="file"
+                        accept=".zip"
+                        onChange={(e) => setScormFile(e.target.files?.[0] || null)}
+                        className="hidden"
+                      />
+                      <div className="flex items-center justify-center gap-2 px-4 py-2 border-2 border-dashed border-gray-300 rounded-lg hover:border-blue-400 transition-colors">
+                        <Upload className="w-5 h-5 text-gray-400" />
+                        <span className="text-gray-600">
+                          {scormFile ? scormFile.name : 'Upload SCORM package (.zip)'}
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex gap-4 pt-4">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {loading ? 'Creating Course...' : 'Create Course'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => window.history.back()}
+                  className="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          )}
         </div>
       </div>
     </div>

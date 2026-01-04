@@ -1,28 +1,56 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
+
+interface DocumentRequirement {
+  document_type: string;
+  is_required: boolean;
+  description: string;
+  instructions: string;
+  has_uploaded: boolean;
+  upload_status: string | null;
+}
 
 export default function DocumentUploadPage() {
   const [file, setFile] = useState<File | null>(null);
   const [documentType, setDocumentType] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [uploading, setUploading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [requirements, setRequirements] = useState<DocumentRequirement[]>([]);
   const router = useRouter();
+  const supabase = createClient();
 
-  const documentTypes = [
-    { value: 'id_verification', label: 'ID Verification' },
-    { value: 'social_security_card', label: 'Social Security Card' },
-    { value: 'proof_of_address', label: 'Proof of Address' },
-    { value: 'transcript', label: 'Academic Transcript' },
-    { value: 'resume', label: 'Resume' },
-    { value: 'background_check', label: 'Background Check' },
-    { value: 'license', label: 'License' },
-    { value: 'insurance', label: 'Insurance' },
-  ];
+  useEffect(() => {
+    loadRequirements();
+  }, []);
+
+  const loadRequirements = async () => {
+    setLoading(true);
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        setError('Please sign in to upload documents');
+        setLoading(false);
+        return;
+      }
+
+      const { data, error: reqError } = await supabase.rpc('get_user_document_requirements', {
+        p_user_id: user.id
+      });
+
+      if (reqError) throw reqError;
+      setRequirements(data || []);
+    } catch (err: any) {
+      setError(`Error loading requirements: ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,17 +87,15 @@ export default function DocumentUploadPage() {
       setFile(null);
       setDocumentType('');
       setExpirationDate('');
+      
+      // Reload requirements to show updated status
+      await loadRequirements();
 
       // Reset file input
       const fileInput = document.getElementById(
         'file-input'
       ) as HTMLInputElement;
       if (fileInput) fileInput.value = '';
-
-      // Redirect after 2 seconds
-      setTimeout(() => {
-        router.push('/documents');
-      }, 2000);
     } catch (err: any) {
       setError(err.message || 'Upload failed');
     } finally {
@@ -77,11 +103,22 @@ export default function DocumentUploadPage() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading document requirements...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-2xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-3xl font-bold mb-6">Upload Document</h1>
+          <h1 className="text-3xl font-bold mb-6">Upload Documents</h1>
 
           {error && (
             <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
@@ -94,6 +131,45 @@ export default function DocumentUploadPage() {
               <p className="text-green-800">{success}</p>
             </div>
           )}
+
+          <div className="mb-8">
+            <h2 className="text-xl font-semibold mb-4">Your Document Requirements</h2>
+            {requirements.length === 0 ? (
+              <p className="text-gray-600">No document requirements found for your role.</p>
+            ) : (
+              <div className="space-y-4">
+                {requirements.map((req) => (
+                  <div key={req.document_type} className="border border-gray-200 rounded-lg p-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="font-semibold text-gray-900">
+                            {req.document_type.replace(/_/g, ' ').toUpperCase()}
+                          </h3>
+                          {req.is_required && (
+                            <span className="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded">
+                              Required
+                            </span>
+                          )}
+                          {req.has_uploaded && (
+                            <span className={`px-2 py-1 text-xs font-medium rounded ${
+                              req.upload_status === 'approved' ? 'bg-green-100 text-green-800' :
+                              req.upload_status === 'rejected' ? 'bg-red-100 text-red-800' :
+                              'bg-yellow-100 text-yellow-800'
+                            }`}>
+                              {req.upload_status || 'Pending'}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-600 mb-1">{req.description}</p>
+                        <p className="text-xs text-gray-500">{req.instructions}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -111,9 +187,10 @@ export default function DocumentUploadPage() {
                 required
               >
                 <option value="">Select document type</option>
-                {documentTypes.map((type) => (
-                  <option key={type.value} value={type.value}>
-                    {type.label}
+                {requirements.map((req) => (
+                  <option key={req.document_type} value={req.document_type}>
+                    {req.document_type.replace(/_/g, ' ').toUpperCase()}
+                    {req.is_required ? ' (Required)' : ''}
                   </option>
                 ))}
               </select>

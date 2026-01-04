@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "📋 Vercel Environment Variables to Update"
+echo "=========================================="
+echo ""
+echo "Go to: https://vercel.com/elevateforhumanitys-projects/fix2/settings/environment-variables"
+echo ""
+echo "Update DATABASE_URL to:"
+echo "postgresql://postgres.cuxzzpsyufcewtmicszk:kingGreene08\$\$\$@aws-0-us-east-1.pooler.supabase.com:6543/postgres"
+echo ""
+echo "Note: The password is: kingGreene08\$\$\$"
+echo "      (URL encode as: kingGreene08%24%24%24)"
+echo ""
+echo "Full URL with encoded password:"
+echo "postgresql://postgres.cuxzzpsyufcewtmicszk:kingGreene08%24%24%24@aws-0-us-east-1.pooler.supabase.com:6543/postgres"
+echo ""
+echo "Set for: Production, Preview, Development"
+echo ""
