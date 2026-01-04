@@ -7,9 +7,7 @@ import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import '@/styles/rich-design-system.css';
 import './force-black-text.css';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
-import FacebookPixel from '@/components/FacebookPixel';
-import StructuredData from '@/components/StructuredData';
+// Tracking removed - not deployed publicly
 import { ConditionalLayout } from '@/components/layout/ConditionalLayout';
 import AILiveChat from '@/components/chat/AILiveChat';
 import { CookieBanner } from '@/components/CookieBanner';
@@ -76,14 +74,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Elevate for Humanity' }],
   robots: {
-    index: true,
-    follow: true,
-    nocache: false,
+    index: false,
+    follow: false,
+    nocache: true,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
     googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+      noimageindex: true,
     },
   },
   manifest: '/manifest.json',
@@ -113,12 +115,7 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'Elevate',
   },
-  verification: {
-    google: '9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so',
-    other: {
-      'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION || '',
-    },
-  },
+  // Verification removed - not indexed by search engines
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
