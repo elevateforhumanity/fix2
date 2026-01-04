@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createAdminClient } from '@/lib/supabase/admin';
 
 export interface TenantLicense {
@@ -24,7 +25,7 @@ export async function getTenantLicense(
     .single();
 
   if (error) {
-    console.error('Failed to fetch tenant license:', error);
+    logger.error('Failed to fetch tenant license:', error);
     return null;
   }
 
@@ -192,7 +193,7 @@ export async function updateTenantLicense(
     .single();
 
   if (error) {
-    console.error('Failed to update tenant license:', error);
+    logger.error('Failed to update tenant license:', error);
     return null;
   }
 

@@ -3,6 +3,7 @@
  * Automates enrollment workflows and notifications
  */
 
+import { logger } from '@/lib/logger';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { welcomeEmail, enrollmentReminderEmail } from '@/lib/email/professional-templates';
 
@@ -125,7 +126,7 @@ export async function sendInactivityReminders() {
       });
       sent++;
     } catch (error: unknown) {
-      console.error(`Failed to send reminder to ${profile.email}:`, error);
+      logger.error(`Failed to send reminder to ${profile.email}:`, error);
     }
   }
 
@@ -180,7 +181,7 @@ export async function sendCompletionNudges() {
       });
       sent++;
     } catch (error: unknown) {
-      console.error(`Failed to send nudge to ${profile.email}:`, error);
+      logger.error(`Failed to send nudge to ${profile.email}:`, error);
     }
   }
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -77,7 +78,7 @@ export default function DocumentUploadPage() {
           )
         );
       } catch (error: unknown) {
-        console.error('Upload error:', error);
+        logger.error('Upload error:', error);
         // Update file status to error
         setFiles((prev) =>
           prev.map((f) =>

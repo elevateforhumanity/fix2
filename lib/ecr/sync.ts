@@ -2,6 +2,7 @@
 // Electronic Completion Record (ECR) Sync System
 // Syncs hour tracking data from Milady CIMA to internal reporting
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import { MiladyAPI } from '@/lib/partners/milady';
 
@@ -141,7 +142,7 @@ export async function syncStudentMiladyProgress(
         }
       }
     } catch (error: unknown) {
-      console.error(
+      logger.error(
         `Failed to sync Milady enrollment ${miladyEnrollment.id}:`,
         error
       );

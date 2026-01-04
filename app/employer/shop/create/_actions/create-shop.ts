@@ -1,5 +1,6 @@
 'use server';
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 
@@ -54,7 +55,7 @@ export async function createShop(formData: FormData) {
     .single();
 
   if (shopError || !shop) {
-    console.error('Failed to create shop:', shopError);
+    logger.error('Failed to create shop:', shopError);
     throw new Error('Failed to create shop');
   }
 
@@ -68,7 +69,7 @@ export async function createShop(formData: FormData) {
     });
 
   if (staffError) {
-    console.error('Failed to create shop_staff:', staffError);
+    logger.error('Failed to create shop_staff:', staffError);
     // Shop was created but staff link failed - this is a problem
     throw new Error('Shop created but failed to assign ownership');
   }

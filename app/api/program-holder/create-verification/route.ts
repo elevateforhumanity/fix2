@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
@@ -79,7 +80,7 @@ export async function POST(request: NextRequest) {
       url: session.url,
     });
   } catch (err: unknown) {
-    console.error('Verification session creation error:', err);
+    logger.error('Verification session creation error:', err);
     return NextResponse.json(
       {
         error:

@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { redactSecrets } from './redact';
 
 type LogLevel = 'info' | 'warn' | 'error';
@@ -21,7 +22,7 @@ function log(level: LogLevel, message: string, meta?: Record<string, unknown>) {
 
   switch (level) {
     case 'error':
-      console.error(output);
+      logger.error(output);
       break;
     case 'warn':
       break;

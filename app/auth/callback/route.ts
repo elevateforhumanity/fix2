@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
@@ -16,7 +17,7 @@ export async function GET(request: Request) {
       try {
         await supabase.rpc('claim_applications_for_current_user');
       } catch (claimError) {
-        console.error('Error claiming applications:', claimError);
+        logger.error('Error claiming applications:', claimError);
         // Don't block redirect if claim fails
       }
 

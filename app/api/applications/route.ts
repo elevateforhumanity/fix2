@@ -2,6 +2,7 @@ export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 // app/api/applications/route.ts
+import { logger } from '@/lib/logger';
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import {
@@ -86,7 +87,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('Supabase insert error:', {
+      logger.error('Supabase insert error:', {
         error,
         code: error instanceof Error && "code" in error ? (error as unknown).code : "UNKNOWN",
         message: error instanceof Error ? error.message : String(error),
@@ -179,7 +180,7 @@ export async function POST(req: Request) {
         }
       );
     } catch (emailError) {
-      console.error('Email notification error:', emailError);
+      logger.error('Email notification error:', emailError);
       // Don't fail the application if email fails
     }
 
@@ -194,7 +195,7 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error: unknown) {
-    console.error('Application submission error:', err);
+    logger.error('Application submission error:', err);
     return NextResponse.json(
       {
         error:

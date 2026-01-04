@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
@@ -165,7 +166,7 @@ async function createAlertsFromVerdicts(
 
     await supabase.from('alert_notifications').insert(alerts);
   } catch (error) {
-    console.error("Error:", error);
+    logger.error("Error:", error);
   }
 }
 

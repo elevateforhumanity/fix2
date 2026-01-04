@@ -1,6 +1,7 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
@@ -88,7 +89,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (updateError) {
-      console.error('Student decline error:', updateError);
+      logger.error('Student decline error:', updateError);
       return NextResponse.json(
         { error: 'Failed to decline student', details: updateError.message },
         { status: 500 }
@@ -129,7 +130,7 @@ export async function POST(request: NextRequest) {
         phProfile?.full_name || 'Program Holder',
         reason
       ).catch((err) =>
-        console.error('[Email] Student decline notification failed:', err)
+        logger.error('[Email] Student decline notification failed:', err)
       );
     }
 
@@ -142,7 +143,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error: unknown) {
-    console.error('Unexpected error in student decline:', error);
+    logger.error('Unexpected error in student decline:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

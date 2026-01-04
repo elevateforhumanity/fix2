@@ -4,6 +4,7 @@
  * Prevents "column does not exist" errors
  */
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 
 export interface ColumnInfo {
@@ -53,7 +54,7 @@ export async function verifyTableSchema(
     .order('ordinal_position');
 
   if (error) {
-    console.error('Schema verification error:', error);
+    logger.error('Schema verification error:', error);
     return {
       table: tableName,
       exists: true,

@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useEffect, useState } from 'react';
@@ -118,7 +119,7 @@ export default function CheckoutPage() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error creating payment intent:', err);
+        logger.error('Error creating payment intent:', err);
         setLoading(false);
       });
   }, [params.slug, router]);

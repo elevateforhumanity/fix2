@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextResponse } from 'next/server';
 import { sendMarketplaceSaleNotification } from '@/lib/email/resend';
 import Stripe from 'stripe';

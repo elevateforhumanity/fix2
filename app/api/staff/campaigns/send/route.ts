@@ -1,6 +1,7 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
@@ -75,7 +76,7 @@ export async function POST(request: NextRequest) {
 
         sentCount++;
       } catch (error: unknown) {
-    console.error("Error:", error);
+    logger.error("Error:", error);
   }
     }
 

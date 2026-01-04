@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
@@ -130,7 +131,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Error saving blog post:', error);
+      logger.error('Error saving blog post:', error);
       return NextResponse.json(
         { error: 'Failed to save blog post' },
         { status: 500 }
@@ -143,7 +144,7 @@ export async function POST(request: NextRequest) {
       message: 'Blog post generated successfully (saved as draft)',
     });
   } catch (error: any) {
-    console.error('Blog generation error:', error);
+    logger.error('Blog generation error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to generate blog post' },
       { status: 500 }

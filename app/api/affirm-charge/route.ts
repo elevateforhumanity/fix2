@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -46,7 +47,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (enrollmentError) {
-      console.error('Failed to save enrollment:', enrollmentError);
+      logger.error('Failed to save enrollment:', enrollmentError);
       // Don't fail the request - payment succeeded
       // Log for manual reconciliation
     }
@@ -67,7 +68,7 @@ export async function POST(request: NextRequest) {
           enrollmentId: enrollment.id,
         });
       } catch (emailError) {
-        console.error('Failed to send enrollment email:', emailError);
+        logger.error('Failed to send enrollment email:', emailError);
         // Don't fail the request - enrollment succeeded
       }
     }
@@ -78,7 +79,7 @@ export async function POST(request: NextRequest) {
       enrollment_id: enrollment?.id,
     });
   } catch (error: any) {
-    console.error('Affirm charge error:', error);
+    logger.error('Affirm charge error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to process Affirm payment' },
       { status: 500 }

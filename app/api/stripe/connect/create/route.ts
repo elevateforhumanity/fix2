@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 
@@ -50,7 +51,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ accountId: account.id });
   } catch (error: unknown) {
-    console.error('Stripe Connect account creation error:', error);
+    logger.error('Stripe Connect account creation error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : String(error) },
       { status: 500 }

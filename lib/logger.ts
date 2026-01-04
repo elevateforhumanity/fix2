@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 // Centralized logging utility
 
 type LogLevel = 'debug' | 'info' | 'warn' | 'error';

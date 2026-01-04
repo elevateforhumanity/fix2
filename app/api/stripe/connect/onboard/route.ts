@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
@@ -33,7 +34,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ url: link.url });
   } catch (err: unknown) {
-    console.error('Stripe onboarding link creation error:', err);
+    logger.error('Stripe onboarding link creation error:', err);
     return NextResponse.json(
       { error: err instanceof Error ? err.message : String(err) },
       { status: 500 }

@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createAdminClient } from '@/lib/supabase/admin';
 
 export type AuditAction =
@@ -83,11 +84,11 @@ export async function auditLog({
     const { error } = await supabase.from('audit_logs').insert([logEntry]);
 
     if (error) {
-      console.error('Failed to write audit log:', error);
+      logger.error('Failed to write audit log:', error);
       // Don't throw - audit logging should never break the main flow
     }
   } catch (error: unknown) {
-    console.error('Audit log exception:', error);
+    logger.error('Audit log exception:', error);
     // Silent fail - audit logging is critical but shouldn't break operations
   }
 }
@@ -116,7 +117,7 @@ export async function getAuditLogs(
   const { data, error } = await query;
 
   if (error) {
-    console.error('Failed to fetch audit logs:', error);
+    logger.error('Failed to fetch audit logs:', error);
     return [];
   }
 
@@ -140,7 +141,7 @@ export async function getAuditLogsByActor(
     .limit(limit);
 
   if (error) {
-    console.error('Failed to fetch audit logs by actor:', error);
+    logger.error('Failed to fetch audit logs by actor:', error);
     return [];
   }
 

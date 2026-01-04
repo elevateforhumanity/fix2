@@ -3,6 +3,7 @@
  * Real-time email automation based on database events
  */
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import { sendEmail } from './email-service';
 import { studentEmailTemplates } from './templates/student-emails';
@@ -379,7 +380,7 @@ export async function queueEmail(
     });
 
   if (error) {
-    console.error('Error queueing email:', error);
+    logger.error('Error queueing email:', error);
     return false;
   }
 
@@ -402,7 +403,7 @@ export async function processPendingEmails(): Promise<number> {
     .limit(50);
 
   if (error || !emails) {
-    console.error('Error fetching pending emails:', error);
+    logger.error('Error fetching pending emails:', error);
     return 0;
   }
 

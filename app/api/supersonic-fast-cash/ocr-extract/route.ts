@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
       });
 
     if (uploadError) {
-      console.error('Upload error:', uploadError);
+      logger.error('Upload error:', uploadError);
       return NextResponse.json(
         { error: 'Failed to upload file' },
         { status: 500 }
@@ -87,7 +88,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      logger.error('Database error:', dbError);
       return NextResponse.json(
         { error: 'Failed to save document' },
         { status: 500 }
@@ -106,7 +107,7 @@ export async function POST(request: NextRequest) {
       confidence: extractedData.confidence || 0.85,
     });
   } catch (error) {
-    console.error('OCR extraction error:', error);
+    logger.error('OCR extraction error:', error);
     return NextResponse.json(
       { error: 'Failed to extract data' },
       { status: 500 }
@@ -231,6 +232,6 @@ async function saveIncomeData(
       created_at: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Save income data error:', error);
+    logger.error('Save income data error:', error);
   }
 }

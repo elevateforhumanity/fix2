@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -112,7 +113,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (insertError) {
-      console.error('Insert error:', insertError);
+      logger.error('Insert error:', insertError);
       return NextResponse.json(
         { error: 'Failed to submit application. Please try again.' },
         { status: 500 }
@@ -124,7 +125,7 @@ export async function POST(req: NextRequest) {
       body.contactEmail,
       body.organizationName
     ).catch((err) =>
-      console.error('[Email] Program holder confirmation failed:', err)
+      logger.error('[Email] Program holder confirmation failed:', err)
     );
 
     // Send notification to admin (non-blocking)
@@ -132,14 +133,14 @@ export async function POST(req: NextRequest) {
       body.organizationName,
       body.contactEmail,
       application.id
-    ).catch((err) => console.error('[Email] Admin notification failed:', err));
+    ).catch((err) => logger.error('[Email] Admin notification failed:', err));
 
     return NextResponse.json({
       success: true,
       applicationId: application.id,
     });
   } catch (error: unknown) {
-    console.error('Application error:', error);
+    logger.error('Application error:', error);
     return NextResponse.json(
       { error: 'An unexpected error occurred. Please try again.' },
       { status: 500 }

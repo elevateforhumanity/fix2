@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
@@ -38,7 +39,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Error saving agreement:', error);
+      logger.error('Error saving agreement:', error);
       return NextResponse.json(
         { error: 'Failed to save agreement' },
         { status: 500 }
@@ -49,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true, agreement });
   } catch (error) {
-    console.error('Error:', error);
+    logger.error('Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -75,7 +76,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ agreements });
   } catch (error) {
-    console.error('Error:', error);
+    logger.error('Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

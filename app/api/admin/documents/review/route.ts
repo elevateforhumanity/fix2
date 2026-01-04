@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
@@ -86,7 +87,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true, document });
   } catch (error) {
-    console.error('Review error:', error);
+    logger.error('Review error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

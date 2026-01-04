@@ -1,5 +1,6 @@
 'use server';
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 
@@ -75,7 +76,7 @@ export async function submitWeeklyReport(formData: FormData) {
     });
 
   if (reportError) {
-    console.error('Failed to create weekly report:', reportError);
+    logger.error('Failed to create weekly report:', reportError);
     throw new Error('Failed to submit weekly report');
   }
 

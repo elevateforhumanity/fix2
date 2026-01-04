@@ -211,7 +211,7 @@ export async function POST(req: Request) {
       stack: error.stack,
       name: error.name,
     });
-    console.error('[Enroll Apply] Full error:', err);
+    logger.error('[Enroll Apply] Full error:', err);
     return NextResponse.json(
       {
         message:

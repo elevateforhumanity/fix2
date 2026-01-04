@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe/client';
 import { createClient } from '@/lib/supabase/server';
@@ -87,7 +88,7 @@ export async function POST(request: NextRequest) {
                 validUntil: validUntil.toISOString(),
               });
             } catch (emailError) {
-              console.error('Failed to send welcome email:', emailError);
+              logger.error('Failed to send welcome email:', emailError);
               // Don't fail the webhook - license is provisioned
             }
           }

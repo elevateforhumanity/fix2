@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'edge';
@@ -67,7 +68,7 @@ export async function POST(request: NextRequest) {
       });
 
     if (uploadError) {
-      console.error('Upload error:', uploadError);
+      logger.error('Upload error:', uploadError);
       return NextResponse.json(
         { error: 'Failed to upload file' },
         { status: 500 }
@@ -97,7 +98,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      logger.error('Database error:', dbError);
       // Clean up uploaded file
       await supabase.storage.from('documents').remove([fileName]);
       return NextResponse.json(
@@ -111,7 +112,7 @@ export async function POST(request: NextRequest) {
       document,
     });
   } catch (error) {
-    console.error('Upload error:', error);
+    logger.error('Upload error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -155,7 +156,7 @@ export async function GET(request: NextRequest) {
     const { data: documents, error } = await query;
 
     if (error) {
-      console.error('Query error:', error);
+      logger.error('Query error:', error);
       return NextResponse.json(
         { error: 'Failed to fetch documents' },
         { status: 500 }
@@ -167,7 +168,7 @@ export async function GET(request: NextRequest) {
       documents,
     });
   } catch (error) {
-    console.error('Fetch error:', error);
+    logger.error('Fetch error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

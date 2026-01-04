@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -28,7 +29,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Save error:', error);
+      logger.error('Save error:', error);
       return NextResponse.json(
         { error: 'Failed to save progress' },
         { status: 500 }
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Save tax return error:', error);
+    logger.error('Save tax return error:', error);
     return NextResponse.json(
       { error: 'Failed to save tax return' },
       { status: 500 }

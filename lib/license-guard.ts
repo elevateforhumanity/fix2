@@ -4,6 +4,7 @@
  * Enforces license-based feature access across the platform.
  */
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@supabase/supabase-js';
 
 export type LicensePlan = 'trial' | 'basic' | 'professional' | 'enterprise';
@@ -54,7 +55,7 @@ export async function getLicense(tenantId: string): Promise<License | null> {
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
     !process.env.SUPABASE_SERVICE_ROLE_KEY
   ) {
-    console.warn('License check skipped: Supabase not configured');
+    logger.warn('License check skipped: Supabase not configured');
     return null;
   }
 

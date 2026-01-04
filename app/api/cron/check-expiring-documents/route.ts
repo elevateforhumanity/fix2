@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 
 export const runtime = 'nodejs';
@@ -75,7 +76,7 @@ export async function GET(request: NextRequest) {
       notifications,
     });
   } catch (error) {
-    console.error('Cron error:', error);
+    logger.error('Cron error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

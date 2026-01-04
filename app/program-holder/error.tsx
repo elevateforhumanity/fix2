@@ -1,5 +1,6 @@
 "use client";
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useEffect } from 'react';
@@ -14,7 +15,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error('Program Holder Portal Error:', error);
+    logger.error('Program Holder Portal Error:', error);
   }, [error]);
 
   return (

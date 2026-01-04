@@ -3,6 +3,7 @@
  * Complete audit trail for compliance and security
  */
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 
 export type AuditAction =
@@ -92,13 +93,13 @@ export async function logAuditEvent(entry: AuditLogEntry): Promise<boolean> {
       });
 
     if (error) {
-      console.error('Error logging audit event:', error);
+      logger.error('Error logging audit event:', error);
       return false;
     }
 
     return true;
   } catch (error: unknown) {
-    console.error('Exception logging audit event:', error);
+    logger.error('Exception logging audit event:', error);
     return false;
   }
 }
@@ -224,7 +225,7 @@ export async function getUserAuditLogs(
     .limit(limit);
 
   if (error) {
-    console.error('Error fetching user audit logs:', error);
+    logger.error('Error fetching user audit logs:', error);
     return [];
   }
 
@@ -250,7 +251,7 @@ export async function getResourceAuditLogs(
     .limit(limit);
 
   if (error) {
-    console.error('Error fetching resource audit logs:', error);
+    logger.error('Error fetching resource audit logs:', error);
     return [];
   }
 
@@ -286,7 +287,7 @@ export async function getOrganizationAuditLogs(
     .limit(limit);
 
   if (error) {
-    console.error('Error fetching organization audit logs:', error);
+    logger.error('Error fetching organization audit logs:', error);
     return [];
   }
 
@@ -316,7 +317,7 @@ export async function getSecurityEvents(
     .limit(limit);
 
   if (error) {
-    console.error('Error fetching security events:', error);
+    logger.error('Error fetching security events:', error);
     return [];
   }
 
@@ -421,7 +422,7 @@ export async function cleanupOldAuditLogs(retentionDays: number = 365): Promise<
     .select('id');
 
   if (error) {
-    console.error('Error cleaning up old audit logs:', error);
+    logger.error('Error cleaning up old audit logs:', error);
     return 0;
   }
 

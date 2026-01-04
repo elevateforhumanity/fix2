@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import Stripe from 'stripe';
@@ -114,7 +115,7 @@ export default async function CheckoutPage({
     // Redirect to Stripe Checkout
     redirect(session.url!);
   } catch (error: unknown) {
-    console.error('Checkout error:', error);
+    logger.error('Checkout error:', error);
 
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">

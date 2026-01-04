@@ -3,6 +3,7 @@
  * Client-side and server-side OCR using Tesseract.js
  */
 
+import { logger } from '@/lib/logger';
 import Tesseract from 'tesseract.js';
 
 export interface OCRResult {
@@ -48,7 +49,7 @@ export async function extractTextFromImage(
       })),
     };
   } catch (error) {
-    console.error('OCR Error:', error);
+    logger.error('OCR Error:', error);
     throw new Error(`Failed to extract text: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 }
@@ -70,7 +71,7 @@ export async function extractTextFromMultipleImages(
       const result = await extractTextFromImage(file, language);
       results.push(result);
     } catch (error) {
-      console.error('Failed to process file:', error);
+      logger.error('Failed to process file:', error);
       results.push({
         text: '',
         confidence: 0,

@@ -1,6 +1,7 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -90,7 +91,7 @@ export async function POST(request: NextRequest) {
       });
 
     if (frontError) {
-      console.error('ID front upload error:', frontError);
+      logger.error('ID front upload error:', frontError);
       return NextResponse.json(
         { error: 'Failed to upload ID front' },
         { status: 500 }
@@ -132,7 +133,7 @@ export async function POST(request: NextRequest) {
       });
 
     if (selfieError) {
-      console.error('Selfie upload error:', selfieError);
+      logger.error('Selfie upload error:', selfieError);
       // Clean up ID front
       await supabase.storage.from('id-documents').remove([idFrontPath]);
       if (idBackUrl) {
@@ -185,7 +186,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      logger.error('Database error:', dbError);
       // Clean up uploaded files
       await supabase.storage
         .from('id-documents')
@@ -204,7 +205,7 @@ export async function POST(request: NextRequest) {
       verification,
     });
   } catch (error) {
-    console.error('Verification submission error:', error);
+    logger.error('Verification submission error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -234,7 +235,7 @@ export async function GET(request: NextRequest) {
 
     if (error && error.code !== 'PGRST116') {
       // PGRST116 = no rows returned
-      console.error('Query error:', error);
+      logger.error('Query error:', error);
       return NextResponse.json(
         { error: 'Failed to fetch verification' },
         { status: 500 }
@@ -246,7 +247,7 @@ export async function GET(request: NextRequest) {
       verification: verification || null,
     });
   } catch (error) {
-    console.error('Fetch error:', error);
+    logger.error('Fetch error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -60,7 +61,7 @@ export default function IPLAExamSignup() {
         await stripe.redirectToCheckout({ sessionId });
       }
     } catch (error: unknown) {
-      console.error('Payment error:', error);
+      logger.error('Payment error:', error);
       alert('Payment failed. Please try again.');
     } finally {
       setLoading(false);

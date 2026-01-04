@@ -5,6 +5,7 @@
  * Falls back gracefully if email fails (non-blocking)
  */
 
+import { logger } from '@/lib/logger';
 import { getResendClient } from '@/lib/resend';
 
 const FROM_EMAIL = 'Elevate for Humanity <noreply@elevateforhumanity.org>';
@@ -37,7 +38,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
 
     return true;
   } catch (error: unknown) {
-    console.error('❌ Email failed:', error);
+    logger.error('❌ Email failed:', error);
     return false;
   }
 }

@@ -1,5 +1,6 @@
 'use server';
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 
@@ -71,7 +72,7 @@ export async function createPlacement(formData: FormData) {
     .single();
 
   if (placementError || !placement) {
-    console.error('Failed to create placement:', placementError);
+    logger.error('Failed to create placement:', placementError);
     throw new Error('Failed to create placement');
   }
 

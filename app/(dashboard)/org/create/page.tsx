@@ -1,5 +1,6 @@
 "use client";
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -49,7 +50,7 @@ export default function CreateOrgPage() {
       const data = await response.json();
       router.push('/dashboard');
     } catch (err) {
-      console.error('Failed to create organization:', err);
+      logger.error('Failed to create organization:', err);
       setError(
         err instanceof Error ? err.message : 'Failed to create organization'
       );

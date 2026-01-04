@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useEffect, useState } from 'react';
@@ -84,7 +85,7 @@ export default function OrgInvitesPage() {
       setInvites(formattedInvites);
       setLoading(false);
     } catch (err) {
-      console.error('Failed to load invites:', err);
+      logger.error('Failed to load invites:', err);
       setError('Failed to load invitations');
       setLoading(false);
     }
@@ -116,7 +117,7 @@ export default function OrgInvitesPage() {
       setShowInviteForm(false);
       await loadInvites();
     } catch (err) {
-      console.error('Failed to send invite:', err);
+      logger.error('Failed to send invite:', err);
       setError(
         err instanceof Error ? err.message : 'Failed to send invitation'
       );
@@ -137,7 +138,7 @@ export default function OrgInvitesPage() {
 
       alert('Invitation resent successfully');
     } catch (err) {
-      console.error('Failed to resend invite:', err);
+      logger.error('Failed to resend invite:', err);
       alert('Failed to resend invitation');
     }
   }
@@ -158,7 +159,7 @@ export default function OrgInvitesPage() {
 
       await loadInvites();
     } catch (err) {
-      console.error('Failed to revoke invite:', err);
+      logger.error('Failed to revoke invite:', err);
       alert('Failed to revoke invitation');
     }
   }

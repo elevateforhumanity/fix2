@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
@@ -19,7 +20,7 @@ async function loadProgram(slug: string): Promise<Program | null> {
       const data = JSON.parse(fileContent);
       return data as Program;
     } catch (error) {
-      console.error(`Error loading JSON for ${slug}:`, error);
+      logger.error(`Error loading JSON for ${slug}:`, error);
     }
   }
 

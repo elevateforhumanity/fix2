@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createClient } from '@supabase/supabase-js';
 
 export async function captureSystemError(
@@ -13,7 +14,7 @@ export async function captureSystemError(
     const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
     if (!supabaseUrl || !serviceRoleKey) {
-      console.error('[captureSystemError] Missing Supabase credentials');
+      logger.error('[captureSystemError] Missing Supabase credentials');
       return;
     }
 
@@ -29,6 +30,6 @@ export async function captureSystemError(
     });
   } catch (error: unknown) {
     // Don't throw - error capture should never break the app
-    console.error('[captureSystemError] Failed to capture error:', error);
+    logger.error('[captureSystemError] Failed to capture error:', error);
   }
 }

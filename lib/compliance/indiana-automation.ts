@@ -6,6 +6,7 @@
  * Sends progressive alerts automatically
  */
 
+import { logger } from '@/lib/logger';
 import {
   INDIANA_REPORTING_SCHEDULES,
   INDIANA_ETPL_STANDARDS,
@@ -189,7 +190,7 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
       }
     }
   } catch (error: unknown) {
-    console.error(
+    logger.error(
       '[Indiana Compliance] Fatal error during compliance check:',
       error
     );

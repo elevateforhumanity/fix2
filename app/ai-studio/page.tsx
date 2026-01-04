@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React, { useState } from 'react';
 import {
   Video,
@@ -97,7 +98,7 @@ export default function AIStudioPage() {
       setGeneratedAssets([newAsset, ...generatedAssets]);
       setPrompt('');
     } catch (error) {
-      console.error('Generation error:', error);
+      logger.error('Generation error:', error);
       alert(
         error instanceof Error ? error.message : 'Failed to generate asset'
       );

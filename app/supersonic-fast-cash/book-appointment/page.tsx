@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -157,7 +158,7 @@ export default function BookAppointment() {
         await stripe.redirectToCheckout({ sessionId });
       }
     } catch (error: unknown) {
-      console.error('Booking error:', error);
+      logger.error('Booking error:', error);
       alert('Booking failed. Please call 317-314-3757 for assistance.');
     }
   };

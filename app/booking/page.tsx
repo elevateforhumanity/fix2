@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 export const dynamic = 'force-dynamic';
@@ -59,7 +60,7 @@ export default async function BookingPage() {
         setInstructors(data.instructors || []);
       }
     } catch (error: unknown) {
-      console.error('Failed to load instructors:', error);
+      logger.error('Failed to load instructors:', error);
       setInstructors([]);
     }
   };

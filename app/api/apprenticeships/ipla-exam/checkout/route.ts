@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { stripe } from '@/lib/stripe/client';
@@ -49,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (error: unknown) {
-    console.error('IPLA exam checkout error:', error);
+    logger.error('IPLA exam checkout error:', error);
     return NextResponse.json(
       { error: 'Failed to create checkout session' },
       { status: 500 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -21,7 +22,7 @@ export default function AIJobMatchPage() {
       const data = await response.json();
       setMatches(data.matches || []);
     } catch (error: unknown) {
-      console.error('Error matching jobs:', error);
+      logger.error('Error matching jobs:', error);
     } finally {
       setLoading(false);
     }

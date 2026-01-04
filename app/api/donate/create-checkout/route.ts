@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (err: unknown) {
-    console.error('Donation checkout error:', err);
+    logger.error('Donation checkout error:', err);
     return NextResponse.json(
       { error: (err as Error).message || 'Failed to create checkout session' },
       { status: 500 }

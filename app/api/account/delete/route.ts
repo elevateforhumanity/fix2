@@ -1,4 +1,5 @@
 // app/api/account/delete/route.ts
+import { logger } from '@/lib/logger';
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
 import { createSupabaseClient } from '@/lib/supabase-api';
@@ -31,7 +32,7 @@ export async function POST() {
   });
 
   if (insertError) {
-    console.error('Error creating deletion request:', insertError);
+    logger.error('Error creating deletion request:', insertError);
     return NextResponse.json(
       { error: 'Failed to create deletion request. Please try again.' },
       { status: 500 }

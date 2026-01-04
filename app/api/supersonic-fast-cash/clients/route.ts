@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -33,7 +34,7 @@ export async function GET(request: NextRequest) {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Fetch clients error:', error);
+      logger.error('Fetch clients error:', error);
       return NextResponse.json(
         { error: 'Failed to fetch clients', details: error.message },
         { status: 500 }
@@ -63,7 +64,7 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Server error:', error);
+    logger.error('Server error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -99,7 +100,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Create client error:', error);
+      logger.error('Create client error:', error);
       return NextResponse.json(
         { error: 'Failed to create client', details: error.message },
         { status: 500 }
@@ -111,7 +112,7 @@ export async function POST(request: NextRequest) {
       client: data,
     });
   } catch (error) {
-    console.error('Server error:', error);
+    logger.error('Server error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

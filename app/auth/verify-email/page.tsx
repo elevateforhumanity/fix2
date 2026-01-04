@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -31,7 +32,7 @@ export default function VerifyEmailPage() {
       if (error) throw error;
       setStatus('sent');
     } catch (error: unknown) {
-      console.error('Resend error:', error);
+      logger.error('Resend error:', error);
       setStatus('error');
     }
   };

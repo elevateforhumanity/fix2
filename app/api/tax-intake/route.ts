@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { createClient } from "@supabase/supabase-js";
 
 export const runtime = 'nodejs';
@@ -28,13 +29,13 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error("Tax intake insert error:", error);
+      logger.error("Tax intake insert error:", error);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     return NextResponse.json({ ok: true, intake_id: data.id });
   } catch (error: any) {
-    console.error("Tax intake API error:", error);
+    logger.error("Tax intake API error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

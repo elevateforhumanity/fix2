@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
@@ -47,7 +48,7 @@ export async function POST(request: NextRequest) {
       paymentIntentId: paymentIntent.id,
     });
   } catch (err: unknown) {
-    console.error('Payment intent creation error:', err);
+    logger.error('Payment intent creation error:', err);
     return NextResponse.json(
       { error: toErrorMessage(err) || 'Failed to create payment intent' },
       { status: 500 }

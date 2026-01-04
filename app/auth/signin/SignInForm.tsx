@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/lib/logger';
 import React from 'react';
 
 import { useState } from 'react';
@@ -39,7 +40,7 @@ export default function SignInForm() {
         try {
           await supabase.rpc('claim_applications_for_current_user');
         } catch (claimError) {
-          console.error('Error claiming applications:', claimError);
+          logger.error('Error claiming applications:', claimError);
           // Don't block login if claim fails
         }
 

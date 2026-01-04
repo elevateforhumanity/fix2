@@ -3,6 +3,7 @@
  * Centralized queries for courses table
  */
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
@@ -31,7 +32,7 @@ export async function getAllCourses(supabase?: SupabaseClient) {
     .order('order_index');
 
   if (error) {
-    console.error('Error fetching courses:', error);
+    logger.error('Error fetching courses:', error);
     return { courses: [], error };
   }
 
@@ -55,7 +56,7 @@ export async function getCoursesByProgram(
     .order('order_index');
 
   if (error) {
-    console.error('Error fetching courses by program:', error);
+    logger.error('Error fetching courses by program:', error);
     return { courses: [], error };
   }
 
@@ -76,7 +77,7 @@ export async function getCourseById(id: string, supabase?: SupabaseClient) {
     .single();
 
   if (error) {
-    console.error('Error fetching course:', error);
+    logger.error('Error fetching course:', error);
     return { course: null, error };
   }
 
@@ -95,7 +96,7 @@ export async function getCourseCount(supabase?: SupabaseClient) {
     .eq('active', true);
 
   if (error) {
-    console.error('Error counting courses:', error);
+    logger.error('Error counting courses:', error);
     return { count: 0, error };
   }
 

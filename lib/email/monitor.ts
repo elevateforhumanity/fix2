@@ -3,6 +3,7 @@
  * Tracks email success/failure rates and provides visibility
  */
 
+import { logger } from '@/lib/logger';
 import { createAdminClient } from '@/lib/supabase/admin';
 
 export interface EmailLog {
@@ -34,7 +35,7 @@ export async function logEmailDelivery(log: EmailLog): Promise<void> {
     });
   } catch (error: unknown) {
     // Don't fail the email send if logging fails
-    console.error('[Email Monitor] Failed to log email:', error);
+    logger.error('[Email Monitor] Failed to log email:', error);
   }
 }
 

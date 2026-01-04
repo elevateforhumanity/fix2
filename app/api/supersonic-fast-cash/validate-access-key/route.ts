@@ -1,3 +1,4 @@
+import { logger } from '@/lib/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
@@ -59,7 +60,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Access key validation error:', error);
+    logger.error('Access key validation error:', error);
     return NextResponse.json(
       { valid: false, error: 'Failed to validate access key' },
       { status: 500 }

@@ -1,6 +1,7 @@
 // lib/partners/hybrid-enrollment.ts
 // Unified enrollment handler that supports both API and link-based modes
 
+import { logger } from '@/lib/logger';
 import { createClient } from '@supabase/supabase-js';
 import { getPartnerClient, PartnerType } from './index';
 
@@ -279,7 +280,7 @@ export async function syncAllExternalModules(): Promise<void> {
         // Small delay to avoid rate limiting
         await new Promise((resolve) => setTimeout(resolve, 100));
       } catch (error) {
-        console.error(
+        logger.error(
           `[HybridEnrollment] Sync failed for ${progress.id}:`,
           error
         );
