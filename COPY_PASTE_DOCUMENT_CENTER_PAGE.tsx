@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: 'Document Center | Elevate For Humanity',
   description:
-    'Explore Document Center and discover opportunities for career growth and development.',
+    'Manage and review all uploaded documents from students, program holders, and staff.',
 };
 
 export default async function DocumentCenterPage() {
@@ -49,14 +49,15 @@ export default async function DocumentCenterPage() {
     .order('created_at', { ascending: false })
     .limit(50);
 
-  const { count: activeItems } = await supabase
+  const { count: approvedItems } = await supabase
     .from('documents')
     .select('*', { count: 'exact', head: true })
     .eq('status', 'approved');
 
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
+  const { count: pendingItems } = await supabase
+    .from('documents')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'pending');
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -77,8 +78,8 @@ export default async function DocumentCenterPage() {
             Document Center
           </h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">
-            Explore Document Center and discover opportunities for career growth
-            and development.
+            Manage and review all uploaded documents from students, program
+            holders, and staff.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -99,7 +100,7 @@ export default async function DocumentCenterPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  Total Items
+                  Total Documents
                 </h3>
                 <p className="text-3xl font-bold text-brand-blue-600">
                   {totalItems || 0}
@@ -107,23 +108,18 @@ export default async function DocumentCenterPage() {
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  Active
+                  Approved
                 </h3>
                 <p className="text-3xl font-bold text-brand-green-600">
-                  {activeItems || 0}
+                  {approvedItems || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  Recent
+                  Pending Review
                 </h3>
-                <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter((i) => {
-                    const created = new Date(i.created_at);
-                    const weekAgo = new Date();
-                    weekAgo.setDate(weekAgo.getDate() - 7);
-                    return created > weekAgo;
-                  }).length || 0}
+                <p className="text-3xl font-bold text-yellow-600">
+                  {pendingItems || 0}
                 </p>
               </div>
             </div>
@@ -198,9 +194,27 @@ export default async function DocumentCenterPage() {
                   </table>
                 </div>
               ) : (
-                <p className="text-gray-500 text-center py-8">
-                  No documents uploaded yet
-                </p>
+                <div className="text-center py-12">
+                  <svg
+                    className="mx-auto h-12 w-12 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  <h3 className="mt-2 text-sm font-medium text-gray-900">
+                    No documents
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    No documents have been uploaded yet.
+                  </p>
+                </div>
               )}
             </div>
           </div>
@@ -211,25 +225,22 @@ export default async function DocumentCenterPage() {
       <section className="py-16 bg-brand-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Get Started?
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Help?</h2>
             <p className="text-base md:text-lg text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our
-              programs.
+              Contact support if you need assistance with document management.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
               >
-                Apply Now
+                Contact Support
               </Link>
               <Link
-                href="/programs"
+                href="/admin/dashboard"
                 className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg"
               >
-                Browse Programs
+                Back to Dashboard
               </Link>
             </div>
           </div>
