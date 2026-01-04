@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React from 'react';
@@ -92,7 +91,7 @@ export default function FacebookPixel() {
 // Helper functions for tracking events
 export const trackFacebookEvent = (
   eventName: string,
-  data?: Record<string, any>
+  data?: Record<string, unknown>
 ) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', eventName, data);

@@ -123,10 +123,10 @@ export function getCategoryPrograms(category: string) {
   };
 
   const categories = categoryMap[category] || [];
-  
+
   return programs.filter((program) => {
     // Check if program matches any of the category keywords
-    return categories.some((cat) => 
+    return categories.some((cat) =>
       program.name.toLowerCase().includes(cat.toLowerCase()) ||
       program.shortDescription?.toLowerCase().includes(cat.toLowerCase())
     );

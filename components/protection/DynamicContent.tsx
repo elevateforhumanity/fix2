@@ -47,7 +47,7 @@ export function ObfuscatedText({ text, className }: ObfuscatedTextProps) {
   useEffect(() => {
     let currentIndex = 0;
     const chars = text.split('');
-    
+
     const interval = setInterval(() => {
       if (currentIndex < chars.length) {
         setDisplayText(prev => prev + chars[currentIndex]);
@@ -87,7 +87,7 @@ export function ProtectedEmail({ user, domain, className }: ProtectedEmailProps)
   }
 
   return (
-    <a 
+    <a
       href={`mailto:${email}`}
       className={className}
       onClick={(e: React.MouseEvent<HTMLElement>) => {
@@ -124,7 +124,7 @@ export function ProtectedPhone({ number, display, className }: ProtectedPhonePro
   }
 
   return (
-    <a 
+    <a
       href={`tel:${phoneNumber}`}
       className={className}
       onClick={(e: React.MouseEvent<HTMLElement>) => {

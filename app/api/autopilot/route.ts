@@ -1,11 +1,10 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 /**
  * Autopilot API - Next.js Route Handler
  * Converted from legacy autopilot system
- * 
+ *
  * Manages automated tasks, content indexing, and system configuration
  */
 

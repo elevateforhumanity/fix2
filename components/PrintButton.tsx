@@ -7,9 +7,9 @@ interface PrintButtonProps {
   label?: string;
 }
 
-export default function PrintButton({ 
-  className = '', 
-  label = 'Print' 
+export default function PrintButton({
+  className = '',
+  label = 'Print'
 }: PrintButtonProps) {
   const handlePrint = () => {
     window.print();
@@ -31,8 +31,8 @@ export default function PrintButton({
 
 export function PrintCertificateButton() {
   return (
-    <PrintButton 
-      label="Print Certificate" 
+    <PrintButton
+      label="Print Certificate"
       className="fixed bottom-6 right-6 shadow-lg z-50"
     />
   );
@@ -40,8 +40,8 @@ export function PrintCertificateButton() {
 
 export function PrintReportButton() {
   return (
-    <PrintButton 
-      label="Print Report" 
+    <PrintButton
+      label="Print Report"
       className="inline-flex"
     />
   );
@@ -49,8 +49,8 @@ export function PrintReportButton() {
 
 export function PrintTranscriptButton() {
   return (
-    <PrintButton 
-      label="Print Transcript" 
+    <PrintButton
+      label="Print Transcript"
       className="inline-flex"
     />
   );

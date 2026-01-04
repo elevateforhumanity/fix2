@@ -22,10 +22,10 @@ export class PushService {
   async send(userId: string, notification: PushNotification): Promise<boolean> {
     try {
       // In production, integrate with Firebase Cloud Messaging or similar
-      // 
+      //
       // Check if browser supports notifications
       if (!('Notification' in window)) {
-        // 
+        //
         return false;
       }
       // Request permission if needed

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React from 'react';
@@ -13,7 +12,7 @@ export function SecurityMonitor() {
   useEffect(() => {
     // Safety check - only run in browser
     if (typeof window === 'undefined') return;
-    
+
     // 1. Monitor for suspicious activity
     const monitorActivity = () => {
       // Track rapid page navigation (potential scraping)
@@ -171,7 +170,7 @@ export function SecurityMonitor() {
 function logSecurityEvent(eventType: string, data: unknown) {
   // Safety checks for SSR
   if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
-  
+
   const event = {
     type: eventType,
     timestamp: new Date().toISOString(),

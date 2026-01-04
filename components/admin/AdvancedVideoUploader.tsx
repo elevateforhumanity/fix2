@@ -13,15 +13,15 @@ export default function AdvancedVideoUploader() {
   const [useTextToSpeech, setUseTextToSpeech] = useState(true);
   const [musicVolume, setMusicVolume] = useState(0.3);
   const [voiceoverVolume, setVoiceoverVolume] = useState(1.0);
-  
+
   const [processing, setProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const defaultVoiceoverText = `Transform your career with professional barber training. 
-Join hundreds of students who have launched successful careers. 
-100% free training with job placement guarantee. 
+  const defaultVoiceoverText = `Transform your career with professional barber training.
+Join hundreds of students who have launched successful careers.
+100% free training with job placement guarantee.
 Apply today and start your journey.`;
 
   const handleProcess = async () => {
@@ -43,17 +43,17 @@ Apply today and start your journey.`;
     try {
       const formData = new FormData();
       formData.append('video', videoFile);
-      
+
       if (useTextToSpeech && voiceoverText.trim()) {
         formData.append('voiceoverText', voiceoverText);
       } else if (voiceoverFile) {
         formData.append('voiceover', voiceoverFile);
       }
-      
+
       if (musicFile) {
         formData.append('music', musicFile);
       }
-      
+
       formData.append('musicVolume', musicVolume.toString());
       formData.append('voiceoverVolume', voiceoverVolume.toString());
 
@@ -283,7 +283,7 @@ Apply today and start your journey.`;
                   <p className="text-green-700 mb-4">
                     {result.message}
                   </p>
-                  
+
                   <div className="space-y-3 mb-4">
                     <div className="bg-white rounded-lg p-3">
                       <p className="text-sm font-semibold text-slate-700 mb-1">
@@ -293,7 +293,7 @@ Apply today and start your journey.`;
                         {result.details?.videoEnhancement}
                       </p>
                     </div>
-                    
+
                     {result.hasVoiceover && (
                       <div className="bg-white rounded-lg p-3">
                         <p className="text-sm font-semibold text-slate-700 mb-1">
@@ -304,7 +304,7 @@ Apply today and start your journey.`;
                         </p>
                       </div>
                     )}
-                    
+
                     {result.hasMusic && (
                       <div className="bg-white rounded-lg p-3">
                         <p className="text-sm font-semibold text-slate-700 mb-1">

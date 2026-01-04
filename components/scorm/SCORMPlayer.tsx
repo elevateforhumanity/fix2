@@ -273,7 +273,7 @@ export function SCORMPlayer({
                     {isPassed ? 'Course Completed Successfully!' : 'Course Completed'}
                   </p>
                   <p className="text-sm opacity-90">
-                    {isPassed 
+                    {isPassed
                       ? `You scored ${score}% (passing score: ${passingScore}%)`
                       : `You scored ${score}%. Passing score is ${passingScore}%`
                     }

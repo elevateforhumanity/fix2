@@ -66,7 +66,7 @@ export function TutorialSystem({
     } catch (error: unknown) {
       // Error: $1
     }
-    
+
     setCompletedSteps([...completedSteps, currentStep.id]);
 
     if (isLastStep) {
@@ -156,7 +156,7 @@ export function TutorialSystem({
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
               {currentStep.title}
             </h3>
-            
+
             {/* Step type indicator */}
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm mb-4">
               {currentStep.type === 'video' && <Play className="w-4 h-4" />}
@@ -322,7 +322,7 @@ export function TutorialLibrary({ userId, userRole }: { userId: string; userRole
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {tutorials.map(tutorial => {
               const isCompleted = completedTutorials.includes(tutorial.id);
-              
+
               return (
                 <button
                   key={tutorial.id}
@@ -342,7 +342,7 @@ export function TutorialLibrary({ userId, userRole }: { userId: string; userRole
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0 ml-2" />
                     )}
                   </div>
-                  
+
                   <div className="flex items-center gap-4 text-sm text-gray-500">
                     <span>{tutorial.duration} min</span>
                     <span>•</span>

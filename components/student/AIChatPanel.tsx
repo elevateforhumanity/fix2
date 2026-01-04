@@ -4,9 +4,9 @@ import React from 'react';
 
 import { useEffect, useRef, useState } from "react";
 
-type Msg = { 
-  role: "student" | "assistant"; 
-  content: string; 
+type Msg = {
+  role: "student" | "assistant";
+  content: string;
   created_at?: string;
   audioUrl?: string;
 };
@@ -54,14 +54,14 @@ export function AIChatPanel(props: {
       return;
     }
 
-    const assistantMsg: Msg = { 
-      role: "assistant", 
+    const assistantMsg: Msg = {
+      role: "assistant",
       content: data.reply ?? "Okay.",
-      audioUrl: data.audioUrl 
+      audioUrl: data.audioUrl
     };
-    
+
     setMessages((m) => [...m, assistantMsg]);
-    
+
     // Auto-play voice response if enabled
     if (voiceEnabled && data.audioUrl && audioRef.current) {
       audioRef.current.src = data.audioUrl;
@@ -69,10 +69,10 @@ export function AIChatPanel(props: {
         // Autoplay blocked, user needs to interact first
       });
     }
-    
+
     setSending(false);
   }
-  
+
   function playAudio(audioUrl: string) {
     if (audioRef.current) {
       audioRef.current.src = audioUrl;
@@ -99,7 +99,7 @@ export function AIChatPanel(props: {
           </button>
         </div>
       </div>
-      
+
       <audio ref={audioRef} className="hidden" />
 
       <div className="p-4 h-[360px] overflow-auto space-y-3">

@@ -43,7 +43,7 @@ export default function GrantScholarshipApplication() {
   ];
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // 
+    //
   };
   return (
     <div className="min-h-screen bg-gray-50">

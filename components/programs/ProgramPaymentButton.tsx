@@ -11,12 +11,12 @@ interface ProgramPaymentButtonProps {
   partnerUrl?: string;
 }
 
-export function ProgramPaymentButton({ 
-  programSlug, 
-  programName, 
+export function ProgramPaymentButton({
+  programSlug,
+  programName,
   price,
   etplProgramId,
-  partnerUrl 
+  partnerUrl
 }: ProgramPaymentButtonProps) {
   const [loading, setLoading] = useState(false);
 
@@ -110,8 +110,8 @@ export function ProgramPaymentButton({
       </div>
 
       <div className="mt-4 text-center">
-        <a 
-          href="/contact" 
+        <a
+          href="/contact"
           className="text-sm text-blue-600 hover:underline"
         >
           Questions? Contact us

@@ -8,8 +8,8 @@ export default function GoogleAnalytics() {
   const pathname = usePathname();
 
   // Don't track admin, student portal, or private pages
-  const isPrivatePage = pathname?.startsWith('/admin') || 
-                        pathname?.startsWith('/student') || 
+  const isPrivatePage = pathname?.startsWith('/admin') ||
+                        pathname?.startsWith('/student') ||
                         pathname?.startsWith('/portal') ||
                         pathname?.startsWith('/delegate') ||
                         pathname?.startsWith('/course/') ||

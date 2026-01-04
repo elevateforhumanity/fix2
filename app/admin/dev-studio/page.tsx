@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React from 'react';
@@ -157,7 +156,7 @@ export default function DevStudioPage() {
       const data = await res.json();
 
       if (res.ok) {
-        const filePaths = data.files.map((f: Record<string, any>) => f.path);
+        const filePaths = data.files.map((f: Record<string, unknown>) => f.path);
         setFiles(filePaths);
         addTerminalOutput(
           `<CheckCircle className="w-5 h-5 inline-block" /> Loaded ${filePaths.length} files`

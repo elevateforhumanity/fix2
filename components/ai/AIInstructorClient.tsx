@@ -13,10 +13,10 @@ interface AIInstructorClientProps {
   autoSpeak?: boolean;
 }
 
-export function AIInstructorClient({ 
-  lessonTitle, 
+export function AIInstructorClient({
+  lessonTitle,
   context = 'general',
-  autoSpeak = true 
+  autoSpeak = true
 }: AIInstructorClientProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);

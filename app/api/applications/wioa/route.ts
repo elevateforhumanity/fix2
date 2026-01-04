@@ -115,7 +115,7 @@ export async function POST(req: Request) {
               <h2 style="color: #ea580c;">Application Received!</h2>
               <p>Hi ${body.firstName},</p>
               <p>We've received your WIOA application for our <strong>${body.program}</strong> program.</p>
-              
+
               <div style="background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 8px; padding: 16px; margin: 20px 0;">
                 <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748b;">Your Reference Number:</p>
                 <p style="margin: 0; font-size: 24px; font-weight: bold; font-family: monospace; color: #0f172a;">${referenceNumber}</p>

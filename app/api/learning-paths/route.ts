@@ -1,14 +1,13 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabaseServer";
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(request: NextRequest) {
   const supabase = getSupabaseServerClient();
-  
+
   const { data, error }: any = await supabase
     .from("learning_paths")
     .select("*")
@@ -24,9 +23,9 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const supabase = getSupabaseServerClient();
-  
+
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }

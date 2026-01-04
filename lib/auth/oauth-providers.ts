@@ -13,7 +13,7 @@ export interface OAuthConfig {
  */
 export async function signInWithOAuth(config: OAuthConfig) {
   const supabase = createClient();
-  
+
   const { data, error }: any = await supabase.auth.signInWithOAuth({
     provider: config.provider,
     options: {

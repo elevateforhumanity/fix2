@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/analytics/student/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -13,7 +12,7 @@ export async function GET(request: NextRequest) {
 
     // Get current user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: "Unauthorized" },
@@ -77,7 +76,7 @@ export async function GET(request: NextRequest) {
       const date = new Date();
       date.setDate(date.getDate() - i);
       const dateStr = date.toISOString().split("T")[0];
-      
+
       const activity = activityData?.find((a) => a.activity_date === dateStr);
       last7Days.push({
         date: dateStr,

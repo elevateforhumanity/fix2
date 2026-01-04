@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function normalizeCourseMetadata(metadata: Record<string, unknown>) {
   const clean = { ...metadata };
 

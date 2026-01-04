@@ -7,7 +7,7 @@ export interface AutopilotInstruction {
   action: 'sync-env' | 'verify-env' | 'update-env';
   target: 'vercel-worker';
   priority: 'high' | 'medium' | 'low';
-  params?: Record<string, any>;
+  params?: Record<string, unknown>;
 }
 
 export interface AutopilotResult {

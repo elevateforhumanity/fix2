@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = await createServerSupabaseClient();
-    
+
     // Create achievement record
     const { data: achievement, error } = await supabase
       .from('achievements')

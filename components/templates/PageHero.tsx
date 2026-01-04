@@ -13,7 +13,7 @@ interface PageHeroProps {
 export default function PageHero({ title, description, forceHero }: PageHeroProps) {
   const pathname = usePathname();
   const heroSrc = forceHero ?? getHeroImage(pathname);
-  
+
   // No hero for this page
   if (!heroSrc) {
     return title ? (
@@ -25,10 +25,10 @@ export default function PageHero({ title, description, forceHero }: PageHeroProp
       </div>
     ) : null;
   }
-  
+
   const isVideo = isVideoHero(heroSrc);
   const priority = shouldPrioritizeHero(pathname);
-  
+
   return (
     <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
       {isVideo ? (
@@ -52,7 +52,7 @@ export default function PageHero({ title, description, forceHero }: PageHeroProp
           unoptimized
         />
       )}
-      
+
       {title && (
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-4xl">

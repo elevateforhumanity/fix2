@@ -27,7 +27,7 @@ export default function ProductGallery({ product }: ProductGalleryProps) {
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
         />
-        
+
         {product.featured && (
           <div className="absolute top-4 right-4 px-4 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-lg">
             Featured

@@ -7,14 +7,14 @@ import { createClient } from '@/lib/supabase/client';
 
 /**
  * ClaimApplications Component
- * 
+ *
  * Automatically claims any applications submitted before login
  * by matching the user's email address.
- * 
+ *
  * Runs on:
  * - Component mount (for page visits)
  * - SIGNED_IN auth event (for fresh logins)
- * 
+ *
  * Usage: Add to layout or authenticated pages
  */
 export function ClaimApplications() {

@@ -61,15 +61,15 @@ export function detectAIBot(userAgent: string): boolean {
 export function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const requests = requestLog.get(ip) || [];
-  
+
   // Clean old requests (older than 24 hours)
   const recentRequests = requests.filter(time => now - time < 24 * 60 * 60 * 1000);
-  
+
   // Check rate limits
   const lastMinute = recentRequests.filter(time => now - time < 60 * 1000).length;
   const lastHour = recentRequests.filter(time => now - time < 60 * 60 * 1000).length;
   const lastDay = recentRequests.length;
-  
+
   return (
     lastMinute > RATE_LIMITS.requests_per_minute ||
     lastHour > RATE_LIMITS.requests_per_hour ||
@@ -86,7 +86,7 @@ export function logRequest(ip: string): void {
 
 export function blockIP(ip: string, duration: number = 24 * 60 * 60 * 1000): void {
   blockedIPs.add(ip);
-  
+
   // Auto-unblock after duration
   setTimeout(() => {
     blockedIPs.delete(ip);
@@ -176,7 +176,7 @@ export interface DMCANotice {
 export async function submitDMCATakedown(notice: DMCANotice): Promise<boolean> {
   try {
     // In production, integrate with DMCA service providers
-    
+
     // Send to legal team
     await fetch('/api/legal/dmca', {
       method: 'POST',

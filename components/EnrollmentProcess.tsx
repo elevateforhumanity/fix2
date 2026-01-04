@@ -16,7 +16,7 @@ export default function EnrollmentProcess() {
 
         {/* Step-by-Step Process */}
         <div className="space-y-8 max-w-4xl mx-auto">
-          
+
           {/* Step 1 */}
           <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 flex gap-6">
             <div className="flex-shrink-0">
@@ -36,9 +36,9 @@ d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.0
                 Go to <a href="https://www.indianacareerconnect.com" target="_blank" rel="noopener noreferrer"
 className="text-orange-600 font-semibold hover:underline">www.indianacareerconnect.com</a> and create your free account. This is the official portal for all WIOA-funded training programs in Indiana.
               </p>
-              <a 
-                href="https://www.indianacareerconnect.com" 
-                target="_blank" 
+              <a
+                href="https://www.indianacareerconnect.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-3 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all"
               >
@@ -137,13 +137,13 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 Once approved for WIOA funding, your advisor will issue a training voucher. Bring this to Elevate for Humanity to complete your enrollment. We'll handle all the paperwork and get you started!
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                <Link 
+                <Link
                   href="/contact"
                   className="inline-block px-6 py-3 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition-all text-center"
                 >
                   Contact Us for Help
                 </Link>
-                <a 
+                <a
                   href="tel:317-314-3757"
                   className="inline-block px-6 py-3 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-50 transition-all border-2 border-slate-200 text-center"
                 >
@@ -162,13 +162,13 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             Our team can guide you through every step of the Indiana Career Connect process. We're here to make enrollment as easy as possible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="mailto:info@elevateforhumanity.org"
               className="inline-block px-8 py-4 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-50 transition-all"
             >
               Email Us
             </a>
-            <Link 
+            <Link
               href="/advising"
               className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-full border-2 border-white hover:bg-white hover:text-orange-600 transition-all"
             >
@@ -191,9 +191,9 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">🏢</div>
             <h4 className="font-bold text-slate-900 mb-2">Find WorkOne Center</h4>
             <p className="text-sm text-slate-600 mb-4">Locate your nearest WorkOne office</p>
-            <a 
-              href="https://www.in.gov/dwd/workone-centers/" 
-              target="_blank" 
+            <a
+              href="https://www.in.gov/dwd/workone-centers/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-orange-600 font-semibold hover:underline"
             >

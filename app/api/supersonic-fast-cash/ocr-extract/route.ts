@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
 
     // Step 2: Use Drake Software OCR or fallback to text extraction
     let extractedData: any = {};
-    
+
     try {
       // Try Drake Software OCR first
       const drakeResult = await drakeIntegration.uploadDocument(
@@ -57,11 +57,10 @@ export async function POST(request: NextRequest) {
         file,
         documentType as any
       );
-      
+
       extractedData = drakeResult.ocrData || {};
     } catch (drakeError) {
-      console.log('Drake OCR not available, using fallback extraction');
-      
+
       // Fallback: Basic text extraction for W-2
       if (documentType === 'w2') {
         extractedData = await extractW2Data(file);
@@ -121,9 +120,9 @@ export async function POST(request: NextRequest) {
 async function extractW2Data(file: File): Promise<any> {
   // In production, use Tesseract.js or Google Vision API
   // For now, return structured format
-  
+
   const text = await file.text().catch(() => '');
-  
+
   // Parse common W-2 patterns
   const data: any = {
     documentType: 'w2',
@@ -166,7 +165,7 @@ async function extractW2Data(file: File): Promise<any> {
  */
 async function extract1099Data(file: File): Promise<any> {
   const text = await file.text().catch(() => '');
-  
+
   const data: any = {
     documentType: '1099',
     confidence: 0.85,

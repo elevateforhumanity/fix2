@@ -96,15 +96,15 @@ export function ComplianceFooter() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-xs text-slate-600 space-y-2">
           <p>
-            <strong>Equal Opportunity:</strong> Elevate for Humanity is an equal opportunity employer and training provider. 
+            <strong>Equal Opportunity:</strong> Elevate for Humanity is an equal opportunity employer and training provider.
             We do not discriminate on the basis of race, color, religion, sex, national origin, age, disability, or any other protected class.
           </p>
           <p>
-            <strong>FERPA Compliance:</strong> Student records are protected under the Family Educational Rights and Privacy Act (FERPA). 
+            <strong>FERPA Compliance:</strong> Student records are protected under the Family Educational Rights and Privacy Act (FERPA).
             We maintain strict confidentiality of all student information.
           </p>
           <p>
-            <strong>Funding Disclaimer:</strong> Program availability and funding eligibility are subject to change. 
+            <strong>Funding Disclaimer:</strong> Program availability and funding eligibility are subject to change.
             WIOA, WRG, and JRI funding require meeting specific eligibility criteria. Contact us to verify your eligibility.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">

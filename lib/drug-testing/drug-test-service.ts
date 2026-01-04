@@ -11,19 +11,19 @@ import type { DrugTest, DrugTestOrder, DrugTestResult, CollectionSite } from './
  */
 export async function createDrugTest(order: DrugTestOrder): Promise<string | null> {
   const supabase = await createClient();
-  
+
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
-  
+
   // Get organization from enrollment
   const { data: enrollment } = await supabase
     .from('enrollments')
     .select('organization_id')
     .eq('id', order.enrollment_id)
     .single();
-  
+
   if (!enrollment) return null;
-  
+
   const { data, error }: any = await supabase
     .from('drug_tests')
     .insert({
@@ -43,12 +43,12 @@ export async function createDrugTest(order: DrugTestOrder): Promise<string | nul
     })
     .select('id')
     .single();
-  
+
   if (error) {
     console.error('Error creating drug test:', error);
     return null;
   }
-  
+
   return data?.id || null;
 }
 
@@ -57,18 +57,18 @@ export async function createDrugTest(order: DrugTestOrder): Promise<string | nul
  */
 export async function getStudentDrugTests(studentId: string): Promise<DrugTest[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('drug_tests')
     .select('*')
     .eq('student_id', studentId)
     .order('scheduled_date', { ascending: false });
-  
+
   if (error) {
     console.error('Error fetching drug tests:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -77,18 +77,18 @@ export async function getStudentDrugTests(studentId: string): Promise<DrugTest[]
  */
 export async function getEnrollmentDrugTests(enrollmentId: string): Promise<DrugTest[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('drug_tests')
     .select('*')
     .eq('enrollment_id', enrollmentId)
     .order('scheduled_date', { ascending: false });
-  
+
   if (error) {
     console.error('Error fetching enrollment drug tests:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -97,19 +97,19 @@ export async function getEnrollmentDrugTests(enrollmentId: string): Promise<Drug
  */
 export async function getPendingDrugTests(studentId: string): Promise<DrugTest[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('drug_tests')
     .select('*')
     .eq('student_id', studentId)
     .in('status', ['scheduled', 'pending_collection'])
     .order('scheduled_date', { ascending: true });
-  
+
   if (error) {
     console.error('Error fetching pending drug tests:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -122,7 +122,7 @@ export async function updateDrugTestStatus(
   notes?: string
 ): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('drug_tests')
     .update({
@@ -131,12 +131,12 @@ export async function updateDrugTestStatus(
       updated_at: new Date().toISOString(),
     })
     .eq('id', testId);
-  
+
   if (error) {
     console.error('Error updating drug test status:', error);
     return false;
   }
-  
+
   return true;
 }
 
@@ -145,11 +145,11 @@ export async function updateDrugTestStatus(
  */
 export async function recordDrugTestResult(result: DrugTestResult): Promise<boolean> {
   const supabase = await createClient();
-  
-  const status = result.result === 'positive' ? 'positive' : 
-                 result.result === 'negative' ? 'negative' : 
+
+  const status = result.result === 'positive' ? 'positive' :
+                 result.result === 'negative' ? 'negative' :
                  'completed';
-  
+
   const { error } = await supabase
     .from('drug_tests')
     .update({
@@ -162,12 +162,12 @@ export async function recordDrugTestResult(result: DrugTestResult): Promise<bool
       updated_at: new Date().toISOString(),
     })
     .eq('id', result.test_id);
-  
+
   if (error) {
     console.error('Error recording drug test result:', error);
     return false;
   }
-  
+
   return true;
 }
 
@@ -176,19 +176,19 @@ export async function recordDrugTestResult(result: DrugTestResult): Promise<bool
  */
 export async function getCollectionSites(state: string): Promise<CollectionSite[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('collection_sites')
     .select('*')
     .eq('state', state)
     .eq('active', true)
     .order('city');
-  
+
   if (error) {
     console.error('Error fetching collection sites:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -200,19 +200,19 @@ export async function getCollectionSitesByCity(
   city: string
 ): Promise<CollectionSite[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('collection_sites')
     .select('*')
     .eq('state', state)
     .eq('city', city)
     .eq('active', true);
-  
+
   if (error) {
     console.error('Error fetching collection sites:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -225,7 +225,7 @@ export async function getNearestCollectionSites(
   limit: number = 10
 ): Promise<CollectionSite[]> {
   const supabase = await createClient();
-  
+
   // Use PostGIS distance calculation if available
   // For now, return all active sites (can be enhanced with distance calculation)
   const { data, error }: any = await supabase
@@ -235,12 +235,12 @@ export async function getNearestCollectionSites(
     .not('latitude', 'is', null)
     .not('longitude', 'is', null)
     .limit(limit);
-  
+
   if (error) {
     console.error('Error fetching nearest collection sites:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -249,7 +249,7 @@ export async function getNearestCollectionSites(
  */
 export async function cancelDrugTest(testId: string, reason: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('drug_tests')
     .update({
@@ -258,12 +258,12 @@ export async function cancelDrugTest(testId: string, reason: string): Promise<bo
       updated_at: new Date().toISOString(),
     })
     .eq('id', testId);
-  
+
   if (error) {
     console.error('Error cancelling drug test:', error);
     return false;
   }
-  
+
   return true;
 }
 
@@ -272,7 +272,7 @@ export async function cancelDrugTest(testId: string, reason: string): Promise<bo
  */
 export async function markDrugTestNoShow(testId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('drug_tests')
     .update({
@@ -280,12 +280,12 @@ export async function markDrugTestNoShow(testId: string): Promise<boolean> {
       updated_at: new Date().toISOString(),
     })
     .eq('id', testId);
-  
+
   if (error) {
     console.error('Error marking drug test as no-show:', error);
     return false;
   }
-  
+
   return true;
 }
 
@@ -294,7 +294,7 @@ export async function markDrugTestNoShow(testId: string): Promise<boolean> {
  */
 export async function getDrugTestHistory(testId: string) {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('drug_test_history')
     .select(`
@@ -303,12 +303,12 @@ export async function getDrugTestHistory(testId: string) {
     `)
     .eq('drug_test_id', testId)
     .order('performed_at', { ascending: false });
-  
+
   if (error) {
     console.error('Error fetching drug test history:', error);
     return [];
   }
-  
+
   return data || [];
 }
 
@@ -317,19 +317,19 @@ export async function getDrugTestHistory(testId: string) {
  */
 export async function getProgramDrugTestingPolicy(programId: string) {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('drug_testing_policies')
     .select('*')
     .eq('program_id', programId)
     .eq('active', true)
     .single();
-  
+
   if (error) {
     console.error('Error fetching drug testing policy:', error);
     return null;
   }
-  
+
   return data;
 }
 
@@ -342,7 +342,7 @@ export async function checkDrugTestRequired(enrollmentId: string): Promise<{
   policy?: any;
 }> {
   const supabase = await createClient();
-  
+
   // Get enrollment with program
   const { data: enrollment } = await supabase
     .from('enrollments')
@@ -352,18 +352,18 @@ export async function checkDrugTestRequired(enrollmentId: string): Promise<{
     `)
     .eq('id', enrollmentId)
     .single();
-  
+
   if (!enrollment) {
     return { required: false };
   }
-  
+
   // Check if program has drug testing policy
   const policy = await getProgramDrugTestingPolicy(enrollment.programs.id);
-  
+
   if (!policy) {
     return { required: false };
   }
-  
+
   // Check if pre-employment test is required
   if (policy.pre_employment_required) {
     // Check if student already has a completed pre-employment test
@@ -373,7 +373,7 @@ export async function checkDrugTestRequired(enrollmentId: string): Promise<{
       .eq('enrollment_id', enrollmentId)
       .eq('test_type', 'pre_employment')
       .in('status', ['negative', 'completed']);
-    
+
     if (!existingTests || existingTests.length === 0) {
       return {
         required: true,
@@ -382,7 +382,7 @@ export async function checkDrugTestRequired(enrollmentId: string): Promise<{
       };
     }
   }
-  
+
   return { required: false, policy };
 }
 
@@ -391,12 +391,12 @@ export async function checkDrugTestRequired(enrollmentId: string): Promise<{
  */
 export async function getDrugTestStatistics(organizationId: string) {
   const supabase = await createClient();
-  
+
   const { data: tests } = await supabase
     .from('drug_tests')
     .select('status, result, test_type')
     .eq('organization_id', organizationId);
-  
+
   if (!tests) {
     return {
       total: 0,
@@ -407,7 +407,7 @@ export async function getDrugTestStatistics(organizationId: string) {
       byType: {},
     };
   }
-  
+
   const stats = {
     total: tests.length,
     completed: tests.filter(t => ['completed', 'positive', 'negative'].includes(t.status)).length,
@@ -419,6 +419,6 @@ export async function getDrugTestStatistics(organizationId: string) {
       return acc;
     }, {}),
   };
-  
+
   return stats;
 }

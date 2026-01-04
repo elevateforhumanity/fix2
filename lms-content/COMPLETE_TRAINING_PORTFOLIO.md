@@ -2,9 +2,9 @@
 
 ## 🎓 Elevate for Humanity - Industry-Recognized Credentials
 
-**Organization:** Elevate for Humanity Training Center  
-**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240  
-**Phone:** (317) 314-3757  
+**Organization:** Elevate for Humanity Training Center
+**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240
+**Phone:** (317) 314-3757
 **Website:** www.elevateforhumanity.org
 
 **Business Certifications:**
@@ -17,8 +17,8 @@
 ## 🏆 Business Certifications
 
 ### ByBlack Certified Business
-**Issued By:** U.S. Black Chambers, Inc. (USBC)  
-**Platform:** ByBlack.us  
+**Issued By:** U.S. Black Chambers, Inc. (USBC)
+**Platform:** ByBlack.us
 **Status:** ✅ OFFICIALLY CERTIFIED
 
 **Recognition:**
@@ -47,7 +47,7 @@
 ---
 
 ### SAM.gov Federal Registrations
-**Issued By:** U.S. Federal Government  
+**Issued By:** U.S. Federal Government
 **Status:** 3 Entities Registered
 
 **Entities:**
@@ -66,7 +66,7 @@
 ---
 
 ### Indiana Procurement Registration
-**Issued By:** Indiana Department of Administration  
+**Issued By:** Indiana Department of Administration
 **Status:** ✅ REGISTERED
 
 **Entity:**
@@ -90,8 +90,8 @@
 ## 📚 Training Partnership Ecosystem
 
 ### 1. **JRI (Job Readiness Initiative)** - EmployIndy
-**Focus:** Soft Skills & Workforce Readiness  
-**Provider:** EmployIndy  
+**Focus:** Soft Skills & Workforce Readiness
+**Provider:** EmployIndy
 **Format:** SCORM 2004 3rd Edition modules
 
 **Badges Available:**
@@ -107,8 +107,8 @@
 ---
 
 ### 2. **Milady RISE** - Barber Safety Program
-**Focus:** Health & Safety for Barber Students  
-**Provider:** Cengage/Milady  
+**Focus:** Health & Safety for Barber Students
+**Provider:** Cengage/Milady
 **Access Code:** efhcti-rise295
 
 **Certifications:**
@@ -121,7 +121,7 @@
 ---
 
 ### 3. **NRF RISE Up** - Customer Service & Retail
-**Focus:** Customer Service & Retail Credentials  
+**Focus:** Customer Service & Retail Credentials
 **Provider:** NRF Foundation
 
 **Credentials:**
@@ -133,8 +133,8 @@
 ---
 
 ### 4. **Certiport CATC** - Technology Certifications
-**Focus:** Microsoft, Adobe, QuickBooks, IT Specialist  
-**Provider:** Certiport (Pearson VUE)  
+**Focus:** Microsoft, Adobe, QuickBooks, IT Specialist
+**Provider:** Certiport (Pearson VUE)
 **Status:** Authorized Testing Center
 
 **Certifications:**
@@ -149,8 +149,8 @@
 ---
 
 ### 5. **VITA Site** - Tax Preparation (IRS)
-**Focus:** FREE Tax Preparation Services  
-**Provider:** IRS Volunteer Income Tax Assistance  
+**Focus:** FREE Tax Preparation Services
+**Provider:** IRS Volunteer Income Tax Assistance
 **SIDN:** S28011182
 
 **Services:**
@@ -164,7 +164,7 @@
 ---
 
 ### 6. **HSI** - CPR, First Aid & Safety Training
-**Focus:** Healthcare & Emergency Response  
+**Focus:** Healthcare & Emergency Response
 **Provider:** Health & Safety Institute
 
 **Certifications:**
@@ -183,8 +183,8 @@
 ---
 
 ### 7. **CareerSafe** - OSHA Training & Workplace Safety
-**Focus:** OSHA Compliance & Workplace Safety  
-**Provider:** CareerSafe (OSHA Authorized)  
+**Focus:** OSHA Compliance & Workplace Safety
+**Provider:** CareerSafe (OSHA Authorized)
 **Status:** ✅ Account Active
 
 **Certifications:**
@@ -208,8 +208,8 @@
 ---
 
 ### 8. **National Drug Screening** - DOT Oral Fluid Testing
-**Focus:** DOT Drug Testing Compliance  
-**Provider:** National Drug Screening, Inc.  
+**Focus:** DOT Drug Testing Compliance
+**Provider:** National Drug Screening, Inc.
 **Status:** ⚠️ Training Available - Testing NOT Yet Operational
 
 **Training Programs:**
@@ -300,18 +300,18 @@
 ## 💰 Pricing Strategy
 
 ### Option 1: Included in Tuition (Recommended)
-**Model:** Build all certifications into program cost  
-**Student Cost:** $0 (included)  
+**Model:** Build all certifications into program cost
+**Student Cost:** $0 (included)
 **Benefit:** Competitive advantage, 100% compliance, no barriers
 
 ### Option 2: Separate Certification Fees
-**Model:** Charge students for optional certifications  
-**Student Cost:** $50-$200 per certification  
+**Model:** Charge students for optional certifications
+**Student Cost:** $50-$200 per certification
 **Benefit:** Revenue stream, flexibility
 
 ### Option 3: Employer Sponsored
-**Model:** Employer pays for employee certifications  
-**Student Cost:** $0 (employer pays)  
+**Model:** Employer pays for employee certifications
+**Student Cost:** $0 (employer pays)
 **Benefit:** Employer partnerships, job placement
 
 ---
@@ -482,7 +482,7 @@ CEO, Elevate for Humanity
 - **Certiport:** Pearson VUE testing center
 - **VITA:** IRS.gov Link & Learn Taxes
 - **HSI:** Health & Safety Institute
-- **CareerSafe:** 
+- **CareerSafe:**
   - QuickStart: https://www.careersafeonline.com/support/quick-start-guide
   - Group Management: https://www.careersafeonline.com/support/group-mgmt-support-guide
 - **National Drug Screening:**

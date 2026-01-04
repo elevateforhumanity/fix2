@@ -4,10 +4,10 @@ export function registerServiceWorker() {
       navigator.serviceWorker
         .register('/sw.js')
         .then((registration) => {
-          // 
+          //
         })
         .catch((error) => {
-          // 
+          //
         });
     });
   }

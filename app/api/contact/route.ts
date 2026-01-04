@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createAdminClient } from '@/lib/supabase/admin';
@@ -27,11 +26,11 @@ export async function POST(req: Request) {
 
     if (!rateLimitResult.ok) {
       return NextResponse.json(
-        { 
-          ok: false, 
-          error: 'Too many requests. Please try again in a minute.' 
+        {
+          ok: false,
+          error: 'Too many requests. Please try again in a minute.'
         },
-        { 
+        {
           status: 429,
           headers: {
             'Retry-After': '60',
@@ -43,7 +42,7 @@ export async function POST(req: Request) {
 
     // Parse and validate request body
     const body = await req.json().catch(() => null);
-    
+
     if (!body) {
       return NextResponse.json(
         { ok: false, error: 'Invalid request body' },
@@ -55,8 +54,8 @@ export async function POST(req: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { 
-          ok: false, 
+        {
+          ok: false,
           error: 'Invalid form submission',
           details: parsed.error.flatten().fieldErrors
         },

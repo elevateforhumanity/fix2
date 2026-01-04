@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import {
@@ -119,7 +118,7 @@ export async function POST(req: Request) {
               <p>Hi ${firstName},</p>
               <p>We've received your inquiry and an advisor will contact you within 1-2 business days.</p>
               ${body.program ? `<p>You expressed interest in: <strong>${body.program}</strong></p>` : ''}
-              
+
               <div style="background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 8px; padding: 16px; margin: 20px 0;">
                 <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748b;">Your Application ID:</p>
                 <p style="margin: 0; font-size: 20px; font-weight: bold; font-family: monospace; color: #0f172a;">${data.id}</p>

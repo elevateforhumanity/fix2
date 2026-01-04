@@ -45,7 +45,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
 
   const handleSearch = () => {
     onSearch?.(query, filters);
-    
+
     // Mock search results
     const mockResults: SearchResult[] = [
       {
@@ -92,7 +92,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
       const newValues = currentValues.includes(value)
         ? currentValues.filter((v) => v !== value)
         : [...currentValues, value];
-      
+
       return {
         ...prev,
         [filterType]: newValues.length > 0 ? newValues : undefined,
@@ -236,7 +236,7 @@ export function AdvancedSearch({ onSearch }: AdvancedSearchProps) {
         <div className="flex flex-wrap gap-2">
           {Object.entries(filters).map(([key, values]) => {
             if (!values || (Array.isArray(values) && values.length === 0)) return null;
-            
+
             const filterValues = Array.isArray(values) ? values : [values];
             return filterValues.map((value) => (
               <div

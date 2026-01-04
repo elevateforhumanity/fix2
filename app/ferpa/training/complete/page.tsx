@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function CompleteFERPATrainingPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login?next=/ferpa/training/complete');
   }
@@ -35,7 +35,7 @@ export default async function CompleteFERPATrainingPage() {
     .single();
 
   return (
-    <FERPATrainingForm 
+    <FERPATrainingForm
       user={profile}
       existingTraining={existingTraining}
     />

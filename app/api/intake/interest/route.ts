@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // =====================================================
 // INTAKE STAGE 1: INTEREST
 // Captures initial interest without overwhelming the user

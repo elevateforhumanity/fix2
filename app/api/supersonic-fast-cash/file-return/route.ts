@@ -136,23 +136,23 @@ export async function POST(request: NextRequest) {
                 <h1>✅ Tax Return Filed!</h1>
                 <p>Your 2024 tax return has been successfully filed with the IRS</p>
               </div>
-              
+
               <div class="content">
                 <h2>Hi ${taxReturn.firstName},</h2>
                 <p>Great news! Your tax return has been filed electronically with the IRS.</p>
-                
+
                 <div class="refund-box">
                   <div style="font-size: 18px; margin-bottom: 10px;">Your Estimated Refund</div>
                   <div class="refund-amount">$${calculation.refundOrOwed.toLocaleString()}</div>
                 </div>
-                
+
                 <h3>What Happens Next:</h3>
                 <ol>
                   <li><strong>IRS Processing:</strong> The IRS will process your return within 21 days</li>
                   <li><strong>Refund Deposit:</strong> Your refund will be direct deposited to your bank account</li>
                   <li><strong>Track Status:</strong> You can track your refund at <a href="${process.env.NEXT_PUBLIC_SITE_URL}/supersonic-fast-cash/tools/refund-tracker">our refund tracker</a></li>
                 </ol>
-                
+
                 <h3>Return Details:</h3>
                 <ul>
                   <li><strong>Filing Status:</strong> ${taxReturn.filingStatus?.replace('_', ' ')}</li>
@@ -160,11 +160,11 @@ export async function POST(request: NextRequest) {
                   <li><strong>Submission ID:</strong> ${efileResult.submissionId}</li>
                   <li><strong>Filed Date:</strong> ${new Date().toLocaleDateString()}</li>
                 </ul>
-                
+
                 <p>You can view your complete tax return in your <a href="${process.env.NEXT_PUBLIC_SITE_URL}/supersonic-fast-cash/portal">client portal</a>.</p>
-                
+
                 <p>Questions? Reply to this email or call us at (317) 555-0100.</p>
-                
+
                 <p>Thank you for choosing SupersonicFastCash!</p>
               </div>
             </div>

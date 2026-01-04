@@ -136,9 +136,9 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
             const day = i + 1;
             const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
             const dateEvents = getEventsForDate(date);
-            const isToday = 
+            const isToday =
               date.toDateString() === new Date().toDateString();
-            const isSelected = 
+            const isSelected =
               selectedDate?.toDateString() === date.toDateString();
 
             return (
@@ -174,10 +174,10 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
       {selectedDate && (
         <div className="border-t border-slate-200 pt-4">
           <h4 className="text-sm font-semibold text-slate-900 mb-3">
-            {selectedDate.toLocaleDateString('default', { 
-              weekday: 'long', 
-              month: 'long', 
-              day: 'numeric' 
+            {selectedDate.toLocaleDateString('default', {
+              weekday: 'long',
+              month: 'long',
+              day: 'numeric'
             })}
           </h4>
           {selectedDateEvents.length > 0 ? (

@@ -174,12 +174,12 @@ export async function sendWelcomePacketEmail(
 
   const emailContent = `
     <h1>Welcome to Elevate for Humanity, ${data.studentName}!</h1>
-    
+
     <p>We're thrilled to have you join our ${data.programName} program starting on ${new Date(data.startDate).toLocaleDateString()}.</p>
-    
+
     <h2>Your Welcome Packet is Ready</h2>
     <p>We've prepared a personalized welcome packet with everything you need to get started:</p>
-    
+
     <ul>
       <li>Student Handbook</li>
       <li>Program Workbook</li>
@@ -187,9 +187,9 @@ export async function sendWelcomePacketEmail(
       <li>First Day Checklist</li>
       <li>And more!</li>
     </ul>
-    
+
     <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/student/welcome-packet/${packetId}" style="display: inline-block; padding: 12px 24px; background-color: #2563eb; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">View Your Welcome Packet</a></p>
-    
+
     <h2>Next Steps</h2>
     <ol>
       <li>Review your welcome packet and complete all required items</li>
@@ -197,7 +197,7 @@ export async function sendWelcomePacketEmail(
       <li>Watch the orientation video</li>
       <li>Mark your calendar for your first day: ${new Date(data.startDate).toLocaleDateString()}</li>
     </ol>
-    
+
     <h2>Need Help?</h2>
     <p>Our student services team is here to support you:</p>
     <ul>
@@ -205,9 +205,9 @@ export async function sendWelcomePacketEmail(
       <li>Email: support@elevateforhumanity.org</li>
       <li>Hours: Monday-Friday, 8am-5pm EST</li>
     </ul>
-    
+
     <p>We look forward to seeing you soon!</p>
-    
+
     <p>Best regards,<br>
     The Elevate for Humanity Team</p>
   `;
@@ -302,22 +302,22 @@ async function sendWelcomePacketCompletionEmail(
 
   const emailContent = `
     <h1>Welcome Packet Complete! 🎉</h1>
-    
+
     <p>Hi ${profile.full_name},</p>
-    
+
     <p>Congratulations! You've completed all required items in your welcome packet.</p>
-    
+
     <p>You're all set for your first day. Here's what to expect:</p>
-    
+
     <ul>
       <li>Arrive 15 minutes early for check-in</li>
       <li>Bring a valid photo ID</li>
       <li>Bring any required materials listed in your first-day checklist</li>
       <li>Be ready to learn and have fun!</li>
     </ul>
-    
+
     <p>See you soon!</p>
-    
+
     <p>Best regards,<br>
     The Elevate for Humanity Team</p>
   `;
@@ -418,21 +418,21 @@ export async function sendWelcomePacketReminder(
 
   const emailContent = `
     <h1>Reminder: Complete Your Welcome Packet</h1>
-    
+
     <p>Hi ${packet.student.full_name},</p>
-    
+
     <p>You have ${items.length} required item${items.length > 1 ? 's' : ''} remaining in your welcome packet:</p>
-    
+
     <ul>
       ${items.map((item) => `<li>${item.title}</li>`).join('')}
     </ul>
-    
+
     <p>Please complete these items before your first day to ensure a smooth start to your program.</p>
-    
+
     <p><a href="${process.env.NEXT_PUBLIC_SITE_URL}/student/welcome-packet/${packetId}" style="display: inline-block; padding: 12px 24px; background-color: #2563eb; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Complete Welcome Packet</a></p>
-    
+
     <p>Need help? Contact us at support@elevateforhumanity.org or 317-314-3757.</p>
-    
+
     <p>Best regards,<br>
     The Elevate for Humanity Team</p>
   `;

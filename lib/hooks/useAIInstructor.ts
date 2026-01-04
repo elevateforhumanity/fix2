@@ -9,8 +9,8 @@ interface AIInstructorMessage {
 export function useAIInstructor() {
   const speak = (message: string) => {
     // Dispatch custom event for AI instructor to speak
-    window.dispatchEvent(new CustomEvent('ai-instructor-speak', { 
-      detail: { message } 
+    window.dispatchEvent(new CustomEvent('ai-instructor-speak', {
+      detail: { message }
     }));
   };
 

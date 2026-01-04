@@ -2,14 +2,14 @@
 
 ## 🏥 Partnership Overview
 
-**Provider:** Health & Safety Institute (HSI)  
-**Contact:** Geoff Albrecht, Sales Director, Emergency Care  
-**Email:** galbrecht@hsi.com  
-**Phone:** (949) 456-8366  
+**Provider:** Health & Safety Institute (HSI)
+**Contact:** Geoff Albrecht, Sales Director, Emergency Care
+**Email:** galbrecht@hsi.com
+**Phone:** (949) 456-8366
 **Website:** https://hsi.com
 
-**Status:** ✅ Account Set Up  
-**Portal:** Otis Manager 4.0  
+**Status:** ✅ Account Set Up
+**Portal:** Otis Manager 4.0
 **Access:** http://store.osmanager4.com/emss/groups/523
 
 ---
@@ -23,8 +23,8 @@
 - Infant CPR
 - Healthcare Provider CPR
 
-**Duration:** 2-4 hours  
-**Certification:** 2-year validity  
+**Duration:** 2-4 hours
+**Certification:** 2-year validity
 **Format:** Traditional, Blended, or Remote Skills Verification (RSV)
 
 ### 2. **First Aid Training**
@@ -34,8 +34,8 @@
 - Wilderness First Aid
 - Bloodborne Pathogens
 
-**Duration:** 2-4 hours  
-**Certification:** 2-year validity  
+**Duration:** 2-4 hours
+**Certification:** 2-year validity
 **Format:** Traditional, Blended, or RSV
 
 ### 3. **Online Safety Training**
@@ -50,8 +50,8 @@
 - Electrical Safety
 - And more...
 
-**Format:** 100% online  
-**Duration:** Varies by course (1-4 hours)  
+**Format:** 100% online
+**Duration:** Varies by course (1-4 hours)
 **Certification:** Immediate upon completion
 
 ---
@@ -96,21 +96,21 @@
 ## 🎓 Training Formats
 
 ### Traditional Classes
-**Format:** In-person, instructor-led  
-**Duration:** 2-4 hours  
-**Best for:** Hands-on learners, group training  
+**Format:** In-person, instructor-led
+**Duration:** 2-4 hours
+**Best for:** Hands-on learners, group training
 **Includes:** All equipment, instructor, certification
 
 ### Blended Learning
-**Format:** Online learning + in-person skills check  
-**Duration:** 1-2 hours online + 1 hour skills  
-**Best for:** Flexible schedules, self-paced learning  
+**Format:** Online learning + in-person skills check
+**Duration:** 1-2 hours online + 1 hour skills
+**Best for:** Flexible schedules, self-paced learning
 **Includes:** Online access, skills session, certification
 
 ### Remote Skills Verification (RSV)
-**Format:** Online learning + live virtual instructor-led skills session  
-**Duration:** 1-2 hours online + live skills verification  
-**Best for:** Remote students, maximum flexibility  
+**Format:** Online learning + live virtual instructor-led skills session
+**Duration:** 1-2 hours online + live skills verification
+**Best for:** Remote students, maximum flexibility
 **Includes:** Online access, live virtual skills session, manikin shipment, certification
 
 **Learn More:** https://hsi.com/solutions/cpr-aed-first-aid-training/remote-skills-verification
@@ -178,27 +178,27 @@
 ### RSV Enrollment Links:
 
 #### 1. CPR/AED (All Ages)
-**Link:** https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3  
-**Includes:** Adult, Child, and Infant CPR/AED  
-**Cost:** $85 per student  
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3
+**Includes:** Adult, Child, and Infant CPR/AED
+**Cost:** $85 per student
 **Part #:** NRSVM-CPR
 
 #### 2. CPR/AED (Adult Only)
-**Link:** https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35  
-**Includes:** Adult CPR/AED only  
-**Cost:** $80 per student  
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35
+**Includes:** Adult CPR/AED only
+**Cost:** $80 per student
 **Part #:** NRSVM-CPR-A
 
 #### 3. Adult First Aid, CPR/AED (All Ages)
-**Link:** https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8  
-**Includes:** First Aid + Adult/Child/Infant CPR/AED  
-**Cost:** $85 per student  
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8
+**Includes:** First Aid + Adult/Child/Infant CPR/AED
+**Cost:** $85 per student
 **Part #:** NRSVM-COMBO
 
 #### 4. Adult First Aid, CPR/AED (Adult Only)
-**Link:** https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47  
-**Includes:** First Aid + Adult CPR/AED only  
-**Cost:** $80 per student  
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47
+**Includes:** First Aid + Adult CPR/AED only
+**Cost:** $80 per student
 **Part #:** NRSVM-COMBO-A
 
 ### Enrollment Workflow:
@@ -419,18 +419,18 @@ CEO, Elevate for Humanity
 ## 📊 Pricing Strategy
 
 ### Option 1: Included in Tuition
-**Model:** Build CPR/First Aid into program cost  
-**Student Cost:** $0 (included)  
+**Model:** Build CPR/First Aid into program cost
+**Student Cost:** $0 (included)
 **Benefit:** Competitive advantage, no barriers
 
 ### Option 2: Separate Fee
-**Model:** Charge students for certification  
-**Student Cost:** $50-$100 per certification  
+**Model:** Charge students for certification
+**Student Cost:** $50-$100 per certification
 **Benefit:** Revenue stream, optional for some
 
 ### Option 3: Employer Sponsored
-**Model:** Employer pays for employee certifications  
-**Student Cost:** $0 (employer pays)  
+**Model:** Employer pays for employee certifications
+**Student Cost:** $0 (employer pays)
 **Benefit:** Employer partnership, job placement
 
 **Recommendation:** Include in tuition for healthcare programs, separate fee for others
@@ -484,9 +484,9 @@ CEO, Elevate for Humanity
 ## 📅 Scheduling Classes
 
 ### Group Classes (Recommended)
-**Schedule:** First week of each program cohort  
-**Size:** 10-20 students per class  
-**Duration:** 4-6 hours (can split into 2 days)  
+**Schedule:** First week of each program cohort
+**Size:** 10-20 students per class
+**Duration:** 4-6 hours (can split into 2 days)
 **Instructor:** HSI certified instructor (provided)
 
 **Example Schedule:**
@@ -495,15 +495,15 @@ CEO, Elevate for Humanity
 - **Wednesday:** Bloodborne Pathogens (2 hours, if needed)
 
 ### Individual Classes
-**Schedule:** As needed for makeup or late enrollments  
-**Size:** 1-5 students  
-**Duration:** Same as group  
+**Schedule:** As needed for makeup or late enrollments
+**Size:** 1-5 students
+**Duration:** Same as group
 **Cost:** May be higher per student
 
 ### Blended/RSV
-**Schedule:** Ongoing, self-paced  
-**Skills Check:** Schedule as needed  
-**Duration:** Flexible  
+**Schedule:** Ongoing, self-paced
+**Skills Check:** Schedule as needed
+**Duration:** Flexible
 **Cost:** Lower than traditional
 
 ---

@@ -1,7 +1,7 @@
 /**
  * Drake Software API Integration
  * Professional tax preparation software integration
- * 
+ *
  * Credentials from .env.local:
  * - DRAKE_ACCOUNT_NUMBER=211607
  * - DRAKE_SERIAL_NUMBER=B7ED-0119-0036-E407
@@ -118,7 +118,7 @@ class DrakeIntegration {
     try {
       // In production, this would call Drake's actual API
       // For now, we'll simulate the response
-      
+
       const response = await this.makeRequest('/returns/create', {
         method: 'POST',
         body: JSON.stringify({

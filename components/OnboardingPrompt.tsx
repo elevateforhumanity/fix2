@@ -68,7 +68,7 @@ export default function OnboardingPrompt({ userId, userRole }: OnboardingPromptP
               {primaryFlow.name}
             </h3>
             <p className="text-blue-100 mb-4">
-              Take a quick tour to learn how to make the most of your experience. 
+              Take a quick tour to learn how to make the most of your experience.
               It only takes a few minutes!
             </p>
             <div className="flex flex-wrap gap-3">

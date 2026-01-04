@@ -381,7 +381,7 @@ export async function buildGrantPackage(
   // Generate federal forms PDF
   const { generateAllFederalForms } = await import('./federal-forms');
   const federalForms = await generateAllFederalForms(applicationId);
-  
+
   const formsHtml = `
 <!DOCTYPE html>
 <html>
@@ -415,7 +415,7 @@ export async function buildGrantPackage(
       <tr><td>Federal Funding Requested</td><td>$${federalForms.sf424.funding.federal.toLocaleString()}</td></tr>
     </table>
   </div>
-  
+
   <div class="section">
     <h1>SF-424A: Budget Information</h1>
     <h2>Budget Categories</h2>
@@ -432,7 +432,7 @@ export async function buildGrantPackage(
       <tr><th>Total</th><th>$${federalForms.sf424a.sections.budgetCategories.total.toLocaleString()}</th></tr>
     </table>
   </div>
-  
+
   <div class="section">
     <h1>SF-LLL: Disclosure of Lobbying Activities</h1>
     <table>
@@ -452,7 +452,7 @@ export async function buildGrantPackage(
 </body>
 </html>
   `;
-  
+
   const formsPdf = Buffer.from(formsHtml, 'utf-8');
 
   const zip = new JSZip();

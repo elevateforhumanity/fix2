@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Redis-based caching with fallback to in-memory
 import { Redis } from 'ioredis';
 let redis: Redis | null = null;

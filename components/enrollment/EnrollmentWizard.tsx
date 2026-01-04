@@ -63,7 +63,7 @@ export default function EnrollmentWizard({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...formData, programId })
     });
-    
+
     if (response.ok) {
       window.location.href = `/programs/${programSlug}/enroll/payment`;
     }

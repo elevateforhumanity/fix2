@@ -2,13 +2,13 @@
 
 ## 🧪 Partnership Overview
 
-**Provider:** National Drug Screening, Inc.  
-**Website:** https://www.nationaldrugscreening.com  
+**Provider:** National Drug Screening, Inc.
+**Website:** https://www.nationaldrugscreening.com
 **DOT Oral Fluid Info:** https://www.nationaldrugscreening.com/?s=DOT+oral+Fluid
 
-**Status:** ⚠️ TRAINING AVAILABLE - Testing NOT Yet Operational  
-**Organization:** Elevate for Humanity Training Center  
-**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240  
+**Status:** ⚠️ TRAINING AVAILABLE - Testing NOT Yet Operational
+**Organization:** Elevate for Humanity Training Center
+**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240
 **Phone:** (317) 314-3757
 
 **Partnership Opportunities:**
@@ -48,44 +48,44 @@
 ### Training Options Available:
 
 #### 1. **Live Webinar Training**
-**Format:** Live online instructor-led training  
-**Duration:** 3-4 hours  
+**Format:** Live online instructor-led training
+**Duration:** 3-4 hours
 **Includes:**
 - Comprehensive oral fluid collector training manual
 - Certificate of completion
 - Recording of webinar session
 - Access to mock collections (separate purchase)
 
-**Schedule:** Check website for upcoming dates starting February 2026  
+**Schedule:** Check website for upcoming dates starting February 2026
 **Link:** https://www.nationaldrugscreening.com/dot-oral-fluid-specimen-collector-training/
 
 #### 2. **Computer-Based On-Demand Training**
-**Format:** Self-paced online training  
-**Duration:** Complete at your own pace  
+**Format:** Self-paced online training
+**Duration:** Complete at your own pace
 **Includes:**
 - Comprehensive training modules
 - Training manual
 - Certificate of completion
 - Access to mock collections (separate purchase)
 
-**Available:** NOW  
+**Available:** NOW
 **Link:** https://mydrugtesttraining.com/?search=DOT%20oral
 
 #### 3. **Live In-Person Events**
-**Format:** In-person training in cities across America  
-**Duration:** Full day training  
+**Format:** In-person training in cities across America
+**Duration:** Full day training
 **Includes:**
 - Hands-on training
 - Comprehensive training manual
 - Certificate of completion
 - Mock collections included
 
-**Status:** Will resume when 2 labs are certified (2025/2026)  
+**Status:** Will resume when 2 labs are certified (2025/2026)
 **Link:** https://www.nationaldrugscreening.com/product/dot-oral-fluid-collector-training-live-event/
 
 #### 4. **Custom Group Training**
-**Format:** Custom training for organizations (6+ people)  
-**Duration:** Customized to your needs  
+**Format:** Custom training for organizations (6+ people)
+**Duration:** Customized to your needs
 **Includes:**
 - Tailored training program
 - Group discounts
@@ -610,7 +610,7 @@ Elevate for Humanity Training Center
 ### Reseller Programs:
 
 #### 1. **Clinic/Mobile Reseller Program**
-**For:** Organizations looking to set up a lab account and offer drug testing services  
+**For:** Organizations looking to set up a lab account and offer drug testing services
 **Benefits:**
 - Set up your own lab account
 - Offer drug testing to clients
@@ -620,7 +620,7 @@ Elevate for Humanity Training Center
 **Learn More:** https://www.nationaldrugscreening.com/reseller-program/
 
 #### 2. **TPA (Third-Party Administrator) Reseller Program**
-**For:** Organizations looking to become a TPA and offer full programs to employers  
+**For:** Organizations looking to become a TPA and offer full programs to employers
 **Benefits:**
 - Become a full-service TPA
 - Offer comprehensive drug testing programs

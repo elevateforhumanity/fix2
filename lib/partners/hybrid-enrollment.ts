@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/hybrid-enrollment.ts
 // Unified enrollment handler that supports both API and link-based modes
 

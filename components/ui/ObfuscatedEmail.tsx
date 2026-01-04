@@ -13,9 +13,9 @@ interface ObfuscatedEmailProps {
 
 export function ObfuscatedEmail({ user, domain, className = "", showIcon = false }: ObfuscatedEmailProps) {
   const [revealed, setRevealed] = useState(false);
-  
+
   const email = `${user}@${domain}`;
-  
+
   if (!revealed) {
     return (
       <button
@@ -31,9 +31,9 @@ export function ObfuscatedEmail({ user, domain, className = "", showIcon = false
       </button>
     );
   }
-  
+
   return (
-    <a 
+    <a
       href={`mailto:${email}`}
       className={className}
     >

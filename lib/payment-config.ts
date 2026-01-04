@@ -162,7 +162,7 @@ export function getPaymentConfig(programSlug: string): ProgramPaymentConfig | nu
  */
 export function calculatePaymentSplit(programSlug: string, totalAmount: number) {
   const config = getPaymentConfig(programSlug);
-  
+
   if (!config) {
     return {
       total: totalAmount,

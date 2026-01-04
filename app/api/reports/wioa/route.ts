@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/reports/wioa/route.ts
 import { NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth/getSession';
@@ -61,7 +60,7 @@ export async function GET(request: Request) {
     'measurable_skill_gain',
   ];
 
-  const rows = records.map((r: Record<string, any>) => [
+  const rows = records.map((r: Record<string, unknown>) => [
     r.participant_id,
     r.tenant_id,
     r.program_id,

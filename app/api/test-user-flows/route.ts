@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 /**
  * Test Complete User Flows
  * GET /api/test-user-flows
- * 
+ *
  * Tests actual user flows: LMS, enrollment, Stripe
  */
 export async function GET() {

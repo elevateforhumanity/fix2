@@ -38,11 +38,11 @@ export async function generateCertificate(data: CertificateData): Promise<Buffer
   doc.setTextColor(0, 51, 102);
   doc.setFont('helvetica', 'bold');
   doc.text('ELEVATE FOR HUMANITY', pageWidth / 2, 1.2, { align: 'center' });
-  
+
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.text('Career & Technical Institute', pageWidth / 2, 1.5, { align: 'center' });
-  
+
   doc.setFontSize(8);
   doc.setTextColor(100, 100, 100);
   doc.text('ETPL Approved Provider • DOL Registered Apprenticeship Sponsor', pageWidth / 2, 1.75, { align: 'center' });
@@ -114,7 +114,7 @@ export async function generateCertificate(data: CertificateData): Promise<Buffer
 
   // Signature Section
   const sigY = 7.6;
-  
+
   // Left signature - Executive Director
   doc.setLineWidth(0.01);
   doc.setDrawColor(0, 0, 0);
@@ -150,7 +150,7 @@ export async function generateCertificate(data: CertificateData): Promise<Buffer
         light: '#FFFFFF',
       },
     });
-    
+
     doc.addImage(qrDataUrl, 'PNG', pageWidth - 1.5, 0.7, 0.8, 0.8);
     doc.setFontSize(7);
     doc.setTextColor(100, 100, 100);

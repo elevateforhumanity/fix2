@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/study-groups/[id]/join/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -17,7 +16,7 @@ export async function POST(
 
     // Get current user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: "Unauthorized" },

@@ -3,26 +3,26 @@
 ## 🏛️ Official Federal Registrations
 
 ### Entity 1: 2EXCLUSIVE LLC-S
-**UEI:** VX2GK5S8SZH8  
-**CAGE Code:** 0QH19  
-**Status:** ✅ ACTIVE  
+**UEI:** VX2GK5S8SZH8
+**CAGE Code:** 0QH19
+**Status:** ✅ ACTIVE
 **Annual Renewal Date:** June 29, 2026 (21:14:01.997)
 
 ### Entity 2: SELFISH INC
-**UEI:** H3NUZZ6BMDA7  
-**CAGE Code:** 0Q856  
-**Status:** ✅ ACTIVE  
+**UEI:** H3NUZZ6BMDA7
+**CAGE Code:** 0Q856
+**Status:** ✅ ACTIVE
 **Annual Renewal Date:** [Check SAM.gov for renewal date]
 
 ### Entity 3: CURVATURE BODY SCULPTING LLC
-**UEI:** RNXZUZW7FA63  
-**CAGE Code:** 9XV55  
-**Status:** ⚠️ ACTION REQUIRED  
+**UEI:** RNXZUZW7FA63
+**CAGE Code:** 9XV55
+**Status:** ⚠️ ACTION REQUIRED
 **Annual Renewal Date:** [Check SAM.gov for renewal date]
 
-**Organization:** Elevate for Humanity Training Center  
-**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240  
-**Phone:** (317) 314-3757  
+**Organization:** Elevate for Humanity Training Center
+**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240
+**Phone:** (317) 314-3757
 **Website:** www.elevateforhumanity.org
 
 ---
@@ -49,24 +49,24 @@
 ### Entity Information:
 
 #### Entity 1: 2EXCLUSIVE LLC-S
-**Unique Entity ID (UEI):** VX2GK5S8SZH8  
-**CAGE Code:** 0QH19  
-**Status:** ✅ ACTIVE  
-**Expiration Date:** June 29, 2026  
+**Unique Entity ID (UEI):** VX2GK5S8SZH8
+**CAGE Code:** 0QH19
+**Status:** ✅ ACTIVE
+**Expiration Date:** June 29, 2026
 **Renewal Required:** Annually
 
 #### Entity 2: SELFISH INC
-**Unique Entity ID (UEI):** H3NUZZ6BMDA7  
-**CAGE Code:** 0Q856  
-**Status:** ✅ ACTIVE  
-**Expiration Date:** [Check SAM.gov]  
+**Unique Entity ID (UEI):** H3NUZZ6BMDA7
+**CAGE Code:** 0Q856
+**Status:** ✅ ACTIVE
+**Expiration Date:** [Check SAM.gov]
 **Renewal Required:** Annually
 
 #### Entity 3: CURVATURE BODY SCULPTING LLC
-**Unique Entity ID (UEI):** RNXZUZW7FA63  
-**CAGE Code:** 9XV55  
-**Status:** ⚠️ ACTION REQUIRED  
-**Expiration Date:** [Check SAM.gov]  
+**Unique Entity ID (UEI):** RNXZUZW7FA63
+**CAGE Code:** 9XV55
+**Status:** ⚠️ ACTION REQUIRED
+**Expiration Date:** [Check SAM.gov]
 **Renewal Required:** Annually
 
 **⚠️ IMMEDIATE ACTION NEEDED:**
@@ -169,7 +169,7 @@
 - Renewal Date: [Check SAM.gov for specific date]
 - Set reminder: 1 month before expiration
 
-**Frequency:** Annual (every year for EACH entity)  
+**Frequency:** Annual (every year for EACH entity)
 **Requirement:** MUST renew ALL THREE entities to remain eligible
 
 **How to Renew:**
@@ -544,8 +544,8 @@ ByBlack Certified Business
 ## 📅 Important Dates
 
 ### Annual Renewal:
-**Renewal Date:** June 29, 2026 (21:14:01.997)  
-**Reminder:** Set calendar alert for May 29, 2026 (1 month early)  
+**Renewal Date:** June 29, 2026 (21:14:01.997)
+**Reminder:** Set calendar alert for May 29, 2026 (1 month early)
 **Action Required:** Login to SAM.gov and complete renewal
 
 ### Quarterly Reviews:
@@ -605,8 +605,8 @@ ByBlack Certified Business
 
 ### CURVATURE BODY SCULPTING LLC - Complete Registration NOW
 
-**Status:** ACTION REQUIRED  
-**UEI:** RNXZUZW7FA63  
+**Status:** ACTION REQUIRED
+**UEI:** RNXZUZW7FA63
 **CAGE Code:** 9XV55
 
 **What to Do:**

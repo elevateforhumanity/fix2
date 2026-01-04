@@ -35,7 +35,7 @@ export default async function CredentialsPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-center justify-center text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-teal-800" />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           {/* Logo */}
           <div className="mb-6">
@@ -47,12 +47,12 @@ export default async function CredentialsPage() {
               className="mx-auto brightness-0 invert"
             />
           </div>
-          
+
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
             <Award className="w-5 h-5" />
             <span className="text-sm font-semibold">Industry Certifications</span>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase">
             Credentials That Matter
           </h1>

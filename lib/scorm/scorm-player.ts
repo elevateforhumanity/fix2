@@ -100,7 +100,7 @@ export async function updateSCORMSession(
   const supabase = await createClient();
 
   const updateData: any = { ...data };
-  
+
   if (data.status === 'completed') {
     updateData.completed_at = new Date().toISOString();
   }
@@ -188,7 +188,7 @@ export function getSCORMAPIAdapter(version: '1.2' | '2004'): string {
           fetch('/api/scorm/set-value', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
               sessionId: window.scormSessionId,
               element: element,
               value: value
@@ -238,7 +238,7 @@ export function getSCORMAPIAdapter(version: '1.2' | '2004'): string {
           fetch('/api/scorm/set-value', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
               sessionId: window.scormSessionId,
               element: element,
               value: value

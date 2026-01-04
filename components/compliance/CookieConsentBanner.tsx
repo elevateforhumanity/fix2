@@ -121,7 +121,7 @@ export default function CookieConsentBanner() {
                     We Value Your Privacy
                   </h3>
                   <p className="text-sm text-gray-600 mb-2">
-                    We use cookies to enhance your experience, analyze site traffic, and personalize content. 
+                    We use cookies to enhance your experience, analyze site traffic, and personalize content.
                     By clicking "Accept All", you consent to our use of cookies.
                   </p>
                   <div className="flex flex-wrap gap-2 text-xs">
@@ -189,7 +189,7 @@ export default function CookieConsentBanner() {
                         </span>
                       </div>
                       <p className="text-sm text-gray-600">
-                        Essential for the website to function properly. These cookies enable basic functions like page navigation, 
+                        Essential for the website to function properly. These cookies enable basic functions like page navigation,
                         secure areas access, and authentication. The website cannot function properly without these cookies.
                       </p>
                     </div>
@@ -226,7 +226,7 @@ export default function CookieConsentBanner() {
                     <div className="flex-1">
                       <h4 className="font-bold text-gray-900 mb-2">Analytics Cookies</h4>
                       <p className="text-sm text-gray-600">
-                        Help us understand how visitors interact with our website by collecting and reporting information anonymously. 
+                        Help us understand how visitors interact with our website by collecting and reporting information anonymously.
                         This helps us improve our services.
                       </p>
                     </div>
@@ -248,7 +248,7 @@ export default function CookieConsentBanner() {
                     <div className="flex-1">
                       <h4 className="font-bold text-gray-900 mb-2">Marketing Cookies</h4>
                       <p className="text-sm text-gray-600">
-                        Used to track visitors across websites to display relevant advertisements. These cookies help us show you 
+                        Used to track visitors across websites to display relevant advertisements. These cookies help us show you
                         content that may be of interest to you.
                       </p>
                     </div>

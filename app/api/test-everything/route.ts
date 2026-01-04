@@ -6,13 +6,13 @@ export const maxDuration = 60;
 /**
  * Test EVERYTHING - Complete Platform Verification
  * GET /api/test-everything
- * 
+ *
  * Runs all test suites and provides complete production readiness report
  */
 export async function GET(request: Request) {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    
+
     const results: any = {
       timestamp: new Date().toISOString(),
       platform: 'Elevate for Humanity',

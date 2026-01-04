@@ -2,7 +2,7 @@
 
 /**
  * Hours Summary Widget Component
- * 
+ *
  * Visual display of required vs transferred vs earned vs remaining hours
  */
 
@@ -21,13 +21,13 @@ export default function HoursSummaryWidget({
   remaining,
   progressPercent
 }: HoursSummaryWidgetProps) {
-  
+
   const transferredPercent = required > 0 ? (transferred / required) * 100 : 0;
   const earnedPercent = required > 0 ? (earned / required) * 100 : 0;
 
   return (
     <div className="glow-card p-6">
-      
+
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-white">
@@ -45,25 +45,25 @@ export default function HoursSummaryWidget({
       <div className="mb-6">
         <div className="progress-bar h-4">
           {/* Transferred Hours (Blue) */}
-          <div 
+          <div
             className="absolute h-full bg-blue-500 rounded-l-lg transition-all"
             style={{ width: `${transferredPercent}%` }}
           />
           {/* Earned Hours (Green) */}
-          <div 
+          <div
             className="absolute h-full bg-green-500 transition-all"
-            style={{ 
+            style={{
               left: `${transferredPercent}%`,
-              width: `${earnedPercent}%` 
+              width: `${earnedPercent}%`
             }}
           />
           {/* Combined glow effect */}
-          <div 
+          <div
             className="progress-fill"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
-        
+
         {/* Legend */}
         <div className="flex justify-center gap-6 mt-3 text-xs">
           <div className="flex items-center gap-2">
@@ -83,7 +83,7 @@ export default function HoursSummaryWidget({
 
       {/* Hours Breakdown */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        
+
         {/* Required */}
         <div className="text-center p-4 bg-slate-800/50 rounded-lg">
           <div className="text-3xl font-bold text-white mb-1">

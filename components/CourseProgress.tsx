@@ -10,7 +10,7 @@ interface CourseProgressProps {
 
 export function CourseProgress({ current, total, className = '' }: CourseProgressProps) {
   const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
-  
+
   return (
     <div className={`w-full ${className}`}>
       <div className="flex justify-between items-center text-sm mb-2">
@@ -20,7 +20,7 @@ export function CourseProgress({ current, total, className = '' }: CourseProgres
         <span className="text-brand-orange-600 font-semibold">{percentage}%</span>
       </div>
       <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-        <div 
+        <div
           className="   h-3 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
@@ -48,7 +48,7 @@ export function LessonProgressIndicator({ completed, current }: LessonProgressIn
       </div>
     );
   }
-  
+
   if (current) {
     return (
       <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-emerald-500 bg-red-50">
@@ -56,7 +56,7 @@ export function LessonProgressIndicator({ completed, current }: LessonProgressIn
       </div>
     );
   }
-  
+
   return (
     <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-slate-300">
       <Circle className="w-4 h-4 text-slate-300" />

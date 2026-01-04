@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
@@ -119,25 +118,25 @@ async function sendAlertEmail(data: {
 
   const emailContent = `
     🚨 UNAUTHORIZED SITE COPY DETECTED
-    
+
     Someone has copied your website and is hosting it at:
     Domain: ${data.domain}
     Full URL: ${data.url}
-    
+
     Details:
     - Referrer: ${data.referrer}
     - User Agent: ${data.userAgent}
     - Timestamp: ${data.timestamp}
-    
+
     IMMEDIATE ACTIONS REQUIRED:
     1. Screenshot the unauthorized site
     2. Save all evidence
     3. Send cease and desist letter
     4. File DMCA takedown notice
     5. Contact attorney
-    
+
     Evidence folder: /Evidence/unauthorized-copies/${data.domain}/
-    
+
     Legal contacts:
     - IP Attorney: [YOUR ATTORNEY]
     - DMCA Agent: legal@elevateforhumanity.org
@@ -149,7 +148,7 @@ async function sendAlertEmail(data: {
   /*
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  
+
   await sgMail.send({
     to: 'elizabeth@elevateforhumanity.org',
     from: 'alerts@elevateforhumanity.org',
@@ -184,7 +183,7 @@ async function logUnauthorizedAccess(data: {
   /*
   const { createClient } = require('@/lib/supabase/server');
   const supabase = await createClient();
-  
+
   await supabase.from('unauthorized_access_log').insert({
     domain: data.domain,
     url: data.url,

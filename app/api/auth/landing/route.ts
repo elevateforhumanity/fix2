@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/auth/landing/route.ts
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';

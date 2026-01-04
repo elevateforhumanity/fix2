@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
@@ -33,9 +32,9 @@ export async function POST(request: NextRequest) {
     </div>
     <div class="content">
       <h2>Hi ${name},</h2>
-      
+
       <p><strong>Congratulations!</strong> You've completed onboarding and your LMS access is now active.</p>
-      
+
       <div class="info-box">
         <h3>📚 Your LMS Access:</h3>
         <p><strong>Login URL:</strong> <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org'}/login">${process.env.NEXT_PUBLIC_SITE_URL?.replace('https://', '').replace('http://', '') || 'www.elevateforhumanity.org'}/login</a></p>

@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 export async function captureSystemError(
   errorType: string,
   errorMessage: string,
-  context?: Record<string, any>,
+  context?: Record<string, unknown>,
   errorStack?: string,
   userId?: string,
   requestId?: string

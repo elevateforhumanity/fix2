@@ -35,7 +35,7 @@ export function UniversalCoursePlayer({
 
   const handleCompletion = async () => {
     setLoading(true);
-    
+
     try {
       const response = await fetch('/api/courses/complete', {
         method: 'POST',
@@ -86,7 +86,7 @@ export function UniversalCoursePlayer({
               <p className="text-sm text-gray-600">{partnerName}</p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3">
             {!isScorm && (
               <button
@@ -112,7 +112,7 @@ export function UniversalCoursePlayer({
               title={courseName}
               sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-downloads"
             />
-            
+
             {/* Completion Instructions Overlay */}
             {!isScorm && (
               <div className="absolute top-4 left-4 right-4 bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-lg z-10">
@@ -170,7 +170,7 @@ export function UniversalCoursePlayer({
                   </button>
                 </div>
               </div>
-              
+
               {/* Instructions */}
               <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-left">
                 <h4 className="font-semibold text-gray-900 mb-2">📋 Important:</h4>

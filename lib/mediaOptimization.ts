@@ -84,7 +84,7 @@ export function getOptimizedImageUrl(
 ): string {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const bucket = 'images';
-  
+
   const params = new URLSearchParams();
   if (options.width) params.append('width', options.width.toString());
   if (options.height) params.append('height', options.height.toString());
@@ -92,7 +92,7 @@ export function getOptimizedImageUrl(
 
   const queryString = params.toString();
   const url = `${supabaseUrl}/storage/v1/object/public/${bucket}/${path}`;
-  
+
   return queryString ? `${url}?${queryString}` : url;
 }
 
@@ -159,7 +159,7 @@ export function getAdaptiveStreamingUrl(videoId: string): {
   dash: string;
 } {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  
+
   return {
     hls: `${supabaseUrl}/storage/v1/object/public/videos/${videoId}/master.m3u8`,
     dash: `${supabaseUrl}/storage/v1/object/public/videos/${videoId}/manifest.mpd`,
@@ -204,7 +204,7 @@ export async function generateLQIP(buffer: Buffer): Promise<string> {
  */
 export function getCDNUrl(path: string, type: 'image' | 'video' = 'image'): string {
   const cdnDomain = process.env.NEXT_PUBLIC_CDN_DOMAIN;
-  
+
   if (!cdnDomain) {
     // Fallback to Supabase storage
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -230,7 +230,7 @@ export async function batchOptimizeImages(
     paths.map(async (path) => {
       try {
         const supabase = await createClient();
-        
+
         // Download original
         const { data, error }: any = await supabase.storage
           .from('images')

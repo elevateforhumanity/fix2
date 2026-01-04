@@ -23,7 +23,7 @@ export const NAV: NavItem[] = [
   { group: 'Programs', label: 'CDL & Transportation', href: '/programs/cdl-transportation', showInHeader: true },
   { group: 'Programs', label: 'Business & Financial', href: '/programs/business-financial', showInHeader: true },
   { group: 'Programs', label: 'Tax & Entrepreneurship', href: '/programs/tax-entrepreneurship', showInHeader: true },
-  
+
   // WIOA Programs
   { group: 'Programs', label: 'WIOA Programs', href: '/programs/wioa', showInHeader: false },
   { group: 'Programs', label: 'WRG Programs', href: '/programs/wrg', showInHeader: false },

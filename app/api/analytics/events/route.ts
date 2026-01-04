@@ -15,8 +15,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
   }
 
-  const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
-                    req.headers.get('x-real-ip') || 
+  const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+                    req.headers.get('x-real-ip') ||
                     null;
   const userAgent = req.headers.get('user-agent') || null;
   const referrer = req.headers.get('referer') || null;

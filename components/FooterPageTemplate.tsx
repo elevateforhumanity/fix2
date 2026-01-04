@@ -30,7 +30,7 @@ export default function FooterPageTemplate({
             sizes="100vw"
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 py-16">
           <div className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-wide text-orange-400 mb-4">

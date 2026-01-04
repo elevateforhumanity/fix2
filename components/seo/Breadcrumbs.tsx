@@ -12,12 +12,12 @@ interface BreadcrumbItem {
 
 export function Breadcrumbs() {
   const pathname = usePathname();
-  
+
   // Don't show on homepage
   if (pathname === '/') return null;
 
   const pathSegments = pathname.split('/').filter(Boolean);
-  
+
   const breadcrumbs: BreadcrumbItem[] = [
     { label: 'Home', href: '/' },
   ];
@@ -29,7 +29,7 @@ export function Breadcrumbs() {
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-    
+
     breadcrumbs.push({
       label,
       href: currentPath,
@@ -62,7 +62,7 @@ export function Breadcrumbs() {
           <ol className="flex items-center space-x-2 text-sm">
             {breadcrumbs.map((crumb, index) => {
               const isLast = index === breadcrumbs.length - 1;
-              
+
               return (
                 <li key={crumb.href} className="flex items-center">
                   {index > 0 && (

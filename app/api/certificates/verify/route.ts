@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyCertificate } from '@/lib/certificates/certificate-generator';
 import { logger } from '@/lib/logger';

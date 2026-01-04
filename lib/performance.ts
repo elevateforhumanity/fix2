@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Performance monitoring utilities
 export function measurePageLoad() {
   if (typeof window === 'undefined') return;
@@ -106,7 +105,6 @@ export function analyzeResourceTiming() {
   ) as PerformanceResourceTiming[];
   const slowResources = resources.filter((r) => r.duration > 1000);
   if (slowResources.length > 0 && process.env.NODE_ENV === 'development') {
-    console.log(
       'Slow resources:',
       slowResources.map((r) => ({
         name: r.name,

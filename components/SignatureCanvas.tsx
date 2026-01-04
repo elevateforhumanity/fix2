@@ -10,10 +10,10 @@ interface SignatureCanvasProps {
   height?: number;
 }
 
-export function SignatureCanvas({ 
-  onSignatureChange, 
-  width = 500, 
-  height = 200 
+export function SignatureCanvas({
+  onSignatureChange,
+  width = 500,
+  height = 200
 }: SignatureCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -29,7 +29,7 @@ export function SignatureCanvas({
     // Set canvas background to white
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     // Set drawing style
     ctx.strokeStyle = '#000000';
     ctx.lineWidth = 2;
@@ -74,9 +74,9 @@ export function SignatureCanvas({
 
   const stopDrawing = () => {
     if (!isDrawing) return;
-    
+
     setIsDrawing(false);
-    
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 

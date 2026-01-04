@@ -1,4 +1,3 @@
-// @ts-nocheck
 import Stripe from 'stripe';
 
 // Use a Content key during build if not set

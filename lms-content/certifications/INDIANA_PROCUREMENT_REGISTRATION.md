@@ -2,13 +2,13 @@
 
 ## 🏛️ Official State Registration
 
-**Company Name:** 2EXCLUSIVE LLC-S  
-**Bidder ID:** 0000067741  
+**Company Name:** 2EXCLUSIVE LLC-S
+**Bidder ID:** 0000067741
 **Status:** ✅ REGISTERED
 
-**Organization:** Elevate for Humanity Training Center  
-**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240  
-**Phone:** (317) 314-3757  
+**Organization:** Elevate for Humanity Training Center
+**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240
+**Phone:** (317) 314-3757
 **Website:** www.elevateforhumanity.org
 
 **Registered With:** Indiana Department of Administration, Procurement Division
@@ -36,8 +36,8 @@
 
 ### Entity Information:
 
-**Company Name:** 2EXCLUSIVE LLC-S  
-**Bidder ID:** 0000067741  
+**Company Name:** 2EXCLUSIVE LLC-S
+**Bidder ID:** 0000067741
 **Status:** ✅ REGISTERED
 
 **What is Bidder ID?**
@@ -154,7 +154,7 @@
 **Available Through ITAP (Indiana Transparency and Accountability Portal):**
 
 #### A. DBE (Disadvantaged Business Enterprise)
-**Managed By:** Indiana Department of Transportation (INDOT)  
+**Managed By:** Indiana Department of Transportation (INDOT)
 **Status:** ✅ ITAP ENROLLMENT APPROVED
 
 **Eligibility:**
@@ -181,7 +181,7 @@
 - Federal-aid highway projects
 
 #### B. ACDBE (Airport Concession Disadvantaged Business Enterprise)
-**Managed By:** Indiana Department of Transportation (INDOT)  
+**Managed By:** Indiana Department of Transportation (INDOT)
 **Status:** ✅ ITAP ENROLLMENT APPROVED
 
 **Eligibility:**

@@ -85,13 +85,13 @@ export function HelpText({ children }: { children: React.ReactNode }) {
 }
 
 // Help banner for important information
-export function HelpBanner({ 
-  title, 
-  children, 
-  type = 'info' 
-}: { 
-  title: string; 
-  children: React.ReactNode; 
+export function HelpBanner({
+  title,
+  children,
+  type = 'info'
+}: {
+  title: string;
+  children: React.ReactNode;
   type?: 'info' | 'warning' | 'success';
 }) {
   const styles = {

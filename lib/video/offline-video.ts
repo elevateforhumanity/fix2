@@ -58,7 +58,7 @@ export class OfflineVideoManager {
         blob,
         cachedAt: Date.now(),
       });
-      // 
+      //
       return true;
     } catch (error: unknown) {
       // Error: $1
@@ -101,7 +101,7 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       await db.deleteVideo(videoId);
-      // 
+      //
       return true;
     } catch (error: unknown) {
       // Error: $1
@@ -132,7 +132,7 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       // Would need to implement getAllVideos and delete each
-      // 
+      //
       return true;
     } catch (error: unknown) {
       // Error: $1

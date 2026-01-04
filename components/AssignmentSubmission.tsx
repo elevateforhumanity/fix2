@@ -41,7 +41,7 @@ export function AssignmentSubmission({
     if (!selectedFiles) return;
 
     const newFiles: UploadedFile[] = [];
-    
+
     Array.from(selectedFiles).forEach((file) => {
       // Validate file size
       if (file.size > maxFileSize * 1024 * 1024) {

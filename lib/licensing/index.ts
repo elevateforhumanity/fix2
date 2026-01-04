@@ -40,7 +40,7 @@ export interface Tenant {
 
 export async function getTenantLicense(tenantId: string): Promise<License | null> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('licenses')
     .select('*')
@@ -63,20 +63,20 @@ export async function isFeatureEnabled(tenantId: string, feature: keyof License[
 export async function isLicenseValid(tenantId: string): Promise<boolean> {
   const license = await getTenantLicense(tenantId);
   if (!license) return false;
-  
+
   if (license.status !== 'active') return false;
-  
+
   if (license.expires_at) {
     const expiresAt = new Date(license.expires_at);
     if (expiresAt < new Date()) return false;
   }
-  
+
   return true;
 }
 
 export async function getUserTenant(userId: string): Promise<Tenant | null> {
   const supabase = await createClient();
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('tenant_id')

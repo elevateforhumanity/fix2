@@ -5,7 +5,6 @@ export const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN || '';
 export const initSentry = () => {
   if (typeof window !== 'undefined' && SENTRY_DSN) {
     // Sentry will be initialized if DSN is provided
-    console.log('Sentry monitoring active');
   }
 };
 
@@ -24,7 +23,6 @@ export const captureMessage = (
   level: 'info' | 'warning' | 'error' = 'info'
 ) => {
   if (typeof window !== 'undefined') {
-    console.log(`[${level}]`, message);
     if (SENTRY_DSN && window.Sentry) {
       window.Sentry.captureMessage(message, level);
     }

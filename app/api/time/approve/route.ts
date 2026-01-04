@@ -135,7 +135,7 @@ export async function POST(req: Request) {
         ? 'REJECTED'
         : 'LOCKED';
 
-  const patch: Record<string, any> = {
+  const patch: Record<string, unknown> = {
     status: nextStatus,
     approved_by: user.id,
     approved_at: new Date().toISOString(),

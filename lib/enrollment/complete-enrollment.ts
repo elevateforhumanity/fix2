@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 
@@ -26,7 +25,7 @@ export interface EnrollmentResult {
  */
 export async function completeEnrollment(data: EnrollmentData): Promise<EnrollmentResult> {
   const supabase = await createClient();
-  
+
   try {
     // Step 1: Verify user exists and is active
     const { data: user, error: userError } = await supabase
@@ -162,7 +161,7 @@ async function sendEnrollmentEmail(email: string, courseTitle: string, enrollmen
  */
 export async function verifyCourseAccess(userId: string, courseId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { data: enrollment } = await supabase
     .from('enrollments')
     .select('status, end_date')

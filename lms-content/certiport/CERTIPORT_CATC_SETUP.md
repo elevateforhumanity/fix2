@@ -19,9 +19,9 @@ You can now offer industry-recognized certification exams including:
 
 ## 📋 Registration Complete
 
-**Status:** ✅ Registered as Certiport CATC  
-**Contact Email:** elizabethpowell6262@gmail.com  
-**Organization:** Elevate for Humanity Career and Technical Institute  
+**Status:** ✅ Registered as Certiport CATC
+**Contact Email:** elizabethpowell6262@gmail.com
+**Organization:** Elevate for Humanity Career and Technical Institute
 **Address:** 7009 E 56th St Ste F, Indianapolis, IN 46226
 
 **Contract:** Attached to welcome email (save for records)
@@ -31,7 +31,7 @@ You can now offer industry-recognized certification exams including:
 ## 🚀 Next Steps to Activate Your Testing Center
 
 ### Step 1: Contact Your Sales Consultant
-**Call:** 1-888-222-7890  
+**Call:** 1-888-222-7890
 **Or:** Find local provider at www.certiport.com
 
 **What to discuss:**
@@ -42,7 +42,7 @@ You can now offer industry-recognized certification exams including:
 - Marketing support
 
 ### Step 2: Complete Technical Setup
-**Support:** 1-888-999-9830, Option 2  
+**Support:** 1-888-999-9830, Option 2
 **Email:** customerservices@certiport.com
 
 **Requirements:**
@@ -53,7 +53,7 @@ You can now offer industry-recognized certification exams including:
 - Secure testing environment
 
 ### Step 3: Order Free Program Kit
-**Website:** www.certiport.com  
+**Website:** www.certiport.com
 **Includes:**
 - Marketing materials
 - Posters and brochures
@@ -502,7 +502,7 @@ CEO, Elevate for Humanity Career & Training Institute
 
 Earn industry-recognized certifications:
 • Microsoft Office Specialist
-• IC3 Digital Literacy  
+• IC3 Digital Literacy
 • Adobe Certified Professional
 • And more!
 
@@ -569,7 +569,7 @@ Ready to start your career? Join Elevate for Humanity!
 
 ### Certiport Portal
 
-**Access:** www.certiport.com  
+**Access:** www.certiport.com
 **Login:** Organization Administrator role
 
 **Features:**

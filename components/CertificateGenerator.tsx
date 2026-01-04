@@ -16,11 +16,11 @@ export default function CertificateGenerator({
 }: CertificateGeneratorProps = {}) {
   const handleDownload = () => {
     // Generate PDF certificate
-    // 
+    //
   };
   const handleShare = () => {
     // Share to LinkedIn, etc.
-    // 
+    //
   };
   return (
     <div className="space-y-6">

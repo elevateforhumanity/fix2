@@ -42,7 +42,7 @@ export function saveCart(cart: Cart): void {
 
   try {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-    
+
     // Dispatch custom event for cart updates
     window.dispatchEvent(new CustomEvent('cartUpdated', { detail: cart }));
   } catch (error: unknown) {
@@ -65,10 +65,10 @@ export function calculateCart(items: CartItem[]): Cart {
 // Add item to cart
 export function addToCart(product: StoreProduct, quantity: number = 1): Cart {
   const cart = getCart();
-  
+
   // Check if product already in cart
   const existingIndex = cart.items.findIndex(item => item.product.id === product.id);
-  
+
   if (existingIndex >= 0) {
     // Update quantity
     cart.items[existingIndex].quantity += quantity;
@@ -86,7 +86,7 @@ export function addToCart(product: StoreProduct, quantity: number = 1): Cart {
 export function removeFromCart(productId: string): Cart {
   const cart = getCart();
   cart.items = cart.items.filter(item => item.product.id !== productId);
-  
+
   const updatedCart = calculateCart(cart.items);
   saveCart(updatedCart);
   return updatedCart;
@@ -95,7 +95,7 @@ export function removeFromCart(productId: string): Cart {
 // Update item quantity
 export function updateQuantity(productId: string, quantity: number): Cart {
   const cart = getCart();
-  
+
   if (quantity <= 0) {
     return removeFromCart(productId);
   }

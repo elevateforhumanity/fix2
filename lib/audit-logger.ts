@@ -31,7 +31,7 @@ export interface AuditLogEntry {
   resource_type?: string;
   resource_id?: string;
   action: string;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
   ip_address?: string;
   user_agent?: string;
   success: boolean;
@@ -48,7 +48,6 @@ export async function logAuditEvent(entry: AuditLogEntry): Promise<void> {
       process.env.NODE_ENV === 'development' &&
       !process.env.ENABLE_AUDIT_LOGGING
     ) {
-      console.log('📋 Audit Log (dev):', entry);
       return;
     }
 
@@ -131,7 +130,7 @@ export async function logAdminAction(
   action: string,
   resourceType?: string,
   resourceId?: string,
-  details?: Record<string, any>
+  details?: Record<string, unknown>
 ): Promise<void> {
   await logAuditEvent({
     event_type: 'admin.action',
@@ -193,7 +192,7 @@ export async function logLicenseChange(
   adminEmail: string,
   tenantId: string,
   action: string,
-  details: Record<string, any>
+  details: Record<string, unknown>
 ): Promise<void> {
   await logAuditEvent({
     event_type: 'license.change',
@@ -254,7 +253,7 @@ export async function logSuspiciousActivity(
   userId: string | undefined,
   email: string | undefined,
   activity: string,
-  details: Record<string, any>
+  details: Record<string, unknown>
 ): Promise<void> {
   await logAuditEvent({
     event_type: 'security.suspicious_activity',

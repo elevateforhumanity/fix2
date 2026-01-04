@@ -29,7 +29,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
       const data = JSON.parse(savedData);
       setTotalHours(data.totalHours || 0);
       setRecentSessions(data.recentSessions || []);
-      
+
       // Check if there's an active session
       if (data.currentSessionStart) {
         setIsClockedIn(true);
@@ -41,7 +41,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
   // Timer effect
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    
+
     if (isClockedIn && currentSessionStart) {
       interval = setInterval(() => {
         const now = new Date();
@@ -242,7 +242,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
       {/* Footer Note */}
       <div className="bg-slate-50 px-6 py-4 border-t border-slate-200">
         <p className="text-xs text-slate-600 text-center">
-          💡 <strong>Tip:</strong> Clock in when you start training and clock out when you finish. 
+          💡 <strong>Tip:</strong> Clock in when you start training and clock out when you finish.
           Your hours are automatically saved and synced with your instructor.
         </p>
       </div>

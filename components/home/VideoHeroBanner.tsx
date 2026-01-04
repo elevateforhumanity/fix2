@@ -57,7 +57,6 @@ export default function VideoHeroBanner({
       audioRef.current.muted = false;
       audioRef.current.volume = 1.0;
       audioRef.current.play().catch(() => {
-        console.log('Voiceover autoplay blocked, waiting for user interaction');
       });
     }
 

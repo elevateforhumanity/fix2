@@ -16,7 +16,7 @@ function getOpenAIClient() {
 
 export async function buildCourse({ title, objectives }: { title: string; objectives: string[] }) {
   const client = getOpenAIClient();
-  
+
   const prompt = `
 Create a full course with modules and lessons.
 

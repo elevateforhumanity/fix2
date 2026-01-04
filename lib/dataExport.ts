@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -16,7 +15,7 @@ export interface ExportColumn {
 export interface ExportOptions {
   filename?: string;
   columns?: ExportColumn[];
-  filters?: Record<string, any>;
+  filters?: Record<string, unknown>;
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
   limit?: number;
@@ -26,7 +25,7 @@ export interface ExportOptions {
  * Convert data to CSV format
  */
 export function convertToCSV(
-  data: any[],
+  data: unknown[],
   columns?: ExportColumn[]
 ): string {
   if (data.length === 0) return '';
@@ -110,7 +109,7 @@ export interface PDFExportOptions {
  * Export data to PDF
  */
 export function exportToPDF(
-  data: any[],
+  data: unknown[],
   options: PDFExportOptions = {}
 ): jsPDF {
   const {
@@ -567,7 +566,7 @@ export const EXPORT_TEMPLATES = {
 export interface BatchExportOptions {
   format: 'csv' | 'pdf';
   tables: string[];
-  filters?: Record<string, Record<string, any>>;
+  filters?: Record<string, Record<string, unknown>>;
 }
 
 /**
@@ -575,8 +574,8 @@ export interface BatchExportOptions {
  */
 export async function batchExport(
   options: BatchExportOptions
-): Promise<Record<string, any>> {
-  const results: Record<string, any> = {};
+): Promise<Record<string, unknown>> {
+  const results: Record<string, unknown> = {};
 
   for (const table of options.tables) {
     const filters = options.filters?.[table] || {};

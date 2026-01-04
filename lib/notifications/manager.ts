@@ -59,7 +59,7 @@ export class NotificationManager {
           userVisibleOnly: true,
           applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey),
         });
-        // 
+        //
         // Send subscription to server
         await this.sendSubscriptionToServer(subscription);
       }
@@ -79,7 +79,7 @@ export class NotificationManager {
       if (subscription) {
         await subscription.unsubscribe();
         await this.removeSubscriptionFromServer(subscription);
-        // 
+        //
         return true;
       }
       return false;

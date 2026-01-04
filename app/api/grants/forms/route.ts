@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 /**
  * Federal Forms API
  * Generate pre-filled federal grant forms

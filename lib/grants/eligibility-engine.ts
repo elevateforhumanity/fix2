@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Grant Eligibility Engine
  * Validates entity eligibility for federal grants using SAM.gov data

@@ -21,7 +21,7 @@ export function OptimizedImage({ src, alt, ...props }: OptimizedImageProps) {
     const filename = parts[parts.length - 1];
     const name = filename.replace(/\.(jpg|jpeg|png)$/i, '');
     const dir = parts.slice(0, -1).join('/');
-    
+
     return { dir, name };
   };
 
@@ -39,20 +39,20 @@ export function OptimizedImage({ src, alt, ...props }: OptimizedImageProps) {
         type="image/webp"
         srcSet={`${dir}/webp/${name}.webp`}
       />
-      
+
       {/* HD JPEG for retina displays */}
       <source
         type="image/jpeg"
         srcSet={`${dir}/${name}-hd.jpg`}
         media="(min-resolution: 2dppx)"
       />
-      
+
       {/* Standard JPEG for regular displays */}
       <source
         type="image/jpeg"
         srcSet={`${dir}/${name}.jpg`}
       />
-      
+
       {/* Fallback to Next.js Image component */}
       <Image
         src={src}

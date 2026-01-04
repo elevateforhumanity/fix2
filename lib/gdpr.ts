@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function exportUserData(userId: string) {
   const supabase = await createClient();
-  
+
   try {
     // Collect all user data from various tables
     const [profile, enrollments, certificates, assignments, grades, notes, messages] = await Promise.all([
@@ -98,7 +98,7 @@ export async function anonymizeUserData(userId: string) {
   try {
     // Anonymize personal data while keeping records for analytics
     const anonymousId = `anonymous_${Date.now()}`;
-    
+
     await Promise.all([
       supabase.from('profiles').update({
         full_name: 'Anonymous User',
@@ -107,11 +107,11 @@ export async function anonymizeUserData(userId: string) {
         address: null,
         date_of_birth: null,
       }).eq('id', userId),
-      
+
       supabase.from('messages').update({
         content: '[Message content removed]',
       }).or(`sender_id.eq.${userId},recipient_id.eq.${userId}`),
-      
+
       supabase.from('notes').update({
         content: '[Note content removed]',
       }).eq('user_id', userId),
@@ -137,7 +137,7 @@ export async function anonymizeUserData(userId: string) {
 
 export async function requestDataPortability(userId: string, format: 'json' | 'csv' = 'json') {
   const result = await exportUserData(userId);
-  
+
   if (!result.success) {
     return result;
   }
@@ -162,7 +162,7 @@ export async function requestDataPortability(userId: string, format: 'json' | 'c
 
 export async function getGDPRRequests(userId?: string) {
   const supabase = await createClient();
-  
+
   let query = supabase
     .from('gdpr_requests')
     .select('*')

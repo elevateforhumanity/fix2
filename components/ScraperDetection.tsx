@@ -72,8 +72,8 @@ export function ScraperDetection() {
       if (alerted.current) return;
       const timeOnPage = Date.now() - startTime.current;
       // If no mouse movement, scrolling, or clicks = likely bot
-      if (mouseMovements.current === 0 && 
-          scrollEvents.current === 0 && 
+      if (mouseMovements.current === 0 &&
+          scrollEvents.current === 0 &&
           clickEvents.current === 0 &&
           timeOnPage > 5000) {
         alerted.current = true;

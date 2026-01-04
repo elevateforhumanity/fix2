@@ -60,7 +60,7 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
   const [sortBy, setSortBy] = useState<'recent' | 'helpful'>('recent');
 
   const averageRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
-  const ratingCounts = [5, 4, 3, 2, 1].map(rating => 
+  const ratingCounts = [5, 4, 3, 2, 1].map(rating =>
     reviews.filter(r => r.rating === rating).length
   );
 

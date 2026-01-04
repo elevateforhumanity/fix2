@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { toError, toErrorMessage } from '@/lib/safe';

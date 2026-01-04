@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import OpenAI from 'openai';
@@ -118,7 +117,6 @@ export async function POST(req: Request) {
         {
           role: 'system',
           content:
-            // @ts-expect-error TS2339: Property 'system_prompt' does not exist on type '{ system_prompt: unknown; name: ...
             assignment.ai_instructors.system_prompt ||
             'You are a helpful instructor.',
         },

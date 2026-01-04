@@ -290,7 +290,7 @@ export async function getClinicalProgress(placement_id: string): Promise<Clinica
     .from('skills_checklist')
     .select('*')
     .eq('placement_id', placement_id);
-  const skills_completed = skills?.filter(s => 
+  const skills_completed = skills?.filter(s =>
     s.proficiency_level === 'performed_independently'
   ).length || 0;
   // Get required skills from program
@@ -300,8 +300,8 @@ export async function getClinicalProgress(placement_id: string): Promise<Clinica
     .eq('id', placement.program_id)
     .single();
   const skills_required = program?.required_skills?.length || 0;
-  const skills_completion_percentage = skills_required > 0 
-    ? (skills_completed / skills_required) * 100 
+  const skills_completion_percentage = skills_required > 0
+    ? (skills_completed / skills_required) * 100
     : 0;
   // Determine status
   let status: 'on_track' | 'behind' | 'ahead' | 'completed' = 'on_track';
@@ -430,7 +430,7 @@ export async function generateClinicalReport(program_id: string): Promise<any> {
  */
 async function checkClinicalCompletion(placement_id: string): Promise<void> {
   const progress = await getClinicalProgress(placement_id);
-  if (progress.hours_verified >= progress.hours_required && 
+  if (progress.hours_verified >= progress.hours_required &&
       progress.skills_completion_percentage >= 100) {
     await completeClinicalPlacement(placement_id, new Date().toISOString().split('T')[0]);
   }

@@ -20,7 +20,7 @@ export function FeatureGate({ feature, fallback, children }: FeatureGateProps) {
 
   async function checkFeature() {
     const supabase = createClient();
-    
+
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       setLoading(false);
@@ -50,7 +50,7 @@ export function FeatureGate({ feature, fallback, children }: FeatureGateProps) {
     if (license?.features?.[feature]) {
       setEnabled(true);
     }
-    
+
     setLoading(false);
   }
 

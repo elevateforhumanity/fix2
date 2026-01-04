@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import * as crypto from 'node:crypto';
 
@@ -6,7 +5,7 @@ import * as crypto from 'node:crypto';
 // WEBHOOK TYPES
 // =====================================================
 
-export type WebhookEvent = 
+export type WebhookEvent =
   | 'user.created'
   | 'user.updated'
   | 'user.deleted'

@@ -10,7 +10,7 @@ export async function approveTransferHours(
 ) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     throw new Error('Unauthorized');
   }
@@ -20,7 +20,7 @@ export async function approveTransferHours(
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     throw new Error('Unauthorized');
   }
@@ -47,7 +47,7 @@ export async function approveTransferHours(
 export async function denyTransferHours(requestId: string, notes?: string) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     throw new Error('Unauthorized');
   }
@@ -57,7 +57,7 @@ export async function denyTransferHours(requestId: string, notes?: string) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     throw new Error('Unauthorized');
   }

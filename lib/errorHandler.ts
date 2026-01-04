@@ -47,7 +47,7 @@ export function handleError(error: unknown): { message: string; statusCode: numb
   if (error instanceof Error) {
     // Log unexpected errors
     // Error: $1
-    
+
     // Track in analytics
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'exception', {
@@ -57,8 +57,8 @@ export function handleError(error: unknown): { message: string; statusCode: numb
     }
 
     return {
-      message: process.env.NODE_ENV === 'development' 
-        ? error.message 
+      message: process.env.NODE_ENV === 'development'
+        ? error.message
         : 'An unexpected error occurred',
       statusCode: 500,
     };
@@ -83,9 +83,9 @@ export async function withErrorHandling<T>(
   }
 }
 
-export function logError(error: unknown, context?: Record<string, any>) {
+export function logError(error: unknown, context?: Record<string, unknown>) {
   // Error logged
-  
+
   // Send to error tracking service (e.g., Sentry)
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'exception', {

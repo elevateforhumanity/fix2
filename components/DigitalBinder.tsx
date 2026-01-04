@@ -28,7 +28,7 @@ interface DigitalBinderProps {
   programName?: string;
 }
 
-export default function DigitalBinder({ 
+export default function DigitalBinder({
   studentId = 'student-123',
   studentName = 'Student Name',
   programName = 'Program Name'
@@ -236,7 +236,7 @@ export default function DigitalBinder({
         <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Case Notes & Progress Updates</h3>
-            
+
             {/* Add Note Form */}
             <Card className="p-4 mb-4 bg-blue-50 border-blue-200">
               <textarea
@@ -294,8 +294,8 @@ export default function DigitalBinder({
                 {trackingData.hoursCompleted} / {trackingData.hoursRequired}
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-blue-600 h-2 rounded-full" 
+                <div
+                  className="bg-blue-600 h-2 rounded-full"
                   style={{ width: `${(trackingData.hoursCompleted / trackingData.hoursRequired) * 100}%` }}
                 />
               </div>
@@ -307,8 +307,8 @@ export default function DigitalBinder({
                 {trackingData.attendanceRate}%
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-green-600 h-2 rounded-full" 
+                <div
+                  className="bg-green-600 h-2 rounded-full"
                   style={{ width: `${trackingData.attendanceRate}%` }}
                 />
               </div>
@@ -320,8 +320,8 @@ export default function DigitalBinder({
                 {trackingData.currentGrade}%
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-purple-600 h-2 rounded-full" 
+                <div
+                  className="bg-purple-600 h-2 rounded-full"
                   style={{ width: `${trackingData.currentGrade}%` }}
                 />
               </div>
@@ -337,8 +337,8 @@ export default function DigitalBinder({
               </span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
-              <div 
-                className="bg-indigo-600 h-3 rounded-full" 
+              <div
+                className="bg-indigo-600 h-3 rounded-full"
                 style={{ width: `${(trackingData.assignmentsCompleted / trackingData.assignmentsTotal) * 100}%` }}
               />
             </div>

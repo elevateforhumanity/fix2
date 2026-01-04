@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
@@ -9,14 +8,14 @@ import { logger } from '@/lib/logger';
 export async function GET() {
   try {
     const supabase = await createClient();
-    
+
     // Get recent enrollments
     const { data: enrollments } = await supabase
       .from('enrollments')
       .select('*, profiles(full_name), programs(name)')
       .order('enrolled_at', { ascending: false })
       .limit(5);
-    
+
     // Get recent completions
     const { data: completions } = await supabase
       .from('enrollments')
@@ -24,7 +23,7 @@ export async function GET() {
       .eq('status', 'completed')
       .order('completion_date', { ascending: false })
       .limit(5);
-    
+
     // Get recent placements
     const { data: placements } = await supabase
       .from('employment_outcomes')
@@ -32,10 +31,10 @@ export async function GET() {
       .eq('employed_at_exit', true)
       .order('exit_date', { ascending: false })
       .limit(5);
-    
+
     // Combine and format activities
     const activities = [];
-    
+
     enrollments?.forEach(e => {
       activities.push({
         id: `enroll-${e.id}`,
@@ -45,7 +44,7 @@ export async function GET() {
         priority: 'low'
       });
     });
-    
+
     completions?.forEach(c => {
       activities.push({
         id: `complete-${c.id}`,
@@ -55,7 +54,7 @@ export async function GET() {
         priority: 'medium'
       });
     });
-    
+
     placements?.forEach(p => {
       activities.push({
         id: `placement-${p.id}`,
@@ -65,10 +64,10 @@ export async function GET() {
         priority: 'high'
       });
     });
-    
+
     // Sort by timestamp
     activities.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
-    
+
     return NextResponse.json(activities.slice(0, 20));
   } catch (error: unknown) {
     logger.error('Error fetching recent activity:', error);

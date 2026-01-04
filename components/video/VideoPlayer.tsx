@@ -48,7 +48,7 @@ export default function VideoPlayer({
     const interval = setInterval(() => {
       if (videoRef.current && isPlaying) {
         const progress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
-        
+
         // Save progress to database
         if (onProgress) {
           onProgress(progress);
@@ -76,7 +76,7 @@ export default function VideoPlayer({
   const handleTimeUpdate = () => {
     if (videoRef.current) {
       setCurrentTime(videoRef.current.currentTime);
-      
+
       // Check for completion (watched 95% or more)
       const progress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
       if (progress >= 95 && !hasCompleted) {
@@ -177,7 +177,7 @@ export default function VideoPlayer({
   }, [isPlaying, volume]);
 
   return (
-    <div 
+    <div
       className="relative bg-black rounded-lg overflow-hidden group"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
@@ -195,7 +195,7 @@ export default function VideoPlayer({
       />
 
       {/* Custom Controls */}
-      <div 
+      <div
         className={`absolute bottom-0 left-0 right-0    p-4 transition-opacity duration-300 ${
           showControls ? 'opacity-100' : 'opacity-0'
         }`}

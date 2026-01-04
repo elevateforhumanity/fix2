@@ -7,13 +7,13 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 /**
  * Self-Hosted Analytics - 100% Free
- * 
+ *
  * Tracks:
  * - Page views
  * - User sessions
  * - Performance metrics (Web Vitals)
  * - Custom events
- * 
+ *
  * Data stored in Supabase (no external costs)
  */
 function SelfHostedAnalyticsContent() {
@@ -90,7 +90,7 @@ function SelfHostedAnalyticsContent() {
  *        trackEvent('button_click', { button_name: 'signup' });
  */
 export function useAnalytics() {
-  return async (eventName: string, properties?: Record<string, any>) => {
+  return async (eventName: string, properties?: Record<string, unknown>) => {
     try {
       await fetch('/api/analytics/track', {
         method: 'POST',

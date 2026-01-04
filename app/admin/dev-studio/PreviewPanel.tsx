@@ -20,7 +20,7 @@ export default function PreviewPanel({ repo, branch, path }: PreviewPanelProps) 
 
   // Build preview URL
   let previewUrl = `/api/preview/render?repo=${encodeURIComponent(repo)}&ref=${encodeURIComponent(branch)}`;
-  
+
   if (path) {
     previewUrl += `&path=${encodeURIComponent(path)}`;
   }

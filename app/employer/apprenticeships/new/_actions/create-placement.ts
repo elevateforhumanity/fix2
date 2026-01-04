@@ -5,32 +5,32 @@ import { redirect } from 'next/navigation';
 
 export async function createPlacement(formData: FormData) {
   const supabase = await createClient();
-  
+
   // Get authenticated user
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
-  
+
   // Verify employer role
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-    
+
   if (profile?.role !== 'employer') {
     redirect('/unauthorized');
   }
-  
+
   // Extract form data
   const shop_id = formData.get('shop_id') as string;
   const student_email = formData.get('student_email') as string;
   const program_slug = formData.get('program_slug') as string;
   const start_date = formData.get('start_date') as string;
   const end_date = formData.get('end_date') as string;
-  
+
   // Verify employer has access to this shop
   const { data: shopAccess } = await supabase
     .from('shop_staff')
@@ -38,11 +38,11 @@ export async function createPlacement(formData: FormData) {
     .eq('user_id', user.id)
     .eq('shop_id', shop_id)
     .single();
-    
+
   if (!shopAccess) {
     throw new Error('You do not have access to this shop');
   }
-  
+
   // Look up student by email
   const { data: student } = await supabase
     .from('profiles')
@@ -50,11 +50,11 @@ export async function createPlacement(formData: FormData) {
     .eq('email', student_email)
     .eq('role', 'student')
     .single();
-    
+
   if (!student) {
     throw new Error('Student not found with that email');
   }
-  
+
   // Create apprentice placement
   const { data: placement, error: placementError } = await supabase
     .from('apprentice_placements')
@@ -69,12 +69,12 @@ export async function createPlacement(formData: FormData) {
     })
     .select()
     .single();
-    
+
   if (placementError || !placement) {
     console.error('Failed to create placement:', placementError);
     throw new Error('Failed to create placement');
   }
-  
+
   // Redirect to employer dashboard
   redirect('/employer/dashboard');
 }

@@ -25,7 +25,7 @@ function CheckoutForm({ courseId, courseName, price, userId, onSuccess }: Checko
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!stripe || !elements) return;
 
     setLoading(true);
@@ -125,7 +125,7 @@ function CheckoutForm({ courseId, courseName, price, userId, onSuccess }: Checko
       {step === 1 && (
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-6">Review Your Order</h2>
-          
+
           <div className="border-b pb-4 mb-4">
             <div className="flex justify-between items-start mb-2">
               <div>
@@ -264,7 +264,7 @@ fill="#0066B2"/>
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
           </div>
-          
+
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
             Enrollment Complete!
           </h2>

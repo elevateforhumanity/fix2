@@ -9,12 +9,12 @@ import { logSecurityEvent, blacklistIP } from '@/lib/security-monitor';
  * Any access to this endpoint indicates a bot or scraper
  */
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
              req.headers.get('x-real-ip') ||
              'unknown';
-  
+
   const userAgent = req.headers.get('user-agent') || 'unknown';
-  
+
   // Log the bot detection
   await logSecurityEvent({
     type: 'bot_detected',
@@ -28,10 +28,10 @@ export async function GET(req: NextRequest) {
     },
     timestamp: new Date(),
   });
-  
+
   // Blacklist the IP
   await blacklistIP(ip, 'Accessed honeypot endpoint');
-  
+
   // Return fake data to waste bot's time
   const fakeData = Array(1000).fill(null).map((_, i) => ({
     id: `fake-${i}`,
@@ -43,10 +43,10 @@ export async function GET(req: NextRequest) {
     rating: Math.random() * 5,
     url: `/fake/course/${i}`,
   }));
-  
+
   // Add delay to waste bot's time
   await new Promise(resolve => setTimeout(resolve, 5000));
-  
+
   return NextResponse.json({
     success: true,
     data: fakeData,

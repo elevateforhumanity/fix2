@@ -35,12 +35,12 @@ export interface AuditLogParams {
   before?: any;
   after?: any;
   req?: Request;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 /**
  * Immutable audit logging for compliance and oversight
- * 
+ *
  * Usage:
  * await auditLog({
  *   actor_user_id: user.id,

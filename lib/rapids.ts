@@ -1,4 +1,3 @@
-// @ts-nocheck
 export const RAPIDS_STATUSES = [
   'pending',
   'registered',

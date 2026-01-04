@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Yjs Collaborative Editing Provider
  * Enables real-time collaboration for documents, notes, and course content
@@ -91,7 +90,7 @@ export class CollaborationProvider {
   /**
    * Update local user state (cursor position, selection, etc.)
    */
-  updateLocalState(state: Record<string, any>) {
+  updateLocalState(state: Record<string, unknown>) {
     Object.entries(state).forEach(([key, value]) => {
       this.awareness.setLocalStateField(key, value);
     });

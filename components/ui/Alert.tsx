@@ -40,10 +40,10 @@ export function Alert({ type, title, message, dismissible, onDismiss }: AlertPro
       iconColor: 'text-red-600',
     },
   };
-  
+
   const config = types[type];
   const Icon = config.icon;
-  
+
   return (
     <div className={`rounded-lg border-l-4 p-4 ${config.bg} ${config.border}`}>
       <div className="flex items-start gap-3">

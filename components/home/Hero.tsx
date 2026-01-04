@@ -31,7 +31,7 @@ export function Hero() {
           <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
             Welcome to Elevate For Humanity — where adult learners, returning citizens, and working families can build real careers with real support. Our programs are <strong>fully funded through WIOA, WRG, JRI, employer partnerships, apprenticeships, OJT and WEX</strong> — so you can train with no out-of-pocket cost.
           </p>
-          
+
           <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
             Choose from high-demand pathways in <strong>healthcare, HVAC, CDL, business, esthetics, barbering, reentry careers, workforce readiness, and more</strong>. Learn hands-on in real shops, labs, clinics and workplaces, guided by instructors and employer partners who actually hire.
           </p>
@@ -115,9 +115,9 @@ export function Hero() {
               </div>
               <p className="text-sm text-slate-600 mb-3">
                 <strong>Option 1:</strong> Visit{" "}
-                <a 
-                  href="https://www.indianacareerconnect.com" 
-                  target="_blank" 
+                <a
+                  href="https://www.indianacareerconnect.com"
+                  target="_blank"
                   rel="noreferrer"
                   className="text-brand-orange-600 underline hover:text-red-700 font-semibold"
                 >

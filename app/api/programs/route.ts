@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { COMPLETE_PROGRAMS } from '@/lib/programs-data-complete';
 import { logger } from '@/lib/logger';

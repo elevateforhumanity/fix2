@@ -17,9 +17,9 @@ export function PayNowButton({ programName, programSlug, price, className, child
 
   const handleClick = async (e: React.MouseEvent) => {
     e.preventDefault();
-    
+
     if (isProcessing) return;
-    
+
     setIsProcessing(true);
 
     try {

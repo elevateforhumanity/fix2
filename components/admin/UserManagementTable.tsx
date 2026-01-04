@@ -28,10 +28,10 @@ export default function UserManagementTable({ users }: Props) {
 
   // Filter users
   const filteredUsers = users.filter(user => {
-    const matchesSearch = 
+    const matchesSearch =
       user.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.full_name?.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     const matchesRole = roleFilter === 'all' || user.role === roleFilter;
     const matchesStatus = statusFilter === 'all' || user.status === statusFilter;
 
@@ -61,7 +61,7 @@ export default function UserManagementTable({ users }: Props) {
 
   const handleStatusToggle = async (userId: string, currentStatus: string) => {
     const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
-    
+
     try {
       const response = await fetch('/api/admin/users/update-status', {
         method: 'POST',

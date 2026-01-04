@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
@@ -144,7 +143,7 @@ export async function PATCH(req: Request) {
     program_start_date: true,
   };
 
-  const update: Record<string, any> = {};
+  const update: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(body || {})) {
     if (allowed[k]) update[k] = v;
   }
@@ -176,28 +175,28 @@ export async function PATCH(req: Request) {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #000;">Student Checklist Update</h2>
-            
+
             <div style="background: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
               <p style="margin: 5px 0;"><strong>Student:</strong> ${userEmail}</p>
               <p style="margin: 5px 0;"><strong>Program:</strong> ${data.program_code || 'Not selected'}</p>
               <p style="margin: 5px 0;"><strong>Progress:</strong> ${progress.done}/${progress.total} steps complete (${progress.percent}%)</p>
             </div>
-            
+
             <h3 style="color: #000;">Updated Fields:</h3>
             <ul style="line-height: 1.8;">
               ${Object.keys(update)
                 .map((key) => {
                   const value = update[key];
-                  const displayValue = typeof value === 'boolean' 
+                  const displayValue = typeof value === 'boolean'
                     ? (value ? '✅ Yes' : '❌ No')
                     : value || '(empty)';
                   return `<li><strong>${key.replace(/_/g, ' ')}:</strong> ${displayValue}</li>`;
                 })
                 .join('')}
             </ul>
-            
+
             <div style="margin-top: 30px; padding: 15px; background: #000; border-radius: 8px;">
-              <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/next-steps" 
+              <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/next-steps"
                  style="color: #fff; text-decoration: none; font-weight: bold;">
                 📋 View All Student Checklists →
               </a>

@@ -54,7 +54,7 @@ export function generateBuyerDeliveryEmail(data: BuyerDeliveryEmailData): {
             <div class="content">
               <p>Hi there,</p>
               <p>Your purchase of <strong>${data.productTitle}</strong> by ${data.creatorName} is complete!</p>
-              
+
               <div style="text-align: center;">
                 <a href="${downloadUrl}" class="button">Download Your Product</a>
               </div>

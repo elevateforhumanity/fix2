@@ -23,7 +23,7 @@ export function AccessibleLayout({ children, pageTitle }: AccessibleLayoutProps)
       >
         Skip to main content
       </a>
-      
+
       <main id="main-content" role="main" tabIndex={-1} className="flex-1">
         {children}
       </main>

@@ -36,7 +36,7 @@ export interface RiskStatus {
  */
 export async function getStudentRequirements(enrollmentId: string): Promise<StudentRequirement[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('student_requirements')
     .select('*')
@@ -57,7 +57,7 @@ export async function getStudentRequirements(enrollmentId: string): Promise<Stud
  */
 export async function getStudentRiskStatus(enrollmentId: string): Promise<RiskStatus | null> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('student_risk_status')
     .select('*')
@@ -81,7 +81,7 @@ export async function updateRequirementStatus(
   evidenceUrl?: string
 ): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const updateData: any = {
     status,
     updated_at: new Date().toISOString()
@@ -114,7 +114,7 @@ export async function verifyRequirement(
   rejectionReason?: string
 ): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const updateData: any = {
     status: approved ? 'verified' : 'rejected',
     verified_by: verifiedBy,
@@ -161,7 +161,7 @@ export async function createRequirement(
   priority: string = 'normal'
 ): Promise<string | null> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('student_requirements')
     .insert({
@@ -189,7 +189,7 @@ export async function createRequirement(
  */
 export async function getOverdueRequirements(enrollmentId: string): Promise<StudentRequirement[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('student_requirements')
     .select('*')
@@ -211,7 +211,7 @@ export async function getOverdueRequirements(enrollmentId: string): Promise<Stud
  */
 export async function getPendingVerifications(programIds: string[]): Promise<StudentRequirement[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('student_requirements')
     .select(`
@@ -242,7 +242,7 @@ export async function getPendingVerifications(programIds: string[]): Promise<Stu
  */
 export async function recalculateRiskStatus(enrollmentId: string): Promise<void> {
   const supabase = await createClient();
-  
+
   // Call the database function
   await supabase.rpc('calculate_student_risk_status', {
     p_enrollment_id: enrollmentId

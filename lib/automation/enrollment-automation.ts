@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Advanced Enrollment Automation
  * Automates enrollment workflows and notifications
@@ -19,7 +18,7 @@ export interface EnrollmentAutomation {
  */
 export async function sendWelcomeSequence(enrollmentId: string) {
   const supabase = createAdminClient();
-  
+
   const { data: enrollment } = await supabase
     .from('enrollments')
     .select(`
@@ -31,14 +30,14 @@ export async function sendWelcomeSequence(enrollmentId: string) {
     `)
     .eq('id', enrollmentId)
     .single();
-  
+
   if (!enrollment) return { success: false, error: 'Enrollment not found' };
-  
+
   const profile = enrollment.profiles as unknown;
   const program = enrollment.programs as unknown;
-  
+
   // Day 0: Welcome email (already sent by webhook)
-  
+
   // Day 1: Getting started guide
   setTimeout(async () => {
     await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
@@ -55,7 +54,7 @@ export async function sendWelcomeSequence(enrollmentId: string) {
       }),
     });
   }, 24 * 60 * 60 * 1000); // 1 day
-  
+
   // Day 3: Check-in email
   setTimeout(async () => {
     await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
@@ -72,7 +71,7 @@ export async function sendWelcomeSequence(enrollmentId: string) {
       }),
     });
   }, 3 * 24 * 60 * 60 * 1000); // 3 days
-  
+
   return { success: true };
 }
 
@@ -81,10 +80,10 @@ export async function sendWelcomeSequence(enrollmentId: string) {
  */
 export async function sendInactivityReminders() {
   const supabase = createAdminClient();
-  
+
   // Find students who haven't been active in 7 days
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
-  
+
   const { data: inactiveStudents } = await supabase
     .from('lms_progress')
     .select(`
@@ -97,17 +96,17 @@ export async function sendInactivityReminders() {
     `)
     .lt('last_activity_at', sevenDaysAgo)
     .eq('status', 'in_progress');
-  
+
   if (!inactiveStudents || inactiveStudents.length === 0) {
     return { sent: 0, message: 'No inactive students found' };
   }
-  
+
   let sent = 0;
-  
+
   for (const student of inactiveStudents) {
     const profile = student.profiles as unknown;
     const course = student.courses as unknown;
-    
+
     try {
       await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
         method: 'POST',
@@ -129,7 +128,7 @@ export async function sendInactivityReminders() {
       console.error(`Failed to send reminder to ${profile.email}:`, error);
     }
   }
-  
+
   return { sent, total: inactiveStudents.length };
 }
 
@@ -138,7 +137,7 @@ export async function sendInactivityReminders() {
  */
 export async function sendCompletionNudges() {
   const supabase = createAdminClient();
-  
+
   // Find students who are 80%+ complete but haven't finished
   const { data: nearCompletion } = await supabase
     .from('lms_progress')
@@ -152,17 +151,17 @@ export async function sendCompletionNudges() {
     .gte('progress_percent', 80)
     .lt('progress_percent', 100)
     .eq('status', 'in_progress');
-  
+
   if (!nearCompletion || nearCompletion.length === 0) {
     return { sent: 0, message: 'No students near completion' };
   }
-  
+
   let sent = 0;
-  
+
   for (const student of nearCompletion) {
     const profile = student.profiles as unknown;
     const course = student.courses as unknown;
-    
+
     try {
       await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
         method: 'POST',
@@ -184,7 +183,7 @@ export async function sendCompletionNudges() {
       console.error(`Failed to send nudge to ${profile.email}:`, error);
     }
   }
-  
+
   return { sent, total: nearCompletion.length };
 }
 
@@ -193,25 +192,25 @@ export async function sendCompletionNudges() {
  */
 export async function autoAssignCourses(enrollmentId: string) {
   const supabase = createAdminClient();
-  
+
   const { data: enrollment } = await supabase
     .from('enrollments')
     .select('student_id, program_id')
     .eq('id', enrollmentId)
     .single();
-  
+
   if (!enrollment) return { success: false, error: 'Enrollment not found' };
-  
+
   // Get courses for this program
   const { data: programCourses } = await supabase
     .from('program_courses')
     .select('course_id')
     .eq('program_id', enrollment.program_id);
-  
+
   if (!programCourses || programCourses.length === 0) {
     return { success: true, assigned: 0, message: 'No courses to assign' };
   }
-  
+
   // Create progress records for each course
   const progressRecords = programCourses.map(pc => ({
     user_id: enrollment.student_id,
@@ -219,15 +218,15 @@ export async function autoAssignCourses(enrollmentId: string) {
     status: 'not_started',
     progress_percent: 0,
   }));
-  
+
   const { error } = await supabase
     .from('lms_progress')
     .upsert(progressRecords, { onConflict: 'user_id,course_id' });
-  
+
   if (error) {
     return { success: false, error: error instanceof Error ? error.message : String(error) };
   }
-  
+
   return { success: true, assigned: programCourses.length };
 }
 
@@ -237,14 +236,14 @@ export async function autoAssignCourses(enrollmentId: string) {
 export async function scheduleAutomatedEmails(enrollmentId: string) {
   // This would integrate with a job queue system like BullMQ or Inngest
   // For now, we'll use setTimeout as a simple example
-  
+
   const automations: EnrollmentAutomation[] = [
     { id: '1', type: 'welcome', triggerDays: 0, enabled: true },
     { id: '2', type: 'reminder', triggerDays: 1, enabled: true },
     { id: '3', type: 'follow-up', triggerDays: 3, enabled: true },
     { id: '4', type: 'completion-nudge', triggerDays: 7, enabled: true },
   ];
-  
+
   return { scheduled: automations.length, automations };
 }
 
@@ -252,12 +251,12 @@ export async function scheduleAutomatedEmails(enrollmentId: string) {
  * Run all automation tasks (called by cron job)
  */
 export async function runAutomationTasks() {
-  
+
   const results = await Promise.allSettled([
     sendInactivityReminders(),
     sendCompletionNudges(),
   ]);
-  
+
   const summary = {
     timestamp: new Date().toISOString(),
     tasks: results.map((r, i) => ({
@@ -266,6 +265,6 @@ export async function runAutomationTasks() {
       result: r.status === 'fulfilled' ? r.value : { error: (r.reason as Error).message },
     })),
   };
-  
+
   return summary;
 }

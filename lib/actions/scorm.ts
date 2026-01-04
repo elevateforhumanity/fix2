@@ -133,9 +133,9 @@ export async function enrollInPartnerCourse(data: {
     .single();
 
   if (existingEnrollment) {
-    return { 
+    return {
       error: 'Already enrolled in this course',
-      enrollment: existingEnrollment 
+      enrollment: existingEnrollment
     };
   }
 
@@ -206,8 +206,8 @@ export async function enrollInPartnerCourse(data: {
   revalidatePath('/courses/partners');
   revalidatePath('/student/courses');
 
-  return { 
-    success: true, 
+  return {
+    success: true,
     enrollment,
     hasScorm: !!mapping?.scorm_package,
     scormPackage: mapping?.scorm_package,

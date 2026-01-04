@@ -1,4 +1,3 @@
-// @ts-nocheck
 type GtagCommand = 'config' | 'event' | 'set' | 'consent';
 type GtagConfigParams = {
   page_path?: string;

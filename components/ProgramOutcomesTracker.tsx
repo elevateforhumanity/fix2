@@ -54,7 +54,7 @@ export default function ProgramOutcomesTracker() {
             <h3 className="text-lg font-semibold">{outcome.program}</h3>
             <Badge variant="success">Active</Badge>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <p className="text-sm text-gray-600">Completion Rate</p>

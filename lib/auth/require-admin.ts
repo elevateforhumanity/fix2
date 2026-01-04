@@ -3,12 +3,12 @@ import { redirect } from 'next/navigation';
 
 /**
  * Require Admin Role (Server-Side)
- * 
+ *
  * Use this in admin page components to ensure:
  * 1. User is authenticated
  * 2. User has admin or super_admin role
  * 3. Redirects to appropriate page if not authorized
- * 
+ *
  * Returns the authenticated user and profile
  */
 export async function requireAdmin() {
@@ -44,7 +44,7 @@ export async function requireAdmin() {
 
 /**
  * Check if user is admin (without redirect)
- * 
+ *
  * Use this when you need to conditionally show admin features
  * but don't want to block the entire page
  */

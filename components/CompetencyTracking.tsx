@@ -84,8 +84,8 @@ export default function CompetencyTracking() {
   ];
 
   const categories = ['all', ...Array.from(new Set(competencies.map(c => c.category)))];
-  const filteredCompetencies = activeCategory === 'all' 
-    ? competencies 
+  const filteredCompetencies = activeCategory === 'all'
+    ? competencies
     : competencies.filter(c => c.category === activeCategory);
 
   const levelColors: Record<string, string> = {

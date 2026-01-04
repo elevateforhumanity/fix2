@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/forums/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -13,7 +12,7 @@ export async function GET(request: NextRequest) {
 
     // Get current user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: "Unauthorized" },
@@ -59,7 +58,7 @@ export async function GET(request: NextRequest) {
           .eq("forum_id", forum.id);
 
         const threadIds = threads?.map((t) => t.id) || [];
-        
+
         let postCount = 0;
         if (threadIds.length > 0) {
           const { count } = await supabase

@@ -5,25 +5,25 @@ import { redirect } from 'next/navigation';
 
 export async function createShop(formData: FormData) {
   const supabase = await createClient();
-  
+
   // Get authenticated user
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
-  
+
   // Verify employer role
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-    
+
   if (profile?.role !== 'employer') {
     redirect('/unauthorized');
   }
-  
+
   // Extract form data
   const name = formData.get('name') as string;
   const ein = formData.get('ein') as string;
@@ -34,7 +34,7 @@ export async function createShop(formData: FormData) {
   const zip = formData.get('zip') as string;
   const phone = formData.get('phone') as string;
   const email = formData.get('email') as string;
-  
+
   // Create shop
   const { data: shop, error: shopError } = await supabase
     .from('shops')
@@ -52,12 +52,12 @@ export async function createShop(formData: FormData) {
     })
     .select()
     .single();
-    
+
   if (shopError || !shop) {
     console.error('Failed to create shop:', shopError);
     throw new Error('Failed to create shop');
   }
-  
+
   // Create shop_staff entry (make user the owner)
   const { error: staffError } = await supabase
     .from('shop_staff')
@@ -66,13 +66,13 @@ export async function createShop(formData: FormData) {
       user_id: user.id,
       role: 'owner',
     });
-    
+
   if (staffError) {
     console.error('Failed to create shop_staff:', staffError);
     // Shop was created but staff link failed - this is a problem
     throw new Error('Shop created but failed to assign ownership');
   }
-  
+
   // Redirect to employer dashboard
   redirect('/employer/dashboard');
 }

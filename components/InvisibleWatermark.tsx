@@ -153,7 +153,7 @@ export function InvisibleWatermark({
 function generateFingerprint(): string {
   try {
     if (typeof window === 'undefined') return 'EFH-SERVER';
-    
+
     const data = [
       navigator.userAgent,
       screen.width,

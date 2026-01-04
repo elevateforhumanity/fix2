@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/mobile/summary/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -10,7 +9,7 @@ import { logger } from '@/lib/logger';
 export async function GET(req: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -62,7 +61,7 @@ export async function GET(req: NextRequest) {
     // Get recent activity count (last 7 days)
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    
+
     const { count: recentActivityCount } = await supabase
       .from("lesson_progress")
       .select("*", { count: "exact", head: true })

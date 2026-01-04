@@ -21,10 +21,10 @@ export async function sendTenantTemplatedEmail(params: {
   const subject = renderSubject(tmpl.subject, params.variables);
 
   if (!process.env.SENDGRID_API_KEY) {
-    logger.info("SendGrid not configured, would send email", { 
-      to: params.to, 
-      subject, 
-      htmlPreview: html.substring(0, 100) 
+    logger.info("SendGrid not configured, would send email", {
+      to: params.to,
+      subject,
+      htmlPreview: html.substring(0, 100)
     });
     return;
   }
@@ -37,10 +37,10 @@ export async function sendTenantTemplatedEmail(params: {
       html,
     });
   } catch (error: unknown) {
-    logger.error("Failed to send templated email", error as Error, { 
-      to: params.to, 
-      subject, 
-      key: params.key 
+    logger.error("Failed to send templated email", error as Error, {
+      to: params.to,
+      subject,
+      key: params.key
     });
     throw error;
   }

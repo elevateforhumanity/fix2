@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function FERPATrainingPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login?next=/admin/ferpa/training');
   }
@@ -50,7 +50,7 @@ export default async function FERPATrainingPage() {
   const pendingUsers = allUsers?.filter(u => !trainedUserIds.includes(u.id)) || [];
 
   return (
-    <FERPATrainingDashboard 
+    <FERPATrainingDashboard
       trainingRecords={trainingRecords || []}
       pendingUsers={pendingUsers}
       currentUser={profile}

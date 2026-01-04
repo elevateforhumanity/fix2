@@ -18,7 +18,7 @@ export interface CertificateData {
 
 export class CertificateGenerator {
   private doc: jsPDF;
-  
+
   constructor() {
     // Letter size: 8.5" x 11" = 216mm x 279mm
     this.doc = new jsPDF({
@@ -40,7 +40,7 @@ export class CertificateGenerator {
     this.doc.setLineWidth(2);
     this.doc.setDrawColor(218, 165, 32); // Gold
     this.doc.rect(10, 10, pageWidth - 20, pageHeight - 20);
-    
+
     this.doc.setLineWidth(0.5);
     this.doc.setDrawColor(218, 165, 32);
     this.doc.rect(12, 12, pageWidth - 24, pageHeight - 24);
@@ -220,7 +220,7 @@ export function formatCertificateDate(date: Date): string {
 
 /**
  * Example usage:
- * 
+ *
  * const generator = new CertificateGenerator();
  * const certificateData = {
  *   recipientName: 'John Doe',
@@ -231,6 +231,6 @@ export function formatCertificateDate(date: Date): string {
  *   organizationName: 'Elevate for Humanity',
  *   hours: 120
  * };
- * 
+ *
  * generator.downloadCertificate(certificateData);
  */

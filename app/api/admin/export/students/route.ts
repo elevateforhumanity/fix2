@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
@@ -9,7 +8,7 @@ import { logAuditEvent, AuditActions } from '@/lib/audit';
 export async function GET(req: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
@@ -82,11 +81,11 @@ export async function GET(req: NextRequest) {
 
     // Filter by program and status if specified
     let filteredStudents = students || [];
-    
+
     if (program || status) {
       filteredStudents = filteredStudents.filter((student: unknown) => {
         if (!student.enrollments || student.enrollments.length === 0) return false;
-        
+
         return student.enrollments.some((enrollment: unknown) => {
           const programMatch = !program || enrollment.program?.slug === program;
           const statusMatch = !status || enrollment.status === status;

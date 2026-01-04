@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/rbac';
 import { withAuth } from '@/lib/with-auth';

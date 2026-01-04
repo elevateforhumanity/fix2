@@ -295,7 +295,7 @@ r="10" stroke="currentColor" strokeWidth="4" />
                   <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
                 </svg>
                 <span>
-                  {selectedPaymentPlan === 'full' 
+                  {selectedPaymentPlan === 'full'
                     ? `Pay $${fullPrice} - Enroll Now`
                     : `Start with $${installmentPrice}/month`
                   }

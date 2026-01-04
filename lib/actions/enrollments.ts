@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Enrollment Actions - Server-side functions for creating and managing enrollments
  *

@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
         })) || [];
 
     // Organize by course
-    const sitemap: Record<string, any> = {};
+    const sitemap: Record<string, unknown> = {};
 
     courseFiles.forEach((file) => {
       const parts = file.path!.split('/');

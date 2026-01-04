@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { onModuleComplete } from '@/lib/certificates/certificate-delivery';
@@ -33,7 +32,7 @@ export async function POST(request: NextRequest) {
     // Verify the enrollment exists and belongs to the authenticated user
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const authHeader = request.headers.get('authorization');
-    
+
     if (!authHeader) {
       return NextResponse.json(
         { error: 'Unauthorized' },

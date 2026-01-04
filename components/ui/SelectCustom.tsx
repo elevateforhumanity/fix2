@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -43,7 +42,7 @@ export const Select: React.FC<SelectProps> = ({
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const selectedValues = Array.isArray(value) ? value : value ? [value] : [];
-  
+
   const filteredOptions = searchable
     ? options.filter(option =>
         option.label.toLowerCase().includes(searchQuery.toLowerCase())

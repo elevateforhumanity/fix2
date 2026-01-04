@@ -96,10 +96,8 @@ export function getServiceStatus() {
  */
 export function logServiceStatus() {
   if (process.env.NODE_ENV === 'development') {
-    console.log('🔧 Service Availability:');
     const status = getServiceStatus();
     Object.entries(status).forEach(([service, available]) => {
-      console.log(`  ${available ? '✅' : '❌'} ${service}`);
     });
   }
 }

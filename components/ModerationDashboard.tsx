@@ -3,11 +3,11 @@
 import React from 'react';
 
 import { useState, useEffect } from 'react';
-import { 
-  Shield, 
-  AlertTriangle, 
-  CheckCircle, 
-  XCircle, 
+import {
+  Shield,
+  AlertTriangle,
+  CheckCircle,
+  XCircle,
   Flag,
   Eye,
   Trash2,

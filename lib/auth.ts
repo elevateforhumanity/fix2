@@ -118,7 +118,7 @@ export async function getAuthUser(): Promise<AuthUser | null> {
       id: session.user.id,
       email: session.user.email || '',
       role: profile.role as UserRole,
-      full_name: profile.first_name && profile.last_name 
+      full_name: profile.first_name && profile.last_name
         ? `${profile.first_name} ${profile.last_name}`
         : undefined,
     };

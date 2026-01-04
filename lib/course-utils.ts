@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function slugify(str: string): string {
   return str
     .toLowerCase()

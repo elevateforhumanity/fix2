@@ -172,11 +172,11 @@ interface BotProtectionProps {
   children?: React.ReactNode;
 }
 
-export function BotProtection({ 
-  onVerify, 
-  honeypotValue, 
+export function BotProtection({
+  onVerify,
+  honeypotValue,
   onHoneypotChange,
-  children 
+  children
 }: BotProtectionProps) {
   const { handleMount, isValidTiming } = useFormTiming(3000);
   const [captchaVerified, setCaptchaVerified] = useState(false);

@@ -13,16 +13,16 @@ export default function DivorceSupportPage() {
         <Link href="/rise-foundation" className="text-purple-600 hover:text-purple-700 mb-8 inline-block">
           ← Back to Rise Forward Foundation
         </Link>
-        
+
         <h1 className="text-4xl font-bold text-gray-900 mb-6">
           Divorce Support
         </h1>
-        
+
         <div className="prose prose-lg max-w-none">
           <p className="text-xl text-gray-600 mb-8">
             Compassionate support for individuals and families navigating the challenges of divorce.
           </p>
-          
+
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
             Our Support Services
           </h2>
@@ -30,7 +30,7 @@ export default function DivorceSupportPage() {
             Divorce can be one of life's most challenging transitions. We provide support to help
             you navigate this difficult time with grace and resilience.
           </p>
-          
+
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
             Services Offered
           </h2>
@@ -42,7 +42,7 @@ export default function DivorceSupportPage() {
             <li>Financial planning and resources</li>
             <li>Legal resource referrals</li>
           </ul>
-          
+
           <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mt-8">
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               Get Support Today

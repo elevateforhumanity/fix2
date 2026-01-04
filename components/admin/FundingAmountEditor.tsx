@@ -3,7 +3,7 @@
 import React from 'react';
 /**
  * Funding Amount Editor Component
- * 
+ *
  * Allows admin to set/update wage, stipend, and tuition amounts
  */
 
@@ -21,9 +21,9 @@ interface FundingAmountEditorProps {
   };
 }
 
-export default function FundingAmountEditor({ 
+export default function FundingAmountEditor({
   enrollmentId,
-  currentValues 
+  currentValues
 }: FundingAmountEditorProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -34,7 +34,7 @@ export default function FundingAmountEditor({
     setSaving(true);
 
     const formData = new FormData(e.currentTarget);
-    
+
     const wageRate = formData.get('wage_rate_hour') as string;
     const stipend = formData.get('stipend_total_amount') as string;
     const tuition = formData.get('tuition_covered_amount') as string;
@@ -72,7 +72,7 @@ export default function FundingAmountEditor({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mt-4 pt-4 border-t border-slate-700">
-      
+
       <div className="text-sm text-slate-300 mb-4">
         💡 Leave fields blank if amounts are not yet determined
       </div>

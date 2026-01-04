@@ -42,17 +42,17 @@ export default function EnrollmentCounter() {
     // Simulate real-time enrollment updates every 10-30 seconds
     const interval = setInterval(() => {
       const shouldUpdate = Math.random() > 0.7; // 30% chance of update
-      
+
       if (shouldUpdate) {
         setEnrollmentData(prev => {
           const newTotal = prev.total + 1;
           const newToday = prev.today + 1;
           const newMonth = prev.thisMonth + 1;
-          
+
           animate(totalCount, newTotal, { duration: 0.5 });
           animate(todayCount, newToday, { duration: 0.5 });
           animate(monthCount, newMonth, { duration: 0.5 });
-          
+
           return {
             ...prev,
             total: newTotal,
@@ -78,7 +78,7 @@ export default function EnrollmentCounter() {
   useEffect(() => {
     const updateTimer = setInterval(() => {
       const seconds = Math.floor((new Date().getTime() - enrollmentData.lastUpdated.getTime()) / 1000);
-      
+
       if (seconds < 10) {
         setTimeSinceUpdate('just now');
       } else if (seconds < 60) {

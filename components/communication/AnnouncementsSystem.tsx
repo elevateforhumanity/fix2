@@ -80,7 +80,7 @@ export function AnnouncementsSystem({
       {isCreating && (
         <div className="bg-white rounded-lg border border-slate-200 p-6">
           <h3 className="font-semibold text-slate-900 mb-4">Create Announcement</h3>
-          
+
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">

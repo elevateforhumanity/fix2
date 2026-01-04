@@ -7,7 +7,7 @@ import { revalidatePath } from 'next/cache';
 export async function createModule(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
@@ -17,7 +17,7 @@ export async function createModule(formData: FormData) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -53,7 +53,7 @@ export async function createModule(formData: FormData) {
 export async function updateModule(id: string, formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
@@ -63,7 +63,7 @@ export async function updateModule(id: string, formData: FormData) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -101,7 +101,7 @@ export async function updateModule(id: string, formData: FormData) {
 export async function deleteModule(id: string) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     throw new Error('Unauthorized');
   }
@@ -111,7 +111,7 @@ export async function deleteModule(id: string) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     throw new Error('Unauthorized');
   }

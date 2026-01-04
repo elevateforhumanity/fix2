@@ -26,9 +26,9 @@ export async function summarizeText(text: string, maxLength = 200) {
 
     return res.choices[0].message.content || text.slice(0, maxLength) + "...";
   } catch (error: unknown) {
-    logger.error("Summarization error", error as Error, { 
+    logger.error("Summarization error", error as Error, {
       textLength: text.length,
-      maxLength 
+      maxLength
     });
     return text.slice(0, maxLength) + "...";
   }

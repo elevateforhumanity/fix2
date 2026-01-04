@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Push Notification Service
  * Handles push notification subscriptions and sending
@@ -29,7 +28,7 @@ export interface PushNotification {
     title: string;
     icon?: string;
   }>;
-  data?: Record<string, any>;
+  data?: Record<string, unknown>;
 }
 export interface PushSubscription {
   endpoint: string;

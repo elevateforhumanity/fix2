@@ -58,10 +58,10 @@ export async function createAttendanceSession(data: {
   required?: boolean;
 }): Promise<AttendanceSession> {
   const supabase = await createClient();
-  
+
   // Generate QR code data
   const qr_code = `ATT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-  
+
   const { data: session, error } = await supabase
     .from('attendance_sessions')
     .insert({
@@ -71,7 +71,7 @@ export async function createAttendanceSession(data: {
     })
     .select()
     .single();
-  
+
   if (error) throw error;
   return session;
 }
@@ -86,7 +86,7 @@ export async function checkInStudent(
   notes?: string
 ): Promise<AttendanceRecord> {
   const supabase = await createClient();
-  
+
   // Check if already checked in
   const { data: existing } = await supabase
     .from('attendance_records')
@@ -94,28 +94,28 @@ export async function checkInStudent(
     .eq('student_id', student_id)
     .eq('session_id', session_id)
     .single();
-  
+
   if (existing) {
     throw new Error('Student already checked in for this session');
   }
-  
+
   // Get session details
   const { data: session } = await supabase
     .from('attendance_sessions')
     .select('*')
     .eq('id', session_id)
     .single();
-  
+
   if (!session) {
     throw new Error('Session not found');
   }
-  
+
   // Determine status (late if after start time + 15 minutes)
   const now = new Date();
   const sessionStart = new Date(`${session.session_date}T${session.start_time}`);
   const lateThreshold = new Date(sessionStart.getTime() + 15 * 60000);
   const status = now > lateThreshold ? 'late' : 'present';
-  
+
   const { data: record, error } = await supabase
     .from('attendance_records')
     .insert({
@@ -128,7 +128,7 @@ export async function checkInStudent(
     })
     .select()
     .single();
-  
+
   if (error) throw error;
   return record;
 }
@@ -141,24 +141,24 @@ export async function checkInWithQRCode(
   qr_code: string
 ): Promise<AttendanceRecord> {
   const supabase = await createClient();
-  
+
   // Find session by QR code
   const { data: session } = await supabase
     .from('attendance_sessions')
     .select('*')
     .eq('qr_code', qr_code)
     .single();
-  
+
   if (!session) {
     throw new Error('Invalid QR code');
   }
-  
+
   // Check if session is today
   const today = new Date().toISOString().split('T')[0];
   if (session.session_date !== today) {
     throw new Error('QR code is not valid for today');
   }
-  
+
   // Check if already checked in
   const { data: existing } = await supabase
     .from('attendance_records')
@@ -166,17 +166,17 @@ export async function checkInWithQRCode(
     .eq('student_id', student_id)
     .eq('session_id', session.id)
     .single();
-  
+
   if (existing) {
     throw new Error('Already checked in for this session');
   }
-  
+
   // Determine status
   const now = new Date();
   const sessionStart = new Date(`${session.session_date}T${session.start_time}`);
   const lateThreshold = new Date(sessionStart.getTime() + 15 * 60000);
   const status = now > lateThreshold ? 'late' : 'present';
-  
+
   const { data: record, error } = await supabase
     .from('attendance_records')
     .insert({
@@ -188,7 +188,7 @@ export async function checkInWithQRCode(
     })
     .select()
     .single();
-  
+
   if (error) throw error;
   return record;
 }
@@ -201,7 +201,7 @@ export async function checkOutStudent(
   session_id: string
 ): Promise<AttendanceRecord> {
   const supabase = await createClient();
-  
+
   const { data: record, error } = await supabase
     .from('attendance_records')
     .update({
@@ -211,7 +211,7 @@ export async function checkOutStudent(
     .eq('session_id', session_id)
     .select()
     .single();
-  
+
   if (error) throw error;
   return record;
 }
@@ -226,7 +226,7 @@ export async function markAbsent(
   notes?: string
 ): Promise<AttendanceRecord> {
   const supabase = await createClient();
-  
+
   const { data: record, error } = await supabase
     .from('attendance_records')
     .insert({
@@ -238,7 +238,7 @@ export async function markAbsent(
     })
     .select()
     .single();
-  
+
   if (error) throw error;
   return record;
 }
@@ -251,7 +251,7 @@ export async function getAttendanceSummary(
   course_id?: string
 ): Promise<AttendanceSummary> {
   const supabase = await createClient();
-  
+
   let query = supabase
     .from('attendance_records')
     .select(`
@@ -259,13 +259,13 @@ export async function getAttendanceSummary(
       attendance_sessions(*)
     `)
     .eq('student_id', student_id);
-  
+
   if (course_id) {
     query = query.eq('attendance_sessions.course_id', course_id);
   }
-  
+
   const { data: records } = await query;
-  
+
   if (!records) {
     return {
       student_id,
@@ -279,14 +279,14 @@ export async function getAttendanceSummary(
       hours_required: 0,
     };
   }
-  
+
   const attended = records.filter(r => r.status === 'present' || r.status === 'late').length;
   const absent = records.filter(r => r.status === 'absent').length;
   const late = records.filter(r => r.status === 'late').length;
   const excused = records.filter(r => r.status === 'excused').length;
   const total_sessions = records.length;
   const attendance_rate = total_sessions > 0 ? (attended / total_sessions) * 100 : 0;
-  
+
   // Calculate hours
   let hours_completed = 0;
   records.forEach(record => {
@@ -297,7 +297,7 @@ export async function getAttendanceSummary(
       hours_completed += hours;
     }
   });
-  
+
   return {
     student_id,
     total_sessions,
@@ -316,13 +316,13 @@ export async function getAttendanceSummary(
  */
 export async function getSessionAttendance(session_id: string): Promise<AttendanceRecord[]> {
   const supabase = await createClient();
-  
+
   const { data: records } = await supabase
     .from('attendance_records')
     .select('*, profiles(full_name, email)')
     .eq('session_id', session_id)
     .order('check_in_time', { ascending: true });
-  
+
   return records || [];
 }
 
@@ -335,7 +335,7 @@ export async function generateAttendanceReport(
   end_date: string
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   const { data: sessions } = await supabase
     .from('attendance_sessions')
     .select(`
@@ -346,7 +346,7 @@ export async function generateAttendanceReport(
     .gte('session_date', start_date)
     .lte('session_date', end_date)
     .order('session_date', { ascending: true });
-  
+
   return sessions || [];
 }
 
@@ -358,18 +358,18 @@ export async function getStudentsWithLowAttendance(
   threshold: number = 80
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   // Get all students in course
   const { data: enrollments } = await supabase
     .from('enrollments')
     .select('student_id, profiles(full_name, email)')
     .eq('course_id', course_id)
     .eq('status', 'active');
-  
+
   if (!enrollments) return [];
-  
+
   const lowAttendanceStudents = [];
-  
+
   for (const enrollment of enrollments) {
     const summary = await getAttendanceSummary(enrollment.student_id, course_id);
     if (summary.attendance_rate < threshold) {
@@ -379,6 +379,6 @@ export async function getStudentsWithLowAttendance(
       });
     }
   }
-  
+
   return lowAttendanceStudents;
 }

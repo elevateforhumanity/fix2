@@ -101,7 +101,7 @@ export default function SiteAnalytics() {
     if (typeof aVal === 'number' && typeof bVal === 'number') {
       return sortOrder === 'asc' ? aVal - bVal : bVal - aVal;
     }
-    return sortOrder === 'asc' 
+    return sortOrder === 'asc'
       ? String(aVal).localeCompare(String(bVal))
       : String(bVal).localeCompare(String(aVal));
   });
@@ -119,11 +119,11 @@ export default function SiteAnalytics() {
   const totalEnrollments = metrics.reduce((sum, m) => sum + m.totalEnrollments, 0);
   const totalCompletions = metrics.reduce((sum, m) => sum + m.completions, 0);
   const totalPlaced = metrics.reduce((sum, m) => sum + m.placedInEmployment, 0);
-  const avgCompletionRate = metrics.length > 0 
-    ? metrics.reduce((sum, m) => sum + m.completionRate, 0) / metrics.length 
+  const avgCompletionRate = metrics.length > 0
+    ? metrics.reduce((sum, m) => sum + m.completionRate, 0) / metrics.length
     : 0;
-  const avgPlacementRate = metrics.length > 0 
-    ? metrics.reduce((sum, m) => sum + m.placementRate, 0) / metrics.length 
+  const avgPlacementRate = metrics.length > 0
+    ? metrics.reduce((sum, m) => sum + m.placementRate, 0) / metrics.length
     : 0;
 
   if (loading) {
@@ -202,8 +202,8 @@ export default function SiteAnalytics() {
           </CardHeader>
           <CardContent>
             <div className="text-sm font-bold">
-              {metrics.length > 0 
-                ? [...metrics].sort((a, b) => b.completionRate - a.completionRate)[0]?.siteName 
+              {metrics.length > 0
+                ? [...metrics].sort((a, b) => b.completionRate - a.completionRate)[0]?.siteName
                 : 'N/A'}
             </div>
             <p className="text-xs text-muted-foreground">By completion rate</p>

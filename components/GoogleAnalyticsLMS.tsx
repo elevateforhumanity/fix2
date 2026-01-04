@@ -13,7 +13,7 @@ export default function GoogleAnalyticsLMS() {
   const pathname = usePathname();
 
   // Only track public LMS pages (courses catalog, public course pages)
-  const isPublicLMSPage = pathname?.startsWith('/lms/courses') && 
+  const isPublicLMSPage = pathname?.startsWith('/lms/courses') &&
                           !pathname?.includes('/profile') &&
                           !pathname?.includes('/messages') &&
                           !pathname?.includes('/notifications');

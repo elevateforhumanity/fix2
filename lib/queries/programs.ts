@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Database Queries for Programs
  * Centralized queries for programs table
@@ -23,7 +22,7 @@ export interface Program {
   active: boolean;
   created_at: string;
   updated_at: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 /**
@@ -31,7 +30,7 @@ export interface Program {
  */
 export async function getAllPrograms(supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('programs')
     .select('*')
@@ -51,7 +50,7 @@ export async function getAllPrograms(supabase?: SupabaseClient) {
  */
 export async function getProgramBySlug(slug: string, supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('programs')
     .select('*')
@@ -75,7 +74,7 @@ export async function getProgramsByFunding(
   supabase?: SupabaseClient
 ) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('programs')
     .select('*')
@@ -96,7 +95,7 @@ export async function getProgramsByFunding(
  */
 export async function getETPLPrograms(supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('programs')
     .select('*')
@@ -117,7 +116,7 @@ export async function getETPLPrograms(supabase?: SupabaseClient) {
  */
 export async function searchPrograms(query: string, supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('programs')
     .select('*')
@@ -138,7 +137,7 @@ export async function searchPrograms(query: string, supabase?: SupabaseClient) {
  */
 export async function getProgramCount(supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { count, error } = await client
     .from('programs')
     .select('*', { count: 'exact', head: true })
@@ -157,7 +156,7 @@ export async function getProgramCount(supabase?: SupabaseClient) {
  */
 export async function getProgramsWithCourses(supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('programs')
     .select(`

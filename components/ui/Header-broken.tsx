@@ -13,8 +13,8 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const navigation = [
-    { 
-      name: 'Programs', 
+    {
+      name: 'Programs',
       href: '/programs',
       dropdown: [
         { name: 'HVAC Technician', href: '/programs/hvac' },
@@ -25,12 +25,12 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         { name: 'All Programs', href: '/programs' },
       ]
     },
-    { 
-      name: 'Micro Classes', 
+    {
+      name: 'Micro Classes',
       href: '/micro-classes'
     },
-    { 
-      name: 'For Agencies', 
+    {
+      name: 'For Agencies',
       href: '/agencies',
       dropdown: [
         { name: 'WorkOne Partnership', href: '/agencies/workone' },
@@ -40,8 +40,8 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         { name: 'Apprenticeship Logs', href: '/agencies/apprenticeships' },
       ]
     },
-    { 
-      name: 'For Employers', 
+    {
+      name: 'For Employers',
       href: '/employers',
       dropdown: [
         { name: 'Host Apprentices', href: '/employers/apprenticeships' },
@@ -50,8 +50,8 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
         { name: 'Employer Portal', href: '/employer/dashboard' },
       ]
     },
-    { 
-      name: 'About', 
+    {
+      name: 'About',
       href: '/about',
       dropdown: [
         { name: 'Approvals & Certifications', href: '/about/approvals' },

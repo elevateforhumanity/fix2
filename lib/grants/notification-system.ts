@@ -30,7 +30,7 @@ export interface GrantNotification {
   priority: 'low' | 'medium' | 'high' | 'urgent';
   read: boolean;
   createdAt: Date;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface NotificationRecipient {
@@ -117,7 +117,7 @@ async function sendEmailNotification(
     </div>
     <div class="content">
       <h2>Hello ${recipient.name},</h2>
-      
+
       <div class="notification-box">
         <h3>${notification.title}</h3>
         <p>${notification.message}</p>

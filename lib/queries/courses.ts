@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Database Queries for Courses
  * Centralized queries for courses table
@@ -24,7 +23,7 @@ export interface Course {
  */
 export async function getAllCourses(supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('courses')
     .select('*')
@@ -47,7 +46,7 @@ export async function getCoursesByProgram(
   supabase?: SupabaseClient
 ) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('courses')
     .select('*')
@@ -68,7 +67,7 @@ export async function getCoursesByProgram(
  */
 export async function getCourseById(id: string, supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { data, error } = await client
     .from('courses')
     .select('*')
@@ -89,7 +88,7 @@ export async function getCourseById(id: string, supabase?: SupabaseClient) {
  */
 export async function getCourseCount(supabase?: SupabaseClient) {
   const client = supabase || createClient();
-  
+
   const { count, error } = await client
     .from('courses')
     .select('*', { count: 'exact', head: true })

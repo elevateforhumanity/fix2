@@ -38,11 +38,11 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
 
   const handleSubmit = () => {
     if (selectedAnswer === null) return;
-    
+
     setShowFeedback(true);
     const newAnswers = [...answers, selectedAnswer];
     setAnswers(newAnswers);
-    
+
     if (isCorrect) {
       setScore(score + 1);
     }
@@ -69,7 +69,7 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
       <CardContent className="space-y-6">
         <div>
           <h3 className="text-lg font-semibold mb-4">{question.question}</h3>
-          
+
           <div className="space-y-3">
             {question.options.map((option, index) => (
               <button
@@ -113,7 +113,7 @@ export function InteractiveQuiz({ questions, onComplete }: InteractiveQuizProps)
           <div className="text-sm text-gray-600">
             Score: {score} / {currentQuestion + (showFeedback ? 1 : 0)}
           </div>
-          
+
           {!showFeedback ? (
             <Button
               onClick={handleSubmit}

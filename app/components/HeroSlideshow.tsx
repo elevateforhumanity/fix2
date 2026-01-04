@@ -16,12 +16,12 @@ export default function HeroSlideshow() {
       videoRef.current.muted = true;
       setIsMuted(true);
       videoRef.current.loop = false; // NO LOOPING
-      
+
       // Stop when video ends
       videoRef.current.addEventListener('ended', () => {
         setHasEnded(true);
       });
-      
+
       videoRef.current.play().catch((error) => {
       });
     }
@@ -42,7 +42,7 @@ export default function HeroSlideshow() {
         playsInline
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ 
+        style={{
           objectFit: 'cover',
           width: '100%',
           height: '100%',

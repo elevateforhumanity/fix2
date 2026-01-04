@@ -23,7 +23,7 @@ export function OnboardingFlow({ steps, onComplete }: OnboardingFlowProps) {
 
   const handleNext = () => {
     setCompletedSteps(prev => new Set(prev).add(currentStep));
-    
+
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
@@ -59,7 +59,7 @@ export function OnboardingFlow({ steps, onComplete }: OnboardingFlowProps) {
               Skip tour
             </button>
           </div>
-          
+
           {/* Progress Bar */}
           <div className="relative">
             <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
@@ -119,11 +119,11 @@ export function OnboardingFlow({ steps, onComplete }: OnboardingFlowProps) {
             <ChevronLeft className="w-4 h-4" />
             Back
           </button>
-          
+
           <span className="text-sm text-slate-500">
             Step {currentStep + 1} of {steps.length}
           </span>
-          
+
           <button
             onClick={handleNext}
             className="flex items-center gap-2 px-6 py-2 bg-brand-orange-600 text-white rounded-lg hover:bg-brand-orange-700 transition"

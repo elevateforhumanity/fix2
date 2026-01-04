@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   try {
     const supabase = supabaseServer();
     const searchParams = request.nextUrl.searchParams;
-    
+
     // Get query parameters
     const status = searchParams.get('status');
     const tax_year = searchParams.get('tax_year');

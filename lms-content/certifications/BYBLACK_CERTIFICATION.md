@@ -2,14 +2,14 @@
 
 ## 🏆 Official Certification
 
-**Organization:** Elevate for Humanity Training Center  
-**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240  
-**Phone:** (317) 314-3757  
+**Organization:** Elevate for Humanity Training Center
+**Address:** 8888 Keystone Crossing, Indianapolis, IN 46240
+**Phone:** (317) 314-3757
 **Website:** www.elevateforhumanity.org
 
-**Certification:** ✅ ByBlack Certified Business  
-**Issued By:** U.S. Black Chambers, Inc. (USBC)  
-**Platform:** ByBlack.us  
+**Certification:** ✅ ByBlack Certified Business
+**Issued By:** U.S. Black Chambers, Inc. (USBC)
+**Platform:** ByBlack.us
 **Status:** OFFICIALLY CERTIFIED
 
 ---
@@ -167,7 +167,7 @@
 ```
 🎉 EXCITING NEWS! 🎉
 
-Elevate for Humanity Training Center is now officially a ByBlack Certified Business! 
+Elevate for Humanity Training Center is now officially a ByBlack Certified Business!
 
 We are proud to be recognized as a Black-Owned and Operated organization by U.S. Black Chambers, Inc. and ByBlack.us.
 

@@ -35,7 +35,7 @@ export default function ReportContentButton({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!reason) {
       alert('Please select a reason');
       return;

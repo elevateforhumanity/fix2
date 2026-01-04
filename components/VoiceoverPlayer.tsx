@@ -11,10 +11,10 @@ interface VoiceoverPlayerProps {
   voiceoverFile?: string; // Path to custom professional voiceover
 }
 
-export default function VoiceoverPlayer({ 
-  text, 
+export default function VoiceoverPlayer({
+  text,
   autoPlay = false,
-  voiceoverFile = '/videos/voiceover.mp3' 
+  voiceoverFile = '/videos/voiceover.mp3'
 }: VoiceoverPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -32,10 +32,10 @@ export default function VoiceoverPlayer({
           setIsReady(true);
         }
       };
-      
+
       loadVoices();
       window.speechSynthesis.onvoiceschanged = loadVoices;
-      
+
       return () => {
         window.speechSynthesis.cancel();
       };
@@ -47,7 +47,7 @@ export default function VoiceoverPlayer({
 
   const playVoiceover = async () => {
     if (isPlaying) return;
-    
+
     setIsPlaying(true);
     setHasPlayed(true);
 
@@ -73,7 +73,7 @@ export default function VoiceoverPlayer({
     // DO NOT USE robotic browser speech
     // Only professional pre-recorded voiceovers allowed
     setIsPlaying(false);
-    
+
     // Show error message to user
     alert('Professional voiceover file not found. Please add custom voiceover to /public/videos/voiceover.mp3');
   };
@@ -90,11 +90,11 @@ export default function VoiceoverPlayer({
   const toggleMute = () => {
     const newMutedState = !isMuted;
     setIsMuted(newMutedState);
-    
+
     if (audioRef.current) {
       audioRef.current.muted = newMutedState;
     }
-    
+
     if (utteranceRef.current && window.speechSynthesis.speaking) {
       utteranceRef.current.volume = newMutedState ? 0 : 1.0;
     }
@@ -114,7 +114,7 @@ export default function VoiceoverPlayer({
             {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
           </button>
         )}
-        
+
         {!isPlaying && hasPlayed && (
           <button
             onClick={playVoiceover}
@@ -125,7 +125,7 @@ export default function VoiceoverPlayer({
             <Volume2 size={24} />
           </button>
         )}
-        
+
         {isPlaying && (
           <button
             onClick={stopVoiceover}

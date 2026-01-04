@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
         html: `
           <h2>Thank You for Applying, ${body.firstName}!</h2>
           <p>We've received your application for the ${body.position || 'Tax Preparer'} position.</p>
-          
+
           <h3>Application Details:</h3>
           <ul>
             <li><strong>Name:</strong> ${body.firstName} ${body.lastName}</li>
@@ -71,14 +71,14 @@ export async function POST(request: NextRequest) {
             <li><strong>Experience:</strong> ${body.experience || 0} years</li>
             <li><strong>Application ID:</strong> ${application.id}</li>
           </ul>
-          
+
           <h3>Next Steps:</h3>
           <ol>
             <li>We'll review your application within 3-5 business days</li>
             <li>Qualified candidates will be contacted for an interview</li>
             <li>Interviews are conducted via video call or in-person</li>
           </ol>
-          
+
           <h3>What We Offer:</h3>
           <ul>
             <li>💰 Competitive pay: $15-$25/hour</li>
@@ -87,9 +87,9 @@ export async function POST(request: NextRequest) {
             <li>📈 Performance bonuses</li>
             <li>🎓 Free training and certification</li>
           </ul>
-          
+
           <p>Questions? Call us at (317) 314-3757</p>
-          
+
           <p>
             Best regards,<br>
             SupersonicFastCash HR Team
@@ -108,14 +108,14 @@ export async function POST(request: NextRequest) {
         subject: `New Career Application: ${body.firstName} ${body.lastName} - ${body.position || 'Tax Preparer'}`,
         html: `
           <h2>New Career Application</h2>
-          
+
           <h3>Applicant Information:</h3>
           <ul>
             <li><strong>Name:</strong> ${body.firstName} ${body.lastName}</li>
             <li><strong>Email:</strong> ${body.email}</li>
             <li><strong>Phone:</strong> ${body.phone}</li>
           </ul>
-          
+
           <h3>Position Details:</h3>
           <ul>
             <li><strong>Position:</strong> ${body.position || 'Tax Preparer'}</li>
@@ -124,17 +124,17 @@ export async function POST(request: NextRequest) {
             <li><strong>Has EFIN:</strong> ${body.hasEFIN ? 'Yes' : 'No'}</li>
             <li><strong>Availability:</strong> ${body.availability || 'full-time'}</li>
           </ul>
-          
+
           ${body.coverLetter ? `
             <h3>Cover Letter:</h3>
             <p>${body.coverLetter}</p>
           ` : ''}
-          
+
           <h3>Application ID:</h3>
           <p>${application.id}</p>
-          
+
           <p>
-            <a href="https://elevateforhumanity.org/admin/careers" 
+            <a href="https://elevateforhumanity.org/admin/careers"
                style="display: inline-block; padding: 12px 24px; background: #16a34a; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
               Review Application
             </a>

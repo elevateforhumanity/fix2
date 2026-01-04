@@ -9,11 +9,11 @@ interface StudentStatusBadgeProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export function StudentStatusBadge({ 
-  status, 
-  progress, 
+export function StudentStatusBadge({
+  status,
+  progress,
   showProgress = true,
-  size = 'md' 
+  size = 'md'
 }: StudentStatusBadgeProps) {
   const getBadgeConfig = () => {
     switch (status) {
@@ -64,7 +64,7 @@ export function StudentStatusBadge({
           {badge.text}
         </span>
       </div>
-      
+
       {showProgress && (
         <div className="flex items-center gap-2">
           <div className="w-24 bg-gray-200 rounded-full h-2">

@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 /**
  * Test Admin Board & Dev Container
  * GET /api/test-admin-board
- * 
+ *
  * Tests admin dashboard, board features, and dev container setup
  */
 export async function GET() {
@@ -108,7 +108,7 @@ export async function GET() {
     };
 
     // Check if running in dev container
-    const isDevContainer = process.env.REMOTE_CONTAINERS === 'true' || 
+    const isDevContainer = process.env.REMOTE_CONTAINERS === 'true' ||
                           process.env.CODESPACES === 'true' ||
                           process.env.GITPOD_WORKSPACE_ID;
 

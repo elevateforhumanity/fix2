@@ -76,8 +76,8 @@ export function JobPlacementTracking() {
     avgTimeToPlacement: 45,
   };
 
-  const filteredPlacements = filterStatus === 'all' 
-    ? placements 
+  const filteredPlacements = filterStatus === 'all'
+    ? placements
     : placements.filter(p => p.status === filterStatus);
 
   return (

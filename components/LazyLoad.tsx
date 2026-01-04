@@ -11,11 +11,11 @@ interface LazyLoadProps {
   Content?: React.ReactNode;
 }
 
-export function LazyLoad({ 
-  children, 
-  threshold = 0.1, 
+export function LazyLoad({
+  children,
+  threshold = 0.1,
   rootMargin = '50px',
-  Content 
+  Content
 }: LazyLoadProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);

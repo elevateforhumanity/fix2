@@ -202,7 +202,7 @@ export class RecommendationEngine {
     };
 
     const relevantTopics = careerPaths[careerGoal.toLowerCase()] || [];
-    
+
     return allCourses
       .filter((course) =>
         relevantTopics.some((topic) =>

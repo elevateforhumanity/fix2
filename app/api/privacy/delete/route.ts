@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
     userAgent
   });
 
-  return NextResponse.json({ 
+  return NextResponse.json({
     status: 'ok',
     message: 'User data has been anonymized and marked for deletion'
   });

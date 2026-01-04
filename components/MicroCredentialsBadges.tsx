@@ -117,7 +117,7 @@ export default function MicroCredentialsBadges() {
   const inProgressBadges = badges.filter(b => b.progress && !b.earnedDate);
   const availableBadges = badges.filter(b => !b.progress && !b.earnedDate);
 
-  const displayBadges = 
+  const displayBadges =
     activeTab === 'earned' ? earnedBadges :
     activeTab === 'in-progress' ? inProgressBadges :
     availableBadges;

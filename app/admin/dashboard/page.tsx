@@ -40,7 +40,7 @@ export default async function AdminDashboardOrchestrated() {
     data: { user },
     error: userError,
   } = await supabase.auth.getUser();
-  
+
   if (userError || !user) {
     throw new Error(`[ADMIN AUTH] getUser failed: user=${user?.id || 'null'}, error=${userError?.message || 'no user returned'}`);
   }

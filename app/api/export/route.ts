@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { apiRequireAdmin, apiRequireInstructor } from '@/lib/authGuards';
@@ -185,7 +184,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Export multiple tables
-    const results: Record<string, any> = {};
+    const results: Record<string, unknown> = {};
 
     for (const table of tables) {
       const tableFilters = filters?.[table] || {};

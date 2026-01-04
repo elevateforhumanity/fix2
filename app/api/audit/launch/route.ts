@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import React from 'react';
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
@@ -10,7 +9,7 @@ import { headers } from 'next/headers';
 /**
  * Launch Audit Endpoint
  * Comprehensive pre-launch readiness check
- * 
+ *
  * Auth: Requires x-audit-secret header
  * Mode: GET or POST with options
  */
@@ -65,7 +64,7 @@ async function handleAudit(request: NextRequest, options: AuditOptions) {
   // Auth check
   const headersList = await headers();
   const auditSecret = headersList.get('x-audit-secret');
-  
+
   if (!auditSecret || auditSecret !== AUDIT_SECRET) {
     return NextResponse.json(
       { error: 'Unauthorized', message: 'Missing or invalid x-audit-secret header' },
@@ -95,7 +94,7 @@ async function handleAudit(request: NextRequest, options: AuditOptions) {
 
 async function runAudit(options: AuditOptions) {
   const startTime = Date.now();
-  
+
   // Meta information
   const meta = {
     timestamp: new Date().toISOString(),
@@ -161,7 +160,7 @@ async function checkEnvironment() {
   ];
 
   const missing = required.filter((key) => !process.env[key]);
-  
+
   const notes: string[] = [];
   if (process.env.STRIPE_SECRET_KEY) notes.push('Stripe configured');
   if (process.env.RESEND_API_KEY) notes.push('Resend email configured');
@@ -180,7 +179,7 @@ async function checkRouting(options: AuditOptions) {
   // This would scan your routes - simplified for now
   const publicRoutes = 57; // From navigation config
   const protectedRoutes = 15; // Estimate
-  
+
   return {
     status: 'pass',
     publicRoutes,
@@ -193,17 +192,17 @@ async function checkRouting(options: AuditOptions) {
 async function checkNavigation() {
   // Check navigation config
   const { headerNav } = await import('@/config/navigation');
-  
+
   const headerLinks = headerNav.reduce((count, section) => {
     return count + (section.items?.length || 0);
   }, 0);
 
   const missingCritical: string[] = [];
-  
+
   // Check for critical pages
   const criticalPages = ['/programs', '/apply', '/contact', '/login'];
   // In production, you'd actually check if these routes exist
-  
+
   return {
     status: 'pass',
     headerLinks,
@@ -236,7 +235,7 @@ async function checkClientStability() {
 
   // Check for common hydration patterns (would scan files in production)
   // For now, report that fixes were applied
-  
+
   return {
     status: 'pass',
     hydrationRisks,
@@ -268,7 +267,7 @@ async function checkPerformance() {
 
 async function checkSecurity() {
   const hasRateLimit = !!process.env.REDIS_URL;
-  
+
   return {
     status: hasRateLimit ? 'pass' : 'degraded',
     rateLimit: {
@@ -280,7 +279,7 @@ async function checkSecurity() {
       hasCsp: true,
       hasXfo: true,
     },
-    notes: hasRateLimit 
+    notes: hasRateLimit
       ? ['Rate limiting active with Redis']
       : ['Rate limiting using in-memory (upgrade to Redis for production)'],
   };
@@ -290,7 +289,7 @@ async function checkFeatures() {
   const hasStripe = !!process.env.STRIPE_SECRET_KEY;
   const hasEmail = !!process.env.RESEND_API_KEY;
   const hasAnalytics = !!process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  
+
   return {
     status: 'pass',
     activation: {
@@ -412,7 +411,7 @@ function analyzeChecks(checks: unknown, blockers: Finding[], warnings: Finding[]
   const highPriorityGaps = checks.features.missingComparedToBestInClass.filter(
     (item) => f.priority === 'high'
   );
-  
+
   if (highPriorityGaps.length > 0) {
     warnings.push({
       id: 'missing-high-priority-features',
@@ -433,7 +432,7 @@ function analyzeChecks(checks: unknown, blockers: Finding[], warnings: Finding[]
 
 function calculateLaunchGate(data: unknown) {
   let score = 100;
-  
+
   // Deduct points
   score -= blockers.length * 15;
   score -= warnings.length * 5;

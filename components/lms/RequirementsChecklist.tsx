@@ -69,14 +69,14 @@ export function RequirementsChecklist({ requirements, enrollmentId }: Requiremen
   const sortedRequirements = [...requirements].sort((a, b) => {
     const aOverdue = a.due_date && new Date(a.due_date) < new Date();
     const bOverdue = b.due_date && new Date(b.due_date) < new Date();
-    
+
     if (aOverdue && !bOverdue) return -1;
     if (!aOverdue && bOverdue) return 1;
-    
+
     if (a.due_date && b.due_date) {
       return new Date(a.due_date).getTime() - new Date(b.due_date).getTime();
     }
-    
+
     return 0;
   });
 
@@ -94,11 +94,11 @@ export function RequirementsChecklist({ requirements, enrollmentId }: Requiremen
         const isOverdue = req.due_date && new Date(req.due_date) < new Date();
         const isCompleted = req.status === 'completed' || req.status === 'verified';
         const isPending = req.status === 'pending' || req.status === 'in_progress';
-        
+
         let borderColor = 'border-gray-300';
         let bgColor = 'bg-gray-50';
         let iconColor = 'text-gray-600';
-        
+
         if (isCompleted) {
           borderColor = 'border-green-300';
           bgColor = 'bg-green-50';
@@ -116,7 +116,7 @@ export function RequirementsChecklist({ requirements, enrollmentId }: Requiremen
           bgColor = 'bg-blue-50';
           iconColor = 'text-blue-600';
         }
-        
+
         return (
           <div
             key={req.id}

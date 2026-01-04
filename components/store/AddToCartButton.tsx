@@ -20,11 +20,11 @@ export default function AddToCartButton({ product, quantity = 1, className }: Ad
 
   const handleAddToCart = async () => {
     setIsAdding(true);
-    
+
     try {
       addToCart(product, quantity);
       setShowSuccess(true);
-      
+
       setTimeout(() => {
         setShowSuccess(false);
       }, 2000);

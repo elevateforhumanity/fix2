@@ -389,7 +389,7 @@ export function getWorkforceReadyPrograms(): Program[] {
  */
 export function searchPrograms(query: string): Program[] {
   const lowerQuery = query.toLowerCase();
-  return PROGRAMS.filter(p => 
+  return PROGRAMS.filter(p =>
     p.name.toLowerCase().includes(lowerQuery) ||
     p.description.toLowerCase().includes(lowerQuery) ||
     p.category.toLowerCase().includes(lowerQuery) ||

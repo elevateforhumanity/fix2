@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -62,7 +61,7 @@ export const SearchAutocomplete: React.FC<SearchAutocompleteProps> = ({
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedIndex((prev) => 
+        setSelectedIndex((prev) =>
           prev < displayResults.length - 1 ? prev + 1 : prev
         );
         break;

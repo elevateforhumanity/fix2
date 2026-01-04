@@ -3,12 +3,12 @@ const cache = new Map<string, { value: any; expires: number }>();
 export async function getCached<T>(key: string): Promise<T | null> {
   const item = cache.get(key);
   if (!item) return null;
-  
+
   if (Date.now() > item.expires) {
     cache.delete(key);
     return null;
   }
-  
+
   return item.value as T;
 }
 

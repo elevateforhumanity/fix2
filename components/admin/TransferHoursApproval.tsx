@@ -3,7 +3,7 @@
 import React from 'react';
 /**
  * Transfer Hours Approval Component
- * 
+ *
  * Displays transfer hours records and allows admin to approve/reject
  */
 
@@ -34,9 +34,9 @@ interface TransferHoursApprovalProps {
   enrollmentId: string;
 }
 
-export default function TransferHoursApproval({ 
-  transferHours, 
-  enrollmentId 
+export default function TransferHoursApproval({
+  transferHours,
+  enrollmentId
 }: TransferHoursApprovalProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [processing, setProcessing] = useState<string | null>(null);
@@ -47,14 +47,14 @@ export default function TransferHoursApproval({
       `Theory hours to accept (max ${transferHour.hours_theory_submitted}):`,
       transferHour.hours_theory_submitted.toString()
     );
-    
+
     if (theoryAccepted === null) return;
 
     const practicalAccepted = prompt(
       `Practical hours to accept (max ${transferHour.hours_practical_submitted}):`,
       transferHour.hours_practical_submitted.toString()
     );
-    
+
     if (practicalAccepted === null) return;
 
     const notes = prompt('Approval notes (optional):');
@@ -109,7 +109,7 @@ export default function TransferHoursApproval({
   return (
     <div className="space-y-4">
       {transferHours.map((th) => (
-        <div 
+        <div
           key={th.id}
           className={`border rounded-lg overflow-hidden transition-all ${
             th.status === 'approved' ? 'border-green-500/30 bg-green-500/5' :
@@ -118,7 +118,7 @@ export default function TransferHoursApproval({
           }`}
         >
           {/* Header */}
-          <div 
+          <div
             className="p-4 cursor-pointer hover:bg-slate-700/30 transition-colors"
             onClick={() => setExpandedId(expandedId === th.id ? null : th.id)}
           >
@@ -137,12 +137,12 @@ export default function TransferHoursApproval({
                     </span>
                   )}
                 </div>
-                
+
                 <div className="flex gap-6 text-sm">
                   <div>
                     <span className="text-slate-400">Theory:</span>
                     <span className="text-white ml-2 font-medium">
-                      {th.status === 'approved' 
+                      {th.status === 'approved'
                         ? `${th.hours_theory_accepted} / ${th.hours_theory_submitted}`
                         : th.hours_theory_submitted
                       } hrs
@@ -186,12 +186,12 @@ export default function TransferHoursApproval({
           {/* Expanded Details */}
           {expandedId === th.id && (
             <div className="border-t border-slate-600 p-4 space-y-4">
-              
+
               {/* Documentation */}
               {th.proof_doc_path && (
                 <div>
                   <div className="text-xs text-slate-400 mb-2">Documentation</div>
-                  <a 
+                  <a
                     href={th.proof_doc_path}
                     target="_blank"
                     rel="noopener noreferrer"

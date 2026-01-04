@@ -3,11 +3,11 @@
 import React from 'react';
 
 import { useState, useEffect } from 'react';
-import { 
-  Users, 
-  DollarSign, 
-  TrendingUp, 
-  Copy, 
+import {
+  Users,
+  DollarSign,
+  TrendingUp,
+  Copy,
   Check,
   Share2,
   Gift,
@@ -157,13 +157,13 @@ export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
             <p className="text-blue-100 mb-6">
               Share this code with friends and earn $50 for each completed referral!
             </p>
-            
+
             <div className="flex items-center gap-4">
               <div className="flex-1 bg-white/20 backdrop-blur-sm rounded-lg p-4">
                 <p className="text-sm text-blue-100 mb-1">Referral Code</p>
                 <p className="text-3xl font-bold tracking-wider">{referralCode || 'Loading...'}</p>
               </div>
-              
+
               <div className="flex gap-2">
                 <button
                   onClick={handleCopyCode}
@@ -181,7 +181,7 @@ export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
                     </>
                   )}
                 </button>
-                
+
                 <button
                   onClick={handleShare}
                   className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors font-semibold"
@@ -270,7 +270,7 @@ export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
         <div className="p-6 border-b">
           <h3 className="text-xl font-bold text-gray-900">Recent Referrals</h3>
         </div>
-        
+
         {referrals.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">

@@ -13,8 +13,8 @@ export default function FERPAPage() {
 
       <h2>Overview</h2>
       <p>
-        Elevate for Humanity complies with the Family Educational Rights and Privacy Act (FERPA), 
-        which protects the privacy of student education records. This policy explains your rights 
+        Elevate for Humanity complies with the Family Educational Rights and Privacy Act (FERPA),
+        which protects the privacy of student education records. This policy explains your rights
         and our responsibilities under FERPA.
       </p>
 
@@ -52,8 +52,8 @@ export default function FERPAPage() {
 
       <h2>Directory Information</h2>
       <p>
-        We may disclose "directory information" without consent unless you opt out. 
-        Directory information includes: name, enrollment status, program of study, 
+        We may disclose "directory information" without consent unless you opt out.
+        Directory information includes: name, enrollment status, program of study,
         dates of attendance, and credentials earned.
       </p>
 
@@ -76,20 +76,20 @@ export default function FERPAPage() {
 
       <h2>Data Security</h2>
       <p>
-        We maintain physical, electronic, and procedural safeguards to protect education records. 
+        We maintain physical, electronic, and procedural safeguards to protect education records.
         Access is limited to authorized personnel with legitimate educational interest.
       </p>
 
       <h2>Third-Party Services</h2>
       <p>
-        We use third-party services (learning management systems, payment processors) that may 
-        access education records. These services are bound by contract to protect student privacy 
+        We use third-party services (learning management systems, payment processors) that may
+        access education records. These services are bound by contract to protect student privacy
         and use data only for authorized purposes.
       </p>
 
       <h2>Retention</h2>
       <p>
-        We retain education records for 7 years after a student's last enrollment. 
+        We retain education records for 7 years after a student's last enrollment.
         Transcripts are maintained permanently.
       </p>
 

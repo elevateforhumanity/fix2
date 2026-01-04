@@ -11,9 +11,9 @@ export function rateLimit(config: RateLimitConfig = { windowMs: 60000, maxReques
   return async (req: NextRequest) => {
     const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown';
     const now = Date.now();
-    
+
     const record = requestCounts.get(ip);
-    
+
     if (!record || now > record.resetTime) {
       requestCounts.set(ip, {
         count: 1,
@@ -21,11 +21,11 @@ export function rateLimit(config: RateLimitConfig = { windowMs: 60000, maxReques
       });
       return null;
     }
-    
+
     if (record.count >= config.maxRequests) {
       return NextResponse.json(
         { error: 'Too many requests' },
-        { 
+        {
           status: 429,
           headers: {
             'Retry-After': String(Math.ceil((record.resetTime - now) / 1000)),
@@ -33,7 +33,7 @@ export function rateLimit(config: RateLimitConfig = { windowMs: 60000, maxReques
         }
       );
     }
-    
+
     record.count++;
     return null;
   };

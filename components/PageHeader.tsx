@@ -19,7 +19,7 @@ export default function PageHeader({
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           {title}
         </h1>
-        
+
         {excerpt && (
           <p className="text-xl text-gray-600 max-w-3xl mb-6">
             {excerpt}

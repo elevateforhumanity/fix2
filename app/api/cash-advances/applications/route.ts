@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   try {
     const supabase = supabaseServer();
     const searchParams = request.nextUrl.searchParams;
-    
+
     // Get query parameters
     const status = searchParams.get('status');
     const limit = parseInt(searchParams.get('limit') || '100');

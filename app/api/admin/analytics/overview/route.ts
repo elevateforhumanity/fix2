@@ -13,7 +13,7 @@ export const GET = withAuth(
 
   const supabase = createSupabaseClient();
   const tenantId = req.headers.get('x-tenant-id');
-  
+
   if (!tenantId) {
     return NextResponse.json({ error: 'Tenant ID required' }, { status: 400 });
   }

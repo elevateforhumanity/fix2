@@ -10,7 +10,7 @@ export const maxDuration = 60;
 export async function GET(request: NextRequest) {
   const clientId = process.env.FACEBOOK_CLIENT_ID;
   const redirectUri = `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/facebook/callback`;
-  
+
   if (!clientId) {
     return NextResponse.json(
       { error: 'Facebook Client ID not configured' },

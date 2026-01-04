@@ -27,7 +27,7 @@ export interface ClientIntakeData {
   middleName?: string;
   ssn: string;
   dateOfBirth: string;
-  
+
   // Contact Information
   email: string;
   phone: string;
@@ -37,7 +37,7 @@ export interface ClientIntakeData {
     state: string;
     zip: string;
   };
-  
+
   // Spouse Information (if married)
   spouse?: {
     firstName: string;
@@ -45,7 +45,7 @@ export interface ClientIntakeData {
     ssn: string;
     dateOfBirth: string;
   };
-  
+
   // Filing Information
   filingStatus: 'single' | 'married_joint' | 'married_separate' | 'head_of_household';
   dependents: Array<{
@@ -55,13 +55,13 @@ export interface ClientIntakeData {
     dateOfBirth: string;
     relationship: string;
   }>;
-  
+
   // Income Information
   hasW2: boolean;
   has1099: boolean;
   hasSelfEmployment: boolean;
   hasRentalIncome: boolean;
-  
+
   // Preferences
   refundMethod: 'direct_deposit' | 'check';
   bankAccount?: {
@@ -69,7 +69,7 @@ export interface ClientIntakeData {
     accountNumber: string;
     accountType: 'checking' | 'savings';
   };
-  
+
   // Refund Advance
   wantsRefundAdvance: boolean;
   refundAdvanceAmount?: number;
@@ -152,7 +152,7 @@ class JotFormIntegration {
       middleName: this.getAnswer(answers, 'middleName', 'middle_name'),
       ssn: this.getAnswer(answers, 'ssn', 'socialSecurity', 'social_security_number'),
       dateOfBirth: this.getAnswer(answers, 'dateOfBirth', 'dob', 'birth_date'),
-      
+
       email: this.getAnswer(answers, 'email', 'emailAddress'),
       phone: this.getAnswer(answers, 'phone', 'phoneNumber', 'phone_number'),
       address: {
@@ -161,15 +161,15 @@ class JotFormIntegration {
         state: this.getAnswer(answers, 'state'),
         zip: this.getAnswer(answers, 'zip', 'zipCode', 'postal_code'),
       },
-      
+
       filingStatus: this.getAnswer(answers, 'filingStatus', 'filing_status') as any || 'single',
       dependents: this.parseDependents(answers),
-      
+
       hasW2: this.getBooleanAnswer(answers, 'hasW2', 'w2'),
       has1099: this.getBooleanAnswer(answers, 'has1099', '1099'),
       hasSelfEmployment: this.getBooleanAnswer(answers, 'selfEmployment', 'self_employed'),
       hasRentalIncome: this.getBooleanAnswer(answers, 'rentalIncome', 'rental'),
-      
+
       refundMethod: this.getAnswer(answers, 'refundMethod', 'refund_method') as any || 'direct_deposit',
       wantsRefundAdvance: this.getBooleanAnswer(answers, 'refundAdvance', 'advance'),
     };
@@ -231,7 +231,7 @@ class JotFormIntegration {
    */
   private parseDependents(answers: any): Array<any> {
     const dependents: Array<any> = [];
-    
+
     // Look for dependent fields (usually numbered or in a table)
     for (const key in answers) {
       const answer = answers[key];
@@ -247,7 +247,7 @@ class JotFormIntegration {
         });
       }
     }
-    
+
     return dependents;
   }
 

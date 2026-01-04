@@ -31,7 +31,7 @@ interface SecurityAlert {
   userId?: string;
   ipAddress?: string;
   userAgent?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   timestamp: Date;
 }
 interface AlertChannel {

@@ -9,7 +9,7 @@ interface LoadingTimeoutProps {
   message?: string;
 }
 
-export function LoadingTimeout({ 
+export function LoadingTimeout({
   timeout = 10000, // 10 seconds default
   message = "This is taking longer than expected..."
 }: LoadingTimeoutProps) {
@@ -38,11 +38,11 @@ export function LoadingTimeout({
     <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
         <AlertCircle className="h-16 w-16 text-yellow-600 mx-auto mb-6" />
-        
+
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
           Loading Timeout
         </h2>
-        
+
         <p className="text-gray-600 mb-6">
           {message}
         </p>
@@ -55,7 +55,7 @@ export function LoadingTimeout({
             <RefreshCw className="h-5 w-5" />
             Reload Page
           </button>
-          
+
           <Link
             href="/login"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-semibold"

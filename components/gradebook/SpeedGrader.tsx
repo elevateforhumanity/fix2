@@ -52,7 +52,7 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
     setSaving(true);
     try {
       const percentage = (points / assignment.points) * 100;
-      
+
       await onGrade(currentSubmission.id, {
         points,
         maxPoints: assignment.points,
@@ -70,8 +70,8 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
     setRubricScores(prev => {
       const existing = prev.find(s => s.criterionId === criterionId);
       if (existing) {
-        return prev.map(s => 
-          s.criterionId === criterionId 
+        return prev.map(s =>
+          s.criterionId === criterionId
             ? { ...s, levelId, points }
             : s
         );
@@ -105,7 +105,7 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
               Grading {currentIndex + 1} of {submissions.length}
             </p>
           </div>
-          
+
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrevious}

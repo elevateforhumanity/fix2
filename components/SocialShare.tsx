@@ -73,7 +73,7 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
           {/* Share Menu */}
           <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 z-50 p-4">
             <h3 className="text-sm font-semibold text-slate-900 mb-3">Share this</h3>
-            
+
             <div className="space-y-2">
               {/* Facebook */}
               <a

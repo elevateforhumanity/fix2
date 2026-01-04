@@ -59,7 +59,7 @@ export default function SuccessStoryCards() {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-zinc-900 mb-2">{story.name}</h3>
                 <p className="text-sm text-brand-orange-600 font-semibold mb-4">{story.program}</p>
-                
+
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">
                     <span className="text-slate-500 text-sm">Before:</span>

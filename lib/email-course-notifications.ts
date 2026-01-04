@@ -55,14 +55,14 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
         <tr>
           <td align="center">
             <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-              
+
               <!-- Header -->
               <tr>
                 <td style="background: linear-gradient(135deg, #E63946 0%, #F77F00 50%, #06A77D 100%); padding: 40px 30px; text-align: center;">
                   <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: bold;">🎉 You're Enrolled!</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
@@ -70,7 +70,7 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     Congratulations! You've successfully enrolled in <strong>${courseName}</strong> at Elevate for Humanity.
                   </p>
-                  
+
                   <!-- Course Details Box -->
                   <div style="margin: 30px 0; padding: 20px; background-color: #f3f4f6; border-radius: 8px;">
                     <h3 style="margin: 0 0 15px 0; color: #111827; font-size: 18px;">📚 Course Details</h3>
@@ -99,7 +99,7 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                       </tr>
                     </table>
                   </div>
-                  
+
                   ${
                     liveSessionInfo
                       ? `
@@ -111,7 +111,7 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                   `
                       : ''
                   }
-                  
+
                   ${
                     handsOnInfo
                       ? `
@@ -123,7 +123,7 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                   `
                       : ''
                   }
-                  
+
                   <!-- Next Steps -->
                   <div style="margin: 30px 0; padding: 20px; background-color: #f0fdf4; border-left: 4px solid #10b981; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #065f46; font-size: 18px;">✅ Next Steps</h3>
@@ -135,7 +135,7 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                       ${liveSessionInfo ? '<li style="margin-bottom: 8px;">Mark your calendar for live sessions</li>' : ''}
                     </ol>
                   </div>
-                  
+
                   <!-- CTA Buttons -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -149,14 +149,14 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                       </td>
                     </tr>
                   </table>
-                  
+
                   <!-- Support Info -->
                   <p style="margin: 30px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     Questions? Contact us at <a href="mailto:Elevate4humanityedu@gmail.com" style="color: #E63946;">Elevate4humanityedu@gmail.com</a>
                   </p>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -212,14 +212,14 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
         <tr>
           <td align="center">
             <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-              
+
               <!-- Header -->
               <tr>
                 <td style="background: linear-gradient(135deg, #3b82f6 0%, #7209B7 100%); padding: 40px 30px; text-align: center;">
                   <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: bold;">⏰ Your Course Starts Soon!</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
@@ -227,7 +227,7 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     This is a friendly reminder that <strong>${courseName}</strong> starts on <strong>${startDate}</strong>.
                   </p>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #92400e; font-size: 18px;">📅 Get Ready</h3>
                     <ul style="margin: 10px 0 0 0; padding-left: 20px; color: #78350f;">
@@ -237,7 +237,7 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
                       ${liveSessionInfo ? `<li style="margin-bottom: 8px;">Add live session times to your calendar</li>` : ''}
                     </ul>
                   </div>
-                  
+
                   ${
                     liveSessionInfo
                       ? `
@@ -248,7 +248,7 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
                   `
                       : ''
                   }
-                  
+
                   <!-- CTA Button -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -259,13 +259,13 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
                       </td>
                     </tr>
                   </table>
-                  
+
                   <p style="margin: 30px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     We're excited to see you in class! Questions? Email <a href="mailto:Elevate4humanityedu@gmail.com" style="color: #3b82f6;">Elevate4humanityedu@gmail.com</a>
                   </p>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -328,14 +328,14 @@ export async function sendLiveSessionReminderEmail(data: {
         <tr>
           <td align="center">
             <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-              
+
               <!-- Header -->
               <tr>
                 <td style="background: linear-gradient(135deg, #06A77D 0%, #3b82f6 100%); padding: 40px 30px; text-align: center;">
                   <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">📹 Live Session Tomorrow</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
@@ -343,7 +343,7 @@ export async function sendLiveSessionReminderEmail(data: {
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     Don't forget! You have a live instruction session tomorrow for <strong>${courseName}</strong>.
                   </p>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #f0fdf4; border-left: 4px solid #10b981; border-radius: 4px;">
                     <h3 style="margin: 0 0 15px 0; color: #065f46; font-size: 18px;">${sessionTitle}</h3>
                     <table width="100%" cellpadding="8" cellspacing="0">
@@ -357,7 +357,7 @@ export async function sendLiveSessionReminderEmail(data: {
                       </tr>
                     </table>
                   </div>
-                  
+
                   ${
                     sessionLink
                       ? `
@@ -373,13 +373,13 @@ export async function sendLiveSessionReminderEmail(data: {
                   `
                       : ''
                   }
-                  
+
                   <p style="margin: 20px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     <strong>Tip:</strong> Join a few minutes early to test your audio and video. See you there!
                   </p>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">

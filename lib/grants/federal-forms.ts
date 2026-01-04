@@ -9,25 +9,25 @@ import { getEntityByUEI } from '@/lib/integrations/sam-gov';
 export interface SF424Data {
   // 1. Type of Submission
   typeOfSubmission: 'preapplication' | 'application' | 'changed_corrected';
-  
+
   // 2. Type of Application
   typeOfApplication: 'new' | 'continuation' | 'revision';
-  
+
   // 3. Date Received
   dateReceived?: string;
-  
+
   // 4. Applicant Identifier
   applicantIdentifier?: string;
-  
+
   // 5. Federal Entity Identifier
   federalEntityIdentifier?: string;
-  
+
   // 6. Date Received by State
   dateReceivedByState?: string;
-  
+
   // 7. State Application Identifier
   stateApplicationIdentifier?: string;
-  
+
   // 8. Applicant Information
   applicant: {
     legalName: string;
@@ -43,41 +43,41 @@ export interface SF424Data {
     country: string;
     organizationType: string;
   };
-  
+
   // 9. Type of Applicant
   applicantType: string;
-  
+
   // 10. Name of Federal Agency
   federalAgency: string;
-  
+
   // 11. Catalog of Federal Domestic Assistance (CFDA)
   cfdaNumber?: string;
   cfdaTitle?: string;
-  
+
   // 12. Funding Opportunity Number
   fundingOpportunityNumber?: string;
-  
+
   // 13. Competition Identification Number
   competitionId?: string;
-  
+
   // 14. Areas Affected by Project
   areasAffected: string[];
-  
+
   // 15. Descriptive Title of Applicant's Project
   projectTitle: string;
-  
+
   // 16. Congressional Districts
   congressionalDistricts: {
     applicant: string;
     project: string[];
   };
-  
+
   // 17. Proposed Project Dates
   projectDates: {
     start: string;
     end: string;
   };
-  
+
   // 18. Estimated Funding
   funding: {
     federal: number;
@@ -88,13 +88,13 @@ export interface SF424Data {
     programIncome: number;
     total: number;
   };
-  
+
   // 19. Is Application Subject to Review by State?
   stateReview: 'yes' | 'no' | 'not_applicable';
-  
+
   // 20. Is Applicant Delinquent on Federal Debt?
   delinquentOnDebt: 'yes' | 'no';
-  
+
   // 21. Authorized Representative
   authorizedRep: {
     prefix?: string;
@@ -122,7 +122,7 @@ export interface SF424AData {
       nonFederal: number;
       total: number;
     }[];
-    
+
     // Section B - Budget Categories
     budgetCategories: {
       personnel: number;
@@ -137,7 +137,7 @@ export interface SF424AData {
       indirectCharges: number;
       total: number;
     };
-    
+
     // Section C - Non-Federal Resources
     nonFederalResources: {
       applicant: number;
@@ -145,14 +145,14 @@ export interface SF424AData {
       otherSources: number;
       total: number;
     };
-    
+
     // Section D - Forecasted Cash Needs
     cashNeeds: {
       federal: number[];
       nonFederal: number[];
       total: number[];
     };
-    
+
     // Section E - Budget Estimates of Federal Funds Needed
     federalFundsNeeded: {
       firstYear: number;
@@ -161,7 +161,7 @@ export interface SF424AData {
       fourthYear?: number;
       total: number;
     };
-    
+
     // Section F - Other Budget Information
     otherBudgetInfo?: string;
   };
@@ -169,16 +169,16 @@ export interface SF424AData {
 
 export interface SFLLLData {
   // Disclosure of Lobbying Activities
-  
+
   // 1. Type of Federal Action
   federalActionType: 'contract' | 'grant' | 'cooperative_agreement' | 'loan' | 'loan_guarantee' | 'loan_insurance';
-  
+
   // 2. Status of Federal Action
   federalActionStatus: 'bid_offer_application' | 'initial_award' | 'post_award';
-  
+
   // 3. Report Type
   reportType: 'initial' | 'material_change';
-  
+
   // 4. Name and Address of Reporting Entity
   reportingEntity: {
     name: string;
@@ -188,47 +188,47 @@ export interface SFLLLData {
     zip: string;
     congressionalDistrict?: string;
   };
-  
+
   // 5. Federal Department/Agency
   federalDepartment: string;
-  
+
   // 6. Federal Program Name/Description
   federalProgram: string;
-  
+
   // 7. Federal Action Number
   federalActionNumber?: string;
-  
+
   // 8. Federal Award Amount
   federalAwardAmount?: number;
-  
+
   // 9. Lobbying Registrant
   lobbyingRegistrant?: {
     name: string;
     address: string;
     individuals: string[];
   };
-  
+
   // 10. Individuals Performing Services
   individuals?: string[];
-  
+
   // 11. Amount of Payment
   paymentAmount?: number;
-  
+
   // 12. Form of Payment
   paymentForm?: string;
-  
+
   // 13. Type of Payment
   paymentType?: string;
-  
+
   // 14. Brief Description of Services
   servicesDescription?: string;
-  
+
   // 15. Continuation Sheet
   continuationSheet?: boolean;
-  
+
   // 16. Information Requested Through This Form is Authorized
   authorized: boolean;
-  
+
   // Signature
   signature: {
     name: string;

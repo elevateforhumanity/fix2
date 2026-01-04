@@ -16,28 +16,28 @@ interface ProgramPageProps {
   subtitle: string;
   ctaPrimary: { text: string; href: string };
   ctaSecondary: { text: string; href: string };
-  
+
   // Quick Facts
   duration: string;
   cost: string;
   placement: string;
   salary: string;
-  
+
   // Overview
   overviewTitle: string;
   overviewDescription: string[];
   certifications: string[];
-  
+
   // Visual Highlights
   highlights: ProgramHighlight[];
-  
+
   // Career Outcomes
   careerTitle: string;
   careerDescription: string;
   careerImage: string;
   careerImageAlt: string;
   jobTitles: string[];
-  
+
   // Application CTA
   finalCtaTitle: string;
   finalCtaDescription: string;
@@ -81,7 +81,7 @@ export default function ProgramPageLayout({
             sizes="100vw"
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-3xl">
             <h1 className="text-6xl md:text-7xl font-extrabold mb-6 text-white drop-shadow-2xl leading-tight">
@@ -137,7 +137,7 @@ export default function ProgramPageLayout({
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-5xl font-black mb-12 text-center text-3xl md:text-4xl lg:text-5xl">{overviewTitle}</h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div className="space-y-6">
                 {overviewDescription.map((paragraph, index) => (
@@ -146,7 +146,7 @@ export default function ProgramPageLayout({
                   </p>
                 ))}
               </div>
-              
+
               <div className="   rounded-3xl p-10 shadow-xl">
                 <h3 className="text-3xl font-bold mb-6 text-gray-900">Certifications You'll Earn</h3>
                 <div className="space-y-4">
@@ -174,7 +174,7 @@ d="M5 13l4 4L19 7" />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-5xl font-black mb-16 text-center text-3xl md:text-4xl lg:text-5xl">What You'll Learn</h2>
-            
+
             <div className="space-y-16">
               {highlights.map((highlight, index) => (
                 <div
@@ -194,7 +194,7 @@ d="M5 13l4 4L19 7" />
                       />
                     </div>
                   </div>
-                  
+
                   <div className={index % 2 === 1 ? 'md:order-1' : ''}>
                     <h3 className="text-4xl font-bold mb-6 text-gray-900 text-2xl md:text-3xl lg:text-4xl">{highlight.title}</h3>
                     <p className="text-xl text-gray-700 leading-relaxed">{highlight.description}</p>
@@ -211,7 +211,7 @@ d="M5 13l4 4L19 7" />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-5xl font-black mb-12 text-center text-3xl md:text-4xl lg:text-5xl">{careerTitle}</h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
@@ -222,12 +222,12 @@ d="M5 13l4 4L19 7" />
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              
+
               <div>
                 <p className="text-xl text-gray-700 leading-relaxed mb-8">
                   {careerDescription}
                 </p>
-                
+
                 <h3 className="text-3xl font-bold mb-6 text-gray-900">Career Opportunities</h3>
                 <div className="grid grid-cols-1 gap-4">
                   {jobTitles.map((job, index) => (

@@ -71,7 +71,7 @@ export async function authGuard(options: AuthGuardOptions = {}): Promise<AuthGua
   }
 
   // Check role authorization
-  const isAuthorized = allowedRoles.length === 0 || 
+  const isAuthorized = allowedRoles.length === 0 ||
     (role && allowedRoles.includes(role));
 
   if (requireAuth && !isAuthorized) {
@@ -215,16 +215,16 @@ const PERMISSIONS: Record<UserRole, string[]> = {
 
 export async function hasPermission(permission: string): Promise<boolean> {
   const role = await getUserRole();
-  
+
   if (!role) return false;
-  
+
   const rolePermissions = PERMISSIONS[role] || [];
   return rolePermissions.includes('*') || rolePermissions.includes(permission);
 }
 
 export async function requirePermission(permission: string) {
   const hasAccess = await hasPermission(permission);
-  
+
   if (!hasAccess) {
     redirect('/unauthorized');
   }
@@ -242,7 +242,7 @@ export async function requirePermission(permission: string) {
 export async function canAccessCourse(courseId: string): Promise<boolean> {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) return false;
 
   const role = await getUserRole();
@@ -275,7 +275,7 @@ export async function canAccessCourse(courseId: string): Promise<boolean> {
  */
 export async function requireCourseAccess(courseId: string) {
   const hasAccess = await canAccessCourse(courseId);
-  
+
   if (!hasAccess) {
     redirect('/courses');
   }
@@ -289,7 +289,7 @@ export async function requireCourseAccess(courseId: string) {
 export async function canEditCourse(courseId: string): Promise<boolean> {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) return false;
 
   const role = await getUserRole();
@@ -312,7 +312,7 @@ export async function canEditCourse(courseId: string): Promise<boolean> {
  */
 export async function requireCourseEditAccess(courseId: string) {
   const canEdit = await canEditCourse(courseId);
-  
+
   if (!canEdit) {
     redirect('/instructor/courses');
   }
@@ -326,7 +326,7 @@ export async function requireCourseEditAccess(courseId: string) {
 export async function canAccessStudentData(studentId: string): Promise<boolean> {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) return false;
 
   const role = await getUserRole();
@@ -357,7 +357,7 @@ export async function canAccessStudentData(studentId: string): Promise<boolean> 
  */
 export async function requireStudentDataAccess(studentId: string) {
   const hasAccess = await canAccessStudentData(studentId);
-  
+
   if (!hasAccess) {
     redirect('/unauthorized');
   }
@@ -425,7 +425,7 @@ export async function apiAuthGuard(options: AuthGuardOptions = {}): Promise<{
     };
   }
 
-  const isAuthorized = allowedRoles.length === 0 || 
+  const isAuthorized = allowedRoles.length === 0 ||
     (role && allowedRoles.includes(role));
 
   if (requireAuth && !isAuthorized) {

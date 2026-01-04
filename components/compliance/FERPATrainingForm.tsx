@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React from 'react';
@@ -7,10 +6,10 @@ import { memo } from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SignatureCanvas from 'react-signature-canvas';
-import { 
-  CheckCircle, 
-  FileText, 
-  Shield, 
+import {
+  CheckCircle,
+  FileText,
+  Shield,
   AlertCircle,
   Download,
   RefreshCw
@@ -138,14 +137,14 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
   const router = useRouter();
   const signatureRef = useRef<SignatureCanvas>(null);
   const confidentialitySignatureRef = useRef<SignatureCanvas>(null);
-  
+
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [score, setScore] = useState<number | null>(null);
   const [passed, setPassed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  
+
   const [trainingAcknowledged, setTrainingAcknowledged] = useState(false);
   const [confidentialityAcknowledged, setConfidentialityAcknowledged] = useState(false);
   const [signature, setSignature] = useState('');
@@ -235,7 +234,7 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
       }
 
       const data = await response.json();
-      
+
       // Show success and redirect
       setStep(4);
       setTimeout(() => {
@@ -298,7 +297,7 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
             </span>
           </div>
           <div className="w-full bg-slate-200 rounded-full h-2">
-            <div 
+            <div
               className="bg-blue-600 h-2 rounded-full transition-all duration-300"
               style={{ width: `${(step / totalSteps) * 100}%` }}
             />
@@ -348,21 +347,21 @@ export default function FERPATrainingForm({ user, existingTraining }: FERPATrain
                   Please review the following materials before proceeding to the assessment:
                 </p>
                 <div className="space-y-2">
-                  <a 
+                  <a
                     href="/docs/compliance/ferpa/FERPA_Policy_Manual.md"
                     target="_blank"
                     className="block px-4 py-2 bg-white border border-blue-300 rounded hover:bg-blue-50 transition"
                   >
                     📄 FERPA Policy & Procedures Manual
                   </a>
-                  <a 
+                  <a
                     href="/docs/compliance/ferpa/FERPA_Training_Course.md"
                     target="_blank"
                     className="block px-4 py-2 bg-white border border-blue-300 rounded hover:bg-blue-50 transition"
                   >
                     📖 Complete Training Course
                   </a>
-                  <a 
+                  <a
                     href="/docs/compliance/lms/LMS_Policies_Manual.md"
                     target="_blank"
                     className="block px-4 py-2 bg-white border border-blue-300 rounded hover:bg-blue-50 transition"

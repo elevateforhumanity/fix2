@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     // In production, integrate with IRS "Where's My Refund" API
     // For now, use Drake Software or simulate based on filing date
-    
+
     // Find tax return by SSN
     const { data: client } = await supabase
       .from('clients')
@@ -39,12 +39,12 @@ export async function POST(request: NextRequest) {
 
     if (client?.tax_returns?.[0]) {
       const taxReturn = client.tax_returns[0];
-      
+
       // Determine status based on tax return status
       if (taxReturn.status === 'filed') {
         status = 'approved';
         statusMessage = 'Your refund has been approved and will be sent soon';
-        
+
         // Calculate expected date (typically 21 days from filing)
         const filedDate = new Date(taxReturn.filed_date || taxReturn.created_at);
         expectedDate = new Date(filedDate);

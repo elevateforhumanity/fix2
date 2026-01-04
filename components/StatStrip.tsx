@@ -8,7 +8,7 @@ interface StatStripProps {
 }
 
 export function StatStrip({ stats, background = "slate" }: StatStripProps) {
-  const bgClass = 
+  const bgClass =
     background === "white" ? "bg-white" :
     background === "slate" ? "bg-slate-50" :
     "bg-slate-900 text-white";

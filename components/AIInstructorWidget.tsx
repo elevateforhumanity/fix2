@@ -34,10 +34,10 @@ export function AIInstructorWidget({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ programId, lessonId, context }),
       });
-      
+
       const data = await response.json();
       setMessage(data.message);
-      
+
       if (data.audioUrl && !muted) {
         playAudio(data.audioUrl);
       }

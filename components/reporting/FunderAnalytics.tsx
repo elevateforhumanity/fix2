@@ -103,7 +103,7 @@ export default function FunderAnalytics() {
       m.averageCompletionTime.toFixed(0),
       `$${m.totalFundingUsed.toFixed(2)}`,
       `$${m.costPerCompletion.toFixed(2)}`,
-      m.costPerCompletion > 0 && m.averageWage > 0 
+      m.costPerCompletion > 0 && m.averageWage > 0
         ? ((m.averageWage * 2080) / m.costPerCompletion).toFixed(2)
         : 'N/A'
     ]);
@@ -365,8 +365,8 @@ export default function FunderAnalytics() {
                     <span className="text-sm font-medium">ROI Multiple</span>
                     {funder.costPerCompletion > 0 && funder.averageWage > 0 ? (
                       <Badge variant={
-                        (funder.averageWage * 2080) / funder.costPerCompletion > 3 
-                          ? 'default' 
+                        (funder.averageWage * 2080) / funder.costPerCompletion > 3
+                          ? 'default'
                           : 'secondary'
                       } className="text-lg">
                         {((funder.averageWage * 2080) / funder.costPerCompletion).toFixed(1)}x
@@ -433,7 +433,7 @@ export default function FunderAnalytics() {
                     <td className="text-right py-2">${m.averageWage.toFixed(2)}</td>
                     <td className="text-right py-2">${m.costPerCompletion.toLocaleString()}</td>
                     <td className="text-right py-2">
-                      {m.costPerCompletion > 0 && m.averageWage > 0 
+                      {m.costPerCompletion > 0 && m.averageWage > 0
                         ? `${((m.averageWage * 2080) / m.costPerCompletion).toFixed(1)}x`
                         : 'N/A'}
                     </td>

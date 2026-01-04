@@ -138,7 +138,7 @@ export function AdaptiveLearning({
                   </div>
                   <Target className="text-brand-orange-600" size={20} />
                 </div>
-                
+
                 <div className="mb-4">
                   <div className="text-sm text-gray-600 mb-2">Topics covered:</div>
                   <div className="flex flex-wrap gap-2">
@@ -152,7 +152,7 @@ export function AdaptiveLearning({
                     ))}
                   </div>
                 </div>
-                
+
                 <Button className="w-full bg-brand-orange-600 hover:bg-brand-orange-700">
                   Start Learning Path
                 </Button>
@@ -181,7 +181,7 @@ export function AdaptiveLearning({
                 <div className="h-full bg-green-600" style={{ width: '85%' }} />
               </div>
             </div>
-            
+
             <div>
               <div className="flex justify-between mb-2">
                 <span className="text-sm font-semibold">Assignment Completion</span>
@@ -191,7 +191,7 @@ export function AdaptiveLearning({
                 <div className="h-full bg-orange-600" style={{ width: '92%' }} />
               </div>
             </div>
-            
+
             <div>
               <div className="flex justify-between mb-2">
                 <span className="text-sm font-semibold">Study Consistency</span>

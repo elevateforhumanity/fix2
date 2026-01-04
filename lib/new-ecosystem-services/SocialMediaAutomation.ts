@@ -167,7 +167,7 @@ export class SocialMediaAutomation {
    */
   async publishPost(post: SocialMediaPost): Promise<void> {
     try {
-      // 
+      //
       // Call appropriate API based on platform
       switch (post.platform) {
         case 'facebook':
@@ -181,7 +181,7 @@ export class SocialMediaAutomation {
           break;
       }
       post.status = 'posted';
-      // 
+      //
       // Trigger Zapier webhook
       await this.triggerZapier(post);
     } catch (error: unknown) {
@@ -309,7 +309,7 @@ export class SocialMediaAutomation {
           action: 'sync_to_durable_blog',
         }),
       });
-      // 
+      //
     } catch (error: unknown) {
       // Error: $1
     }
@@ -397,18 +397,18 @@ export class SocialMediaAutomation {
    * Send report via email/notification
    */
   private async sendReport(report: DailyReport): Promise<void> {
-    // 
-    // 
+    //
+    //
     // }`);
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
-    // 
+    //
+    //
+    //
+    //
+    //
+    //
+    //
     report.topPerforming.forEach((post, i) => {
-      // 
+      //
     });
     // Send via email (implement with your email service)
     // await this.sendEmail(report);
@@ -438,7 +438,7 @@ export class SocialMediaAutomation {
    * Start automation
    */
   startAutomation(): void {
-    // 
+    //
     // Schedule daily posts
     this.scheduleDailyPosts();
     // Schedule reports
@@ -450,9 +450,9 @@ export class SocialMediaAutomation {
       },
       24 * 60 * 60 * 1000
     );
-    // 
-    // 
-    // 
+    //
+    //
+    //
   }
 }
 export default SocialMediaAutomation;

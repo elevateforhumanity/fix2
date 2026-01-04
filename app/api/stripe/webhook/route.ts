@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe/client';
 import { logger } from '@/lib/logger';
@@ -89,7 +88,7 @@ export async function POST(req: Request) {
     // Handle tax intake DIY service payments
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
-      
+
       // Check if this is a tax intake payment
       const intakeId = session.client_reference_id || session.metadata?.intake_id;
       if (intakeId && session.metadata?.service_type === 'tax_intake') {
@@ -113,10 +112,10 @@ export async function POST(req: Request) {
         } else {
           logger.info(`✅ Marked tax intake ${intakeId} as paid (session: ${session.id})`);
         }
-        
+
       }
     }
-    
+
     // Handle funding payment completion - AUTOMATIC ENROLLMENT
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;

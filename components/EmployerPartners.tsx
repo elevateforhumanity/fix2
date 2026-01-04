@@ -17,56 +17,56 @@ const partners: Partner[] = [
   { name: 'Eskenazi Health', industry: 'Healthcare', hiringRate: '90%' },
   { name: 'St. Vincent Health', industry: 'Healthcare', hiringRate: '88%' },
   { name: 'Franciscan Health', industry: 'Healthcare', hiringRate: '87%' },
-  
+
   // HVAC & Trades
   { name: 'Carrier', industry: 'HVAC', hiringRate: '93%' },
   { name: 'Trane Technologies', industry: 'HVAC', hiringRate: '91%' },
   { name: 'Lennox International', industry: 'HVAC', hiringRate: '89%' },
   { name: 'Service Experts', industry: 'HVAC', hiringRate: '86%' },
   { name: 'Comfort Systems USA', industry: 'HVAC', hiringRate: '85%' },
-  
+
   // Beauty & Cosmetology
   { name: 'Great Clips', industry: 'Beauty', hiringRate: '94%' },
   { name: 'Sport Clips', industry: 'Beauty', hiringRate: '92%' },
   { name: 'Supercuts', industry: 'Beauty', hiringRate: '90%' },
   { name: 'Ulta Beauty', industry: 'Beauty', hiringRate: '88%' },
   { name: 'Regis Corporation', industry: 'Beauty', hiringRate: '87%' },
-  
+
   // Transportation & Logistics
   { name: 'Schneider', industry: 'Transportation', hiringRate: '96%' },
   { name: 'Swift Transportation', industry: 'Transportation', hiringRate: '94%' },
   { name: 'Werner Enterprises', industry: 'Transportation', hiringRate: '92%' },
   { name: 'J.B. Hunt', industry: 'Transportation', hiringRate: '91%' },
   { name: 'Ryder', industry: 'Transportation', hiringRate: '89%' },
-  
+
   // Business & Technology
   { name: 'Salesforce', industry: 'Technology', hiringRate: '90%' },
   { name: 'Amazon', industry: 'Technology', hiringRate: '88%' },
   { name: 'Target', industry: 'Retail', hiringRate: '87%' },
   { name: 'Walmart', industry: 'Retail', hiringRate: '86%' },
   { name: 'CVS Health', industry: 'Healthcare', hiringRate: '85%' },
-  
+
   // Manufacturing
   { name: 'Cummins', industry: 'Manufacturing', hiringRate: '91%' },
   { name: 'Eli Lilly', industry: 'Pharmaceutical', hiringRate: '90%' },
   { name: 'Rolls-Royce', industry: 'Manufacturing', hiringRate: '89%' },
   { name: 'Allison Transmission', industry: 'Manufacturing', hiringRate: '88%' },
   { name: 'Roche Diagnostics', industry: 'Healthcare', hiringRate: '87%' },
-  
+
   // Hospitality
   { name: 'Marriott', industry: 'Hospitality', hiringRate: '89%' },
   { name: 'Hilton', industry: 'Hospitality', hiringRate: '88%' },
   { name: 'Hyatt', industry: 'Hospitality', hiringRate: '86%' },
   { name: 'IHG Hotels', industry: 'Hospitality', hiringRate: '85%' },
   { name: 'Aramark', industry: 'Food Service', hiringRate: '84%' },
-  
+
   // Financial Services
   { name: 'JPMorgan Chase', industry: 'Finance', hiringRate: '87%' },
   { name: 'Wells Fargo', industry: 'Finance', hiringRate: '86%' },
   { name: 'PNC Bank', industry: 'Finance', hiringRate: '85%' },
   { name: 'Fifth Third Bank', industry: 'Finance', hiringRate: '84%' },
   { name: 'Old National Bank', industry: 'Finance', hiringRate: '83%' },
-  
+
   // Additional Partners
   { name: 'FedEx', industry: 'Logistics', hiringRate: '90%' },
   { name: 'UPS', industry: 'Logistics', hiringRate: '89%' },
@@ -117,7 +117,7 @@ export default function EmployerPartners() {
             Hired by Industry Leaders
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our graduates work at top companies across healthcare, technology, trades, and more. 
+            Our graduates work at top companies across healthcare, technology, trades, and more.
             These employers trust Ona to prepare job-ready professionals.
           </p>
         </motion.div>
@@ -151,7 +151,7 @@ export default function EmployerPartners() {
         <div className="mb-8 relative">
           <div className="absolute left-0 top-0 bottom-0 w-20    z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-20    z-10" />
-          
+
           <motion.div
             className="flex gap-6"
             animate={{
@@ -195,7 +195,7 @@ export default function EmployerPartners() {
         <div className="mb-16 relative">
           <div className="absolute left-0 top-0 bottom-0 w-20    z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-20    z-10" />
-          
+
           <motion.div
             className="flex gap-6"
             animate={{
@@ -272,7 +272,7 @@ export default function EmployerPartners() {
               Job-Ready Graduates
             </h3>
             <p className="text-gray-700">
-              Our students complete hands-on training and are prepared to contribute from day one. 
+              Our students complete hands-on training and are prepared to contribute from day one.
               No additional training required.
             </p>
           </div>
@@ -285,7 +285,7 @@ export default function EmployerPartners() {
               Reduced Turnover
             </h3>
             <p className="text-gray-700">
-              Ona graduates have 40% lower turnover rates compared to traditional hires. 
+              Ona graduates have 40% lower turnover rates compared to traditional hires.
               They're committed to their careers.
             </p>
           </div>
@@ -298,7 +298,7 @@ export default function EmployerPartners() {
               Diverse Talent Pool
             </h3>
             <p className="text-gray-700">
-              Access candidates from diverse backgrounds who bring unique perspectives 
+              Access candidates from diverse backgrounds who bring unique perspectives
               and strong work ethic.
             </p>
           </div>
@@ -316,7 +316,7 @@ export default function EmployerPartners() {
             Partner With Ona
           </h3>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Join 50+ leading employers who hire our graduates. Build your talent pipeline 
+            Join 50+ leading employers who hire our graduates. Build your talent pipeline
             with skilled, motivated professionals ready to make an impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

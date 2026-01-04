@@ -2,7 +2,7 @@
 
 /**
  * Module Progress List Component
- * 
+ *
  * Displays all modules for an enrollment with status and actions
  */
 
@@ -37,9 +37,9 @@ interface ModuleProgressListProps {
   enrollmentId: string;
 }
 
-export default function ModuleProgressList({ 
+export default function ModuleProgressList({
   moduleProgress,
-  enrollmentId 
+  enrollmentId
 }: ModuleProgressListProps) {
   if (!moduleProgress || moduleProgress.length === 0) {
     return (
@@ -144,7 +144,7 @@ export default function ModuleProgressList({
 
           {/* Module Details */}
           <div className="space-y-2 text-sm">
-            
+
             {/* Score */}
             {progress.score !== null && progress.score !== undefined && (
               <div className="flex justify-between">

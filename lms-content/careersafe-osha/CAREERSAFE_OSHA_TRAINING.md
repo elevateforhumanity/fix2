@@ -2,13 +2,13 @@
 
 ## 🏗️ Partnership Overview
 
-**Provider:** CareerSafe (OSHA Authorized Provider)  
-**Website:** https://www.careersafeonline.com  
+**Provider:** CareerSafe (OSHA Authorized Provider)
+**Website:** https://www.careersafeonline.com
 **Business Portal:** https://www.careersafeonline.com/for-business/osha-training
 
-**Status:** ✅ ACCOUNT ACTIVE  
-**Organization Name:** Elevate for Humanity Training Center  
-**Organization Address:** 8888 Keystone Crossing, Indianapolis, Indiana 46240  
+**Status:** ✅ ACCOUNT ACTIVE
+**Organization Name:** Elevate for Humanity Training Center
+**Organization Address:** 8888 Keystone Crossing, Indianapolis, Indiana 46240
 **Phone:** (317) 314-3757
 
 **Available Courses:**
@@ -22,9 +22,9 @@
 ## 📚 Available OSHA Courses
 
 ### 1. **OSHA 10-Hour General Industry**
-**Certification:** OSHA 10-Hour Card (DOL issued)  
-**Duration:** 10 hours (self-paced online)  
-**Validity:** Lifetime (recommended refresh every 5 years)  
+**Certification:** OSHA 10-Hour Card (DOL issued)
+**Duration:** 10 hours (self-paced online)
+**Validity:** Lifetime (recommended refresh every 5 years)
 **Format:** 100% online, interactive modules
 
 **Topics Covered:**
@@ -49,9 +49,9 @@
 **DOL Card:** Official OSHA card mailed within 90 days of completion
 
 ### 2. **OSHA 30-Hour General Industry**
-**Certification:** OSHA 30-Hour Card (DOL issued)  
-**Duration:** 30 hours (self-paced online)  
-**Validity:** Lifetime (recommended refresh every 5 years)  
+**Certification:** OSHA 30-Hour Card (DOL issued)
+**Duration:** 30 hours (self-paced online)
+**Validity:** Lifetime (recommended refresh every 5 years)
 **Format:** 100% online, interactive modules
 
 **Topics Covered:**
@@ -74,9 +74,9 @@
 **DOL Card:** Official OSHA card mailed within 90 days of completion
 
 ### 3. **OSHA 10-Hour Construction**
-**Certification:** OSHA 10-Hour Card (DOL issued)  
-**Duration:** 10 hours (self-paced online)  
-**Validity:** Lifetime (recommended refresh every 5 years)  
+**Certification:** OSHA 10-Hour Card (DOL issued)
+**Duration:** 10 hours (self-paced online)
+**Validity:** Lifetime (recommended refresh every 5 years)
 **Format:** 100% online, interactive modules
 
 **Topics Covered:**
@@ -101,9 +101,9 @@
 **DOL Card:** Official OSHA card mailed within 90 days of completion
 
 ### 4. **OSHA 30-Hour Construction**
-**Certification:** OSHA 30-Hour Card (DOL issued)  
-**Duration:** 30 hours (self-paced online)  
-**Validity:** Lifetime (recommended refresh every 5 years)  
+**Certification:** OSHA 30-Hour Card (DOL issued)
+**Duration:** 30 hours (self-paced online)
+**Validity:** Lifetime (recommended refresh every 5 years)
 **Format:** 100% online, interactive modules
 
 **Topics Covered:**
@@ -129,9 +129,9 @@
 ## 🧪 Additional Safety Courses
 
 ### 5. **HAZWOPER 8-Hour Refresher**
-**Certification:** HAZWOPER Refresher Certificate  
-**Duration:** 8 hours  
-**Validity:** 1 year (annual refresher required)  
+**Certification:** HAZWOPER Refresher Certificate
+**Duration:** 8 hours
+**Validity:** 1 year (annual refresher required)
 **Format:** 100% online
 
 **Topics Covered:**
@@ -154,9 +154,9 @@
 **⚠️ HAZMAT Training:** CareerSafe does NOT offer full DOT HAZMAT training. For CDL HAZMAT endorsement training, contact alternative providers.
 
 ### 6. **Bloodborne Pathogens (BBP)**
-**Certification:** BBP Certificate  
-**Duration:** 1-2 hours  
-**Validity:** 1 year (annual renewal required)  
+**Certification:** BBP Certificate
+**Duration:** 1-2 hours
+**Validity:** 1 year (annual renewal required)
 **Format:** 100% online
 
 **Topics Covered:**
@@ -180,9 +180,9 @@
 **⚠️ IMPORTANT:** This standalone course contains the SAME content as the Bloodborne Pathogens module in OSHA 10-Hour. If students take OSHA 10-Hour, they do NOT need this separate course (would be buying the same module twice).
 
 ### 7. **Forklift/Powered Industrial Truck (PIT)**
-**Certification:** Forklift Operator Certificate  
-**Duration:** 4-6 hours online + practical evaluation  
-**Validity:** 3 years (must renew)  
+**Certification:** Forklift Operator Certificate
+**Duration:** 4-6 hours online + practical evaluation
+**Validity:** 3 years (must renew)
 **Format:** Online training + in-person skills test
 
 **Topics Covered:**
@@ -204,9 +204,9 @@
 **OSHA Required:** Employer must provide training and evaluation
 
 ### 8. **Confined Space Entry**
-**Certification:** Confined Space Certificate  
-**Duration:** 2-4 hours  
-**Validity:** 1 year (annual renewal recommended)  
+**Certification:** Confined Space Certificate
+**Duration:** 2-4 hours
+**Validity:** 1 year (annual renewal recommended)
 **Format:** 100% online
 
 **Topics Covered:**
@@ -225,9 +225,9 @@
 - Industrial workers
 
 ### 9. **Lockout/Tagout (LOTO)**
-**Certification:** LOTO Certificate  
-**Duration:** 2-3 hours  
-**Validity:** 1 year (annual renewal recommended)  
+**Certification:** LOTO Certificate
+**Duration:** 2-3 hours
+**Validity:** 1 year (annual renewal recommended)
 **Format:** 100% online
 
 **Topics Covered:**
@@ -246,9 +246,9 @@
 - Machine operators
 
 ### 10. **Fall Protection**
-**Certification:** Fall Protection Certificate  
-**Duration:** 2-3 hours  
-**Validity:** 1 year (annual renewal recommended)  
+**Certification:** Fall Protection Certificate
+**Duration:** 2-3 hours
+**Validity:** 1 year (annual renewal recommended)
 **Format:** 100% online
 
 **Topics Covered:**
@@ -307,9 +307,9 @@
 ## 🎓 Training Formats
 
 ### Self-Paced Online
-**Format:** 100% online, interactive modules  
-**Duration:** Varies by course  
-**Access:** 6 months to complete (typically)  
+**Format:** 100% online, interactive modules
+**Duration:** Varies by course
+**Access:** 6 months to complete (typically)
 **Features:**
 - Video lessons
 - Interactive activities
@@ -325,9 +325,9 @@
 - Cost-effective training
 
 ### Instructor-Led Online
-**Format:** Live virtual classroom  
-**Duration:** Scheduled sessions  
-**Access:** Real-time instruction  
+**Format:** Live virtual classroom
+**Duration:** Scheduled sessions
+**Access:** Real-time instruction
 **Features:**
 - Live instructor
 - Q&A sessions
@@ -342,9 +342,9 @@
 - Immediate feedback
 
 ### Blended Learning
-**Format:** Online + in-person skills  
-**Duration:** Online modules + practical session  
-**Access:** Flexible online + scheduled skills  
+**Format:** Online + in-person skills
+**Duration:** Online modules + practical session
+**Access:** Flexible online + scheduled skills
 **Features:**
 - Online theory
 - In-person practice
@@ -538,8 +538,8 @@
 ## 📊 Pricing Strategy
 
 ### Option 1: Included in Tuition
-**Model:** Build OSHA training into program cost  
-**Student Cost:** $0 (included)  
+**Model:** Build OSHA training into program cost
+**Student Cost:** $0 (included)
 **Benefit:** Competitive advantage, 100% compliance
 
 **Example:**
@@ -547,8 +547,8 @@
 - CDL Program: $3,500 (includes OSHA 10 + HAZMAT)
 
 ### Option 2: Separate Fee
-**Model:** Charge students for certifications  
-**Student Cost:** $50-$100 per course  
+**Model:** Charge students for certifications
+**Student Cost:** $50-$100 per course
 **Benefit:** Revenue stream, optional for some
 
 **Example:**
@@ -557,8 +557,8 @@
 - Bloodborne Pathogens: $30
 
 ### Option 3: Employer Sponsored
-**Model:** Employer pays for employee certifications  
-**Student Cost:** $0 (employer pays)  
+**Model:** Employer pays for employee certifications
+**Student Cost:** $0 (employer pays)
 **Benefit:** Employer partnership, job placement
 
 **Recommendation:** Include OSHA 10 in all programs (tuition), charge separately for specialized courses

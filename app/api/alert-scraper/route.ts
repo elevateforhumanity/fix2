@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
@@ -122,7 +121,7 @@ This is an automated alert from Elevate for Humanity Security System.
   if (process.env.SENDGRID_API_KEY) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    
+
     try {
       await sgMail.send({
         to: process.env.ALERT_EMAIL || 'elizabeth@elevateforhumanity.org',

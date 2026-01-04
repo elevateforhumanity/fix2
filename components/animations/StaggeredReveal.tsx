@@ -9,8 +9,8 @@ interface StaggeredRevealProps {
   direction?: 'up' | 'down' | 'left' | 'right' | 'fade';
 }
 
-export function StaggeredReveal({ 
-  children, 
+export function StaggeredReveal({
+  children,
   staggerDelay = 100,
   className = '',
   direction = 'up'
@@ -18,7 +18,7 @@ export function StaggeredReveal({
   return (
     <>
       {children.map((child, index) => (
-        <ScrollReveal 
+        <ScrollReveal
           key={index}
           delay={index * staggerDelay}
           direction={direction}

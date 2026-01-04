@@ -27,7 +27,7 @@ export interface Notification {
   read: boolean;
   created_at: string;
   read_at?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 /**
@@ -40,10 +40,10 @@ export async function createNotification(data: {
   message: string;
   actionUrl?: string;
   actionLabel?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }): Promise<string | null> {
   const supabase = await createClient();
-  
+
   const { data: notification, error } = await supabase
     .from('notifications')
     .insert({
@@ -72,7 +72,7 @@ export async function createNotification(data: {
  */
 export async function getUnreadNotifications(userId: string): Promise<Notification[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('notifications')
     .select('*')
@@ -96,7 +96,7 @@ export async function getUserNotifications(
   limit: number = 50
 ): Promise<Notification[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('notifications')
     .select('*')
@@ -117,7 +117,7 @@ export async function getUserNotifications(
  */
 export async function markNotificationAsRead(notificationId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('notifications')
     .update({
@@ -139,7 +139,7 @@ export async function markNotificationAsRead(notificationId: string): Promise<bo
  */
 export async function markAllNotificationsAsRead(userId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('notifications')
     .update({
@@ -162,7 +162,7 @@ export async function markAllNotificationsAsRead(userId: string): Promise<boolea
  */
 export async function deleteNotification(notificationId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('notifications')
     .delete()
@@ -181,7 +181,7 @@ export async function deleteNotification(notificationId: string): Promise<boolea
  */
 export async function getUnreadNotificationCount(userId: string): Promise<number> {
   const supabase = await createClient();
-  
+
   const { count, error } = await supabase
     .from('notifications')
     .select('*', { count: 'exact', head: true })
@@ -456,10 +456,10 @@ export async function notifySystemMessage(
  */
 export async function cleanupOldNotifications(retentionDays: number = 90): Promise<number> {
   const supabase = await createClient();
-  
+
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
-  
+
   const { data, error }: any = await supabase
     .from('notifications')
     .delete()

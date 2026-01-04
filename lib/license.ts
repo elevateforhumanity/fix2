@@ -46,7 +46,7 @@ export function getLicense(): EFHLicense {
  */
 export function isDomainAuthorized(hostname: string): boolean {
   const license = getLicense();
-  
+
   // Always allow localhost
   if (hostname === "localhost" || hostname.startsWith("127.0.0.1")) {
     return true;
@@ -75,7 +75,7 @@ export function isDomainAuthorized(hostname: string): boolean {
  */
 export function logLicenseWarning(data: unknown) {
   const license = getLicense();
-  
+
   // In production, you could send this to an external logging service
   // Example: sendToLoggingService({ licenseId: license.licenseId, message, data });
 }

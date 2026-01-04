@@ -35,7 +35,7 @@ export default function SurveyModal({
   onClose,
 }: SurveyModalProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [answers, setAnswers] = useState<Record<string, unknown>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const currentQuestion = survey.questions[currentQuestionIndex];

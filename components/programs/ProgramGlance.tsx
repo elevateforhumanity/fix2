@@ -22,7 +22,7 @@ export function ProgramGlance({
   return (
     <Card variant="elevated" className="sticky top-24">
       <h3 className="text-2xl font-bold text-gray-900 mb-6">At a Glance</h3>
-      
+
       <div className="space-y-4">
         {/* Duration */}
         <div className="flex items-start gap-3">
@@ -32,7 +32,7 @@ export function ProgramGlance({
             <div className="text-gray-700">{duration}</div>
           </div>
         </div>
-        
+
         {/* Location */}
         <div className="flex items-start gap-3">
           <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -41,7 +41,7 @@ export function ProgramGlance({
             <div className="text-gray-700">{location}</div>
           </div>
         </div>
-        
+
         {/* Modality */}
         <div className="flex items-start gap-3">
           <Monitor className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -52,7 +52,7 @@ export function ProgramGlance({
             </div>
           </div>
         </div>
-        
+
         {/* Prerequisites */}
         <div className="flex items-start gap-3">
           <Users className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -61,7 +61,7 @@ export function ProgramGlance({
             <div className="text-gray-700">{prerequisites}</div>
           </div>
         </div>
-        
+
         {/* Funding */}
         <div className="flex items-start gap-3">
           <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -74,7 +74,7 @@ export function ProgramGlance({
             </div>
           </div>
         </div>
-        
+
         {/* Next Steps */}
         <div className="pt-4 border-t border-gray-200">
           <div className="font-semibold text-gray-900 mb-2">Next Steps</div>

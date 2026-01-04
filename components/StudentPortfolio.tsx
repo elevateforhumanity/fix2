@@ -171,8 +171,8 @@ export function StudentPortfolio() {
   ];
 
   const categories = ['all', ...Array.from(new Set(projects.map(p => p.category)))];
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
+  const filteredProjects = selectedCategory === 'all'
+    ? projects
     : projects.filter(p => p.category === selectedCategory);
 
   const skillCategories = Array.from(new Set(skills.map(s => s.category)));
@@ -289,7 +289,7 @@ className="text-white hover:text-red-100 transition-colors">
                       </span>
                     </div>
                     <p className="text-gray-600 text-sm mb-4">{project.description}</p>
-                    
+
                     <div className="mb-4">
                       <p className="text-xs font-semibold text-gray-700 mb-2">Technologies:</p>
                       <div className="flex flex-wrap gap-2">
@@ -430,21 +430,21 @@ className="text-white hover:text-red-100 transition-colors">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Summary</h3>
                 <div className="prose prose-sm max-w-none text-gray-600 space-y-4">
                   <p>
-                    I'm a passionate full-stack developer with over 3 years of experience building web and mobile applications. 
-                    My journey in tech started with a curiosity about how websites work, which led me to pursue formal education 
+                    I'm a passionate full-stack developer with over 3 years of experience building web and mobile applications.
+                    My journey in tech started with a curiosity about how websites work, which led me to pursue formal education
                     through Elevate for Humanity' comprehensive programs.
                   </p>
                   <p>
-                    I specialize in modern JavaScript frameworks, particularly React and Next.js, and have extensive experience 
-                    with backend technologies like Node.js and Python. I'm particularly interested in creating intuitive user 
+                    I specialize in modern JavaScript frameworks, particularly React and Next.js, and have extensive experience
+                    with backend technologies like Node.js and Python. I'm particularly interested in creating intuitive user
                     experiences and building scalable, performant applications.
                   </p>
                   <p>
-                    Currently, I'm expanding my expertise in cloud computing and DevOps practices, with a focus on AWS services 
+                    Currently, I'm expanding my expertise in cloud computing and DevOps practices, with a focus on AWS services
                     and containerization. I'm also exploring machine learning and AI integration in web applications.
                   </p>
                   <p>
-                    When I'm not coding, I enjoy contributing to open-source projects, mentoring junior developers, and staying 
+                    When I'm not coding, I enjoy contributing to open-source projects, mentoring junior developers, and staying
                     up- with the latest industry trends through conferences and online communities.
                   </p>
                 </div>

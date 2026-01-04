@@ -34,10 +34,10 @@ const colors = [
   '#EC7063'  // Pink
 ];
 
-export default function Confetti({ 
-  active = true, 
+export default function Confetti({
+  active = true,
   duration = 3000,
-  pieceCount = 50 
+  pieceCount = 50
 }: ConfettiProps) {
   const [pieces, setPieces] = useState<ConfettiPiece[]>([]);
   const [isActive, setIsActive] = useState(active);
@@ -54,7 +54,7 @@ export default function Confetti({
         size: Math.random() * 10 + 5,
         delay: Math.random() * 0.5
       }));
-      
+
       setPieces(newPieces);
       setIsActive(true);
 
@@ -106,9 +106,9 @@ export default function Confetti({
 }
 
 // Alternative: Confetti Cannon Effect
-export function ConfettiCannon({ 
+export function ConfettiCannon({
   active = true,
-  duration = 2000 
+  duration = 2000
 }: Omit<ConfettiProps, 'pieceCount'>) {
   const [isActive, setIsActive] = useState(active);
 
@@ -218,7 +218,7 @@ export function ConfettiCannon({
 }
 
 // Burst Effect from Center
-export function ConfettiBurst({ 
+export function ConfettiBurst({
   active = true,
   duration = 2000,
   pieceCount = 40
@@ -241,7 +241,7 @@ export function ConfettiBurst({
     const angle = (360 / pieceCount) * i;
     const radians = (angle * Math.PI) / 180;
     const velocity = 20 + Math.random() * 15;
-    
+
     return {
       id: i,
       angle,

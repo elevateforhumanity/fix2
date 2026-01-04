@@ -70,7 +70,7 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
-          // 
+          //
           onUpdate(payload);
           this.updateSyncState(table);
         }
@@ -85,7 +85,7 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
-          // 
+          //
           onInsert(payload);
           this.updateSyncState(table);
         }
@@ -101,19 +101,19 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
-          // 
+          //
           onDelete(payload);
           this.updateSyncState(table);
         }
       );
     }
     channel.subscribe((status) => {
-      // 
+      //
     });
     this.subscriptions.set(channelName, channel);
     // Return cleanup function
     return () => {
-      // 
+      //
       channel.unsubscribe();
       this.subscriptions.delete(channelName);
       this.syncState.delete(table);
@@ -134,7 +134,7 @@ class DataSynchronizationManager {
       return false;
     }
     if (!state.isOnline) {
-      // 
+      //
       this.queueChange(table, { data, operation, timestamp: Date.now() });
       return false;
     }
@@ -158,7 +158,7 @@ class DataSynchronizationManager {
       if (result.error) {
         throw result.error;
       }
-      // 
+      //
       this.updateSyncState(table);
       return true;
     } catch (error: unknown) {
@@ -204,7 +204,7 @@ class DataSynchronizationManager {
     if (state) {
       state.pendingChanges = queue;
     }
-    // 
+    //
   }
   /**
    * Process queued changes when back online
@@ -214,7 +214,7 @@ class DataSynchronizationManager {
     if (!queue || queue.length === 0) {
       return;
     }
-    // 
+    //
     for (const change of queue) {
       const success = await this.syncData(
         table,
@@ -260,7 +260,7 @@ class DataSynchronizationManager {
       // Server-side: no cleanup needed
     };
     const handleOnline = () => {
-      // 
+      //
       const state = this.syncState.get(table);
       if (state) {
         state.isOnline = true;
@@ -268,7 +268,7 @@ class DataSynchronizationManager {
       }
     };
     const handleOffline = () => {
-      // 
+      //
       const state = this.syncState.get(table);
       if (state) {
         state.isOnline = false;
@@ -292,7 +292,7 @@ class DataSynchronizationManager {
    * Unsubscribe from all channels
    */
   unsubscribeAll(): void {
-    // 
+    //
     this.subscriptions.forEach((channel) => {
       channel.unsubscribe();
     });

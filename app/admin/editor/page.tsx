@@ -84,7 +84,7 @@ const mockFileContents: Record<string, string> = {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-base md:text-lg mb-8 text-gray-100">Transform your career with free training</p>

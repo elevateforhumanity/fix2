@@ -4,10 +4,10 @@ import React from 'react';
 import { memo } from 'react';
 
 import { useState, useEffect } from 'react';
-import { 
-  CheckCircle, 
-  ChevronRight, 
-  ChevronLeft, 
+import {
+  CheckCircle,
+  ChevronRight,
+  ChevronLeft,
   Upload,
   Calendar,
   Shield,
@@ -31,7 +31,7 @@ interface EnrollmentData {
   dateOfBirth: string;
   ssn: string;
   gender: 'male' | 'female' | 'other' | 'prefer-not-to-say' | '';
-  
+
   // Step 2: Contact Information
   email: string;
   phone: string;
@@ -41,7 +41,7 @@ interface EnrollmentData {
   city: string;
   state: string;
   zip: string;
-  
+
   // Step 3: Demographics & WIOA
   race: string[];
   ethnicity: 'hispanic' | 'non-hispanic' | '';
@@ -49,7 +49,7 @@ interface EnrollmentData {
   disabilityStatus: boolean;
   disabilityAccommodations: string;
   englishLanguageLearner: boolean;
-  
+
   // Step 4: Education & Employment
   highestEducation: string;
   employmentStatus: 'employed' | 'unemployed' | 'not-in-labor-force' | '';
@@ -57,7 +57,7 @@ interface EnrollmentData {
   annualIncome: string;
   receivingPublicAssistance: boolean;
   assistancePrograms: string[];
-  
+
   // Step 5: WIOA Eligibility
   dislocatedWorker: boolean;
   lowIncome: boolean;
@@ -66,17 +66,17 @@ interface EnrollmentData {
   offender: boolean;
   singleParent: boolean;
   wioaEligible: boolean;
-  
+
   // Step 6: Referral Source
   referralSource: string;
   referralCode: string;
   referralDetails: string;
-  
+
   // Step 7: Background Check Consent
   backgroundCheckConsent: boolean;
   backgroundCheckSignature: string;
   backgroundCheckDate: string;
-  
+
   // Step 8: Document Uploads
   documents: {
     idDocument: File | null;
@@ -85,7 +85,7 @@ interface EnrollmentData {
     veteranDD214: File | null;
     disabilityDocumentation: File | null;
   };
-  
+
   // Step 9: Consent Forms
   ferpaConsent: boolean;
   dataSharing: boolean;
@@ -95,7 +95,7 @@ interface EnrollmentData {
     relationship: string;
     phone: string;
   };
-  
+
   // Step 10: Payment Selection
   paymentType: 'full' | 'plan' | 'wioa' | 'scholarship';
   paymentMethod: string;
@@ -121,11 +121,11 @@ interface Props {
   price: number;
 }
 
-export default function ComprehensiveEnrollmentWizard({ 
-  programId, 
-  programName, 
-  programSlug, 
-  price 
+export default function ComprehensiveEnrollmentWizard({
+  programId,
+  programName,
+  programSlug,
+  price
 }: Props) {
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -133,7 +133,7 @@ export default function ComprehensiveEnrollmentWizard({
   const [error, setError] = useState('');
   const [showSSN, setShowSSN] = useState(false);
   const signatureRef = useRef<SignatureCanvas>(null);
-  
+
   const [formData, setFormData] = useState<EnrollmentData>({
     firstName: '',
     lastName: '',
@@ -250,7 +250,7 @@ export default function ComprehensiveEnrollmentWizard({
   };
 
   const checkWIOAEligibility = () => {
-    const eligible = 
+    const eligible =
       formData.lowIncome ||
       formData.dislocatedWorker ||
       formData.veteranStatus ||
@@ -260,7 +260,7 @@ export default function ComprehensiveEnrollmentWizard({
       formData.offender ||
       formData.singleParent ||
       formData.disabilityStatus;
-    
+
     updateField('wioaEligible', eligible);
     return eligible;
   };
@@ -285,7 +285,7 @@ export default function ComprehensiveEnrollmentWizard({
   const handleSubmit = async () => {
     setLoading(true);
     setError('');
-    
+
     try {
       // Upload documents first
       const formDataToSend = new FormData();
@@ -294,15 +294,15 @@ export default function ComprehensiveEnrollmentWizard({
           formDataToSend.append(key, file);
         }
       });
-      
+
       // Upload documents
       const uploadResponse = await fetch('/api/enrollment/upload-documents', {
         method: 'POST',
         body: formDataToSend,
       });
-      
+
       const { documentUrls } = await uploadResponse.json();
-      
+
       // Submit enrollment
       const response = await fetch('/api/enrollment/submit', {
         method: 'POST',
@@ -313,16 +313,16 @@ export default function ComprehensiveEnrollmentWizard({
           documentUrls,
         }),
       });
-      
+
       if (!response.ok) {
         throw new Error('Enrollment submission failed');
       }
-      
+
       const { enrollmentId } = await response.json();
-      
+
       // Clear saved progress
       localStorage.removeItem(`enrollment_${programId}`);
-      
+
       // Redirect based on payment type
       if (formData.paymentType === 'wioa') {
         window.location.href = `/enrollment/${enrollmentId}/wioa-verification`;
@@ -364,7 +364,7 @@ export default function ComprehensiveEnrollmentWizard({
           <p className="text-gray-600">
             Complete all steps to finalize your enrollment
           </p>
-          
+
           {/* Progress Bar */}
           <div className="mt-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
@@ -378,7 +378,7 @@ export default function ComprehensiveEnrollmentWizard({
               )}
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
-              <div 
+              <div
                 className="bg-blue-600 h-3 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
@@ -426,7 +426,7 @@ export default function ComprehensiveEnrollmentWizard({
           {currentStep === 1 && (
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Personal Information</h2>
-              
+
               <div className="grid md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -440,7 +440,7 @@ export default function ComprehensiveEnrollmentWizard({
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Middle Name
@@ -452,7 +452,7 @@ export default function ComprehensiveEnrollmentWizard({
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Last Name *
@@ -480,7 +480,7 @@ export default function ComprehensiveEnrollmentWizard({
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Social Security Number *
@@ -532,7 +532,7 @@ export default function ComprehensiveEnrollmentWizard({
           {currentStep === 2 && (
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
-              
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -546,7 +546,7 @@ export default function ComprehensiveEnrollmentWizard({
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number *
@@ -613,7 +613,7 @@ export default function ComprehensiveEnrollmentWizard({
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     State *
@@ -633,7 +633,7 @@ export default function ComprehensiveEnrollmentWizard({
                     {/* Add more states */}
                   </select>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     ZIP Code *

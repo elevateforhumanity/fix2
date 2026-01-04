@@ -20,7 +20,7 @@ export async function POST(
 
   try {
     const { id } = await params;
-    
+
     // Get current user
     const user = await getAuthUser();
     if (!user || (user.role as string) !== "case_manager") {

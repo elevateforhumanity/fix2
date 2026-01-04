@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Octokit } from "@octokit/rest";
 import { createOAuthAppAuth } from "@octokit/auth-oauth-app";
 
@@ -12,7 +11,7 @@ export async function getAccessTokenWithCode(code: string) {
     clientId: process.env.GITHUB_OAUTH_CLIENT_ID!,
     clientSecret: process.env.GITHUB_OAUTH_CLIENT_SECRET!,
   });
-  
+
   const { token } = await auth({ type: "oauth-user", code }) as unknown;
   return token as string;
 }
@@ -20,7 +19,7 @@ export async function getAccessTokenWithCode(code: string) {
 // Helper to get file language for Monaco editor
 export function getLanguageFromPath(path: string): string {
   const ext = path.split('.').pop()?.toLowerCase();
-  
+
   const languageMap: Record<string, string> = {
     'ts': 'typescript',
     'tsx': 'typescript',
@@ -41,13 +40,13 @@ export function getLanguageFromPath(path: string): string {
     'go': 'go',
     'rs': 'rust',
   };
-  
+
   return languageMap[ext || ''] || 'plaintext';
 }
 
 // Helper to check if file is a course file
 export function isCourseFile(path: string): boolean {
-  return path.startsWith('content/courses/') || 
+  return path.startsWith('content/courses/') ||
          path.startsWith('lms-content/') ||
          path.includes('/courses/');
 }

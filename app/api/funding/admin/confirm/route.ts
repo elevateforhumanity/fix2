@@ -108,10 +108,10 @@ export async function GET(req: NextRequest) {
       <head>
         <title>Approval Confirmed</title>
         <style>
-          body { 
-            font-family: sans-serif; 
-            padding: 48px; 
-            max-width: 600px; 
+          body {
+            font-family: sans-serif;
+            padding: 48px;
+            max-width: 600px;
             margin: 0 auto;
             background: linear-gradient(to bottom right, #2563eb, #9333ea);
             min-height: 100vh;

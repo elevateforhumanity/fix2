@@ -116,7 +116,7 @@ export function ProgramPageShell({
                 </video>
               </Card>
             )}
-            
+
             <Card className="p-5 md:p-6 space-y-4">
               <h3 className="text-lg font-semibold text-slate-900">
                 Program at a glance

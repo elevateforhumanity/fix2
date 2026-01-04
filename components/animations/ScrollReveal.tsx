@@ -9,8 +9,8 @@ interface ScrollRevealProps {
   direction?: 'up' | 'down' | 'left' | 'right' | 'fade';
 }
 
-export function ScrollReveal({ 
-  children, 
+export function ScrollReveal({
+  children,
   className = '',
   delay = 0,
   threshold = 0.1,
@@ -39,7 +39,7 @@ export function ScrollReveal({
 
   const getTransform = () => {
     if (isVisible) return 'translate(0, 0)';
-    
+
     switch (direction) {
       case 'up':
         return 'translate(0, 40px)';

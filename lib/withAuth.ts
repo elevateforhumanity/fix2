@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/withAuth.ts - Centralized authentication wrapper
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';

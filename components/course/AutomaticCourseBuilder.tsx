@@ -53,7 +53,7 @@ export default function AutomaticCourseBuilder() {
       // Step 1: Generate course outline
       setProgress(20);
       setCurrentStep('Creating course structure...');
-      
+
       const outlineResponse = await fetch('/api/ai/generate-course-outline', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -59,7 +59,7 @@ function parseRSSFeed(rssText: string): DurableBlogPost[] {
   try {
     // Simple RSS parsing (you may want to use a library like 'rss-parser')
     const posts: DurableBlogPost[] = [];
-    
+
     // Extract items from RSS
     const itemRegex = /<item>([\s\S]*?)<\/item>/g;
     const items = rssText.match(itemRegex) || [];

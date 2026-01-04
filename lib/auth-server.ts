@@ -13,7 +13,7 @@ export interface AuthUser {
 
 async function getSupabaseServerClient() {
   const cookieStore = await cookies();
-  
+
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -54,26 +54,26 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
 
 export async function requireStaff(): Promise<AuthUser> {
   const user = await getCurrentUser();
-  
+
   if (!user) {
     // Redirect to login if not authenticated
     redirect("/login?redirect=/admin/internal-docs");
   }
-  
+
   if (user.role !== "admin" && user.role !== "staff") {
     // Redirect to unauthorized page or home
     redirect("/?error=unauthorized");
   }
-  
+
   return user;
 }
 
 export async function requireAuth(): Promise<AuthUser> {
   const user = await getCurrentUser();
-  
+
   if (!user) {
     redirect("/login");
   }
-  
+
   return user;
 }

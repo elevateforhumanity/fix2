@@ -249,8 +249,8 @@ export default function ProgramAnalytics() {
                     <span className="text-sm font-medium">ROI Indicator</span>
                     {program.costPerCompletion > 0 && program.averageWage > 0 ? (
                       <Badge variant={
-                        (program.averageWage * 2080) / program.costPerCompletion > 3 
-                          ? 'default' 
+                        (program.averageWage * 2080) / program.costPerCompletion > 3
+                          ? 'default'
                           : 'secondary'
                       }>
                         {((program.averageWage * 2080) / program.costPerCompletion).toFixed(1)}x
@@ -283,8 +283,8 @@ export default function ProgramAnalytics() {
                     </thead>
                     <tbody>
                       {metrics.map(m => (
-                        <tr 
-                          key={m.programId} 
+                        <tr
+                          key={m.programId}
                           className={`border-b ${m.programId === program.programId ? 'bg-muted' : ''}`}
                         >
                           <td className="py-2">{m.programName}</td>

@@ -1,7 +1,7 @@
-export { 
-  SimpleCaptcha, 
-  HoneypotField, 
-  TimingCheck, 
+export {
+  SimpleCaptcha,
+  HoneypotField,
+  TimingCheck,
   BotProtection,
-  useFormTiming 
+  useFormTiming
 } from './SimpleCaptcha';

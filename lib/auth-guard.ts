@@ -1,4 +1,3 @@
-// @ts-nocheck
 // =====================================================
 // SERVER-SIDE AUTH GUARDS - MANDATORY FOR ALL PROTECTED ROUTES
 // =====================================================
@@ -13,7 +12,7 @@ import { logger } from '@/lib/logger';
  */
 export async function requireAuth() {
   const supabase = await createServerSupabaseClient();
-  
+
   const {
     data: { session },
     error,
@@ -33,7 +32,7 @@ export async function requireAuth() {
  */
 export async function getAuthSession() {
   const supabase = await createServerSupabaseClient();
-  
+
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -46,9 +45,9 @@ export async function getAuthSession() {
  */
 export async function getCurrentUser() {
   const session = await requireAuth();
-  
+
   const supabase = await createServerSupabaseClient();
-  
+
   const { data: profile, error } = await supabase
     .from('profiles')
     .select('*')
@@ -72,7 +71,7 @@ export async function getCurrentUser() {
  */
 export async function requireAuthAPI() {
   const supabase = await createServerSupabaseClient();
-  
+
   const {
     data: { session },
     error,

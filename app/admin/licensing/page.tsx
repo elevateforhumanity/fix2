@@ -32,7 +32,7 @@ export default function LicensingPage() {
 
   async function loadData() {
     const supabase = createClient();
-    
+
     const [licensesRes, tenantsRes] = await Promise.all([
       supabase.from('licenses').select('*').order('created_at', { ascending: false }),
       supabase.from('tenants').select('id, name, slug, active').order('name')
@@ -58,7 +58,7 @@ export default function LicensingPage() {
       <div className="grid gap-6">
         {licenses.map((license) => {
           const tenant = tenants.find(t => t.id === license.tenant_id);
-          
+
           return (
             <div key={license.id} className="border rounded-lg p-6 bg-white shadow-sm">
               <div className="flex justify-between items-start mb-4">

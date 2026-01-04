@@ -7,7 +7,7 @@ import { revalidatePath } from 'next/cache';
 export async function createProgram(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
@@ -17,7 +17,7 @@ export async function createProgram(formData: FormData) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -59,7 +59,7 @@ export async function createProgram(formData: FormData) {
 export async function updateProgram(id: string, formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
@@ -69,7 +69,7 @@ export async function updateProgram(id: string, formData: FormData) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
@@ -113,7 +113,7 @@ export async function updateProgram(id: string, formData: FormData) {
 export async function deleteProgram(id: string) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     throw new Error('Unauthorized');
   }
@@ -123,7 +123,7 @@ export async function deleteProgram(id: string) {
     .select('role')
     .eq('id', user.id)
     .single();
-  
+
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     throw new Error('Unauthorized');
   }

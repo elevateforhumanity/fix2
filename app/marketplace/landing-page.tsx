@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { 
-  ShoppingBag, Store, CreditCard, TrendingUp, Shield, 
+import {
+  ShoppingBag, Store, CreditCard, TrendingUp, Shield,
   Users, Zap, Award, CheckCircle, ArrowRight, Star
 } from 'lucide-react';
 
@@ -18,19 +18,19 @@ export default function MarketplaceLanding() {
           <ShoppingBag className="w-20 h-20 mx-auto mb-6" />
           <h1 className="text-5xl font-bold mb-6">Marketplace</h1>
           <p className="text-xl max-w-3xl mx-auto mb-8">
-            Your one-stop shop for services, products, and business solutions. 
+            Your one-stop shop for services, products, and business solutions.
             Connect with trusted providers and grow your business.
           </p>
           <div className="flex gap-4 justify-center">
-            <Link 
-              href="/marketplace/browse" 
+            <Link
+              href="/marketplace/browse"
               className="px-8 py-4 bg-white text-purple-600 rounded-lg font-bold hover:bg-gray-100 flex items-center gap-2"
             >
               Browse Marketplace
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link 
-              href="/marketplace/sell" 
+            <Link
+              href="/marketplace/sell"
               className="px-8 py-4 bg-purple-700 text-white rounded-lg font-bold hover:bg-purple-800 border-2 border-white"
             >
               Start Selling
@@ -150,14 +150,14 @@ export default function MarketplaceLanding() {
             Join thousands of buyers and sellers in our marketplace today
           </p>
           <div className="flex gap-4 justify-center">
-            <Link 
-              href="/marketplace/browse" 
+            <Link
+              href="/marketplace/browse"
               className="px-8 py-4 bg-purple-600 text-white rounded-lg font-bold hover:bg-purple-700"
             >
               Start Shopping
             </Link>
-            <Link 
-              href="/marketplace/sell" 
+            <Link
+              href="/marketplace/sell"
               className="px-8 py-4 bg-gray-200 text-gray-900 rounded-lg font-bold hover:bg-gray-300"
             >
               Become a Seller

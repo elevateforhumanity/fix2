@@ -116,7 +116,7 @@ export function HubNavigation() {
             <NavDropdown title="Partnerships" items={navigation.partnerships} />
             <NavDropdown title="Community" items={navigation.community} />
             <NavDropdown title="Resources" items={navigation.resources} />
-            
+
             <Link href="/apply" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
               Get Started
             </Link>
@@ -145,9 +145,9 @@ export function HubNavigation() {
             <MobileSection title="Partnerships" items={navigation.partnerships} />
             <MobileSection title="Community" items={navigation.community} />
             <MobileSection title="Resources" items={navigation.resources} />
-            
-            <Link 
-              href="/apply" 
+
+            <Link
+              href="/apply"
               className="block w-full px-4 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700"
               onClick={() => setMobileOpen(false)}
             >
@@ -160,11 +160,11 @@ export function HubNavigation() {
   );
 }
 
-function NavDropdown({ title, items }: { title: string; items: any[] }) {
+function NavDropdown({ title, items }: { title: string; items: unknown[] }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div 
+    <div
       className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
@@ -192,7 +192,7 @@ function NavDropdown({ title, items }: { title: string; items: any[] }) {
   );
 }
 
-function MobileSection({ title, items }: { title: string; items: any[] }) {
+function MobileSection({ title, items }: { title: string; items: unknown[] }) {
   const [open, setOpen] = useState(false);
 
   return (

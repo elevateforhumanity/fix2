@@ -38,7 +38,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
-      
+
       <div className={`flex ${direction === 'vertical' ? 'flex-col space-y-3' : 'flex-row flex-wrap gap-4'}`}>
         {options.map((option) => (
           <Radio
@@ -53,7 +53,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
           />
         ))}
       </div>
-      
+
       {error && (
         <p className="mt-2 text-sm text-brand-orange-600">{error}</p>
       )}

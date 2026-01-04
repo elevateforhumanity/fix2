@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 /**
  * Grant Notifications API
  * Manage grant notifications and alerts

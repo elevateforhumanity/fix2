@@ -60,7 +60,7 @@ export default async function Page() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Users
@@ -208,7 +208,7 @@ export default async function Page() {
                 </thead>
                 <tbody className="divide-y">
                   {users && users.length > 0 ? (
-                    users.map((user: Record<string, any>) => (
+                    users.map((user: Record<string, unknown>) => (
                       <tr key={user.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4">
                           <div className="flex items-center">

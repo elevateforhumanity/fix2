@@ -39,11 +39,11 @@ export async function sendMOUSignedConfirmation(
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb;">MOU Signed Successfully</h2>
-          
+
           <p>Dear ${data.signerName},</p>
-          
+
           <p>Thank you for signing the Memorandum of Understanding (MOU) with Elevate for Humanity.</p>
-          
+
           <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0;">Signature Details</h3>
             <p><strong>Program Holder:</strong> ${data.programHolderName}</p>
@@ -57,18 +57,18 @@ export async function sendMOUSignedConfirmation(
               day: 'numeric',
             })}</p>
           </div>
-          
+
           <p>You can download a copy of your signed MOU from your program holder portal at any time.</p>
-          
+
           <h3>Next Steps</h3>
           <ul>
             <li>You can now begin enrolling participants in training programs</li>
             <li>Access your program holder dashboard to manage cases and track progress</li>
             <li>Review the revenue share model and payment schedule in your MOU</li>
           </ul>
-          
+
           <p>If you have any questions, please contact our team.</p>
-          
+
           <p>Best regards,<br>
           <strong>Elevate for Humanity Team</strong></p>
         </div>
@@ -76,17 +76,17 @@ export async function sendMOUSignedConfirmation(
     });
 
     if (error) {
-      logger.error('Error sending MOU confirmation email', error as Error, { 
+      logger.error('Error sending MOU confirmation email', error as Error, {
         to: data.contactEmail,
-        programHolder: data.programHolderName 
+        programHolder: data.programHolderName
       });
       return false;
     }
 
     return true;
   } catch (error: unknown) {
-    logger.error('Error sending MOU confirmation email', error as Error, { 
-      to: data.contactEmail 
+    logger.error('Error sending MOU confirmation email', error as Error, {
+      to: data.contactEmail
     });
     return false;
   }
@@ -111,9 +111,9 @@ export async function sendMOUSignedAdminNotification(
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb;">New MOU Signed</h2>
-          
+
           <p>A program holder has signed their MOU.</p>
-          
+
           <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0;">Signature Details</h3>
             <p><strong>Program Holder:</strong> ${data.programHolderName}</p>
@@ -128,11 +128,11 @@ export async function sendMOUSignedAdminNotification(
               day: 'numeric',
             })}</p>
           </div>
-          
+
           <p>The signed MOU is available in the admin portal.</p>
-          
-          <p><a href="${process.env.NEXT_PUBLIC_APP_URL}/admin/program-holders" 
-             style="background-color: #2563eb; color: white; padding: 12px 24px; 
+
+          <p><a href="${process.env.NEXT_PUBLIC_APP_URL}/admin/program-holders"
+             style="background-color: #2563eb; color: white; padding: 12px 24px;
                     text-decoration: none; border-radius: 6px; display: inline-block;">
             View Program Holders
           </a></p>
@@ -141,16 +141,16 @@ export async function sendMOUSignedAdminNotification(
     });
 
     if (error) {
-      logger.error('Error sending admin notification email', error as Error, { 
-        programHolder: data.programHolderName 
+      logger.error('Error sending admin notification email', error as Error, {
+        programHolder: data.programHolderName
       });
       return false;
     }
 
     return true;
   } catch (error: unknown) {
-    logger.error('Error sending admin notification email', error as Error, { 
-      programHolder: data.programHolderName 
+    logger.error('Error sending admin notification email', error as Error, {
+      programHolder: data.programHolderName
     });
     return false;
   }

@@ -148,7 +148,7 @@ export default function DragDropBuilder({ courseId, initialModules = [], onSave 
         const oldIndex = items.findIndex((item) => item.id === active.id);
         const newIndex = items.findIndex((item) => item.id === over.id);
         const newItems = arrayMove(items, oldIndex, newIndex);
-        
+
         // Update order
         return newItems.map((item, index) => ({ ...item, order: index }));
       });

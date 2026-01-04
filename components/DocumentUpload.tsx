@@ -4,9 +4,9 @@ import React from 'react';
 
 import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Upload, File, FileText, Image as ImageIcon, X, Check, 
-  AlertCircle, Loader, Download, Eye, Trash2 
+import {
+  Upload, File, FileText, Image as ImageIcon, X, Check,
+  AlertCircle, Loader, Download, Eye, Trash2
 } from 'lucide-react';
 
 interface UploadedFile {
@@ -69,13 +69,13 @@ export default function DocumentUpload({
       if (progress >= 100) {
         progress = 100;
         clearInterval(interval);
-        setFiles(prev => prev.map(f => 
-          f.id === fileId 
+        setFiles(prev => prev.map(f =>
+          f.id === fileId
             ? { ...f, status: 'success', progress: 100, url: URL.createObjectURL(f.file) }
             : f
         ));
       } else {
-        setFiles(prev => prev.map(f => 
+        setFiles(prev => prev.map(f =>
           f.id === fileId ? { ...f, progress } : f
         ));
       }
@@ -90,7 +90,7 @@ export default function DocumentUpload({
 
     fileArray.forEach(file => {
       const validationError = validateFile(file);
-      
+
       if (validationError) {
         setError(validationError);
         return;
@@ -192,7 +192,7 @@ export default function DocumentUpload({
           <h3 className="text-xl font-bold text-gray-900 mb-2">
             {isDragging ? 'Drop files here' : 'Upload Documents'}
           </h3>
-          
+
           <p className="text-gray-600 mb-4">
             Drag and drop files here, or click to browse
           </p>
@@ -253,7 +253,7 @@ export default function DocumentUpload({
           <AnimatePresence>
             {files.map((file) => {
               const FileIcon = getFileIcon(file.type);
-              
+
               return (
                 <motion.div
                   key={file.id}

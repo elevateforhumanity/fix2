@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Bulk operations for admin functions
 
 import { createClient } from '@/lib/supabase/server';
@@ -296,7 +295,7 @@ export async function bulkSendNotifications(
 
 export async function bulkExportData(
   table: string,
-  filters?: Record<string, any>
+  filters?: Record<string, unknown>
 ) {
   const supabase = await createClient();
 

@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
@@ -45,9 +44,9 @@ export async function POST(request: Request) {
       .single();
 
     if (existingEnrollment) {
-      return NextResponse.json({ 
+      return NextResponse.json({
         error: 'Already enrolled in this course',
-        enrollment: existingEnrollment 
+        enrollment: existingEnrollment
       }, { status: 400 });
     }
 
@@ -57,7 +56,7 @@ export async function POST(request: Request) {
 
     // Integrate with partner LMS APIs based on provider
     const provider = partnerCourse.provider;
-    
+
     if (provider?.api_endpoint && provider?.api_key) {
       try {
         // Get user profile for enrollment
@@ -97,7 +96,7 @@ export async function POST(request: Request) {
         // Continue with local enrollment even if API fails
       }
     }
-    
+
     // Create partner enrollment record
     const { data: enrollment, error: enrollmentError } = await supabase
       .from('partner_lms_enrollments')
@@ -158,8 +157,8 @@ export async function POST(request: Request) {
         completed_at: new Date().toISOString(),
       });
 
-    return NextResponse.json({ 
-      success: true, 
+    return NextResponse.json({
+      success: true,
       enrollment,
       hasScorm: !!mapping?.scorm_package,
       scormPackage: mapping?.scorm_package,

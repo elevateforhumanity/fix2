@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React from 'react';
@@ -13,7 +12,7 @@ type MobileNavProps = {
 
 /**
  * Production-grade mobile navigation wrapper
- * 
+ *
  * Features:
  * - Proper scroll lock without page jump
  * - Restores scroll position on close
@@ -21,11 +20,11 @@ type MobileNavProps = {
  * - Accessible (role="dialog", aria-modal)
  * - Scrollable panel content
  * - Backdrop click to close
- * 
+ *
  * Usage:
  * ```tsx
  * const [open, setOpen] = useState(false);
- * 
+ *
  * <MobileNavWrapper open={open} onClose={() => setOpen(false)}>
  *   <nav>Your menu items here</nav>
  * </MobileNavWrapper>

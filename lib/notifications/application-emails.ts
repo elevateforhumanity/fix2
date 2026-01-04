@@ -44,19 +44,19 @@ export async function sendApplicationConfirmation(application: ApplicationData) 
                   <p style="margin: 12px 0 0 0; color: #ffffff; font-size: 18px; opacity: 0.95;">Thank you for taking the first step</p>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 48px 40px;">
                   <p style="margin: 0 0 24px 0; color: #111827; font-size: 18px; line-height: 1.6;">
                     Hi <strong>${application.firstName}</strong>,
                   </p>
-                  
+
                   <p style="margin: 0 0 24px 0; color: #374151; font-size: 16px; line-height: 1.7;">
-                    We've received your application for the <strong>${application.programInterest}</strong> program. 
+                    We've received your application for the <strong>${application.programInterest}</strong> program.
                     Our admissions team is reviewing your information and will contact you within 1-2 business days.
                   </p>
-                  
+
                   <!-- What's Next Box -->
                   <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b; padding: 24px; margin: 32px 0; border-radius: 8px;">
                     <h3 style="margin: 0 0 16px 0; color: #92400e; font-size: 20px; font-weight: 600;">What Happens Next?</h3>
@@ -67,7 +67,7 @@ export async function sendApplicationConfirmation(application: ApplicationData) 
                       <li>Complete enrollment and start your training journey!</li>
                     </ol>
                   </div>
-                  
+
                   <!-- Application Details -->
                   <div style="background-color: #f9fafb; padding: 24px; border-radius: 8px; margin: 32px 0;">
                     <h3 style="margin: 0 0 16px 0; color: #111827; font-size: 18px; font-weight: 600;">Your Application Details</h3>
@@ -86,14 +86,14 @@ export async function sendApplicationConfirmation(application: ApplicationData) 
                       </tr>
                     </table>
                   </div>
-                  
+
                   <!-- CTA Button -->
                   <div style="text-align: center; margin: 32px 0;">
                     <a href="${SITE_URL}/programs" style="display: inline-block; background: linear-gradient(135deg, #dc2626 0%, #f97316 100%); color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 50px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px rgba(220, 38, 38, 0.3);">
                       Explore Our Programs
                     </a>
                   </div>
-                  
+
                   <!-- Contact Info -->
                   <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid #e5e7eb;">
                     <p style="margin: 0 0 16px 0; color: #6b7280; font-size: 15px; line-height: 1.6;">
@@ -106,7 +106,7 @@ export async function sendApplicationConfirmation(application: ApplicationData) 
                   </div>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="background-color: #111827; padding: 32px 40px; text-align: center;">
@@ -161,14 +161,14 @@ export async function sendAdminApplicationNotification(application: ApplicationD
                   <p style="margin: 8px 0 0 0; color: #dbeafe; font-size: 16px;">Action Required</p>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px;">
                   <p style="margin: 0 0 24px 0; color: #111827; font-size: 16px; line-height: 1.6;">
                     A new application has been submitted and requires review.
                   </p>
-                  
+
                   <!-- Applicant Info -->
                   <div style="background-color: #f9fafb; padding: 24px; border-radius: 8px; margin: 24px 0;">
                     <h3 style="margin: 0 0 16px 0; color: #111827; font-size: 18px; font-weight: 600;">Applicant Information</h3>
@@ -207,7 +207,7 @@ export async function sendAdminApplicationNotification(application: ApplicationD
                       </tr>
                     </table>
                   </div>
-                  
+
                   <!-- Action Buttons -->
                   <div style="text-align: center; margin: 32px 0;">
                     <a href="${SITE_URL}/admin/applications/${application.id}" style="display: inline-block; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px; margin: 0 8px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);">
@@ -217,7 +217,7 @@ export async function sendAdminApplicationNotification(application: ApplicationD
                       View All Applications
                     </a>
                   </div>
-                  
+
                   <!-- Next Steps -->
                   <div style="background-color: #eff6ff; border-left: 4px solid #2563eb; padding: 20px; margin: 32px 0; border-radius: 8px;">
                     <h4 style="margin: 0 0 12px 0; color: #1e40af; font-size: 16px; font-weight: 600;">Next Steps:</h4>
@@ -230,7 +230,7 @@ export async function sendAdminApplicationNotification(application: ApplicationD
                   </div>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="background-color: #f9fafb; padding: 24px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -260,7 +260,7 @@ export async function sendAdminApplicationNotification(application: ApplicationD
  */
 export async function sendEnrollmentLink(application: ApplicationData, enrollmentToken: string) {
   const enrollmentUrl = `${SITE_URL}/enroll/${enrollmentToken}`;
-  
+
   const html = `
     <!DOCTYPE html>
     <html>
@@ -282,19 +282,19 @@ export async function sendEnrollmentLink(application: ApplicationData, enrollmen
                   <p style="margin: 12px 0 0 0; color: #d1fae5; font-size: 18px;">Your application has been approved</p>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 48px 40px;">
                   <p style="margin: 0 0 24px 0; color: #111827; font-size: 18px; line-height: 1.6;">
                     Hi <strong>${application.firstName}</strong>,
                   </p>
-                  
+
                   <p style="margin: 0 0 24px 0; color: #374151; font-size: 16px; line-height: 1.7;">
-                    Great news! Your application for the <strong>${application.programInterest}</strong> program has been approved. 
+                    Great news! Your application for the <strong>${application.programInterest}</strong> program has been approved.
                     You're one step away from starting your training journey.
                   </p>
-                  
+
                   <!-- CTA Box -->
                   <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 2px solid #10b981; padding: 32px; margin: 32px 0; border-radius: 12px; text-align: center;">
                     <h3 style="margin: 0 0 16px 0; color: #065f46; font-size: 20px; font-weight: 600;">Complete Your Enrollment Now</h3>
@@ -308,7 +308,7 @@ export async function sendEnrollmentLink(application: ApplicationData, enrollmen
                       This link is unique to you and expires in 7 days
                     </p>
                   </div>
-                  
+
                   <!-- What's Next -->
                   <div style="margin: 32px 0;">
                     <h3 style="margin: 0 0 16px 0; color: #111827; font-size: 20px; font-weight: 600;">What Happens After Enrollment:</h3>
@@ -336,7 +336,7 @@ export async function sendEnrollmentLink(application: ApplicationData, enrollmen
                       </div>
                     </div>
                   </div>
-                  
+
                   <!-- Contact -->
                   <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid #e5e7eb;">
                     <p style="margin: 0 0 16px 0; color: #6b7280; font-size: 15px; line-height: 1.6;">
@@ -349,7 +349,7 @@ export async function sendEnrollmentLink(application: ApplicationData, enrollmen
                   </div>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="background-color: #111827; padding: 32px 40px; text-align: center;">

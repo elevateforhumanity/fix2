@@ -10,7 +10,7 @@ export const SEO_KEYWORDS = {
     'JRI training programs',
     'free job training Indianapolis',
   ],
-  
+
   barber: [
     'barber apprenticeship Indianapolis',
     'free barber school Indiana',
@@ -20,7 +20,7 @@ export const SEO_KEYWORDS = {
     'WIOA barber training',
     'paid barber apprenticeship',
   ],
-  
+
   hvac: [
     'HVAC training Indianapolis',
     'free HVAC school Indiana',
@@ -29,7 +29,7 @@ export const SEO_KEYWORDS = {
     'EPA certification Indiana',
     'WIOA HVAC training',
   ],
-  
+
   cna: [
     'CNA training Indianapolis',
     'free CNA classes Indiana',
@@ -38,7 +38,7 @@ export const SEO_KEYWORDS = {
     'WIOA CNA program',
     'WRG CNA funding',
   ],
-  
+
   funding: [
     'WIOA eligibility Indiana',
     'WRG funding Indianapolis',

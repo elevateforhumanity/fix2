@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
@@ -60,7 +59,7 @@ export default async function PartnerCoursesPage() {
           priority
           sizes="100vw"
         />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Partners
@@ -119,7 +118,7 @@ export default async function PartnerCoursesPage() {
               Our Partners
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-              {providers?.map((provider: Record<string, any>) => (
+              {providers?.map((provider: Record<string, unknown>) => (
                 <div
                   key={provider.id}
                   className="bg-white rounded-lg shadow-sm border p-4 text-center hover:shadow-md transition-shadow"
@@ -150,7 +149,7 @@ export default async function PartnerCoursesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {partnerCourses
                     .slice(0, 6)
-                    .map((course: Record<string, any>) => (
+                    .map((course: Record<string, unknown>) => (
                       <div
                         key={course.id}
                         className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow"

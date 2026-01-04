@@ -57,18 +57,18 @@ export function Leaderboard({ entries, timeframe = 'week' }: LeaderboardProps) {
                   <span className="font-bold">{entry.rank}</span>
                 )}
               </div>
-              
+
               <img
                 src={entry.avatar}
                 alt={entry.name}
                 className="w-12 h-12 rounded-full"
               />
-              
+
               <div className="flex-1">
                 <div className="font-semibold">{entry.name}</div>
                 <div className="text-sm text-gray-600">Level {entry.level}</div>
               </div>
-              
+
               <div className="text-right">
                 <div className="font-bold text-brand-orange-600">{entry.points.toLocaleString()}</div>
                 <div className="text-xs text-gray-500">points</div>

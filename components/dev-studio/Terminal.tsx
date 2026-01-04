@@ -40,7 +40,7 @@ export default function Terminal({ output, onClear }: TerminalProps) {
       </div>
 
       {/* Terminal Output */}
-      <div 
+      <div
         ref={terminalRef}
         className="flex-1 overflow-auto p-4 space-y-1"
       >

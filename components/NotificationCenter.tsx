@@ -66,7 +66,7 @@ export function NotificationCenter() {
     },
   ];
 
-  const filteredNotifications = filter === 'unread' 
+  const filteredNotifications = filter === 'unread'
     ? notifications.filter(n => !n.read)
     : notifications;
 

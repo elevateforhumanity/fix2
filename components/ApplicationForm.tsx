@@ -52,7 +52,7 @@ export function ApplicationForm() {
     if (step > 1) setStep(step - 1);
   };
   const handleSubmit = () => {
-    // 
+    //
     setStep(6); // Success screen
   };
   if (step === 6) {

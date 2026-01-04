@@ -10,10 +10,10 @@ interface ContainerProps {
  * Consistent container component for all pages
  * Matches SkilledUS design with standardized widths
  */
-export function Container({ 
-  children, 
+export function Container({
+  children,
   size = 'default',
-  className = '' 
+  className = ''
 }: ContainerProps) {
   const widths = {
     narrow: 'max-w-4xl',   // 896px - for text-heavy content
@@ -21,7 +21,7 @@ export function Container({
     wide: 'max-w-7xl',     // 1280px - wide sections
     full: 'max-w-none'     // Full width
   };
-  
+
   return (
     <div className={`${widths[size]} mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
       {children}
@@ -32,11 +32,11 @@ export function Container({
 /**
  * Section wrapper with consistent vertical spacing
  */
-export function Section({ 
-  children, 
+export function Section({
+  children,
   className = '',
   background = 'white'
-}: { 
+}: {
   children: React.ReactNode;
   className?: string;
   background?: 'white' | 'gray' | 'blue';
@@ -46,7 +46,7 @@ export function Section({
     gray: 'bg-gray-50',
     blue: 'bg-blue-50'
   };
-  
+
   return (
     <section className={`py-12 md:py-16 ${backgrounds[background]} ${className}`}>
       {children}

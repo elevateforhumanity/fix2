@@ -6,7 +6,7 @@ export async function scanRepository(
 ) {
   const { owner, name } = parseRepo(repo);
   const client = gh();
-  
+
   const tree = await client.git.getTree({
     owner,
     repo: name,
@@ -21,7 +21,7 @@ export async function scanRepository(
 
 export async function analyzeRepository(repo = "elevateforhumanity/fix2", branch = "main") {
   const files = await scanRepository(repo, branch);
-  
+
   const analysis = {
     totalFiles: files.length,
     courses: files.filter(f => f.startsWith('courses/')).length,

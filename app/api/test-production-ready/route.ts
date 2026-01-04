@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 /**
  * Complete Production Readiness Test
  * GET /api/test-production-ready
- * 
+ *
  * Tests EVERYTHING for production launch
  */
 export async function GET() {

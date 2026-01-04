@@ -4,8 +4,8 @@ import React from 'react';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Heart, Wrench, Scissors, Truck, Stethoscope, Code, 
+import {
+  Heart, Wrench, Scissors, Truck, Stethoscope, Code,
   ChevronRight, ChevronLeft, CheckCircle, Clock, DollarSign,
   TrendingUp, Award, ArrowRight, Sparkles
 } from 'lucide-react';
@@ -163,7 +163,7 @@ export default function ProgramFinder() {
 
   const handleAnswer = (questionId: number, value: string) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
-    
+
     if (currentQuestion < questions.length - 1) {
       setTimeout(() => {
         setCurrentQuestion(prev => prev + 1);
@@ -179,36 +179,36 @@ export default function ProgramFinder() {
   const calculateRecommendations = () => {
     const scored = programs.map(program => {
       let score = 0;
-      
+
       // Interest matching
       if (answers[1] === 'healthcare' && program.id.includes('health')) score += 30;
       if (answers[1] === 'trades' && program.id === 'hvac') score += 30;
       if (answers[1] === 'beauty' && program.id === 'cosmetology') score += 30;
       if (answers[1] === 'transportation' && program.id === 'cdl') score += 30;
       if (answers[1] === 'technology' && program.id === 'medical-coding') score += 30;
-      
+
       // Timeline matching
       if (answers[2] === 'fast') {
         if (program.id === 'cdl' || program.id === 'phlebotomy') score += 20;
       } else if (answers[2] === 'medium') {
         if (program.id === 'healthcare-assistant' || program.id === 'medical-coding') score += 20;
       }
-      
+
       // Goal matching
       if (answers[3] === 'income' && (program.id === 'hvac' || program.id === 'cdl')) score += 15;
       if (answers[3] === 'employment' && program.demand === 'Very High') score += 15;
-      
+
       // Experience matching
       if (answers[4] === 'beginner') {
         if (program.id === 'phlebotomy' || program.id === 'healthcare-assistant') score += 10;
       }
-      
+
       // Schedule matching
       if (answers[5] === 'online' && program.id === 'medical-coding') score += 15;
-      
+
       return { ...program, matchScore: score };
     });
-    
+
     const sorted = scored.sort((a, b) => b.matchScore - a.matchScore);
     setRecommendations(sorted.slice(0, 3));
     setShowResults(true);
@@ -412,7 +412,7 @@ export default function ProgramFinder() {
               {question.options.map((option) => {
                 const Icon = option.icon;
                 const isSelected = answers[question.id] === option.value;
-                
+
                 return (
                   <motion.button
                     key={option.id}

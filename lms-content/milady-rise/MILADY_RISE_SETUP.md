@@ -19,9 +19,9 @@
 
 ## 🔑 Your Custom School Code
 
-**School:** Elevate for Humanity Career and Technical Institute  
-**Custom Code:** `efhcti-rise295`  
-**Redemptions:** 1,000 students  
+**School:** Elevate for Humanity Career and Technical Institute
+**Custom Code:** `efhcti-rise295`
+**Redemptions:** 1,000 students
 **Status:** ACTIVE
 
 ⚠️ **Important:** This code is ONLY for your students and staff. Do not share publicly.
@@ -118,7 +118,7 @@ Congratulations on joining the Elevate for Humanity Barber Apprenticeship Progra
 As part of your training, you are REQUIRED to complete the Milady RISE Client Well-Being & Safety Certification. This FREE certification covers:
 
 • Domestic Violence Awareness
-• Human Trafficking Awareness  
+• Human Trafficking Awareness
 • Infection Control
 
 This certification will:
@@ -211,7 +211,7 @@ export default function MiladyRISEPage() {
               <span className="flex-shrink-0 w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold">1</span>
               <div>
                 <p className="font-semibold">Visit the enrollment page</p>
-                <a href="https://www.miladytraining.com/bundles/client-well-being-safety-certification" 
+                <a href="https://www.miladytraining.com/bundles/client-well-being-safety-certification"
                    target="_blank"
                    className="text-emerald-600 hover:underline text-sm">
                   https://www.miladytraining.com/bundles/client-well-being-safety-certification
@@ -274,7 +274,7 @@ export default function MiladyRISEPage() {
               <span>Open to students and professionals</span>
             </li>
           </ul>
-          <a href="https://www.milady.com/rise-scholarship" 
+          <a href="https://www.milady.com/rise-scholarship"
              target="_blank"
              className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700">
             Learn About Scholarship
@@ -305,7 +305,7 @@ Milady provides logos to promote your partnership:
 
 All our barber students get FREE access to:
 ✅ Domestic Violence Awareness training
-✅ Human Trafficking Awareness training  
+✅ Human Trafficking Awareness training
 ✅ Infection Control certification
 
 Plus, they're eligible for a $500 RISE Scholarship! 💰

@@ -13,10 +13,10 @@ export interface CourseAccessResult {
  */
 export async function verifyCourseAccess(courseId: string): Promise<CourseAccessResult> {
   const supabase = await createClient();
-  
+
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();
-  
+
   if (authError || !user) {
     redirect(`/login?redirect=/courses/${courseId}`);
   }
@@ -83,7 +83,7 @@ export async function verifyCourseAccess(courseId: string): Promise<CourseAccess
  */
 export async function requireCourseAccess(courseId: string) {
   const result = await verifyCourseAccess(courseId);
-  
+
   if (!result.hasAccess) {
     switch (result.reason) {
       case 'not_enrolled':

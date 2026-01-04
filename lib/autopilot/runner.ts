@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { scanRepository, analyzeRepository } from './repo-analyzer';
 import {
   normalizeCourseMetadata,

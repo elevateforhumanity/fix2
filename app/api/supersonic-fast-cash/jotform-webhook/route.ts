@@ -20,12 +20,11 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    
-    console.log('JotForm webhook received:', body);
+
 
     // Get submission ID from webhook
     const submissionId = body.submissionID || body.submission_id;
-    
+
     if (!submissionId) {
       return NextResponse.json(
         { error: 'No submission ID provided' },
@@ -35,11 +34,10 @@ export async function POST(request: NextRequest) {
 
     // Step 1: Fetch full submission data from JotForm
     const submission = await jotFormIntegration.getSubmission(submissionId);
-    
+
     // Step 2: Parse submission into structured client data
     const clientData = jotFormIntegration.parseSubmission(submission);
-    
-    console.log('Parsed client data:', clientData);
+
 
     // Step 3: Create or update client in database
     const { data: client, error: clientError } = await supabase
@@ -97,7 +95,6 @@ export async function POST(request: NextRequest) {
       credits: {},
     });
 
-    console.log('Drake return created:', drakeReturn);
 
     // Step 5: Save tax return to database
     const { data: taxReturn, error: returnError } = await supabase
@@ -162,7 +159,7 @@ export async function POST(request: NextRequest) {
         html: `
           <h2>Thank You, ${clientData.firstName}!</h2>
           <p>We've received your tax information and created your account.</p>
-          
+
           <h3>Next Steps:</h3>
           <ol>
             <li>Upload your tax documents (W-2s, 1099s, receipts)</li>
@@ -170,26 +167,26 @@ export async function POST(request: NextRequest) {
             <li>Review and approve your return</li>
             <li>Get your refund!</li>
           </ol>
-          
+
           <p><strong>Your Client ID:</strong> ${client.id}</p>
           <p><strong>Drake Return ID:</strong> ${drakeReturn.returnId}</p>
-          
+
           <p>
-            <a href="https://elevateforhumanity.org/supersonic-fast-cash/portal" 
+            <a href="https://elevateforhumanity.org/supersonic-fast-cash/portal"
                style="display: inline-block; padding: 12px 24px; background: #16a34a; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
               Access Your Portal
             </a>
           </p>
-          
+
           ${clientData.wantsRefundAdvance ? `
             <div style="background: #fef3c7; padding: 16px; border-radius: 8px; margin-top: 20px;">
               <h3 style="margin: 0 0 8px 0;">💰 Refund Advance Available</h3>
               <p style="margin: 0;">You indicated interest in a refund advance. We'll contact you once your return is prepared to discuss options.</p>
             </div>
           ` : ''}
-          
+
           <p>Questions? Call us at (317) 314-3757</p>
-          
+
           <p>
             Best regards,<br>
             SupersonicFastCash Team
@@ -209,7 +206,7 @@ export async function POST(request: NextRequest) {
         subject: `New Client: ${clientData.firstName} ${clientData.lastName}`,
         html: `
           <h2>New Client Intake</h2>
-          
+
           <h3>Client Information:</h3>
           <ul>
             <li><strong>Name:</strong> ${clientData.firstName} ${clientData.lastName}</li>
@@ -218,7 +215,7 @@ export async function POST(request: NextRequest) {
             <li><strong>Filing Status:</strong> ${clientData.filingStatus}</li>
             <li><strong>Dependents:</strong> ${clientData.dependents.length}</li>
           </ul>
-          
+
           <h3>Income Sources:</h3>
           <ul>
             <li>W-2: ${clientData.hasW2 ? 'Yes' : 'No'}</li>
@@ -226,22 +223,22 @@ export async function POST(request: NextRequest) {
             <li>Self-Employment: ${clientData.hasSelfEmployment ? 'Yes' : 'No'}</li>
             <li>Rental Income: ${clientData.hasRentalIncome ? 'Yes' : 'No'}</li>
           </ul>
-          
+
           <h3>Drake Software:</h3>
           <ul>
             <li><strong>Return ID:</strong> ${drakeReturn.returnId}</li>
             <li><strong>Status:</strong> Created and ready for data entry</li>
           </ul>
-          
+
           ${clientData.wantsRefundAdvance ? `
             <div style="background: #fef3c7; padding: 16px; border-radius: 8px; margin-top: 20px;">
               <h3 style="margin: 0 0 8px 0;">💰 Refund Advance Requested</h3>
               <p style="margin: 0;">Client wants a refund advance. Follow up after return is prepared.</p>
             </div>
           ` : ''}
-          
+
           <p>
-            <a href="https://elevateforhumanity.org/admin/tax-filing" 
+            <a href="https://elevateforhumanity.org/admin/tax-filing"
                style="display: inline-block; padding: 12px 24px; background: #16a34a; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
               View in Admin Dashboard
             </a>

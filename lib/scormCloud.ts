@@ -7,7 +7,7 @@ export async function importScormPackage(courseId: string, fileUrl: string) {
   }
   // This is a stub – real SCORM Cloud integration uses multipart upload.
   // Here we just show where you'd call their API.
-  // 
+  //
   return { registrationId: `scorm-${courseId}` };
 }
 export async function getScormRegistration(registrationId: string) {
@@ -15,7 +15,7 @@ export async function getScormRegistration(registrationId: string) {
     throw new Error('SCORM not configured');
   }
   // Stub for fetching registration details
-  // 
+  //
   return {
     registrationId,
     courseId: registrationId.replace('scorm-', ''),

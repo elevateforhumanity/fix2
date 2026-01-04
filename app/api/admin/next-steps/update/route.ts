@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/server';
 
 type Payload = {
   id: string;
-  patch: Record<string, any>;
+  patch: Record<string, unknown>;
 };
 
 export async function POST(req: Request) {
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     'updated_at',
   ]);
 
-  const patch: Record<string, any> = {};
+  const patch: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(body.patch)) {
     if (allowed.has(k)) patch[k] = v;
   }

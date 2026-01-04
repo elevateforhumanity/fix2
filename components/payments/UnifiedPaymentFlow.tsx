@@ -3,11 +3,11 @@
 import React from 'react';
 
 import { useState } from 'react';
-import { 
-  CreditCard, 
-  Calendar, 
-  DollarSign, 
-  Shield, 
+import {
+  CreditCard,
+  Calendar,
+  DollarSign,
+  Shield,
   CheckCircle,
   AlertCircle,
   Loader2,
@@ -262,9 +262,9 @@ export default function UnifiedPaymentFlow({
                   <p className="text-sm text-slate-600">{method.description}</p>
                   {!method.available && (
                     <p className="text-xs text-brand-orange-600 mt-1">
-                      {method.minAmount && price < method.minAmount && 
+                      {method.minAmount && price < method.minAmount &&
                         `Minimum $${method.minAmount} required`}
-                      {method.maxAmount && price > method.maxAmount && 
+                      {method.maxAmount && price > method.maxAmount &&
                         `Maximum $${method.maxAmount} allowed`}
                     </p>
                   )}
@@ -323,7 +323,7 @@ export default function UnifiedPaymentFlow({
           <div className="text-sm text-slate-700">
             <p className="font-semibold mb-1">Secure Payment Processing</p>
             <p>
-              Your payment is processed securely through Stripe. We never store your payment information. 
+              Your payment is processed securely through Stripe. We never store your payment information.
               All transactions are encrypted and PCI-DSS compliant.
             </p>
           </div>

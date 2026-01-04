@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Gradebook Calculator - Weighted Grade Calculations
 
 import {

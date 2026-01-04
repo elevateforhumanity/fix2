@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 

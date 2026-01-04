@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 /**
  * Grant Eligibility API
  * Check entity eligibility for grants

@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 /**
  * Grant Package Builder API
  * Generate submission-ready grant packages

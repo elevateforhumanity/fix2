@@ -6,7 +6,7 @@ import { Session } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
 import { logger } from '@/lib/logger';
 
-export type UserRole = 
+export type UserRole =
   | 'student'
   | 'advisor'
   | 'admin'
@@ -56,7 +56,7 @@ export function requireRoleAPI(session: Session, allowedRoles: UserRole[]) {
       userRole,
       requiredRoles: allowedRoles,
     });
-    
+
     return Response.json(
       { error: 'Forbidden - Insufficient permissions' },
       { status: 403 }
@@ -83,12 +83,12 @@ const ROLE_HIERARCHY: Record<UserRole, number> = {
 
 export function hasRoleOrHigher(session: Session, minimumRole: UserRole): boolean {
   const userRole = session.user.user_metadata?.role as UserRole;
-  
+
   if (!userRole) return false;
-  
+
   const userLevel = ROLE_HIERARCHY[userRole] || 0;
   const requiredLevel = ROLE_HIERARCHY[minimumRole] || 0;
-  
+
   return userLevel >= requiredLevel;
 }
 
@@ -116,7 +116,7 @@ export function getUserPermissions(session: Session): {
   canApproveApplications: boolean;
 } {
   const role = session.user.user_metadata?.role as UserRole;
-  
+
   return {
     role,
     canViewAdmin: hasRoleOrHigher(session, 'advisor'),

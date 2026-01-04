@@ -58,8 +58,8 @@ export function PeerTutoringMarketplace() {
   ];
 
   const subjects = ['all', ...Array.from(new Set(tutors.flatMap(t => t.subjects)))];
-  const filteredTutors = selectedSubject === 'all' 
-    ? tutors 
+  const filteredTutors = selectedSubject === 'all'
+    ? tutors
     : tutors.filter(t => t.subjects.includes(selectedSubject));
 
   return (

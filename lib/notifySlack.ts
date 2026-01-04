@@ -9,7 +9,7 @@ export async function notifySlack(
   message: string,
   opts?: {
     severity?: SlackSeverity;
-    context?: Record<string, any>;
+    context?: Record<string, unknown>;
   }
 ): Promise<void> {
   if (!SLACK_WEBHOOK_URL) {
@@ -82,7 +82,7 @@ export async function notifyTeams(
   message: string,
   opts?: {
     severity?: SlackSeverity;
-    context?: Record<string, any>;
+    context?: Record<string, unknown>;
   }
 ): Promise<void> {
   const TEAMS_WEBHOOK_URL = process.env.TEAMS_WEBHOOK_URL;

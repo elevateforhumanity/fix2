@@ -17,11 +17,11 @@ interface TranscriptPanelProps {
   className?: string;
 }
 
-export function TranscriptPanel({ 
-  segments, 
-  currentTime = 0, 
+export function TranscriptPanel({
+  segments,
+  currentTime = 0,
   onSeek,
-  className = '' 
+  className = ''
 }: TranscriptPanelProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [isExpanded, setIsExpanded] = useState(true);
@@ -47,7 +47,7 @@ export function TranscriptPanel({
     const text = segments
       .map(seg => `[${formatTime(seg.timestamp)}] ${seg.text}`)
       .join('\n\n');
-    
+
     const blob = new Blob([text], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -126,7 +126,7 @@ export function TranscriptPanel({
               filteredSegments.map((segment, index) => {
                 const originalIndex = segments.indexOf(segment);
                 const isActive = originalIndex === activeIndex;
-                
+
                 return (
                   <div
                     key={index}

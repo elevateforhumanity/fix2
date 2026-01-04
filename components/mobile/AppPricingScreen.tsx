@@ -6,12 +6,12 @@ import { APP_STORE_PRODUCTS } from '@/lib/stripe/app-store-products';
 
 /**
  * In-App Pricing Screen
- * 
+ *
  * IMPORTANT: This component is designed for app store compliance.
  * - Shows all pricing tiers
  * - Directs to external checkout (Stripe)
  * - Uses approved language
- * 
+ *
  * DO NOT modify pricing or wording without checking app store guidelines.
  */
 export function AppPricingScreen() {

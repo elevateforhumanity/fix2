@@ -6,7 +6,7 @@ export const maxDuration = 60;
 /**
  * Test SupersonicFastCash Tax Service
  * GET /api/test-supersonic-fast-cash
- * 
+ *
  * Tests the tax filing service integration
  */
 export async function GET() {

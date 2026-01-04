@@ -1,12 +1,12 @@
 // Store Products Database
 // Generated from LMS course content
-// 
+//
 // PRICING STRATEGY:
 // - All prices include 40% markup for profit margin
 // - No partner names or third-party branding included
 // - JRI courses excluded from store (available only through LMS)
 
-export type ProductCategory = 
+export type ProductCategory =
   | 'digital-workbook'
   | 'video-course'
   | 'certification-prep'
@@ -403,7 +403,7 @@ export function getFeaturedProducts(): StoreProduct[] {
 
 export function searchProducts(query: string): StoreProduct[] {
   const lowerQuery = query.toLowerCase();
-  return allProducts.filter(p => 
+  return allProducts.filter(p =>
     p.name.toLowerCase().includes(lowerQuery) ||
     p.description.toLowerCase().includes(lowerQuery) ||
     p.tags?.some(tag => tag.toLowerCase().includes(lowerQuery))

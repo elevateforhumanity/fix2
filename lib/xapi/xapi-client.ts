@@ -54,7 +54,7 @@ export class XAPIClient {
   }
   async sendStatement(statement: XAPIStatement): Promise<void> {
     if (!this.enabled) {
-      // 
+      //
       return;
     }
     try {
@@ -75,7 +75,7 @@ export class XAPIClient {
           `xAPI error: ${response.status} ${response.statusText}`
         );
       }
-      // 
+      //
     } catch (error: unknown) {
       // Error: $1
       // Don't throw - we don't want tracking failures to break the app

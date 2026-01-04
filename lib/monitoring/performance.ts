@@ -18,7 +18,6 @@ export const measurePageLoad = () => {
 
 export const measureWebVitals = (metric: any) => {
   // Log Web Vitals
-  console.log(metric.name, metric.value);
 
   // Send to analytics
   if (typeof window !== 'undefined' && window.gtag) {

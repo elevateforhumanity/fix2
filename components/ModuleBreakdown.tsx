@@ -66,7 +66,7 @@ export function ModuleBreakdown({ modules, className = '' }: ModuleBreakdownProp
           const isExpanded = expandedModules.has(module.id);
           const completedLessons = module.lessons.filter(l => l.completed).length;
           const totalLessons = module.lessons.length;
-          
+
           return (
             <div key={module.id} className="border border-slate-200 rounded-lg overflow-hidden">
               {/* Module Header */}

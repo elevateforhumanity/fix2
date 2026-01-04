@@ -24,12 +24,12 @@ export default function TextToSpeech({ text, autoPlay = false, className = '' }:
       const loadVoices = () => {
         const availableVoices = window.speechSynthesis.getVoices();
         setVoices(availableVoices);
-        
+
         // Prefer English voices
-        const englishVoice = availableVoices.find(voice => 
+        const englishVoice = availableVoices.find(voice =>
           voice.lang.startsWith('en') && voice.name.includes('Google')
         ) || availableVoices.find(voice => voice.lang.startsWith('en'));
-        
+
         setSelectedVoice(englishVoice || availableVoices[0]);
       };
 

@@ -148,7 +148,7 @@ export async function createRecurringClassSchedule(
  */
 export function getCalendarAuthUrl(state?: string) {
   const auth = getOAuth2Client();
-  
+
   return auth.generateAuthUrl({
     access_type: 'offline',
     scope: ['https://www.googleapis.com/auth/calendar.events'],
@@ -161,7 +161,7 @@ export function getCalendarAuthUrl(state?: string) {
  */
 export async function getCalendarTokens(code: string) {
   const auth = getOAuth2Client();
-  
+
   try {
     const { tokens } = await auth.getToken(code);
     return {

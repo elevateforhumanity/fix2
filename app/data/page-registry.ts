@@ -1,6 +1,6 @@
 /**
  * Page Registry - Single Source of Truth for Navigation
- * 
+ *
  * This file defines ALL pages that should be visible in the site navigation.
  * The header dropdown is auto-generated from this registry.
  * Daily audits check that every page listed here is accessible.
@@ -104,14 +104,14 @@ export const NAV_REGISTRY: NavCategory[] = [
  */
 export function getAllNavItems(): NavItem[] {
   const items: NavItem[] = [];
-  
+
   for (const category of NAV_REGISTRY) {
     items.push(...category.items);
     if (category.featured) {
       items.push(...category.featured);
     }
   }
-  
+
   // Remove duplicates by href
   const seen = new Set<string>();
   return items.filter((item: any) => {

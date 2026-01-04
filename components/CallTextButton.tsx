@@ -6,10 +6,10 @@ interface CallTextButtonProps {
   className?: string;
 }
 
-export default function CallTextButton({ 
-  variant = "both", 
+export default function CallTextButton({
+  variant = "both",
   size = "md",
-  className = "" 
+  className = ""
 }: CallTextButtonProps) {
   const sizeClasses = {
     sm: "px-3 py-1.5 text-xs",

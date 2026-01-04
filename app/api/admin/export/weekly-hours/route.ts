@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logAuditEvent, AuditActions } from '@/lib/audit';
@@ -9,7 +8,7 @@ import { logAuditEvent, AuditActions } from '@/lib/audit';
 export async function GET(req: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
@@ -134,7 +133,7 @@ export async function GET(req: NextRequest) {
       // Add summary row
       const totalHours = (hours || []).reduce((sum: number, h: unknown) => sum + (h.hours_worked || 0), 0);
       const approvedHours = (hours || []).filter((h: unknown) => h.approved).reduce((sum: number, h: unknown) => sum + (h.hours_worked || 0), 0);
-      
+
       rows.push([]);
       rows.push(['SUMMARY', '', '', '', '', '', '', '', '', '', '', '']);
       rows.push(['Total Hours', totalHours.toString(), '', '', '', '', '', '', '', '', '', '']);

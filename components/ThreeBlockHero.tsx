@@ -61,7 +61,7 @@ export default function ThreeBlockHero() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              
+
               {/* Content */}
               <div className="relative h-full flex flex-col justify-between p-6 text-white">
                 {/* Badge */}

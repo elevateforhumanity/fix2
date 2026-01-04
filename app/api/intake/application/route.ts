@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // =====================================================
 // INTAKE STAGE 3: APPLICATION
 // Full application submission after eligibility confirmed

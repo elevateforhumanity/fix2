@@ -27,8 +27,8 @@ export default function GoogleClassroomSync() {
               {lastSync ? lastSync.toLocaleString() : 'Never'}
             </p>
           </div>
-          <Button 
-            onClick={handleSync} 
+          <Button
+            onClick={handleSync}
             disabled={syncing}
             className="w-full"
           >

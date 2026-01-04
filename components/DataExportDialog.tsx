@@ -9,7 +9,7 @@ interface DataExportDialogProps {
   isOpen: boolean;
   onClose: () => void;
   exportType: 'students' | 'courses' | 'enrollments' | 'assignments' | 'grades';
-  filters?: Record<string, any>;
+  filters?: Record<string, unknown>;
 }
 
 export default function DataExportDialog({
@@ -288,7 +288,7 @@ export function BatchExportDialog({ isOpen, onClose }: BatchExportDialogProps) {
       }
 
       const result = await response.json();
-      
+
       if (format === 'json') {
         // Download JSON file
         const blob = new Blob([JSON.stringify(result.data, null, 2)], { type: 'application/json' });

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/milady.ts
 // Milady RISE API Integration
 // Cosmetology, Barbering, Beauty Industry Training

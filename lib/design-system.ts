@@ -15,7 +15,7 @@ export const colors = {
     800: '#1e40af',
     900: '#1e3a8a',
   },
-  
+
   // Secondary - Purple
   secondary: {
     50: '#faf5ff',
@@ -29,7 +29,7 @@ export const colors = {
     800: '#6b21a8',
     900: '#581c87',
   },
-  
+
   // Accent - Green (success, positive actions)
   accent: {
     50: '#f0fdf4',
@@ -43,7 +43,7 @@ export const colors = {
     800: '#166534',
     900: '#14532d',
   },
-  
+
   // Error/Danger - Red (only for errors and warnings)
   error: {
     50: '#fef2f2',
@@ -57,7 +57,7 @@ export const colors = {
     800: '#991b1b',
     900: '#7f1d1d',
   },
-  
+
   // Neutral - Slate (text, backgrounds)
   neutral: {
     50: '#f8fafc',
@@ -126,8 +126,8 @@ export const typography = {
 export const components = {
   button: {
     primary: `
-      bg-blue-600 text-white 
-      hover:bg-blue-700 
+      bg-blue-600 text-white
+      hover:bg-blue-700
       active:bg-blue-800
       disabled:bg-slate-300 disabled:text-slate-500 disabled:cursor-not-allowed
       px-6 py-3 rounded-lg font-semibold
@@ -166,7 +166,7 @@ export const components = {
   },
   input: {
     default: `
-      w-full px-4 py-2 
+      w-full px-4 py-2
       border border-slate-300 rounded-lg
       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
       disabled:bg-slate-100 disabled:text-slate-500 disabled:cursor-not-allowed
@@ -179,19 +179,19 @@ export const components = {
 export const guidelines = {
   // Use blue as primary color for all main actions
   primaryColor: 'blue-600',
-  
+
   // Use red ONLY for errors, warnings, and destructive actions
   errorColor: 'red-600',
-  
+
   // Use purple for secondary actions and accents
   secondaryColor: 'purple-600',
-  
+
   // Use green for success states and positive feedback
   successColor: 'green-600',
-  
+
   // Spacing scale: use consistent spacing throughout
   spacingScale: [4, 8, 12, 16, 24, 32, 48, 64],
-  
+
   // Border radius: use consistent rounding
   borderRadiusScale: [6, 8, 12, 16, 24],
 };

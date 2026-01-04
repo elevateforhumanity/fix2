@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/admin/applications/[id]/approve/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
@@ -100,7 +99,7 @@ export async function POST(
       }
 
       user = newUser.user;
-      
+
       // Create profile entry
       const { error: profileError } = await supabaseAdmin
         .from("profiles")

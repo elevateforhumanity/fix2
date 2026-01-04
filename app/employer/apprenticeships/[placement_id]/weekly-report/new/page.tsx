@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { submitWeeklyReport } from './_actions/submit-weekly-report';
@@ -9,31 +8,31 @@ export default async function NewWeeklyReportPage({
   params: { placement_id: string };
 }) {
   const supabase = await createClient();
-  
+
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-    
+
   if (profile?.role !== 'employer') {
     redirect('/unauthorized');
   }
-  
+
   // Get placement and verify access
   const { data: placement } = await supabase
     .from('apprentice_placements')
     .select('id, student_id, shop_id, program_slug, shops(name)')
     .eq('id', params.placement_id)
     .single();
-    
+
   if (!placement) {
     redirect('/employer/dashboard');
   }
-  
+
   // Verify employer has access to this shop
   const { data: shopAccess } = await supabase
     .from('shop_staff')
@@ -41,11 +40,11 @@ export default async function NewWeeklyReportPage({
     .eq('user_id', user.id)
     .eq('shop_id', placement.shop_id)
     .single();
-    
+
   if (!shopAccess) {
     redirect('/unauthorized');
   }
-  
+
   return (
     <div className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-2xl mx-auto px-4">
@@ -59,10 +58,10 @@ export default async function NewWeeklyReportPage({
           <p className="text-slate-600 mb-8">
             Program: {placement.program_slug}
           </p>
-          
+
           <form action={submitWeeklyReport} className="space-y-6">
             <input type="hidden" name="placement_id" value={params.placement_id} />
-            
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label htmlFor="week_start" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -76,7 +75,7 @@ export default async function NewWeeklyReportPage({
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="week_end" className="block text-sm font-semibold text-slate-900 mb-2">
                   Week End Date *
@@ -90,7 +89,7 @@ export default async function NewWeeklyReportPage({
                 />
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label htmlFor="hours_ojt" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -107,7 +106,7 @@ export default async function NewWeeklyReportPage({
                   placeholder="0"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="hours_related" className="block text-sm font-semibold text-slate-900 mb-2">
                   Related Instruction Hours *
@@ -124,7 +123,7 @@ export default async function NewWeeklyReportPage({
                 />
               </div>
             </div>
-            
+
             <div>
               <label htmlFor="notes" className="block text-sm font-semibold text-slate-900 mb-2">
                 Notes
@@ -137,7 +136,7 @@ export default async function NewWeeklyReportPage({
                 placeholder="Optional notes about this week's progress..."
               />
             </div>
-            
+
             <div className="pt-4 flex gap-4">
               <a
                 href="/employer/dashboard"

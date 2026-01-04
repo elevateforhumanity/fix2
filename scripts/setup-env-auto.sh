@@ -24,8 +24,6 @@ check_env_var() {
 if check_env_var "NEXT_PUBLIC_SUPABASE_URL" && check_env_var "SUPABASE_SERVICE_ROLE_KEY"; then
     echo "✅ Supabase credentials already configured"
     echo ""
-    echo "Testing connection..."
-    node check-database.mjs
     exit 0
 fi
 
@@ -48,8 +46,6 @@ if command -v vercel &> /dev/null; then
             if check_env_var "NEXT_PUBLIC_SUPABASE_URL"; then
                 echo "✅ Supabase credentials found"
                 echo ""
-                echo "Testing connection..."
-                node check-database.mjs
                 exit 0
             else
                 echo "⚠️  Pulled env vars but Supabase credentials not found"
@@ -102,7 +98,4 @@ echo "     - NEXT_PUBLIC_SUPABASE_ANON_KEY"
 echo "     - SUPABASE_SERVICE_ROLE_KEY"
 echo "  5. Create .env.local with those values"
 echo ""
-echo "Then run: node check-database.mjs"
-echo ""
-
 exit 1

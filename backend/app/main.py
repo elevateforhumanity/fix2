@@ -37,19 +37,19 @@ AUDITOR_KEY = os.getenv("AUDITOR_KEY", "auditor-demo-key")
 async def rbac_middleware(request: Request, call_next):
     """Check X-API-Key header and set role"""
     api_key = request.headers.get("X-API-Key")
-    
+
     # Public endpoints
     if request.url.path in ["/", "/health", "/docs", "/openapi.json"]:
         request.state.role = "public"
         return await call_next(request)
-    
+
     # Check API key
     if not api_key:
         return JSONResponse(
             status_code=401,
             content={"error": "Missing X-API-Key header"}
         )
-    
+
     # Determine role
     if api_key == ADMIN_KEY:
         request.state.role = "admin"
@@ -64,7 +64,7 @@ async def rbac_middleware(request: Request, call_next):
             status_code=403,
             content={"error": "Invalid API key"}
         )
-    
+
     response = await call_next(request)
     return response
 

@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function generateWIOAReport(startDate: Date, endDate: Date) {
   const supabase = await createClient();
-  
+
   const { data: enrollments } = await supabase
     .from('enrollments')
     .select(`
@@ -41,13 +41,13 @@ export async function scheduleWIOAReports() {
   const quarterStart = new Date(now.getFullYear(), Math.floor(now.getMonth() / 3) * 3, 1);
   const quarterEnd = new Date(quarterStart);
   quarterEnd.setMonth(quarterEnd.getMonth() + 3);
-  
+
   return generateWIOAReport(quarterStart, quarterEnd);
 }
 
 export async function trackWageVerification(userId: string, employerId: string) {
   const supabase = await createClient();
-  
+
   await supabase.from('audit_logs').insert({
     user_id: userId,
     action: 'wage_verification_requested',

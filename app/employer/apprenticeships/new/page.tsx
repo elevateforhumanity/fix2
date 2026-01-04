@@ -1,34 +1,33 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { createPlacement } from './_actions/create-placement';
 
 export default async function NewPlacementPage() {
   const supabase = await createClient();
-  
+
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login?next=/employer/apprenticeships/new');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-    
+
   if (profile?.role !== 'employer') {
     redirect('/unauthorized');
   }
-  
+
   // Get shops this employer has access to
   const { data: shopAccess } = await supabase
     .from('shop_staff')
     .select('shop_id, role, shops(id, name)')
     .eq('user_id', user.id);
-    
+
   if (!shopAccess || shopAccess.length === 0) {
     redirect('/employer/shop/create');
   }
-  
+
   return (
     <div className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-2xl mx-auto px-4">
@@ -39,7 +38,7 @@ export default async function NewPlacementPage() {
           <p className="text-slate-600 mb-8">
             Add a new apprentice to your shop
           </p>
-          
+
           <form action={createPlacement} className="space-y-6">
             <div>
               <label htmlFor="shop_id" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -59,7 +58,7 @@ export default async function NewPlacementPage() {
                 ))}
               </select>
             </div>
-            
+
             <div>
               <label htmlFor="student_email" className="block text-sm font-semibold text-slate-900 mb-2">
                 Student Email *
@@ -76,7 +75,7 @@ export default async function NewPlacementPage() {
                 Enter the email of a registered student
               </p>
             </div>
-            
+
             <div>
               <label htmlFor="program_slug" className="block text-sm font-semibold text-slate-900 mb-2">
                 Program *
@@ -94,7 +93,7 @@ export default async function NewPlacementPage() {
                 <option value="nail-tech">Nail Technology</option>
               </select>
             </div>
-            
+
             <div>
               <label htmlFor="start_date" className="block text-sm font-semibold text-slate-900 mb-2">
                 Start Date *
@@ -107,7 +106,7 @@ export default async function NewPlacementPage() {
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-            
+
             <div>
               <label htmlFor="end_date" className="block text-sm font-semibold text-slate-900 mb-2">
                 Expected End Date
@@ -119,7 +118,7 @@ export default async function NewPlacementPage() {
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-            
+
             <div className="pt-4 flex gap-4">
               <a
                 href="/employer/dashboard"

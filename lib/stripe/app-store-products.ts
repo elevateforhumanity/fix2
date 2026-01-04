@@ -1,7 +1,7 @@
 /**
  * App Store Compliant Pricing Structure
  * For Google Play and Apple App Store
- * 
+ *
  * IMPORTANT: These prices must match exactly on:
  * - Stripe
  * - Website /pricing page

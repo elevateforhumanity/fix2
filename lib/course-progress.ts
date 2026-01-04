@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function updateLessonCompletion(userId: string, lessonId: string, completed: boolean) {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('lesson_progress')
     .upsert({
@@ -17,7 +17,7 @@ export async function updateLessonCompletion(userId: string, lessonId: string, c
 
 export async function updateVideoProgress(userId: string, lessonId: string, progress: number) {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('video_progress')
     .upsert({
@@ -32,7 +32,7 @@ export async function updateVideoProgress(userId: string, lessonId: string, prog
 
 export async function getCourseProgress(userId: string, courseId: string) {
   const supabase = await createClient();
-  
+
   const { data: lessons } = await supabase
     .from('lessons')
     .select('id')
@@ -46,7 +46,7 @@ export async function getCourseProgress(userId: string, courseId: string) {
 
   const total = lessons?.length || 0;
   const completedCount = completed?.length || 0;
-  
+
   return {
     total,
     completed: completedCount,

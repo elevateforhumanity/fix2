@@ -13,7 +13,7 @@ export default function WIOAPage() {
 
       <h2>Overview</h2>
       <p>
-        The Workforce Innovation and Opportunity Act (WIOA) provides funding for workforce development 
+        The Workforce Innovation and Opportunity Act (WIOA) provides funding for workforce development
         and training programs. This policy outlines eligibility requirements and our compliance procedures.
       </p>
 

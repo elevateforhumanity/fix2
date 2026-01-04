@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { logger } from '@/lib/logger';
@@ -9,10 +8,10 @@ import { logger } from '@/lib/logger';
 export async function POST(request: Request) {
   try {
     const data = await parseBody<Record<string, unknown>>(request);
-    
+
     // Log performance alert
     logger.warn('[Performance Alert]', data);
-    
+
     // Send to monitoring service if configured
     if (process.env.SENTRY_DSN) {
       try {
@@ -26,7 +25,7 @@ export async function POST(request: Request) {
         logger.error('Failed to send to Sentry:', sentryError);
       }
     }
-    
+
     // Log to database for internal tracking
     try {
       await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/logs/performance`, {
@@ -41,7 +40,7 @@ export async function POST(request: Request) {
     } catch (logError) {
       logger.error('Failed to log to database:', logError);
     }
-    
+
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
     logger.error('[Performance Alert] Error:', error);

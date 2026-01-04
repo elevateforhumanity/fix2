@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 
 // =====================================================
@@ -67,7 +66,7 @@ export interface SurveyResponse {
   id: string;
   survey_id: string;
   user_id: string;
-  answers: Record<string, any>;
+  answers: Record<string, unknown>;
   completed_at: string;
 }
 
@@ -386,7 +385,7 @@ export async function getAllSurveys(): Promise<Survey[]> {
 export async function submitSurveyResponse(
   surveyId: string,
   userId: string,
-  answers: Record<string, any>
+  answers: Record<string, unknown>
 ): Promise<SurveyResponse> {
   const supabase = await createClient();
 

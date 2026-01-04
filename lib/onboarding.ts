@@ -82,7 +82,7 @@ export const ONBOARDING_FLOWS: Record<string, OnboardingFlow> = {
       value: 'onboarding_complete',
     },
   },
-  
+
   student_first_course: {
     id: 'student_first_course',
     name: 'Your First Course',
@@ -243,7 +243,7 @@ export async function hasCompletedOnboarding(
   flowId: string
 ): Promise<boolean> {
   const supabase = createClient();
-  
+
   const { data, error }: any = await supabase
     .from('user_onboarding')
     .select('completed')
@@ -265,7 +265,7 @@ export async function getOnboardingProgress(
   completed: boolean;
 } | null> {
   const supabase = createClient();
-  
+
   const { data, error }: any = await supabase
     .from('user_onboarding')
     .select('*')
@@ -274,7 +274,7 @@ export async function getOnboardingProgress(
     .single();
 
   if (error || !data) return null;
-  
+
   return {
     currentStep: data.current_step,
     completedSteps: data.completed_steps || [],
@@ -288,7 +288,7 @@ export async function startOnboarding(
   flowId: string
 ): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase
     .from('user_onboarding')
     .upsert({
@@ -309,7 +309,7 @@ export async function updateOnboardingProgress(
   stepIndex: number
 ): Promise<void> {
   const supabase = createClient();
-  
+
   // Get current progress
   const { data: current } = await supabase
     .from('user_onboarding')
@@ -340,7 +340,7 @@ export async function completeOnboarding(
   flowId: string
 ): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase
     .from('user_onboarding')
     .update({
@@ -367,7 +367,7 @@ export async function skipOnboarding(
   flowId: string
 ): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase
     .from('user_onboarding')
     .update({
@@ -385,7 +385,7 @@ export async function resetOnboarding(
   flowId: string
 ): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase
     .from('user_onboarding')
     .delete()
@@ -396,7 +396,7 @@ export async function resetOnboarding(
 // Helper functions for rewards
 async function awardBadge(userId: string, badgeId: string): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase
     .from('user_achievements')
     .insert({
@@ -408,7 +408,7 @@ async function awardBadge(userId: string, badgeId: string): Promise<void> {
 
 async function awardPoints(userId: string, points: number): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase.rpc('increment_user_points', {
     user_id: userId,
     points_to_add: points,
@@ -421,7 +421,7 @@ export async function getRecommendedOnboarding(
   userRole: 'student' | 'instructor' | 'admin'
 ): Promise<OnboardingFlow[]> {
   const supabase = createClient();
-  
+
   // Get completed flows
   const { data: completed } = await supabase
     .from('user_onboarding')
@@ -430,11 +430,11 @@ export async function getRecommendedOnboarding(
     .eq('completed', true);
 
   const completedFlowIds = completed?.map(c => c.flow_id) || [];
-  
+
   // Return flows for user's role that haven't been completed
   return Object.values(ONBOARDING_FLOWS)
-    .filter(flow => 
-      flow.role === userRole && 
+    .filter(flow =>
+      flow.role === userRole &&
       !completedFlowIds.includes(flow.id)
     );
 }
@@ -625,7 +625,7 @@ export async function getTutorialProgress(
   completed: boolean;
 } | null> {
   const supabase = createClient();
-  
+
   const { data, error }: any = await supabase
     .from('user_tutorials')
     .select('*')
@@ -634,7 +634,7 @@ export async function getTutorialProgress(
     .single();
 
   if (error || !data) return null;
-  
+
   return {
     currentStep: data.current_step,
     completedSteps: data.completed_steps || [],
@@ -650,7 +650,7 @@ export async function updateTutorialProgress(
   stepIndex: number
 ): Promise<void> {
   const supabase = createClient();
-  
+
   const { data: current } = await supabase
     .from('user_tutorials')
     .select('completed_steps')
@@ -680,7 +680,7 @@ export async function completeTutorial(
   tutorialId: string
 ): Promise<void> {
   const supabase = createClient();
-  
+
   await supabase
     .from('user_tutorials')
     .update({

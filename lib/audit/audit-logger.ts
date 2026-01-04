@@ -61,7 +61,7 @@ export interface AuditLogEntry {
   organizationId?: string;
   resourceType?: string;
   resourceId?: string;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
   ipAddress?: string;
   userAgent?: string;
   success: boolean;
@@ -74,7 +74,7 @@ export interface AuditLogEntry {
 export async function logAuditEvent(entry: AuditLogEntry): Promise<boolean> {
   try {
     const supabase = await createClient();
-    
+
     const { error } = await supabase
       .from('audit_logs')
       .insert({
@@ -109,7 +109,7 @@ export async function logAuditEvent(entry: AuditLogEntry): Promise<boolean> {
 export async function logStudentAction(
   action: AuditAction,
   studentId: string,
-  details?: Record<string, any>
+  details?: Record<string, unknown>
 ): Promise<void> {
   await logAuditEvent({
     action,
@@ -171,7 +171,7 @@ export async function logFundingAssignment(
 export async function logSecurityEvent(
   action: AuditAction,
   userId?: string,
-  details?: Record<string, any>,
+  details?: Record<string, unknown>,
   ipAddress?: string
 ): Promise<void> {
   await logAuditEvent({
@@ -215,7 +215,7 @@ export async function getUserAuditLogs(
   limit: number = 100
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('audit_logs')
     .select('*')
@@ -240,7 +240,7 @@ export async function getResourceAuditLogs(
   limit: number = 100
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('audit_logs')
     .select('*')
@@ -267,7 +267,7 @@ export async function getOrganizationAuditLogs(
   limit: number = 1000
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   let query = supabase
     .from('audit_logs')
     .select('*')
@@ -301,7 +301,7 @@ export async function getSecurityEvents(
   limit: number = 100
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   let query = supabase
     .from('audit_logs')
     .select('*')
@@ -338,7 +338,7 @@ export async function generateComplianceReport(
   dataExports: number;
 }> {
   const logs = await getOrganizationAuditLogs(organizationId, startDate, endDate);
-  
+
   const actionsByType: Record<string, number> = {};
   const userActivity: Record<string, number> = {};
   let securityEvents = 0;
@@ -347,17 +347,17 @@ export async function generateComplianceReport(
   for (const log of logs) {
     // Count by action type
     actionsByType[log.action] = (actionsByType[log.action] || 0) + 1;
-    
+
     // Count by user
     if (log.user_id) {
       userActivity[log.user_id] = (userActivity[log.user_id] || 0) + 1;
     }
-    
+
     // Count security events
     if (log.action.startsWith('security.')) {
       securityEvents++;
     }
-    
+
     // Count data exports
     if (log.action === 'system.data_exported') {
       dataExports++;
@@ -382,10 +382,10 @@ export async function exportAuditLogsToCSV(
   endDate: Date
 ): Promise<string> {
   const logs = await getOrganizationAuditLogs(organizationId, startDate, endDate);
-  
+
   // CSV header
   const header = 'Timestamp,Action,User ID,Resource Type,Resource ID,Success,IP Address,Details\n';
-  
+
   // CSV rows
   const rows = logs.map(log => {
     const details = JSON.stringify(log.details || {}).replace(/"/g, '""');
@@ -400,7 +400,7 @@ export async function exportAuditLogsToCSV(
       `"${details}"`,
     ].join(',');
   }).join('\n');
-  
+
   return header + rows;
 }
 
@@ -410,10 +410,10 @@ export async function exportAuditLogsToCSV(
  */
 export async function cleanupOldAuditLogs(retentionDays: number = 365): Promise<number> {
   const supabase = await createClient();
-  
+
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
-  
+
   const { data, error }: any = await supabase
     .from('audit_logs')
     .delete()

@@ -63,7 +63,7 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('Database error:', error);
-      
+
       // If table doesn't exist, still return success (we'll handle via email)
       if (error.code === '42P01') {
         return NextResponse.json({

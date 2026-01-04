@@ -20,7 +20,7 @@ interface InteractiveQuizProps {
   title: string;
   questions: QuizQuestion[];
   passingScore: number;
-  onComplete: (score: number, answers: Record<string, any>) => Promise<void>;
+  onComplete: (score: number, answers: Record<string, unknown>) => Promise<void>;
 }
 
 export function InteractiveQuiz({
@@ -31,7 +31,7 @@ export function InteractiveQuiz({
   onComplete,
 }: InteractiveQuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [answers, setAnswers] = useState<Record<string, unknown>>({});
   const [showFeedback, setShowFeedback] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [score, setScore] = useState(0);
@@ -52,7 +52,7 @@ export function InteractiveQuiz({
 
   const handleNext = () => {
     const correct = checkAnswer();
-    
+
     if (isLastQuestion) {
       const totalScore = Object.keys(answers).reduce((acc, qId) => {
         const q = questions.find((q) => q.id === qId);
@@ -61,10 +61,10 @@ export function InteractiveQuiz({
         const isCorrect = JSON.stringify(userAnswer) === JSON.stringify(q.correct_answer);
         return acc + (isCorrect ? q.points : 0);
       }, 0);
-      
+
       const maxScore = questions.reduce((acc, q) => acc + q.points, 0);
       const percentage = (totalScore / maxScore) * 100;
-      
+
       setScore(percentage);
       setIsComplete(true);
       onComplete(percentage, answers);
@@ -76,7 +76,7 @@ export function InteractiveQuiz({
 
   if (isComplete) {
     const passed = score >= passingScore;
-    
+
     return (
       <div className="bg-slate-800 rounded-lg p-8 text-center">
         <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center ${
@@ -88,21 +88,21 @@ export function InteractiveQuiz({
             <XCircle className="w-12 h-12 text-red-400" />
           )}
         </div>
-        
+
         <h2 className="text-3xl font-bold text-white mb-2">
           {passed ? "Congratulations!" : "Keep Practicing"}
         </h2>
-        
+
         <p className="text-xl text-slate-300 mb-6">
           You scored {Math.round(score)}%
         </p>
-        
+
         <p className="text-slate-400 mb-8">
           {passed
             ? `You passed! The passing score was ${passingScore}%.`
             : `You need ${passingScore}% to pass. Review the material and try again.`}
         </p>
-        
+
         <div className="flex gap-4 justify-center">
           <button
             onClick={() => window.location.reload()}
@@ -146,7 +146,7 @@ export function InteractiveQuiz({
           const isSelected = question.question_type === "multiple_select"
             ? (answers[question.id] || []).includes(option)
             : answers[question.id] === option;
-          
+
           return (
             <button
               key={index}

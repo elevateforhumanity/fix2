@@ -1,14 +1,13 @@
-// @ts-nocheck
 "use client";
 
 import React from 'react';
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { 
-  Users, 
-  CheckCircle, 
-  Clock, 
+import {
+  Users,
+  CheckCircle,
+  Clock,
   AlertCircle,
   Download,
   Mail,
@@ -44,10 +43,10 @@ interface FERPATrainingDashboardProps {
   currentUser: unknown;
 }
 
-export default function FERPATrainingDashboard({ 
-  trainingRecords, 
+export default function FERPATrainingDashboard({
+  trainingRecords,
   pendingUsers,
-  currentUser 
+  currentUser
 }: FERPATrainingDashboardProps) {
   const [filter, setFilter] = useState<'all' | 'completed' | 'expired' | 'pending'>('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -63,7 +62,7 @@ export default function FERPATrainingDashboard({
   const filteredRecords = trainingRecords.filter(record => {
     const matchesSearch = record.profiles.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          record.profiles.email.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     if (filter === 'completed') {
       return matchesSearch && record.status === 'completed' && new Date(record.expires_at) > new Date();
     } else if (filter === 'expired') {

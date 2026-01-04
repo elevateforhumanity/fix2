@@ -210,7 +210,7 @@ export function LearningBarrierAnalyzer() {
     for (const barrier of barriers) {
       if (barrier.severity === 'high' || barrier.severity === 'critical') {
         // Au and deploy remediation content
-        // 
+        //
         // This would integrate with your LMS to create actual content
       }
     }

@@ -19,7 +19,7 @@ export default function BranchSelector({ repo, onSelect }) {
         className="w-full bg-[#111] p-2 rounded"
         onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onSelect(e.target.value)}
       >
-        {branches.map((b: Record<string, any>) => (
+        {branches.map((b: Record<string, unknown>) => (
           <option key={b.name} value={b.name}>{b.name}</option>
         ))}
       </select>

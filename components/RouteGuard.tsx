@@ -30,7 +30,7 @@ export default function RouteGuard({
   useEffect(() => {
     async function checkAuth() {
       const supabase = createClient();
-      
+
       // Get current user
       const { data: { user }, error } = await supabase.auth.getUser();
 

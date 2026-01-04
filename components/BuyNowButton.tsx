@@ -13,19 +13,19 @@ interface BuyNowButtonProps {
   showPaymentPlan?: boolean;
 }
 
-export function BuyNowButton({ 
-  programName, 
-  programSlug, 
-  price, 
+export function BuyNowButton({
+  programName,
+  programSlug,
+  price,
   className = "",
-  showPaymentPlan = true 
+  showPaymentPlan = true
 }: BuyNowButtonProps) {
   const [loading, setLoading] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
 
   const handleCheckout = async (paymentType: 'full' | 'plan') => {
     setLoading(true);
-    
+
     try {
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
@@ -41,7 +41,7 @@ export function BuyNowButton({
       });
 
       const { url } = await response.json();
-      
+
       if (url) {
         window.location.href = url;
       }

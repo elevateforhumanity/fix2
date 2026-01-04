@@ -90,7 +90,6 @@ export async function verifyCredential(
   // 2. Or provide manual verification link
   // 3. Or use web scraping (with permission)
 
-  console.log('Credential Verification Request:', {
     credential_type: request.credential_type,
     database: database.name,
     method: database.verification_method,
@@ -306,7 +305,7 @@ export async function generateCredentialReport() {
   };
 }
 
-function groupByType(credentials: any[]) {
+function groupByType(credentials: unknown[]) {
   const grouped: Record<string, number> = {};
 
   for (const cred of credentials) {

@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Monitoring and Analytics for API Routes
  * Tracks auth failures, admin actions, rate limits, and errors
@@ -251,8 +250,8 @@ export function withMonitoring(
   return async (data: unknown): Promise<NextResponse> => {
     const startTime = Date.now();
     const endpoint = new URL(req.url).pathname;
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
-                req.headers.get('x-real-ip') || 
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+                req.headers.get('x-real-ip') ||
                 'unknown';
 
     try {

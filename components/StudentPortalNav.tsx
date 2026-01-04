@@ -5,11 +5,11 @@ import React from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  LayoutDashboard, 
-  BookOpen, 
-  FileText, 
-  Award, 
+import {
+  LayoutDashboard,
+  BookOpen,
+  FileText,
+  Award,
   Calendar,
   MessageCircle,
   FolderOpen,
@@ -65,7 +65,7 @@ export default function StudentPortalNav() {
             <Link href="/portal/student/dashboard" aria-label="Link" className="text-xl font-bold text-blue-600 whitespace-nowrap">
               Student Portal
             </Link>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {mainNavigation.map((item) => {
@@ -86,7 +86,7 @@ export default function StudentPortalNav() {
                   </Link>
                 );
               })}
-              
+
               {/* More Dropdown */}
               <div className="relative">
                 <button
@@ -96,11 +96,11 @@ export default function StudentPortalNav() {
                   <span>More</span>
                   <ChevronDown size={16} />
                 </button>
-                
+
                 {moreMenuOpen && (
                   <>
-                    <div 
-                      className="fixed inset-0 z-10" 
+                    <div
+                      className="fixed inset-0 z-10"
                       onClick={() => setMoreMenuOpen(false)}
                     />
                     <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-20">
@@ -148,7 +148,7 @@ export default function StudentPortalNav() {
             >
               <Settings size={20} />
             </Link>
-            
+
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

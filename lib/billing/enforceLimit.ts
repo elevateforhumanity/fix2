@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { OrgConfig } from '@/lib/org/getOrgConfig';
 
 export type LimitType = 'students' | 'staff' | 'programs';

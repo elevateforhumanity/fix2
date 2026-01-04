@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from 'react';
 import Link from 'next/link';
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';

@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { getSupabaseServerClient } from '../../../../lib/supabaseServer';
 import { programSeeds } from '../../../../lms-data/courseSeed';

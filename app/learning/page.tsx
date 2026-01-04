@@ -17,8 +17,8 @@ export default function LearningHubPage() {
           <p className="text-xl max-w-3xl mx-auto mb-8">
             Everything you need to succeed in your learning journey. Access lessons, resources, and tools.
           </p>
-          <Link 
-            href="/lms/dashboard" 
+          <Link
+            href="/lms/dashboard"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-600 rounded-lg font-bold hover:bg-gray-100"
           >
             Go to Dashboard
@@ -100,8 +100,8 @@ export default function LearningHubPage() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Learning?</h2>
           <p className="text-xl mb-8">Access all your courses and resources in one place</p>
-          <Link 
-            href="/lms/dashboard" 
+          <Link
+            href="/lms/dashboard"
             className="inline-block px-8 py-4 bg-white text-green-600 rounded-lg font-bold hover:bg-gray-100"
           >
             Go to My Dashboard
@@ -125,8 +125,8 @@ function ResourceCard({ icon, title, description, href, count }: any) {
 
 function QuickLink({ title, href }: any) {
   return (
-    <Link 
-      href={href} 
+    <Link
+      href={href}
       className="p-4 border rounded-lg hover:shadow-lg transition-shadow bg-white text-center font-semibold hover:bg-blue-50"
     >
       {title}

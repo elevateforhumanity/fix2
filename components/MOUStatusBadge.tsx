@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { CheckCircle2, Clock, AlertCircle, XCircle } from 'lucide-react';
 
 type MOUStatusBadgeProps = {

@@ -19,7 +19,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
               <p className="text-xl mb-8 text-orange-50">
                 Join {programName} and get 100% free training through WIOA funding. No tuition, no debt, just career opportunities.
               </p>
-              
+
               {/* Highlights with Icons */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
@@ -36,7 +36,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                     <p className="text-orange-50">Fully funded through WIOA, WRG, and JRI programs</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
@@ -51,7 +51,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                     <p className="text-orange-50">We help you find employment after graduation</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
@@ -237,7 +237,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
           <p className="text-xl mb-8 text-blue-100">
             Our team is ready to answer your questions and guide you through the enrollment process.
           </p>
-          
+
           <div className="grid sm:grid-cols-3 gap-6 mb-8">
             <div className="bg-blue-800 rounded-lg p-6">
               <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">📞</div>

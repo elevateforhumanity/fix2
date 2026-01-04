@@ -60,21 +60,21 @@ export async function POST(request: NextRequest) {
         html: `
           <h2>Thank You, ${body.firstName}!</h2>
           <p>We've received your refund advance application.</p>
-          
+
           <h3>Application Details:</h3>
           <ul>
             <li><strong>Name:</strong> ${body.firstName} ${body.lastName}</li>
             <li><strong>Requested Amount:</strong> $${body.amount}</li>
             <li><strong>Application ID:</strong> ${application.id}</li>
           </ul>
-          
+
           <h3>Next Steps:</h3>
           <ol>
             <li>We'll review your application within 24 hours</li>
             <li>You'll receive an approval decision via email</li>
             <li>If approved, funds can be available same day</li>
           </ol>
-          
+
           <p><strong>Refund Advance Terms:</strong></p>
           <ul>
             <li>Fee: 3.5% + $35</li>
@@ -82,9 +82,9 @@ export async function POST(request: NextRequest) {
             <li>Same-day funding available</li>
             <li>No credit check required</li>
           </ul>
-          
+
           <p>Questions? Call us at (317) 314-3757</p>
-          
+
           <p>
             Best regards,<br>
             SupersonicFastCash Team
@@ -103,14 +103,14 @@ export async function POST(request: NextRequest) {
         subject: `New Refund Advance Application: ${body.firstName} ${body.lastName}`,
         html: `
           <h2>New Refund Advance Application</h2>
-          
+
           <h3>Applicant Information:</h3>
           <ul>
             <li><strong>Name:</strong> ${body.firstName} ${body.lastName}</li>
             <li><strong>Email:</strong> ${body.email}</li>
             <li><strong>Phone:</strong> ${body.phone}</li>
           </ul>
-          
+
           <h3>Application Details:</h3>
           <ul>
             <li><strong>Requested Amount:</strong> $${body.amount}</li>
@@ -118,12 +118,12 @@ export async function POST(request: NextRequest) {
             <li><strong>Annual Income:</strong> $${body.income}</li>
             <li><strong>Employment Status:</strong> ${body.employmentStatus}</li>
           </ul>
-          
+
           <h3>Application ID:</h3>
           <p>${application.id}</p>
-          
+
           <p>
-            <a href="https://elevateforhumanity.org/admin/refund-advances" 
+            <a href="https://elevateforhumanity.org/admin/refund-advances"
                style="display: inline-block; padding: 12px 24px; background: #16a34a; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
               Review Application
             </a>

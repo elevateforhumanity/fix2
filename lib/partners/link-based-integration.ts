@@ -352,7 +352,7 @@ export async function createPartnerEnrollment(
   courseId: string
 ): Promise<PartnerEnrollment> {
   const course = getCourseById(courseId);
-  
+
   if (!course) {
     throw new Error(`Course not found: ${courseId}`);
   }
@@ -370,7 +370,7 @@ export async function createPartnerEnrollment(
 // Generate enrollment instructions
 export function getEnrollmentInstructions(courseId: string): string {
   const course = getCourseById(courseId);
-  
+
   if (!course) {
     return 'Course not found';
   }

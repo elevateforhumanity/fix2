@@ -27,7 +27,7 @@ export function getPartnerWelcomeEmail(data: PartnerWelcomeData): { subject: str
   <title>${subject}</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-  
+
   <!-- Header -->
   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0;">
     <h1 style="color: white; margin: 0; font-size: 28px;">🎉 Welcome to ${data.providerName}!</h1>
@@ -35,7 +35,7 @@ export function getPartnerWelcomeEmail(data: PartnerWelcomeData): { subject: str
 
   <!-- Content -->
   <div style="background: white; padding: 40px 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
-    
+
     <p style="font-size: 18px; margin-bottom: 20px;">Hi ${data.studentName},</p>
 
     <p style="font-size: 16px; margin-bottom: 20px;">
@@ -173,7 +173,7 @@ export function getPartnerCompletionEmail(data: {
   <title>${subject}</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-  
+
   <!-- Header -->
   <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0;">
     <h1 style="color: white; margin: 0; font-size: 32px;">🎓 Congratulations!</h1>
@@ -181,7 +181,7 @@ export function getPartnerCompletionEmail(data: {
 
   <!-- Content -->
   <div style="background: white; padding: 40px 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
-    
+
     <p style="font-size: 18px; margin-bottom: 20px;">Hi ${data.studentName},</p>
 
     <p style="font-size: 16px; margin-bottom: 20px;">
@@ -279,7 +279,7 @@ export function getPartnerMilestoneEmail(data: {
   <title>${subject}</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-  
+
   <!-- Header -->
   <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding: 40px 20px; text-align: center; border-radius: 10px 10px 0 0;">
     <h1 style="color: white; margin: 0; font-size: 28px;">🎯 Milestone Reached!</h1>
@@ -287,7 +287,7 @@ export function getPartnerMilestoneEmail(data: {
 
   <!-- Content -->
   <div style="background: white; padding: 40px 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
-    
+
     <p style="font-size: 18px; margin-bottom: 20px;">Hi ${data.studentName},</p>
 
     <p style="font-size: 16px; margin-bottom: 20px;">

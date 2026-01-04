@@ -34,7 +34,7 @@ export default function NextStepsPage() {
     setLoading(false);
   }
 
-  async function patch(update: Record<string, any>) {
+  async function patch(update: Record<string, unknown>) {
     setSaving(true);
     const res = await fetch('/api/next-steps', {
       method: 'PATCH',

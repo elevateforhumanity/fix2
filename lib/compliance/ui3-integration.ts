@@ -50,7 +50,6 @@ export async function submitUI3Request(
   // 3. Receive request ID
   // 4. Poll for results
 
-  console.log('UI-3 Wage Verification Request:', {
     student_count: students.length,
     timestamp: new Date().toISOString(),
   });
@@ -196,7 +195,6 @@ export async function scheduleUI3Matching() {
     .lte('completion_date', twelveMonthsAgo.toISOString())
     .is('verified_4th_quarter', null);
 
-  console.log('UI-3 Matching Scheduled:', {
     students_2nd_quarter: students2nd?.length || 0,
     students_4th_quarter: students4th?.length || 0,
   });

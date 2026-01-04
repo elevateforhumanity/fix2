@@ -82,15 +82,15 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
     }
   }
 
-  const filteredReviews = filter === 'all' 
-    ? reviews 
+  const filteredReviews = filter === 'all'
+    ? reviews
     : reviews.filter(r => r.rating === filter);
 
   const ratingDistribution = [5, 4, 3, 2, 1].map(rating => ({
     rating,
     count: reviews.filter(r => r.rating === rating).length,
-    percentage: totalReviews > 0 
-      ? (reviews.filter(r => r.rating === rating).length / totalReviews) * 100 
+    percentage: totalReviews > 0
+      ? (reviews.filter(r => r.rating === rating).length / totalReviews) * 100
       : 0,
   }));
 
@@ -146,7 +146,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
       {/* Write Review */}
       <div className="mb-8 pb-8 border-b border-slate-200">
         <h4 className="text-lg font-semibold text-slate-900 mb-4">Write a Review</h4>
-        
+
         <div className="mb-4">
           <label className="block text-sm font-medium text-slate-700 mb-2">
             Your Rating

@@ -22,7 +22,7 @@ export interface EmailLog {
 export async function logEmailDelivery(log: EmailLog): Promise<void> {
   try {
     const supabase = createAdminClient();
-    
+
     await supabase.from('email_logs').insert({
       to: log.to,
       subject: log.subject,
@@ -43,22 +43,22 @@ export async function logEmailDelivery(log: EmailLog): Promise<void> {
  */
 export async function getEmailStats(timeframe: '24h' | '7d' | '30d' = '24h') {
   const supabase = createAdminClient();
-  
+
   const hours = timeframe === '24h' ? 24 : timeframe === '7d' ? 168 : 720;
   const since = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
-  
+
   const { data: logs } = await supabase
     .from('email_logs')
     .select('status, provider')
     .gte('created_at', since);
-  
+
   if (!logs) return null;
-  
+
   const total = logs.length;
   const sent = logs.filter(l => l.status === 'sent').length;
   const failed = logs.filter(l => l.status === 'failed').length;
   const pending = logs.filter(l => l.status === 'pending').length;
-  
+
   return {
     total,
     sent,
@@ -79,14 +79,14 @@ export async function getEmailStats(timeframe: '24h' | '7d' | '30d' = '24h') {
  */
 export async function getRecentFailures(limit = 10) {
   const supabase = createAdminClient();
-  
+
   const { data: failures } = await supabase
     .from('email_logs')
     .select('*')
     .eq('status', 'failed')
     .order('created_at', { ascending: false })
     .limit(limit);
-  
+
   return failures || [];
 }
 
@@ -95,13 +95,13 @@ export async function getRecentFailures(limit = 10) {
  */
 export async function checkEmailHealth() {
   const stats = await getEmailStats('24h');
-  
+
   if (!stats) {
     return { status: 'unknown', message: 'No email data available' };
   }
-  
+
   const failureRate = parseFloat(stats.failureRate);
-  
+
   if (failureRate === 0) {
     return { status: 'healthy', message: '100% delivery success' };
   } else if (failureRate < 5) {

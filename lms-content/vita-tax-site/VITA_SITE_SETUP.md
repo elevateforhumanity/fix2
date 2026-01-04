@@ -10,15 +10,15 @@ You can now offer FREE tax preparation services to the community and train stude
 
 ## 📋 VITA Site Information
 
-**Site ID Number (SIDN):** S28011182  
-**Organization:** Elevate for Humanity Career and Technical Institute  
-**Address:** 7009 E 56th St Ste F, Indianapolis, IN 46226  
-**Contact:** Elizabeth Greene  
-**Email:** elizabethpowell6262@gmail.com  
+**Site ID Number (SIDN):** S28011182
+**Organization:** Elevate for Humanity Career and Technical Institute
+**Address:** 7009 E 56th St Ste F, Indianapolis, IN 46226
+**Contact:** Elizabeth Greene
+**Email:** elizabethpowell6262@gmail.com
 **Phone:** (317) 760-7908
 
-**Status:** ✅ VITA Partner Workbook Completed  
-**Status:** ✅ Documents Signed  
+**Status:** ✅ VITA Partner Workbook Completed
+**Status:** ✅ Documents Signed
 **Next Step:** Apply for EFIN (Electronic Filing Identification Number)
 
 ---
@@ -26,8 +26,8 @@ You can now offer FREE tax preparation services to the community and train stude
 ## ⏰ IMPORTANT TIMELINE
 
 ### Wait 72 Hours Before EFIN Application
-**Why:** e-Service system and SPEC system need time to sync  
-**When to Apply:** After [Date + 72 hours from workbook completion]  
+**Why:** e-Service system and SPEC system need time to sync
+**When to Apply:** After [Date + 72 hours from workbook completion]
 **Don't Rush:** Applying too early will cause errors
 
 ### Timeline:
@@ -92,10 +92,10 @@ You can now offer FREE tax preparation services to the community and train stude
 ### All Volunteers Must Complete:
 
 #### 1. **Basic Certification**
-**Course:** IRS Volunteer Standards of Conduct (VSC)  
-**Platform:** IRS Link & Learn Taxes  
-**Duration:** 1-2 hours  
-**Test:** Required, must pass  
+**Course:** IRS Volunteer Standards of Conduct (VSC)
+**Platform:** IRS Link & Learn Taxes
+**Duration:** 1-2 hours
+**Test:** Required, must pass
 **Renewal:** Annual
 
 #### 2. **Tax Law Certification**
@@ -104,20 +104,20 @@ You can now offer FREE tax preparation services to the community and train stude
 - **Intermediate** - Itemized deductions, credits
 - **Advanced** - Business income, rental property
 
-**Platform:** IRS Link & Learn Taxes  
-**Duration:** 10-20 hours per level  
-**Test:** Required, must pass 80%  
+**Platform:** IRS Link & Learn Taxes
+**Duration:** 10-20 hours per level
+**Test:** Required, must pass 80%
 **Renewal:** Annual
 
 #### 3. **Intake/Quality Review**
-**Optional but recommended**  
-**For:** Site coordinators, quality reviewers  
+**Optional but recommended**
+**For:** Site coordinators, quality reviewers
 **Duration:** 2-3 hours
 
 ### Link & Learn Taxes Access:
-**Website:** https://www.irs.gov/individuals/irs-tax-volunteers  
-**Free:** All training materials  
-**Self-paced:** Complete on your schedule  
+**Website:** https://www.irs.gov/individuals/irs-tax-volunteers
+**Free:** All training materials
+**Self-paced:** Complete on your schedule
 **Certificate:** Issued upon passing
 
 ---
@@ -246,8 +246,8 @@ You can now offer FREE tax preparation services to the community and train stude
 - **Sundays:** Closed (or by appointment)
 
 ### Appointment System:
-**Option 1:** Walk-in (first come, first served)  
-**Option 2:** Appointment only (recommended)  
+**Option 1:** Walk-in (first come, first served)
+**Option 2:** Appointment only (recommended)
 **Option 3:** Hybrid (appointments + limited walk-ins)
 
 **Scheduling Tools:**

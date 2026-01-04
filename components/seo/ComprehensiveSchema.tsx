@@ -34,11 +34,11 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
       height: 630,
     },
     description: 'Workforce development and career training programs with WIOA funding, DOL registered apprenticeships, and job placement assistance.',
-    
+
     // Contact Information
     telephone: '+1-317-314-3757',
     email: 'info@elevateforhumanity.org',
-    
+
     // Address (LocalBusiness)
     address: {
       '@type': 'PostalAddress',
@@ -48,14 +48,14 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
       postalCode: '46208',
       addressCountry: 'US',
     },
-    
+
     // Geographic coordinates
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 39.8283,
       longitude: -86.1581,
     },
-    
+
     // Service Area
     areaServed: [
       {
@@ -79,7 +79,7 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
         name: 'Michigan',
       },
     ],
-    
+
     // Business Hours
     openingHoursSpecification: [
       {
@@ -89,14 +89,14 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
         closes: '17:00',
       },
     ],
-    
+
     // Social Media
     sameAs: [
       'https://www.facebook.com/elevateforhumanity',
       'https://www.linkedin.com/company/elevate-for-humanity',
       'https://www.instagram.com/elevateforhumanity',
     ],
-    
+
     // Educational Organization specific
     hasCredential: [
       {
@@ -105,7 +105,7 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
         name: 'Workforce Development Certification',
       },
     ],
-    
+
     // Programs offered
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -149,13 +149,13 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
         },
       ],
     },
-    
+
     // Accreditation
     accreditedBy: {
       '@type': 'Organization',
       name: 'U.S. Department of Labor',
     },
-    
+
     // Funding
     funder: [
       {
@@ -167,7 +167,7 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
         name: 'Justice Reinvestment Initiative (JRI)',
       },
     ],
-    
+
     // Aggregate Rating (if available)
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -176,13 +176,13 @@ export default function ComprehensiveSchema({ type = 'organization', data }: Sch
       bestRating: '5',
       worstRating: '1',
     },
-    
+
     // Price Range
     priceRange: '$$',
-    
+
     // Payment Methods
     paymentAccepted: 'Cash, Credit Card, Debit Card, Affirm, Klarna, Afterpay, PayPal, Bank Transfer',
-    
+
     // Currencies Accepted
     currenciesAccepted: 'USD',
   };

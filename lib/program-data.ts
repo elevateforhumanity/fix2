@@ -47,7 +47,7 @@ export const programsData: Record<string, ProgramData> = {
     requirements: ["High school diploma or GED", "18 years or older", "Background check required"],
     support: ["Job placement assistance", "Resume & interview prep", "Career counseling"],
   },
-  
+
   "phlebotomy": {
     name: "Phlebotomy Technician",
     slug: "phlebotomy",

@@ -97,7 +97,7 @@ export default function WorkOneLocator() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex gap-2">
                 <a
                   href={location.mapUrl}

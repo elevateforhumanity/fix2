@@ -7,11 +7,11 @@ import { ChevronRight, Home } from 'lucide-react';
 
 export function Breadcrumbs() {
   const pathname = usePathname();
-  
+
   if (pathname === '/') return null;
 
   const segments = pathname.split('/').filter(Boolean);
-  
+
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
     ...segments.map((segment, index) => {

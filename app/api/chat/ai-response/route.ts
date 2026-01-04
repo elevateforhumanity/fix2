@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 /**
  * AI Chat Response API
  * OpenAI integration for intelligent chat responses
@@ -61,7 +60,7 @@ export async function POST(request: NextRequest) {
       })) || [];
 
     // System prompt for the AI
-    const systemPrompt = `You are a helpful AI assistant for Elevate for Humanity, a workforce development platform. 
+    const systemPrompt = `You are a helpful AI assistant for Elevate for Humanity, a workforce development platform.
 Your role is to help students with:
 - Course enrollment and registration
 - Payment options and financial aid

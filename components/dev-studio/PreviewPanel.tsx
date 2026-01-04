@@ -43,7 +43,7 @@ export default function PreviewPanel({ url = 'http://localhost:3000', filePath }
             </span>
           )}
         </div>
-        
+
         <div className="flex items-center gap-2">
           {/* Device Selector */}
           <div className="flex gap-1 bg-white border rounded p-1">

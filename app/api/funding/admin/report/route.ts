@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
@@ -76,7 +75,7 @@ export async function GET(req: NextRequest) {
     const header =
       'learner,email,course,start_date,minutes,percent,status,certificate_id\n';
     const lines = (rows || [])
-      .map((r: Record<string, any>) =>
+      .map((r: Record<string, unknown>) =>
         [
           r.learner,
           r.email,

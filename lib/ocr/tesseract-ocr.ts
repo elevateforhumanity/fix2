@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Tesseract.js OCR Utility
  * Client-side and server-side OCR using Tesseract.js
@@ -35,7 +34,6 @@ export async function extractTextFromImage(
     const result = await Tesseract.recognize(file, language, {
       logger: (m) => {
         if (m.status === 'recognizing text') {
-          console.log(`OCR Progress: ${Math.round(m.progress * 100)}%`);
         }
       },
     });
@@ -112,19 +110,19 @@ export async function extractStructuredData(
 export const commonPatterns = {
   // Email
   email: /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/,
-  
+
   // Phone (US format)
   phone: /(\d{3}[-.\s]?\d{3}[-.\s]?\d{4})/,
-  
+
   // SSN
   ssn: /(\d{3}-\d{2}-\d{4})/,
-  
+
   // Date (MM/DD/YYYY)
   date: /(\d{1,2}\/\d{1,2}\/\d{4})/,
-  
+
   // Currency
   currency: /\$\s?(\d+(?:,\d{3})*(?:\.\d{2})?)/,
-  
+
   // ZIP code
   zip: /\b(\d{5}(?:-\d{4})?)\b/,
 };

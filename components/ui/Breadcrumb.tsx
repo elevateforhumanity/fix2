@@ -16,7 +16,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
     <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm">
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
-        
+
         return (
           <React.Fragment key={index}>
             {index > 0 && (

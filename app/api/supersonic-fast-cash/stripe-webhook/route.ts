@@ -1,7 +1,6 @@
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe/client';
 import { createClient } from '@supabase/supabase-js';
@@ -46,16 +45,13 @@ export async function POST(request: NextRequest) {
 
     case 'payment_intent.succeeded':
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      console.log('Payment succeeded:', paymentIntent.id);
       break;
 
     case 'payment_intent.payment_failed':
       const failedPayment = event.data.object as Stripe.PaymentIntent;
-      console.log('Payment failed:', failedPayment.id);
       break;
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
   }
 
 }
@@ -75,7 +71,6 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       return;
     }
 
-    console.log(`Processing payment for ${customerEmail} - Course: ${courseName}`);
 
     // Check if customer already has an access key
     const { data: existingKey } = await supabase
@@ -90,7 +85,6 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     if (existingKey) {
       // Use existing key
       accessKey = existingKey.access_key;
-      console.log('Customer already has access key:', accessKey);
     } else {
       // Generate new access key
       const { data: newKey, error: keyError } = await supabase
@@ -106,7 +100,6 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       }
 
       accessKey = newKey;
-      console.log('Generated new access key:', accessKey);
     }
 
     // Record the purchase
@@ -176,11 +169,11 @@ async function sendPurchaseConfirmationEmail(
               <h1>🎉 Thank You for Your Purchase!</h1>
               <p>Your payment has been confirmed</p>
             </div>
-            
+
             <div class="content">
               <h2>Hi ${name},</h2>
               <p>Thank you for purchasing <strong>${courseName}</strong>! Your payment has been processed successfully.</p>
-              
+
               <div class="receipt">
                 <h3>Receipt</h3>
                 <div class="receipt-row">
@@ -192,16 +185,16 @@ async function sendPurchaseConfirmationEmail(
                   <span>$${amountPaid.toFixed(2)}</span>
                 </div>
               </div>
-              
+
               <h2>Your Training Access Key</h2>
               <p>Use this key to access your course:</p>
-              
+
               <div class="access-key">${accessKey}</div>
-              
+
               <p style="text-align: center; color: #666; font-size: 14px;">
                 Keep this key safe! You'll need it to access your training.
               </p>
-              
+
               <div class="steps">
                 <h3>How to Access Your Course:</h3>
                 <div class="step">Go to the training page</div>
@@ -209,13 +202,13 @@ async function sendPurchaseConfirmationEmail(
                 <div class="step">Enter your email and access key</div>
                 <div class="step">Start learning immediately!</div>
               </div>
-              
+
               <div style="text-align: center;">
                 <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com'}/supersonic-fast-cash/careers/training" class="button">
                   Start Learning Now →
                 </a>
               </div>
-              
+
               <h3>What's Included:</h3>
               <ul>
                 <li>✓ Lifetime access to course materials</li>
@@ -223,12 +216,12 @@ async function sendPurchaseConfirmationEmail(
                 <li>✓ Certificate of completion</li>
                 <li>✓ Email support</li>
               </ul>
-              
+
               <p>Questions? Reply to this email or contact us at Supersonicfadtcashllc@gmail.com</p>
-              
+
               <p>Happy learning!</p>
             </div>
-            
+
             <div class="footer">
               <p>SupersonicFastCash Tax Services</p>
               <p>This access key provides lifetime access to your purchased course.</p>
@@ -239,7 +232,6 @@ async function sendPurchaseConfirmationEmail(
       `
     });
 
-    console.log('Purchase confirmation email sent to:', email);
   } catch (error) {
     console.error('Error sending purchase confirmation email:', error);
   }

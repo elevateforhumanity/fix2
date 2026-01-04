@@ -49,7 +49,7 @@ export default function AdvancedVideoPlayer({
     const handleTimeUpdate = () => {
       setCurrentTime(video.currentTime);
       const progress = (video.currentTime / video.duration) * 100;
-      
+
       // Track progress
       if (onProgress && progress > 0) {
         onProgress(progress);
@@ -95,7 +95,7 @@ export default function AdvancedVideoPlayer({
 
   const saveProgress = async (courseId?: string, lessonId?: string, progress?: number) => {
     if (!courseId || !lessonId) return;
-    
+
     try {
       await fetch('/api/video/progress', {
         method: 'POST',
@@ -118,7 +118,7 @@ export default function AdvancedVideoPlayer({
     try {
       const response = await fetch(`/api/video/progress?courseId=${courseId}&lessonId=${lessonId}`);
       const data = await response.json();
-      
+
       if (data.currentTime && data.currentTime > 0) {
         videoRef.current.currentTime = data.currentTime;
       }
@@ -210,7 +210,7 @@ export default function AdvancedVideoPlayer({
   };
 
   return (
-    <div 
+    <div
       className="relative bg-black rounded-lg overflow-hidden group"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => isPlaying && setShowControls(false)}
@@ -261,7 +261,7 @@ export default function AdvancedVideoPlayer({
           <div className="relative">
             {/* Buffered Progress */}
             <div className="absolute h-1 bg-slate-600 rounded-full" style={{ width: `${buffered}%` }} />
-            
+
             {/* Seek Bar */}
             <input
               type="range"

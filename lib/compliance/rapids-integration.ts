@@ -63,7 +63,6 @@ export async function prepareRAPIDSData(
   const sponsorName =
     process.env.NEXT_PUBLIC_RAPIDS_SPONSOR_NAME || '2Exclusive llc';
 
-  console.log('Preparing RAPIDS data:', {
     program_number: programNumber,
     sponsor_name: sponsorName,
     enrollment_count: enrollmentIds.length,
@@ -92,7 +91,6 @@ export async function submitToRAPIDS(
     status: 'pending',
   };
 
-  console.log('RAPIDS Submission:', {
     submission_id: submission.submission_id,
     apprentice_count: apprentices.length,
     program_number: process.env.NEXT_PUBLIC_RAPIDS_PROGRAM_NUMBER,
@@ -115,7 +113,6 @@ export async function updateRAPIDSProgress(
   // 2. Update local database
   // 3. Trigger notifications if milestones reached
 
-  console.log('RAPIDS Progress Update:', {
     apprentice_id: apprenticeId,
     hours_completed: hoursCompleted,
     related_instruction_hours: relatedInstructionHours,
@@ -138,7 +135,6 @@ export async function reportRAPIDSCompletion(
   // 3. Generate completion certificate
   // 4. Notify relevant parties
 
-  console.log('RAPIDS Completion Report:', {
     apprentice_id: apprenticeId,
     completion_date: completionDate,
     final_wage: finalWage,
@@ -161,7 +157,6 @@ export async function reportRAPIDSCancellation(
   // 3. Document reason
   // 4. Notify relevant parties
 
-  console.log('RAPIDS Cancellation Report:', {
     apprentice_id: apprenticeId,
     cancellation_date: cancellationDate,
     reason,

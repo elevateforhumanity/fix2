@@ -34,7 +34,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
         courseId,
         ...(lessonId && { lessonId }),
       });
-      
+
       const res = await fetch(`/api/notes?${params}`);
       if (res.ok) {
         const data = await res.json();
@@ -47,7 +47,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
 
   async function saveNote() {
     if (!currentNote.trim()) return;
-    
+
     setSaving(true);
     try {
       const res = await fetch('/api/notes', {

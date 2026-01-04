@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function formatMarkdown(md: string): string {
   return md
     .replace(/\t/g, "  ") // Replace tabs with spaces

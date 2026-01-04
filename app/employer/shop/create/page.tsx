@@ -4,31 +4,31 @@ import { createShop } from './_actions/create-shop';
 
 export default async function CreateShopPage() {
   const supabase = await createClient();
-  
+
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login?next=/employer/shop/create');
-  
+
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
     .eq('id', user.id)
     .single();
-    
+
   if (profile?.role !== 'employer') {
     redirect('/unauthorized');
   }
-  
+
   // Check if user already has shop access
   const { data: existingAccess } = await supabase
     .from('shop_staff')
     .select('shop_id, shops(name)')
     .eq('user_id', user.id)
     .limit(1);
-    
+
   if (existingAccess && existingAccess.length > 0) {
     redirect('/employer/dashboard');
   }
-  
+
   return (
     <div className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-2xl mx-auto px-4">
@@ -39,7 +39,7 @@ export default async function CreateShopPage() {
           <p className="text-slate-600 mb-8">
             Set up your shop to start managing apprenticeships
           </p>
-          
+
           <form action={createShop} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -54,7 +54,7 @@ export default async function CreateShopPage() {
                 placeholder="e.g., Main Street Barbershop"
               />
             </div>
-            
+
             <div>
               <label htmlFor="ein" className="block text-sm font-semibold text-slate-900 mb-2">
                 EIN (Employer Identification Number)
@@ -67,7 +67,7 @@ export default async function CreateShopPage() {
                 placeholder="XX-XXXXXXX"
               />
             </div>
-            
+
             <div>
               <label htmlFor="address1" className="block text-sm font-semibold text-slate-900 mb-2">
                 Street Address *
@@ -80,7 +80,7 @@ export default async function CreateShopPage() {
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-            
+
             <div>
               <label htmlFor="address2" className="block text-sm font-semibold text-slate-900 mb-2">
                 Address Line 2
@@ -93,7 +93,7 @@ export default async function CreateShopPage() {
                 placeholder="Suite, Unit, etc."
               />
             </div>
-            
+
             <div className="grid grid-cols-3 gap-4">
               <div className="col-span-2">
                 <label htmlFor="city" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -107,7 +107,7 @@ export default async function CreateShopPage() {
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="state" className="block text-sm font-semibold text-slate-900 mb-2">
                   State *
@@ -127,7 +127,7 @@ export default async function CreateShopPage() {
                 </select>
               </div>
             </div>
-            
+
             <div>
               <label htmlFor="zip" className="block text-sm font-semibold text-slate-900 mb-2">
                 ZIP Code *
@@ -141,7 +141,7 @@ export default async function CreateShopPage() {
                 placeholder="XXXXX"
               />
             </div>
-            
+
             <div>
               <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-2">
                 Phone Number *
@@ -155,7 +155,7 @@ export default async function CreateShopPage() {
                 placeholder="(XXX) XXX-XXXX"
               />
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
                 Shop Email *
@@ -168,7 +168,7 @@ export default async function CreateShopPage() {
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-            
+
             <div className="pt-4">
               <button
                 type="submit"

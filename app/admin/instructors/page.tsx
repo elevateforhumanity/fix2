@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React from 'react';
@@ -232,7 +231,7 @@ export default function InstructorsPage() {
                             </p>
                             <div className="flex flex-wrap gap-2">
                               {instructor.instructor_courses.map(
-                                (ic: Record<string, any>, idx: number) => (
+                                (ic: Record<string, unknown>, idx: number) => (
                                   <span
                                     key={idx}
                                     className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded"

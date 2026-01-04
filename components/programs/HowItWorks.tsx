@@ -37,7 +37,7 @@ export function HowItWorks({ steps, variant = 'horizontal' }: HowItWorksProps) {
       </div>
     );
   }
-  
+
   return (
     <div className="grid md:grid-cols-4 gap-6">
       {steps.map((step, index) => (
@@ -46,7 +46,7 @@ export function HowItWorks({ steps, variant = 'horizontal' }: HowItWorksProps) {
           {index < steps.length - 1 && (
             <div className="hidden md:block absolute top-6 left-[calc(50%+24px)] w-[calc(100%-48px)] h-0.5 bg-blue-200" />
           )}
-          
+
           <div className="relative bg-white rounded-lg p-6 text-center">
             <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mx-auto mb-4 relative z-10">
               {step.number}

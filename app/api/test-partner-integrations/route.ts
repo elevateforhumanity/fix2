@@ -6,7 +6,7 @@ export const maxDuration = 60;
 /**
  * Test Partner Integrations
  * GET /api/test-partner-integrations
- * 
+ *
  * Tests all third-party integrations and partner systems
  */
 export async function GET() {

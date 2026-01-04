@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { cookies, headers } from 'next/headers';
 import { createSupabaseServerClient } from './supabaseServer';
 import integrations from '../config/integrations.json';
@@ -79,15 +78,15 @@ const oidcAuthAdapter: AuthAdapter = {
     // Check for OIDC session cookie
     const cookieStore = await cookies();
     const sessionCookie = cookieStore.get('oidc_session');
-    
+
     if (!sessionCookie) {
       return null;
     }
-    
+
     try {
       // Parse session data (in production, verify JWT signature)
       const sessionData = JSON.parse(sessionCookie.value);
-      
+
       return {
         id: sessionData.sub || sessionData.id,
         email: sessionData.email,
@@ -124,15 +123,15 @@ const azureAdAuthAdapter: AuthAdapter = {
     // Check for Azure AD session cookie
     const cookieStore = await cookies();
     const sessionCookie = cookieStore.get('azure_ad_session');
-    
+
     if (!sessionCookie) {
       return null;
     }
-    
+
     try {
       // Parse Azure AD session data
       const sessionData = JSON.parse(sessionCookie.value);
-      
+
       return {
         id: sessionData.oid || sessionData.sub,
         email: sessionData.email || sessionData.upn,
@@ -168,29 +167,29 @@ const customJwtAuthAdapter: AuthAdapter = {
   async getCurrentUser() {
     const h = await headers();
     const authHeader = h.get('authorization');
-    
+
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return null;
     }
-    
+
     try {
       const token = authHeader.substring(7);
-      
+
       // Decode JWT (in production, verify signature with secret key)
       const parts = token.split('.');
       if (parts.length !== 3) {
         return null;
       }
-      
+
       const payload = JSON.parse(
         Buffer.from(parts[1], 'base64').toString('utf-8')
       );
-      
+
       // Check expiration
       if (payload.exp && Date.now() >= payload.exp * 1000) {
         return null;
       }
-      
+
       return {
         id: payload.sub || payload.userId || payload.id,
         email: payload.email,

@@ -7,8 +7,8 @@ interface CarouselProps {
   className?: string;
 }
 
-export function Carousel({ 
-  children, 
+export function Carousel({
+  children,
   autoPlayInterval = 5000,
   className = ''
 }: CarouselProps) {
@@ -77,7 +77,7 @@ export function Carousel({
   };
 
   return (
-    <div 
+    <div
       className={`relative overflow-hidden ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -85,14 +85,14 @@ export function Carousel({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <div 
+      <div
         className="flex transition-transform duration-500 ease-out"
-        style={{ 
+        style={{
           transform: `translateX(-${currentIndex * 100}%)`,
         }}
       >
         {children.map((child, index) => (
-          <div 
+          <div
             key={index}
             className="min-w-full"
           >
@@ -131,8 +131,8 @@ d="M9 5l7 7-7 7" />
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'bg-orange-500 w-8' 
+              index === currentIndex
+                ? 'bg-orange-500 w-8'
                 : 'bg-white/50 hover:bg-white/80'
             }`}
             aria-label={`Go to slide ${index + 1}`}

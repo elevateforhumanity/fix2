@@ -25,32 +25,32 @@ export default function FileTree({ files, onFileSelect, selectedFile, filterCour
   // Build tree structure from flat file list
   const fileTree = useMemo(() => {
     let filteredFiles = files;
-    
+
     // Filter to course files if requested
     if (filterCourses) {
-      filteredFiles = files.filter(f => 
-        f.startsWith('content/courses/') || 
+      filteredFiles = files.filter(f =>
+        f.startsWith('content/courses/') ||
         f.startsWith('lms-content/') ||
         f.includes('/courses/')
       );
     }
 
     const root: FileNode = { name: 'root', path: '', type: 'folder', children: [] };
-    
+
     filteredFiles.forEach(filePath => {
       const parts = filePath.split('/');
       let current = root;
-      
+
       parts.forEach((part, index) => {
         const isLast = index === parts.length - 1;
         const path = parts.slice(0, index + 1).join('/');
-        
+
         if (!current.children) {
           current.children = [];
         }
-        
+
         let node = current.children.find(n => n.name === part);
-        
+
         if (!node) {
           node = {
             name: part,
@@ -60,13 +60,13 @@ export default function FileTree({ files, onFileSelect, selectedFile, filterCour
           };
           current.children.push(node);
         }
-        
+
         if (!isLast) {
           current = node;
         }
       });
     });
-    
+
     // Sort: folders first, then files, alphabetically
     const sortNodes = (nodes: FileNode[]) => {
       nodes.sort((a, b) => {
@@ -81,11 +81,11 @@ export default function FileTree({ files, onFileSelect, selectedFile, filterCour
         }
       });
     };
-    
+
     if (root.children) {
       sortNodes(root.children);
     }
-    
+
     return root.children || [];
   }, [files, filterCourses]);
 
@@ -104,7 +104,7 @@ export default function FileTree({ files, onFileSelect, selectedFile, filterCour
   const renderNode = (node: FileNode, depth: number = 0) => {
     const isExpanded = expandedFolders.has(node.path);
     const isSelected = selectedFile === node.path;
-    
+
     return (
       <div key={node.path}>
         <div
@@ -137,7 +137,7 @@ export default function FileTree({ files, onFileSelect, selectedFile, filterCour
           )}
           <span className="text-sm truncate">{node.name}</span>
         </div>
-        
+
         {node.type === 'folder' && isExpanded && node.children && (
           <div>
             {node.children.map(child => renderNode(child, depth + 1))}

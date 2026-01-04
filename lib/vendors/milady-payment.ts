@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Milady Automatic Payment Handler
  * Processes Milady enrollment and payment automatically

@@ -9,7 +9,7 @@ interface LogEntry {
   [key: string]: any;
 }
 
-function log(level: LogLevel, message: string, meta?: Record<string, any>) {
+function log(level: LogLevel, message: string, meta?: Record<string, unknown>) {
   const entry: LogEntry = {
     level,
     message,
@@ -30,10 +30,10 @@ function log(level: LogLevel, message: string, meta?: Record<string, any>) {
 }
 
 export const logger = {
-  info: (message: string, meta?: Record<string, any>) =>
+  info: (message: string, meta?: Record<string, unknown>) =>
     log('info', message, meta),
-  warn: (message: string, meta?: Record<string, any>) =>
+  warn: (message: string, meta?: Record<string, unknown>) =>
     log('warn', message, meta),
-  error: (message: string, meta?: Record<string, any>) =>
+  error: (message: string, meta?: Record<string, unknown>) =>
     log('error', message, meta),
 };

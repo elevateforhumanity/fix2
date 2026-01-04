@@ -16,31 +16,31 @@ def fill_pdf(template_path: str, output_path: str, data: dict):
     """Fill PDF with data"""
     reader = PdfReader(template_path)
     writer = PdfWriter()
-    
+
     # Fill fields
     writer.append_pages_from_reader(reader)
     writer.update_page_form_field_values(writer.pages[0], data)
-    
+
     # Write output
     with open(output_path, 'wb') as output_file:
         writer.write(output_file)
-    
+
     return output_path
 
 def flatten_pdf(pdf_path: str, output_path: str):
     """Flatten PDF to prevent editing"""
     reader = PdfReader(pdf_path)
     writer = PdfWriter()
-    
+
     for page in reader.pages:
         writer.add_page(page)
-    
+
     # Flatten
     writer.flatten()
-    
+
     with open(output_path, 'wb') as output_file:
         writer.write(output_file)
-    
+
     return output_path
 
 if __name__ == "__main__":

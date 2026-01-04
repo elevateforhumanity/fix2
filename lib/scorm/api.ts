@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/scorm/api.ts
 // SCORM API adapter for both 1.2 and 2004
 

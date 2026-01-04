@@ -17,18 +17,18 @@ interface ProgramPageTemplateProps {
   heroCTA1Link?: string;
   heroCTA2Text?: string;
   heroCTA2Link?: string;
-  
+
   // Program Details
   duration: string;
   format: string; // e.g., "Hybrid (Online + In-Person)", "Apprenticeship", "Full-Time"
   jobs: string[]; // Array of job titles
-  
+
   // Highlights Section
   highlights: Highlight[];
-  
+
   // How to Start Steps
   howToStartSteps: string[];
-  
+
   // Additional CTAs
   ctaImage?: string;
   ctaTitle?: string;
@@ -72,7 +72,7 @@ export default function ProgramPageTemplate({
             quality={90}
           />
         </div>
-        
+
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-3xl text-white">
             <p className="text-sm font-bold uppercase tracking-wide text-orange-400 mb-4">
@@ -183,7 +183,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           <h2 className="text-4xl font-bold text-center text-slate-900 mb-16 text-2xl md:text-3xl lg:text-4xl">
             Program Highlights
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {highlights.map((highlight, index) => (
               <div
@@ -217,7 +217,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             <p className="text-center text-xl text-slate-600 mb-12">
               Follow these simple steps to begin your training
             </p>
-            
+
             <div className="space-y-6">
               {howToStartSteps.map((step, index) => (
                 <div

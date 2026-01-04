@@ -6,7 +6,7 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    
+
     // Handle CORS preflight
     if (request.method === 'OPTIONS') {
       return handleCORS();
@@ -32,17 +32,17 @@ async function handleSCORM(request, env, url) {
   try {
     // Extract course path: /scorm/jri-badge-1/index.html
     const path = url.pathname.replace('/scorm/', '');
-    
+
     // Get file from R2
     const object = await env.SCORM_BUCKET.get(path);
-    
+
     if (!object) {
       return new Response('SCORM file not found', { status: 404 });
     }
 
     // Determine content type
     const contentType = getContentType(path);
-    
+
     // Return file with proper headers
     const headers = new Headers();
     headers.set('Content-Type', contentType);
@@ -50,9 +50,9 @@ async function handleSCORM(request, env, url) {
     headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     headers.set('Access-Control-Allow-Headers', 'Content-Type');
     headers.set('Cache-Control', 'public, max-age=3600');
-    
+
     return new Response(object.body, { headers });
-    
+
   } catch (error) {
     console.error('SCORM delivery error:', error);
     return new Response('Error loading SCORM content', { status: 500 });
@@ -113,7 +113,7 @@ function handleCORS() {
  */
 function getContentType(path) {
   const ext = path.split('.').pop().toLowerCase();
-  
+
   const types = {
     'html': 'text/html',
     'htm': 'text/html',
@@ -131,6 +131,6 @@ function getContentType(path) {
     'pdf': 'application/pdf',
     'zip': 'application/zip'
   };
-  
+
   return types[ext] || 'application/octet-stream';
 }

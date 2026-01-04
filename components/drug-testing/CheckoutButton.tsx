@@ -24,7 +24,7 @@ export default function CheckoutButton({
 
   const handleCheckout = async () => {
     setLoading(true);
-    
+
     try {
       const response = await fetch('/api/drug-testing/checkout', {
         method: 'POST',

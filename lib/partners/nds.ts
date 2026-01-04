@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/partners/nds.ts
 // NDS (National Drug Screening) API Integration
 // Drug-Free Workplace Training, DOT/CDL Drug & Alcohol Awareness

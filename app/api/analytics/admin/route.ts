@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 export const maxDuration = 60;
 
-// @ts-nocheck
 // app/api/analytics/admin/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -13,7 +12,7 @@ export async function GET(request: NextRequest) {
 
     // Get current user and verify admin role
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: "Unauthorized" },
@@ -128,8 +127,8 @@ export async function GET(request: NextRequest) {
     const activeThisWeek = new Set(recentActivity?.map((a) => a.user_id) || []).size;
 
     const totalMinutesWeek = recentActivity?.reduce((sum, a) => sum + (a.minutes_spent || 0), 0) || 0;
-    const averageTimePerWeekHours = totalLearners && totalLearners > 0 
-      ? totalMinutesWeek / 60 / totalLearners 
+    const averageTimePerWeekHours = totalLearners && totalLearners > 0
+      ? totalMinutesWeek / 60 / totalLearners
       : 0;
 
     // 5) Program-level stats
@@ -184,8 +183,8 @@ export async function GET(request: NextRequest) {
           }
         }
 
-        const courseCompletionRate = learnerCount && learnerCount > 0 
-          ? (courseCompletedCount / learnerCount) * 100 
+        const courseCompletionRate = learnerCount && learnerCount > 0
+          ? (courseCompletedCount / learnerCount) * 100
           : 0;
 
         byProgram.push({

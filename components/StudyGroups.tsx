@@ -90,7 +90,7 @@ export function StudyGroups() {
             <CardContent className="p-6">
               <h3 className="font-bold text-lg mb-2">{group.name}</h3>
               <p className="text-sm text-gray-600 mb-3">{group.description}</p>
-              
+
               <div className="space-y-2 mb-4">
                 <div className="flex items-center gap-2 text-sm">
                   <Users size={16} className="text-gray-400" />
@@ -135,7 +135,7 @@ export function StudyGroups() {
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-semibold mb-2">Description</label>
                 <textarea

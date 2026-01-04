@@ -23,7 +23,7 @@ export function AIInstructorCard(props: {
             className="object-cover"
           />
         </div>
-        
+
         <div className="flex-1">
           <div className="text-sm text-zinc-500">Your Instructor</div>
           <div className="mt-1 text-xl font-bold text-zinc-900">{props.instructorName}</div>

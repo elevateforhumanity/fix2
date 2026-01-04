@@ -50,8 +50,8 @@ export function EmployerTalentPipeline() {
   ];
 
   const stages = ['all', 'sourced', 'screening', 'interview', 'offer', 'hired'];
-  const filteredCandidates = selectedStage === 'all' 
-    ? candidates 
+  const filteredCandidates = selectedStage === 'all'
+    ? candidates
     : candidates.filter(c => c.stage === selectedStage);
 
   const stageColors: Record<string, string> = {

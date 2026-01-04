@@ -13,16 +13,16 @@ export default function TraumaRecoveryPage() {
         <Link href="/rise-foundation" className="text-purple-600 hover:text-purple-700 mb-8 inline-block">
           ← Back to Rise Forward Foundation
         </Link>
-        
+
         <h1 className="text-4xl font-bold text-gray-900 mb-6">
           Trauma Recovery
         </h1>
-        
+
         <div className="prose prose-lg max-w-none">
           <p className="text-xl text-gray-600 mb-8">
             Supporting individuals on their journey to healing and recovery from trauma.
           </p>
-          
+
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
             Our Approach
           </h2>
@@ -30,7 +30,7 @@ export default function TraumaRecoveryPage() {
             We provide compassionate, evidence-based support for individuals recovering from trauma.
             Our programs focus on holistic healing, addressing mind, body, and spirit.
           </p>
-          
+
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
             Services Offered
           </h2>
@@ -41,7 +41,7 @@ export default function TraumaRecoveryPage() {
             <li>Holistic healing workshops</li>
             <li>Peer support networks</li>
           </ul>
-          
+
           <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mt-8">
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               Get Support

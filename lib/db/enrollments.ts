@@ -14,7 +14,7 @@ export async function createProgramEnrollment(
   if (!supabase) {
     throw new Error("Supabase not configured");
   }
-  
+
   const { data, error }: any = await supabase
     .from("program_enrollments")
     .insert({
@@ -52,7 +52,7 @@ export async function updateEnrollmentStatus(
   if (!supabase) {
     throw new Error("Supabase not configured");
   }
-  
+
   const { error } = await supabase
     .from("program_enrollments")
     .update({ status })
@@ -68,7 +68,7 @@ export async function listEnrollments(): Promise<ProgramEnrollment[]> {
   if (!supabase) {
     return [];
   }
-  
+
   const { data, error }: any = await supabase
     .from("program_enrollments")
     .select("*")

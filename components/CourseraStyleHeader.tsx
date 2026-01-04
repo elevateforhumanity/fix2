@@ -19,9 +19,9 @@ export default function CourseraStyleHeader() {
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link href="/" aria-label="Link" className="flex items-center gap-2">
-              <img 
-                src="/images/Elevate_for_Humanity_logo_81bf0fab.jpg" 
-                alt="Elevate for Humanity" 
+              <img
+                src="/images/Elevate_for_Humanity_logo_81bf0fab.jpg"
+                alt="Elevate for Humanity"
                 className="h-12 w-auto"
               />
             </Link>
@@ -122,8 +122,8 @@ export default function CourseraStyleHeader() {
           {/* Right Side */}
           <div className="flex items-center gap-4">
             {/* Phone Number */}
-            <a 
-              href="tel:3175550100" 
+            <a
+              href="tel:3175550100"
               className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor"

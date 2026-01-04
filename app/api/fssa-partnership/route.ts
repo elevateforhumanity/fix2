@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
         subject: `🎯 FSSA Partnership Request: ${data.organization}`,
         html: `
           <h2>New FSSA/WorkOne Partnership Request</h2>
-          
+
           <h3>Contact Information:</h3>
           <ul>
             <li><strong>Name:</strong> ${data.name}</li>
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
           <h3>Partnership Interest:</h3>
           <p><strong>Type:</strong> ${data.partnershipType}</p>
           <p><strong>Programs of Interest:</strong> ${data.programsInterest || 'Not specified'}</p>
-          
+
           <h3>Message:</h3>
           <p>${data.message || 'No additional message'}</p>
 
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
       // Continue - request is logged
     }
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
       message: 'Partnership request received. We will contact you within 1-2 business days.'
     });

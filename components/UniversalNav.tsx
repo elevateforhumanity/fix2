@@ -36,8 +36,8 @@ export default function UniversalNav({
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           {logo && (
-            <Link 
-              href={logoHref} 
+            <Link
+              href={logoHref}
               className="font-bold text-xl hover:opacity-80 transition-opacity cursor-pointer"
             >
               {logo}

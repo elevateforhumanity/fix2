@@ -42,13 +42,13 @@ export async function GET(request: NextRequest) {
 
     // Get counts for stats
     const totalClients = clients?.length || 0;
-    const inProgress = clients?.filter(c => 
+    const inProgress = clients?.filter(c =>
       c.tax_returns?.some((r: any) => r.status === 'in_progress')
     ).length || 0;
-    const completed = clients?.filter(c => 
+    const completed = clients?.filter(c =>
       c.tax_returns?.some((r: any) => r.status === 'completed')
     ).length || 0;
-    const withDrake = clients?.filter(c => 
+    const withDrake = clients?.filter(c =>
       c.tax_returns?.some((r: any) => r.drake_return_id)
     ).length || 0;
 

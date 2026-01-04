@@ -1,8 +1,8 @@
 import * as Sentry from '@sentry/nextjs';
 
-export function captureError(error: Error, context?: Record<string, any>) {
+export function captureError(error: Error, context?: Record<string, unknown>) {
   console.error('Error:', error);
-  
+
   if (process.env.NODE_ENV === 'production') {
     Sentry.captureException(error, {
       extra: context,
@@ -11,8 +11,7 @@ export function captureError(error: Error, context?: Record<string, any>) {
 }
 
 export function captureMessage(message: string, level: 'info' | 'warning' | 'error' = 'info') {
-  console.log(`[${level.toUpperCase()}]`, message);
-  
+
   if (process.env.NODE_ENV === 'production') {
     Sentry.captureMessage(message, level);
   }
@@ -30,7 +29,7 @@ export function clearUserContext() {
   }
 }
 
-export async function trackEvent(name: string, properties?: Record<string, any>) {
+export async function trackEvent(name: string, properties?: Record<string, unknown>) {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', name, properties);
   }

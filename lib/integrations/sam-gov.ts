@@ -17,7 +17,7 @@ interface SAMEntity {
  */
 export async function getEntityByUEI(uei: string): Promise<SAMEntity | null> {
   const apiKey = process.env.SAM_GOV_API_KEY;
-  
+
   if (!apiKey) {
     return null;
   }
@@ -50,7 +50,7 @@ export async function getEntityByUEI(uei: string): Promise<SAMEntity | null> {
  */
 export async function checkExclusions(uei: string): Promise<boolean> {
   const apiKey = process.env.SAM_GOV_API_KEY;
-  
+
   if (!apiKey) {
     return false;
   }
@@ -82,7 +82,7 @@ export async function checkExclusions(uei: string): Promise<boolean> {
  */
 export async function searchEntities(name: string): Promise<SAMEntity[]> {
   const apiKey = process.env.SAM_GOV_API_KEY;
-  
+
   if (!apiKey) {
     return [];
   }

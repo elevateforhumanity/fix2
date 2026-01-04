@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 
     // Save enrollment to database
     const supabase = await createClient();
-    
+
     const { data: enrollment, error: enrollmentError } = await supabase
       .from('enrollments')
       .insert({
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       success: true,
       charge_id: chargeData.id,
       enrollment_id: enrollment?.id,

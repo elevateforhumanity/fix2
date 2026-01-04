@@ -76,32 +76,32 @@ export async function sendWelcomeEmail(
         <div style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
           <h1 style="color: white; margin: 0; font-size: 28px;">Elevate for Humanity</h1>
         </div>
-        
+
         <div style="background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
           <h2 style="color: #1f2937; margin-top: 0;">${content.title}</h2>
-          
+
           <p style="font-size: 16px; color: #4b5563;">Hi ${firstName},</p>
-          
+
           <p style="font-size: 16px; color: #4b5563;">${content.message}</p>
-          
+
           <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #1f2937; margin-top: 0; font-size: 18px;">What's Next?</h3>
             <p style="color: #4b5563; margin-bottom: 0;">${content.nextSteps}</p>
           </div>
-          
+
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://elevateforhumanity.org/dashboard" 
+            <a href="https://elevateforhumanity.org/dashboard"
                style="display: inline-block; background: #f97316; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
               Go to Dashboard
             </a>
           </div>
-          
+
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
-          
+
           <p style="font-size: 14px; color: #6b7280;">
             Need help? Contact us at <a href="mailto:info@elevateforhumanity.org" style="color: #f97316;">info@elevateforhumanity.org</a> or call 317-314-3757.
           </p>
-          
+
           <p style="font-size: 12px; color: #9ca3af; margin-top: 20px;">
             © 2026 Elevate for Humanity. All rights reserved.
           </p>
@@ -148,28 +148,28 @@ export async function sendStatusUpdateEmail(
         <div style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
           <h1 style="color: white; margin: 0; font-size: 28px;">Application Update</h1>
         </div>
-        
+
         <div style="background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
           <p style="font-size: 16px; color: #4b5563;">Hi ${firstName},</p>
-          
+
           <h2 style="color: #1f2937;">${message}</h2>
-          
+
           <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p style="color: #4b5563; margin: 0;">
               <strong>Previous Status:</strong> ${oldStatus}<br>
               <strong>New Status:</strong> ${newStatus}
             </p>
           </div>
-          
+
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://elevateforhumanity.org/dashboard" 
+            <a href="https://elevateforhumanity.org/dashboard"
                style="display: inline-block; background: #f97316; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
               View Dashboard
             </a>
           </div>
-          
+
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
-          
+
           <p style="font-size: 14px; color: #6b7280;">
             Questions? Contact us at <a href="mailto:info@elevateforhumanity.org" style="color: #f97316;">info@elevateforhumanity.org</a>
           </p>
@@ -198,25 +198,25 @@ export async function sendPasswordResetEmail(email: string, resetLink: string) {
         <div style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
           <h1 style="color: white; margin: 0; font-size: 28px;">Password Reset</h1>
         </div>
-        
+
         <div style="background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
           <p style="font-size: 16px; color: #4b5563;">You requested to reset your password.</p>
-          
+
           <p style="font-size: 16px; color: #4b5563;">Click the button below to create a new password:</p>
-          
+
           <div style="text-align: center; margin: 30px 0;">
-            <a href="${resetLink}" 
+            <a href="${resetLink}"
                style="display: inline-block; background: #f97316; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
               Reset Password
             </a>
           </div>
-          
+
           <p style="font-size: 14px; color: #6b7280;">
             This link will expire in 1 hour. If you didn't request this, you can safely ignore this email.
           </p>
-          
+
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
-          
+
           <p style="font-size: 12px; color: #9ca3af;">
             If the button doesn't work, copy and paste this link:<br>
             <a href="${resetLink}" style="color: #f97316; word-break: break-all;">${resetLink}</a>

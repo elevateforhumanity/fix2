@@ -4,9 +4,9 @@ import React from 'react';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { 
-  Users, TrendingUp, DollarSign, Award, Download, 
-  Calendar, Filter, BarChart3, PieChart, LineChart 
+import {
+  Users, TrendingUp, DollarSign, Award, Download,
+  Calendar, Filter, BarChart3, PieChart, LineChart
 } from 'lucide-react';
 export function AdminReportingDashboard() {
   const [dateRange, setDateRange] = useState('30days');
@@ -64,7 +64,7 @@ export function AdminReportingDashboard() {
     { type: 'completion', student: 'Lisa Williams', program: 'Barber', time: '2 hours ago' },
   ];
   const exportReport = (format: string) => {
-    // 
+    //
     alert(`Report exported as ${format.toUpperCase()}`);
   };
   return (

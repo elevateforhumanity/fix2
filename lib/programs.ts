@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import { createStaticClient } from '@/lib/supabase/static';
 
@@ -26,7 +25,7 @@ export type Program = {
  */
 export async function getAllProgramsStatic(): Promise<Program[]> {
   const supabase = createStaticClient();
-  
+
   const { data: programs, error } = await supabase
     .from('programs')
     .select('*')
@@ -46,7 +45,7 @@ export async function getAllProgramsStatic(): Promise<Program[]> {
  */
 export async function getAllPrograms(): Promise<Program[]> {
   const supabase = await createClient();
-  
+
   const { data: programs, error } = await supabase
     .from('programs')
     .select('*')
@@ -63,7 +62,7 @@ export async function getAllPrograms(): Promise<Program[]> {
 
 export async function getProgramBySlug(slug: string): Promise<Program | null> {
   const supabase = await createClient();
-  
+
   const { data: program, error } = await supabase
     .from('programs')
     .select('*')

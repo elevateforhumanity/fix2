@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createClient } from '@/lib/supabase/server';
 import Stripe from 'stripe';
 // Initialize Stripe (only if key is available)
@@ -29,7 +28,7 @@ export interface Payment {
   stripe_customer_id?: string;
   course_id?: string;
   description?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }

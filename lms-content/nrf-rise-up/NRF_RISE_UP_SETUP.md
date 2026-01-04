@@ -4,10 +4,10 @@
 
 **RISE Up** is the National Retail Federation (NRF) Foundation's workforce development program providing industry-recognized credentials in retail and customer service.
 
-**Provider:** NRF Foundation (National Retail Federation)  
-**Platform:** Kaleido Learning  
-**Contact:** Jessica Viera, Manager Customer Engagement  
-**Email:** [Contact from webinar]  
+**Provider:** NRF Foundation (National Retail Federation)
+**Platform:** Kaleido Learning
+**Contact:** Jessica Viera, Manager Customer Engagement
+**Email:** [Contact from webinar]
 **Phone:** 202-626-8113
 
 ---

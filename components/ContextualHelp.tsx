@@ -87,7 +87,7 @@ export function ContextualHelp({
                 <X className="w-4 h-4" />
               </button>
             </div>
-            
+
             <p className="text-sm text-gray-600 leading-relaxed mb-3">
               {content}
             </p>
@@ -104,7 +104,7 @@ export function ContextualHelp({
               </a>
             )}
           </div>
-          
+
           {/* Arrow */}
           <div
             className={`absolute w-3 h-3 bg-white border-gray-200 transform rotate-45 ${

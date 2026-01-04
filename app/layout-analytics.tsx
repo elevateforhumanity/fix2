@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React from 'react';
@@ -52,7 +51,7 @@ export function Analytics() {
 // Event tracking helper
 export function trackEvent(
   eventName: string,
-  eventParams?: Record<string, any>
+  eventParams?: Record<string, unknown>
 ) {
   if (typeof window !== 'undefined' && (window as unknown).gtag) {
     (window as unknown).gtag('event', eventName, eventParams);

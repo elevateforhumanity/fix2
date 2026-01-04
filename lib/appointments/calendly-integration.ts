@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Calendly Integration for Elevate for Humanity
  * Real appointment scheduling with automated tracking
@@ -43,22 +42,22 @@ export interface CalendlyInvitee {
 export const CALENDLY_LINKS = {
   // General advising appointments
   advising: 'https://calendly.com/elevateforhumanity/advising',
-  
+
   // Program-specific appointments
   barbering: 'https://calendly.com/elevateforhumanity/barbering-consultation',
   hvac: 'https://calendly.com/elevateforhumanity/hvac-consultation',
   cdl: 'https://calendly.com/elevateforhumanity/cdl-consultation',
   medicalAssistant: 'https://calendly.com/elevateforhumanity/medical-assistant-consultation',
   welding: 'https://calendly.com/elevateforhumanity/welding-consultation',
-  
+
   // Tax services
   taxVita: 'https://calendly.com/elevateforhumanity/free-tax-prep',
   taxPaid: 'https://calendly.com/elevateforhumanity/paid-tax-services',
-  
+
   // Support services
   caseManagement: 'https://calendly.com/elevateforhumanity/case-management',
   financialAid: 'https://calendly.com/elevateforhumanity/financial-aid',
-  
+
   // Workforce board
   workforceIntake: 'https://calendly.com/elevateforhumanity/workforce-intake',
 };
@@ -68,7 +67,7 @@ export const CALENDLY_LINKS = {
  */
 export function getCalendlyLink(appointmentType: string): string {
   const type = appointmentType.toLowerCase().replace(/\s+/g, '');
-  
+
   // Map appointment types to Calendly links
   const linkMap: Record<string, string> = {
     'advising': CALENDLY_LINKS.advising,
@@ -91,7 +90,7 @@ export function getCalendlyLink(appointmentType: string): string {
     'financialaid': CALENDLY_LINKS.financialAid,
     'workforceintake': CALENDLY_LINKS.workforceIntake,
   };
-  
+
   return linkMap[type] || CALENDLY_LINKS.advising;
 }
 
@@ -110,7 +109,7 @@ export async function createAppointment(data: {
   calendlyEventUri?: string;
 }): Promise<string | null> {
   const supabase = await createClient();
-  
+
   const { data: appointment, error } = await supabase
     .from('appointments')
     .insert({
@@ -145,33 +144,33 @@ export async function handleCalendlyWebhook(
   payload: unknown
 ): Promise<boolean> {
   const supabase = await createClient();
-  
+
   try {
     if (eventType === 'invitee.created') {
       // New appointment booked
       const event = payload.event as CalendlyEvent;
       const invitee = payload.invitee as CalendlyInvitee;
-      
+
       // Extract student info from invitee
       const studentEmail = invitee.email;
       const studentName = invitee.name;
-      
+
       // Find student in database
       const { data: profile } = await supabase
         .from('profiles')
         .select('id, first_name')
         .eq('email', studentEmail)
         .single();
-      
+
       if (!profile) {
         return false;
       }
-      
+
       // Determine meeting type and details
-      const meetingType = event.location.type === 'zoom' ? 'zoom' : 
-                         event.location.type === 'phone' ? 'phone' : 
+      const meetingType = event.location.type === 'zoom' ? 'zoom' :
+                         event.location.type === 'phone' ? 'phone' :
                          'in_person';
-      
+
       // Create appointment record
       const appointmentId = await createAppointment({
         studentId: profile.id,
@@ -182,7 +181,7 @@ export async function handleCalendlyWebhook(
         phoneNumber: event.location.phone_number,
         calendlyEventUri: event.uri
       });
-      
+
       if (appointmentId) {
         // Send confirmation email
         await sendAppointmentConfirmationEmail(
@@ -202,14 +201,14 @@ export async function handleCalendlyWebhook(
           event.location.phone_number
         );
       }
-      
+
       return true;
     }
-    
+
     if (eventType === 'invitee.canceled') {
       // Appointment canceled
       const event = payload.event as CalendlyEvent;
-      
+
       // Update appointment status
       await supabase
         .from('appointments')
@@ -218,10 +217,10 @@ export async function handleCalendlyWebhook(
           canceled_at: new Date().toISOString()
         })
         .eq('calendly_event_uri', event.uri);
-      
+
       return true;
     }
-    
+
     return false;
   } catch (error: unknown) {
     console.error('Error handling Calendly webhook:', error);
@@ -234,7 +233,7 @@ export async function handleCalendlyWebhook(
  */
 export async function getUpcomingAppointments(studentId: string) {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('appointments')
     .select('*')
@@ -256,7 +255,7 @@ export async function getUpcomingAppointments(studentId: string) {
  */
 export async function getPastAppointments(studentId: string, limit: number = 10) {
   const supabase = await createClient();
-  
+
   const { data, error }: any = await supabase
     .from('appointments')
     .select('*')
@@ -281,7 +280,7 @@ export async function cancelAppointment(
   reason?: string
 ): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('appointments')
     .update({
@@ -307,7 +306,7 @@ export async function completeAppointment(
   notes?: string
 ): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('appointments')
     .update({
@@ -330,7 +329,7 @@ export async function completeAppointment(
  */
 export async function markNoShow(appointmentId: string): Promise<boolean> {
   const supabase = await createClient();
-  
+
   const { error } = await supabase
     .from('appointments')
     .update({
@@ -355,16 +354,16 @@ export async function getAppointmentsNeedingReminders(
   hoursBeforeAppointment: number
 ): Promise<any[]> {
   const supabase = await createClient();
-  
+
   const targetTime = new Date();
   targetTime.setHours(targetTime.getHours() + hoursBeforeAppointment);
-  
+
   const windowStart = new Date(targetTime);
   windowStart.setMinutes(windowStart.getMinutes() - 30);
-  
+
   const windowEnd = new Date(targetTime);
   windowEnd.setMinutes(windowEnd.getMinutes() + 30);
-  
+
   const { data, error }: any = await supabase
     .from('appointments')
     .select(`

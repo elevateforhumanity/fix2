@@ -8,7 +8,7 @@ import { getAppVersion } from '@/lib/version/getAppVersion';
 import { logger } from '@/lib/logging/logger';
 
 export async function GET() {
-  const checks: Record<string, any> = {
+  const checks: Record<string, unknown> = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     version: getAppVersion(),
@@ -125,7 +125,7 @@ export async function GET() {
   const hasCriticalFailure = Object.values(checks.checks).some(
     (check: any) => check.status === 'fail'
   );
-  
+
   checks.status = allPassed ? 'healthy' : hasCriticalFailure ? 'degraded' : 'healthy';
   checks.overall = hasCriticalFailure ? 'fail' : 'pass';
 

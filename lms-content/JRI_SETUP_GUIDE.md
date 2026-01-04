@@ -13,8 +13,8 @@ Successfully downloaded **8 JRI SCORM modules** from EmployIndy:
 7. **Badge 6: Launch a Career** - Job search and career planning
 8. **Facilitation Resources** - Instructor guides and materials
 
-**Format:** SCORM 2004 3rd Edition  
-**Location:** `/lms-content/jri/`  
+**Format:** SCORM 2004 3rd Edition
+**Location:** `/lms-content/jri/`
 **Total Size:** ~500KB (8 files)
 
 ---
@@ -96,7 +96,7 @@ Since you're building your own platform, you'll need a SCORM player. See below f
 // 2. Get course ID
 // 3. Embed in your app
 
-<iframe 
+<iframe
   src="https://cloud.scorm.com/ScormEngineInterface/defaultui/player/modern.html?configuration=YOUR_CONFIG&registration=USER_ID&course=COURSE_ID"
   width="100%"
   height="600px"
@@ -270,7 +270,7 @@ async function enrollStudent(userId) {
     'jri-badge-5-workplace-skills',
     'jri-badge-6-launch-career'
   ];
-  
+
   for (const module of jriModules) {
     await enrollUserInCourse(userId, module);
   }
@@ -315,7 +315,7 @@ export default function JRIModulePage({ params }: { params: { module: string } }
   return (
     <div className="container mx-auto py-12">
       <h1>JRI: {getModuleName(params.module)}</h1>
-      
+
       {/* SCORM Player */}
       <div className="scorm-player">
         <iframe
@@ -324,10 +324,10 @@ export default function JRIModulePage({ params }: { params: { module: string } }
           height="600px"
         />
       </div>
-      
+
       {/* Progress Tracker */}
       <ProgressBar completion={userProgress} />
-      
+
       {/* Badge Display */}
       {isCompleted && <BadgeAward badge={params.module} />}
     </div>
@@ -342,7 +342,7 @@ export default function JRIModulePage({ params }: { params: { module: string } }
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const module = searchParams.get('module');
-  
+
   // Serve SCORM content
   const scormPath = `/lms-content/jri/${module}`;
   return new Response(/* SCORM HTML */);
@@ -355,7 +355,7 @@ export async function GET(request: Request) {
 // app/api/scorm/track/route.ts
 export async function POST(request: Request) {
   const data = await request.json();
-  
+
   // Save to database
   await db.scormTracking.create({
     userId: data.userId,
@@ -364,7 +364,7 @@ export async function POST(request: Request) {
     score: data.score,
     timeSpent: data.time
   });
-  
+
   // Award badge if completed
   if (data.status === 'completed') {
     await awardBadge(data.userId, data.moduleId);

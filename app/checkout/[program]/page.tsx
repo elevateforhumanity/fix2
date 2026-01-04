@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -61,11 +60,8 @@ export default function CheckoutPage() {
       document.body.appendChild(script);
 
       script.onload = () => {
-        // @ts-ignore
         if (window.affirm) {
-          // @ts-ignore
           window.affirm.ui.ready(() => {
-            console.log('Affirm loaded');
           });
         }
       };
@@ -122,9 +118,7 @@ export default function CheckoutPage() {
     setLoading(true);
     setError(null);
 
-    // @ts-ignore
     if (typeof window !== 'undefined' && window.affirm) {
-      // @ts-ignore
       window.affirm.checkout({
         merchant: {
           user_confirmation_url: `${window.location.origin}/checkout/success?program=${program}`,
@@ -157,7 +151,6 @@ export default function CheckoutPage() {
         currency: 'USD',
       });
 
-      // @ts-ignore
       window.affirm.checkout.open({
         onFail: (error: any) => {
           setError('Affirm checkout failed');

@@ -158,15 +158,15 @@ export default function CourseraStyleFooter() {
               <span className="text-gray-400">|</span>
               <span className="text-gray-700">WIOA Certified</span>
             </div>
-            
+
             <div className="text-xs text-gray-700 leading-relaxed">
               A program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization serving Marion County and surrounding areas through partnerships with EmployIndy, Indiana Department of Workforce Development, and the U.S. Department of Labor.
             </div>
-            
+
             <div className="text-xs text-gray-800 leading-relaxed bg-white p-3 rounded border border-blue-200">
               <strong>⚖️ Equal Opportunity Employer/Program:</strong> Elevate for Humanity is an equal opportunity employer and does not discriminate on the basis of race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or any other protected characteristic. Auxiliary aids and services are available upon request to individuals with disabilities. <strong>Indiana Relay:</strong> 711 or 800-743-3333 (TDD).
             </div>
-            
+
             <div className="text-xs text-gray-600">
               <strong>Contact:</strong> (317) 314-3757 | <a href="mailto:elevate4humanityedu@gmail.com" className="text-blue-600 hover:underline">elevate4humanityedu@gmail.com</a> | Serving 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240
             </div>

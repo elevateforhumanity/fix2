@@ -95,17 +95,17 @@ export async function POST(request: NextRequest) {
                 <h1>🎉 Congratulations ${name}!</h1>
                 <p>You've passed the competency test and earned FREE access to all training courses!</p>
               </div>
-              
+
               <div class="content">
                 <h2>Your Training Access Key</h2>
                 <p>Use this key to unlock <strong>FREE access to all 7 training courses</strong> (worth $1,074):</p>
-                
+
                 <div class="access-key">${accessKey}</div>
-                
+
                 <p style="text-align: center; color: #666; font-size: 14px;">
                   Keep this key safe! You'll need it to access your training.
                 </p>
-                
+
                 <div class="steps">
                   <h3>How to Use Your Access Key:</h3>
                   <div class="step">Go to the training page</div>
@@ -113,13 +113,13 @@ export async function POST(request: NextRequest) {
                   <div class="step">Enter your email and access key</div>
                   <div class="step">Start learning immediately!</div>
                 </div>
-                
+
                 <div style="text-align: center;">
                   <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com'}/supersonic-fast-cash/careers/training" class="button">
                     Start Training Now →
                   </a>
                 </div>
-                
+
                 <h3>What You Get FREE:</h3>
                 <ul>
                   <li>✓ Tax Preparation Fundamentals ($199 value)</li>
@@ -130,9 +130,9 @@ export async function POST(request: NextRequest) {
                   <li>✓ Refund Advance Products ($99 value)</li>
                   <li>✓ Client Service Excellence ($79 value)</li>
                 </ul>
-                
+
                 <p><strong>Total Value: $1,074 - Yours FREE as an employee!</strong></p>
-                
+
                 <h3>Next Steps:</h3>
                 <ol>
                   <li>Complete all training courses at your own pace</li>
@@ -140,10 +140,10 @@ export async function POST(request: NextRequest) {
                   <li>Background check and reference verification</li>
                   <li>Start preparing tax returns and earning money!</li>
                 </ol>
-                
+
                 <p>Questions? Reply to this email or contact us at Supersonicfadtcashllc@gmail.com</p>
               </div>
-              
+
               <div class="footer">
                 <p>SupersonicFastCash Tax Services</p>
                 <p>This access key expires in 1 year from issue date.</p>

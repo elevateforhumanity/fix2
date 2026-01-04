@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 export async function GET() {
   try {
     const supabase = await createClient();
-    
+
     // Fetch published blog posts
     const { data: posts } = await supabase
       .from('blog_posts')

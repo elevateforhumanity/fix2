@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 /**
  * Live Chat Widget - Tawk.to Integration
  * Free, full-featured live chat system
- * 
+ *
  * Setup:
  * 1. Sign up at https://www.tawk.to (FREE)
  * 2. Get your Property ID and Widget ID
@@ -32,7 +32,7 @@ export default function LiveChat() {
     script.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
     script.charset = 'UTF-8';
     script.setAttribute('crossorigin', '*');
-    
+
     document.body.appendChild(script);
 
     // Cleanup

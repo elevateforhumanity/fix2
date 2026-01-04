@@ -16,7 +16,7 @@ export async function getAccessTier(): Promise<UserAccess> {
   const supabase = await createClient();
   const { data: u } = await supabase.auth.getUser();
   const user = u?.user;
-  
+
   if (!user) {
     return { tier: 'free', status: null, current_period_end: null };
   }
@@ -55,11 +55,11 @@ export function hasAccess(userTier: AccessTier, requiredTier: AccessTier): boole
  */
 export async function requireTier(requiredTier: AccessTier): Promise<UserAccess> {
   const access = await getAccessTier();
-  
+
   if (!hasAccess(access.tier, requiredTier)) {
     const { redirect } = await import('next/navigation');
     redirect('/pricing');
   }
-  
+
   return access;
 }

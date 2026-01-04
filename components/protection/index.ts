@@ -1,7 +1,7 @@
-export { 
-  DynamicContent, 
-  ObfuscatedText, 
-  ProtectedEmail, 
+export {
+  DynamicContent,
+  ObfuscatedText,
+  ProtectedEmail,
   ProtectedPhone,
-  ProtectedCurriculum 
+  ProtectedCurriculum
 } from './DynamicContent';

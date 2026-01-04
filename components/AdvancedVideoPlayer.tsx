@@ -145,7 +145,7 @@ export function AdvancedVideoPlayer({
       player.on('timeupdate', () => {
         const currentTime = player.currentTime();
         const duration = player.duration();
-        
+
         if (onProgress && duration > 0) {
           onProgress(currentTime, duration);
         }
@@ -186,7 +186,7 @@ export function AdvancedVideoPlayer({
   return (
     <div className="w-full">
       <div ref={videoRef} className="rounded-lg overflow-hidden shadow-lg" />
-      
+
       {/* Keyboard shortcuts help */}
       <div className="mt-4 p-4 bg-slate-50 rounded-lg text-xs text-slate-600">
         <p className="font-semibold mb-2">Keyboard Shortcuts:</p>

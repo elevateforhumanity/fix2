@@ -30,9 +30,9 @@ export function ForumList({ threads, categoryId }: ForumListProps) {
   const sortedThreads = [...threads].sort((a, b) => {
     if (a.is_pinned && !b.is_pinned) return -1;
     if (!a.is_pinned && b.is_pinned) return 1;
-    
+
     if (sortBy === "recent") {
-      return new Date(b.last_reply_at || b.created_at).getTime() - 
+      return new Date(b.last_reply_at || b.created_at).getTime() -
              new Date(a.last_reply_at || a.created_at).getTime();
     } else {
       return b.reply_count - a.reply_count;

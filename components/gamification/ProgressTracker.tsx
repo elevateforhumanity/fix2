@@ -106,8 +106,8 @@ export function ProgressTracker({
       {/* Compliance Notice */}
       <div className="pt-4 border-t">
         <p className="text-xs text-slate-500">
-          <strong>Note:</strong> Progress tracking is for motivational purposes. 
-          Actual program completion requires meeting all DOL and state licensing requirements, 
+          <strong>Note:</strong> Progress tracking is for motivational purposes.
+          Actual program completion requires meeting all DOL and state licensing requirements,
           including minimum hours, assessments, and competency demonstrations.
         </p>
       </div>
@@ -167,7 +167,7 @@ export function Leaderboard() {
 
       <div className="mt-4 pt-4 border-t">
         <p className="text-xs text-slate-500">
-          <strong>Privacy Notice:</strong> Leaderboard displays anonymized initials only to protect student privacy 
+          <strong>Privacy Notice:</strong> Leaderboard displays anonymized initials only to protect student privacy
           in compliance with FERPA regulations. Full names are never displayed publicly.
         </p>
       </div>

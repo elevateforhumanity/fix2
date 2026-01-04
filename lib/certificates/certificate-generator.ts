@@ -4,11 +4,11 @@ import { jsPDF } from 'jspdf';
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  
+
   if (!supabaseUrl || !supabaseServiceKey) {
     throw new Error('Supabase configuration missing');
   }
-  
+
   return createClient(supabaseUrl, supabaseServiceKey);
 }
 
@@ -94,7 +94,7 @@ export async function issueModuleCertificate(
   moduleId: string
 ): Promise<string> {
   const supabase = getSupabaseClient();
-  
+
   // Get enrollment and module details
   const { data: enrollment, error: enrollmentError } = await supabase
     .from('partner_course_enrollments')
@@ -181,7 +181,7 @@ export async function issueProgramCertificate(
   programId: string
 ): Promise<string> {
   const supabase = getSupabaseClient();
-  
+
   // Get student and program details
   const { data: student, error: studentError } = await supabase
     .from('profiles')
@@ -284,7 +284,7 @@ export async function issueProgramCertificate(
 
 export async function verifyCertificate(certificateNumber: string) {
   const supabase = getSupabaseClient();
-  
+
   const { data, error }: any = await supabase
     .from('student_certificates')
     .select(`

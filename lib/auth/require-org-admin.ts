@@ -20,13 +20,13 @@ function getClientIP(req: Request): string {
 function createAuthSupabaseFromRequest(req: Request) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  
+
   if (!url || !anon) {
     throw new Error('Supabase env not configured');
   }
 
   const authHeader = req.headers.get('authorization') || '';
-  
+
   return createClient(url, anon, {
     global: { headers: { Authorization: authHeader } },
     auth: { persistSession: false },
@@ -40,12 +40,12 @@ export interface OrgAdminResult {
 
 /**
  * Require that the request is from an org_admin or super_admin
- * 
+ *
  * @param req - Request object
  * @param orgId - Organization ID to check membership
  * @returns User ID and role if authorized
  * @throws Error if unauthorized or forbidden
- * 
+ *
  * @example
  * ```ts
  * export async function GET(req: Request) {

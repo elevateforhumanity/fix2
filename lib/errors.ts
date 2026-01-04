@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Standardized error classes for the application
 
 export class NotFoundError extends Error {
@@ -69,19 +68,19 @@ export function handleError(data: unknown): { message: string; status: number } 
   if (isNotFoundError(error)) {
     return { message: error.message, status: 404 };
   }
-  
+
   if (isValidationError(error)) {
     return { message: error.message, status: 400 };
   }
-  
+
   if (error instanceof AuthenticationError) {
     return { message: error.message, status: 401 };
   }
-  
+
   if (error instanceof AuthorizationError) {
     return { message: error.message, status: 403 };
   }
-  
+
   // Default to 500 for unknown errors
   return { message: error.message || "Internal server error", status: 500 };
 }

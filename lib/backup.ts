@@ -43,7 +43,7 @@ export async function exportBackupToCSV(tableName: string, data: unknown[]): Pro
   const headers = Object.keys(data[0]);
   const csvRows = [
     headers.join(','),
-    ...data.map(row => 
+    ...data.map(row =>
       headers.map(header => {
         const value = row[header];
         const stringValue = value === null ? '' : String(value);

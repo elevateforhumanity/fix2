@@ -35,16 +35,16 @@ export class EmailService {
   async send(notification: EmailNotification): Promise<boolean> {
     try {
       // In production, integrate with SendGrid, AWS SES, or similar
-      logger.info('Sending email', { 
-        to: notification.to, 
-        subject: notification.subject 
+      logger.info('Sending email', {
+        to: notification.to,
+        subject: notification.subject
       });
-      
+
       // Mock implementation
       return true;
     } catch (error: unknown) {
-      logger.error('Email send error', error as Error, { 
-        to: notification.to 
+      logger.error('Email send error', error as Error, {
+        to: notification.to
       });
       return false;
     }

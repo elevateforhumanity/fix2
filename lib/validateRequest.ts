@@ -1,4 +1,3 @@
-// @ts-nocheck
 // lib/validateRequest.ts - Request validation utilities
 import { z } from 'zod';
 import { NextResponse } from 'next/server';

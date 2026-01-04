@@ -6,7 +6,7 @@ export const maxDuration = 60;
 /**
  * Test All Dashboards
  * GET /api/test-dashboards
- * 
+ *
  * Tests all role-based dashboards and routing
  */
 export async function GET() {

@@ -85,7 +85,7 @@ export const emailTemplates = {
                   <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: bold;">Welcome to Elevate!</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
@@ -96,7 +96,7 @@ export const emailTemplates = {
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     Your learning journey starts now. Access your course materials, track your progress, and earn your certificate by completing all required lessons and assessments.
                   </p>
-                  
+
                   <!-- CTA Button -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -107,7 +107,7 @@ export const emailTemplates = {
                       </td>
                     </tr>
                   </table>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #eff6ff; border-left: 4px solid #2563eb; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #1e40af; font-size: 18px;">What's Next?</h3>
                     <ul style="margin: 0; padding-left: 20px; color: #1e3a8a;">
@@ -117,13 +117,13 @@ export const emailTemplates = {
                       <li>Connect with your case manager (if applicable)</li>
                     </ul>
                   </div>
-                  
+
                   <p style="margin: 20px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     Need help? Contact us at <a href="mailto:Elevate4humanityedu@gmail.com" style="color: #dc2626;">Elevate4humanityedu@gmail.com</a>
                   </p>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -167,19 +167,19 @@ export const emailTemplates = {
                   <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">We Miss You!</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
                   <h2 style="margin: 0 0 20px 0; color: #111827; font-size: 24px;">Hi ${studentName},</h2>
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
-                    We noticed you haven't logged into your <strong>${courseName}</strong> course in ${daysSinceLogin} days. 
+                    We noticed you haven't logged into your <strong>${courseName}</strong> course in ${daysSinceLogin} days.
                     Don't let your momentum slip away!
                   </p>
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     Your goals are within reach. Just a few minutes of learning each day can make a big difference in your career journey.
                   </p>
-                  
+
                   <!-- CTA Button -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -190,17 +190,17 @@ export const emailTemplates = {
                       </td>
                     </tr>
                   </table>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #92400e; font-size: 18px;">Need Support?</h3>
                     <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">
-                      If you're facing challenges or have questions, we're here to help. Reach out to your case manager 
+                      If you're facing challenges or have questions, we're here to help. Reach out to your case manager
                       or contact our support team. Don't let obstacles stop your progress!
                     </p>
                   </div>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -245,20 +245,20 @@ export const emailTemplates = {
                   <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: bold;">Congratulations!</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
                   <h2 style="margin: 0 0 20px 0; color: #111827; font-size: 24px;">Amazing work, ${studentName}!</h2>
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
-                    You've successfully completed <strong>${courseName}</strong>! This is a significant achievement 
+                    You've successfully completed <strong>${courseName}</strong>! This is a significant achievement
                     and a major step forward in your career journey.
                   </p>
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
-                    Your certificate is ready! Download it, share it on LinkedIn, and add it to your resume. 
+                    Your certificate is ready! Download it, share it on LinkedIn, and add it to your resume.
                     You've earned this recognition.
                   </p>
-                  
+
                   <!-- CTA Buttons -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -272,7 +272,7 @@ export const emailTemplates = {
                       </td>
                     </tr>
                   </table>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #dbeafe; border-left: 4px solid #2563eb; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #1e40af; font-size: 18px;">What's Next?</h3>
                     <ul style="margin: 0; padding-left: 20px; color: #1e3a8a;">
@@ -282,13 +282,13 @@ export const emailTemplates = {
                       <li>Connect with employers in your field</li>
                     </ul>
                   </div>
-                  
+
                   <p style="margin: 20px 0 0 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     We're proud of your dedication and hard work. Keep building your future!
                   </p>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -333,7 +333,7 @@ export const emailTemplates = {
                   <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">Your Certificate is Ready!</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
@@ -341,12 +341,12 @@ export const emailTemplates = {
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     Your certificate for <strong>${courseName}</strong> has been issued and is ready to download!
                   </p>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #f0f9ff; border: 2px solid #2563eb; border-radius: 8px; text-align: center;">
                     <p style="margin: 0 0 10px 0; color: #1e40af; font-size: 14px; font-weight: bold;">Certificate Number</p>
                     <p style="margin: 0; color: #1e3a8a; font-size: 20px; font-family: monospace; font-weight: bold;">${certificateNumber}</p>
                   </div>
-                  
+
                   <!-- CTA Button -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -357,21 +357,21 @@ export const emailTemplates = {
                       </td>
                     </tr>
                   </table>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #ecfdf5; border-left: 4px solid #10b981; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #065f46; font-size: 18px;">Share Your Achievement</h3>
                     <p style="margin: 0; color: #047857; font-size: 14px; line-height: 1.6;">
-                      Add your certificate to LinkedIn, share it with potential employers, and showcase your new skills. 
+                      Add your certificate to LinkedIn, share it with potential employers, and showcase your new skills.
                       Your certificate includes a verification link that employers can use to confirm its authenticity.
                     </p>
                   </div>
-                  
+
                   <p style="margin: 20px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     Congratulations on this achievement! We're proud to have been part of your learning journey.
                   </p>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -417,7 +417,7 @@ export const emailTemplates = {
                   <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">Quiz Reminder</h1>
                 </td>
               </tr>
-              
+
               <!-- Content -->
               <tr>
                 <td style="padding: 40px 30px;">
@@ -425,19 +425,19 @@ export const emailTemplates = {
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
                     This is a friendly reminder that you have a quiz coming up in <strong>${courseName}</strong>.
                   </p>
-                  
+
                   <div style="margin: 30px 0; padding: 20px; background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #92400e; font-size: 18px;">${quizTitle}</h3>
                     <p style="margin: 0; color: #78350f; font-size: 14px;">
                       <strong>Due Date:</strong> ${dueDate}
                     </p>
                   </div>
-                  
+
                   <p style="margin: 0 0 20px 0; color: #4b5563; font-size: 16px; line-height: 1.6;">
-                    Make sure you're prepared and complete the quiz before the deadline. Review your course materials 
+                    Make sure you're prepared and complete the quiz before the deadline. Review your course materials
                     and reach out if you have any questions.
                   </p>
-                  
+
                   <!-- CTA Button -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
                     <tr>
@@ -450,7 +450,7 @@ export const emailTemplates = {
                   </table>
                 </td>
               </tr>
-              
+
               <!-- Footer -->
               <tr>
                 <td style="padding: 30px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb;">
@@ -479,7 +479,7 @@ interface WelcomeEmailParams {
 
 export async function sendWelcomeEmail(params: WelcomeEmailParams) {
   const { to, tenantId, licenseType, validUntil } = params;
-  
+
   return sendEmail({
     to,
     subject: 'Welcome to Elevate for Humanity - License Activated',
@@ -503,7 +503,7 @@ interface EnrollmentEmailParams {
 
 export async function sendEnrollmentEmail(params: EnrollmentEmailParams) {
   const { to, programName, enrollmentId } = params;
-  
+
   return sendEmail({
     to,
     subject: `Enrollment Confirmed - ${programName}`,
