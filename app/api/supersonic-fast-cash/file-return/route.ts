@@ -4,11 +4,11 @@ export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { createClient } from '@supabase/supabase-js';
 import { drakeIntegration } from '@/lib/integrations/drake-software';
-import { Resend } from 'resend';
+import { getResendClient } from '@/lib/resend';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend client initialized lazily via getResendClient()
 
 export async function POST(request: NextRequest) {
   try {

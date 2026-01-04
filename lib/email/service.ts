@@ -5,9 +5,7 @@
  * Falls back gracefully if email fails (non-blocking)
  */
 
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { getResendClient } from '@/lib/resend';
 
 const FROM_EMAIL = 'Elevate for Humanity <noreply@elevateforhumanity.org>';
 const ADMIN_EMAIL = 'elevate4humanityedu@gmail.com';
@@ -28,6 +26,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
       return false;
     }
 
+    const resend = getResendClient();
     await resend.emails.send({
       from: FROM_EMAIL,
       to: options.to,

@@ -5,13 +5,13 @@ export const maxDuration = 60;
 import { jotFormIntegration } from '@/lib/integrations/jotform';
 import { drakeIntegration } from '@/lib/integrations/drake-software';
 import { createClient } from '@supabase/supabase-js';
-import { Resend } from 'resend';
+import { getResendClient } from '@/lib/resend';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend client initialized lazily via getResendClient()
 
 /**
  * JotForm Webhook Handler

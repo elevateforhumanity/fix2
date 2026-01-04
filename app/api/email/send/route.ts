@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-import { Resend } from 'resend';
+import { getResendClient } from '@/lib/resend';
 import { logEmailDelivery } from '@/lib/email/monitor';
 
 const resend = process.env.RESEND_API_KEY

@@ -1,6 +1,4 @@
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { getResendClient } from '@/lib/resend';
 
 export interface EmailOptions {
   to: string | string[];
@@ -11,6 +9,7 @@ export interface EmailOptions {
 
 export async function sendEmail(options: EmailOptions) {
   try {
+    const resend = getResendClient();
     const { data, error } = await resend.emails.send({
       from:
         options.from || 'Elevate for Humanity <noreply@elevateforhumanity.org>',

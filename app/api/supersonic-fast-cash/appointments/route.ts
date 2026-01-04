@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
-import { Resend } from 'resend';
+import { getResendClient } from '@/lib/resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend client initialized lazily via getResendClient()
 
 export async function POST(request: NextRequest) {
   try {

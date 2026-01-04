@@ -5,9 +5,7 @@ export const maxDuration = 60;
 import { NextRequest, NextResponse } from 'next/server';
 import { parseBody, getErrorMessage } from '@/lib/api-helpers';
 import { createClient } from '@/lib/supabase/server';
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { getResendClient } from '@/lib/resend';
 
 /**
  * AUTOMATED TENANT PROVISIONING
@@ -105,6 +103,7 @@ export async function POST(request: NextRequest) {
     // 6. Send welcome email
     const loginUrl = `https://${slug}.elevateforhumanity.org/login`;
     const adminUrl = `https://${slug}.elevateforhumanity.org/admin`;
+    const resend = getResendClient();
 
     await resend.emails.send({
       from: 'Elevate for Humanity <onboarding@elevateforhumanity.org>',
