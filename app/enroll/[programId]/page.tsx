@@ -3,7 +3,13 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useParams, useRouter } from 'next/navigation';
-import { BookOpen, Key, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react';
+import {
+  BookOpen,
+  Key,
+  CheckCircle,
+  AlertCircle,
+  ArrowRight,
+} from 'lucide-react';
 
 interface Program {
   id: string;
@@ -17,7 +23,7 @@ export default function EnrollPage() {
   const params = useParams();
   const router = useRouter();
   const programId = params.programId as string;
-  
+
   const [program, setProgram] = useState<Program | null>(null);
   const [licenseKey, setLicenseKey] = useState('');
   const [loading, setLoading] = useState(true);
@@ -41,7 +47,7 @@ export default function EnrollPage() {
 
       if (error) throw error;
       setProgram(data);
-      
+
       await checkEligibility();
     } catch (error: any) {
       setMessage(`Error: ${error.message}`);
@@ -52,13 +58,15 @@ export default function EnrollPage() {
 
   const checkEligibility = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) return;
 
       const { data, error } = await supabase.rpc('can_user_enroll', {
         p_user_id: user.id,
         p_program_id: programId,
-        p_license_key: licenseKey || null
+        p_license_key: licenseKey || null,
       });
 
       if (error) throw error;
@@ -73,7 +81,9 @@ export default function EnrollPage() {
     setMessage('');
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) {
         setMessage('Please sign in to enroll');
         return;
@@ -89,8 +99,8 @@ export default function EnrollPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           program_id: programId,
-          license_key: licenseKey || null
-        })
+          license_key: licenseKey || null,
+        }),
       });
 
       const data = await response.json();
@@ -126,64 +136,80 @@ export default function EnrollPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Program Not Found</h2>
-          <p className="text-gray-600">The program you're looking for doesn't exist.</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Program Not Found
+          </h2>
+          <p className="text-gray-600">
+            The program you're looking for doesn't exist.
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-8 md:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-12 text-white">
-            <div className="flex items-center gap-4 mb-4">
-              <BookOpen className="w-12 h-12" />
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-12 text-white">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <BookOpen className="w-10 h-10 sm:w-12 sm:h-12" />
               <div>
-                <h1 className="text-3xl font-bold">{program.name}</h1>
-                <p className="text-blue-100 mt-1">Duration: {program.duration_weeks} weeks</p>
+                <h1 className="text-2xl sm:text-3xl font-bold">
+                  {program.name}
+                </h1>
+                <p className="text-blue-100 mt-1 text-sm sm:text-base">
+                  Duration: {program.duration_weeks} weeks
+                </p>
               </div>
             </div>
-            <p className="text-lg text-blue-50">{program.description}</p>
+            <p className="text-base sm:text-lg text-blue-50">
+              {program.description}
+            </p>
           </div>
 
-          <div className="p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             {message && (
-              <div className={`mb-6 p-4 rounded-lg flex items-start gap-3 ${
-                message.includes('Error')
-                  ? 'bg-red-50 text-red-800 border border-red-200'
-                  : message.includes('successful')
-                  ? 'bg-green-50 text-green-800 border border-green-200'
-                  : 'bg-blue-50 text-blue-800 border border-blue-200'
-              }`}>
+              <div
+                className={`mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg flex items-start gap-2 sm:gap-3 text-sm sm:text-base ${
+                  message.includes('Error')
+                    ? 'bg-red-50 text-red-800 border border-red-200'
+                    : message.includes('successful')
+                      ? 'bg-green-50 text-green-800 border border-green-200'
+                      : 'bg-blue-50 text-blue-800 border border-blue-200'
+                }`}
+              >
                 {message.includes('Error') ? (
-                  <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" />
                 ) : (
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" />
                 )}
                 <span>{message}</span>
               </div>
             )}
 
             {eligibility && !eligibility.can_enroll && (
-              <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-yellow-50 border border-yellow-200 rounded-lg flex items-start gap-2 sm:gap-3">
+                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium text-yellow-900">Cannot Enroll</p>
-                  <p className="text-yellow-800 text-sm mt-1">{eligibility.reason}</p>
+                  <p className="font-medium text-yellow-900 text-sm sm:text-base">
+                    Cannot Enroll
+                  </p>
+                  <p className="text-yellow-800 text-xs sm:text-sm mt-1">
+                    {eligibility.reason}
+                  </p>
                 </div>
               </div>
             )}
 
             {program.requires_license && (
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   License Key *
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Key className="h-5 w-5 text-gray-400" />
+                    <Key className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
                   </div>
                   <input
                     type="text"
@@ -193,58 +219,68 @@ export default function EnrollPage() {
                       if (e.target.value) checkEligibility();
                     }}
                     placeholder="Enter your license key"
-                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="block w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-xs sm:text-sm text-gray-500">
                   This program requires a valid license key to enroll
                 </p>
               </div>
             )}
 
-            <div className="bg-gray-50 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-4">What You'll Get:</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Full access to course materials</span>
+            <div className="bg-gray-50 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+              <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 text-base sm:text-lg">
+                What You'll Get:
+              </h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
+                    Full access to course materials
+                  </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Interactive lessons and assessments</span>
+                <li className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
+                    Interactive lessons and assessments
+                  </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Certificate upon completion</span>
+                <li className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
+                    Certificate upon completion
+                  </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Instructor support</span>
+                <li className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
+                    Instructor support
+                  </span>
                 </li>
               </ul>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={handleEnroll}
                 disabled={enrolling || (eligibility && !eligibility.can_enroll)}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {enrolling ? (
                   <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white"></div>
                     Enrolling...
                   </>
                 ) : (
                   <>
                     Enroll Now
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </>
                 )}
               </button>
               <button
                 onClick={() => router.back()}
-                className="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+                className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
               >
                 Cancel
               </button>

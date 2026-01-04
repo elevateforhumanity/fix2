@@ -162,10 +162,12 @@ export default function PurchaseLicensePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-3xl font-bold mb-6">Purchase License</h1>
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-8 md:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
+            Purchase License
+          </h1>
 
           {error && (
             <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">

@@ -32,16 +32,21 @@ export default function DocumentUploadPage() {
   const loadRequirements = async () => {
     setLoading(true);
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
       if (!user) {
         setError('Please sign in to upload documents');
         setLoading(false);
         return;
       }
 
-      const { data, error: reqError } = await supabase.rpc('get_user_document_requirements', {
-        p_user_id: user.id
-      });
+      const { data, error: reqError } = await supabase.rpc(
+        'get_user_document_requirements',
+        {
+          p_user_id: user.id,
+        }
+      );
 
       if (reqError) throw reqError;
       setRequirements(data || []);
@@ -87,7 +92,7 @@ export default function DocumentUploadPage() {
       setFile(null);
       setDocumentType('');
       setExpirationDate('');
-      
+
       // Reload requirements to show updated status
       await loadRequirements();
 
@@ -115,10 +120,12 @@ export default function DocumentUploadPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-3xl font-bold mb-6">Upload Documents</h1>
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-8 md:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
+            Upload Documents
+          </h1>
 
           {error && (
             <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md">
@@ -132,37 +139,52 @@ export default function DocumentUploadPage() {
             </div>
           )}
 
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">Your Document Requirements</h2>
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+              Your Document Requirements
+            </h2>
             {requirements.length === 0 ? (
-              <p className="text-gray-600">No document requirements found for your role.</p>
+              <p className="text-sm sm:text-base text-gray-600">
+                No document requirements found for your role.
+              </p>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {requirements.map((req) => (
-                  <div key={req.document_type} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex items-start justify-between">
+                  <div
+                    key={req.document_type}
+                    className="border border-gray-200 rounded-lg p-3 sm:p-4"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                       <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-gray-900">
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <h3 className="text-sm sm:text-base font-semibold text-gray-900">
                             {req.document_type.replace(/_/g, ' ').toUpperCase()}
                           </h3>
                           {req.is_required && (
-                            <span className="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded">
+                            <span className="px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded whitespace-nowrap">
                               Required
                             </span>
                           )}
                           {req.has_uploaded && (
-                            <span className={`px-2 py-1 text-xs font-medium rounded ${
-                              req.upload_status === 'approved' ? 'bg-green-100 text-green-800' :
-                              req.upload_status === 'rejected' ? 'bg-red-100 text-red-800' :
-                              'bg-yellow-100 text-yellow-800'
-                            }`}>
+                            <span
+                              className={`px-2 py-1 text-xs font-medium rounded ${
+                                req.upload_status === 'approved'
+                                  ? 'bg-green-100 text-green-800'
+                                  : req.upload_status === 'rejected'
+                                    ? 'bg-red-100 text-red-800'
+                                    : 'bg-yellow-100 text-yellow-800'
+                              }`}
+                            >
                               {req.upload_status || 'Pending'}
                             </span>
                           )}
                         </div>
-                        <p className="text-sm text-gray-600 mb-1">{req.description}</p>
-                        <p className="text-xs text-gray-500">{req.instructions}</p>
+                        <p className="text-sm text-gray-600 mb-1">
+                          {req.description}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {req.instructions}
+                        </p>
                       </div>
                     </div>
                   </div>
