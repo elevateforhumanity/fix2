@@ -8,17 +8,14 @@ import { getResendClient } from '@/lib/resend';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
-
 /**
  * Workflow Processor - Processes triggered workflows and sends drip emails
  * Run via cron every 5 minutes
  */
 export async function GET(req: Request) {
   try {
-    if (!resend) {
+    const resend = getResendClient();
+    if (!resend || !process.env.RESEND_API_KEY) {
       return NextResponse.json(
         { success: false, error: 'Email service not configured' },
         { status: 503 }

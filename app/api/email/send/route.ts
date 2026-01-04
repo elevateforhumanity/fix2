@@ -5,11 +5,8 @@ export const maxDuration = 60;
 import { getResendClient } from '@/lib/resend';
 import { logEmailDelivery } from '@/lib/email/monitor';
 
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
-
 export async function POST(req: Request) {
+  const resend = getResendClient();
   const startTime = Date.now();
   let emailTo = '';
   let emailSubject = '';
