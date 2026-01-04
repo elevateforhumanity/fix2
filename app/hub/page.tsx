@@ -440,6 +440,82 @@ export default function HubPage() {
         </div>
       </section>
 
+      {/* Portals */}
+      <section className="py-16 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+            <Target className="w-8 h-8 text-purple-600" />
+            Access Portals
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <HubCard
+              icon={<GraduationCap className="w-8 h-8" />}
+              title="Student Portal"
+              description="Access courses, track progress, and manage your learning"
+              href="/student/dashboard"
+              color="blue"
+              size="small"
+            />
+            <HubCard
+              icon={<Users className="w-8 h-8" />}
+              title="Admin Portal"
+              description="Manage users, programs, and system settings"
+              href="/admin"
+              color="purple"
+              size="small"
+            />
+            <HubCard
+              icon={<Briefcase className="w-8 h-8" />}
+              title="Staff Portal"
+              description="Manage students, courses, and daily operations"
+              href="/staff-portal"
+              color="green"
+              size="small"
+            />
+            <HubCard
+              icon={<Building2 className="w-8 h-8" />}
+              title="Employer Portal"
+              description="Post jobs, find talent, and manage hiring"
+              href="/employer"
+              color="orange"
+              size="small"
+            />
+            <HubCard
+              icon={<Handshake className="w-8 h-8" />}
+              title="Partner Portal"
+              description="Collaborate on programs and track outcomes"
+              href="/partner"
+              color="teal"
+              size="small"
+            />
+            <HubCard
+              icon={<Award className="w-8 h-8" />}
+              title="Program Holder Portal"
+              description="Manage program delivery and student outcomes"
+              href="/program-holder"
+              color="indigo"
+              size="small"
+            />
+            <HubCard
+              icon={<BookOpen className="w-8 h-8" />}
+              title="LMS Portal"
+              description="Access learning management system and courses"
+              href="/lms"
+              color="blue"
+              size="small"
+            />
+            <HubCard
+              icon={<Heart className="w-8 h-8" />}
+              title="Parent Portal"
+              description="Monitor student progress and stay connected"
+              href="/parent-portal"
+              color="pink"
+              size="small"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">

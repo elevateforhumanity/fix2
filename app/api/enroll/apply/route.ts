@@ -1,7 +1,6 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-// @ts-nocheck
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 import { createClient } from '@/lib/supabase/server';
@@ -63,29 +62,33 @@ export async function POST(req: Request) {
 
     const studentId = user?.id;
 
-    // If no authenticated user, create a lead record
+    // If no authenticated user, create student application
     if (!studentId) {
-      // Store as partner inquiry for now (can be migrated to dedicated applications table)
-      const { data: inquiry, error: inquiryError } = await supabase
-        .from('partner_inquiries')
+      const { data: application, error: applicationError } = await supabase
+        .from('student_applications')
         .insert({
-          name: `${body.firstName} ${body.lastName}`,
+          full_name: `${body.firstName} ${body.lastName}`,
           email: body.email,
           phone: body.phone || null,
-          message: `Application for program: ${body.preferredProgramId}`,
-          inquiry_type: 'student_application',
-          status: 'new',
+          status: 'pending',
+          data: {
+            firstName: body.firstName,
+            lastName: body.lastName,
+            preferredProgramId: body.preferredProgramId,
+            fundingSource: body.fundingSource || 'WIOA',
+            submittedAt: new Date().toISOString(),
+          },
         })
         .select()
         .single();
 
-      if (inquiryError) {
-        logger.error('[Enroll Apply] Failed to create inquiry:', inquiryError);
-        throw inquiryError;
+      if (applicationError) {
+        logger.error('[Enroll Apply] Failed to create application:', applicationError);
+        throw applicationError;
       }
 
-      logger.info('[New Application - Lead Created]', {
-        inquiryId: inquiry.id,
+      logger.info('[New Application - Created]', {
+        applicationId: application.id,
         firstName: body.firstName,
         lastName: body.lastName,
         email: body.email,
@@ -93,45 +96,64 @@ export async function POST(req: Request) {
         preferredProgramId: body.preferredProgramId,
         submittedAt: new Date().toISOString(),
       });
+      
+      // Send notification to admin (non-blocking)
+      sendAdminApplicationNotification(
+        `${body.firstName} ${body.lastName}`,
+        body.email,
+        body.preferredProgramId,
+        application.id
+      ).catch((err) => logger.error('[Email] Admin notification failed:', err));
     } else {
-      // Authenticated user - check enrollment approval status
-      const { data: profile } = await supabase
+      // Authenticated user - get or create profile
+      let { data: profile } = await supabase
         .from('profiles')
-        .select('enrollment_status, program_holder_id')
+        .select('id, email, full_name, role')
         .eq('id', studentId)
         .single();
 
-      // Enrollment gate: must be approved or active
-      if (
-        !profile?.enrollment_status ||
-        !['approved', 'active'].includes(profile.enrollment_status)
-      ) {
-        return NextResponse.json(
-          {
-            message:
-              'You must be approved for enrollment before you can enroll. Please contact your program coordinator.',
-          },
-          { status: 403 }
-        );
+      // Create profile if it doesn't exist
+      if (!profile) {
+        const { data: newProfile, error: profileError } = await supabase
+          .from('profiles')
+          .insert({
+            id: studentId,
+            email: body.email,
+            full_name: `${body.firstName} ${body.lastName}`,
+            role: 'student',
+          })
+          .select()
+          .single();
+
+        if (profileError) {
+          logger.error('[Enroll Apply] Failed to create profile:', profileError);
+          throw profileError;
+        }
+        profile = newProfile;
       }
 
-      // Program holder must be assigned
-      if (!profile.program_holder_id) {
+      // Look up program UUID from slug
+      const { data: program, error: programError } = await supabase
+        .from('programs')
+        .select('id')
+        .eq('slug', body.preferredProgramId)
+        .single();
+
+      if (programError || !program) {
+        logger.error('[Enroll Apply] Program not found:', body.preferredProgramId, programError);
         return NextResponse.json(
-          {
-            message: 'No program holder assigned. Please contact support.',
-          },
-          { status: 403 }
+          { message: 'Program not found' },
+          { status: 404 }
         );
       }
 
       // Orchestrate enrollment (idempotent)
       const orchestrationResult = await orchestrateEnrollment({
         studentId,
-        programId: body.preferredProgramId,
-        programHolderId: profile.program_holder_id,
+        programId: program.id,
+        programHolderId: null, // Not using program holders in current schema
         fundingSource: body.fundingSource || 'WIOA',
-        idempotencyKey: `enrollment-${studentId}-${body.preferredProgramId}`,
+        idempotencyKey: `enrollment-${studentId}-${program.id}`,
       });
 
       if (!orchestrationResult.success) {
@@ -153,7 +175,6 @@ export async function POST(req: Request) {
         enrollmentId: orchestrationResult.enrollmentId,
         studentId,
         programId: body.preferredProgramId,
-        programHolderId: profile.program_holder_id,
         stepsCreated: orchestrationResult.stepsCreated,
         submittedAt: new Date().toISOString(),
       });
@@ -184,11 +205,18 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (err: unknown) {
-    logger.error('[Enroll Apply] Error:', err as Error);
+    const error = err as Error;
+    logger.error('[Enroll Apply] Error:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name,
+    });
+    console.error('[Enroll Apply] Full error:', err);
     return NextResponse.json(
       {
         message:
           'Something went wrong submitting your application. Please try again or call (317) 314-3757.',
+        error: process.env.NODE_ENV === 'development' ? error.message : undefined,
       },
       { status: 500 }
     );
