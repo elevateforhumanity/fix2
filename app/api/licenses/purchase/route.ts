@@ -2,9 +2,17 @@ import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-});
+function getStripeClient() {
+  const apiKey = process.env.STRIPE_SECRET_KEY;
+
+  if (!apiKey) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+
+  return new Stripe(apiKey, {
+    apiVersion: '2024-12-18.acacia',
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -83,6 +91,8 @@ export async function POST(request: NextRequest) {
         message: 'Free license created successfully',
       });
     }
+
+    const stripe = getStripeClient();
 
     // Create Stripe payment intent
     const paymentIntent = await stripe.paymentIntents.create({
