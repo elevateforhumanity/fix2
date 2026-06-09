@@ -1,12 +1,16 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 import { NextRequest, NextResponse } from 'next/server';
+import { requireDevStudioAccess } from '@/lib/auth/dev-studio-access';
 import { getUserOctokit, gh } from '@/lib/github';
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
+  const unauthorized = await requireDevStudioAccess();
+  if (unauthorized) return unauthorized;
+
   // Support both user token (x-gh-token header) and server token (env)
   const userToken = req.headers.get('x-gh-token');
 

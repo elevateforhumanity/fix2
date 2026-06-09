@@ -1,6 +1,12 @@
 name: CI/CD Pipeline
 
 on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Target to validate or deploy'
+        required: false
+        default: 'validate'
   push:
     branches: [main]
   pull_request:
@@ -10,7 +16,7 @@ jobs:
   # Prevent broken code from being merged
   test-and-build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -56,11 +62,11 @@ jobs:
 
       - name: Type check
         run: pnpm run typecheck
-        continue-on-error: true  # Keep as warning until TypeScript strict mode enabled
+        continue-on-error: true # Keep as warning until TypeScript strict mode enabled
 
       - name: Archetype + Quality Gates
         run: pnpm run archetype:check
-        continue-on-error: true  # Keep as warning
+        continue-on-error: true # Keep as warning
 
       - name: Build
         env:
@@ -74,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-and-build]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -86,14 +92,14 @@ jobs:
         run: |
           HEALTH_URL="https://www.elevateforhumanity.org/api/health"
           echo "Checking health endpoint: $HEALTH_URL"
-          
+
           response=$(curl -s -w "\n%{http_code}" "$HEALTH_URL")
           status_code=$(echo "$response" | tail -n1)
           body=$(echo "$response" | head -n-1)
-          
+
           echo "Status: $status_code"
           echo "Response: $body"
-          
+
           # Accept 200 (healthy) or 503 (degraded but running)
           if [ "$status_code" = "200" ] || [ "$status_code" = "503" ]; then
             echo "✅ Health check passed"
@@ -124,7 +130,7 @@ jobs:
   cleanup-branches:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -146,7 +152,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-and-build]
     if: failure()
-    
+
     steps:
       - name: Send notification
         run: |

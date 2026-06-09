@@ -25,7 +25,12 @@ export default async function MegaAdminDashboard() {
     .eq('id', user.id)
     .single();
 
-  if (!profile || (profile.role !== 'admin' && profile.role !== 'super_admin')) {
+  if (
+    !profile ||
+    !['admin', 'super_admin', 'org_admin', 'platform_operator'].includes(
+      profile.role
+    )
+  ) {
     redirect('/admin/login?redirect=/admin&error=unauthorized');
   }
 

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+import { createClient } from '@/lib/supabase/server';
 import { CheckCircle, ArrowRight, Play, Star, BookOpen } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -9,7 +11,16 @@ export const metadata: Metadata = {
     'Access interactive courses, video lessons, quizzes, and collaboration tools. Learn at your own pace with our modern LMS platform.',
 };
 
-export default function LMSLandingPage() {
+export default async function LMSLandingPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) {
+    redirect('/lms/dashboard');
+  }
+
   const features = [
     {
       image: '/media/programs/cpr-group-training-hd.jpg',
@@ -125,7 +136,7 @@ export default function LMSLandingPage() {
                 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
               backgroundSize: '40px 40px',
             }}
-          ></div>
+          />
         </div>
 
         <div className="relative max-w-7xl mx-auto">

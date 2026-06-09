@@ -1,7 +1,8 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 import { NextRequest, NextResponse } from 'next/server';
+import { requireDevStudioAccess } from '@/lib/auth/dev-studio-access';
 import {
   getUserOctokit,
   gh,
@@ -12,6 +13,9 @@ import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
 
 export async function GET(req: NextRequest) {
+  const unauthorized = await requireDevStudioAccess();
+  if (unauthorized) return unauthorized;
+
   const userToken = req.headers.get('x-gh-token');
   const repo = req.nextUrl.searchParams.get('repo');
   const path = req.nextUrl.searchParams.get('path');
@@ -81,6 +85,9 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  const unauthorized = await requireDevStudioAccess();
+  if (unauthorized) return unauthorized;
+
   const userToken = req.headers.get('x-gh-token');
 
   try {
@@ -159,6 +166,9 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const unauthorized = await requireDevStudioAccess();
+  if (unauthorized) return unauthorized;
+
   const userToken = req.headers.get('x-gh-token');
 
   try {
