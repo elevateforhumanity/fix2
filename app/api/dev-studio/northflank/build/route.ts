@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { requireDevStudioAccess } from '@/lib/auth/dev-studio-access';
+import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
 import { toErrorMessage } from '@/lib/safe';
 
@@ -8,6 +9,7 @@ export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 type NorthflankTarget = 'public' | 'admin' | 'lms';
+type DeployStrategy = 'auto' | 'direct' | 'github';
 
 const SERVICE_ID_BY_TARGET: Record<NorthflankTarget, string> = {
   public: 'NORTHFLANK_PUBLIC_SERVICE_ID',
@@ -47,6 +49,51 @@ function parseResponseBody(text: string) {
   }
 }
 
+function isDeployStrategy(value: unknown): value is DeployStrategy {
+  return value === 'auto' || value === 'direct' || value === 'github';
+}
+
+function getDeployStrategy(value: unknown): DeployStrategy {
+  return isDeployStrategy(value) ? value : 'auto';
+}
+
+function getGitHubRepository() {
+  return (
+    process.env.GITHUB_REPOSITORY ||
+    process.env.DEV_STUDIO_GITHUB_REPOSITORY ||
+    'elevateforhumanity/fix2'
+  );
+}
+
+async function dispatchGitHubDeployWorkflow(
+  target: NorthflankTarget,
+  ref?: string
+) {
+  const repo = getGitHubRepository();
+  const { owner, name } = parseRepo(repo);
+  const workflowRef = ref || process.env.GITHUB_REF_NAME || 'main';
+  const workflowId = process.env.NORTHFLANK_DEPLOY_WORKFLOW_ID || 'ci-cd.yml';
+
+  await gh().actions.createWorkflowDispatch({
+    owner,
+    repo: name,
+    workflow_id: workflowId,
+    ref: workflowRef,
+    inputs: {
+      target: `deploy-${target}`,
+    },
+  });
+
+  return {
+    ok: true,
+    strategy: 'github_actions',
+    repository: repo,
+    workflowId,
+    ref: workflowRef,
+    target,
+  };
+}
+
 export async function POST(req: NextRequest) {
   const unauthorized = await requireDevStudioAccess();
   if (unauthorized) return unauthorized;
@@ -57,6 +104,7 @@ export async function POST(req: NextRequest) {
     const branch = optionalString(body.branch);
     const sha = optionalString(body.sha);
     const bundleUrl = optionalString(body.bundleUrl);
+    const strategy = getDeployStrategy(body.strategy);
 
     if (!isNorthflankTarget(target)) {
       return northflankJson(
@@ -72,6 +120,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    if (strategy === 'github') {
+      const workflow = await dispatchGitHubDeployWorkflow(target, branch);
+      return northflankJson(workflow);
+    }
+
     const token = process.env.NORTHFLANK_API_TOKEN;
     const projectId = process.env.NORTHFLANK_PROJECT_ID;
     const serviceEnvName = SERVICE_ID_BY_TARGET[target];
@@ -85,10 +138,23 @@ export async function POST(req: NextRequest) {
       .map(([name]) => name);
 
     if (missing.length > 0) {
+      if (
+        strategy === 'auto' &&
+        configured(process.env.GITHUB_TOKEN || process.env.GH_TOKEN)
+      ) {
+        const workflow = await dispatchGitHubDeployWorkflow(target, branch);
+        return northflankJson({
+          ...workflow,
+          fallbackReason: 'missing_direct_northflank_config',
+          missing,
+        });
+      }
+
       return northflankJson(
         {
           error: 'Northflank deployment is not configured.',
           missing,
+          fallback: 'Set GITHUB_TOKEN and use strategy=github to deploy through GitHub Actions when the app/container cannot reach Northflank directly.',
         },
         { status: 503 }
       );
@@ -103,52 +169,69 @@ export async function POST(req: NextRequest) {
       if (branch) payload.branch = branch;
     }
 
-    const response = await fetch(
-      `https://api.northflank.com/v1/projects/${encodeURIComponent(
-        projectId!
-      )}/services/${encodeURIComponent(serviceId!)}/build`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(payload),
-        cache: 'no-store',
-      }
-    );
-
-    const text = await response.text();
-    const data = parseResponseBody(text);
-
-    if (!response.ok) {
-      logger.error(
-        'Northflank build trigger failed',
-        new Error(
-          `Northflank ${target} build failed with ${response.status}: ${text}`
-        )
-      );
-      return northflankJson(
+    try {
+      const response = await fetch(
+        `https://api.northflank.com/v1/projects/${encodeURIComponent(
+          projectId!
+        )}/services/${encodeURIComponent(serviceId!)}/build`,
         {
-          error: 'Northflank build trigger failed.',
-          status: response.status,
-          details: data,
-        },
-        { status: response.status }
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+          cache: 'no-store',
+        }
       );
-    }
 
-    return northflankJson({
-      ok: true,
-      target,
-      projectId,
-      serviceId,
-      branch: branch || null,
-      sha: sha || null,
-      bundleUrl: bundleUrl || null,
-      build: data,
-    });
+      const text = await response.text();
+      const data = parseResponseBody(text);
+
+      if (!response.ok) {
+        logger.error(
+          'Northflank build trigger failed',
+          new Error(
+            `Northflank ${target} build failed with ${response.status}: ${text}`
+          )
+        );
+        return northflankJson(
+          {
+            error: 'Northflank build trigger failed.',
+            status: response.status,
+            details: data,
+          },
+          { status: response.status }
+        );
+      }
+
+      return northflankJson({
+        ok: true,
+        strategy: 'direct_northflank',
+        target,
+        projectId,
+        serviceId,
+        branch: branch || null,
+        sha: sha || null,
+        bundleUrl: bundleUrl || null,
+        build: data,
+      });
+    } catch (error: unknown) {
+      if (
+        strategy === 'auto' &&
+        configured(process.env.GITHUB_TOKEN || process.env.GH_TOKEN)
+      ) {
+        const workflow = await dispatchGitHubDeployWorkflow(target, branch);
+        return northflankJson({
+          ...workflow,
+          fallbackReason: 'direct_northflank_network_failed',
+          directError: toErrorMessage(error),
+        });
+      }
+
+      throw error;
+    }
   } catch (error: unknown) {
     logger.error(
       'Northflank build route error',

@@ -69,6 +69,11 @@ export async function GET() {
         ok: githubTokenConfigured,
         required: ['GITHUB_TOKEN'],
       },
+      deployRelay: {
+        ok: githubTokenConfigured,
+        required: ['GITHUB_TOKEN'],
+        note: 'Dispatches Northflank deploy workflows through GitHub Actions when direct container egress is blocked.',
+      },
       northflank: {
         ok: northflankTokenConfigured && northflankProjectConfigured,
         required: ['NORTHFLANK_API_TOKEN', 'NORTHFLANK_PROJECT_ID'],

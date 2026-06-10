@@ -233,20 +233,20 @@ export default function DevStudioPage() {
   const triggerNorthflankBuild = async (target: 'public' | 'admin' | 'lms') => {
     setLoading(true);
     addTerminalOutput(
-      `🚀 Triggering Northflank ${target} build on ${branch}...`
+      `🚀 Dispatching Northflank ${target} deploy workflow on ${branch}...`
     );
 
     try {
       const res = await fetch('/api/dev-studio/northflank/build', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ target, branch }),
+        body: JSON.stringify({ target, branch, strategy: 'github' }),
       });
       const data = await res.json();
 
       if (res.ok) {
         addTerminalOutput(
-          `<CheckCircle className="w-5 h-5 inline-block" /> Northflank ${target} build triggered`
+          `<CheckCircle className="w-5 h-5 inline-block" /> Northflank ${target} deploy dispatched via ${data.strategy || 'workflow'}`
         );
       } else {
         addTerminalOutput(
