@@ -1,7 +1,8 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 import { NextRequest, NextResponse } from 'next/server';
+import { requireDevStudioAccess } from '@/lib/auth/dev-studio-access';
 import { gh, parseRepo } from '@/lib/github';
 import { marked } from 'marked';
 import { logger } from '@/lib/logger';
@@ -18,6 +19,9 @@ function escapeHtml(text: string): string {
 }
 
 export async function GET(req: NextRequest) {
+  const unauthorized = await requireDevStudioAccess();
+  if (unauthorized) return unauthorized;
+
   const { searchParams } = new URL(req.url);
   const repo = searchParams.get('repo');
   const ref = searchParams.get('ref') || 'main';

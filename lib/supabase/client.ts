@@ -1,7 +1,5 @@
 import { createBrowserClient } from '@supabase/ssr';
-import type { SupabaseClient } from '@supabase/supabase-js';
-
-export function createClient(): SupabaseClient<any> | any {
+export function createClient(): any {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -22,18 +20,25 @@ export function createClient(): SupabaseClient<any> | any {
           select: () => ({
             eq: () => ({
               single: () => ({ data: null, error: null }),
-              then: (data: unknown) => resolve({ data: [], error: null }),
+              then: (
+                resolve: (value: { data: unknown[]; error: null }) => void
+              ) => resolve({ data: [], error: null }),
             }),
-            then: (data: unknown) => resolve({ data: [], error: null }),
+            then: (
+              resolve: (value: { data: unknown[]; error: null }) => void
+            ) => resolve({ data: [], error: null }),
           }),
           insert: () => ({
-            then: (data: unknown) => resolve({ data: null, error: null }),
+            then: (resolve: (value: { data: null; error: null }) => void) =>
+              resolve({ data: null, error: null }),
           }),
           update: () => ({
-            then: (data: unknown) => resolve({ data: null, error: null }),
+            then: (resolve: (value: { data: null; error: null }) => void) =>
+              resolve({ data: null, error: null }),
           }),
           delete: () => ({
-            then: (data: unknown) => resolve({ data: null, error: null }),
+            then: (resolve: (value: { data: null; error: null }) => void) =>
+              resolve({ data: null, error: null }),
           }),
         }),
       } as unknown;

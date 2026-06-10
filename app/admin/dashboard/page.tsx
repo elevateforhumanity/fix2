@@ -66,7 +66,11 @@ export default async function AdminDashboardOrchestrated() {
     );
   }
 
-  if (!['admin', 'super_admin', 'org_admin'].includes(profile.role)) {
+  if (
+    !['admin', 'super_admin', 'org_admin', 'platform_operator'].includes(
+      profile.role
+    )
+  ) {
     throw new Error(
       `[ADMIN ROLE] Unauthorized: user_id=${user.id}, email=${profile.email}, role="${profile.role}"`
     );

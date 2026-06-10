@@ -190,6 +190,7 @@ export async function proxy(request: NextRequest) {
     admin: '/admin/dashboard',
     super_admin: '/admin/dashboard',
     org_admin: '/admin/dashboard',
+    platform_operator: '/admin/dashboard',
     program_holder: '/program-holder/dashboard',
     employer: '/employer/dashboard',
     staff: '/staff-portal/dashboard',
@@ -213,7 +214,7 @@ export async function proxy(request: NextRequest) {
 
   if (
     pathname.startsWith('/admin') &&
-    !['admin', 'super_admin', 'org_admin'].includes(role)
+    !['admin', 'super_admin', 'org_admin', 'platform_operator'].includes(role)
   ) {
     return NextResponse.redirect(new URL('/unauthorized', request.url));
   }
