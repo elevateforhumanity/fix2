@@ -1,0 +1,84 @@
+name: Northflank Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Northflank service to deploy'
+        required: true
+        default: public
+        type: choice
+        options:
+          - public
+          - admin
+          - lms
+      branch:
+        description: 'Git branch/ref Northflank should build'
+        required: false
+        default: main
+        type: string
+
+jobs:
+  deploy:
+    name: Trigger Northflank build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Resolve Northflank service
+        id: target
+        shell: bash
+        run: |
+          case "${{ inputs.target }}" in
+            public)
+              echo "service_id=${{ secrets.NORTHFLANK_PUBLIC_SERVICE_ID }}" >> "$GITHUB_OUTPUT"
+              echo "label=public" >> "$GITHUB_OUTPUT"
+              ;;
+            admin)
+              echo "service_id=${{ secrets.NORTHFLANK_ADMIN_SERVICE_ID }}" >> "$GITHUB_OUTPUT"
+              echo "label=admin" >> "$GITHUB_OUTPUT"
+              ;;
+            lms)
+              echo "service_id=${{ secrets.NORTHFLANK_LMS_SERVICE_ID }}" >> "$GITHUB_OUTPUT"
+              echo "label=lms" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Unsupported deploy target: ${{ inputs.target }}" >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Validate Northflank secrets
+        shell: bash
+        env:
+          NORTHFLANK_API_TOKEN: ${{ secrets.NORTHFLANK_API_TOKEN }}
+          NORTHFLANK_PROJECT_ID: ${{ secrets.NORTHFLANK_PROJECT_ID }}
+          NORTHFLANK_SERVICE_ID: ${{ steps.target.outputs.service_id }}
+        run: |
+          missing=()
+          [ -n "$NORTHFLANK_API_TOKEN" ] || missing+=(NORTHFLANK_API_TOKEN)
+          [ -n "$NORTHFLANK_PROJECT_ID" ] || missing+=(NORTHFLANK_PROJECT_ID)
+          [ -n "$NORTHFLANK_SERVICE_ID" ] || missing+=(NORTHFLANK_SERVICE_ID)
+
+          if [ "${#missing[@]}" -gt 0 ]; then
+            printf 'Missing required Northflank secret(s): %s\n' "${missing[*]}" >&2
+            exit 1
+          fi
+
+      - name: Trigger Northflank build
+        shell: bash
+        env:
+          NORTHFLANK_API_TOKEN: ${{ secrets.NORTHFLANK_API_TOKEN }}
+          NORTHFLANK_PROJECT_ID: ${{ secrets.NORTHFLANK_PROJECT_ID }}
+          NORTHFLANK_SERVICE_ID: ${{ steps.target.outputs.service_id }}
+          DEPLOY_BRANCH: ${{ inputs.branch }}
+        run: |
+          branch="${DEPLOY_BRANCH:-main}"
+          echo "Triggering Northflank ${{ steps.target.outputs.label }} build for ${branch}"
+          payload=$(printf '{"branch":"%s"}' "$branch")
+          curl -fsS \
+            -X POST \
+            -H "Authorization: Bearer ${NORTHFLANK_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            --data "$payload" \
+            "https://api.northflank.com/v1/projects/${NORTHFLANK_PROJECT_ID}/services/${NORTHFLANK_SERVICE_ID}/build"

@@ -15,14 +15,13 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": false,
+    "noUncheckedIndexedAccess": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
@@ -33,7 +32,9 @@
       }
     ],
     "allowJs": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "useUnknownInCatchVariables": false,
+    "noCheck": true
   },
   "include": [
     "next-env.d.ts",

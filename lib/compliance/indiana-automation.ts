@@ -136,6 +136,7 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
 
     // Log to monitoring system instead of console
     if (process.env.NODE_ENV === 'development') {
+      console.info(
         `[Indiana Compliance] Found ${programHolders.length} program holders to check`
       );
     }
@@ -146,6 +147,7 @@ export async function runDailyIndianaComplianceCheck(): Promise<{
     for (let i = 0; i < batches.length; i++) {
       const batch = batches[i];
       if (process.env.NODE_ENV === 'development') {
+        console.info(
           `[Indiana Compliance] Processing batch ${i + 1}/${batches.length} (${batch.length} program holders)`
         );
       }
@@ -687,6 +689,7 @@ async function sendAlert(alert: AlertToSend): Promise<void> {
   // Send alert via appropriate channels
   // This would integrate with email service, SMS service, etc.
   if (process.env.NODE_ENV === 'development') {
+    console.info(
       `[Alert] Sending ${alert.level} alert to ${alert.programHolderId}`
     );
   }
@@ -703,6 +706,7 @@ async function executeEnforcementAction(
 ): Promise<void> {
   // Execute enforcement action
   if (process.env.NODE_ENV === 'development') {
+    console.info(
       `[Enforcement] Executing ${action.action} for ${action.programHolderId}`
     );
   }

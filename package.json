@@ -168,12 +168,10 @@
     "clean:full": "rimraf node_modules dist .vite .turbo .next out && pnpm store prune",
     "autopilot": "node workers/start-autopilot.js",
     "autopilot:bg": "node workers/start-autopilot.js &",
-
     "dev:with-autopilot": "pnpm autopilot:bg && pnpm dev",
     "predev": "bash scripts/setup-env-auto.sh || true && node scripts/generate-course-covers.mjs && echo 'Starting dev server...'",
     "dev": "next dev",
     "setup:env": "bash scripts/setup-env-auto.sh",
-
     "env:setup": "bash setup-env-quick.sh",
     "cleanup:console": "node scripts/cleanup-console-statements.mjs",
     "cleanup:root": "bash cleanup-root.sh",
@@ -198,7 +196,6 @@
     "verify:pwa": "node scripts/verify-pwa.cjs",
     "generate:vapid": "node scripts/generate-vapid-keys.cjs",
     "generate:icons": "python3 scripts/generate-icons.py",
-
     "start": "next start",
     "preview": "next start",
     "preview:serve": "serve -c serve.json -l 8080 --no-clipboard",
@@ -270,7 +267,9 @@
     "migrate:ai": "node scripts/run-ai-instructor-migration.mjs",
     "test:affirm": "node scripts/test-affirm-payment.mjs",
     "check:stripe": "bash scripts/pull-and-check-stripe.sh",
-    "check-env": "node -e \"if (!require(\\\"fs\\\").existsSync(\\\".env.local\\\")) { console.error(\\\"❌ .env.local not found! Run: ./setup-env.sh\\\"); process.exit(1); } else { console.log(\\\"✅ .env.local exists\\\"); }\""
+    "check-env": "node -e \"if (!require(\\\"fs\\\").existsSync(\\\".env.local\\\")) { console.error(\\\"❌ .env.local not found! Run: ./setup-env.sh\\\"); process.exit(1); } else { console.log(\\\"✅ .env.local exists\\\"); }\"",
+    "check:duplicate-pages": "node scripts/find-duplicate-app-routes.mjs",
+    "audit:egress": "tsx scripts/audit-container-egress.mjs"
   },
   "overrides": {
     "inflight": "npm:lru-cache@^10.0.0"

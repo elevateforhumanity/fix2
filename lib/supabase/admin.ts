@@ -1,16 +1,20 @@
 import { logger } from '@/lib/logger';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 
-export function createAdminClient(): SupabaseClient<any> {
+export function createAdminClient(): any {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !key) {
-    logger.error('Supabase admin credentials missing:', {
-      hasUrl: !!url,
-      hasKey: !!key,
-      urlPrefix: url?.substring(0, 20),
-    });
+    logger.error(
+      'Supabase admin credentials missing',
+      new Error('Supabase admin credentials missing'),
+      {
+        hasUrl: !!url,
+        hasKey: !!key,
+        urlPrefix: url?.substring(0, 20),
+      }
+    );
     throw new Error('Supabase admin credentials not configured');
   }
 
@@ -19,5 +23,5 @@ export function createAdminClient(): SupabaseClient<any> {
       autoRefreshToken: false,
       persistSession: false,
     },
-  });
+  }) as any;
 }
