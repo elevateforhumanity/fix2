@@ -48,6 +48,10 @@ export async function GET() {
   const adminSiteConfigured = configured(
     process.env.NORTHFLANK_ADMIN_SERVICE_ID
   );
+  const lmsSiteConfigured = configured(process.env.NORTHFLANK_LMS_SERVICE_ID);
+  const northflankProjectConfigured = configured(
+    process.env.NORTHFLANK_PROJECT_ID
+  );
 
   return NextResponse.json({
     ok: canUseDevStudio,
@@ -66,11 +70,12 @@ export async function GET() {
         required: ['GITHUB_TOKEN'],
       },
       northflank: {
-        ok: northflankTokenConfigured,
-        required: ['NORTHFLANK_API_TOKEN'],
+        ok: northflankTokenConfigured && northflankProjectConfigured,
+        required: ['NORTHFLANK_API_TOKEN', 'NORTHFLANK_PROJECT_ID'],
         services: {
           publicSite: publicSiteConfigured,
           adminDashboard: adminSiteConfigured,
+          lms: lmsSiteConfigured,
         },
       },
       preview: {

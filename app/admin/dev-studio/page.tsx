@@ -568,6 +568,14 @@ export default function DevStudioPage() {
           >
             Deploy Admin
           </button>
+
+          <button
+            onClick={() => triggerNorthflankBuild('lms')}
+            disabled={loading}
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 rounded"
+          >
+            Deploy LMS
+          </button>
         </div>
       </div>
 
