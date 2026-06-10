@@ -1,16 +1,23 @@
-import { gh, parseRepo } from "@/lib/github";
+import { gh, parseRepo } from '@/lib/github';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const maxDuration = 60;
 import { logger } from '@/lib/logger';
 import { toError, toErrorMessage } from '@/lib/safe';
+import { requireDevStudioAccess } from '@/lib/auth/dev-studio-access';
 
 export async function POST(req: Request) {
+  const unauthorized = await requireDevStudioAccess();
+  if (unauthorized) return unauthorized;
+
   try {
     const { sourceRepo, newRepoName } = await req.json();
 
     if (!sourceRepo || !newRepoName) {
-      return Response.json({ error: "Missing required fields" }, { status: 400 });
+      return Response.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
     const client = gh();
@@ -43,7 +50,10 @@ export async function POST(req: Request) {
     } catch (templateError) {
       // If template method fails, return the empty repo
       // In production, you'd implement a full clone via git commands
-      logger.warn("Template clone failed, returning empty repo:", templateError);
+      logger.warn(
+        'Template clone failed, returning empty repo:',
+        templateError
+      );
     }
 
     return Response.json({

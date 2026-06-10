@@ -35,7 +35,11 @@ export async function requireAdmin() {
     redirect('/login?next=/admin&error=profile_not_found');
   }
 
-  if (profile.role !== 'admin' && profile.role !== 'super_admin') {
+  if (
+    !['admin', 'super_admin', 'org_admin', 'platform_operator'].includes(
+      profile.role
+    )
+  ) {
     redirect('/unauthorized?reason=admin_required');
   }
 
@@ -64,7 +68,9 @@ export async function isAdmin(): Promise<boolean> {
       .eq('id', user.id)
       .single();
 
-    return profile?.role === 'admin' || profile?.role === 'super_admin';
+    return ['admin', 'super_admin', 'org_admin', 'platform_operator'].includes(
+      profile?.role
+    );
   } catch {
     return false;
   }

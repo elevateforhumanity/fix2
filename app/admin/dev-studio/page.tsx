@@ -23,6 +23,28 @@ import {
   XCircle,
 } from 'lucide-react';
 
+type GitHubRepo = {
+  full_name: string;
+  default_branch?: string;
+};
+
+type GitHubBranch = {
+  name: string;
+};
+
+type GitHubWorkflow = {
+  id: number;
+  name: string;
+  path: string;
+  state: string;
+};
+
+type DevStudioStatus = {
+  ok: boolean;
+  auth?: { ok: boolean; role?: string | null; reason?: string | null };
+  integrations?: Record<string, { ok: boolean; required?: string[] }>;
+};
+
 export const dynamicParams = true;
 
 // Lazy load Monaco to avoid SSR issues
@@ -55,11 +77,14 @@ export default function DevStudioPage() {
 
   // GitHub state
   const [token, setToken] = useState<string>('');
-  const [repos, setRepos] = useState<unknown[]>([]);
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<string>(
     'elevateforhumanity/fix2'
   );
   const [branch, setBranch] = useState<string>('main');
+  const [branches, setBranches] = useState<GitHubBranch[]>([]);
+  const [workflows, setWorkflows] = useState<GitHubWorkflow[]>([]);
+  const [status, setStatus] = useState<DevStudioStatus | null>(null);
 
   // File state
   const [files, setFiles] = useState<string[]>([]);
@@ -76,6 +101,9 @@ export default function DevStudioPage() {
   ]);
   const [showCourseFilesOnly, setShowCourseFilesOnly] = useState(false);
 
+  const githubHeaders = (ghToken = token) =>
+    ghToken ? { 'x-gh-token': ghToken } : {};
+
   // Load GitHub token from localStorage
   useEffect(() => {
     const storedToken = localStorage.getItem('gh_token');
@@ -89,15 +117,149 @@ export default function DevStudioPage() {
     }
   }, []);
 
+  useEffect(() => {
+    fetch('/api/dev-studio/status')
+      .then((res) => res.json())
+      .then((data) => setStatus(data))
+      .catch(() =>
+        setStatus({
+          ok: false,
+          auth: { ok: false, reason: 'status_check_failed' },
+        })
+      );
+  }, []);
+
   // Load repos when token changes
   useEffect(() => {
-    if (token && selectedRepo) {
+    if (selectedRepo) {
+      loadBranches();
+      loadWorkflows();
       loadFileTree();
     }
   }, [token, selectedRepo, branch]);
 
   const addTerminalOutput = (message: string) => {
     setTerminalOutput((prev) => [...prev, `$ ${message}`]);
+  };
+
+  const loadBranches = async () => {
+    if (!selectedRepo) return;
+
+    try {
+      const url = new URL('/api/github/branches', window.location.origin);
+      url.searchParams.set('repo', selectedRepo);
+      const res = await fetch(url, { headers: githubHeaders() });
+      const data = await res.json();
+
+      if (res.ok) {
+        setBranches(data);
+        if (!data.some((item: GitHubBranch) => item.name === branch)) {
+          setBranch(data[0]?.name || 'main');
+        }
+      } else {
+        addTerminalOutput(
+          `<XCircle className="w-5 h-5 inline-block" /> Failed to load branches: ${data.message || data.error}`
+        );
+      }
+    } catch {
+      addTerminalOutput(
+        '<XCircle className="w-5 h-5 inline-block" /> Error loading branches'
+      );
+    }
+  };
+
+  const loadWorkflows = async () => {
+    if (!selectedRepo) return;
+
+    try {
+      const url = new URL('/api/github/workflows', window.location.origin);
+      url.searchParams.set('repo', selectedRepo);
+      const res = await fetch(url, { headers: githubHeaders() });
+      const data = await res.json();
+
+      if (res.ok) {
+        setWorkflows(data.workflows || []);
+      } else {
+        addTerminalOutput(
+          `<XCircle className="w-5 h-5 inline-block" /> Failed to load workflows: ${data.message || data.error}`
+        );
+      }
+    } catch {
+      addTerminalOutput(
+        '<XCircle className="w-5 h-5 inline-block" /> Error loading workflows'
+      );
+    }
+  };
+
+  const dispatchWorkflow = async (workflowPath: string) => {
+    if (!selectedRepo || !workflowPath) return;
+
+    setLoading(true);
+    addTerminalOutput(`▶ Dispatching ${workflowPath} on ${branch}...`);
+
+    try {
+      const res = await fetch('/api/github/workflows', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...githubHeaders(),
+        },
+        body: JSON.stringify({
+          repo: selectedRepo,
+          workflowId: workflowPath,
+          ref: branch,
+        }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        addTerminalOutput(
+          `<CheckCircle className="w-5 h-5 inline-block" /> Workflow dispatched: ${workflowPath}`
+        );
+      } else {
+        addTerminalOutput(
+          `<XCircle className="w-5 h-5 inline-block" /> Workflow failed: ${data.message || data.error}`
+        );
+      }
+    } catch {
+      addTerminalOutput(
+        '<XCircle className="w-5 h-5 inline-block" /> Error dispatching workflow'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const triggerNorthflankBuild = async (target: 'public' | 'admin' | 'lms') => {
+    setLoading(true);
+    addTerminalOutput(
+      `🚀 Dispatching Northflank ${target} deploy workflow on ${branch}...`
+    );
+
+    try {
+      const res = await fetch('/api/dev-studio/northflank/build', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ target, branch, strategy: 'github' }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        addTerminalOutput(
+          `<CheckCircle className="w-5 h-5 inline-block" /> Northflank ${target} deploy dispatched via ${data.strategy || 'workflow'}`
+        );
+      } else {
+        addTerminalOutput(
+          `<XCircle className="w-5 h-5 inline-block" /> Northflank ${target} build failed: ${data.missing?.join(', ') || data.error}`
+        );
+      }
+    } catch {
+      addTerminalOutput(
+        `<XCircle className="w-5 h-5 inline-block" /> Error triggering Northflank ${target} build`
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const connectGitHub = () => {
@@ -118,7 +280,7 @@ export default function DevStudioPage() {
     setLoading(true);
     try {
       const res = await fetch('/api/github/repos', {
-        headers: { 'x-gh-token': ghToken },
+        headers: githubHeaders(ghToken),
       });
 
       if (res.ok) {
@@ -152,11 +314,13 @@ export default function DevStudioPage() {
       url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('ref', branch);
 
-      const res = await fetch(url);
+      const res = await fetch(url, { headers: githubHeaders() });
       const data = await res.json();
 
       if (res.ok) {
-        const filePaths = data.files.map((f: Record<string, unknown>) => f.path);
+        const filePaths = data.files.map(
+          (f: Record<string, unknown>) => f.path
+        );
         setFiles(filePaths);
         addTerminalOutput(
           `<CheckCircle className="w-5 h-5 inline-block" /> Loaded ${filePaths.length} files`
@@ -187,7 +351,7 @@ export default function DevStudioPage() {
       url.searchParams.set('path', path);
       url.searchParams.set('ref', branch);
 
-      const res = await fetch(url);
+      const res = await fetch(url, { headers: githubHeaders() });
       const data = await res.json();
 
       if (res.ok) {
@@ -221,7 +385,10 @@ export default function DevStudioPage() {
     try {
       const res = await fetch('/api/github/file', {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...githubHeaders(),
+        },
         body: JSON.stringify({
           repo: selectedRepo,
           path: selectedFile,
@@ -241,9 +408,8 @@ export default function DevStudioPage() {
         );
         addTerminalOutput(`   Commit: ${data.commit.substring(0, 7)}`);
       } else {
-        const error = await res.json();
         addTerminalOutput(
-          `<XCircle className="w-5 h-5 inline-block" /> Failed to save: ${error instanceof Error ? error.message : String(error)}`
+          `<XCircle className="w-5 h-5 inline-block" /> Failed to save: ${data.message || data.error}`
         );
       }
     } catch (error: unknown) {
@@ -310,10 +476,22 @@ export default function DevStudioPage() {
                 ))}
               </select>
 
-              <div className="flex items-center gap-1 text-sm text-gray-400">
+              <label className="flex items-center gap-1 text-sm text-gray-300">
                 <GitBranch className="w-4 h-4" />
-                <span>{branch}</span>
-              </div>
+                <select
+                  value={branch}
+                  onChange={(e) => setBranch(e.target.value)}
+                  className="bg-slate-700 text-white px-2 py-1 rounded text-sm"
+                >
+                  {(branches.length ? branches : [{ name: branch }]).map(
+                    (item) => (
+                      <option key={item.name} value={item.name}>
+                        {item.name}
+                      </option>
+                    )
+                  )}
+                </select>
+              </label>
             </div>
           ) : (
             <button
@@ -351,12 +529,75 @@ export default function DevStudioPage() {
             Save
           </button>
 
-          <button className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 hover:bg-brand-blue-700 rounded">
+          <button
+            onClick={() => dispatchWorkflow('.github/workflows/ci-cd.yml')}
+            disabled={loading}
+            className="flex items-center gap-2 px-4 py-2 bg-brand-blue-600 hover:bg-brand-blue-700 disabled:bg-gray-600 rounded"
+          >
             <Play className="w-4 h-4" />
-            Run
+            Run CI
+          </button>
+
+          <select
+            value=""
+            onChange={(e) => {
+              if (e.target.value) dispatchWorkflow(e.target.value);
+            }}
+            className="bg-slate-700 text-white px-3 py-2 rounded text-sm"
+          >
+            <option value="">Dispatch workflow...</option>
+            {workflows.map((workflow) => (
+              <option key={workflow.id} value={workflow.path}>
+                {workflow.name}
+              </option>
+            ))}
+          </select>
+
+          <button
+            onClick={() => triggerNorthflankBuild('public')}
+            disabled={loading}
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 rounded"
+          >
+            Deploy Site
+          </button>
+
+          <button
+            onClick={() => triggerNorthflankBuild('admin')}
+            disabled={loading}
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 rounded"
+          >
+            Deploy Admin
+          </button>
+
+          <button
+            onClick={() => triggerNorthflankBuild('lms')}
+            disabled={loading}
+            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 rounded"
+          >
+            Deploy LMS
           </button>
         </div>
       </div>
+
+      {/* Studio Health */}
+      {status && (
+        <div className="bg-slate-950 border-b border-slate-700 px-4 py-2 text-xs text-slate-300 flex flex-wrap gap-3">
+          <span className={status.auth?.ok ? 'text-green-300' : 'text-red-300'}>
+            Auth: {status.auth?.role || status.auth?.reason || 'unknown'}
+          </span>
+          {Object.entries(status.integrations || {}).map(([name, item]) => (
+            <span
+              key={name}
+              className={item.ok ? 'text-green-300' : 'text-amber-300'}
+            >
+              {name}:{' '}
+              {item.ok
+                ? 'ready'
+                : `missing ${item.required?.join(', ') || 'config'}`}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Main Layout */}
       <div className="flex-1 flex overflow-hidden">
@@ -403,7 +644,14 @@ export default function DevStudioPage() {
 
         {/* Preview Panel */}
         <div className="w-96 border-l border-slate-700">
-          <PreviewPanel url="http://localhost:3000" filePath={selectedFile} />
+          <PreviewPanel
+            url={`/api/preview/render?repo=${encodeURIComponent(
+              selectedRepo
+            )}&ref=${encodeURIComponent(branch)}&path=${encodeURIComponent(
+              selectedFile || 'README.md'
+            )}`}
+            filePath={selectedFile}
+          />
         </div>
 
         {/* CTA Section */}
