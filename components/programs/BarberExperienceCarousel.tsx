@@ -5,28 +5,28 @@ import { useEffect, useState } from 'react';
 
 const slides = [
   {
-    image: '/images/efh-barber-hero.jpg',
+    image: '/images/barber-hero.jpg',
     alt: 'Barber apprentice cutting hair in a working barbershop',
     eyebrow: 'EARN WHILE YOU LEARN',
     title: 'Get paid while you build your barber skills.',
     body: 'Train in a real barber shop, work beside experienced barbers, build required apprenticeship hours, and gain real client experience while you learn.',
   },
   {
-    image: '/images/efh-barber-card.jpg',
+    image: '/images/barber-highlight-1.jpg',
     alt: 'Barber apprentice working with a client in the shop',
     eyebrow: 'REAL CLIENT EXPERIENCE',
     title: 'Build confidence behind the chair.',
     body: 'Develop your technique, customer service, speed, professionalism, and confidence in the environment where barbers actually work.',
   },
   {
-    image: '/images/hero-new/hero-3.jpg',
+    image: '/images/barber-highlight-2.jpg',
     alt: 'Licensed barber mentoring an apprentice during hands-on training',
     eyebrow: 'MENTORSHIP IN THE SHOP',
     title: 'Learn beside working professionals.',
     body: 'Your host shop provides supervised hands-on experience while Elevate supports the apprenticeship structure, related instruction, progress tracking, and documentation.',
   },
   {
-    image: '/images/hero-new/hero-4.jpg',
+    image: '/images/barber-professional.jpg',
     alt: 'Barber standing at a professional workstation in a barbershop',
     eyebrow: 'BUILD YOUR INCOME',
     title: 'Work, grow your clientele, and earn tips when permitted.',
