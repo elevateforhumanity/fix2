@@ -1,702 +1,258 @@
-import { OptimizedVideo } from '@/components/OptimizedVideo';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { programs } from '@/app/data/programs';
-import ReactMarkdown from 'react-markdown';
 import {
-  GraduationCap,
-  Clock,
-  DollarSign,
-  MapPin,
-  CheckCircle,
-  Users,
-  ExternalLink,
-  FileText,
-  Award,
-  Lightbulb,
-  Sparkles,
-  Rocket,
-  Target,
+  BadgeDollarSign,
+  BriefcaseBusiness,
+  CheckCircle2,
+  Clock3,
+  Scissors,
+  Store,
   TrendingUp,
+  Users,
 } from 'lucide-react';
+import { BarberExperienceCarousel } from '@/components/programs/BarberExperienceCarousel';
 
 export const metadata: Metadata = {
-  title:
-    'Barber Apprenticeship Indiana | Earn While You Learn | DOL Registered | Indianapolis',
+  title: 'Barber Apprenticeship Indiana | Get Paid While You Learn | Elevate for Humanity',
   description:
-    'DOL-registered barber apprenticeship in Indianapolis. Earn $12-15/hour while training. Get matched to licensed barber shop, receive hands-on training, earn Indiana barber license. State Board approved. RAPIDS ID: 2025-IN-132301.',
+    'Train in a real Indiana barber shop through a registered barber apprenticeship. Build hands-on hours, work with clients under supervision, earn wages through your employer arrangement, and explore flexible self-pay options.',
   keywords:
-    'barber apprenticeship Indiana, earn while you learn barber, DOL registered apprenticeship, Indiana barber license, barber training Indianapolis, paid barber training, State Board approved barber, barber school Indianapolis, apprenticeship barber program Indiana',
+    'barber apprenticeship Indiana, get paid to learn barbering, earn while you learn barber, barber apprenticeship Indianapolis, barber host shop, barber apprentice tips, barber payment plan',
 };
 
+const highlights = [
+  {
+    icon: BadgeDollarSign,
+    title: 'Get Paid to Learn',
+    body: 'Your apprenticeship combines structured learning with paid on-the-job training through your employer or host-shop arrangement.',
+  },
+  {
+    icon: Store,
+    title: 'Train in a Real Shop',
+    body: 'Build your skills where barbers actually work instead of spending your entire program sitting in a classroom.',
+  },
+  {
+    icon: Users,
+    title: 'Work With Real Clients',
+    body: 'Develop confidence, customer service, professionalism, and hands-on barbering skills under appropriate supervision.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Build Income Potential',
+    body: 'As your skills grow, you build experience and clientele. Tips may also be available depending on shop policy and applicable requirements.',
+  },
+];
+
 export default function BarberApprenticeshipPage() {
-  const barberProgram = programs.find(
-    (p) => p.slug === 'barber-apprenticeship'
-  );
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      <section className="relative w-full -mt-[72px]">
-        <div className="relative min-h-[100vh] sm:min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </section>
-
-      {/* Hero Content */}
-      <section className="bg-gray-50">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="px-3 py-1 bg-green-500 text-white text-sm font-medium rounded-full">
-              Free with funding
-            </span>
-            <span className="px-3 py-1 bg-brand-orange-600 text-white text-sm font-medium rounded-full">
-              Earn While You Learn
-            </span>
-            <span className="px-3 py-1 bg-brand-blue-600 text-white text-sm font-medium rounded-full">
-              DOL Registered
-            </span>
-          </div>
-
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl text-gray-900">
-            Barber Apprenticeship: Earn while you learn
-          </h1>
-
-          <p className="mt-4 max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed">
-            Get matched to a licensed barber shop, receive hands-on training,
-            and earn your Indiana barber license through our DOL-registered
-            apprenticeship program. Earn $12-15/hour while training.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
-            >
-              Apply for Free Training
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
-            >
-              Talk to an Advisor
-            </Link>
-          </div>
-
-          {/* Payment Options for Self-Pay */}
-          <div className="mt-8 p-6 bg-amber-50 border-2 border-amber-300 rounded-lg max-w-2xl">
-            <div className="flex items-start gap-3 mb-4">
-              <DollarSign className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-              <div className="w-full">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Can't Get Funded? No Problem!
-                </h3>
-                <p className="text-slate-700 mb-4">
-                  If you don't qualify for WIOA, WRG, or JRI funding, you can
-                  still enroll with flexible payment options:
-                </p>
-
-                {/* Pricing */}
-                <div className="bg-white rounded-lg p-4 mb-4 border-2 border-amber-200">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl font-bold text-slate-900">
-                      $4,950
-                    </span>
-                    <span className="text-slate-600">total program cost</span>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    15-17 month apprenticeship • Earn while you learn
-                  </p>
-                </div>
-
-                {/* Payment Buttons */}
-                <div className="space-y-3">
-                  {/* Stripe Payment */}
-                  <Link
-                    href="/checkout/barber-apprenticeship?method=stripe"
-                    className="w-full flex items-center justify-between px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <svg
-                        className="w-6 h-6"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z" />
-                      </svg>
-                      <div className="text-left">
-                        <div className="font-bold">Pay with Stripe</div>
-                        <div className="text-sm text-blue-100">
-                          Secure one-time payment
-                        </div>
-                      </div>
-                    </div>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </Link>
-
-                  {/* Affirm Payment */}
-                  <Link
-                    href="/checkout/barber-apprenticeship?method=affirm"
-                    className="w-full flex items-center justify-between px-6 py-4 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <svg
-                        className="w-6 h-6"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M10.5 17.5h3v-11h-3v11zm-7 0h3v-7h-3v7zm14-11v11h3v-11h-3z" />
-                      </svg>
-                      <div className="text-left">
-                        <div className="font-bold">Pay with Affirm</div>
-                        <div className="text-sm text-blue-100">
-                          As low as $206/month • 0% APR available
-                        </div>
-                      </div>
-                    </div>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-
-                <p className="text-xs text-slate-600 mt-3 text-center">
-                  <Lightbulb className="w-5 h-5 inline-block" /> Most students
-                  qualify for 100% FREE training through WIOA funding.{' '}
-                  <Link href="/funding" className="text-blue-600 underline">
-                    Check eligibility
-                  </Link>
-                </p>
-              </div>
+    <main className="bg-white text-slate-950">
+      <section className="relative overflow-hidden bg-slate-950 text-white">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
+        >
+          <source src="/videos/barber-hero-final.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+        <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-36 lg:py-44">
+          <div className="max-w-4xl">
+            <div className="flex flex-wrap gap-2">
+              <span className="rounded-full bg-orange-500 px-4 py-2 text-sm font-black uppercase tracking-wide text-white">
+                Earn While You Learn
+              </span>
+              <span className="rounded-full bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur">
+                Registered Apprenticeship
+              </span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Comprehensive Program Details from programs.ts */}
-      {barberProgram && barberProgram.longDescription && (
-        <section className="py-8 md:py-12 bg-white">
-          <div className="max-w-4xl mx-auto px-6">
-            <div
-              className="prose prose-lg prose-slate max-w-none
-              prose-headings:font-bold prose-headings:text-slate-900
-              prose-h2:text-3xl prose-h2:mt-6 prose-h2:mb-4
-              prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-3
-              prose-h4:text-xl prose-h4:mt-3 prose-h4:mb-2
-              prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-4
-              prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
-              prose-strong:text-slate-900 prose-strong:font-bold
-              prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
-              prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
-              prose-li:text-slate-700 prose-li:my-2
-              prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:pl-4 prose-blockquote:italic
-              prose-code:text-sm prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-              prose-table:w-full prose-table:border-collapse
-              prose-th:bg-slate-100 prose-th:p-3 prose-th:text-left prose-th:font-bold prose-th:border prose-th:border-slate-300
-              prose-td:p-3 prose-td:border prose-td:border-slate-300
-            "
-            >
-              <ReactMarkdown>{barberProgram.longDescription}</ReactMarkdown>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* What is a Registered Apprenticeship */}
-      <section className="py-20 md:py-24 bg-blue-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-            What is a Registered Apprenticeship?
-          </h2>
-          <div className="bg-white border-2 border-blue-200 rounded-xl p-6 md:p-8">
-            <p className="text-lg text-gray-700 mb-4">
-              A <strong>Registered Apprenticeship</strong> is a structured
-              talent development strategy approved by the U.S. Department of
-              Labor that combines:
+            <h1 className="mt-6 text-5xl font-black leading-[0.98] tracking-tight md:text-7xl">
+              Become a barber.
+              <span className="mt-2 block text-orange-400">Get paid while you learn.</span>
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
+              Train inside a real barber shop, work beside experienced barbers, serve clients under supervision, build your required apprenticeship hours, and gain real-world experience while you learn the trade.
             </p>
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                  1
-                </div>
-                <div>
-                  <h3 className="font-bold text-black mb-1">
-                    On-the-Job Learning
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Paid work at a licensed barber shop
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-bold text-black mb-1">
-                    Classroom Learning
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Related Technical Instruction (RTI)
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-brand-blue-600 text-white rounded-full flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h3 className="font-bold text-black mb-1">Mentorship</h3>
-                  <p className="text-sm text-gray-600">
-                    Guidance from licensed barbers
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="text-gray-700 mb-4">
-              Upon completion of 1,500 hours, you receive a{' '}
-              <strong>nationally-recognized credential</strong> that qualifies
-              you to sit for the Indiana Barber Licensing Exam.
-            </p>
-
-            {/* Transfer Hours Explanation */}
-            <div className="mt-6 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
-              <h4 className="text-lg font-bold text-black mb-3 flex items-center gap-2">
-                <Award className="w-5 h-5 text-blue-600" />
-                How Transfer Hours Work
-              </h4>
-              <p className="text-black mb-3">
-                Already have barber school hours?{' '}
-                <strong>You can transfer them!</strong> Here's how it works:
-              </p>
-              <ul className="space-y-2 text-black">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Previous barber school hours count</strong> toward
-                    your 1,500-hour requirement
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Bring your transcript</strong> from your previous
-                    barber school or program
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>We verify with the Indiana State Board</strong> to
-                    confirm your hours
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Complete remaining hours</strong> through our
-                    apprenticeship program
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Earn while you finish</strong> - get paid
-                    $12-15/hour for your remaining hours
-                  </span>
-                </li>
-              </ul>
-              <p className="text-black mt-4 text-sm">
-                <strong>Example:</strong> If you completed 800 hours at another
-                school, you only need 700 more hours in our apprenticeship
-                program to reach the 1,500-hour requirement.
-              </p>
-            </div>
-            <p className="text-sm text-gray-600">
-              Source:{' '}
-              <a
-                href="https://www.in.gov/dwd/owbla/registered-apprenticeship-basics/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-blue-600 hover:underline"
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/apply"
+                className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-7 py-4 text-base font-black text-white shadow-lg transition hover:bg-orange-600"
               >
-                Indiana DWD - Registered Apprenticeship Basics{' '}
-                <ExternalLink className="w-3 h-3 inline" />
-              </a>
+                Start My Barber Apprenticeship
+              </Link>
+              <Link
+                href="/program-holders/barber-apprenticeship"
+                className="inline-flex items-center justify-center rounded-xl border border-white/35 bg-white/10 px-7 py-4 text-base font-bold text-white backdrop-blur transition hover:bg-white/20"
+              >
+                Become a Host Shop
+              </Link>
+            </div>
+            <p className="mt-5 text-sm text-slate-300">
+              Apprentice compensation and tipping opportunities depend on the employer or host-shop arrangement, shop policy, and applicable requirements.
             </p>
           </div>
         </div>
       </section>
 
-      {/* At-a-Glance */}
-      <section className="bg-white py-16">
+      <BarberExperienceCarousel />
+
+      <section className="bg-orange-50 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-3xl font-bold text-black mb-8">
-            Program At-a-Glance
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex items-start gap-4">
-              <Clock className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold text-black mb-1">Duration</h3>
-                <p className="text-gray-700">12-18 months</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <DollarSign className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold text-black mb-1">Cost</h3>
-                <p className="text-gray-700">Free with funding when eligible</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <MapPin className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold text-black mb-1">Format</h3>
-                <p className="text-gray-700">In-person at licensed shop</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <GraduationCap className="w-6 h-6 text-brand-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold text-black mb-1">Outcome</h3>
-                <p className="text-gray-700">Barber License + Job</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who This Program Is For */}
-      <section className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-black mb-6">
-            Who This Program Is For
-          </h2>
-          <div className="bg-white rounded-xl p-8 shadow-sm">
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
-                  Individuals interested in barbering as a career
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
-                  No prior experience required
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
-                  Justice-impacted individuals welcome
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-brand-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
-                  Must be able to work in-person at a barber shop
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Funding Options */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-black mb-6">
-            Funding Options
-          </h2>
-          <p className="text-gray-700 mb-6">You may qualify for:</p>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-blue-50 rounded-lg p-6">
-              <h3 className="font-bold text-black mb-2">WIOA</h3>
-              <p className="text-gray-700 text-sm">
-                Workforce Innovation and Opportunity Act funding
-              </p>
-            </div>
-            <div className="bg-blue-50 rounded-lg p-6">
-              <h3 className="font-bold text-black mb-2">WRG</h3>
-              <p className="text-gray-700 text-sm">Workforce Ready Grant</p>
-            </div>
-            <div className="bg-blue-50 rounded-lg p-6">
-              <h3 className="font-bold text-black mb-2">JRI</h3>
-              <p className="text-gray-700 text-sm">
-                Justice Reinvestment Initiative
-              </p>
-            </div>
-            <div className="bg-blue-50 rounded-lg p-6">
-              <h3 className="font-bold text-black mb-2">
-                Employer Sponsorship
-              </h3>
-              <p className="text-gray-700 text-sm">
-                Some shops sponsor apprentices
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Support Services */}
-      <section className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-black mb-6">
-            Support Services
-          </h2>
-          <p className="text-gray-700 mb-6">We help coordinate:</p>
-          <div className="bg-white rounded-xl p-8 shadow-sm">
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Case management</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">
-                  Justice navigation for returning citizens
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Transportation resources</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Childcare referrals</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Documentation support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Outcomes */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-black mb-6">Outcomes</h2>
-          <p className="text-gray-700 mb-6">Students typically move into:</p>
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-green-50 rounded-lg p-6 text-center">
-              <h3 className="font-bold text-black mb-2">Licensed Barber</h3>
-              <p className="text-gray-700 text-sm">Full state license</p>
-            </div>
-            <div className="bg-green-50 rounded-lg p-6 text-center">
-              <h3 className="font-bold text-black mb-2">Shop Employment</h3>
-              <p className="text-gray-700 text-sm">
-                Job at training shop or other
-              </p>
-            </div>
-            <div className="bg-green-50 rounded-lg p-6 text-center">
-              <h3 className="font-bold text-black mb-2">Shop Ownership</h3>
-              <p className="text-gray-700 text-sm">Pathway to own business</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Earn While You Learn */}
-      <section className="py-20 md:py-24 bg-green-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-            Earn While You Learn
-          </h2>
-          <div className="bg-white border-2 border-green-200 rounded-xl p-6 md:p-8">
-            <p className="text-lg text-gray-700 mb-4">
-              <strong>
-                All registered apprenticeships include wage progression.
-              </strong>{' '}
-              You start earning from day one and receive raises as you gain
-              skills.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-4 bg-green-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Starting Wage</p>
-                <p className="text-2xl font-bold text-black">$12-15/hr</p>
-                <p className="text-xs text-gray-500">Months 1-6</p>
-              </div>
-              <div className="text-center p-4 bg-green-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Mid-Program</p>
-                <p className="text-2xl font-bold text-black">$15-18/hr</p>
-                <p className="text-xs text-gray-500">Months 7-12</p>
-              </div>
-              <div className="text-center p-4 bg-green-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Licensed Barber</p>
-                <p className="text-2xl font-bold text-black">$25-40/hr+</p>
-                <p className="text-xs text-gray-500">After licensure</p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-600 mt-4">
-              <strong>Note:</strong> Wages vary by shop. Many barbers earn
-              additional income through tips and commission. Licensed barbers
-              can earn $40,000-$60,000+ annually.
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-orange-700">Why apprenticeship feels different</p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">You are learning the profession by being in the profession.</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-700">
+              This is not a page full of subjects to memorize. The experience is built around becoming comfortable in the shop, working with people, developing your craft, learning professional expectations, and steadily building the hours and experience needed for your career path.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Official Resources */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-8">
-            Official Resources & Guidelines
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: 'Indiana Registered Apprenticeship Basics',
-                org: 'Indiana DWD',
-                url: 'https://www.in.gov/dwd/owbla/registered-apprenticeship-basics/',
-              },
-              {
-                title: 'Barber Apprenticeship Program Listing',
-                org: 'INTraining',
-                url: 'https://intraining.dwd.in.gov/ProgramLocation?ProgramId=10002417',
-              },
-              {
-                title: 'Apprenticeship Process Guide (PDF)',
-                org: 'Indiana DWD',
-                url: 'https://www.in.gov/dwd/owbla/files/DWD_OWBLA_Registered_Apprenticeship_Process_Guide.pdf',
-              },
-              {
-                title: 'Career Seekers Guide',
-                org: 'Apprenticeship.gov',
-                url: 'https://www.apprenticeship.gov/career-seekers',
-              },
-            ].map((resource) => (
-              <a
-                key={resource.title}
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-brand-orange-600 hover:bg-orange-50 transition group"
-              >
-                <FileText className="w-6 h-6 text-gray-600 group-hover:text-brand-orange-600 flex-shrink-0 mt-1" />
-                <div className="flex-1">
-                  <h3 className="font-bold text-black group-hover:text-brand-orange-600 mb-1">
-                    {resource.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">{resource.org}</p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {highlights.map(({ icon: Icon, title, body }) => (
+              <article key={title} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <div className="inline-flex rounded-2xl bg-slate-950 p-3 text-orange-400">
+                  <Icon className="h-6 w-6" />
                 </div>
-                <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-brand-orange-600" />
-              </a>
+                <h3 className="mt-5 text-xl font-black">{title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{body}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Shop Owners CTA */}
-      <section className="py-20 md:py-24 bg-slate-800 text-slate-900">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Barber Shop Owners
-          </h2>
-          <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            Interested in hosting an apprentice? Learn about program holder
-            requirements, benefits, and how to get started.
-          </p>
-          <Link
-            href="/program-holders/barber-apprenticeship"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-brand-orange-600 hover:bg-brand-orange-700 text-white font-bold text-lg rounded-lg transition"
-          >
-            Program Holder Guidelines
-          </Link>
-        </div>
-      </section>
-
-      {/* Next Steps */}
-      <section className="bg-brand-orange-600 text-white py-16">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Next Steps</h2>
-          <div className="space-y-4 text-left max-w-2xl mx-auto mb-8">
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-brand-orange-600 text-white font-bold flex items-center justify-center flex-shrink-0">
-                1
-              </div>
-              <div>
-                <h3 className="font-bold mb-1">Apply</h3>
-                <p className="text-slate-600 text-sm">
-                  Submit your application online
-                </p>
-              </div>
+      <section className="py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-orange-700">What your week can look like</p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">Work the shop. Learn the craft. Track your progress.</h2>
+            <div className="mt-8 space-y-5">
+              {[
+                'Report to your approved host shop and work your scheduled apprenticeship hours.',
+                'Learn beside licensed or qualified professionals and receive hands-on guidance.',
+                'Serve clients under the supervision and rules required by your shop and apprenticeship arrangement.',
+                'Build professional habits: station setup, sanitation, customer service, time management, and shop culture.',
+                'Complete related instruction and keep your apprenticeship hours, documents, and progress organized.',
+              ].map((item) => (
+                <div key={item} className="flex gap-3">
+                  <CheckCircle2 className="mt-1 h-6 w-6 flex-none text-green-600" />
+                  <p className="text-lg leading-7 text-slate-700">{item}</p>
+                </div>
+              ))}
             </div>
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-brand-orange-600 text-white font-bold flex items-center justify-center flex-shrink-0">
-                2
+          </div>
+          <div className="rounded-3xl bg-slate-950 p-8 text-white shadow-2xl md:p-10">
+            <Scissors className="h-10 w-10 text-orange-400" />
+            <h3 className="mt-5 text-3xl font-black">Earn wages. Build clientele. Tips may apply.</h3>
+            <p className="mt-4 text-lg leading-8 text-slate-300">
+              Registered apprenticeship is designed around paid work-based learning. Your actual wage is determined by your employer or host-shop arrangement. When permitted by the shop and applicable requirements, client service may also create opportunities to earn tips while you build your reputation and customer relationships.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl bg-white/10 p-4">
+                <BriefcaseBusiness className="h-5 w-5 text-orange-400" />
+                <p className="mt-2 font-bold">Paid OJT</p>
               </div>
-              <div>
-                <h3 className="font-bold mb-1">Meet with advisor</h3>
-                <p className="text-slate-600 text-sm">
-                  Discuss your goals and eligibility
-                </p>
+              <div className="rounded-2xl bg-white/10 p-4">
+                <Users className="h-5 w-5 text-orange-400" />
+                <p className="mt-2 font-bold">Client Experience</p>
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-brand-orange-600 text-white font-bold flex items-center justify-center flex-shrink-0">
-                3
-              </div>
-              <div>
-                <h3 className="font-bold mb-1">Confirm eligibility</h3>
-                <p className="text-slate-600 text-sm">
-                  We help with funding paperwork
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-brand-orange-600 text-white font-bold flex items-center justify-center flex-shrink-0">
-                4
-              </div>
-              <div>
-                <h3 className="font-bold mb-1">Enroll</h3>
-                <p className="text-slate-600 text-sm">
-                  Get matched to a shop and start training
-                </p>
+              <div className="rounded-2xl bg-white/10 p-4">
+                <TrendingUp className="h-5 w-5 text-orange-400" />
+                <p className="mt-2 font-bold">Income Growth</p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-100 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-orange-700">Self-pay enrollment</p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">Start your career without waiting on outside funding.</h2>
+              <p className="mt-5 text-lg leading-8 text-slate-700">
+                Self-pay is a direct enrollment option. You do not have to treat it like a backup plan. Flexible payment arrangements can make the program easier to manage while you move forward with your apprenticeship.
+              </p>
+            </div>
+            <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200 md:p-10">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wide text-slate-500">Program tuition</p>
+                  <p className="mt-2 text-4xl font-black">$4,950</p>
+                  <p className="mt-2 text-sm text-slate-600">Current listed program cost.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wide text-slate-500">Payment flexibility</p>
+                  <p className="mt-2 text-2xl font-black">Payment plans available</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">Choose a supported payment option at enrollment rather than assuming the full cost must be paid all at once.</p>
+                </div>
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/checkout/barber-apprenticeship?method=stripe"
+                  className="inline-flex flex-1 items-center justify-center rounded-xl bg-slate-950 px-6 py-4 font-black text-white hover:bg-slate-800"
+                >
+                  Enroll Self-Pay
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex flex-1 items-center justify-center rounded-xl border-2 border-slate-300 px-6 py-4 font-black text-slate-900 hover:bg-slate-50"
+                >
+                  Ask About a Payment Plan
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="rounded-[2rem] bg-orange-500 p-8 text-slate-950 md:p-12 lg:p-16">
+            <div className="grid gap-8 lg:grid-cols-[1fr_.8fr] lg:items-center">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.2em]">For barber shop owners</p>
+                <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">Grow your shop. Train the next generation.</h2>
+                <p className="mt-5 max-w-3xl text-lg leading-8">
+                  Become an apprenticeship host shop and help develop new barber talent inside a structured program. Elevate supports the apprenticeship process while the shop provides the real workplace, mentorship, and supervised experience that makes the training meaningful.
+                </p>
+              </div>
+              <div className="rounded-3xl bg-slate-950 p-7 text-white">
+                <h3 className="text-2xl font-black">Host shop highlights</h3>
+                <div className="mt-5 space-y-3 text-slate-200">
+                  <p>• Develop talent inside your own shop culture.</p>
+                  <p>• Provide supervised real-world barber experience.</p>
+                  <p>• Build a longer-term talent pipeline.</p>
+                  <p>• Participate in a structured apprenticeship model.</p>
+                </div>
+                <Link
+                  href="/program-holders/barber-apprenticeship"
+                  className="mt-7 inline-flex w-full items-center justify-center rounded-xl bg-white px-6 py-4 font-black text-slate-950 hover:bg-slate-100"
+                >
+                  Become a Host Shop
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-950 py-16 text-white">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <Clock3 className="mx-auto h-9 w-9 text-orange-400" />
+          <h2 className="mt-4 text-4xl font-black md:text-5xl">Your barber career does not have to wait until training is over.</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+            Start building your hours, your skills, your client experience, and your professional identity in the shop while you complete the apprenticeship.
+          </p>
           <Link
             href="/apply"
-            className="inline-block px-10 py-5 bg-brand-orange-600 hover:bg-brand-orange-600 text-white font-bold text-xl rounded-lg transition-all shadow-lg hover:shadow-xl"
+            className="mt-8 inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-lg font-black text-white shadow-lg hover:bg-orange-600"
           >
-            Apply Now
+            Start My Barber Apprenticeship
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
