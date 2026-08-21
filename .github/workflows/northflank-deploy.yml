@@ -17,6 +17,11 @@ on:
         required: false
         default: main
         type: string
+  push:
+    branches:
+      - main
+    paths:
+      - '.deploy-admin-recovery'
 
 jobs:
   deploy:
@@ -28,7 +33,13 @@ jobs:
         id: target
         shell: bash
         run: |
-          case "${{ inputs.target }}" in
+          if [ "${{ github.event_name }}" = "push" ]; then
+            target="admin"
+          else
+            target="${{ inputs.target }}"
+          fi
+
+          case "$target" in
             public)
               echo "service_id=${{ secrets.NORTHFLANK_PUBLIC_SERVICE_ID }}" >> "$GITHUB_OUTPUT"
               echo "label=public" >> "$GITHUB_OUTPUT"
@@ -42,7 +53,7 @@ jobs:
               echo "label=lms" >> "$GITHUB_OUTPUT"
               ;;
             *)
-              echo "Unsupported deploy target: ${{ inputs.target }}" >&2
+              echo "Unsupported deploy target: $target" >&2
               exit 1
               ;;
           esac
@@ -54,6 +65,7 @@ jobs:
           NORTHFLANK_PROJECT_ID: ${{ secrets.NORTHFLANK_PROJECT_ID }}
           NORTHFLANK_SERVICE_ID: ${{ steps.target.outputs.service_id }}
         run: |
+          set -euo pipefail
           missing=()
           [ -n "$NORTHFLANK_API_TOKEN" ] || missing+=(NORTHFLANK_API_TOKEN)
           [ -n "$NORTHFLANK_PROJECT_ID" ] || missing+=(NORTHFLANK_PROJECT_ID)
@@ -72,6 +84,7 @@ jobs:
           NORTHFLANK_SERVICE_ID: ${{ steps.target.outputs.service_id }}
           DEPLOY_BRANCH: ${{ inputs.branch }}
         run: |
+          set -euo pipefail
           branch="${DEPLOY_BRANCH:-main}"
           echo "Triggering Northflank ${{ steps.target.outputs.label }} build for ${branch}"
           payload=$(printf '{"branch":"%s"}' "$branch")
