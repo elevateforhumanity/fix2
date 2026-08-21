@@ -2,3 +2,5 @@ Admin recovery deployment trigger
 Date: 2026-08-21
 Branch: main
 Reason: admin.elevateforhumanity.org PWA/service unavailable
+Attempt: 2
+Workflow: northflank-deploy.yml push recovery
