@@ -90,7 +90,7 @@
     "react-split": "2.0.14",
     "recharts": "3.4.1",
     "redis": "5.10.0",
-    "resend": "6.4.2",
+    "resend": "6.6.0",
     "sharp": "0.34.5",
     "signature_pad": "5.1.1",
     "sitemap": "9.0.0",

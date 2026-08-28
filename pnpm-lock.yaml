@@ -246,8 +246,8 @@ importers:
         specifier: 5.10.0
         version: 5.10.0
       resend:
-        specifier: 6.4.2
-        version: 6.4.2
+        specifier: 6.6.0
+        version: 6.6.0
       sharp:
         specifier: 0.34.5
         version: 0.34.5
@@ -6348,9 +6348,9 @@ packages:
   reselect@5.1.1:
     resolution: {integrity: sha512-K/BG6eIky/SBpzfHZv/dd+9JBFiS4SWV7FIujVyJRux6e45+73RaUHXLmIR1f7WOMaQ0U1km6qwklRQxpJJY0w==}
 
-  resend@6.4.2:
-    resolution: {integrity: sha512-YnxmwneltZtjc7Xff+8ZjG1/xPLdstCiqsedgO/JxWTf7vKRAPCx6CkhQ3ZXskG0mrmf8+I5wr/wNRd8PQMUfw==}
-    engines: {node: '>=18'}
+  resend@6.6.0:
+    resolution: {integrity: sha512-d1WoOqSxj5x76JtQMrieNAG1kZkh4NU4f+Je1yq4++JsDpLddhEwnJlNfvkCzvUuZy9ZquWmMMAm2mENd2JvRw==}
+    engines: {node: '>=20'}
     peerDependencies:
       '@react-email/render': '*'
     peerDependenciesMeta:
@@ -14273,7 +14273,7 @@ snapshots:
 
   reselect@5.1.1: {}
 
-  resend@6.4.2:
+  resend@6.6.0:
     dependencies:
       svix: 1.76.1
 
