@@ -1,33 +1,46 @@
-# Block ALL search engines and crawlers
+# Elevate for Humanity public-site crawl policy
 User-agent: *
-Disallow: /
+Allow: /
 
-# Block specific bots
-User-agent: Googlebot
-Disallow: /
+# Keep private application areas out of search and ad crawlers.
+Disallow: /admin/
+Disallow: /admin-login
+Disallow: /api/
+Disallow: /auth/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /reset/
+Disallow: /verify-email
+Disallow: /verify-identity
+Disallow: /staff-portal/
+Disallow: /program-holder/
+Disallow: /workforce-board/
+Disallow: /instructor/
+Disallow: /creator/
+Disallow: /employee/
+Disallow: /shop/
+Disallow: /lms/(app)/
+Disallow: /programs/admin/
+Disallow: /employer/dashboard
+Disallow: /employer/analytics
+Disallow: /employer/candidates
+Disallow: /employer/compliance
+Disallow: /employer/documents
+Disallow: /employer/jobs
+Disallow: /employer/opportunities
+Disallow: /employer/placements
+Disallow: /employer/postings
+Disallow: /employer/reports
+Disallow: /employer/settings
+Disallow: /employer/verification
+Disallow: /usermanagement
+Disallow: /approvals
+Disallow: /messages
+Disallow: /chat
+Disallow: /analytics
+Disallow: /reports
+Disallow: /metrics
+Disallow: /file-manager
+Disallow: /documents/upload
 
-User-agent: Bingbot
-Disallow: /
-
-User-agent: Slurp
-Disallow: /
-
-User-agent: DuckDuckBot
-Disallow: /
-
-User-agent: Baiduspider
-Disallow: /
-
-User-agent: YandexBot
-Disallow: /
-
-User-agent: facebookexternalhit
-Disallow: /
-
-User-agent: Twitterbot
-Disallow: /
-
-User-agent: LinkedInBot
-Disallow: /
-
-# No sitemap
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
