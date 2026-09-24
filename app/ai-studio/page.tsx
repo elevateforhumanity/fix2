@@ -65,7 +65,7 @@ export default function AIStudioPage() {
           break;
         case 'voiceover':
           endpoint = '/api/text-to-speech';
-          body = { text: prompt, voice: selectedStyle };
+          body = { text: prompt };
           break;
         case 'music':
           endpoint = '/api/ai-studio/generate-music';
