@@ -61,6 +61,12 @@ export default async function ShopOnboardingPage() {
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+        <div className="rounded-xl border-2 border-blue-600 bg-blue-50 p-6">
+          <h2 className="text-xl font-bold text-blue-950">Before you host an apprentice</h2>
+          <p className="mt-2 text-sm leading-6 text-blue-900">Do not treat onboarding as a document-upload task. The host shop is responsible for supervised training and accurate apprenticeship records. Complete the operating orientation first so you understand the sponsor relationship, weekly reporting, competency verification, and what must be escalated.</p>
+          <Link href="/shop/orientation" className="mt-4 inline-flex rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800">Start Host-Shop Orientation</Link>
+        </div>
+
         {/* Progress Overview */}
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
           <div className="flex items-center justify-between mb-4">
