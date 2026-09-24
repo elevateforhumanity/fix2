@@ -27,46 +27,6 @@
     color: #000000 !important;
   }
 
-  /* FORCE PURE BLACK TEXT EVERYWHERE - MAXIMUM SPECIFICITY */
-  body h1,
-  body h2,
-  body h3,
-  body h4,
-  body h5,
-  body h6,
-  body p,
-  body span,
-  body div,
-  body a,
-  body li,
-  body td,
-  body th,
-  body label,
-  body input,
-  body textarea,
-  body select,
-  main *,
-  section *,
-  article *,
-  header * {
-    color: #000000 !important;
-  }
-
-  /* Footer needs light text on dark background */
-  footer,
-  footer * {
-    color: #d1d5db !important; /* gray-300 */
-  }
-
-  footer a:hover {
-    color: #ffffff !important;
-  }
-
-  /* Override ALL Tailwind text color utilities (except footer) */
-  [class*='text-']:not(footer *):not(footer) {
-    color: #000000 !important;
-  }
-
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -86,49 +46,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: #fff !important;
-  }
-
-  section {
-    background: #fff !important;
-  }
-
-  /* NUCLEAR: Force white backgrounds everywhere */
-  div[class*='bg-white/'],
-  section[class*='bg-white/'],
-  article[class*='bg-white/'] {
-    background-color: #ffffff !important;
-  }
-
-  /* NUCLEAR: Kill all backdrop blur */
-  * {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  /* NUCLEAR: Block ALL gradient overlays */
-  .absolute.inset-0[class*='bg-gradient'],
-  .absolute.inset-0[class*='from-'],
-  .absolute.inset-0[class*='to-'],
-  .fixed.inset-0[class*='bg-gradient'],
-  .fixed.inset-0[class*='from-'],
-  .fixed.inset-0[class*='to-'] {
-    display: none !important;
-  }
-
-  /* NUCLEAR: Block gradient overlays with black/white */
-  .absolute.inset-0[class*='from-black'],
-  .absolute.inset-0[class*='to-black'],
-  .absolute.inset-0[class*='from-white'],
-  .absolute.inset-0[class*='to-white'],
-  .absolute.inset-0[class*='via-black'],
-  .absolute.inset-0[class*='via-white'] {
-    display: none !important;
-  }
-
-  /* NUCLEAR: Block any overlay divs */
-  div[class*='absolute'][class*='inset-0']:empty {
-    display: none !important;
   }
 
   h1,
@@ -1413,11 +1330,7 @@ header {
   pointer-events: auto !important;
 }
 
-/* EMERGENCY: prevent big decorative images from blocking taps */
-main img:not(header img),
-main svg:not(header svg) {
-  pointer-events: none !important;
-}
+/* Decorative media should not interfere with controls. Interactive media remains clickable. */
 
 /* Ensure header buttons/links are always clickable */
 header button,
