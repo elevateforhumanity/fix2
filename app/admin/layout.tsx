@@ -1,7 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
 // Image asset: /images/success-new/success-8.jpg
-import { redirect } from 'next/navigation';
 import { requireAdmin } from '@/lib/auth';
 import AdminNav from '@/components/AdminNav';
 import AdminHeader from '@/components/AdminHeader';
@@ -35,13 +34,9 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Require admin authentication
-  try {
-    await requireAdmin();
-  } catch (error: unknown) {
-    // Redirect to admin login with return URL
-    redirect('/admin/login?redirect=/admin');
-  }
+  // Canonical authorization guard. Do not convert configuration, database,
+  // or authorization failures into a generic redirect.
+  await requireAdmin();
 
   return (
     <div className="flex min-h-screen bg-gray-50">
