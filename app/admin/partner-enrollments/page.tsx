@@ -23,31 +23,15 @@ export default async function PartnerEnrollmentsPage() {
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin')
     redirect('/unauthorized');
 
-  const { data: enrollmentRows, count, error: enrollmentError } = await supabase
+  const { data: enrollments, count, error: enrollmentError } = await supabase
     .from('partner_course_enrollments')
-    .select('*', { count: 'exact' })
+    .select(
+      '*, student:profiles!partner_course_enrollments_user_id_profiles_fkey(full_name, email), course:partner_lms_courses!partner_course_enrollments_partner_course_id_fkey(course_name)',
+      { count: 'exact' }
+    )
     .order('created_at', { ascending: false });
 
   if (enrollmentError) throw enrollmentError;
-
-  const userIds = [...new Set((enrollmentRows ?? []).map((row: any) => row.user_id).filter(Boolean))];
-  const courseIds = [...new Set((enrollmentRows ?? []).map((row: any) => row.partner_course_id).filter(Boolean))];
-
-  const [{ data: students, error: studentsError }, { data: courses, error: coursesError }] = await Promise.all([
-    userIds.length ? supabase.from('profiles').select('id, full_name, email').in('id', userIds) : Promise.resolve({ data: [], error: null }),
-    courseIds.length ? supabase.from('partner_lms_courses').select('id, course_name').in('id', courseIds) : Promise.resolve({ data: [], error: null }),
-  ]);
-
-  if (studentsError) throw studentsError;
-  if (coursesError) throw coursesError;
-
-  const studentsById = new Map((students ?? []).map((row: any) => [row.id, row]));
-  const coursesById = new Map((courses ?? []).map((row: any) => [row.id, row]));
-  const enrollments = (enrollmentRows ?? []).map((row: any) => ({
-    ...row,
-    student: studentsById.get(row.user_id),
-    course: coursesById.get(row.partner_course_id),
-  }));
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
