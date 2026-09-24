@@ -68,9 +68,9 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-green-600 to-green-800 text-white">
+      <section className="py-20 px-4 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6">
             <MessageSquare className="w-5 h-5" />
@@ -261,7 +261,7 @@ export default function ContactPage() {
               </p>
             </form>
           ) : (
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-12 shadow-xl border-2 border-green-200 text-center">
+            <div className="bg-white rounded-2xl p-12 shadow-xl border-2 border-green-200 text-center">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
@@ -364,7 +364,7 @@ export default function ContactPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-green-600 to-green-800 text-white">
+      <section className="py-16 px-4 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-6">
             Ready to Get Started?
