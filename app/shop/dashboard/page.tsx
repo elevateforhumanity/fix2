@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import HostShopDashboardTour from './host-shop-tour';
+import ProfileImageUpload from '@/components/apprenticeship/ProfileImageUpload';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,7 +13,7 @@ export default async function HostShopDashboard() {
 
   const { data: shops } = await supabase
     .from('host_shops')
-    .select('id,name,owner_id,approval_status,is_approved,verified')
+    .select('id,name,owner_id,approval_status,is_approved,verified,image_url')
     .eq('owner_id', user.id);
 
   const shopIds = (shops ?? []).map((s) => s.id);
@@ -34,7 +35,7 @@ export default async function HostShopDashboard() {
     <main className="mx-auto max-w-7xl space-y-8 p-6" data-tour="overview">
       <HostShopDashboardTour />
       <header className="relative overflow-hidden rounded-3xl bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[url('/images/barber-highlight-1.jpg')] bg-cover bg-center" />
+        {shops?.[0]?.image_url ? <img src={shops[0].image_url} alt={shops[0].name || 'Host shop'} className="absolute inset-0 h-full w-full object-cover" /> : <div className="absolute inset-0 bg-[url('/images/barber-highlight-1.jpg')] bg-cover bg-center" />}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
         <div className="relative z-10 p-8 md:p-10">
         <p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Registered Apprenticeship</p>
@@ -44,6 +45,7 @@ export default async function HostShopDashboard() {
         </div>
       </header>
 
+      {!shops?.[0]?.image_url && <section className="rounded-xl border-2 border-orange-300 bg-orange-50 p-5"><h2 className="font-bold text-orange-950">To-do: add your shop image</h2><p className="mt-1 text-sm text-orange-900">Upload your logo, storefront, team, or professional shop image. Once uploaded, it replaces the generic banner and represents your shop throughout the host-shop portal.</p><div className="mt-4"><ProfileImageUpload kind="host-shop" currentUrl={shops?.[0]?.image_url} /></div></section>}
       <section className="grid gap-4 md:grid-cols-4">
         <div className="rounded-xl border bg-white p-5"><div className="text-sm text-slate-500">Host shops</div><div className="text-3xl font-bold">{shops?.length ?? 0}</div></div>
         <div className="rounded-xl border bg-white p-5"><div className="text-sm text-slate-500">Assigned apprentices</div><div className="text-3xl font-bold">{assigned?.length ?? 0}</div></div>
