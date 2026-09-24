@@ -10,10 +10,10 @@ export function generateOrganizationSchema() {
     logo: 'https://elevateforhumanity.org/logo.png',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '8888 Keystone Crossing Suite 1300',
+      streetAddress: '120 E Market St, Suite 930',
       addressLocality: 'Indianapolis',
       addressRegion: 'IN',
-      postalCode: '46240',
+      postalCode: '46204',
       addressCountry: 'US',
     },
     contactPoint: {
