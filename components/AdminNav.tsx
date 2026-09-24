@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 
 const navigation = [
-  { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
   { name: 'AI Studio', href: '/ai-studio', icon: Video },
   {
     name: 'Marketing',
@@ -65,7 +65,7 @@ const navigation = [
     children: [
       { name: 'All Students', href: '/admin/students' },
       { name: 'Onboarding', href: '/onboarding' },
-      { name: 'Attendance', href: '/lms/(app)/attendance' },
+      { name: 'Attendance', href: '/admin/attendance' },
       { name: 'Progress Tracking', href: '/admin/analytics/learning' },
     ],
   },
@@ -111,7 +111,7 @@ const navigation = [
     name: 'Compliance',
     icon: Shield,
     children: [
-      { name: 'WIOA Dashboard', href: '/admin/compliance-dashboard' },
+      { name: 'Compliance', href: '/admin/compliance' },
       { name: 'Reports', href: '/admin/reports' },
     ],
   },
