@@ -140,11 +140,6 @@ function calculateExpirationDate(providerType: string): string | null {
   const now = new Date();
 
   switch (providerType) {
-    case 'hsi':
-      // HSI certifications typically expire after 2 years
-      now.setFullYear(now.getFullYear() + 2);
-      return now.toISOString();
-
     case 'careersafe':
       // OSHA certifications don't expire but recommended renewal every 3 years
       now.setFullYear(now.getFullYear() + 3);
