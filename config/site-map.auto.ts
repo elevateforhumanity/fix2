@@ -92,7 +92,6 @@ export const siteMapSections: SiteMapSection[] = [
       { label: "Google Classroom", href: "/admin/integrations/google-classroom" },
       { label: "Grants", href: "/admin/grants" },
       { label: "Hr", href: "/admin/hr" },
-      { label: "Hsi Enrollments", href: "/admin/hsi-enrollments" },
       { label: "Impact", href: "/admin/impact" },
       { label: "Internal Docs", href: "/admin/internal-docs" },
       { label: "Issue", href: "/admin/certificates/issue" },
@@ -332,7 +331,6 @@ export const siteMapSections: SiteMapSection[] = [
       { label: "Forums", href: "/lms/forums" },
       { label: "Grades", href: "/lms/grades" },
       { label: "Help", href: "/lms/help" },
-      { label: "Hsi", href: "/courses/hsi" },
       { label: "Integrations", href: "/lms/integrations" },
       { label: "Learning Paths", href: "/lms/learning-paths" },
       { label: "Library", href: "/lms/library" },
@@ -348,7 +346,6 @@ export const siteMapSections: SiteMapSection[] = [
       { label: "Resources", href: "/lms/resources" },
       { label: "Social", href: "/lms/social" },
       { label: "Study Groups", href: "/lms/study-groups" },
-      { label: "Success", href: "/courses/hsi/success" },
       { label: "Support", href: "/lms/support" }
     ],
   },
