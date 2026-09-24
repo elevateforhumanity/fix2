@@ -105,7 +105,7 @@ export const programInstructors: ProgramInstructorProfile[] = [
       "contact center performance basics"
     ],
     partnerSources: [
-      "HSI/CareerSafe customer service modules",
+      "CareerSafe customer service modules",
       "Elevate customer service content"
     ],
     humanStyleNotes:
