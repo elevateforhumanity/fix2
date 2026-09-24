@@ -33,7 +33,7 @@ export default async function HSIEnrollmentsPage() {
     .select(
       `
       *,
-      student:profiles!partner_course_enrollments_student_id_fkey(
+      student:profiles!partner_course_enrollments_user_id_fkey!partner_course_enrollments_student_id_fkey(
         id,
         full_name,
         email
@@ -131,7 +131,7 @@ export default async function HSIEnrollmentsPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">
-                        {enrollment.progress_percentage || 0}%
+                        {enrollment.progress_percent || 0}%
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
