@@ -6,15 +6,6 @@ import type { PartnerCourse } from "@/types/partnerCourse";
 export const partnerCourses: PartnerCourse[] = [
   // CNA
   {
-    id: "hsi-cna-main",
-    partnerSystem: "HSI",
-    partnerCode: "HSI-CNA-CORE",
-    title: "HSI / Choice Medical CNA Core Training",
-    description: "Core CNA theory and skills preparation aligned to Indiana CNA exam.",
-    hours: 80,
-    baseCost: 300,
-  },
-  {
     id: "nationaldrug-basic",
     partnerSystem: "NATIONAL_DRUG",
     partnerCode: "ND-DFW-HEALTH",
