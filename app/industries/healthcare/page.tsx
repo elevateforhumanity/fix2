@@ -18,7 +18,7 @@ export default function HealthcarePage() {
       'medical-assistant',
       'home-health-aide',
       'phlebotomy-technician',
-      'cpr-first-aid-hsi',
+      'cpr-first-aid',
       'emergency-health-safety-tech',
       'certified-peer-recovery-coach',
     ].includes(p.slug)
