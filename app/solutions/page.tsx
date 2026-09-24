@@ -71,12 +71,6 @@ const products = [
     href: '/partners/careersafe',
   },
   {
-    name: 'HSI Health & Safety',
-    description: 'CPR, AED, First Aid certifications',
-    logo: '❤️',
-    href: '/partners/hsi',
-  },
-  {
     name: 'NRF Foundation RISE Up',
     description: 'Retail industry credentials',
     logo: '🏪',
