@@ -62,7 +62,7 @@ export function ProgramPageLayout(props: ProgramPageLayoutProps) {
       </section>
 
       {/* HERO */}
-      <section className="relative h-[700px] overflow-hidden">
+      <section className="relative min-h-[480px] sm:min-h-[560px] lg:min-h-[700px] overflow-hidden">
         <Image
           src="/images/artlist/hero-training-4.jpg"
           alt={title}
@@ -82,7 +82,7 @@ export function ProgramPageLayout(props: ProgramPageLayoutProps) {
                   {badge}
                 </div>
               )}
-              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-light text-white mb-6 leading-tight">
                 {title}
               </h1>
               <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
