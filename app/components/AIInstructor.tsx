@@ -32,59 +32,33 @@ export default function AIInstructor({
 
   const speak = async () => {
     setIsSpeaking(true);
-
     try {
-      // Option 1: Use ElevenLabs API (requires API key)
-      if (process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY) {
-        const response = await fetch('/api/text-to-speech', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: message }),
-        });
+      const response = await fetch('/api/text-to-speech', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: message }),
+      });
+      if (!response.ok) throw new Error('Narration unavailable');
 
-        if (response.ok) {
-          const blob = await response.blob();
-          const url = URL.createObjectURL(blob);
-          setAudioUrl(url);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      setAudioUrl((previous) => {
+        if (previous) URL.revokeObjectURL(previous);
+        return url;
+      });
 
-          if (audioRef.current) {
-            audioRef.current.src = url;
-            audioRef.current.play().catch(() => {});
-          }
-        }
-      } else {
-        // Option 2: Use browser's built-in speech synthesis (free, works offline)
-        const utterance = new SpeechSynthesisUtterance(message);
-        utterance.rate = 0.9; // Slightly slower for clarity
-        utterance.pitch = 1.0;
-        utterance.volume = 1.0;
-
-        // Start to use a female voice
-        const voices = window.speechSynthesis.getVoices();
-        const femaleVoice = voices.find(
-          (voice) =>
-            voice.name.includes('Female') ||
-            voice.name.includes('Samantha') ||
-            voice.name.includes('Victoria')
-        );
-        if (femaleVoice) {
-          utterance.voice = femaleVoice;
-        }
-
-        utterance.onend = () => {
-          setIsSpeaking(false);
-          if (onComplete) onComplete();
-        };
-
-        window.speechSynthesis.speak(utterance);
+      if (audioRef.current) {
+        audioRef.current.src = url;
+        await audioRef.current.play();
       }
-    } catch (error: unknown) {
+    } catch {
+      // Never switch to a device/browser voice: it changes the instructor
+      // identity and invalidates narration/caption timing.
       setIsSpeaking(false);
     }
   };
 
   const stopSpeaking = () => {
-    window.speechSynthesis.cancel();
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
