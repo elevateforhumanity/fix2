@@ -1,8 +1,6 @@
 "use client";
 
-import React from 'react';
-
-import { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
 type Props = {
   text: string;
@@ -10,48 +8,55 @@ type Props = {
 };
 
 export function TextToSpeechButton({ text, label = "Listen to this section" }: Props) {
-  const [isSupported, setIsSupported] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      setIsSupported(true);
-    }
-  }, []);
-
-  function handleClick() {
-    if (!isSupported) return;
-
-    const synth = window.speechSynthesis;
-
-    // stop any existing speech
-    if (synth.speaking || isSpeaking) {
-      synth.cancel();
+  async function handleClick() {
+    if (isSpeaking && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
       setIsSpeaking(false);
       return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 1; // speed
-    utterance.pitch = 1; // tone
+    setLoading(true);
+    try {
+      const response = await fetch("/api/text-to-speech", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+      if (!response.ok) throw new Error("Narration unavailable");
 
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-
-    synth.speak(utterance);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onplay = () => setIsSpeaking(true);
+      audio.onended = () => {
+        setIsSpeaking(false);
+        URL.revokeObjectURL(url);
+      };
+      audio.onerror = () => {
+        setIsSpeaking(false);
+        URL.revokeObjectURL(url);
+      };
+      await audio.play();
+    } finally {
+      setLoading(false);
+    }
   }
-
-  if (!isSupported) return null;
 
   return (
     <button
       type="button"
       onClick={handleClick}
-      className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+      disabled={loading}
+      className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:opacity-60 transition-colors"
     >
-      <span aria-hidden="true">{isSpeaking ? "⏹️" : "▶️"}</span>
-      <span>{isSpeaking ? "Stop audio" : label}</span>
+      <span aria-hidden="true">{isSpeaking ? "■" : "▶"}</span>
+      <span>{loading ? "Loading audio…" : isSpeaking ? "Stop audio" : label}</span>
     </button>
   );
 }
