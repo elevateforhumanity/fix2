@@ -12,7 +12,7 @@ export default function LocationsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
+      <section className="bg-slate-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <MapPin className="h-20 w-20 text-white mx-auto mb-6" />
