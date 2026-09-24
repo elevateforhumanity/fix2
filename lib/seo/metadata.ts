@@ -126,10 +126,10 @@ export function generateOrganizationStructuredData() {
     description: '100% free workforce training programs funded through WIOA, WRG, and government partnerships.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '8888 Keystone Crossing Suite 1300',
+      streetAddress: '120 E Market St, Suite 930',
       addressLocality: 'Indianapolis',
       addressRegion: 'IN',
-      postalCode: '46240',
+      postalCode: '46204',
       addressCountry: 'US',
     },
     contactPoint: {
