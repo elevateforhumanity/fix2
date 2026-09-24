@@ -51,7 +51,7 @@ export default async function StudentsPage() {
       enrollments:enrollments(
         id,
         status,
-        progress,
+        progress_percent,
         program:programs(name, slug)
       )
     `,
