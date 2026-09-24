@@ -10,7 +10,7 @@ function computeSalePrice(partnerIds: string[], markupMultiplier: number): numbe
 }
 
 // ===== CNA =====
-const cnaPartnerIds = ["hsi-cna-main", "nationaldrug-basic", "careersafe-cna-safety"];
+const cnaPartnerIds = ["nationaldrug-basic", "careersafe-cna-safety"];
 
 const cnaProgram: Program = {
   id: "prog-cna",
@@ -18,7 +18,7 @@ const cnaProgram: Program = {
   title: "Certified Nursing Assistant (CNA)",
   subtitle: "Approved CNA training pathway",
   description:
-    "Gain hands-on healthcare experience and prepare for Indiana CNA certification. This pathway blends HSI/Choice Medical CNA core training with CareerSafe healthcare safety basics and National Drug workplace training, plus soft skills support tied to local healthcare employers.",
+    "Gain hands-on healthcare experience and prepare for Indiana CNA certification. This pathway blends CNA core training with CareerSafe healthcare safety basics and National Drug workplace training, plus soft skills support tied to local healthcare employers.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(cnaPartnerIds, 1.5),
   stripeProductId: undefined,
