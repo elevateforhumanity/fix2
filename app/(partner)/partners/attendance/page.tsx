@@ -107,7 +107,7 @@ export default function PartnerAttendancePage() {
   }, [rows]);
 
   return (
-    <div className="rounded-2xl border p-5 space-y-4">
+    <div className="rounded-2xl border p-4 sm:p-5 space-y-4 min-w-0">
       <div>
         <div className="font-semibold">Attendance</div>
         <div className="text-sm text-gray-600">Weekly hours per student.</div>
@@ -117,7 +117,7 @@ export default function PartnerAttendancePage() {
         <div>
           <div className="text-xs text-gray-500 mb-1">Shop ID</div>
           <input
-            className="border rounded-xl p-2 w-[360px]"
+            className="border rounded-xl p-2 w-full sm:w-[360px] max-w-full"
             value={shopId}
             onChange={(e) => setShopId(e.target.value)}
           />
@@ -200,7 +200,7 @@ export default function PartnerAttendancePage() {
                 ))}
                 <td className="py-2">
                   <input
-                    className="border rounded-lg p-1 w-[240px]"
+                    className="border rounded-lg p-1 w-40 sm:w-[240px]"
                     value={r.notes}
                     onChange={(e) => {
                       const v = e.target.value;
