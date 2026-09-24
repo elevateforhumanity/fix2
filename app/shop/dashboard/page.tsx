@@ -33,10 +33,15 @@ export default async function HostShopDashboard() {
   return (
     <main className="mx-auto max-w-7xl space-y-8 p-6" data-tour="overview">
       <HostShopDashboardTour />
-      <header className="rounded-2xl bg-slate-950 p-8 text-white">
+      <header className="relative overflow-hidden rounded-3xl bg-slate-950 text-white">
+        <div className="absolute inset-0 bg-[url('/images/barber-highlight-1.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
+        <div className="relative z-10 p-8 md:p-10">
         <p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Registered Apprenticeship</p>
         <h1 className="mt-2 text-3xl font-bold">Host Shop Dashboard</h1>
         <p className="mt-2 max-w-3xl text-slate-200">Review the same training standards your apprentices see, document services and hours, and sign off only on work you directly observed.</p>
+        <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold"><span className="rounded-full bg-white/15 px-3 py-2">Train</span><span className="rounded-full bg-white/15 px-3 py-2">Observe</span><span className="rounded-full bg-white/15 px-3 py-2">Document</span><span className="rounded-full bg-white/15 px-3 py-2">Verify</span></div>
+        </div>
       </header>
 
       <section className="grid gap-4 md:grid-cols-4">
